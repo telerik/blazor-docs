@@ -1,0 +1,363 @@
+# The public documentation URL, used for sitemap.xml
+url: "https://docs.telerik.com/blazor"
+
+all_pages_domain: "https://docs.telerik.com"
+
+capital_casing_redirects: true
+
+# Exclude files which should not be in the output
+exclude: [README.md, Gemfile, Gemfile.lock,api_sort.rb, Dockerfile, bs-config.js, build-docs.sh, copy_content.sh, copy_local.sh, docs-watcher/*, exclude_files.txt, install-npm.sh, start-docs.sh, watch.sh]
+exclude_navigation: ["knowledge-base/*"]
+navigation:
+
+## List your directory names and order here, like this:
+
+     "knowledge-base":
+        title: "Knowledge Base"
+        position: 40
+     "api":
+        title: "API Reference"
+        position: 0
+     "getting-started":
+        title: "Getting Started"
+        position: 5
+     "components":
+        title: "Components"
+        position: 10
+     "common-features":
+        title: "Common Features"
+        position: 15
+     "how-to":
+        title: "How To"
+        position: 20
+     "vs-integration":
+        title: "Visual Studio Integration"
+        position: 25
+     "backwards-compatibility":
+        title: "Breaking Changes"
+        position: 30
+        
+## List custom TOC order for folders here
+
+     "*components/grid/columns":
+        title: "Columns"
+        position: 5
+     "*components/grid/editing":
+        title: "Editing"
+        position: 10
+     "*components/grid/features":
+        title: "Features"
+        position: 15
+     "*components/chart/types":
+        title: "Types"
+        position: 15
+     "*components/animationcontainer":
+        title: "Animation Container"
+        position: 2000000
+
+## List helpers directory names and order here, like this:
+     "*appearance":
+        title: "Appearance"
+     "*binding":
+        title: "Binding"
+        position: 2
+     "*troubleshoot":
+        title: "Troubleshooting"
+     "*editing":
+        title: "Editing"
+     "*export":
+        title: "Export"
+     "*filtering":
+        title: "Filtering"
+     "*integration":
+        title: "Integration"
+     "*selection":
+        title: "Selection"
+     "*state":
+        title: "State Management"
+     "*how-to":
+        title: "How To"
+     "*grid":
+        title: "Grid"
+     "*listview":
+        title: "ListView"
+     "*treelist":
+        title: "TreeList"
+     "*spreadsheet":
+        title: "Spreadsheet"
+     "*arcgauge":
+        title: "ArcGauge"
+     "*autocomplete":
+        title: "AutoComplete"
+     "*barcode":
+        title: "BarCode"
+     "*button":
+        title: "Button"
+     "*buttongroup":
+        title: "ButtonGroup"
+     "html-helpers/scheduling/calendar":
+        title: "Calendar"
+     "html-helpers/scheduling/multiviewcalendar":
+        title: "MultiViewCalendar"
+     "tag-helpers/scheduling/multiviewcalendar":
+        title: "MultiViewCalendar"
+     "*calendar":
+        title: "Calendar"
+     "*chart":
+        title: "Chart"
+     "*colorpalette":
+        title: "ColorPalette"
+     "*colorpicker":
+        title: "ColorPicker"
+     "*/multicolumncombobox":
+        isNew: true
+        title: "MultiColumnComboBox"
+     "*combobox":
+        title: "ComboBox"
+     "*dateinput":
+        title: "Date Input"
+     "*datepicker":
+        title: "DatePicker"
+     "*daterangepicker":
+        title: "DateRangePicker"		
+     "*datetimepicker":
+        title: "DateTimePicker"
+     "*dialog":
+        title: "Dialog"
+     "*draganddrop":
+        title: "DragAndDrop"
+     "*dropdownlist":
+        title: "DropDownList"
+     "*dropdowntree":
+        isNew: true
+        title: "DropDownTree"
+     "*editor":
+        title: "Editor"
+     "*flatcolorpicker":
+        title: "FlatColorPicker"
+     "*gantt":
+        title: "Gantt"
+     "*lineargauge":
+        title: "LinearGauge"
+     "*listbox":
+        title: "ListBox"
+     "*map":
+        title: "Map"
+     "*maskedtextbox":
+        title: "MaskedTextBox"
+     "*mediaplayer":
+        title: "MediaPlayer"
+     "*menu":
+        title: "Menu"
+     "*multiselect":
+        title: "MultiSelect"
+     "*notification":
+        title: "Notification"
+     "*popup":
+        title: "Popup"
+     "*numerictextbox":
+        title: "NumericTextBox"
+     "*progressbar":
+        title: "ProgressBar"
+     "*qrcode":
+        title: "QRCode"
+     "*/radiobutton":
+        title: "RadioButton"
+     "*radialgauge":
+        title: "RadialGauge"
+     "*rangeslider":
+        title: "RangeSlider"
+     "*responsivepanel":
+        title: "ResponsivePanel"
+     "*panelbar":
+        title: "PanelBar"
+     "*pivotgrid":
+        title: "PivotGrid"
+     "*scheduler":
+        title: "Scheduler"
+     "*scrollview":
+        title: "ScrollView"
+     "*slider":
+        title: "Slider"
+     "*sortable":
+        title: "Sortable"
+     "*splitter":
+        title: "Splitter"
+     "*stockchart":
+        title: "StockChart"
+     "*tabstrip":
+        title: "TabStrip"
+     "*textbox":
+        title: "TextBox"
+     "*timepicker":
+        title: "TimePicker"
+     "*tooltip":
+        title: "Tooltip"
+     "*toolbar":
+        title: "ToolBar"
+     "*treelist":
+        title: "TreeList"
+     "*treeview":
+        title: "TreeView"
+     "*treemap":
+        title: "TreeMap"
+     "*upload":
+        title: "Upload"
+     "*validator":
+        title: "Validator"
+     "*window":
+        title: "Window"
+     "*templates":
+        title: "Templates"
+     "*switch":
+        title: "Switch"
+        
+## introduction article columns. Use the slugs in the items collection
+
+intro_columns:
+-
+  categories:
+  -
+    title: Data Management
+    items:
+      "Grid": "components/grid/overview"
+    
+  -
+    title: Editors
+    items:
+      "Textbox": "components/textbox/overview"
+      "Numeric Textbox": "components/numerictextbox/overview"
+      "Date Input": "components/dateinput/overview"
+      "DropDownList": "components/dropdownlist/overview"
+-
+  categories:
+  -
+    title: "Navigation"
+    items:
+      "Button": "components/button/overview"
+      "Tab Strip": "components/tabstrip/overview"
+  -
+    title: "Scheduling"
+    items:
+      "Calendar": "components/calendar/overview"
+  -
+    title: "Layout"
+    items:
+      "Window": "components/window/overview"
+      "Animated Container": "components/animationcontainer/overview"
+-
+  categories:
+  -
+    title: "Data Visualization"
+    items:
+      "Charts Overview": "components/chart/overview"
+      "Area Charts": "components/chart/types/area"
+      "Column Charts": "components/chart/types/column"
+      "Bar Charts": "components/chart/types/bar"
+      "Line Charts": "components/chart/types/line"
+      "Pie Charts": "components/chart/types/pie"
+      "Donut Charts": "components/chart/types/donut"
+  -
+    
+## The application virtual path
+baseurl: /blazor
+
+## The Kendo UI version used
+cdnVersion: "2019.1.115"
+
+## The MVC Core version used
+mvcCoreVersion: "2019.1.115"
+
+#Feedback Form Google Sheet ID
+ff-sheet-id: 0c41d166-7ba6-3500-20d5-609d41442f92
+
+## Product
+product: "Telerik UI for Blazor"
+platform: blazor
+
+## Assign layout and category per different paths
+defaults:
+-
+    scope:
+        path: ""
+    values:
+        layout: "documentation"
+        category: "default"
+        product: "blazor"
+        editable: true
+        
+-
+    scope:
+        path: "blazor"
+    values:
+        product: "blazor"
+
+    scope:
+        path: "api"
+    values:
+        editable: false
+        res_type: api
+        kind: api
+
+#type_links:
+#    "kendo.Class": "/api/javascript/class"
+#    "kendo.data.DataSource": "/api/javascript/data/datasource"
+#    "Array": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+#    "Blob": "https://developer.mozilla.org/en/docs/Web/API/Blob"
+#    "File": "https://developer.mozilla.org/en-US/docs/Web/API/File"
+#    "Boolean": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"
+#    "Function": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function"
+#    "jQuery": "http://api.jquery.com/Types/#jQuery"
+#    "Promise": "http://api.jquery.com/Types/#Promise"
+#    "Object": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+#    "Number": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number"
+#    "String": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+
+# Aliases available in the markdown template. The below will expand {{site.foo}} to Bar in the output
+# "foo": "Bar"
+
+# The google services configuration
+google_tag_manager: GTM-6X92
+gcs_engine: 001595215763381649090:3v0klcxtf1c
+gcs_api_key: AIzaSyDqCekEzmMvnB7i00Xcw_Vy43a7-wePuXQ
+
+skip_tabbed_code: true
+code_lang: true
+has_kb_portal: true
+#edit_repo_url: https://github.com/telerik/kendo-blazor/edit/master/docs
+download: https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor
+
+
+footer:
+-
+  title: "Getting Started"
+  links:
+    "Getting Started": https://docs.telerik.com/blazor/getting-started/first-steps
+    "Demos": https://demos.telerik.com/blazor
+#    "Sample Applications": https://github.com/telerik/ui-for-blazor-examples/
+#-
+#  title: "Support Resources"
+#  links:
+#    "Knowledge Base": https://docs.telerik.com/blazor/knowledge-base
+-
+  title: "Community"
+  links:
+    "Forums": https://www.telerik.com/forums/blazor
+    "Blogs": https://www.telerik.com/blogs/tag/blazor
+    "Feedback Portal": https://feedback.telerik.com/blazor
+
+footer_social:
+    facebook: https://www.facebook.com/Telerik/
+    youtube: https://www.youtube.com/user/TelerikInc
+    linkedin: https://www.linkedin.com/showcase/telerik/
+    twitter: https://twitter.com/Telerik/
+
+# Assets pipeline configuration
+assets:
+    cachebust: soft
+    js_compressor: uglifier
+    gzip: false
+
+## Do not edit below this line
+safe: false
+markdown: MarkdownProcessor
