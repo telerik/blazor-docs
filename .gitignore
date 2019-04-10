@@ -4,6 +4,7 @@
 .editorconfig
 .jekyll-metadata
 .ruby-version
+.asset-cache/
 /_assets/
 /_build/
 /_buildApi/
