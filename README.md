@@ -12,10 +12,9 @@ Welcome to the GitHub repo for [UI for Blazor](https://www.telerik.com/products/
 You can generate a static web site from the Telerik® UI for Blazor documentation and browse it locally.
 
 1. Clone the repository `git clone git@github.com:telerik/blazor-docs.git`
-2. Run `bundle install` (you must have ruby and bundler installed beforehand)
-3. If `bundle install` fails with SSL related errors execute `gem update --system` and try again.
-4. Run `jekyll serve`
-5. Open "http://localhost:8080/blazor/introduction.html" in your browser
+2. Go to the [https://github.com/telerik/docs-seed](https://github.com/telerik/docs-seed) repo and follow the instructions from its own readme file
+
+If you want to keep the local documentation alive after closing the prompt, you can add the `_site` folder that was generated to a server of your choice. Make sure that it is under a path like `serverName/blazor`. You can find sample instructions in the following page, and they are applicable for IIS, even though they are written for the UI for ASP.NET AJAX docs that have two folders nested: [https://github.com/telerik/ajax-docs/wiki/Deploying-Documentation-on-IIS](https://github.com/telerik/ajax-docs/wiki/Deploying-Documentation-on-IIS).
 
 ## License
 
