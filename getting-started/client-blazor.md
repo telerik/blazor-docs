@@ -10,7 +10,7 @@ position: 1
 
 # First Steps with Client-side UI for Blazor
 
-This article explains how to get the Telerik UI for Blazor components in your Client-side Blazor project and start using them quickly. The process consists of the following steps:
+This article explains how to get the Telerik UI for Blazor components in your **Client-side** Blazor project and start using them quickly. The process consists of the following steps:
 
 1. [Set Up a Blazor Project](#set-up-a-blazor-project)
 1. [Add the Telerik NuGet Feed to Visual Studio](#add-the-telerik-nuget-feed-to-visual-studio)
@@ -114,4 +114,4 @@ The final step is to actually use a component on a view and run it in the browse
 
 Now you have the Telerik components running in your Blazor app.
 
-Next, you can explore the [live demos](https://demos.telerik.com/blazor) and the [examples repo](https://github.com/telerik/ui-for-blazor-examples/) we have.
+Next, you can explore the [live demos](https://demos.telerik.com/blazor) and the rest of the documentation.

@@ -39,3 +39,10 @@ You can also use the official VS 2019 installation and enable the .NET Core 3.0 
 >note Once you have the Blazor application running, continue to the next steps.
 #end
 
+
+#add-nuget-feed
+## Add the Telerik NuGet Feed to Visual Studio
+
+Telerik UI for Blazor is distributed through our private NuGet feed. Follow the [Setup the Telerik Private NuGet Feed]({%slug installation/nuget%}) article to set this up in case you don't have it already.
+#end
+
