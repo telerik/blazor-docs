@@ -1,5 +1,5 @@
 ---
-title: From NuGet Feed
+title: Telerik Private NuGet Feed
 page_title: Telerik NuGet Feed
 description: How to use the Telerik Private NuGet Feed
 slug: installation/nuget
@@ -8,13 +8,15 @@ published: True
 position: 1
 ---
 
-## Add the Telerik NuGet Feed to Visual Studio
+# Telerik Private NuGet Feed
 
 This article explains how to add the private Telerik NuGet feed to your system. You can use it to obtain the Telerik UI for Blazor components.
 
 If you already have that working (for exapmle, you have used other tools of ours through it), you can add the Telerik Components to your project - both [client-side Blazor]({%slug getting-started/client-side%}) and [server-side Blazor]({%slug getting-started/server-side%}).
 
-**To add the Telerik private NuGet feed**, follow the steps below:
+## Add the Telerik Private NuGet Feed to Your System
+
+To add the Telerik private NuGet feed, follow the steps below:
 
 1. Download the [latest NuGet executable](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe).
 1. Open a Command Prompt and change the path to where the `nuget.exe` is downloaded.
