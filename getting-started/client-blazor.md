@@ -66,3 +66,8 @@ The final step is to actually use a component on a view and run it in the browse
 
 1. **Add** a **Button** component to the `~/Pages/Index.cshtml` view:
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
+
+## See Also
+
+* [Get Started with Server-side Blazor]({%slug getting-started/server-side%})
+* [Telerik Private NuGet Feed]({%slug installation/nuget%})
