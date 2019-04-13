@@ -28,7 +28,7 @@ To use a theme, you must reference its stylesheet in the `<head>` of your `wwwro
 <head>
     . . .
     <link id="kendoCss" rel="stylesheet" 
-        href="//Telerik.cdn.telerik.com/2019.1.220/styles/Telerik.default-v2.min.css" />
+        href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
 </head>
 <body>
     <app>Loading...</app>
