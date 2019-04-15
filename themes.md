@@ -37,7 +37,6 @@ To use a theme, you must reference its stylesheet in the `<head>` of your `wwwro
 </html>
 ````
 
-Make sure to use the verion number in the URL that matches the official Kendo UI for jQuery release number.
 
 ## Optional Dependency Management
 
