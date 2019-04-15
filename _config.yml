@@ -21,6 +21,9 @@ navigation:
      "getting-started":
         title: "Getting Started"
         position: 5
+     "installation":
+        title: "Installation"
+        position: 6
      "components":
         title: "Components"
         position: 10

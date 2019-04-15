@@ -20,15 +20,14 @@ These themes are shared with the Kendo UI suites with which the UI for Blazor su
 
 To use a theme, you must reference its stylesheet in the `<head>` of your `wwwroot/index.html` file.
 
->caption Reference the Default theme from the Telerik CDN
+>caption Reference the Default theme from the cloud
 
 ````HTML
 <!DOCTYPE html>
 <html>
 <head>
     . . .
-    <link id="kendoCss" rel="stylesheet" 
-        href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
+    <link id="kendoCss" rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
 </head>
 <body>
     <app>Loading...</app>
@@ -37,7 +36,7 @@ To use a theme, you must reference its stylesheet in the `<head>` of your `wwwro
 </html>
 ````
 
-Make sure to use the verion number in the URL that matches the official Kendo UI for jQuery release number.
+>note The way bundling and resources will be used in Blazor is still unclear (see [the issue on embedded resources](https://github.com/aspnet/AspNetCore/issues/6349)). Until then, you can use the unpkg workaround above, or local dependency management as described below. Once this matter is decided upon by Microsoft, we will update this information with a proper CDN.
 
 ## Optional Dependency Management
 

@@ -1,0 +1,73 @@
+---
+title: Client-side Blazor
+page_title: First Steps with Client-side UI for Blazor
+description: First Steps with UI for Blazor Client-side
+slug: getting-started/client-side
+tags: get,started,first,steps,client
+published: true
+position: 1
+---
+
+# First Steps with Client-side UI for Blazor
+
+This article explains how to get the Telerik UI for Blazor components in your **Client-side** Blazor project and start using them quickly. The process consists of the following steps:
+
+1. [Set Up a Blazor Project](#set-up-a-blazor-project)
+1. [Add the Telerik NuGet Feed to Visual Studio](#add-the-telerik-nuget-feed-to-visual-studio)
+1. [Add the Telerik Components to Your Project](#add-the-telerik-components-to-your-project)
+1. [Add a Telerik Component to a View](#add-a-telerik-component-to-a-view)
+
+@[template](/_contentTemplates/common/get-started.md#add-latest-ms-bits-client-side-link)
+
+
+@[template](/_contentTemplates/common/get-started.md#add-nuget-feed)
+
+
+## Add the Telerik Components to Your Project
+
+For client-side Blazor, we recommend the usage of `Blazor (ASP.NET Hosted)` project. 
+@[template](/_contentTemplates/common/get-started.md#project-creation-part-1)
+
+1. Choose the `Blazor (ASP.NET Hosted)` project type and click `Create`.
+
+    ![Select Blazor Project Type](images/choose-project-template.png)
+
+
+### Add to Existing Project
+
+@[template](/_contentTemplates/common/get-started.md#get-access)
+
+    1. Right-click on the `Client` project in the solution and select `Manage NuGet Packages`:
+    
+       ![](images/manage-nuget-packages-for-client-app.png)
+    
+    1. Choose the `telerik.com` feed, find the `Telerik.UI.for.Blazor` package and click `Install`:
+    
+         ![Add Telerik Blazor Package to Client Project](images/add-telerik-nuget-to-client-app.png)
+
+1. Open the `_ViewImports.cshtml` at the root of the client web application and add the following line to register the Telerik components for the entire project:
+
+    **CSHTML**
+    
+        @addTagHelper *,Telerik.Blazor
+        
+1. Open the `~/wwwroot/index.html` file in the client web application and register the [Theme stylesheet]({%slug general-information/themes%}) (make sure to use the correct version that matches the official Kendo UI for jQuery release number):
+
+    **HTML**
+    
+        <link id="kendoCss" rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
+
+    
+Now your project can use the Telerik UI for Blazor components in all its views.
+
+## Add a Telerik Component to a View
+
+The final step is to actually use a component on a view and run it in the browser. For example:
+
+1. **Add** a **Button** component to the `~/Pages/Index.cshtml` view:
+@[template](/_contentTemplates/common/get-started.md#add-component-sample)
+
+## See Also
+
+* [Get Started with Server-side Blazor]({%slug getting-started/server-side%})
+* [Telerik Private NuGet Feed]({%slug installation/nuget%})
