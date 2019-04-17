@@ -56,6 +56,25 @@ To use Blazor server-side, you need to use the `Razor Components` type of projec
     **HTML**
     
         <link id="kendoCss" rel="stylesheet" href="https://unpkg.com/@@progress/kendo-theme-default@@latest/dist/all.css" />
+        
+1. Open the `~/Startup.cs` file in the and register the Telerik Blazor service:
+
+    **C#**
+    
+        namespace MyBlazorAppName
+        {
+            public class Startup
+            {
+                public void ConfigureServices(IServiceCollection services)
+                {
+                    //more code may be present here
+                    services.AddTelerikBlazor();
+                }
+                
+                //more code may be present here
+            }
+        }
+
 
     
 Now your project can use the Telerik UI for Blazor components in all its component files.
