@@ -335,7 +335,8 @@ footer:
 -
   title: "Getting Started"
   links:
-    "Getting Started": https://docs.telerik.com/blazor/getting-started/first-steps
+    "Client-side Blazor": https://docs.telerik.com/blazor/getting-started/client-blazor
+    "Server-side Blazor": https://docs.telerik.com/blazor/getting-started/server-blazor
     "Demos": https://demos.telerik.com/blazor
 #    "Sample Applications": https://github.com/telerik/ui-for-blazor-examples/
 #-
