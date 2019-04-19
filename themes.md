@@ -74,9 +74,9 @@ Instead of a CDN link, you can fetch the stylesheet into your project. To do thi
           ]
         }
 
-1. In the server application, go to the `wwwroot/index.html` file and replace the CDN link with the following:
+1. In the server application, go to the `wwwroot/index.html` file and replace the CDN link with the following. For a server-side Blazor project, do that in the `~/Pages/Index.cshtml` file.
 
-    **wwwroot/index.html**
+    **Index file with local stylesheet**
     
         <!DOCTYPE html>
         <html>
