@@ -1,5 +1,5 @@
 #add-blazor-js-file-to-list
- add the `telerik-blazor.min.js` file to your `wwwroot/index.html` file. For example:
+ add the `telerik-blazor.min.js` file to your main index file. For a client-side Blazor app, it is `wwwroot/index.html`, and for a server-side Blazor app it is `~/Pages/Index.cshtml`. For example:
 
     **HTML**
 
