@@ -47,7 +47,7 @@ NuGet Sources Add -Name "telerik.com" -Source "https://nuget.telerik.com/nuget" 
       -StorePasswordInClearText
 ```
 
-If you have already stored a token instead of storing the credentials as clear text, update the definition in the `%AppData%\NuGet\NuGet.config` file by using the following command.
+If you have already stored a token instead of storing the credentials as clear text, update the definition in the `%AppData%\NuGet\NuGet.config` file by using the command below.
 
 >caption Update Plain-text Credentials for the Telerik NuGet feed
 
