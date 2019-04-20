@@ -82,6 +82,8 @@ To get access to the UI for Blazor components, follow these steps:
 
     **CSHTML**
     
+        @using Telerik.Blazor.Components.Button
+    
         <TelerikButton>Say Hello</TelerikButton>
         
 1. Optionally, hook up a click handler that will show a message. The resulting view should look like this:
@@ -90,6 +92,7 @@ To get access to the UI for Blazor components, follow these steps:
     
         @page "/"
         @using Microsoft.AspNetCore.Components
+        @using Telerik.Blazor.Components.Button
         
         <TelerikButton OnClick="@SayHelloHandler" Class="k-primary">Say Hello</TelerikButton>
         

@@ -45,11 +45,6 @@ For client-side Blazor, we recommend the usage of `Blazor (ASP.NET Hosted)` proj
     
          ![Add Telerik Blazor Package to Client Project](images/add-telerik-nuget-to-client-app.png)
 
-1. Open the `_ViewImports.cshtml` at the root of the client web application and add the following line to register the Telerik components for the entire project:
-
-    **CSHTML**
-    
-        @addTagHelper *,Telerik.Blazor
         
 1. Open the `~/wwwroot/index.html` file in the client web application and register the [Theme stylesheet]({%slug general-information/themes%}) (make sure to use the correct version that matches the official Kendo UI for jQuery release number):
 
@@ -76,7 +71,7 @@ For client-side Blazor, we recommend the usage of `Blazor (ASP.NET Hosted)` proj
         }
 
     
-Now your project can use the Telerik UI for Blazor components in all its views.
+Now your project can use the Telerik UI for Blazor components.
 
 ## Add a Telerik Component to a View
 

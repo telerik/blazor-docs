@@ -45,11 +45,6 @@ To use Blazor server-side, you need to use the `Razor Components` type of projec
     
          ![Add Telerik Blazor Package to the project](images/add-telerik-nuget-to-server-app.png)
 
-1. Open the `~/Components/_ViewImports.cshtml` file and add the following line to register the Telerik components for all component files:
-
-    **CSHTML**
-    
-        @addTagHelper *,Telerik.Blazor
         
 1. Open the `~/Pages/Index.cshtml` and register the [Theme stylesheet]({%slug general-information/themes%}) (note the escaping for the `@` symbol):
 
@@ -77,7 +72,7 @@ To use Blazor server-side, you need to use the `Razor Components` type of projec
 
 
     
-Now your project can use the Telerik UI for Blazor components in all its component files.
+Now your project can use the Telerik UI for Blazor components.
 
 ## Add a Telerik Component to a View
 
