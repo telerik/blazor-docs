@@ -33,7 +33,7 @@ The example below shows how to:
 >caption Using cell (column) template
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data="@MyData">
 	<TelerikGridColumns>
@@ -96,7 +96,7 @@ You can use the `Context` attribute of the `<RowTemplate>` tag of the grid to se
 >caption Using a row template
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data=@MyData>
 	<RowTemplate Context="employee">
@@ -142,7 +142,7 @@ The column's `EditTemplate` defines the inline template or component that will b
 >caption Sample edit template
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data=@MyData EditMode="inline" Pageable="true">
 	<TelerikGridColumns>

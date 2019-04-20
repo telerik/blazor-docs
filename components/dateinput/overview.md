@@ -75,7 +75,7 @@ The date input provides the following features:
 >caption Example of using validation to prompt the user for certain input
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.DateInput
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@person">

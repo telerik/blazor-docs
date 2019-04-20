@@ -22,6 +22,8 @@ To create a Telerik Window:
 >caption Basic example of showing content in a Window popup
 
 ````CSHTML
+@using Telerik.Blazor.Components.Window
+
 <TelerikWindow Visible="true">
 	<TelerikWindowTitle>
 		<strong>The Title</strong>
@@ -43,7 +45,7 @@ The Window component is of type `Telerik.Blazor.Components.Window.TelerikWindow`
 >caption Store a reference to a Telerik Window, open and close it programmatically
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Window
 
 <button onclick="@ShowWindow">Show the Window</button>
 <button onclick="@CloseWindow">Close the Window</button>
@@ -80,6 +82,8 @@ The `Class` property lets you define a CSS class that will be rendered on the po
 >caption Use a Class to change the appearance and style of the Window
 
 ````CSHTML
+@using Telerik.Blazor.Components.Window
+
 <TelerikWindow Class="MyClass" Visible="true">
 	<TelerikWindowTitle>
 		<strong>The Title</strong>

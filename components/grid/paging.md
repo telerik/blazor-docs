@@ -21,7 +21,7 @@ You can set the current page of the grid through its integer `Page` property.
 >caption Enable paging in Telerik Grid
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data="@MyData" Pageable=true PageSize=15 Page=2>
 	<TelerikGridColumns>
@@ -46,7 +46,7 @@ Here is one way to implement a page size choice that puts all records on one pag
 >caption Bind Page Size to a variable
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Grid
 
 <select onchange=@ChangePageSize>
 	@for (int i = 1; i < 4; i++)

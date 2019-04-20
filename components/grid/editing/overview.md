@@ -36,6 +36,7 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 
 ````CSHTML
 @using Telerik.Blazor
+@using Telerik.Blazor.Components.Grid
 
 <strong>Double click a cell in the Name column, edit the name and click outside of the cell to see the change. Editing is cancelled for the first two records.</strong>
 

@@ -23,7 +23,7 @@ To use a Telerik Numeric Textbox for Blazor:
 @[template](/_contentTemplates/common/issues-and-warnings.md#generic-component-event-issue)
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.NumericTextBox
 
 <TelerikNumericTextBox Format="C" Max="5m" Min="-5m" Step="0.33m" Value="3.456m" ValueChanged="@MyValueChangeHandler"></TelerikNumericTextBox>
 <br />
@@ -45,7 +45,7 @@ The numeric textbox component is generic, meaning that it takes the type of its 
 >caption Component namespace and reference
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.NumericTextBox
 
 <TelerikNumericTextBox ref="myNumericTextboxRef" bind-Value="@CurrentValue"></TelerikNumericTextBox>
 

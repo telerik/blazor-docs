@@ -23,6 +23,7 @@ To enable PopUp editing in the grid, set its `EditMode` property to `popup`, the
 
 ````CSHTML
 @using Telerik.Blazor
+@using Telerik.Blazor.Components.Grid
 
 <strong>Editing is cancelled for the first two records.</strong>
 

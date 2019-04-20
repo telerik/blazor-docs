@@ -68,7 +68,7 @@ The length, enabled and pattern attributes are HTML attributes on the `<input />
 >caption Example of using a custom pattern for some credit cards
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.TextBox
 
 <EditForm Model="@person">
 	<DataAnnotationsValidator />

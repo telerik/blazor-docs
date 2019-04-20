@@ -24,7 +24,7 @@ To use a Telerik DropDownList for Blazor
 @[template](/_contentTemplates/common/issues-and-warnings.md#generic-component-event-issue)
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.DropDownList
 
 <TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" ValueChanged="@MyValueChangedHandler" Value="@selectedValue">
 </TelerikDropDownList>
@@ -127,6 +127,7 @@ The DropDownList component attempts to infer the type of its model and value bas
 >caption Validating a dropdownlist. See the comments in the code for details on the behavior
 
 ````CSHTML
+@using Telerik.Blazor.Components.DropDownList
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
@@ -182,7 +183,7 @@ The DropDownList component attempts to infer the type of its model and value bas
 >caption Get selected item from external code
 
 ````CSHTML
-using Telerik.Blazor.Components.DropDownList
+@using Telerik.Blazor.Components.DropDownList
 
 <TelerikDropDownList ref="@myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="5">
 </TelerikDropDownList>

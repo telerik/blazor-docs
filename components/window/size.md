@@ -18,6 +18,8 @@ The Window offers two ways for you to control its size:
 >caption Set Width and Height to a Window
 
 ````CSHTML
+@using Telerik.Blazor.Components.Window
+
 <TelerikWindow Width="600" Height="400" Visible="true">
 	<TelerikWindowTitle>
 		<strong>The Title</strong>
@@ -39,7 +41,9 @@ The `Telerik.Blazor.Size` enum provides the following options:
 >caption Set predefined size to the Window
 
 ````CSHTML
-<TelerikWindow Visible="true" Size="Telerik.Blazor.Size.Small">
+@using Telerik.Blazor.Components.Window
+
+<TelerikWindow Visible="true" Size="@Telerik.Blazor.Size.Small">
 	<TelerikWindowTitle>
 		<strong>The Title</strong>
 	</TelerikWindowTitle>
@@ -62,7 +66,7 @@ The developer can invoke those actions through its `Maximize`, `Minimize` and `R
 >caption Maximize, Minimze and Restore the Window programmatically
 
 ````Methods
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Window
 
 <button onclick="@MaximizeWindow">Change Maximize state of the Window</button>
 <button onclick="@MinimizeWindow">Change Minimize state of the Window</button>
@@ -106,7 +110,7 @@ The developer can invoke those actions through its `Maximize`, `Minimize` and `R
 }
 ````
 ````Properties
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Window
 
 <button onclick="@MaximizeWindow">Change Maximize state of the Window</button>
 <button onclick="@MinimizeWindow">Change Minimize state of the Window</button>

@@ -31,6 +31,8 @@ Action buttons expose the following properties:
 >caption The built-in actions of a Window
 
 ````CSHTML
+@using Telerik.Blazor.Components.Window
+
 <TelerikWindow Visible="true">
 	<TelerikWindowActions>
 		<TelerikWindowAction Name="Minimize"></TelerikWindowAction>
@@ -57,7 +59,7 @@ You can create a custom action icon and you must provide its `OnClick` handler.
 >caption Handling a custom action
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Window
 
 <TelerikWindow Visible="true">
 	<TelerikWindowActions>
@@ -90,7 +92,7 @@ You can mix custom actions with built-in actions, and you do not have to define 
 >caption Mixing built-in actions with custom actions
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Window
 
 <TelerikWindow Visible="true">
 	<TelerikWindowActions>

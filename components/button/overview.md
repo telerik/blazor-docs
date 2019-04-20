@@ -21,6 +21,8 @@ To add a Telerik Button to your Blazor app, use the `<TelerikButton>` tag:
 >caption Basic Telerik Button tag
 
 ````CSHTML
+@using Telerik.Blazor.Components.Button
+
 <TelerikButton>Hello!</TelerikButton>
 ````
 
@@ -35,7 +37,7 @@ To attach a click handler, use the `OnClick` attribute and define the method in 
 >caption Click handler for a Telerik Button
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Button
 
 <TelerikButton OnClick="@myHandler">Click me!</TelerikButton>
 
@@ -58,6 +60,8 @@ You can style the button through its `Class` attribute to define your own CSS ru
 >caption Set CSS class to the button and change its appearance
 
 ````CSHTML
+@using Telerik.Blazor.Components.Button
+
 <TelerikButton Class="RedText">My text is red.</TelerikButton>
 
 <style>
@@ -77,6 +81,8 @@ You can also make the button use a strong color to attact attention, called Prim
 >caption Button with the Primary color scheme from the current theme
 
 ````CSHTML
+@using Telerik.Blazor.Components.Button
+
 <TelerikButton Primary="true">Primary</TelerikButton>
 ````
 
@@ -101,7 +107,7 @@ The following example shows how to use an image from a URL, a sprite image, and 
 >caption How to use icons in Telerik Button
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Button
 
 <TelerikButton SpriteClass="k-icon netherlandsFlag">Sprite</TelerikButton>
 <TelerikButton Icon="@IconName.Filter">Font Icon</TelerikButton>
@@ -129,6 +135,8 @@ To disable a button, set its `Enabled` attribute to `false`.
 >caption Disabled Telerik Button
 
 ````CSHTML
+@using Telerik.Blazor.Components.Button
+
 <TelerikButton Enabled="false">Disabled Button</TelerikButton>
 ````
 

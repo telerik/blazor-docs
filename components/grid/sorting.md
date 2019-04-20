@@ -19,7 +19,7 @@ When the user clicks the column header, the grid will sort the data according to
 >caption Enable Sorting in Telerik Grid
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data="@MyData" Sortable="true">
 	<TelerikGridColumns>

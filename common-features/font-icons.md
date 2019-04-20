@@ -19,7 +19,7 @@ You can find the full list of available icons in the [Kendo UI Web Font Icons Li
 >caption How to use a built-in font icon class on a component's Icon property
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Button
 
 <TelerikButton Icon="@IconName.Filter">I show the Filter icon</TelerikButton>
 <br />

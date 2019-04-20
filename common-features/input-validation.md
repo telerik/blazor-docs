@@ -34,7 +34,9 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 >caption How to validate inputs
 
 ````CSHTML
+@using Telerik.Blazor.Components.TextBox
 @using Telerik.Blazor.Components.NumericTextBox
+@using Telerik.Blazor.Components.DateInput
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
@@ -99,6 +101,7 @@ The DropDownList always has an item selected - the first item from its data sour
 >caption How to validate a dropdownlist
 
 ````CSHTML
+@using Telerik.Blazor.Components.DropDownList
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">

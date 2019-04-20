@@ -21,7 +21,7 @@ To create a basic Telerik Grid:
 >caption Basic example of binding a grid to some data
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data="@MyData">
 	<TelerikGridColumns>
@@ -44,7 +44,7 @@ To create a basic Telerik Grid:
 >caption Example of populating the `Field` from the model name to ensure type-safety:
 
 ````CSHTML
-@using Telerik.Blazor
+@using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data="@MyData">
 	<TelerikGridColumns>

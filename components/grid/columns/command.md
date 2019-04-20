@@ -40,6 +40,7 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 
 ````CSHTML
 @using Telerik.Blazor
+@using Telerik.Blazor.Components.Grid
 
 <span>Edit will cancelled for "name 2"</span>
 <br />@CustomCommandResult

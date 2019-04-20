@@ -18,6 +18,8 @@ The Window offers two ways for you to control its position:
 >caption Set Top and Left offset to the Window
 
 ````CSHTML
+@using Telerik.Blazor.Components.Window
+
 <TelerikWindow Top="50" Left="100" Visible="true">
 	<TelerikWindowTitle>
 		<strong>The Title</strong>
@@ -35,6 +37,8 @@ If the `Top` and/or `Left` properties are set, they will take precedence, becaus
 >caption Center the Window
 
 ````CSHTML
+@using Telerik.Blazor.Components.Window
+
 <TelerikWindow Centered="true" Visible="true">
 	<TelerikWindowTitle>
 		<strong>The Title</strong>
@@ -52,6 +56,8 @@ If the `Top` and/or `Left` properties are set, they will take precedence, becaus
 >caption Parent element positions affect the Windnow position
 
 ````CSHTML
+@using Telerik.Blazor.Components.Window
+
 <div style="position: absolute; top: 300px; left: 300px; border: 1px solid red;">
 	I am a parent of the Window with special positioning (absolute, fixed, relative) and my offsets affect the position of the Window.
 

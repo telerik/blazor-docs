@@ -29,6 +29,7 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
 
 ````CSHTML
 @using Telerik.Blazor
+@using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="inline">
 	<TelerikGridToolBar>
@@ -93,6 +94,7 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 
 ````CSHTML
 @using Telerik.Blazor
+@using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15">
 	<TelerikGridToolBar>
