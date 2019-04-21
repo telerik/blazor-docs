@@ -243,6 +243,7 @@ intro_columns:
     title: "Scheduling"
     items:
       "Calendar": "components/calendar/overview"
+      "Date Picker": "components/datepicker/overview"
   -
     title: "Layout"
     items:
