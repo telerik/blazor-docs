@@ -10,7 +10,7 @@ position: 2
 
 # Calendar Navigation
 
-The user can navigate through several different views in a calendar - from a century, to a month. You can control in which view the user starts, the date which the calendar shows initially, and how deep the user can go.
+The user can navigate through several different views in a calendar - from a century, to a month. You can control in which view the user starts, the date which the calendar shows initially, how deep the user can go, and to also navigate to a desired date and view with code.
 
 The calendar shows arrows that let the user flip between the adjacent periods. Clicking the `Today` button at the top navigates to a period in the current view that includes the current date.
 
@@ -83,6 +83,33 @@ The selected date is: @selectedDate
 >caption The behavior of the code snippet above
 
 ![](images/up-down-navigation.gif)
+
+## Programmatic Navigation
+
+You can make the Calendar component move to a certain date and view through its `Navigate` method from your own code. The method takes into account the min and max dates, and the allowed views. If the parameters passed to the method are not allowed by those constraints, navigation will not occur.
+
+>caption Navigate the Calendar to a date and view programmatically
+
+````CSHTML
+@using Telerik.Blazor.Components.Calendar
+@using Telerik.Blazor.Components.Button
+
+<TelerikButton OnClick="@NavigateCalendarProgrammatically">Go to new date and view</TelerikButton>
+<TelerikCalendar Date="@startDate" Max="@maxDate" Min="@minDate" View="@Telerik.Blazor.CalendarView.Decade" ref="@theCalendar"></TelerikCalendar>
+
+@functions{
+	DateTime startDate = new DateTime(2345, 11, 22);
+	DateTime maxDate = new DateTime(2400, 11, 22);
+	DateTime minDate = new DateTime(1800, 11, 22);
+
+	Telerik.Blazor.Components.Calendar.TelerikCalendar theCalendar;
+
+	void NavigateCalendarProgrammatically()
+	{
+		theCalendar.Navigate(DateTime.Now, Telerik.Blazor.CalendarView.Month);
+	}
+}
+````
 
 ## See Also
 
