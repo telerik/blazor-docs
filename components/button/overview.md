@@ -30,6 +30,23 @@ To add a Telerik Button to your Blazor app, use the `<TelerikButton>` tag:
 
 ![](images/basic-button.png)
 
+>caption Component namespace and reference
+
+````CSHTML
+@using Telerik.Blazor.Components.Button
+
+<TelerikButton ref="@theButton" OnClick="@MyClick">Hello!</TelerikButton>
+
+@functions{
+	Telerik.Blazor.Components.Button.TelerikButton theButton;
+
+	void MyClick()
+	{
+		Console.WriteLine(theButton);
+	}
+}
+````
+
 ## Click Handler
 
 To attach a click handler, use the `OnClick` attribute and define the method in the `functions` section. 
@@ -108,6 +125,7 @@ The following example shows how to use an image from a URL, a sprite image, and 
 
 ````CSHTML
 @using Telerik.Blazor.Components.Button
+@using Telerik.Blazor
 
 <TelerikButton SpriteClass="k-icon netherlandsFlag">Sprite</TelerikButton>
 <TelerikButton Icon="@IconName.Filter">Font Icon</TelerikButton>
