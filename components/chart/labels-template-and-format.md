@@ -172,8 +172,9 @@ In a **series label template**, you can use the following fields:
 In a **category axis label template**, you can use the following fields:
 
 * `value` - the category value
-<!--* `dataItem` - the data item, in case a field has been specified. If the category does not have a corresponding item in the data then an empty object will be passed.-->
 * `format` - the default format of the label
+
+<!--* `dataItem` - the data item, in case a field has been specified. If the category does not have a corresponding item in the data then an empty object will be passed.-->
 <!--* culture - the default culture (if set) on the label-->
 
 In a **value axis label template**, you can use the following fields:
