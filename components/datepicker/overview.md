@@ -10,7 +10,7 @@ position: 0
 
 # Date Picker Overview
 
-The Date Picker component allows the user to choose a date from a visual list (calendar). You can control the min and max date the user can select.
+The Date Picker component allows the user to choose a date from a visual list ([calendar]({%slug components/calendar/overview%})) or to type it into a [date input]({%slug components/dateinput/overview%}) that can accept only dates. You can control the format shown in the input, the min and max date the user can select, and dates the user cannot select.
 
 To use a Telerik Date Picker for Blazor:
 
@@ -41,6 +41,8 @@ To use a Telerik Date Picker for Blazor:
 }
 ````
 
+![](images/datepicker-first-look.png)
+
 The Date Picker is a generic component and takes its type from the value the developer provides. This is reflected in the way a reference is obtained.
 
 >caption Component namespace and reference
@@ -57,11 +59,22 @@ The Date Picker is a generic component and takes its type from the value the dev
 	}
 ````
 
-The date picker is, essentially a [date input]({%slug components/dateinput/overview%}) and a [calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective articles.
+The Date Picker component exposes the following features:
 
-The following features are specific to the date picker component:
+*  `BottomView` - Defines the bottommost view in the popup calendar to which the user can navigate to. Defaults to `CalendarView.Month`.
+* `DisabledDates` - Specifies a list of dates that can not be selected.
+* `Enabled` - Specifies whether typing in the input is allowed.
+* `Height` - Defines the height of the DatePicker. Defaults to 28.
+* `Format` - Specifies the format of the DateInput of the DatePicker. Defaults to `yyyy-MM-dd`.
+* `Min` - Sets the minimum allowed date of the date picker. Defaults to 1 Jan 1900.
+* `Max` - Sets the maximum allowed date of the date picker. Defaults to 31 Dec 2099.
+* `PopupHeight` - Defines the height of the DatePicker's Popup. Defaults to 280;
+* `PopupWidth` - Defines the width of the DatePicker's Popup. Defaults to 320.
+* `Value` - The current value of the input. Can be used for binding.
+* `View` - Specifies the current view that will be displayed in the popup calendar.
+* `Width` - Defines the width of the DatePicker. Defaults to 280.
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TODO
+The date picker is, essentially, a [date input]({%slug components/dateinput/overview%}) and a [calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
 
 
 >caption Example of using validation to prompt the user for certain input
@@ -96,5 +109,5 @@ The following features are specific to the date picker component:
 
 ## See Also
 
-  * [Live Demo: Date Input](https://demos.telerik.com/blazor/datepicker/index)
+  * [Live Demo: Date Picker](https://demos.telerik.com/blazor/datepicker/index)
   * [Input Validation]({%slug common-features/input-validation%})
