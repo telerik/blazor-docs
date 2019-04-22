@@ -93,7 +93,7 @@ To get access to the UI for Blazor components, follow these steps:
         @using Microsoft.AspNetCore.Components
         @using Telerik.Blazor.Components.Button
         
-        <TelerikButton OnClick="@SayHelloHandler" Class="k-primary">Say Hello</TelerikButton>
+        <TelerikButton OnClick="@SayHelloHandler" Primary="true">Say Hello</TelerikButton>
         
         <br />
         
