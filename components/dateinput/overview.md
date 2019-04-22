@@ -44,20 +44,18 @@ To use a Telerik Date Input for Blazor:
 }
 ````
 
-The Date Input is a generic component and takes its type from the value the developer provides. This is reflected in the way a reference is obtained.
-
 >caption Component namespace and reference
 
 ````CSHTML
 @using Telerik.Blazor.Components.DateInput
 
-	<TelerikDateInput ref="@theDateInput" bind-Value="@dateInputValue"></TelerikDateInput>
+<TelerikDateInput ref="@theDateInput" bind-Value="@dateInputValue"></TelerikDateInput>
 
-	@functions {
-		Telerik.Blazor.Components.DateInput.TelerikDateInput<DateTime> theDateInput;
+@functions {
+	Telerik.Blazor.Components.DateInput.TelerikDateInput theDateInput;
 
-		DateTime dateInputValue { get; set; } = DateTime.Now;
-	}
+	DateTime dateInputValue { get; set; } = DateTime.Now;
+}
 ````
 
 The date input provides the following features:

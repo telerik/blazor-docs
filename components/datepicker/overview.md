@@ -43,20 +43,19 @@ To use a Telerik Date Picker for Blazor:
 
 ![](images/datepicker-first-look.png)
 
-The Date Picker is a generic component and takes its type from the value the developer provides. This is reflected in the way a reference is obtained.
-
 >caption Component namespace and reference
 
 ````CSHTML
 @using Telerik.Blazor.Components.DatePicker
 
-	<TelerikDatePicker ref="@theDatePicker" bind-Value-ValueChanged="@datePickerValue"></TelerikDateInput>
+<TelerikDatePicker ref="@theDatePicker" bind-Value="@datePickerValue">
+</TelerikDatePicker>
 
-	@functions {
-		Telerik.Blazor.Components.DatePicker.TelerikDatePicker<DateTime> theDatePicker;
+@functions {
+	Telerik.Blazor.Components.DatePicker.TelerikDatePicker theDatePicker;
 
-		DateTime datePickerValue { get; set; } = DateTime.Now;
-	}
+	DateTime datePickerValue = DateTime.Now;
+}
 ````
 
 The Date Picker component exposes the following features:
