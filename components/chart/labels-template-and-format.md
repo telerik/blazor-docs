@@ -160,12 +160,13 @@ To add a new line, use the `\n` symbol.
 
 In a **series label template**, you can use the following fields:
 
-* `category` - the category name. Available for area, bar, column, <!--bubble,--> donut, line, pie <!--and waterfall--> series.
+* `category` - the category name. Available for area, bar, column, donut, line, pie series.
 * `dataItem` - the original data item used to construct the point. Will be `null` if binding to array.
 * `percentage` - the point value represented as a percentage value. Available only for donut, pie and 100% stacked charts.
-<!--* `series` - the data series-->
 * `stackValue` - the cumulative point value on the stack. Available only for stackable series.
 * `value` - the point value. Can be a number or object containing each bound field.
+
+<!--* `series` - the data series-->
 <!--* runningTotal - the sum of point values since the last "runningTotal" summary point. Available for waterfall series.
 * total - the sum of all previous series values. Available for waterfall series.-->
 
