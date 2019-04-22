@@ -57,7 +57,7 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 		<ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
 	</p>
 	<p class="favorite-day">
-		Birthday: <TelerikDatePicker bind-Value="@person.FavoriteDay" Format="dd MMMM yyyy"></TelerikDatePicker>
+		Favorite date: <TelerikDatePicker bind-Value="@person.FavoriteDay" Format="dd MMMM yyyy"></TelerikDatePicker>
 		<ValidationMessage For="@(() => person.FavoriteDay)"></ValidationMessage>
 	</p>
 	<p class="accepts-terms">
