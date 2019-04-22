@@ -40,33 +40,33 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 @using Telerik.Blazor.Components.DatePicker
 @using System.ComponentModel.DataAnnotations
 
-	<EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
-		<DataAnnotationsValidator />
-		<ValidationSummary />
+<EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
+	<DataAnnotationsValidator />
+	<ValidationSummary />
 
-		<p class="name">
-			Name: <TelerikTextBox bind-Value="@person.Name"></TelerikTextBox>
-			<ValidationMessage For="@(() => person.Name)"></ValidationMessage>
-		</p>
-		<p class="height">
-			Height (cm): <TelerikNumericTextBox bind-Value="@person.Height" />
-			<ValidationMessage For="@(() => person.Height)"></ValidationMessage>
-		</p>
-		<p class="birthday">
-			Birthday: <TelerikDateInput bind-Value="@person.Birthday" Format="dd MMMM yyyy"></TelerikDateInput>
-			<ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
-		</p>
-		<p class="favorite-day">
-			Birthday: <TelerikDatePicker bind-Value="@person.FavoriteDay" Format="dd MMMM yyyy"></TelerikDatePicker>
-			<ValidationMessage For="@(() => person.FavoriteDay)"></ValidationMessage>
-		</p>
-		<p class="accepts-terms">
-			Accepts terms: <InputCheckbox bind-Value="@person.AcceptsTerms" />
-			<ValidationMessage For="@(() => person.AcceptsTerms)"></ValidationMessage>
-		</p>
+	<p class="name">
+		Name: <TelerikTextBox bind-Value="@person.Name"></TelerikTextBox>
+		<ValidationMessage For="@(() => person.Name)"></ValidationMessage>
+	</p>
+	<p class="height">
+		Height (cm): <TelerikNumericTextBox bind-Value="@person.Height" />
+		<ValidationMessage For="@(() => person.Height)"></ValidationMessage>
+	</p>
+	<p class="birthday">
+		Birthday: <TelerikDateInput bind-Value="@person.Birthday" Format="dd MMMM yyyy"></TelerikDateInput>
+		<ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
+	</p>
+	<p class="favorite-day">
+		Birthday: <TelerikDatePicker bind-Value="@person.FavoriteDay" Format="dd MMMM yyyy"></TelerikDatePicker>
+		<ValidationMessage For="@(() => person.FavoriteDay)"></ValidationMessage>
+	</p>
+	<p class="accepts-terms">
+		Accepts terms: <InputCheckbox bind-Value="@person.AcceptsTerms" />
+		<ValidationMessage For="@(() => person.AcceptsTerms)"></ValidationMessage>
+	</p>
 
-		<button type="submit">Submit</button>
-	</EditForm>
+	<button type="submit">Submit</button>
+</EditForm>
 
 @functions {
 	// Usually this class would be in a different file
@@ -85,9 +85,10 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 			ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy} and {2:dd MMM yyyy}")]
 		public DateTime Birthday { get; set; }
 
-		[Required(ErrorMessage = "You must surely have a favorite day.")]
+		[Required]
 		[Range(typeof(DateTime), "1/1/1999", "1/12/2019",
 			ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy} and {2:dd MMM yyyy}")]
+		[Display(Name="Your Favourite Day")]
 		public DateTime FavoriteDay { get; set; }
 
 		[Required]
