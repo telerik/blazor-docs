@@ -73,39 +73,11 @@ The Date Picker component exposes the following features:
 * `Value` - The current value of the input. Can be used for binding.
 * `View` - Specifies the current view that will be displayed in the popup calendar.
 * `Width` - Defines the width of the DatePicker. Defaults to 280.
+* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 The date picker is, essentially, a [date input]({%slug components/dateinput/overview%}) and a [calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
 
 
->caption Example of using validation to prompt the user for certain input
-
-````CSHTML
-@using Telerik.Blazor.Components.DateInput
-@using System.ComponentModel.DataAnnotations
-
-<EditForm Model="@person">
-	<DataAnnotationsValidator />
-	<ValidationSummary />
-	<TelerikDateInput bind-Value="@person.Birthday" ParsingErrorMessage="plase enter a full date like 29 March 2019"
-					Format="dd MMMM yyyy" Placeholder="Enter date like 29 March 2019">
-	</TelerikDateInput>
-	<ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
-	<button type="submit">submit</button>
-</EditForm>
-
-@functions{
-	//in a real case, the model will usually be in a separate file
-	public class Person
-	{
-		[Required]
-        [Range(typeof(DateTime), "1/1/1900", "1/12/2000",
-            ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy} and {2:dd MMM yyyy}")]
-        public DateTime? Birthday { get; set; }
-	}
-
-	Person person = new Person();
-}
-````
 
 ## See Also
 
