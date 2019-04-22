@@ -39,6 +39,7 @@ To prevent the user from selecting certain dates (for example, holidays), add th
 
 ````CSHTML
 @using Telerik.Blazor.Components.Calendar
+@using Telerik.Blazor
 
 The user will not be able to select the first and second of April 2019.
 

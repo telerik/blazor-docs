@@ -22,11 +22,12 @@ You can control how far the user can go by setting the `Min` and `Max` propertie
 
 ````CSHTML
 @using Telerik.Blazor.Components.Calendar
+@using Telerik.Blazor
 
 The user starts in April 2019 and can navigate between January 2019 and July 2019.
 <br />
 
-<TelerikCalendar Date="@startDate" View="CalendarView.Month" Min="@minDate" Max="@maxDate"></TelerikCalendar>
+<TelerikCalendar Date="@startDate" View="@CalendarView.Month" Min="@minDate" Max="@maxDate"></TelerikCalendar>
 @functions {
 	DateTime startDate = new DateTime(2019, 4, 1);
 	DateTime minDate = new DateTime(2019, 1, 1);
@@ -57,11 +58,12 @@ You can control how much detail the user can go into by setting the `BottomView`
 
 ````CSHTML
 @using Telerik.Blazor.Components.Calendar
+@using Telerik.Blazor
 
 The user starts in the Decade view and can only go down to years.
 <br />
 
-<TelerikCalendar BottomView="@CalendarView.Year" View="CalendarView.Decade" 
+<TelerikCalendar BottomView="@CalendarView.Year" View="@CalendarView.Decade" 
                 Min="@min" Max="@max" ValueChanged="@MyValueChangeHandler">
 </TelerikCalendar>
 

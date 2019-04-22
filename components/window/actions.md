@@ -63,7 +63,7 @@ You can create a custom action icon and you must provide its `OnClick` handler.
 
 <TelerikWindow Visible="true">
 	<TelerikWindowActions>
-		<TelerikWindowAction Name="MyAction" Icon="gear" OnClick="@MyCustomActionHandler"></TelerikWindowAction>
+		<TelerikWindowAction Name="MyAction" Icon="@Telerik.Blazor.IconName.Gear" OnClick="@MyCustomActionHandler"></TelerikWindowAction>
 	</TelerikWindowActions>
 	<TelerikWindowContent>
 		@result
@@ -97,7 +97,7 @@ You can mix custom actions with built-in actions, and you do not have to define 
 <TelerikWindow Visible="true">
 	<TelerikWindowActions>
 		<TelerikWindowAction Name="Minimize"></TelerikWindowAction>
-		<TelerikWindowAction Name="MyAction" Icon="info" OnClick="@MyCustomActionHandler"></TelerikWindowAction>
+		<TelerikWindowAction Name="MyAction" Icon="@Telerik.Blazor.IconName.Information" OnClick="@MyCustomActionHandler"></TelerikWindowAction>
 		<TelerikWindowAction Name="Maximize"></TelerikWindowAction>
 	</TelerikWindowActions>
 	<TelerikWindowContent>
