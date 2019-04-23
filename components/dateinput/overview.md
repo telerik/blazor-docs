@@ -63,8 +63,6 @@ The date input provides the following features:
 * `Class` - the CSS class that will be rendered on the `input` element.
 * `Enabled` - whether the `input` is enabled.
 * `Format` - the date format that the user input must match.
-*  `Max` - the maximum date the user can enter. Defaults to 31 Dec 2099.
-*  `Min` - the minimum date the user can enter. Defaults to 1 Jan 1900.
 * `ParsingErrorMessage` - a hint that is displayed to the user through validation when their input cannot be parsed in the required format
 * `Placeholder` - the `placeholder` attribute rendered on the `input` element that serves as a hint when there is no value in the input.
 * `Value` - get/set the value of the input, can be used for binding.

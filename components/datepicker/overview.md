@@ -10,7 +10,7 @@ position: 0
 
 # Date Picker Overview
 
-The Date Picker component allows the user to choose a date from a visual list ([calendar]({%slug components/calendar/overview%})) or to type it into a [date input]({%slug components/dateinput/overview%}) that can accept only dates. You can control the format shown in the input, the min and max date the user can select, and dates the user cannot select.
+The Date Picker component allows the user to choose a date from a visual list ([calendar]({%slug components/calendar/overview%})) or to type it into a [date input]({%slug components/dateinput/overview%}) that can accept only dates. You can control the format shown in the input, how the user navigates through the calendar, and dates the user cannot select.
 
 To use a Telerik Date Picker for Blazor:
 
@@ -25,18 +25,18 @@ To use a Telerik Date Picker for Blazor:
 ````CSHTML
 @using Telerik.Blazor.Components.DatePicker
 
-<TelerikDatePicker Min="@Min" Max="@Max" ValueChanged="@ValueChanged"></TelerikDatePicker>
+<TelerikDatePicker bind-Value="@datePickerValue" ValueChanged="@ValueChanged"></TelerikDatePicker>
 
 <br />The selected date is: @selectedDate?.ToShortDateString()
 
 @functions  {
-    public DateTime Max = new DateTime(2050, 12, 31);
-    public DateTime Min = new DateTime(1950, 1, 1);
+    DateTime datePickerValue = DateTime.Now;
     private DateTime? selectedDate;
 
     protected void ValueChanged(DateTime newValue)
     {
         selectedDate = newValue;
+        //you can, alternatively, use the datePickerValue variable because it is bound
     }
 }
 ````
@@ -48,13 +48,11 @@ To use a Telerik Date Picker for Blazor:
 ````CSHTML
 @using Telerik.Blazor.Components.DatePicker
 
-<TelerikDatePicker ref="@theDatePicker" bind-Value="@datePickerValue">
+<TelerikDatePicker ref="@theDatePicker">
 </TelerikDatePicker>
 
 @functions {
 	Telerik.Blazor.Components.DatePicker.TelerikDatePicker theDatePicker;
-
-	DateTime datePickerValue = DateTime.Now;
 }
 ````
 
@@ -65,8 +63,6 @@ The Date Picker component exposes the following features:
 * `Enabled` - Specifies whether typing in the input is allowed.
 * `Height` - Defines the height of the DatePicker. Defaults to 28.
 * `Format` - Specifies the format of the DateInput of the DatePicker. Defaults to `yyyy-MM-dd`.
-* `Min` - Sets the minimum allowed date of the date picker. Defaults to 1 Jan 1900.
-* `Max` - Sets the maximum allowed date of the date picker. Defaults to 31 Dec 2099.
 * `PopupHeight` - Defines the height of the DatePicker's Popup. Defaults to 280;
 * `PopupWidth` - Defines the width of the DatePicker's Popup. Defaults to 320.
 * `Value` - The current value of the input. Can be used for binding.
