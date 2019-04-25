@@ -25,23 +25,22 @@ To use a Telerik Date Input for Blazor:
 ````CSHTML
 @using Telerik.Blazor.Components.DateInput
 
-<TelerikDateInput bind-Value="@dateInputValue" ValueChanged="@MyValueChangeHandler"
-				Format="dd MMMM yyyy" Placeholder="Enter date like 29 March 2019">
+<TelerikDateInput Value="@dateInputValue" ValueChanged="@MyValueChangeHandler" Format="dd/MMMM/yyyy">
 </TelerikDateInput>
 @result
 
 @functions {
-	DateTime dateInputValue { get; set; } = DateTime.Now;
-	string result;
+    DateTime dateInputValue { get; set; } = DateTime.Now;
+    string result;
 
-	private void MyValueChangeHandler(DateTime theUserInput)
-	{
-		Console.WriteLine("entered");
-		result = string.Format("The user entered: {0}", theUserInput);
+    private void MyValueChangeHandler(DateTime theUserInput)
+    {
+        Console.WriteLine("entered");
+        result = string.Format("The user entered: {0}", theUserInput);
 
-		StateHasChanged();
-	}
-}
+        StateHasChanged();
+    }
+
 ````
 
 >caption Component namespace and reference
@@ -73,30 +72,26 @@ The date input provides the following features:
 >caption Example of using validation to prompt the user for certain input
 
 ````CSHTML
-@using Telerik.Blazor.Components.DateInput
-@using System.ComponentModel.DataAnnotations
-
 <EditForm Model="@person">
-	<DataAnnotationsValidator />
-	<ValidationSummary />
-	<TelerikDateInput bind-Value="@person.Birthday" ParsingErrorMessage="plase enter a full date like 29 March 2019"
-					Format="dd MMMM yyyy" Placeholder="Enter date like 29 March 2019">
-	</TelerikDateInput>
-	<ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
-	<button type="submit">submit</button>
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <TelerikDateInput bind-Value="@person.Birthday" ParsingErrorMessage="plase enter a full date like 29 March 2019" Format="dd/MMMM/yyyy">
+    </TelerikDateInput>
+    <ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
+    <button type="submit">submit</button>
 </EditForm>
 
 @functions{
-	//in a real case, the model will usually be in a separate file
-	public class Person
-	{
-		[Required]
+    //in a real case, the model will usually be in a separate file
+    public class Person
+    {
+        [Required]
         [Range(typeof(DateTime), "1/1/1900", "1/12/2000",
             ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy} and {2:dd MMM yyyy}")]
-        public DateTime? Birthday { get; set; }
-	}
+        public DateTime Birthday { get; set; }
+    }
 
-	Person person = new Person();
+    Person person = new Person();
 }
 ````
 
