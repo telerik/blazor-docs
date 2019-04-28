@@ -63,7 +63,6 @@ The date input provides the following features:
 * `Enabled` - whether the `input` is enabled.
 * `Format` - the date format that the user input must match.
 * `ParsingErrorMessage` - a hint that is displayed to the user through validation when their input cannot be parsed in the required format
-* `Placeholder` - the `placeholder` attribute rendered on the `input` element that serves as a hint when there is no value in the input.
 * `Value` - get/set the value of the input, can be used for binding.
 * `Width` - the width of the `input` in pixels.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
