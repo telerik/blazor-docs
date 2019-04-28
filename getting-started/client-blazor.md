@@ -70,6 +70,16 @@ For client-side Blazor, we recommend the usage of `Blazor (ASP.NET Hosted)` proj
             }
         }
 
+1. Open the Client `.csproj` file and ensure that the following switch is present. At the moment the IL Linker needs to be disabled because of [an issue in Mono](https://github.com/mono/mono/issues/12917).
+
+    **.csproj**
+    
+        <PropertyGroup>
+            <!-- there may be other elements here -->
+            <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
+        </PropertyGroup>
+
+
     
 Now your project can use the Telerik UI for Blazor components.
 
