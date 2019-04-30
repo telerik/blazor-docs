@@ -14,7 +14,7 @@ The Blazor chart allows you to visualize data to your users in a meaningful way 
 
 To use a Telerik chart for Blazor:
 
-1. @[template](/_contentTemplates/common/js-interop-file.md#add-blazor-js-file-to-list)
+1. @[template](/_contentTemplates/common/js-interop-file.md#add-blazor-js-file-to-component)
 
 1. add the `TelerikChart` tag to the desired view
 

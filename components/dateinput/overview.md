@@ -14,7 +14,7 @@ The Date Input component allows the user to enter a date. The developer can cont
 
 To use a Telerik Date Input for Blazor:
 
-1. @[template](/_contentTemplates/common/js-interop-file.md#add-blazor-js-file-to-list)
+1. @[template](/_contentTemplates/common/js-interop-file.md#add-blazor-js-file-to-component)
 
 1. add the `TelerikDateInput` tag
 

@@ -52,6 +52,9 @@ For client-side Blazor, we recommend the usage of `Blazor (ASP.NET Hosted)` proj
     
         <link id="kendoCss" rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
         
+
+1. @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-client)
+        
 1. Open the `~/Startup.cs` file in the client web application and register the Telerik Blazor service:
 
     **C#**

@@ -52,6 +52,8 @@ To use Blazor server-side, you need to use the `Razor Components` type of projec
     
         <link id="kendoCss" rel="stylesheet" href="https://unpkg.com/@@progress/kendo-theme-default@@latest/dist/all.css" />
         
+1. @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-server)
+        
 1. Open the `~/Startup.cs` file in the and register the Telerik Blazor service:
 
     **C#**

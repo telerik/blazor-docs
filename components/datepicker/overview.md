@@ -14,7 +14,7 @@ The Date Picker component allows the user to choose a date from a visual list ([
 
 To use a Telerik Date Picker for Blazor:
 
-1. @[template](/_contentTemplates/common/js-interop-file.md#add-blazor-js-file-to-list)
+1. @[template](/_contentTemplates/common/js-interop-file.md#add-blazor-js-file-to-component)
 
 1. add the `TelerikDatePicker` tag
 

@@ -14,7 +14,7 @@ The Numeric Textbox component allows the user to enter decimal values and no tex
 
 To use a Telerik Numeric Textbox for Blazor:
 
-1. @[template](/_contentTemplates/common/js-interop-file.md#add-blazor-js-file-to-list)
+1. @[template](/_contentTemplates/common/js-interop-file.md#add-blazor-js-file-to-component)
 
 1. add the `TelerikNumericTextBox` tag
 
