@@ -84,7 +84,7 @@ The grid is a generic component, and to store a reference, you must use the mode
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data="@MyData" ref="Grid">
+<TelerikGrid Data="@MyData" ref="theGridReference">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
 		</TelerikGridColumn>
