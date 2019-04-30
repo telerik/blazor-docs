@@ -84,4 +84,4 @@ Here is one way to implement a page size choice that puts all records on one pag
 
 ## See Also
 
-  * [Live Demo: Grid Paging](https://demos.telerik.com/blazor/grid/paging)
+  * [Live Demo: Grid Paging](https://demos.telerik.com/blazor-ui/grid/paging)

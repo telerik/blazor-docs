@@ -98,4 +98,4 @@ Instead of a CDN link, you can fetch the stylesheet into your project. To do thi
 ## See Also
 
   * [Kendo SASS Themes](https://docs.telerik.com/kendo-ui/styles-and-layout/sass-themes)
-  * [Live Demos](https://demos.telerik.com/blazor)
+  * [Live Demos](https://demos.telerik.com/blazor-ui)

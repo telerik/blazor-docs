@@ -115,7 +115,7 @@ To get access to the UI for Blazor components, follow these steps:
 
 Now you have the Telerik components running in your Blazor app.
 
-Next, you can explore the [live demos](https://demos.telerik.com/blazor) and the rest of the documentation.
+Next, you can explore the [live demos](https://demos.telerik.com/blazor-ui) and the rest of the documentation.
 
 #end
 

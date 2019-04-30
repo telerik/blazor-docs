@@ -159,6 +159,6 @@ To disable a button, set its `Enabled` attribute to `false`.
 
 ## See Also
 
-  * [Live Demo: Button](https://demos.telerik.com/blazor/button/index)
+  * [Live Demo: Button](https://demos.telerik.com/blazor-ui/button/index)
    
   

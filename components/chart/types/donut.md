@@ -137,4 +137,4 @@ You can change the percentage that the hole in the middle takes from the entire 
 
 ## See Also
 
-  * [Live Demo: Donut Chart](https://demos.telerik.com/blazor/chart/donut-chart)
+  * [Live Demo: Donut Chart](https://demos.telerik.com/blazor-ui/chart/donut-chart)

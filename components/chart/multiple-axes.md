@@ -307,4 +307,4 @@ It is important to keep in mind the behavior of the series with multiple categor
 ## See Also
 
   * [Data Binding a Chart]({%slug components/chart/databind%})
-  * [Live Demos: Chart](https://demos.telerik.com/blazor/chart/index)
+  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)

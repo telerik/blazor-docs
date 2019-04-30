@@ -129,6 +129,6 @@ To enable Inline editing in the grid, set its `EditMode` property to `inline`, t
 
 ## See Also
 
-  * [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor/grid/inlineediting)
+  * [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor-ui/grid/inlineediting)
    
   

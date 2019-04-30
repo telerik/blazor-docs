@@ -66,4 +66,4 @@ The calendar provides a number of features that allow you to control the user ex
 
   * [Navigation]({%slug components/calendar/navigation%})
   * [Selection]({%slug components/calendar/selection%})
-  * [Live Demo: Calendar](https://demos.telerik.com/blazor/calendar/index)
+  * [Live Demo: Calendar](https://demos.telerik.com/blazor-ui/calendar/index)

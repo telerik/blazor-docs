@@ -142,5 +142,5 @@ The grid offers several editing modes with different user experience through the
 
 ## See Also
 
-  * [Live Demos: Grid](https://demos.telerik.com/blazor/grid/index)
+  * [Live Demos: Grid](https://demos.telerik.com/blazor-ui/grid/index)
 

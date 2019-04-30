@@ -155,10 +155,10 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 
 ## See Also
 
-  * [Live Demo: Grid PopUp Editing](https://demos.telerik.com/blazor/grid/popupediting)
-  * [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor/grid/inlineediting)
-  * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor/grid/incellediting)
-  * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor/grid/customeditor)
-  * [Live Demo: Grid Custom Edit Form](https://demos.telerik.com/blazor/grid/customformedit)
+  * [Live Demo: Grid PopUp Editing](https://demos.telerik.com/blazor-ui/grid/popupediting)
+  * [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor-ui/grid/inlineediting)
+  * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/incellediting)
+  * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/customeditor)
+  * [Live Demo: Grid Custom Edit Form](https://demos.telerik.com/blazor-ui/grid/customformedit)
   
   

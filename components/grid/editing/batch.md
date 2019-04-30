@@ -14,4 +14,4 @@ This article explains how to implement Batch editing in the Telerik UI for Blazo
 
 ## See Also
 
-  * [Live Demo: Grid Batch Editing](https://demos.telerik.com/blazor/grid/batchediting)
+  * [Live Demo: Grid Batch Editing](https://demos.telerik.com/blazor-ui/grid/batchediting)

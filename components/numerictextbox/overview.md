@@ -98,7 +98,7 @@ namespace MyBlazorApp.Client
 
 ## See Also
 
-  * [Live Demo: Numeric Textbox](https://demos.telerik.com/blazor/numerictextbox/index)
-  * [Live Demo: Numeric Textbox Validation](https://demos.telerik.com/blazor/numerictextbox/validation)
-  [Live Demo: Numeric Textbox Formats](https://demos.telerik.com/blazor/numerictextbox/formats)
+  * [Live Demo: Numeric Textbox](https://demos.telerik.com/blazor-ui/numerictextbox/index)
+  * [Live Demo: Numeric Textbox Validation](https://demos.telerik.com/blazor-ui/numerictextbox/validation)
+  [Live Demo: Numeric Textbox Formats](https://demos.telerik.com/blazor-ui/numerictextbox/formats)
   * [Input Validation]({%slug common-features/input-validation%})

@@ -105,5 +105,5 @@ The user will not be able to select the first and second of April 2019.
 
 ## See Also
 
-  * [Live Demo: Calendar Selection](https://demos.telerik.com/blazor/calendar/selection)
+  * [Live Demo: Calendar Selection](https://demos.telerik.com/blazor-ui/calendar/selection)
   

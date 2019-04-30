@@ -256,5 +256,5 @@ You can hide certain segments from the legend (for example, if their contributio
 
 ## See Also
 
-  * [Live Demo: Pie Chart](https://demos.telerik.com/blazor/chart/pie-chart)
+  * [Live Demo: Pie Chart](https://demos.telerik.com/blazor-ui/chart/pie-chart)
   

@@ -115,5 +115,5 @@ You can make the Calendar component move to a certain date and view through its 
 
 ## See Also
 
-  * [Live Demo: Calendar](https://demos.telerik.com/blazor/calendar/index)
+  * [Live Demo: Calendar](https://demos.telerik.com/blazor-ui/calendar/index)
   

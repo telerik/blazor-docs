@@ -76,5 +76,5 @@ The date picker is, essentially, a [date input]({%slug components/dateinput/over
 
 ## See Also
 
-  * [Live Demo: Date Picker](https://demos.telerik.com/blazor/datepicker/index)
+  * [Live Demo: Date Picker](https://demos.telerik.com/blazor-ui/datepicker/index)
   * [Input Validation]({%slug common-features/input-validation%})

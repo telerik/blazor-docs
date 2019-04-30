@@ -143,4 +143,4 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 
 ## See Also
 
-  * [Live Demo: Grid Toolbar](https://demos.telerik.com/blazor/grid/inlineediting)
+  * [Live Demo: Grid Toolbar](https://demos.telerik.com/blazor-ui/grid/inlineediting)

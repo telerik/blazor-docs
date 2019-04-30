@@ -93,4 +93,4 @@ To use a Telerik chart for Blazor:
 ## See Also
 
   * [Data Binding]({%slug components/chart/databind%})
-  * [Live Demos: Chart](https://demos.telerik.com/blazor/chart/index)
+  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)

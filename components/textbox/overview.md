@@ -93,6 +93,6 @@ The length, enabled and pattern attributes are HTML attributes on the `<input />
 
 ## See Also
 
-  * [Live Demo: Textbox](https://demos.telerik.com/blazor/textbox/index)
-  * [Live Demo: Textbox Validation](https://demos.telerik.com/blazor/textbox/validation)
+  * [Live Demo: Textbox](https://demos.telerik.com/blazor-ui/textbox/index)
+  * [Live Demo: Textbox Validation](https://demos.telerik.com/blazor-ui/textbox/validation)
   * [Input Validation]({%slug common-features/input-validation%})

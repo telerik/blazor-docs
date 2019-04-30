@@ -75,4 +75,4 @@ If the `Top` and/or `Left` properties are set, they will take precedence, becaus
 
 ## See Also
 
-  * [Live Demo: Window Position](https://demos.telerik.com/blazor/window/position)
+  * [Live Demo: Window Position](https://demos.telerik.com/blazor-ui/window/position)

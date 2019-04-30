@@ -41,6 +41,6 @@ You can sort this grid on the different columns to see the results. The name col
 
 ## See Also
 
-  * [Live Demo: Grid Sorting](https://demos.telerik.com/blazor/grid/sorting)
+  * [Live Demo: Grid Sorting](https://demos.telerik.com/blazor-ui/grid/sorting)
    
   

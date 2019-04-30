@@ -127,6 +127,6 @@ To enable PopUp editing in the grid, set its `EditMode` property to `popup`, the
 
 ## See Also
 
-  * [Live Demo: Grid PopUp Editing](https://demos.telerik.com/blazor/grid/popupediting)
+  * [Live Demo: Grid PopUp Editing](https://demos.telerik.com/blazor-ui/grid/popupediting)
    
   

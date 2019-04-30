@@ -174,6 +174,6 @@ The footer is content that you can place below the list of items inside the drop
 
 ## See Also
 
-  * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor/dropdownlist/validation)
+  * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor-ui/dropdownlist/validation)
    
   

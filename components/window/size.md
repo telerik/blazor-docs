@@ -145,4 +145,4 @@ The developer can invoke those actions through its `Maximize`, `Minimize` and `R
 
 ## See Also
 
-  * [Live Demo: Window Size](https://demos.telerik.com/blazor/window/dimensions)
+  * [Live Demo: Window Size](https://demos.telerik.com/blazor-ui/window/dimensions)

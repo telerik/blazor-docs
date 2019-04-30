@@ -192,4 +192,4 @@ In a **legend item label template**, you can use the following fields:
 
 ## See Also
 
-  * [Live Demos: Chart](https://demos.telerik.com/blazor/chart/index)
+  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)

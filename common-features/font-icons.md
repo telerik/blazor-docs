@@ -35,4 +35,4 @@ You can find the full list of available icons in the [Kendo UI Web Font Icons Li
 ## See Also
 
   * [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web)
-  * [Live Demos](https://demos.telerik.com/blazor)
+  * [Live Demos](https://demos.telerik.com/blazor-ui)

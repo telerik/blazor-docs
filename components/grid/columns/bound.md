@@ -27,4 +27,4 @@ For an example of the column usage, see the [Grid Overview]({%slug components/gr
 
 ## See Also
 
-  * [Live Demo: Grid Columns](https://demos.telerik.com/blazor/grid/columns)
+  * [Live Demo: Grid Columns](https://demos.telerik.com/blazor-ui/grid/columns)

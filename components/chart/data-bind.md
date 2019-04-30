@@ -289,4 +289,4 @@ For example, you can take the data for some series from a complex model, and the
 
 ## See Also
 
-  * [Live Demos: Chart](https://demos.telerik.com/blazor/chart/index)
+  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)

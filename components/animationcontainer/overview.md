@@ -97,4 +97,4 @@ The animation container exposes the following properties:
 
 ## See Also
 
-  * [Live Demos: Animation Container](https://demos.telerik.com/blazor/animation/index)
+  * [Live Demos: Animation Container](https://demos.telerik.com/blazor-ui/animation/index)

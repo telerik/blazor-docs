@@ -99,5 +99,5 @@ The date input provides the following features:
 
 ## See Also
 
-  * [Live Demo: Date Input](https://demos.telerik.com/blazor/dateinput/index)
+  * [Live Demo: Date Input](https://demos.telerik.com/blazor-ui/dateinput/index)
   * [Input Validation]({%slug common-features/input-validation%})

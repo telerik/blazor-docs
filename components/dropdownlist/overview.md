@@ -222,7 +222,7 @@ The DropDownList component attempts to infer the type of its model and value bas
 
 ## See Also
 
-  * [Live Demo: DropDownList](https://demos.telerik.com/blazor/dropdownlist/index)
-  * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor/dropdownlist/validation)
+  * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/index)
+  * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor-ui/dropdownlist/validation)
   
   

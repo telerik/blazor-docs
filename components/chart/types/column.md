@@ -68,4 +68,4 @@ The color of a series is controlled through the `Color` property that can take a
 
 ## See Also
 
-  * [Live Demo: Column Chart](https://demos.telerik.com/blazor/chart/column-chart)
+  * [Live Demo: Column Chart](https://demos.telerik.com/blazor-ui/chart/column-chart)

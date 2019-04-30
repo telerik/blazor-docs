@@ -101,4 +101,4 @@ You can render the lines between the points with different styles. The supported
 
 ## See Also
 
-  * [Live Demo: Area Chart](https://demos.telerik.com/blazor/chart/area-chart)
+  * [Live Demo: Area Chart](https://demos.telerik.com/blazor-ui/chart/area-chart)

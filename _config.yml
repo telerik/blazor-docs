@@ -338,7 +338,7 @@ footer:
   links:
     "Client-side Blazor": https://docs.telerik.com/blazor/getting-started/client-blazor
     "Server-side Blazor": https://docs.telerik.com/blazor/getting-started/server-blazor
-    "Demos": https://demos.telerik.com/blazor
+    "Demos": https://demos.telerik.com/blazor-ui
 #    "Sample Applications": https://github.com/telerik/ui-for-blazor-examples/
 #-
 #  title: "Support Resources"

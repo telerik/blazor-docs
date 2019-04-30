@@ -167,4 +167,4 @@ The DropDownList always has an item selected - the first item from its data sour
 ## See Also
 
   * [Data Annotation attributes](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation)
-  * [Live Demos](https://demos.telerik.com/blazor)
+  * [Live Demos](https://demos.telerik.com/blazor-ui)

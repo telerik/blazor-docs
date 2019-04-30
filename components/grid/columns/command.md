@@ -129,4 +129,4 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 
 ## See Also
 
-  * [Live Demo: Grid Command Column](https://demos.telerik.com/blazor/grid/inlineediting)
+  * [Live Demo: Grid Command Column](https://demos.telerik.com/blazor-ui/grid/inlineediting)

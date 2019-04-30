@@ -51,5 +51,5 @@ To control the position of the tab titles, the main tab strip tag exposes the op
 
 ## See Also
 
-  * [Live Demo: TabStrip](https://demos.telerik.com/blazor/tabstrip/index)
-  * [Live Demo: Tab Position](https://demos.telerik.com/blazor/tabstrip/tabposition)
+  * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/index)
+  * [Live Demo: Tab Position](https://demos.telerik.com/blazor-ui/tabstrip/tabposition)

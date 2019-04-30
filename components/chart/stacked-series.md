@@ -161,4 +161,4 @@ You can use separate groups, or you can stack all series together with just the 
 
 ## See Also
 
-  * [Live Demos: Chart](https://demos.telerik.com/blazor/chart/index)
+  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
