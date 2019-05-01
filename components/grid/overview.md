@@ -120,6 +120,10 @@ The grid supports paging of the data out of the box. You can read more about it 
 
 The grid can sort data automatically. You can read more about this feature in the [Sorting]({%slug components/grid/features/sorting%}) article.
 
+## Filtering
+
+The grid can filter data automatically. You can read more about thsi feature in the [Filtering]({%slug components/grid/filtering%}) article.
+
 ## Styling
 
 You can define your own content for column cells or even the entire row through [Templates]({%slug components/grid/features/templates%}).

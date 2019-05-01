@@ -5,7 +5,7 @@ description: Use custom templates in Grid for Blazor
 slug: components/grid/features/templates
 tags: telerik,blazor,grid,templates
 published: True
-position: 23
+position: 24
 ---
 
 # Grid Templates

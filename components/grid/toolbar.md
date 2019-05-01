@@ -5,7 +5,7 @@ description: Use toolbar and custom actions in Grid for Blazor
 slug: components/grid/features/toolbar
 tags: telerik,blazor,grid,toolbar
 published: True
-position: 22
+position: 23
 ---
 
 # Grid Toolbar
