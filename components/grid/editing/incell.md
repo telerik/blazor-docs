@@ -59,6 +59,8 @@ To enable InCell editing mode, set the `EditMode` property of the grid to `incel
     {
         string fieldName = args.Field;
         object newVal = args.Value; //you can cast this, if necessary, according to your model
+        
+        SampleData item = (SampleData)args.Item;//you can also use the entire model
 
         //perform actual data source operation here
         
