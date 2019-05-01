@@ -56,6 +56,7 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		</TelerikGridCommandColumn>
 	</TelerikGridColumns>
 </TelerikGrid>
+
 @logger
 
 @functions {
@@ -77,11 +78,18 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		AppendToLog("Update", args);
 
 		SampleData item = (SampleData)args.Item;
-		
+
 		//perform actual data source operations here
-		
+
 		//if you have a context added through an @inject statement, you could call its SaveChanges() method
 		//myContext.SaveChanges();
+
+		var matchingItem = MyData.FirstOrDefault(c => c.ID == item.ID);
+
+		if (matchingItem != null)
+		{
+			matchingItem.Name = item.Name;
+		}
 	}
 
 	public void DeleteHandler(GridCommandEventArgs args)
@@ -91,22 +99,26 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		SampleData item = (SampleData)args.Item;
 
 		//perform actual data source operation here
-		
+
 		//if you have a context added through an @inject statement, you could call its SaveChanges() method
 		//myContext.SaveChanges();
-	}
 
+		MyData.Remove(item);
+	}
 
 	public void CreateHandler(GridCommandEventArgs args)
 	{
 		AppendToLog("Create", args);
-		
+
 		SampleData item = (SampleData)args.Item;
 
 		//perform actual data source operation here
-		
+
 		//if you have a context added through an @inject statement, you could call its SaveChanges() method
 		//myContext.SaveChanges();
+
+		item.ID = MyData.Count;
+		MyData.Add(item);
 	}
 
 	public void CancelHandler(GridCommandEventArgs args)
@@ -116,11 +128,11 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		SampleData item = (SampleData)args.Item;
 
 		//if necessary, perform actual data source operation here (like cancel changes on a context)
-		
+
 		//if you have a context added through an @inject statement, you could use something like this to abort changes
 		//foreach (var entry in myContext.ChangeTracker.Entries().Where(entry => entry.State == EntityState.Modified))
 		//{
-		//	entry.State = EntityState.Unchanged;
+		//  entry.State = EntityState.Unchanged;
 		//}
 	}
 
@@ -135,7 +147,7 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 			);
 		logger = new MarkupString(logger + currAction);
 	}
-	
+
 
 	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
 	public class SampleData
@@ -144,12 +156,21 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		public string Name { get; set; }
 	}
 
+	public List<SampleData> MyData { get; set; }
 
-	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
+	protected override void OnInit()
 	{
-		ID = x,
-		Name = "name " + x
-	});
+		MyData = new List<SampleData>();
+
+		for (int i = 0; i < 50; i++)
+		{
+			MyData.Add(new SampleData()
+			{
+				ID = i,
+				Name = "Name " + i.ToString()
+			});
+		}
+	}
 }
 ````
 
