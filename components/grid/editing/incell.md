@@ -127,7 +127,7 @@ To enable InCell editing mode, set the `EditMode` property of the grid to `incel
 }
 ````
 
->caption The result from the code snippet above, after the user clicks in the Name column of the second row
+>caption The result from the code snippet above, after the user clicks in the Name column of the fifth row
 
 ![](images/incell-editing.png)
 
