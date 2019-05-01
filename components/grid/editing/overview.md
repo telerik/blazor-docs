@@ -10,25 +10,21 @@ position: 0
 
 # Grid CRUD Operations Overview
 
-CRUD operations with the Grid for Blazor are done through the dedicated CRUD events it exposes for data editing.
-
-The CRUD operations are performed on the collection that is provided to its `Data` property unless the corresponding event is cancelled.
-
-You can use the events to trasfer the changes from the current collection to the actual data source (for example, call a service, or use the `SaveChanges()` method of your context).
+CRUD operations with the Grid for Blazor are done through the dedicated CRUD events it exposes for data editing. You can use them to trasfer the changes to the actual data source (for example, call a service, or use the `SaveChanges()` method of your context).
 
 List of the available events:
 
-* `OnCreate` - fires when the `Create` [toolbar]({%slug components/grid/features/toolbar%}) button is clicked and an item is about to be inserted into the grid. There is no new item yet in this event, you can cancel it to prevent the user from adding records.
-* `OnUpdate` - fires when the `Update`/`Save` [command button]({%slug components/grid/columns/command%}) is clicked and the data is updated in the local collection. Cancellable.
+* `OnCreate` - fires when the `Save` [command button]({%slug components/grid/columns/command%}) button for a newly added item is clicked. Cancellable.
+* `OnUpdate` - fires when the `Save` command button is clicked on an existing item. Cancellable.
 * `OnDelete` - fires when the `Delete` command button is clicked. Cancellable.
 * `OnEdit` - fires when the user is about to enter edit mode for an exising row. Cancellable.
 * `OnCancel` - fires when the user clicks the `Cancel` command button. Allows you to undo the changes to the data in the context. Cancellable.
 
 The event handlers receive an argument of type `GridCommandEventArgs` that exposes the following fields:
 
-* `IsCancelled` - a boolean field indicating whether the grid operation is to be prevented (for example, prevent a row from opening for edit, or from updating).
-* `IsNew` - a boolean field idicating whether the item was just added through the grid. Lets you differentiate a data source Create operation from Update operation in the `OnUpdate` event.
-* `Item` - an object you can cast to you model class to obtain the current data item. Not available for the `Create` operation.
+* `IsCancelled` - a boolean field indicating whether the grid operation is to be prevented (for example, prevent a row from opening for edit, or from updating the data layer).
+* `IsNew` - a boolean field idicating whether the item was just added through the grid. Lets you differentiate a data source Create operation from Update operation in the `OnClick` event of a command button.
+* `Item` - an object you can cast to your model class to obtain the current data item.
 * `Field` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates which is the model field the user changed when updating data.
 * `Value` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates what is the new value the user changed when updating data.
 
@@ -38,20 +34,20 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 @using Telerik.Blazor
 @using Telerik.Blazor.Components.Grid
 
-<strong>Double click a cell in the Name column, edit the name and click outside of the cell to see the change. Editing is cancelled for the first two records.</strong>
+<strong>Editing is cancelled for the first two records.</strong>
 
 <TelerikGrid Data=@MyData EditMode="inline" Pageable="true">
 	<TelerikGridEvents>
 		<EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler"></EventsManager>
 	</TelerikGridEvents>
 	<TelerikGridToolBar>
-		<TelerikGridCommandButton Command="Create" Icon="add">Add Employee</TelerikGridCommandButton>
+		<TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
 	</TelerikGridToolBar>
 	<TelerikGridColumns>
 		<TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
 		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />
 		<TelerikGridCommandColumn>
-			<TelerikGridCommandButton Command="Update" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
+			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
 			<TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
 			<TelerikGridCommandButton Command="Delete" Icon="delete">Delete</TelerikGridCommandButton>
 			<TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TelerikGridCommandButton>
@@ -79,10 +75,9 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		AppendToLog("Update", args);
 
 		SampleData item = (SampleData)args.Item;
-
-		bool isInsert = args.IsNew;//insert or update operation
 		
 		//perform actual data source operations here
+		
 		//if you have a context added through an @inject statement, you could call its SaveChanges() method
 		//myContext.SaveChanges();
 	}
@@ -103,8 +98,13 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 	public void CreateHandler(GridCommandEventArgs args)
 	{
 		AppendToLog("Create", args);
+		
+		SampleData item = (SampleData)args.Item;
 
-		//there is no Item associated with this event handler
+		//perform actual data source operation here
+		
+		//if you have a context added through an @inject statement, you could call its SaveChanges() method
+		//myContext.SaveChanges();
 	}
 
 	public void CancelHandler(GridCommandEventArgs args)
@@ -113,7 +113,8 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 
 		SampleData item = (SampleData)args.Item;
 
-		//perform actual data source operation here (like cancel changes on a context)
+		//if necessary, perform actual data source operation here (like cancel changes on a context)
+		
 		//if you have a context added through an @inject statement, you could use something like this to abort changes
 		//foreach (var entry in myContext.ChangeTracker.Entries().Where(entry => entry.State == EntityState.Modified))
 		//{

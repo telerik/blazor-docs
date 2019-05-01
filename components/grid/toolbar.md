@@ -23,7 +23,7 @@ To use a toolbar, define `TelerikGridCommandButton` instances in the `TelerikGri
 
 The grid offers built-in commands that you can invoke through its toolbar. To use them, set the `Command` property of the button to the command name. The built-in command names are:
 
-* `Create` - startes inserting a new item in the grid.
+* `Add` - startes inserting a new item in the grid.
 
 >caption How to insert a new item in the grid
 
@@ -33,14 +33,17 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="inline">
 	<TelerikGridToolBar>
-		<TelerikGridCommandButton Command="Create" Icon="add">Add Employee</TelerikGridCommandButton>
+		<TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
 	</TelerikGridToolBar>
+    <TelerikGridEvents>
+        <EventsManager OnUpdate="@UpdateHandler" OnCreate="@CreateHandler"></EventsManager>
+    </TelerikGridEvents>
 	<TelerikGridColumns>
 		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
 		<TelerikGridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
 		<TelerikGridCommandColumn>
 			<TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Update" Icon="save" ShowInEdit="true" OnClick="@UpdateItem">Update</TelerikGridCommandButton>
+			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
 			<TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TelerikGridCommandButton>
 		</TelerikGridCommandColumn>
 	</TelerikGridColumns>
@@ -51,17 +54,21 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
 @functions {
 	string result;
 
-	private void UpdateItem(GridCommandEventArgs args)
+	private void UpdateHandler(GridCommandEventArgs args)
 	{
 		SampleData alteredItem = args.Item as SampleData;
-		if (alteredItem.ID == 0)//one way to tell inserted item in this scenario
-		{
-			result = string.Format("On {2} you added the employee {0} who was hired on {1}.", alteredItem.Name, alteredItem.HireDate, DateTime.Now);
-		}
-		else
-		{
-			result = string.Format("Employee with ID {0} now has name {1} and hire date {2}", alteredItem.ID, alteredItem.Name, alteredItem.HireDate);
-		}
+		
+		result = string.Format("Employee with ID {0} now has name {1} and hire date {2}", alteredItem.ID, alteredItem.Name, alteredItem.HireDate);
+		
+		StateHasChanged();
+	}
+	
+	private void CreateHandler(GridCommandEventArgs args)
+	{
+		SampleData alteredItem = args.Item as SampleData;
+	    
+	    result = string.Format("On {2} you added the employee {0} who was hired on {1}.", alteredItem.Name, alteredItem.HireDate, DateTime.Now);
+	    
 		StateHasChanged();
 	}
 

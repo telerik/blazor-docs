@@ -10,11 +10,11 @@ position: 1
 
 # Grid Inline Editing
 
-Inline editing lets the user click an [Edit command button]({%slug components/grid/columns/command%}) on the row, and all its editable columns open up for changes. They can then click an **Update** command button to submit the changes to the model. This fires the `OnUpdate` event of the grid where your code receives the updated model so you can work with the data (for example, to call the `SaveChanges()` method of your context).
+Inline editing lets the user click an [Edit command button]({%slug components/grid/columns/command%}) on the row, and all its editable columns open up for changes. They can then click an `Save` command button to submit the changes to the data access layer. This fires the `OnUpdate` event of the grid where your code receives the updated model so you can work with the data (for example, to call the `SaveChanges()` method of your context).
 
-In a similar fashion, the `Cancel`, `Delete` command buttons and the `Create` toolbar button fire events on the grid to let you handle the data source operations.
+In a similar fashion, the `Cancel` and `Delete` command buttons fire events on the grid to let you handle the data source operations.
 
-You can also cancel the evens by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
+You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
 
 To enable Inline editing in the grid, set its `EditMode` property to `inline`, then handle the CRUD events as shown in the example below.
 
@@ -31,13 +31,13 @@ To enable Inline editing in the grid, set its `EditMode` property to `inline`, t
         <EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler"></EventsManager>
     </TelerikGridEvents>
     <TelerikGridToolBar>
-        <TelerikGridCommandButton Command="Create" Icon="add">Add Employee</TelerikGridCommandButton>
+        <TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
     </TelerikGridToolBar>
     <TelerikGridColumns>
         <TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
         <TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />
         <TelerikGridCommandColumn>
-            <TelerikGridCommandButton Command="Update" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
+            <TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
             <TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
             <TelerikGridCommandButton Command="Delete" Icon="delete">Delete</TelerikGridCommandButton>
             <TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TelerikGridCommandButton>
@@ -55,6 +55,7 @@ To enable Inline editing in the grid, set its `EditMode` property to `inline`, t
         {
             args.IsCancelled = true;//the general approach for cancelling an event
         }
+        
         Console.WriteLine("Edit event is fired.");
     }
 
@@ -62,9 +63,8 @@ To enable Inline editing in the grid, set its `EditMode` property to `inline`, t
     {
         SampleData item = (SampleData)args.Item;
 
-        bool isInsert = args.IsNew;//insert or update operation
-
         //perform actual data source operations here
+        
         //if you have a context added through an @inject statement, you could call its SaveChanges() method
         //myContext.SaveChanges();
 
@@ -86,9 +86,11 @@ To enable Inline editing in the grid, set its `EditMode` property to `inline`, t
 
     public void CreateHandler(GridCommandEventArgs args)
     {
-        Console.WriteLine("Create event is fired.");
+        SampleData item = (SampleData)args.Item;
 
-        //there is no Item associated with this event handler
+        //perform actual data source operation here
+        
+        Console.WriteLine("Add event is fired.");
     }
 
     public void CancelHandler(GridCommandEventArgs args)
@@ -97,7 +99,7 @@ To enable Inline editing in the grid, set its `EditMode` property to `inline`, t
 
         SampleData item = (SampleData)args.Item;
 
-        //perform actual data source operation here (like cancel changes on a context)
+        //if necessary, perform actual data source operation here (like cancel changes on a context)
         //if you have a context added through an @inject statement, you could use something like this to abort changes
         //foreach (var entry in myContext.ChangeTracker.Entries().Where(entry => entry.State == EntityState.Modified))
         //{

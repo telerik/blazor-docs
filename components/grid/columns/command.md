@@ -14,27 +14,29 @@ The command column of a grid allows you to initiate [inline]({%slug components/g
 
 To define it, add a `TelerikGridCommandColumn` in the `TelerikGridColumns` collection of a grid. The command column takes a collection of `TelerikGridCommandButton` instances that invoke the commands. It also offers the `Title` property so you can set its header text.
 
->tip The lists below showcase the available features and their use, and after them you can find a code example that shows declarations and handling.
+>tip The lists below showcase the available features and their use. After them you can find a code example that shows declarations and handling.
 
 The `TelerikGridCommandButton` tag offers the following features:
 
-* `Command` - the command that will be invoked. Can be one of the built-in commands, or a custom command name.
-* `OnClick` - the event handler that the button will fire.
+* `Command` - the command that will be invoked. Can be one of the built-in commands (see below), or a custom command name.
+* `OnClick` - the event handler that the button will fire. If used on a built-in command, this handler will fire before the [corresponding CRUD event]({%slug components/grid/editing/overview%}). Cancelling it will prevent the built-in CRUD event from firing.
 * `ShowInEdit` - a boolean property indicating whether the button is only visible while the user is editing/inserting data.
 * `ChildContent` - the text the button will render. You can also place it between the command button's opening and closing tags.
-* Appearance properties like Icon, Class, Enabled that are come from the underlying [Button Component features]({%slug components/button/overview%}).
+* Appearance properties like `Icon`, `Class`, `Enabled` that are come from the underlying [Button Component features]({%slug components/button/overview%}).
 
 There are three built-in commands:
 
 * `Edit` - initiates the inline or popup editing (depending on the EditMode configuration of the grid).
-* `Update` - performs the actual update operation after the data has been changed. Allows you to trigger an event handler to perform the data source operation.
+* `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was added through the grid or not.
 * `Cancel` - aborts the current operation (edit or insert).
 
 The `OnClick` handler of the commands receives an argument of type `GridCommandEventArgs` that exposes the following properties:
 
 * `IsCancelled` - set this to true to prevent the operation if the business logic requires it.
 * `Item` - the model item the grid row is bound to. You can use it to access the model fields and methods in order to preform the actual data source operations.
-* `Type` - the type of event (command).
+* `IsNew` - a boolean field indicating whether the item was just added through the grid interface.
+
+>tip For handling CRUD operations we recommend that you use the grid events (`OnEdit`, `OnUpdate`, `OnCancel`, `OnCreate`). The `OnClick` handler is available for the built-in commands to provide consistency of the API.
 
 >caption Example of adding and handling command columns for inline editing of a grid
 
@@ -42,7 +44,7 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 @using Telerik.Blazor
 @using Telerik.Blazor.Components.Grid
 
-<span>Edit will cancelled for "name 2"</span>
+<span>Edit will be cancelled for "name 2"</span>
 <br />@CustomCommandResult
 
 <TelerikGrid Data=@GridData EditMode="inline"
@@ -52,9 +54,9 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
 		<TelerikGridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
 		<TelerikGridCommandColumn>
-			<TelerikGridCommandButton Command="Edit" Icon="edit" OnClick="@TriggerEdit">Edit</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Update" Icon="save" ShowInEdit="true" OnClick="@UpdateItem">Update</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true" OnClick="@CancelItem">Cancel</TelerikGridCommandButton>
+			<TelerikGridCommandButton Command="Edit" Icon="edit" OnClick="@MyEditHandler">Edit</TelerikGridCommandButton>
+			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true" OnClick="@MyUpdateHandler">Update</TelerikGridCommandButton>
+			<TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true" OnClick="@MyCancelHandler">Cancel</TelerikGridCommandButton>
 			<TelerikGridCommandButton Command="MyOwnCommand" Icon="information" ShowInEdit="false" OnClick="@MyCustomCommand">My Command</TelerikGridCommandButton>
 		</TelerikGridCommandColumn>
 	</TelerikGridColumns>
@@ -76,30 +78,33 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 		HireDate = DateTime.Now.AddDays(-x)
 	});
 
-	private void TriggerEdit(GridCommandEventArgs args)
+	private void MyEditHandler(GridCommandEventArgs args)
 	{
 		int empId = (args.Item as SampleData).ID;
 
 		//example of cancelling an event based on condition
+		//we recommend you do this in the corresponding CRUD event
 		if (empId == 2)
 		{
 			args.IsCancelled = true;
 		}
 	}
 	
-	private void UpdateItem(GridCommandEventArgs args)
+	private void MyUpdateHandler(GridCommandEventArgs args)
 	{
 		SampleData theUpdatedItem = args.Item as SampleData;
 		//save changes, for example by using the model fields and/or methods
+		//we recommend you do this in the corresponding CRUD event
 
 		//if you have a context added through an @inject statement, you could call its SaveChanges() method
 		//myContext.SaveChanges();
 	}
 	
-	private void CancelItem(GridCommandEventArgs args)
+	private void MyCancelHandler(GridCommandEventArgs args)
 	{
 		SampleData theUpdatedItem = args.Item as SampleData;
 		//revert the changes
+		//we recommend you do this in the corresponding CRUD event
 
 		//if you have a context added through an @inject statement, you could use something like this to abort changes
 		//foreach (var entry in nwContext.ChangeTracker.Entries().Where(entry => entry.State == EntityState.Modified))
