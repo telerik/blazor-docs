@@ -18,7 +18,6 @@ Here is a list of the changes:
 * The `Update` command is now called `Save`.
 * The `OnCreate` event is now fired when a newly inserted item is saved. Previously, it was fired when the Add button was clicked.
 * The `OnUpdate` event does not fire for newly inserted items, they are now to be handled through the `OnCreate` event.
-* After any of the CUD operations, the data source will be read anew to ensure fresh data is fetched.
 
 You can find more details (and samples) on the current way the grid operates in the following articles:
 

@@ -20,7 +20,7 @@ List of the available events:
 * `OnEdit` - fires when the user is about to enter edit mode for an exising row. Cancellable.
 * `OnCancel` - fires when the user clicks the `Cancel` command button. Allows you to undo the changes to the data in the context. Cancellable.
 
-The [data source will be read after these events fire]({%slug components/grid/reading-data%}), if they are not cancelled.
+After these events fire, the [data source will be read]({%slug components/grid/manual-operations%}), if they are not cancelled.
 
 The event handlers receive an argument of type `GridCommandEventArgs` that exposes the following fields:
 
