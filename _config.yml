@@ -350,6 +350,10 @@ footer:
     "Forums": https://www.telerik.com/forums/blazor
     "Blogs": https://www.telerik.com/blogs/tag/blazor
     "Feedback Portal": https://feedback.telerik.com/blazor
+-
+  title: "Sample Applications"
+  links:
+    "Dashboard": https://demos.telerik.com/blazor-dashboard-app/
 
 footer_social:
     facebook: https://www.facebook.com/Telerik/
