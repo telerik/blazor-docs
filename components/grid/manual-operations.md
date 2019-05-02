@@ -53,7 +53,7 @@ When the `OnRead` event is used, the internal operations are disabled and you mu
 		SourceData = GenerateData();
 	}
 
-	protected async void ReadItems(GridReadEventArgs args)
+	protected void ReadItems(GridReadEventArgs args)
 	{
 		Console.WriteLine("data requested: " + args.Request);
 
