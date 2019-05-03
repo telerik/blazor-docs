@@ -41,7 +41,7 @@ For client-side Blazor, we recommend the usage of `Blazor (ASP.NET Hosted)` proj
     
        ![](images/manage-nuget-packages-for-client-app.png)
     
-    1. Choose the `telerik.com` feed, find the `Telerik.UI.for.Blazor` package and click `Install`:
+    1. Choose the `telerik.com` feed, find the `Telerik.UI.for.Blazor` package and click `Install` (make sure to use the latest version):
     
          ![Add Telerik Blazor Package to Client Project](images/add-telerik-nuget-to-client-app.png)
 

@@ -44,9 +44,9 @@ You can also use the official VS 2019 installation and enable the .NET Core 3.0 
 
 Telerik UI for Blazor is distributed through our private NuGet feed.
 
-Follow the [Setup the Telerik Private NuGet Feed]({%slug installation/nuget%}) article to set it up in case you don't have it already.
+@[template](/_contentTemplates/common/get-started.md#start-trial)
 
-Visit the following link to activate access to the Blazor Preview so you can alter download the package: [https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor](https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor).
+Follow the [Setup the Telerik Private NuGet Feed]({%slug installation/nuget%}) article to set it up in case you don't have it already.
 
 Once you have added the Telerik NuGet feed, continue with this tutorial.
 #end
@@ -66,14 +66,16 @@ If you don't have a Blazor project set up, first you need to create one:
     ![Create new ASP.NET Core Web Application](images/create-new-application.jpg)
 #end
 
-
+#start-trial
+If you don't have an active license, [start a UI for Blazor trial](https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor). You can delete the file this link will download.
+#end
 
 #get-access
 To get access to the UI for Blazor components, follow these steps:
 
-1. Activate a trial by visiting the following link: [https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor](https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor). This activates a UI for Blazor preview in your account and enables the [Telerik private NuGet feed](#add-the-telerik-nuget-feed-to-visual-studio) for you, so you can install our components. Make sure that you have configured [our NuGet feed](#add-the-telerik-nuget-feed-to-visual-studio).
+1. @[template](/_contentTemplates/common/get-started.md#start-trial)
 
-1. Install the `Telerik.UI.for.Blazor` NuGet package to your Blazor project. If you do not see it in the `telerik.com` feed, wait for a about 20-30 minutes after activating the trial:
+1. Install the `Telerik.UI.for.Blazor` NuGet package to your Blazor project:
 #end
 
 
