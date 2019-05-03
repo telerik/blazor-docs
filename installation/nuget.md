@@ -59,6 +59,7 @@ NuGet Sources Update -Name "telerik.com" -Source "https://nuget.telerik.com/nuge
 
 ## See Also
 
+* [What You Need To Install]({%slug installation/what-you-need%})
 * [Get Started with Client-side Blazor]({%slug getting-started/client-side%})
 * [Get Started with Server-side Blazor]({%slug getting-started/server-side%})
 
