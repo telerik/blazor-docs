@@ -119,3 +119,28 @@ Next, you can explore the [live demos](https://demos.telerik.com/blazor-ui) and 
 
 #end
 
+
+#after-install
+Once you have the NuGet feed set up, follow the instructions to create either a [Client-side Blazor app]({%slug getting-started/client-side%}), or a [Server-side Blazor app]({%slug getting-started/server-side%}).
+#end
+
+#setup-local-feed-vs
+## Set Up a Local NuGet Feed in Visual Studio
+
+To setup a local NuGet package source, so you can install the Telerik components without an active Internet connection and without setting up our private feed, do the following:
+
+1. Open **Visual Studio** and go to **Tools** > **Options**.
+
+1. Find the **NuGet Package Manager** node, expand it, and select **Package Sources**.
+
+1. Click the Add (`+`) icon at the top to add the new local feed, select its name and point it to the path where you installed the components or placed the `.nupkg files` (by default, the installation goes to `C:\Program Files (x86)\Progress\Telerik UI for Blazor <VERSION>\packages`). For example:
+
+    ![](images/create-local-nuget-feed.png)
+#end
+
+
+#navigate-account
+1. Log into your [Telerik account](http://www.telerik.com/account/default.aspx) and click on **Downloads** from the top menu.
+
+1. On the loaded page choose from your purchased products or trial downloads **Progress® Telerik® UI for Blazor**, and click on it.
+#end
