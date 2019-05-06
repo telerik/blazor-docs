@@ -31,7 +31,31 @@ There are four ways to get these packages:
 
 * The standalone **.nupkg files**. They are the bare minimum that is required. To use them, follow the instructions for using the [ZIP archive]({%slug installation/zip%}), but download the `.nupkg` files instead.
 
-Before you continue, make sure you can use Blazor. Read below for more details. Once you have Blazor running, follow the articles above to see how to add the Telerik components to your project.
+
+## Client Assets
+
+To have the Telerik Blazor components look and behave as expected in the browser, you need the following assets:
+
+* Our component's stylesheet. You can read more about it in the [Themes]({%slug general-information/themes%}) article. Here is a short example:
+
+    **HTML**
+    
+        <head>
+            . . .
+            <link id="kendoCss" rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
+        </head>
+
+* Our JS Interop file. It provides features that cannot be implemented with native Blazor. You need to
+
+    @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-client)
+    
+    For a server-side Blazor scenario, add it to the `~/Pages/_Host.razor` file.
+
+## Before You Continue
+
+Before you continue, make sure you can use Blazor. Read below for more details.
+
+Once you have Blazor running, follow the articles below to see how to add the Telerik components to your project.
 
 @[template](/_contentTemplates/common/get-started.md#after-install)
 
