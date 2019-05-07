@@ -2,6 +2,65 @@
 This article assumes you are familiar with the [chart basics]({%slug components/chart/overview%}) and [data binding]({%slug components/chart/databind%}).
 #end
 
+#color-field-bar-column
+### Color Field
+
+Bar and Column charts can take the color of the series item from the `ColorField` of the data source. You can pass a valid CSS color (for example, `#abcdef`, `f00`, or `blue`).
+
+````CSHTML
+@using Telerik.Blazor
+@using Telerik.Blazor.Components.Chart
+
+<TelerikChart>
+	<TelerikChartSeriesItems>
+		<TelerikChartSeries Type="ChartSeriesType.Bar" Data="@theData" ColorField="@nameof(MyChartDataModel.Color)"
+							Field="@nameof(MyChartDataModel.ItemValue)" CategoryField="@nameof(MyChartDataModel.Category)">
+		</TelerikChartSeries>
+	</TelerikChartSeriesItems>
+
+	<TelerikChartTitle Text="Revenue per product"></TelerikChartTitle>
+
+	<TelerikChartLegend Position="ChartLegendPosition.Right">
+	</TelerikChartLegend>
+</TelerikChart>
+
+@functions {
+	public class MyChartDataModel
+	{
+		public string Category { get; set; }
+		public double ItemValue { get; set; }
+		public string Color { get; set; }
+	}
+	public List<MyChartDataModel> theData = new List<MyChartDataModel>
+{
+		new MyChartDataModel
+		{
+			Category = "Product 1",
+			ItemValue = 2,
+			Color = "red"
+		},
+		new MyChartDataModel
+		{
+			Category = "Product 2",
+			ItemValue = 3,
+			Color = "#00ff00"
+		},
+		new MyChartDataModel
+		{
+			Category = "Product 3",
+			ItemValue = 4,
+			Color = "#00f"
+		}
+	};
+}
+````
+
+>caption The result from the code snippet above
+
+![](images/color-field-bar-column-chart.png)
+
+#end
+
 #gap-and-spacing
 ### Gap and Spacing
 

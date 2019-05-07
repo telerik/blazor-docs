@@ -65,6 +65,8 @@ To create an bar chart:
 
 The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `f00`, or `blue`). The color control the fill color of the area.
 
+@[template](/_contentTemplates/chart/link-to-basics.md#color-field-bar-column)
+
 @[template](/_contentTemplates/chart/link-to-basics.md#gap-and-spacing)
 
 ## See Also
