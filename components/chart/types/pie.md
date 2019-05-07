@@ -81,7 +81,7 @@ By default, the firt segment starts at the top. You can change that by using the
 
 ### Color Field
 
-You can control the color of the individual segments of the pie chart by providing a string with the desired color in the model, and setting the `ColorField` of the series to it. You can pass a valid CSS color (for example, `#abcdef`, `f00`, or `blue`).
+You can control the color of the individual segments of the pie chart by providing a string with the desired color in the model, and setting the `ColorField` of the series to it. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
 ````CSHTML
 @using Telerik.Blazor

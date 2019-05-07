@@ -69,7 +69,7 @@ To create an area chart:
 
 ### Color
 
-The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `f00`, or `blue`). The color control the fill color of the area.
+The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`). The color control the fill color of the area.
 
 You can control the color of the line itself separately by using the `Color` property of the nested `TelerikChartSeriesLine` tag.
 

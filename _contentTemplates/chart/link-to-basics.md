@@ -5,7 +5,7 @@ This article assumes you are familiar with the [chart basics]({%slug components/
 #color-field-bar-column
 ### Color Field
 
-Bar and Column charts can take the color of the series item from the `ColorField` of the data source. You can pass a valid CSS color (for example, `#abcdef`, `f00`, or `blue`).
+Bar and Column charts can take the color of the series item from the `ColorField` of the data source. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
 ````CSHTML
 @using Telerik.Blazor
@@ -77,16 +77,3 @@ You can configure the values of `Gap` and `Spacing` for the whole chart in the f
 ![](images/gap-and-spacing.png)
 #end
 
-
-#do-not-mix-modes-buttons
-@[template](/_templates/common/render-mode.md#do-not-mix-modes "control: @{control}")
->
->RadButton, RadCheckBox, RadImageButton, RadLinkButton, RadPushButton and RadToggleButton share the same rendering and stylesheets, so all their instances on the same page must have `RenderMode=Lightweight` because this is the only mode supported by all of these controls.
-#end
-
-
-#intro-all
-**@{control}** has different render modes that can change the actual HTML markup that is rendered.	They are exposed via the **RenderMode** property that can have four	possible values - **Classic**, **Lightweight**, **Mobile** and **Auto**. This functionality was introduced in the **@{version}** version.
-
-The possible options are:
-#end

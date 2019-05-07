@@ -80,7 +80,7 @@ The `Rotation` property is the degrees with which the marker is rotated from its
 
 ### Color
 
-The color of the line is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `f00`, or `blue`).
+The color of the line is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
 You can control the color of the markers by using the `Background` property of the nested `TelerikChartSeriesMarkers` tag.
 
