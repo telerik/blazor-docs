@@ -162,7 +162,7 @@ The column's `EditTemplate` defines the inline template or component that will b
 			</EditorTemplate>
 		</TelerikGridColumn>
 		<TelerikGridCommandColumn>
-			<TelerikGridCommandButton Command="Update" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
+			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
 			<TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
 		</TelerikGridCommandColumn>
 	</TelerikGridColumns>
