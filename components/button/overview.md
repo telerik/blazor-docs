@@ -157,6 +157,26 @@ To disable a button, set its `Enabled` attribute to `false`.
 
 ![](images/disabled-button.png)
 
+## Button Type
+
+The button renders a `<button type="submit">` element by default, as this is the default behavior of a button.
+
+You can control the `type` attribute through the `ButtonType` property of the component which can accept the following values:
+
+* `Submit` - Renders a `type="submit"` attribute. Can submit the form and trigger validation. The default value.
+* `Button` - Renders a `type="button"` attribute. Does not invokce form validation and submission.
+* `Reset` - Renders a `type="reset"` attribute. Can reset the current form.
+
+````CSHTML
+@using Telerik.Blazor.Components.Button
+@using Telerik.Blazor
+
+<TelerikButton>Implicit SUBMIT</TelerikButton>
+<TelerikButton ButtonType="@ButtonType.Submit">Explicit SUBMIT</TelerikButton>
+<TelerikButton ButtonType="@ButtonType.Button">BUTTON</TelerikButton>
+<TelerikButton ButtonType="@ButtonType.Reset">RESET</TelerikButton>
+````
+
 ## See Also
 
   * [Live Demo: Button](https://demos.telerik.com/blazor-ui/button/index)
