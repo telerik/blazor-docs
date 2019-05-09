@@ -16,8 +16,9 @@ In a similar fashion, the `Cancel`, `Delete` command buttons and the `Add` toolb
 
 You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
 
-
 To enable PopUp editing in the grid, set its `EditMode` property to `popup`, then handle the CRUD events as shown in the example below.
+
+@[template](/_contentTemplates/grid/common-link.md#async-events-link)
 
 >caption The Command buttons and the grid events let you handle data operations in PopUp edit mode
 

@@ -16,6 +16,8 @@ You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the C
 
 To enable InCell editing mode, set the `EditMode` property of the grid to `incell`, then handle the CRUD events as shown in the example below.
 
+@[template](/_contentTemplates/grid/common-link.md#async-events-link)
+
 >caption Values are set in the model as soon as the user finishes editing a field, and you can receive them through the grid events
 
 ````CSHTML

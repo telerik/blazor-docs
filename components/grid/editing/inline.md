@@ -18,6 +18,8 @@ You can also cancel the events by setting the `IsCancelled` property of the even
 
 To enable Inline editing in the grid, set its `EditMode` property to `inline`, then handle the CRUD events as shown in the example below.
 
+@[template](/_contentTemplates/grid/common-link.md#async-events-link)
+
 >caption The Command buttons and the grid events let you handle data operations in Inline edit mode
 
 ````CSHTML

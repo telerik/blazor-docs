@@ -16,7 +16,7 @@ The parameter of type `DataSourceRequest` exposes information about the desired 
 
 When the `OnRead` event is used, the internal operations are disabled and you must perform them all in the `OnRead` event. You must also set the `TotalCount` property of the grid to the total number of items in the data source.
 
->caption Handling the data source operations with your own code. This example showcases how to use the OnRead event. To implement the CUD operations, see the [CRUD Operations Overview]({%slug components/grid/editing/overview%}) article.
+>caption Handling the data source operations with your own code. This example showcases how to use the OnRead event. To implement the CUD operations, see the [CRUD Operations Overview](editing/overview) article.
 
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
@@ -53,13 +53,15 @@ When the `OnRead` event is used, the internal operations are disabled and you mu
 		SourceData = GenerateData();
 	}
 
-	protected void ReadItems(GridReadEventArgs args)
+	protected async Task ReadItems(GridReadEventArgs args)
 	{
 		Console.WriteLine("data requested: " + args.Request);
 
 		//you need to update the total and data variables
 		//the ToDataSourceResult() extension method can be used to perform the operations over the full data collection
 		//in a real case, you can call data access layer and remote services here instead, to fetch only the necessary data
+
+		await Task.Delay(2000); //simulate network delay from a real async call
 
 		var datasourceResult = SourceData.ToDataSourceResult(args.Request);
 
@@ -97,6 +99,8 @@ When the `OnRead` event is used, the internal operations are disabled and you mu
 	}
 }
 ````
+
+>tip You can aslso use a synchronous version of the event. Its signature is `void ReadItems(GridReadEventArgs args)`.
 
 ## See Also
 

@@ -19,8 +19,7 @@ List of the available events:
 * `OnDelete` - fires when the `Delete` command button is clicked. Cancellable.
 * `OnEdit` - fires when the user is about to enter edit mode for an exising row. Cancellable.
 * `OnCancel` - fires when the user clicks the `Cancel` command button. Allows you to undo the changes to the data in the context. Cancellable.
-
-After these events fire, the [data source will be read]({%slug components/grid/manual-operations%}), if they are not cancelled.
+* `OnRead` - fires when the grid needs data - after any data source operation like updating, creating, deleting, filtering, sorting. If you cancel the CUD events, the [OnRead]({%slug components/grid/manual-operations%}) event will not fire.
 
 The event handlers receive an argument of type `GridCommandEventArgs` that exposes the following fields:
 
@@ -29,6 +28,8 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 * `Item` - an object you can cast to your model class to obtain the current data item.
 * `Field` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates which is the model field the user changed when updating data.
 * `Value` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates what is the new value the user changed when updating data.
+
+>tip The grid events use `EventCallback` and can be syncrhonous or asynchronous. The example below shows async versions, and the signature for synchronous events is `void <event name>(GridCommandEventArgs args)`.
 
 >caption Handling the CRUD events of the grid to save data to the actual data source
 
@@ -60,8 +61,12 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 @logger
 
 @functions {
-	public void EditHandler(GridCommandEventArgs args)
+	public async Task EditHandler(GridCommandEventArgs args)
 	{
+		AppendToLog("Edit", args);
+
+		await Task.Delay(1000); //simulate actual long running async operation
+		
 		SampleData item = (SampleData)args.Item;
 
 		//prevent opening for edit based on condition
@@ -69,11 +74,9 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		{
 			args.IsCancelled = true;//the general approach for cancelling an event
 		}
-
-		AppendToLog("Edit", args);
 	}
 
-	public void UpdateHandler(GridCommandEventArgs args)
+	public async Task UpdateHandler(GridCommandEventArgs args)
 	{
 		AppendToLog("Update", args);
 
@@ -83,6 +86,8 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 
 		//if you have a context added through an @inject statement, you could call its SaveChanges() method
 		//myContext.SaveChanges();
+		
+		await Task.Delay(2000); //simulate actual long running async operation
 
 		var matchingItem = MyData.FirstOrDefault(c => c.ID == item.ID);
 
@@ -92,7 +97,7 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		}
 	}
 
-	public void DeleteHandler(GridCommandEventArgs args)
+	public async Task DeleteHandler(GridCommandEventArgs args)
 	{
 		AppendToLog("Delete", args);
 
@@ -103,10 +108,12 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		//if you have a context added through an @inject statement, you could call its SaveChanges() method
 		//myContext.SaveChanges();
 
+		await Task.Delay(2000); //simulate actual long running async operation
+
 		MyData.Remove(item);
 	}
 
-	public void CreateHandler(GridCommandEventArgs args)
+	public async Task CreateHandler(GridCommandEventArgs args)
 	{
 		AppendToLog("Create", args);
 
@@ -117,11 +124,13 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		//if you have a context added through an @inject statement, you could call its SaveChanges() method
 		//myContext.SaveChanges();
 
+		await Task.Delay(2000); //simulate actual long running async operation
+		
 		item.ID = MyData.Count;
 		MyData.Add(item);
 	}
 
-	public void CancelHandler(GridCommandEventArgs args)
+	public async Task CancelHandler(GridCommandEventArgs args)
 	{
 		AppendToLog("Cancel", args);
 
@@ -134,6 +143,8 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		//{
 		//  entry.State = EntityState.Unchanged;
 		//}
+		
+		await Task.Delay(2000); //simulate actual long running async operation
 	}
 
 	MarkupString logger;
