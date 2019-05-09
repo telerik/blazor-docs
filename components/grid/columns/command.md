@@ -38,6 +38,8 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 
 >tip For handling CRUD operations we recommend that you use the grid events (`OnEdit`, `OnUpdate`, `OnCancel`, `OnCreate`). The `OnClick` handler is available for the built-in commands to provide consistency of the API.
 
+>tip The event handlers use `EventCallback` and can be syncronous or async. This example shows async versions, and the signature for the syncrhronous handlers is `void MyHandlerName(GridCommandEventArgs args)`.
+
 >caption Example of adding and handling command columns for inline editing of a grid
 
 ````CSHTML
@@ -48,7 +50,7 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 <br />@CustomCommandResult
 
 <TelerikGrid Data=@GridData EditMode="inline"
-		   Pageable="true" PageSize="15">
+			 Pageable="true" PageSize="15">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />
 		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
@@ -78,8 +80,10 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 		HireDate = DateTime.Now.AddDays(-x)
 	});
 
-	private void MyEditHandler(GridCommandEventArgs args)
+	private async Task MyEditHandler(GridCommandEventArgs args)
 	{
+		Console.WriteLine("Edit Click fired. Please wait for the long operation to finish");
+
 		int empId = (args.Item as SampleData).ID;
 
 		//example of cancelling an event based on condition
@@ -88,20 +92,30 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 		{
 			args.IsCancelled = true;
 		}
+
+		await Task.Delay(2000); //simulate actual long running async operation
+		//await httpClient.PutJsonAsync("myApiUrl/" + empId, args.Item as SampleData); //sample HTTP call
 	}
-	
-	private void MyUpdateHandler(GridCommandEventArgs args)
+
+	private async Task MyUpdateHandler(GridCommandEventArgs args)
 	{
+		Console.WriteLine("Update Click fired. Please wait for the long operation to finish");
+
 		SampleData theUpdatedItem = args.Item as SampleData;
 		//save changes, for example by using the model fields and/or methods
 		//we recommend you do this in the corresponding CRUD event
 
 		//if you have a context added through an @inject statement, you could call its SaveChanges() method
 		//myContext.SaveChanges();
+
+		await Task.Delay(2000); //simulate actual long running async operation
+		//await httpClient.PutJsonAsync("myApiUrl/" + theUpdatedItem.ID, theUpdatedItem); //sample HTTP call
 	}
-	
-	private void MyCancelHandler(GridCommandEventArgs args)
+
+	private async Task MyCancelHandler(GridCommandEventArgs args)
 	{
+		Console.WriteLine("Cancel Click fired. Please wait for the long operation to finish");
+
 		SampleData theUpdatedItem = args.Item as SampleData;
 		//revert the changes
 		//we recommend you do this in the corresponding CRUD event
@@ -109,18 +123,26 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 		//if you have a context added through an @inject statement, you could use something like this to abort changes
 		//foreach (var entry in nwContext.ChangeTracker.Entries().Where(entry => entry.State == EntityState.Modified))
 		//{
-		//	entry.State = EntityState.Unchanged;
+		//  entry.State = EntityState.Unchanged;
 		//}
+
+		await Task.Delay(2000); //simulate actual long running async operation
+		//await httpClient.PutJsonAsync("myApiUrl/" + theUpdatedItem.ID, theUpdatedItem); //sample HTTP call
 
 		//inform the view to update
 		StateHasChanged();
 	}
-	
+
 	private MarkupString CustomCommandResult;
 
-	private void MyCustomCommand(GridCommandEventArgs args)
+	private async Task MyCustomCommand(GridCommandEventArgs args)
 	{
+		Console.WriteLine("The Custom command fired. Please wait for the long operation to finish");
+
 		CustomCommandResult = new MarkupString(string.Format("Custom command triggered for item {0}", (args.Item as SampleData).ID));
+
+		await Task.Delay(2000); //simulate actual long running async operation
+		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
 
 		//inform the UI for changes because this sample implementation needs it
 		StateHasChanged();

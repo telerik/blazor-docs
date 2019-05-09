@@ -64,10 +64,11 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 	public async Task EditHandler(GridCommandEventArgs args)
 	{
 		AppendToLog("Edit", args);
-
-		await Task.Delay(1000); //simulate actual long running async operation
 		
 		SampleData item = (SampleData)args.Item;
+		
+		await Task.Delay(1000); //simulate actual long running async operation
+		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
 
 		//prevent opening for edit based on condition
 		if (item.ID < 3)
@@ -88,6 +89,7 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		//myContext.SaveChanges();
 		
 		await Task.Delay(2000); //simulate actual long running async operation
+		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
 
 		var matchingItem = MyData.FirstOrDefault(c => c.ID == item.ID);
 
@@ -109,6 +111,7 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		//myContext.SaveChanges();
 
 		await Task.Delay(2000); //simulate actual long running async operation
+		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
 
 		MyData.Remove(item);
 	}
@@ -125,6 +128,7 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		//myContext.SaveChanges();
 
 		await Task.Delay(2000); //simulate actual long running async operation
+		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
 		
 		item.ID = MyData.Count;
 		MyData.Add(item);
@@ -145,6 +149,7 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		//}
 		
 		await Task.Delay(2000); //simulate actual long running async operation
+		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
 	}
 
 	MarkupString logger;
