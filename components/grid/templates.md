@@ -152,7 +152,7 @@ The column's `EditTemplate` defines the inline template or component that will b
 			<EditorTemplate>
 				@{
 					CurrentlyEditedEmployee = context as SampleData;
-					<select onchange=@SaveRoleToModel value=@CurrentlyEditedEmployee.Role>
+					<select bind=@CurrentlyEditedEmployee.Role>
 						@foreach (string item in Roles)
 						{
 							<option value=@item>@item</option>
@@ -167,11 +167,45 @@ The column's `EditTemplate` defines the inline template or component that will b
 		</TelerikGridCommandColumn>
 	</TelerikGridColumns>
 	<TelerikGridEvents>
-        <EventsManager OnUpdate="@UpdateHandler"></EventsManager>
-    </TelerikGridEvents>
+		<EventsManager OnUpdate="@UpdateHandler"></EventsManager>
+	</TelerikGridEvents>
 </TelerikGrid>
 
 @functions {
+	public SampleData CurrentlyEditedEmployee { get; set; }
+
+	public void UpdateHandler(GridCommandEventArgs args)
+	{
+		SampleData item = (SampleData)args.Item;
+
+		//perform actual data source operations here
+		//if you have a context added through an @inject statement, you could call its SaveChanges() method
+		//myContext.SaveChanges();
+
+		var matchingItem = MyData.FirstOrDefault(c => c.ID == item.ID);
+
+		if (matchingItem != null)
+		{
+			matchingItem.Name = item.Name;
+			matchingItem.Role = item.Role;
+		}
+	}
+
+	protected override void OnInit()
+	{
+		MyData = new List<SampleData>();
+
+		for (int i = 0; i < 50; i++)
+		{
+			MyData.Add(new SampleData()
+			{
+				ID = i,
+				Name = "name " + i,
+				Role = Roles[i % Roles.Count]
+			});
+		}
+	}
+
 	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
 	public class SampleData
 	{
@@ -180,30 +214,9 @@ The column's `EditTemplate` defines the inline template or component that will b
 		public string Role { get; set; }
 	}
 
-	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		ID = x,
-		Name = "name " + x,
-		Role = Roles[x % Roles.Count]
-	});
+	public List<SampleData> MyData { get; set; }
 
 	public static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
-
-	public SampleData CurrentlyEditedEmployee { get; set; }
-
-	public void SaveRoleToModel(UIChangeEventArgs args)
-	{
-		CurrentlyEditedEmployee.Role = args.Value.ToString();
-	}
-	
-	public void UpdateHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-
-        //perform actual data source operations here
-        //if you have a context added through an @inject statement, you could call its SaveChanges() method
-        //myContext.SaveChanges();
-    }
 }
 ````
 
