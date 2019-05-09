@@ -41,7 +41,7 @@ To use Blazor server-side, you need to use the `Razor Components` type of projec
     
        ![](images/manage-nuget-packages-for-server-app.png)
     
-    1. Choose the `telerik.com` feed, find the `Telerik.UI.for.Blazor` package and click `Install` (make sure to use the latest version):
+    1. Choose the `telerik.com` feed, find the **`Telerik.UI.for.Blazor`** package and click `Install` (make sure to use the latest version). If you don't have a commercial license, you will only see `Telerik.UI.for.Blazor.Trial`. Use that instead.
     
          ![Add Telerik Blazor Package to the project](images/add-telerik-nuget-to-server-app.png)
 
