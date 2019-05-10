@@ -16,7 +16,105 @@ The parameter of type `DataSourceRequest` exposes information about the desired 
 
 When the `OnRead` event is used, the internal operations are disabled and you must perform them all in the `OnRead` event. You must also set the `TotalCount` property of the grid to the total number of items in the data source.
 
->caption Handling the data source operations with your own code. This example showcases how to use the OnRead event. To implement the CUD operations, see the [CRUD Operations Overview](editing/overview) article.
+## Examples
+
+Below you can find a few examples of using the `OnRead` event to perform custom data source operations. They may not implement all operations for brevity. They showcase the basics only, and it is up to the application's data access layer to implement them. You can read more about implementing the CUD operations in the [CRUD Operations Overview](editing/overview) article.
+
+The comments in the code provide explanations on what is done and why.
+
+>tip You can also use a synchronous version of the event. Its signature is `void ReadItems(GridReadEventArgs args)`.
+
+>caption Custom paging with a remote service
+
+````CSHTML
+@using Telerik.Blazor.Components.Grid
+
+<TelerikGrid Data=@GridData TotalCount=@Total
+			 Pageable=true PageSize=15>
+	<TelerikGridEvents>
+		<EventsManager OnRead=@ReadItems></EventsManager>
+	</TelerikGridEvents>
+	<TelerikGridColumns>
+		<TelerikGridColumn Field=@nameof(Employee.Id) Title="ID" />
+		<TelerikGridColumn Field=@nameof(Employee.Name) Title="Name" />
+	</TelerikGridColumns>
+</TelerikGrid>
+
+There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
+
+@functions {
+	public List<Employee> GridData { get; set; }
+	public int Total { get; set; } = 0;
+
+	protected async Task ReadItems(GridReadEventArgs args)
+	{
+		Console.WriteLine("data requested: " + args.Request);
+
+		//this is a basic imlementation of custom paging of the grid
+
+		DataEnvelope DataResult = await FetchPagedData(args.Request.Page, args.Request.PageSize);
+
+		//use the current page of data and the total amount of items in the data source that are returned from the service
+		GridData = DataResult.CurrentPageData;
+		Total = DataResult.TotalItemCount;
+
+		StateHasChanged();
+	}
+
+	//This sample implements only reading pages of the data. To add the rest of the CRUD operations see
+	//https://docs.telerik.com/blazor-ui/components/grid/editing/overview
+	//in a real case, the methods and classes below will usually be in dedicated locations/services
+	//this example illustrates the approach
+
+	public async Task<DataEnvelope> FetchPagedData(int pageNumber, int pageSize)
+	{
+		//in a real case, this is likely to be an async HTTP call to a real API
+		//maybe there will even be two separate calls to fetch the current page data, and the total count
+		//Or the server can return the envelope with the count and data. The exact implementation depends on the project
+		
+		List<Employee> fullList =  new List<Employee>();
+		
+		//generate dummy data for the example
+		int totalCount = 100;
+		for (int i = 0; i < totalCount; i++)
+		{
+			fullList.Add(new Employee()
+			{
+				Id = i,
+				Name = "Name " + i,
+			});
+		}
+		//end of dummy data generation
+
+		DataEnvelope result = new DataEnvelope();
+
+		//perform the actual paging operation here or on the server, depending on how your data access layer is designed
+		//send only the current page of data to the grid, and set the total
+		
+		result.CurrentPageData = fullList.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+		result.TotalItemCount = fullList.Count;
+
+		await Task.Delay(2000); //simulate network delay from a real async call
+
+		return result;
+	}
+
+	//this is a middleware class to help transfer all the data in one request
+	public class DataEnvelope
+	{
+		public List<Employee> CurrentPageData { get; set; }
+		public int TotalItemCount { get; set; }
+	}
+
+	public class Employee
+	{
+		public int Id { get; set; }
+		public string Name { get; set; }
+	}
+}
+````
+
+>caption If you have all the data at once, the Telerik .ToDataSourceResult(request) extension method can manage the operations for you
 
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
@@ -42,6 +140,8 @@ When the `OnRead` event is used, the internal operations are disabled and you mu
 		<TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
 	</TelerikGridToolBar>
 </TelerikGrid>
+
+There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 @functions {
 	public List<Employee> SourceData { get; set; }
@@ -100,7 +200,7 @@ When the `OnRead` event is used, the internal operations are disabled and you mu
 }
 ````
 
->tip You can aslso use a synchronous version of the event. Its signature is `void ReadItems(GridReadEventArgs args)`.
+
 
 ## See Also
 

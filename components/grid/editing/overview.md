@@ -58,6 +58,8 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 	</TelerikGridColumns>
 </TelerikGrid>
 
+There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
+
 @logger
 
 @functions {
