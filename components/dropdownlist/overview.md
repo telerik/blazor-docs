@@ -26,7 +26,7 @@ To use a Telerik DropDownList for Blazor
 ````CSHTML
 @using Telerik.Blazor.Components.DropDownList
 
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" ValueChanged="@MyValueChangedHandler" Value="@selectedValue">
+<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" ValueChanged="@MyValueChangedHandler" bind-Value="@selectedValue">
 </TelerikDropDownList>
 
 @functions {
@@ -89,7 +89,7 @@ The DropDownList provides the following features:
 * `TabIndex` - the `tabindex` attribute rendered on the dropdown.
 * `TextField` - the name of the field from the model that will be shown to the user. Defaults to `Text`.
 * `ValueField` - the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
-* `Value` - get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected.
+* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of our own.
 * `Width` - the width of the dropdown in pixels.
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug components/dropdownlist/templates%}) article for more details.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
