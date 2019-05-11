@@ -49,6 +49,37 @@ To control the position of the tab titles, the main tab strip tag exposes the op
 
 ![](images/tabstrip-left.png)
 
+>caption Get selected tab
+
+````CSHTML
+@using Telerik.Blazor.Components.TabStrip
+@using Telerik.Blazor.Components.Button
+
+<TelerikButton OnClick="@WriteActiveTab">Get Active Tab</TelerikButton>
+
+<TelerikTabStrip TabPosition="Telerik.Blazor.Components.TabStrip.TabPosition.Left" ref="@myTabStrip">
+	<TelerikTab Title="First">
+		First tab content.
+	</TelerikTab>
+	<TelerikTab Title="Second">
+		Secont tab content.
+	</TelerikTab>
+	<TelerikTab Title="Third">
+		Third tab content.
+	</TelerikTab>
+</TelerikTabStrip>
+
+@functions {
+	Telerik.Blazor.Components.TabStrip.TelerikTabStrip myTabStrip;
+
+	protected void WriteActiveTab()
+	{
+		Console.WriteLine(myTabStrip.ActiveTab.Title);
+		//the .ActiveTab field of the TabStrip reference exposes the information about the current tab
+	}
+}
+````
+
 >caption Select Tab programmatically
 
 ````CSHTML
