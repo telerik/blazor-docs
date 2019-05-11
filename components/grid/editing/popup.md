@@ -18,6 +18,8 @@ You can also cancel the events by setting the `IsCancelled` property of the even
 
 To enable PopUp editing in the grid, set its `EditMode` property to `popup`, then handle the CRUD events as shown in the example below.
 
+The PopUp editing mode supports [validation]({%slug common-features/input-validation%}). To use it, all you need to do is decorate your model with the desired annotations. Validation errors will be shown in the popup and will prevent the Update operation.
+
 @[template](/_contentTemplates/grid/common-link.md#async-events-link)
 
 >caption The Command buttons and the grid events let you handle data operations in PopUp edit mode
@@ -25,6 +27,7 @@ To enable PopUp editing in the grid, set its `EditMode` property to `popup`, the
 ````CSHTML
 @using Telerik.Blazor
 @using Telerik.Blazor.Components.Grid
+@using System.ComponentModel.DataAnnotations
 
 <strong>Editing is cancelled for the first two records.</strong>
 
@@ -128,6 +131,8 @@ To enable PopUp editing in the grid, set its `EditMode` property to `popup`, the
 	public class SampleData
 	{
 		public int ID { get; set; }
+		
+		[Required(ErrorMessage = "The employee must have a name")]
 		public string Name { get; set; }
 	}
 
