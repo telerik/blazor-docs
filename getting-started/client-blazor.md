@@ -50,7 +50,7 @@ For client-side Blazor, we recommend the usage of `Blazor (ASP.NET Hosted)` proj
 
     **HTML**
     
-        <link id="kendoCss" rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
+        <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
         
 
 1. @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-client)
