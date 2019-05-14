@@ -60,7 +60,7 @@ The numeric textbox provides the following features:
 * `MinLength` - the minimum length of the text input by the user.
 * `Pattern` - the pattern that the user input must match.
 * `Value` - get/set the value of the input, can be used for binding.
-* `Width` - the width of the `input` in pixels.
+* `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 The length, enabled and pattern attributes are HTML attributes on the `<input />` element and it is up to the browser to honor them. For example, the `minlength` attribute is rarely taken into account, and the pattern is usually evaluated only upon form submission.

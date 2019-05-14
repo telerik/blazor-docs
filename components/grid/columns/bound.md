@@ -18,7 +18,7 @@ They are added to the `TelerikGridColumns` tag and are of type `TelerikGridColum
 * `Title` - the text that is rendered in the column header.
 * `Editable` - you can set this property to `true` or `false` to allow or prevent [editing]({%slug components/grid/overview%}#editing) of this field. Defaults to `true`.
 * `Filterable` - you can set this to `false` so a [filterable]({%slug components/grid/filtering%}) grid will not let the user filter that particular column.
-* `Width` - the width of the column in pixels.
+* `Width` - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article. Keep in mind that these are columns in a `<table>`, so it is often a good practice to leave one column without explicit dimensions so it can accommodate the remaining width and changes to the container size.
 * `Template` - this property can also be used as an inner tag and it lets you define the [column display content]({%slug components/grid/features/templates%}#column-template). It can also point to a component name.
 * `Context` - the standard Blazor context variable name for use inside the inline template.
 * `ref` - the standard Blazor reference name.

@@ -64,7 +64,7 @@ The date input provides the following features:
 * `Format` - the date format that the user input must match.
 * `ParsingErrorMessage` - a hint that is displayed to the user through validation when their input cannot be parsed in the required format
 * `Value` - get/set the value of the input, can be used for binding.
-* `Width` - the width of the `input` in pixels.
+* `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 

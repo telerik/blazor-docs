@@ -12,7 +12,7 @@ position: 1
 
 The Window offers two ways for you to control its size:
 
-* the `Width` and `Height` integer properties
+* the [`Width` and `Height` properties]({%slug common-features/dimensions%})
 * predefined dimensions through the `Size` property
 
 >caption Set Width and Height to a Window
@@ -20,7 +20,7 @@ The Window offers two ways for you to control its size:
 ````CSHTML
 @using Telerik.Blazor.Components.Window
 
-<TelerikWindow Width="600" Height="400" Visible="true">
+<TelerikWindow Width="600px" Height="400px" Visible="true">
 	<TelerikWindowTitle>
 		<strong>The Title</strong>
 	</TelerikWindowTitle>

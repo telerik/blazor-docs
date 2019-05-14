@@ -82,8 +82,8 @@ The DropDownList provides the following features:
 * `Data` - allows you to provide the data source. Required.
 * `DefaultItem` - sets the hint that is shown if no other item is selected. Set this property to an instance of the model class to which the dropdown is bound.
 * `Enabled` - whether the component is enabled.
-* `Height` - the height of the main element in pixels.
-* `PopupHeight` - the height of the expanded dropdown list element in pixels.
+* `Height` - the height of the main element. See the [Dimensions]({%slug common-features/dimensions%}) article.
+* `PopupHeight` - the height of the expanded dropdown list element.
 * `T` - the type of the model to which the component is bound. Required. Determines the type of the reference object.
 * `TItem` - the type of the value field from the model to which the component is bound. Required. Determines the type of the reference object.
 * `TabIndex` - the `tabindex` attribute rendered on the dropdown.
@@ -98,7 +98,7 @@ The DropDownList provides the following features:
     * `Guid`
     * `Enum`
 
-* `Width` - the width of the dropdown in pixels.
+* `Width` - the width of the dropdown and the main element.
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug components/dropdownlist/templates%}) article for more details.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 

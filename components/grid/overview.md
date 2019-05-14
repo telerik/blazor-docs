@@ -128,7 +128,7 @@ The grid can filter data automatically. You can read more about thsi feature in 
 
 You can define your own content for column cells or even the entire row through [Templates]({%slug components/grid/features/templates%}).
 
-You can also set the `Height` of the grid in pixels, and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
+You can also set the [`Height` of the grid]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
 
 ## Toolbar
 

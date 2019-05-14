@@ -12,7 +12,7 @@ position: 2
 
 The Window offers two ways for you to control its position:
 
-* the `Top` and `Left` integer properties
+* the [`Top` and `Left` properties]({%slug common-features/dimensions%})
 * the `Centered` boolean property
 
 >caption Set Top and Left offset to the Window
@@ -20,7 +20,7 @@ The Window offers two ways for you to control its position:
 ````CSHTML
 @using Telerik.Blazor.Components.Window
 
-<TelerikWindow Top="50" Left="100" Visible="true">
+<TelerikWindow Top="50px" Left="100px" Visible="true">
 	<TelerikWindowTitle>
 		<strong>The Title</strong>
 	</TelerikWindowTitle>

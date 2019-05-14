@@ -61,13 +61,13 @@ The Date Picker component exposes the following features:
 *  `BottomView` - Defines the bottommost view in the popup calendar to which the user can navigate to. Defaults to `CalendarView.Month`.
 * `DisabledDates` - Specifies a list of dates that can not be selected.
 * `Enabled` - Specifies whether typing in the input is allowed.
-* `Height` - Defines the height of the DatePicker. Defaults to 28.
+* `Height` - Defines the height of the DatePicker. Defaults to `28px`. See the [Dimensions]({%slug common-features/dimensions%}) article.
 * `Format` - Specifies the format of the DateInput of the DatePicker. Defaults to `yyyy-MM-dd`.
-* `PopupHeight` - Defines the height of the DatePicker's Popup. Defaults to 280;
-* `PopupWidth` - Defines the width of the DatePicker's Popup. Defaults to 320.
+* `PopupHeight` - Defines the height of the DatePicker's Popup. Defaults to `280px`.
+* `PopupWidth` - Defines the width of the DatePicker's Popup. Defaults to `320px`.
 * `Value` - The current value of the input. Can be used for binding.
 * `View` - Specifies the current view that will be displayed in the popup calendar.
-* `Width` - Defines the width of the DatePicker. Defaults to 280.
+* `Width` - Defines the width of the DatePicker. Defaults to `280px`.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 The date picker is, essentially, a [date input]({%slug components/dateinput/overview%}) and a [calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
