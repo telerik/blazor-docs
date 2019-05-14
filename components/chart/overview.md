@@ -90,6 +90,62 @@ To use a Telerik chart for Blazor:
 }
 ````
 
+## Chart Size
+
+To control the chart size, use its `Width` and `Height` properties. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+
+You can also set the chart size in percentage values so it occupies its container. If the parent container size changes, you must call its `Resize()` method after the DOM has been redrawn and the new container dimensions are rendered.
+
+>caption Change the 100% chart size dynamically
+
+````CSHTML
+@using Telerik.Blazor
+@using Telerik.Blazor.Components.Chart
+@using Telerik.Blazor.Components.Button
+
+<TelerikButton OnClick="@ResizeChart">Resize the container and redraw the chart</TelerikButton>
+
+<div style="border: 1px solid red;width:@ContainerWidth; height: @ContainerHeight">
+	
+	<TelerikChart Width="100%" Height="100%" ref="@theChart">
+	
+		<TelerikChartSeriesItems>
+			<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@someData">
+			</TelerikChartSeries>
+		</TelerikChartSeriesItems>
+		<TelerikChartCategoryAxes>
+			<TelerikChartCategoryAxis Categories="@xAxisItems"></TelerikChartCategoryAxis>
+		</TelerikChartCategoryAxes>
+		<TelerikChartTitle Text="Quarterly sales trend"></TelerikChartTitle>
+		
+	</TelerikChart>
+
+</div>
+
+@functions {
+	string ContainerWidth { get; set; } = "400px";
+	string ContainerHeight { get; set; } = "300px";
+	Telerik.Blazor.Components.Chart.TelerikChart theChart { get; set; }
+
+	async Task ResizeChart()
+	{
+		//resize the container
+		ContainerHeight = "500px";
+		ContainerWidth = "800px";
+
+		//give time to the framework and browser to resize the actual DOM so the chart can use the expected size
+		await Task.Delay(20);
+
+		//redraw the chart
+		theChart.Refresh();
+	}
+
+	public List<object> someData = new List<object>() { 10, 2, 7, 5 };
+
+	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+}
+````
+
 ## See Also
 
   * [Data Binding]({%slug components/chart/databind%})
