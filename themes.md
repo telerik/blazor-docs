@@ -27,7 +27,7 @@ To use a theme, you must reference its stylesheet in the `<head>` of your main i
 <html>
 <head>
     . . .
-    <link id="kendoCss" rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
 </head>
 <body>
     <app>Loading...</app>
