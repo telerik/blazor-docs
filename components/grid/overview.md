@@ -124,12 +124,6 @@ The grid can sort data automatically. You can read more about this feature in th
 
 The grid can filter data automatically. You can read more about thsi feature in the [Filtering]({%slug components/grid/filtering%}) article.
 
-## Styling
-
-You can define your own content for column cells or even the entire row through [Templates]({%slug components/grid/features/templates%}).
-
-You can also set the [`Height` of the grid]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
-
 ## Toolbar
 
 You can define user actions in a [dedicated toolbar]({%slug components/grid/features/toolbar%}). For the moment, they are mostly custom actions, but in future versions you will be able to add features like exporting there.
@@ -143,6 +137,74 @@ The grid offers several editing modes with different user experience through the
 * `incell` - editing is done [in the current cell]({%slug components/grid/editing/incell%}) with a double click
 * `inline` - editing is done for the [entire row]({%slug components/grid/editing/inline%}) with an [Edit Command Button]({%slug components/grid/columns/command%})
 * `popup` - editing is done in a [popup]({%slug components/grid/editing/popup%}) for the entire row with an [Edit Command Button]({%slug components/grid/columns/command%})
+
+## Styling
+
+You can define your own content for column cells or even the entire row through [Templates]({%slug components/grid/features/templates%}).
+
+You can also set the [`Height` of the grid]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
+
+For example, you can benefit from the elastic design the components expose to change their font size so they change dimensions.
+
+>caption Change font size and dimensions of a grid
+
+````CSHTML
+@using Telerik.Blazor.Components.Grid
+
+<style>
+	div.smallerFont,
+	div.smallerFont .k-filtercell * {
+		font-size: 10px;
+	}
+</style>
+
+<TelerikGrid Data="@MyData" Class="smallerFont"
+			  Pageable="true" Filterable="true" Sortable="true" Height="200">
+	<TelerikGridColumns>
+		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
+		</TelerikGridColumn>
+		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
+		</TelerikGridColumn>
+		<TelerikGridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
+		</TelerikGridColumn>
+	</TelerikGridColumns>
+</TelerikGrid>
+
+original:
+
+<TelerikGrid Data="@MyData"
+			  Pageable="true" Filterable="true" Sortable="true" Height="200">
+	<TelerikGridColumns>
+		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
+		</TelerikGridColumn>
+		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
+		</TelerikGridColumn>
+		<TelerikGridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
+		</TelerikGridColumn>
+	</TelerikGridColumns>
+</TelerikGrid>
+
+@functions {
+	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+	public class SampleData
+	{
+		public int ID { get; set; }
+		public string Name { get; set; }
+		public DateTime HireDate { get; set; }
+	}
+
+	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
+	{
+		ID = x,
+		Name = "name " + x,
+		HireDate = DateTime.Now.AddDays(-x)
+	});
+}
+````
+
+>caption The result from the reduced font size is a reduction in the overall size of the grid elements
+
+![](images/grid-reduced-font-size.png)
 
 ## See Also
 
