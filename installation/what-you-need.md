@@ -42,7 +42,7 @@ To have the Telerik Blazor components look and behave as expected in the browser
     
         <head>
             . . .
-            <link id="kendoCss" rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
+            <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
         </head>
 
 * Our JS Interop file. It provides features that cannot be implemented with native Blazor. You need to
