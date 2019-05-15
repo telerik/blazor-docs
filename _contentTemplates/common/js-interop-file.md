@@ -22,7 +22,7 @@
 
         <head>
           . . .
-          <script src="https://kendo.cdn.telerik.com/blazor/1.0.0/telerik-blazor.min.js" defer></script>
+          <script src="https://kendo.cdn.telerik.com/blazor/1.1.0/telerik-blazor.min.js" defer></script>
         </head>
 
     Make sure that the version in the URL matches the version of the Telerik Blazor package used in your project.
