@@ -220,6 +220,8 @@ navigation:
         
 ## introduction article columns. Use the slugs in the items collection
 
+api_reference_url: "api/"
+
 intro_columns:
 -
   categories:
