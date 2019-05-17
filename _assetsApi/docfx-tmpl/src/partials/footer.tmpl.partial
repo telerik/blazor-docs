@@ -1,0 +1,219 @@
+﻿<div id="footer" class="container-fluid pb-40">
+  
+<div class="row feedback-row mb-60">
+   <div class="col-sm-8 col-sm-offset-4 col-md-offset-3 col-lg-8 col-lg-offset-2">
+       <div class="row">
+           <div class="col-md-10 col-md-offset-1">
+               <div class="row feedback">
+                   <div class="col-xs-8">
+                       <h4>Was this article helpful?</h4>
+                   </div>
+                   <div class="col-xs-4 text-right">
+                       <button data-value="yes" id="yesButton">Yes</button>
+                       &nbsp;/&nbsp;
+                       <button data-value="no" id="noButton">No</button>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+
+<div class="dialog-overlay">
+    <div class="feedback-dialog dialog dialog-enter">
+        <div id="feedback-container">
+        <div id="feedback-window-container">
+            <div id="feedback-form-window">
+            <h3 class="mt-0 mb-5">Give article feedback</h3>
+            <p>Tell us how we can improve this article</p>
+            <span id="feedback-form-popup-container"></span>
+            <form id="feedback-form">
+                <div id="feedback-checkbox-area">
+                <input id="hidden-sheet-id" type="hidden" value="0c41d166-7ba6-3500-20d5-609d41442f92">
+                <label>
+                    <input type="checkbox" data-bind="checked: outdatedSample" /> Code samples are inaccurate / outdated.
+                </label>
+                <span class="required-field" data-bind="visible: outdatedSample"></span>
+                <textarea id="feedback-code-sample-text-input" placeholder="Please, specify more details ..." class="feedback-extw__textarea"
+                    data-bind="visible: outdatedSample, value: inaccurateOutdatedCodeSamplesText">
+                </textarea>
+                <label>
+                    <input type="checkbox" data-bind="checked: otherMoreInformation" /> I expected to find other / more information.
+                </label>
+                <span class="required-field" data-bind="visible: otherMoreInformation"></span>
+                <textarea id="feedback-more-information-text-input" class="feedback-extw__textarea" placeholder="Please, specify what information can be added ..."
+                    data-bind="visible: otherMoreInformation, value: otherMoreInformationText">
+                </textarea>
+                <label>
+                    <input type="checkbox" data-bind="checked: textErrors" /> There are typos / broken links / broken page elements.
+                </label>
+                <span class="required-field" data-bind="visible: textErrors"></span>
+                <textarea id="feedback-text-errors-text-input" class="feedback-extw__textarea" placeholder="Please, specify what needs to be fixed ..."
+                    data-bind="visible: textErrors, value: typosLinksElementsText">
+                </textarea>
+                <label>
+                    <input type="checkbox" data-bind="checked: inaccurateContent" /> Content is inaccurate / outdated.
+                </label>
+                <span class="required-field" data-bind="visible: inaccurateContent"></span>
+                <textarea id="feedback-inaccurate-content-text-input" class="feedback-extw__textarea" placeholder="Please, specify which conent ..."
+                    data-bind="visible: inaccurateContent, value: inaccurateOutdatedContentText">
+                </textarea>
+                <label>
+                    <input type="checkbox" data-bind="checked: otherFeedback" /> Other
+                </label>
+                <span class="required-field" data-bind="visible: otherFeedback"></span>
+                <textarea id="feedback-other-text-input" placeholder="Please, enter more details or not listed feedback ..." class="feedback-extw__textarea"
+                    data-bind="visible: otherFeedback, value: textFeedback">
+                </textarea>
+                <input id="feedback-email-input" type="email" placeholder="email (optional)" data-email-msg="Email format is not valid."
+                    class="feedback-extw__input input" data-bind="value: email" />
+                  <label>
+                    <input type="checkbox" data-bind="checked: acceptFeedbackContact" /> By checking this box you consent to Progress contacting you by email about your response on this page.
+                  </label>
+                </div>
+            </form>
+            <div class="feedback-extw__foot">
+                <p class="mt-30 mb-0" style="text-align: right;">
+                <button class="button ghost dialog-hide">Cancel</button>
+                <button class="button dialog-hide" type="submit">Submit</button>
+                </p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+  <script>
+  $(document).ready(function() {
+  initFeedbackForm({
+  dialog: ".dialog-overlay",
+  closeButtons: ".dialog-hide",
+  container: ".feedback"
+  });
+  });
+</script>
+
+  <script>
+  $(".read-prev").hover(function() {
+  $(".title-prev").show();
+  }, function() {
+  $(".title-prev").hide();
+  });
+
+  $(".read-next").hover(function() {
+  $(".title-next").show();
+  }, function() {
+  $(".title-next").hide();
+  });
+
+  $(".all-components").click(function() {
+  $(".all-components").toggleClass("show-components");
+  $('.sidetoggle').toggleClass("collapse");
+  $('.sidetoc').toggleClass("show-components");
+  $(".sidefilter").toggleClass("show-components");
+  });
+</script>
+
+
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="row">
+        <div class="col-md-12 col-lg-10 col-lg-offset-1">
+          <div class="row">
+            <div class="col-sm-4 mb-20">
+                <h6 class="mt-0 mb-10">Getting Started</h6>
+                <ul class="list-unstyled">
+                  
+                    <li><a href="https://docs.telerik.com/blazor/getting-started/client-blazor" target="_blank">Client-side Blazor</a></li>
+                  
+                    <li><a href="https://docs.telerik.com/blazor/getting-started/server-blazor" target="_blank">Server-side Blazor</a></li>
+                  
+                    <li><a href="https://demos.telerik.com/blazor-ui" target="_blank">Demos</a></li>
+                  
+                </ul>
+            </div>
+          
+            <div class="col-sm-4 mb-20">
+                <h6 class="mt-0 mb-10">Community</h6>
+                <ul class="list-unstyled">
+                  
+                    <li><a href="https://www.telerik.com/forums/blazor" target="_blank">Forums</a></li>
+                  
+                    <li><a href="https://www.telerik.com/blogs/tag/blazor" target="_blank">Blogs</a></li>
+                  
+                    <li><a href="https://feedback.telerik.com/blazor" target="_blank">Feedback Portal</a></li>
+                  
+                </ul>
+            </div>
+          
+            <div class="col-sm-4 mb-20">
+                <h6 class="mt-0 mb-10">Sample Applications</h6>
+                <ul class="list-unstyled">
+                  
+                    <li><a href="https://demos.telerik.com/blazor-dashboard-app/" target="_blank">Dashboard</a></li>
+                  
+                </ul>
+            </div>
+          
+        
+          </div>
+          <div class="row copyright">
+            <div class="col-sm-4 social-icons">
+              <span class="sticky">
+                <a class="social-icon" href="https://www.facebook.com/Telerik/" title=""><!--?xml version="1.0" encoding="utf-8"?-->
+                <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+                
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+                <path d="M13.766,32.155V17.559H8.854V11.87h4.912V7.675c0-4.869,2.973-7.52,7.316-7.52c2.08,0,3.868,0.155,4.39,0.224v5.088
+                  l-3.013,0.001c-2.362,0-2.819,1.122-2.819,2.769v3.632h5.634l-0.734,5.688H19.64v14.597H13.766z"></path>
+                </svg>
+                </a>
+                            <a class="social-icon" href="https://twitter.com/Telerik/" title=""><!--?xml version="1.0" encoding="utf-8"?-->
+                <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+                
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+                <path fill="#231F20" d="M32,6.076c-1.178,0.522-2.442,0.875-3.771,1.034c1.355-0.813,2.396-2.1,2.887-3.632
+                  c-1.269,0.752-2.674,1.298-4.169,1.593c-1.198-1.276-2.904-2.073-4.792-2.073c-3.626,0-6.566,2.939-6.566,6.565
+                  c0,0.515,0.058,1.016,0.17,1.496C10.303,10.785,5.466,8.171,2.228,4.199c-0.565,0.97-0.889,2.097-0.889,3.3
+                  c0,2.278,1.159,4.287,2.92,5.464c-1.076-0.034-2.088-0.329-2.974-0.821c0,0.027,0,0.055,0,0.083c0,3.181,2.263,5.834,5.267,6.438
+                  c-0.551,0.15-1.131,0.23-1.73,0.23c-0.423,0-0.834-0.041-1.235-0.118c0.835,2.608,3.26,4.507,6.133,4.56
+                  c-2.247,1.761-5.078,2.811-8.154,2.811c-0.53,0-1.052-0.031-1.566-0.092c2.905,1.862,6.356,2.949,10.064,2.949
+                  c12.076,0,18.679-10.004,18.679-18.679c0-0.285-0.007-0.568-0.02-0.849C30.007,8.549,31.12,7.393,32,6.076"></path>
+                </svg>
+                </a>
+                            <a class="social-icon" href="https://www.youtube.com/user/TelerikInc" title=""><!--?xml version="1.0" encoding="utf-8"?-->
+                <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+                
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                <path d="M506.887,153.632c0,0-5.003-35.283-20.354-50.82c-19.469-20.393-41.293-20.494-51.301-21.687
+                c-71.647-5.179-179.121-5.179-179.121-5.179h-0.223c0,0-107.472,0-179.121,5.179c-10.008,1.194-31.824,1.295-51.301,21.687
+                c-15.351,15.537-20.346,50.82-20.346,50.82S0,195.065,0,236.497v38.843c0,41.433,5.12,82.865,5.12,82.865
+                s4.995,35.283,20.346,50.82c19.476,20.393,45.06,19.748,56.455,21.885C122.883,434.839,256,436.054,256,436.054
+                s107.585-0.162,179.232-5.341c10.008-1.194,31.831-1.295,51.301-21.687c15.351-15.537,20.354-50.82,20.354-50.82
+                S512,316.773,512,275.341v-38.843C512,195.065,506.887,153.632,506.887,153.632z M203.87,322.913v-144.36l137.342,72.18 L203.87,322.913z"></path>
+                </svg></a>
+                            <a class="social-icon" href="https://www.linkedin.com/showcase/telerik/" title=""><!--?xml version="1.0" encoding="utf-8"?-->
+                <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+                
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+                <path d="M7.81,29V9.652H1.379V29H7.81z M4.596,7.009c2.243,0,3.638-1.486,3.638-3.342C8.192,1.768,6.838,0.324,4.638,0.324
+                  C2.438,0.324,1,1.768,1,3.667c0,1.856,1.396,3.342,3.554,3.342H4.596L4.596,7.009z M11.37,29h6.43V18.195
+                  c0-0.579,0.042-1.156,0.213-1.569c0.465-1.155,1.521-2.352,3.3-2.352c2.325,0,3.257,1.774,3.257,4.375v10.35H31V17.906
+                  c0-5.943-3.173-8.708-7.404-8.708c-3.469,0-4.992,1.939-5.838,3.259H17.8V9.651h-6.43C11.454,11.467,11.37,28.999,11.37,29L11.37,29
+                  z"></path>
+                </svg>
+                </a>
+              </span>
+            </div>
+            <div class="col-sm-8">
+              <p>Copyright © 2019 Progress Software Corporation and/or its subsidiaries or affiliates.<br> All Rights Reserved.</p>
+    
+              <p>Progress, Telerik, and certain product names used herein are trademarks or registered trademarks of Progress Software Corporation and/or one of its subsidiaries or affiliates in the U.S. and/or other countries. See <a href="https://www.progress.com/legal/trademarks">Trademarks</a> for appropriate markings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>

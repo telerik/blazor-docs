@@ -1,0 +1,47 @@
+<div id="navbar" class="nav navbar-collapse row">
+<div class="col-xs-2">
+   <a class="button all-components" ><span class="item-expanded"></span></a>
+   <span class="k-icon all-components-expanded-icon"></span>
+</div>
+<div class="global-search">
+   <form action="/blazor-ui/search" method="get">
+      <div class="search-input-container">
+         <input id="local-search" placeholder="Search for &hellip;" name="q" />
+         <div id='refine-search-container'>
+            <div id='refine-search-button' class='unselectable'>
+               <span id='refine-search-label' data-bind='text: label'></span>
+               <span class='k-icon k-i-arrow-chevron-down'></span>
+            </div>
+         </div>
+         <div id="refine-search-popup" style="display: none">
+            <ul>
+               <li>
+                  <label class="custom-checkbox unselectable">
+                  <input type="checkbox"  disabled="true"  data-bind="checked: documentation" /><span class="k-icon k-i-check"></span>Search in Documentation
+                  </label>
+               </li>
+               <li>
+                  <label class="custom-checkbox unselectable">
+                  <input type="checkbox"  data-bind="checked: kb" /><span class="k-icon k-i-check"></span>Search in Knowledge Base
+                  </label>
+               </li>
+               <li>
+                  <label class="custom-checkbox unselectable">
+                  <input type="checkbox"  data-bind="checked: api" /><span class="k-icon k-i-check"></span>Search in API Reference
+                  </label>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </form>
+   <script>
+      var gcsInstance = '001595215763381649090:3v0klcxtf1c';
+      var gcsKey = 'AIzaSyDqCekEzmMvnB7i00Xcw_Vy43a7-wePuXQ';
+      isKbPage =  false ;
+      siteHasKbPortal = 'true'
+   </script>
+   <script type="text/javascript" src="/blazor-ui/assets/search-results-static"></script>
+   <!-- NOTE: this is a static copy of the search-results.js file from the actual _assets folder. In case of issues, update it again, because a static link can't be provided here
+   because of the cache buster that is done during build-time of the main content. This version is taken on 17 May 2019 -->
+  </div>
+</div>
