@@ -159,7 +159,7 @@ For example, you can benefit from the elastic design the components expose to ch
 </style>
 
 <TelerikGrid Data="@MyData" Class="smallerFont"
-			  Pageable="true" Filterable="true" Sortable="true" Height="200">
+			  Pageable="true" Filterable="true" Sortable="true" Height="200px">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
 		</TelerikGridColumn>
@@ -173,7 +173,7 @@ For example, you can benefit from the elastic design the components expose to ch
 original:
 
 <TelerikGrid Data="@MyData"
-			  Pageable="true" Filterable="true" Sortable="true" Height="200">
+			  Pageable="true" Filterable="true" Sortable="true" Height="200px">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
 		</TelerikGridColumn>
