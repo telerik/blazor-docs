@@ -12,7 +12,7 @@ position: 1
 
 This article explains how to add the private Telerik NuGet feed to your system. You can use it to obtain the Telerik UI for Blazor components.
 
-If you already have that working (for exapmle, you have used other tools of ours through it), you can add the Telerik Components to your project - both [client-side Blazor]({%slug getting-started/client-side%}) and [server-side Blazor]({%slug getting-started/server-side%}).
+>tip Once you have the feed working, you can add the Telerik components to your project - both [client-side Blazor](../getting-started/client-blazor) and [server-side Blazor](../getting-started/server-blazor). You can also find more details in the [What You Need](what-you-need) article.
 
 ## Add the Telerik Private NuGet Feed to Your System
 
@@ -56,6 +56,11 @@ NuGet Sources Update -Name "telerik.com" -Source "https://nuget.telerik.com/nuge
       -UserName "your login email" -Password "your password" ^
       -StorePasswordInClearText
 ```
+
+## Next Steps
+
+@[template](/_contentTemplates/common/get-started.md#after-install)
+
 
 ## See Also
 
