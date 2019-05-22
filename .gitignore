@@ -18,9 +18,8 @@
 /favicon.ico
 /fonts/
 /styles/
-_site
-api/
-api/aspnet-mvc
+/_site
+/api/
 bs-config.js
 build-docs.sh
 copy_content.sh
