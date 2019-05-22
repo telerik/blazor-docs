@@ -13,13 +13,13 @@
 /_includes/
 /_layouts/
 /_plugins/
+/_site
 /_templates/
+/api/
 /docs-watcher/
 /favicon.ico
 /fonts/
 /styles/
-/_site
-/api/
 bs-config.js
 build-docs.sh
 copy_content.sh

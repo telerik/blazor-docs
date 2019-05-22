@@ -92,4 +92,4 @@ The API reference section of the documentation contains a list and descriptions 
 > For example, if you are looking for details on the `TelerikWindow` component, look for the `TelerikWindowBase` class.
 
 
-> This documentation refers to the latest version of Telerik UI for WinForms.
+This documentation refers to the latest version of Telerik UI for Blazor.
