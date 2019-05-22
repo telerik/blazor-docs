@@ -19,6 +19,7 @@ To use the animation container, add the `TelerikAnimationContainer` tag.
 ````CSHTML
 @using Telerik.Blazor.Components.AnimationContainer
 @using Telerik.Blazor.Components.Button
+@using Telerik.Blazor
 
 <TelerikAnimationContainer Top="300px" Width="100px" Height="100px" Visible="@Shown" AnimationType="AnimationType.ZoomOut" Class="k-popup">
 	My content goes here. The "k-popup" class adds some background and borders which you can define through your own styles instead.
@@ -63,6 +64,7 @@ The animation container exposes the following properties:
 ````
 @using Telerik.Blazor.Components.AnimationContainer
 @using Telerik.Blazor.Components.Button
+@using Telerik.Blazor
 
 <TelerikAnimationContainer Top="300px" Width="100px" Height="100px" Visible="@Shown" AnimationType="@AnimType" Class="my-popup">
 	My content goes here.
@@ -97,4 +99,4 @@ The animation container exposes the following properties:
 
 ## See Also
 
-  * [Live Demos: Animation Container](https://demos.telerik.com/blazor-ui/animation/index)
+  * [Live Demos: Animation Container](https://demos.telerik.com/blazor-ui/animationcontainer/index)
