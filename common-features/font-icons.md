@@ -31,6 +31,32 @@ You can find the full list of available icons in the [Kendo UI Web Font Icons Li
 
 ![](images/telerik-button-with-icon.png)
 
+>tip You can also render a standalone icon through a component we provide.
+
+>caption Render a standalone font icon through the TelerikIcon component
+
+````CSHTML
+@using Telerik.Blazor
+@using Telerik.Blazor.Components
+
+<TelerikIcon IconName="@IconName.Audio" /> @* will render the audio speaker icon *@
+
+<TelerikIcon Class="oi oi-home" /> @* home icon from OpenIconic, assuming you have loaded the font on the page *@
+
+<TelerikIcon Class="my-font-icon-class" /> @* In this simple example, the built-in Telerik icon font matching the glyph position will be used, unless you provide an actual font icon of your own to override the values *@
+
+<style>
+	.my-font-icon-class::before {
+		font: myFontIconFont; /* use actual font icon font */
+		content: "\e123"; /* use actual glyph position */
+	}
+</style>
+````
+
+>caption The result from the snippet above
+
+![](images/standalone-font-icons.png)
+
 
 ## See Also
 
