@@ -33,7 +33,7 @@ To control the position of the tab titles, the main tab strip tag exposes the op
 		First tab content.
 	</TelerikTab>
 	<TelerikTab Title="Second" Disabled="true">
-		Secont tab content. This tab is disabled and you cannot select it.
+		Second tab content. This tab is disabled and you cannot select it.
 	</TelerikTab>
 	<TelerikTab Title="Third">
 		Third tab content.
@@ -62,7 +62,7 @@ To control the position of the tab titles, the main tab strip tag exposes the op
 		First tab content.
 	</TelerikTab>
 	<TelerikTab Title="Second">
-		Secont tab content.
+		Second tab content.
 	</TelerikTab>
 	<TelerikTab Title="Third">
 		Third tab content.
@@ -93,7 +93,7 @@ To control the position of the tab titles, the main tab strip tag exposes the op
 		<TelerikButton OnClick="@SelectSecondTab">Select the second tab</TelerikButton>
 	</TelerikTab>
 	<TelerikTab Title="Second" ref="@chosenTab">
-		Secont tab content.
+		Second tab content.
 	</TelerikTab>
 	<TelerikTab Title="Third">
 		Third tab content.
