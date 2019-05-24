@@ -50,7 +50,7 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 <br />@CustomCommandResult
 
 <TelerikGrid Data=@GridData EditMode="inline"
-			 Pageable="true" PageSize="15">
+			 Pageable="true" PageSize="15" Height="500px">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />
 		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />

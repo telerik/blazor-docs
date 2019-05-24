@@ -31,7 +31,7 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 
 <strong>Editing is cancelled for the first two records.</strong>
 
-<TelerikGrid Data=@MyData EditMode="popup" Pageable="true">
+<TelerikGrid Data=@MyData EditMode="popup" Pageable="true" Height="500px">
 	<TelerikGridEvents>
 		<EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler"></EventsManager>
 	</TelerikGridEvents>

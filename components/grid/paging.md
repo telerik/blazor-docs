@@ -23,7 +23,7 @@ You can set the current page of the grid through its integer `Page` property.
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data="@MyData" Pageable=true PageSize=15 Page=2>
+<TelerikGrid Data="@MyData" Pageable="true" PageSize="15" Page="2" Height="500px">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field="ID"></TelerikGridColumn>
 		<TelerikGridColumn Field="TheName" Title="Employee Name"></TelerikGridColumn>

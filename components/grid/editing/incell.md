@@ -26,7 +26,7 @@ To enable InCell editing mode, set the `EditMode` property of the grid to `incel
 
 <strong>Click a cell, edit it and click outside of the cell to see the change. Editing is prevented for the first two items.</strong>
 
-<TelerikGrid Data=@MyData EditMode="incell" Pageable="true">
+<TelerikGrid Data=@MyData EditMode="incell" Pageable="true" Height="500px">
 	<TelerikGridEvents>
 		<EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler"></EventsManager>
 	</TelerikGridEvents>

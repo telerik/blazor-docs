@@ -39,7 +39,7 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 
 <strong>Editing is cancelled for the first two records.</strong>
 
-<TelerikGrid Data=@MyData EditMode="inline" Pageable="true">
+<TelerikGrid Data=@MyData EditMode="inline" Pageable="true" Height="400px">
 	<TelerikGridEvents>
 		<EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler"></EventsManager>
 	</TelerikGridEvents>

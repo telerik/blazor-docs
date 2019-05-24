@@ -35,7 +35,7 @@ The example below shows how to:
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data="@MyData">
+<TelerikGrid Data="@MyData" Height="500px">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field="@(nameof(SampleData.ID))" Title="Photo">
 			<Template>
@@ -98,7 +98,7 @@ You can use the `Context` attribute of the `<RowTemplate>` tag of the grid to se
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data=@MyData>
+<TelerikGrid Data=@MyData Height="500px">
 	<RowTemplate Context="employee">
 		<td>
 			<img class="rounded-circle" src="@($"/images/{employee.ID}.jpg")" alt="employee photo" />
@@ -139,12 +139,16 @@ You can use the `Context` attribute of the `<RowTemplate>` tag of the grid to se
 
 The column's `EditTemplate` defines the inline template or component that will be rendered when the user is [editing]({%slug components/grid/overview%}#editing) the field.
 
+You can data bind components in it to the current context, which is an instance of the model the grid is bound to. You will need a global variable that is also an instance of the model to store those changes.
+
+If you need to perform logic more complex than simple data binding, use the change event of the custom editor component to perform it. You can also consider using a [custom edit form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form).
+
 >caption Sample edit template
 
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data=@MyData EditMode="inline" Pageable="true">
+<TelerikGrid Data=@MyData EditMode="inline" Pageable="true" Height="500px">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" />
 		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />

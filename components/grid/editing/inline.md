@@ -28,7 +28,7 @@ To enable Inline editing in the grid, set its `EditMode` property to `inline`, t
 
 <strong>Editing is cancelled for the first two records.</strong>
 
-<TelerikGrid Data=@MyData EditMode="inline" Pageable="true">
+<TelerikGrid Data=@MyData EditMode="inline" Pageable="true" Height="500px">
 	<TelerikGridEvents>
 		<EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler"></EventsManager>
 	</TelerikGridEvents>

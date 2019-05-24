@@ -29,7 +29,7 @@ You can filter more than one column at a time, and all filter rules will be appl
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data=@GridData Filterable=true Pageable=true>
+<TelerikGrid Data=@GridData Filterable="true" Pageable="true" Height="400px">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field=@nameof(Employee.Name) />
 		<TelerikGridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />
