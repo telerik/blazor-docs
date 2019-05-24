@@ -16,22 +16,39 @@ To create a basic Telerik Grid:
 
 1. use the `TelerikGrid` tag
 1. set its `Data` attribute to the variable that will hold your collection of data
-1. under its `TelerikGridColumns` tag, set the desired [`TelerikGridColumn`]({%slug components/grid/columns/bound%}) instances whose `Field` property points to the name of the model
+1. under its `TelerikGridColumns` tag, set the desired [`TelerikGridColumn`]({%slug components/grid/columns/bound%}) instances whose `Field` property points to the name of the model field
 
->caption Basic example of binding a grid to some data
+>caption Get started with a grid by providing it with a data collection
 
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data="@MyData">
+<TelerikGrid Data="@MyData" Height="300px" Pageable="true" Sortable="true">
 	<TelerikGridColumns>
-		<TelerikGridColumn Field="ID"></TelerikGridColumn>
-		<TelerikGridColumn Field="TheName" Title="Employee Name"></TelerikGridColumn>
+		<TelerikGridColumn Field="@(nameof(SampleData.Id))" />
+		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
+		<TelerikGridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
 	</TelerikGridColumns>
 </TelerikGrid>
 
 @functions {
-	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
+	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
+	{
+		Id = x,
+		Name = "name " + x,
+		HireDate = DateTime.Now.AddDays(-x)
+	});
+	
+	public class SampleData
+	{
+		public int Id { get; set; }
+		public string Name { get; set; }
+		public DateTime HireDate { get; set; }
+	}
+
+	//in a real case, consider fetching the data in an appropriate event like OnInitAsync
+	//also, consider keeping the models in dedicated locations like a shared library
+	//this is just an example that is easy to copy and run
 }
 ````
 
@@ -39,41 +56,7 @@ To create a basic Telerik Grid:
 
 ![](images/basic-grid.png)
 
->tip In a real case, you will probably be binding the grid to an actual model. You can use the `nameof` C# operator to provide the names of the fields to the `Field` property of the column.
-
->caption Example of populating the `Field` from the model name to ensure type-safety:
-
-````CSHTML
-@using Telerik.Blazor.Components.Grid
-
-<TelerikGrid Data="@MyData">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
-		</TelerikGridColumn>
-		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-		</TelerikGridColumn>
-		<TelerikGridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
-		</TelerikGridColumn>
-	</TelerikGridColumns>
-</TelerikGrid>
-
-@functions {
-    //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-		public DateTime HireDate { get; set; }
-	}
-
-	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		ID = x,
-		Name = "name " + x,
-		HireDate = DateTime.Now.AddDays(-x)
-	});
-}
-````
+>tip You can also use a string for the field name, using the `nameof` operator is not necessary. For example, the ID column can be defined like this: `<TelerikGridColumn Field="Id" />`.
 
 ## Reference
 
@@ -94,20 +77,20 @@ The grid is a generic component, and to store a reference, you must use the mode
 </TelerikGrid>
 
 @functions {
-    TelerikGrid<SampleData> theGridReference;
-
-    //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-	}
+	TelerikGrid<SampleData> theGridReference;
 
 	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
 	{
 		ID = x,
 		Name = "name " + x
 	});
+
+	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+	public class SampleData
+	{
+		public int ID { get; set; }
+		public string Name { get; set; }
+	}
 }
 ````
 
