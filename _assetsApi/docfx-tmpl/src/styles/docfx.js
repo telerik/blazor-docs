@@ -519,7 +519,7 @@ $(function () {
                   $(e).breakWord();
               });
 
-              $('#sidetoc .sidetoc').prepend(" <span style='text-transform:  uppercase;text-transform: uppercase;transition: background-color .1s, padding .1s, font-weight .1s;font-weight: 500;color: #4b4e52 !important;font-size: 15px;font-family: &quot;Roboto&quot;, Helvetica, Arial, sans-serif;line-height: 1.4em;text-overflow:  ellipsis;'><a href='/devtools/winforms/introduction.html' style='margin-left: 10px; color: #4b4e52 !important;'>Documentation</a></span>")
+              $('#sidetoc .sidetoc').prepend(" <span style='text-transform:  uppercase;text-transform: uppercase;transition: background-color .1s, padding .1s, font-weight .1s;font-weight: 500;color: #4b4e52 !important;font-size: 15px;font-family: &quot;Roboto&quot;, Helvetica, Arial, sans-serif;line-height: 1.4em;text-overflow:  ellipsis;'><a href='/blazor-ui/introduction' style='margin-left: 10px; color: #4b4e52 !important;'>Go to the main documentation</a></span>")
 
               renderSidebar();
               $('input#toc_filter_input').attr('placeholder', 'Filter');
