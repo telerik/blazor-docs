@@ -13,7 +13,7 @@ blockquote {
   min-height: 70px;
   padding: 24px 80px;
   background-color: #f9edc6;
-  background-image: url("/devtools/winforms/assets/important-icon.svg");
+  background-image: url("/blazor-ui/assets/important-icon.svg");
   color: #fff;
   background-repeat: no-repeat;
   background-size: 48px;
@@ -47,13 +47,13 @@ blockquote {
     color: #4f5d6c; }
   blockquote.important {
     background-color: #f9edc6;
-    background-image: url("/devtools/winforms/assets/important-icon.svg"); }
+    background-image: url("/blazor-ui/assets/important-icon.svg"); }
   blockquote.caution {
     background-color: #f7e1df;
-    background-image: url("/devtools/winforms/assets/caution-icon.svg"); }
+    background-image: url("/blazor-ui/assets/caution-icon.svg"); }
   blockquote.tip {
     background-color: #e4f1df;
-    background-image: url("/devtools/winforms/assets/tip-icon.svg"); }
+    background-image: url("/blazor-ui/assets/tip-icon.svg"); }
 
 
 article:not(.api-reference)>p:first-child, article:not(.api-reference) h1+p {
