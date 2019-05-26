@@ -40,8 +40,6 @@
       isKbPage =  false ;
       siteHasKbPortal = 'true'
    </script>
-   <script type="text/javascript" src="/blazor-ui/assets/search-results-static"></script>
-   <!-- NOTE: this is a static copy of the search-results.js file from the actual _assets folder. In case of issues, update it again, because a static link can't be provided here
-   because of the cache buster that is done during build-time of the main content. This version is taken on 17 May 2019 -->
+   <script type="text/javascript" src="/blazor-ui/assets/search-results.js"></script>
   </div>
 </div>
