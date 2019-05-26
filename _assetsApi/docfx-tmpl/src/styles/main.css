@@ -79,7 +79,7 @@ a.all-components {
   margin-left: 15px;
   margin-right: 10px;
   background-color: #fff;
-  background-image: url("/devtools/winforms/assets/article-menu.svg");
+  background-image: url("/blazor-ui/assets/article-menu.svg");
   background-repeat: no-repeat;
   background-position: left 11px top 50%; 
 }
@@ -89,7 +89,7 @@ span.all-components-expanded-icon {
   position: absolute;
   top: 10px;
   left: 80px;
-  background-image: url("/devtools/winforms/assets/group-expand-collapse.svg");
+  background-image: url("/blazor-ui/assets/group-expand-collapse.svg");
   background-repeat: no-repeat; }
 
 a.all-components.button {
@@ -203,7 +203,7 @@ a.all-components::after {
     font-size: 14px;
     font-family: "Roboto", Helvetica, Arial, sans-serif;
     outline: none;
-    background-image: url("/devtools/winforms/assets/search.svg");
+    background-image: url("/blazor-ui/assets/search.svg");
     background-repeat: no-repeat;
     background-position: 10px 50%;
     background-size: 16px;
@@ -223,7 +223,7 @@ a.all-components::after {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   outline: none;
   color: #36393f;
-  background: url("/devtools/winforms/assets/search.svg") #fff no-repeat 10px 50%;
+  background: url("/blazor-ui/assets/search.svg") #fff no-repeat 10px 50%;
   -webkit-transition: border-color .2s, box-shadow .2s;
   transition: border-color .2s, box-shadow .2s;
   box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.05); }
@@ -1471,7 +1471,7 @@ body .toc {
   height: 14px;
   position: absolute;
   content: " ";
-  background: url("/devtools/winforms/assets/article.svg") no-repeat 50% 50%;
+  background: url("/blazor-ui/assets/article.svg") no-repeat 50% 50%;
 }
 
 .toc .nav>li>a {
@@ -1525,7 +1525,7 @@ body .toc {
 }
 
 .toc .nav>li.in.active>.expand-stub~a::before, .toc .nav>li.in>.expand-stub~a::before, .toc .nav>li.filtered>.expand-stub~a::before {
-  background: url("/devtools/winforms/assets/group-expand-collapse.svg") no-repeat 50% 50%;
+  background: url("/blazor-ui/assets/group-expand-collapse.svg") no-repeat 50% 50%;
   color: #979797;
   content: "";
   width: 36px;
@@ -1537,7 +1537,7 @@ body .toc {
 }
 
 .toc .nav>li>.expand-stub~a::before, .toc .nav>li.active>.expand-stub~a::before {
-  background: url("/devtools/winforms/assets/group-expand-collapse.svg") no-repeat 50% 50%;
+  background: url("/blazor-ui/assets/group-expand-collapse.svg") no-repeat 50% 50%;
   color: #979797;
   content: "";
   width: 36px;
@@ -1789,6 +1789,7 @@ body .toc {
   display: block;
 }
 
+/*
 #navbar .navbar-brand.brand-platform-winforms {
   background: transparent url("/devtools/winforms/assets/logo-winforms.svg") no-repeat 0 50%;
 }
@@ -1818,6 +1819,7 @@ body .toc {
 #navbar .navbar-brand .alt-text {
   visibility: hidden;
 }
+*/
 
 #navbar .navbar-brand::after {
   display: none;
@@ -2151,7 +2153,7 @@ body .toc {
   border: 0;
   width: 32px;
   height: 32px;
-  background: url("/devtools/winforms/assets/close.svg") no-repeat 50% 50%;
+  background: url("/blazor-ui/assets/close.svg") no-repeat 50% 50%;
 }
 
 .button-close span {
@@ -2882,8 +2884,8 @@ p.lead {
 
 @font-face {
   font-family: 'WebComponentsIcons';
-  src: url("/devtools/winforms/assets/WebComponentsIcons.eot");
-  src: url("/devtools/winforms/assets/WebComponentsIcons.eot"), url("/devtools/winforms/assets/WebComponentsIcons.woff"), url("/devtools/winforms/assets/WebComponentsIcons.ttf"), url("/devtools/winforms/assets/WebComponentsIcons.svg");
+  src: url("/blazor-ui/assets/WebComponentsIcons.eot");
+  src: url("/blazor-ui/assets/WebComponentsIcons.eot"), url("/blazor-ui/assets/WebComponentsIcons.woff"), url("/blazor-ui/assets/WebComponentsIcons.ttf"), url("/blazor-ui/assets/WebComponentsIcons.svg");
   font-weight: normal;
   font-style: normal;
 }
