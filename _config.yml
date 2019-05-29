@@ -1,5 +1,5 @@
 # The public documentation URL, used for sitemap.xml
-url: "https://docs.telerik.com/blazor"
+url: "https://docs.telerik.com/blazor-ui"
 
 all_pages_domain: "https://docs.telerik.com"
 
@@ -336,14 +336,14 @@ footer:
 -
   title: "Getting Started"
   links:
-    "Client-side Blazor": https://docs.telerik.com/blazor/getting-started/client-blazor
-    "Server-side Blazor": https://docs.telerik.com/blazor/getting-started/server-blazor
+    "Client-side Blazor": https://docs.telerik.com/blazor-ui/getting-started/client-blazor
+    "Server-side Blazor": https://docs.telerik.com/blazor-ui/getting-started/server-blazor
     "Demos": https://demos.telerik.com/blazor-ui
 #    "Sample Applications": https://github.com/telerik/ui-for-blazor-examples/
 #-
 #  title: "Support Resources"
 #  links:
-#    "Knowledge Base": https://docs.telerik.com/blazor/knowledge-base
+    "Knowledge Base": https://docs.telerik.com/blazor-ui/knowledge-base
 -
   title: "Community"
   links:
