@@ -248,7 +248,7 @@ intro_columns:
     title: "Layout"
     items:
       "Window": "components/window/overview"
-      "Animated Container": "components/animationcontainer/overview"
+      "Animation Container": "components/animationcontainer/overview"
 -
   categories:
   -
