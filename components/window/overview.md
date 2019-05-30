@@ -42,7 +42,7 @@ To create a Telerik Window:
 
 The Window component is of type `Telerik.Blazor.Components.Window.TelerikWindow` and exposes several properties and methods that let you control its state. The most important ones are the `Visible` property that lets you control whether it is shown on the initial view render, and the `Show` and `Close` methods that control its visibility programmatically.
 
->caption Store a reference to a Telerik Window, open and close it programmatically
+>caption Store a reference to a Telerik Window, open and close it programmatically through methods
 
 ````CSHTML
 @using Telerik.Blazor.Components.Window
@@ -72,6 +72,32 @@ The Window component is of type `Telerik.Blazor.Components.Window.TelerikWindow`
 		myFirstWindow.Close();
 	}
 
+}
+````
+
+>caption Show and close a Window by toggling a single variable
+
+````CSHTML
+@using Telerik.Blazor.Components.Window
+
+<button onclick="@ToggleWindow">Toggle the Window</button>
+
+<TelerikWindow Visible="@isWindowShown">
+	<TelerikWindowTitle>
+		<strong>The Title</strong>
+	</TelerikWindowTitle>
+	<TelerikWindowContent>
+		This is my window <strong>popup</strong> content.
+	</TelerikWindowContent>
+</TelerikWindow>
+
+@functions {
+	bool isWindowShown { get; set; }
+
+	public void ToggleWindow()
+	{
+		isWindowShown = !isWindowShown;
+	}
 }
 ````
 
