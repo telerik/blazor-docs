@@ -2,3 +2,15 @@ apiRules:
 - exclude:
     hasAttribute:
       uid: Telerik.Blazor.HideFromApiRefAttribute
+      
+#sample, maybe unnecessary, filters for attributes. Causes public API that is not parameters to disappear
+#- include:
+#    type: Property
+#    hasAttribute:
+#      uid: Microsoft.AspNetCore.Components.ParameterAttribute
+#- exclude:
+#    type: Method
+#    hasAttribute:
+#      uid: Microsoft.JSInterop.JSInvokableAttribute
+#- exclude:
+#    type: Property
