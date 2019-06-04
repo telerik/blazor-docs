@@ -26,7 +26,7 @@ To add the Telerik private NuGet feed, follow the steps below:
 
 The command from the example below stores a token in the `%AppData%\NuGet\NuGet.config` file. Your original credentials cannot be obtained from this token.
 
->note If you are unable to connect to the feed by using encrypted credentials, try the alternative approach of storing credentials in clear text explained below. The ASP.NET Core tooling this steps on does not fully support encrypted credentials.
+>note If you are unable to connect to the feed by using encrypted credentials, try the alternative approach of storing credentials in clear text explained below. The ASP.NET Core tooling this step is based on does not fully support encrypted credentials.
 
 >caption Store Encrypted Credentials for the Telerik NuGet feed
 
