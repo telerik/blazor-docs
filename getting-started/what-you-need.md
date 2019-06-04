@@ -3,7 +3,7 @@ title: What You Need
 page_title: What You Need
 description: What you need to use the Telerik Blazor components.
 slug: getting-started/what-you-need
-previous_url: installation//what-you-need
+previous_url: installation/what-you-need
 tags: get,started,installation,what,need,list
 published: True
 position: 3
@@ -15,7 +15,7 @@ This article explains the packages you need to use the Telerik UI for Blazor com
 
 To use the Telerik UI for Blazor, you need:
 
-1. To get the [Telerik Blazor packages](#telerk-specific-packages) in your project
+1. To get the [Telerik Blazor packages](#telerik-specific-packages) in your project
 1. Add the [client assets](#client-assets)
 1. [Set up the project](#project-configuration) to regognize the Telerik components
 
