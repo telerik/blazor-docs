@@ -17,7 +17,7 @@ To use the Telerik UI for Blazor, you need:
 
 1. To get the [Telerik Blazor packages](#telerik-specific-packages) in your project
 1. Add the [client assets](#client-assets)
-1. [Set up the project](#project-configuration) to regognize the Telerik components
+1. [Set up the project](#project-configuration) to recognize the Telerik components
 
 ## Telerik Specific Packages
 
