@@ -5,7 +5,7 @@ description: First Steps with UI for Blazor Server-side
 slug: getting-started/server-side
 tags: get,started,first,steps,server
 published: true
-position: 1
+position: 2
 ---
 
 # First Steps with Server-side UI for Blazor

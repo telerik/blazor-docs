@@ -2,15 +2,22 @@
 title: What You Need
 page_title: What You Need
 description: What you need to use the Telerik Blazor components.
-slug: installation/what-you-need
+slug: getting-started/what-you-need
+previous_url: installation//what-you-need
 tags: get,started,installation,what,need,list
 published: True
-position: 0
+position: 3
 ---
 
 # What You Need to Use the Telerik Blazor Components
 
 This article explains the packages you need to use the Telerik UI for Blazor components, and how to get them.
+
+To use the Telerik UI for Blazor, you need:
+
+1. To get the [Telerik Blazor packages](#telerk-specific-packages) in your project
+1. Add the [client assets](#client-assets)
+1. [Set up the project](#project-configuration) to regognize the Telerik components
 
 ## Telerik Specific Packages
 
@@ -50,6 +57,29 @@ To have the Telerik Blazor components look and behave as expected in the browser
     @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-client)
     
     For a server-side Blazor scenario, add it to the `~/Pages/_Host.razor` file.
+
+## Project Configuration
+
+To have the framework recognize the Telerik Components, you must register them in the `Startup.cs` file of your Blazor project (if you are using [client-side Blazor](), this is the client web application's file):
+
+````Startup.cs
+namespace MyBlazorAppName
+{
+    public class Startup
+    {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            //more code may be present here
+            services.AddTelerikBlazor();
+        }
+
+        //more code may be present here
+    }
+}
+````
+
+If you are using a client-side Blazor project, 
+@[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
 
 ## Before You Continue
 

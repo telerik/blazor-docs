@@ -16,7 +16,7 @@ While the most common way to install the Telerik UI for Blazor components is to 
 
 The `ZIP` archive provides the following:
 
-* The [necessary `.nupkg` files]({%slug installation/what-you-need%}) so you can setup a [local feed in Visual Studio](#set-up-a-local-nuget-feed-in-visual-studio). You can find them in the `packages` folder in the archive.
+* The [necessary `.nupkg` files]({%slug getting-started/what-you-need%}) so you can setup a [local feed in Visual Studio](#set-up-a-local-nuget-feed-in-visual-studio). You can find them in the `packages` folder in the archive.
 * An offline version of our [demos](https://demos.telerik.com/blazor-ui) that you can run and inspect in your IDE. You can find them in the `demos` folder in the archive.
 
 
@@ -39,7 +39,7 @@ Once the download completes, open the archive and extract the files to a locatio
 
 ## See Also
 
-* [What You Need To Install]({%slug installation/what-you-need%})
+* [What You Need To Install]({%slug getting-started/what-you-need%})
 * [Get Started with Client-side Blazor]({%slug getting-started/client-side%})
 * [Get Started with Server-side Blazor]({%slug getting-started/server-side%})
 
