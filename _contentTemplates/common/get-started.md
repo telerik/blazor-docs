@@ -23,9 +23,9 @@
 
 
 #after-you-run-vanilla
-You may need to install the [Blazor VS Extensions](https://marketplace.visualstudio.com/items?itemName=aspnet.blazor) in order to get the neccessary app templates.
+You may need to install the [Blazor VS Extensions](https://marketplace.visualstudio.com/items?itemName=aspnet.blazor) in order to get the necessary app templates.
 
->tip Make sure that you have the latest bits installed (ASP.NET Core 3.0 and Visual Studo 2019 **Preview** channel are required).
+>tip Make sure that you have the latest bits installed (ASP.NET Core 3.0 and Visual Studio 2019 **Preview** channel are required).
 
 ### Using Official Visual Studio 2019
 
