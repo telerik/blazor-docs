@@ -67,7 +67,7 @@ If you don't have a Blazor project set up, first you need to create one:
 #end
 
 #start-trial
-If you don't have an active license, [start a UI for Blazor trial](https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor). You can delete the file this link will download.
+If you don't have an active license, [start a UI for Blazor trial](https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor). The file this will download will install the [msi package]({%slug installation/msi%}). While you can use it as an offline feed, we recommend that you use our [online feed]({%slug installation/nuget%}).
 #end
 
 #get-access
