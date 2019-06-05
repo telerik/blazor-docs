@@ -74,7 +74,7 @@ To use a Telerik chart for Blazor:
 
 ![](images/overview-chart.png)
 
->tip When configuring nested properties and child elements in your chart, the inner tags will contain their parent tag name and add specifics to its end. You can see an example of this in the `TelerikChartSeries` > `TelerikChartSeriesLabels` tags above example.
+>tip When configuring nested properties and child elements in your chart, the inner tags will contain their parent tag name and add specifics to its end. You can see an example of this with the `TelerikChartSeries` > `TelerikChartSeriesLabels` tags in the above example.
 
 
 >caption Component namespace and reference

@@ -18,7 +18,7 @@ The **Pie** chart displays the data as sectors from a two-dimensional circle and
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create an bar chart:
+To create a pie chart:
 
 1. add a `TelerikChartSeries` to the `TelerikChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Pie`
