@@ -164,7 +164,7 @@ The button renders a `<button type="submit">` element by default, as this is the
 You can control the `type` attribute through the `ButtonType` property of the component which can accept the following values:
 
 * `Submit` - Renders a `type="submit"` attribute. Can submit the form and trigger validation. The default value.
-* `Button` - Renders a `type="button"` attribute. Does not invokce form validation and submission.
+* `Button` - Renders a `type="button"` attribute. Does not invoke form validation and submission.
 * `Reset` - Renders a `type="reset"` attribute. Can reset the current form.
 
 ````CSHTML

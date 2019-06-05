@@ -18,7 +18,7 @@ A **Column** chart displays data as vertical bars whose heights vary according t
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create an bar chart:
+To create a column chart:
 
 1. add a `TelerikChartSeries` to the `TelerikChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Column`

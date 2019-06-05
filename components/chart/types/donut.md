@@ -18,7 +18,7 @@ The **Donut** chart displays the data as sectors from a two-dimensional circle a
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create an donut chart:
+To create a donut chart:
 
 1. add a `TelerikChartSeries` to the `TelerikChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Donut`
