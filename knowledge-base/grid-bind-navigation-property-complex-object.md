@@ -50,7 +50,7 @@ If simple display is sufficient, you can use [Templates]({%slug components/grid/
 </TelerikGrid>
 
 
-@functions {
+@code {
 	public class SampleComplexObject
 	{
 		public int ID { get; set; }

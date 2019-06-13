@@ -28,7 +28,7 @@ The user starts in April 2019 and can navigate between January 2019 and July 201
 <br />
 
 <TelerikCalendar Date="@startDate" View="@CalendarView.Month" Min="@minDate" Max="@maxDate"></TelerikCalendar>
-@functions {
+@code {
 	DateTime startDate = new DateTime(2019, 4, 1);
 	DateTime minDate = new DateTime(2019, 1, 1);
 	DateTime maxDate = new DateTime(2019, 7, 31);
@@ -69,7 +69,7 @@ The user starts in the Decade view and can only go down to years.
 
 The selected date is: @selectedDate
 
-@functions {
+@code {
 	private DateTime min = new DateTime(2015, 1, 1);
 	private DateTime max = new DateTime(2025, 12, 31);
 	private string selectedDate = "";
@@ -99,7 +99,7 @@ You can make the Calendar component move to a certain date and view through its 
 <TelerikButton OnClick="@NavigateCalendarProgrammatically">Go to new date and view</TelerikButton>
 <TelerikCalendar Date="@startDate" Max="@maxDate" Min="@minDate" View="@Telerik.Blazor.CalendarView.Decade" ref="@theCalendar"></TelerikCalendar>
 
-@functions{
+@code{
 	DateTime startDate = new DateTime(2345, 11, 22);
 	DateTime maxDate = new DateTime(2400, 11, 22);
 	DateTime minDate = new DateTime(1800, 11, 22);

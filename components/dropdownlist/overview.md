@@ -29,7 +29,7 @@ To use a Telerik DropDownList for Blazor
 <TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" ValueChanged="@MyValueChangedHandler" bind-Value="@selectedValue">
 </TelerikDropDownList>
 
-@functions {
+@code {
 	//in a real case, the model is usually in a separate file
 	//the model type and value field type must be provided to the dropdpownlist
 	public class MyDdlModel
@@ -62,7 +62,7 @@ To use a Telerik DropDownList for Blazor
 
 <TelerikDropDownList ref="@myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="3">
 </TelerikDropDownList>
-@functions {
+@code {
 	//the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
 	Telerik.Blazor.Components.DropDownList.TelerikDropDownList<MyDdlModel, int> myDdlRef;
 
@@ -114,7 +114,7 @@ The DropDownList component attempts to infer the type of its model and value bas
 
 <TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" TValue="int" TItem="MyDdlModel">
 </TelerikDropDownList>
-@functions {
+@code {
 	public class MyDdlModel //TItem matches the type of the model
 	{
 		public int MyValueField { get; set; } //TValue matches the type of the value field
@@ -151,7 +151,7 @@ The DropDownList component attempts to infer the type of its model and value bas
 	<button type="submit">Submit</button>
 </EditForm>
 
-@functions {
+@code {
 	// Usually the model classes would be in different files
 	public class Person
 	{
@@ -196,7 +196,7 @@ The DropDownList component attempts to infer the type of its model and value bas
 <TelerikDropDownList ref="@myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="5">
 </TelerikDropDownList>
 <TelerikButton OnClick="@GetSelectedItem">Get Selected Item</TelerikButton> @result
-@functions {
+@code {
 	string result;
 	void GetSelectedItem()
 	{

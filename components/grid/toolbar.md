@@ -51,7 +51,7 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
 
 @result
 
-@functions {
+@code {
 	string result;
 
 	private void UpdateHandler(GridCommandEventArgs args)
@@ -115,7 +115,7 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 
 @result
 
-@functions {
+@code {
 	string result;
 
 	private void MyCommandFromToolbar(GridCommandEventArgs args)

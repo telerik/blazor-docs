@@ -57,7 +57,7 @@ To create an area chart:
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public List<object> series1Data = new List<object>() { 10, 2, 7, 5 };
 	public List<object> series2Data = new List<object>() { 10, 2, 7, 5 };
 	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };

@@ -26,7 +26,7 @@ To use a Telerik Calendar for Blazor, add the `TelerikCalendar` tag.
 <br />
 The selected date is: @selectedDate
 
-@functions {
+@code {
 
     private DateTime min = new DateTime(2015, 1, 1);
     private DateTime max = new DateTime(2025, 12, 31);
@@ -53,7 +53,7 @@ The selected date is: @selectedDate
 <TelerikCalendar ref="@myCalendarReference">
 </TelerikCalendar>
 
-@functions {
+@code {
 	Telerik.Blazor.Components.Calendar.TelerikCalendar myCalendarReference;
 }
 ````

@@ -37,7 +37,7 @@ To add a Telerik Button to your Blazor app, use the `<TelerikButton>` tag:
 
 <TelerikButton ref="@theButton">Hello!</TelerikButton>
 
-@functions{
+@code{
 	Telerik.Blazor.Components.Button.TelerikButton theButton;
 }
 ````
@@ -55,7 +55,7 @@ To attach a click handler, use the `OnClick` attribute and define the method in 
 
 @someVariable
 
-@functions {
+@code {
 	MarkupString someVariable;
 
 	void myHandler()

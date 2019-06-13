@@ -42,7 +42,7 @@ Where the labels are numerical (series values, the value axis), you can format t
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyChartDataModel
 	{
 		public double TheValue { get; set; }
@@ -116,7 +116,7 @@ To add a new line, use the `\n` symbol.
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public string MySeriesTemplate = "value: #=value#\nfor category: #=category#\nextra info: #=dataItem.ExtraData#";
 	public string MyCategoryAxisTemplate = "#=value# quarter";
 	public string MyValueAxisTemplate = "#=value# million";

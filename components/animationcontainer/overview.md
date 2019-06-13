@@ -27,7 +27,7 @@ To use the animation container, add the `TelerikAnimationContainer` tag.
 
 <TelerikButton OnClick="@ToggleContainer">Toggle Animation Container</TelerikButton>
 
-@functions {
+@code {
 	public bool Shown { get; set; } = false;
 
 	public void ToggleContainer()
@@ -79,7 +79,7 @@ The animation container exposes the following properties:
 
 <TelerikButton OnClick="@ToggleContainer">Toggle Animation Container</TelerikButton>
 
-@functions {
+@code {
 	public bool Shown { get; set; } = false;
 	public AnimationType AnimType { get; set; } = AnimationType.Fade;
 	public void ToggleContainer()

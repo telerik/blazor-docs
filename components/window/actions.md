@@ -72,7 +72,7 @@ You can create a custom action icon and you must provide its `OnClick` handler.
 	</TelerikWindowContent>
 </TelerikWindow>
 
-@functions {
+@code {
 	string result;
 	public void MyCustomActionHandler()
 	{
@@ -107,7 +107,7 @@ You can mix custom actions with built-in actions, and you do not have to define 
 	</TelerikWindowContent>
 </TelerikWindow>
 
-@functions {
+@code {
 	string result;
 	public void MyCustomActionHandler()
 	{

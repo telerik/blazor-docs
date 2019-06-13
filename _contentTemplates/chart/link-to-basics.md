@@ -24,7 +24,7 @@ Bar and Column charts can take the color of the series item from the `ColorField
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyChartDataModel
 	{
 		public string Category { get; set; }

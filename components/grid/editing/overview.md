@@ -62,7 +62,7 @@ There is a deliberate delay in the data source operations in this example to mim
 
 @logger
 
-@functions {
+@code {
 	public async Task EditHandler(GridCommandEventArgs args)
 	{
 		AppendToLog("Edit", args);

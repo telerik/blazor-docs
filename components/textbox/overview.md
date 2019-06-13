@@ -26,7 +26,7 @@ To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
 
 @result
 
-@functions {
+@code {
 	string result;
 	string theTbValue { get; set; } = "lorem ipsum";
 
@@ -46,7 +46,7 @@ To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
 
 <TelerikTextBox ref="@theTextBoxRef"></TelerikTextBox>
 
-@functions {
+@code {
     Telerik.Blazor.Components.TextBox.TelerikTextBox theTextBoxRef;
 }
 ````
@@ -78,7 +78,7 @@ The length, enabled and pattern attributes are HTML attributes on the `<input />
 	<button type="submit">submit</button>
 </EditForm>
 
-@functions{
+@code{
 	public class Person
 	{
 		//you may want to add data annotation here to provide more robust validation

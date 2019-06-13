@@ -101,7 +101,7 @@ To get access to the UI for Blazor components, follow these steps:
         
         @helloString
         
-        @functions {
+        @code {
            MarkupString helloString;
         
            void SayHelloHandler()

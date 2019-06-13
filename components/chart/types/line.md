@@ -50,7 +50,7 @@ To create a line chart:
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
 	public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
 	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };

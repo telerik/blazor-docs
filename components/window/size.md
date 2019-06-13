@@ -81,7 +81,7 @@ The developer can invoke those actions through its `Maximize`, `Minimize` and `R
     </TelerikWindowContent>
 </TelerikWindow>
 
-@functions {
+@code {
     Telerik.Blazor.Components.Window.TelerikWindow myWindow;
 
     public void MaximizeWindow()
@@ -125,7 +125,7 @@ The developer can invoke those actions through its `Maximize`, `Minimize` and `R
 	</TelerikWindowContent>
 </TelerikWindow>
 
-@functions {
+@code {
 	Telerik.Blazor.Components.Window.TelerikWindow myWindow;
 
 	public void MaximizeWindow()

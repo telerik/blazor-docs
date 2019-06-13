@@ -29,7 +29,7 @@ To use a Telerik Date Picker for Blazor:
 
 <br />The selected date is: @selectedDate?.ToShortDateString()
 
-@functions  {
+@code  {
     DateTime datePickerValue = DateTime.Now;
     private DateTime? selectedDate;
 
@@ -51,7 +51,7 @@ To use a Telerik Date Picker for Blazor:
 <TelerikDatePicker ref="@theDatePicker">
 </TelerikDatePicker>
 
-@functions {
+@code {
 	Telerik.Blazor.Components.DatePicker.TelerikDatePicker theDatePicker;
 }
 ````

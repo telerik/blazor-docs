@@ -62,7 +62,7 @@ The example below shows how to:
 	</TelerikGridColumns>
 </TelerikGrid>
 
-@functions {
+@code {
 	public class SampleData
 	{
 		public int ID { get; set; }
@@ -114,7 +114,7 @@ You can use the `Context` attribute of the `<RowTemplate>` tag of the grid to se
 	</TelerikGridColumns>
 </TelerikGrid>
 
-@functions {
+@code {
 	public class SampleData
 	{
 		public int ID { get; set; }
@@ -175,7 +175,7 @@ If you need to perform logic more complex than simple data binding, use the chan
 	</TelerikGridEvents>
 </TelerikGrid>
 
-@functions {
+@code {
 	public SampleData CurrentlyEditedEmployee { get; set; }
 
 	public void UpdateHandler(GridCommandEventArgs args)
