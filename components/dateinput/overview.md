@@ -48,7 +48,7 @@ To use a Telerik Date Input for Blazor:
 ````CSHTML
 @using Telerik.Blazor.Components.DateInput
 
-<TelerikDateInput @ref="theDateInput" bind-Value="@dateInputValue"></TelerikDateInput>
+<TelerikDateInput @ref="theDateInput" @bind-Value="dateInputValue"></TelerikDateInput>
 
 @code {
 	Telerik.Blazor.Components.DateInput.TelerikDateInput theDateInput;
@@ -77,7 +77,7 @@ The date input provides the following features:
 <EditForm Model="@person">
     <DataAnnotationsValidator />
     <ValidationSummary />
-    <TelerikDateInput bind-Value="@person.Birthday" ParsingErrorMessage="plase enter a full date like 29 March 2019" Format="dd/MMMM/yyyy">
+    <TelerikDateInput @bind-Value="person.Birthday" ParsingErrorMessage="plase enter a full date like 29 March 2019" Format="dd/MMMM/yyyy">
     </TelerikDateInput>
     <ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
     <button type="submit">submit</button>

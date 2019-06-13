@@ -156,7 +156,7 @@ If you need to perform logic more complex than simple data binding, use the chan
 			<EditorTemplate>
 				@{
 					CurrentlyEditedEmployee = context as SampleData;
-					<select bind=@CurrentlyEditedEmployee.Role>
+					<select @bind="CurrentlyEditedEmployee.Role">
 						@foreach (string item in Roles)
 						{
 							<option value=@item>@item</option>
@@ -233,4 +233,3 @@ If you need to perform logic more complex than simple data binding, use the chan
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
  * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/customeditor)
 
- 

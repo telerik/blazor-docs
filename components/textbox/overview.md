@@ -21,7 +21,7 @@ To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
 ````CSHTML
 @using Telerik.Blazor.Components.TextBox
 
-<TelerikTextBox ValueChanged="@MyValueChangeHandler" bind-Value="@theTbValue"
+<TelerikTextBox ValueChanged="@MyValueChangeHandler" @bind-Value="theTbValue"
 			  Label="Enter Information" Id="myInputId" MaxLength="20"></TelerikTextBox>
 
 @result
@@ -73,7 +73,7 @@ The length, enabled and pattern attributes are HTML attributes on the `<input />
 <EditForm Model="@person">
 	<DataAnnotationsValidator />
 	<ValidationSummary />
-	<TelerikTextBox bind-Value="@person.CardNumber" Pattern="[0-9]{13,16}">
+	<TelerikTextBox @bind-Value="person.CardNumber" Pattern="[0-9]{13,16}">
 	</TelerikTextBox>
 	<button type="submit">submit</button>
 </EditForm>
