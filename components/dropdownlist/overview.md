@@ -192,6 +192,7 @@ The DropDownList component attempts to infer the type of its model and value bas
 
 ````CSHTML
 @using Telerik.Blazor.Components.DropDownList
+@using Telerik.Blazor.Components.Button
 
 <TelerikDropDownList @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="5">
 </TelerikDropDownList>
