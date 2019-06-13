@@ -60,7 +60,7 @@ To use a Telerik DropDownList for Blazor
 ````CSHTML
 @using Telerik.Blazor.Components.DropDownList
 
-<TelerikDropDownList ref="@myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="3">
+<TelerikDropDownList @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="3">
 </TelerikDropDownList>
 @code {
 	//the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
@@ -193,7 +193,7 @@ The DropDownList component attempts to infer the type of its model and value bas
 ````CSHTML
 @using Telerik.Blazor.Components.DropDownList
 
-<TelerikDropDownList ref="@myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="5">
+<TelerikDropDownList @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="5">
 </TelerikDropDownList>
 <TelerikButton OnClick="@GetSelectedItem">Get Selected Item</TelerikButton> @result
 @code {
