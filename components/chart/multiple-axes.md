@@ -93,7 +93,7 @@ In the following example, you can see how to define multiple y-axes, associate a
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	List<object> seriesOneData = new List<object>() { 5, 5, 5, 5 };
 	List<object> seriesTwoData = new List<object>() { 111, 555, 333, 888 };
 	public string[] categories = new string[] { "Q1", "Q2", "Q3", "Q4" };
@@ -134,7 +134,7 @@ You can use multiple category axes to associate each series with its own points 
 	</TelerikChartValueAxes>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyDataModel
 	{
 		public string FirstSeriesCategories { get; set; }
@@ -191,7 +191,7 @@ It is important to keep in mind the behavior of the series with multiple categor
 	</TelerikChartValueAxes>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyDataModel
 	{
 		public string FirstSeriesCategories { get; set; }
@@ -241,7 +241,7 @@ It is important to keep in mind the behavior of the series with multiple categor
 	</TelerikChartValueAxes>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyDataModel
 	{
 		public string FirstSeriesCategories { get; set; }
@@ -280,7 +280,7 @@ It is important to keep in mind the behavior of the series with multiple categor
 	</TelerikChartCategoryAxes>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyDataModel
 	{
 		public string FirstSeriesCategories { get; set; }

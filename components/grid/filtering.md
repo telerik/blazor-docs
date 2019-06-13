@@ -37,7 +37,7 @@ You can filter more than one column at a time, and all filter rules will be appl
 	</TelerikGridColumns>
 </TelerikGrid>
 
-@functions {
+@code {
 	public List<Employee> GridData { get; set; }
 
 	protected override void OnInit()

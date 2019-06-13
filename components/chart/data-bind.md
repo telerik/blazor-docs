@@ -46,7 +46,7 @@ With this approach, the items in each series are independent from the other seri
 	</TelerikChartCategoryAxes>
 </TelerikChart>
 
-@functions {
+@code {
 	public List<object> data1 = new List<object>() { 1, 2, 3, 4 };
 	public List<object> data2 = new List<object>() { 2, 3, 4, 5 };
 	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
@@ -84,7 +84,7 @@ With this, the items from the series will be matched to the items (categories) o
 	</TelerikChartSeriesItems>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyDataModel
 	{
 		public string MySharedCategories { get; set; }
@@ -122,7 +122,7 @@ With this, the items from the series will be matched to the items (categories) o
 	</TelerikChartSeriesItems>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyDataModel
 	{
 		public string FirstSeriesCategories { get; set; }
@@ -163,7 +163,7 @@ With this, the items from the series will be matched to the items (categories) o
 	</TelerikChartSeriesItems>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyDataModel
 	{
 		public string FirstSeriesCategories { get; set; }
@@ -215,7 +215,7 @@ For example, you can take the data for some series from a complex model, and the
 	</TelerikChartCategoryAxes>
 </TelerikChart>
 
-@functions {
+@code {
 	public List<object> standaloneData = new List<object>() { 3, 4, 5, 6 };
 	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 
@@ -260,7 +260,7 @@ For example, you can take the data for some series from a complex model, and the
 	</TelerikChartCategoryAxes>
 </TelerikChart>
 
-@functions {
+@code {
 	public List<object> standaloneData = new List<object>() { 3, 4, 5, 6 };
 
 	//the standalone categories will be ignored if they are data bound from a series configuration

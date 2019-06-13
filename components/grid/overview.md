@@ -31,7 +31,7 @@ To create a basic Telerik Grid:
 	</TelerikGridColumns>
 </TelerikGrid>
 
-@functions {
+@code {
 	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
 	{
 		Id = x,
@@ -76,7 +76,7 @@ The grid is a generic component, and to store a reference, you must use the mode
 	</TelerikGridColumns>
 </TelerikGrid>
 
-@functions {
+@code {
 	TelerikGrid<SampleData> theGridReference;
 
 	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
@@ -167,7 +167,7 @@ original:
 	</TelerikGridColumns>
 </TelerikGrid>
 
-@functions {
+@code {
 	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
 	public class SampleData
 	{

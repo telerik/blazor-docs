@@ -47,7 +47,7 @@ To use a Telerik chart for Blazor:
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyDataModel
 	{
 		public int SecondSeriesValue { get; set; }
@@ -85,7 +85,7 @@ To use a Telerik chart for Blazor:
 <TelerikChart ref="@myChartRef">
 </TelerikChart>
 
-@functions {
+@code {
 	Telerik.Blazor.Components.Chart.TelerikChart myChartRef;
 }
 ````
@@ -122,7 +122,7 @@ You can also set the chart size in percentage values so it occupies its containe
 
 </div>
 
-@functions {
+@code {
 	string ContainerWidth { get; set; } = "400px";
 	string ContainerHeight { get; set; } = "300px";
 	Telerik.Blazor.Components.Chart.TelerikChart theChart { get; set; }

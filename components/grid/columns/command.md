@@ -64,7 +64,7 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 	</TelerikGridColumns>
 </TelerikGrid>
 
-@functions {
+@code {
 	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
 	public class SampleData
 	{

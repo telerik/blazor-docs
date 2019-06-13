@@ -29,7 +29,7 @@ To use a Telerik Numeric Textbox for Blazor:
 <br />
 The new value is: @result
 
-@functions {
+@code {
 	private string result;
 
 	private void MyValueChangeHandler(object newValue)
@@ -49,7 +49,7 @@ The numeric textbox component is generic, meaning that it takes the type of its 
 
 <TelerikNumericTextBox ref="myNumericTextboxRef" bind-Value="@CurrentValue"></TelerikNumericTextBox>
 
-@functions {
+@code {
 	//determines the type of the component
 	private int CurrentValue { get; set; }
 	

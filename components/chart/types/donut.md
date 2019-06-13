@@ -46,7 +46,7 @@ If you use [simple data binding]({%slug components/chart/databind%}#independent-
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyDonutChartModel
 	{
 		public string SegmentName { get; set; }
@@ -102,7 +102,7 @@ You can change the percentage that the hole in the middle takes from the entire 
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyDonutChartModel
 	{
 		public string SegmentName { get; set; }

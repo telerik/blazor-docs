@@ -59,7 +59,7 @@ The Window component is of type `Telerik.Blazor.Components.Window.TelerikWindow`
 	</TelerikWindowContent>
 </TelerikWindow>
 
-@functions {
+@code {
 	Telerik.Blazor.Components.Window.TelerikWindow myFirstWindow;
 
 	public void ShowWindow()
@@ -91,7 +91,7 @@ The Window component is of type `Telerik.Blazor.Components.Window.TelerikWindow`
 	</TelerikWindowContent>
 </TelerikWindow>
 
-@functions {
+@code {
 	bool isWindowShown { get; set; }
 
 	public void ToggleWindow()

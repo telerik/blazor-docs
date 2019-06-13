@@ -29,7 +29,7 @@ To use a Telerik Date Input for Blazor:
 </TelerikDateInput>
 @result
 
-@functions {
+@code {
     DateTime dateInputValue { get; set; } = DateTime.Now;
     string result;
 
@@ -50,7 +50,7 @@ To use a Telerik Date Input for Blazor:
 
 <TelerikDateInput ref="@theDateInput" bind-Value="@dateInputValue"></TelerikDateInput>
 
-@functions {
+@code {
 	Telerik.Blazor.Components.DateInput.TelerikDateInput theDateInput;
 
 	DateTime dateInputValue { get; set; } = DateTime.Now;
@@ -83,7 +83,7 @@ The date input provides the following features:
     <button type="submit">submit</button>
 </EditForm>
 
-@functions{
+@code{
     //in a real case, the model will usually be in a separate file
     public class Person
     {

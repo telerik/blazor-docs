@@ -46,7 +46,7 @@ If you use [simple data binding]({%slug components/chart/databind%}#independent-
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyPieChartModel
 	{
 		public string SegmentName { get; set; }
@@ -100,7 +100,7 @@ You can control the color of the individual segments of the pie chart by providi
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyPieChartModel
 	{
 		public string SegmentName { get; set; }
@@ -160,7 +160,7 @@ To explode (separate) a segment, use the `ExplodeField` property of the series a
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyPieChartModel
 	{
 		public string SegmentName { get; set; }
@@ -216,7 +216,7 @@ You can hide certain segments from the legend (for example, if their contributio
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public class MyPieChartModel
 	{
 		public string SegmentName { get; set; }

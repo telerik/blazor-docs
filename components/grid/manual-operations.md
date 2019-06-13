@@ -42,7 +42,7 @@ The comments in the code provide explanations on what is done and why.
 
 There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
-@functions {
+@code {
 	public List<Employee> GridData { get; set; }
 	public int Total { get; set; } = 0;
 
@@ -143,7 +143,7 @@ There is a deliberate delay in the data source operations in this example to mim
 
 There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
-@functions {
+@code {
 	public List<Employee> SourceData { get; set; }
 	public List<Employee> GridData { get; set; }
 	public int Total { get; set; } = 0;

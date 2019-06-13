@@ -40,7 +40,7 @@ The Value template determines how the selected item renders in the main element 
 </TelerikDropDownList>
 
 
-@functions {
+@code {
 	public class MyDdlModel
 	{
 		public int MyValueField { get; set; }
@@ -79,7 +79,7 @@ The Item template determines how the individual items are rendered in the dropdo
 </TelerikDropDownList>
 
 
-@functions {
+@code {
 	public class MyDdlModel
 	{
 		public int MyValueField { get; set; }
@@ -116,7 +116,7 @@ The header is content that you can place above the list of items inside the drop
 </TelerikDropDownList>
 
 
-@functions {
+@code {
 	public class MyDdlModel
 	{
 		public int MyValueField { get; set; }
@@ -151,7 +151,7 @@ The footer is content that you can place below the list of items inside the drop
 </TelerikDropDownList>
 
 
-@functions {
+@code {
 	public class MyDdlModel
 	{
 		public int MyValueField { get; set; }

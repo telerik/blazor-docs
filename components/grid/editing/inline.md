@@ -47,7 +47,7 @@ To enable Inline editing in the grid, set its `EditMode` property to `inline`, t
 	</TelerikGridColumns>
 </TelerikGrid>
 
-@functions {
+@code {
 	public void EditHandler(GridCommandEventArgs args)
 	{
 		SampleData item = (SampleData)args.Item;

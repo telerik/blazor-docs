@@ -40,7 +40,7 @@ To control the position of the tab titles, the main tab strip tag exposes the op
 	</TelerikTab>
 </TelerikTabStrip>
 
-@functions {
+@code {
 	Telerik.Blazor.Components.TabStrip.TelerikTabStrip myTabStrip;
 }
 ````
@@ -69,7 +69,7 @@ To control the position of the tab titles, the main tab strip tag exposes the op
 	</TelerikTab>
 </TelerikTabStrip>
 
-@functions {
+@code {
 	Telerik.Blazor.Components.TabStrip.TelerikTabStrip myTabStrip;
 
 	protected void WriteActiveTab()
@@ -100,7 +100,7 @@ To control the position of the tab titles, the main tab strip tag exposes the op
 	</TelerikTab>
 </TelerikTabStrip>
 
-@functions {
+@code {
 	Telerik.Blazor.Components.TabStrip.TelerikTabStrip myTabStrip;
 	Telerik.Blazor.Components.TabStrip.TelerikTab chosenTab;
 

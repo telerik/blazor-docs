@@ -30,7 +30,7 @@ You can set the current page of the grid through its integer `Page` property.
 	</TelerikGridColumns>
 </TelerikGrid>
 
-@functions {
+@code {
 	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
 }
 ````
@@ -39,7 +39,7 @@ You can set the current page of the grid through its integer `Page` property.
 
 ![](images/paging-overview.png)
 
->tip You can bind the values of those properties to variables in the `@functions {}` section.
+>tip You can bind the values of those properties to variables in the `@code {}` section.
 
 Here is one way to implement a page size choice that puts all records on one page.
 
@@ -63,7 +63,7 @@ Here is one way to implement a page size choice that puts all records on one pag
 	</TelerikGridColumns>
 </TelerikGrid>
 
-@functions {
+@code {
 	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
 
 	protected int PageSize { get; set; }

@@ -71,7 +71,7 @@ The user will not be able to select the first and second of April 2019.
 	</ul>
 }
 
-@functions {
+@code {
 	private DateTime startDate = new DateTime(2019, 4, 1);//set the initial date of the calendar
 
 	//set dates the user can't select

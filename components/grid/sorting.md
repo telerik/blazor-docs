@@ -28,7 +28,7 @@ When the user clicks the column header, the grid will sort the data according to
 	</TelerikGridColumns>
 </TelerikGrid>
 
-@functions {
+@code {
 	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
 }
 ````

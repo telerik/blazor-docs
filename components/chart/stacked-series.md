@@ -53,7 +53,7 @@ To stack all series together, set the `Enabled` property to `true` in the `Teler
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
 	public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
 	public List<object> series3Data = new List<object>() { 15, 3, 8, 8 };
@@ -98,7 +98,7 @@ You can choose which series to cluster together through the `Group` property of 
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
 	public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
 	public List<object> series3Data = new List<object>() { 15, 3, 8, 8 };
@@ -147,7 +147,7 @@ You can use separate groups, or you can stack all series together with just the 
 	</TelerikChartLegend>
 </TelerikChart>
 
-@functions {
+@code {
 	public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
 	public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
 	public List<object> series3Data = new List<object>() { 15, 3, 8, 8 };

@@ -68,7 +68,7 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 	<button type="submit">Submit</button>
 </EditForm>
 
-@functions {
+@code {
 	// Usually this class would be in a different file
 	public class Person
 	{
@@ -128,7 +128,7 @@ The DropDownList always has an item selected - the first item from its data sour
 	<button type="submit">Submit</button>
 </EditForm>
 
-@functions {
+@code {
 	// Usually the model classes would be in different files
 	public class Person
 	{

@@ -43,7 +43,7 @@ To enable InCell editing mode, set the `EditMode` property of the grid to `incel
 	</TelerikGridColumns>
 </TelerikGrid>
 
-@functions {
+@code {
 	public void EditHandler(GridCommandEventArgs args)
 	{
 		SampleData item = (SampleData)args.Item;

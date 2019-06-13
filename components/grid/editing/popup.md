@@ -50,7 +50,7 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 	</TelerikGridColumns>
 </TelerikGrid>
 
-@functions {
+@code {
 	public void EditHandler(GridCommandEventArgs args)
 	{
 		SampleData item = (SampleData)args.Item;
