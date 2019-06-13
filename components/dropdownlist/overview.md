@@ -26,7 +26,7 @@ To use a Telerik DropDownList for Blazor
 ````CSHTML
 @using Telerik.Blazor.Components.DropDownList
 
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" ValueChanged="@MyValueChangedHandler" bind-Value="@selectedValue">
+<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" ValueChanged="@MyValueChangedHandler" @bind-Value="selectedValue">
 </TelerikDropDownList>
 
 @code {
@@ -142,7 +142,7 @@ The DropDownList component attempts to infer the type of its model and value bas
 	<DataAnnotationsValidator />
 	<ValidationSummary />
 	<p class="gender">
-		Gender: <TelerikDropDownList bind-Value="@person.Gender" DefaultItem="@ddlHint"
+		Gender: <TelerikDropDownList @bind-Value="person.Gender" DefaultItem="@ddlHint"
 								   Data="@genders" TextField="MyTextField" ValueField="MyValueField">
 				</TelerikDropDownList>
 		<ValidationMessage For="@(() => person.Gender)"></ValidationMessage>

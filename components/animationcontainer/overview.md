@@ -70,7 +70,7 @@ The animation container exposes the following properties:
 	My content goes here.
 </TelerikAnimationContainer>
 
-<select bind="@AnimType">
+<select @bind="AnimType">
 	@foreach (var possibleAnimation in Enum.GetValues(typeof(AnimationType)))
 	{
 		<option value="@possibleAnimation">@possibleAnimation</option>

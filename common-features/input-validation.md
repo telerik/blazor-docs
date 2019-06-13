@@ -45,23 +45,23 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 	<ValidationSummary />
 
 	<p class="name">
-		Name: <TelerikTextBox bind-Value="@person.Name"></TelerikTextBox>
+		Name: <TelerikTextBox @bind-Value="person.Name"></TelerikTextBox>
 		<ValidationMessage For="@(() => person.Name)"></ValidationMessage>
 	</p>
 	<p class="height">
-		Height (cm): <TelerikNumericTextBox bind-Value="@person.Height" />
+		Height (cm): <TelerikNumericTextBox @bind-Value="person.Height" />
 		<ValidationMessage For="@(() => person.Height)"></ValidationMessage>
 	</p>
 	<p class="birthday">
-		Birthday: <TelerikDateInput bind-Value="@person.Birthday" Format="dd MMMM yyyy"></TelerikDateInput>
+		Birthday: <TelerikDateInput @bind-Value="person.Birthday" Format="dd MMMM yyyy"></TelerikDateInput>
 		<ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
 	</p>
 	<p class="favorite-day">
-		Favorite date: <TelerikDatePicker bind-Value="@person.FavoriteDay" Format="dd MMMM yyyy"></TelerikDatePicker>
+		Favorite date: <TelerikDatePicker @bind-Value="person.FavoriteDay" Format="dd MMMM yyyy"></TelerikDatePicker>
 		<ValidationMessage For="@(() => person.FavoriteDay)"></ValidationMessage>
 	</p>
 	<p class="accepts-terms">
-		Accepts terms: <InputCheckbox bind-Value="@person.AcceptsTerms" />
+		Accepts terms: <InputCheckbox @bind-Value="person.AcceptsTerms" />
 		<ValidationMessage For="@(() => person.AcceptsTerms)"></ValidationMessage>
 	</p>
 
@@ -119,7 +119,7 @@ The DropDownList always has an item selected - the first item from its data sour
 	<DataAnnotationsValidator />
 	<ValidationSummary />
 	<p class="gender">
-		Gender: <TelerikDropDownList bind-Value="@person.Gender" DefaultItem="@ddlHint"
+		Gender: <TelerikDropDownList @bind-Value="person.Gender" DefaultItem="@ddlHint"
 								   Data="@genders" TextField="MyTextField" ValueField="MyValueField">
 				</TelerikDropDownList>
 		<ValidationMessage For="@(() => person.Gender)"></ValidationMessage>
