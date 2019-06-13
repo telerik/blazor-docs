@@ -48,7 +48,7 @@ To use a Telerik Date Picker for Blazor:
 ````CSHTML
 @using Telerik.Blazor.Components.DatePicker
 
-<TelerikDatePicker ref="@theDatePicker">
+<TelerikDatePicker @ref="theDatePicker">
 </TelerikDatePicker>
 
 @code {

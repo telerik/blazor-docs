@@ -44,7 +44,7 @@ To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
 ````CSHTML
 @using Telerik.Blazor.Components.TextBox
 
-<TelerikTextBox ref="@theTextBoxRef"></TelerikTextBox>
+<TelerikTextBox @ref="theTextBoxRef"></TelerikTextBox>
 
 @code {
     Telerik.Blazor.Components.TextBox.TelerikTextBox theTextBoxRef;

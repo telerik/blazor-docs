@@ -97,7 +97,7 @@ You can make the Calendar component move to a certain date and view through its 
 @using Telerik.Blazor.Components.Button
 
 <TelerikButton OnClick="@NavigateCalendarProgrammatically">Go to new date and view</TelerikButton>
-<TelerikCalendar Date="@startDate" Max="@maxDate" Min="@minDate" View="@Telerik.Blazor.CalendarView.Decade" ref="@theCalendar"></TelerikCalendar>
+<TelerikCalendar Date="@startDate" Max="@maxDate" Min="@minDate" View="@Telerik.Blazor.CalendarView.Decade" @ref="theCalendar"></TelerikCalendar>
 
 @code{
 	DateTime startDate = new DateTime(2345, 11, 22);
