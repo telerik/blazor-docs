@@ -47,8 +47,8 @@ The Window component is of type `Telerik.Blazor.Components.Window.TelerikWindow`
 ````CSHTML
 @using Telerik.Blazor.Components.Window
 
-<button onclick="@ShowWindow">Show the Window</button>
-<button onclick="@CloseWindow">Close the Window</button>
+<button @onclick="ShowWindow">Show the Window</button>
+<button @onclick="CloseWindow">Close the Window</button>
 
 <TelerikWindow @ref="myFirstWindow">
 	<TelerikWindowTitle>
@@ -80,7 +80,7 @@ The Window component is of type `Telerik.Blazor.Components.Window.TelerikWindow`
 ````CSHTML
 @using Telerik.Blazor.Components.Window
 
-<button onclick="@ToggleWindow">Toggle the Window</button>
+<button @onclick="ToggleWindow">Toggle the Window</button>
 
 <TelerikWindow Visible="@isWindowShown">
 	<TelerikWindowTitle>
