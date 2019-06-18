@@ -25,6 +25,5 @@
           <script src="_content/telerikuiforblazor/js/telerik-blazor.js" defer></script>
         </head>
 
-    As of version `1.2.0` we no longer maintain a CDN with the JS Interop file. If you would like to serve it from a cloud, save its contents and create a CDN of your choice.
 #end
 
