@@ -78,7 +78,7 @@ namespace MyBlazorAppName
 }
 ````
 
-If you are using a client-side Blazor project, 
+If you are using a **client-side Blazor** project, 
 @[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
 
 ## Before You Continue
