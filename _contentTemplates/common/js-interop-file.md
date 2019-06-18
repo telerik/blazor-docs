@@ -22,9 +22,9 @@
 
         <head>
           . . .
-          <script src="https://kendo.cdn.telerik.com/blazor/1.1.1/telerik-blazor.min.js" defer></script>
+          <script src="_content/telerikuiforblazor/js/telerik-blazor.js" defer></script>
         </head>
 
-    Make sure that the version in the URL matches the version of the Telerik Blazor package used in your project.
+    As of version `1.2.0` we no longer maintain a CDN with the JS Interop file. If you would like to serve it from a cloud, save its contents and create a CDN of your choice.
 #end
 
