@@ -55,7 +55,9 @@ To have the Telerik Blazor components look and behave as expected in the browser
         
     For a server-side app, escape the `@` symbols as `@@`.
 
-* Our JS Interop file. It provides features that cannot be implemented with native Blazor. @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
+* Our JS Interop file. It provides features that cannot be implemented with native Blazor.
+
+@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
     
 
 ### Static Assets
