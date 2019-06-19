@@ -146,3 +146,23 @@ To setup a local NuGet package source, so you can install the Telerik components
 
 1. On the loaded page choose from your purchased products or trial downloads **Progress® Telerik® UI for Blazor**, and click on it.
 #end
+
+#client-app-startup-file-mod-code
+        namespace MyBlazorAppName.Client
+        {
+            public class Startup
+            {
+                public void ConfigureServices(IServiceCollection services)
+                {
+                    //more code may be present here
+                    services.AddTelerikBlazor();
+                }
+        
+                public void Configure(IComponentsApplicationBuilder app)
+                {
+                    //more code may be present here
+                    app.UseStaticFiles();
+                }
+            }
+        }
+#end

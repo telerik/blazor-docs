@@ -11,7 +11,7 @@ position: 3
 
 # What You Need to Use the Telerik Blazor Components
 
-This article explains the packages you need to use the Telerik UI for Blazor components, and how to get them.
+This article explains the packages you need to use the Telerik UI for Blazor components, how to get them, and how to configure your project to include the Telerik Blazor components.
 
 To use the Telerik UI for Blazor, you need:
 
@@ -52,15 +52,13 @@ To have the Telerik Blazor components look and behave as expected in the browser
             <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
         </head>
 
-* Our JS Interop file. It provides features that cannot be implemented with native Blazor. You need to
-
-    @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-client)
+* Our JS Interop file. It provides features that cannot be implemented with native Blazor. @[template](/_contentTemplates/common/js-interop-file.md#add-blazor-js-file-to-component)
     
-    For a server-side Blazor scenario, add it to the `~/Pages/_Host.razor` file.
+    >warning @[template](/_contentTemplates/common/js-interop-file.md#static-asset-issue-in-pure-client-project)
 
 ## Project Configuration
 
-To have the framework recognize the Telerik Components, you must register them in the `Startup.cs` file of your Blazor project (if you are using [client-side Blazor](), this is the client web application's file):
+To have the framework recognize the Telerik Components, you must register them in the `Startup.cs` file of your Blazor project (if you are using client-side Blazor, this is the Client web application's file):
 
 ````Startup.cs
 namespace MyBlazorAppName
@@ -78,8 +76,17 @@ namespace MyBlazorAppName
 }
 ````
 
+### Client-side Project Considerations
+
 If you are using a **client-side Blazor** project, 
 @[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
+
+To enable the use of static assets for the JS Interop file, you must be using an ASP.NET Core hosted project and add the following line to your Client project `Startup.cs` file:
+
+**C#**
+
+@[template](/_contentTemplates/common/get-started.md#client-app-startup-file-mod-code)
+
 
 ## Before You Continue
 
