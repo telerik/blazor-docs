@@ -13,3 +13,7 @@ Open the Client `.csproj` file and ensure that the following switch is present. 
             <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
         </PropertyGroup>
 #end
+
+#static-asset-issue-in-client-project
+Static assets work for Server-side project types only because of [an issue in the framework](https://github.com/aspnet/AspNetCore/issues/10986). If you use a client-side model, you must reference the script from our CDN.
+#end

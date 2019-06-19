@@ -55,11 +55,23 @@ For client-side Blazor, we recommend the usage of `Blazor (ASP.NET Hosted)` proj
 
 1. @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-client)
         
-1. Open the `~/Startup.cs` file in the client web application and amend it to support static assets and to register the Telerik Blazor service:
+1. Open the `~/Startup.cs` file in the client web application and register the Telerik Blazor service:
 
     **C#**
     
-@[template](/_contentTemplates/common/get-started.md#client-app-startup-file-mod-code)
+         namespace MyBlazorAppName.Client
+         {
+             public class Startup
+             {
+                 public void ConfigureServices(IServiceCollection services)
+                 {
+                     //more code may be present here
+                     services.AddTelerikBlazor();
+                 }
+                 
+                 //more code may be present here
+             }
+         }
 
 1. @[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
 

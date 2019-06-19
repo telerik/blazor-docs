@@ -41,7 +41,8 @@ There are four ways to get these packages:
 
 ## Client Assets
 
-To have the Telerik Blazor components look and behave as expected in the browser, you need the following assets:
+To have the Telerik Blazor components look and behave as expected in the browser, you need the some assets. 
+@[template](/_contentTemplates/common/js-interop-file.md#app-paths)
 
 * Our component's stylesheet. You can read more about it in the [Themes]({%slug general-information/themes%}) article. Here is a short example:
 
@@ -51,10 +52,44 @@ To have the Telerik Blazor components look and behave as expected in the browser
             . . .
             <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
         </head>
+        
+    For a server-side app, escape the `@` symbols as `@@`.
 
-* Our JS Interop file. It provides features that cannot be implemented with native Blazor. @[template](/_contentTemplates/common/js-interop-file.md#add-blazor-js-file-to-component)
+* Our JS Interop file. It provides features that cannot be implemented with native Blazor. @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
     
-    >warning @[template](/_contentTemplates/common/js-interop-file.md#static-asset-issue-in-pure-client-project)
+
+### Static Assets
+
+You can add the JS Interop file as a static asset from our package, instead of using a CDN.
+
+>warning @[template](/_contentTemplates/common/issues-and-warnings.md#static-asset-issue-in-client-project)
+
+To enable the use of static assets in your project, make sure you have the following line to your **Server** project `Startup.cs` file:
+
+````C#
+namespace MyBlazorAppName
+{
+    public class Startup
+    {
+        public void Configure(IComponentsApplicationBuilder app)
+        {
+            //more code may be present here
+            
+            //make sure this is present to enable static files from a package
+            app.UseStaticFiles();
+        }
+    }
+}
+````
+
+Here is the `script` tag for our static asset path:
+
+````SHTML
+<head>
+  . . .
+  <script src="_content/telerikuiforblazor/js/telerik-blazor.js" defer></script>
+</head>
+````
 
 ## Project Configuration
 
@@ -81,11 +116,7 @@ namespace MyBlazorAppName
 If you are using a **client-side Blazor** project, 
 @[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
 
-To enable the use of static assets for the JS Interop file, you must be using an ASP.NET Core hosted project and add the following line to your Client project `Startup.cs` file:
 
-**C#**
-
-@[template](/_contentTemplates/common/get-started.md#client-app-startup-file-mod-code)
 
 
 ## Before You Continue
