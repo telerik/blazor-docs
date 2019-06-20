@@ -93,6 +93,8 @@ Here is the `script` tag for our static asset path:
 </head>
 ````
 
+>note If you are using a trial license, the path is `_content/telerikuiforblazorrtrial/js/telerik-blazor.js`.
+
 ## Project Configuration
 
 To have the framework recognize the Telerik Components, you must register them in the `Startup.cs` file of your Blazor project (if you are using client-side Blazor, this is the Client web application's file):
