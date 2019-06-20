@@ -93,7 +93,7 @@ Here is the `script` tag for our static asset path:
 </head>
 ````
 
->note If you are using a trial license, the path is `_content/telerikuiforblazorrtrial/js/telerik-blazor.js`.
+>note If you are using a trial license, the path is `_content/telerikuiforblazortrial/js/telerik-blazor.js`.
 
 ## Project Configuration
 
