@@ -25,17 +25,13 @@
 #after-you-run-vanilla
 You may need to install the [Blazor VS Extensions](https://marketplace.visualstudio.com/items?itemName=aspnet.blazor) in order to get the necessary app templates.
 
->tip Make sure that you have the latest bits installed (ASP.NET Core 3.0 and Visual Studio 2019 **Preview** channel are required).
+>tip Make sure that you have the latest bits installed ([.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0) and [Visual Studio 2019 **Preview**](https://visualstudio.microsoft.com/vs/preview/) channel are required).
 
 ### Using Official Visual Studio 2019
 
-You can also use the official VS 2019 installation and enable the .NET Core 3.0 Preview in order to use Blazor. To do that:
+The official (RTM) version of Visual Studio 2019 does not fully support Blazor at the moment, and you must use the Visual Studio 2019 Preview channel: [https://visualstudio.microsoft.com/vs/preview/](https://visualstudio.microsoft.com/vs/preview/).
 
-1. Open **Tools** > **Options** in the menu bar.
-2. Open the **Projects and Solutions** node. Open the **.NET Core** tab.
-3. **Check** the box for **Use previews of the .NET Core SDK**. Select **OK**.
-
->note Once you have the Blazor application running, continue to the next steps.
+>caption  Once you have the vanilla Blazor application running, continue to the next steps.
 #end
 
 
