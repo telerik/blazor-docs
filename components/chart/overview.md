@@ -12,11 +12,7 @@ position: 0
 
 The Blazor chart allows you to visualize data to your users in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins and templates.
 
-To use a Telerik chart for Blazor:
-
-1. @[template](/_contentTemplates/common/js-interop-file.md#add-blazor-js-file-to-component)
-
-1. add the `TelerikChart` tag to the desired view
+To use a Telerik chart for Blazor, add the `TelerikChart` tag.
 
 >caption Basic chart with series and category axis [data binding](data-bind), and a few commonly used appearance settings
 

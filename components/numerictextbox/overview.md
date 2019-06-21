@@ -12,11 +12,7 @@ position: 0
 
 The Numeric Textbox component allows the user to enter decimal values and no text. The developer can control minimum, maximum values, steps and other elements of the UX.
 
-To use a Telerik Numeric Textbox for Blazor:
-
-1. @[template](/_contentTemplates/common/js-interop-file.md#add-blazor-js-file-to-component)
-
-1. add the `TelerikNumericTextBox` tag
+To use a Telerik Numeric Textbox for Blazor, add the `TelerikNumericTextBox` tag.
 
 >caption Basic numeric textbox with its key features, and ValueChanged event handling
 
