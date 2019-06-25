@@ -13,11 +13,13 @@ position: 3
 
 This article explains the packages you need to use the Telerik UI for Blazor components, how to get them, and how to configure your project to include the Telerik Blazor components.
 
-To use the Telerik UI for Blazor, you need:
+To use the Telerik UI for Blazor, you need to:
 
-1. To get the [Telerik Blazor packages](#telerik-specific-packages) in your project
-1. Add the [client assets](#client-assets)
-1. [Set up the project](#project-configuration) to recognize the Telerik components
+1. get the [Telerik Blazor packages](#telerik-specific-packages) in your project
+1. add the [client assets](#client-assets)
+1. [set up the project](#project-configuration) to recognize the Telerik components
+
+>note Make sure you can build and deploy a vanilla Blazor project before moving forward with using UI for Blazor. This will ensure that the framework prerequisites are working. See the [Before You Continue](#before-you-continue) section if you don't have a project already, before you continue with this article from the top.
 
 ## Telerik Specific Packages
 

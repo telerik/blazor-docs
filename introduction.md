@@ -24,6 +24,8 @@ If you are a new user, we recommend that you **follow the First Steps articles**
 
 * [Get Started with Server-side Blazor]({%slug getting-started/server-side%})
 
+You can find the basics of what our packages include and how to set up a project in the [What You Need]({%slug getting-started/what-you-need%}) article. It is suitable for people familiar with the IDE and Blazor and lists some more advanced details than the articles above.
+
 ## List of Components
 
 Blazor is still an experimental technology and the component suite is new. We are constantly working on adding new features and components.
