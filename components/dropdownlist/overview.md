@@ -10,16 +10,16 @@ position: 0
 
 # DropDownList Overview
 
-The DropDownList component allows the user to choose an option from a predefined set of choices presented in a dropdown popup. The developer can control the data, sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
+The DropDownList component allows the user to choose an option from a predefined set of choices presented in a dropdown popup. The developer can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
 
 To use a Telerik DropDownList for Blazor
 
 1. add the `TelerikDropDownList` tag
 1. populate its `Data` property with the collection of items you want in the dropdown
 1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
-1. Set the `Value` property to the intial value of the model.
+1. set the `Value` property to the intial value of the model.
 
->caption Basic dropdownlist data binding and ValueChanged event handling
+>caption Basic dropdownlist [data binding](data-bind) and ValueChanged event handling
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#generic-component-event-issue)
 
@@ -66,13 +66,13 @@ To use a Telerik DropDownList for Blazor
 	//the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
 	Telerik.Blazor.Components.DropDownList.TelerikDropDownList<MyDdlModel, int> myDdlRef;
 
+	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+	
 	public class MyDdlModel
 	{
 		public int MyValueField { get; set; }
 		public string MyTextField { get; set; }
 	}
-
-	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 }
 ````
 
@@ -101,32 +101,6 @@ The DropDownList provides the following features:
 * `Width` - the width of the dropdown and the main element.
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug components/dropdownlist/templates%}) article for more details.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
-
-
-## Missing Value or Data
-
-The DropDownList component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. In case you cannot provide either of them, you need to set the corresponding type properties to the `TItem` and `TValue` properties as shown below.
-
->caption DropDownList configuration if you cannot provide Value or Data
-
-````CSHTML
-@using Telerik.Blazor.Components.DropDownList
-
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" TValue="int" TItem="MyDdlModel">
-</TelerikDropDownList>
-@code {
-	public class MyDdlModel //TItem matches the type of the model
-	{
-		public int MyValueField { get; set; } //TValue matches the type of the value field
-		public string MyTextField { get; set; }
-	}
-
-	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-	
-	//the same configuration applies if the "myDdlData" object is null initially and is populated on some event
-}
-
-````
 
 
 ## Examples
