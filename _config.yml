@@ -221,29 +221,32 @@ intro_columns:
 -
   categories:
   -
-    title: Data Management
+    title: "Data Management"
     items:
       "Grid": "components/grid/overview"
     
-  -
-    title: Editors
-    items:
-      "Textbox": "components/textbox/overview"
-      "Numeric Textbox": "components/numerictextbox/overview"
-      "Date Input": "components/dateinput/overview"
-      "DropDownList": "components/dropdownlist/overview"
--
-  categories:
   -
     title: "Navigation"
     items:
       "Button": "components/button/overview"
       "Tab Strip": "components/tabstrip/overview"
+      "TreeView": "components/treeview/overview"
+
   -
     title: "Scheduling"
     items:
       "Calendar": "components/calendar/overview"
       "Date Picker": "components/datepicker/overview"
+-
+  categories:
+  -
+    title: "Editors"
+    items:
+      "Textbox": "components/textbox/overview"
+      "Numeric Textbox": "components/numerictextbox/overview"
+      "Date Input": "components/dateinput/overview"
+      "DropDownList": "components/dropdownlist/overview"
+
   -
     title: "Layout"
     items:
