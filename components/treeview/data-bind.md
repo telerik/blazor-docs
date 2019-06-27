@@ -50,9 +50,11 @@ Each `TelerikTreeViewBinding` tag exposes the following properties that refer to
 * ExpandedField => Expanded
 * HasChildrenField => HasChildren
 * ItemsField => Items
-* Level - this is used for defining [differenrt bindings for different levels](#multiple-level-bindings). If no level is set, the bindings are taken as default for any level that does not have explicit settings. You should have one `TelerikTreeViewBinding` without a level.
+* Level - this is used for defining [different bindings for different levels](#multiple-level-bindings). If no level is set, the bindings are taken as default for any level that does not have explicit settings. You should have one `TelerikTreeViewBinding` without a level.
 
-The default values for the fields match the properties, so the following tree item model does not require explicit binding settings:
+>tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
+
+>caption Default field names for treeview item bindings. If you use these, you don't have to specify them in the `TelerikTreeViewBinding` tag explicitly.
 
 ````CSHTML
 public class TreeItem
@@ -68,13 +70,13 @@ public class TreeItem
 
 The following **Example** shows how to define simple binding to match item fields to a model so a tree renders the provided flat data source.
 
->caption Sample binding on a flat data source
+>caption Sample binding on a flat data source. Showcases how to set the properties to match the model. With this model, the only field name you must explicitly specify is `ParentIdField`, the others match the defaults.
 
 @[template](/_contentTemplates/treeview/basic-example.md#basic-example-with-screenshot)
 
 ### Multiple Level Bindings
 
-You can define different binding settings for the different levels of nodes in a treeview. With this, the children of a node can consume a different field than their parent, and this may make your application more flexible.
+You can define different binding settings for the different levels of nodes in a treeview. With this, the children of a node can consume a different field than their parent, and this may make your application more flexible. If you use hierarchical data binding, the children can even use a different model from their parent.
 
 This also allows you to define a different `ItemTemplate` for different levels.
 
@@ -163,7 +165,183 @@ If a certain level does not have an explicit data bindings tag, it will use the 
 
 ## Flat Data
 
+Flat data means that the entire collection of treeview items is available at one level, for example `List<MyTreeItemModel>`.
+
+The parent-child relationships are created through internal data in the model - the `ParentId` field which points to the `Id` of the item that will contain the current item. The root level has `null` for `ParentId`.
+
+>caption Example of flat data in a treeview
+
+````CSHTML
+@using Telerik.Blazor.Components.TreeView
+
+<TelerikTreeView Data="@FlatData">
+	<TelerikTreeViewBindings>
+		<TelerikTreeViewBinding ParentIdField="Parent" ExpandedField="IsExpanded"></TelerikTreeViewBinding>
+	</TelerikTreeViewBindings>
+</TelerikTreeView>
+
+@code {
+	public IEnumerable<TreeItem> FlatData { get; set; }
+
+	public class TreeItem //most fields use the default names and will bind automatically in this example
+	{
+		public int Id { get; set; }
+		public string Text { get; set; }
+		public int? Parent { get; set; } //this is a non-default field name
+		public bool HasChildren { get; set; }
+		public bool IsExpanded { get; set; } //this is a non-default field name
+	}
+
+	protected override void OnInit()
+	{
+		FlatData = LoadFlat();
+	}
+
+	private List<TreeItem> LoadFlat()
+	{
+		List<TreeItem> items = new List<TreeItem>();
+
+		items.Add(new TreeItem()
+		{
+			Id = 1,
+			Text = "Parent 1",
+			Parent = null, // indicates a root (zero-level) item
+			HasChildren = true, // informs the treeview there are children so it renders the expand option
+			IsExpanded = true // an item can be expanded by default
+		});
+
+		items.Add(new TreeItem()
+		{
+			Id = 2,
+			Text = "Parent 2",
+			Parent = null, //  indicates a root item
+			HasChildren = true, 
+			IsExpanded = false
+		});
+
+			items.Add(new TreeItem()
+		{
+			Id = 3,
+			Text = "Parent 3",
+			Parent = null, // indicates a root item
+			HasChildren = false, //there will be no children in this item
+			IsExpanded = true // will not have an effect if there are no children
+		});
+
+		items.Add(new TreeItem()
+		{
+			Id = 4,
+			Text = "Child 1 of Parent 1",
+			Parent = 1, // the parent will be the first item
+			HasChildren = false,
+			IsExpanded = false
+		});
+
+		items.Add(new TreeItem()
+		{
+			Id = 5,
+			Text = "Child 2 of Parent 1",
+			Parent = 1, // the parent will be the first item
+			HasChildren = true,
+			IsExpanded = true
+		});
+
+		items.Add(new TreeItem()
+		{
+			Id = 6,
+			Text = "Child 1 of Child 2",
+			Parent = 5, // the parent will be the first child of the first root item
+			HasChildren = false,
+			IsExpanded = false
+		});
+
+		items.Add(new TreeItem()
+		{
+			Id = 7,
+			Text = "Child 1 of Parent 2",
+			Parent = 2, // the parent will be the second root item
+			HasChildren = false,
+			IsExpanded = false
+		});
+
+		return items;
+	}
+}
+````
+
 ## Hierarchical Data
+
+Hierarchical data means that the collection child items is provided in a field of its parent's model. By default, this is the `Items` field.
+
+This lets you gather separate collections of data and/or use different models at each different level. Note that the data binding settings are per level, so a certain level will always use the same bindings, regardless of the model they represent and their parent.
+
+>caption Example of hierarchical data that uses different models for the parent and the child
+
+````CSHTML
+@using Telerik.Blazor.Components.TreeView
+
+<TelerikTreeView Data="@HierarchicalData">
+	<TelerikTreeViewBindings>
+		<TelerikTreeViewBinding TextField="Category" ItemsField="Products"></TelerikTreeViewBinding>
+		<TelerikTreeViewBinding Level="1" TextField="ProductName"></TelerikTreeViewBinding>
+	</TelerikTreeViewBindings>
+</TelerikTreeView>
+
+@code {
+	public IEnumerable<ProductCategoryItem> HierarchicalData { get; set; }
+
+	public class ProductCategoryItem
+	{
+		public string Category { get; set; }
+		public List<ProductItem> Products { get; set; }
+		public bool Expanded { get; set; }
+		public bool HasChildren { get; set; }
+	}
+
+	public class ProductItem
+	{
+		public string ProductName { get; set; }
+		// the following fields are to denote you can keep having hierarchy further down. They are not required
+		// they are not really used in this example and you would have a collection of child items too
+		// see the information about multiple data bindings earlier in this article on using them
+		public bool Expanded { get; set; }
+		public bool HasChildren { get; set; }
+	}
+
+
+	protected override void OnInit()
+	{
+		LoadHierarchical();
+	}
+
+	private void LoadHierarchical()
+	{
+		List<ProductCategoryItem> roots = new List<ProductCategoryItem>();
+
+		List<ProductItem> firstCategoryProducts = new List<ProductItem>()
+{
+			new ProductItem { ProductName= "Category 1 - Product 1" },
+			new ProductItem { ProductName= "Category 1 - Product 2" }
+		};
+
+		roots.Add(new ProductCategoryItem
+		{
+			Category = "Category 1",
+			Expanded = true,
+			Products = firstCategoryProducts, // this is how child items are provided
+			HasChildren = firstCategoryProducts?.Count > 0, // set this depending on the presence of items in the child items collection
+
+		});
+
+		roots.Add(new ProductCategoryItem
+		{
+			Category = "Category 2" // we will set no other properties and it will not have children, nor will it be expanded
+		});
+
+		HierarchicalData = roots;
+	}
+}
+````
 
 ## Load On Demand
 
