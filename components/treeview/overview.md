@@ -10,7 +10,7 @@ position: 0
 
 # Treeview Overview
 
-The Treeview component displays data (flat or hierarchical) in a traditional tree-like structure. You can navigate through the items and their children, define templates for the individual nodes, render text and icons/images, and respond to events.
+The Treeview component displays data (flat or hierarchical) in a traditional tree-like structure. You can navigate through the items and their children, define [templates]({%slug components/treeview/templates%}) for the individual nodes, render text and icons/images, and respond to events.
 
 To use a Telerik TreeView for Blazor:
 
@@ -46,76 +46,7 @@ A treeview is often used to list pages, views or sections in an application so t
 
 >caption Navigation with treeview
 
-````CSHTML
-@using Telerik.Blazor.Components.TreeView
-
-<TelerikTreeView Data="@TreeData">
-	<TelerikTreeViewBindings>
-		<TelerikTreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" HasChildrenField="HasChildren">
-			<ItemTemplate>
-				<NavLink Match="NavLinkMatch.All" href="@((context as TreeItem).Page)">
-					@((context as TreeItem).Text)
-				</NavLink>
-			</ItemTemplate>
-		</TelerikTreeViewBinding>
-	</TelerikTreeViewBindings>
-</TelerikTreeView>
-
-@code {
-	public class TreeItem
-	{
-		public int Id { get; set; }
-		public string Text { get; set; }
-		public int? ParentIdValue { get; set; }
-		public bool HasChildren { get; set; }
-		public string Page { get; set; }
-		public bool Expanded { get; set; }
-	}
-
-	public IEnumerable<TreeItem> TreeData { get; set; }
-
-	protected override void OnInit()
-	{
-		LoadTreeData();
-	}
-
-	private void LoadTreeData()
-	{
-		List<TreeItem> items = new List<TreeItem>();
-
-		items.Add(new TreeItem()
-		{
-			Id = 1,
-			Text = "Project",
-			ParentIdValue = null,
-			HasChildren = true,
-			Page = "one",
-			Expanded = true
-		});
-
-		items.Add(new TreeItem()
-		{
-			Id = 2,
-			Text = "Design",
-			ParentIdValue = 1,
-			HasChildren = false,
-			Page = "two",
-			Expanded = true
-		});
-		items.Add(new TreeItem()
-		{
-			Id = 3,
-			Text = "Implementation",
-			ParentIdValue = 1,
-			HasChildren = false,
-			Page = "three",
-			Expanded = true
-		});
-
-		TreeData = items;
-	}
-}
-````
+@[template](/_contentTemplates/treeview/basic-example.md#navigation-templates)
 
 ## See Also
 

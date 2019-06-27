@@ -1,6 +1,6 @@
 ---
 title: Load on Demand
-page_title: Treeview for Blazor Overview | Data Binding on Demand
+page_title: Treeview for Blazor | Data Binding on Demand
 description: Load on Demand in the Treeview for Blazor
 slug: components/treeview/data-binding/load-on-demand
 tags: telerik,blazor,treeview,data,bind,databind,databinding,load,demand

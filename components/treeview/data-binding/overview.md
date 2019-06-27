@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Treeview for Blazor Overview | Data Binding Overview
+page_title: Treeview for Blazor | Data Binding Overview
 description: Data Binding basics in the Treeview for Blazor
 slug: components/treeview/data-binding/overview
 tags: telerik,blazor,treeview,data,bind,databind,databinding,basics
@@ -82,7 +82,7 @@ The following **Example** shows how to define simple binding to match item field
 
 You can define different binding settings for the different levels of nodes in a treeview. With this, the children of a node can consume a different field than their parent, and this may make your application more flexible. If you use [hierarchical data binding]({%slug components/treeview/data-binding/hierarchical-data%}), the children can even use a different model from their parent.
 
-This also allows you to define a different `ItemTemplate` for different levels.
+This also allows you to define a different [`ItemTemplate`]({%slug components/treeview/templates%}) for different levels.
 
 To define multiple bindings, add multiple `TelerikTreeViewBinding` tags and define their `Level`.
 
