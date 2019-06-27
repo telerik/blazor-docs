@@ -347,6 +347,8 @@ This lets you gather separate collections of data and/or use different models at
 
 You don't have to provide all the data the treeview will render at once - the root nodes are sufficient for an initial display. You can then use the `OnExpand` event of the treeview to provide [hierarchical data](#hierarchical-data) to the node that was just expanded. Loading nodes on demand can improve the performance of your application by requesting less data at any given time.
 
+The **example** below shows how you can handle load on demand in detail. It uses two different models for the two different [levels of data bindings](#multiple-level-bindings) it showcases. You do not have to use different models and/or different bindings.
+
 >caption Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
 
 ````CSHTML
