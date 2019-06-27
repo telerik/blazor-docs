@@ -76,7 +76,7 @@ The following **Example** shows how to define simple binding to match item field
 
 ### Multiple Level Bindings
 
-You can define different binding settings for the different levels of nodes in a treeview. With this, the children of a node can consume a different field than their parent, and this may make your application more flexible. If you use hierarchical data binding, the children can even use a different model from their parent.
+You can define different binding settings for the different levels of nodes in a treeview. With this, the children of a node can consume a different field than their parent, and this may make your application more flexible. If you use [hierarchical data binding](#hierarchical-data), the children can even use a different model from their parent.
 
 This also allows you to define a different `ItemTemplate` for different levels.
 
@@ -275,7 +275,7 @@ Hierarchical data means that the collection child items is provided in a field o
 
 This lets you gather separate collections of data and/or use different models at each different level. Note that the data binding settings are per level, so a certain level will always use the same bindings, regardless of the model they represent and their parent.
 
->caption Example of hierarchical data that uses different models for the parent and the child
+>caption Example of hierarchical data that uses different models for the parent and the child. Using different models is not required.
 
 ````CSHTML
 @using Telerik.Blazor.Components.TreeView
@@ -345,7 +345,113 @@ This lets you gather separate collections of data and/or use different models at
 
 ## Load On Demand
 
+You don't have to provide all the data the treeview will render at once - the root nodes are sufficient for an initial display. You can then use the `OnExpand` event of the treeview to provide [hierarchical data](#hierarchical-data) to the node that was just expanded. Loading nodes on demand can improve the performance of your application by requesting less data at any given time.
+
+>caption Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
+
+````CSHTML
+@using Telerik.Blazor.Components.TreeView
+
+<TelerikTreeView Data="@HierarchicalData" OnExpand="@LoadChildren">
+	<TelerikTreeViewBindings>
+		<TelerikTreeViewBinding TextField="Category" ItemsField="Products"></TelerikTreeViewBinding>
+		<TelerikTreeViewBinding Level="1" TextField="ProductName"></TelerikTreeViewBinding>
+	</TelerikTreeViewBindings>
+</TelerikTreeView>
+
+@code {
+	public List<ProductCategoryItem> HierarchicalData { get; set; }
+
+	public class ProductCategoryItem
+	{
+		public string Category { get; set; }
+		public int CategoryId { get; set; } //will be used to identify the node, not for rendering in this example
+		public List<ProductItem> Products { get; set; }
+		public bool Expanded { get; set; }
+		public bool HasChildren { get; set; }
+	}
+
+	public class ProductItem
+	{
+		public string ProductName { get; set; }
+		// the following fields are to denote you can keep having hierarchy further down. They are not required
+		// they are not really used in this example and you would have a collection of child items too
+		// see the information about multiple data bindings earlier in this article on using them
+		public bool Expanded { get; set; }
+		public bool HasChildren { get; set; }
+	}
+
+	protected override void OnInit()
+	{
+		LoadRootHierarchical();
+	}
+
+	private void LoadRootHierarchical()
+	{
+		HierarchicalData = new List<ProductCategoryItem>();
+
+		HierarchicalData.Add(new ProductCategoryItem
+		{
+			Category = "Category 1",
+			HasChildren = true, // allow the user to expand the item and load children on demand
+			CategoryId = 1 // an identifier for use in the service call for child items
+		});
+
+		HierarchicalData.Add(new ProductCategoryItem
+		{
+			Category = "Category 2",
+			HasChildren = true,
+			CategoryId = 2
+		});
+	}
+
+	private async void LoadChildren(TreeViewExpandEventArgs args)
+	{
+	    // check if the item is expanding, we don't need to do anything if it is collapsing
+	    // in this example we will also check the type of the model to know how to identify the node and what data to load. If you use only one model for all levels, you don't have to do this
+		if (args.Expanded && args.Item is ProductCategoryItem)
+		{
+			ProductCategoryItem currCategory = args.Item as ProductCategoryItem;
+			if (currCategory.Products?.Count > 0)
+			{
+				return; // item has been expanded before so it has data, don't load data again
+						// alternatively, load it again but make sure to handle the child items correctly
+						// either overwrite the entire collection, or use some other logic to append/merge
+			}
+			int itemIdentifier = currCategory.CategoryId;
+			// in a similar fashion, you can identify the item that was just expanded through its properties
+			// in this example, we will hardcode some data and logic for brevity
+			// in a real case, you would probably await a remote endpoint/service
+
+			if (itemIdentifier == 2) // simulate no data for a certain node - the second in our example
+			{
+				currCategory.HasChildren = false; // remove the expand icon from the node
+
+				StateHasChanged(); // inform the UI that the data is changed
+
+				return;
+			}
+
+            // data requested and received for a certain node
+			List<ProductItem> theProducts = new List<ProductItem>() {
+				new ProductItem { ProductName= $"Category {itemIdentifier} - Product 1" },
+				new ProductItem { ProductName= $"Category {itemIdentifier} - Product 2" }
+			};
+
+			// one way to add child elements to a collection
+			currCategory.Products = new List<ProductItem>();
+			currCategory.Products.AddRange<ProductItem>(theProducts);
+
+			StateHasChanged(); // inform the UI that the data is changed
+		}
+	}
+}
+````
+
 ## See Also
 
-  * [Live Demo: TreeView Data Bindings](https://demos.telerik.com/blazor-ui/treeview/bindings)
+  * [Live Demo: TreeView Flat Data](https://demos.telerik.com/blazor-ui/treeview/flat-data)
+  * [Live Demo: TreeView Hierarchical Data](https://demos.telerik.com/blazor-ui/treeview/hierarchical-data)
+  * [Live Demo: TreeView Per-Level Data Bindings](https://demos.telerik.com/blazor-ui/treeview/bindings)
+  * [Live Demo: TreeView Load on Demand](https://demos.telerik.com/blazor-ui/treeview/lazy-loading)
 
