@@ -15,12 +15,16 @@ The Treeview component displays data (flat or hierarchical) in a traditional tre
 To use a Telerik TreeView for Blazor:
 
 1. add the `TelerikTreeView` tag
-1. provide a collection of models to its `Data` property (read more in the [Data Binding article]({%slug components/treeview/data-bind%}))
+1. provide a collection of models to its `Data` property (read more in the [Data Binding article]({%slug components/treeview/data-binding/overview%}))
 1. match the fields in the models with the binding schema for the nodes
 
 >caption Basic treeview with flat data binding and built-in icons 
 
-@[template](/_contentTemplates/treeview/basic-example.md#basic-example-with-screenshot)
+@[template](/_contentTemplates/treeview/basic-example.md#basic-example)
+
+>caption The result from the snippet above
+
+![](images/treeview-overview.png)
 
 >caption Component namespace and reference
 
@@ -115,6 +119,6 @@ A treeview is often used to list pages, views or sections in an application so t
 
 ## See Also
 
-  * [Data Binding a TreeView]({%slug components/treeview/data-bind%})
+  * [Data Binding a TreeView]({%slug components/treeview/data-binding/overview%})
   * [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/treeview/index)
 

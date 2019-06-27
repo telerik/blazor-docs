@@ -1,4 +1,4 @@
-#basic-example-with-screenshot
+#basic-example
 
 ````CSHTML
 @using Telerik.Blazor.Components.TreeView
@@ -102,8 +102,9 @@
 }
 ````
 
->caption The result from the snippet above
-
-![](images/treeview-overview.png)
-
 #end
+
+#data-binding-basics-link
+Before continuing, make sure you are familiar with the [treeview data binding basics]({%slug components/treeview/data-binding/overview%}).
+#end
+
