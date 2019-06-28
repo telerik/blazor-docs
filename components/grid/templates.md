@@ -10,7 +10,10 @@ position: 24
 
 # Grid Templates
 
-The Grid component can use templates for [rows](#row-template), [columns (cells)](#column-template) and [editing of a field](#edit-template).
+The Grid component can use templates for: 
+* [columns (cells)](#column-template)
+* [rows](#row-template)
+* [editing of a field](#edit-template)
 
 Like other Blazor content, they can receive a `context` argument that is the type of the model. To use templates, you must bind the grid to a named model.
 
@@ -147,6 +150,7 @@ If you need to perform logic more complex than simple data binding, use the chan
 
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
+@using Telerik.Blazor.Components.DropDownList
 
 <TelerikGrid Data=@MyData EditMode="inline" Pageable="true" Height="500px">
 	<TelerikGridColumns>
@@ -156,12 +160,7 @@ If you need to perform logic more complex than simple data binding, use the chan
 			<EditorTemplate>
 				@{
 					CurrentlyEditedEmployee = context as SampleData;
-					<select @bind="CurrentlyEditedEmployee.Role">
-						@foreach (string item in Roles)
-						{
-							<option value=@item>@item</option>
-						}
-					</select>
+					<TelerikDropDownList Data="@Roles" @bind-Value="CurrentlyEditedEmployee.Role"></TelerikDropDownList>
 				}
 			</EditorTemplate>
 		</TelerikGridColumn>
