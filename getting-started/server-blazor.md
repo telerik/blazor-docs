@@ -72,6 +72,12 @@ To use Blazor server-side, you need to use the `Razor Components` type of projec
             }
         }
 
+1. @[template](/_contentTemplates/common/get-started.md#telerik-main-container-text)
+
+    **MainLayout.razor**
+    
+        @[template](/_contentTemplates/common/get-started.md#telerik-main-container-snippet)
+
 
     
 Now your project can use the Telerik UI for Blazor components.

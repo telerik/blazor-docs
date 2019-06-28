@@ -72,6 +72,13 @@ For client-side Blazor, we recommend the usage of `Blazor (ASP.NET Hosted)` proj
                  //more code may be present here
              }
          }
+         
+1. @[template](/_contentTemplates/common/get-started.md#telerik-main-container-text)
+
+    **MainLayout.razor**
+    
+        @[template](/_contentTemplates/common/get-started.md#telerik-main-container-snippet)
+
 
 1. @[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
 

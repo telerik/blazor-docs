@@ -117,6 +117,13 @@ namespace MyBlazorAppName
 }
 ````
 
+To allow working with detached popups (for example, dropdown lists, menus, grid filters, etc.), a Telerik-specific Blazor component is needed at the root level of the DOM.
+@[template](/_contentTemplates/common/get-started.md#telerik-main-container-text)
+
+````CSHTML
+@[template](/_contentTemplates/common/get-started.md#telerik-main-container-snippet)
+````
+
 ### Client-side Project Considerations
 
 If you are using a **client-side Blazor** project, 

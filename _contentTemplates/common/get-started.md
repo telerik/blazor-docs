@@ -143,3 +143,28 @@ To setup a local NuGet package source, so you can install the Telerik components
 1. On the loaded page choose from your purchased products or trial downloads **Progress® Telerik® UI for Blazor**, and click on it.
 #end
 
+
+#telerik-main-container-text
+Open the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project) and add a `<TelerikRootComponent>` element at its root level. The layout file should look similar to this (there may be additional elements in your app):
+#end
+
+
+#telerik-main-container-snippet
+
+        @inherits LayoutComponentBase
+        
+        @using Telerik.Blazor.Components.RootComponent
+        
+        <TelerikRootComponent>
+        
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+            
+            <div class="main">
+                @Body
+            </div>
+        
+        </TelerikRootComponent>
+#end
+
