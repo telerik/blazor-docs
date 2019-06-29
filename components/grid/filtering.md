@@ -14,13 +14,11 @@ The Grid component offers support for filtering.
 
 To enable sorting, set the grid's `Filterable` property to `true`.
 
-The grid will render a row below the column headers with UI that you can use to fill in filter criteria and then you can click a button to execute the filter. Once a filter is a applied to a column, a button will appear that lets you clear that filter.
+The grid will render a row below the column headers with UI that you can use to fill in the filter criteria. You can click outside of the filter to execute the default operator, or click a button to choose a different filter operator (like "contains", "greater than" and so on).
 
-The behavior of the filter header will depend on the column data type:
+Once a filter is a applied to a column, a button will appear that lets you clear that filter.
 
-* `string` - the filter is `Contains`. A [Telerik TextBox]({%slug components/textbox/overview%}) component is used.
-* `number` - the filter is `EqualsTo`. A [Telerik Numeric TextBox]({%slug components/numerictextbox/overview%}) component is used.
-* `DateTime` - the filter is `EqualsTo`. A [Telerik Date Input]({%slug components/dateinput/overview%}) component is used.
+The behavior of the filter header input and the available filter operators will depend on the column data type. For example, a boolean field will only have the options "is true" and "is false" and will not have operators like "contains" or "greater than".
 
 You can filter more than one column at a time, and all filter rules will be applied together with an `AND` logic.
 
@@ -34,6 +32,7 @@ You can filter more than one column at a time, and all filter rules will be appl
 		<TelerikGridColumn Field=@nameof(Employee.Name) />
 		<TelerikGridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />
 		<TelerikGridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
+		<TelerikGridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
 	</TelerikGridColumns>
 </TelerikGrid>
 
@@ -51,7 +50,8 @@ You can filter more than one column at a time, and all filter rules will be appl
 				EmployeeId = i,
 				Name = "Employee " + i.ToString(),
 				AgeInYears = rand.Next(10, 80),
-				HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20))
+				HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20)),
+				IsOnLeave = i % 3 == 0
 			});
 		}
 	}
@@ -62,6 +62,7 @@ You can filter more than one column at a time, and all filter rules will be appl
 		public string Name { get; set; }
 		public int? AgeInYears { get; set; }
 		public DateTime HireDate { get; set; }
+		public bool IsOnLeave { get; set; }
 	}
 }
 ````
