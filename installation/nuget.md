@@ -20,7 +20,7 @@ This article explains how to add the private Telerik NuGet feed to your system. 
 
 To add the Telerik private NuGet feed, follow the steps below:
 
-1. Download the [latest NuGet executable](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe).
+1. Download the [latest NuGet executable](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe). If you cannot use the `exe` (for example on Mac or Linux), you can [use a nuget.config](#nuget-config-file) file.
 1. Open a Command Prompt and change the path to where the `nuget.exe` is downloaded.
 1. Execute the command from the example below.
 
@@ -58,6 +58,36 @@ NuGet Sources Update -Name "telerik.com" -Source "https://nuget.telerik.com/nuge
       -UserName "your login email" -Password "your password" ^
       -StorePasswordInClearText
 ```
+
+### Nuget Config File
+
+NuGet feeds and other settings can be stored in a `nuget.config` file. You can read more about it in the [Nuget Config File - Package Sources](https://docs.microsoft.com/en-us/nuget/reference/nuget-config-file#packagesources) article.
+
+Make sure you are familiar with how such configurations work. The [Common NuGet Configurations](https://docs.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#creating-a-new-config-file) article is a reference document you can use.
+
+To use a `nuget.config` file for the Telerik feed, you need to:
+
+1. Ensure you have the relevant config file. You can create a new one by via the [dotnet new command](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new) by calling `dotnet new nugetconfig`.
+
+2. Add the Telerik feed to it, and make sure to use plain-text credentials, because the .NET Core tooling does not fully support encypted credentials. Here is an example of how your config file can look like:
+
+    **nuget.config**
+    
+        <?xml version="1.0" encoding="utf-8"?>
+        <configuration>
+         <packageSources>
+            <!--To inherit the global NuGet package sources remove the <clear/> line below -->
+            <clear />
+            <add key="nuget" value="https://api.nuget.org/v3/index.json" />
+            <add key="telerik" value="https://nuget.telerik.com/nuget" />
+         </packageSources>
+         <packageSourceCredentials>
+            <telerik>
+              <add key="Username" value="your telerik account email" />
+              <add key="ClearTextPassword" value="your plain text password" />
+           </telerik>
+         </packageSourceCredentials>
+        </configuration>
 
 ## Next Steps
 
