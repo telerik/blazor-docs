@@ -160,7 +160,7 @@ If you need to perform logic more complex than simple data binding, use the chan
 			<EditorTemplate>
 				@{
 					CurrentlyEditedEmployee = context as SampleData;
-					<TelerikDropDownList Data="@Roles" @bind-Value="CurrentlyEditedEmployee.Role"></TelerikDropDownList>
+					<TelerikDropDownList Data="@Roles" @bind-Value="CurrentlyEditedEmployee.Role" Width="120px" PopupHeight="auto"></TelerikDropDownList>
 				}
 			</EditorTemplate>
 		</TelerikGridColumn>
@@ -225,7 +225,7 @@ If you need to perform logic more complex than simple data binding, use the chan
 
 >caption The result from the code snippet above, after Edit was clicked on the first row and the user expanded the dropdown from the template
 
-![](images/edit-template.jpg)
+![](images/edit-template.png)
 
 ## See Also
 
