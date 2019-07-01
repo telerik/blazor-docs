@@ -12,7 +12,7 @@ position: 22
 
 The Grid component offers support for filtering.
 
-To enable sorting, set the grid's `Filterable` property to `true`.
+To enable filtering, set the grid's `Filterable` property to `true`.
 
 The grid will render a row below the column headers with UI that you can use to fill in the filter criteria. You can click outside of the filter to execute the default operator, or click a button to choose a different filter operator (like "contains", "greater than" and so on).
 
