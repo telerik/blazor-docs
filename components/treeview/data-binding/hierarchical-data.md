@@ -14,9 +14,9 @@ This article explains how to bind the TreeView for Blazor to hierarchical data.
 @[template](/_contentTemplates/treeview/basic-example.md#data-binding-basics-link)
 
 
-Hierarchical data means that the collection child items is provided in a field of its parent's model. By default, this is the `Items` field.
+Hierarchical data means that the collection child items is provided in a field of its parent's model. By default, this is the `Items` field. If there are items for a certain node, it will have an expand icon. The `HasChildren` field can override this, however, but it is not required for hierarchical data binding.
 
-This lets you gather separate collections of data and/or use different models at each different level. Note that the data binding settings are per level, so a certain level will always use the same bindings, regardless of the model they represent and their parent.
+This approach of providing nodes lets you gather separate collections of data and/or use different models at each different level. Note that the data binding settings are per level, so a certain level will always use the same bindings, regardless of the model they represent and their parent.
 
 >caption Example of hierarchical data that uses different models for the parent and the child. Using different models is not required.
 
@@ -38,7 +38,6 @@ This lets you gather separate collections of data and/or use different models at
 		public string Category { get; set; }
 		public List<ProductItem> Products { get; set; }
 		public bool Expanded { get; set; }
-		public bool HasChildren { get; set; }
 	}
 
 	public class ProductItem
@@ -48,7 +47,6 @@ This lets you gather separate collections of data and/or use different models at
 		// they are not really used in this example and you would have a collection of child items too
 		// see the information about multiple data bindings earlier in this article on using them
 		public bool Expanded { get; set; }
-		public bool HasChildren { get; set; }
 	}
 
 
@@ -71,8 +69,7 @@ This lets you gather separate collections of data and/or use different models at
 		{
 			Category = "Category 1",
 			Expanded = true,
-			Products = firstCategoryProducts, // this is how child items are provided
-			HasChildren = firstCategoryProducts?.Count > 0, // set this depending on the presence of items in the child items collection
+			Products = firstCategoryProducts // this is how child items are provided
 
 		});
 

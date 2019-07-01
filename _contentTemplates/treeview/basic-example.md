@@ -18,11 +18,8 @@
 		public bool HasChildren { get; set; }
 		public string Icon { get; set; }
 		public bool Expanded { get; set; }
-
-		public TreeItem()
-		{
-		}
 	}
+	
 	public IEnumerable<TreeItem> FlatData { get; set; }
 
 	protected override void OnInit()

@@ -27,13 +27,13 @@ There are three modes of providing data to a treeview, and they all use the item
 
 The treeview items provide the following features that you control through the corresponding fields in their data binding:
 
-* `Id` - a unique identifier for the item. Required.
-* `ParentId` - identifies the parent to whom the item belongs. Needed only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, this must be `null`.
+* `Id` - a unique identifier for the item. Required for binding to flat data.
+* `ParentId` - identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, this must be `null`.
+* `Expanded` - whether the item is expanded when it renders, or the user has to expand it manually.
+* `HasChildren` - whether the item has children. Determines whether an expand arrow is rendered next to the item. Required for binding to flat data and for load-on-demand. With hierarchical data, the treeview will render the icon based on the existence of child items, but `HasChildren` will take precedence.
+* `Items` - the collection of child items that will be rendered under the current item. Required only when binding to hierarchical data.
 * `Text` - the text that will be shown on the item.
 * `Icon` / `IconClass` / `ImageUrl` - the [Telerik icon]({%slug general-information/font-icons%}), a class for a custom font icon, or the URL to a raster image that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `Icon` will have the highest importance).
-* `Expanded` - whether the item is expanded when it renders, or the user has to expand it manually.
-* `HasChildren` - whether the item has children. Determines whether an expand arrow is rendered next to the item. Required.
-* `Items` - the collection of child items that will be rendered under the current item. Needed only when binding to hierarchical data.
 
 ## Data Bindings
 
