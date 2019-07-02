@@ -144,7 +144,6 @@ The DropDownList is a generic component and its type comes from the model it is 
 
 ## See Also
 
+  * [DropDownList Overview]({%slug components/dropdownlist/overview%})
   * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/index)
-  * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor-ui/dropdownlist/validation)
-  
   

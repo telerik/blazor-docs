@@ -205,6 +205,7 @@ The DropDownList provides the following features:
 
 ## See Also
 
+  * [Data Binding]({%slug components/dropdownlist/databind%})
   * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/index)
   * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor-ui/dropdownlist/validation)
   
