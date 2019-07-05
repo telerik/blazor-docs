@@ -137,6 +137,6 @@ To enable InCell editing mode, set the `EditMode` property of the grid to `incel
 
 ## See Also
 
-  * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/incellediting)
+  * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/editing-incell)
    
   

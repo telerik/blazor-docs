@@ -197,10 +197,10 @@ There is a deliberate delay in the data source operations in this example to mim
 
 ## See Also
 
-  * [Live Demo: Grid PopUp Editing](https://demos.telerik.com/blazor-ui/grid/popupediting)
-  * [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor-ui/grid/inlineediting)
-  * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/incellediting)
-  * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/customeditor)
-  * [Live Demo: Grid Custom Edit Form](https://demos.telerik.com/blazor-ui/grid/customformedit)
+  * [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor-ui/grid/editing-inline)
+  * [Live Demo: Grid PopUp Editing](https://demos.telerik.com/blazor-ui/grid/editing-popup)
+  * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/editing-incell)
+  * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
+  * [Live Demo: Grid Custom Edit Form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form)
   
   

@@ -162,6 +162,6 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 
 ## See Also
 
-  * [Live Demo: Grid PopUp Editing](https://demos.telerik.com/blazor-ui/grid/popupediting)
+  * [Live Demo: Grid PopUp Editing](https://demos.telerik.com/blazor-ui/grid/editing-popup)
    
   
