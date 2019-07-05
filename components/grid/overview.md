@@ -23,7 +23,7 @@ To create a basic Telerik Grid:
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data="@MyData" Height="300px" Pageable="true" Sortable="true">
+<TelerikGrid Data="@MyData" Height="300px" Pageable="true" Sortable="true" Filterable="true">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field="@(nameof(SampleData.Id))" />
 		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
@@ -38,7 +38,7 @@ To create a basic Telerik Grid:
 		Name = "name " + x,
 		HireDate = DateTime.Now.AddDays(-x)
 	});
-	
+
 	public class SampleData
 	{
 		public int Id { get; set; }
