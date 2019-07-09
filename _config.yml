@@ -364,6 +364,8 @@ footer_social:
     twitter: https://twitter.com/Telerik/
 
 # Assets pipeline configuration
+use_cachebusting: false
+# These may be obsolete, but avoid touching just in case
 assets:
     cachebust: soft
     js_compressor: uglifier
