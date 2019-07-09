@@ -25,7 +25,9 @@
 #after-you-run-vanilla
 You need to install the [Blazor VS Extensions](https://marketplace.visualstudio.com/items?itemName=aspnet.blazor) in order to get the necessary app templates.
 
->tip Make sure that you have the latest bits installed ([.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0) and [Visual Studio 2019 **Preview**](https://visualstudio.microsoft.com/vs/preview/) channel are required).
+>tip Make sure that you have [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0) and [Visual Studio 2019 **Preview**](https://visualstudio.microsoft.com/vs/preview/) installed. You must use the Preview version of Visual Studio for working with Blazor apps.
+>
+> The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}` and it supports .NET Core 3 `Preview 6`.
 
 ### Using Official Visual Studio 2019
 
