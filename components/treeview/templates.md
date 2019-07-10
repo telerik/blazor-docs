@@ -13,16 +13,85 @@ position: 5
 The Treeview component allows you to define a custom template for its nodes. This article explains how you can use it.
 
 The `ItemTemplate` of a node is defined under the `TelerikTreeViewBinding` tag.
-@[template](/_contentTemplates/treeview/basic-example.md#data-binding-basics-link)
 
 The template receives the model to which the item is bound as its `context`. You can use it to render the desired content.
 
 You can also define different templates for the different levels in each `TelerikTreeViewBinding` tag.
 
->caption Use templates to implement navigation between views
+You can use the template to render arbitrary content according to your application's data and logic. You can use components in it and thus provide rich content instead of plain text.
 
-@[template](/_contentTemplates/treeview/basic-example.md#navigation-templates)
+>caption Use templates to implement navigation between views without the usage of the UrlField feature
 
+````CSHTML
+@using Telerik.Blazor.Components.TreeView
+
+<TelerikTreeView Data="@TreeData">
+	<TelerikTreeViewBindings>
+		<TelerikTreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" HasChildrenField="HasChildren">
+			<ItemTemplate>
+				<NavLink Match="NavLinkMatch.All" href="@((context as TreeItem).Page)">
+					@((context as TreeItem).Text)
+				</NavLink>
+			</ItemTemplate>
+		</TelerikTreeViewBinding>
+	</TelerikTreeViewBindings>
+</TelerikTreeView>
+
+@code {
+	public class TreeItem
+	{
+		public int Id { get; set; }
+		public string Text { get; set; }
+		public int? ParentIdValue { get; set; }
+		public bool HasChildren { get; set; }
+		public string Page { get; set; }
+		public bool Expanded { get; set; }
+	}
+
+	public IEnumerable<TreeItem> TreeData { get; set; }
+
+	protected override void OnInit()
+	{
+		LoadTreeData();
+	}
+
+	private void LoadTreeData()
+	{
+		List<TreeItem> items = new List<TreeItem>();
+
+		items.Add(new TreeItem()
+		{
+			Id = 1,
+			Text = "Project",
+			ParentIdValue = null,
+			HasChildren = true,
+			Page = "one",
+			Expanded = true
+		});
+
+		items.Add(new TreeItem()
+		{
+			Id = 2,
+			Text = "Design",
+			ParentIdValue = 1,
+			HasChildren = false,
+			Page = "two",
+			Expanded = true
+		});
+		items.Add(new TreeItem()
+		{
+			Id = 3,
+			Text = "Implementation",
+			ParentIdValue = 1,
+			HasChildren = false,
+			Page = "three",
+			Expanded = true
+		});
+
+		TreeData = items;
+	}
+}
+````
 
 >caption Different templates for different node levels
 

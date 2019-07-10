@@ -34,6 +34,7 @@ The treeview items provide the following features that you control through the c
 * `Items` - the collection of child items that will be rendered under the current item. Required only when binding to hierarchical data.
 * `Text` - the text that will be shown on the item.
 * `Icon` / `IconClass` / `ImageUrl` - the [Telerik icon]({%slug general-information/font-icons%}), a class for a custom font icon, or the URL to a raster image that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `Icon` will have the highest importance).
+* `Url` - the view the item will navigate to by generating a link.
 
 ## Data Bindings
 
@@ -47,6 +48,7 @@ Each `TelerikTreeViewBinding` tag exposes the following properties that refer to
 * IconClassField => IconClass
 * IconField => Icon
 * ImageUrlField => ImageUrl
+* UrlField => Url
 * ExpandedField => Expanded
 * HasChildrenField => HasChildren
 * ItemsField => Items
@@ -65,6 +67,7 @@ public class TreeItem
 	public bool HasChildren { get; set; }
 	public string Icon { get; set; }
 	public bool Expanded { get; set; }
+	public string Url { get; set; }
 }
 ````
 

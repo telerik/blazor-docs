@@ -42,11 +42,78 @@ To use a Telerik TreeView for Blazor:
 
 ## Navigate Views
 
-A treeview is often used to list pages, views or sections in an application so the user can navigate through them. In Blazor, navigation is accomplished through a `NavLink` element, and to use it in a treeview, you must use its `ItemTemplate`:
+A treeview is often used to list pages, views or sections in an application so the user can navigate through them. To do that with a treeview, you have two options:
 
->caption Navigation with treeview
+* Use the built-in `UrlField` in the [data bindings]({%slug components/treeview/data-binding/overview%}#data-bindings) to populate the URLs in the anchors the treeview will generate for you.
+* use a [Template]({%slug components/treeview/templates%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
 
-@[template](/_contentTemplates/treeview/basic-example.md#navigation-templates)
+>caption Navigation with treeview through the UrlField
+
+````CSHTML
+@using Telerik.Blazor.Components.TreeView
+
+<TelerikTreeView Data="@TreeData">
+	<TelerikTreeViewBindings>
+		<TelerikTreeViewBinding UrlField="Page" ParentIdField="ParentIdValue">
+		</TelerikTreeViewBinding>
+	</TelerikTreeViewBindings>
+</TelerikTreeView>
+
+@code {
+	public class TreeItem
+	{
+		public int Id { get; set; }
+		public string Text { get; set; }
+		public int? ParentIdValue { get; set; }
+		public bool HasChildren { get; set; }
+		public string Page { get; set; }
+		public bool Expanded { get; set; }
+	}
+
+	public IEnumerable<TreeItem> TreeData { get; set; }
+
+	protected override void OnInit()
+	{
+		LoadTreeData();
+	}
+
+	private void LoadTreeData()
+	{
+		List<TreeItem> items = new List<TreeItem>();
+
+		items.Add(new TreeItem()
+		{
+			Id = 1,
+			Text = "Project",
+			ParentIdValue = null,
+			HasChildren = true,
+			Page = "one", //the URL to navigate to
+			Expanded = true
+		});
+
+		items.Add(new TreeItem()
+		{
+			Id = 2,
+			Text = "Design",
+			ParentIdValue = 1,
+			HasChildren = false,
+			Page = "two", //the URL to navigate to
+			Expanded = true
+		});
+		items.Add(new TreeItem()
+		{
+			Id = 3,
+			Text = "Implementation",
+			ParentIdValue = 1,
+			HasChildren = false,
+			Page = "three", //the URL to navigate to
+			Expanded = true
+		});
+
+		TreeData = items;
+	}
+}
+````
 
 ## See Also
 
