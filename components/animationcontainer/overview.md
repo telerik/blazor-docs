@@ -21,26 +21,25 @@ To use the animation container, add the `TelerikAnimationContainer` tag.
 @using Telerik.Blazor.Components.Button
 @using Telerik.Blazor
 
-<TelerikAnimationContainer Top="300px" Width="100px" Height="100px" Visible="@Shown" AnimationType="AnimationType.ZoomOut" Class="k-popup">
+<TelerikAnimationContainer @ref="myPopupRef" Top="300px" Width="100px" Height="100px" AnimationType="AnimationType.ZoomOut" Class="k-popup">
 	My content goes here. The "k-popup" class adds some background and borders which you can define through your own styles instead.
 </TelerikAnimationContainer>
 
 <TelerikButton OnClick="@ToggleContainer">Toggle Animation Container</TelerikButton>
 
 @code {
-	public bool Shown { get; set; } = false;
+	Telerik.Blazor.Components.AnimationContainer.TelerikAnimationContainer myPopupRef;
 
 	public void ToggleContainer()
 	{
-		Shown = !Shown;
-		StateHasChanged();
+		myPopupRef.Toggle();
 	}
 }
 ````
 
-The animation container exposes the following properties:
+The animation container exposes the following properties and methods:
 
-* `Visible` - to control whether the container is shown.
+* `Show()`, `Hide()` and `Toggle()` - to control whether the container is shown.
 * `Width` and `Height` - to control its size.
 * `Top` and `Left` - to control its offset from its parent with special positioning (`relative`, `absolute`, `fixed`).
 * `AnimationType` and `AnimationDuration` to control the way it is shown and hidden. The animation duration is in milliseconds (defaults to `300`), and the type is of the `Telerik.Blazor.AnimationType` enum with the following options:
@@ -61,13 +60,14 @@ The animation container exposes the following properties:
 
 >caption Explore the animation options
 
-````
+````CSHTML
 @using Telerik.Blazor.Components.AnimationContainer
 @using Telerik.Blazor.Components.Button
 @using Telerik.Blazor
 
-<TelerikAnimationContainer Top="300px" Width="100px" Height="100px" Visible="@Shown" AnimationType="@AnimType" Class="my-popup">
-	My content goes here.
+<TelerikAnimationContainer @ref="myPopup" Top="300px" Width="200px" Height="200px" AnimationType="@AnimType" Class="my-popup">
+	My content goes here.<br />
+	<TelerikButton OnClick="@HideContainer">Hide Animation Container</TelerikButton>
 </TelerikAnimationContainer>
 
 <select @bind="AnimType">
@@ -77,15 +77,20 @@ The animation container exposes the following properties:
 	}
 </select>
 
-<TelerikButton OnClick="@ToggleContainer">Toggle Animation Container</TelerikButton>
+<TelerikButton OnClick="@ShowContainer">Show Animation Container</TelerikButton>
 
 @code {
-	public bool Shown { get; set; } = false;
+	TelerikAnimationContainer myPopup;
 	public AnimationType AnimType { get; set; } = AnimationType.Fade;
-	public void ToggleContainer()
+
+	public void ShowContainer()
 	{
-		Shown = !Shown;
-		StateHasChanged();
+		myPopup.Show();
+	}
+
+	public void HideContainer()
+	{
+		myPopup.Hide();
 	}
 }
 
