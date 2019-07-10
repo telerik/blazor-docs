@@ -91,11 +91,11 @@ Here is the `script` tag for our static asset path:
 ````SHTML
 <head>
   . . .
-  <script src="_content/telerikuiforblazor/js/telerik-blazor.js" defer></script>
+  <script src="_content/telerik.ui.for.blazor/js/telerik-blazor.js" defer></script>
 </head>
 ````
 
->note If you are using a trial license, the path is `_content/telerikuiforblazortrial/js/telerik-blazor.js`.
+>note If you are using a trial license, the path is `_content/telerik.ui.for.blazor.trial/js/telerik-blazor.js`.
 
 ## Project Configuration
 
