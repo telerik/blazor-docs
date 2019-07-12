@@ -22,6 +22,7 @@ The **example** below shows how you can handle load on demand in detail. It uses
 
 ````CSHTML
 @using Telerik.Blazor.Components.TreeView
+@using Telerik.DataSource.Extensions
 
 <TelerikTreeView Data="@HierarchicalData" OnExpand="@LoadChildren">
 	<TelerikTreeViewBindings>
@@ -112,6 +113,7 @@ The **example** below shows how you can handle load on demand in detail. It uses
 			// one way to add child elements to a collection
 			currCategory.Products = new List<ProductItem>();
 			currCategory.Products.AddRange<ProductItem>(theProducts);
+			// the AddRange() method comes from the Telerik.DataSource.Extensions
 
 			StateHasChanged(); // inform the UI that the data is changed
 		}
