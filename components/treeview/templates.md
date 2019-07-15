@@ -18,7 +18,7 @@ The template receives the model to which the item is bound as its `context`. You
 
 You can also define different templates for the different levels in each `TelerikTreeViewBinding` tag.
 
-You can use the template to render arbitrary content according to your application's data and logic. You can use components in it and thus provide rich content instead of plain text.
+You can use the template to render arbitrary content according to your application's data and logic. You can use components in it and thus provide rich content instead of plain text. You can also use it to add DOM event handlers like click, doubleclick, mouseover if you need to respond to them.
 
 >caption Use templates to implement navigation between views without the usage of the UrlField feature
 
