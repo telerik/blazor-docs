@@ -24,19 +24,6 @@ To add the Telerik private NuGet feed, follow the steps below:
 1. Open a Command Prompt and change the path to where the `nuget.exe` is downloaded.
 1. Execute the command from the example below.
 
-### Store Encrypted Credentials
-
-The command from the example below stores a token in the `%AppData%\NuGet\NuGet.config` file. Your original credentials cannot be obtained from this token.
-
->note If you are unable to connect to the feed by using encrypted credentials, try the alternative approach of storing credentials in clear text explained below. The ASP.NET Core tooling this step is based on does not fully support encrypted credentials.
-
->caption Store Encrypted Credentials for the Telerik NuGet feed
-
-```
-NuGet Sources Add -Name "telerik.com" -Source "https://nuget.telerik.com/nuget" ^
-      -UserName "your login email" -Password "your password"
-```
-
 ### Store Credentials in Clear Text for the Telerik NuGet feed
 
 The command from the example below stores the password in clear text in the `%AppData%\NuGet\NuGet.config` file. If you are unable to connect to the feed using encrypted credentials, use this alternative approach.
@@ -58,6 +45,9 @@ NuGet Sources Update -Name "telerik.com" -Source "https://nuget.telerik.com/nuge
       -UserName "your login email" -Password "your password" ^
       -StorePasswordInClearText
 ```
+### Store Encrypted Credentials
+
+The ASP.NET Core tooling does not fully support encrypted credentials.
 
 ### Nuget Config File
 
@@ -67,7 +57,7 @@ Make sure you are familiar with how such configurations work. The [Common NuGet 
 
 To use a `nuget.config` file for the Telerik feed, you need to:
 
-1. Ensure you have the relevant config file. You can create a new one by via the [dotnet new command](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new) by calling `dotnet new nugetconfig`.
+1. Ensure you have the relevant config file: `%AppData%\NuGet\NuGet.Config`. You can create a new one by via the [dotnet new command](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new) by calling `dotnet new nugetconfig`.
 
 2. Add the Telerik feed to it, and make sure to use plain-text credentials, because the .NET Core tooling does not fully support encypted credentials. Here is an example of how your config file can look like:
 
