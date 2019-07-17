@@ -32,7 +32,7 @@ To use the animation container, add the `TelerikAnimationContainer` tag.
 
 	public void ToggleContainer()
 	{
-		myPopupRef.Toggle();
+		myPopupRef.ToggleAsync();
 	}
 }
 ````
@@ -85,12 +85,12 @@ The animation container exposes the following properties and methods:
 
 	public void ShowContainer()
 	{
-		myPopup.Show();
+		myPopup.ShowAsync();
 	}
 
 	public void HideContainer()
 	{
-		myPopup.Hide();
+		myPopup.HideAsync();
 	}
 }
 
