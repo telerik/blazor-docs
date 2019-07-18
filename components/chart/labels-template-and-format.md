@@ -188,6 +188,74 @@ In a **legend item label template**, you can use the following fields:
 * `series` - the data series
 * `value` - the point value (only for donut and pie charts)
 * `percentage` - the point value represented as a percentage value. Available only for donut, pie and 100% stacked charts
+ 
+
+### Hide Label Conditionally
+
+In some cases, you want the series to have labels, but certain data points must not have a label. For example, in [stacked series]({%slug components/chart/stack%}) where a certain value is `0`.
+
+To do that, you need to:
+
+* add conditional logic in the template that renders the desired content when your condition is met, and returns nothing when it is not.
+* ensure the labels background is transparent so there are no leftover spots on the chart.
+
+>caption Hide labels with zero values
+
+````CSHTML
+@using Telerik.Blazor
+@using Telerik.Blazor.Components.Chart
+
+<TelerikChart>
+	<TelerikChartSeriesItems>
+		<TelerikChartSeries Type="ChartSeriesType.Column" Data="@chartData" Name="Product 1 Sales"
+							Field="@nameof(MyChartDataModel.Value1)" CategoryField="@nameof(MyChartDataModel.TheCategory)">
+			<TelerikChartSeriesLabels Visible="true" Template="@MySeriesTemplate" Background="transparent"></TelerikChartSeriesLabels>
+			<TelerikChartSeriesStack Enabled="true"></TelerikChartSeriesStack>
+		</TelerikChartSeries>
+		<TelerikChartSeries Type="ChartSeriesType.Column" Data="@chartData" Name="Product 2 Sales"
+							Field="@nameof(MyChartDataModel.Value2)" CategoryField="@nameof(MyChartDataModel.TheCategory)">
+			<TelerikChartSeriesLabels Visible="true" Template="@MySeriesTemplate" Background="transparent"></TelerikChartSeriesLabels>
+		</TelerikChartSeries>
+	</TelerikChartSeriesItems>
+</TelerikChart>
+
+@code {
+	public string MySeriesTemplate = "# if (value != 0) { # #=value# #}#";
+
+	public class MyChartDataModel
+	{
+		public double Value1 { get; set; }
+		public double Value2 { get; set; }
+		public string TheCategory { get; set; }
+	}
+
+	public List<MyChartDataModel> chartData = new List<MyChartDataModel>
+	{
+		new MyChartDataModel
+		{
+			Value1 = 3,
+			Value2 = 2,
+			TheCategory = "Q1"
+		},
+		new MyChartDataModel
+		{
+			Value1 = 1,
+			Value2 = 0,
+			TheCategory = "Q2"
+		},
+		new MyChartDataModel
+		{
+			Value1 = 0,
+			Value2 = 0,
+			TheCategory = "Q3"
+		}
+	};
+}
+````
+
+>caption The result from the code above:
+
+![](images/hide-label-conditionally.png)
 
 
 ## See Also
