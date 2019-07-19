@@ -350,22 +350,26 @@ footer:
   links:
     "Client-side Blazor": https://docs.telerik.com/blazor-ui/getting-started/client-blazor
     "Server-side Blazor": https://docs.telerik.com/blazor-ui/getting-started/server-blazor
-    "Demos": https://demos.telerik.com/blazor-ui
-#    "Sample Applications": https://github.com/telerik/ui-for-blazor-examples/
-#-
-#  title: "Support Resources"
-#  links:
-    "Knowledge Base": https://docs.telerik.com/blazor-ui/knowledge-base
+    "Blazor Introduction Videos" : https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo
+
 -
   title: "Community"
   links:
     "Forums": https://www.telerik.com/forums/blazor
     "Blogs": https://www.telerik.com/blogs/tag/blazor
     "Feedback Portal": https://feedback.telerik.com/blazor
+
+-
+  title: "Support Resources"
+  links:
+    "Demos": https://demos.telerik.com/blazor-ui
+    "Knowledge Base": https://docs.telerik.com/blazor-ui/knowledge-base
+
 -
   title: "Sample Applications"
   links:
     "Dashboard": https://demos.telerik.com/blazor-dashboard-app/
+
 
 footer_social:
     facebook: https://www.facebook.com/Telerik/

@@ -93,3 +93,5 @@ The final step is to actually use a component on a view and run it in the browse
 
 * [Get Started with Client-side Blazor]({%slug getting-started/client-side%})
 * [Telerik Private NuGet Feed]({%slug installation/nuget%})
+* [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
+
