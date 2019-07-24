@@ -25,7 +25,9 @@ You can filter more than one column at a time, and all filter rules will be appl
 
 ## Filter Row
 
-The grid will render a row below the column headers with UI that you can use to fill in the filter criteria. You can click outside of the filter to execute the default operator, or click a button to choose a different filter operator (like "contains", "greater than" and so on).
+The filter row is the default filter behavior of the grid. It corresponds to setting the `FilterMode` property of the grid to `Telerik.Blazor.FilterMode.FilterMenu`.
+
+The grid will render a row below the column headers with UI that you can use to fill in the filter criteria. You can type in the input to execute the default operator as you type, or click a button to choose a different filter operator (like "contains", "greater than" and so on).
 
 Once a filter is a applied to a column, a button will appear that lets you clear that filter.
 
@@ -76,9 +78,9 @@ Once a filter is a applied to a column, a button will appear that lets you clear
 
 >caption The result from the code snippet above, before and after the user filled in a filter and clicked on the filter button
 
-![](images/filterable-grid.png)
+![](images/filter-row-1.png)
 
-![](images/filtered-grid.png)
+![](images/filter-row-filtered.png)
 
 ## Filter Menu
 
@@ -86,7 +88,7 @@ To use a filter menu, set the `FilterMode` property of the grid to `Telerik.Blaz
 
 The grid will render a button in the column header that you click to get a popup with filtering options. The popup lets you choose filter operator, filter criteria, to apply and clear the filter.
 
-A key difference in the behavior is that the filter is now applied only upon a button click, not upon input change. This may improve performance if you use [manual CRUD operations]({%slug components/grid/manual-operations%}) by reducing the number of requests.
+A key difference in the behavior from the [filter row](#filter-row) is that the filter is now applied only upon a button click, not upon input change. This may improve performance if you use [manual CRUD operations]({%slug components/grid/manual-operations%}) by reducing the number of requests.
 
 >caption Filter Menu in Telerik Grid
 
@@ -136,11 +138,11 @@ A key difference in the behavior is that the filter is now applied only upon a b
 
 >caption The result from the code snippet above, after the "Age" column has been filtered with <= 30 operator.
 
-![](images/filterable-grid-filter-menu.png)
+![](images/filter-menu-1.png)
 
 
 ## See Also
 
-  * [Live Demo: Grid Filtering](https://demos.telerik.com/blazor-ui/grid/filtering)
-   
+  * [Live Demo: Grid Filter Row](https://demos.telerik.com/blazor-ui/grid/filter-row)
+  * [Live Demo: Grid Filter Menu](https://demos.telerik.com/blazor-ui/grid/filter-menu)
   
