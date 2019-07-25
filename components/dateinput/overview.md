@@ -36,7 +36,7 @@ To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
 
         StateHasChanged();
     }
-
+}
 ````
 
 >caption Component namespace and reference
