@@ -10,14 +10,12 @@ position: 22
 
 # Grid Filtering
 
-The Grid component offers support for filtering.
+The Grid component offers built-in support for filtering.
 
-To enable filtering, set the grid's `Filterable` property to `true`.
+To enable filtering, set the grid's `FilterMode` property to one of the following values:
 
-There are two filtering modes:
-
-* [`FilterRow`](#filter-row) (default) - a row of filter options is rendered below the column headers
-* [`FilterMenu`](#filter-menu) - the column headers render a button that shows a popup with filtering options
+* [`Telerik.Blazor.FilterMode.FilterRow`](#filter-row) - a row of filter options is rendered below the column headers
+* [`Telerik.Blazor.FilterMode.FilterMenu`](#filter-menu) - the column headers render a button that shows a popup with filtering options
 
 The behavior of the filter input and the available filter operators will depend on the column data type. For example, a boolean field will only have the options "is true" and "is false" and will not have operators like "contains" or "greater than".
 
@@ -25,7 +23,7 @@ You can filter more than one column at a time, and all filter rules will be appl
 
 ## Filter Row
 
-The filter row is the default filter behavior of the grid. It corresponds to setting the `FilterMode` property of the grid to `Telerik.Blazor.FilterMode.FilterMenu`.
+To enable the filter row set the `FilterMode` property of the grid to `Telerik.Blazor.FilterMode.FilterMenu`.
 
 The grid will render a row below the column headers with UI that you can use to fill in the filter criteria. You can type in the input to execute the default operator as you type, or click a button to choose a different filter operator (like "contains", "greater than" and so on).
 
@@ -36,7 +34,7 @@ Once a filter is a applied to a column, a button will appear that lets you clear
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data=@GridData Filterable="true" Pageable="true" Height="400px">
+<TelerikGrid Data=@GridData FilterMode="Telerik.Blazor.FilterMode.FilterRow" Pageable="true" Height="400px">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field=@nameof(Employee.Name) />
 		<TelerikGridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />

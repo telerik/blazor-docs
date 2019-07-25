@@ -23,7 +23,9 @@ To create a basic Telerik Grid:
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data="@MyData" Height="300px" Pageable="true" Sortable="true" Filterable="true">
+<TelerikGrid Data="@MyData" Height="300px" 
+        Pageable="true" Sortable="true"
+        FilterMode="Telerik.Blazor.FilterMode.FilterRow">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field="@(nameof(SampleData.Id))" />
 		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
@@ -67,7 +69,7 @@ The grid is a generic component, and to store a reference, you must use the mode
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data="@MyData" ref="theGridReference">
+<TelerikGrid Data="@MyData" @ref="theGridReference">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
 		</TelerikGridColumn>
@@ -135,14 +137,19 @@ For example, you can benefit from the elastic design the components expose to ch
 @using Telerik.Blazor.Components.Grid
 
 <style>
-	div.smallerFont,
-	div.smallerFont .k-filtercell * {
-		font-size: 10px;
-	}
+    div.smallerFont,
+    div.smallerFont .k-filtercell * {
+        font-size: 10px;
+    }
+
+    div.smallerFont .k-dropdown.k-header.k-dropdown-operator {
+        width: calc(8px + 2em) !important;
+    }
 </style>
 
 <TelerikGrid Data="@MyData" Class="smallerFont"
-			  Pageable="true" Filterable="true" Sortable="true" Height="200px">
+			  Pageable="true" FilterMode="Telerik.Blazor.FilterMode.FilterRow"
+			  Sortable="true" Height="200px">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
 		</TelerikGridColumn>
@@ -156,7 +163,8 @@ For example, you can benefit from the elastic design the components expose to ch
 original:
 
 <TelerikGrid Data="@MyData"
-			  Pageable="true" Filterable="true" Sortable="true" Height="200px">
+			  Pageable="true" FilterMode="Telerik.Blazor.FilterMode.FilterRow"
+			  Sortable="true" Height="200px">
 	<TelerikGridColumns>
 		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
 		</TelerikGridColumn>
