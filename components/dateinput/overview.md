@@ -14,42 +14,21 @@ The Date Input component allows the user to enter a date. The developer can cont
 
 To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
 
->caption Basic date input with its key features, and ValueChanged event handling
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#generic-component-event-issue)
+>caption Basic date input with namespace and reference
 
 ````CSHTML
 @using Telerik.Blazor.Components.DateInput
 
-<TelerikDateInput Value="@dateInputValue" ValueChanged="@MyValueChangeHandler" Format="dd/MMMM/yyyy">
+<TelerikDateInput @bind-Value="@dateInputValue" Format="dd/MMMM/yyyy" @ref="theDateInput">
 </TelerikDateInput>
-@result
+@dateInputValue
 
 @code {
     DateTime dateInputValue { get; set; } = DateTime.Now;
-    string result;
 
-    private void MyValueChangeHandler(DateTime theUserInput)
-    {
-        Console.WriteLine("entered");
-        result = string.Format("The user entered: {0}", theUserInput);
-
-        StateHasChanged();
-    }
-}
-````
-
->caption Component namespace and reference
-
-````CSHTML
-@using Telerik.Blazor.Components.DateInput
-
-<TelerikDateInput @ref="theDateInput" @bind-Value="dateInputValue"></TelerikDateInput>
-
-@code {
-	Telerik.Blazor.Components.DateInput.TelerikDateInput theDateInput;
-
-	DateTime dateInputValue { get; set; } = DateTime.Now;
+    Telerik.Blazor.Components.DateInput.TelerikDateInput<DateTime> theDateInput;
+    // the type of the component depends on the type of the value
+    // in this case it is DateTime, but it could be DateTime?
 }
 ````
 

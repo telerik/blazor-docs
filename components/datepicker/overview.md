@@ -14,43 +14,26 @@ The Date Picker component allows the user to choose a date from a visual list ([
 
 To use a Telerik Date Picker for Blazor, add the `TelerikDatePicker` tag.
 
->caption Basic date picker with its key features, and ValueChanged event handling
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#generic-component-event-issue)
+>caption Basic date picker with namespace and reference
 
 ````CSHTML
 @using Telerik.Blazor.Components.DatePicker
 
-<TelerikDatePicker @bind-Value="datePickerValue" ValueChanged="@ValueChanged"></TelerikDatePicker>
+<TelerikDatePicker @bind-Value="datePickerValue" @ref="theDatePicker"></TelerikDatePicker>
 
-<br />The selected date is: @selectedDate?.ToShortDateString()
+<br />The selected date is: @datePickerValue.ToShortDateString()
 
 @code  {
-    DateTime datePickerValue = DateTime.Now;
-    private DateTime? selectedDate;
+    DateTime datePickerValue { get; set; } = DateTime.Now;
 
-    protected void ValueChanged(DateTime newValue)
-    {
-        selectedDate = newValue;
-        //you can, alternatively, use the datePickerValue variable because it is bound
-    }
+    Telerik.Blazor.Components.DatePicker.TelerikDatePicker<DateTime> theDatePicker;
+    // the type of the component depends on the type of the value
+    // in this case it is DateTime, but it could be DateTime?
 }
 ````
 
 ![](images/datepicker-first-look.png)
 
->caption Component namespace and reference
-
-````CSHTML
-@using Telerik.Blazor.Components.DatePicker
-
-<TelerikDatePicker @ref="theDatePicker">
-</TelerikDatePicker>
-
-@code {
-	Telerik.Blazor.Components.DatePicker.TelerikDatePicker theDatePicker;
-}
-````
 
 The Date Picker component exposes the following features:
 

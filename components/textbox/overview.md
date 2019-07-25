@@ -14,42 +14,23 @@ The Textbox component allows the user to enter a generic plain text message. The
 
 To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
 
->caption Basic textbox with its key features, and ValueChanged event handling
+>caption Basic textbox with its key features, namespace and reference
 
-@[template](/_contentTemplates/common/issues-and-warnings.md#generic-component-event-issue)
-
-````CSHTML
-@using Telerik.Blazor.Components.TextBox
-
-<TelerikTextBox ValueChanged="@MyValueChangeHandler" @bind-Value="theTbValue"
-			  Label="Enter Information" Id="myInputId" MaxLength="20"></TelerikTextBox>
-
-@result
-
-@code {
-	string result;
-	string theTbValue { get; set; } = "lorem ipsum";
-
-	private void MyValueChangeHandler(string theUserInput)
-	{
-		result = string.Format("The user entered: {0}", theUserInput);
-
-		StateHasChanged();
-	}
-}
-````
-
->caption Component namespace and reference
 
 ````CSHTML
 @using Telerik.Blazor.Components.TextBox
 
-<TelerikTextBox @ref="theTextBoxRef"></TelerikTextBox>
+<TelerikTextBox @bind-Value="theTbValue" Label="Enter Information" MaxLength="20" @ref="theTextBoxRef"></TelerikTextBox>
+
+@theTbValue
 
 @code {
+    string theTbValue { get; set; } = "lorem ipsum";
+
     Telerik.Blazor.Components.TextBox.TelerikTextBox theTextBoxRef;
 }
 ````
+
 
 The numeric textbox provides the following features:
 

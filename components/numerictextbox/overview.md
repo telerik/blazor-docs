@@ -14,25 +14,17 @@ The Numeric Textbox component allows the user to enter decimal values and no tex
 
 To use a Telerik Numeric Textbox for Blazor, add the `TelerikNumericTextBox` tag.
 
->caption Basic numeric textbox with its key features, and ValueChanged event handling
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#generic-component-event-issue)
+>caption Basic numeric textbox with its key features
 
 ````CSHTML
 @using Telerik.Blazor.Components.NumericTextBox
 
-<TelerikNumericTextBox Format="C" Max="5m" Min="-5m" Step="0.33m" Value="3.456m" ValueChanged="@MyValueChangeHandler"></TelerikNumericTextBox>
+<TelerikNumericTextBox Format="C" Max="5m" Min="-5m" Step="0.33m" @bind-Value="@theValue"></TelerikNumericTextBox>
 <br />
-The new value is: @result
+The new value is: @theValue
 
 @code {
-	private string result;
-
-	private void MyValueChangeHandler(object newValue)
-	{
-		//the event argument is an object you can cast to the type you are actually using
-		result = newValue.ToString();
-	}
+     private decimal theValue { get; set; } = 1.234m;
 }
 ````
 
