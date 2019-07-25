@@ -27,7 +27,7 @@ You need to install the [Blazor VS Extensions](https://marketplace.visualstudio.
 
 >tip Make sure that you have [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0) and [Visual Studio 2019 **Preview**](https://visualstudio.microsoft.com/vs/preview/) installed. You must use the Preview version of Visual Studio for working with Blazor apps.
 >
-> The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}` and it supports .NET Core 3 `Preview 6`.
+> The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}` and it supports .NET Core 3 `Preview 7`.
 
 You may also find useful the [Getting started videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo) by Telerik.
 
