@@ -19,15 +19,15 @@ To use a Telerik DropDownList for Blazor
 1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
 1. set the `Value` property to the intial value of the model.
 
->caption Basic dropdownlist [data binding](data-bind) and ValueChanged event handling
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#generic-component-event-issue)
+>caption Basic dropdownlist [data binding](data-bind) and value binding
 
 ````CSHTML
 @using Telerik.Blazor.Components.DropDownList
 
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" ValueChanged="@MyValueChangedHandler" @bind-Value="selectedValue">
+<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue">
 </TelerikDropDownList>
+
+<br />Selected value: @selectedValue
 
 @code {
 	//in a real case, the model is usually in a separate file
@@ -41,14 +41,7 @@ To use a Telerik DropDownList for Blazor
 	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 
 	int selectedValue { get; set; } = 3; //usually the current value should come from the model data
-
-	void MyValueChangedHandler(object newValue)
-	{
-		//the data item (model) that the user selected
-		Console.WriteLine((newValue as MyDdlModel).MyTextField);
-	}
 }
-
 ````
 
 >caption The result from the code snippet above
@@ -74,6 +67,18 @@ To use a Telerik DropDownList for Blazor
 		public string MyTextField { get; set; }
 	}
 }
+
+<TelerikDropDownList @ref="myDdlRef2" Data="@MyList" @bind-Value="MyItem">
+</TelerikDropDownList>
+
+@code {
+    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+
+    protected string MyItem { get; set; } = "second";
+    
+    //the type of the generic component is determined by the type of the model you pass to it, when the model is a primitive type
+	Telerik.Blazor.Components.DropDownList.TelerikDropDownList<string, string> myDdlRef2;
+}
 ````
 
 The DropDownList provides the following features:
@@ -97,7 +102,6 @@ The DropDownList provides the following features:
     * `string`
     * `Guid`
     * `Enum`
-
 * `Width` - the width of the dropdown and the main element.
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug components/dropdownlist/templates%}) article for more details.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
@@ -105,61 +109,48 @@ The DropDownList provides the following features:
 
 ## Examples
 
-
->caption Validating a dropdownlist. See the comments in the code for details on the behavior
+>caption Handling the ValueChanged event and providing an initial value
 
 ````CSHTML
 @using Telerik.Blazor.Components.DropDownList
-@using System.ComponentModel.DataAnnotations
 
-<EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
-	<DataAnnotationsValidator />
-	<ValidationSummary />
-	<p class="gender">
-		Gender: <TelerikDropDownList @bind-Value="person.Gender" DefaultItem="@ddlHint"
-								   Data="@genders" TextField="MyTextField" ValueField="MyValueField">
-				</TelerikDropDownList>
-		<ValidationMessage For="@(() => person.Gender)"></ValidationMessage>
-	</p>
+<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField"
+                     Value="@InitialValue" ValueChanged="@( (int v) => MyValueChangedHandler(v) )">
+</TelerikDropDownList>
 
-	<button type="submit">Submit</button>
-</EditForm>
+<br />
+@result
+<br />
+@InitialValue
 
 @code {
-	// Usually the model classes would be in different files
-	public class Person
-	{
-		[Required(ErrorMessage = "Gender is mandatory.")]//the value field in the dropdown model must be null in the default item
-		[Range(1, 3, ErrorMessage = "Please select your gender.")] //limits the fourth option just to showcase this is honored
-		public int? Gender { get; set; }
-	}
+    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 
-	public class MyDdlModel
-	{
-		//nullable so the default item can allow required field validation
-		//alternatively, use a range validator and put a value out of that range for the default item
-		public int? MyValueField { get; set; }
-		public string MyTextField { get; set; }
-	}
+    int InitialValue { get; set; } = 3; // an intial value is not required, this example showcases how to set it
 
-	Person person = new Person();
+    string result { get; set; }
 
-	MyDdlModel ddlHint = new MyDdlModel { MyValueField = null, MyTextField = "Gender" };
+    public class MyDdlModel
+    {
+        public int MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
 
-	IEnumerable<MyDdlModel> genders = new List<MyDdlModel>
-{
-		new MyDdlModel {MyTextField = "female", MyValueField = 1},
-		new MyDdlModel {MyTextField = "male", MyValueField = 2},
-		new MyDdlModel {MyTextField = "other", MyValueField = 3},
-		new MyDdlModel {MyTextField = "I'd rather not say", MyValueField = 4}
-	};
+    async Task MyValueChangedHandler(int newVal)
+    {
+        // the type of the value field in the model determines the signature of the handler
+        result = $"The user selected {newVal}";
 
-	void HandleValidSubmit()
-	{
-		Console.WriteLine("OnValidSubmit");
-	}
+        // handling ValueChanged does not let you use value binding, so if you need to update the model
+        // you must do that manually in the handler. This is not required, though
+        InitialValue = newVal;
+    }
 }
 ````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
 
 >caption Get selected item from external code
