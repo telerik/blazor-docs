@@ -59,41 +59,20 @@ To have the Telerik Blazor components look and behave as expected in the browser
 
 * Our JS Interop file. It provides features that cannot be implemented with native Blazor.
 
-@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
+@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet-cdn)
     
 
 ### Static Assets
 
 You can add the JS Interop file as a static asset from our package, instead of using a CDN.
 
-To enable the use of static assets in your project, make sure you have the following line to your **Server** project `Startup.cs` file:
+    **HTML**
+    
+@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-````C#
-namespace MyBlazorAppName
-{
-    public class Startup
-    {
-        public void Configure(IComponentsApplicationBuilder app)
-        {
-            //more code may be present here
-            
-            //make sure this is present to enable static files from a package
-            app.UseStaticFiles();
-        }
-    }
-}
-````
+Note that
+@[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets)
 
-Here is the `script` tag for our static asset path:
-
-````SHTML
-<head>
-  . . .
-  <script src="_content/telerik.ui.for.blazor/js/telerik-blazor.js" defer></script>
-</head>
-````
-
->note If you are using a trial license, the path is `_content/telerik.ui.for.blazor.trial/js/telerik-blazor.js`.
 
 ## Project Configuration
 
