@@ -66,8 +66,6 @@ To have the Telerik Blazor components look and behave as expected in the browser
 
 You can add the JS Interop file as a static asset from our package, instead of using a CDN.
 
->warning @[template](/_contentTemplates/common/issues-and-warnings.md#static-asset-issue-in-client-project)
-
 To enable the use of static assets in your project, make sure you have the following line to your **Server** project `Startup.cs` file:
 
 ````C#

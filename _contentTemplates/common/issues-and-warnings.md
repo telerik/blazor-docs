@@ -10,9 +10,7 @@ Open the Client `.csproj` file and ensure that the following switch is present. 
         </PropertyGroup>
 #end
 
-#static-asset-issue-in-client-project
-Static assets currently work only for Server-side project types because of [an issue in the framework](https://github.com/aspnet/AspNetCore/issues/10986). If you use a client-side model, you must reference the script from our CDN.
-#end
+
 
 #valuechanged-lambda-required
 >note The lambda expression in the handler is required by the framework: [https://github.com/aspnet/AspNetCore/issues/12226](https://github.com/aspnet/AspNetCore/issues/12226).
