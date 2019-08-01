@@ -1,6 +1,6 @@
 #add-latest-ms-bits-client-side-link
 @[template](/_contentTemplates/common/get-started.md#blazor-tutorial-intro)
- [https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/blazor/get-started](https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/blazor/get-started).
+@[template](/_contentTemplates/common/get-started.md#get-started-msdn-link)
 @[template](/_contentTemplates/common/get-started.md#after-you-run-vanilla)
 #end
 
@@ -8,8 +8,13 @@
 
 #add-latest-ms-bits-server-side-link
 @[template](/_contentTemplates/common/get-started.md#blazor-tutorial-intro)
- [https://docs.microsoft.com/en-us/aspnet/core/razor-components/get-started](https://docs.microsoft.com/en-us/aspnet/core/razor-components/get-started).
+@[template](/_contentTemplates/common/get-started.md#get-started-msdn-link)
 @[template](/_contentTemplates/common/get-started.md#after-you-run-vanilla)
+#end
+
+
+#get-started-msdn-link
+ [https://docs.microsoft.com/en-us/aspnet/core/blazor/get-started?view=aspnetcore-3.0&tabs=visual-studio](https://docs.microsoft.com/en-us/aspnet/core/blazor/get-started?view=aspnetcore-3.0&tabs=visual-studio).
 #end
 
 
@@ -17,12 +22,13 @@
 #blazor-tutorial-intro
 ## Set Up a Blazor Project
 
-[Blazor](https://blazor.net/) is still an experimental technology, so you need to ensure you can run its vanilla version first. To do that, follow the MSDN tutorial and make sure that you can run the basic sample Blazor application:
+[Blazor](https://blazor.net/) is still an experimental technology, so you need to ensure you can run its vanilla version first. To do that, follow the MSDN tutorial and make sure that you can create and run basic sample Blazor applications:
 #end
 
 
 
 #after-you-run-vanilla
+
 >tip Make sure that you have [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0) and [Visual Studio 2019 **Preview**](https://visualstudio.microsoft.com/vs/preview/) installed. You must use the Preview version of Visual Studio for working with Blazor apps.
 >
 > The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}` and it supports .NET Core 3 `Preview 7`.

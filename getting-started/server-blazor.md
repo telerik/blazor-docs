@@ -15,6 +15,7 @@ This article explains how to get the Telerik UI for Blazor components in your **
 1. [Set Up a Blazor Project](#set-up-a-blazor-project)
 1. [Add the Telerik NuGet Feed to Visual Studio](#add-the-telerik-nuget-feed-to-visual-studio)
 1. [Add the Telerik Components to Your Project](#add-the-telerik-components-to-your-project)
+     * [Add to an Existing Project](#add-to-existing-project)
 1. [Add a Telerik Component to a View](#add-a-telerik-component-to-a-view)
 
 @[template](/_contentTemplates/common/get-started.md#add-latest-ms-bits-server-side-link)

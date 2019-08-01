@@ -120,6 +120,7 @@ Once you have Blazor running, follow the articles below to see how to add the Te
 @[template](/_contentTemplates/common/get-started.md#after-install)
 
 @[template](/_contentTemplates/common/get-started.md#blazor-tutorial-intro)
+@[template](/_contentTemplates/common/get-started.md#get-started-msdn-link)
 
 @[template](/_contentTemplates/common/get-started.md#after-you-run-vanilla)
 
