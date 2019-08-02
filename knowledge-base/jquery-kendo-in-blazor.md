@@ -17,7 +17,7 @@ While migrating an application to Blazor, you may not have time to implement all
 We advise that you consider using only native Blazor components like the UI for Blazor suite, because this is how the framework is designed to operate. Widgets based on jQuery (such as Kendo UI) rely on direct DOM manipulation and this is something Blazor controls instead of you.
 
 ## Solution
-One approach may be to use an MVC Core 3 application so you can use Blazor components in it. Whether this is feasible depends on your project path and if/how you are migrating from an older project.
+One approach may be to [use Blazor components in an ASP.NET Core 3 application](https://www.telerik.com/blogs/integrating-blazor-components-with-asp-net-core-views). Whether this is feasible depends on your project path and if/how you are migrating from an older project.
 
 Should you decide to use jQuery widgets from the Kendo UI suite, here are the things to keep in mind:
 
