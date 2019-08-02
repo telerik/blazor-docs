@@ -3,8 +3,7 @@ title: Telerik Blazor in ASP.NET Web Application
 description: Use Telerik Blazor components in ASP.NET Web Application
 type: how-to
 page_title: Telerik Blazor in ASP.NET Web Application
-slug: > telerik-blazor-in-asp-net-app
-
+slug: telerik-blazor-in-asp-net-app
 position: 
 tags: 
 ticketid: 1422791
