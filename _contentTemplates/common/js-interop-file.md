@@ -33,6 +33,9 @@
         <head>
           . . .
           <script src="_content/telerik.ui.for.blazor/js/telerik-blazor.js" defer></script>
+          <!-- For Trial licenses use
+            <script src="_content/telerik.ui.for.blazor.trial/js/telerik-blazor.js" defer></script>
+          -->
         </head>
 #end
 
