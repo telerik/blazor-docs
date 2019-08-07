@@ -12,8 +12,6 @@
     
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-    @[template](/_contentTemplates/common/js-interop-file.md#path-to-trial-interop)
-
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets)
 #end
 
@@ -23,8 +21,6 @@
     **HTML**
     
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
-
-    @[template](/_contentTemplates/common/js-interop-file.md#path-to-trial-interop)
 
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets)
 #end
@@ -39,9 +35,6 @@
         </head>
 #end
 
-#path-to-trial-interop
-If you are using a trial license, the path is `_content/telerik.ui.for.blazor.trial/js/telerik-blazor.js`
-#end
 
 #enable-static-assets
     To enable the use of static assets in your project, make sure you have the following line to your **Server** project `Startup.cs` file:

@@ -73,7 +73,6 @@ You can add the JS Interop file as a static asset from our package, instead of u
 Note that
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets)
 
->note @[template](/_contentTemplates/common/js-interop-file.md#path-to-trial-interop)
 
 
 ## Project Configuration
