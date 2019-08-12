@@ -18,7 +18,11 @@ Telerik UI for Blazor supports both Client-side Blazor and Serve-side Blazor app
 
 ## Getting Started
 
-If you are a new user, we recommend that you **follow the First Steps articles** to add the Telerik components to your application:
+If you are not familiar with Blazor yet, you may find useful our Blazor Quick Start Guide videos:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aaRAZYaJ4xc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+If you are new to Telerik UI for Blazor, we recommend that you **follow the First Steps articles** to add the Telerik components to your application:
 
 * [Get Started with Client-side Blazor]({%slug getting-started/client-side%})
 
