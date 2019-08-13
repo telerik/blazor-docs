@@ -41,7 +41,7 @@ The Date Picker component exposes the following features:
 * `DisabledDates` - Specifies a list of dates that can not be selected.
 * `Enabled` - Specifies whether typing in the input is allowed.
 * `Height` - Defines the height of the DatePicker. Defaults to `28px`. See the [Dimensions]({%slug common-features/dimensions%}) article.
-* `Format` - Specifies the format of the DateInput of the DatePicker. Defaults to `yyyy-MM-dd`.
+* `Format` - Specifies the format of the DateInput of the DatePicker. Defaults to `yyyy-MM-dd`. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.
 * `PopupHeight` - Defines the height of the DatePicker's Popup. Defaults to `280px`.
 * `PopupWidth` - Defines the width of the DatePicker's Popup. Defaults to `320px`.
 * `Value` - The current value of the input. Can be used for binding.
@@ -57,3 +57,4 @@ The date picker is, essentially, a [date input]({%slug components/dateinput/over
 
   * [Live Demo: Date Picker](https://demos.telerik.com/blazor-ui/datepicker/index)
   * [Input Validation]({%slug common-features/input-validation%})
+  * [Supported Input Date Formats]({%slug components/dateinput/supported-formats%})

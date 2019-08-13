@@ -36,7 +36,7 @@ The date input provides the following features:
 
 * `Class` - the CSS class that will be rendered on the `input` element.
 * `Enabled` - whether the `input` is enabled.
-* `Format` - the date format that the user input must match.
+* `Format` - the date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.
 * `ParsingErrorMessage` - a hint that is displayed to the user through validation when their input cannot be parsed in the required format
 * `Value` - get/set the value of the input, can be used for binding.
 * `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
@@ -76,3 +76,5 @@ The date input provides the following features:
 
   * [Live Demo: Date Input](https://demos.telerik.com/blazor-ui/dateinput/index)
   * [Input Validation]({%slug common-features/input-validation%})
+  * [Supported Date Formats]({%slug components/dateinput/supported-formats%})
+  
