@@ -26,10 +26,10 @@ This article explains how to get the Telerik UI for Blazor components in your **
 
 ## Add the Telerik Components to Your Project
 
-To use Blazor server-side, you need to use the `Razor Components` type of project.
+To use Blazor server-side, you need to use the `Blazor App` type of project with its `Blazor Server App` flavor.
 @[template](/_contentTemplates/common/get-started.md#project-creation-part-1)
 
-1. Choose the `Razor Components` project type and click `Create`.
+1. Choose the `Blazor Server App` project type and click `Create`.
 
     ![Select Blazor Project Type](images/choose-project-template-server-blazor.png)
 
