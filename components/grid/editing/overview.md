@@ -176,7 +176,7 @@ There is a deliberate delay in the data source operations in this example to mim
 
 	public List<SampleData> MyData { get; set; }
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		MyData = new List<SampleData>();
 
@@ -202,5 +202,4 @@ There is a deliberate delay in the data source operations in this example to mim
   * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/editing-incell)
   * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
   * [Live Demo: Grid Custom Edit Form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form)
-  
   

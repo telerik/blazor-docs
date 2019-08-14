@@ -194,7 +194,7 @@ If you need to perform logic more complex than simple data binding, use the chan
 		}
 	}
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		MyData = new List<SampleData>();
 

@@ -138,7 +138,7 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 
 	public List<SampleData> MyData { get; set; }
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		MyData = new List<SampleData>();
 
@@ -164,4 +164,3 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 
   * [Live Demo: Grid PopUp Editing](https://demos.telerik.com/blazor-ui/grid/editing-popup)
    
-  

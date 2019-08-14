@@ -62,9 +62,9 @@ The `SetActiveTab` method of the TabStrip requires a reference to the tab. So, y
 
 	List<Telerik.Blazor.Components.TabStrip.TelerikTab> theTabsRefs = new List<Telerik.Blazor.Components.TabStrip.TelerikTab>();
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
-		base.OnInit();
+		base.OnInitialized();
 
 		for (int i = 0; i < tabsCount; i++)
 		{

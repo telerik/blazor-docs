@@ -53,7 +53,7 @@ The **example** below shows how you can handle load on demand in detail. It uses
 		public bool HasChildren { get; set; }
 	}
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		LoadRootHierarchical();
 	}

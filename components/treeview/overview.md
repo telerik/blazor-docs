@@ -72,7 +72,7 @@ A treeview is often used to list pages, views or sections in an application so t
 
 	public IEnumerable<TreeItem> TreeData { get; set; }
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		LoadTreeData();
 	}

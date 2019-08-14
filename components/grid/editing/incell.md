@@ -113,7 +113,7 @@ To enable InCell editing mode, set the `EditMode` property of the grid to `incel
 
 	public List<SampleData> MyData { get; set; }
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		MyData = new List<SampleData>();
 

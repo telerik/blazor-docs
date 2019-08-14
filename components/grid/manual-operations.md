@@ -148,7 +148,7 @@ There is a deliberate delay in the data source operations in this example to mim
 	public List<Employee> GridData { get; set; }
 	public int Total { get; set; } = 0;
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		SourceData = GenerateData();
 	}

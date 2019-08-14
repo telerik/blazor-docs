@@ -46,7 +46,7 @@ Once a filter is a applied to a column, a button will appear that lets you clear
 @code {
 	public List<Employee> GridData { get; set; }
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		GridData = new List<Employee>();
 		var rand = new Random();
@@ -106,7 +106,7 @@ A key difference in the behavior from the [filter row](#filter-row) is that the 
 @code {
 	public List<Employee> GridData { get; set; }
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		GridData = new List<Employee>();
 		var rand = new Random();
@@ -143,4 +143,3 @@ A key difference in the behavior from the [filter row](#filter-row) is that the 
 
   * [Live Demo: Grid Filter Row](https://demos.telerik.com/blazor-ui/grid/filter-row)
   * [Live Demo: Grid Filter Menu](https://demos.telerik.com/blazor-ui/grid/filter-menu)
-  

@@ -48,7 +48,7 @@ To create a basic Telerik Grid:
 		public DateTime HireDate { get; set; }
 	}
 
-	//in a real case, consider fetching the data in an appropriate event like OnInitAsync
+	//in a real case, consider fetching the data in an appropriate event like OnInitializedAsync
 	//also, consider keeping the models in dedicated locations like a shared library
 	//this is just an example that is easy to copy and run
 }

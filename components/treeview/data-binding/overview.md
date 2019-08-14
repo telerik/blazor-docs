@@ -118,7 +118,7 @@ If a certain level does not have an explicit data bindings tag, it will use the 
 		public bool IsExpanded { get; set; }
 	}
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		LoadFlat();
 	}

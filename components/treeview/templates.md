@@ -50,7 +50,7 @@ You can use the template to render arbitrary content according to your applicati
 
 	public IEnumerable<TreeItem> TreeData { get; set; }
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		LoadTreeData();
 	}
@@ -134,7 +134,7 @@ You can use the template to render arbitrary content according to your applicati
 	}
 
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		LoadHierarchical();
 	}

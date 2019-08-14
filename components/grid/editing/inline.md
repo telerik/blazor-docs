@@ -133,7 +133,7 @@ To enable Inline editing in the grid, set its `EditMode` property to `inline`, t
 
 	public List<SampleData> MyData { get; set; }
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		MyData = new List<SampleData>();
 
@@ -159,4 +159,3 @@ To enable Inline editing in the grid, set its `EditMode` property to `inline`, t
 
   * [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor-ui/grid/editing-inline)
    
-  

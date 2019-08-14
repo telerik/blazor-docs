@@ -43,7 +43,7 @@ You must also provide the correct value for the `HasChildren` field - for items 
 		public bool IsExpanded { get; set; } //this is a non-default field name
 	}
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		FlatData = LoadFlat();
 	}

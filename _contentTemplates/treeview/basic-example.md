@@ -22,7 +22,7 @@
 	
 	public IEnumerable<TreeItem> FlatData { get; set; }
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		LoadFlatData();
 	}

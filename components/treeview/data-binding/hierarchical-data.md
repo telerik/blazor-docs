@@ -50,7 +50,7 @@ This approach of providing nodes lets you gather separate collections of data an
 	}
 
 
-	protected override void OnInit()
+	protected override void OnInitialized()
 	{
 		LoadHierarchical();
 	}
