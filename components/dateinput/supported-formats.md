@@ -122,7 +122,7 @@ K - kind - not tested until localization arrives, maybe never will be supported 
 
 The .NET framework also has a list of standard formats for dates: [https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings). They are **not** supported with the Telerik Date Input for Blazor at this point. 
 
->caution While the results of unsupported format specifiers values will render correctly, editing is impossible because their formats are only implemented on the server (in .NET) and do not have equivalents in our JS Interop which is requires for the end user experience.
+>caution While the results of unsupported format specifiers values will render correctly, editing is not supported.
 
 <!--
 
