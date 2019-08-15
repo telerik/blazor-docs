@@ -36,7 +36,7 @@ To use a theme, you must reference its stylesheet in the `<head>` of your main i
 </html>
 ````
 
->note The way bundling and resources will be used in Blazor is still unclear (see [the issue on embedded resources](https://github.com/aspnet/AspNetCore/issues/6349)). Until then, you can use the unpkg workaround above, or local dependency management as described below. Once this matter is decided upon by Microsoft, we will update this information with a proper CDN.
+>note We are considering a better CDN option. Until then, you can use the unpkg workaround above, or local dependency management as described below.
 
 ## Optional Dependency Management
 

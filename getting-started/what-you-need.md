@@ -55,7 +55,7 @@ To have the Telerik Blazor components look and behave as expected in the browser
             <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
         </head>
         
-    For a server-side app, escape the `@` symbols as `@@`.
+    >note For a server-side app, escape the `@` symbols as `@@`.
 
 * Our JS Interop file. It provides features that cannot be implemented with native Blazor.
 

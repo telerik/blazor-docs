@@ -47,7 +47,7 @@ For client-side `Blazor App`, we recommend the usage of `Blazor (ASP.NET Hosted)
          ![Add Telerik Blazor Package to Client Project](images/add-telerik-nuget-to-client-app.png)
 
         
-1. Open the `~/wwwroot/index.html` file in the client web application and register the [Theme stylesheet]({%slug general-information/themes%}) (make sure to use the correct version that matches the official Kendo UI for jQuery release number):
+1. Open the `~/wwwroot/index.html` file in the client web application and register the [Theme stylesheet]({%slug general-information/themes%}):
 
     **HTML**
     
