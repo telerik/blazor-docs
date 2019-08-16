@@ -50,7 +50,7 @@
         {
             public class Startup
             {
-                public void Configure(IComponentsApplicationBuilder app)
+                public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
                 {
                     //more code may be present here
                     
