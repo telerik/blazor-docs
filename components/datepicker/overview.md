@@ -19,7 +19,7 @@ To use a Telerik Date Picker for Blazor, add the `TelerikDatePicker` tag.
 ````CSHTML
 @using Telerik.Blazor.Components.DatePicker
 
-<TelerikDatePicker @bind-Value="datePickerValue" @ref="theDatePicker"></TelerikDatePicker>
+<TelerikDatePicker @bind-Value="datePickerValue" @ref:suppressField @ref="theDatePicker"></TelerikDatePicker>
 
 <br />The selected date is: @datePickerValue.ToShortDateString()
 

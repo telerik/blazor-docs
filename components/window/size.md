@@ -71,7 +71,7 @@ The developer can invoke those actions through its `Maximize`, `Minimize` and `R
 <button @onclick="MaximizeWindow">Change Maximize state of the Window</button>
 <button @onclick="MinimizeWindow">Change Minimize state of the Window</button>
 
-<TelerikWindow @ref="myWindow" Visible="true">
+<TelerikWindow @ref:suppressField @ref="myWindow" Visible="true">
     <TelerikWindowTitle>
         <strong>The Title</strong>
     </TelerikWindowTitle>
@@ -115,7 +115,7 @@ The developer can invoke those actions through its `Maximize`, `Minimize` and `R
 <button @onclick="MaximizeWindow">Change Maximize state of the Window</button>
 <button @onclick="MinimizeWindow">Change Minimize state of the Window</button>
 
-<TelerikWindow @ref="myWindow" Visible="true">
+<TelerikWindow @ref:suppressField @ref="myWindow" Visible="true">
 	<TelerikWindowTitle>
 		<strong>The Title</strong>
 	</TelerikWindowTitle>

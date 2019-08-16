@@ -28,7 +28,7 @@ To control the position of the tab titles, the main tab strip tag exposes the op
 ````CSHTML
 @using Telerik.Blazor.Components.TabStrip
 
-<TelerikTabStrip TabPosition="Telerik.Blazor.Components.TabStrip.TabPosition.Left" @ref="myTabStrip">
+<TelerikTabStrip TabPosition="Telerik.Blazor.Components.TabStrip.TabPosition.Left" @ref:suppressField @ref="myTabStrip">
 	<TelerikTab Title="First">
 		First tab content.
 	</TelerikTab>
@@ -57,7 +57,7 @@ To control the position of the tab titles, the main tab strip tag exposes the op
 
 <TelerikButton OnClick="@WriteActiveTab">Get Active Tab</TelerikButton>
 
-<TelerikTabStrip TabPosition="Telerik.Blazor.Components.TabStrip.TabPosition.Left" @ref="myTabStrip">
+<TelerikTabStrip TabPosition="Telerik.Blazor.Components.TabStrip.TabPosition.Left" @ref:suppressField @ref="myTabStrip">
 	<TelerikTab Title="First">
 		First tab content.
 	</TelerikTab>
@@ -86,13 +86,13 @@ To control the position of the tab titles, the main tab strip tag exposes the op
 @using Telerik.Blazor.Components.TabStrip
 @using Telerik.Blazor.Components.Button
 
-<TelerikTabStrip @ref="myTabStrip">
+<TelerikTabStrip @ref:suppressField @ref="myTabStrip">
 	<TelerikTab Title="First">
 		First tab content.
 		<br />
 		<TelerikButton OnClick="@SelectSecondTab">Select the second tab</TelerikButton>
 	</TelerikTab>
-	<TelerikTab Title="Second" @ref="chosenTab">
+	<TelerikTab Title="Second" @ref:suppressField @ref="chosenTab">
 		Second tab content.
 	</TelerikTab>
 	<TelerikTab Title="Third">

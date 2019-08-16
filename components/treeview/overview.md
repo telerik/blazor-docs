@@ -31,7 +31,7 @@ To use a Telerik TreeView for Blazor:
 ````CSHTML
 @using Telerik.Blazor.Components.TreeView
 
-<TelerikTreeView @ref="theTreeView">
+<TelerikTreeView @ref:suppressField @ref="theTreeView">
 </TelerikTreeView>
 
 @code {

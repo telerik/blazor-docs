@@ -87,7 +87,7 @@ The DropDownList is a generic component and its type comes from the model it is 
 ````Primitive
 @using Telerik.Blazor.Components.DropDownList
 
-<TelerikDropDownList @ref="myDdlRef" Data="@MyList" Value="third">
+<TelerikDropDownList @ref:suppressField @ref="myDdlRef" Data="@MyList" Value="third">
 </TelerikDropDownList>
 
 @code {
@@ -100,7 +100,7 @@ The DropDownList is a generic component and its type comes from the model it is 
 ````Model
 @using Telerik.Blazor.Components.DropDownList
 
-<TelerikDropDownList @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="3">
+<TelerikDropDownList @ref:suppressField @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="3">
 </TelerikDropDownList>
 @code {
     //the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
@@ -146,4 +146,3 @@ The DropDownList is a generic component and its type comes from the model it is 
 
   * [DropDownList Overview]({%slug components/dropdownlist/overview%})
   * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/index)
-  

@@ -20,7 +20,7 @@ To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
 ````CSHTML
 @using Telerik.Blazor.Components.TextBox
 
-<TelerikTextBox @bind-Value="theTbValue" Label="Enter Information" MaxLength="20" @ref="theTextBoxRef"></TelerikTextBox>
+<TelerikTextBox @bind-Value="theTbValue" Label="Enter Information" MaxLength="20" @ref:suppressField @ref="theTextBoxRef"></TelerikTextBox>
 
 @theTbValue
 

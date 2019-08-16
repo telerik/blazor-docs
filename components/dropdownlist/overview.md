@@ -53,7 +53,7 @@ To use a Telerik DropDownList for Blazor
 ````CSHTML
 @using Telerik.Blazor.Components.DropDownList
 
-<TelerikDropDownList @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="3">
+<TelerikDropDownList @ref:suppressField @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="3">
 </TelerikDropDownList>
 @code {
 	//the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
@@ -68,7 +68,7 @@ To use a Telerik DropDownList for Blazor
 	}
 }
 
-<TelerikDropDownList @ref="myDdlRef2" Data="@MyList" @bind-Value="MyItem">
+<TelerikDropDownList @ref:suppressField @ref="myDdlRef2" Data="@MyList" @bind-Value="MyItem">
 </TelerikDropDownList>
 
 @code {
@@ -159,7 +159,7 @@ The DropDownList provides the following features:
 @using Telerik.Blazor.Components.DropDownList
 @using Telerik.Blazor.Components.Button
 
-<TelerikDropDownList @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="5">
+<TelerikDropDownList @ref:suppressField @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="5">
 </TelerikDropDownList>
 <TelerikButton OnClick="@GetSelectedItem">Get Selected Item</TelerikButton> @result
 @code {
@@ -199,5 +199,4 @@ The DropDownList provides the following features:
   * [Data Binding]({%slug components/dropdownlist/databind%})
   * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/index)
   * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor-ui/dropdownlist/validation)
-  
   
