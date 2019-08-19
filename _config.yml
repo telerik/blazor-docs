@@ -60,6 +60,9 @@ navigation:
      "*components/treeview/data-binding":
         title: "Data Binding"
         position: 2
+     "*components/menu/data-binding":
+        title: "Data Binding"
+        position: 2
 
 ## List helpers directory names and order here, like this:
      "*appearance":
@@ -234,6 +237,7 @@ intro_columns:
     title: "Navigation"
     items:
       "Button": "components/button/overview"
+      "Menu": "components/menu/overview"
       "Tab Strip": "components/tabstrip/overview"
       "TreeView": "components/treeview/overview"
 

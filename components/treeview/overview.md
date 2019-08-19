@@ -10,7 +10,7 @@ position: 0
 
 # Treeview Overview
 
-The Treeview component displays data (flat or hierarchical) in a traditional tree-like structure. You can navigate through the items and their children, define [templates]({%slug components/treeview/templates%}) for the individual nodes, render text and icons/images, and respond to events.
+The Treeview component displays data (flat or hierarchical) in a traditional tree-like structure. In addition to built-in navigation capabilities, you can navigate through the items and their children, define [templates]({%slug components/treeview/templates%}) for the individual nodes, render text and icons/images, and respond to events.
 
 To use a Telerik TreeView for Blazor:
 
