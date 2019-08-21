@@ -98,11 +98,19 @@ To use a Telerik Menu for Blazor:
 ````CSHTML
 @using Telerik.Blazor.Components.Menu
 
-<TelerikMenu @ref:suppressField @ref="theMenu">
-</TelerikTreeView>
+<TelerikMenu @ref:suppressField @ref="theMenu" Data="@menuData" TextField="Page" UrlField="Page">
+</TelerikMenu>
 
 @code {
-    Telerik.Blazor.Components.Menu.TelerikMenu theMenu;
+    // the menu is a generic component and its type depends on the model it binds to
+    Telerik.Blazor.Components.Menu.TelerikMenu<MenuItem> theMenu;
+
+    List<MenuItem> menuData = Enumerable.Range(1, 3).Select(x => new MenuItem { Page = $"page{x}" }).ToList();
+
+    public class MenuItem
+    {
+        public string Page { get; set; }
+    }
 }
 ````
 

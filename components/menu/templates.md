@@ -14,32 +14,31 @@ The Menu component allows you to define a custom template for its items. This ar
 
 The `ItemTemplate` of an item is defined under the `ItemTemplate` tag of the menu.
 
-The template receives the model to which the item is bound as its `context`. You can use it to render the desired content.
+The template receives the model to which the item is bound as its `context`. You can use it to render the desired content. The menu is a generic component, so you can use a named context variable that will be of the model type without additional casting.
 
 You can use the template to render arbitrary content according to your application's data and logic. You can use components in it and thus provide rich content instead of plain text. You can also use it to add DOM event handlers like click, doubleclick, mouseover if you need to respond to them.
 
->caption Use templates to implement navigation between views without the usage of the UrlField feature
+>caption Use templates to implement navigation between views without the UrlField feature
 
 ````CSHTML
 @using Telerik.Blazor.Components.Menu
 
-    <TelerikMenu Data="@MenuItems"
-                 ItemsField="@nameof(MenuItem.SubSectionList)">
-        <ItemTemplate>
-            @{
-                var item = context as MenuItem;
-                var shouldNavigate = !string.IsNullOrEmpty(item.Page);
-                if (shouldNavigate)
-                {
-                    <NavLink href="@item.Page">@item.Section</NavLink>
-                }
-                else
-                {
-                    <span style="font-weight: bold;">See more about our @item.Section.ToLowerInvariant()</span>
-                }
+<TelerikMenu Data="@MenuItems"
+             ItemsField="@nameof(MenuItem.SubSectionList)">
+    <ItemTemplate Context="item">
+        @{
+            var shouldNavigate = !string.IsNullOrEmpty(item.Page);
+            if (shouldNavigate)
+            {
+                <NavLink href="@item.Page">@item.Section</NavLink>
             }
-        </ItemTemplate>
-    </TelerikMenu>
+            else
+            {
+                <span style="font-weight: bold;">See more about our @item.Section.ToLowerInvariant()</span>
+            }
+        }
+    </ItemTemplate>
+</TelerikMenu>
 
 @code {
     public List<MenuItem> MenuItems { get; set; }
@@ -109,9 +108,8 @@ You can use the template to render arbitrary content according to your applicati
 
     <TelerikMenu Data="@MenuItems"
                  ItemsField="@nameof(MenuItem.SubSectionList)">
-        <ItemTemplate>
+        <ItemTemplate Context="item">
             @{
-                var item = context as MenuItem;
                 bool isCurrentPage = CompareCurrentPageUrl(item.Page);
                 string itemStyling = isCurrentPage ? "color: cyan; cursor: not-allowed;" : "color: blue";
                 if (isCurrentPage)
@@ -190,7 +188,6 @@ You can use the template to render arbitrary content according to your applicati
         base.OnInitialized();
     }
 }
-
 ````
 
 >caption The result from the snippet above, asuming the current page URL is `menu/index` and we hovered the "Components" item
