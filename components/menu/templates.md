@@ -100,97 +100,111 @@ You can use the template to render arbitrary content according to your applicati
 }
 ````
 
->caption Use templates to visually distinguish the current page as an item that is styled differently
+>caption Use templates to visually distinguish the current page as an item that is styled differently, and to open external links in new tabs
 
 ````CSHTML
-@inject IUriHelper urlHelper
 @using Telerik.Blazor.Components.Menu
+@inject IUriHelper urlHelper
 
-    <TelerikMenu Data="@MenuItems"
-                 ItemsField="@nameof(MenuItem.SubSectionList)">
-        <ItemTemplate Context="item">
-            @{
-                bool isCurrentPage = CompareCurrentPageUrl(item.Page);
-                string itemStyling = isCurrentPage ? "color: cyan; cursor: not-allowed;" : "color: blue";
-                if (isCurrentPage)
-                {
-                    <span style="@itemStyling">@item.Section</span>
-                }
-                else
-                {
-                    <a style="@itemStyling" href="@item.Page">@item.Section</a>
-                }
+<TelerikMenu Data="@MenuItems" OnSelect="@((MenuItem item) => OnSelect(item))">
+    <ItemTemplate Context="item">
+        @{
+            if (EqualityComparer<MenuItem>.Default.Equals(item, SelectedMenuItem))
+            {
+                <span style="color: black; font-weight: bold">@item.Text</span>
             }
-        </ItemTemplate>
-    </TelerikMenu>
-
+            else
+            {
+                string target = "";
+                if (!IsInternalPage(item.Url))
+                {
+                    target = "_blank";
+                }
+                <NavLink target="@target" href="@item.Url" class="k-link k-menu-link">@item.Text</NavLink>
+            }
+        }
+    </ItemTemplate>
+</TelerikMenu>
 @code {
     public List<MenuItem> MenuItems { get; set; }
 
-    public class MenuItem
-    {
-        public string Section { get; set; }
-        public string Page { get; set; }
-        public List<MenuItem> SubSectionList { get; set; }
-    }
-
-    bool CompareCurrentPageUrl(string urlToCopmare)
-    {
-        return urlHelper.GetAbsoluteUri().Substring(urlHelper.GetBaseUri().Length).Equals(urlToCopmare);
-    }
+    public MenuItem SelectedMenuItem { get; set; }
 
     protected override void OnInitialized()
     {
         MenuItems = new List<MenuItem>()
-    {
+        {
             new MenuItem()
             {
-                Section = "Components",
-                Page = "index",
-                SubSectionList = new List<MenuItem>()
-                {
-                    new MenuItem()
-                    {
-                        Section = "Menu",
-                        Page = "menu/index"
-                    },
-                    new MenuItem()
-                    {
-                        Section = "Grid",
-                        Page = "grid/index"
-                    },
-                    new MenuItem()
-                    {
-                        Section = "Tree",
-                        Page = "treeview/index"
-                    }
-                }
+                Text = "Home",
+                Url = "/",
             },
             new MenuItem()
             {
-                Section = "Services",
-                SubSectionList = new List<MenuItem>()
+                Text = "Fetch Data",
+                Url = "/fetchdata"
+            },
+            new MenuItem()
             {
+                Text = "Counter",
+                Url = "/counter"
+            },
+            new MenuItem()
+            {
+                Text = "Telerik UI for Blazor",
+                Items = new List<MenuItem>()
+                {
                     new MenuItem()
                     {
-                        Section = "Consulting",
-                        Page = "consultingservices"
+                        Text = "Documentation",
+                        Url = "https://docs.telerik.com/blazor-ui/introduction"
                     },
                     new MenuItem()
                     {
-                        Section = "Education",
-                        Page = "education"
+                        Text = "Live Demos",
+                        Url = "https://demos.telerik.com/blazor-ui"
                     }
                 }
             }
         };
 
+        SelectedMenuItem = MenuItems.Find(item => CompareCurrentPageUrl(item.Url));
+
         base.OnInitialized();
+    }
+
+    private void OnSelect(MenuItem item)
+    {
+        if (IsInternalPage(item.Url))
+        {
+            SelectedMenuItem = item;
+        }
+    }
+
+    private bool CompareCurrentPageUrl(string urlToCopmare)
+    {
+        return urlHelper.GetAbsoluteUri().Substring(urlHelper.GetBaseUri().Length - 1).Equals(urlToCopmare);
+    }
+
+    private bool IsInternalPage(string url)
+    {
+        if (string.IsNullOrEmpty(url))
+        {
+            return false;
+        }
+        return !(url.StartsWith("https://") || url.StartsWith("http://"));
+    }
+	
+	public class MenuItem
+    {
+        public string Text { get; set; }
+        public string Url { get; set; }
+        public List<MenuItem> Items { get; set; }
     }
 }
 ````
 
->caption The result from the snippet above, asuming the current page URL is `menu/index` and we hovered the "Components" item
+>caption The result from the snippet above, asuming the current page URL is `/counter`
 
 ![](images/menu-template-distinguish-item.png)
 
