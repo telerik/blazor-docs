@@ -18,7 +18,7 @@ Flat data means that the entire collection of menu items is available at one lev
 
 The parent-child relationships are created through internal data in the model - the `ParentId` field which points to the `Id` of the item that will contain the current item. The root level has `null` for `ParentId`.
 
-You must also provide the correct value for the `HasChildren` field - @[template](/_contentTemplates/menu/basic-example.md#has-children-behavior-flat-data)
+You are *not* required to provide a value for the `HasChildren` field. @[template](/_contentTemplates/menu/basic-example.md#has-children-behavior)
 
 >caption Example of flat data in a menu (for brevity, URLs are omitted)
 

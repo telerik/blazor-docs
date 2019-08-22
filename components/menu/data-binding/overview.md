@@ -28,7 +28,7 @@ The menu items provide the following features that you control through the corre
 
 * `Id` - a unique identifier for the item. Required for binding to flat data.
 * `ParentId` - identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, this must be `null`.
-* `HasChildren` - whether the item has child items. Required for binding to flat data - @[template](/_contentTemplates/menu/basic-example.md#has-children-behavior-flat-data) With hierarchical data, the menu will render the icon based on the existence of child items, but `HasChildren` will take precedence.
+* `HasChildren` - can hide child items. The menu will fetch its children from the data source based on the `Id`-`ParentId` relationships (for flat data) or on the presence of the `Items` collection (for hierarchical data). @[template](/_contentTemplates/menu/basic-example.md#has-children-behavior) 
 * `Items` - the collection of child items that will be rendered under the current item. Required only when binding to hierarchical data.
 * `Text` - the text that will be shown on the item.
 * `Icon` / `IconClass` / `ImageUrl` - the [Telerik icon]({%slug general-information/font-icons%}), a class for a custom font icon, or the URL to a raster image that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `Icon` will have the highest importance).
