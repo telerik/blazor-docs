@@ -89,4 +89,5 @@ To use a `nuget.config` file for the Telerik feed, you need to:
 * [What You Need To Install]({%slug getting-started/what-you-need%})
 * [Get Started with Client-side Blazor]({%slug getting-started/client-side%})
 * [Get Started with Server-side Blazor]({%slug getting-started/server-side%})
+* [Blog Post: Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)
 
