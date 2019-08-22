@@ -103,6 +103,10 @@ To allow working with detached popups (for example, dropdown lists, menus, grid 
 @[template](/_contentTemplates/common/get-started.md#telerik-main-container-snippet)
 ````
 
+### Server-side Project Considerations
+
+Open the `~/Pages/_Host.cshtml` and remove the contents of the `<app></app>` element (see [this issue](https://feedback.telerik.com/blazor/1425656-using-renderstaticcomponentasync-breaks-telerik-components)).
+
 ### Client-side Project Considerations
 
 If you are using a **client-side Blazor** project, 
