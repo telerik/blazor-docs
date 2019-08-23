@@ -6,3 +6,17 @@ apiRules:
     type: Method
     hasAttribute:
       uid: Microsoft.JSInterop.JSInvokableAttribute
+- exclude:
+    uidRegex: ^Telerik\.DataSource\.ClientHandlerDescriptor$
+- exclude:
+    uidRegex: ^Telerik\.DataSource\.IDependencyInjectionContainer$
+- exclude:
+    uidRegex: ^Telerik\.DataSource\.IDescriptor$
+- exclude:
+    uidRegex: ^Telerik\.DataSource\.Expressions\.*$
+- exclude:
+    uidRegex: ^Telerik\.DataSource\.\w*Node
+- exclude:
+    uidRegex: ^Telerik\.DataSource\.\w*Expression\w*$
+- exclude:
+    uidRegex: ^Telerik\.DataSource\.\w+Aggregate\w*$
