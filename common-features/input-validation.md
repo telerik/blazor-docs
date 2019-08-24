@@ -38,70 +38,82 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 @using Telerik.Blazor.Components.NumericTextBox
 @using Telerik.Blazor.Components.DateInput
 @using Telerik.Blazor.Components.DatePicker
+@using Telerik.Blazor.Components.TimePicker
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
-	<DataAnnotationsValidator />
-	<ValidationSummary />
+    <DataAnnotationsValidator />
+    <ValidationSummary />
 
-	<p class="name">
-		Name: <TelerikTextBox @bind-Value="person.Name"></TelerikTextBox>
-		<ValidationMessage For="@(() => person.Name)"></ValidationMessage>
-	</p>
-	<p class="height">
-		Height (cm): <TelerikNumericTextBox @bind-Value="person.Height" />
-		<ValidationMessage For="@(() => person.Height)"></ValidationMessage>
-	</p>
-	<p class="birthday">
-		Birthday: <TelerikDateInput @bind-Value="person.Birthday" Format="dd MMMM yyyy"></TelerikDateInput>
-		<ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
-	</p>
-	<p class="favorite-day">
-		Favorite date: <TelerikDatePicker @bind-Value="person.FavoriteDay" Format="dd MMMM yyyy"></TelerikDatePicker>
-		<ValidationMessage For="@(() => person.FavoriteDay)"></ValidationMessage>
-	</p>
-	<p class="accepts-terms">
-		Accepts terms: <InputCheckbox @bind-Value="person.AcceptsTerms" />
-		<ValidationMessage For="@(() => person.AcceptsTerms)"></ValidationMessage>
-	</p>
+    <p class="name">
+        Name: <TelerikTextBox @bind-Value="person.Name"></TelerikTextBox>
+        <ValidationMessage For="@(() => person.Name)"></ValidationMessage>
+    </p>
+    <p class="height">
+        Height (cm): <TelerikNumericTextBox @bind-Value="person.Height" />
+        <ValidationMessage For="@(() => person.Height)"></ValidationMessage>
+    </p>
+    <p class="birthday">
+        Birthday: <TelerikDateInput @bind-Value="person.Birthday" Format="dd MMMM yyyy"></TelerikDateInput>
+        <ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
+    </p>
+    <p class="favorite-day">
+        Favorite date: <TelerikDatePicker @bind-Value="person.FavoriteDay" Format="dd MMMM yyyy"></TelerikDatePicker>
+        <ValidationMessage For="@(() => person.FavoriteDay)"></ValidationMessage>
+    </p>
+    <p class="daily-scrum">
+        Daily scrum: <TelerikTimePicker @bind-Value="person.DailyScrum"></TelerikTimePicker>
+        <ValidationMessage For="@(() => person.DailyScrum)"></ValidationMessage>
+    </p>
+    <p class="accepts-terms">
+        Accepts terms: <InputCheckbox @bind-Value="person.AcceptsTerms" />
+        <ValidationMessage For="@(() => person.AcceptsTerms)"></ValidationMessage>
+    </p>
 
-	<button type="submit">Submit</button>
+    <button type="submit">Submit</button>
 </EditForm>
 
 @code {
-	// Usually this class would be in a different file
-	public class Person
-	{
-		[Required(ErrorMessage = "Enter a name")]
-		[StringLength(10, ErrorMessage = "That name is too long")]
-		public string Name { get; set; }
+    // Usually this class would be in a different file
+    public class Person
+    {
+        [Required(ErrorMessage = "Enter a name")]
+        [StringLength(10, ErrorMessage = "That name is too long")]
+        public string Name { get; set; }
 
-		[Required(ErrorMessage = "Provide your height in centimeters")]
-		[Range(1, 300, ErrorMessage = "Nobody is that tall")]
-		public int? Height { get; set; }
+        [Required(ErrorMessage = "Provide your height in centimeters")]
+        [Range(1, 300, ErrorMessage = "Nobody is that tall")]
+        public int? Height { get; set; }
 
-		[Required]
-		[Range(typeof(DateTime), "1/1/1900", "1/12/2000",
-			ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy} and {2:dd MMM yyyy}")]
-		public DateTime Birthday { get; set; }
+        [Required]
+        [Range(typeof(DateTime), "1/1/1900", "1/12/2000",
+            ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy} and {2:dd MMM yyyy}")]
+        public DateTime Birthday { get; set; }
 
-		[Required]
-		[Range(typeof(DateTime), "1/1/1999", "1/12/2019",
-			ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy} and {2:dd MMM yyyy}")]
-		[Display(Name="Your Favourite Day")]
-		public DateTime FavoriteDay { get; set; }
+        [Required]
+        [Range(typeof(DateTime), "1/1/1999", "1/12/2019",
+            ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy} and {2:dd MMM yyyy}")]
+        [Display(Name = "Your Favourite Day")]
+        public DateTime FavoriteDay { get; set; }
 
-		[Required]
-		[Range(typeof(bool), "true", "true", ErrorMessage = "Must accept terms")]
-		public bool AcceptsTerms { get; set; }
-	}
+        [Required(ErrorMessage = "The daily standup is required")]
+        [Range(typeof(DateTime), "1/1/1900 08:00:00", "1/1/1900 17:00:00", ErrorMessage = "Time should be in business hours, between 8AM and 5 PM.")]
+        public DateTime? DailyScrum { get; set; }
 
-	Person person = new Person();
+        [Required]
+        [Range(typeof(bool), "true", "true", ErrorMessage = "Must accept terms")]
+        public bool AcceptsTerms { get; set; }
+    }
 
-	void HandleValidSubmit()
-	{
-		Console.WriteLine("OnValidSubmit");
-	}
+    Person person = new Person()
+    {
+        DailyScrum = new DateTime(1900, 1, 1, 1, 1, 1) // must match the date portion of the range validation dates
+    };
+
+    void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
 }
 ````
 

@@ -245,7 +245,6 @@ intro_columns:
     title: "Scheduling"
     items:
       "Calendar": "components/calendar/overview"
-      "Date Picker": "components/datepicker/overview"
 -
   categories:
   -
@@ -254,6 +253,8 @@ intro_columns:
       "Textbox": "components/textbox/overview"
       "Numeric Textbox": "components/numerictextbox/overview"
       "Date Input": "components/dateinput/overview"
+      "Date Picker": "components/datepicker/overview"
+      "Time Picker": "components/timepicker/overview"
       "DropDownList": "components/dropdownlist/overview"
 
   -
