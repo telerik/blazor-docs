@@ -109,6 +109,10 @@ The grid can sort data automatically. You can read more about this feature in th
 
 The grid can filter data automatically. You can read more about thsi feature in the [Filtering]({%slug components/grid/filtering%}) article.
 
+## Grouping
+
+The grid can group data automatically. You can read more about this feature in the [Grouping]({%slug components/grid/features/grouping%}) article.
+
 ## Toolbar
 
 You can define user actions in a [dedicated toolbar]({%slug components/grid/features/toolbar%}). For the moment, they are mostly custom actions, but in future versions you will be able to add features like exporting there.
