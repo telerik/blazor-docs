@@ -14,11 +14,13 @@ The Grid component offers support for grouping.
 
 To enable grouping, set the grid's `Groupable` property to `true`.
 
-Drag a column header to the group panel and the grid will create groups in the data rows based on the available values for that field. An indicator will be shown for the column that is used for grouping.
+Drag a column header to the group panel and the grid will create groups in the data rows based on the available values for that field. An indicator will be shown for the column that is used for grouping. The group header shows the value for the field by which it is grouping.
 
 You can also group by multiple fields and groups for subsequent fields will be nested within their parent groups. When adding a group, you can drag it in the desired position in the list of current groups.
 
 To remove a group setting, click the `[x]` button on its indicator in the group panel.
+
+To prevent grouping by a field, set `Groupable="false"` for on its column. This can be useful for fields with unique values like IDs or names.
 
 >caption Enable grouping in Telerik Grid
 
@@ -27,7 +29,7 @@ To remove a group setting, click the `[x]` button on its indicator in the group 
 
 <TelerikGrid Data=@GridData Groupable="true" Pageable="true" Height="400px">
     <TelerikGridColumns>
-        <TelerikGridColumn Field=@nameof(Employee.Name) />
+        <TelerikGridColumn Field=@nameof(Employee.Name) Groupable="false" />
         <TelerikGridColumn Field=@nameof(Employee.Team) Title="Team" />
         <TelerikGridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
     </TelerikGridColumns>
