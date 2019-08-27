@@ -106,7 +106,7 @@ You can use the template to render arbitrary content according to your applicati
 @using Telerik.Blazor.Components.Menu
 @inject IUriHelper urlHelper
 
-<TelerikMenu Data="@MenuItems" OnSelect="@((MenuItem item) => OnSelect(item))">
+<TelerikMenu Data="@MenuItems" OnClick="@((MenuItem item) => OnClick(item))">
     <ItemTemplate Context="item">
         @{
             if (EqualityComparer<MenuItem>.Default.Equals(item, SelectedMenuItem))
@@ -173,7 +173,7 @@ You can use the template to render arbitrary content according to your applicati
         base.OnInitialized();
     }
 
-    private void OnSelect(MenuItem item)
+    private void OnClick(MenuItem item)
     {
         if (IsInternalPage(item.Url))
         {

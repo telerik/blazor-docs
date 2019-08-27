@@ -21,10 +21,10 @@ You can control the orientation of the Menu for Blazor so that it orders its ite
 ````CSHTML
 @using Telerik.Blazor.Components.Menu
 
-<TelerikMenu Data="@MenuItems" OnSelect="@OnSelect">
+<TelerikMenu Data="@MenuItems" OnClick="@OnClick">
 </TelerikMenu>
 
-Last item selected: @SelectedItem?.Text
+Last clicked item: @ClickedItem?.Text
 
 @code {
     public List<MenuItem> MenuItems { get; set; }

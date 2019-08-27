@@ -12,30 +12,30 @@ position: 20
 
 This article explains the events available in the Telerik Menu for Blazor:
 
-* [OnSelect](#onselect)
+* [OnClick](#onclick)
 
-## OnSelect
+## OnClick
 
-The `OnSelect` event fires when the user clicks or taps on a menu item. It receives the model of the item as an argument that you can cast to the concrete model type you are using.
+The `OnClick` event fires when the user clicks or taps on a menu item. It receives the model of the item as an argument that you can cast to the concrete model type you are using.
 
-You can use the `OnSelect` event to react to user choices in a menu without using navigation to load new content automatically.
+You can use the `OnClick` event to react to user choices in a menu without using navigation to load new content automatically.
 
->caption Handle OnSelect
+>caption Handle OnClick
 
 ````CSHTML
 @using Telerik.Blazor.Components.Menu
 
-<TelerikMenu Data="@MenuItems" OnSelect="@((MenuItem item) => OnSelectHandler(item))">
+<TelerikMenu Data="@MenuItems" OnClick="@((MenuItem item) => OnClickHandler(item))">
 </TelerikMenu>
 
-Last item selected: @SelectedItem?.Text
+Last clicked item: @ClickedItem?.Text
 
 @code {
-    public MenuItem SelectedItem { get; set; }
+    public MenuItem ClickedItem { get; set; }
 
-    protected void OnSelectHandler(MenuItem item)
+    protected void OnClickHandler(MenuItem item)
     {
-        SelectedItem = item;
+        ClickedItem = item;
     }
 
     public List<MenuItem> MenuItems { get; set; }
