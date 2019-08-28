@@ -32,7 +32,7 @@ To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
 }
 ````
 
-The date input provides the following features:
+>caption The date input provides the following features:
 
 * `Class` - the CSS class that will be rendered on the `input` element.
 * `Enabled` - whether the `input` is enabled.
@@ -41,6 +41,29 @@ The date input provides the following features:
 * `Value` - get/set the value of the input, can be used for binding.
 * `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
+
+>caption The behavior of the component will depend on the type of field it is bound to, and this can result in different user experience and values that it will output:
+
+##### Bound to a Nullabe DateTime
+
+* When value is `null` - the `Format` is displayed as a placeholder.
+* When modifying a part, if some parts are not defined, the value remains `null`.
+* When all values are provided, the value changes.
+* Upon deleting any part, the whole value changes to `null`, and all input returns to the format placeholder.
+* When inside an `EditForm`, if no attributes are present on the field, and the value is deleted, no validation error is shown.
+
+
+
+##### Bound to a Non-Nullabe DateTime
+
+* When the value is undefined, it defaults to `0001-01-01`, so the component has it as a value.
+* When modifying a part, if some parts are not defined, the bound value does not change.
+* When all values are provided, the value changes.
+* Upon deleting any part, only that part switches to the format placeholder.
+* When inside an `EditForm`, if no attributes are present on the field, and the value is deleted, a validation error is shown.
+
+
+
 
 
 >caption Example of using validation to prompt the user for certain input
