@@ -5,7 +5,7 @@ description: How to implement your own read, page, fiter, sort operations for th
 slug: components/grid/manual-operations
 tags: telerik,blazor,grid,read,filter,sort,page,manual,data,data source
 published: True
-position: 30
+position: 50
 ---
 
 # Manual Data Source Operations

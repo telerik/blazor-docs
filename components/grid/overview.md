@@ -23,7 +23,7 @@ To create a basic Telerik Grid:
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data="@MyData" Height="300px" 
+<TelerikGrid Data="@MyData" Height="300px"
         Pageable="true" Sortable="true"
         FilterMode="Telerik.Blazor.FilterMode.FilterRow">
 	<TelerikGridColumns>
@@ -112,6 +112,10 @@ The grid can filter data automatically. You can read more about thsi feature in 
 ## Grouping
 
 The grid can group data automatically. You can read more about this feature in the [Grouping]({%slug components/grid/features/grouping%}) article.
+
+## Selection
+
+The grid offers single or multiple selection modes. You can read more about this feature in the [Selection]({%slug components/grid/selection/overview%}) article.
 
 ## Toolbar
 
