@@ -115,7 +115,7 @@ The grid can group data automatically. You can read more about this feature in t
 
 ## Selection
 
-The grid offers single or multiple selection modes. You can read more about this feature in the [Selection]({%slug components/grid/features/selection%}) article.
+The grid offers single or multiple selection modes. You can read more about this feature in the [Selection]({%slug components/grid/selection/overview%}) article.
 
 ## Toolbar
 
