@@ -10,7 +10,7 @@ position: 2
 
 # Input Validation
 
-The UI for Blazor suite supports and integrates seemlessly into Blazor's Forms and Validation infrastructure. All Telerik UI for Blazor Input components work out of the box when placed inside an EditForm, respond to EditContext changes and provide default invalid styles.
+The UI for Blazor suite supports and integrates seamlessly into Blazor's Forms and Validation infrastructure. All Telerik UI for Blazor Input components work out of the box when placed inside an `EditForm`, respond to `EditContext` changes and provide default invalid styles.
 
 To validate the Blazor inputs, you need to:
 
@@ -107,7 +107,8 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 
     Person person = new Person()
     {
-        DailyScrum = new DateTime(1900, 1, 1, 1, 1, 1) // must match the date portion of the range validation dates
+        // for time pickers, the initial date value must match the date portion of the range validation rule
+        DailyScrum = new DateTime(1900, 1, 1, 1, 1, 1) 
     };
 
     void HandleValidSubmit()
