@@ -23,7 +23,7 @@ You can filter more than one column at a time, and all filter rules will be appl
 
 ## Filter Row
 
-To enable the filter row set the `FilterMode` property of the grid to `Telerik.Blazor.FilterMode.FilterMenu`.
+To enable the filter row set the `FilterMode` property of the grid to `Telerik.Blazor.FilterMode.FilterRow`.
 
 The grid will render a row below the column headers with UI that you can use to fill in the filter criteria. You can type in the input to execute the default operator as you type, or click a button to choose a different filter operator (like "contains", "greater than" and so on).
 
