@@ -11,17 +11,15 @@ position: 20
 # Events
 
 This article explains the events available in the Telerik TimePicker for Blazor:
-<!--
+
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
 
 ## OnChange
 
-when the new value is commited by the user either by pressing Enter, or when the input loses focus.
+The `OnChange` event fires when the new value is commited by the user either by pressing `Enter`, or when the input loses focus.
 
-The `OnChange` event fires when the new value is commited by the user either by editing the input (typing, using the arrows) and pressing `Enter` after that, or by setting the time through the dropdown and its `Set` button.
-
-The date picker is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
+The time picker is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
 
 >caption Handle OnChange
 
@@ -74,7 +72,7 @@ model value: @thePickerValue
     }
 }
 ````
--->
+
 
 ## ValueChanged
 

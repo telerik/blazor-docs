@@ -52,11 +52,11 @@ Selected time: @selectedTime?.ToLongTimeString()
 
 The Time Picker component exposes the following features:
 
-* `Enabled` - Specifies whether typing in the input is allowed.
+* `Enabled` - Specifies whether typing in the input and opening the dropdown are allowed.
 * `Height` - Defines the height of the TimePicker. Defaults to `28px`. See the [Dimensions]({%slug common-features/dimensions%}) article.
-* `Format` - Specifies the format of the DateInput of the TimePicker. Defaults to `HH:mm` (24 hour time format). Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. Note that format specifiers for non-time portions will only be editable in the input and will not have a representation in the time picker dropdown.
-* `Min` - The earliest time that the user can select.
-* `Max` - The latest time that the user can select.
+* `Format` - Specifies the format of the DateInput of the TimePicker. Defaults to `hh:mm tt` (12 hour time with AM/PM specifiers). Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. Note that format specifiers for non-time portions will only be editable in the input and will not have a representation in the time picker dropdown.
+* `Min` - The earliest time that the user can select in the dropdown.
+* `Max` - The latest time that the user can select in the dropdown.
 * `Value` - The current value of the input. Can be used for binding.
 * `Width` - Defines the width of the TimePicker.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
