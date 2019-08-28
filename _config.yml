@@ -48,7 +48,7 @@ navigation:
      "*components/grid/editing":
         title: "Editing"
         position: 10
-     "*components/grid/Selection":
+     "*components/grid/selection":
         title: "Selection"
         position: 23
      "*components/chart/types":

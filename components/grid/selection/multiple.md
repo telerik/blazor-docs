@@ -21,7 +21,7 @@ In Multiple SelectionMode, selection could be made using the following approache
 * Click on the starting row of a range of rows you want selected, press and hold `Shift`, and click on the last row of the range. The last selected item is the start point of the range and the current target row is the end of the selection.
 * Select the checkbox of each desired row.
 
-The [Examples](#examples) section showcases how you can use the grid features together.
+>tip The [Examples](#examples) section showcases how you can use the grid features together.
 
 ## Checkbox Selection
 

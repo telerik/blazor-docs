@@ -16,7 +16,7 @@ To use **single** row selection, set the `SelectionMode` property to `Telerik.Bl
 
 Once a selection is made in Single selection mode, it cannot be removed.
 
-The [Examples](#examples) section showcases how you can use the grid features together.
+>tip The [Examples](#examples) section showcases how you can use the grid features together.
 
 ## Checkbox Selection
 
