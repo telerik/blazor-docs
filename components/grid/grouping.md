@@ -64,7 +64,7 @@ To prevent grouping by a field, set `Groupable="false"` for on its column. This 
 }
 ````
 
->caption How groping works in the Telerik grid
+>caption How grouping works in the Telerik grid
 
 ![](images/grouping-overview.gif)
 
