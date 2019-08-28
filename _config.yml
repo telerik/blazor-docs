@@ -281,7 +281,7 @@ baseurl: /blazor-ui
 
 ## Latest UI for Blazor version. Used in some articles
 
-uiForBlazorLatestVersion: "1.5.0"
+uiForBlazorLatestVersion: "1.6.0"
 
 ## The Kendo UI version used
 cdnVersion: "2019.1.115"
