@@ -41,7 +41,7 @@ You can watch the entire playlist below:
 
 ## List of Components
 
-Blazor is still an experimental technology and the component suite is new. We are constantly working on adding new features and components.
+Blazor is still a new technology and the component suite is young. We are constantly working on adding new features and components.
 
 At the moment, the following components are available:
 

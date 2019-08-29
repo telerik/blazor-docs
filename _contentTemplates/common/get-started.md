@@ -22,7 +22,7 @@
 #blazor-tutorial-intro
 ## Set Up a Blazor Project
 
-[Blazor](https://blazor.net/) is still an experimental technology, so you need to ensure you can run its vanilla version first. To do that, follow the MSDN tutorial and make sure that you can create and run basic sample Blazor applications:
+[Blazor](https://blazor.net/) is still a new technology, so you need to ensure you can run its vanilla version first. To do that, follow the MSDN tutorial and make sure that you can create and run basic sample Blazor applications:
 #end
 
 
