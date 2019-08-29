@@ -60,7 +60,6 @@ public class MenuItem
 	public int? ParentId { get; set; }
 	public bool HasChildren { get; set; }
 	public string Icon { get; set; }
-	public bool Expanded { get; set; }
 	public string Url { get; set; }
 }
 ````
