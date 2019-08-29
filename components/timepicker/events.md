@@ -17,7 +17,7 @@ This article explains the events available in the Telerik TimePicker for Blazor:
 
 ## OnChange
 
-The `OnChange` event fires when the new value is commited by the user either by pressing `Enter`, or when the input loses focus.
+The `OnChange` event fires when the new value is commited by the user either by pressing `Enter` while the input is focused, or when the input loses focus.
 
 The time picker is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
 
