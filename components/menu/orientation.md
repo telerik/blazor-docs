@@ -12,6 +12,8 @@ position: 10
 
 You can control the orientation of the Menu for Blazor so that it orders its items horizontally or vertically.
 
+The default orientation is horizontal.
+
 >caption Changing the orientation of a menu
 
 ![](images/menu-change-orientation.gif)
@@ -20,13 +22,19 @@ You can control the orientation of the Menu for Blazor so that it orders its ite
 
 ````CSHTML
 @using Telerik.Blazor.Components.Menu
+@using Telerik.Blazor
 
-<TelerikMenu Data="@MenuItems" OnClick="@OnClick">
+<select @bind=@orientation>
+    <option value=@MenuOrientation.Horizontal>Horizontal</option>
+    <option value=@MenuOrientation.Vertical>Vertical</option>
+</select>
+
+<TelerikMenu Data="@MenuItems" Orientation="@orientation">
 </TelerikMenu>
 
-Last clicked item: @ClickedItem?.Text
-
 @code {
+     MenuOrientation orientation;
+
     public List<MenuItem> MenuItems { get; set; }
 
     public class MenuItem
@@ -39,34 +47,34 @@ Last clicked item: @ClickedItem?.Text
     protected override void OnInitialized()
     {
         MenuItems = new List<MenuItem>()
-    {
+        {
             new MenuItem()
             {
                 Text = "Share",
-                Icon = "k-i-share",
+                Icon = IconName.Share,
                 Items = new List<MenuItem>()
-            {
+                {
                     new MenuItem()
                     {
                         Text = "FaceBook",
-                        Icon = "k-i-facebook"
+                        Icon = IconName.Facebook
                     },
                     new MenuItem()
                     {
                         Text = "LinkedIn",
-                        Icon = "k-i-linkedin"
+                        Icon = IconName.Linkedin
                     },
                     new MenuItem()
                     {
                         Text = "Twitter",
-                        Icon = "k-i-twitter"
+                        Icon = IconName.Twitter
                     },
                 }
             },
             new MenuItem()
             {
                 Text = "Map Location",
-                Icon = "k-i-marker-pin"
+                Icon = IconName.MarkerPin
             }
         };
 
