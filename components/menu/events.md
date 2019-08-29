@@ -24,11 +24,12 @@ You can use the `OnClick` event to react to user choices in a menu without using
 
 ````CSHTML
 @using Telerik.Blazor.Components.Menu
+@using Telerik.Blazor
+
+Last clicked item: @ClickedItem?.Text
 
 <TelerikMenu Data="@MenuItems" OnClick="@((MenuItem item) => OnClickHandler(item))">
 </TelerikMenu>
-
-Last clicked item: @ClickedItem?.Text
 
 @code {
     public MenuItem ClickedItem { get; set; }
@@ -54,30 +55,30 @@ Last clicked item: @ClickedItem?.Text
             new MenuItem()
             {
                 Text = "Share",
-                Icon = "k-i-share",
+                Icon = IconName.Share,
                 Items = new List<MenuItem>()
-            {
+                {
                     new MenuItem()
                     {
                         Text = "FaceBook",
-                        Icon = "k-i-facebook"
+                        Icon = IconName.Facebook
                     },
                     new MenuItem()
                     {
                         Text = "LinkedIn",
-                        Icon = "k-i-linkedin"
+                        Icon = IconName.Linkedin
                     },
                     new MenuItem()
                     {
                         Text = "Twitter",
-                        Icon = "k-i-twitter"
+                        Icon = IconName.Twitter
                     },
                 }
             },
             new MenuItem()
             {
                 Text = "Map Location",
-                Icon = "k-i-marker-pin"
+                Icon = IconName.MarkerPin
             }
         };
 
