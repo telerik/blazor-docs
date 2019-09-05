@@ -153,73 +153,71 @@ If you need to perform logic more complex than simple data binding, use the chan
 @using Telerik.Blazor.Components.DropDownList
 
 <TelerikGrid Data=@MyData EditMode="inline" Pageable="true" Height="500px">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" />
-		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />
-		<TelerikGridColumn Field=@nameof(SampleData.Role) Title="Position">
-			<EditorTemplate>
-				@{
-					CurrentlyEditedEmployee = context as SampleData;
-					<TelerikDropDownList Data="@Roles" @bind-Value="CurrentlyEditedEmployee.Role" Width="120px" PopupHeight="auto"></TelerikDropDownList>
-				}
-			</EditorTemplate>
-		</TelerikGridColumn>
-		<TelerikGridCommandColumn>
-			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
-		</TelerikGridCommandColumn>
-	</TelerikGridColumns>
-	<TelerikGridEvents>
-		<EventsManager OnUpdate="@UpdateHandler"></EventsManager>
-	</TelerikGridEvents>
+    <TelerikGridColumns>
+        <TelerikGridColumn Field=@nameof(SampleData.ID) Editable="false" Title="ID" />
+        <TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <TelerikGridColumn Field=@nameof(SampleData.Role) Title="Position">
+            <EditorTemplate>
+                @{
+                    CurrentlyEditedEmployee = context as SampleData;
+                    <TelerikDropDownList Data="@Roles" @bind-Value="CurrentlyEditedEmployee.Role" Width="120px" PopupHeight="auto"></TelerikDropDownList>
+                }
+            </EditorTemplate>
+        </TelerikGridColumn>
+        <TelerikGridCommandColumn>
+            <TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
+            <TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
+        </TelerikGridCommandColumn>
+    </TelerikGridColumns>
+    <TelerikGridEvents>
+        <EventsManager OnUpdate="@UpdateHandler"></EventsManager>
+    </TelerikGridEvents>
 </TelerikGrid>
 
 @code {
-	public SampleData CurrentlyEditedEmployee { get; set; }
+    public SampleData CurrentlyEditedEmployee { get; set; }
 
-	public void UpdateHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+    public void UpdateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-		//perform actual data source operations here
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
+        //perform actual data source operations here
+        //if you have a context added through an @inject statement, you could call its SaveChanges() method
+        //myContext.SaveChanges();
 
-		var matchingItem = MyData.FirstOrDefault(c => c.ID == item.ID);
+        var index = MyData.FindIndex(i => i.ID == item.ID);
+        if (index != -1)
+        {
+            MyData[index] = item;
+        }
+    }
 
-		if (matchingItem != null)
-		{
-			matchingItem.Name = item.Name;
-			matchingItem.Role = item.Role;
-		}
-	}
+    protected override void OnInitialized()
+    {
+        MyData = new List<SampleData>();
 
-	protected override void OnInitialized()
-	{
-		MyData = new List<SampleData>();
+        for (int i = 0; i < 50; i++)
+        {
+            MyData.Add(new SampleData()
+            {
+                ID = i,
+                Name = "name " + i,
+                Role = Roles[i % Roles.Count]
+            });
+        }
+    }
 
-		for (int i = 0; i < 50; i++)
-		{
-			MyData.Add(new SampleData()
-			{
-				ID = i,
-				Name = "name " + i,
-				Role = Roles[i % Roles.Count]
-			});
-		}
-	}
+    //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+    public class SampleData
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Role { get; set; }
+    }
 
-	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-		public string Role { get; set; }
-	}
+    public List<SampleData> MyData { get; set; }
 
-	public List<SampleData> MyData { get; set; }
-
-	public static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
+    public static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
 }
 ````
 

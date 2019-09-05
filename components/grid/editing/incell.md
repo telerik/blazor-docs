@@ -27,105 +27,106 @@ To enable InCell editing mode, set the `EditMode` property of the grid to `incel
 <strong>Click a cell, edit it and click outside of the cell to see the change. Editing is prevented for the first two items.</strong>
 
 <TelerikGrid Data=@MyData EditMode="incell" Pageable="true" Height="500px">
-	<TelerikGridEvents>
-		<EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler"></EventsManager>
-	</TelerikGridEvents>
-	<TelerikGridToolBar>
-		<TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
-	</TelerikGridToolBar>
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />
-		<TelerikGridCommandColumn>
-			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Delete" Icon="delete">Delete</TelerikGridCommandButton>
-		</TelerikGridCommandColumn>
-	</TelerikGridColumns>
+    <TelerikGridEvents>
+        <EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler"></EventsManager>
+    </TelerikGridEvents>
+    <TelerikGridToolBar>
+        <TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
+    </TelerikGridToolBar>
+    <TelerikGridColumns>
+        <TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+        <TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <TelerikGridCommandColumn>
+            <TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
+            <TelerikGridCommandButton Command="Delete" Icon="delete">Delete</TelerikGridCommandButton>
+        </TelerikGridCommandColumn>
+    </TelerikGridColumns>
 </TelerikGrid>
 
 @code {
-	public void EditHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+    public void EditHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-		//prevent opening for edit based on condition
-		if (item.ID < 3)
-		{
-			args.IsCancelled = true;//the general approach for cancelling an event
-		}
+        //prevent opening for edit based on condition
+        if (item.ID < 3)
+        {
+            args.IsCancelled = true;//the general approach for cancelling an event
+        }
 
-		Console.WriteLine("Edit event is fired for column " + args.Field);
-	}
+        Console.WriteLine("Edit event is fired for column " + args.Field);
+    }
 
-	public void UpdateHandler(GridCommandEventArgs args)
-	{
-		string fieldName = args.Field;
-		object newVal = args.Value; //you can cast this, if necessary, according to your model
+    public void UpdateHandler(GridCommandEventArgs args)
+    {
+        string fieldName = args.Field;
+        object newVal = args.Value; //you can cast this, if necessary, according to your model
 
-		SampleData item = (SampleData)args.Item;//you can also use the entire model
+        SampleData item = (SampleData)args.Item;//you can also use the entire model
 
-		//perform actual data source operation here
+        //perform actual data source operation here
 
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
+        //if you have a context added through an @inject statement, you could call its SaveChanges() method
+        //myContext.SaveChanges();
 
-		var matchingItem = MyData.FirstOrDefault(c => c.ID == item.ID);
-		if (matchingItem != null)
-		{
-			matchingItem.Name = item.Name;
-		}
+        var index = MyData.FindIndex(i => i.ID == item.ID);
+        if (index != -1)
+        {
+            MyData[index] = item;
+            // this copies the entire item, consider altering only the needed field
+        }
 
-		Console.WriteLine("Update event is fired for " + args.Field + " with value " + args.Value);
-	}
+        Console.WriteLine("Update event is fired for " + args.Field + " with value " + args.Value);
+    }
 
-	public void CreateHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+    public void CreateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-		//perform actual data source operation here
+        //perform actual data source operation here
 
-		item.ID = MyData.Count;
-		MyData.Add(item);
+        item.ID = MyData.Count + 1;
+        MyData.Insert(0, item);
 
-		Console.WriteLine("Create event is fired.");
-	}
+        Console.WriteLine("Create event is fired.");
+    }
 
-	public void DeleteHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+    public void DeleteHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-		//perform actual data source operation here
+        //perform actual data source operation here
 
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
+        //if you have a context added through an @inject statement, you could call its SaveChanges() method
+        //myContext.SaveChanges();
 
-		MyData.Remove(item);
+        MyData.Remove(item);
 
-		Console.WriteLine("Delete event is fired.");
-	}
+        Console.WriteLine("Delete event is fired.");
+    }
 
-	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-	}
+    //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+    public class SampleData
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+    }
 
-	public List<SampleData> MyData { get; set; }
+    public List<SampleData> MyData { get; set; }
 
-	protected override void OnInitialized()
-	{
-		MyData = new List<SampleData>();
+    protected override void OnInitialized()
+    {
+        MyData = new List<SampleData>();
 
-		for (int i = 0; i < 50; i++)
-		{
-			MyData.Add(new SampleData()
-			{
-				ID = i,
-				Name = "Name " + i.ToString()
-			});
-		}
-	}
+        for (int i = 0; i < 50; i++)
+        {
+            MyData.Add(new SampleData()
+            {
+                ID = i,
+                Name = "Name " + i.ToString()
+            });
+        }
+    }
 }
 ````
 

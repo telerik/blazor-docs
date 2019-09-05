@@ -93,12 +93,11 @@ There is a deliberate delay in the data source operations in this example to mim
 		await Task.Delay(2000); //simulate actual long running async operation
 		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
 
-		var matchingItem = MyData.FirstOrDefault(c => c.ID == item.ID);
-
-		if (matchingItem != null)
-		{
-			matchingItem.Name = item.Name;
-		}
+        var index = MyData.FindIndex(i => i.ID == item.ID);
+        if (index != -1)
+        {
+               MyData[index] = item;
+        }
 	}
 
 	public async Task DeleteHandler(GridCommandEventArgs args)
@@ -132,8 +131,8 @@ There is a deliberate delay in the data source operations in this example to mim
 		await Task.Delay(2000); //simulate actual long running async operation
 		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
 		
-		item.ID = MyData.Count;
-		MyData.Add(item);
+		item.ID = MyData.Count + 1;
+		MyData.Insert(0, item);
 	}
 
 	public async Task CancelHandler(GridCommandEventArgs args)

@@ -29,123 +29,123 @@ To enable Inline editing in the grid, set its `EditMode` property to `inline`, t
 <strong>Editing is cancelled for the first two records.</strong>
 
 <TelerikGrid Data=@MyData EditMode="inline" Pageable="true" Height="500px">
-	<TelerikGridEvents>
-		<EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler"></EventsManager>
-	</TelerikGridEvents>
-	<TelerikGridToolBar>
-		<TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
-	</TelerikGridToolBar>
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />
-		<TelerikGridCommandColumn>
-			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Delete" Icon="delete">Delete</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TelerikGridCommandButton>
-		</TelerikGridCommandColumn>
-	</TelerikGridColumns>
+    <TelerikGridEvents>
+        <EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler"></EventsManager>
+    </TelerikGridEvents>
+    <TelerikGridToolBar>
+        <TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
+    </TelerikGridToolBar>
+    <TelerikGridColumns>
+        <TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+        <TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <TelerikGridCommandColumn>
+            <TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
+            <TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
+            <TelerikGridCommandButton Command="Delete" Icon="delete">Delete</TelerikGridCommandButton>
+            <TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TelerikGridCommandButton>
+        </TelerikGridCommandColumn>
+    </TelerikGridColumns>
 </TelerikGrid>
 
 @code {
-	public void EditHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+    public void EditHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-		//prevent opening for edit based on condition
-		if (item.ID < 3)
-		{
-			args.IsCancelled = true;//the general approach for cancelling an event
-		}
-		
-		Console.WriteLine("Edit event is fired.");
-	}
+        //prevent opening for edit based on condition
+        if (item.ID < 3)
+        {
+            args.IsCancelled = true;//the general approach for cancelling an event
+        }
 
-	public void UpdateHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+        Console.WriteLine("Edit event is fired.");
+    }
 
-		//perform actual data source operations here
+    public void UpdateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
+        //perform actual data source operations here
 
-		var matchingItem = MyData.FirstOrDefault(c => c.ID == item.ID);
-		if (matchingItem != null)
-		{
-			matchingItem.Name = item.Name;
-		}
-		
-		Console.WriteLine("Update event is fired.");
-	}
+        //if you have a context added through an @inject statement, you could call its SaveChanges() method
+        //myContext.SaveChanges();
 
-	public void DeleteHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+        var index = MyData.FindIndex(i => i.ID == item.ID);
+        if (index != -1)
+        {
+            MyData[index] = item;
+        }
 
-		//perform actual data source operation here
+        Console.WriteLine("Update event is fired.");
+    }
 
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
+    public void DeleteHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-		MyData.Remove(item);
-		
-		Console.WriteLine("Delete event is fired.");
-	}
+        //perform actual data source operation here
 
-	public void CreateHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+        //if you have a context added through an @inject statement, you could call its SaveChanges() method
+        //myContext.SaveChanges();
 
-		//perform actual data source operation here
+        MyData.Remove(item);
 
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
+        Console.WriteLine("Delete event is fired.");
+    }
 
-		item.ID = MyData.Count;
-		MyData.Add(item);
-		
-		Console.WriteLine("Create event is fired.");
-	}
+    public void CreateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-	public void CancelHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+        //perform actual data source operation here
 
-		//if necessary, perform actual data source operation here (like cancel changes on a context)
+        //if you have a context added through an @inject statement, you could call its SaveChanges() method
+        //myContext.SaveChanges();
 
-		//if you have a context added through an @inject statement, you could use something like this to abort changes
-		//foreach (var entry in myContext.ChangeTracker.Entries().Where(entry => entry.State == EntityState.Modified))
-		//{
-		//  entry.State = EntityState.Unchanged;
-		//}
-		
-		Console.WriteLine("Cancel event is fired.");
-	}
-	
+        item.ID = MyData.Count + 1;
+        MyData.Insert(0, item);
 
-	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-	}
+        Console.WriteLine("Create event is fired.");
+    }
 
-	public List<SampleData> MyData { get; set; }
+    public void CancelHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-	protected override void OnInitialized()
-	{
-		MyData = new List<SampleData>();
+        //if necessary, perform actual data source operation here (like cancel changes on a context)
 
-		for (int i = 0; i < 50; i++)
-		{
-			MyData.Add(new SampleData()
-			{
-				ID = i,
-				Name = "Name " + i.ToString()
-			});
-		}
-	}
+        //if you have a context added through an @inject statement, you could use something like this to abort changes
+        //foreach (var entry in myContext.ChangeTracker.Entries().Where(entry => entry.State == EntityState.Modified))
+        //{
+        //  entry.State = EntityState.Unchanged;
+        //}
+
+        Console.WriteLine("Cancel event is fired.");
+    }
+
+
+    //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+    public class SampleData
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+    }
+
+    public List<SampleData> MyData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        MyData = new List<SampleData>();
+
+        for (int i = 0; i < 50; i++)
+        {
+            MyData.Add(new SampleData()
+            {
+                ID = i,
+                Name = "Name " + i.ToString()
+            });
+        }
+    }
 }
 ````
 

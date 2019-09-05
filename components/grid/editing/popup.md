@@ -73,11 +73,11 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 		//if you have a context added through an @inject statement, you could call its SaveChanges() method
 		//myContext.SaveChanges();
 
-		var matchingItem = MyData.FirstOrDefault(c => c.ID == item.ID);
-		if (matchingItem != null)
-		{
-			matchingItem.Name = item.Name;
-		}
+        var index = MyData.FindIndex(i => i.ID == item.ID);
+        if (index != -1)
+        {
+               MyData[index] = item;
+        }
 		
 		Console.WriteLine("Update event is fired.");
 	}
@@ -105,8 +105,8 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 		//if you have a context added through an @inject statement, you could call its SaveChanges() method
 		//myContext.SaveChanges();
 
-		item.ID = MyData.Count;
-		MyData.Add(item);
+		item.ID = MyData.Count + 1;
+		MyData.Insert(0, item);
 		
 		Console.WriteLine("Create event is fired.");
 	}
