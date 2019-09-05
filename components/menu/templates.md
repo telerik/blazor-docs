@@ -104,7 +104,7 @@ You can use the template to render arbitrary content according to your applicati
 
 ````CSHTML
 @using Telerik.Blazor.Components.Menu
-@inject IUriHelper urlHelper
+@inject NavigationManager navigationManager
 
 <TelerikMenu Data="@MenuItems" OnClick="@((MenuItem item) => OnClick(item))">
     <ItemTemplate Context="item">
@@ -183,7 +183,7 @@ You can use the template to render arbitrary content according to your applicati
 
     private bool CompareCurrentPageUrl(string urlToCopmare)
     {
-        return urlHelper.GetAbsoluteUri().Substring(urlHelper.GetBaseUri().Length - 1).Equals(urlToCopmare);
+        return navigationManager.GetAbsoluteUri().Substring(navigationManager.GetBaseUri().Length - 1).Equals(urlToCopmare);
     }
 
     private bool IsInternalPage(string url)
