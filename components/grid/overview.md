@@ -18,39 +18,35 @@ To create a basic Telerik Grid:
 1. set its `Data` attribute to the variable that will hold your collection of data
 1. under its `TelerikGridColumns` tag, set the desired [`TelerikGridColumn`]({%slug components/grid/columns/bound%}) instances whose `Field` property points to the name of the model field
 
->caption Get started with a grid by providing it with a data collection
+>caption Get started with the grid by providing it with a data collection and enabling its key features
 
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data="@MyData" Height="300px"
-        Pageable="true" Sortable="true"
-        FilterMode="Telerik.Blazor.FilterMode.FilterRow">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="@(nameof(SampleData.Id))" />
-		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-		<TelerikGridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-	</TelerikGridColumns>
+<TelerikGrid Data="@MyData" Height="400px"
+             Pageable="true" Sortable="true" Groupable="true"
+             FilterMode="Telerik.Blazor.FilterMode.FilterRow">
+    <TelerikGridColumns>
+        <TelerikGridColumn Field="@(nameof(SampleData.Id))" />
+        <TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
+        <TelerikGridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </TelerikGridColumns>
 </TelerikGrid>
 
 @code {
-	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		Id = x,
-		Name = "name " + x,
-		HireDate = DateTime.Now.AddDays(-x)
-	});
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        HireDate = DateTime.Now.AddDays(-x)
+    });
 
-	public class SampleData
-	{
-		public int Id { get; set; }
-		public string Name { get; set; }
-		public DateTime HireDate { get; set; }
-	}
-
-	//in a real case, consider fetching the data in an appropriate event like OnInitializedAsync
-	//also, consider keeping the models in dedicated locations like a shared library
-	//this is just an example that is easy to copy and run
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public DateTime HireDate { get; set; }
+    }
 }
 ````
 
