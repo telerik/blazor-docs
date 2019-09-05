@@ -183,7 +183,7 @@ You can use the template to render arbitrary content according to your applicati
 
     private bool CompareCurrentPageUrl(string urlToCopmare)
     {
-        return navigationManager.GetAbsoluteUri().Substring(navigationManager.GetBaseUri().Length - 1).Equals(urlToCopmare);
+        return navigationManager.Uri.Substring(navigationManager.BaseUri.Length - 1).Equals(urlToCopmare);
     }
 
     private bool IsInternalPage(string url)
