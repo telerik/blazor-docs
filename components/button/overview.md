@@ -35,7 +35,7 @@ To add a Telerik Button to your Blazor app, use the `<TelerikButton>` tag:
 ````CSHTML
 @using Telerik.Blazor.Components.Button
 
-<TelerikButton @ref:suppressField @ref="theButton">Hello!</TelerikButton>
+<TelerikButton @ref="theButton">Hello!</TelerikButton>
 
 @code{
 	Telerik.Blazor.Components.Button.TelerikButton theButton;

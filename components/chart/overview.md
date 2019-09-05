@@ -78,7 +78,7 @@ To use a Telerik chart for Blazor, add the `TelerikChart` tag.
 ````CSHTML
 @using Telerik.Blazor.Components.Chart
 
-<TelerikChart @ref:suppressField @ref="myChartRef">
+<TelerikChart @ref="myChartRef">
 </TelerikChart>
 
 @code {
@@ -103,7 +103,7 @@ You can also set the chart size in percentage values so it occupies its containe
 
 <div style="border: 1px solid red;width:@ContainerWidth; height: @ContainerHeight">
 	
-	<TelerikChart Width="100%" Height="100%" @ref:suppressField @ref="theChart">
+	<TelerikChart Width="100%" Height="100%" @ref="theChart">
 	
 		<TelerikChartSeriesItems>
 			<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@someData">

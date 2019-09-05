@@ -50,7 +50,7 @@ The Window component is of type `Telerik.Blazor.Components.Window.TelerikWindow`
 <button @onclick="ShowWindow">Show the Window</button>
 <button @onclick="CloseWindow">Close the Window</button>
 
-<TelerikWindow @ref:suppressField @ref="myFirstWindow">
+<TelerikWindow @ref="myFirstWindow">
 	<TelerikWindowTitle>
 		<strong>The Title</strong>
 	</TelerikWindowTitle>

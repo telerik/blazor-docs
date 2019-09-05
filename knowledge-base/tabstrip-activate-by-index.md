@@ -35,11 +35,11 @@ The `SetActiveTab` method of the TabStrip requires a reference to the tab. So, y
 <TelerikNumericTextBox @bind-Value="@tabToSelect" Min="0" Max="@tabsCount" Step="1"></TelerikNumericTextBox>
 <TelerikButton OnClick="@ActivateChosenTab">Activate the tab with the chosen index</TelerikButton>
 
-<TelerikTabStrip @ref:suppressField @ref="myTabStrip">
+<TelerikTabStrip @ref="myTabStrip">
 	@{
 		foreach (int item in tabTitles)
 		{
-			<TelerikTab Title="@( "Tab " + item )" @ref:suppressField @ref="@theTabsRefs[item]">content for tab @item </TelerikTab>
+			<TelerikTab Title="@( "Tab " + item )" @ref="@theTabsRefs[item]">content for tab @item </TelerikTab>
 		}
 	}
 </TelerikTabStrip>

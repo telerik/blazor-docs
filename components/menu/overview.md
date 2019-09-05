@@ -98,7 +98,7 @@ To use a Telerik Menu for Blazor:
 ````CSHTML
 @using Telerik.Blazor.Components.Menu
 
-<TelerikMenu @ref:suppressField @ref="theMenu" Data="@menuData" TextField="Page" UrlField="Page">
+<TelerikMenu @ref="theMenu" Data="@menuData" TextField="Page" UrlField="Page">
 </TelerikMenu>
 
 @code {

@@ -50,7 +50,7 @@ The selected date is: @selectedDate
 ````CSHTML
 @using Telerik.Blazor.Components.Calendar
 
-<TelerikCalendar @ref:suppressField @ref="myCalendarReference">
+<TelerikCalendar @ref="myCalendarReference">
 </TelerikCalendar>
 
 @code {

@@ -21,7 +21,7 @@ To use the animation container, add the `TelerikAnimationContainer` tag.
 @using Telerik.Blazor.Components.Button
 @using Telerik.Blazor
 
-<TelerikAnimationContainer @ref:suppressField @ref="myPopupRef" Top="300px" Width="100px" Height="100px" AnimationType="AnimationType.ZoomOut" Class="k-popup">
+<TelerikAnimationContainer @ref="myPopupRef" Top="300px" Width="100px" Height="100px" AnimationType="AnimationType.ZoomOut" Class="k-popup">
 	My content goes here. The "k-popup" class adds some background and borders which you can define through your own styles instead.
 </TelerikAnimationContainer>
 
@@ -65,7 +65,7 @@ The animation container exposes the following properties and methods:
 @using Telerik.Blazor.Components.Button
 @using Telerik.Blazor
 
-<TelerikAnimationContainer @ref:suppressField @ref="myPopup" Top="300px" Width="200px" Height="200px" AnimationType="@AnimType" Class="my-popup">
+<TelerikAnimationContainer @ref="myPopup" Top="300px" Width="200px" Height="200px" AnimationType="@AnimType" Class="my-popup">
 	My content goes here.<br />
 	<TelerikButton OnClick="@HideContainer">Hide Animation Container</TelerikButton>
 </TelerikAnimationContainer>
