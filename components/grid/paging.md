@@ -68,7 +68,7 @@ Here is one way to implement a page size choice that puts all records on one pag
 
 	protected int PageSize { get; set; }
 
-	protected void ChangePageSize(UIChangeEventArgs e)
+	protected void ChangePageSize(ChangeEventArgs e)
 	{
 		if (e.Value.ToString().ToLowerInvariant() == "all")
 		{
