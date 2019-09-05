@@ -5,7 +5,7 @@ description: Orientation on the Menu for Blazor
 slug: components/menu/orientation
 tags: telerik,blazor,menu,events
 published: true
-position: 10
+position: 5
 ---
 
 # Orientation

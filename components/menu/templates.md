@@ -5,7 +5,7 @@ description: Templates in the Menu for Blazor
 slug: components/menu/templates
 tags: telerik,blazor,menu,templates
 published: True
-position: 5
+position: 10
 ---
 
 # Menu Templates
