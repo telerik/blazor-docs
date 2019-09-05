@@ -28,23 +28,26 @@ To create a basic Telerik Grid:
              FilterMode="Telerik.Blazor.FilterMode.FilterRow">
     <TelerikGridColumns>
         <TelerikGridColumn Field="@(nameof(SampleData.Id))" />
-        <TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
+        <TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <TelerikGridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
         <TelerikGridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
     </TelerikGridColumns>
 </TelerikGrid>
 
 @code {
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
         Name = "name " + x,
-        HireDate = DateTime.Now.AddDays(-x)
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
     });
 
     public class SampleData
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Team { get; set; }
         public DateTime HireDate { get; set; }
     }
 }
