@@ -1,6 +1,6 @@
 
 #mono-linker-issue
-Open the Client `.csproj` file and ensure that the following switch is present. At the moment the IL Linker needs to be disabled because of [an issue in Mono](https://github.com/mono/mono/issues/12917).
+Open the Client `.csproj` file and ensure that the following switch is present. At the moment the IL Linker needs to be disabled because of [an issue in Mono](https://github.com/mono/mono/issues/12917) that is not yet merged into the Blazor framework.
 
     **.csproj**
     
