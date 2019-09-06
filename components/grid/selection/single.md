@@ -85,29 +85,38 @@ You can add a checkbox column for single selection. It is required if the `InCel
 
 You can respond to the user action of selecting a new item through the `SelectedItemsChanged` event.
 
+The example below shows how to handle the `SelectedItemsChanged` event to extract information about the selected item and use it to populate a second grid with details about the selected record.
+
 >caption Single Selection and handling the SelectedItemsChanged event
 
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
-
-@if (SelectedEmployee != null)
-{
-    <span>Selected Employee: @SelectedEmployee.Name </span>
-}
+@using Telerik.Blazor
 
 <TelerikGrid Data=@GridData
              SelectionMode="GridSelectionMode.Single"
              SelectedItemsChanged="@((IEnumerable<Employee> employeeList) => OnSelect(employeeList))"
              Pageable="true"
-             Height="400px">
+             Height="300px">
     <TelerikGridColumns>
         <TelerikGridColumn Field=@nameof(Employee.Name) />
         <TelerikGridColumn Field=@nameof(Employee.Team) Title="Team" />
     </TelerikGridColumns>
 </TelerikGrid>
 
+@if (TeamMatesList != null)
+{
+    <h6>@SelectedEmployee.Team</h6>
+    <TelerikGrid Data="@TeamMatesList">
+        <TelerikGridColumns>
+            <TelerikGridColumn Field=@nameof(Employee.Name) />
+        </TelerikGridColumns>
+    </TelerikGrid>
+}
+
 @code {
     public List<Employee> GridData { get; set; }
+    public List<Employee> TeamMatesList { get; set; }
     public Employee SelectedEmployee { get; set; }
 
     protected override void OnInitialized()
@@ -124,9 +133,18 @@ You can respond to the user action of selecting a new item through the `Selected
         }
     }
 
-    protected void OnSelect(IEnumerable<Employee> employees)
+    protected async Task OnSelect(IEnumerable<Employee> employees)
     {
         SelectedEmployee = employees.FirstOrDefault();
+        //with single row selection, there is only one item in the collection
+
+        //fetch actual data for the child grid here. This example filters the original data for brevity
+        if(TeamMatesList == null)
+        {
+            TeamMatesList = new List<Employee>();
+        }
+        TeamMatesList.Clear();
+        TeamMatesList = GridData.Where(empl => empl.Team == SelectedEmployee.Team).ToList();
     }
 
     public class Employee
