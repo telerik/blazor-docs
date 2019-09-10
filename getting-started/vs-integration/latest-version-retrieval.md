@@ -11,11 +11,17 @@ position: 3
 The Progress&reg; Telerik&reg; UI for Blazor Visual Studio (VS) extensions enable you to keep your projects updated.
 
 
+<!--
 The Latest Version Retrieval tool automatically checks for the latest Telerik UI for Blazor distribution which is available for you on the Telerik website. Once a day, upon loading a project with Telerik UI for Blazor components, the extensions query the Telerik website for a new version of Telerik UI for Blazor. When a new version is detected, a notification is displayed that lets you download it.
 
 ![Getting the latest version notification](images/lva_notification.png)
 
 Clicking the **Update Now** button starts the Latest Version Acquirer tool which prompts for your Telerik credentials on its first page. If you do not have a [www.telerik.com](https://www.telerik.com) account, you can create one through the **Create an account for free** link.
+
+-->
+
+
+Clicking the **Get Latest** button on the [New Project Wizard]({% slug getting-started-vs-integration-new-project %}) starts the Latest Version Acquirer tool which prompts for your Telerik credentials on its first page. If you do not have a [www.telerik.com](https://www.telerik.com) account, you can create one through the **Create an account for free** link.
 
 1. Log in with your Telerik credentials
 
