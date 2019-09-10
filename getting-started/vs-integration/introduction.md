@@ -12,9 +12,10 @@ The Progress&reg; Telerik&reg; UI for Blazor Visual Studio (VS) Extensions enhan
 
 As their primary advantage, the VS extensions facilitate the [creation of projects]({% slug getting-started-vs-integration-new-project %}). They can also give you notifications to [get the latest version]({%slug getting-started-vs-integration-latest-version %}).
 
-The Telerik UI for Blazor VS extensions support Visual Studio 2019 Preview and are distributed through the [Visual Studio Marketplace](https://marketplace.visualstudio.com/). 
+The Telerik UI for Blazor VS extensions support Visual Studio 2019 Preview. You can get them from the:
 
-<!--with the Telerik UI for ASP.NET Core installer. -->
+* [Visual Studio Marketplace](https://marketplace.visualstudio.com/)
+* [Telerik UI for Blazor MSI installer]({%slug installation/msi%})
 
 To access the VS extensions, go to the **Extensions** > **Telerik** > **Telerik UI for Blazor** menu.
 
