@@ -1,5 +1,5 @@
 ---
-title: Create New Projects
+title: Create New Project
 page_title: Create New Project | Visual Studio Integration | Telerik UI for Blazor
 description: "Learn how to create a new Progress&reg; Telerik&reg; UI for Blazor project with our Visual Studio Templates."
 slug: getting-started-vs-integration-new-project
@@ -10,7 +10,7 @@ position: 2
 
 This article demonstrates how to create a new application that has the Progress&reg; Telerik&reg; UI for Blazor components working.
 
-To create a new Telerik UI for Blazor application, use the **Create New Project Wizard**. The wizard detects all installed versions of Telerik UI for Blazor and lists them in the **Version** combobox&mdash;this enables you to start your project with the desired version.
+To create a new Telerik UI for Blazor application, use the **Create New Project Wizard**. The wizard detects all installed versions of Telerik UI for Blazor and lists them in the **Version** combobox&mdash;this enables you to start your project with the desired version. You can also [get the latest version]({%slug getting-started-vs-integration-latest-version%}) to make sure you are up to date.
 
 To start the wizard, use either of the following approaches:
 
@@ -26,7 +26,7 @@ To start the wizard, use either of the following approaches:
     1. Find and click the **Telerik C# Blazor Application** option (you can use the search, or filter by Blazor templates).
     1. Follow the wizard.
 
-You will have the standard options to select a location and name for your app, and then you will receive a list of predefined templates:
+You will have the standard options to select a location and name for your app, and then you will receive a list of predefined **Telerik templates** and the **Telerik Blazor versions** list to choose from:
 
 ![The Create New Project Wizard Templates Options](images/new-project-wizard-templates-options.png)
 
