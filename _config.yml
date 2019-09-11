@@ -33,7 +33,7 @@ navigation:
      "how-to":
         title: "How To"
         position: 20
-     "vs-integration":
+     "getting-started/vs-integration":
         title: "Visual Studio Integration"
         position: 25
      "backwards-compatibility":
