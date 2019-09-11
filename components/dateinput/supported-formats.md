@@ -26,7 +26,6 @@ The Telerik Date Input supports the standard format strings and specifiers that 
     * `MM`
     * `MMM`
     * `MMMM`
-    * `y`
     * `yy`
     * `yyy`
     * `yyyy`
@@ -38,7 +37,6 @@ The Telerik Date Input supports the standard format strings and specifiers that 
     * `mm`
     * `s`
     * `ss`
-    * `t`
     * `tt`
 
 >caution While the results of unsupported format specifiers values will render correctly, editing is not supported for them.
@@ -101,8 +99,6 @@ The Telerik Date Input supports the standard format strings and specifiers that 
 ````CSHTML
 @using Telerik.Blazor.Components.DateInput
 
-<TelerikDateInput @bind-Value="TheDate" Format="d/M/y" /> @TheDate.ToString("d/M/y")
-<br />
 <TelerikDateInput @bind-Value="TheDate" Format="dd/MM/yy" /> @TheDate.ToString("dd/MM/yy")
 <br />
 <TelerikDateInput @bind-Value="TheDate" Format="dd/MMM/yyyy" /> @TheDate.ToString("dd/MMM/yyyy")
@@ -111,7 +107,7 @@ The Telerik Date Input supports the standard format strings and specifiers that 
 <br />
 <TelerikDateInput @bind-Value="TheDate" Format="HH:mm:ss" /> @TheDate.ToString("HH:mm:ss")
 <br />
-<TelerikDateInput @bind-Value="TheDate" Format="d/M/y h:m:s tt" /> @TheDate.ToString("d/M/y h:m:s")
+<TelerikDateInput @bind-Value="TheDate" Format="d/M/yy h:m:s tt" /> @TheDate.ToString("d/M/yy h:m:s")
 <br />
 <TelerikDateInput @bind-Value="TheDate" Format="dd/MMM/yyyy H:mm:ss" /> @TheDate.ToString("dd/MMM/yyyy H:mm:ss")
 <br />
