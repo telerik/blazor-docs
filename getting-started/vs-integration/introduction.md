@@ -14,7 +14,7 @@ As their primary advantage, the VS extensions facilitate the [creation of projec
 
 The Telerik UI for Blazor VS extensions support Visual Studio 2019 Preview. You can get them from the:
 
-* [Visual Studio Marketplace](https://marketplace.visualstudio.com/)
+* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions)
 * [Telerik UI for Blazor MSI installer]({%slug installation/msi%})
 
 To access the VS extensions, go to the **Extensions** > **Telerik** > **Telerik UI for Blazor** menu.
