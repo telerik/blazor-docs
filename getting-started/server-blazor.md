@@ -89,7 +89,7 @@ Now your project can use the Telerik UI for Blazor components.
 
 The final step is to actually use a component on a view and run it in the browser. For example:
 
-1. **Add** a **Button** component to the `~/Components/Pages/Index.cshtml` view:
+1. **Add** a **Button** component to the `~/Components/Pages/Index.razor` view:
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
 
 ## See Also
