@@ -38,68 +38,60 @@ To prevent the user from selecting certain dates (for example, holidays), add th
 >caption Handle calendar date selection and disable certain dates from being selected
 
 ````CSHTML
-@using Telerik.Blazor.Components.Calendar
-@using Telerik.Blazor
-
 The user will not be able to select the first and second of April 2019.
 
 <h4>Single Selection</h4>
 
 <TelerikCalendar SelectionMode="@CalendarSelectionMode.Single" ValueChanged="@SingleSelectionChangeHandler"
-                DisabledDates="@DisabledDates" Date="@startDate">
+                 DisabledDates="@DisabledDates" Date="@startDate">
 </TelerikCalendar>
 <br />
-@if(selectedDate != null)
+@if (selectedDate != null)
 {
-	@selectedDate.Value.ToString("dd MMM yyyy");
+    @selectedDate.Value.ToString("dd MMM yyyy");
 }
 
 
 <h4>Multiple Selection</h4>
 
 <TelerikCalendar SelectionMode="@CalendarSelectionMode.Multiple" ValueChanged="@MultipleSelectionChangeHandler"
-                DisabledDates="@DisabledDates" Date="@startDate">
+                 DisabledDates="@DisabledDates" Date="@startDate" @ref="multipleSelCalendar">
 </TelerikCalendar>
 <br />
 @if (chosenDates != null && chosenDates.Count > 0)
 {
-	<ul>
-		@foreach (DateTime date in chosenDates)
-		{
-			<li>@date.ToString("dd MMM yyyy")</li>
-		}
-	</ul>
+    <ul>
+        @foreach (DateTime date in chosenDates)
+        {
+            <li>@date.ToString("dd MMM yyyy")</li>
+        }
+    </ul>
 }
 
 @code {
-	private DateTime startDate = new DateTime(2019, 4, 1);//set the initial date of the calendar
+    private DateTime startDate = new DateTime(2019, 4, 1);//set the initial date of the calendar
 
-	//set dates the user can't select
-	private List<DateTime> DisabledDates = new List<DateTime>() { new DateTime(2019, 4, 1), new DateTime(2019, 4, 2) };
+    //set dates the user can't select
+    private List<DateTime> DisabledDates = new List<DateTime>() { new DateTime(2019, 4, 1), new DateTime(2019, 4, 2) };
 
-	//fields to store and render the user selection
-	private DateTime? selectedDate { get; set; } = null;
-	private List<DateTime> chosenDates { get; set; }
+    //fields to store and render the user selection
+    private DateTime? selectedDate { get; set; } = null;
+    private List<DateTime> chosenDates { get; set; }
 
-	private void SingleSelectionChangeHandler(DateTime newValue)
-	{
-		//with single selection, the argument is a single DateTime object with the new selection
-		selectedDate = newValue;
+    private void SingleSelectionChangeHandler(DateTime newValue)
+    {
+        //with single selection, the argument is a single DateTime object with the new selection
+        selectedDate = newValue;
+    }
 
-		StateHasChanged();
-	}
-
-	//reference used to obtain the selected dates from a multiple selection calendar
-	private Telerik.Blazor.Components.Calendar.TelerikCalendar multipleSelCalendar;
-	private void MultipleSelectionChangeHandler(object newValue)
-	{
-		//with multiple selection, get the selected dates from a component reference
-		chosenDates = multipleSelCalendar.SelectedDates;
-
-		StateHasChanged();
-	}
+    //reference used to obtain the selected dates from a multiple selection calendar
+    private Telerik.Blazor.Components.TelerikCalendar multipleSelCalendar;
+    private void MultipleSelectionChangeHandler()
+    {
+        //with multiple selection, get the selected dates from a component reference
+        chosenDates = multipleSelCalendar.SelectedDates;
+    }
 }
-
 ````
 
 

@@ -18,6 +18,8 @@ A shortlist of the changes:
     * Most notably, the `Telerik` prefix is removed from all child tags, only the root-level components are still `<TelerikComponentName>`. There are some particular changes for certain components, and they are detailed below.
 * Some methods that manipulated collections or state are now gone. The way to alter collections (like Action buttons on a Window) is to use conditional markup and looping over collections from a view model. When we were initially creating the components, there were indications that there will be programmatic creation options. It seems this is not going to be the case, and conditional markup plus binding is the way to affect markup. There are details for each component below.
 
+In case the lists in this article do not suffice, you can go to the concrete component's demos and documentation to see the way it is to be used after these changes. The documentation always reflects the latest version of our components.
+
 ## Namespace Change
 
 Until now, you had to include things like `@using Telerik.Blazor.Components.<ComponentName>` for every component use used, in every view.
@@ -52,7 +54,7 @@ This is a list of the components that had methods removed and the new approach o
 
 ### Calendar
 
-* The `Navigate()` method is no longer available. Use binding for the `View` and `Date` parameters.
+* The `Navigate()` method is no longer available. Use binding for the `View` and `Date` parameters. An example is avalable in the [Navigate]({%slug components/calendar/navigation%}#programmatic-navigation) article.
 
 ### DatePicker
 

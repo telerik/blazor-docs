@@ -17,8 +17,7 @@ To use a Telerik Calendar for Blazor, add the `TelerikCalendar` tag.
 >caption Basic calendar with its key features, and ValueChanged event handling
 
 ````CSHTML
-@using Telerik.Blazor.Components.Calendar
-@using Telerik.Blazor
+Main Calendar features, ValueChanged event handling.<br />
 
 <TelerikCalendar Min="@min" Max="@max" ValueChanged="@MyValueChangeHandler" Date="@DateTime.Now">
 </TelerikCalendar>
@@ -38,7 +37,6 @@ The selected date is: @selectedDate
         StateHasChanged();
     }
 }
-
 ````
 
 >caption The result from the code snippet above
@@ -48,13 +46,13 @@ The selected date is: @selectedDate
 >caption Component namespace and reference
 
 ````CSHTML
-@using Telerik.Blazor.Components.Calendar
+@using Telerik.Blazor.Components
 
 <TelerikCalendar @ref="myCalendarReference">
 </TelerikCalendar>
 
 @code {
-	Telerik.Blazor.Components.Calendar.TelerikCalendar myCalendarReference;
+    Telerik.Blazor.Components.TelerikCalendar myCalendarReference;
 }
 ````
 The calendar provides a number of features that allow you to control the user experience:
@@ -67,9 +65,6 @@ You can also render several instances of the current view next to each other so 
 >caption Render 3 months at a time
 
 ````CSHTML
-@using Telerik.Blazor.Components.Calendar
-@using Telerik.Blazor
-
 <TelerikCalendar Views="3" View="CalendarView.Month">
 </TelerikCalendar>
 ````
