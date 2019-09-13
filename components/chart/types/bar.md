@@ -20,7 +20,7 @@ A **Bar** chart displays data as horizontal bars whose lengths vary according to
 
 To create a bar chart:
 
-1. add a `TelerikChartSeries` to the `TelerikChartSeriesItems` collection
+1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Bar`
 3. provide a data collection to its `Data` property
 4. optionally, provide data for the x-axis `Categories`
@@ -29,8 +29,7 @@ To create a bar chart:
 >caption A bar chart that shows product revenues
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Bar series
 
 <TelerikChart>
 	<ChartSeriesItems>

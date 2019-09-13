@@ -14,7 +14,7 @@ Categorical charts (such as [Column]({%slug components/chart/types/column%}), [L
 
 To enable a date axis:
 
-1. Set the `Type` property of he `TelerikChartCategoryAxis` to `ChartCategoryAxisType.Date`.
+1. Set the `Type` property of the `ChartCategoryAxis` to `ChartCategoryAxisType.Date`.
 1. Provite categories of type `DateTime` to it (see [data binding a chart]({%slug components/chart/databind%})).
 
 You can control the aggregation level through the `BaseUnit` property of the axis. It takes a member of the `Telerik.Blazor.ChartCategoryAxisBaseUnit` class.
@@ -89,7 +89,7 @@ When the `BaseUnit` is set to weeks, you can control the start day of the week t
 
 ### Labels Format
 
-Each base unit has a default format for the date it displays. If you want to change it, use the `Format` property under the `TelerikChartCategoryAxisLabels` tag of the category axis.
+Each base unit has a default format for the date it displays. If you want to change it, use the `Format` property under the `ChartCategoryAxisLabels` tag of the category axis.
 
 >caption Steps set to weeks, changed weeks start day to Monday and non-default label format
 

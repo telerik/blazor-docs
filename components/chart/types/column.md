@@ -20,7 +20,7 @@ A **Column** chart displays data as vertical bars whose heights vary according t
 
 To create a column chart:
 
-1. add a `TelerikChartSeries` to the `TelerikChartSeriesItems` collection
+1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Column`
 3. provide a data collection to its `Data` property
 4. optionally, provide data for the x-axis `Categories`
@@ -29,8 +29,7 @@ To create a column chart:
 >caption A column chart that shows product revenues
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Column series
 
 <TelerikChart>
 	<ChartSeriesItems>

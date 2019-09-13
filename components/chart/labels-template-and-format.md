@@ -12,7 +12,7 @@ position: 22
 
 The Chart for Blazor can render labels on the axes, series data points and legend. You can control those texts not only through the values you data bind, but also through [format strings](#format-strings) or [templates](#templates).
 
-To turn on series labels, you must set their `Visible` property to `true` under the corresponding `TelerikChartSeriesLabels` tag. The series labels are turned off by default to avoid clutter and to make the charts easier to read.
+To turn on series labels, you must set their `Visible` property to `true` under the corresponding `ChartSeriesLabels` tag. The series labels are turned off by default to avoid clutter and to make the charts easier to read.
 
 ## Format Strings
 
@@ -76,7 +76,7 @@ Standard number format strings
 
 ## Templates
 
-To set a template for the corresponding label, use the `Template` property in the corresponding Label inner tag of the element you want to customize, for example, under `TelerikChartSeriesLabels` or under `TelerikChartValueAxisLabels`.
+To set a template for the corresponding label, use the `Template` property in the corresponding Label inner tag of the element you want to customize, for example, under `ChartSeriesLabels` or under `ChartValueAxisLabels`.
 
 After the example, you can find lists with the available fields you can use in templates.
 

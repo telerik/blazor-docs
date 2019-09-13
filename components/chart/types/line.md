@@ -20,7 +20,7 @@ A **Line** chart displays data as continuous lines that pass through points defi
 
 To create a line chart:
 
-1. add a `TelerikChartSeries` to the `TelerikChartSeriesItems` collection
+1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Line`
 3. provide a data collection to its `Data` property
 4. optionally, provide data for the x-axis `Categories`
@@ -29,8 +29,7 @@ To create a line chart:
 >caption A line chart that shows product revenues
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Line series
 
 <TelerikChart>
 	<ChartSeriesItems>
@@ -82,7 +81,7 @@ The `Rotation` property is the degrees with which the marker is rotated from its
 
 The color of the line is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
-You can control the color of the markers by using the `Background` property of the nested `TelerikChartSeriesMarkers` tag.
+You can control the color of the markers by using the `Background` property of the nested `ChartSeriesMarkers` tag.
 
 ### Missing Values
 

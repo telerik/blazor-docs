@@ -24,13 +24,12 @@ Stack settings of the first series are inherited as a default value by the rest 
 
 ## Simple Stack
 
-To stack all series together, set the `Enabled` property to `true` in the `TelerikChartSeriesStack` tag of the first series in your chart.
+To stack all series together, set the `Enabled` property to `true` in the `ChartSeriesStack` tag of the first series in your chart.
 
 >caption All series stacked together
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Basic stacking of series
 
 <TelerikChart>
 	<ChartSeriesItems>
@@ -67,13 +66,12 @@ To stack all series together, set the `Enabled` property to `true` in the `Teler
 
 ## Named Stack
 
-You can choose which series to cluster together through the `Group` property of the `TelerikChartSeriesStack` tag. If you set it to one series, it automatically enables stacking, so if you want to put one or more series in a separate group, you must provide a group name for each series.
+You can choose which series to cluster together through the `Group` property of the `ChartSeriesStack` tag. If you set it to one series, it automatically enables stacking, so if you want to put one or more series in a separate group, you must provide a group name for each series.
 
 >caption Stack certain series together in a separate group
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Stack clustering in groups
 
 <TelerikChart>
 	<ChartSeriesItems>
@@ -114,44 +112,43 @@ You can choose which series to cluster together through the `Group` property of 
 
 You can also have each stack fill up the entire chart - its total value will be 100%. This is often useful when contribution of values within stacks is more meaningful than the amounts themselves.
 
-To use a 100% stacks, set the `Type` property of the first stacked series to `Telerik.Blazor.ChartSeriesStack.Stack100`.
+To use a 100% stacks, set the `Type` property of the first stacked series to `Telerik.Blazor.ChartSeriesStackType.Stack100`.
 
 You can use separate groups, or you can stack all series together with just the `Enabled` property.
 
 >caption Stack 100% with groups
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Stack to 100%
 
 <TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">
-			<ChartSeriesStack Group="myStack" Type="ChartSeriesStack.Stack100"></ChartSeriesStack>
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@series2Data">
-			<ChartSeriesStack Group="myStack"></ChartSeriesStack>
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 3" Data="@series3Data">
-			<ChartSeriesStack Group="mySecondStack"></ChartSeriesStack>
-		</ChartSeries>
-	</ChartSeriesItems>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">
+            <ChartSeriesStack Group="myStack" Type="Telerik.Blazor.ChartSeriesStackType.Stack100"></ChartSeriesStack>
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@series2Data">
+            <ChartSeriesStack Group="myStack"></ChartSeriesStack>
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 3" Data="@series3Data">
+            <ChartSeriesStack Group="mySecondStack"></ChartSeriesStack>
+        </ChartSeries>
+    </ChartSeriesItems>
 
-	<ChartCategoryAxes>
-		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-	</ChartCategoryAxes>
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
 
-	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
+    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
 
-	<ChartLegend Position="ChartLegendPosition.Right">
-	</ChartLegend>
+    <ChartLegend Position="ChartLegendPosition.Right">
+    </ChartLegend>
 </TelerikChart>
 
 @code {
-	public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-	public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-	public List<object> series3Data = new List<object>() { 15, 3, 8, 8 };
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+    public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
+    public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
+    public List<object> series3Data = new List<object>() { 15, 3, 8, 8 };
+    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
 

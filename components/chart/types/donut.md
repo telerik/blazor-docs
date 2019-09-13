@@ -20,7 +20,7 @@ The **Donut** chart displays the data as sectors from a two-dimensional circle a
 
 To create a donut chart:
 
-1. add a `TelerikChartSeries` to the `TelerikChartSeriesItems` collection
+1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Donut`
 3. provide a data model collection to its `Data` property
 4. set the `Field` and `CategoryField` properties to the corresponding fields in the model that carry the values and names that will be shown in the legend
@@ -30,8 +30,7 @@ If you use [simple data binding]({%slug components/chart/databind%}#independent-
 >caption A donut chart that shows product revenues
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Donut series
 
 <TelerikChart>
 	<ChartSeriesItems>
@@ -53,6 +52,7 @@ If you use [simple data binding]({%slug components/chart/databind%}#independent-
 		public double SegmentValue { get; set; }
 		public bool ShouldShowInLegend { get; set; } = true;
 	}
+	
 	public List<MyDonutChartModel> donutData = new List<MyDonutChartModel>
 	{
 		new MyDonutChartModel
@@ -72,7 +72,6 @@ If you use [simple data binding]({%slug components/chart/databind%}#independent-
 		}
 	};
 }
-
 ````
 
 
@@ -86,8 +85,7 @@ The donut chart is a variation of the Pie Chart graph type, and has the same fea
 You can change the percentage that the hole in the middle takes from the entire diameter of the circle by setting the `HoleSize` property of the series. Setting `0` removes the hole, and `100` means the entire chart is the hole.
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Control the hole size of the donut chart
 
 <TelerikChart>
 	<ChartSeriesItems>
@@ -109,6 +107,7 @@ You can change the percentage that the hole in the middle takes from the entire 
 		public double SegmentValue { get; set; }
 		public bool ShouldShowInLegend { get; set; } = true;
 	}
+	
 	public List<MyDonutChartModel> donutData = new List<MyDonutChartModel>
 	{
 		new MyDonutChartModel
@@ -128,7 +127,6 @@ You can change the percentage that the hole in the middle takes from the entire 
 		}
 	};
 }
-
 ````
 
 >caption Comparison between the result of the code snippet above and the default behavior

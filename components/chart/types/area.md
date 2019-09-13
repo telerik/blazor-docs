@@ -23,7 +23,7 @@ An Area chart emphasizes the volume of money, data or any other unit that the gi
 
 To create an area chart:
 
-1. add a `TelerikChartSeries` to the `TelerikChartSeriesItems` collection
+1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Area`
 3. provide a data collection to its `Data` property
 4. optionally, provide data for the x-axis `Categories`
@@ -32,8 +32,7 @@ To create an area chart:
 >caption An area chart that shows product revenues
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Area series
 
 <TelerikChart>
 	<ChartSeriesItems>

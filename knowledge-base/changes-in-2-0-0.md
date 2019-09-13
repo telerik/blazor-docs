@@ -38,6 +38,9 @@ You can keep `@using Telerik.Blazor.Components` in the views, it simply is not n
 Some enums had to move to different namespaces and/or to have more descriptive names:
 
 ````CSHTML
+// Chart
+Telerik.Blazor.ChartSeriesStack.Stack100 -> Telerik.Blazor.ChartSeriesStackType.Stack100
+
 // Grid
 Telerik.Blazor.FilterMode -> Telerik.Blazor.GridFilterMode
 

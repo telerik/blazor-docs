@@ -31,7 +31,7 @@ This article contains the following sections:
 
 To use multiple axes, you need to:
 
-1. Define the extra axis in the corresponding `TelerikChartCategoryAxes` and/or `TelerikChartValueAxes` tags.
+1. Define the extra axis in the corresponding `ChartCategoryAxes` and/or `ChartValueAxes` tags.
 2. Set its `Name` property as desired. By default, the series uses the first axis.
 3. Provide the `Name` value to the series you want to use it through its `Axis` or `CategoryAxis` property.
 
@@ -63,8 +63,7 @@ In the following example, you can see how to define multiple y-axes, associate a
 >caption Multiple Y-axes and defining their position according a category axis
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Multiple y-axes and their position
 
 <TelerikChart>
 	<ChartSeriesItems>
@@ -112,7 +111,7 @@ You can use multiple category axes to associate each series with its own points 
 >caption Multiple category axes on a line chart
 
 ````CSHTML
-@using Telerik.Blazor.Components.Chart
+Multiple category axes and their position
 
 <TelerikChart>
 	<ChartSeriesItems>
@@ -144,7 +143,7 @@ You can use multiple category axes to associate each series with its own points 
 	}
 
 	public List<MyDataModel> chartData = new List<MyDataModel>()
-{
+    {
 		new MyDataModel() { FirstSeriesCategories = "a",  SecondSeriesCategories = "e", Product1 = 1, Product2 = 20 },
 		new MyDataModel() { FirstSeriesCategories = "match",  SecondSeriesCategories = "match", Product1 = 2, Product2 = 30 },
 		new MyDataModel() { FirstSeriesCategories = "c",  SecondSeriesCategories = "g", Product1 = 3, Product2 = 40 },
@@ -169,7 +168,7 @@ It is important to keep in mind the behavior of the series with multiple categor
 >caption Multiple category axes on a column chart with proper crossing values and series values
 
 ````CSHTML
-@using Telerik.Blazor.Components.Chart
+Viable values for the axes positions
 
 <TelerikChart>
 	<ChartSeriesItems>
@@ -201,7 +200,7 @@ It is important to keep in mind the behavior of the series with multiple categor
 	}
 
 	public List<MyDataModel> chartData = new List<MyDataModel>()
-{
+    {
 		new MyDataModel() { FirstSeriesCategories = "a",  SecondSeriesCategories = "e", Product1 = 1, Product2 = 20 },
 		new MyDataModel() { FirstSeriesCategories = "match",  SecondSeriesCategories = "match", Product1 = 2, Product2 = 30 },
 		new MyDataModel() { FirstSeriesCategories = "c",  SecondSeriesCategories = "g", Product1 = 3, Product2 = 40 },
@@ -219,7 +218,7 @@ It is important to keep in mind the behavior of the series with multiple categor
 >caption Examples of potentially unwanted behaviors of column and bar types of charts with multiple axes, and the code that produces those issues.
 
 ````LargeCrossingPoint
-@using Telerik.Blazor.Components.Chart
+Potentially unwanted behavior 1
 
 <TelerikChart>
 	<ChartSeriesItems>
@@ -251,7 +250,7 @@ It is important to keep in mind the behavior of the series with multiple categor
 	}
 
 	public List<MyDataModel> chartData = new List<MyDataModel>()
-{
+    {
 		new MyDataModel() { FirstSeriesCategories = "a",  SecondSeriesCategories = "e", Product1 = 1, Product2 = 2 },
 		new MyDataModel() { FirstSeriesCategories = "match",  SecondSeriesCategories = "match", Product1 = 2, Product2 = 3 },
 		new MyDataModel() { FirstSeriesCategories = "c",  SecondSeriesCategories = "g", Product1 = 3, Product2 = 4 },
@@ -262,7 +261,7 @@ It is important to keep in mind the behavior of the series with multiple categor
 }
 ````
 ````OverlappingValues
-@using Telerik.Blazor.Components.Chart
+Potentially unwanted behavior 2
 
 <TelerikChart>
 	<ChartSeriesItems>
@@ -290,7 +289,7 @@ It is important to keep in mind the behavior of the series with multiple categor
 	}
 
 	public List<MyDataModel> chartData = new List<MyDataModel>()
-{
+    {
 		new MyDataModel() { FirstSeriesCategories = "a",  SecondSeriesCategories = "e", Product1 = 1, Product2 = 2 },
 		new MyDataModel() { FirstSeriesCategories = "match",  SecondSeriesCategories = "match", Product1 = 2, Product2 = 3 },
 		new MyDataModel() { FirstSeriesCategories = "c",  SecondSeriesCategories = "g", Product1 = 3, Product2 = 4 },
