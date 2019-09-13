@@ -58,6 +58,12 @@ This is a list of the components that had methods removed and the new approach o
 
 * The `Close()` method is no longer available. The popup closes on clicks outside of it anyway.
 
+### Icon
+
+* The standalone icon component is now in the `Telerik.Blazor.Components.Common.Icon` namespace.
+* The `IconName` property is now `Icon`.
+* The `Class` property is now `IconClass`.
+
 ### Grid
 
 * The `AddColumn()` and `RemoveColumn()` methods are removed. Use conditional markup instead, like in the [Columns demo](https://demos.telerik.com/blazor-ui/grid/columns).
