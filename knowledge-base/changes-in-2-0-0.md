@@ -64,10 +64,19 @@ This is a list of the components that had methods removed and the new approach o
 * The `Filterable` property is removed in favor of `FilterMode`.
 * The `EditMode` property is now an enum. Use `EditMode="@GridEditMode.Incell|Inline|Popup"`.
 
+### Inputs
+
+* All input-type components no longer have the `Height` property. Their height is to be controlled through CSS and the font-size through the themes anyway, and the `Height` property did not always produce expected/proper results.
+
 ### TabStrip
 
 * The `ActivateTab()` and `DeactivateTab()` methods are no longer available. Use the new `ActiveTabIndex` property and its `ActiveTabIndexChanged` event.
 * The `AddTab()` method is no longer available in favor of conditional markup.
+
+
+### Textbox
+
+* The `Pattern`, `MinLength` and `MaxLength` parameters are removed in favor of validation. In the future, they will probably become available through attribute splatting.
 
 ### TreeView
 
