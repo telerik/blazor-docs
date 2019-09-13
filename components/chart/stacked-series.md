@@ -47,10 +47,10 @@ To stack all series together, set the `Enabled` property to `true` in the `Teler
 		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
 	</ChartCategoryAxes>
 
-	<Chartitle Text="Quarterly revenue per product"></Chartitle>
+	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
 
-	<Chartegend Position="ChartLegendPosition.Right">
-	</Chartegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -92,10 +92,10 @@ You can choose which series to cluster together through the `Group` property of 
 		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
 	</ChartCategoryAxes>
 
-	<Chartitle Text="Quarterly revenue per product"></Chartitle>
+	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
 
-	<Chartegend Position="ChartLegendPosition.Right">
-	</Chartegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -141,10 +141,10 @@ You can use separate groups, or you can stack all series together with just the 
 		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
 	</ChartCategoryAxes>
 
-	<Chartitle Text="Quarterly revenue per product"></Chartitle>
+	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
 
-	<Chartegend Position="ChartLegendPosition.Right">
-	</Chartegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {

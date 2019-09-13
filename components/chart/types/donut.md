@@ -40,10 +40,10 @@ If you use [simple data binding]({%slug components/chart/databind%}#independent-
 		</ChartSeries>
 	</ChartSeriesItems>
 
-	<Chartitle Text="Revenue per product"></Chartitle>
+	<ChartTitle Text="Revenue per product"></ChartTitle>
 
-	<Chartegend Position="ChartLegendPosition.Right">
-	</Chartegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -96,10 +96,10 @@ You can change the percentage that the hole in the middle takes from the entire 
 		</ChartSeries>
 	</ChartSeriesItems>
 
-	<Chartitle Text="Revenue per product"></Chartitle>
+	<ChartTitle Text="Revenue per product"></ChartTitle>
 
-	<Chartegend Position="ChartLegendPosition.Right">
-	</Chartegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {

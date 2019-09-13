@@ -44,10 +44,10 @@ To create a line chart:
 		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
 	</ChartCategoryAxes>
 
-	<Chartitle Text="Quarterly revenue per product"></Chartitle>
+	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
 
-	<Chartegend Position="ChartLegendPosition.Right">
-	</Chartegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {

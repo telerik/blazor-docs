@@ -40,10 +40,10 @@ If you use [simple data binding]({%slug components/chart/databind%}#independent-
 		</ChartSeries>
 	</ChartSeriesItems>
 
-	<Chartitle Text="Revenue per product"></Chartitle>
+	<ChartTitle Text="Revenue per product"></ChartTitle>
 
-	<Chartegend Position="ChartLegendPosition.Right">
-	</Chartegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -94,10 +94,10 @@ You can control the color of the individual segments of the pie chart by providi
 		</ChartSeries>
 	</ChartSeriesItems>
 
-	<Chartitle Text="Revenue per product"></Chartitle>
+	<ChartTitle Text="Revenue per product"></ChartTitle>
 
-	<Chartegend Position="ChartLegendPosition.Right">
-	</Chartegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -154,10 +154,10 @@ To explode (separate) a segment, use the `ExplodeField` property of the series a
 		</ChartSeries>
 	</ChartSeriesItems>
 
-	<Chartitle Text="Revenue per product"></Chartitle>
+	<ChartTitle Text="Revenue per product"></ChartTitle>
 
-	<Chartegend Position="ChartLegendPosition.Right">
-	</Chartegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -210,10 +210,10 @@ You can hide certain segments from the legend (for example, if their contributio
 		</ChartSeries>
 	</ChartSeriesItems>
 
-	<Chartitle Text="Revenue per product"></Chartitle>
+	<ChartTitle Text="Revenue per product"></ChartTitle>
 
-	<Chartegend Position="ChartLegendPosition.Right">
-	</Chartegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {

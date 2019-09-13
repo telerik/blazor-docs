@@ -29,18 +29,18 @@ To use a Telerik chart for Blazor, add the `TelerikChart` tag.
 		</ChartSeries>
 	</ChartSeriesItems>
 
-	<ChartalueAxes>
-		<ChartalueAxis Color="red"></ChartalueAxis>
-	</ChartalueAxes>
+	<ChartValueAxes>
+		<ChartValueAxis Color="red"></ChartValueAxis>
+	</ChartValueAxes>
 
 	<ChartCategoryAxes>
 		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
 	</ChartCategoryAxes>
 
-	<Chartitle Text="Quarterly sales trend"></Chartitle>
+	<ChartTitle Text="Quarterly sales trend"></ChartTitle>
 
-	<Chartegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-	</Chartegend>
+	<ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -112,7 +112,7 @@ You can also set the chart size in percentage values so it occupies its containe
 		<ChartCategoryAxes>
 			<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
 		</ChartCategoryAxes>
-		<Chartitle Text="Quarterly sales trend"></Chartitle>
+		<ChartTitle Text="Quarterly sales trend"></ChartTitle>
 		
 	</TelerikChart>
 

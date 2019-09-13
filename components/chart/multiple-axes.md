@@ -74,23 +74,23 @@ In the following example, you can see how to define multiple y-axes, associate a
 		</ChartSeries>
 	</ChartSeriesItems>
 
-	<ChartalueAxes>
-		<ChartalueAxis Color="green">
-			<ChartalueAxisTitle Text="first (default) axis"></ChartalueAxisTitle>
-		</ChartalueAxis>
-		<ChartalueAxis Color="blue" Name="secondAxis">
-			<ChartalueAxisTitle Text="second (named) axis"></ChartalueAxisTitle>
-		</ChartalueAxis>
-	</ChartalueAxes>
+	<ChartValueAxes>
+		<ChartValueAxis Color="green">
+			<ChartValueAxisTitle Text="first (default) axis"></ChartValueAxisTitle>
+		</ChartValueAxis>
+		<ChartValueAxis Color="blue" Name="secondAxis">
+			<ChartValueAxisTitle Text="second (named) axis"></ChartValueAxisTitle>
+		</ChartValueAxis>
+	</ChartValueAxes>
 
 	<ChartCategoryAxes>
 		<ChartCategoryAxis Categories="@categories" AxisCrossingValue="@crossingValues"></ChartCategoryAxis>
 	</ChartCategoryAxes>
 
-	<Chartitle Text="Revenue per product"></Chartitle>
+	<ChartTitle Text="Revenue per product"></ChartTitle>
 
-	<Chartegend Position="ChartLegendPosition.Right">
-	</Chartegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -129,9 +129,9 @@ You can use multiple category axes to associate each series with its own points 
 		<ChartCategoryAxis Name="secondAxis" Color="blue"></ChartCategoryAxis>
 	</ChartCategoryAxes>
 
-	<ChartalueAxes>
-		<ChartalueAxis AxisCrossingValue="@crossingPoints"></ChartalueAxis>
-	</ChartalueAxes>
+	<ChartValueAxes>
+		<ChartValueAxis AxisCrossingValue="@crossingPoints"></ChartValueAxis>
+	</ChartValueAxes>
 </TelerikChart>
 
 @code {
@@ -186,9 +186,9 @@ It is important to keep in mind the behavior of the series with multiple categor
 		<ChartCategoryAxis Name="secondAxis" Color="blue"></ChartCategoryAxis>
 	</ChartCategoryAxes>
 
-	<ChartalueAxes>
-		<ChartalueAxis AxisCrossingValue="@crossingPoints"></ChartalueAxis>
-	</ChartalueAxes>
+	<ChartValueAxes>
+		<ChartValueAxis AxisCrossingValue="@crossingPoints"></ChartValueAxis>
+	</ChartValueAxes>
 </TelerikChart>
 
 @code {
@@ -236,9 +236,9 @@ It is important to keep in mind the behavior of the series with multiple categor
 		<ChartCategoryAxis Name="secondAxis" Color="blue"></ChartCategoryAxis>
 	</ChartCategoryAxes>
 
-	<ChartalueAxes>
-		<ChartalueAxis AxisCrossingValue="@crossingPoints"></ChartalueAxis>
-	</ChartalueAxes>
+	<ChartValueAxes>
+		<ChartValueAxis AxisCrossingValue="@crossingPoints"></ChartValueAxis>
+	</ChartValueAxes>
 </TelerikChart>
 
 @code {

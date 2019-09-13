@@ -24,8 +24,7 @@ You can set the aggregation function through the `Aggregate` property of the ser
 >caption Date Axis with month grouping and different aggregates on the series
 
 ````CSHTML
-@using Telerik.Blazor.Components.Chart
-@using Telerik.Blazor
+Grouping by month, aggregates
 
 <TelerikChart>
 
@@ -55,7 +54,7 @@ You can set the aggregation function through the `Aggregate` property of the ser
 	}
 
 	public List<MyDataModel> chartData = new List<MyDataModel>()
-{
+    {
 		new MyDataModel() { MySharedCategories = new DateTime(2019, 11, 11), Product1 = 1, Product2 = 2 },
 		new MyDataModel() { MySharedCategories = new DateTime(2019, 12, 15), Product1 = 2, Product2 = 3 },
 		new MyDataModel() { MySharedCategories = new DateTime(2019, 12, 19), Product1 = 3, Product2 = 4 },
@@ -95,8 +94,7 @@ Each base unit has a default format for the date it displays. If you want to cha
 >caption Steps set to weeks, changed weeks start day to Monday and non-default label format
 
 ````CSHTML
-@using Telerik.Blazor.Components.Chart
-@using Telerik.Blazor
+Steps, custom label format, non-default start of week
 
 <TelerikChart>
 

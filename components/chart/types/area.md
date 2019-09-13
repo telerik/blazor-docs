@@ -43,18 +43,18 @@ To create an area chart:
 		</ChartSeries>
 	</ChartSeriesItems>
 
-	<ChartalueAxes>
-		<ChartalueAxis Color="red"></ChartalueAxis>
-	</ChartalueAxes>
+	<ChartValueAxes>
+		<ChartValueAxis Color="red"></ChartValueAxis>
+	</ChartValueAxes>
 
 	<ChartCategoryAxes>
 		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
 	</ChartCategoryAxes>
 
-	<Chartitle Text="Quarterly revenue per product"></Chartitle>
+	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
 
-	<Chartegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-	</Chartegend>
+	<ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
