@@ -25,6 +25,8 @@ To start the wizard, use either of the following approaches:
     1. Click **File** > **New** > **Project**.
     1. Find and click the **Telerik C# Blazor Application** option (you can use the search, or filter by Blazor templates).
     1. Follow the wizard.
+    
+![Start the New Project Wizard](images/vs-ext-create-new-project-entry.png)
 
 You will have the standard options to select a location and name for your app, and then you will receive a list of predefined **Telerik templates** and the **Telerik Blazor versions** list to choose from:
 
