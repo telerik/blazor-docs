@@ -21,7 +21,7 @@ List of the available events:
 * `OnCancel` - fires when the user clicks the `Cancel` command button. Allows you to undo the changes to the data in the context. Cancellable.
 * `OnRead` - fires when the grid needs data - after any data source operation like updating, creating, deleting, filtering, sorting. If you cancel the CUD events, the [OnRead]({%slug components/grid/manual-operations%}) event will not fire.
 
-The event handlers receive an argument of type `GridCommandEventArgs` that exposes the following fields:
+The CUD event handlers receive an argument of type `GridCommandEventArgs` that exposes the following fields:
 
 * `IsCancelled` - a boolean field indicating whether the grid operation is to be prevented (for example, prevent a row from opening for edit, or from updating the data layer).
 * `IsNew` - a boolean field idicating whether the item was just added through the grid. Lets you differentiate a data source Create operation from Update operation in the `OnClick` event of a command button.
