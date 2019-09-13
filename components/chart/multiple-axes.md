@@ -67,30 +67,30 @@ In the following example, you can see how to define multiple y-axes, associate a
 @using Telerik.Blazor.Components.Chart
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Line" Data="@seriesOneData" Color="green">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Line" Data="@seriesTwoData" Color="blue" Axis="secondAxis">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Line" Data="@seriesOneData" Color="green">
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Line" Data="@seriesTwoData" Color="blue" Axis="secondAxis">
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartValueAxes>
-		<TelerikChartValueAxis Color="green">
-			<TelerikChartValueAxisTitle Text="first (default) axis"></TelerikChartValueAxisTitle>
-		</TelerikChartValueAxis>
-		<TelerikChartValueAxis Color="blue" Name="secondAxis">
-			<TelerikChartValueAxisTitle Text="second (named) axis"></TelerikChartValueAxisTitle>
-		</TelerikChartValueAxis>
-	</TelerikChartValueAxes>
+	<ChartalueAxes>
+		<ChartalueAxis Color="green">
+			<ChartalueAxisTitle Text="first (default) axis"></ChartalueAxisTitle>
+		</ChartalueAxis>
+		<ChartalueAxis Color="blue" Name="secondAxis">
+			<ChartalueAxisTitle Text="second (named) axis"></ChartalueAxisTitle>
+		</ChartalueAxis>
+	</ChartalueAxes>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Categories="@categories" AxisCrossingValue="@crossingValues"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis Categories="@categories" AxisCrossingValue="@crossingValues"></ChartCategoryAxis>
+	</ChartCategoryAxes>
 
-	<TelerikChartTitle Text="Revenue per product"></TelerikChartTitle>
+	<Chartitle Text="Revenue per product"></Chartitle>
 
-	<TelerikChartLegend Position="ChartLegendPosition.Right">
-	</TelerikChartLegend>
+	<Chartegend Position="ChartLegendPosition.Right">
+	</Chartegend>
 </TelerikChart>
 
 @code {
@@ -115,23 +115,23 @@ You can use multiple category axes to associate each series with its own points 
 @using Telerik.Blazor.Components.Chart
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Line" Name="Product 1" Data="@chartData" CategoryAxis="firstAxis" Color="red"
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Line" Name="Product 1" Data="@chartData" CategoryAxis="firstAxis" Color="red"
 							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.FirstSeriesCategories)">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@chartData" CategoryAxis="secondAxis" Color="blue"
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@chartData" CategoryAxis="secondAxis" Color="blue"
 							Field="@nameof(MyDataModel.Product2)" CategoryField="@nameof(MyDataModel.SecondSeriesCategories)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Name="firstAxis" Color="red"></TelerikChartCategoryAxis>
-		<TelerikChartCategoryAxis Name="secondAxis" Color="blue"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis Name="firstAxis" Color="red"></ChartCategoryAxis>
+		<ChartCategoryAxis Name="secondAxis" Color="blue"></ChartCategoryAxis>
+	</ChartCategoryAxes>
 
-	<TelerikChartValueAxes>
-		<TelerikChartValueAxis AxisCrossingValue="@crossingPoints"></TelerikChartValueAxis>
-	</TelerikChartValueAxes>
+	<ChartalueAxes>
+		<ChartalueAxis AxisCrossingValue="@crossingPoints"></ChartalueAxis>
+	</ChartalueAxes>
 </TelerikChart>
 
 @code {
@@ -172,23 +172,23 @@ It is important to keep in mind the behavior of the series with multiple categor
 @using Telerik.Blazor.Components.Chart
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData" CategoryAxis="firstAxis" Color="red"
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData" CategoryAxis="firstAxis" Color="red"
 							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.FirstSeriesCategories)">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData" CategoryAxis="secondAxis" Color="blue"
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData" CategoryAxis="secondAxis" Color="blue"
 							Field="@nameof(MyDataModel.Product2)" CategoryField="@nameof(MyDataModel.SecondSeriesCategories)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Name="firstAxis" Color="red"></TelerikChartCategoryAxis>
-		<TelerikChartCategoryAxis Name="secondAxis" Color="blue"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis Name="firstAxis" Color="red"></ChartCategoryAxis>
+		<ChartCategoryAxis Name="secondAxis" Color="blue"></ChartCategoryAxis>
+	</ChartCategoryAxes>
 
-	<TelerikChartValueAxes>
-		<TelerikChartValueAxis AxisCrossingValue="@crossingPoints"></TelerikChartValueAxis>
-	</TelerikChartValueAxes>
+	<ChartalueAxes>
+		<ChartalueAxis AxisCrossingValue="@crossingPoints"></ChartalueAxis>
+	</ChartalueAxes>
 </TelerikChart>
 
 @code {
@@ -222,23 +222,23 @@ It is important to keep in mind the behavior of the series with multiple categor
 @using Telerik.Blazor.Components.Chart
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData" CategoryAxis="firstAxis" Color="red"
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData" CategoryAxis="firstAxis" Color="red"
 							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.FirstSeriesCategories)">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData" CategoryAxis="secondAxis" Color="blue"
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData" CategoryAxis="secondAxis" Color="blue"
 							Field="@nameof(MyDataModel.Product2)" CategoryField="@nameof(MyDataModel.SecondSeriesCategories)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Name="firstAxis" Color="red"></TelerikChartCategoryAxis>
-		<TelerikChartCategoryAxis Name="secondAxis" Color="blue"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis Name="firstAxis" Color="red"></ChartCategoryAxis>
+		<ChartCategoryAxis Name="secondAxis" Color="blue"></ChartCategoryAxis>
+	</ChartCategoryAxes>
 
-	<TelerikChartValueAxes>
-		<TelerikChartValueAxis AxisCrossingValue="@crossingPoints"></TelerikChartValueAxis>
-	</TelerikChartValueAxes>
+	<ChartalueAxes>
+		<ChartalueAxis AxisCrossingValue="@crossingPoints"></ChartalueAxis>
+	</ChartalueAxes>
 </TelerikChart>
 
 @code {
@@ -265,19 +265,19 @@ It is important to keep in mind the behavior of the series with multiple categor
 @using Telerik.Blazor.Components.Chart
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData" CategoryAxis="firstAxis" Color="red"
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData" CategoryAxis="firstAxis" Color="red"
 							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.FirstSeriesCategories)">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData" CategoryAxis="secondAxis" Color="blue"
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData" CategoryAxis="secondAxis" Color="blue"
 							Field="@nameof(MyDataModel.Product2)" CategoryField="@nameof(MyDataModel.SecondSeriesCategories)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Name="firstAxis" Color="red"></TelerikChartCategoryAxis>
-		<TelerikChartCategoryAxis Name="secondAxis" Color="blue"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis Name="firstAxis" Color="red"></ChartCategoryAxis>
+		<ChartCategoryAxis Name="secondAxis" Color="blue"></ChartCategoryAxis>
+	</ChartCategoryAxes>
 </TelerikChart>
 
 @code {

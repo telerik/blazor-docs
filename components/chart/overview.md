@@ -21,26 +21,26 @@ To use a Telerik chart for Blazor, add the `TelerikChart` tag.
 @using Telerik.Blazor.Components.Chart
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Line" Name="Product 2 (bound to model)" Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
-			<TelerikChartSeriesLabels Template="#=value# in #=dataItem.ExtraData# quarter" Visible="true"></TelerikChartSeriesLabels>
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Line" Name="Product 2 (bound to model)" Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
+			<ChartSeriesLabels Template="#=value# in #=dataItem.ExtraData# quarter" Visible="true"></ChartSeriesLabels>
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartValueAxes>
-		<TelerikChartValueAxis Color="red"></TelerikChartValueAxis>
-	</TelerikChartValueAxes>
+	<ChartalueAxes>
+		<ChartalueAxis Color="red"></ChartalueAxis>
+	</ChartalueAxes>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Categories="@xAxisItems"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+	</ChartCategoryAxes>
 
-	<TelerikChartTitle Text="Quarterly sales trend"></TelerikChartTitle>
+	<Chartitle Text="Quarterly sales trend"></Chartitle>
 
-	<TelerikChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-	</TelerikChartLegend>
+	<Chartegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
+	</Chartegend>
 </TelerikChart>
 
 @code {
@@ -78,7 +78,7 @@ To use a Telerik chart for Blazor, add the `TelerikChart` tag.
 ````CSHTML
 @using Telerik.Blazor.Components.Chart
 
-<TelerikChart @ref="myChartRef">
+<Chart@ref="myChartRef">
 </TelerikChart>
 
 @code {
@@ -103,16 +103,16 @@ You can also set the chart size in percentage values so it occupies its containe
 
 <div style="border: 1px solid red;width:@ContainerWidth; height: @ContainerHeight">
 	
-	<TelerikChart Width="100%" Height="100%" @ref="theChart">
+	<ChartWidth="100%" Height="100%" @ref="theChart">
 	
-		<TelerikChartSeriesItems>
-			<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@someData">
-			</TelerikChartSeries>
-		</TelerikChartSeriesItems>
-		<TelerikChartCategoryAxes>
-			<TelerikChartCategoryAxis Categories="@xAxisItems"></TelerikChartCategoryAxis>
-		</TelerikChartCategoryAxes>
-		<TelerikChartTitle Text="Quarterly sales trend"></TelerikChartTitle>
+		<ChartSeriesItems>
+			<ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@someData">
+			</ChartSeries>
+		</ChartSeriesItems>
+		<ChartCategoryAxes>
+			<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+		</ChartCategoryAxes>
+		<Chartitle Text="Quarterly sales trend"></Chartitle>
 		
 	</TelerikChart>
 

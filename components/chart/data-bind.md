@@ -31,19 +31,19 @@ With this approach, the items in each series are independent from the other seri
 >caption Bind series independently of each other and of the category axis
 
 ````CSHTML
-@using Telerik.Blazor.Components.Chart
+Independent data
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Series 1" Data="@data1">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Series 2" Data="@data2">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Column" Name="Series 1" Data="@data1">
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Column" Name="Series 2" Data="@data2">
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Categories="@xAxisItems"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+	</ChartCategoryAxes>
 </TelerikChart>
 
 @code {
@@ -71,34 +71,34 @@ With this, the items from the series will be matched to the items (categories) o
 >caption Bind the entire chart to a single collection. 
 
 ````CSHTML
-@using Telerik.Blazor.Components.Chart
+One model for all the chart data
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData"
-							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.MySharedCategories)">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData"
-							Field="@nameof(MyDataModel.Product2)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData"
+                     Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.MySharedCategories)">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData"
+                     Field="@nameof(MyDataModel.Product2)">
+        </ChartSeries>
+    </ChartSeriesItems>
 </TelerikChart>
 
 @code {
-	public class MyDataModel
-	{
-		public string MySharedCategories { get; set; }
-		public int Product1 { get; set; }
-		public int Product2 { get; set; }
-	}
+    public class MyDataModel
+    {
+        public string MySharedCategories { get; set; }
+        public int Product1 { get; set; }
+        public int Product2 { get; set; }
+    }
 
-	public List<MyDataModel> chartData = new List<MyDataModel>()
-{
-		new MyDataModel() { MySharedCategories = "a", Product1 = 1, Product2 = 2 },
-		new MyDataModel() { MySharedCategories = "b", Product1 = 2, Product2 = 3 },
-		new MyDataModel() { MySharedCategories = "c", Product1 = 3, Product2 = 4 },
-		new MyDataModel() { MySharedCategories = "d", Product1 = 4, Product2 = 5 },
-	};
+    public List<MyDataModel> chartData = new List<MyDataModel>()
+    {
+        new MyDataModel() { MySharedCategories = "a", Product1 = 1, Product2 = 2 },
+        new MyDataModel() { MySharedCategories = "b", Product1 = 2, Product2 = 3 },
+        new MyDataModel() { MySharedCategories = "c", Product1 = 3, Product2 = 4 },
+        new MyDataModel() { MySharedCategories = "d", Product1 = 4, Product2 = 5 },
+    };
 }
 ````
 
@@ -109,35 +109,35 @@ With this, the items from the series will be matched to the items (categories) o
 >caption Unique categories are added independently.
 
 ````CSHTML
-@using Telerik.Blazor.Components.Chart
+Separate fields for series categories
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData"
-							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.FirstSeriesCategories)">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData"
-							Field="@nameof(MyDataModel.Product2)" CategoryField="@nameof(MyDataModel.SecondSeriesCategories)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData"
+                     Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.FirstSeriesCategories)">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData"
+                     Field="@nameof(MyDataModel.Product2)" CategoryField="@nameof(MyDataModel.SecondSeriesCategories)">
+        </ChartSeries>
+    </ChartSeriesItems>
 </TelerikChart>
 
 @code {
-	public class MyDataModel
-	{
-		public string FirstSeriesCategories { get; set; }
-		public string SecondSeriesCategories { get; set; }
-		public int Product1 { get; set; }
-		public int Product2 { get; set; }
-	}
+    public class MyDataModel
+    {
+        public string FirstSeriesCategories { get; set; }
+        public string SecondSeriesCategories { get; set; }
+        public int Product1 { get; set; }
+        public int Product2 { get; set; }
+    }
 
-	public List<MyDataModel> chartData = new List<MyDataModel>()
-{
-		new MyDataModel() { FirstSeriesCategories = "a",  SecondSeriesCategories = "e", Product1 = 1, Product2 = 2 },
-		new MyDataModel() { FirstSeriesCategories = "b",  SecondSeriesCategories = "f", Product1 = 2, Product2 = 3 },
-		new MyDataModel() { FirstSeriesCategories = "c",  SecondSeriesCategories = "g", Product1 = 3, Product2 = 4 },
-		new MyDataModel() { FirstSeriesCategories = "d",  SecondSeriesCategories = "h", Product1 = 4, Product2 = 5 },
-	};
+    public List<MyDataModel> chartData = new List<MyDataModel>()
+    {
+        new MyDataModel() { FirstSeriesCategories = "a",  SecondSeriesCategories = "e", Product1 = 1, Product2 = 2 },
+        new MyDataModel() { FirstSeriesCategories = "b",  SecondSeriesCategories = "f", Product1 = 2, Product2 = 3 },
+        new MyDataModel() { FirstSeriesCategories = "c",  SecondSeriesCategories = "g", Product1 = 3, Product2 = 4 },
+        new MyDataModel() { FirstSeriesCategories = "d",  SecondSeriesCategories = "h", Product1 = 4, Product2 = 5 },
+    };
 }
 ````
 
@@ -150,38 +150,38 @@ With this, the items from the series will be matched to the items (categories) o
 >caption If category values match, they will be combined
 
 ````CSHTML
-@using Telerik.Blazor.Components.Chart
+Combining matching standalone categories
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData"
-							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.FirstSeriesCategories)">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData"
-							Field="@nameof(MyDataModel.Product2)" CategoryField="@nameof(MyDataModel.SecondSeriesCategories)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData"
+                     Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.FirstSeriesCategories)">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData"
+                     Field="@nameof(MyDataModel.Product2)" CategoryField="@nameof(MyDataModel.SecondSeriesCategories)">
+        </ChartSeries>
+    </ChartSeriesItems>
 </TelerikChart>
 
 @code {
-	public class MyDataModel
-	{
-		public string FirstSeriesCategories { get; set; }
-		public string SecondSeriesCategories { get; set; }
-		public int Product1 { get; set; }
-		public int Product2 { get; set; }
-	}
+    public class MyDataModel
+    {
+        public string FirstSeriesCategories { get; set; }
+        public string SecondSeriesCategories { get; set; }
+        public int Product1 { get; set; }
+        public int Product2 { get; set; }
+    }
 
-	public List<MyDataModel> chartData = new List<MyDataModel>()
-{
-		new MyDataModel() { FirstSeriesCategories = "a",  SecondSeriesCategories = "e", Product1 = 1, Product2 = 2 },
-		
-		//the categories for both series match and both data points will be rendered on the same category
-		new MyDataModel() { FirstSeriesCategories = "match",  SecondSeriesCategories = "match", Product1 = 2, Product2 = 3 },
-		
-		new MyDataModel() { FirstSeriesCategories = "c",  SecondSeriesCategories = "g", Product1 = 3, Product2 = 4 },
-		new MyDataModel() { FirstSeriesCategories = "d",  SecondSeriesCategories = "h", Product1 = 4, Product2 = 5 },
-	};
+    public List<MyDataModel> chartData = new List<MyDataModel>()
+    {
+        new MyDataModel() { FirstSeriesCategories = "a",  SecondSeriesCategories = "e", Product1 = 1, Product2 = 2 },
+
+        //the categories for both series match and both data points will be rendered on the same category
+        new MyDataModel() { FirstSeriesCategories = "match",  SecondSeriesCategories = "match", Product1 = 2, Product2 = 3 },
+
+        new MyDataModel() { FirstSeriesCategories = "c",  SecondSeriesCategories = "g", Product1 = 3, Product2 = 4 },
+        new MyDataModel() { FirstSeriesCategories = "d",  SecondSeriesCategories = "h", Product1 = 4, Product2 = 5 },
+    };
 }
 ````
 
@@ -195,45 +195,45 @@ You can choose where to take the categories and series data from, and combine bo
 
 For example, you can take the data for some series from a complex model, and the categories from a different place. Or, you can take the categories from a complex model, but let some standalone data populate some series.
 
->caption Populate categories and a series from standalone data, not from model
+>caption Populate categories and one series from standalone data, other series from model
 
 ````CSHTML
-@using Telerik.Blazor.Components.Chart
+Mixed data binding
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData" Field="@nameof(MyDataModel.Product1)">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData" Field="@nameof(MyDataModel.Product2)">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Series 3" Data="@standaloneData">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData" Field="@nameof(MyDataModel.Product1)">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData" Field="@nameof(MyDataModel.Product2)">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Series 3" Data="@standaloneData">
+        </ChartSeries>
+    </ChartSeriesItems>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Categories="@xAxisItems"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
 </TelerikChart>
 
 @code {
-	public List<object> standaloneData = new List<object>() { 3, 4, 5, 6 };
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+    public List<object> standaloneData = new List<object>() { 3, 4, 5, 6 };
+    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 
-	public class MyDataModel
-	{
-		public string MySharedCategories { get; set; }
-		public int Product1 { get; set; }
-		public int Product2 { get; set; }
-	}
+    public class MyDataModel
+    {
+        public string MySharedCategories { get; set; }
+        public int Product1 { get; set; }
+        public int Product2 { get; set; }
+    }
 
-	public List<MyDataModel> chartData = new List<MyDataModel>()
-	{
-		//you do not have to use all the fields, and you do not have to take the categories from this model
-		new MyDataModel() { MySharedCategories = "a", Product1 = 1, Product2 = 2 },
-		new MyDataModel() { MySharedCategories = "b", Product1 = 2, Product2 = 3 },
-		new MyDataModel() { MySharedCategories = "c", Product1 = 3, Product2 = 4 },
-		new MyDataModel() { MySharedCategories = "d", Product1 = 4, Product2 = 5 },
-	};
+    public List<MyDataModel> chartData = new List<MyDataModel>()
+    {
+        //you do not have to use all the fields, and you do not have to take the categories from this model
+        new MyDataModel() { MySharedCategories = "a", Product1 = 1, Product2 = 2 },
+        new MyDataModel() { MySharedCategories = "b", Product1 = 2, Product2 = 3 },
+        new MyDataModel() { MySharedCategories = "c", Product1 = 3, Product2 = 4 },
+        new MyDataModel() { MySharedCategories = "d", Product1 = 4, Product2 = 5 },
+    };
 }
 ````
 
@@ -244,42 +244,42 @@ For example, you can take the data for some series from a complex model, and the
 >caption Populate categories from model, and some series from standalone data. Standalone categories are ignored.
 
 ````CSHTML
-@using Telerik.Blazor.Components.Chart
+Standalone categories are ignored when there is category data binding to a model
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData" 
-							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.MySharedCategories)">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Standalone series" Data="@standaloneData">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData"
+                     Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.MySharedCategories)">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Standalone series" Data="@standaloneData">
+        </ChartSeries>
+    </ChartSeriesItems>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Categories="@xAxisItems"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
 </TelerikChart>
 
 @code {
-	public List<object> standaloneData = new List<object>() { 3, 4, 5, 6 };
+    public List<object> standaloneData = new List<object>() { 3, 4, 5, 6 };
 
-	//the standalone categories will be ignored if they are data bound from a series configuration
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+    //the standalone categories will be ignored if they are data bound from a series configuration
+    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 
-	public class MyDataModel
-	{
-		public string MySharedCategories { get; set; }
-		public int Product1 { get; set; }
-		public int Product2 { get; set; }
-	}
+    public class MyDataModel
+    {
+        public string MySharedCategories { get; set; }
+        public int Product1 { get; set; }
+        public int Product2 { get; set; }
+    }
 
-	public List<MyDataModel> chartData = new List<MyDataModel>()
-	{
-		new MyDataModel() { MySharedCategories = "a", Product1 = 1, Product2 = 2 },
-		new MyDataModel() { MySharedCategories = "b", Product1 = 2, Product2 = 3 },
-		new MyDataModel() { MySharedCategories = "c", Product1 = 3, Product2 = 4 },
-		new MyDataModel() { MySharedCategories = "d", Product1 = 4, Product2 = 5 },
-	};
+    public List<MyDataModel> chartData = new List<MyDataModel>()
+    {
+        new MyDataModel() { MySharedCategories = "a", Product1 = 1, Product2 = 2 },
+        new MyDataModel() { MySharedCategories = "b", Product1 = 2, Product2 = 3 },
+        new MyDataModel() { MySharedCategories = "c", Product1 = 3, Product2 = 4 },
+        new MyDataModel() { MySharedCategories = "d", Product1 = 4, Product2 = 5 },
+    };
 }
 ````
 

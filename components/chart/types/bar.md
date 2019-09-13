@@ -33,21 +33,21 @@ To create a bar chart:
 @using Telerik.Blazor.Components.Chart
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Bar"Name="Product 2" Data="@series2Data">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Bar"Name="Product 2" Data="@series2Data">
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Categories="@xAxisItems"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+	</ChartCategoryAxes>
 
-	<TelerikChartTitle Text="Quarterly revenue per product"></TelerikChartTitle>
+	<Chartitle Text="Quarterly revenue per product"></Chartitle>
 
-	<TelerikChartLegend Position="ChartLegendPosition.Right">
-	</TelerikChartLegend>
+	<Chartegend Position="ChartLegendPosition.Right">
+	</Chartegend>
 </TelerikChart>
 
 @code {

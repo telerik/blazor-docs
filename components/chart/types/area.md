@@ -36,25 +36,25 @@ To create an area chart:
 @using Telerik.Blazor.Components.Chart
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Area" Name="Product 1" Data="@series1Data">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@series2Data">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Area" Name="Product 1" Data="@series1Data">
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@series2Data">
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartValueAxes>
-		<TelerikChartValueAxis Color="red"></TelerikChartValueAxis>
-	</TelerikChartValueAxes>
+	<ChartalueAxes>
+		<ChartalueAxis Color="red"></ChartalueAxis>
+	</ChartalueAxes>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Categories="@xAxisItems"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+	</ChartCategoryAxes>
 
-	<TelerikChartTitle Text="Quarterly revenue per product"></TelerikChartTitle>
+	<Chartitle Text="Quarterly revenue per product"></Chartitle>
 
-	<TelerikChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-	</TelerikChartLegend>
+	<Chartegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
+	</Chartegend>
 </TelerikChart>
 
 @code {

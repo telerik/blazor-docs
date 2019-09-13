@@ -34,16 +34,16 @@ If you use [simple data binding]({%slug components/chart/databind%}#independent-
 @using Telerik.Blazor.Components.Chart
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Donut" Data="@donutData" 
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Donut" Data="@donutData" 
 							Field="@nameof(MyDonutChartModel.SegmentValue)" CategoryField="@nameof(MyDonutChartModel.SegmentName)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartTitle Text="Revenue per product"></TelerikChartTitle>
+	<Chartitle Text="Revenue per product"></Chartitle>
 
-	<TelerikChartLegend Position="ChartLegendPosition.Right">
-	</TelerikChartLegend>
+	<Chartegend Position="ChartLegendPosition.Right">
+	</Chartegend>
 </TelerikChart>
 
 @code {
@@ -90,16 +90,16 @@ You can change the percentage that the hole in the middle takes from the entire 
 @using Telerik.Blazor.Components.Chart
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Donut" Data="@donutData" HoleSize="90"
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Donut" Data="@donutData" HoleSize="90"
 							Field="@nameof(MyDonutChartModel.SegmentValue)" CategoryField="@nameof(MyDonutChartModel.SegmentName)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartTitle Text="Revenue per product"></TelerikChartTitle>
+	<Chartitle Text="Revenue per product"></Chartitle>
 
-	<TelerikChartLegend Position="ChartLegendPosition.Right">
-	</TelerikChartLegend>
+	<Chartegend Position="ChartLegendPosition.Right">
+	</Chartegend>
 </TelerikChart>
 
 @code {

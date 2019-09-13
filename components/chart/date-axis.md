@@ -29,20 +29,20 @@ You can set the aggregation function through the `Aggregate` property of the ser
 
 <TelerikChart>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis BaseUnit="ChartCategoryAxisBaseUnit.Months" Type="ChartCategoryAxisType.Date"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis BaseUnit="ChartCategoryAxisBaseUnit.Months" Type="ChartCategoryAxisType.Date"></ChartCategoryAxis>
+	</ChartCategoryAxes>
 	
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1 (SUM)" Data="@chartData"
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1 (SUM)" Data="@chartData"
 							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.MySharedCategories)" Aggregate="ChartSeriesAggregate.Sum">
-			<TelerikChartSeriesLabels Visible="true"></TelerikChartSeriesLabels>
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 2 (COUNT)" Data="@chartData"
+			<ChartSeriesLabels Visible="true"></ChartSeriesLabels>
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2 (COUNT)" Data="@chartData"
 							Field="@nameof(MyDataModel.Product2)" Aggregate="ChartSeriesAggregate.Count">
-			<TelerikChartSeriesLabels Visible="true"></TelerikChartSeriesLabels>
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+			<ChartSeriesLabels Visible="true"></ChartSeriesLabels>
+		</ChartSeries>
+	</ChartSeriesItems>
 	
 </TelerikChart>
 
@@ -100,23 +100,23 @@ Each base unit has a default format for the date it displays. If you want to cha
 
 <TelerikChart>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis BaseUnit="ChartCategoryAxisBaseUnit.Weeks" WeekStartDay="1" Type="ChartCategoryAxisType.Date">
-			<TelerikChartCategoryAxisLabels Format="{0:dd MMM}" />
-		</TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis BaseUnit="ChartCategoryAxisBaseUnit.Weeks" WeekStartDay="1" Type="ChartCategoryAxisType.Date">
+			<ChartCategoryAxisLabels Format="{0:dd MMM}" />
+		</ChartCategoryAxis>
+	</ChartCategoryAxes>
 	
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1 (SUM)" Data="@chartData"
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1 (SUM)" Data="@chartData"
 							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.MySharedCategories)" 
 							Aggregate="ChartSeriesAggregate.Sum">
-			<TelerikChartSeriesLabels Visible="true"></TelerikChartSeriesLabels>
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 2 (COUNT)" Data="@chartData"
+			<ChartSeriesLabels Visible="true"></ChartSeriesLabels>
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2 (COUNT)" Data="@chartData"
 							Field="@nameof(MyDataModel.Product2)" Aggregate="ChartSeriesAggregate.Count">
-			<TelerikChartSeriesLabels Visible="true"></TelerikChartSeriesLabels>
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+			<ChartSeriesLabels Visible="true"></ChartSeriesLabels>
+		</ChartSeries>
+	</ChartSeriesItems>
 
 </TelerikChart>
 
