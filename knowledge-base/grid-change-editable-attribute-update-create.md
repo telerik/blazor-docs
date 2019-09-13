@@ -59,7 +59,7 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
                     }
                 }
             </EditorTemplate>
-        </TelerikGridColumn>
+        </GridColumn>
         <GridCommandColumn>
             <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
             <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
@@ -156,7 +156,7 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
                     }
                 }
             </EditorTemplate>
-        </TelerikGridColumn>
+        </GridColumn>
         <GridCommandColumn>
             <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
             <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>

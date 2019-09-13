@@ -23,8 +23,8 @@ When the user clicks the column header, the grid will sort the data according to
 
 <TelerikGrid Data="@MyData" Sortable="true" Height="500px">
 	<GridColumns>
-		<GridColumn Field="ID"></TelerikGridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></TelerikGridColumn>
+		<GridColumn Field="ID"></GridColumn>
+		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
 	</GridColumns>
 </TelerikGrid>
 
@@ -43,4 +43,3 @@ You can sort this grid on the different columns to see the results. The name col
 
   * [Live Demo: Grid Sorting](https://demos.telerik.com/blazor-ui/grid/sorting)
    
-  

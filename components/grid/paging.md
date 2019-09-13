@@ -25,8 +25,8 @@ You can set the current page of the grid through its integer `Page` property.
 
 <TelerikGrid Data="@MyData" Pageable="true" PageSize="15" Page="2" Height="500px">
 	<GridColumns>
-		<GridColumn Field="ID"></TelerikGridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></TelerikGridColumn>
+		<GridColumn Field="ID"></GridColumn>
+		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
 	</GridColumns>
 </TelerikGrid>
 
@@ -58,8 +58,8 @@ Here is one way to implement a page size choice that puts all records on one pag
 
 <TelerikGrid Data="@MyData" Pageable="true" PageSize="@PageSize">
 	<GridColumns>
-		<GridColumn Field="ID"></TelerikGridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></TelerikGridColumn>
+		<GridColumn Field="ID"></GridColumn>
+		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
 	</GridColumns>
 </TelerikGrid>
 

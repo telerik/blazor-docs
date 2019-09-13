@@ -33,18 +33,18 @@ If simple display is sufficient, you can use [Templates]({%slug components/grid/
 
 <TelerikGrid Data="@myData">
 	<GridColumns>
-		<GridColumn Field="@nameof(SampleComplexObject.ID)" Title="ID"></TelerikGridColumn>
-		<GridColumn Field="@nameof(SampleComplexObject.Name)" Title="The Name"></TelerikGridColumn>
+		<GridColumn Field="@nameof(SampleComplexObject.ID)" Title="ID"></GridColumn>
+		<GridColumn Field="@nameof(SampleComplexObject.Name)" Title="The Name"></GridColumn>
 		<GridColumn Title="First Nested Property">
 			<Template>
 			@((context as SampleComplexObject).SomeNavigationProperty.Field1)
 		</Template>
-		</TelerikGridColumn>
+		</GridColumn>
 		<GridColumn Title="Second Nested Property">
 			<Template>
 				@((context as SampleComplexObject).SomeNavigationProperty.OtherField)
 			</Template>
-		</TelerikGridColumn>
+		</GridColumn>
 
 	</GridColumns>
 </TelerikGrid>

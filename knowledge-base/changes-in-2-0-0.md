@@ -125,7 +125,7 @@ This is a list of the components that had their child tags removed or renamed.
             <Template>
                 <p>content</p>
             </Template>
-        </TelerikGridColumn>
+        </GridColumn>
     </TelerikGridColumns>
     <TelerikGridToolBar>
         <TelerikGridCommandButton>Text</TelerikGridCommandButton>

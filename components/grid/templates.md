@@ -47,21 +47,21 @@ The example below shows how to:
 					<img class="rounded" src="@($"/images/{employee.ID}.jpg")" alt="employee photo" />
 				}
 			</Template>
-		</TelerikGridColumn>
+		</GridColumn>
 		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
 			<Template>
 				Employee name is:
 				<br />
 				@((context as SampleData).Name)
 			</Template>
-		</TelerikGridColumn>
+		</GridColumn>
 		<GridColumn Field="HireDate" Title="Hire Date - Default string">
-		</TelerikGridColumn>
+		</GridColumn>
 		<GridColumn Field="HireDate" Title="Hire Date - Custom string">
 			<Template>
 				@((context as SampleData).HireDate.ToString("dd MMM yyyy"))
 			</Template>
-		</TelerikGridColumn>
+		</GridColumn>
 	</GridColumns>
 </TelerikGrid>
 
@@ -163,7 +163,7 @@ If you need to perform logic more complex than simple data binding, use the chan
                     <TelerikDropDownList Data="@Roles" @bind-Value="CurrentlyEditedEmployee.Role" Width="120px" PopupHeight="auto"></TelerikDropDownList>
                 }
             </EditorTemplate>
-        </TelerikGridColumn>
+        </GridColumn>
         <GridCommandColumn>
             <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
             <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>

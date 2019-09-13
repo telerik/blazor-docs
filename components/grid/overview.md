@@ -71,9 +71,9 @@ The grid is a generic component, and to store a reference, you must use the mode
 <TelerikGrid Data="@MyData" @ref="theGridReference">
 	<GridColumns>
 		<GridColumn Field="@(nameof(SampleData.ID))">
-		</TelerikGridColumn>
+		</GridColumn>
 		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-		</TelerikGridColumn>
+		</GridColumn>
 	</GridColumns>
 </TelerikGrid>
 
@@ -159,11 +159,11 @@ For example, you can benefit from the elastic design the components expose to ch
 			  Sortable="true" Height="200px">
 	<GridColumns>
 		<GridColumn Field="@(nameof(SampleData.ID))">
-		</TelerikGridColumn>
+		</GridColumn>
 		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-		</TelerikGridColumn>
+		</GridColumn>
 		<GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
-		</TelerikGridColumn>
+		</GridColumn>
 	</GridColumns>
 </TelerikGrid>
 
@@ -174,11 +174,11 @@ original:
 			  Sortable="true" Height="200px">
 	<GridColumns>
 		<GridColumn Field="@(nameof(SampleData.ID))">
-		</TelerikGridColumn>
+		</GridColumn>
 		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-		</TelerikGridColumn>
+		</GridColumn>
 		<GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
-		</TelerikGridColumn>
+		</GridColumn>
 	</GridColumns>
 </TelerikGrid>
 
