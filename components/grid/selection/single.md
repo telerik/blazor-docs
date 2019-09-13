@@ -48,11 +48,11 @@ You can add a checkbox column for single selection. It is required if the `InCel
 <TelerikGrid Data=@GridData
              SelectionMode="GridSelectionMode.Single"
              Pageable="true">
-    <TelerikGridColumns>
+    <GridColumns>
         <TelerikGridCheckboxColumn SelectAll="false" Title="Select" Width="70px" />
-        <TelerikGridColumn Field=@nameof(Employee.Name) />
-        <TelerikGridColumn Field=@nameof(Employee.Team) Title="Team" />
-    </TelerikGridColumns>
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
 </TelerikGrid>
 
 @code {
@@ -98,19 +98,19 @@ The example below shows how to handle the `SelectedItemsChanged` event to extrac
              SelectedItemsChanged="@((IEnumerable<Employee> employeeList) => OnSelect(employeeList))"
              Pageable="true"
              Height="300px">
-    <TelerikGridColumns>
-        <TelerikGridColumn Field=@nameof(Employee.Name) />
-        <TelerikGridColumn Field=@nameof(Employee.Team) Title="Team" />
-    </TelerikGridColumns>
+    <GridColumns>
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
 </TelerikGrid>
 
 @if (TeamMatesList != null)
 {
     <h6>@SelectedEmployee.Team</h6>
     <TelerikGrid Data="@TeamMatesList">
-        <TelerikGridColumns>
-            <TelerikGridColumn Field=@nameof(Employee.Name) />
-        </TelerikGridColumns>
+        <GridColumns>
+            <GridColumn Field=@nameof(Employee.Name) />
+        </GridColumns>
     </TelerikGrid>
 }
 
@@ -176,10 +176,10 @@ Selected item: @SelectedItems.FirstOrDefault().Name
              @bind-SelectedItems="SelectedItems"
              Pageable="true"
              Height="400px">
-    <TelerikGridColumns>
-        <TelerikGridColumn Field=@nameof(Employee.Name) />
-        <TelerikGridColumn Field=@nameof(Employee.Team) Title="Team" />
-    </TelerikGridColumns>
+    <GridColumns>
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
 </TelerikGrid>
 
 @code {

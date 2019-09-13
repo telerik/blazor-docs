@@ -22,10 +22,10 @@ When the user clicks the column header, the grid will sort the data according to
 @using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data="@MyData" Sortable="true" Height="500px">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="ID"></TelerikGridColumn>
-		<TelerikGridColumn Field="TheName" Title="Employee Name"></TelerikGridColumn>
-	</TelerikGridColumns>
+	<GridColumns>
+		<GridColumn Field="ID"></TelerikGridColumn>
+		<GridColumn Field="TheName" Title="Employee Name"></TelerikGridColumn>
+	</GridColumns>
 </TelerikGrid>
 
 @code {

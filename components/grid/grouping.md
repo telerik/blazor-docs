@@ -28,11 +28,11 @@ To prevent grouping by a field, set `Groupable="false"` for on its column. This 
 @using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data=@GridData Groupable="true" Pageable="true" Height="400px">
-    <TelerikGridColumns>
-        <TelerikGridColumn Field=@nameof(Employee.Name) Groupable="false" />
-        <TelerikGridColumn Field=@nameof(Employee.Team) Title="Team" />
-        <TelerikGridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
-    </TelerikGridColumns>
+    <GridColumns>
+        <GridColumn Field=@nameof(Employee.Name) Groupable="false" />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+        <GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
+    </GridColumns>
 </TelerikGrid>
 
 @code {

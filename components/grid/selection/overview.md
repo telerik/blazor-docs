@@ -39,11 +39,11 @@ The [single selection]({%slug components/grid/selection/single%}) and [multiple 
 <TelerikGrid Data=@GridData
              SelectionMode="@selectionMode"
              Pageable="true">
-    <TelerikGridColumns>
+    <GridColumns>
         <TelerikGridCheckboxColumn SelectAll="@( selectionMode == GridSelectionMode.Single ? false : true )" Title="Select" Width="70px" />
-        <TelerikGridColumn Field=@nameof(Employee.Name) />
-        <TelerikGridColumn Field=@nameof(Employee.Team) Title="Team" />
-    </TelerikGridColumns>
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
 </TelerikGrid>
 
 @code {

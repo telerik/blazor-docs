@@ -39,8 +39,8 @@ The example below shows how to:
 @using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data="@MyData" Height="500px">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="@(nameof(SampleData.ID))" Title="Photo">
+	<GridColumns>
+		<GridColumn Field="@(nameof(SampleData.ID))" Title="Photo">
 			<Template>
 				@{
 					var employee = context as SampleData;
@@ -48,21 +48,21 @@ The example below shows how to:
 				}
 			</Template>
 		</TelerikGridColumn>
-		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
+		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
 			<Template>
 				Employee name is:
 				<br />
 				@((context as SampleData).Name)
 			</Template>
 		</TelerikGridColumn>
-		<TelerikGridColumn Field="HireDate" Title="Hire Date - Default string">
+		<GridColumn Field="HireDate" Title="Hire Date - Default string">
 		</TelerikGridColumn>
-		<TelerikGridColumn Field="HireDate" Title="Hire Date - Custom string">
+		<GridColumn Field="HireDate" Title="Hire Date - Custom string">
 			<Template>
 				@((context as SampleData).HireDate.ToString("dd MMM yyyy"))
 			</Template>
 		</TelerikGridColumn>
-	</TelerikGridColumns>
+	</GridColumns>
 </TelerikGrid>
 
 @code {
@@ -111,10 +111,10 @@ You can use the `Context` attribute of the `<RowTemplate>` tag of the grid to se
 			Hired on: @(String.Format("{0:dd MMM yyyy}", employee.HireDate))
 		</td>
 	</RowTemplate>
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-		<TelerikGridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-	</TelerikGridColumns>
+	<GridColumns>
+		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
+		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
+	</GridColumns>
 </TelerikGrid>
 
 @code {
@@ -152,11 +152,11 @@ If you need to perform logic more complex than simple data binding, use the chan
 @using Telerik.Blazor.Components.Grid
 @using Telerik.Blazor.Components.DropDownList
 
-<TelerikGrid Data=@MyData EditMode="inline" Pageable="true" Height="500px">
-    <TelerikGridColumns>
-        <TelerikGridColumn Field=@nameof(SampleData.ID) Editable="false" Title="ID" />
-        <TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <TelerikGridColumn Field=@nameof(SampleData.Role) Title="Position">
+<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px" OnUpdate="@UpdateHandler">
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="ID" />
+        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <GridColumn Field=@nameof(SampleData.Role) Title="Position">
             <EditorTemplate>
                 @{
                     CurrentlyEditedEmployee = context as SampleData;
@@ -164,14 +164,11 @@ If you need to perform logic more complex than simple data binding, use the chan
                 }
             </EditorTemplate>
         </TelerikGridColumn>
-        <TelerikGridCommandColumn>
-            <TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
-            <TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
-        </TelerikGridCommandColumn>
-    </TelerikGridColumns>
-    <TelerikGridEvents>
-        <EventsManager OnUpdate="@UpdateHandler"></EventsManager>
-    </TelerikGridEvents>
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
 </TelerikGrid>
 
 @code {

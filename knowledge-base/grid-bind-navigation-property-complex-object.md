@@ -32,21 +32,21 @@ If simple display is sufficient, you can use [Templates]({%slug components/grid/
 @using Telerik.Blazor
 
 <TelerikGrid Data="@myData">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="@nameof(SampleComplexObject.ID)" Title="ID"></TelerikGridColumn>
-		<TelerikGridColumn Field="@nameof(SampleComplexObject.Name)" Title="The Name"></TelerikGridColumn>
-		<TelerikGridColumn Title="First Nested Property">
+	<GridColumns>
+		<GridColumn Field="@nameof(SampleComplexObject.ID)" Title="ID"></TelerikGridColumn>
+		<GridColumn Field="@nameof(SampleComplexObject.Name)" Title="The Name"></TelerikGridColumn>
+		<GridColumn Title="First Nested Property">
 			<Template>
 			@((context as SampleComplexObject).SomeNavigationProperty.Field1)
 		</Template>
 		</TelerikGridColumn>
-		<TelerikGridColumn Title="Second Nested Property">
+		<GridColumn Title="Second Nested Property">
 			<Template>
 				@((context as SampleComplexObject).SomeNavigationProperty.OtherField)
 			</Template>
 		</TelerikGridColumn>
 
-	</TelerikGridColumns>
+	</GridColumns>
 </TelerikGrid>
 
 

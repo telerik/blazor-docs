@@ -51,11 +51,11 @@ You can add a checkbox column for selection. It is required if the `InCell` edit
 <TelerikGrid Data=@GridData
              SelectionMode="GridSelectionMode.Multiple"
              Pageable="true">
-    <TelerikGridColumns>
+    <GridColumns>
         <TelerikGridCheckboxColumn />
-        <TelerikGridColumn Field=@nameof(Employee.Name) />
-        <TelerikGridColumn Field=@nameof(Employee.Team) Title="Team" />
-    </TelerikGridColumns>
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
 </TelerikGrid>
 
 @code {
@@ -98,11 +98,11 @@ You can respond to the user action of selecting a new item through the `Selected
              SelectedItemsChanged="@((IEnumerable<Employee> employeeList) => OnSelect(employeeList))"
              Pageable="true"
              Height="400px">
-    <TelerikGridColumns>
+    <GridColumns>
         <TelerikGridCheckboxColumn />
-        <TelerikGridColumn Field=@nameof(Employee.Name) />
-        <TelerikGridColumn Field=@nameof(Employee.Team) Title="Team" />
-    </TelerikGridColumns>
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
 </TelerikGrid>
 
 @if (SelectedEmployees != null)
@@ -167,11 +167,11 @@ You can predefine the selected items for your users through the two-way binding 
              @bind-SelectedItems="SelectedItems"
              Pageable="true"
              Height="400px">
-    <TelerikGridColumns>
+    <GridColumns>
         <TelerikGridCheckboxColumn />
-        <TelerikGridColumn Field=@nameof(Employee.Name) />
-        <TelerikGridColumn Field=@nameof(Employee.Team) Title="Team" />
-    </TelerikGridColumns>
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
 </TelerikGrid>
 
 @if (SelectedItems != null)

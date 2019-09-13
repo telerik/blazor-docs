@@ -49,19 +49,19 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 <span>Edit will be cancelled for "name 2"</span>
 <br />@CustomCommandResult
 
-<TelerikGrid Data=@GridData EditMode="inline"
+<TelerikGrid Data=@GridData EditMode="@GridEditMode.Inline"
 			 Pageable="true" PageSize="15" Height="500px">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />
-		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-		<TelerikGridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-		<TelerikGridCommandColumn>
-			<TelerikGridCommandButton Command="Edit" Icon="edit" OnClick="@MyEditHandler">Edit</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true" OnClick="@MyUpdateHandler">Update</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true" OnClick="@MyCancelHandler">Cancel</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="MyOwnCommand" Icon="information" ShowInEdit="false" OnClick="@MyCustomCommand">My Command</TelerikGridCommandButton>
-		</TelerikGridCommandColumn>
-	</TelerikGridColumns>
+	<GridColumns>
+		<GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />
+		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
+		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
+		<GridCommandColumn>
+			<GridCommandButton Command="Edit" Icon="edit" OnClick="@MyEditHandler">Edit</GridCommandButton>
+			<GridCommandButton Command="Save" Icon="save" ShowInEdit="true" OnClick="@MyUpdateHandler">Update</GridCommandButton>
+			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true" OnClick="@MyCancelHandler">Cancel</GridCommandButton>
+			<GridCommandButton Command="MyOwnCommand" Icon="information" ShowInEdit="false" OnClick="@MyCustomCommand">My Command</GridCommandButton>
+		</GridCommandColumn>
+	</GridColumns>
 </TelerikGrid>
 
 @code {

@@ -24,10 +24,10 @@ You can set the current page of the grid through its integer `Page` property.
 @using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data="@MyData" Pageable="true" PageSize="15" Page="2" Height="500px">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="ID"></TelerikGridColumn>
-		<TelerikGridColumn Field="TheName" Title="Employee Name"></TelerikGridColumn>
-	</TelerikGridColumns>
+	<GridColumns>
+		<GridColumn Field="ID"></TelerikGridColumn>
+		<GridColumn Field="TheName" Title="Employee Name"></TelerikGridColumn>
+	</GridColumns>
 </TelerikGrid>
 
 @code {
@@ -57,10 +57,10 @@ Here is one way to implement a page size choice that puts all records on one pag
 </select>
 
 <TelerikGrid Data="@MyData" Pageable="true" PageSize="@PageSize">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="ID"></TelerikGridColumn>
-		<TelerikGridColumn Field="TheName" Title="Employee Name"></TelerikGridColumn>
-	</TelerikGridColumns>
+	<GridColumns>
+		<GridColumn Field="ID"></TelerikGridColumn>
+		<GridColumn Field="TheName" Title="Employee Name"></TelerikGridColumn>
+	</GridColumns>
 </TelerikGrid>
 
 @code {

@@ -26,12 +26,12 @@ To create a basic Telerik Grid:
 <TelerikGrid Data="@MyData" Height="400px"
              Pageable="true" Sortable="true" Groupable="true"
              FilterMode="Telerik.Blazor.FilterMode.FilterRow">
-    <TelerikGridColumns>
-        <TelerikGridColumn Field="@(nameof(SampleData.Id))" />
-        <TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
-        <TelerikGridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <TelerikGridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </TelerikGridColumns>
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
 </TelerikGrid>
 
 @code {
@@ -57,7 +57,7 @@ To create a basic Telerik Grid:
 
 ![](images/basic-grid.png)
 
->tip You can also use a string for the field name, using the `nameof` operator is not necessary. For example, the ID column can be defined like this: `<TelerikGridColumn Field="Id" />`.
+>tip You can also use a string for the field name, using the `nameof` operator is not necessary. For example, the ID column can be defined like this: `<GridColumn Field="Id" />`.
 
 ## Reference
 
@@ -69,12 +69,12 @@ The grid is a generic component, and to store a reference, you must use the mode
 @using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data="@MyData" @ref="theGridReference">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
+	<GridColumns>
+		<GridColumn Field="@(nameof(SampleData.ID))">
 		</TelerikGridColumn>
-		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
+		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
 		</TelerikGridColumn>
-	</TelerikGridColumns>
+	</GridColumns>
 </TelerikGrid>
 
 @code {
@@ -157,14 +157,14 @@ For example, you can benefit from the elastic design the components expose to ch
 <TelerikGrid Data="@MyData" Class="smallerFont"
 			  Pageable="true" FilterMode="Telerik.Blazor.FilterMode.FilterRow"
 			  Sortable="true" Height="200px">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
+	<GridColumns>
+		<GridColumn Field="@(nameof(SampleData.ID))">
 		</TelerikGridColumn>
-		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
+		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
 		</TelerikGridColumn>
-		<TelerikGridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
+		<GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
 		</TelerikGridColumn>
-	</TelerikGridColumns>
+	</GridColumns>
 </TelerikGrid>
 
 original:
@@ -172,14 +172,14 @@ original:
 <TelerikGrid Data="@MyData"
 			  Pageable="true" FilterMode="Telerik.Blazor.FilterMode.FilterRow"
 			  Sortable="true" Height="200px">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
+	<GridColumns>
+		<GridColumn Field="@(nameof(SampleData.ID))">
 		</TelerikGridColumn>
-		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
+		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
 		</TelerikGridColumn>
-		<TelerikGridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
+		<GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
 		</TelerikGridColumn>
-	</TelerikGridColumns>
+	</GridColumns>
 </TelerikGrid>
 
 @code {

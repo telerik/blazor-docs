@@ -26,21 +26,19 @@ To enable InCell editing mode, set the `EditMode` property of the grid to `incel
 
 <strong>Click a cell, edit it and click outside of the cell to see the change. Editing is prevented for the first two items.</strong>
 
-<TelerikGrid Data=@MyData EditMode="incell" Pageable="true" Height="500px">
-    <TelerikGridEvents>
-        <EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler"></EventsManager>
-    </TelerikGridEvents>
-    <TelerikGridToolBar>
-        <TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
-    </TelerikGridToolBar>
-    <TelerikGridColumns>
-        <TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-        <TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <TelerikGridCommandColumn>
-            <TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
-            <TelerikGridCommandButton Command="Delete" Icon="delete">Delete</TelerikGridCommandButton>
-        </TelerikGridCommandColumn>
-    </TelerikGridColumns>
+<TelerikGrid Data=@MyData EditMode="@GridEditMode.Incell" Pageable="true" Height="500px"
+        OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler">
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
 </TelerikGrid>
 
 @code {

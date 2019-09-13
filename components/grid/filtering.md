@@ -35,12 +35,12 @@ Once a filter is a applied to a column, a button will appear that lets you clear
 @using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data=@GridData FilterMode="Telerik.Blazor.FilterMode.FilterRow" Pageable="true" Height="400px">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(Employee.Name) />
-		<TelerikGridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />
-		<TelerikGridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
-		<TelerikGridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
-	</TelerikGridColumns>
+	<GridColumns>
+		<GridColumn Field=@nameof(Employee.Name) />
+		<GridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />
+		<GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
+		<GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
+	</GridColumns>
 </TelerikGrid>
 
 @code {
@@ -93,14 +93,14 @@ A key difference in the behavior from the [filter row](#filter-row) is that the 
 ````CSHTML
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data=@GridData Filterable="true" FilterMode="Telerik.Blazor.FilterMode.FilterMenu"
+<TelerikGrid Data=@GridData FilterMode="Telerik.Blazor.FilterMode.FilterMenu"
 			 Pageable="true" Height="400px">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(Employee.Name) />
-		<TelerikGridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />
-		<TelerikGridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
-		<TelerikGridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
-	</TelerikGridColumns>
+	<GridColumns>
+		<GridColumn Field=@nameof(Employee.Name) />
+		<GridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />
+		<GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
+		<GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
+	</GridColumns>
 </TelerikGrid>
 
 @code {

@@ -28,23 +28,21 @@ To enable Inline editing in the grid, set its `EditMode` property to `inline`, t
 
 <strong>Editing is cancelled for the first two records.</strong>
 
-<TelerikGrid Data=@MyData EditMode="inline" Pageable="true" Height="500px">
-    <TelerikGridEvents>
-        <EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler"></EventsManager>
-    </TelerikGridEvents>
-    <TelerikGridToolBar>
-        <TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
-    </TelerikGridToolBar>
-    <TelerikGridColumns>
-        <TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-        <TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <TelerikGridCommandColumn>
-            <TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
-            <TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
-            <TelerikGridCommandButton Command="Delete" Icon="delete">Delete</TelerikGridCommandButton>
-            <TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TelerikGridCommandButton>
-        </TelerikGridCommandColumn>
-    </TelerikGridColumns>
+<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px"
+        OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
 </TelerikGrid>
 
 @code {

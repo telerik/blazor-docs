@@ -31,22 +31,20 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
 @using Telerik.Blazor
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="inline" Height="500px">
-	<TelerikGridToolBar>
-		<TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
-	</TelerikGridToolBar>
-    <TelerikGridEvents>
-        <EventsManager OnUpdate="@UpdateHandler" OnCreate="@CreateHandler"></EventsManager>
-    </TelerikGridEvents>
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-		<TelerikGridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-		<TelerikGridCommandColumn>
-			<TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TelerikGridCommandButton>
-		</TelerikGridCommandColumn>
-	</TelerikGridColumns>
+<TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="@GridEditMode.Inline" Height="500px"
+            OnUpdate="@UpdateHandler" OnCreate="@CreateHandler">
+	<GridToolBar>
+		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+	</GridToolBar>
+	<GridColumns>
+		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
+		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
+		<GridCommandColumn>
+			<GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+			<GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+		</GridCommandColumn>
+	</GridColumns>
 </TelerikGrid>
 
 @result
@@ -104,13 +102,13 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 @using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15">
-	<TelerikGridToolBar>
-		<TelerikGridCommandButton Command="MyToolbarCommand" OnClick="@MyCommandFromToolbar" Icon="info">Fire My Command</TelerikGridCommandButton>
-	</TelerikGridToolBar>
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-		<TelerikGridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-	</TelerikGridColumns>
+	<GridToolBar>
+		<GridCommandButton Command="MyToolbarCommand" OnClick="@MyCommandFromToolbar" Icon="info">Fire My Command</GridCommandButton>
+	</GridToolBar>
+	<GridColumns>
+		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
+		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
+	</GridColumns>
 </TelerikGrid>
 
 @result
