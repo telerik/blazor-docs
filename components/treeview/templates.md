@@ -12,29 +12,29 @@ position: 5
 
 The Treeview component allows you to define a custom template for its nodes. This article explains how you can use it.
 
-The `ItemTemplate` of a node is defined under the `TelerikTreeViewBinding` tag.
+The `ItemTemplate` of a node is defined under the `TreeViewBinding` tag.
 
 The template receives the model to which the item is bound as its `context`. You can use it to render the desired content.
 
-You can also define different templates for the different levels in each `TelerikTreeViewBinding` tag.
+You can also define different templates for the different levels in each `TreeViewBinding` tag.
 
 You can use the template to render arbitrary content according to your application's data and logic. You can use components in it and thus provide rich content instead of plain text. You can also use it to add DOM event handlers like click, doubleclick, mouseover if you need to respond to them.
 
 >caption Use templates to implement navigation between views without the usage of the UrlField feature
 
 ````CSHTML
-@using Telerik.Blazor.Components.TreeView
+Implement your own navigation through NavLink elements, instead of using the built-in feature
 
 <TelerikTreeView Data="@TreeData">
-	<TelerikTreeViewBindings>
-		<TelerikTreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" HasChildrenField="HasChildren">
+	<TreeViewBindings>
+		<TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" HasChildrenField="HasChildren">
 			<ItemTemplate>
 				<NavLink Match="NavLinkMatch.All" href="@((context as TreeItem).Page)">
 					@((context as TreeItem).Text)
 				</NavLink>
 			</ItemTemplate>
-		</TelerikTreeViewBinding>
-	</TelerikTreeViewBindings>
+		</TreeViewBinding>
+	</TreeViewBindings>
 </TelerikTreeView>
 
 @code {
@@ -96,24 +96,24 @@ You can use the template to render arbitrary content according to your applicati
 >caption Different templates for different node levels
 
 ````CSHTML
-@using Telerik.Blazor.Components.TreeView
+Multiple templates usage.
 
 <TelerikTreeView Data="@HierarchicalData">
-	<TelerikTreeViewBindings>
-		<TelerikTreeViewBinding TextField="Category" ItemsField="Products">
+	<TreeViewBindings>
+		<TreeViewBinding TextField="Category" ItemsField="Products">
 			<ItemTemplate>
 				Section: <strong>@((context as ProductCategoryItem).Category)</strong>
 			</ItemTemplate>
-		</TelerikTreeViewBinding>
-		<TelerikTreeViewBinding Level="1" TextField="ProductName">
+		</TreeViewBinding>
+		<TreeViewBinding Level="1" TextField="ProductName">
 			<ItemTemplate>
 				@{
 					ProductItem currProduct = context as ProductItem;
 					<img src="/images/products/@( currProduct.ProductId )" alt="@(currProduct.ProductName)" /> @(currProduct.ProductName)
 				}
 			</ItemTemplate>
-		</TelerikTreeViewBinding>
-	</TelerikTreeViewBindings>
+		</TreeViewBinding>
+	</TreeViewBindings>
 </TelerikTreeView>
 
 @code {

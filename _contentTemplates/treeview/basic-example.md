@@ -1,12 +1,12 @@
 #basic-example
 
 ````CSHTML
-@using Telerik.Blazor.Components.TreeView
+Sample treeview bound to self-referencing flat data. Also uses the built-in icons from the Telerik suite
 
 <TelerikTreeView Data="@FlatData">
-	<TelerikTreeViewBindings>
-		<TelerikTreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon"></TelerikTreeViewBinding>
-	</TelerikTreeViewBindings>
+	<TreeViewBindings>
+		<TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+	</TreeViewBindings>
 </TelerikTreeView>
 
 @code {
