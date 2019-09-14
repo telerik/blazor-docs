@@ -14,19 +14,16 @@ In Cell editing allows the user to click the cell and type the new value. When t
 
 You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below. To add a new item, you must also add a [command column]({%slug components/grid/columns/command%}) with a `Save` command and a [toolbar]({%slug components/grid/features/toolbar%}) with an `Add` command. Cancellation of changes is not supported at the moment, you can prevent them by not calling the data access layer.
 
-To enable InCell editing mode, set the `GridEditMode` property of the grid to `incell`, then handle the CRUD events as shown in the example below.
+To enable InCell editing mode, set the `EditMode` property of the grid to `Telerik.Blazor.GridEditMode.Incell`, then handle the CRUD events as shown in the example below.
 
 @[template](/_contentTemplates/grid/common-link.md#async-events-link)
 
 >caption Values are set in the model as soon as the user finishes editing a field, and you can receive them through the grid events
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Grid
+Click a cell, edit it and click outside of the cell to see the change. Editing is prevented for the first two items.
 
-<strong>Click a cell, edit it and click outside of the cell to see the change. Editing is prevented for the first two items.</strong>
-
-<TelerikGrid Data=@MyData GridEditMode="@GridGridEditMode.Incell" Pageable="true" Height="500px"
+<TelerikGrid Data=@MyData EditMode="@GridEditMode.Incell" Pageable="true" Height="500px"
         OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler">
     <GridToolBar>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>

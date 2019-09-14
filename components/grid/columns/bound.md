@@ -12,7 +12,7 @@ position: 0
 
 To show data in a grid, you must define bound columns for the fields of the data source you want to show.
 
-They are added to the `TelerikGridColumns` tag and are of type `TelerikGridColumn`. You can use the following properties on them:
+They are added to the `GridColumns` tag and are of type `GridColumn`. You can use the following properties on them:
 
 * `Field` - the name of the field in the data source that the column will render as a string. You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model (`Field=@nameof(MyModelClass.SomeFIeld)`).
 * `Title` - the text that is rendered in the column header.

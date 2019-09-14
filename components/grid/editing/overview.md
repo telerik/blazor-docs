@@ -34,12 +34,9 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 >caption Handling the CRUD events of the grid to save data to the actual data source
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Grid
+Editing is cancelled for the first two records. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
-<strong>Editing is cancelled for the first two records.</strong>
-
-<TelerikGrid Data=@MyData GridEditMode="@GridGridEditMode.Inline" Pageable="true" Height="400px"
+<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="400px"
         OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
 	<GridToolBar>
 		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
@@ -55,8 +52,6 @@ The event handlers receive an argument of type `GridCommandEventArgs` that expos
 		</GridCommandColumn>
 	</GridColumns>
 </TelerikGrid>
-
-There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 @logger
 
