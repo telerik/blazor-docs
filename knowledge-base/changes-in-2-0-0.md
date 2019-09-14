@@ -17,8 +17,15 @@ A shortlist of the changes:
 * Some inner tags changed names for brevity and usability. A detailed list with the changes per component is available below.
     * Most notably, the `Telerik` prefix is removed from all child tags, only the root-level components are still `<TelerikComponentName>`. There are some particular changes for certain components, and they are detailed below.
 * Some methods that manipulated collections or state are now gone. The way to alter collections (like Action buttons on a Window) is to use conditional markup and looping over collections from a view model. When we were initially creating the components, there were indications that there will be programmatic creation options. It seems this is not going to be the case, and conditional markup plus binding is the way to affect markup. There are details for each component below.
+* The Window renders at the root of the app.
 
-In case the lists in this article do not suffice, you can go to the concrete component's demos and documentation to see the way it is to be used after these changes. The documentation always reflects the latest version of our components.
+>tip In case the lists in this article do not suffice, you can go to the concrete component's demos and documentation to see the way it is to be used after these changes. The documentation always reflects the latest version of our components.
+
+
+* [Namespace Change](#namespace-change)
+* [Removed Methods and Properties](#removed-methods-and-properties)
+* [Renamed Tags](#renamed-tags)
+
 
 ## Namespace Change
 
@@ -93,9 +100,19 @@ This is a list of the components that had methods removed and the new approach o
 
 * The `AddBinding()` and `RemoveBinding()` methods are no longer avaialble.
 
+### Window
+
+* The `Open()`, `Close()`, `Minimize()`, `Maximize()`, `Restore()` methods are removed in favor of parameter binding.
+* The `AddAction()`, `RemoveAction()` methods are removed in favor of conditional markup.
+* The window renders at the root of the app and not in place. Thus, its position is relative to the root and maximizing fills it up, instead of the closest parent with special positioning.
+
 ## Renamed Tags
 
 This is a list of the components that had their child tags removed or renamed.
+
+### Chart
+
+* All child tags that had `Telerik` as a prefix do not have that prefix anymore.
 
 ### DropDownList
 

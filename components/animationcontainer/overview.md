@@ -17,9 +17,7 @@ To use the animation container, add the `TelerikAnimationContainer` tag.
 >caption How to use the Animation Container
 
 ````CSHTML
-@using Telerik.Blazor.Components.AnimationContainer
-@using Telerik.Blazor.Components.Button
-@using Telerik.Blazor
+Click the button to toggle the visibility of the customized popup
 
 <TelerikAnimationContainer @ref="myPopupRef" Top="300px" Width="100px" Height="100px" AnimationType="AnimationType.ZoomOut" Class="k-popup">
 	My content goes here. The "k-popup" class adds some background and borders which you can define through your own styles instead.
@@ -28,7 +26,7 @@ To use the animation container, add the `TelerikAnimationContainer` tag.
 <TelerikButton OnClick="@ToggleContainer">Toggle Animation Container</TelerikButton>
 
 @code {
-	Telerik.Blazor.Components.AnimationContainer.TelerikAnimationContainer myPopupRef;
+	Telerik.Blazor.Components.TelerikAnimationContainer myPopupRef;
 
 	public void ToggleContainer()
 	{
@@ -39,8 +37,8 @@ To use the animation container, add the `TelerikAnimationContainer` tag.
 
 The animation container exposes the following properties and methods:
 
-* `Show()`, `Hide()` and `Toggle()` - to control whether the container is shown.
-* `Width` and `Height` - to control its size.
+* `Show()`, `Hide()` and `Toggle()`; `ShowAsync()`, `HideAsync()` and `ToggleAsync()` - to control whether the container is shown.
+* `Width` and `Height` - to control its [size]({%slug common-features/dimensions%}).
 * `Top` and `Left` - to control its offset from its parent with special positioning (`relative`, `absolute`, `fixed`).
 * `AnimationType` and `AnimationDuration` to control the way it is shown and hidden. The animation duration is in milliseconds (defaults to `300`), and the type is of the `Telerik.Blazor.AnimationType` enum with the following options:
 	* SlideUp,
@@ -61,9 +59,7 @@ The animation container exposes the following properties and methods:
 >caption Explore the animation options
 
 ````CSHTML
-@using Telerik.Blazor.Components.AnimationContainer
-@using Telerik.Blazor.Components.Button
-@using Telerik.Blazor
+Choose a new animation from the dropdown and toggle the container
 
 <TelerikAnimationContainer @ref="myPopup" Top="300px" Width="200px" Height="200px" AnimationType="@AnimType" Class="my-popup">
 	My content goes here.<br />
