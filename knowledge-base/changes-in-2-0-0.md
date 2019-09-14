@@ -150,7 +150,7 @@ This is a list of the components that had their child tags removed or renamed.
 </TelerikGrid>
 
 // New
-<TelerikGrid Data=@GridData>
+<TelerikGrid Data=@GridData OnUpdate=@UpdateItem>
     <GridColumns>
         <GridCommandColumn Command="save">
             <GridCommandButton>Edit</GridCommandButton>

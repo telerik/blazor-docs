@@ -20,7 +20,7 @@ Once a selection is made in Single selection mode, it cannot be removed.
 
 ## Checkbox Selection
 
-In Single SelectionMode, selection is applied with a click on a row, or by clicking a checkbox if the `TelerikGridCheckboxColumn` is present in the `TelerikGridColumns` collection of the grid.
+In Single SelectionMode, selection is applied with a click on a row, or by clicking a checkbox if the `GridCheckboxColumn` is present in the `GridColumns` collection of the grid.
 
 Only one row can be selected at a time, even with checkboxes enabled, so the last one that is clicked will be selected.
 
@@ -43,13 +43,13 @@ You can add a checkbox column for single selection. It is required if the `InCel
 >caption Single Selection and a checkbox column.
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Single selection can be done by clicking a row or through a checkbox
 
 <TelerikGrid Data=@GridData
              SelectionMode="GridSelectionMode.Single"
              Pageable="true">
     <GridColumns>
-        <TelerikGridCheckboxColumn SelectAll="false" Title="Select" Width="70px" />
+        <GridCheckboxColumn SelectAll="false" Title="Select" Width="70px" />
         <GridColumn Field=@nameof(Employee.Name) />
         <GridColumn Field=@nameof(Employee.Team) Title="Team" />
     </GridColumns>
@@ -90,8 +90,7 @@ The example below shows how to handle the `SelectedItemsChanged` event to extrac
 >caption Single Selection and handling the SelectedItemsChanged event
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
-@using Telerik.Blazor
+Use the selection change event to show detail data
 
 <TelerikGrid Data=@GridData
              SelectionMode="GridSelectionMode.Single"
@@ -167,8 +166,6 @@ You can predefine the selected item for your users through the two-way binding o
 >caption Single Selection and two-way binding of the `SelectedItems` property
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
-
 Selected item: @SelectedItems.FirstOrDefault().Name
 
 <TelerikGrid Data=@GridData

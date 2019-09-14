@@ -19,7 +19,7 @@ When the user clicks the column header, the grid will sort the data according to
 >caption Enable Sorting in Telerik Grid
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Click a column header to sort by its data
 
 <TelerikGrid Data="@MyData" Sortable="true" Height="500px">
 	<GridColumns>
@@ -37,7 +37,7 @@ When the user clicks the column header, the grid will sort the data according to
 
 ![](images/basic-sorting.png)
 
-You can sort this grid on the different columns to see the results. The name column is a string, and sorting is done according to the rules for strings, while the ID column sorts acording to rules for integers.
+You can sort this grid on the different columns to see the results. The `Name` column is a string, and sorting is done according to the rules for strings, while the `ID` column sorts acording to rules for integers.
 
 ## See Also
 

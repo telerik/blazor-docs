@@ -25,7 +25,7 @@ In Multiple SelectionMode, selection could be made using the following approache
 
 ## Checkbox Selection
 
-To add checkboxes in each row that the user can use for selection, add a `TelerikGridCheckboxColumn` in the `TelerikGridColumns` collection of the grid.
+To add checkboxes in each row that the user can use for selection, add a `GridCheckboxColumn` in the `GridColumns` collection of the grid.
 
 The Grid allows selection and deselection of all rows on the current page via the `SelectAll` property. Setting this property to `true` (its default value) will render a checkbox in the grid header that the you can click to select whole pages.
 
@@ -46,13 +46,13 @@ You can add a checkbox column for selection. It is required if the `InCell` edit
 >caption Multiple Selection and a checkbox column.
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+You can select items by clicking a checkbox, or by clicking the rows. The Ctrl and Shift keys let you select more than one row when clicking it.
 
 <TelerikGrid Data=@GridData
              SelectionMode="GridSelectionMode.Multiple"
              Pageable="true">
     <GridColumns>
-        <TelerikGridCheckboxColumn />
+        <GridCheckboxColumn />
         <GridColumn Field=@nameof(Employee.Name) />
         <GridColumn Field=@nameof(Employee.Team) Title="Team" />
     </GridColumns>
@@ -91,7 +91,7 @@ You can respond to the user action of selecting a new item through the `Selected
 >caption Multiple Selection and handling the SelectedItemsChanged event
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Show details for selected items via the selection changed event
 
 <TelerikGrid Data=@GridData
              SelectionMode="GridSelectionMode.Multiple"
@@ -99,7 +99,7 @@ You can respond to the user action of selecting a new item through the `Selected
              Pageable="true"
              Height="400px">
     <GridColumns>
-        <TelerikGridCheckboxColumn />
+        <GridCheckboxColumn />
         <GridColumn Field=@nameof(Employee.Name) />
         <GridColumn Field=@nameof(Employee.Team) Title="Team" />
     </GridColumns>
@@ -160,7 +160,7 @@ You can predefine the selected items for your users through the two-way binding 
 >caption Multiple Selection and two-way binding of the `SelectedItems` property
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Use the selected items collection
 
 <TelerikGrid Data=@GridData
              SelectionMode="GridSelectionMode.Multiple"
@@ -168,7 +168,7 @@ You can predefine the selected items for your users through the two-way binding 
              Pageable="true"
              Height="400px">
     <GridColumns>
-        <TelerikGridCheckboxColumn />
+        <GridCheckboxColumn />
         <GridColumn Field=@nameof(Employee.Name) />
         <GridColumn Field=@nameof(Employee.Team) Title="Team" />
     </GridColumns>
@@ -214,7 +214,6 @@ You can predefine the selected items for your users through the two-way binding 
         public string Team { get; set; }
     }
 }
-
 ````
 
 

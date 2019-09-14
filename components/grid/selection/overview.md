@@ -20,7 +20,7 @@ You can configure the selection behavior by setting `SelectionMode` to a member 
 
 To select a row, click on it. To select multiple rows, hold down the `Ctrl` or `Shift` key to extend the selection.
 
-You can also use a [checkbox column](#checkbox-support) to select rows. To use it, add a `TelerikGridCheckboxColumn` in the `TelerikGridColumns` collection of the grid. It works with both selection modes. The checkbox in the header selects all items in the current page (if its `SelectAll` parameter is set to `true`).
+You can also use a [checkbox column](#checkbox-support) to select rows. To use it, add a `GridCheckboxColumn` in the `GridColumns` collection of the grid. It works with both selection modes. The checkbox in the header selects all items in the current page (if its `SelectAll` parameter is set to `true`).
 
 You can get or set the [selected items](#get-or-set-selected-items) through the `SelectedItems` property. It is a collection of items from the Grid's `Data`. You can use two-way binding, or the `SelectedItemsChanged` event to track the user selection.
 
@@ -29,7 +29,7 @@ The [single selection]({%slug components/grid/selection/single%}) and [multiple 
 >caption Enable row selection
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+See how the row selection modes work
 
 <select @bind=@selectionMode>
     <option value=@GridSelectionMode.Single>Single</option>
@@ -40,7 +40,7 @@ The [single selection]({%slug components/grid/selection/single%}) and [multiple 
              SelectionMode="@selectionMode"
              Pageable="true">
     <GridColumns>
-        <TelerikGridCheckboxColumn SelectAll="@( selectionMode == GridSelectionMode.Single ? false : true )" Title="Select" Width="70px" />
+        <GridCheckboxColumn SelectAll="@( selectionMode == GridSelectionMode.Single ? false : true )" Title="Select" Width="70px" />
         <GridColumn Field=@nameof(Employee.Name) />
         <GridColumn Field=@nameof(Employee.Team) Title="Team" />
     </GridColumns>
@@ -75,7 +75,7 @@ The [single selection]({%slug components/grid/selection/single%}) and [multiple 
 ````
 
 
->note In [Incell GridEditMode]({%slug components/grid/editing/incell%}) selection can be applied only via a checkbox column. This is required due to the overlapping action that triggers selection and incell editing.
+>note In [Incell EditMode]({%slug components/grid/editing/incell%}) selection can be applied only via a checkbox column. This is required due to the overlapping action that triggers selection and incell editing.
 
 
 ## See Also

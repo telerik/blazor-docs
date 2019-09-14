@@ -36,7 +36,7 @@ The example below shows how to:
 >caption Using cell (column) template
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Cell template that renders an image based on model data
 
 <TelerikGrid Data="@MyData" Height="500px">
 	<GridColumns>
@@ -99,7 +99,7 @@ You can use the `Context` attribute of the `<RowTemplate>` tag of the grid to se
 >caption Using a row template
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Render the entire row with your own code and logic
 
 <TelerikGrid Data=@MyData Height="500px">
 	<RowTemplate Context="employee">
@@ -149,10 +149,9 @@ If you need to perform logic more complex than simple data binding, use the chan
 >caption Sample edit template
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
-@using Telerik.Blazor.Components.DropDownList
+Use a custom editor for a certain cell (a dropdown list)
 
-<TelerikGrid Data=@MyData GridEditMode="@GridGridEditMode.Inline" Pageable="true" Height="500px" OnUpdate="@UpdateHandler">
+<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px" OnUpdate="@UpdateHandler">
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="ID" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
