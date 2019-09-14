@@ -176,14 +176,14 @@ This is a list of the components that had their child tags removed or renamed.
 
 ````CSHTML
 // Old
-<TelerikTabStrip @bind-Value=@IntValue>
+<TelerikTabStrip>
     <TelerikTab>
         <p>tab content</p>
     </TelerikTab>
 </TelerikTabStrip>
 
 // New
-<TelerikTabStrip @bind-Value=@IntValue>
+<TelerikTabStrip>
     <TabStripTab>
         <p>tab content</p>
     </TabStripTab>
