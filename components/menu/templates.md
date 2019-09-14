@@ -21,7 +21,7 @@ You can use the template to render arbitrary content according to your applicati
 >caption Use templates to implement navigation between views without the UrlField feature
 
 ````CSHTML
-@using Telerik.Blazor.Components.Menu
+Use your own NavLink elements for navigation instead of the built-in feature of the menu
 
 <TelerikMenu Data="@MenuItems"
              ItemsField="@nameof(MenuItem.SubSectionList)">
@@ -103,7 +103,6 @@ You can use the template to render arbitrary content according to your applicati
 >caption Use templates to visually distinguish the current page as an item that is styled differently, and to open external links in new tabs
 
 ````CSHTML
-@using Telerik.Blazor.Components.Menu
 @inject NavigationManager navigationManager
 
 <TelerikMenu Data="@MenuItems" OnClick="@((MenuItem item) => OnClick(item))">
@@ -125,6 +124,7 @@ You can use the template to render arbitrary content according to your applicati
         }
     </ItemTemplate>
 </TelerikMenu>
+
 @code {
     public List<MenuItem> MenuItems { get; set; }
 

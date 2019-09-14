@@ -23,9 +23,6 @@ You can use the `OnClick` event to react to user choices in a menu without using
 >caption Handle OnClick
 
 ````CSHTML
-@using Telerik.Blazor.Components.Menu
-@using Telerik.Blazor
-
 Last clicked item: @ClickedItem?.Text
 
 <TelerikMenu Data="@MenuItems" OnClick="@((MenuItem item) => OnClickHandler(item))">

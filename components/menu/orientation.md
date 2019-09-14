@@ -21,8 +21,7 @@ The default orientation is horizontal.
 >caption Set orientation
 
 ````CSHTML
-@using Telerik.Blazor.Components.Menu
-@using Telerik.Blazor
+Change the orientation of the menu to fit your layout
 
 <select @bind=@orientation>
     <option value=@MenuOrientation.Horizontal>Horizontal</option>

@@ -21,7 +21,7 @@ To use a Telerik Menu for Blazor:
 >caption Basic menu with hierarchical data binding and built-in navigation
 
 ````CSHTML
-@using Telerik.Blazor.Components.Menu
+Use a menu to navigate between views
 
 <TelerikMenu Data="@MenuItems"
              UrlField="@nameof(MenuItem.Page)"
@@ -103,7 +103,7 @@ To use a Telerik Menu for Blazor:
 
 @code {
     // the menu is a generic component and its type depends on the model it binds to
-    Telerik.Blazor.Components.Menu.TelerikMenu<MenuItem> theMenu;
+    Telerik.Blazor.Components.TelerikMenu<MenuItem> theMenu;
 
     List<MenuItem> menuData = Enumerable.Range(1, 3).Select(x => new MenuItem { Page = $"page{x}" }).ToList();
 
