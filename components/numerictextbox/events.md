@@ -24,12 +24,10 @@ The numeric textbox is a generic component, so you must provide either a `Value`
 >caption Handle OnChange
 
 ````CSHTML
-@using Telerik.Blazor.Components.NumericTextBox
+@result
+<br />
 
 <TelerikNumericTextBox T="decimal" OnChange="@MyOnChangeHandler"></TelerikNumericTextBox>
-
-<br />
-@result
 
 @code {
     string result;
@@ -50,14 +48,12 @@ The numeric textbox is a generic component, so you must provide either a `Value`
 >caption Handle OnChange and use two-way binding
 
 ````CSHTML
-@using Telerik.Blazor.Components.NumericTextBox
-
-<TelerikNumericTextBox @bind-Value="@theTbValue" OnChange="@MyOnChangeHandler"></TelerikNumericTextBox>
-
-<br />
 @result
 <br />
 model value: @theTbValue
+<br />
+
+<TelerikNumericTextBox @bind-Value="@theTbValue" OnChange="@MyOnChangeHandler"></TelerikNumericTextBox>
 
 @code {
     string result;
@@ -80,12 +76,10 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 >caption Handle ValueChanged
 
 ````CSHTML
-@using Telerik.Blazor.Components.NumericTextBox
+@result
+<br />
 
 <TelerikNumericTextBox ValueChanged="@( (double v) => MyValueChangeHandler(v) )"></TelerikNumericTextBox>
-
-<br />
-@result
 
 @code {
     string result;
@@ -104,14 +98,12 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 >caption Handle ValueChanged and provide initial value
 
 ````CSHTML
-@using Telerik.Blazor.Components.NumericTextBox
-
-<TelerikNumericTextBox Value="@theTbValue" ValueChanged="@( (decimal v) => MyValueChangeHandler(v) )"></TelerikNumericTextBox>
-
-<br />
 from the handler: @result
 <br />
 from model: @theTbValue
+<br />
+
+<TelerikNumericTextBox Value="@theTbValue" ValueChanged="@( (decimal v) => MyValueChangeHandler(v) )"></TelerikNumericTextBox>
 
 @code {
     string result;

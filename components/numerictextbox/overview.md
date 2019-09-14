@@ -17,11 +17,9 @@ To use a Telerik Numeric Textbox for Blazor, add the `TelerikNumericTextBox` tag
 >caption Basic numeric textbox with its key features
 
 ````CSHTML
-@using Telerik.Blazor.Components.NumericTextBox
+The new value is: @theValue
 
 <TelerikNumericTextBox Format="C" Max="5m" Min="-5m" Step="0.33m" @bind-Value="@theValue"></TelerikNumericTextBox>
-<br />
-The new value is: @theValue
 
 @code {
      private decimal theValue { get; set; } = 1.234m;
@@ -42,7 +40,7 @@ The numeric textbox component is generic, meaning that it takes the type of its 
 	private int CurrentValue { get; set; }
 	
 	//the type of the value variable determines the type of the reference
-	private Telerik.Blazor.Components.NumericTextBox.TelerikNumericTextBox<int> myNumericTextboxRef;
+	private Telerik.Blazor.Components.TelerikNumericTextBox<int> myNumericTextboxRef;
 }
 ````
 
