@@ -77,7 +77,7 @@ This is a list of the components that had methods removed and the new approach o
 
 ### Inputs
 
-* All input-type components no longer have the `Height` property. Their height is to be controlled through CSS and the font-size through the themes anyway, and the `Height` property did not always produce expected/proper results.
+* All input-type components (DropDownList, DateInput, DatePicker, etc.) no longer have the `Height` property. Their height is to be controlled through CSS and the font-size through the themes anyway, and the `Height` property did not always produce expected/proper results.
 
 ### TabStrip
 
@@ -109,7 +109,7 @@ This is a list of the components that had their child tags removed or renamed.
     <Footer></Footer>
     <ValueTemplate></ValueTemplate>
     <ItemTemplate></ItemTemplate>
-</TelerikDateInput>
+</TelerikDropDownList>
 
 // New
 <TelerikDropDownList Data="@Data">
@@ -117,7 +117,7 @@ This is a list of the components that had their child tags removed or renamed.
     <FooterTemplate></FooterTemplate>
     <ValueTemplate></ValueTemplate>
     <ItemTemplate></ItemTemplate>
-</TelerikDateInput>
+</TelerikDropDownList>
 ````
 
 ### Grid

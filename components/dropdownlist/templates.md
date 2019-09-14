@@ -14,8 +14,6 @@ The DropDownList component allows you to change what is rendered in its items, b
 
 The examples below show how to use inner tags to set the templates. You can also do this through [RenderFragment](https://blazor.net/api/Microsoft.AspNetCore.Blazor.RenderFragment.html) objects that you can pass to the properties of the DropDownList in its main tag.
 
-When using inner tags, make sure to use the correct casing, because, at the time of writing, the framework will list all possible tags and will try to correct the casing of `Header` and `Footer` to the lowercase HTML5 elements.
-
 List of the available templates:
 
 * [Value Template](#value-template)
@@ -31,7 +29,7 @@ The Value template determines how the selected item renders in the main element 
 >caption Value Template Example
 
 ````CSHTML
-@using Telerik.Blazor.Components.DropDownList
+Change what renders in the main element
 
 <TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="1">
 	<ValueTemplate>
@@ -70,7 +68,7 @@ The Item template determines how the individual items are rendered in the dropdo
 >caption Item Template Example
 
 ````CSHTML
-@using Telerik.Blazor.Components.DropDownList
+Define what renders for the items in the dropdown
 
 <TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="1">
 	<ItemTemplate>
@@ -109,10 +107,10 @@ The header is content that you can place above the list of items inside the drop
 >caption Header Example
 
 ````CSHTML
-@using Telerik.Blazor.Components.DropDownList
+Define a header in the dropdown
 
 <TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="1">
-	<Header>My list header.</Header>
+	<HeaderTemplate>My list header.</HeaderTemplate>
 </TelerikDropDownList>
 
 
@@ -144,10 +142,10 @@ The footer is content that you can place below the list of items inside the drop
 >caption Footer Example
 
 ````CSHTML
-@using Telerik.Blazor.Components.DropDownList
+Define dropdown footer
 
 <TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="1">
-	<Footer>My list footer.</Footer>
+	<FooterTemplate>My list footer.</FooterTemplate>
 </TelerikDropDownList>
 
 
