@@ -10,24 +10,22 @@ position: 0
 
 # Textbox Overview
 
-The Textbox component allows the user to enter a generic plain text message. The developer can control minimum, maximum length of the text, pattern, and other elements of the UX such as label or class.
+The Textbox component allows the user to enter a generic plain text message. You can also add a label or class.
 
 To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
 
->caption Basic textbox with its key features, namespace and reference
-
+>caption Basic textbox with value binding, namespace and reference
 
 ````CSHTML
-@using Telerik.Blazor.Components.TextBox
-
-<TelerikTextBox @bind-Value="theTbValue" Label="Enter Information" MaxLength="20" @ref="theTextBoxRef"></TelerikTextBox>
-
 @theTbValue
+<br />
+
+<TelerikTextBox @bind-Value="theTbValue" Label="Enter Information" @ref="theTextBoxRef"></TelerikTextBox>
 
 @code {
     string theTbValue { get; set; } = "lorem ipsum";
 
-    Telerik.Blazor.Components.TextBox.TelerikTextBox theTextBoxRef;
+    Telerik.Blazor.Components.TelerikTextBox theTextBoxRef;
 }
 ````
 
@@ -37,40 +35,10 @@ The numeric textbox provides the following features:
 * `Class` - the CSS class that will be rendered on the `input` element.
 * `Enabled` - whether the `input` is enabled.
 * `Label` - the `label` element rendered next to the `input` to provide the user with information on its purpose.
-* `MaxLength` - the maximum length of the text input by the user.
-* `MinLength` - the minimum length of the text input by the user.
-* `Pattern` - the pattern that the user input must match.
 * `Value` - get/set the value of the input, can be used for binding.
 * `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
-The length, enabled and pattern attributes are HTML attributes on the `<input />` element and it is up to the browser to honor them. For example, the `minlength` attribute is rarely taken into account, and the pattern is usually evaluated only upon form submission.
-
->caption Example of using a custom pattern for some credit cards
-
-````CSHTML
-@using Telerik.Blazor.Components.TextBox
-
-<EditForm Model="@person">
-	<DataAnnotationsValidator />
-	<ValidationSummary />
-	<TelerikTextBox @bind-Value="person.CardNumber" Pattern="[0-9]{13,16}">
-	</TelerikTextBox>
-	<button type="submit">submit</button>
-</EditForm>
-
-@code{
-	public class Person
-	{
-		//you may want to add data annotation here to provide more robust validation
-		//the pattern can also be moved to the regex validation
-		public string CardNumber { get; set; }
-	}
-
-	Person person = new Person();
-}
-
-````
 
 ## See Also
 

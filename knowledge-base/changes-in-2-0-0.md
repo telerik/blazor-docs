@@ -87,7 +87,7 @@ This is a list of the components that had methods removed and the new approach o
 
 ### Textbox
 
-* The `Pattern`, `MinLength` and `MaxLength` parameters are removed in favor of validation. In the future, they will probably become available through attribute splatting.
+* The `Pattern`, `MinLength` and `MaxLength` parameters are removed in favor of validation. In the future, they may become available through attribute splatting.
 
 ### TreeView
 
