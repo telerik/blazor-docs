@@ -24,12 +24,10 @@ The date input is a generic component, so you must provide either a `Value`, or 
 >caption Handle OnChange
 
 ````CSHTML
-@using Telerik.Blazor.Components.DateInput
+@result
+<br />
 
 <TelerikDateInput T="DateTime" OnChange="@MyOnChangeHandler"></TelerikDateInput>
-
-<br />
-@result
 
 @code {
     string result;
@@ -50,14 +48,12 @@ The date input is a generic component, so you must provide either a `Value`, or 
 >caption Handle OnChange and use two-way binding
 
 ````CSHTML
-@using Telerik.Blazor.Components.DateInput
-
-<TelerikDateInput @bind-Value="@theInputValue" OnChange="@MyOnChangeHandler"></TelerikDateInput>
-
-<br />
 @result
 <br />
 model value: @theInputValue
+<br />
+
+<TelerikDateInput @bind-Value="@theInputValue" OnChange="@MyOnChangeHandler"></TelerikDateInput>
 
 @code {
     string result;
@@ -80,12 +76,10 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 >caption Handle ValueChanged
 
 ````CSHTML
-@using Telerik.Blazor.Components.DateInput
+@result
+<br />
 
 <TelerikDateInput ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDateInput>
-
-<br />
-@result
 
 @code {
     string result;
@@ -104,14 +98,12 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 >caption Handle ValueChanged and provide initial value
 
 ````CSHTML
-@using Telerik.Blazor.Components.DateInput
-
-<TelerikDateInput Value="@theInputValue" ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDateInput>
-
-<br />
 @result
 <br />
 model value: @theInputValue
+<br />
+
+<TelerikDateInput Value="@theInputValue" ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDateInput>
 
 @code {
     string result;

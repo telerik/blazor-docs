@@ -17,16 +17,15 @@ To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
 >caption Basic date input with namespace and reference
 
 ````CSHTML
-@using Telerik.Blazor.Components.DateInput
+@dateInputValue
 
 <TelerikDateInput @bind-Value="@dateInputValue" Format="dd/MMMM/yyyy" @ref="theDateInput">
 </TelerikDateInput>
-@dateInputValue
 
 @code {
     DateTime dateInputValue { get; set; } = DateTime.Now;
 
-    Telerik.Blazor.Components.DateInput.TelerikDateInput<DateTime> theDateInput;
+    Telerik.Blazor.Components.TelerikDateInput<DateTime> theDateInput;
     // the type of the component depends on the type of the value
     // in this case it is DateTime, but it could be DateTime?
 }
@@ -69,7 +68,6 @@ To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
 >caption Example of using validation to prompt the user for certain input
 
 ````CSHTML
-@using Telerik.Blazor.Components.DateInput
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@person">
