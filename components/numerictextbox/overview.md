@@ -31,7 +31,7 @@ The numeric textbox component is generic, meaning that it takes the type of its 
 >caption Component namespace and reference
 
 ````CSHTML
-@using Telerik.Blazor.Components.NumericTextBox
+@using Telerik.Blazor.Components
 
 <TelerikNumericTextBox @ref="myNumericTextboxRef" @bind-Value="CurrentValue"></TelerikNumericTextBox>
 

@@ -96,7 +96,7 @@ Use a menu to navigate between views
 >caption Component namespace and reference
 
 ````CSHTML
-@using Telerik.Blazor.Components.Menu
+@using Telerik.Blazor.Components
 
 <TelerikMenu @ref="theMenu" Data="@menuData" TextField="Page" UrlField="Page">
 </TelerikMenu>
