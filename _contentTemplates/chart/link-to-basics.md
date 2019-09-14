@@ -8,20 +8,17 @@ This article assumes you are familiar with the [chart basics]({%slug components/
 Bar and Column charts can take the color of the series item from the `ColorField` of the data source. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Colors per series item
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Bar" Data="@theData" ColorField="@nameof(MyChartDataModel.Color)"
-							Field="@nameof(MyChartDataModel.ItemValue)" CategoryField="@nameof(MyChartDataModel.Category)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Bar" Data="@theData" ColorField="@nameof(MyChartDataModel.Color)"
+							Field="@nameof(MyChartDataModel.ItemValue)" CategoryField="@nameof(MyChartDataModel.Category)" />
+	</ChartSeriesItems>
 
-	<TelerikChartTitle Text="Revenue per product"></TelerikChartTitle>
+	<ChartTitle Text="Revenue per product" />
 
-	<TelerikChartLegend Position="ChartLegendPosition.Right">
-	</TelerikChartLegend>
+	<ChartLegend Position="ChartLegendPosition.Right" />
 </TelerikChart>
 
 @code {
@@ -31,8 +28,9 @@ Bar and Column charts can take the color of the series item from the `ColorField
 		public double ItemValue { get; set; }
 		public string Color { get; set; }
 	}
+
 	public List<MyChartDataModel> theData = new List<MyChartDataModel>
-{
+    {
 		new MyChartDataModel
 		{
 			Category = "Product 1",
