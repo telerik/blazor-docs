@@ -25,7 +25,7 @@ To prevent grouping by a field, set `Groupable="false"` for on its column. This 
 >caption Enable grouping in Telerik Grid
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Drag the column header of the "Team" and/or "On Vacation" column to the group panel at the top
 
 <TelerikGrid Data=@GridData Groupable="true" Pageable="true" Height="400px">
     <GridColumns>

@@ -26,7 +26,7 @@ The `TelerikGridCommandButton` tag offers the following features:
 
 There are three built-in commands:
 
-* `Edit` - initiates the inline or popup editing (depending on the EditMode configuration of the grid).
+* `Edit` - initiates the inline or popup editing (depending on the GridEditMode configuration of the grid).
 * `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was added through the grid or not.
 * `Cancel` - aborts the current operation (edit or insert).
 
@@ -49,7 +49,7 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 <span>Edit will be cancelled for "name 2"</span>
 <br />@CustomCommandResult
 
-<TelerikGrid Data=@GridData EditMode="@GridEditMode.Inline"
+<TelerikGrid Data=@GridData GridEditMode="@GridGridEditMode.Inline"
 			 Pageable="true" PageSize="15" Height="500px">
 	<GridColumns>
 		<GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />

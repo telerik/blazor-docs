@@ -16,7 +16,7 @@ In a similar fashion, the `Cancel`, `Delete` command buttons and the `Add` toolb
 
 You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
 
-To enable PopUp editing in the grid, set its `EditMode` property to `popup`, then handle the CRUD events as shown in the example below.
+To enable PopUp editing in the grid, set its `GridEditMode` property to `popup`, then handle the CRUD events as shown in the example below.
 
 The PopUp editing mode supports [validation]({%slug common-features/input-validation%}). To use it, all you need to do is decorate your model with the desired annotations. Validation errors will be shown in the popup and will prevent the Update operation.
 
@@ -31,7 +31,7 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 
 <strong>Editing is cancelled for the first two records.</strong>
 
-<TelerikGrid Data=@MyData EditMode="@GridEditMode.Popup" Pageable="true" Height="500px"
+<TelerikGrid Data=@MyData GridEditMode="@GridGridEditMode.Popup" Pageable="true" Height="500px"
         OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
 	<GridToolBar>
 		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>

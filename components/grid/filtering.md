@@ -14,8 +14,8 @@ The Grid component offers built-in support for filtering.
 
 To enable filtering, set the grid's `FilterMode` property to one of the following values:
 
-* [`Telerik.Blazor.FilterMode.FilterRow`](#filter-row) - a row of filter options is rendered below the column headers
-* [`Telerik.Blazor.FilterMode.FilterMenu`](#filter-menu) - the column headers render a button that shows a popup with filtering options
+* [`Telerik.Blazor.GridFilterMode.FilterRow`](#filter-row) - a row of filter options is rendered below the column headers
+* [`Telerik.Blazor.GridFilterMode.FilterMenu`](#filter-menu) - the column headers render a button that shows a popup with filtering options
 
 The behavior of the filter input and the available filter operators will depend on the column data type. For example, a boolean field will only have the options "is true" and "is false" and will not have operators like "contains" or "greater than".
 
@@ -23,7 +23,7 @@ You can filter more than one column at a time, and all filter rules will be appl
 
 ## Filter Row
 
-To enable the filter row set the `FilterMode` property of the grid to `Telerik.Blazor.FilterMode.FilterRow`.
+To enable the filter row set the `FilterMode` property of the grid to `Telerik.Blazor.GridFilterMode.FilterRow`.
 
 The grid will render a row below the column headers with UI that you can use to fill in the filter criteria. You can type in the input to execute the default operator as you type, or click a button to choose a different filter operator (like "contains", "greater than" and so on).
 
@@ -32,9 +32,9 @@ Once a filter is a applied to a column, a button will appear that lets you clear
 >caption Filter Row in Telerik Grid
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Filter row
 
-<TelerikGrid Data=@GridData FilterMode="Telerik.Blazor.FilterMode.FilterRow" Pageable="true" Height="400px">
+<TelerikGrid Data=@GridData FilterMode="Telerik.Blazor.GridFilterMode.FilterRow" Pageable="true" Height="400px">
 	<GridColumns>
 		<GridColumn Field=@nameof(Employee.Name) />
 		<GridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />
@@ -82,7 +82,7 @@ Once a filter is a applied to a column, a button will appear that lets you clear
 
 ## Filter Menu
 
-To use a filter menu, set the `FilterMode` property of the grid to `Telerik.Blazor.FilterMode.FilterMenu`.
+To use a filter menu, set the `FilterMode` property of the grid to `Telerik.Blazor.GridFilterMode.FilterMenu`.
 
 The grid will render a button in the column header that you click to get a popup with filtering options. The popup lets you choose filter operator, filter criteria, to apply and clear the filter.
 
@@ -91,9 +91,9 @@ A key difference in the behavior from the [filter row](#filter-row) is that the 
 >caption Filter Menu in Telerik Grid
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Filter menu in the column header
 
-<TelerikGrid Data=@GridData FilterMode="Telerik.Blazor.FilterMode.FilterMenu"
+<TelerikGrid Data=@GridData FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu"
 			 Pageable="true" Height="400px">
 	<GridColumns>
 		<GridColumn Field=@nameof(Employee.Name) />

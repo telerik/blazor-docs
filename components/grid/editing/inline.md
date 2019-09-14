@@ -16,7 +16,7 @@ In a similar fashion, the `Cancel` and `Delete` command buttons fire events on t
 
 You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
 
-To enable Inline editing in the grid, set its `EditMode` property to `inline`, then handle the CRUD events as shown in the example below.
+To enable Inline editing in the grid, set its `GridEditMode` property to `inline`, then handle the CRUD events as shown in the example below.
 
 @[template](/_contentTemplates/grid/common-link.md#async-events-link)
 
@@ -28,7 +28,7 @@ To enable Inline editing in the grid, set its `EditMode` property to `inline`, t
 
 <strong>Editing is cancelled for the first two records.</strong>
 
-<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px"
+<TelerikGrid Data=@MyData GridEditMode="@GridGridEditMode.Inline" Pageable="true" Height="500px"
         OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
     <GridToolBar>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>

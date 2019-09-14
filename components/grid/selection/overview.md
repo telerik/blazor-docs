@@ -75,7 +75,7 @@ The [single selection]({%slug components/grid/selection/single%}) and [multiple 
 ````
 
 
->note In [Incell EditMode]({%slug components/grid/editing/incell%}) selection can be applied only via a checkbox column. This is required due to the overlapping action that triggers selection and incell editing.
+>note In [Incell GridEditMode]({%slug components/grid/editing/incell%}) selection can be applied only via a checkbox column. This is required due to the overlapping action that triggers selection and incell editing.
 
 
 ## See Also

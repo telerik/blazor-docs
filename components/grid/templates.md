@@ -152,7 +152,7 @@ If you need to perform logic more complex than simple data binding, use the chan
 @using Telerik.Blazor.Components.Grid
 @using Telerik.Blazor.Components.DropDownList
 
-<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px" OnUpdate="@UpdateHandler">
+<TelerikGrid Data=@MyData GridEditMode="@GridGridEditMode.Inline" Pageable="true" Height="500px" OnUpdate="@UpdateHandler">
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="ID" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />

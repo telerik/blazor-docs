@@ -31,7 +31,7 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
 @using Telerik.Blazor
 @using Telerik.Blazor.Components.Grid
 
-<TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="@GridEditMode.Inline" Height="500px"
+<TelerikGrid Data=@MyData Pageable="true" PageSize="15" GridEditMode="@GridGridEditMode.Inline" Height="500px"
             OnUpdate="@UpdateHandler" OnCreate="@CreateHandler">
 	<GridToolBar>
 		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>

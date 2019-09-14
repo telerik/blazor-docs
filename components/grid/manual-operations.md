@@ -27,7 +27,7 @@ The comments in the code provide explanations on what is done and why.
 >caption Custom paging with a remote service
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Custom paging. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 <TelerikGrid Data=@GridData TotalCount=@Total
 			 Pageable=true PageSize=15
@@ -37,8 +37,6 @@ The comments in the code provide explanations on what is done and why.
 		<GridColumn Field=@nameof(Employee.Name) Title="Name" />
 	</GridColumns>
 </TelerikGrid>
-
-There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 @code {
 	public List<Employee> GridData { get; set; }
@@ -115,11 +113,12 @@ There is a deliberate delay in the data source operations in this example to mim
 >caption If you have all the data at once, the Telerik .ToDataSourceResult(request) extension method can manage the operations for you
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
-@using Telerik.DataSource.Extensions;
+Using Telerik DataSource extension methods to manipulate all the data into paged chunks and also perform other operations like filtering, sorting, etc. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
+
+@using Telerik.DataSource.Extensions
 
 <TelerikGrid Data=@GridData TotalCount=@Total OnRead=@ReadItems
-			 Filterable=true Sortable=true Pageable=true EditMode="@GridEditMode.Inline">
+			 FilterMode=@GridFilterMode.FilterRow Sortable=true Pageable=true EditMode="@GridEditMode.Inline">
 	<GridColumns>
 		<GridColumn Field=@nameof(Employee.ID) />
 		<GridColumn Field=@nameof(Employee.Name) Title="Name" />
@@ -135,8 +134,6 @@ There is a deliberate delay in the data source operations in this example to mim
 		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
 	</GridToolBar>
 </TelerikGrid>
-
-There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 @code {
 	public List<Employee> SourceData { get; set; }
