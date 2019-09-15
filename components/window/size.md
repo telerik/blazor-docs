@@ -12,27 +12,25 @@ position: 1
 
 The Window offers two ways for you to control its size:
 
-* the [`Width` and `Height` properties]({%slug common-features/dimensions%})
+* the `Width` and `Height` properties (read more in the [Dimensions]({%slug common-features/dimensions%}) article)
 * predefined dimensions through the `Size` property
 
 >caption Set Width and Height to a Window
 
 ````CSHTML
-@using Telerik.Blazor.Components.Window
-
 <TelerikWindow Width="600px" Height="400px" Visible="true">
-	<TelerikWindowTitle>
+	<WindowTitle>
 		<strong>The Title</strong>
-	</TelerikWindowTitle>
-	<TelerikWindowContent>
+	</WindowTitle>
+	<WindowContent>
 		I am <strong>600px</strong> wide and <strong>400px</strong> tall because my developer told me so.
-	</TelerikWindowContent>
+	</WindowContent>
 </TelerikWindow>
 ````
 
-The `Size` property takes a member of the `Telerik.Blazor.Size` enum. It renders as a class that sets only the width of the dialog, and the height is rendered by the browser based on the contents. The `Width` and `Height` properties take precedence, because they are rendered as inline `style` rules.
+The `Size` property takes a member of the `Telerik.Blazor.WindowSize` enum. It renders as a class that sets only the width of the dialog, and the height is rendered by the browser based on the contents. The `Width` and `Height` properties take precedence, because they are rendered as inline `style` rules.
 
-The `Telerik.Blazor.Size` enum provides the following options:
+The `Telerik.Blazor.WindowSize` enum provides the following options:
 
 * `Small` - `300px` width
 * `Medium` - `800px` width
@@ -41,15 +39,13 @@ The `Telerik.Blazor.Size` enum provides the following options:
 >caption Set predefined size to the Window
 
 ````CSHTML
-@using Telerik.Blazor.Components.Window
-
-<TelerikWindow Visible="true" Size="@Telerik.Blazor.Size.Small">
-	<TelerikWindowTitle>
+<TelerikWindow Visible="true" Size="@WindowSize.Small">
+	<WindowTitle>
 		<strong>The Title</strong>
-	</TelerikWindowTitle>
-	<TelerikWindowContent>
+	</WindowTitle>
+	<WindowContent>
 		I am <strong>300px</strong> wide and my height is determined by the content my developer adds.
-	</TelerikWindowContent>
+	</WindowContent>
 </TelerikWindow>
 ````
 
@@ -61,86 +57,44 @@ The `Telerik.Blazor.Size` enum provides the following options:
 
 The user can maximize and minimize the Window through [action buttons in its titlebar]({%slug components/window/actions%}).
 
-The developer can invoke those actions through its `Maximize`, `Minimize` and `Restore` methods, and/or through the `Maximized` and `Minimized` properties.
+The developer can invoke those actions through binding its `Maximized` and `Minimized` properties.
 
 >caption Maximize, Minimze and Restore the Window programmatically
 
-````Methods
-@using Telerik.Blazor.Components.Window
+````CSHTML
+When both Maxmized and Minimized are set to false, the default state is restored
 
 <button @onclick="MaximizeWindow">Change Maximize state of the Window</button>
 <button @onclick="MinimizeWindow">Change Minimize state of the Window</button>
 
-<TelerikWindow @ref="myWindow" Visible="true">
-    <TelerikWindowTitle>
-        <strong>The Title</strong>
-    </TelerikWindowTitle>
-    <TelerikWindowContent>
-        <button @onclick="MaximizeWindow">Change Maximize state of the Window</button>
-        <button @onclick="MinimizeWindow">Change Minimize state of the Window</button>
-    </TelerikWindowContent>
-</TelerikWindow>
-
-@code {
-    Telerik.Blazor.Components.Window.TelerikWindow myWindow;
-
-    public void MaximizeWindow()
-    {
-        if (myWindow.Maximized)
-        {
-            myWindow.Restore();
-        }
-        else
-        {
-            myWindow.Maximize();
-        }
-    }
-
-    public void MinimizeWindow()
-    {
-        if (myWindow.Minimized)
-        {
-            myWindow.Restore();
-        }
-        else
-        {
-            myWindow.Minimize();
-        }
-    }
-}
-````
-````Properties
-@using Telerik.Blazor.Components.Window
-
-<button @onclick="MaximizeWindow">Change Maximize state of the Window</button>
-<button @onclick="MinimizeWindow">Change Minimize state of the Window</button>
-
-<TelerikWindow @ref="myWindow" Visible="true">
-	<TelerikWindowTitle>
+<TelerikWindow Maximized="@isMaximized" Minimized="@isMinimized" Visible="true">
+	<WindowTitle>
 		<strong>The Title</strong>
-	</TelerikWindowTitle>
-	<TelerikWindowContent>
+	</WindowTitle>
+	<WindowContent>
 		<button @onclick="MaximizeWindow">Change Maximize state of the Window</button>
 		<button @onclick="MinimizeWindow">Change Minimize state of the Window</button>
-	</TelerikWindowContent>
+	</WindowContent>
 </TelerikWindow>
 
 @code {
-	Telerik.Blazor.Components.Window.TelerikWindow myWindow;
-
+    bool isMaximized { get; set; }
+    bool isMinimized { get; set; }
+    
 	public void MaximizeWindow()
 	{
-		myWindow.Maximized = !myWindow.Maximized;
+		isMinimized = false;
+		isMaximized = !isMaximized;
 	}
 
 	public void MinimizeWindow()
 	{
-		myWindow.Minimized = !myWindow.Minimized;
+		isMaximized = false;
+		isMinimized = !isMinimized;
 	}
 }
 ````
 
->tip You can bind the `Maximized` and `Minimized` properties in the markup to set initial state.
 
 
 ## See Also

@@ -18,11 +18,12 @@ To create a Telerik Window:
 1. set its `Visible` property to `true` to see it immediately
 1. add some content to its `WindowContent` inner tag
 1. optionally, add a title text in its `WindowTitle` tag
+1. optionally, add the built-in [actions]({%slug components/window/actions%}) to its titlebar
 
 >caption Basic example of showing content in a Window popup and allowing built-in actions
 
 ````CSHTML
-<TelerikWindow Visible="true" Centered="true">
+<TelerikWindow Visible="true">
 	<WindowTitle>
 		<strong>The Title</strong>
 	</WindowTitle>
@@ -101,20 +102,23 @@ Use property binding to control the state of the window programmatically
 ````CSHTML
 @result
 
-<button @onclick="ToggleWindow">Toggle the Window</button>
+<button @onclick="ToggleWindow">Toggle the Window</button> 
 
 <TelerikWindow Visible="@isVisible" VisibleChanged="@VisibleChangedHandler" Centered="true">
-	<WindowTitle>
-		<strong>The Title</strong>
-	</WindowTitle>
-	<WindowContent>
-		This is my window <strong>popup</strong> content.
-	</WindowContent>
-</TelerikWindow>
+    <WindowTitle>
+        <strong>The Title</strong>
+    </WindowTitle>
+    <WindowContent>
+        This is my window <strong>popup</strong> content.
+    </WindowContent>
+	<WindowActions>
+		<WindowAction Name="Close" />
+	</WindowActions>
+</TelerikWindow> 
 
 @code {
     bool isVisible { get; set; }
-    string result { get; set; }
+    string result { get; set; } 
 
     void VisibleChangedHandler()
     {
