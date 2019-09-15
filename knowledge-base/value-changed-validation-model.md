@@ -38,8 +38,7 @@ You can use the `ValueExpression` and `Value` properties to provide, respectivel
 >caption Example of invoking validation messages when handling the ValueChanged event
 
 ````CSHTML
-@using Telerik.Blazor.Components.TextBox
-@using System.ComponentModel.DataAnnotations
+@using System.ComponentModel.DataAnnotations // used for the model annotations only
 
 <EditForm Model="person">
     <DataAnnotationsValidator />
@@ -82,3 +81,4 @@ from model: @person.theTbValue
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
+>tip Telerik inputs also offer an `OnChange` event that does not interfere with two-way binding. It fires on blur or on `Enter`.

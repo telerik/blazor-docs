@@ -29,7 +29,7 @@ This will let the grid perform operations like sorting and filtering, that will 
 If simple display is sufficient, you can use [Templates]({%slug components/grid/features/templates%}). For example:
 
 ````CSHTML
-@using Telerik.Blazor
+You can also consider using a DetailTemplate for showing complex details about a row
 
 <TelerikGrid Data="@myData">
 	<GridColumns>

@@ -40,49 +40,51 @@ To customize the percentage display, you need to
 4. Call the custom formatting function from the template and pass the needed arguments to it. It must return the string you want shown in the template.
 
 ````Razor
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+This is only one example, you can implement different functions and logic
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Pie" Data="@pieData"
-							Field="@nameof(MyPieChartModel.SegmentValue)" CategoryField="@nameof(MyPieChartModel.SegmentName)">
-			<TelerikChartSeriesLabels Visible="true" Template="@segmentTemplate"></TelerikChartSeriesLabels>
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Pie" Data="@pieData"
+                            Field="@nameof(MyPieChartModel.SegmentValue)" CategoryField="@nameof(MyPieChartModel.SegmentName)">
+            <ChartSeriesLabels Visible="true" Template="@segmentTemplate" />
+        </ChartSeries>
+    </ChartSeriesItems>
 
-	<TelerikChartTitle Text="Revenue per product"></TelerikChartTitle>
+    <ChartTitle Text="Revenue per product" />
 
-	<TelerikChartLegend Position="ChartLegendPosition.Right">
-	</TelerikChartLegend>
+    <ChartLegend Position="ChartLegendPosition.Right" />
 </TelerikChart>
 
 @code {
     //this is where we call our custom rounding function
-	string segmentTemplate = "#=value#\n#= round(percentage * 100, 1)#%";
+    string segmentTemplate = "#=value#\n#= round(percentage * 100, 1)#%";
 
     //below is just some data to feed the display
-	public class MyPieChartModel
-	{
-		public string SegmentName { get; set; }
-		public double SegmentValue { get; set; }
-	}
+    public class MyPieChartModel
+    {
+        public string SegmentName { get; set; }
+        public double SegmentValue { get; set; }
+    }
 
-	public List<MyPieChartModel>
-	pieData = new List<MyPieChartModel> {
-			new MyPieChartModel {
-				SegmentName = "Product 1",
-				SegmentValue = 1
-			},
-			new MyPieChartModel {
-				SegmentName = "Product 2",
-				SegmentValue = 3
-			},
-			new MyPieChartModel {
-				SegmentName = "Product 3",
-				SegmentValue = 5
-			}
-		};
+    public List<MyPieChartModel>
+    pieData = new List<MyPieChartModel>
+    {
+            new MyPieChartModel
+            {
+                SegmentName = "Product 1",
+                SegmentValue = 1
+            },
+            new MyPieChartModel
+            {
+                SegmentName = "Product 2",
+                SegmentValue = 3
+            },
+            new MyPieChartModel
+            {
+                SegmentName = "Product 3",
+                SegmentValue = 5
+            }
+    };
 }
 ````
 ````JavaScript
