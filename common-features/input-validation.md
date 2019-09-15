@@ -34,12 +34,7 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 >caption How to validate inputs
 
 ````CSHTML
-@using Telerik.Blazor.Components.TextBox
-@using Telerik.Blazor.Components.NumericTextBox
-@using Telerik.Blazor.Components.DateInput
-@using Telerik.Blazor.Components.DatePicker
-@using Telerik.Blazor.Components.TimePicker
-@using System.ComponentModel.DataAnnotations
+@using System.ComponentModel.DataAnnotations // used for the model class attributes
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
@@ -125,8 +120,7 @@ The DropDownList always has an item selected - the first item from its data sour
 >caption How to validate a dropdownlist
 
 ````CSHTML
-@using Telerik.Blazor.Components.DropDownList
-@using System.ComponentModel.DataAnnotations
+@using System.ComponentModel.DataAnnotations // used for the model class attributes
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
 	<DataAnnotationsValidator />
