@@ -80,6 +80,12 @@ For client-side `Blazor App`, we recommend the usage of `Blazor (ASP.NET Hosted)
     
         @[template](/_contentTemplates/common/get-started.md#telerik-main-container-snippet)
 
+1. Add the following to your **`~/_Imports.razor`** file so the project recognizes our components in all files:
+
+    **CSHTML**
+    
+        @using Telerik.Blazor
+        @using Telerik.Blazor.Components
 
 1. @[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
 
