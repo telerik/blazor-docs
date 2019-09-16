@@ -88,7 +88,7 @@ Basic chart and common settings/elements
 
 To control the chart size, use its `Width` and `Height` properties. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
 
-You can also set the chart size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call its `Resize()` method after the DOM has been redrawn and the new container dimensions are rendered.
+You can also set the chart size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the chart's `Refresh()` C# method after the DOM has been redrawn and the new container dimensions are rendered. You can do this when you explicitly change container sizes (like in the example below), or from code that gets called by events like `window.resize`.
 
 
 >caption Change the 100% chart size dynamically to have a responsive chart
