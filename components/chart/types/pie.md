@@ -20,7 +20,7 @@ The **Pie** chart displays the data as sectors from a two-dimensional circle and
 
 To create a pie chart:
 
-1. add a `TelerikChartSeries` to the `TelerikChartSeriesItems` collection
+1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Pie`
 3. provide a data model collection to its `Data` property
 4. set the `Field` and `CategoryField` properties to the corresponding fields in the model that carry the values and names that will be shown in the legend
@@ -30,20 +30,19 @@ If you use [simple data binding]({%slug components/chart/databind%}#independent-
 >caption A pie chart that shows product revenues
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Pie series
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Pie" Data="@pieData" 
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Pie" Data="@pieData" 
 							Field="@nameof(MyPieChartModel.SegmentValue)" CategoryField="@nameof(MyPieChartModel.SegmentName)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartTitle Text="Revenue per product"></TelerikChartTitle>
+	<ChartTitle Text="Revenue per product"></ChartTitle>
 
-	<TelerikChartLegend Position="ChartLegendPosition.Right">
-	</TelerikChartLegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -52,6 +51,7 @@ If you use [simple data binding]({%slug components/chart/databind%}#independent-
 		public string SegmentName { get; set; }
 		public double SegmentValue { get; set; }
 	}
+	
 	public List<MyPieChartModel> pieData = new List<MyPieChartModel>
 	{
 		new MyPieChartModel
@@ -84,20 +84,19 @@ By default, the firt segment starts at the top. You can change that by using the
 You can control the color of the individual segments of the pie chart by providing a string with the desired color in the model, and setting the `ColorField` of the series to it. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Set color to the pie chart items
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Pie" Data="@pieData" ColorField="@nameof(MyPieChartModel.SegmentColor)"
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Pie" Data="@pieData" ColorField="@nameof(MyPieChartModel.SegmentColor)"
 							Field="@nameof(MyPieChartModel.SegmentValue)" CategoryField="@nameof(MyPieChartModel.SegmentName)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartTitle Text="Revenue per product"></TelerikChartTitle>
+	<ChartTitle Text="Revenue per product"></ChartTitle>
 
-	<TelerikChartLegend Position="ChartLegendPosition.Right">
-	</TelerikChartLegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -107,6 +106,7 @@ You can control the color of the individual segments of the pie chart by providi
 		public double SegmentValue { get; set; }
 		public string SegmentColor { get; set; }
 	}
+	
 	public List<MyPieChartModel> pieData = new List<MyPieChartModel>
 	{
 		new MyPieChartModel
@@ -144,20 +144,19 @@ To explode (separate) a segment, use the `ExplodeField` property of the series a
 >caption Exploded Items
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Separate items from the main body of the chart
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Pie" Data="@pieData" ExplodeField="@nameof(MyPieChartModel.IsSeparated)"
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Pie" Data="@pieData" ExplodeField="@nameof(MyPieChartModel.IsSeparated)"
 							Field="@nameof(MyPieChartModel.SegmentValue)" CategoryField="@nameof(MyPieChartModel.SegmentName)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartTitle Text="Revenue per product"></TelerikChartTitle>
+	<ChartTitle Text="Revenue per product"></ChartTitle>
 
-	<TelerikChartLegend Position="ChartLegendPosition.Right">
-	</TelerikChartLegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -167,8 +166,9 @@ To explode (separate) a segment, use the `ExplodeField` property of the series a
 		public double SegmentValue { get; set; }
 		public bool? IsSeparated { get; set; }
 	}
+	
 	public List<MyPieChartModel> pieData = new List<MyPieChartModel>
-{
+    {
 		new MyPieChartModel
 		{
 			SegmentName = "Product 1",
@@ -200,20 +200,19 @@ You can hide certain segments from the legend (for example, if their contributio
 >caption Hide segments from the legend
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Show only some items in the legend
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Pie" Data="@pieData" VisibleInLegendField="@nameof(MyPieChartModel.ShouldShowInLegend)"
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Pie" Data="@pieData" VisibleInLegendField="@nameof(MyPieChartModel.ShouldShowInLegend)"
 							Field="@nameof(MyPieChartModel.SegmentValue)" CategoryField="@nameof(MyPieChartModel.SegmentName)">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartTitle Text="Revenue per product"></TelerikChartTitle>
+	<ChartTitle Text="Revenue per product"></ChartTitle>
 
-	<TelerikChartLegend Position="ChartLegendPosition.Right">
-	</TelerikChartLegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -223,6 +222,7 @@ You can hide certain segments from the legend (for example, if their contributio
 		public double SegmentValue { get; set; }
 		public bool ShouldShowInLegend { get; set; } = true;
 	}
+	
 	public List<MyPieChartModel> pieData = new List<MyPieChartModel>
 	{
 		new MyPieChartModel

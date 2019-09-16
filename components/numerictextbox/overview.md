@@ -17,11 +17,9 @@ To use a Telerik Numeric Textbox for Blazor, add the `TelerikNumericTextBox` tag
 >caption Basic numeric textbox with its key features
 
 ````CSHTML
-@using Telerik.Blazor.Components.NumericTextBox
+The new value is: @theValue
 
 <TelerikNumericTextBox Format="C" Max="5m" Min="-5m" Step="0.33m" @bind-Value="@theValue"></TelerikNumericTextBox>
-<br />
-The new value is: @theValue
 
 @code {
      private decimal theValue { get; set; } = 1.234m;
@@ -33,7 +31,7 @@ The numeric textbox component is generic, meaning that it takes the type of its 
 >caption Component namespace and reference
 
 ````CSHTML
-@using Telerik.Blazor.Components.NumericTextBox
+@using Telerik.Blazor.Components
 
 <TelerikNumericTextBox @ref="myNumericTextboxRef" @bind-Value="CurrentValue"></TelerikNumericTextBox>
 
@@ -42,7 +40,7 @@ The numeric textbox component is generic, meaning that it takes the type of its 
 	private int CurrentValue { get; set; }
 	
 	//the type of the value variable determines the type of the reference
-	private Telerik.Blazor.Components.NumericTextBox.TelerikNumericTextBox<int> myNumericTextboxRef;
+	private Telerik.Blazor.Components.TelerikNumericTextBox<int> myNumericTextboxRef;
 }
 ````
 
@@ -64,6 +62,9 @@ The numeric textbox provides the following features:
 <TelerikNumericTextBox Format="#.00 kg" Max="5m" Min="-5m" Step="0.33m" Value="3.456789m"></TelerikNumericTextBox>
 ````
 
+>important The decimal separator is `.` for the time being. When localization features get implemented in the Telerik UI for Blazor suite, it will be possible to take it from the current thread culture. This means that cultures with a differet separator may not funcion correctly. Currency symbols are also rendered by the framework and they come from the current culture as well.
+
+<!--
 >note If you want to use a currency format, you must specify a culture on the thread, so .NET knows what symbol to render. If you don't do that, you may see an unexpected/incorrect symbol or format.
 
 >caption To use currency format, set Thread culture in Startup.cs
@@ -83,6 +84,8 @@ namespace MyBlazorApp.Client
     }
 }
 ````
+
+-->
 
 ## See Also
 

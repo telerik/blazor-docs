@@ -15,7 +15,7 @@ The grid provides a toolbar where you can add a variety of actions that are not 
 * [Built-in Commands](#built-in-commands)
 * [Custom Commands](#custom-commands)
 
-To use a toolbar, define `TelerikGridCommandButton` instances in the `TelerikGridToolBar` tag of the grid. You can read more about the features available in those buttons in the [Command Column]({%slug components/grid/columns/command%}) article.
+To use a toolbar, define `GridCommandButton` instances in the `GridToolBar` tag of the grid. You can read more about the features available in those buttons in the [Command Column]({%slug components/grid/columns/command%}) article.
 
 >note The toolbar is not associated with an item from the data source. The `Item` field on the click event handler argument will always be `null` and the `Edit`, `Update`, `Cancel` commands do not work with it.
 
@@ -28,28 +28,23 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
 >caption How to insert a new item in the grid
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Grid
-
-<TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="inline" Height="500px">
-	<TelerikGridToolBar>
-		<TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
-	</TelerikGridToolBar>
-    <TelerikGridEvents>
-        <EventsManager OnUpdate="@UpdateHandler" OnCreate="@CreateHandler"></EventsManager>
-    </TelerikGridEvents>
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-		<TelerikGridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-		<TelerikGridCommandColumn>
-			<TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TelerikGridCommandButton>
-		</TelerikGridCommandColumn>
-	</TelerikGridColumns>
-</TelerikGrid>
-
 @result
+
+<TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="@GridEditMode.Inline" Height="500px"
+            OnUpdate="@UpdateHandler" OnCreate="@CreateHandler">
+	<GridToolBar>
+		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+	</GridToolBar>
+	<GridColumns>
+		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
+		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
+		<GridCommandColumn>
+			<GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+			<GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+		</GridCommandColumn>
+	</GridColumns>
+</TelerikGrid>
 
 @code {
 	string result;
@@ -100,20 +95,17 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 >caption How to define a custom command in the grid toolbar
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Grid
+@result
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15">
-	<TelerikGridToolBar>
-		<TelerikGridCommandButton Command="MyToolbarCommand" OnClick="@MyCommandFromToolbar" Icon="info">Fire My Command</TelerikGridCommandButton>
-	</TelerikGridToolBar>
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-		<TelerikGridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-	</TelerikGridColumns>
+	<GridToolBar>
+		<GridCommandButton Command="MyToolbarCommand" OnClick="@MyCommandFromToolbar" Icon="info">Fire My Command</GridCommandButton>
+	</GridToolBar>
+	<GridColumns>
+		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
+		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
+	</GridColumns>
 </TelerikGrid>
-
-@result
 
 @code {
 	string result;

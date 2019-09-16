@@ -38,9 +38,9 @@ The treeview items provide the following features that you control through the c
 
 ## Data Bindings
 
-The properties of a treeview item match directly to a field of the model the treeview is bound to. You provide that relationship by providing the name of the field from which the corresponding information is present. To do this, under the `TelerikTreeViewBindings` tag, use the `TelerikTreeViewBinding` tag properties.
+The properties of a treeview item match directly to a field of the model the treeview is bound to. You provide that relationship by providing the name of the field from which the corresponding information is present. To do this, under the `TreeViewBindings` tag, use the `TreeViewBinding` tag properties.
 
-Each `TelerikTreeViewBinding` tag exposes the following properties that refer to item properties:
+Each `TreeViewBinding` tag exposes the following properties that refer to item properties:
 
 * IdField => Id
 * ParentIdField => ParentId
@@ -56,7 +56,7 @@ Each `TelerikTreeViewBinding` tag exposes the following properties that refer to
 
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
 
->caption Default field names for treeview item bindings. If you use these, you don't have to specify them in the `TelerikTreeViewBinding` tag explicitly.
+>caption Default field names for treeview item bindings. If you use these, you don't have to specify them in the `TreeViewBinding` tag explicitly.
 
 ````CSHTML
 public class TreeItem
@@ -87,22 +87,20 @@ You can define different binding settings for the different levels of nodes in a
 
 This also allows you to define a different [`ItemTemplate`]({%slug components/treeview/templates%}) for different levels.
 
-To define multiple bindings, add multiple `TelerikTreeViewBinding` tags and define their `Level`.
+To define multiple bindings, add multiple `TreeViewBinding` tags and define their `Level`.
 
 If a certain level does not have an explicit data bindings tag, it will use the default one that has no level.
 
 >caption How to use per-level data binding settings to change model fields
 
 ````CSHTML
-@using Telerik.Blazor.Components.TreeView
-
- The third level will use the main data bindings settings that do not have a level specified 
+The third level will use the main data bindings settings that do not have a level specified 
 
 <TelerikTreeView Data="@FlatData">
-	<TelerikTreeViewBindings>
-		<TelerikTreeViewBinding ParentIdField="Parent" ExpandedField="IsExpanded"></TelerikTreeViewBinding>
-		<TelerikTreeViewBinding Level="1" TextField="SecondText" ParentIdField="Parent" ExpandedField="IsExpanded"></TelerikTreeViewBinding>
-	</TelerikTreeViewBindings>
+	<TreeViewBindings>
+		<TreeViewBinding ParentIdField="Parent" ExpandedField="IsExpanded" />
+		<TreeViewBinding Level="1" TextField="SecondText" ParentIdField="Parent" ExpandedField="IsExpanded" />
+	</TreeViewBindings>
 </TelerikTreeView>
 
 @code {

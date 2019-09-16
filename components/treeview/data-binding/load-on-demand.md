@@ -21,14 +21,13 @@ The **example** below shows how you can handle load on demand in detail. It uses
 >caption Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
 
 ````CSHTML
-@using Telerik.Blazor.Components.TreeView
-@using Telerik.DataSource.Extensions
+@using Telerik.DataSource.Extensions //used for the .AddRange() extension method
 
 <TelerikTreeView Data="@HierarchicalData" OnExpand="@LoadChildren">
-	<TelerikTreeViewBindings>
-		<TelerikTreeViewBinding TextField="Category" ItemsField="Products"></TelerikTreeViewBinding>
-		<TelerikTreeViewBinding Level="1" TextField="ProductName"></TelerikTreeViewBinding>
-	</TelerikTreeViewBindings>
+	<TreeViewBindings>
+		<TreeViewBinding TextField="Category" ItemsField="Products" />
+		<TreeViewBinding Level="1" TextField="ProductName" />
+	</TreeViewBindings>
 </TelerikTreeView>
 
 @code {

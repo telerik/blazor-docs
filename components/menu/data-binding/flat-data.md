@@ -23,7 +23,7 @@ You are *not* required to provide a value for the `HasChildren` field. @[templat
 >caption Example of flat data in a menu (for brevity, URLs are omitted)
 
 ````CSHTML
-@using Telerik.Blazor.Components.Menu
+Using a self-referencing flat data source for the menu
 
 <TelerikMenu Data="@MenuItems"
              ParentIdField="@nameof(MenuItem.SectionId)"

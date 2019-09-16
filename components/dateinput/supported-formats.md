@@ -46,7 +46,8 @@ The Telerik Date Input supports the standard format strings and specifiers that 
 >caption Standard format strings support in Telerik Date Input for Blazor
 
 ````CSHTML
-@using Telerik.Blazor.Components.DateInput
+@TheDate
+<br />
 
 <TelerikDateInput @bind-Value="TheDate" Format="d" />@TheDate.ToString("d")
 <br />
@@ -79,9 +80,6 @@ The Telerik Date Input supports the standard format strings and specifiers that 
 <TelerikDateInput @bind-Value="TheDate" Format="y" />@TheDate.ToString("y")
 <br />
 <TelerikDateInput @bind-Value="TheDate" Format="Y" />@TheDate.ToString("Y")
-<br />
-
-@TheDate
 
 @code {
     DateTime TheDate { get; set; } = new DateTime(2019, 4, 27, 22, 03, 44);
@@ -97,7 +95,8 @@ The Telerik Date Input supports the standard format strings and specifiers that 
 >caption Using supported .NET format specifiers to define relatively common date formats in the Telerik Date Input
 
 ````CSHTML
-@using Telerik.Blazor.Components.DateInput
+@TheDate
+<br />
 
 <TelerikDateInput @bind-Value="TheDate" Format="dd/MM/yy" /> @TheDate.ToString("dd/MM/yy")
 <br />
@@ -116,9 +115,6 @@ The Telerik Date Input supports the standard format strings and specifiers that 
 <TelerikDateInput @bind-Value="TheDate" Format="dd-MM-yyyy" /> @TheDate.ToString("dd-MM-yyyy")
 <br />
 <TelerikDateInput @bind-Value="TheDate" Format="dd.MMM.yyyy" /> @TheDate.ToString("dd.MMM.yyyy")
-<br />
-
-@TheDate
 
 @code {
     DateTime TheDate { get; set; } = new DateTime(2019, 11, 27, 02, 03, 44);

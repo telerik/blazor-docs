@@ -12,66 +12,45 @@ position: 2
 
 The Window offers two ways for you to control its position:
 
-* the [`Top` and `Left` properties]({%slug common-features/dimensions%})
+* the `Top` and `Left` properties (read more in the [Dimensions]({%slug common-features/dimensions%}) article)
 * the `Centered` boolean property
 
 >caption Set Top and Left offset to the Window
 
 ````CSHTML
-@using Telerik.Blazor.Components.Window
-
 <TelerikWindow Top="50px" Left="100px" Visible="true">
-	<TelerikWindowTitle>
+	<WindowTitle>
 		<strong>The Title</strong>
-	</TelerikWindowTitle>
-	<TelerikWindowContent>
-		I am <strong>100px</strong> away from the left edge of my container, and <strong>50px</strong> away from its top.
-	</TelerikWindowContent>
+	</WindowTitle>
+	<WindowContent>
+		I am <strong>100px</strong> away from the left edge of the <strong>app</strong> container, and <strong>50px</strong> away from its top.
+	</WindowContent>
 </TelerikWindow>
 ````
 
-The `Centered` property adds a CSS class that sets the window position to `top: 50%; left: 50%; transform: translate(-50%, -50%);`. This centers it in its container.
+The `Centered` property adds a CSS class that sets the window position to `top: 50%; left: 50%; transform: translate(-50%, -50%);`. This keep is it centered if the viewport size changes.
 
 If the `Top` and/or `Left` properties are set, they will take precedence, because they render as rules in an inline `style` attribute.
+
+>tip The `Centered` parameter is `true` by default.
 
 >caption Center the Window
 
 ````CSHTML
-@using Telerik.Blazor.Components.Window
-
 <TelerikWindow Centered="true" Visible="true">
-	<TelerikWindowTitle>
+	<WindowTitle>
 		<strong>The Title</strong>
-	</TelerikWindowTitle>
-	<TelerikWindowContent>
-		I am <strong>centered</strong> in my container (usually the viewport).
-	</TelerikWindowContent>
+	</WindowTitle>
+	<WindowContent>
+		I am <strong>centered</strong> in the app container (usually the viewport).
+	</WindowContent>
 </TelerikWindow>
 ````
 
 >tip If you want to center the window dynamically through data binding its `Centered` property, you may want to data bind the `Top` and `Left` properties as well, so you can reset them to `null` when you want to center the window in the viewport.
 
->important The Window renders in the place of its declaration. If its parent elements have special CSS positioning, it will affect the position of the Window. You can find an example in the snippet below.
+>important The Window renders in the root of the application (where the `<TelerikRootComponent>` is declared). This, generally, positions it relatively to the viewport. If you have special CSS positioning, margins or other offsets on the app element, they may affect the position of the Window.
 
->caption Parent element positions affect the Windnow position
-
-````CSHTML
-@using Telerik.Blazor.Components.Window
-
-<div style="position: absolute; top: 300px; left: 300px; border: 1px solid red;">
-	I am a parent of the Window with special positioning (absolute, fixed, relative) and my offsets affect the position of the Window.
-
-	<TelerikWindow Top="50" Left="100" Visible="true">
-		<TelerikWindowTitle>
-			<strong>The Title</strong>
-		</TelerikWindowTitle>
-		<TelerikWindowContent>
-			I am <strong>100px</strong> away from the left edge of my container, and <strong>50px</strong> away from its top.
-		</TelerikWindowContent>
-	</TelerikWindow>
-	
-</div>
-````
 
 ## See Also
 

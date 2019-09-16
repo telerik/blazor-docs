@@ -16,7 +16,7 @@ In a similar fashion, the `Cancel`, `Delete` command buttons and the `Add` toolb
 
 You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
 
-To enable PopUp editing in the grid, set its `EditMode` property to `popup`, then handle the CRUD events as shown in the example below.
+To enable PopUp editing in the grid, set its `EditMode` property to `Telerik.Blazor.GridEditMode.Popup`, then handle the CRUD events as shown in the example below.
 
 The PopUp editing mode supports [validation]({%slug common-features/input-validation%}). To use it, all you need to do is decorate your model with the desired annotations. Validation errors will be shown in the popup and will prevent the Update operation.
 
@@ -25,29 +25,25 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 >caption The Command buttons and the grid events let you handle data operations in PopUp edit mode
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Grid
 @using System.ComponentModel.DataAnnotations
 
-<strong>Editing is cancelled for the first two records.</strong>
+<strong>Editing is cancelled for the first two records.</strong> The DataAnnotations namespace is included in this example only because of the model class.
 
-<TelerikGrid Data=@MyData EditMode="popup" Pageable="true" Height="500px">
-	<TelerikGridEvents>
-		<EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler"></EventsManager>
-	</TelerikGridEvents>
-	<TelerikGridToolBar>
-		<TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
-	</TelerikGridToolBar>
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />
-		<TelerikGridCommandColumn>
-			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Delete" Icon="delete">Delete</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TelerikGridCommandButton>
-		</TelerikGridCommandColumn>
-	</TelerikGridColumns>
+<TelerikGrid Data=@MyData EditMode="@GridEditMode.Popup" Pageable="true" Height="500px"
+        OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
+	<GridToolBar>
+		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+	</GridToolBar>
+	<GridColumns>
+		<GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+		<GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+		<GridCommandColumn>
+			<GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+			<GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+			<GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+		</GridCommandColumn>
+	</GridColumns>
 </TelerikGrid>
 
 @code {
@@ -56,7 +52,7 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 		SampleData item = (SampleData)args.Item;
 
 		//prevent opening for edit based on condition
-		if (item.ID < 3)
+		if (item.ID < 2)
 		{
 			args.IsCancelled = true;//the general approach for cancelling an event
 		}

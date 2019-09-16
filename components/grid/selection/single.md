@@ -20,7 +20,7 @@ Once a selection is made in Single selection mode, it cannot be removed.
 
 ## Checkbox Selection
 
-In Single SelectionMode, selection is applied with a click on a row, or by clicking a checkbox if the `TelerikGridCheckboxColumn` is present in the `TelerikGridColumns` collection of the grid.
+In Single SelectionMode, selection is applied with a click on a row, or by clicking a checkbox if the `GridCheckboxColumn` is present in the `GridColumns` collection of the grid.
 
 Only one row can be selected at a time, even with checkboxes enabled, so the last one that is clicked will be selected.
 
@@ -43,16 +43,16 @@ You can add a checkbox column for single selection. It is required if the `InCel
 >caption Single Selection and a checkbox column.
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Single selection can be done by clicking a row or through a checkbox
 
 <TelerikGrid Data=@GridData
              SelectionMode="GridSelectionMode.Single"
              Pageable="true">
-    <TelerikGridColumns>
-        <TelerikGridCheckboxColumn SelectAll="false" Title="Select" Width="70px" />
-        <TelerikGridColumn Field=@nameof(Employee.Name) />
-        <TelerikGridColumn Field=@nameof(Employee.Team) Title="Team" />
-    </TelerikGridColumns>
+    <GridColumns>
+        <GridCheckboxColumn SelectAll="false" Title="Select" Width="70px" />
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
 </TelerikGrid>
 
 @code {
@@ -90,27 +90,26 @@ The example below shows how to handle the `SelectedItemsChanged` event to extrac
 >caption Single Selection and handling the SelectedItemsChanged event
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
-@using Telerik.Blazor
+Use the selection change event to show detail data
 
 <TelerikGrid Data=@GridData
              SelectionMode="GridSelectionMode.Single"
              SelectedItemsChanged="@((IEnumerable<Employee> employeeList) => OnSelect(employeeList))"
              Pageable="true"
              Height="300px">
-    <TelerikGridColumns>
-        <TelerikGridColumn Field=@nameof(Employee.Name) />
-        <TelerikGridColumn Field=@nameof(Employee.Team) Title="Team" />
-    </TelerikGridColumns>
+    <GridColumns>
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
 </TelerikGrid>
 
 @if (TeamMatesList != null)
 {
     <h6>@SelectedEmployee.Team</h6>
     <TelerikGrid Data="@TeamMatesList">
-        <TelerikGridColumns>
-            <TelerikGridColumn Field=@nameof(Employee.Name) />
-        </TelerikGridColumns>
+        <GridColumns>
+            <GridColumn Field=@nameof(Employee.Name) />
+        </GridColumns>
     </TelerikGrid>
 }
 
@@ -167,8 +166,6 @@ You can predefine the selected item for your users through the two-way binding o
 >caption Single Selection and two-way binding of the `SelectedItems` property
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
-
 Selected item: @SelectedItems.FirstOrDefault().Name
 
 <TelerikGrid Data=@GridData
@@ -176,10 +173,10 @@ Selected item: @SelectedItems.FirstOrDefault().Name
              @bind-SelectedItems="SelectedItems"
              Pageable="true"
              Height="400px">
-    <TelerikGridColumns>
-        <TelerikGridColumn Field=@nameof(Employee.Name) />
-        <TelerikGridColumn Field=@nameof(Employee.Team) Title="Team" />
-    </TelerikGridColumns>
+    <GridColumns>
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
 </TelerikGrid>
 
 @code {

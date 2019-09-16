@@ -23,12 +23,12 @@ You must also provide the correct value for the `HasChildren` field - for items 
 >caption Example of flat data in a treeview
 
 ````CSHTML
-@using Telerik.Blazor.Components.TreeView
+Using self-referencing flat data
 
 <TelerikTreeView Data="@FlatData">
-	<TelerikTreeViewBindings>
-		<TelerikTreeViewBinding ParentIdField="Parent" ExpandedField="IsExpanded"></TelerikTreeViewBinding>
-	</TelerikTreeViewBindings>
+	<TreeViewBindings>
+		<TreeViewBinding ParentIdField="Parent" ExpandedField="IsExpanded" />
+	</TreeViewBindings>
 </TelerikTreeView>
 
 @code {

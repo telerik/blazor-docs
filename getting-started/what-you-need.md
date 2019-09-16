@@ -96,6 +96,13 @@ namespace MyBlazorAppName
 }
 ````
 
+You can have the project recognize all our components without explicit `@using` statements on every `.razor` file. It is enough to add the following to your **`~/_Imports.razor`** file:
+
+````CSHTML
+@using Telerik.Blazor
+@using Telerik.Blazor.Components
+````
+
 To allow working with detached popups (for example, dropdown lists, menus, grid filters, etc.), a Telerik-specific Blazor component is needed at the root level of the DOM.
 @[template](/_contentTemplates/common/get-started.md#telerik-main-container-text)
 

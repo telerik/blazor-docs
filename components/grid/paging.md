@@ -21,13 +21,13 @@ You can set the current page of the grid through its integer `Page` property.
 >caption Enable paging in Telerik Grid
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Enable paging and start on the second page.
 
 <TelerikGrid Data="@MyData" Pageable="true" PageSize="15" Page="2" Height="500px">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="ID"></TelerikGridColumn>
-		<TelerikGridColumn Field="TheName" Title="Employee Name"></TelerikGridColumn>
-	</TelerikGridColumns>
+	<GridColumns>
+		<GridColumn Field="ID"></GridColumn>
+		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
+	</GridColumns>
 </TelerikGrid>
 
 @code {
@@ -39,28 +39,28 @@ You can set the current page of the grid through its integer `Page` property.
 
 ![](images/paging-overview.png)
 
->tip You can bind the values of those properties to variables in the `@code {}` section.
+>tip You can bind the values of those properties to variables in the `@code {}` section. If you want to bind the page index to a variable, you must use the `@bind-Page="@MyPageIndexVariable"` syntax.
 
 Here is one way to implement a page size choice that puts all records on one page.
 
 >caption Bind Page Size to a variable
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Dynamic page size change
 
-<select onchange=@ChangePageSize>
+<select @onchange=@ChangePageSize>
 	@for (int i = 1; i < 4; i++)
 	{
 		<option value=@(i*10)>@(i * 10)</option>
 	}
-	<option value="all">all</option>
+	<option value="all" selected>all</option>
 </select>
 
 <TelerikGrid Data="@MyData" Pageable="true" PageSize="@PageSize">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="ID"></TelerikGridColumn>
-		<TelerikGridColumn Field="TheName" Title="Employee Name"></TelerikGridColumn>
-	</TelerikGridColumns>
+	<GridColumns>
+		<GridColumn Field="ID"></GridColumn>
+		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
+	</GridColumns>
 </TelerikGrid>
 
 @code {

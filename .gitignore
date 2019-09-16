@@ -1,11 +1,11 @@
 
-.vs
 .asset-cache/
 .dockerignore
 .DS_Store
 .editorconfig
 .jekyll-metadata
 .ruby-version
+.vs
 /_assets/
 /_build/
 /_buildApi/

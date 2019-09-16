@@ -24,12 +24,10 @@ The time picker is a generic component, so you must provide either a `Value`, or
 >caption Handle OnChange
 
 ````CSHTML
-@using Telerik.Blazor.Components.TimePicker
+@result
+<br />
 
 <TelerikTimePicker T="DateTime" OnChange="@MyOnChangeHandler"></TelerikTimePicker>
-
-<br />
-@result
 
 @code {
     string result;
@@ -50,14 +48,12 @@ The time picker is a generic component, so you must provide either a `Value`, or
 >caption Handle OnChange and use two-way binding
 
 ````CSHTML
-@using Telerik.Blazor.Components.TimePicker
-
-<TelerikTimePicker @bind-Value="@thePickerValue" OnChange="@MyOnChangeHandler"></TelerikTimePicker>
-
-<br />
 @result
 <br />
 model value: @thePickerValue
+<br />
+
+<TelerikTimePicker @bind-Value="@thePickerValue" OnChange="@MyOnChangeHandler"></TelerikTimePicker>
 
 @code {
     string result;
@@ -81,12 +77,10 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 >caption Handle ValueChanged
 
 ````CSHTML
-@using Telerik.Blazor.Components.TimePicker
+@result
+<br />
 
 <TelerikTimePicker ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikTimePicker>
-
-<br />
-@result
 
 @code {
     string result;
@@ -105,14 +99,12 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 >caption Handle ValueChanged and provide initial value
 
 ````CSHTML
-@using Telerik.Blazor.Components.TimePicker
-
-<TelerikTimePicker Value="@thePickerValue" ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikTimePicker>
-
-<br />
 @result
 <br />
 model value: @thePickerValue
+<br />
+
+<TelerikTimePicker Value="@thePickerValue" ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikTimePicker>
 
 @code {
     string result;

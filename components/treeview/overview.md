@@ -29,13 +29,13 @@ To use a Telerik TreeView for Blazor:
 >caption Component namespace and reference
 
 ````CSHTML
-@using Telerik.Blazor.Components.TreeView
+@using Telerik.Blazor.Components
 
 <TelerikTreeView @ref="theTreeView">
 </TelerikTreeView>
 
 @code {
-    Telerik.Blazor.Components.TreeView.TelerikTreeView theTreeView;
+    Telerik.Blazor.Components.TelerikTreeView theTreeView;
 }
 ````
 
@@ -50,13 +50,13 @@ A treeview is often used to list pages, views or sections in an application so t
 >caption Navigation with treeview through the UrlField
 
 ````CSHTML
-@using Telerik.Blazor.Components.TreeView
+Built-in navigation between views
 
 <TelerikTreeView Data="@TreeData">
-	<TelerikTreeViewBindings>
-		<TelerikTreeViewBinding UrlField="Page" ParentIdField="ParentIdValue">
-		</TelerikTreeViewBinding>
-	</TelerikTreeViewBindings>
+	<TreeViewBindings>
+		<TreeViewBinding UrlField="Page" ParentIdField="ParentIdValue">
+		</TreeViewBinding>
+	</TreeViewBindings>
 </TelerikTreeView>
 
 @code {

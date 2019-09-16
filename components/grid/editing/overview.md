@@ -34,31 +34,24 @@ The CUD event handlers receive an argument of type `GridCommandEventArgs` that e
 >caption Handling the CRUD events of the grid to save data to the actual data source
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Grid
+Editing is cancelled for the first two records. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
-<strong>Editing is cancelled for the first two records.</strong>
-
-<TelerikGrid Data=@MyData EditMode="inline" Pageable="true" Height="400px">
-	<TelerikGridEvents>
-		<EventsManager OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler"></EventsManager>
-	</TelerikGridEvents>
-	<TelerikGridToolBar>
-		<TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
-	</TelerikGridToolBar>
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Name" />
-		<TelerikGridCommandColumn>
-			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Delete" Icon="delete">Delete</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TelerikGridCommandButton>
-		</TelerikGridCommandColumn>
-	</TelerikGridColumns>
+<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="400px"
+        OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
+	<GridToolBar>
+		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+	</GridToolBar>
+	<GridColumns>
+		<GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+		<GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+		<GridCommandColumn>
+			<GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+			<GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+			<GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+		</GridCommandColumn>
+	</GridColumns>
 </TelerikGrid>
-
-There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 @logger
 

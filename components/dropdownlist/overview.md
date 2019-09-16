@@ -17,17 +17,16 @@ To use a Telerik DropDownList for Blazor
 1. add the `TelerikDropDownList` tag
 1. populate its `Data` property with the collection of items you want in the dropdown
 1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
-1. set the `Value` property to the intial value of the model.
+1. set the `Value` property to the intial value of the model (optional).
 
 >caption Basic dropdownlist [data binding](data-bind) and value binding
 
 ````CSHTML
-@using Telerik.Blazor.Components.DropDownList
+Selected value: @selectedValue
+<br />
 
 <TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue">
 </TelerikDropDownList>
-
-<br />Selected value: @selectedValue
 
 @code {
 	//in a real case, the model is usually in a separate file
@@ -55,9 +54,10 @@ To use a Telerik DropDownList for Blazor
 
 <TelerikDropDownList @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="3">
 </TelerikDropDownList>
+
 @code {
 	//the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
-	Telerik.Blazor.Components.DropDownList.TelerikDropDownList<MyDdlModel, int> myDdlRef;
+	Telerik.Blazor.Components.TelerikDropDownList<MyDdlModel, int> myDdlRef;
 
 	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 	
@@ -77,7 +77,7 @@ To use a Telerik DropDownList for Blazor
     protected string MyItem { get; set; } = "second";
     
     //the type of the generic component is determined by the type of the model you pass to it, when the model is a primitive type
-	Telerik.Blazor.Components.DropDownList.TelerikDropDownList<string, string> myDdlRef2;
+	Telerik.Blazor.Components.TelerikDropDownList<string, string> myDdlRef2;
 }
 ````
 
@@ -87,7 +87,6 @@ The DropDownList provides the following features:
 * `Data` - allows you to provide the data source. Required.
 * `DefaultItem` - sets the hint that is shown if no other item is selected. Set this property to an instance of the model class to which the dropdown is bound.
 * `Enabled` - whether the component is enabled.
-* `Height` - the height of the main element. See the [Dimensions]({%slug common-features/dimensions%}) article.
 * `PopupHeight` - the height of the expanded dropdown list element.
 * `T` - the type of the model to which the component is bound. Required. Determines the type of the reference object.
 * `TItem` - the type of the value field from the model to which the component is bound. Required. Determines the type of the reference object.
@@ -112,16 +111,14 @@ The DropDownList provides the following features:
 >caption Handling the ValueChanged event and providing an initial value
 
 ````CSHTML
-@using Telerik.Blazor.Components.DropDownList
+@result
+<br />
+@InitialValue
+<br />
 
 <TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField"
                      Value="@InitialValue" ValueChanged="@( (int v) => MyValueChangedHandler(v) )">
 </TelerikDropDownList>
-
-<br />
-@result
-<br />
-@InitialValue
 
 @code {
     IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
@@ -156,14 +153,17 @@ The DropDownList provides the following features:
 >caption Get selected item from external code
 
 ````CSHTML
-@using Telerik.Blazor.Components.DropDownList
-@using Telerik.Blazor.Components.Button
+@result
+<br />
 
-<TelerikDropDownList @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="5">
+<TelerikDropDownList @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="@initialValue">
 </TelerikDropDownList>
-<TelerikButton OnClick="@GetSelectedItem">Get Selected Item</TelerikButton> @result
+
+<TelerikButton OnClick="@GetSelectedItem">Get Selected Item</TelerikButton>
+
 @code {
 	string result;
+    int initialValue {get;set;} = 5;
 	void GetSelectedItem()
 	{
 		if (myDdlRef.SelectedDataItem != null)
@@ -179,7 +179,7 @@ The DropDownList provides the following features:
 	}
 
 	//the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
-	Telerik.Blazor.Components.DropDownList.TelerikDropDownList<MyDdlModel, int> myDdlRef;
+	Telerik.Blazor.Components.TelerikDropDownList<MyDdlModel, int> myDdlRef;
 
 	public class MyDdlModel
 	{

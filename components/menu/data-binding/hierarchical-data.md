@@ -21,7 +21,7 @@ This approach of providing nodes lets you gather separate collections of data fo
 >caption Example of using hierarchical data in a menu (for brevity, URLs are omitted)
 
 ````CSHTML
-@using Telerik.Blazor.Components.Menu
+Hierarchical menu data source
 
 <TelerikMenu Data="@MenuItems"
              ItemsField="@nameof(MenuItem.SubSectionList)"

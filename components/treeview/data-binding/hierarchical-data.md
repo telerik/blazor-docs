@@ -21,13 +21,13 @@ This approach of providing nodes lets you gather separate collections of data an
 >caption Example of hierarchical data that uses different models for the parent and the child. Using different models is not required.
 
 ````CSHTML
-@using Telerik.Blazor.Components.TreeView
+Hierarchical data hold collections of the child items
 
 <TelerikTreeView Data="@HierarchicalData">
-	<TelerikTreeViewBindings>
-		<TelerikTreeViewBinding TextField="Category" ItemsField="Products"></TelerikTreeViewBinding>
-		<TelerikTreeViewBinding Level="1" TextField="ProductName"></TelerikTreeViewBinding>
-	</TelerikTreeViewBindings>
+	<TreeViewBindings>
+		<TreeViewBinding TextField="Category" ItemsField="Products" />
+		<TreeViewBinding Level="1" TextField="ProductName" />
+	</TreeViewBindings>
 </TelerikTreeView>
 
 @code {
@@ -60,7 +60,7 @@ This approach of providing nodes lets you gather separate collections of data an
 		List<ProductCategoryItem> roots = new List<ProductCategoryItem>();
 
 		List<ProductItem> firstCategoryProducts = new List<ProductItem>()
-{
+    {
 			new ProductItem { ProductName= "Category 1 - Product 1" },
 			new ProductItem { ProductName= "Category 1 - Product 2" }
 		};

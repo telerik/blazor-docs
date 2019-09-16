@@ -16,22 +16,22 @@ To create a basic Telerik Grid:
 
 1. use the `TelerikGrid` tag
 1. set its `Data` attribute to the variable that will hold your collection of data
-1. under its `TelerikGridColumns` tag, set the desired [`TelerikGridColumn`]({%slug components/grid/columns/bound%}) instances whose `Field` property points to the name of the model field
+1. under its `GridColumns` tag, set the desired [`GridColumn`]({%slug components/grid/columns/bound%}) instances whose `Field` property points to the name of the model field
 
 >caption Get started with the grid by providing it with a data collection and enabling its key features
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+General grid with its most common features
 
 <TelerikGrid Data="@MyData" Height="400px"
              Pageable="true" Sortable="true" Groupable="true"
-             FilterMode="Telerik.Blazor.FilterMode.FilterRow">
-    <TelerikGridColumns>
-        <TelerikGridColumn Field="@(nameof(SampleData.Id))" />
-        <TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
-        <TelerikGridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <TelerikGridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </TelerikGridColumns>
+             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow">
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
 </TelerikGrid>
 
 @code {
@@ -57,7 +57,7 @@ To create a basic Telerik Grid:
 
 ![](images/basic-grid.png)
 
->tip You can also use a string for the field name, using the `nameof` operator is not necessary. For example, the ID column can be defined like this: `<TelerikGridColumn Field="Id" />`.
+>tip You can also use a string for the field name, using the `nameof` operator is not necessary. For example, the ID column can be defined like this: `<GridColumn Field="Id" />`.
 
 ## Reference
 
@@ -66,19 +66,19 @@ The grid is a generic component, and to store a reference, you must use the mode
 >caption Store a reference to a Telerik Grid
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+@using Telerik.Blazor.Components
 
 <TelerikGrid Data="@MyData" @ref="theGridReference">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
-		</TelerikGridColumn>
-		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-		</TelerikGridColumn>
-	</TelerikGridColumns>
+	<GridColumns>
+		<GridColumn Field="@(nameof(SampleData.ID))">
+		</GridColumn>
+		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
+		</GridColumn>
+	</GridColumns>
 </TelerikGrid>
 
 @code {
-	TelerikGrid<SampleData> theGridReference;
+	Telerik.Blazor.Components.TelerikGrid<SampleData> theGridReference;
 
 	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
 	{
@@ -124,11 +124,11 @@ You can define user actions in a [dedicated toolbar]({%slug components/grid/feat
 
 The grid can perfom CRUD operations on its current data collection and exposes events that let you control the operations and transfer changes to the actual data source. The [CRUD Operations Overview]({%slug components/grid/editing/overview%}) article offers more details on this.
 
-The grid offers several editing modes with different user experience through the `EditMode` property that takes a string value which can be one of the following:
+The grid offers several editing modes with different user experience through the `EditMode` property that is a member of the `GridEditMode` enum:
 
-* `incell` - editing is done [in the current cell]({%slug components/grid/editing/incell%}) with a double click
-* `inline` - editing is done for the [entire row]({%slug components/grid/editing/inline%}) with an [Edit Command Button]({%slug components/grid/columns/command%})
-* `popup` - editing is done in a [popup]({%slug components/grid/editing/popup%}) for the entire row with an [Edit Command Button]({%slug components/grid/columns/command%})
+* `Incell` - editing is done [in the current cell]({%slug components/grid/editing/incell%}) with a double click
+* `Inline` - editing is done for the [entire row]({%slug components/grid/editing/inline%}) with an [Edit Command Button]({%slug components/grid/columns/command%})
+* `Popup` - editing is done in a [popup]({%slug components/grid/editing/popup%}) for the entire row with an [Edit Command Button]({%slug components/grid/columns/command%})
 
 ## Styling
 
@@ -141,7 +141,7 @@ For example, you can benefit from the elastic design the components expose to ch
 >caption Change font size and dimensions of a grid
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+The grid offers elastic design capabilities
 
 <style>
     div.smallerFont,
@@ -155,31 +155,31 @@ For example, you can benefit from the elastic design the components expose to ch
 </style>
 
 <TelerikGrid Data="@MyData" Class="smallerFont"
-			  Pageable="true" FilterMode="Telerik.Blazor.FilterMode.FilterRow"
+			  Pageable="true" FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
 			  Sortable="true" Height="200px">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
-		</TelerikGridColumn>
-		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-		</TelerikGridColumn>
-		<TelerikGridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
-		</TelerikGridColumn>
-	</TelerikGridColumns>
+	<GridColumns>
+		<GridColumn Field="@(nameof(SampleData.ID))">
+		</GridColumn>
+		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
+		</GridColumn>
+		<GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
+		</GridColumn>
+	</GridColumns>
 </TelerikGrid>
 
 original:
 
 <TelerikGrid Data="@MyData"
-			  Pageable="true" FilterMode="Telerik.Blazor.FilterMode.FilterRow"
+			  Pageable="true" FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
 			  Sortable="true" Height="200px">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="@(nameof(SampleData.ID))">
-		</TelerikGridColumn>
-		<TelerikGridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-		</TelerikGridColumn>
-		<TelerikGridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
-		</TelerikGridColumn>
-	</TelerikGridColumns>
+	<GridColumns>
+		<GridColumn Field="@(nameof(SampleData.ID))">
+		</GridColumn>
+		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
+		</GridColumn>
+		<GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
+		</GridColumn>
+	</GridColumns>
 </TelerikGrid>
 
 @code {

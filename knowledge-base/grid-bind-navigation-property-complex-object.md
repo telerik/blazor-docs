@@ -29,24 +29,24 @@ This will let the grid perform operations like sorting and filtering, that will 
 If simple display is sufficient, you can use [Templates]({%slug components/grid/features/templates%}). For example:
 
 ````CSHTML
-@using Telerik.Blazor
+You can also consider using a DetailTemplate for showing complex details about a row
 
 <TelerikGrid Data="@myData">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field="@nameof(SampleComplexObject.ID)" Title="ID"></TelerikGridColumn>
-		<TelerikGridColumn Field="@nameof(SampleComplexObject.Name)" Title="The Name"></TelerikGridColumn>
-		<TelerikGridColumn Title="First Nested Property">
+	<GridColumns>
+		<GridColumn Field="@nameof(SampleComplexObject.ID)" Title="ID"></GridColumn>
+		<GridColumn Field="@nameof(SampleComplexObject.Name)" Title="The Name"></GridColumn>
+		<GridColumn Title="First Nested Property">
 			<Template>
 			@((context as SampleComplexObject).SomeNavigationProperty.Field1)
 		</Template>
-		</TelerikGridColumn>
-		<TelerikGridColumn Title="Second Nested Property">
+		</GridColumn>
+		<GridColumn Title="Second Nested Property">
 			<Template>
 				@((context as SampleComplexObject).SomeNavigationProperty.OtherField)
 			</Template>
-		</TelerikGridColumn>
+		</GridColumn>
 
-	</TelerikGridColumns>
+	</GridColumns>
 </TelerikGrid>
 
 

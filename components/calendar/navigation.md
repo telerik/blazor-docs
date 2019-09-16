@@ -21,9 +21,6 @@ You can control how far the user can go by setting the `Min` and `Max` propertie
 >caption Previous and Next navigation is enabled by default. You can control the min and max range of dates the user can navigate through
 
 ````CSHTML
-@using Telerik.Blazor.Components.Calendar
-@using Telerik.Blazor
-
 The user starts in April 2019 and can navigate between January 2019 and July 2019.
 <br />
 
@@ -57,9 +54,6 @@ You can control how much detail the user can go into by setting the `BottomView`
 >caption Control current view and how deep the user can go
 
 ````CSHTML
-@using Telerik.Blazor.Components.Calendar
-@using Telerik.Blazor
-
 The user starts in the Decade view and can only go down to years.
 <br />
 
@@ -88,28 +82,32 @@ The selected date is: @selectedDate
 
 ## Programmatic Navigation
 
-You can make the Calendar component move to a certain date and view through its `Navigate` method from your own code. The method takes into account the min and max dates, and the allowed views. If the parameters passed to the method are not allowed by those constraints, navigation will not occur.
+You can make the Calendar component move to a certain date and view through its `Date` and `View` parameters that support two-way binding. The constraints of the min/max and bottom view apply to programmatic navigation as well as to user navigation.
 
 >caption Navigate the Calendar to a date and view programmatically
 
 ````CSHTML
-@using Telerik.Blazor.Components.Calendar
-@using Telerik.Blazor.Components.Button
+Programmatic Calendar navigation<br />
 
-<TelerikButton OnClick="@NavigateCalendarProgrammatically">Go to new date and view</TelerikButton>
-<TelerikCalendar Date="@startDate" Max="@maxDate" Min="@minDate" View="@Telerik.Blazor.CalendarView.Decade" @ref="theCalendar"></TelerikCalendar>
+<TelerikCalendar Date="@startDate"
+                    Min="@min"
+                    Max="@max"
+                    View="@calendarView">
+</TelerikCalendar>
+<TelerikButton OnClick="@UpdateView">Update View</TelerikButton>
 
-@code{
-	DateTime startDate = new DateTime(2345, 11, 22);
-	DateTime maxDate = new DateTime(2400, 11, 22);
-	DateTime minDate = new DateTime(1800, 11, 22);
+@code {
+    CalendarView calendarView { get; set; } = CalendarView.Month;
+    DateTime startDate { get; set; } = new DateTime(2019, 5, 2);
 
-	Telerik.Blazor.Components.Calendar.TelerikCalendar theCalendar;
+    DateTime min = new DateTime(2015, 1, 1);
+    DateTime max = new DateTime(2025, 12, 31);
 
-	void NavigateCalendarProgrammatically()
-	{
-		theCalendar.Navigate(DateTime.Now, Telerik.Blazor.CalendarView.Month);
-	}
+    protected void UpdateView()
+    {
+        calendarView = CalendarView.Year;
+        startDate = new DateTime(2018, 5, 2);
+    }
 }
 ````
 

@@ -20,7 +20,7 @@ A **Column** chart displays data as vertical bars whose heights vary according t
 
 To create a column chart:
 
-1. add a `TelerikChartSeries` to the `TelerikChartSeriesItems` collection
+1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Column`
 3. provide a data collection to its `Data` property
 4. optionally, provide data for the x-axis `Categories`
@@ -29,25 +29,24 @@ To create a column chart:
 >caption A column chart that shows product revenues
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Column series
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column"Name="Product 2" Data="@series2Data">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Column"Name="Product 2" Data="@series2Data">
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Categories="@xAxisItems"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+	</ChartCategoryAxes>
 
-	<TelerikChartTitle Text="Quarterly revenue per product"></TelerikChartTitle>
+	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
 
-	<TelerikChartLegend Position="ChartLegendPosition.Right">
-	</TelerikChartLegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {

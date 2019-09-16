@@ -10,7 +10,7 @@ position: 1
 
 # Built-in Icons
 
-The UI for Blazor suite comes with a set of font icons that you can use in various places like in the Button component.
+The UI for Blazor suite comes with a set of font icons that you can use in various places like in the Button component, or as a standalone component.
 
 To use a predefined font icon, you can set the corresponding property to a member of the `Telerik.Blazor.IconName` static class. The Visual Studio intellisense should provide you with the available options.
 
@@ -36,26 +36,25 @@ You can find the full list of available icons in the [Kendo UI Web Font Icons Li
 >caption Render a standalone font icon through the TelerikIcon component
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components
+@using Telerik.Blazor.Components.Common.Icon
 
-<TelerikIcon IconName="@IconName.Audio" /> @* will render the audio speaker icon *@
+<TelerikIcon Icon="@IconName.Audio" /> @* will render the audio note icon *@
 
-<TelerikIcon Class="oi oi-home" /> @* home icon from OpenIconic, assuming you have loaded the font on the page *@
+<TelerikIcon IconClass="oi oi-home" /> @* home icon from OpenIconic, assuming you have loaded the font on the pag, you can use your own CSS classes and font icon fonts *@
 
-<TelerikIcon Class="my-font-icon-class" /> @* In this simple example, the built-in Telerik icon font matching the glyph position will be used, unless you provide an actual font icon of your own to override the values *@
-
-<style>
-	.my-font-icon-class::before {
-		font: myFontIconFont; /* use actual font icon font */
-		content: "\e123"; /* use actual glyph position */
-	}
-</style>
+<TelerikIcon ImageUrl="https://demos.telerik.com/kendo-ui/content/shared/icons/sports/snowboarding.png" /> @* an image by URL, renders an actual <img /> tag *@
 ````
 
 >caption The result from the snippet above
 
 ![](images/standalone-font-icons.png)
+
+The priority order of the Icon properties, if more than one is defined, is
+
+1. ImageUrl
+2. Icon
+3. IconClass
+4. SpriteClass
 
 
 ## See Also

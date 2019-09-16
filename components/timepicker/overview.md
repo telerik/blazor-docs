@@ -17,11 +17,10 @@ To use a Telerik Time Picker for Blazor, add the `TelerikTimePicker` tag.
 >caption Basic time picker with custom format, min and max
 
 ````CSHTML
-@using Telerik.Blazor.Components.TimePicker
+Selected time: @selectedTime?.ToLongTimeString()
+<br />
 
 <TelerikTimePicker Min="@Min" Max="@Max" Format="hh:mm:ss tt" @bind-Value="@selectedTime"></TelerikTimePicker>
-
-Selected time: @selectedTime?.ToLongTimeString()
 
 @code  {
     private DateTime? selectedTime = DateTime.Now;
@@ -37,7 +36,7 @@ Selected time: @selectedTime?.ToLongTimeString()
 >caption Component namespace and reference
 
 ````CSHTML
-@using Telerik.Blazor.Components.TimePicker
+@using Telerik.Blazor.Components
 
 <TelerikTimePicker @bind-Value="@theTimePickerValue"></TelerikTimePicker>
 @theTimePickerValue
@@ -46,14 +45,13 @@ Selected time: @selectedTime?.ToLongTimeString()
     DateTime? theTimePickerValue { get; set; }
     
     // the time picker is a generic component and its type comes from the value field type
-    Telerik.Blazor.Components.TimePicker.TelerikTimePicker<DateTime?> theTimePicker;
+    Telerik.Blazor.Components.TelerikTimePicker<DateTime?> theTimePicker;
 }
 ````
 
 The Time Picker component exposes the following features:
 
 * `Enabled` - Specifies whether typing in the input and opening the dropdown are allowed.
-* `Height` - Defines the height of the TimePicker. Defaults to `28px`. See the [Dimensions]({%slug common-features/dimensions%}) article.
 * `Format` - Specifies the format of the DateInput of the TimePicker. Defaults to `hh:mm tt` (12 hour time with AM/PM specifiers). Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. Note that format specifiers for non-time portions will only be editable in the input and will not have a representation in the time picker dropdown.
 * `Min` - The earliest time that the user can select in the dropdown.
 * `Max` - The latest time that the user can select in the dropdown.

@@ -30,6 +30,11 @@ navigation:
      "common-features":
         title: "Common Features"
         position: 15
+     "upgrade":
+        title: "Upgrade"
+        position: 17
+     "upgrade/breaking-changes":
+        title: "Breaking Changes"
      "how-to":
         title: "How To"
         position: 20

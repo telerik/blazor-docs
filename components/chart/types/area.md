@@ -23,7 +23,7 @@ An Area chart emphasizes the volume of money, data or any other unit that the gi
 
 To create an area chart:
 
-1. add a `TelerikChartSeries` to the `TelerikChartSeriesItems` collection
+1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Area`
 3. provide a data collection to its `Data` property
 4. optionally, provide data for the x-axis `Categories`
@@ -32,29 +32,28 @@ To create an area chart:
 >caption An area chart that shows product revenues
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Area series
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Area" Name="Product 1" Data="@series1Data">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@series2Data">
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Area" Name="Product 1" Data="@series1Data">
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@series2Data">
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartValueAxes>
-		<TelerikChartValueAxis Color="red"></TelerikChartValueAxis>
-	</TelerikChartValueAxes>
+	<ChartValueAxes>
+		<ChartValueAxis Color="red"></ChartValueAxis>
+	</ChartValueAxes>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Categories="@xAxisItems"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+	</ChartCategoryAxes>
 
-	<TelerikChartTitle Text="Quarterly revenue per product"></TelerikChartTitle>
+	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
 
-	<TelerikChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-	</TelerikChartLegend>
+	<ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
+	</ChartLegend>
 </TelerikChart>
 
 @code {

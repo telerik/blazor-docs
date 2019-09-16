@@ -22,12 +22,10 @@ The `OnChange` event fires when the new value is commited by the user either by 
 >caption Handle OnChange
 
 ````CSHTML
-@using Telerik.Blazor.Components.TextBox
+@result
+<br />
 
 <TelerikTextBox OnChange="@MyOnChangeHandler"></TelerikTextBox>
-
-<br />
-@result
 
 @code {
     string result;
@@ -47,14 +45,12 @@ The `OnChange` event fires when the new value is commited by the user either by 
 >caption Handle OnChange and use two-way binding
 
 ````CSHTML
-@using Telerik.Blazor.Components.TextBox
-
-<TelerikTextBox OnChange="@MyOnChangeHandler" @bind-Value="theTbValue"></TelerikTextBox>
-
-<br />
 @result
 <br />
 model value: @theTbValue
+<br />
+
+<TelerikTextBox OnChange="@MyOnChangeHandler" @bind-Value="theTbValue"></TelerikTextBox>
 
 @code {
     string result;
@@ -76,12 +72,10 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 >caption Handle ValueChanged
 
 ````CSHTML
-@using Telerik.Blazor.Components.TextBox
+@result
+<br />
 
 <TelerikTextBox ValueChanged="@( (string s) => MyValueChangeHandler(s) )"></TelerikTextBox>
-
-<br />
-@result
 
 @code {
     string result;
@@ -100,14 +94,12 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 >caption Handle ValueChanged and provide initial value
 
 ````CSHTML
-@using Telerik.Blazor.Components.TextBox
-
-<TelerikTextBox ValueChanged="@( (string s) => MyValueChangeHandler(s) )" Value="@theTbValue"></TelerikTextBox>
-
-<br />
 from the handler: @result
 <br />
 from model: @theTbValue
+<br />
+
+<TelerikTextBox ValueChanged="@( (string s) => MyValueChangeHandler(s) )" Value="@theTbValue"></TelerikTextBox>
 
 @code {
     string result;

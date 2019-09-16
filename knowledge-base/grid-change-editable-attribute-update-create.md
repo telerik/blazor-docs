@@ -35,16 +35,14 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
 >caption Example 1: use editor template and its item to bind the Editable field
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
-@using Telerik.Blazor.Components.DropDownList
-
 @CurrentlyEditedEmployee?.ID
 
-<TelerikGrid Data=@MyData EditMode="inline" Pageable="true" Height="500px">
-    <TelerikGridColumns>
-        <TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" /> @* hardcoded editable *@
-        <TelerikGridColumn Field=@nameof(SampleData.Name) Editable="@( CurrentlyEditedEmployee?.ID > 0 )" Title="Name" /> @* bound to the currently edited item. Requires at least one editor template so it populates the variable used in the logic *@
-        <TelerikGridColumn Field=@nameof(SampleData.Role) Title="Position">
+<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px"
+        OnUpdate="@UpdateHandler" OnCreate="@CreateHandler">
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" /> @* hardcoded editable *@
+        <GridColumn Field=@nameof(SampleData.Name) Editable="@( CurrentlyEditedEmployee?.ID > 0 )" Title="Name" /> @* bound to the currently edited item. Requires at least one editor template so it populates the variable used in the logic *@
+        <GridColumn Field=@nameof(SampleData.Role) Title="Position">
             <EditorTemplate>
                 @{
                     CurrentlyEditedEmployee = context as SampleData;
@@ -58,19 +56,16 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
                     }
                 }
             </EditorTemplate>
-        </TelerikGridColumn>
-        <TelerikGridCommandColumn>
-            <TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
-            <TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TelerikGridCommandButton>
-            <TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
-        </TelerikGridCommandColumn>
-    </TelerikGridColumns>
-    <TelerikGridEvents>
-        <EventsManager OnUpdate="@UpdateHandler" OnCreate="@CreateHandler"></EventsManager>
-    </TelerikGridEvents>
-    <TelerikGridToolBar>
-        <TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
-    </TelerikGridToolBar>
+        </GridColumn>
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+    </GridToolBar>
 </TelerikGrid>
 
 @code {
@@ -132,18 +127,16 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
 >caption Example 2: Toggle the Editable property by using a flag you can set from the grid events. Does not require an editor template (even though it includes one for comparison).
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
-@using Telerik.Blazor.Components.DropDownList
-
 @CurrentlyEditedEmployee?.ID
 <br />
 @isEditable
 
-<TelerikGrid Data=@MyData EditMode="inline" Pageable="true" Height="500px">
-    <TelerikGridColumns>
-        <TelerikGridColumn Field=@nameof(SampleData.ID) Title="ID" />
-        <TelerikGridColumn Field=@nameof(SampleData.Name) Editable="@isEditable" Title="Name" />
-        <TelerikGridColumn Field=@nameof(SampleData.Role) Title="Position">
+<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px"
+        OnEdit="@OnEdit" OnCancel="@OnCancel" OnUpdate="@UpdateHandler">
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" />
+        <GridColumn Field=@nameof(SampleData.Name) Editable="@isEditable" Title="Name" />
+        <GridColumn Field=@nameof(SampleData.Role) Title="Position">
             <EditorTemplate>
                 @{
                     CurrentlyEditedEmployee = context as SampleData;
@@ -157,19 +150,16 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
                     }
                 }
             </EditorTemplate>
-        </TelerikGridColumn>
-        <TelerikGridCommandColumn>
-            <TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
-            <TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TelerikGridCommandButton>
-            <TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
-        </TelerikGridCommandColumn>
-    </TelerikGridColumns>
-    <TelerikGridEvents>
-        <EventsManager OnEdit="@OnEdit" OnCancel="@OnCancel" OnUpdate="@UpdateHandler"></EventsManager>
-    </TelerikGridEvents>
-    <TelerikGridToolBar>
-        <TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
-    </TelerikGridToolBar>
+        </GridColumn>
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+    </GridToolBar>
 </TelerikGrid>
 
 @code {

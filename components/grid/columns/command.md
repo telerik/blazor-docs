@@ -12,11 +12,11 @@ position: 0
 
 The command column of a grid allows you to initiate [inline]({%slug components/grid/editing/inline%}) or [popup]({%slug components/grid/editing/popup%}) editing, or to execute your own commands.
 
-To define it, add a `TelerikGridCommandColumn` in the `TelerikGridColumns` collection of a grid. The command column takes a collection of `TelerikGridCommandButton` instances that invoke the commands. It also offers the `Title` property so you can set its header text.
+To define it, add a `GridCommandColumn` in the `GridColumns` collection of a grid. The command column takes a collection of `GridCommandButton` instances that invoke the commands. It also offers the `Title` property so you can set its header text.
 
 >tip The lists below showcase the available features and their use. After them you can find a code example that shows declarations and handling.
 
-The `TelerikGridCommandButton` tag offers the following features:
+The `GridCommandButton` tag offers the following features:
 
 * `Command` - the command that will be invoked. Can be one of the built-in commands (see below), or a custom command name.
 * `OnClick` - the event handler that the button will fire. If used on a built-in command, this handler will fire before the [corresponding CRUD event]({%slug components/grid/editing/overview%}). Cancelling it will prevent the built-in CRUD event from firing.
@@ -26,7 +26,7 @@ The `TelerikGridCommandButton` tag offers the following features:
 
 There are three built-in commands:
 
-* `Edit` - initiates the inline or popup editing (depending on the EditMode configuration of the grid).
+* `Edit` - initiates the inline or popup editing (depending on the GridEditMode configuration of the grid).
 * `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was added through the grid or not.
 * `Cancel` - aborts the current operation (edit or insert).
 
@@ -43,25 +43,23 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 >caption Example of adding and handling command columns for inline editing of a grid
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Grid
+Edit will be cancelled for "name 2". There is a deliberate delay in the event handlers to showcase their async nature. Actual CRUD operations are not implemented, the code showcases how you can obtain the information so you can use it.
+<br />
+@CustomCommandResult
 
-<span>Edit will be cancelled for "name 2"</span>
-<br />@CustomCommandResult
-
-<TelerikGrid Data=@GridData EditMode="inline"
+<TelerikGrid Data=@GridData EditMode="@GridEditMode.Inline"
 			 Pageable="true" PageSize="15" Height="500px">
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />
-		<TelerikGridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-		<TelerikGridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-		<TelerikGridCommandColumn>
-			<TelerikGridCommandButton Command="Edit" Icon="edit" OnClick="@MyEditHandler">Edit</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true" OnClick="@MyUpdateHandler">Update</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true" OnClick="@MyCancelHandler">Cancel</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="MyOwnCommand" Icon="information" ShowInEdit="false" OnClick="@MyCustomCommand">My Command</TelerikGridCommandButton>
-		</TelerikGridCommandColumn>
-	</TelerikGridColumns>
+	<GridColumns>
+		<GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />
+		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
+		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
+		<GridCommandColumn>
+			<GridCommandButton Command="Edit" Icon="edit" OnClick="@MyEditHandler">Edit</GridCommandButton>
+			<GridCommandButton Command="Save" Icon="save" ShowInEdit="true" OnClick="@MyUpdateHandler">Update</GridCommandButton>
+			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true" OnClick="@MyCancelHandler">Cancel</GridCommandButton>
+			<GridCommandButton Command="MyOwnCommand" Icon="information" ShowInEdit="false" OnClick="@MyCustomCommand">My Command</GridCommandButton>
+		</GridCommandColumn>
+	</GridColumns>
 </TelerikGrid>
 
 @code {

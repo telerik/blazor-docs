@@ -12,7 +12,7 @@ position: 22
 
 The Chart for Blazor can render labels on the axes, series data points and legend. You can control those texts not only through the values you data bind, but also through [format strings](#format-strings) or [templates](#templates).
 
-To turn on series labels, you must set their `Visible` property to `true` under the corresponding `TelerikChartSeriesLabels` tag. The series labels are turned off by default to avoid clutter and to make the charts easier to read.
+To turn on series labels, you must set their `Visible` property to `true` under the corresponding `ChartSeriesLabels` tag. The series labels are turned off by default to avoid clutter and to make the charts easier to read.
 
 ## Format Strings
 
@@ -21,25 +21,24 @@ Where the labels are numerical (series values, the value axis), you can format t
 >caption Format numerical values through format strings
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Standard number format strings
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Line" Data="@chartData" Name="Revenue"
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Line" Data="@chartData" Name="Revenue"
 							Field="@nameof(MyChartDataModel.TheValue)" CategoryField="@nameof(MyChartDataModel.TheCategory)">
-			<TelerikChartSeriesLabels Visible="true" Format="{0:C2}"></TelerikChartSeriesLabels>
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+			<ChartSeriesLabels Visible="true" Format="{0:C2}"></ChartSeriesLabels>
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartValueAxes>
-		<TelerikChartValueAxis>
-			<TelerikChartValueAxisLabels Format="{0:C0}"></TelerikChartValueAxisLabels>
-		</TelerikChartValueAxis>
-	</TelerikChartValueAxes>
+	<ChartValueAxes>
+		<ChartValueAxis>
+			<ChartValueAxisLabels Format="{0:C0}"></ChartValueAxisLabels>
+		</ChartValueAxis>
+	</ChartValueAxes>
 
-	<TelerikChartLegend Position="ChartLegendPosition.Right">
-	</TelerikChartLegend>
+	<ChartLegend Position="ChartLegendPosition.Right">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -50,7 +49,7 @@ Where the labels are numerical (series values, the value axis), you can format t
 	}
 
 	public List<MyChartDataModel> chartData = new List<MyChartDataModel>
-{
+    {
 		new MyChartDataModel
 		{
 			TheValue = 20000,
@@ -77,7 +76,7 @@ Where the labels are numerical (series values, the value axis), you can format t
 
 ## Templates
 
-To set a template for the corresponding label, use the `Template` property in the corresponding Label inner tag of the element you want to customize, for example, under `TelerikChartSeriesLabels` or under `TelerikChartValueAxisLabels`.
+To set a template for the corresponding label, use the `Template` property in the corresponding Label inner tag of the element you want to customize, for example, under `ChartSeriesLabels` or under `ChartValueAxisLabels`.
 
 After the example, you can find lists with the available fields you can use in templates.
 
@@ -86,70 +85,69 @@ To add a new line, use the `\n` symbol.
 >caption Custom templates in labels
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Label templates
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Line" Data="@chartData" Name="Revenue" Color="red"
-							Field="@nameof(MyChartDataModel.TheValue)" CategoryField="@nameof(MyChartDataModel.TheCategory)">
-			<TelerikChartSeriesLabels Visible="true" Template="@MySeriesTemplate"></TelerikChartSeriesLabels>
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Line" Data="@chartData" Name="Revenue" Color="red"
+                     Field="@nameof(MyChartDataModel.TheValue)" CategoryField="@nameof(MyChartDataModel.TheCategory)">
+            <ChartSeriesLabels Visible="true" Template="@MySeriesTemplate"></ChartSeriesLabels>
+        </ChartSeries>
+    </ChartSeriesItems>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis>
-			<TelerikChartCategoryAxisLabels Template="@MyCategoryAxisTemplate"></TelerikChartCategoryAxisLabels>
-		</TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+    <ChartCategoryAxes>
+        <ChartCategoryAxis>
+            <ChartCategoryAxisLabels Template="@MyCategoryAxisTemplate"></ChartCategoryAxisLabels>
+        </ChartCategoryAxis>
+    </ChartCategoryAxes>
 
-	<TelerikChartValueAxes>
-		<TelerikChartValueAxis>
-			<TelerikChartValueAxisLabels Template="@MyValueAxisTemplate"></TelerikChartValueAxisLabels>
-		</TelerikChartValueAxis>
-	</TelerikChartValueAxes>
+    <ChartValueAxes>
+        <ChartValueAxis>
+            <ChartValueAxisLabels Template="@MyValueAxisTemplate"></ChartValueAxisLabels>
+        </ChartValueAxis>
+    </ChartValueAxes>
 
-	<TelerikChartTitle Text="Revenue per product"></TelerikChartTitle>
+    <ChartTitle Text="Revenue per product"></ChartTitle>
 
-	<TelerikChartLegend Position="ChartLegendPosition.Right">
-		<TelerikChartLegendLabels Template="@MyLegendItemTemplate"></TelerikChartLegendLabels>
-	</TelerikChartLegend>
+    <ChartLegend Position="ChartLegendPosition.Right">
+        <ChartLegendLabels Template="@MyLegendItemTemplate"></ChartLegendLabels>
+    </ChartLegend>
 </TelerikChart>
 
 @code {
-	public string MySeriesTemplate = "value: #=value#\nfor category: #=category#\nextra info: #=dataItem.ExtraData#";
-	public string MyCategoryAxisTemplate = "#=value# quarter";
-	public string MyValueAxisTemplate = "#=value# million";
-	public string MyLegendItemTemplate = "#=series.color#: #=text#";
+    public string MySeriesTemplate = "value: #=value#\nfor category: #=category#\nextra info: #=dataItem.ExtraData#";
+    public string MyCategoryAxisTemplate = "#=value# quarter";
+    public string MyValueAxisTemplate = "#=value# million";
+    public string MyLegendItemTemplate = "#=series.color#: #=text#";
 
-	public class MyChartDataModel
-	{
-		public double TheValue { get; set; }
-		public string ExtraData { get; set; }
-		public string TheCategory { get; set; }
-	}
+    public class MyChartDataModel
+    {
+        public double TheValue { get; set; }
+        public string ExtraData { get; set; }
+        public string TheCategory { get; set; }
+    }
 
-	public List<MyChartDataModel> chartData = new List<MyChartDataModel>
-	{
-		new MyChartDataModel
-		{
-			ExtraData = "one",
-			TheValue = 2,
-			TheCategory = "first"
-		},
-		new MyChartDataModel
-		{
-			ExtraData = "two\nlines",
-			TheValue = 3,
-			TheCategory = "second"
-		},
-		new MyChartDataModel
-		{
-			ExtraData = "three",
-			TheValue = 4,
-			TheCategory = "third"
-		}
-	};
+    public List<MyChartDataModel> chartData = new List<MyChartDataModel>
+    {
+        new MyChartDataModel
+        {
+            ExtraData = "one",
+            TheValue = 2,
+            TheCategory = "first"
+        },
+        new MyChartDataModel
+        {
+            ExtraData = "two\nlines",
+            TheValue = 3,
+            TheCategory = "second"
+        },
+        new MyChartDataModel
+        {
+            ExtraData = "three",
+            TheValue = 4,
+            TheCategory = "third"
+        }
+    };
 }
 ````
 
@@ -202,21 +200,20 @@ To do that, you need to:
 >caption Hide labels with zero values
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Conditional label display
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Data="@chartData" Name="Product 1 Sales"
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Column" Data="@chartData" Name="Product 1 Sales"
 							Field="@nameof(MyChartDataModel.Value1)" CategoryField="@nameof(MyChartDataModel.TheCategory)">
-			<TelerikChartSeriesLabels Visible="true" Template="@MySeriesTemplate" Background="transparent"></TelerikChartSeriesLabels>
-			<TelerikChartSeriesStack Enabled="true"></TelerikChartSeriesStack>
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Column" Data="@chartData" Name="Product 2 Sales"
+			<ChartSeriesLabels Visible="true" Template="@MySeriesTemplate" Background="transparent"></ChartSeriesLabels>
+			<ChartSeriesStack Enabled="true"></ChartSeriesStack>
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Column" Data="@chartData" Name="Product 2 Sales"
 							Field="@nameof(MyChartDataModel.Value2)" CategoryField="@nameof(MyChartDataModel.TheCategory)">
-			<TelerikChartSeriesLabels Visible="true" Template="@MySeriesTemplate" Background="transparent"></TelerikChartSeriesLabels>
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+			<ChartSeriesLabels Visible="true" Template="@MySeriesTemplate" Background="transparent"></ChartSeriesLabels>
+		</ChartSeries>
+	</ChartSeriesItems>
 </TelerikChart>
 
 @code {

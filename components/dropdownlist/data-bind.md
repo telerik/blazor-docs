@@ -31,7 +31,7 @@ To bind the dropdownlist to a primitive type (like `int`, `string`, `double`), y
 >caption Data binding a DropDownList to a primitive type
 
 ````CSHTML
-@using Telerik.Blazor.Components.DropDownList
+Bind to a List of a primitive type (stirng, int,...)
 
 <TelerikDropDownList Data="@MyList" @bind-Value="MyItem">
 </TelerikDropDownList>
@@ -56,7 +56,7 @@ To bind the DropDownList to a model:
 >caption Data binding a DropDownList to a model
 
 ````CSHTML
-@using Telerik.Blazor.Components.DropDownList
+Bind to a collection of models
 
 <TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue">
 </TelerikDropDownList>
@@ -85,26 +85,28 @@ The DropDownList component attempts to infer the type of its model and value bas
 The DropDownList is a generic component and its type comes from the model it is bound to and from the value field type. When bound to a primitive type, the reference is of that primitive type only.
 
 ````Primitive
-@using Telerik.Blazor.Components.DropDownList
+Reference type when binding to primitive values
 
-<TelerikDropDownList @ref="myDdlRef" Data="@MyList" Value="third">
+<TelerikDropDownList @ref="myDdlRef" Data="@MyList" Value="@initialValue">
 </TelerikDropDownList>
 
 @code {
     //the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
-    Telerik.Blazor.Components.DropDownList.TelerikDropDownList<string, string> myDdlRef;
+    Telerik.Blazor.Components.TelerikDropDownList<string, string> myDdlRef;
 
 	protected List<string> MyList = new List<string>() { "first", "second", "third" };
+
+    string initialValue {get;set;} = "third";
 }
 ````
 ````Model
-@using Telerik.Blazor.Components.DropDownList
+Reference when binding to model collections
 
 <TelerikDropDownList @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="3">
 </TelerikDropDownList>
 @code {
     //the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
-    Telerik.Blazor.Components.DropDownList.TelerikDropDownList<MyDdlModel, int> myDdlRef;
+    Telerik.Blazor.Components.TelerikDropDownList<MyDdlModel, int> myDdlRef;
 
     IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
     
@@ -123,7 +125,7 @@ The DropDownList is a generic component and its type comes from the model it is 
 >caption DropDownList configuration if you cannot provide Value or Data
 
 ````CSHTML
-@using Telerik.Blazor.Components.DropDownList
+How to declare the dropdown if no Value or Data are provided
 
 <TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" TValue="int" TItem="MyDdlModel">
 </TelerikDropDownList>

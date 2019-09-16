@@ -17,30 +17,29 @@ To use a Telerik chart for Blazor, add the `TelerikChart` tag.
 >caption Basic chart with series and category axis [data binding](data-bind), and a few commonly used appearance settings
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
+Basic chart and common settings/elements
 
 <TelerikChart>
-	<TelerikChartSeriesItems>
-		<TelerikChartSeries Type="ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
-		</TelerikChartSeries>
-		<TelerikChartSeries Type="ChartSeriesType.Line" Name="Product 2 (bound to model)" Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
-			<TelerikChartSeriesLabels Template="#=value# in #=dataItem.ExtraData# quarter" Visible="true"></TelerikChartSeriesLabels>
-		</TelerikChartSeries>
-	</TelerikChartSeriesItems>
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
+		</ChartSeries>
+		<ChartSeries Type="ChartSeriesType.Line" Name="Product 2 (bound to model)" Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
+			<ChartSeriesLabels Template="#=value# in #=dataItem.ExtraData# quarter" Visible="true"></ChartSeriesLabels>
+		</ChartSeries>
+	</ChartSeriesItems>
 
-	<TelerikChartValueAxes>
-		<TelerikChartValueAxis Color="red"></TelerikChartValueAxis>
-	</TelerikChartValueAxes>
+	<ChartValueAxes>
+		<ChartValueAxis Color="red"></ChartValueAxis>
+	</ChartValueAxes>
 
-	<TelerikChartCategoryAxes>
-		<TelerikChartCategoryAxis Categories="@xAxisItems"></TelerikChartCategoryAxis>
-	</TelerikChartCategoryAxes>
+	<ChartCategoryAxes>
+		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+	</ChartCategoryAxes>
 
-	<TelerikChartTitle Text="Quarterly sales trend"></TelerikChartTitle>
+	<ChartTitle Text="Quarterly sales trend"></ChartTitle>
 
-	<TelerikChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-	</TelerikChartLegend>
+	<ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
+	</ChartLegend>
 </TelerikChart>
 
 @code {
@@ -52,7 +51,7 @@ To use a Telerik chart for Blazor, add the `TelerikChart` tag.
 	}
 
 	public List<MyDataModel> modelData = new List<MyDataModel>()
-{
+    {
 		new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
 		new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
 		new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
@@ -62,7 +61,6 @@ To use a Telerik chart for Blazor, add the `TelerikChart` tag.
 	public List<object> simpleData = new List<object>() { 10, 2, 7, 5 };
 	
 	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-
 }
 ````
 
@@ -70,19 +68,19 @@ To use a Telerik chart for Blazor, add the `TelerikChart` tag.
 
 ![](images/overview-chart.png)
 
->tip When configuring nested properties and child elements in your chart, the inner tags will contain their parent tag name and add specifics to its end. You can see an example of this with the `TelerikChartSeries` > `TelerikChartSeriesLabels` tags in the above example.
+>tip When configuring nested properties and child elements in your chart, the inner tags will contain their parent tag name and add specifics to its end. You can see an example of this with the `ChartSeries` > `ChartSeriesLabels` tags in the above example.
 
 
 >caption Component namespace and reference
 
 ````CSHTML
-@using Telerik.Blazor.Components.Chart
+@using Telerik.Blazor.Components
 
 <TelerikChart @ref="myChartRef">
 </TelerikChart>
 
 @code {
-	Telerik.Blazor.Components.Chart.TelerikChart myChartRef;
+	Telerik.Blazor.Components.TelerikChart myChartRef;
 }
 ````
 
@@ -90,55 +88,54 @@ To use a Telerik chart for Blazor, add the `TelerikChart` tag.
 
 To control the chart size, use its `Width` and `Height` properties. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
 
-You can also set the chart size in percentage values so it occupies its container. If the parent container size changes, you must call its `Resize()` method after the DOM has been redrawn and the new container dimensions are rendered.
+You can also set the chart size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the chart's `Refresh()` C# method after the DOM has been redrawn and the new container dimensions are rendered. You can do this when you explicitly change container sizes (like in the example below), or from code that gets called by events like `window.resize`.
 
->caption Change the 100% chart size dynamically
+
+>caption Change the 100% chart size dynamically to have a responsive chart
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components.Chart
-@using Telerik.Blazor.Components.Button
+You can make a responsive chart
 
 <TelerikButton OnClick="@ResizeChart">Resize the container and redraw the chart</TelerikButton>
 
 <div style="border: 1px solid red;width:@ContainerWidth; height: @ContainerHeight">
-	
-	<TelerikChart Width="100%" Height="100%" @ref="theChart">
-	
-		<TelerikChartSeriesItems>
-			<TelerikChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@someData">
-			</TelerikChartSeries>
-		</TelerikChartSeriesItems>
-		<TelerikChartCategoryAxes>
-			<TelerikChartCategoryAxis Categories="@xAxisItems"></TelerikChartCategoryAxis>
-		</TelerikChartCategoryAxes>
-		<TelerikChartTitle Text="Quarterly sales trend"></TelerikChartTitle>
-		
-	</TelerikChart>
+
+    <TelerikChart Width ="100%" Height="100%" @ref="theChart">
+
+        <ChartSeriesItems>
+            <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@someData">
+            </ChartSeries>
+        </ChartSeriesItems>
+        <ChartCategoryAxes>
+            <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+        </ChartCategoryAxes>
+        <ChartTitle Text="Quarterly sales trend"></ChartTitle>
+
+    </TelerikChart>
 
 </div>
 
 @code {
-	string ContainerWidth { get; set; } = "400px";
-	string ContainerHeight { get; set; } = "300px";
-	Telerik.Blazor.Components.Chart.TelerikChart theChart { get; set; }
+    string ContainerWidth { get; set; } = "400px";
+    string ContainerHeight { get; set; } = "300px";
+    Telerik.Blazor.Components.TelerikChart theChart { get; set; }
 
-	async Task ResizeChart()
-	{
-		//resize the container
-		ContainerHeight = "500px";
-		ContainerWidth = "800px";
+    async Task ResizeChart()
+    {
+        //resize the container
+        ContainerHeight = "500px";
+        ContainerWidth = "800px";
 
-		//give time to the framework and browser to resize the actual DOM so the chart can use the expected size
-		await Task.Delay(20);
+        //give time to the framework and browser to resize the actual DOM so the chart can use the expected size
+        await Task.Delay(20);
 
-		//redraw the chart
-		theChart.Refresh();
-	}
+        //redraw the chart
+        theChart.Refresh();
+    }
 
-	public List<object> someData = new List<object>() { 10, 2, 7, 5 };
+    public List<object> someData = new List<object>() { 10, 2, 7, 5 };
 
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
 

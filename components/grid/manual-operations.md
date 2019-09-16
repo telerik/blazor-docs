@@ -27,20 +27,16 @@ The comments in the code provide explanations on what is done and why.
 >caption Custom paging with a remote service
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
+Custom paging. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 <TelerikGrid Data=@GridData TotalCount=@Total
-			 Pageable=true PageSize=15>
-	<TelerikGridEvents>
-		<EventsManager OnRead=@ReadItems></EventsManager>
-	</TelerikGridEvents>
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(Employee.Id) Title="ID" />
-		<TelerikGridColumn Field=@nameof(Employee.Name) Title="Name" />
-	</TelerikGridColumns>
+			 Pageable=true PageSize=15
+             OnRead=@ReadItems>
+	<GridColumns>
+		<GridColumn Field=@nameof(Employee.Id) Title="ID" />
+		<GridColumn Field=@nameof(Employee.Name) Title="Name" />
+	</GridColumns>
 </TelerikGrid>
-
-There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 @code {
 	public List<Employee> GridData { get; set; }
@@ -117,31 +113,27 @@ There is a deliberate delay in the data source operations in this example to mim
 >caption If you have all the data at once, the Telerik .ToDataSourceResult(request) extension method can manage the operations for you
 
 ````CSHTML
-@using Telerik.Blazor.Components.Grid
-@using Telerik.DataSource.Extensions;
+Using Telerik DataSource extension methods to manipulate all the data into paged chunks and also perform other operations like filtering, sorting, etc. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
-<TelerikGrid Data=@GridData TotalCount=@Total
-			 Filterable=true Sortable=true Pageable=true EditMode="inline">
-	<TelerikGridEvents>
-		<EventsManager OnRead=@ReadItems></EventsManager>
-	</TelerikGridEvents>
-	<TelerikGridColumns>
-		<TelerikGridColumn Field=@nameof(Employee.ID) />
-		<TelerikGridColumn Field=@nameof(Employee.Name) Title="Name" />
-		<TelerikGridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
-		<TelerikGridCommandColumn>
-			<TelerikGridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Edit" Icon="edit">Edit</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Delete" Icon="delete">Delete</TelerikGridCommandButton>
-			<TelerikGridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TelerikGridCommandButton>
-		</TelerikGridCommandColumn>
-	</TelerikGridColumns>
-	<TelerikGridToolBar>
-		<TelerikGridCommandButton Command="Add" Icon="add">Add Employee</TelerikGridCommandButton>
-	</TelerikGridToolBar>
+@using Telerik.DataSource.Extensions
+
+<TelerikGrid Data=@GridData TotalCount=@Total OnRead=@ReadItems
+			 FilterMode=@GridFilterMode.FilterRow Sortable=true Pageable=true EditMode="@GridEditMode.Inline">
+	<GridColumns>
+		<GridColumn Field=@nameof(Employee.ID) />
+		<GridColumn Field=@nameof(Employee.Name) Title="Name" />
+		<GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
+		<GridCommandColumn>
+			<GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+			<GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+			<GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+		</GridCommandColumn>
+	</GridColumns>
+	<GridToolBar>
+		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+	</GridToolBar>
 </TelerikGrid>
-
-There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 @code {
 	public List<Employee> SourceData { get; set; }

@@ -16,21 +16,25 @@ To create a Telerik Window:
 
 1. use the `TelerikWindow` tag
 1. set its `Visible` property to `true` to see it immediately
-1. add some content to its `TelerikWindowContent` inner tag
-1. optionally, add a title text in its `TelerikWindowTitle` tag
+1. add some content to its `WindowContent` inner tag
+1. optionally, add a title text in its `WindowTitle` tag
+1. optionally, add the built-in [actions]({%slug components/window/actions%}) to its titlebar
 
->caption Basic example of showing content in a Window popup
+>caption Basic example of showing content in a Window popup and allowing built-in actions
 
 ````CSHTML
-@using Telerik.Blazor.Components.Window
-
 <TelerikWindow Visible="true">
-	<TelerikWindowTitle>
+	<WindowTitle>
 		<strong>The Title</strong>
-	</TelerikWindowTitle>
-	<TelerikWindowContent>
+	</WindowTitle>
+	<WindowContent>
 		This is my window <strong>popup</strong> content.
-	</TelerikWindowContent>
+	</WindowContent>
+	<WindowActions>
+        <WindowAction Name="Minimize"></WindowAction>
+        <WindowAction Name="Maximize"></WindowAction>
+        <WindowAction Name="Close"></WindowAction>
+    </WindowActions>
 </TelerikWindow>
 ````
 
@@ -38,68 +42,108 @@ To create a Telerik Window:
 
 ![](images/window-overview.png)
 
-## Reference, Show, Close
-
-The Window component is of type `Telerik.Blazor.Components.Window.TelerikWindow` and exposes several properties and methods that let you control its state. The most important ones are the `Visible` property that lets you control whether it is shown on the initial view render, and the `Show` and `Close` methods that control its visibility programmatically.
-
->caption Store a reference to a Telerik Window, open and close it programmatically through methods
+>caption Component namespace and reference
 
 ````CSHTML
-@using Telerik.Blazor.Components.Window
+@using Telerik.Blazor.Components
+
+<TelerikWindow Visible="true" Centered="true" @ref="@myWindowRef">
+	<WindowTitle>
+		<strong>The Title</strong>
+	</WindowTitle>
+	<WindowContent>
+		This is my window <strong>popup</strong> content.
+	</WindowContent>
+</TelerikWindow>
+
+@code {
+    Telerik.Blazor.Components.TelerikWindow myWindowRef { get;set; }
+}
+````
+
+## Show and Close
+
+The `Visible` property lets you control whether the window component is shown (and rendered).
+
+>caption Bind the visibility of the window
+
+````CSHTML
+@*Use property binding to control the state of the window programmatically*@
 
 <button @onclick="ShowWindow">Show the Window</button>
 <button @onclick="CloseWindow">Close the Window</button>
 
-<TelerikWindow @ref="myFirstWindow">
-	<TelerikWindowTitle>
-		<strong>The Title</strong>
-	</TelerikWindowTitle>
-	<TelerikWindowContent>
-		This is my window <strong>popup</strong> content.
-	</TelerikWindowContent>
+<TelerikWindow @bind-Visible="@isVisible">
+    <WindowTitle>
+        <strong>The Title</strong>
+    </WindowTitle>
+    <WindowContent>
+        This is my window <strong>popup</strong> content.
+    </WindowContent>
+    <WindowActions>
+        <WindowAction Name="Minimize"></WindowAction>
+        <WindowAction Name="Maximize"></WindowAction>
+        <WindowAction Name="Close"></WindowAction>
+    </WindowActions>
 </TelerikWindow>
 
 @code {
-	Telerik.Blazor.Components.Window.TelerikWindow myFirstWindow;
+    bool isVisible { get; set; }
 
-	public void ShowWindow()
-	{
-		myFirstWindow.Open();
-	}
+    public void ShowWindow()
+    {
+        isVisible = true;
+    }
 
-	public void CloseWindow()
-	{
-		myFirstWindow.Close();
-	}
-
+    public void CloseWindow()
+    {
+        isVisible = false;
+    }
 }
 ````
 
->caption Show and close a Window by toggling a single variable
+The `Visible` parameter also exposes an event - `VisibleChanged`. You can use it to get notifications when the user tries to close the window. You can effectively cancel the event by not propagating the new visibility state to the variable the `Visible` property is bound to.
+
+>caption React to the user closing the window
 
 ````CSHTML
-@using Telerik.Blazor.Components.Window
+@result
 
 <button @onclick="ToggleWindow">Toggle the Window</button>
 
-<TelerikWindow Visible="@isWindowShown">
-	<TelerikWindowTitle>
-		<strong>The Title</strong>
-	</TelerikWindowTitle>
-	<TelerikWindowContent>
-		This is my window <strong>popup</strong> content.
-	</TelerikWindowContent>
+<TelerikWindow Visible="@isVisible" VisibleChanged="@VisibleChangedHandler">
+    <WindowTitle>
+        <strong>The Title</strong>
+    </WindowTitle>
+    <WindowContent>
+        This is my window <strong>popup</strong> content.
+    </WindowContent>
+    <WindowActions>
+        <WindowAction Name="Close" />
+    </WindowActions>
 </TelerikWindow>
 
 @code {
-	bool isWindowShown { get; set; }
+    bool isVisible { get; set; }
+    string result { get; set; }
 
-	public void ToggleWindow()
-	{
-		isWindowShown = !isWindowShown;
-	}
+    void VisibleChangedHandler(bool currVisible)
+    {
+        isVisible = currVisible; // if you don't do this, the window won't close because of the user action
+
+        result = $"the window is now visible: {isVisible}";
+    }
+
+    public void ToggleWindow()
+    {
+        isVisible = !isVisible;
+
+        result = $"the window is now visible: {isVisible}";
+    }
 }
 ````
+
+>tip You may also find useful handling the `StateChanged` event - it provides similar functionality for the minimized/maximized/standard state of the window.
 
 ## Styling
 
@@ -108,15 +152,13 @@ The `Class` property lets you define a CSS class that will be rendered on the po
 >caption Use a Class to change the appearance and style of the Window
 
 ````CSHTML
-@using Telerik.Blazor.Components.Window
-
 <TelerikWindow Class="MyClass" Visible="true">
-	<TelerikWindowTitle>
+	<WindowTitle>
 		<strong>The Title</strong>
-	</TelerikWindowTitle>
-	<TelerikWindowContent>
+	</WindowTitle>
+	<WindowContent>
 		This is my window <strong>popup</strong> content.
-	</TelerikWindowContent>
+	</WindowContent>
 </TelerikWindow>
 
 <style>
