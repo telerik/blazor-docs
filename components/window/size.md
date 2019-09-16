@@ -10,10 +10,11 @@ position: 1
 
 # Window Size
 
-The Window offers two ways for you to control its size:
+The Window offers three ways for you to control its size:
 
 * the `Width` and `Height` properties (read more in the [Dimensions]({%slug common-features/dimensions%}) article)
 * predefined dimensions through the `Size` property
+* binding to its [State](#maximize-and-minimize) to control whether it is minimized, maximized or has the default appearance.
 
 >caption Set Width and Height to a Window
 
@@ -57,45 +58,93 @@ The `Telerik.Blazor.WindowSize` enum provides the following options:
 
 The user can maximize and minimize the Window through [action buttons in its titlebar]({%slug components/window/actions%}).
 
-The developer can invoke those actions through binding its `Maximized` and `Minimized` properties.
+The developer can invoke those actions through binding the `State` parameter. It takes a member of the `Telerik.Blazor.WindowState` enum:
+* `Default` - the size and position as defined by the `Top`, `Left`, `Centered`, `Width`, `Height`, `Size` parameters.
+* `Minimized` - the window is just a narrow titlebar and does not render its content.
+* `Maximized` - the window takes up the entire viewport.
 
 >caption Maximize, Minimze and Restore the Window programmatically
 
 ````CSHTML
-When both Maxmized and Minimized are set to false, the default state is restored
+@* The user actions also change the state when two-way binding is used *@
 
-<button @onclick="MaximizeWindow">Change Maximize state of the Window</button>
-<button @onclick="MinimizeWindow">Change Minimize state of the Window</button>
+<select @bind=@State>
+    <option value=@WindowState.Default>Default</option>
+    <option value=@WindowState.Minimized>Minimized</option>
+    <option value=@WindowState.Maximized>Maximized</option>
+</select>
 
-<TelerikWindow Maximized="@isMaximized" Minimized="@isMinimized" Visible="true">
-	<WindowTitle>
-		<strong>The Title</strong>
-	</WindowTitle>
-	<WindowContent>
-		<button @onclick="MaximizeWindow">Change Maximize state of the Window</button>
-		<button @onclick="MinimizeWindow">Change Minimize state of the Window</button>
-	</WindowContent>
+<TelerikWindow @bind-State="@State" Width="500px" Height="300px" Visible="true"
+               Top="500px" Left="600px">
+    <WindowTitle>
+        <strong>Lorem ipsum</strong>
+    </WindowTitle>
+    <WindowActions>
+        <WindowAction Name="Minimize"></WindowAction>
+        <WindowAction Name="Maximize"></WindowAction>
+        <WindowAction Name="Close"></WindowAction>
+    </WindowActions>
+    <WindowContent>
+        <select @bind=@State>
+            <option value=@WindowState.Default>Default</option>
+            <option value=@WindowState.Minimized>Minimized</option>
+            <option value=@WindowState.Maximized>Maximized</option>
+        </select>
+    </WindowContent>
 </TelerikWindow>
 
 @code {
-    bool isMaximized { get; set; }
-    bool isMinimized { get; set; }
-    
-	public void MaximizeWindow()
-	{
-		isMinimized = false;
-		isMaximized = !isMaximized;
-	}
-
-	public void MinimizeWindow()
-	{
-		isMaximized = false;
-		isMinimized = !isMinimized;
-	}
+    public WindowState State { get; set; } = WindowState.Default;
 }
 ````
 
+The `State` parameter also exposes an event - `StateChanged`. You can use it to get notifications when the user tries to minimize, maximize or restore the window. You can effectively cancel the event by not propagating the new state to the variable the `State` property is bound to.
 
+>caption React to the user actions to minimize, restore or maximize the window
+
+````CSHTML
+@lastUserAction
+
+<select @bind=@State>
+    <option value=@WindowState.Default>Default</option>
+    <option value=@WindowState.Minimized>Minimized</option>
+    <option value=@WindowState.Maximized>Maximized</option>
+</select>
+
+<TelerikWindow State="@State" StateChanged="@StateChangedHandler" Width="500px" Height="300px" Visible="true"
+               Top="500px" Left="600px">
+    <WindowTitle>
+        <strong>Lorem ipsum</strong>
+    </WindowTitle>
+    <WindowActions>
+        <WindowAction Name="Minimize"></WindowAction>
+        <WindowAction Name="Maximize"></WindowAction>
+        <WindowAction Name="Close"></WindowAction>
+    </WindowActions>
+    <WindowContent>
+        <select @bind=@State>
+            <option value=@WindowState.Default>Default</option>
+            <option value=@WindowState.Minimized>Minimized</option>
+            <option value=@WindowState.Maximized>Maximized</option>
+        </select>
+    </WindowContent>
+</TelerikWindow>
+
+@code {
+    public WindowState State { get; set; } = WindowState.Default;
+
+    string lastUserAction;
+
+    private void StateChangedHandler(WindowState windowState)
+    {
+        State = windowState; // if you don't do this, the window won't change because of the user action
+
+        lastUserAction = $"last user action was: {windowState}";
+    }
+}
+````
+
+>tip You may also find useful handling the `VisibleChanged` event - it provides similar functionality for the shown/closed state of the window.
 
 ## See Also
 

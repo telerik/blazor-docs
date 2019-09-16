@@ -32,6 +32,8 @@ The `Centered` property adds a CSS class that sets the window position to `top: 
 
 If the `Top` and/or `Left` properties are set, they will take precedence, because they render as rules in an inline `style` attribute.
 
+>tip The `Centered` parameter is `true` by default.
+
 >caption Center the Window
 
 ````CSHTML
