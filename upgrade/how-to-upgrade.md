@@ -60,7 +60,7 @@ If you have just purchased a license and you need to migrate from the trial pack
 
 ## Troubleshooting
 
-### Microsoft.JSInterop.JSException: Could not find
+### Microsoft.JSInterop.JSException: Could not find ...
 
 After upgrading you may get runtime error messages in the browser console similar to the following:
 
