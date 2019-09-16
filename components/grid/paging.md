@@ -39,7 +39,7 @@ Enable paging and start on the second page.
 
 ![](images/paging-overview.png)
 
->tip You can bind the values of those properties to variables in the `@code {}` section.
+>tip You can bind the values of those properties to variables in the `@code {}` section. If you want to bind the page index to a variable, you must use the `@bind-Page="@MyPageIndexVariable"` syntax.
 
 Here is one way to implement a page size choice that puts all records on one page.
 
