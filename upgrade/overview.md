@@ -14,10 +14,10 @@ This article explains how to upgrade to a new version of Telerik UI for Blazor.
 
 To upgrade the Telerik components, you need to update their NuGet package reference, and, if you use them, the CDN links.
 
->tip Before stating an upgrade of your project, you may find it useful to review the following information:
+>tip Before starting an upgrade of your project, you may find it useful to review the following information:
 >
-> * Whether you are affected by a breaking change. The [List of Telerik UI for Blazor Versions with Breaking Changes]({%slug versions-with-breaking-changes%}) article shows which releases of our component suite have breaking changes. Review the information for the releases you go through so you can evaluate whether you will be affected by anything.
 > * [UI for Blazor Release History](https://www.telerik.com/support/whats-new/blazor-ui/release-history) — reviewing the release notes for all releases you go through will let you see what has changed, what fixes, features and components have been implemented so you are better prepared to meet your project's challenges.
+> * Whether you are affected by a breaking change. The [List of Telerik UI for Blazor Versions with Breaking Changes]({%slug versions-with-breaking-changes%}) article shows which releases of our component suite have breaking changes. Review the information for the releases you go through so you can evaluate whether you will be affected by anything.
 
 ## Upgrade Process
 
