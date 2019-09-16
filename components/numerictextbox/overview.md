@@ -62,6 +62,9 @@ The numeric textbox provides the following features:
 <TelerikNumericTextBox Format="#.00 kg" Max="5m" Min="-5m" Step="0.33m" Value="3.456789m"></TelerikNumericTextBox>
 ````
 
+>important The decimal separator is `.` for the time being. When localization features get implemented in the Telerik UI for Blazor suite, it will be possible to take it from the current thread culture. This means that cultures with a differet separator may not funcion correctly. Currency symbols are also rendered by the framework and they come from the current culture as well.
+
+<!--
 >note If you want to use a currency format, you must specify a culture on the thread, so .NET knows what symbol to render. If you don't do that, you may see an unexpected/incorrect symbol or format.
 
 >caption To use currency format, set Thread culture in Startup.cs
@@ -81,6 +84,8 @@ namespace MyBlazorApp.Client
     }
 }
 ````
+
+-->
 
 ## See Also
 
