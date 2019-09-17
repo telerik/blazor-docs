@@ -45,6 +45,8 @@ The selected date is: @selectedDate
 
 ![](images/basic-calendar.png)
 
+>tip The `Date` parameter indicates the view the user is in. You can use its `DateChanged` event to know when the user browses through the calendar.
+
 >caption Component namespace and reference
 
 ````CSHTML
