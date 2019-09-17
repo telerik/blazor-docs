@@ -131,11 +131,11 @@ navigation:
      "*dateinput":
         title: "Date Input"
      "*datepicker":
-        title: "DatePicker"
+        title: "Date Picker"
      "*daterangepicker":
         title: "DateRangePicker"		
      "*datetimepicker":
-        title: "DateTimePicker"
+        title: "DateTime Picker"
      "*dialog":
         title: "Dialog"
      "*draganddrop":
@@ -260,6 +260,7 @@ intro_columns:
       "Date Input": "components/dateinput/overview"
       "Date Picker": "components/datepicker/overview"
       "Time Picker": "components/timepicker/overview"
+      "DateTime Picker": "components/datetimepicker/overview"
       "DropDownList": "components/dropdownlist/overview"
 
   -

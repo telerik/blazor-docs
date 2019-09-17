@@ -34,7 +34,7 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 >caption How to validate inputs
 
 ````CSHTML
-@using System.ComponentModel.DataAnnotations // used for the model class attributes
+@using System.ComponentModel.DataAnnotations @* used for the model class attributes *@
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
@@ -60,12 +60,16 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         Daily scrum: <TelerikTimePicker @bind-Value="person.DailyScrum"></TelerikTimePicker>
         <ValidationMessage For="@(() => person.DailyScrum)"></ValidationMessage>
     </p>
+    <p class="start-time">
+        Start time: <TelerikDateTimePicker Format="G" @bind-Value="@person.StartTime" Width="250px"></TelerikDateTimePicker>
+        <ValidationMessage For="@(() => person.StartTime)"></ValidationMessage>
+    </p>
     <p class="accepts-terms">
         Accepts terms: <InputCheckbox @bind-Value="person.AcceptsTerms" />
         <ValidationMessage For="@(() => person.AcceptsTerms)"></ValidationMessage>
     </p>
 
-    <button type="submit">Submit</button>
+    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
 </EditForm>
 
 @code {
@@ -92,8 +96,14 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         public DateTime FavoriteDay { get; set; }
 
         [Required(ErrorMessage = "The daily standup is required")]
-        [Range(typeof(DateTime), "1/1/1900 08:00:00", "1/1/1900 17:00:00", ErrorMessage = "Time should be in business hours, between 8AM and 5 PM.")]
+        [Range(typeof(DateTime), "1/1/1900 08:00:00", "1/1/1900 17:00:00",
+            ErrorMessage = "Time should be in business hours, between 8AM and 5 PM.")]
         public DateTime? DailyScrum { get; set; }
+
+        [Required(ErrorMessage = "Enter a starting time")]
+        [Range(typeof(DateTime), "29/11/2018 10:00:00", "22/12/2025 17:00:00",
+            ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy HH:mm} and {2:dd MMM yyyy HH:mm}")]
+        public DateTime StartTime { get; set; }
 
         [Required]
         [Range(typeof(bool), "true", "true", ErrorMessage = "Must accept terms")]
@@ -103,7 +113,7 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
     Person person = new Person()
     {
         // for time pickers, the initial date value must match the date portion of the range validation rule
-        DailyScrum = new DateTime(1900, 1, 1, 1, 1, 1) 
+        DailyScrum = new DateTime(1900, 1, 1, 1, 1, 1),
     };
 
     void HandleValidSubmit()
