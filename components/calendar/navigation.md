@@ -24,11 +24,12 @@ You can control how far the user can go by setting the `Min` and `Max` propertie
 The user starts in April 2019 and can navigate between January 2019 and July 2019.
 <br />
 
-<TelerikCalendar Date="@startDate" View="@CalendarView.Month" Min="@minDate" Max="@maxDate"></TelerikCalendar>
+<TelerikCalendar @bind-Date="@startDate" @bind-View="@selectedView" Min="@minDate" Max="@maxDate"></TelerikCalendar>
 @code {
-	DateTime startDate = new DateTime(2019, 4, 1);
-	DateTime minDate = new DateTime(2019, 1, 1);
-	DateTime maxDate = new DateTime(2019, 7, 31);
+    DateTime startDate = new DateTime(2019, 4, 1);
+    DateTime minDate = new DateTime(2019, 1, 1);
+    DateTime maxDate = new DateTime(2019, 7, 31);
+    CalendarView selectedView { get; set; } = CalendarView.Month;
 }
 ````
 
@@ -57,22 +58,23 @@ You can control how much detail the user can go into by setting the `BottomView`
 The user starts in the Decade view and can only go down to years.
 <br />
 
-<TelerikCalendar BottomView="@CalendarView.Year" View="@CalendarView.Decade" 
-                Min="@min" Max="@max" ValueChanged="@MyValueChangeHandler">
+<TelerikCalendar BottomView="@CalendarView.Year" @bind-View="@SelectedView"
+                 Min="@min" Max="@max" ValueChanged="@MyValueChangeHandler">
 </TelerikCalendar>
 
-The selected date is: @selectedDate
+<br />The selected date is: @selectedDate
 
 @code {
-	private DateTime min = new DateTime(2015, 1, 1);
-	private DateTime max = new DateTime(2025, 12, 31);
-	private string selectedDate = "";
+    private DateTime min = new DateTime(2015, 1, 1);
+    private DateTime max = new DateTime(2025, 12, 31);
+    private CalendarView SelectedView { get; set; } = CalendarView.Decade;
+    private string selectedDate = "";
 
-	private void MyValueChangeHandler(DateTime newValue)
-	{
-		selectedDate = newValue.ToString();
-		StateHasChanged();
-	}
+    private void MyValueChangeHandler(DateTime newValue)
+    {
+        selectedDate = newValue.ToString();
+        StateHasChanged();
+    }
 }
 ````
 
@@ -87,12 +89,10 @@ You can make the Calendar component move to a certain date and view through its 
 >caption Navigate the Calendar to a date and view programmatically
 
 ````CSHTML
-Programmatic Calendar navigation<br />
+@* Programmatic Calendar navigation *@
 
-<TelerikCalendar Date="@startDate"
-                    Min="@min"
-                    Max="@max"
-                    View="@calendarView">
+<TelerikCalendar @bind-Date="@startDate" @bind-View="@calendarView"
+                 Min="@min" Max="@max">
 </TelerikCalendar>
 <TelerikButton OnClick="@UpdateView">Update View</TelerikButton>
 

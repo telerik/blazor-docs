@@ -17,9 +17,10 @@ To use a Telerik Calendar for Blazor, add the `TelerikCalendar` tag.
 >caption Basic calendar with its key features, and ValueChanged event handling
 
 ````CSHTML
-Main Calendar features, ValueChanged event handling.<br />
+@* Main Calendar features, ValueChanged event handling. *@
+<br />
 
-<TelerikCalendar Min="@min" Max="@max" ValueChanged="@MyValueChangeHandler" Date="@DateTime.Now">
+<TelerikCalendar Min="@min" Max="@max" ValueChanged="@MyValueChangeHandler" @bind-Date="@theDate">
 </TelerikCalendar>
 
 <br />
@@ -29,14 +30,15 @@ The selected date is: @selectedDate
 
     private DateTime min = new DateTime(2015, 1, 1);
     private DateTime max = new DateTime(2025, 12, 31);
+    private DateTime theDate { get; set; } = DateTime.Now;
     private string selectedDate = "";
 
     private void MyValueChangeHandler(DateTime newValue)
     {
         selectedDate = newValue.ToString("dd MMM yyyy");
-        StateHasChanged();
     }
 }
+
 ````
 
 >caption The result from the code snippet above

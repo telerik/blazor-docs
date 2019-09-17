@@ -43,7 +43,7 @@ The user will not be able to select the first and second of April 2019.
 <h4>Single Selection</h4>
 
 <TelerikCalendar SelectionMode="@CalendarSelectionMode.Single" ValueChanged="@SingleSelectionChangeHandler"
-                 DisabledDates="@DisabledDates" Date="@startDate">
+                 DisabledDates="@DisabledDates" @bind-Date="@startDate">
 </TelerikCalendar>
 <br />
 @if (selectedDate != null)
@@ -55,7 +55,7 @@ The user will not be able to select the first and second of April 2019.
 <h4>Multiple Selection</h4>
 
 <TelerikCalendar SelectionMode="@CalendarSelectionMode.Multiple" ValueChanged="@MultipleSelectionChangeHandler"
-                 DisabledDates="@DisabledDates" Date="@startDate" @ref="multipleSelCalendar">
+                 DisabledDates="@DisabledDates" @bind-Date="@startDate" @ref="multipleSelCalendar">
 </TelerikCalendar>
 <br />
 @if (chosenDates != null && chosenDates.Count > 0)
@@ -69,22 +69,22 @@ The user will not be able to select the first and second of April 2019.
 }
 
 @code {
-    private DateTime startDate = new DateTime(2019, 4, 1);//set the initial date of the calendar
+    private DateTime startDate = new DateTime(2019, 4, 1); // set the initial date of the calendar
 
-    //set dates the user can't select
+    // set dates the user can't select
     private List<DateTime> DisabledDates = new List<DateTime>() { new DateTime(2019, 4, 1), new DateTime(2019, 4, 2) };
 
-    //fields to store and render the user selection
+    // fields to store and render the user selection
     private DateTime? selectedDate { get; set; } = null;
     private List<DateTime> chosenDates { get; set; }
 
     private void SingleSelectionChangeHandler(DateTime newValue)
     {
-        //with single selection, the argument is a single DateTime object with the new selection
+        // with single selection, the argument is a single DateTime object with the new selection
         selectedDate = newValue;
     }
 
-    //reference used to obtain the selected dates from a multiple selection calendar
+    // reference used to obtain the selected dates from a multiple selection calendar
     private Telerik.Blazor.Components.TelerikCalendar multipleSelCalendar;
     private void MultipleSelectionChangeHandler()
     {
@@ -92,6 +92,7 @@ The user will not be able to select the first and second of April 2019.
         chosenDates = multipleSelCalendar.SelectedDates;
     }
 }
+
 ````
 
 
