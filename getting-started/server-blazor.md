@@ -74,18 +74,19 @@ To use Blazor server-side, you need to use the `Blazor App` type of project with
             }
         }
 
-1. @[template](/_contentTemplates/common/get-started.md#telerik-main-container-text)
-
-    **MainLayout.razor**
-    
-        @[template](/_contentTemplates/common/get-started.md#telerik-main-container-snippet)
-
 1. Add the following to your **`~/_Imports.razor`** file so the project recognizes our components in all files:
 
     **CSHTML**
     
         @using Telerik.Blazor
         @using Telerik.Blazor.Components
+
+1. @[template](/_contentTemplates/common/get-started.md#telerik-main-container-text)
+
+    **MainLayout.razor**
+    
+        @[template](/_contentTemplates/common/get-started.md#telerik-main-container-snippet)
+
 
     
 Now your project can use the Telerik UI for Blazor components.

@@ -19,7 +19,19 @@ To use the Telerik UI for Blazor, you need to:
 1. add the [client assets](#client-assets)
 1. [set up the project](#project-configuration) to recognize the Telerik components
 
->note Make sure you can build and deploy a vanilla Blazor project before moving forward with using UI for Blazor. This will ensure that the framework prerequisites are working. See the [Before You Continue](#before-you-continue) section if you don't have a project already, before you continue with this article from the top.
+## Before You Continue
+
+Before you continue, make sure you can use Blazor. Read below for more details.
+
+Once you have Blazor running, follow the articles below to see how to add the Telerik components to your project.
+
+@[template](/_contentTemplates/common/get-started.md#after-install)
+
+@[template](/_contentTemplates/common/get-started.md#blazor-tutorial-intro)
+@[template](/_contentTemplates/common/get-started.md#get-started-msdn-link)
+
+@[template](/_contentTemplates/common/get-started.md#after-you-run-vanilla)
+
 
 ## Telerik Specific Packages
 
@@ -34,7 +46,7 @@ There are four ways to get these packages:
 
 * The **[Telerik private NuGet feed]({%slug installation/nuget%})** that requires an Internet connection and credentials. It also provides information about updates and new versions.
 
-* The **[Automated MSI installer]({%slug installation/msi%})**. You can download it from your account once and use without an Internet connection. It does not provide information about new versions. Depending on your setup, it may require elevated privileges to run the install wizard. Also provides an offline version of our [demos](https://demos.telerik.com/blazor-ui).
+* The **[Automated MSI installer]({%slug installation/msi%})**. You can download it from your account once and use without an Internet connection. It does not provide information about new versions. Depending on your setup, it may require elevated privileges to run the install wizard. Also provides an offline version of our [demos](https://demos.telerik.com/blazor-ui) and our [VS extensions]({%slug getting-started-vs-integration-overview%}).
 
 * The **[ZIP archive]({%slug installation/zip%})** package. You can download it from your account once and it does not require Internet connection after that. It does not provide information about new versions, and does not require installation. Also provides an offline version of our [demos](https://demos.telerik.com/blazor-ui).
 
@@ -114,22 +126,6 @@ To allow working with detached popups (for example, dropdown lists, menus, grid 
 
 If you are using a **client-side Blazor** project, 
 @[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
-
-
-
-
-## Before You Continue
-
-Before you continue, make sure you can use Blazor. Read below for more details.
-
-Once you have Blazor running, follow the articles below to see how to add the Telerik components to your project.
-
-@[template](/_contentTemplates/common/get-started.md#after-install)
-
-@[template](/_contentTemplates/common/get-started.md#blazor-tutorial-intro)
-@[template](/_contentTemplates/common/get-started.md#get-started-msdn-link)
-
-@[template](/_contentTemplates/common/get-started.md#after-you-run-vanilla)
 
 ## See Also
 
