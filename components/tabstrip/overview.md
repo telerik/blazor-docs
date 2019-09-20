@@ -106,7 +106,7 @@ Active Tab Index: @ActiveTabIndex
 }
 ````
 
->caption Extract information for the currently selected tab from your model
+>caption Extract information for the currently selected tab from your model. Alter the model to affect the tab strip.
 
 ````CSHTML
 @result
@@ -115,12 +115,14 @@ Active Tab Index: @ActiveTabIndex
     @{
         foreach (MyTabModel item in tabs)
         {
-            <TabStripTab Title="@item.Title">
+            <TabStripTab Title="@item.Title" Disabled="@item.Disabled">
                 Content for tab @item.Title
             </TabStripTab>
         }
     }
 </TelerikTabStrip>
+
+<TelerikButton OnClick="@( () => tabs[1].Disabled = !tabs[1].Disabled )">Toggle the Disabled state of the second tab</TelerikButton>
 
 @code {
     MarkupString result { get; set; }
@@ -145,7 +147,6 @@ Active Tab Index: @ActiveTabIndex
         public bool Disabled { get; set; }
     }
 }
-
 ````
 
 ## See Also
