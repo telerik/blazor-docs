@@ -19,6 +19,29 @@ There are two key ways to bind data to the chart series and axes:
 
 You can, of course, [mix these approaches](#mixed-data-source).
 
+## Series Types
+
+There are three main types of chart in terms of the data they require for their x-axis:
+
+* **Categorical** - series like Area, Line, Column require a set of categories to match the data points values against. Those categories can be shared among different series, or unique. The categories are usually strings, but can also be [dates]({%slug components/chart/date-axis%}). While there are X and Y axes, the x-axis is not a progression of numerical values - spacing between all x-axis items is equal and they show the text of the category.
+* **Numerical** - series like Bubble, Scatter and Scatter Line represent two numerical values for the X and Y axes. They do not use categories on the x-axis and thus each data point is independent. This makes it easier to bind each series to a separate collection of data that can have different number of items in it, because plotting the data points is not dependent on string categories, but on numeric values that will be plotted and spaced according to their values.
+* **Axis-free** - series like Pie and Donut do not have a x-axis at all. They use categories to build a list of items for each series and show those categories in the legend, as opposed to the series name that is usually shown by the other chart types.
+
+With this in mind, the information below is applicable for all chart types, but the finer points are mostly relevant to categorical charts.
+
+## Mixing Series
+
+You can use only series with the same general layout in a single chart. You cannot mix numerical with categorical x-axes in the same chart. For example:
+
+* Line, Area and Column series can be used together.
+* Line, Area and Bar series can be used together. To rotate the layout of the chart according to the way Bar charts render, the bar series must be declared first. Otherwise, a column layout will be used.
+* Bar and Column charts have a different layout and the rendering will depend on the first declared series.
+* Scatter and ScatterLine series can be used together.
+* Bubble charts cannot be used with other chart types because they have a very distinct layout due to the Size dimension.
+* Pie and Donut charts will render only one series per chart and so only one can be used at a time.
+
+
+
 ## Independent Series Binding
 
 In the simplest case, you provide two collections to the chart:
@@ -286,6 +309,145 @@ Standalone categories are ignored when there is category data binding to a model
 >caption The result from the code snippet above
 
 ![](images/standalone-categories-ignored-if-bound-from-series.png)
+
+
+## Numerical Charts
+
+Numerical charts do not use categories and you do not need to consider how the x-axis is shared between the series and whether several data points will be in the same zone. You can provide a model for each series that contains the necessary information (x-value, y-value, and any other value that may be needed, such as size for bubble charts) and they will be plotted independently.
+
+If one series has more data points than another, you will not get empty items on the x-axis, all data points are plotted according to general mathematical rules on the axes.
+
+This means that it is often suitable to provide each series with its own collection of data, and these collections can often use the same model. You can still data bind the entire chart to a single collection, or use any of the approaches above.
+
+>caption Series with a different number of items can be easily used in numerical charts
+
+````CSHTML
+
+@* Standalone collections of the same model type are used for the different series without consideration for matching categories *@
+
+<TelerikChart>
+    <ChartTitle Text="Unrecoverable Errors Per Minute vs. Signal Level"></ChartTitle>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Scatter"
+                     Data="@Series1Data"
+                     Name="APSK modulation"
+                     XField="@nameof(ModelData.Strength)"
+                     YField="@nameof(ModelData.Errors)">
+        </ChartSeries>
+
+        <ChartSeries Type="ChartSeriesType.Scatter"
+                     Data="@Series2Data"
+                     Name="QAM modulation"
+                     XField="@nameof(ModelData.Strength)"
+                     YField="@nameof(ModelData.Errors)">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartXAxes>
+        <ChartXAxis Max="-30" AxisCrossingValue="@(new object[] { -100 })">
+            <ChartXAxisTitle Text="Signal Strength, dBm"></ChartXAxisTitle>
+        </ChartXAxis>
+    </ChartXAxes>
+
+    <ChartYAxes>
+        <ChartYAxis>
+            <ChartYAxisTitle Text="Error count"></ChartYAxisTitle>
+        </ChartYAxis>
+    </ChartYAxes>
+</TelerikChart>
+
+@code {
+    public class ModelData
+    {
+        public double Strength { get; set; }
+        public double Errors { get; set; }
+    }
+
+    public List<ModelData> Series1Data = new List<ModelData>()
+    {
+       new ModelData { Strength = -82, Errors = 15  },
+       new ModelData { Strength = -79, Errors = 13  },
+       new ModelData { Strength = -77, Errors = 10  },
+       new ModelData { Strength = -74, Errors = 7  },
+       new ModelData { Strength = -70, Errors = 3  },
+       new ModelData { Strength = -65, Errors = 1  }
+    };
+
+    public List<ModelData> Series2Data = new List<ModelData>()
+    {
+       new ModelData { Strength = -80, Errors = 25  },
+       new ModelData { Strength = -76, Errors = 22  },
+       new ModelData { Strength = -73, Errors = 17  },
+       new ModelData { Strength = -70, Errors = 15  },
+       new ModelData { Strength = -65, Errors = 12  },
+       new ModelData { Strength = -61, Errors = 10  },
+       new ModelData { Strength = -55, Errors = 7  },
+       new ModelData { Strength = -50, Errors = 3  }
+    };
+}
+````
+
+>caption The same chart bound to a single model with fields for each series
+
+````CSHTML
+@* You can also have a different number of series item if you bind the entire chart to the same model *@
+
+<TelerikChart>
+    <ChartTitle Text="Unrecoverable Errors Per Minute vs. Signal Level"></ChartTitle>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Scatter"
+                     Data="@AllChartData"
+                     Name="APSK modulation"
+                     XField="@nameof(ModelData.ApskStrength)"
+                     YField="@nameof(ModelData.ApskErrors)">
+        </ChartSeries>
+
+        <ChartSeries Type="ChartSeriesType.Scatter"
+                     Data="@AllChartData"
+                     Name="QAM modulation"
+                     XField="@nameof(ModelData.QamStrength)"
+                     YField="@nameof(ModelData.QamErrors)">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartXAxes>
+        <ChartXAxis Max="-30" AxisCrossingValue="@(new object[] { -100 })">
+            <ChartXAxisTitle Text="Signal Strength, dBm"></ChartXAxisTitle>
+        </ChartXAxis>
+    </ChartXAxes>
+
+    <ChartYAxes>
+        <ChartYAxis>
+            <ChartYAxisTitle Text="Error count"></ChartYAxisTitle>
+        </ChartYAxis>
+    </ChartYAxes>
+</TelerikChart>
+
+@code {
+    public class ModelData
+    {
+        public double ApskStrength { get; set; }
+        public double ApskErrors { get; set; }
+        public double QamStrength { get; set; }
+        public double QamErrors { get; set; }
+    }
+
+    public List<ModelData> AllChartData = new List<ModelData>()
+    {
+       new ModelData { QamStrength = -80, QamErrors = 25, ApskStrength = -82, ApskErrors = 15  },
+       new ModelData { QamStrength = -76, QamErrors = 22, ApskStrength = -79, ApskErrors = 13  },
+       new ModelData { QamStrength = -73, QamErrors = 17, ApskStrength = -77, ApskErrors = 10  },
+       new ModelData { QamStrength = -70, QamErrors = 15, ApskStrength = -74, ApskErrors = 7  },
+       new ModelData { QamStrength = -65, QamErrors = 12, ApskStrength = -70, ApskErrors = 3  },
+       new ModelData { QamStrength = -61, QamErrors = 10, ApskStrength = -65, ApskErrors = 1  },
+       new ModelData { QamStrength = -55, QamErrors = 7  },
+       new ModelData { QamStrength = -50, QamErrors = 3  }
+    };
+}
+
+````
 
 ## See Also
 

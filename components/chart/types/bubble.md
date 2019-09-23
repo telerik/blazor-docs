@@ -24,7 +24,7 @@ To create a bubble chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Bubble`
-3. provide a data collection to its `Data` property, which contains numerical data for the X and Y axes, and for the buble size
+3. provide a data collection to its `Data` property, which contains numerical data for the X and Y axes, and for the bubble size
 
 
 >caption A bubble chart that shows projected population change on a plot of life expectancy versus fertility rate
@@ -124,4 +124,4 @@ The size field should, generally, have positive values as it correlates to the p
 
 ## See Also
 
-  * [Live Demo: Area Chart](https://demos.telerik.com/blazor-ui/chart/area-chart)
+  * [Live Demo: Bubble Chart](https://demos.telerik.com/blazor-ui/chart/bubble-chart)

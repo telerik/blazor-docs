@@ -107,4 +107,4 @@ The `ColorField` can change the color of individual items. To use it, pass a val
 
 ## See Also
 
-  * [Live Demo: Area Chart](https://demos.telerik.com/blazor-ui/chart/area-chart)
+  * [Live Demo: Scatter Chart](https://demos.telerik.com/blazor-ui/chart/scatter-chart)
