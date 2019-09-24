@@ -123,3 +123,9 @@ You can render the lines between the points with different styles. The supported
 ![](images/line-chart-step-and-smooth.png)
 #end
 
+#opacity-area-bubble
+### Opacity
+
+You can control how transparent the series fill is through the `Opacity` property. `0` means a completely transparent series, and `1` means a completely opaque (non-transparent) fill. You can use decimal values to set the desired transparency (for example, `Opacity="0.3"`).
+#end
+

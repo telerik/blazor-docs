@@ -72,9 +72,7 @@ The color of a series is controlled through the `Color` property that can take a
 
 You can control the color of the line itself separately by using the `Color` property of the nested `TelerikChartSeriesLine` tag.
 
-### Opacity
-
-You can control how transparent the area fill is through the `Opacity` property. `0` means a completely opaque (non-transparent) series, and `255` means a completely transparent fill.
+@[template](/_contentTemplates/chart/link-to-basics.md#opacity-area-bubble)
 
 ### Missing Values
 

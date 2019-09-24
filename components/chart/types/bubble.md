@@ -104,23 +104,57 @@ The color of a series is controlled through the `Color` property that can take a
 
 The `ColorField` can change the color of individual items. To use it, pass a valid CSS color to the corresponding field in the model and the chart will use its values instead of the `Color` parameter.
 
-<!-- 
 
-### Opacity
-
-You can control how transparent the bubble fill is through the `Opacity` property. `0` means a completely opaque (non-transparent) series, and `255` means a completely transparent fill.
-
--->
+@[template](/_contentTemplates/chart/link-to-basics.md#opacity-area-bubble)
 
 
-<!-- 
 ### Negative Values
 
 Negative values are allowed for the X and Y fields, because they are plotted on standard numerical axes.
 
-The size field should, generally, have positive values as it correlates to the physical size of the bubble. To render negativ values, set the `NegativeValuesVisible` parameter of the series to `true`. They will be calculated as if their values are positive. To distinguish one from the other, you can have negative items show up in a different color through the `NegativeColor` parameter of the serires.
+The size field should, generally, have positive values as it correlates to the physical size of the bubble. To render negative values, set the `Visible` parameter of the `ChartSeriesNegativeValues` tag of the series to `true`. Bubbles with negative size values will be calculated as if their sizes are positive. To distinguish one from the other, you can have negative items show up in a different color through the `Color` parameter of the `ChartSeriesNegativeValues` tag.
 
--->
+>caption Negative bubble size
+
+````CSHTML
+@* Negative bubble sizes can showcase decreases in values and can render in different color than the rest of the series *@
+
+<TelerikChart>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Bubble"
+                     Data="@SeriesData"
+                     XField="@nameof(ModelData.X)"
+                     YField="@nameof(ModelData.Y)"
+                     SizeField="@nameof(ModelData.Size)">
+            <ChartSeriesNegativeValues Visible="true" Color="cyan"></ChartSeriesNegativeValues>
+            <ChartSeriesLabels Visible="true" Template="#=dataItem.MetaData#"></ChartSeriesLabels>
+        </ChartSeries>
+    </ChartSeriesItems>
+
+</TelerikChart>
+
+@code {
+    public class ModelData
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Size { get; set; }
+        public string MetaData { get; set; }
+    }
+
+    public List<ModelData> SeriesData = new List<ModelData>()
+    {
+        new ModelData() { X = 250, Y = 5000, Size = 50000 , MetaData = "positive size"},
+        new ModelData() { X = 500, Y = 1100, Size = -760000, MetaData = "negative size" }
+    };
+}
+````
+
+>caption The result from the code snippet above
+
+![](images/bubble-chart-negative-values.png)
+
 
 ## See Also
 
