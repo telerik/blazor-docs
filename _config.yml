@@ -280,13 +280,15 @@ intro_columns:
       "Line Charts": "components/chart/types/line"
       "Pie Charts": "components/chart/types/pie"
       "Donut Charts": "components/chart/types/donut"
+      "Bubble Charts": "components/chart/types/bubble"
+      "Scatter Charts": "components/chart/types/scatter"
+      "ScatterLine Charts": "components/chart/types/scatterline"
   -
     
 ## The application virtual path
 baseurl: /blazor-ui
 
 ## Latest UI for Blazor version. Used in some articles
-
 uiForBlazorLatestVersion: "2.0.0"
 
 ## The Kendo UI version used

@@ -75,3 +75,51 @@ You can configure the values of `Gap` and `Spacing` for the whole chart in the f
 ![](images/gap-and-spacing.png)
 #end
 
+
+#markers-line-scatter
+### Markers
+
+Each data item is denoted by a marker. You can control its settings through the child `ChartSeriesMarkers` tag of the series.
+
+You can hide the markers by setting their `Visible` property to `false`.
+
+The `Size` property is the size of the marker in pixels.
+
+The `Type` property is a member of the `Telerik.Blazor.ChartSeriesMarkersType` enum:
+
+* `Circle` - the default
+* `Cross`
+* `Square`
+* `Triangle`
+
+The `Rotation` property is the degrees with which the marker is rotated from its default orientation.
+#end
+
+
+#color-line-scatter
+### Color
+
+The color of the line and markers is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
+
+You can control the color of the markers by using the `Background` property of the nested `ChartSeriesMarkers` tag.
+
+#### ColorField
+
+You can pass a `ColorField` to the chart as a part of the model, and the data points (markers) will use that color instead of the `Color` of the series or the `Background` of the markers settings.
+#end
+
+
+#line-style-line
+### Line Style
+
+You can render the lines between the points with different styles. The supported styles can be set via the `Style` property that takes a member of `Telerik.Blazor.ChartSeriesStyle` enum:
+
+* `Normal`—This is the default style. It produces a straight line between data points.
+* `Step`—The style renders the connection between data points through vertical and horizontal lines. It is suitable for indicating that the value is constant between the changes.
+* `Smooth`—This style causes the Chart to display a fitted curve through data points. It is suitable when the data requires to be displayed with a curve, or when you wish to connect the points with smooth instead of straight lines.
+
+>caption Comparison between the line styles
+
+![](images/line-chart-step-and-smooth.png)
+#end
+

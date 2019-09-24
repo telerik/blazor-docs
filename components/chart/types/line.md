@@ -60,28 +60,10 @@ Line series
 
 ## Line Chart Specific Appearance Settings
 
-## Markers
+@[template](/_contentTemplates/chart/link-to-basics.md#markers-line-scatter)
 
-Each data item is denoted by a marker. You can control its settings through the child `TelerikChartSeriesMarkers` tag of the series.
+@[template](/_contentTemplates/chart/link-to-basics.md#color-line-scatter)
 
-You can hide the markers by setting their `Visible` property to `false`.
-
-The `Size` property is the size of the marker in pixels.
-
-The `Type` property is a member of the `Telerik.Blazor.ChartSeriesMarkersType` enum:
-
-* `Circle` - the default
-* `Cross`
-* `Square`
-* `Triangle`
-
-The `Rotation` property is the degrees with which the marker is rotated from its default orientation.
-
-### Color
-
-The color of the line is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
-
-You can control the color of the markers by using the `Background` property of the nested `ChartSeriesMarkers` tag.
 
 ### Missing Values
 
@@ -92,17 +74,7 @@ If some values are missing from the series data (they are `null`), you can have 
 * `Gap` - behaves the same way as `Zero` because a line chart cannot have a gap in its filled area.
 
 
-### Line Style
-
-You can render the lines between the points with different styles. The supported styles can be set via the `Style` property that takes a member of `Telerik.Blazor.ChartSeriesStyle` enum:
-
-* `Normal`—This is the default style. It produces a straight line between data points.
-* `Step`—The style renders the connection between data points through vertical and horizontal lines. It is suitable for indicating that the value is constant between the changes.
-* `Smooth`—This style causes the Area Chart to display a fitted curve through data points. It is suitable when the data requires to be displayed with a curve, or when you wish to connect the points with smooth instead of straight lines.
-
->caption Comparison between the line styles
-
-![](images/line-chart-step-and-smooth.png)
+@[template](/_contentTemplates/chart/link-to-basics.md#line-style-line)
 
 
 ## See Also

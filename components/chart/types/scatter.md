@@ -98,11 +98,9 @@ To create a scatter chart:
 
 ## Scatter Chart Specific Appearance Settings
 
-### Color
+@[template](/_contentTemplates/chart/link-to-basics.md#markers-line-scatter)
 
-The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
-
-The `ColorField` can change the color of individual items. To use it, pass a valid CSS color to the corresponding field in the model and the chart will use its values instead of the `Color` parameter.
+@[template](/_contentTemplates/chart/link-to-basics.md#color-line-scatter)
 
 
 ## See Also
