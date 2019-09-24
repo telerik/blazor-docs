@@ -289,7 +289,7 @@ intro_columns:
 baseurl: /blazor-ui
 
 ## Latest UI for Blazor version. Used in some articles
-uiForBlazorLatestVersion: "2.0.0"
+uiForBlazorLatestVersion: "2.1.0"
 
 ## The Kendo UI version used
 cdnVersion: "2019.1.115"

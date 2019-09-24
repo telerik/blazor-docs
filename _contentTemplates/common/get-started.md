@@ -29,15 +29,11 @@
 
 #after-you-run-vanilla
 
->tip Make sure that you have [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0) and [Visual Studio 2019 **Preview**](https://visualstudio.microsoft.com/vs/preview/) installed. You must use the Preview version of Visual Studio for working with Blazor apps.
+>tip Make sure that you have [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0) and **Visual Studio 2019** installed.
 >
-> The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}` and it supports .NET Core 3 `Release Candidate 1`.
+> The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}` and it supports `.NET Core 3`.
 
 You may also find useful the [Getting started videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo) by Telerik.
-
-### Using Official Visual Studio 2019
-
-The official (RTM) version of Visual Studio 2019 does not fully support Blazor at the moment, and you must use the Visual Studio 2019 Preview channel: [https://visualstudio.microsoft.com/vs/preview/](https://visualstudio.microsoft.com/vs/preview/).
 
 >caption  Once you have the vanilla Blazor application running, continue to the next steps.
 #end
@@ -65,7 +61,7 @@ If you don't have a Blazor project set up, first you need to create one.
 
 To create a project manually, follow these steps:
 
-1. Open Visual Studio 2019 Preview
+1. Open Visual Studio 2019
 
 1. Create a New Project
 
