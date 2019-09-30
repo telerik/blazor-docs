@@ -111,7 +111,7 @@ To get access to the UI for Blazor components, follow these steps:
            }
         }
 
-1. **Run the app** in the browser by pressing `F5`. You should see something like this:
+1. **Run the app** in the browser by pressing `F5`. You should see something like this, after clicking the button:
 
     ![App in the browser](images/app-in-browser.png)
 
