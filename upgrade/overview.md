@@ -83,7 +83,8 @@ You can check if this is the case by inspecting the Network tab of your browser 
     * Discuss the case with your network administrators to have our CDN allowed.
     * Use [static assets]({%slug getting-started/what-you-need%}#static-assets) from the app folder to avoid going to the cloud.
 * The application was upgraded from a trial to a commercial license, but the path to the file was not. See the [Upgrade from Trial to Commercial](#upgrade-from-trial-to-commercial) section for details.
-* Static assets are not enabled on the server project, or the hosting environment does not work well with them. You need to ensure that the static assets are available after the build and on the deployment server. It is also possible that the hosting server does not support static assets or has issues with them and you may need to confirm this with the hosting provider or by testing with a simple package having a static asset to see whether it gets returned.
+* Static assets are not enabled on the server project, or the hosting environment does not work well with them. You need to ensure that the static assets are available after the build and on the deployment server - they are in the local nuget cache, under a path similar to `C:\Users\<theUser>\.nuget\packages\telerik.ui.for.blazor\<theVersion>\staticwebassets`. It is also possible that the hosting server does not support static assets or has issues with them and you may need to confirm this with the hosting provider or by testing with a simple package having a static asset to see whether it gets returned.
+    * [Clearing the NuGet cache](https://docs.microsoft.com/en-us/nuget/consume-packages/managing-the-global-packages-and-cache-folders#clearing-local-folders), then running a `Clean` and `Rebuild` on the solution may fix the problem in case something went wrong with fetching the nuget package.
 
 
 ## See Also
