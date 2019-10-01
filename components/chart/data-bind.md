@@ -39,7 +39,7 @@ You can use only series with the same general layout in a single chart. You cann
 * Scatter and ScatterLine series can be used together.
 * Bubble charts cannot be used with other chart types because they have a very distinct layout due to the Size dimension.
 * Pie charts will render only one series per chart and so only one can be used at a time.
-* Donut charts can only have donut series in them.
+* Donut charts can only have donut series in them (but can have multiple series).
 
 
 
