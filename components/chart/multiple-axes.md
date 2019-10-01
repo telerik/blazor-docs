@@ -19,21 +19,33 @@ You can have the chart render more than one axis for a given dimension. This let
 This article contains the following sections:
 
 * [Define Multiple Axes](#define-multiple-axes)
+	* [Categorical Charts](#categorical-charts)
+	* [Numerical Charts](#numerical-charts)
 * [Choose Axis Position](#choose-axis-position)
 * [Examples](#examples)
-	* [Value Axes](#value-axes)
+	* [Categorical Chart - Value Axes Examples](#categorical-chart---value-axes-examples)
 	* [Category Axes](#category-axes)
 		* [Behavior with Bar and Column Charts](#behavior-with-bar-and-column-charts)
+	* [Numerical Chart Examples](#numerical-chart-examples)
 
->tip When using multiple axes, often the color of the axis is set to match the `Color` of the series that uses it.
+>tip When using multiple axes, you would often set the color of the axis to match the `Color` of the series that uses it.
 
 ## Define Multiple Axes
 
-To use multiple axes, you need to:
+The way multiple axes are declared depends on the [chart series type]({%slug components/chart/databind%}#series-types):
+
+### Categorical Charts
 
 1. Define the extra axis in the corresponding `ChartCategoryAxes` and/or `ChartValueAxes` tags.
-2. Set its `Name` property as desired. By default, the series uses the first axis.
-3. Provide the `Name` value to the series you want to use it through its `Axis` or `CategoryAxis` property.
+2. Set its `Name` property as desired. By default, a series uses the first axis.
+3. Provide the `Name` value to the series you want to use it through its `Axis` and `CategoryAxis` for the `Y` and `X` axis respectively.
+
+
+### Numerical Charts
+
+1. Define the extra axis in the corresponding `ChartXAxes` and/or `ChartYAxes` tags.
+2. Set its `Name` property as desired. By default, a series uses the first axis.
+3. Provide the `Name` value to the series you want to use it through its `yAxis` and `xAxis` properties.
 
 ## Choose Axis Position
 
@@ -53,10 +65,12 @@ You can set a very large or a very small value to make a certain axis appear at 
 
 In this section you can find code examples, explanations on the behavior and screenshots of the expected behavior so you can understand the behavior of the chart and use it to your advantage.
 
-* [Value Axes Examples](#value-axes)
-* [Category Axes Examples](#category-axes)
+* [Categorical Chart - Value Axes Examples](#categorical-chart---value-axes-examples)
+* [Category Axes](#category-axes)
+	* [Behavior with Bar and Column Charts](#behavior-with-bar-and-column-charts)
+* [Numerical Chart Examples](#numerical-chart-examples)
 
-### Value Axes
+### Categorical Chart - Value Axes Examples
 
 In the following example, you can see how to define multiple y-axes, associate a series with an axis, and change the position of an axis.
 
@@ -158,7 +172,8 @@ Multiple category axes and their position
 
 ![](images/multiple-category-axes-line-chart.png)
 
-#### Behavior with Bar and Column Charts
+
+### Behavior with Bar and Column Charts
 
 It is important to keep in mind the behavior of the series with multiple category axes:
 
@@ -301,6 +316,129 @@ Potentially unwanted behavior 2
 >caption The result from the code snippets above
 
 ![](images/column-chart-multiple-axes-behavior.png)
+
+
+### Numerical Chart Examples
+
+When using numerical charts, you define the extra axes in the `ChartXAxes` and `ChartYAxes` tags.
+
+>caption Multiple axes in a numerical chart
+
+````CSHTML
+@* Both torque series use the torque y-axis. Both electrical motor series use the electrical motor x-axis. The default warm colors the come in for the electrical series are associated with their x-axis by making the electrical motor x-axis orange (you can choose colors that better match your scenario) *@
+
+<TelerikChart>
+    <ChartTitle Text="Power and torque versus RPM"></ChartTitle>
+    <ChartLegend Visible="true"></ChartLegend>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.ScatterLine"
+                     Data="@ElectricalPower"
+                     Name="Electrical Motor - Power"
+                     XAxis="ElectricalMotorAxis"
+                     XField="@nameof(ModelData.X)"
+                     YField="@nameof(ModelData.Y)"
+                     Style="ChartSeriesStyle.Smooth">
+        </ChartSeries>
+
+        <ChartSeries Type="ChartSeriesType.ScatterLine"
+                     Data="@ElectricalTorque"
+                     Name="Electrical Motor - Torque"
+                     XAxis="ElectricalMotorAxis"
+                     YAxis="TorqueAxis"
+                     XField="@nameof(ModelData.X)"
+                     YField="@nameof(ModelData.Y)"
+                     Style="ChartSeriesStyle.Smooth">
+        </ChartSeries>
+
+        <ChartSeries Type="ChartSeriesType.ScatterLine"
+                     Data="@GasPower"
+                     Name="Gasoline Motor - Power"
+                     XField="@nameof(ModelData.X)"
+                     YField="@nameof(ModelData.Y)"
+                     Style="ChartSeriesStyle.Smooth">
+        </ChartSeries>
+
+        <ChartSeries Type="ChartSeriesType.ScatterLine"
+                     Data="@GasTorque"
+                     Name="Gasoline Motor - Torque"
+                     YAxis="TorqueAxis"
+                     XField="@nameof(ModelData.X)"
+                     YField="@nameof(ModelData.Y)"
+                     Style="ChartSeriesStyle.Smooth">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartXAxes>
+        <ChartXAxis AxisCrossingValue="@crossingValues" Min="1000" Max="7000">
+            <ChartXAxisTitle Text="Gasoline Engine"></ChartXAxisTitle>
+        </ChartXAxis>
+        <ChartXAxis Name="ElectricalMotorAxis" AxisCrossingValue="@crossingValues" Min="0" Max="2000" Color="orange">
+            <ChartXAxisTitle Text="Electrical Motor"></ChartXAxisTitle>
+        </ChartXAxis>
+    </ChartXAxes>
+
+    <ChartYAxes>
+        <ChartYAxis Min="0">
+            <ChartYAxisTitle Text="Power (bhp)"></ChartYAxisTitle>
+        </ChartYAxis>
+        <ChartYAxis Name="TorqueAxis" Min="0">
+            <ChartYAxisTitle Text="Torque (lb-ft)"></ChartYAxisTitle>
+        </ChartYAxis>
+    </ChartYAxes>
+
+</TelerikChart>
+
+@code {
+    public object[] crossingValues = new object[] { 0, 99999 };
+
+    public class ModelData
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+    }
+
+    public List<ModelData> GasPower = new List<ModelData>()
+    {
+        new ModelData() { X = 1000, Y = 80 },
+        new ModelData() { X = 3000, Y = 100 },
+        new ModelData() { X = 4500, Y = 140 },
+        new ModelData() { X = 6000, Y = 170 },
+        new ModelData() { X = 6500, Y = 180 },
+    };
+
+    public List<ModelData> GasTorque = new List<ModelData>()
+    {
+        new ModelData() { X = 1000, Y = 70 },
+        new ModelData() { X = 3000, Y = 90 },
+        new ModelData() { X = 4500, Y = 120 },
+        new ModelData() { X = 6000, Y = 140 },
+        new ModelData() { X = 6500, Y = 120 },
+    };
+
+    public List<ModelData> ElectricalPower = new List<ModelData>()
+    {
+        new ModelData() { X = 0, Y = 0 },
+        new ModelData() { X = 100, Y = 10 },
+        new ModelData() { X = 1000, Y = 50 },
+        new ModelData() { X = 2000, Y = 110 },
+    };
+
+    public List<ModelData> ElectricalTorque = new List<ModelData>()
+    {
+        new ModelData() { X = 0, Y = 100 },
+        new ModelData() { X = 100, Y = 100 },
+        new ModelData() { X = 1000, Y = 100 },
+        new ModelData() { X = 2000, Y = 100 },
+    };
+}
+````
+
+>caption The result from the code snippet above
+
+![](images/multiple-axes-numerical-series.png)
+
+
 
 
 ## See Also
