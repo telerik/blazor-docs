@@ -64,6 +64,7 @@ If you have just purchased a license and you need to migrate from the trial pack
 
 After upgrading you may get runtime error messages in the browser console similar to the following:
 
+* `Microsoft.JSInterop.JSException: Could not find 'TelerikBlazor' in 'window'.`
 * `Error: Microsoft.JSInterop.JSException: Could not find 'initGrid' in 'window.TelerikBlazor'.`
 * `Error: Could not find 'TelerikBlazorPopup' in 'window'.`
 * Generally, errors referring to a Telerik component that cannot be found in the JS code.
