@@ -24,6 +24,8 @@ Thus, we recommend that you have all necessary fields in the base class and over
 
 This will let the grid perform operations like sorting and filtering, that will otherwise break. You could implement the `ICopmarer` interface to allow sorting, but this can quickly become cumbersome with the more inheritance there is, and it may also couple the separate implementations.
 
+>tip Due to high demand for such implementations, investigation has been reopened on the matter. You can Follow its status in the following page: [https://feedback.telerik.com/blazor/1432615-support-for-nested-complex-models](https://feedback.telerik.com/blazor/1432615-support-for-nested-complex-models).
+
 ## Solution
 
 If simple display is sufficient, you can use [Templates]({%slug components/grid/features/templates%}). For example:
