@@ -236,6 +236,6 @@ If you want to clear the data source, make sure to use its `.Clear()` method as 
 
   * [Live Demo: Grid Selection](https://demos.telerik.com/blazor-ui/grid/selection)
   * [Live Demo: Grid Checkbox Selection](https://demos.telerik.com/blazor-ui/grid/checkbox-selection)
-  * [Single Selection]({%slug components/grid/selection/single%}})
-  * [Multiple Selection]({%slug components/grid/selection/multiple%}})
+  * [Single Selection]({%slug components/grid/selection/single%})
+  * [Multiple Selection]({%slug components/grid/selection/multiple%})
 

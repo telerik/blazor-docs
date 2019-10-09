@@ -221,4 +221,4 @@ Use the selected items collection
 
   * [Live Demo: Grid Selection](https://demos.telerik.com/blazor-ui/grid/selection)
   * [Live Demo: Grid Checkbox Selection](https://demos.telerik.com/blazor-ui/grid/checkbox-selection)
-  * [Single Selection]({%slug components/grid/selection/single%}})
+  * [Single Selection]({%slug components/grid/selection/single%})
