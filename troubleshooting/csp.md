@@ -1,6 +1,6 @@
 ---
 title: Content Security Policy
-page_title: Content Security Policy | UI for Blazor
+page_title: Content Security Policy
 description: Content Security Policy and the UI for Blazor suite
 slug: troubleshooting-csp
 tags: Content Security Policy,csp,unsafe-eval,eval

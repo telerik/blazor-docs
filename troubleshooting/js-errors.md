@@ -1,6 +1,6 @@
 ---
 title: JavaScript Errors
-page_title: Content Security Policy | UI for Blazor
+page_title: JavaScript Errors
 description: Troubleshooting JavaScript errors in the UI for Blazor suite
 slug: troubleshooting-js-errors
 tags: js,errors,interop,missing
