@@ -88,8 +88,8 @@ The DropDownList provides the following features:
 * `DefaultItem` - sets the hint that is shown if no other item is selected. Set this property to an instance of the model class to which the dropdown is bound.
 * `Enabled` - whether the component is enabled.
 * `PopupHeight` - the height of the expanded dropdown list element.
-* `T` - the type of the model to which the component is bound. Required. Determines the type of the reference object.
-* `TItem` - the type of the value field from the model to which the component is bound. Required. Determines the type of the reference object.
+* `TItem` - the type of the model to which the component is bound. Required. Determines the type of the reference object.
+* `TValue` - the type of the value field from the model to which the component is bound. Required. Determines the type of the reference object.
 * `TabIndex` - the `tabindex` attribute rendered on the dropdown.
 * `TextField` - the name of the field from the model that will be shown to the user. Defaults to `Text`.
 * `ValueField` - the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
