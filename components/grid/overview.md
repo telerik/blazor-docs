@@ -95,10 +95,14 @@ The grid is a generic component, and to store a reference, you must use the mode
 }
 ````
 
+## Columns
+
+To show data in a grid, you need to define [GridColumn]({%slug components/grid/columns/bound%}) instances that expose the data fields as well as settings for [templates]({%slug components/grid/features/templates%}), [grouping](#grouping) and [reordering]({%slug components/grid/columns/reorder%}). To [edit](#editing) data or invoke custom logic, you define a [CommandColumn]({%slug components/grid/columns/command%}).
+
 
 ## Paging
 
-The grid supports paging of the data out of the box. You can read more about it in the [Paging]({%slug components/grid/features/paging%}) article.
+The grid supports paging of the data out of the box. You can read more about it in the [Paging]({%slug components/grid/features/paging%}) article. An alternative to standard paging is [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}) that provides a different user experience.
 
 ## Sorting
 
