@@ -18,7 +18,7 @@ The UI for Blazor suite comes with a set of built-in themes that you can choose 
 
 These themes are shared with the Kendo UI suites with which the UI for Blazor suite shares HTML rendering, classes and appearance (even though UI for Blazor are native components). You can read more about the way the available themes function in the [Kendo SASS Themes](https://docs.telerik.com/kendo-ui/styles-and-layout/sass-themes) article.
 
-To use a theme, you must reference its stylesheet in the `<head>` of your main index file. For a [client-side Blazor app]({%slug getting-started/client-side%}), this is `wwwroot/index.html` and for a [server-side Blazor app]({%slug getting-started/client-side%}), it is `~/Pages/Index.cshtml`. The Razor syntax for a server application may differ and you need to escape the `@` symbols as `@@`.
+To use a theme, you must reference its stylesheet in the `<head>` of your main index file. For a [client-side Blazor app]({%slug getting-started/client-side%}), this is `wwwroot/index.html` and for a [server-side Blazor app]({%slug getting-started/server-side%}), it is `~/Pages/Index.cshtml`. The Razor syntax for a server application may differ and you need to escape the `@` symbols as `@@`.
 
 >caption Reference the Default theme from the cloud
 
