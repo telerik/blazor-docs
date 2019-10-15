@@ -10,14 +10,14 @@ position: 0
 
 # Animation Container
 
-The UI for Blazor suite provides the Animation Container component that you can use to create messages and popups such as notifications or expandable containers. It lets you define its animation, size and position, and arbitrary content.
+The UI for Blazor suite provides the Animation Container component that you can use to create messages and popups such as [notifications](https://demos.telerik.com/blazor-ui/animationcontainer/notification) or expandable containers, even [tooltips](https://demos.telerik.com/blazor-ui/animationcontainer/tooltip). It lets you define its animation, size and position, and arbitrary content.
 
 To use the animation container, add the `TelerikAnimationContainer` tag.
 
 >caption How to use the Animation Container
 
 ````CSHTML
-Click the button to toggle the visibility of the customized popup
+@* Click the button to toggle the visibility of the customized popup *@
 
 <TelerikAnimationContainer @ref="myPopupRef" Top="300px" Width="100px" Height="100px" AnimationType="AnimationType.ZoomOut" Class="k-popup">
 	My content goes here. The "k-popup" class adds some background and borders which you can define through your own styles instead.
@@ -34,6 +34,12 @@ Click the button to toggle the visibility of the customized popup
 	}
 }
 ````
+
+>caption The result from the code snippet above
+
+![](images/animation-container-overview.gif)
+
+>note The component renderes in its place of declaration and has `position: absolute`. Parent elements in the DOM with special positioning can affect its position and the calculation of the `Top` and `Left` offsets.
 
 The animation container exposes the following properties and methods:
 
@@ -53,7 +59,7 @@ The animation container exposes the following properties and methods:
 	* Fade,
 	* ZoomIn,
 	* ZoomOut
-* `ShowDelay` and `HideDelay` - to set how much time will pass between toggling the `Visible` property and the actual change of the container state. When the `Visible` property is set to `true`, the `ShowDelay` timer counts and then the container shows. When `Visible` is set to `false`, the `HideDelay` timer starts and then the container hides. Both values are in milliseconds and default to `20`.
+* `ShowDelay` and `HideDelay` - defines the delay between showing/hiding the component and the respective animation start. Both values are in milliseconds and default to `20`.
 * `Class` - a CSS class rendered on the container DOM element.
 
 >caption Explore the animation options
