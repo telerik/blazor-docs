@@ -1,5 +1,5 @@
 ---
-title: SelectedDates and Double-click event
+title: Always Selected Dates - Marked Days
 description: Keep certain dates always selected in a Telerik Blazor Calendar as visual indicators to the user.
 type: how-to
 page_title: Always Selected Dates - Marked Days
