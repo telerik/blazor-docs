@@ -22,4 +22,8 @@ These last error messages can be observed if you have a component called `Teleri
 
 You will get the intellisense from the Telerik grid, you will be able to define columns and events, but setting its `Data` property will throw this build error because the framework will get confused with your own `TelerikGrid.razor` component.
 
+>note This [may be fixed in .NET Core 3.1 Preview 1](https://github.com/aspnet/AspNetCore/issues/13573) after our report.
+
 The **solution** is to ensure that the component names in the project are unique, both across components in different folders of your own making, and with components from third party libraries you may be using.
+
+
