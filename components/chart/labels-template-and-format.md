@@ -14,6 +14,12 @@ The Chart for Blazor can render labels on the axes, series data points and legen
 
 To turn on series labels, you must set their `Visible` property to `true` under the corresponding `ChartSeriesLabels` tag. The series labels are turned off by default to avoid clutter and to make the charts easier to read.
 
+You can jump to the following sections in this article:
+
+* [Format Strings](#format-strings)
+* [Templates](#templates)
+	* [Hide Label Conditionally](#hide-label-conditionally)
+
 ## Format Strings
 
 Where the labels are numerical (series values, the value axis), you can format those strings through the `Format` property of the corresponding labels inner tag. This lets you set [standard numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) to the values to showcase, for example, percentage, currency, and so on.
@@ -81,6 +87,8 @@ To set a template for the corresponding label, use the `Template` property in th
 After the example, you can find lists with the available fields you can use in templates.
 
 To add a new line, use the `\n` symbol.
+
+To format the values, you need to call a JavaScript function that will return the desired new string based on the template value you pass to it. You can find an example of this in the [How to format the percent in a label for a pie or donut chart]({%slug chart-format-percent%}) knowledge base article.
 
 >caption Custom templates in labels
 
