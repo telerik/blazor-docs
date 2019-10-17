@@ -100,5 +100,5 @@ Put nested `<TelerikGrid>` instances in the `DetailTemplate` of their parents. T
 }
 ````
 
-![](three-level-hierarchy-grid.png)
+![](images/three-level-hierarchy-grid.png)
 
