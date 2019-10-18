@@ -194,4 +194,5 @@ Editing is cancelled for the first two records. There is a deliberate delay in t
   * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/editing-incell)
   * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
   * [Live Demo: Grid Custom Edit Form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form)
+  * [Batch Editing Example](https://github.com/telerik/blazor-ui/tree/master/grid/batch-editing)
   
