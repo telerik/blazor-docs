@@ -6,7 +6,7 @@
 #end
 
 #add-js-interop-file-to-getting-started-client
- add the `telerik-blazor.js` file to your main index file - `wwwroot/index.html`:
+ **add** the `telerik-blazor.js` file to your main index file - `wwwroot/index.html`:
 
     **HTML**
     
@@ -16,7 +16,7 @@
 #end
 
 #add-js-interop-file-to-getting-started-server
- add the `telerik-blazor.js` file to your main index file - `~/Pages/_Host.cshtml`:
+ **add** the `telerik-blazor.js` file to your main index file - `~/Pages/_Host.cshtml`:
 
     **HTML**
     

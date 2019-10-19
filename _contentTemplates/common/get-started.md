@@ -55,9 +55,9 @@ Once you have added the Telerik NuGet feed, continue with this tutorial.
 #project-creation-part-1
  If you have one, go to the [Add to Existing Project](#add-to-existing-project) section below.
 
-If you don't have a Blazor project set up, first you need to create one.
+If you don't have a Blazor project set up, first you need to create one, then go to the [Add to Existing Project](#add-to-existing-project) section below.
 
->tip You can use the [Visual Studio Extensions]({%slug getting-started-vs-integration-new-project%}) we provide to prepare the project for you.
+>tip You can use the [Visual Studio Extensions]({%slug getting-started-vs-integration-new-project%}) we provide to prepare the project for you, so that you can start using the Telerik components immediately.
 
 To create a project manually, follow these steps:
 

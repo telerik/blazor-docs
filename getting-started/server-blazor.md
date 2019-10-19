@@ -33,6 +33,7 @@ To use Blazor server-side, you need to use the `Blazor App` type of project with
 
     ![Select Blazor Project Type](images/choose-project-template-server-blazor.png)
 
+Now that you have a Blazor project running, it's time to [Add the Telerik components](#add-to-existing-project) to it.
 
 ### Add to Existing Project
 

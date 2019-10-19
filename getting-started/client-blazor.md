@@ -33,6 +33,7 @@ For client-side `Blazor App`, we recommend the usage of `Blazor (ASP.NET Hosted)
 
     ![Select Blazor Project Type](images/choose-project-template.png)
 
+Now that you have a Blazor project running, it's time to [Add the Telerik components](#add-to-existing-project) to it.
 
 ### Add to Existing Project
 

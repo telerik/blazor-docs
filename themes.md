@@ -18,21 +18,44 @@ The UI for Blazor suite comes with a set of built-in themes that you can choose 
 
 These themes are shared with the Kendo UI suites with which the UI for Blazor suite shares HTML rendering, classes and appearance (even though UI for Blazor are native components). You can read more about the way the available themes function in the [Kendo SASS Themes](https://docs.telerik.com/kendo-ui/styles-and-layout/sass-themes) article.
 
-To use a theme, you must reference its stylesheet in the `<head>` of your main index file. For a [client-side Blazor app]({%slug getting-started/client-side%}), this is `wwwroot/index.html` and for a [server-side Blazor app]({%slug getting-started/server-side%}), it is `~/Pages/Index.cshtml`. The Razor syntax for a server application may differ and you need to escape the `@` symbols as `@@`.
+To use a theme, you must reference its stylesheet in the `<head>` of your main index file. For a [client-side Blazor app]({%slug getting-started/client-side%}), this is `wwwroot/index.html` and for a [server-side Blazor app]({%slug getting-started/server-side%}), it is `~/Pages/Index.cshtml`. The Razor syntax for a server application differs and you need to escape the `@` symbols as `@@`.
 
->caption Reference the Default theme from the cloud
+>caption Reference the Telerik theme from the cloud
 
-````HTML
+````ClientApp
 <!DOCTYPE html>
 <html>
 <head>
     . . .
     <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
+    
+    <!-- Choose only one of the themes -->
+    <!-- 
+        <link href="https://unpkg.com/@progress/kendo-theme-bootstrap@latest/dist/all.css" rel="stylesheet" />
+        <link href="https://unpkg.com/@progress/kendo-theme-material@latest/dist/all.css" rel="stylesheet" />
+    -->
 </head>
-<body>
-    <app>Loading...</app>
+
+ . . .
+ 
+</html>
+````
+````ServerApp
+<!DOCTYPE html>
+<html>
+<head>
     . . .
-</body>
+    <link rel="stylesheet" href="https://unpkg.com/@@progress/kendo-theme-default@@latest/dist/all.css" />
+    
+    <!-- Choose only one of the themes -->
+    <!-- 
+        <link href="https://unpkg.com/@@progress/kendo-theme-bootstrap@@latest/dist/all.css" rel="stylesheet" />
+        <link href=https://unpkg.com/@@progress/kendo-theme-material@@latest/dist/all.css" />
+    -->
+</head>
+
+ . . .
+ 
 </html>
 ````
 
