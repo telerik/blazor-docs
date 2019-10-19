@@ -63,20 +63,12 @@ The calendar provides a number of features that allow you to control the user ex
 
 * [Navigation]({%slug components/calendar/navigation%}) - the calendar level (view) at which the user starts, to what detail (view) they can go, the min, max and current date.
 * [Selection]({%slug components/calendar/selection%}) - whether the user can select only one ore more dates, and also a collection of dates they cannot select.
+* [Multiple Views]({%slug components/calendar/multiview%}) - you can show the user a wider range of dates.
 
-You can also render several instances of the current view next to each other so that the user needs to browse less. To do that, set the `Views` property to the desired count of views.
-
->caption Render 3 months at a time
-
-````CSHTML
-<TelerikCalendar Views="3" View="CalendarView.Month">
-</TelerikCalendar>
-````
-
-![](images/calendar-multiple-views.png)
 
 ## See Also
 
   * [Navigation]({%slug components/calendar/navigation%})
   * [Selection]({%slug components/calendar/selection%})
+  * [Multiple Views]({%slug components/calendar/multiview%})
   * [Live Demo: Calendar](https://demos.telerik.com/blazor-ui/calendar/index)
