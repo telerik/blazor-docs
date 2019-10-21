@@ -19,7 +19,7 @@ To use a Telerik DropDownList for Blazor
 1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
 1. set the `Value` property to the intial value of the model (optional).
 
->caption Basic dropdownlist [data binding](data-bind) and value binding
+>caption Basic dropdownlist [data binding](data-bind) and two-way value binding
 
 ````CSHTML
 Selected value: @selectedValue
@@ -107,48 +107,6 @@ The DropDownList provides the following features:
 
 
 ## Examples
-
->caption Handling the ValueChanged event and providing an initial value
-
-````CSHTML
-@result
-<br />
-@InitialValue
-<br />
-
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField"
-                     Value="@InitialValue" ValueChanged="@( (int v) => MyValueChangedHandler(v) )">
-</TelerikDropDownList>
-
-@code {
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-
-    int InitialValue { get; set; } = 3; // an intial value is not required, this example showcases how to set it
-
-    string result { get; set; }
-
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-
-    async Task MyValueChangedHandler(int newVal)
-    {
-        // the type of the value field in the model determines the signature of the handler
-        result = $"The user selected {newVal}";
-
-        // handling ValueChanged does not let you use value binding, so if you need to update the model
-        // you must do that manually in the handler. This is not required, though
-        InitialValue = newVal;
-    }
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
-
 
 >caption Get selected item from external code
 
