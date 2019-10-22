@@ -18,7 +18,7 @@ You can jump to the following sections in this article:
 
 * [Format Strings](#format-strings)
 * [Templates](#templates)
-	* [Hide Label Conditionally](#hide-label-conditionally)
+	* [Example: Hide Label Conditionally](#hide-label-conditionally)
 
 ## Format Strings
 
@@ -86,7 +86,9 @@ To set a template for the corresponding label, use the `Template` property in th
 
 After the example, you can find lists with the available fields you can use in templates.
 
-To add a new line, use the `\n` symbol.
+To add a new line, use the `\n` symbol. The other available objects are added through the `#=theObject#` syntax. You can find more details in the code samples below (including simple if-block logic).
+
+The general syntax of the templates is based on the [Kendo Templates](https://docs.telerik.com/kendo-ui/framework/templates/overview). Note that the chart labels are not HTML elements and you cannot use HTML in them, only plain strings are allowed. Also, the various helper functions that come from the Kendo jQuery library are not available in Blazor (for example, `kendo.toString()` or `kendo.format()`).
 
 To format the values, you need to call a JavaScript function that will return the desired new string based on the template value you pass to it. You can find an example of this in the [How to format the percent in a label for a pie or donut chart]({%slug chart-format-percent%}) knowledge base article.
 
@@ -167,7 +169,7 @@ Label templates
 In a **series label template**, you can use the following fields:
 
 * `category` - the category name. Available for area, bar, column, donut, line, pie series.
-* `dataItem` - the original data item used to construct the point. Will be `null` if binding to array.
+* `dataItem` - the original data item used to construct the point. Will be `null` if binding to array. Sample syntax: `#=dataItem.MyModelFieldName#`.
 * `percentage` - the point value represented as a percentage value. Available only for donut, pie and 100% stacked charts.
 * `stackValue` - the cumulative point value on the stack. Available only for stackable series.
 * `value` - the point value. Can be a number or object containing each bound field.
@@ -204,6 +206,8 @@ To do that, you need to:
 
 * add conditional logic in the template that renders the desired content when your condition is met, and returns nothing when it is not.
 * ensure the labels background is transparent so there are no leftover spots on the chart.
+
+This example also showcases basic logic use in the templates that does not require external functions.
 
 >caption Hide labels with zero values
 
