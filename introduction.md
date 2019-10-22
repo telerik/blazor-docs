@@ -38,6 +38,11 @@ You can watch the entire playlist below:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+If you are just getting started with Blazor and Web development, you may find the following articles from MSDN useful in getting up to speed with the core concepts:
+
+* [First Steps with Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/get-started?view=aspnetcore-3.0&tabs=visual-studio)
+* [Razor Syntax Reference](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-3.0)
+
 
 ## List of Components
 
