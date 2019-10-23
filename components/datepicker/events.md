@@ -10,7 +10,7 @@ position: 20
 
 # Events
 
-This article explsins the events available in the Telerik DatePicker for Blazor:
+This article explains the events available in the Telerik DatePicker for Blazor:
 
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
