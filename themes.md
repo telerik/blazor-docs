@@ -74,21 +74,21 @@ Instead of a CDN link, you can fetch the stylesheet into your project. To do thi
           "defaultProvider": "unpkg",
           "libraries": [
             {
-              "library": "@progress/kendo-theme-default@3.0.0",
+              "library": "@progress/kendo-theme-default@latest",
               "destination": "wwwroot/css/kendo-themes/default",
               "files": [
                 "dist/all.css"
               ]
             },
             {
-              "library": "@progress/kendo-theme-bootstrap@3.0.0",
+              "library": "@progress/kendo-theme-bootstrap@latest",
               "destination": "wwwroot/css/kendo-themes/bootstrap",
               "files": [
                 "dist/all.css"
               ]
             },
             {
-              "library": "@progress/kendo-theme-material@2.0.0",
+              "library": "@progress/kendo-theme-material@latest",
               "destination": "wwwroot/css/kendo-themes/material",
               "files": [
                 "dist/all.css"
@@ -96,8 +96,11 @@ Instead of a CDN link, you can fetch the stylesheet into your project. To do thi
             }
           ]
         }
+        
+        
+    >note There have been some reports that the `@latest` version sometimes does not work with a message similar to `The "@progress/kendo-theme-material@latest" library could not be resolved by the "unpkg" provider`. If trying again a bit later does not help, you can replace the `latest` moniker with the current latest version of the theme that you can find at the [Themes Repo Releases section](https://github.com/telerik/kendo-themes/releases).
 
-1. In the client Blazor application, go to the `wwwroot/index.html` file and replace the CDN link with the following one. For a server-side Blazor project, do that in the `~/Pages/Index.cshtml` file.
+1. In the client Blazor application, go to the `wwwroot/index.html` file and replace the CDN link with the following one. For a server-side Blazor project, do that in the `~/Pages/_Host.cshtml` file.
 
     **Index file with local stylesheet**
     
@@ -110,10 +113,9 @@ Instead of a CDN link, you can fetch the stylesheet into your project. To do thi
             <!-- <link href="/css/kendo-themes/bootstrap/dist/all.css" rel="stylesheet" />
             <link href="/css/kendo-themes/material/dist/all.css" rel="stylesheet" /> -->
         </head>
-        <body>
-            <app>Loading...</app>
+        
             . . .
-        </body>
+            
         </html>
 
 
