@@ -10,14 +10,14 @@ position: 20
 
 # Events
 
-This article explsins the events available in the Telerik Textbox for Blazor:
+This article explains the events available in the Telerik Textbox for Blazor:
 
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
 
 ## OnChange
 
-The `OnChange` event fires when the new value is commited by the user either by pressing `Enter`, or when the input loses focus.
+The `OnChange` event fires when the new value is committed by the user either by pressing `Enter`, or when the input loses focus.
 
 >caption Handle OnChange
 

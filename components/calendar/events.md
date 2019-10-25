@@ -10,7 +10,7 @@ position: 20
 
 # Events
 
-This article explsins the events available in the Telerik Calendar for Blazor:
+This article explains the events available in the Telerik Calendar for Blazor:
 
 * [ValueChanged](#valuechanged)
 * [DateChanged](#datechanged)
