@@ -27,6 +27,9 @@ navigation:
      "components":
         title: "Components"
         position: 10
+     "themes":
+        title: "Themes"
+        position: 12
      "common-features":
         title: "Common Features"
         position: 15
