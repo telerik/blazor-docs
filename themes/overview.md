@@ -6,7 +6,7 @@ slug: general-information/themes
 previous_url: /blazor-ui/themes
 tags: telerik,blazor,theme,built-in
 published: True
-position: 13
+position: 0
 ---
 
 # Built-in Themes
