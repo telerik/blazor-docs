@@ -20,6 +20,7 @@ They are added to the `GridColumns` tag and are of type `GridColumn`. You can us
 * `Filterable` - you can set this to `false` so a [filterable]({%slug components/grid/filtering%}) grid will not let the user filter that particular column.
 * `Groupable` - whether the use can [group]({%slug components/grid/features/grouping%}) the grid by this column.
 * `Reorderable` - whether the user can [drag to reorder]({%slug components/grid/columns/reorder%}) this column.
+* `Resizable` - whether the user can [resize]({%slug components/grid/columns/resize%}) this column.
 * `Width` - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article. Keep in mind that these are columns in a `<table>`, so it is often a good practice to leave one column without explicit dimensions so it can accommodate the remaining width and changes to the container size.
 * `Template` - this property can also be used as an inner tag and it lets you define the [column display content]({%slug components/grid/features/templates%}#column-template). It can also point to a component name.
 * `Context` - the standard Blazor context variable name for use inside the inline template.
