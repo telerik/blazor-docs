@@ -18,3 +18,8 @@ This page lists the browsers supported by Telerik UI for Blazor. You can use the
 * Safari (including iOS)
 
 Telerik UI for Blazor steps on the Blazor framework provided by Microsoft. This means that you can host/run the applications on [platforms supported by .NET Core 3](https://docs.microsoft.com/en-us/aspnet/core/blazor/supported-platforms?view=aspnetcore-3.0) - Windows, Linux, MacOS - and use the supported browsers on them.
+
+## See Also
+
+* [Old Versions Support Policy]({%slug old_versions_support_policy%})
+* [Framewor Versions Support]({%slug framework-versions-support%})
