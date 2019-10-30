@@ -64,6 +64,23 @@ The numeric textbox provides the following features:
 
 >important The decimal separator is `.` for the time being. When localization features get implemented in the Telerik UI for Blazor suite, it will be possible to take it from the current thread culture. This means that cultures with a differet separator may not funcion correctly. Currency symbols are also rendered by the framework and they come from the current culture as well.
 
+For the time being, you can set the Blazor app culture in `Program.cs` like this:
+
+````C#
+public static void Main(string[] args)
+{
+    //this no longer works
+    //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+
+    //you have to set defaults now
+    var culture = new System.Globalization.CultureInfo("en-US");
+    System.Globalization.CultureInfo.DefaultThreadCurrentCulture = culture;
+    System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = culture;
+
+    CreateHostBuilder(args).Build().Run();
+}
+````
+
 <!--
 >note If you want to use a currency format, you must specify a culture on the thread, so .NET knows what symbol to render. If you don't do that, you may see an unexpected/incorrect symbol or format.
 
