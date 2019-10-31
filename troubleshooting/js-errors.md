@@ -5,7 +5,7 @@ description: Troubleshooting JavaScript errors in the UI for Blazor suite
 slug: troubleshooting-js-errors
 tags: js,errors,interop,missing
 published: True
-position: 3
+position: 2
 ---
 
 # JavaScript Errors
