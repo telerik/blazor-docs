@@ -76,7 +76,7 @@ To have the Telerik Blazor components look and behave as expected in the browser
 
 ### Static Assets
 
-You can add the JS Interop file as a static asset from our package, instead of using a CDN. [Static assets](https://github.com/aspnet/AspNetCore/issues/6349) are automatically included in the solution by the Nuget package, so all that's needed is then to reference the asset:
+You can add the JS Interop file as a static asset from our package, instead of using a CDN. [Static assets](https://github.com/aspnet/AspNetCore/issues/6349) (the `_content` folder) are automatically included in the solution by the Nuget package, so all that's needed is then to reference the asset:
 
     **HTML**
     
