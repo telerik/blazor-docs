@@ -1,16 +1,16 @@
 ---
 title: Events
-page_title: DropDownList for Blazor | Events
-description: Events in the DropDownList for Blazor
+page_title: ComboBox for Blazor | Events
+description: Events in the ComboBox for Blazor
 slug: components/combobox/events
-tags: telerik,blazor,dropdown,list,dropdownlist,events
+tags: telerik,blazor,combobox,combo,events
 published: true
 position: 20
 ---
 
-# Events
+# ComboBox Events
 
-This article explains the events available in the Telerik DropDownList for Blazor:
+This article explains the events available in the Telerik ComboBox for Blazor:
 
 * [ValueChanged](#valuechanged)
 * `OnChange` - inherited event that you should not use, but you may see in the intellisense
@@ -18,19 +18,17 @@ This article explains the events available in the Telerik DropDownList for Blazo
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every change of the user selection.
+The `ValueChanged` event fires upon every change of the user selection. When [custom values]({%slug components/combobox/custom-value%}) are enabled, it fires upon every keystroke, like in a regular `<input>` element.
 
->note If the initial `Value` is not present in the data source, the component will select the first item of the data source and this will fire the event as well. If you do not update the field from which the `Value` is taken, you may end in an infinite loop. This scenario is most common when the initial value is `null` as data sources rarely have items with a `null` value.
-
-The examples below use [binding]({%slug components/dropdownlist/databind%}) to primitive types for brevity, you can use full models as well.
+The examples below use [binding]({%slug components/combobox/databind%}) to primitive types for brevity, you can use full models as well.
 
 >caption Handle ValueChanged
 
 ````CSHTML
 @result
 <br />
-<TelerikDropDownList Data="@MyList" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
-</TelerikDropDownList>
+<TelerikComboBox Data="@MyList" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
+</TelerikComboBox>
 
 @code {
     string result;
@@ -41,8 +39,26 @@ The examples below use [binding]({%slug components/dropdownlist/databind%}) to p
     }
 
     protected List<string> MyList = new List<string>() { "first", "second", "third" };
+}
+````
 
-    //protected string MyItem { get; set; } = "second";
+>caption Handle ValueChanged with custom values - the event fires on every keystroke
+
+````CSHTML
+@result
+<br />
+<TelerikComboBox Data="@MyList" AllowCustom="true" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
+</TelerikComboBox>
+
+@code {
+    string result;
+
+    private void MyValueChangeHandler(string theUserChoice)
+    {
+        result = string.Format("The user chose: {0}", theUserChoice);
+    }
+
+    protected List<string> MyList = new List<string>() { "first", "second", "third" };
 }
 ````
 
@@ -50,16 +66,16 @@ The examples below use [binding]({%slug components/dropdownlist/databind%}) to p
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
->caption Handle ValueChanged and provide initial value
+>caption Handle ValueChanged and provide initial value (it is *not* required to enable custom values)
 
 ````CSHTML
-from the handler: @result
+@result
 <br />
 from model: @MyItem
 <br />
 <br />
-<TelerikDropDownList Data="@MyList" Value="@MyItem" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
-</TelerikDropDownList>
+<TelerikComboBox Data="@MyList" Value="@MyItem" AllowCustom="true" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
+</TelerikComboBox>
 
 @code {
     string result;
