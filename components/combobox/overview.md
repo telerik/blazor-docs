@@ -80,6 +80,7 @@ The ComboBox is a generic component and its type is determined by the type of th
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
 
+>note If the initial `Value` is not present in the data source, the component will **not** select the first item of the data source - there will simply be no selection. For such cases you may want to set `AllowCustom="true"`. This scenario is most common when the initial value is `null` as data sources rarely have items with a `null` value, and when you want to let your users type in values that are not in your predefined set of options.
 
 
 ## See Also
