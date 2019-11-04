@@ -80,7 +80,27 @@ The ComboBox is a generic component and its type is determined by the type of th
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
 
->note If the initial `Value` is not present in the data source, the component will **not** select the first item of the data source - there will simply be no selection. For such cases you may want to set `AllowCustom="true"`. This scenario is most common when the initial value is `null` as data sources rarely have items with a `null` value, and when you want to let your users type in values that are not in your predefined set of options.
+## Selected Item
+
+By default, if no `Value` is provided, the first item from the data source will be selected. If a `Value` is provided, the first item from the data source whose `ValueField` matches will be selected.
+
+The ComboBox will not always have a selected item, however, because it can act as an input. There will be no selected item in the following cases that depend on the settings of the component that the developer can control:
+
+* the initial `Value` is not present in the data source,
+* the user clears the value through the Clear button,
+* `AllowCustom="true"` - only initial selection is possible, through the `Value` parameter and user actions remove it (see the table below).
+
+
+Missing selection is most common when the initial value is `null` as data sources rarely have items with a `null` value, and/or when you want to let your users type in values that are not in your predefined set of options.
+
+If the user types text in the input, selection behaves according to the following table:
+
+
+| User input matches an item | AllowCustom=`true`   | AllowCustom=`false`                      |
+|----------------------------|----------------------|------------------------------------------|
+| Yes                        | No item is selected. | Matching item is selected.               |
+| No                         | No item is selected. | If there was no previous selection, no item is selected. If there was previous selection, the previously selected item is selected. The `OnChange` event does not fire. |
+
 
 
 ## See Also
