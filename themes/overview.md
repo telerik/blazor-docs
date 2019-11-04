@@ -51,7 +51,7 @@ To use a theme, you must reference its stylesheet in the `<head>` of your main i
     <!-- Choose only one of the themes -->
     <!-- 
         <link href="https://unpkg.com/@@progress/kendo-theme-bootstrap@@latest/dist/all.css" rel="stylesheet" />
-        <link href=https://unpkg.com/@@progress/kendo-theme-material@@latest/dist/all.css" />
+        <link href="https://unpkg.com/@@progress/kendo-theme-material@@latest/dist/all.css" rel="stylesheet" />
     -->
 </head>
 
