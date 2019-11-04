@@ -17,7 +17,7 @@ To use a Telerik DropDownList for Blazor
 1. add the `TelerikDropDownList` tag
 1. populate its `Data` property with the collection of items you want in the dropdown
 1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
-1. set the `Value` property to the intial value of the model (optional).
+1. (optional) set the `Value` property to the initial value of the model.
 
 >caption Basic dropdownlist [data binding](data-bind) and two-way value binding
 
@@ -88,8 +88,8 @@ The DropDownList provides the following features:
 * `DefaultItem` - sets the hint that is shown if no other item is selected. Set this property to an instance of the model class to which the dropdown is bound.
 * `Enabled` - whether the component is enabled.
 * `PopupHeight` - the height of the expanded dropdown list element.
-* `TItem` - the type of the model to which the component is bound. Required. Determines the type of the reference object.
-* `TValue` - the type of the value field from the model to which the component is bound. Required. Determines the type of the reference object.
+* `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
+* `TValue` - the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
 * `TabIndex` - the `tabindex` attribute rendered on the dropdown.
 * `TextField` - the name of the field from the model that will be shown to the user. Defaults to `Text`.
 * `ValueField` - the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
