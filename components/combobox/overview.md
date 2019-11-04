@@ -51,11 +51,11 @@ Selected value: @selectedValue
 
 >caption Component namespace and reference
 
-The ComboBox is a generic component and its type is determined by the type of the model you pass to it, and the type of its value field. You can find examples in the [Data Bind - Component Reference]({%slug components/combobox/databind%}#component-reference) article.
+The ComboBox is a generic component and its type is determined by the type of the model you pass to it, and the type of its value field. You can find examples in the [Data Bind - Considerations]({%slug components/combobox/databind%}#considerations) article.
 
 >caption The ComboBox provides the following features:
 
-* `AllowCustom` - whether the user can enter [custom values]({%slug components/combobox/custom-value%}).
+* `AllowCustom` - whether the user can enter [custom values]({%slug components/combobox/custom-value%}). If enabled, the `ValueField` must be a `string`.
 * `Class` - the CSS class that will be rendered on the main wrapping element of the combobox.
 * `ClearButton` - whether the user will have the option to clear the selected value. When it is clicked, the `Value` will be updated to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, clearing the value will lead to a `0` `Value`, so if there is an Item with `0` in its `ValueField` - issues may arise with its selection. This feature can often go together with `AllowCustom`.
 * `Data` - allows you to provide the data source. Required.
