@@ -266,6 +266,7 @@ intro_columns:
       "Time Picker": "components/timepicker/overview"
       "DateTime Picker": "components/datetimepicker/overview"
       "DropDownList": "components/dropdownlist/overview"
+      "ComboBox": "components/combobox/overview"
 
   -
     title: "Layout"
