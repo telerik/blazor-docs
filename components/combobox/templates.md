@@ -5,7 +5,7 @@ description: Templates in the ComboBox for Blazor
 slug: components/combobox/templates
 tags: telerik,blazor,combo,combobox,templates
 published: True
-position: 1
+position: 5
 ---
 
 # ComboBox Templates
