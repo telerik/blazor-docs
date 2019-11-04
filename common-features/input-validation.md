@@ -24,6 +24,7 @@ This article provides examples of validating the Telerik Blazor components. The 
 
 * [Simple Inputs](#simple-inputs)
 * [DropDownList](#dropdownlist)
+* [ComboBox](#combobox)
 
 
 
@@ -167,7 +168,7 @@ The DropDownList always has an item selected - the first item from its data sour
 	MyDdlModel ddlHint = new MyDdlModel { MyValueField = null, MyTextField = "Gender" };
 
 	IEnumerable<MyDdlModel> genders = new List<MyDdlModel>
-{
+	{
 		new MyDdlModel {MyTextField = "female", MyValueField = 1},
 		new MyDdlModel {MyTextField = "male", MyValueField = 2},
 		new MyDdlModel {MyTextField = "other", MyValueField = 3},
@@ -180,6 +181,104 @@ The DropDownList always has an item selected - the first item from its data sour
 	}
 }
 ````
+
+
+# ComboBox
+
+The ComboBox works with the `Value` of the selected item (through its `ValueField`). This means that for required field validation to work, the current item must have a `null` value, or `AllowCustom` must be `true` and the input empty.
+
+>caption How to validate a combobox without custom values
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations @*used for the model class attributes*@
+
+<EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <p class="team">
+        Team: <TelerikComboBox @bind-Value="person.Team" Placeholder="Select team" ClearButton="true"
+                                     Data="@teams" TextField="MyTextField" ValueField="MyValueField">
+        </TelerikComboBox>
+        <ValidationMessage For="@(() => person.Team)"></ValidationMessage>
+    </p>
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@code {
+    // Usually the model classes would be in different files
+    public class Person
+    {
+        [Required(ErrorMessage = "Team is mandatory.")]//the value field in the combobox model must be null for this to have effect
+        [Range(1, 3, ErrorMessage = "Please select an actual team.")] //limits the fourth option just to showcase this is honored
+        public int? Team { get; set; }
+    }
+
+    public class MyDdlModel
+    {
+        //nullable so the default item can allow required field validation
+        //alternatively, use a range validator and put a value out of that range for the default item
+        public int? MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
+
+    Person person = new Person();
+
+    IEnumerable<MyDdlModel> teams = new List<MyDdlModel>
+    {
+        new MyDdlModel {MyTextField = "Team 1", MyValueField = 1},
+        new MyDdlModel {MyTextField = "Team 2", MyValueField = 2},
+        new MyDdlModel {MyTextField = "Team 3", MyValueField = 3},
+        new MyDdlModel {MyTextField = "CEO", MyValueField = 4}
+    };
+
+    void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+}
+````
+
+>caption How to validate a combobox with custom values
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations @*used for the model class attributes*@
+
+@*You can still use a full model, primitive types are used for brevity here*@
+
+<EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <p class="team">
+        Team: <TelerikComboBox Data="@ExistingTeams" @bind-Value="person.Team" AllowCustom="true" ClearButton="true"></TelerikComboBox>
+        <ValidationMessage For="@(() => person.Team)"></ValidationMessage>
+    </p>
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@code {
+    // Usually the model classes would be in different files
+    public class Person
+    {
+        [Required(ErrorMessage = "Team is mandatory.")]//the combo must be empty for this to take effect
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", 
+         ErrorMessage = "Characters are not allowed.")] // Allow up to 40 uppercase and lowercase symbols, no special characters
+                                                        // Applies to custom values as well as values from the data source.
+        public string Team { get; set; }
+    }
+
+    Person person = new Person();
+
+    protected List<string> ExistingTeams = new List<string>() { "first", "second", "third" };
+
+    void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+}
+````
+
 
 ## See Also
 
