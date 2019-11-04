@@ -1,11 +1,11 @@
 ---
 title: Custom Value
-page_title: ComboBox for Blazor | Templates
+page_title: ComboBox for Blazor | Custom Value
 description: Custom values and user input in the ComboBox for Blazor
 slug: components/combobox/custom-value
 tags: telerik,blazor,combo,combobox,custom,value,input
 published: True
-position: 1
+position: 4
 ---
 
 # ComboBox Custom Values
