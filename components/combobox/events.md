@@ -13,7 +13,7 @@ position: 20
 This article explains the events available in the Telerik ComboBox for Blazor:
 
 * [ValueChanged](#valuechanged)
-* `OnChange` - inherited event that you should not use, but you may see in the intellisense
+* [OnChange](#onchange)
 
 
 ## ValueChanged
@@ -93,6 +93,81 @@ from model: @MyItem
     protected string MyItem { get; set; } = "second";
 }
 ````
+
+
+## OnChange
+
+The `OnChange` event is suitable for handling custom values the user can enter as if the combo box were an input. The key differences with `ValueChanged` are:
+
+* `OnChange` does not prevent two-way binding (the `@bind-Value` syntax)
+* `OnChange` fires only when the user presses `Enter`, or blurs the input (for example, clicks outside of the combo box). It does not fire on every keystroke, even when `AllowCustom="true"`, and it does not fire when an item is selected from the dropdown.
+
+See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%}#selected-item) article for details on when the event fires and how item selection works.
+
+>caption Handle OnChange without custom values - you must write text that will match an item.
+
+````CSHTML
+@result
+<br />
+@selectedValue
+<br /><br />
+<TelerikComboBox Data="@myComboData" TextField="MyTextField" ValueField="MyValueField"
+                 @bind-Value="@selectedValue" OnChange="@MyOnChangeHandler">
+</TelerikComboBox>
+
+@code {
+    string result;
+    int selectedValue { get; set; } = 3;
+
+    private void MyOnChangeHandler(object theUserInput)
+    {
+        // the handler receives an object that you may need to cast to the type of the component
+        // if you do not provide a Value, you must provide the Type parameter to the component
+        result = string.Format("The user entered: {0}", (int)theUserInput);
+    }
+
+    public class MyComboModel
+    {
+        public int MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
+
+    IEnumerable<MyComboModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyComboModel { MyTextField = "item " + x, MyValueField = x });
+}
+````
+
+>caption Handle OnChange with custom values - the event fires on blur or enter
+
+````CSHTML
+@result
+<br />
+@selectedValue
+<br /><br />
+<TelerikComboBox Data="@myComboData" TextField="MyTextField" ValueField="MyValueField"
+                 @bind-Value="@selectedValue" OnChange="@MyOnChangeHandler" AllowCustom="true">
+</TelerikComboBox>
+
+@code {
+    string result;
+    string selectedValue { get; set; } = "3";
+
+    private void MyOnChangeHandler(object theUserInput)
+    {
+        // the handler receives an object that you may need to cast to the type of the component
+        // if you do not provide a Value, you must provide the Type parameter to the component
+        result = string.Format("The user entered: {0}", (string)theUserInput);
+    }
+
+    public class MyComboModel
+    {
+        public string MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
+
+    IEnumerable<MyComboModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyComboModel { MyTextField = "item " + x, MyValueField = x.ToString() });
+}
+````
+
 
 ## See Also
 
