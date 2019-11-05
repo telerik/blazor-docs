@@ -34,7 +34,7 @@ Selected value: @selectedValue
     IEnumerable<MyDdlModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 
     int selectedValue { get; set; } = 3; //usually the current value should come from the model data
-    
+
     //in a real case, the model is usually in a separate file
     //the model type and value field type must be provided to the dropdpownlist
     public class MyDdlModel
@@ -67,8 +67,8 @@ The ComboBox is a generic component and its type is determined by the type of th
 * `TValue` - the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
 * `TextField` - the name of the field from the model that will be shown to the user. Defaults to `Text`.
 * `ValueField` - the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
-* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own. 
-    
+* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
+
     The `Value` and `ValueField` can be of types:
 
     * `number` (such as `int`, `double` and so on)
@@ -82,13 +82,13 @@ The ComboBox is a generic component and its type is determined by the type of th
 
 ## Selected Item
 
-By default, if no `Value` is provided, the first item from the data source will be selected. If a `Value` is provided, the first item from the data source whose `ValueField` matches will be selected.
+By default, if no `Value` is provided, the ComboBox will appear empty, or will display the `Placeholder` defined.If a Value is provided, the first item from the data source whose ValueField matches will be selected.
 
 The ComboBox will not always have a selected item, however, because it can act as an input. There will be no selected item in the following cases that depend on the settings of the component that the developer can control:
 
-* the initial `Value` is not present in the data source,
 * the user clears the value through the Clear button,
-* `AllowCustom="true"` - only initial selection is possible, through the `Value` parameter and user actions remove it (see the table below).
+* the user clears the value with `Backspace` or `Del` keys,
+* `AllowCustom="false"` - ComboBox's input value will be automatically cleared on change event (`blur` or `Enter`) (see the table below).
 
 
 Missing selection is most common when the initial value is `null` as data sources rarely have items with a `null` value, and/or when you want to let your users type in values that are not in your predefined set of options.
@@ -98,8 +98,8 @@ If the user types text in the input, selection behaves according to the followin
 
 | User input matches an item | AllowCustom=`true`   | AllowCustom=`false`                      |
 |----------------------------|----------------------|------------------------------------------|
-| Yes                        | No item is selected. | Matching item is selected.               |
-| No                         | No item is selected. | If there was no previous selection, no item is selected. If there was previous selection, the previously selected item is selected. The `OnChange` event does not fire. |
+| Yes                        | Matched item is selected. | Matching item is selected.               |
+| No                         | No item is selected. `Value` is updated to the custom one | No item is selected. `Value` is updated to the `default(typeof(Value))`. The `OnChange` event does not fire for the value clearing. |
 
 
 
@@ -108,4 +108,4 @@ If the user types text in the input, selection behaves according to the followin
   * [Data Binding]({%slug components/combobox/databind%})
   * [Live Demo: ComboBox](https://demos.telerik.com/blazor-ui/combobox/overview)
   * [Live Demo: ComboBox Validation](https://demos.telerik.com/blazor-ui/combobox/validation)
-  
+
