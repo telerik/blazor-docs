@@ -82,13 +82,14 @@ The ComboBox is a generic component and its type is determined by the type of th
 
 ## Selected Item
 
-By default, if no `Value` is provided, the ComboBox will appear empty, or will display the `Placeholder` defined.If a Value is provided, the first item from the data source whose ValueField matches will be selected.
+By default, if no `Value` is provided, the ComboBox will appear empty, or will display the `Placeholder` defined. If a `Value` is provided, the first item from the data source whose ValueField matches will be selected.
 
 The ComboBox will not always have a selected item, however, because it can act as an input. There will be no selected item in the following cases that depend on the settings of the component that the developer can control:
 
 * the user clears the value through the Clear button,
 * the user clears the value with `Backspace` or `Del` keys,
-* `AllowCustom="false"` - ComboBox's input value will be automatically cleared on change event (`blur` or `Enter`) (see the table below).
+* `AllowCustom="false"` - when a custom value is typed, the ComboBox input value will be automatically cleared on the change event (`blur` of the input or `Enter` keypress). See the table below.
+* `AllowCustom="true"` - when the user starts typing a custom value.
 
 
 Missing selection is most common when the initial value is `null` as data sources rarely have items with a `null` value, and/or when you want to let your users type in values that are not in your predefined set of options.
@@ -96,10 +97,10 @@ Missing selection is most common when the initial value is `null` as data source
 If the user types text in the input, selection behaves according to the following table:
 
 
-| User input matches an item | AllowCustom=`true`   | AllowCustom=`false`                      |
+| User input matches the value of an item | AllowCustom=`true`   | AllowCustom=`false`                      |
 |----------------------------|----------------------|------------------------------------------|
 | Yes                        | Matched item is selected. | Matching item is selected.               |
-| No                         | No item is selected. `Value` is updated to the custom one | No item is selected. `Value` is updated to the `default(typeof(Value))`. The `OnChange` event does not fire for the value clearing. |
+| No                         | No item is selected. `Value` is updated to the custom one. | No item is selected. `Value` is updated to `default(typeof(Value))`. The `OnChange` event does not fire for the value clearing. |
 
 
 
