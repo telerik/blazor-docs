@@ -20,7 +20,7 @@ To enable custom user input set the `AllowCustom` parameter to `true`.
 
 When custom input is allowed, the [ValueChanged event]({%slug components/combobox/events%}) fires on every keystroke, and not when an item is selected, because the ComboBox component acts as a text input.
 
-When custom values are typed in, there will be no selected item in the ComboBox.
+When custom values are typed in, there may be no selected item in the ComboBox. See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%}#selected-item) article for details on when how item selection and `Value` work together.
 
 >caption Allow custom user input in the combo box
 

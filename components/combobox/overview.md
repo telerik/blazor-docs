@@ -94,13 +94,15 @@ The ComboBox will not always have a selected item, however, because it can act a
 
 Missing selection is most common when the initial value is `null` as data sources rarely have items with a `null` value, and/or when you want to let your users type in values that are not in your predefined set of options.
 
-If the user types text in the input, selection behaves according to the following table:
+>caption If the user types text in the input, selection behaves according to the following table:
 
 
-| User input matches the value of an item | AllowCustom=`true`   | AllowCustom=`false`                      |
+| User input matches | AllowCustom=`true`   | AllowCustom=`false`                      |
 |----------------------------|----------------------|------------------------------------------|
-| Yes                        | Matched item is selected. | Matching item is selected.               |
-| No                         | No item is selected. `Value` is updated to the custom one. | No item is selected. `Value` is updated to `default(typeof(Value))`. The `OnChange` event does not fire for the value clearing. |
+|  The `TextField` of an item | Matched item is selected. The `Value` is taken from the item. | Matched item is selected. The `Value` is taken from the item. |
+| The `ValueField` of an item | No item is selected. `Value` is updated to the custom one. | No item is selected. `Value` is updated to `default(typeof(Value))`. The `OnChange` event does not fire for the value clearing. |
+| No match | No item is selected. `Value` is updated to the custom one. | No item is selected. `Value` is updated to `default(typeof(Value))`. The `OnChange` event does not fire for the value clearing. |
+
 
 
 

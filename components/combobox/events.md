@@ -102,9 +102,9 @@ The `OnChange` event is suitable for handling custom values the user can enter a
 * `OnChange` does not prevent two-way binding (the `@bind-Value` syntax)
 * `OnChange` fires only when the user presses `Enter`, or blurs the input (for example, clicks outside of the combo box). It does not fire on every keystroke, even when `AllowCustom="true"`, and it does not fire when an item is selected from the dropdown.
 
-See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%}#selected-item) article for details on when the event fires and how item selection works.
+See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%}#selected-item) article for details on when the event fires and how item selection and `Value` work.
 
->caption Handle OnChange without custom values - you must write text that will match an item.
+>caption Handle OnChange without custom values - to get a value from the list, you must write text that will match the text of an item (e.g, "item 5").
 
 ````CSHTML
 @result
