@@ -383,6 +383,7 @@ footer:
   links:
     "Demos": https://demos.telerik.com/blazor-ui
     "Knowledge Base": https://docs.telerik.com/blazor-ui/knowledge-base
+    "Samples Repo": https://github.com/telerik/blazor-ui
 
 -
   title: "Sample Applications"
