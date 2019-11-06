@@ -29,7 +29,7 @@
 
 #after-you-run-vanilla
 
->tip Make sure that you have [.NET Core 3.1 Preview 1](https://dotnet.microsoft.com/download/dotnet-core/3.1) and **[Visual Studio 2019 Preview](https://visualstudio.microsoft.com/vs/preview/)** installed.
+>tip Make sure that you have {{site.supportedFrameworkVersion}} and [Visual Studio 2019 Preview](https://visualstudio.microsoft.com/vs/preview/) installed.
 >
 > The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}` and it supports `{{site.supportedFrameworkVersion}}`.
 
