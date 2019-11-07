@@ -149,6 +149,8 @@ Active Tab Index: @ActiveTabIndex
 }
 ````
 
+>tip If you render components in the tabs created in a `foreach` loop, you may want to set their `@key` parameter to unique values, in order to ensure they will re-render. If you do not, the framework will render one instance of your custom component for all tabs and will only set its parameters, it will not initialize anew (`OnInitialized` will not fire a second time, only `OnParametersSet` will).
+
 ## See Also
 
   * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/index)
