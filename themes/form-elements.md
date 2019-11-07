@@ -105,4 +105,4 @@ The Telerik Themes carry styling for card elements. You can read more about them
 
 ## See Also
 
-  * [Font Icons]({%slug general-information/font-icons%}})
+  * [Font Icons]({%slug general-information/font-icons%})

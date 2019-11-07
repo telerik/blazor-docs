@@ -10,7 +10,7 @@ position: 2
 
 # Date Selection
 
-The user can select one or mode dates depending on the Calendar configuration set by the developer. They may also be foribdden selection of certain disabled dates.
+The user can select one or mode dates depending on the Calendar configuration set by the developer. They may also be forbidden selection of certain disabled dates.
 
 ## Selection Mode
 
