@@ -16,7 +16,7 @@ The Tab Strip is defined through the `<TelerikTabStrip>` tag that accepts childr
 
 The tab exposes a `Title` attribute that is the text rendered in the heading. It also offers the `Disabled` attribute that allows you to disable its selection.
 
-The `ActiveTabIndex` parameter lets you get and set the currently shown tab index through two-way binding, and also provides an event for the tab change.
+The `ActiveTabIndex` parameter lets you get and set the currently shown tab index through two-way binding, and also provides an event for the tab change. To deactivate all tabs, set it to `-1`.
 
 To control the position of the tab titles, the main tab strip tag exposes the optional `TabPosition` attribute that takes a member of the `Telerik.Blazor.TabPosition` enumeration:
 
