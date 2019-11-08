@@ -94,13 +94,45 @@ from model: @MyItem
 }
 ````
 
+>caption Get selected item - check if the new value is present in the data source
+
+````CSHTML
+@result
+<br />
+Is selection from dropdown: @isLastSelectionInData
+<br />
+from model: @MyItem
+<br />
+<br />
+<TelerikComboBox Data="@MyList" Value="@MyItem" AllowCustom="true" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
+</TelerikComboBox>
+
+@code {
+    string result;
+    bool isLastSelectionInData { get; set; } = true;//default to true as the default in this sample is from the predefined data
+
+    private void MyValueChangeHandler(string theUserChoice)
+    {
+        isLastSelectionInData = MyList.Contains(theUserChoice); //adapt to your actual data source
+
+        result = string.Format("The user chose: {0}", theUserChoice);
+
+        MyItem = theUserChoice;
+    }
+
+    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+
+    protected string MyItem { get; set; } = "second";
+}
+````
+
 
 ## OnChange
 
 The `OnChange` event is suitable for handling custom values the user can enter as if the combo box were an input. The key differences with `ValueChanged` are:
 
 * `OnChange` does not prevent two-way binding (the `@bind-Value` syntax)
-* `OnChange` fires only when the user types in the input and presses `Enter`, or blurs the input (for example, clicks outside of the combo box). It does not fire on every keystroke, even when `AllowCustom="true"`, and it does not fire when an item is selected from the dropdown.
+* `OnChange` fires only when the user types in the input and presses `Enter`, or blurs the input (for example, clicks outside of the combo box). It does not fire on every keystroke, even when `AllowCustom="true"`, and it does not fire when an item is selected from the dropdown. To get the selected item, use the `ValueChanged` event and copmare against the data source.
 
 See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%}#selected-item) article for details on when the event fires and how item selection and `Value` work.
 
