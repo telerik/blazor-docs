@@ -20,7 +20,7 @@ This article explains the events available in the Telerik ComboBox for Blazor:
 
 The `ValueChanged` event fires upon every change of the user selection. When [custom values]({%slug components/combobox/custom-value%}) are enabled, it fires upon every keystroke, like in a regular `<input>` element.
 
-The examples below use [binding]({%slug components/combobox/databind%}) to primitive types for brevity, you can use full models as well.
+The examples below use binding to primitive types for brevity, you can use [full models]({%slug components/combobox/databind%}) as well. Make sure to review the [Data Binding - Missing Value or Data]({%slug components/combobox/databind%}#missing-value-or-data) section to provide all necessary parameters to the component if you do so.
 
 >caption Handle ValueChanged
 
