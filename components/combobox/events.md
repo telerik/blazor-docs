@@ -100,7 +100,7 @@ from model: @MyItem
 The `OnChange` event is suitable for handling custom values the user can enter as if the combo box were an input. The key differences with `ValueChanged` are:
 
 * `OnChange` does not prevent two-way binding (the `@bind-Value` syntax)
-* `OnChange` fires only when the user presses `Enter`, or blurs the input (for example, clicks outside of the combo box). It does not fire on every keystroke, even when `AllowCustom="true"`, and it does not fire when an item is selected from the dropdown.
+* `OnChange` fires only when the user types in the input and presses `Enter`, or blurs the input (for example, clicks outside of the combo box). It does not fire on every keystroke, even when `AllowCustom="true"`, and it does not fire when an item is selected from the dropdown.
 
 See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%}#selected-item) article for details on when the event fires and how item selection and `Value` work.
 
