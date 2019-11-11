@@ -284,3 +284,4 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
 
   * [Data Annotation attributes](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation)
   * [Live Demos](https://demos.telerik.com/blazor-ui)
+  * [ValueChanged and Validation]({%slug value-changed-validation-model%})
