@@ -18,6 +18,8 @@ This article explains how to get the Telerik UI for Blazor components in your **
     * [Add to an Existing Project](#add-to-existing-project)
 1. [Add a Telerik Component to a View](#add-a-telerik-component-to-a-view)
 
+>note You can follow the progress of an officially supported WASM flavor in the following Microsoft milestone: [https://github.com/aspnet/AspNetCore/milestone/58](https://github.com/aspnet/AspNetCore/milestone/58).
+
 @[template](/_contentTemplates/common/get-started.md#add-latest-ms-bits-client-side-link)
 
 
