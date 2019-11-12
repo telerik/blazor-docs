@@ -80,33 +80,8 @@ Active Tab Index: @ActiveTabIndex
 }
 ````
 
->caption Handle the tab selection changed event
 
-````CSHTL
-@result
-
-<TelerikTabStrip ActiveTabIndexChanged="@TabChangedHandler">
-	<TabStripTab Title="First">
-		First tab content. Click through the tabs.
-	</TabStripTab>
-	<TabStripTab Title="Second">
-		Second tab content.
-	</TabStripTab>
-	<TabStripTab Title="Third">
-		Third tab content.
-	</TabStripTab>
-</TelerikTabStrip>
-
-@code {
-    string result {get;set;}
-    void TabChangedHandler(int newIndex)
-    {
-        result = $"current tab {newIndex} selected on {DateTime.Now}";
-    }
-}
-````
-
->caption Extract information for the currently selected tab from your model. Alter the model to affect the tab strip.
+>caption Extract information for the currently selected tab from your model. Alter the model to affect the tab strip. Create tabs dynamically based on external data.
 
 ````CSHTML
 @result
@@ -155,3 +130,4 @@ Active Tab Index: @ActiveTabIndex
 
   * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/index)
   * [Live Demo: Tab Position](https://demos.telerik.com/blazor-ui/tabstrip/tabposition)
+  * [Events]({%slug tabstrip-events%})
