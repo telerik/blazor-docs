@@ -90,7 +90,7 @@ To add a new line, use the `\n` symbol. The other available objects are added th
 
 The general syntax of the templates is based on the [Kendo Templates](https://docs.telerik.com/kendo-ui/framework/templates/overview). Note that the chart labels are not HTML elements and you cannot use HTML in them, only plain strings are allowed. Also, the various helper functions that come from the Kendo jQuery library are not available in Blazor (for example, `kendo.toString()` or `kendo.format()`).
 
-To format the values, you need to call a JavaScript function that will return the desired new string based on the template value you pass to it. You can find an example of this in the [How to format the percent in a label for a pie or donut chart]({%slug chart-format-percent%}) knowledge base article.
+To format the values, you need to call a JavaScript function that will return the desired new string based on the template value you pass to it. You can find examples of this in the [How to format the percent in a label for a pie or donut chart]({%slug chart-format-percent%}) knowledge base article and the [Label Format - Complex Logic](https://github.com/telerik/blazor-ui/tree/master/chart/label-template) sample project.
 
 >caption Custom templates in labels
 

@@ -38,6 +38,10 @@ To customize the percentage display, you need to
 3. Reference that file in your root component (`_Host.cshtml` for a server-side app, or `index.html` for a client-side app).
 
 4. Call the custom formatting function from the template and pass the needed arguments to it. It must return the string you want shown in the template.
+ 
+
+>tip You can find a sample project with even more examples in the [https://github.com/telerik/blazor-ui/tree/master/chart/label-template](https://github.com/telerik/blazor-ui/tree/master/chart/label-template) repo.
+
 
 ````Razor
 This is only one example, you can implement different functions and logic
