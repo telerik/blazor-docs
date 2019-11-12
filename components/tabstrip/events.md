@@ -10,7 +10,7 @@ position: 20
 
 # Tab Strip Events
 
-This article explains the events available in the Telerik NumericTextbox for Blazor:
+This article explains the events available in the Telerik TabStrip for Blazor:
 
 * [ActiveTabIndexChanged](#activetabindexchanged)
 
