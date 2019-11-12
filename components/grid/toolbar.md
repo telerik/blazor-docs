@@ -27,7 +27,7 @@ In this article, you will learn how to use:
 
 The grid offers built-in commands that you can invoke through its toolbar. To use them, set the `Command` property of the button to the command name. The built-in command names are:
 
-* `Add` - startes inserting a new item in the grid.
+* `Add` - starts inserting a new item in the grid.
 
 >caption How to insert a new item in the grid
 
