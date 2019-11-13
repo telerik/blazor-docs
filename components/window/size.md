@@ -12,9 +12,16 @@ position: 1
 
 The Window offers three ways for you to control its size:
 
-* the `Width` and `Height` properties (read more in the [Dimensions]({%slug common-features/dimensions%}) article)
-* predefined dimensions through the `Size` property
-* binding to its [State](#maximize-and-minimize) to control whether it is minimized, maximized or has the default appearance.
+* [Set Width and Height](#set-width-and-height)
+* [Predefined Size Options](#predefined-size)
+* [Maximize and Minimize](#maximize-and-minimize)
+
+
+## Set Width and Height
+
+If you know the size you need, just set it to the `Width` and/or `Height` parameters. They can take valid CSS values (see the [Dimensions]({%slug common-features/dimensions%}) article).
+
+>note If you do not set dimensions, no `width` and `height` CSS rules will be set, and the browser will render the Window element with dimensions according to its contents, like any other `<div>` element. This may adversely affect [positioning](position).
 
 >caption Set Width and Height to a Window
 
@@ -29,7 +36,9 @@ The Window offers three ways for you to control its size:
 </TelerikWindow>
 ````
 
-The `Size` property takes a member of the `Telerik.Blazor.WindowSize` enum. It renders as a class that sets only the width of the dialog, and the height is rendered by the browser based on the contents. The `Width` and `Height` properties take precedence, because they are rendered as inline `style` rules.
+## Predefined Size
+
+The `Size` parameter takes a member of the `Telerik.Blazor.WindowSize` enum. It renders as a class that sets only the width of the dialog, and the height is rendered by the browser based on the contents. The `Width` and `Height` properties take precedence, because they are rendered as inline `style` rules.
 
 The `Telerik.Blazor.WindowSize` enum provides the following options:
 
@@ -51,8 +60,6 @@ The `Telerik.Blazor.WindowSize` enum provides the following options:
 ````
 
 >tip If you want to resize the window dynamically through data binding its `Size` property, you may want to data bind the `Width` and `Height` properties as well, so you can reset them to `null` when you want to change the size.
-
->note If you do not set dimensions, the browser will render the Window element with dimensions according to its contents, like any other `<div>` element. This may adversely affect [positioning](position).
 
 ## Maximize and Minimize
 
