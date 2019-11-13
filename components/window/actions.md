@@ -24,7 +24,7 @@ Action buttons expose the following properties:
 
 * `Name` - the name of the action. Can be one of the built-in actions (see above), or a custom action name.
 * `Hidden` - a boolean property indicating whether the action button is rendered.
-* `OnClick` - event handler so you can respond to custom action clicks.
+* `OnClick` - event handler so you can respond to custom action clicks. If you attach it to a built-in action, it will prevent it from executing.
 * `Icon` - the CSS class name of the icon that will be rendered. You can use the [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web) without the `k-i-` prefix, or your own font icon font.
 
 

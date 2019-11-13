@@ -98,53 +98,6 @@ The developer can invoke those actions through binding the `State` parameter. It
 }
 ````
 
-The `State` parameter also exposes an event - `StateChanged`. You can use it to get notifications when the user tries to minimize, maximize or restore the window. You can effectively cancel the event by not propagating the new state to the variable the `State` property is bound to.
-
->caption React to the user actions to minimize, restore or maximize the window
-
-````CSHTML
-@lastUserAction
-
-<select @bind=@State>
-    <option value=@WindowState.Default>Default</option>
-    <option value=@WindowState.Minimized>Minimized</option>
-    <option value=@WindowState.Maximized>Maximized</option>
-</select>
-
-<TelerikWindow State="@State" StateChanged="@StateChangedHandler" Width="500px" Height="300px" Visible="true"
-               Top="500px" Left="600px">
-    <WindowTitle>
-        <strong>Lorem ipsum</strong>
-    </WindowTitle>
-    <WindowActions>
-        <WindowAction Name="Minimize"></WindowAction>
-        <WindowAction Name="Maximize"></WindowAction>
-        <WindowAction Name="Close"></WindowAction>
-    </WindowActions>
-    <WindowContent>
-        <select @bind=@State>
-            <option value=@WindowState.Default>Default</option>
-            <option value=@WindowState.Minimized>Minimized</option>
-            <option value=@WindowState.Maximized>Maximized</option>
-        </select>
-    </WindowContent>
-</TelerikWindow>
-
-@code {
-    public WindowState State { get; set; } = WindowState.Default;
-
-    string lastUserAction;
-
-    private void StateChangedHandler(WindowState windowState)
-    {
-        State = windowState; // if you don't do this, the window won't change because of the user action
-
-        lastUserAction = $"last user action was: {windowState}";
-    }
-}
-````
-
->tip You may also find useful handling the `VisibleChanged` event - it provides similar functionality for the shown/closed state of the window.
 
 ## See Also
 

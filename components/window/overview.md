@@ -102,48 +102,7 @@ The `Visible` property lets you control whether the window component is shown (a
 }
 ````
 
-The `Visible` parameter also exposes an event - `VisibleChanged`. You can use it to get notifications when the user tries to close the window. You can effectively cancel the event by not propagating the new visibility state to the variable the `Visible` property is bound to.
 
->caption React to the user closing the window
-
-````CSHTML
-@result
-
-<button @onclick="ToggleWindow">Toggle the Window</button>
-
-<TelerikWindow Visible="@isVisible" VisibleChanged="@VisibleChangedHandler">
-    <WindowTitle>
-        <strong>The Title</strong>
-    </WindowTitle>
-    <WindowContent>
-        This is my window <strong>popup</strong> content.
-    </WindowContent>
-    <WindowActions>
-        <WindowAction Name="Close" />
-    </WindowActions>
-</TelerikWindow>
-
-@code {
-    bool isVisible { get; set; }
-    string result { get; set; }
-
-    void VisibleChangedHandler(bool currVisible)
-    {
-        isVisible = currVisible; // if you don't do this, the window won't close because of the user action
-
-        result = $"the window is now visible: {isVisible}";
-    }
-
-    public void ToggleWindow()
-    {
-        isVisible = !isVisible;
-
-        result = $"the window is now visible: {isVisible}";
-    }
-}
-````
-
->tip You may also find useful handling the `StateChanged` event - it provides similar functionality for the minimized/maximized/standard state of the window.
 
 ## Styling
 
