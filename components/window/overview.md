@@ -146,3 +146,8 @@ The `Class` property lets you define a CSS class that will be rendered on the po
 ## See Also
 
   * [Live Demos: Window](https://demos.telerik.com/blazor-ui/window/index)
+  * [Window Size, Maximize, Minimize]({%slug components/window/size%})
+  * [Window Actions]({%slug components/window/actions%})
+  * [Window Events]({%slug window-events%})
+  * [Window Position]({%slug components/window/position%})
+  * [Modal Window]({%slug components/window/modal%})
