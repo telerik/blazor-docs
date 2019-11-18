@@ -100,6 +100,16 @@ The grid is a generic component, and to store a reference, you must use the mode
 
 To show data in a grid, you need to define [GridColumn]({%slug components/grid/columns/bound%}) instances that expose the data fields as well as settings for [templates]({%slug components/grid/features/templates%}), [grouping](#grouping) and [reordering]({%slug components/grid/columns/reorder%}). To [edit](#editing) data or invoke custom logic, you define a [CommandColumn]({%slug components/grid/columns/command%}).
 
+## Editing
+
+The grid can perfom CRUD operations on its current data collection and exposes events that let you control the operations and transfer changes to the actual data source. The [CRUD Operations Overview]({%slug components/grid/editing/overview%}) article offers more details on this.
+
+The grid offers several editing modes with different user experience through the `EditMode` property that is a member of the `GridEditMode` enum:
+
+* `Incell` - editing is done [in the current cell]({%slug components/grid/editing/incell%}) with a double click
+* `Inline` - editing is done for the [entire row]({%slug components/grid/editing/inline%}) with an [Edit Command Button]({%slug components/grid/columns/command%})
+* `Popup` - editing is done in a [popup]({%slug components/grid/editing/popup%}) for the entire row with an [Edit Command Button]({%slug components/grid/columns/command%})
+
 
 ## Paging
 
@@ -125,15 +135,14 @@ The grid offers single or multiple selection modes. You can read more about this
 
 You can define user actions in a [dedicated toolbar]({%slug components/grid/features/toolbar%}). For the moment, they are mostly custom actions, but in future versions you will be able to add features like exporting there.
 
-## Editing
+## Scrolling
 
-The grid can perfom CRUD operations on its current data collection and exposes events that let you control the operations and transfer changes to the actual data source. The [CRUD Operations Overview]({%slug components/grid/editing/overview%}) article offers more details on this.
+The grid offers two modes of scrolling through its `ScrollMode` parameter that takes a member of the `Telerik.Blazor.GridScrollMode` enum:
 
-The grid offers several editing modes with different user experience through the `EditMode` property that is a member of the `GridEditMode` enum:
+* `Scrollable` - the default setting - the scrollbars are controlled by the grid's `Width` and `Height` parameters and the data shown in it. If the rendered rows are taller than the height, there will be a vertical scrollbar. If the sum of the column widths is larger than the width, there will be a horizontal scrollbar (read more in the [Column Width]({%slug grid-columns-width%}) article).
+* `Virtual` - this enables [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}).
 
-* `Incell` - editing is done [in the current cell]({%slug components/grid/editing/incell%}) with a double click
-* `Inline` - editing is done for the [entire row]({%slug components/grid/editing/inline%}) with an [Edit Command Button]({%slug components/grid/columns/command%})
-* `Popup` - editing is done in a [popup]({%slug components/grid/editing/popup%}) for the entire row with an [Edit Command Button]({%slug components/grid/columns/command%})
+
 
 ## Styling
 
