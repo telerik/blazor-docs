@@ -17,6 +17,7 @@ This article lists the .NET Core versions supported by the UI for Blazor suite, 
 
 | .NET version              | Telerik UI for Blazor version |
 |---------------------------|-------------------------------|
+| .NET Core 3.1 preview 3   | 2.4.0                         |
 | .NET Core 3.1 preview 2   | 2.3.0                         |
 | .NET Core 3.1 preview 1   | 2.2.0, 2.2.1                  |
 | .NET Core 3.0 RTM         | 2.1.0, 2.1.1                  |
