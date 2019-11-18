@@ -28,8 +28,8 @@ Telerik provides and supports the default English texts. The offline demos carry
 
 When localizing a Blazor app, make sure you are familiar with the way localization works in the framework. You can start from the following resources:
 
-* [https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-3.0](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-3.0)
-* [https://github.com/aspnet/AspNetCore.Docs/issues/13436](https://github.com/aspnet/AspNetCore.Docs/issues/13436)
+* [Localization in Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/components?view=aspnetcore-3.0#localization)
+* [Localization in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-3.0)
 
 The necessary steps are to:
 
