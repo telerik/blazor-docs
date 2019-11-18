@@ -40,7 +40,9 @@ The necessary steps are to:
 
 >note The code snippets below will showcase a sample implementation for a server-side app. For a client-side app, some framework configurations my differ and you cannot use `.resx` files because the framework does not support them.
 
->tip You can find an example implementation in our offline demos project that you can find your Telerik UI for Blazor installation.
+>tip You can find an example implementation in our offline demos project that are available your Telerik UI for Blazor installation (both [msi]({%slug installation/msi%}) and [zip]({%slug installation/zip%})).
+
+>note When following this tutorial to add localization to an existing app, make sure to compare the configuration you are copying so that you do not remove configuration necessary for your app.
 
 >caption Step 1 - Example for enabling localization in the app
 
@@ -59,12 +61,11 @@ public class Startup
         {
             // define the list of cultures your app will support
             var supportedCultures = new List<CultureInfo>()
-            {
-                new CultureInfo("en-US"),
-                new CultureInfo("de-DE"),
-                new CultureInfo("es-ES"),
-                new CultureInfo("bg-BG"),
-            };
+        {
+            new CultureInfo("en-US"),
+            new CultureInfo("fr-FR"),
+            new CultureInfo("bg-BG")
+        };
 
             // set the default culture
             options.DefaultRequestCulture = new RequestCulture("en-US");
@@ -73,16 +74,20 @@ public class Startup
             options.SupportedUICultures = supportedCultures;
         });
 
+        // the custom localizer service is registered later, after the Telerik services
+
         #endregion
 
-        // there may be other services registered here, this is just an example
         services.AddRazorPages();
         services.AddServerSideBlazor();
 
-        services.AddTelerikBlazor();
 
-        // register a custom localizer for the Telerik components
+        services.AddTelerikBlazor();
+        // register a custom localizer for the Telerik components, after registering the Telerik services
         services.AddSingleton(typeof(ITelerikStringLocalizer), typeof(SampleResxLocalizer));
+
+
+        services.AddSingleton<WeatherForecastService>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -117,7 +122,6 @@ public class Startup
         app.UseEndpoints(endpoints =>
         {
             // enable controllers for the culture controller
-            endpoints.MapDefaultControllerRoute();
             endpoints.MapControllers();
 
             endpoints.MapBlazorHub();
@@ -127,7 +131,7 @@ public class Startup
 }
 ````
 
->caption Step 2 -Controller for changing the thread UI culture and redirecting the user (a redirect is required by the framework)
+>caption Step 2 - Sample controller for changing the thread UI culture and redirecting the user (a redirect is required by the framework)
 
 ````CS
 [Route("[controller]/[action]")]
@@ -140,6 +144,9 @@ public class CultureController : Controller
             HttpContext.Response.Cookies.Append(
                 CookieRequestCultureProvider.DefaultCookieName,
                 CookieRequestCultureProvider.MakeCookieValue(new RequestCulture("en-US", culture)));
+            // for the time being the thread culture is hardcoded to "en-US"
+            // until culture-aware number and date formats are implemented
+            // so here we only change the UICulture of the thread to the new culture
         }
 
         return LocalRedirect(redirectUri);
@@ -154,7 +161,7 @@ public class CultureController : Controller
 }
 ````
 
->caption Use a cookie to store the culture choice of the user - in this example - in `~/Pages/_Host.cshtml`
+>caption Step 2 (continued) - Use a cookie to store the culture choice of the user - in this example - in `~/Pages/_Host.cshtml`
 
 ````CSHTML
 @using Microsoft.AspNetCore.Localization
@@ -177,7 +184,7 @@ public class CultureController : Controller
 </body>
 ````
 
->caption Sample UI component for changing cultures
+>caption Step 3 - Sample UI component for changing cultures
 
 ````
 @using System.Threading
@@ -193,6 +200,10 @@ public class CultureController : Controller
                          TextField="@nameof(CultureData.Text)"
                          ValueField="@nameof(CultureData.Value)">
     </TelerikDropDownList>
+    <br />
+    Current UI culture (used for localization): @Thread.CurrentThread.CurrentUICulture.Name
+    <br />
+    Current thread culture (used for date and number formatting): @Thread.CurrentThread.CurrentCulture.Name
 </div>
 
 @code{
@@ -205,8 +216,7 @@ public class CultureController : Controller
     public List<CultureData> Cultures { get; set; } = new List<CultureData>()
     {
         new  CultureData() { Text = "English", Value = "en-US" },
-        new  CultureData() { Text = "German", Value = "de-DE" },
-        new  CultureData() { Text = "Spanish", Value = "es-ES" },
+        new  CultureData() { Text = "French", Value = "fr-FR" },
         new  CultureData() { Text = "Bulgarian", Value = "bg-BG" },
     };
 
@@ -230,14 +240,14 @@ public class CultureController : Controller
 }
 ````
 
->caption Sample Telerik localization service implementation - this example relies on a `~/Resources` folder with the necessary `.resx` files.
+>caption Step 4 - Sample Telerik localization service implementation - this example relies on a `~/Resources` folder with the necessary `.resx` files.
 
 >important You must implement the indexer only. You can obtain the needed strings from any source you prefer and that matches you application, such as database, `resx` files (not supported in client-side projects at the time of writing), `json` files, hash tables, and so on.
 
 ````CS
 public class SampleResxLocalizer : ITelerikStringLocalizer
 {
-    // this is the indexed you must implement
+    // this is the indexer you must implement
     public string this[string name]
     {
         get
@@ -246,7 +256,7 @@ public class SampleResxLocalizer : ITelerikStringLocalizer
         }
     }
 
-    // sample implementation - uses .resx files in the ~/Resources folder names TelerikMessages.<culture-locale>.resx
+    // sample implementation - uses .resx files in the ~/Resources folder named TelerikMessages.<culture-locale>.resx
     public string GetStringFromResource(string key)
     {
         return Resources.TelerikMessages.ResourceManager.GetString(key, Resources.TelerikMessages.Culture); ;
@@ -254,29 +264,34 @@ public class SampleResxLocalizer : ITelerikStringLocalizer
 }
 ````
 
->caption Add `.resx` files to the `~/Resources` folder
+>caption Step 4 (continued) - Add `.resx` files to the `~/Resources` folder
 
-In this example the files must be named `~/Resources/TelerikMessages.<culture-locale>.resx`, for example `TelerikMessages.bg-BG.resx`. Make sure to 
+In this example the files must be named `~/Resources/TelerikMessages.<culture-locale>.resx`, for example `TelerikMessages.bg-BG.resx`. You can use different names (for example, in our demos we use `Messages.resx`). The file names affect the static class that is generated and how you use it in your code (for example, to localize other elements you define yourself, such as grid command buttons or your own buttons).
 
-* mark them as `Embedded Resource`
-* add this in your `ProjectName.csproj` file so they are built
+It is required that you add the resource file provided in your Telerik UI for Blazor installation that matches the version used in your project. This is the file that contains the current set of localizable strings and whose designer file must be generated by the build.
 
-````XML
-<ItemGroup>
-    <Compile Update="Resources\TelerikMessages.designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>TelerikMessages.resx</DependentUpon>
-    </Compile>
-</ItemGroup>
+Make sure to:
 
-<ItemGroup>
-    <EmbeddedResource Update="Resources\TelerikMessages.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>TelerikMessages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-</ItemGroup>
-````
+* Mark the `resx` files as `Embedded Resource` (right click > Properties > Build Action).
+* Have the following in your `ProjectName.csproj` file so the designer file is generated (it should be added when you add the main messages file, or when you open and save it. Copy the snippet in case it is not added).
+
+    **XML**
+    
+        <ItemGroup>
+            <Compile Update="Resources\TelerikMessages.designer.cs">
+              <DesignTime>True</DesignTime>
+              <AutoGen>True</AutoGen>
+              <DependentUpon>TelerikMessages.resx</DependentUpon>
+            </Compile>
+        </ItemGroup>
+        
+        <ItemGroup>
+            <EmbeddedResource Update="Resources\TelerikMessages.resx">
+              <Generator>PublicResXFileCodeGenerator</Generator>
+              <LastGenOutput>TelerikMessages.Designer.cs</LastGenOutput>
+            </EmbeddedResource>
+        </ItemGroup>
+
 
 ## See Also
 
