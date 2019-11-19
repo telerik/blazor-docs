@@ -41,6 +41,8 @@ The necessary steps are to:
 >note The code snippets below will showcase a sample implementation for a server-side app. For a client-side app, some framework configurations my differ and you cannot use `.resx` files because the framework does not support them.
 
 >tip You can find an example implementation in our offline demos project that are available your Telerik UI for Blazor installation (both [msi]({%slug installation/msi%}) and [zip]({%slug installation/zip%})).
+>
+> More examples are available in the following repo: [https://github.com/telerik/blazor-ui/tree/master/common/localization/](https://github.com/telerik/blazor-ui/tree/master/common/localization/).
 
 >note When following this tutorial to add localization to an existing app, make sure to compare the configuration you are copying so that you do not remove configuration necessary for your app.
 
