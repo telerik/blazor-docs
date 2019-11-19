@@ -19,7 +19,10 @@ Localization (L10N) is the process of customizing an app for a given language an
 
 The Telerik UI for Blazor components use a set of keys that a localization service resolves to the strings that will be rendered in the UI. The format of the keys is `<ComponentName>_<MessageKey>`. Out of the box, the Telerik NuGet package carries a `.resx` file with the default (English) strings. It is used internally if no app-specific service is provided.
 
-You can find the list of keys (and their default values) by inspecting the `Resources/Messages.resx` file. You can find it in the NuGet package itself, and in the offline Demos installation (under a path like `C:\Program Files (x86)\Progress\Telerik UI for Blazor 2.4.0\demos\TelerikBlazorDemos\Resources`). Make sure to refer to the version you are currently using, because newer versions may have more keys than old versions as more components and features are added to the suite.
+You can find the list of keys in the following places:
+
+* In the [API reference](../api/Telerik.Blazor.Resources.Messages.html)
+* By inspecting the `Resources/Messages.resx` file in the offline Demos installation (under a path like `C:\Program Files (x86)\Progress\Telerik UI for Blazor <YOUR VERSION>\demos\TelerikBlazorDemos\Resources`). There you can also see the default values.
 
 Telerik provides and supports the default English texts. The offline demos carry a few resource files with translations in several languages that are provided as-is, and you can use them as base for implementing your own.
 
