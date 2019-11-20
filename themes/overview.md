@@ -14,7 +14,7 @@ position: 0
 The UI for Blazor suite comes with a set of built-in themes that you can choose from to alter the visual appearance of the components:
 
 * **Default** - our own neutral styling that suits most cases.
-* **Bootstrap** - linked variables to the famous Bootstrap, in order to achieve similarity in the look and feel. Therefore, customizing the original Bootstrap theme will affect the Telerik UI theme as well.
+* **Bootstrap** - a theme that matches the Bootstrap styling. Read more in the [Bootstrap Notes](#bootstrap-notes) section.
 * **Material** - implements the [Material Design Guidelines](https://material.io/design/).
 
 These themes are shared with the Kendo UI suites with which the UI for Blazor suite shares HTML rendering, classes and appearance (even though UI for Blazor are native components). You can read more about the way the available themes function in the [Kendo SASS Themes](https://docs.telerik.com/kendo-ui/styles-and-layout/sass-themes) article.
@@ -119,9 +119,16 @@ Instead of a CDN link, you can fetch the stylesheet into your project. To do thi
             
         </html>
 
+## Bootstrap Notes
 
+The Telerik Bootstrap Theme has a design that is similar to the Bootstrap framework style so you can better integrate the Telerik components in an app that already uses Bootstrap for layouts and styles.
+
+Bootstrap and Telerik UI for Blazor are two completely separate products that do not share classes or code, however. You can use Bootstrap to create layouts and then put our components in those layouts by treating them like the `<span>` or `<div>` elements that they are. You can use Bootstrap classes and utilities on your own elements in the markup regardless of the components inside.
+
+The Telerik Bootstrap theme is not the same as the Bootstrap framework (or styles), it is our own theme that uses the Bootstrap metrics and design approaches to fit into a Bootstrap layout better. It can also use customized variables from Bootstrap, and you can see one way to do that through building the SASS files for both Bootstrap and Telerik in the following sample app: [https://github.com/telerik/blazor-dashboard](https://github.com/telerik/blazor-dashboard).
 
 ## See Also
 
-  * [Kendo SASS Themes](https://docs.telerik.com/kendo-ui/styles-and-layout/sass-themes)
+  * [Custom Themes]({%slug themes-custom%})
+  * [Style Form Elements]({%slug themes-form-elements%})
   * [Live Demos](https://demos.telerik.com/blazor-ui)
