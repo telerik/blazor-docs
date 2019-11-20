@@ -100,6 +100,8 @@ The grid is a generic component, and to store a reference, you must use the mode
 
 To show data in a grid, you need to define [GridColumn]({%slug components/grid/columns/bound%}) instances that expose the data fields as well as settings for [templates]({%slug components/grid/features/templates%}), [grouping](#grouping) and [reordering]({%slug components/grid/columns/reorder%}). To [edit](#editing) data or invoke custom logic, you define a [CommandColumn]({%slug components/grid/columns/command%}).
 
+>note For advanced operations such as grouping, filtering, sorting, you must set a `Field` to the column, and the field it points to must be a primitive type. If a `Field` is not set or it points to a custom object or something like an IDictionary, errors will be thrown because there are no known data operations on non-primitive types in .NET. An alternative is to implement all data source operations yourself by handling the [OnRead event](manual-operations).
+
 ## Editing
 
 The grid can perfom CRUD operations on its current data collection and exposes events that let you control the operations and transfer changes to the actual data source. The [CRUD Operations Overview]({%slug components/grid/editing/overview%}) article offers more details on this.
