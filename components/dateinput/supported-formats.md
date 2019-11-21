@@ -141,19 +141,19 @@ Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-bg
 @TheDate
 <br />
 
-<TelerikDateInput @bind-Value="TheDate" Format="dd/MM/yy" /> @TheDate.ToString("dd/MM/yy")
+<TelerikDateInput @bind-Value="TheDate" Format="dd MM yy" /> @TheDate.ToString("dd MM yy")
 <br />
-<TelerikDateInput @bind-Value="TheDate" Format="dd/MMM/yyyy" /> @TheDate.ToString("dd/MMM/yyyy")
+<TelerikDateInput @bind-Value="TheDate" Format="dd MMM yyyy" /> @TheDate.ToString("dd MMM yyyy")
 <br />
-<TelerikDateInput @bind-Value="TheDate" Format="dddd, dd/MMM/yyyy" /> @TheDate.ToString("dddd, dd/MMM/yyyy")
+<TelerikDateInput @bind-Value="TheDate" Format="dddd, dd MMM yyyy" /> @TheDate.ToString("dddd, dd MMM yyyy")
 <br />
 <TelerikDateInput @bind-Value="TheDate" Format="HH:mm:ss" /> @TheDate.ToString("HH:mm:ss")
 <br />
-<TelerikDateInput @bind-Value="TheDate" Format="d/M/yy h:m:s tt" /> @TheDate.ToString("d/M/yy h:m:s")
+<TelerikDateInput @bind-Value="TheDate" Format="d M yy h:m:s tt" /> @TheDate.ToString("d M yy h:m:s")
 <br />
-<TelerikDateInput @bind-Value="TheDate" Format="dd/MMM/yyyy H:mm:ss" /> @TheDate.ToString("dd/MMM/yyyy H:mm:ss")
+<TelerikDateInput @bind-Value="TheDate" Format="dd MMM yyyy H:mm:ss" /> @TheDate.ToString("dd MMM yyyy H:mm:ss")
 <br />
-<TelerikDateInput @bind-Value="TheDate" Format="dd/MMMM/yyyy HH:mm:ss" /> @TheDate.ToString("dd/MMMM/yyyy HH:mm:ss")
+<TelerikDateInput @bind-Value="TheDate" Format="dd MMMM yyyy HH:mm:ss" /> @TheDate.ToString("dd MMMM yyyy HH:mm:ss")
 <br />
 <TelerikDateInput @bind-Value="TheDate" Format="dd-MM-yyyy" /> @TheDate.ToString("dd-MM-yyyy")
 <br />
