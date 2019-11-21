@@ -39,7 +39,7 @@ The Date Picker component exposes the following features:
 *  `BottomView` - Defines the bottommost view in the popup calendar to which the user can navigate to. Defaults to `CalendarView.Month`.
 * `DisabledDates` - Specifies a list of dates that can not be selected.
 * `Enabled` - Specifies whether typing in the input is allowed.
-* `Format` - Specifies the format of the DateInput of the DatePicker. Defaults to `yyyy-MM-dd`. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.
+* `Format` - Specifies the format of the DateInput of the DatePicker. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.
 * `PopupHeight` - Defines the height of the DatePicker's Popup. Defaults to `auto`.
 * `PopupWidth` - Defines the width of the DatePicker's Popup. Defaults to `auto`.
 * `Value` - The current value of the input. Can be used for binding.

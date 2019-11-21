@@ -18,8 +18,9 @@ To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
 
 ````CSHTML
 @dateInputValue
+<br />
 
-<TelerikDateInput @bind-Value="@dateInputValue" Format="dd/MMMM/yyyy" @ref="theDateInput">
+<TelerikDateInput @bind-Value="@dateInputValue" Format="dd MMMM yyyy" @ref="theDateInput">
 </TelerikDateInput>
 
 @code {
@@ -30,6 +31,10 @@ To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
     // in this case it is DateTime, but it could be DateTime?
 }
 ````
+
+>caption The result from the code snippet above
+
+![](images/date-input-first-look.png)
 
 >caption The date input provides the following features:
 
