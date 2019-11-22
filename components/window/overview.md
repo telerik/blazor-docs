@@ -15,7 +15,7 @@ This article provides basic information about the Window component.
 To create a Telerik Window:
 
 1. use the `TelerikWindow` tag
-1. set its `Visible` property to `true` to see it immediately
+1. set its `Visible` property to `true` to see it (in the example below we will use a button to toggle it)
 1. add some content to its `WindowContent` inner tag
 1. optionally, add a title text in its `WindowTitle` tag
 1. optionally, add the built-in [actions]({%slug components/window/actions%}) to its titlebar
@@ -23,19 +23,25 @@ To create a Telerik Window:
 >caption Basic example of showing content in a Window popup and allowing built-in actions
 
 ````CSHTML
-<TelerikWindow Visible="true">
-	<WindowTitle>
-		<strong>The Title</strong>
-	</WindowTitle>
-	<WindowContent>
-		This is my window <strong>popup</strong> content.
-	</WindowContent>
-	<WindowActions>
+<TelerikWindow @bind-Visible="@WindowIsVisible">
+    <WindowTitle>
+        <strong>The Title</strong>
+    </WindowTitle>
+    <WindowContent>
+        This is my window <strong>popup</strong> content.
+    </WindowContent>
+    <WindowActions>
         <WindowAction Name="Minimize"></WindowAction>
         <WindowAction Name="Maximize"></WindowAction>
         <WindowAction Name="Close"></WindowAction>
     </WindowActions>
 </TelerikWindow>
+
+<TelerikButton OnClick="@( () => WindowIsVisible = !WindowIsVisible )">Toggle window</TelerikButton>
+
+@code {
+    bool WindowIsVisible { get; set; }
+}
 ````
 
 >caption The result from the code snippet above
