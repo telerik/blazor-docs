@@ -20,7 +20,7 @@ Internationalization (I18N) is the process of making an app support different la
 
 The Telerik Components use the current thread culture to render the appropriate culture-specific format for dates, numbers and currency:
 
-* [Calendar](https://demos.telerik.com/blazor-ui/calendar/globalization) - the names of the months and days of the week are taken from the current culture, and the `DateTimeFormatInfo.FirstDayOfWeek` of the culture is honored. If you alter the first day of the week explicitly, make sure to alter the `DateTimeFormatInfo.ShortestDayNames` array to match it.
+* [Calendar](https://demos.telerik.com/blazor-ui/calendar/globalization) - the names of the months and days of the week are taken from the current culture, and the `FirstDayOfWeek` of the culture is honored when ordering the days of the week. The Calendar uses the  `ShortestDayNames` array to get the short names for the days of the week and it expects them in the default order coming from the framework - Sunday to Saturday.
 
 * [Chart](https://demos.telerik.com/blazor-ui/chart/globalization) - the [Label Format Strings]({%slug components/chart/label-template-format%}) are culture aware (e.g., currency, dates).
 
@@ -30,9 +30,9 @@ The Telerik Components use the current thread culture to render the appropriate 
 
 * [DateTimePicker](https://demos.telerik.com/blazor-ui/datetimepicker/globalization) - @[template](/_contentTemplates/common/general-info.md#date-format-per-culture)
 
-* [Grid](https://demos.telerik.com/blazor-ui/grid/globalization) - the various inputs and editors are Telerik components and respond to the culture. Custom code and format strings in the templates will also default to using the current culture unless you explicitly use a certain culture.
+* [Grid](https://demos.telerik.com/blazor-ui/grid/globalization) - the various inputs and editors are Telerik components and respond to the culture. Custom code and format strings in the templates will also default to using the current culture unless you explicitly use a certain culture in them.
 
-* [NumericTextBox](https://demos.telerik.com/blazor-ui/numerictextbox/globalization) - the `Format` (for example, currency), decimal separator and default number of `Decimals` are taken from the current culture.
+* [NumericTextBox](https://demos.telerik.com/blazor-ui/numerictextbox/globalization) - the `Format` (for example, currency), decimal separator, group separator and default number of `Decimals` are taken from the current culture.
 
 * [TimePicker](https://demos.telerik.com/blazor-ui/timepicker/globalization) - @[template](/_contentTemplates/common/general-info.md#date-format-per-culture)
 
