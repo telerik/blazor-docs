@@ -137,3 +137,7 @@ public class MyViewModel
 ## Notes
 
 Fore more details, examples, and a more complex scenario, see this thread: [https://www.telerik.com/forums/how-to-use-window-and-editcontext-together](https://www.telerik.com/forums/how-to-use-window-and-editcontext-together).
+
+## See Also
+
+[Window Inside EditContext]({%slug window-in-form-edit-context%})
