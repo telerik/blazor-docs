@@ -14,7 +14,7 @@ The Scheduler component provides several different modes of display to fit diffe
 
 Views enum, list, maybe example. Link to separate articles maybe, in the future there will be more than 3 views.
 
-Maybe Slots explanations go here (see also overview article, features section).
+Maybe Slots explanations and control over the available views  go here (see also overview article, features section).
 
 ## See Also
 

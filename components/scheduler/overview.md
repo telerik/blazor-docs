@@ -40,7 +40,7 @@ SCHEDULER REFERENCE
 
 >caption The Scheduler provides the following features:
 
-date and view binding, navigation (consider whether they are to be separate features,aritcles, snippets). Maybe Slots explanations go here (see also views overview).
+date and view binding, navigation (consider whether they are to be separate features,aritcles, snippets). Maybe Slots explanations and control over the available views go here (see also views overview). 
 
 ## See Also
 
