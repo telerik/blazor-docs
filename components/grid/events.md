@@ -32,9 +32,13 @@ In the common case, you provide all the data to the grid's `Data` collection and
 
 ## Other Events
 
-## Command Button Click
+### Command Button Click
 
 The command buttons of a grid provide an `OnClick` event before firing their built-in command (such as opening a row for editing, or adding a new row). You can do this to implement some additional logic and to also handle custom commands - both from a [Command Column]({%slug components/grid/columns/command%}), and from a [Toolbar Button]({%slug components/grid/features/toolbar%})
+
+### SelectedItemsChanged
+
+Fires when the item selection is enabled and the user changes the selected [item]({%slug components/grid/selection/single%}#selecteditemschanged-event) or [items]({%slug components/grid/selection/multiple%}#selecteditemschanged-event).
 
 ## See Also
 
