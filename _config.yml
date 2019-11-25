@@ -74,6 +74,12 @@ navigation:
      "*components/menu/data-binding":
         title: "Data Binding"
         position: 2
+     "*components/scheduler/appointments":
+        title: "Appointments"
+        position: 2
+     "*components/scheduler/views":
+        title: "Views"
+        position: 3
 
 ## List helpers directory names and order here, like this:
      "*appearance":
@@ -256,6 +262,7 @@ intro_columns:
   -
     title: "Scheduling"
     items:
+      "Scheduler": "scheduler-overview"
       "Calendar": "components/calendar/overview"
 -
   categories:
