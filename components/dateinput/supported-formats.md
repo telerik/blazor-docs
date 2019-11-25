@@ -59,8 +59,9 @@ The AM/PM desginators and 12/24 formats are also taken into account as explained
 
 | Custom Format Contains | Culture Does Not Support AM/PM | Culture Supports AM/PM |
 |------------------------|------------------------|--------------------------------|
-| `hh`                   | This forces a 12 hour clock, and the day period carousel is shown in the time picker. If `DateTimeFormat.AMDesignator` is not present in the culture, the AM/PM values will be taken from `InvariantCulture`. | The default behavior - the day period carousel is shown in the time picker as the clock is 12 hour. |
+| `hh`                   | This forces a 12 hour clock, but the day period carousel is **not** shown in the time picker.<br />- If `DateTimeFormat.AMDesignator` and `DateTimeFormat.AMDesignator` are set explicitly, the behavior is as if the culture supports AM/PM. <br />- If `DateTimeFormat.AMDesignator` and `DateTimeFormat.AMDesignator` are not present in the culture, the AM/PM values will be taken from `InvariantCulture` for displaying in strings. | The default behavior - the day period carousel is shown in the time picker as the clock is 12 hour. |
 | `HH`                   | The default behavior - the day period carousel in the time picker is not shown as the clock is 24 hour. | The default behavior - the day period carousel is shown in the time picker as the clock is 12 hour. |
+
 
 If you set an `DateTimeFormat.AMDesignator` and `DateTimeFormat.PMDesignator` to your current culture, they will be used by the Telerik components - the framework honors them and will render them in the date/time strings, and so the Telerik Time Pickers will also render the period of day (AM/PM) carousel, as if the culture supports it, even if it does not have them by default.
 
