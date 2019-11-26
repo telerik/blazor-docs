@@ -59,7 +59,7 @@ The AM/PM desginators and 12/24 formats are also taken into account as explained
 
 | Custom Format Contains | Culture Does Not Support AM/PM | Culture Supports AM/PM |
 |------------------------|------------------------|--------------------------------|
-| `hh`                   | This forces a 12 hour clock, but the day period carousel is **not** shown in the time picker.<br />- If `DateTimeFormat.AMDesignator` and `DateTimeFormat.AMDesignator` are set explicitly, the behavior is as if the culture supports AM/PM. <br />- If `DateTimeFormat.AMDesignator` and `DateTimeFormat.AMDesignator` are not present in the culture, the AM/PM values will be taken from `InvariantCulture` for displaying in strings. | The default behavior - the day period carousel is shown in the time picker as the clock is 12 hour. |
+| `hh`                   | This forces a 12 hour clock, but the day period carousel is **not** shown in the time picker.<br />- If `DateTimeFormat.AMDesignator` and `DateTimeFormat.PMDesignator` are set explicitly, the behavior is as if the culture supports AM/PM. <br />- If `DateTimeFormat.AMDesignator` and `DateTimeFormat.PMDesignator` are not present in the culture, the AM/PM values will not be rendered in strings and the AM/PM carousel will not be shown. | The default behavior - the day period carousel is shown in the time picker as the clock is 12 hour. |
 | `HH`                   | The default behavior - the day period carousel in the time picker is not shown as the clock is 24 hour. | The default behavior - the day period carousel is shown in the time picker as the clock is 12 hour. |
 
 
