@@ -14,6 +14,7 @@ This article explains the events available in the Telerik Scheduler for Blazor:
 
 * [DateChanged](#datechanged)
 * [ViewChanged](#viewchanged)
+* [OnRead](#onread)
 
 
 ## DateChanged
@@ -27,4 +28,9 @@ This article explains the events available in the Telerik Scheduler for Blazor:
 
 
 ## ViewChanged
+
+
+## OnRead
+
+
 
