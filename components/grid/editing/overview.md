@@ -10,7 +10,7 @@ position: 0
 
 # Grid CRUD Operations Overview
 
-CRUD operations with the Grid for Blazor are done through the dedicated CRUD events it exposes for data editing. You can use them to trasfer the changes to the actual data source (for example, call a service, or use the `SaveChanges()` method of your context).
+CRUD operations with the Grid for Blazor are done through the dedicated CRUD events it exposes for data editing. You can use them to transfer the changes to the actual data source (for example, call a service, or use the `SaveChanges()` method of your context).
 
 List of the available events:
 
@@ -24,7 +24,7 @@ List of the available events:
 The CUD event handlers receive an argument of type `GridCommandEventArgs` that exposes the following fields:
 
 * `IsCancelled` - a boolean field indicating whether the grid operation is to be prevented (for example, prevent a row from opening for edit, or from updating the data layer).
-* `IsNew` - a boolean field idicating whether the item was just added through the grid. Lets you differentiate a data source Create operation from Update operation in the `OnClick` event of a command button.
+* `IsNew` - a boolean field indicating whether the item was just added through the grid. Lets you differentiate a data source Create operation from Update operation in the `OnClick` event of a command button.
 * `Item` - an object you can cast to your model class to obtain the current data item.
 * `Field` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates which is the model field the user changed when updating data.
 * `Value` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates what is the new value the user changed when updating data.
