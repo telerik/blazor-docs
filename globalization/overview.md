@@ -37,6 +37,8 @@ The Telerik Components use the current thread culture to render the appropriate 
 
 * [NumericTextBox](https://demos.telerik.com/blazor-ui/numerictextbox/globalization) - the `Format` (for example, currency), decimal separator, group separator and default number of `Decimals` are taken from the current culture.
 
+* [Scheduler](https://demos.telerik.com/blazor-ui/scheduler/globalization) - Date formats are taken from the culture, in the week view the first day of the week is also taken from the culture even if it does not match the `Date`. The various inputs and editors in the edit form are Telerik components and respond to the culture.
+
 * [TimePicker](https://demos.telerik.com/blazor-ui/timepicker/globalization) - @[template](/_contentTemplates/common/general-info.md#date-format-per-culture)
 
 
