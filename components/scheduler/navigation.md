@@ -37,6 +37,8 @@ You can alter the following scheduler parameters through code:
 * Currently shown date
 * Currently shown View
 
+>tip Usually, you would use the `@bind-Date` and `@bind-View` syntax to prevent the parameters from resetting to the initial values upon re-rendering.
+
 >caption Navigate the scheduler programmatically
 
 ````CSHTML
