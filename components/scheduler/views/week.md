@@ -8,7 +8,7 @@ published: True
 position: 1
 ---
 
-# Day View
+# Week View
 
 Week view description, properties, short snippet, screenshot
 
