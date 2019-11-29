@@ -12,6 +12,11 @@ position: 5
 
 This article explains how to browse the available dates, views and features of the scheduler - as a user and from code.
 
+This article contains the following sections:
+
+* [User Experience](#user-experience)
+* [Navigation From Code](#navigation-from-code)
+
 ## User Experience
 
 The UI of the scheduler provides several navigation features for the user so they can make their experience more comfortable and suitable to the task at hand:
