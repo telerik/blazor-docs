@@ -180,5 +180,5 @@ The example below shows the signature of the event handlers so you can copy the 
 ## See Also
 
   * [Appointments Overview]({%slug scheduler-appointments-overview%})
-  
+  * [Live Demo: Appointment Editing](https://demos.telerik.com/blazor-ui/scheduler/appointment-editing)
   
