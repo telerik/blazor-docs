@@ -75,7 +75,7 @@ Change current View:
     public DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
     public DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
     List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-{
+    {
             new SchedulerAppointment
             {
                 Title = "Vet visit",
@@ -87,7 +87,7 @@ Change current View:
             new SchedulerAppointment
             {
                 Title = "Planning meeting",
-                Description = "The cat needs vaccinations and her teeth checked.",
+                Description = "Kick off the new project.",
                 StartTime = new DateTime(2019, 11, 25, 9, 30, 0),
                 EndTime = new DateTime(2019, 11, 25, 12, 45, 0)
             },

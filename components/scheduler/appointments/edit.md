@@ -162,7 +162,7 @@ The example below shows the signature of the event handlers so you can copy the 
             new SchedulerAppointment
             {
                 Title = "Planning meeting",
-                Description = "The cat needs vaccinations and her teeth checked.",
+                Description = "Kick off the new project.",
                 StartTime = new DateTime(2019, 11, 25, 9, 30, 0),
                 EndTime = new DateTime(2019, 11, 25, 12, 45, 0)
             },
