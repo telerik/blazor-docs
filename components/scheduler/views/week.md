@@ -46,7 +46,6 @@ In this article:
 
 @code {
     public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
-    public SchedulerView CurrView { get; set; } = SchedulerView.Day;
     //the time portions are important
     public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
     public DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 20, 0, 0);
