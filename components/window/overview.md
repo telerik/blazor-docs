@@ -12,6 +12,15 @@ position: 0
 
 This article provides basic information about the Window component.
 
+In this article:
+
+* [Crete a Window](#crete-a-window)
+* [Show and Close](#show-and-close)
+* [Styling](#styling)
+* [Important Notes](#important-notes)
+
+## Crete a Window
+
 To create a Telerik Window:
 
 1. use the `TelerikWindow` tag
@@ -148,6 +157,16 @@ The `Class` property lets you define a CSS class that will be rendered on the po
 >caption The result from the code snippet above
 
 ![](images/window-custom-styling.png)
+
+## Important Notes
+
+The Telerik Window component renders as a child of the `TelerikRootComponent` at the root of your app. This is required so it can show up and have correct positions without being affected and broken by parent elements and their CSS rules.
+
+In Blazor, however, the render tree structure may be important in some cases and the fact that the Window renders its contents in a different place may put you in one of the following situations:
+
+* [Returning data from a window does not update the parent]({%slug window-does-not-update-parent%})
+* [CascadingParameter Value is null in Window]({%slug window-cascading-parameter-null%})
+* [Using an EditContext for a form holding a window requires updating the EditContext]({%slug window-in-form-edit-context%})
 
 ## See Also
 
