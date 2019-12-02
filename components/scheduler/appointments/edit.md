@@ -70,7 +70,7 @@ The example below shows the signature of the event handlers so you can copy the 
 >caption Example of handling the CUD events in a Scheduler.
 
 ````CSHTML
-@using System.ComponentModel.DataAnnotations @* only for the Required validation in the model *@
+@* This sample implements only updates to the view model. Your app must also update the database in the CUD events *@
 
 <TelerikScheduler Data="@Appointments"
                   OnUpdate="@UpdateAppointment"
@@ -92,54 +92,66 @@ The example below shows the signature of the event handlers so you can copy the 
 </TelerikScheduler>
 
 @code {
-        // Sample CUD operations over the local data
-        // In a real case, carry the information over to the actual data source
-        void UpdateAppointment(SchedulerUpdateEventArgs args)
+    // Sample CUD operations over the local data
+    // In a real case, carry the information over to the actual data source
+    void UpdateAppointment(SchedulerUpdateEventArgs args)
+    {
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
+        var matchingItem = Appointments.FirstOrDefault(a => a.Id == item.Id);
+        if (matchingItem != null)
         {
-            SchedulerAppointment item = (SchedulerAppointment)args.Item;
-            var matchingItem = Appointments.FirstOrDefault(a => a.Id == item.Id);
-            if (matchingItem != null)
+            matchingItem.Title = item.Title;
+            matchingItem.Description = item.Description;
+            matchingItem.StartTime = item.StartTime;
+            matchingItem.EndTime = item.EndTime;
+            matchingItem.IsAllDay = item.IsAllDay;
+        }
+
+        // save to the actual data source here
+    }
+
+    void AddAppointment(SchedulerCreateEventArgs args)
+    {
+        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        Appointments.Add(item);
+
+        // save to the actual data source here
+    }
+
+    void DeleteAppointment(SchedulerDeleteEventArgs args)
+    {
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
+        Appointments.Remove(item);
+
+        // save to the actual data source here
+    }
+
+    //Handlers for application logic flexibility
+    void EditHandler(SchedulerEditEventArgs args)
+    {
+        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        if (!args.IsNew) // an edit operation, otherwise - an insert operation
+        {
+            // you can prevent opening an item for editing based on a condition
+            if (item.Title.Contains("vet", StringComparison.InvariantCultureIgnoreCase))
             {
-                matchingItem.Title = item.Title;
-                matchingItem.Description = item.Description;
-                matchingItem.StartTime = item.StartTime;
-                matchingItem.EndTime = item.EndTime;
-                matchingItem.IsAllDay = item.IsAllDay;
+                args.IsCancelled = true;
             }
         }
-
-        void AddAppointment(SchedulerCreateEventArgs args)
+        else
         {
-            SchedulerAppointment item = args.Item as SchedulerAppointment;
-            Appointments.Add(item);
+            // get the time range of the slot the user clicked to add an appointment
+            DateTime slotStart = item.StartTime;
+            DateTime slotEnd = item.EndTime;
         }
+    }
 
-        void DeleteAppointment(SchedulerDeleteEventArgs args)
-        {
-            SchedulerAppointment item = (SchedulerAppointment)args.Item;
-            Appointments.Remove(item);
-        }
-
-        //Handlers for application logic flexibility
-        void EditHandler(SchedulerEditEventArgs args)
-        {
-            SchedulerAppointment item = args.Item as SchedulerAppointment;
-            if (item != null) // an edit operation, otherwise - an insert operation
-            {
-                // you can prevent opening an item for editing based on a condition
-                if (item.Title.Contains("vet", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    args.IsCancelled = true;
-                }
-            }
-        }
-
-        void CancelHandler(SchedulerCancelEventArgs args)
-        {
-            // you can know when a user wanted to modify an appointment but decided not to
-            // the model you get contains the new data from the edit form so you can see what they did
-            SchedulerAppointment item = args.Item as SchedulerAppointment;
-        }
+    void CancelHandler(SchedulerCancelEventArgs args)
+    {
+        // you can know when a user wanted to modify an appointment but decided not to
+        // the model you get contains the new data from the edit form so you can see what they did
+        SchedulerAppointment item = args.Item as SchedulerAppointment;
+    }
 
     // sample data and scheduler settings
     public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
@@ -180,7 +192,6 @@ The example below shows the signature of the event handlers so you can copy the 
     public class SchedulerAppointment
     {
         public int Id { get; set; }
-        [Required]
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime StartTime { get; set; }
