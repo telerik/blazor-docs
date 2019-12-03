@@ -96,6 +96,7 @@ List of the known limitations of the virtual scrolling feature:
 
 * [Hierarchy]({%slug components/grid/features/hierarchy%}) is not supported.
 * [Grouping]({%slug components/grid/features/grouping%}) is not supported.
+* [Multiple Selection]({%slug components/grid/selection/multiple%}) is not fully supported. Selecting all items from the header checkbox can select only the currently rendered page of records.
 
 ## See Also
 
