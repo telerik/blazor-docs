@@ -102,6 +102,8 @@ In this article:
 
 @[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
 
+@[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
+
 @[template](/_contentTemplates/scheduler/views.md#day-slots-explanation)
 
 

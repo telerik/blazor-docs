@@ -101,6 +101,9 @@ In this article:
 
 
 @[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
+* `NumberOfDays` - how many days will be rendered side-by-side in the view.
+
+@[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
 
 @[template](/_contentTemplates/scheduler/views.md#day-slots-explanation)
 
