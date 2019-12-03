@@ -18,6 +18,7 @@ The appointment model needs to provide the fields from the list below that are u
 
 >caption Appointment fields
 
+* `Id` - (`Guid`) - the unique identifier for the appointment.
 * `Title` - (`string`) - this is what is shown in the main scheduler view so the user can identify the event.
 * `Start` - (`DateTime`) - the date and time at which the appointment starts.
 * `End` - (`DateTime`) - the date and time at which the appointment ends.
