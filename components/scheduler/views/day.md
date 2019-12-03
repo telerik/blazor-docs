@@ -33,66 +33,66 @@ In this article:
 ````CSHTML
 @* Define the day view. The screenshot above is the result from this code snippet *@
 
-<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px" 
-                  StartField="@(nameof(SchedulerAppointment.StartTime))"
-                  EndField="@(nameof(SchedulerAppointment.EndTime))"
-                  TitleField="@(nameof(SchedulerAppointment.Title))"
-                  DescriptionField="@(nameof(SchedulerAppointment.Description))"
-                  IsAllDayField="@(nameof(SchedulerAppointment.IsAllDay))">
+<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px">
     <SchedulerViews>
         <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" />
     </SchedulerViews>
 </TelerikScheduler>
 
 @code {
-    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
+    public DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
     //the time portions are important
     public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
     public DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 20, 0, 0);
     public DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
     public DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
     List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-    {
+{
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Board meeting",
                 Description = "Q4 is coming to a close, review the details.",
-                StartTime = new DateTime(2019, 11, 29, 10, 00, 0),
-                EndTime = new DateTime(2019, 11, 29, 11, 30, 0)
+                Start = new DateTime(2019, 12, 5, 10, 00, 0),
+                End = new DateTime(2019, 12, 5, 11, 30, 0)
             },
 
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Vet visit",
                 Description = "The cat needs vaccinations and her teeth checked.",
-                StartTime = new DateTime(2019, 11, 28, 11, 30, 0),
-                EndTime = new DateTime(2019, 11, 28, 12, 0, 0)
+                Start = new DateTime(2019, 12, 2, 11, 30, 0),
+                End = new DateTime(2019, 12, 2, 12, 0, 0)
             },
 
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Planning meeting",
                 Description = "Kick off the new project.",
-                StartTime = new DateTime(2019, 11, 30, 9, 30, 0),
-                EndTime = new DateTime(2019, 11, 30, 12, 45, 0)
+                Start = new DateTime(2019, 12, 6, 9, 30, 0),
+                End = new DateTime(2019, 12, 6, 12, 45, 0)
             },
 
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Trip to Hawaii",
                 Description = "An unforgettable holiday!",
                 IsAllDay = true,
-                StartTime = new DateTime(2019, 11, 27),
-                EndTime = new DateTime(2019, 12, 07)
+                Start = new DateTime(2019, 11, 27),
+                End = new DateTime(2019, 12, 05)
             }
     };
 
     public class SchedulerAppointment
     {
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
         public bool IsAllDay { get; set; }
     }
 }
