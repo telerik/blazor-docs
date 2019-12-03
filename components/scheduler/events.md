@@ -33,16 +33,11 @@ The `DateChanged` event fires when the user [navigates]({%slug scheduler-navigat
 @result
 
 <TelerikScheduler Data="@Appointments" @bind-View="@CurrView" Height="600px"
-                  Date="@StartDate" DateChanged="@DateChangedHandler"
-                  StartField="@(nameof(SchedulerAppointment.StartTime))"
-                  EndField="@(nameof(SchedulerAppointment.EndTime))"
-                  TitleField="@(nameof(SchedulerAppointment.Title))"
-                  DescriptionField="@(nameof(SchedulerAppointment.Description))"
-                  IsAllDayField="@(nameof(SchedulerAppointment.IsAllDay))">
+                  Date="@StartDate" DateChanged="@DateChangedHandler">
     <SchedulerViews>
-        <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" />
-        <SchedulerMultiDayView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" NumberOfDays="3" />
-        <SchedulerWeekView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" />
+        <SchedulerDayView StartTime="@DayStart" />
+        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="3" />
+        <SchedulerWeekView StartTime="@DayStart" />
     </SchedulerViews>
 </TelerikScheduler>
 
@@ -51,7 +46,7 @@ The `DateChanged` event fires when the user [navigates]({%slug scheduler-navigat
     public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
     async Task DateChangedHandler(DateTime currDate)
     {
-        result = $"The user went to a range that contains the {currStart.ToShortDateString()} date";
+        result = $"The user went to a range that contains the {currDate.ToShortDateString()} date";
 
         // update the model field the scheduler uses, otherwise it may revert
         // to the default/initial/previous value upon repainting
@@ -59,53 +54,54 @@ The `DateChanged` event fires when the user [navigates]({%slug scheduler-navigat
     }
 
     public SchedulerView CurrView { get; set; } = SchedulerView.Week;
-    //the time portions are important
-    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
-    public DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 20, 0, 0);
-    public DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
-    public DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
+    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
     List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
     {
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Board meeting",
                 Description = "Q4 is coming to a close, review the details.",
-                StartTime = new DateTime(2019, 12, 5, 10, 00, 0),
-                EndTime = new DateTime(2019, 12, 5, 11, 30, 0)
+                Start = new DateTime(2019, 12, 5, 10, 00, 0),
+                End = new DateTime(2019, 12, 5, 11, 30, 0)
             },
 
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Vet visit",
                 Description = "The cat needs vaccinations and her teeth checked.",
-                StartTime = new DateTime(2019, 11, 29, 11, 30, 0),
-                EndTime = new DateTime(2019, 11, 29, 12, 0, 0)
+                Start = new DateTime(2019, 11, 29, 11, 30, 0),
+                End = new DateTime(2019, 11, 29, 12, 0, 0)
             },
 
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Planning meeting",
                 Description = "Kick off the new project.",
-                StartTime = new DateTime(2019, 12, 6, 9, 30, 0),
-                EndTime = new DateTime(2019, 12, 6, 12, 45, 0)
+                Start = new DateTime(2019, 12, 6, 9, 30, 0),
+                End = new DateTime(2019, 12, 6, 12, 45, 0)
             },
 
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Trip to Hawaii",
                 Description = "An unforgettable holiday!",
                 IsAllDay = true,
-                StartTime = new DateTime(2019, 11, 27),
-                EndTime = new DateTime(2019, 12, 05)
+                Start = new DateTime(2019, 11, 27),
+                End = new DateTime(2019, 12, 05)
             }
     };
 
     public class SchedulerAppointment
     {
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
         public bool IsAllDay { get; set; }
     }
 }
@@ -128,22 +124,17 @@ The `ViewChanged` event fires when the user chooses a new [View]({%slug schedule
 @result
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px"
-                  View="@CurrView" ViewChanged="@ViewChangedHandler"
-                  StartField="@(nameof(SchedulerAppointment.StartTime))"
-                  EndField="@(nameof(SchedulerAppointment.EndTime))"
-                  TitleField="@(nameof(SchedulerAppointment.Title))"
-                  DescriptionField="@(nameof(SchedulerAppointment.Description))"
-                  IsAllDayField="@(nameof(SchedulerAppointment.IsAllDay))">
+                  View="@CurrView" ViewChanged="@ViewChangedHandler">
     <SchedulerViews>
-        <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" />
-        <SchedulerMultiDayView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" NumberOfDays="3" />
-        <SchedulerWeekView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" />
+        <SchedulerDayView StartTime="@DayStart" />
+        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="3" />
+        <SchedulerWeekView StartTime="@DayStart" />
     </SchedulerViews>
 </TelerikScheduler>
 
 @code {
     string result { get; set; }
-    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
+    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
     async Task ViewChangedHandler(SchedulerView nextView)
     {
         result = $"The user went to the {nextView.ToString()} view on {DateTime.Now}";
@@ -153,54 +144,55 @@ The `ViewChanged` event fires when the user chooses a new [View]({%slug schedule
         CurrView = nextView;
     }
 
-    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
-    //the time portions are important
-    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
-    public DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 20, 0, 0);
-    public DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
-    public DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
+    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
+    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
     List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
     {
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Board meeting",
                 Description = "Q4 is coming to a close, review the details.",
-                StartTime = new DateTime(2019, 12, 5, 10, 00, 0),
-                EndTime = new DateTime(2019, 12, 5, 11, 30, 0)
+                Start = new DateTime(2019, 12, 5, 10, 00, 0),
+                End = new DateTime(2019, 12, 5, 11, 30, 0)
             },
 
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Vet visit",
                 Description = "The cat needs vaccinations and her teeth checked.",
-                StartTime = new DateTime(2019, 11, 29, 11, 30, 0),
-                EndTime = new DateTime(2019, 11, 29, 12, 0, 0)
+                Start = new DateTime(2019, 11, 29, 11, 30, 0),
+                End = new DateTime(2019, 11, 29, 12, 0, 0)
             },
 
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Planning meeting",
                 Description = "Kick off the new project.",
-                StartTime = new DateTime(2019, 12, 6, 9, 30, 0),
-                EndTime = new DateTime(2019, 12, 6, 12, 45, 0)
+                Start = new DateTime(2019, 12, 6, 9, 30, 0),
+                End = new DateTime(2019, 12, 6, 12, 45, 0)
             },
 
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Trip to Hawaii",
                 Description = "An unforgettable holiday!",
                 IsAllDay = true,
-                StartTime = new DateTime(2019, 11, 27),
-                EndTime = new DateTime(2019, 12, 05)
+                Start = new DateTime(2019, 11, 27),
+                End = new DateTime(2019, 12, 05)
             }
     };
 
     public class SchedulerAppointment
     {
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
         public bool IsAllDay { get; set; }
     }
 }
