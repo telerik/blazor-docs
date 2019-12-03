@@ -44,6 +44,8 @@ At the time of writing, sometimes the following issues have been reported that p
 
 We have also had reports that hosting a Server-side Blazor app on a cloud service, or even on a server that is relatively remote to the client, causes issues. The network latency may interrupt, break or re-arrange the SignalR packets and this can cause a variety of usability issues - from sluggish responses to wrong UI elements responding, or errors. If your users will have a large latency to the server, you may want to consider the Client-side (WASM) model or at least test what the experience is before rolling out to production.
 
+* In Azure, for example, WebSockets are disabled by default, and this is detrimental to the performance of the SignalR connection. Enabling WebSockets may help you get the needed speed and responsiveness from the server.
+
 ## See Also
 
 * [I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-message)
