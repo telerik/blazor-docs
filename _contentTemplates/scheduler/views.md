@@ -11,9 +11,13 @@ Generally, the views are designed around the timeframe that they show and the da
 
 * `WorkDayStart` - the counterpart to `WorkDayStart` - defines when the working day ends.
 
+* `SlotDuration` - the time span of each major time slot in minutes.
+
+* `SlotDivisions` - the number of partitions in each major time slot.
+#end
+
+#visible-times-tip
 If there are appointments outside of the defined visible time the user will not be able to see them. For most cases where the working day is subject to scheduling this may not be a problem, but if your users need to manage night shifts or irregular work hours, you may want to have a longer day rendered, or to bind the value to a time picker so the user can alter it themselves.
-
-
 #end
 
 #day-slots-explanation
@@ -21,8 +25,8 @@ If there are appointments outside of the defined visible time the user will not 
 
 Views that show hours let you control their precision through the `SlotDuration` and `SlotDivisions` parameters:
 
-1. `SlotDuration` - the time between the hour markers.
-1. `SlotDivisions` - how many partitions each time between the hour markers is separated into.
+1. `SlotDuration` - the time span of each major time slot in minutes.
+1. `SlotDivisions` - the number of partitions in each major time slot.
 
 >caption Figure: Slots explanation
 
