@@ -78,16 +78,11 @@ The example below shows the signature of the event handlers so you can copy the 
                   OnDelete="@DeleteAppointment"
                   OnEdit="@EditHandler" OnCancel="@CancelHandler"
                   AllowCreate="true" AllowDelete="true" AllowUpdate="true"
-                  @bind-Date="@StartDate" Height="600px" @bind-View="@CurrView"
-                  StartField="@(nameof(SchedulerAppointment.StartTime))"
-                  EndField="@(nameof(SchedulerAppointment.EndTime))"
-                  TitleField="@(nameof(SchedulerAppointment.Title))"
-                  DescriptionField="@(nameof(SchedulerAppointment.Description))"
-                  IsAllDayField="@(nameof(SchedulerAppointment.IsAllDay))">
+                  @bind-Date="@StartDate" Height="600px" @bind-View="@CurrView">
     <SchedulerViews>
-        <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" />
-        <SchedulerWeekView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" />
-        <SchedulerMultiDayView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" NumberOfDays="10" />
+        <SchedulerDayView StartTime="@DayStart" />
+        <SchedulerWeekView StartTime="@DayStart" />
+        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
     </SchedulerViews>
 </TelerikScheduler>
 
@@ -102,8 +97,8 @@ The example below shows the signature of the event handlers so you can copy the 
         {
             matchingItem.Title = item.Title;
             matchingItem.Description = item.Description;
-            matchingItem.StartTime = item.StartTime;
-            matchingItem.EndTime = item.EndTime;
+            matchingItem.Start = item.Start;
+            matchingItem.End = item.End;
             matchingItem.IsAllDay = item.IsAllDay;
         }
 
@@ -141,8 +136,8 @@ The example below shows the signature of the event handlers so you can copy the 
         else
         {
             // get the time range of the slot the user clicked to add an appointment
-            DateTime slotStart = item.StartTime;
-            DateTime slotEnd = item.EndTime;
+            DateTime slotStart = item.Start;
+            DateTime slotEnd = item.End;
         }
     }
 
@@ -154,48 +149,56 @@ The example below shows the signature of the event handlers so you can copy the 
     }
 
     // sample data and scheduler settings
-    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
     public SchedulerView CurrView { get; set; } = SchedulerView.Week;
-    //the time portions are important
-    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
-    public DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 20, 0, 0);
-    public DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
-    public DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
+    public DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
+    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0); //the time portion is important
     List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
     {
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
+                Title = "Board meeting",
+                Description = "Q4 is coming to a close, review the details.",
+                Start = new DateTime(2019, 12, 5, 10, 00, 0),
+                End = new DateTime(2019, 12, 5, 11, 30, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Id = Guid.NewGuid(),
                 Title = "Vet visit",
                 Description = "The cat needs vaccinations and her teeth checked.",
-                StartTime = new DateTime(2019, 11, 26, 11, 30, 0),
-                EndTime = new DateTime(2019, 11, 26, 12, 0, 0)
+                Start = new DateTime(2019, 12, 2, 11, 30, 0),
+                End = new DateTime(2019, 12, 2, 12, 0, 0)
             },
 
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Planning meeting",
                 Description = "Kick off the new project.",
-                StartTime = new DateTime(2019, 11, 25, 9, 30, 0),
-                EndTime = new DateTime(2019, 11, 25, 12, 45, 0)
+                Start = new DateTime(2019, 12, 6, 9, 30, 0),
+                End = new DateTime(2019, 12, 6, 12, 45, 0)
             },
 
             new SchedulerAppointment
             {
+                Id = Guid.NewGuid(),
                 Title = "Trip to Hawaii",
                 Description = "An unforgettable holiday!",
                 IsAllDay = true,
-                StartTime = new DateTime(2019, 11, 27),
-                EndTime = new DateTime(2019, 12, 07)
+                Start = new DateTime(2019, 11, 27),
+                End = new DateTime(2019, 12, 05)
             }
     };
 
     public class SchedulerAppointment
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
         public bool IsAllDay { get; set; }
     }
 }
