@@ -12,6 +12,16 @@ position: 0
 
 The Grid component offers support for row selection.
 
+In this article:
+
+* [Selection Basics](#selection-basics)
+* [Example - Enable Row Selection](#example---enable-row-selection)
+* [Notes](#notes)
+	* [Editing Modes](#editing-modes)
+	* [Observable Collections](#observable-collections)
+
+## Selection Basics
+
 You can configure the selection behavior by setting `SelectionMode` to a member of the `Telerik.Blazor.GridSelectionMode` enum. The row selection can be:
 
 * [Single]({%slug components/grid/selection/single%})
@@ -26,7 +36,7 @@ You can get or set the [selected items](#get-or-set-selected-items) through the 
 
 The [single selection]({%slug components/grid/selection/single%}) and [multiple selection]({%slug components/grid/selection/multiple%}) articles provide more examples and details on using the grid features.
 
->caption Enable row selection
+## Example - Enable Row Selection
 
 ````CSHTML
 See how the row selection modes work

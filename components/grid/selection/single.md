@@ -12,6 +12,20 @@ position: 1
 
 The Grid component can allow the user to select only a single row at a time, or to select [multiple]({%slug components/grid/selection/multiple %}).
 
+In this article:
+
+
+* [Basics](#basics)
+* [Checkbox Selection](#checkbox-selection)
+* [Selected Items](#selected-items)
+* [Examples](#examples)
+	* [Single Row Selection and Checkbox](#single-row-selection-and-checkbox)
+	* [SelectedItemsChanged Event](#selecteditemschanged-event)
+	* [Two-way Binding of SelectedItems](#two-way-binding-of-selecteditems)
+
+
+## Basics
+
 To use **single** row selection, set the `SelectionMode` property to `Telerik.Blazor.GridSelectionMode.Single`.
 
 Once a selection is made in Single selection mode, it cannot be removed.
