@@ -39,7 +39,6 @@ To use a Telerik Scheduler for Blazor
     {
             new SchedulerAppointment
             {
-                Id = Guid.NewGuid(),
                 Title = "Vet visit",
                 Description = "The cat needs vaccinations and her teeth checked.",
                 Start = new DateTime(2019, 11, 26, 11, 30, 0),
@@ -48,7 +47,6 @@ To use a Telerik Scheduler for Blazor
 
             new SchedulerAppointment
             {
-                Id = Guid.NewGuid(),
                 Title = "Planning meeting",
                 Description = "Kick off the new project.",
                 Start = new DateTime(2019, 11, 25, 9, 30, 0),
@@ -57,7 +55,6 @@ To use a Telerik Scheduler for Blazor
 
             new SchedulerAppointment
             {
-                Id = Guid.NewGuid(),
                 Title = "Trip to Hawaii",
                 Description = "An unforgettable holiday!",
                 IsAllDay = true,
@@ -68,7 +65,6 @@ To use a Telerik Scheduler for Blazor
 
     public class SchedulerAppointment
     {
-        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime Start { get; set; }
@@ -102,7 +98,6 @@ The Scheduler is a generic component and its type is determined by the type of t
 
     public class SchedulerAppointment
     {
-        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime Start { get; set; }
