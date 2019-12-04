@@ -158,7 +158,7 @@ The example below shows the signature of the event handlers so you can copy the 
     {
             new SchedulerAppointment
             {
-                Id = Guid.NewGuid(),
+                Id = 1,
                 Title = "Board meeting",
                 Description = "Q4 is coming to a close, review the details.",
                 Start = new DateTime(2019, 12, 5, 10, 00, 0),
@@ -167,7 +167,7 @@ The example below shows the signature of the event handlers so you can copy the 
 
             new SchedulerAppointment
             {
-                Id = Guid.NewGuid(),
+                Id = 2,
                 Title = "Vet visit",
                 Description = "The cat needs vaccinations and her teeth checked.",
                 Start = new DateTime(2019, 12, 2, 11, 30, 0),
@@ -176,7 +176,7 @@ The example below shows the signature of the event handlers so you can copy the 
 
             new SchedulerAppointment
             {
-                Id = Guid.NewGuid(),
+                Id = 3,
                 Title = "Planning meeting",
                 Description = "Kick off the new project.",
                 Start = new DateTime(2019, 12, 6, 9, 30, 0),
@@ -185,7 +185,7 @@ The example below shows the signature of the event handlers so you can copy the 
 
             new SchedulerAppointment
             {
-                Id = Guid.NewGuid(),
+                Id = 4,
                 Title = "Trip to Hawaii",
                 Description = "An unforgettable holiday!",
                 IsAllDay = true,
@@ -196,7 +196,7 @@ The example below shows the signature of the event handlers so you can copy the 
 
     public class SchedulerAppointment
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime Start { get; set; }
