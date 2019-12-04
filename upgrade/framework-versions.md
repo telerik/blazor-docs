@@ -12,11 +12,12 @@ position: 5
 
 This article lists the .NET Core versions supported by the UI for Blazor suite, and which versions of the Telerik UI for Blazor work under which framework versions.
 
->note We currently support only the latest available versions of UI for Blazor (**{{site.uiForBlazorLatestVersion}}**) and the .NET Core 3 SDK (**{{site.supportedFrameworkVersion}}**), both on the [Server-side](https://docs.telerik.com/blazor-ui/getting-started/server-blazor) and [WebAssembly](https://docs.telerik.com/blazor-ui/getting-started/client-blazor) flavors.
+>note We currently support only the latest available version of UI for Blazor (**{{site.uiForBlazorLatestVersion}}**) and the .NET Core 3 SDK (**{{site.supportedFrameworkVersion}}**) on the [Server-side](https://docs.telerik.com/blazor-ui/getting-started/server-blazor) flavor. On the [WebAssembly](https://docs.telerik.com/blazor-ui/getting-started/client-blazor) flavor, `.NET Core 3.1 preview 3` is supported, because in the `.NET Core 3.1 preview 4 of WASM`, the linker breaks extension methods that our components require.
 
 
 | .NET version              | Telerik UI for Blazor version |
 |---------------------------|-------------------------------|
+| .NET Core 3.1             | 2.5.0                         |
 | .NET Core 3.1 preview 3   | 2.4.0                         |
 | .NET Core 3.1 preview 2   | 2.3.0                         |
 | .NET Core 3.1 preview 1   | 2.2.0, 2.2.1                  |
