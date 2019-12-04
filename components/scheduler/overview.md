@@ -15,7 +15,7 @@ The Scheduler component lets the user see, edit and add appointments so they can
 To use a Telerik Scheduler for Blazor
 
 1. Add the `TelerikScheduler` tag.
-1. Populate its `Data` property with the collection of appointments/events the user needs to see. See the [Appointments Overview]({%slug scheduler-appointments-overview%}) article for details on the needed fields.
+1. Populate its `Data` property with the collection of appointments/events the user needs to see. See the [Data Binding]({%slug scheduler-appointments-databinding%}) article for details on the fields.
 1. Define the Views the user can toggle between in the `SchedulerViews` collection. Optionally, set their settings (such as days start and end) and choose a default View.
 
 >caption Scheduler first look and main features
@@ -120,6 +120,6 @@ The Scheduler is a generic component and its type is determined by the type of t
 
 ## See Also
 
-  * [Appointment Options]({%slug scheduler-appointments-overview%})
+  * [Data Binding]({%slug scheduler-appointments-databinding%})
   * [Live Demo: Scheduler](https://demos.telerik.com/blazor-ui/scheduler/overview)
 
