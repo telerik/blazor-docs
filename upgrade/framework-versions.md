@@ -12,13 +12,31 @@ position: 5
 
 This article lists the .NET Core versions supported by the UI for Blazor suite, and which versions of the Telerik UI for Blazor work under which framework versions.
 
->note We currently support only the latest available version of UI for Blazor (**{{site.uiForBlazorLatestVersion}}**) and the .NET Core 3 SDK (**{{site.supportedFrameworkVersion}}**) on the [Server-side](https://docs.telerik.com/blazor-ui/getting-started/server-blazor) flavor. On the [WebAssembly](https://docs.telerik.com/blazor-ui/getting-started/client-blazor) flavor, `.NET Core 3.1 preview 3` is supported, because in the `.NET Core 3.1 preview 4 of WASM`, the linker breaks extension methods that our components require.
+Telerik supports only the latest available version of UI for Blazor (**{{site.uiForBlazorLatestVersion}}**).
+
+## Serve-side Blazor
+
+>caption Telerik UI for Blazor versions per framework version for the server-side flavor
 
 
 | .NET version              | Telerik UI for Blazor version |
 |---------------------------|-------------------------------|
-| .NET Core 3.1             | 2.5.0                         |
+| .NET Core 3.1 RTM         | 2.5.0                         |
 | .NET Core 3.1 preview 3   | 2.4.0                         |
+| .NET Core 3.1 preview 2   | 2.3.0                         |
+| .NET Core 3.1 preview 1   | 2.2.0, 2.2.1                  |
+| .NET Core 3.0 RTM         | 2.1.0, 2.1.1                  |
+
+## Client-side Blazor
+
+The client-side (WASM) flavor of Blazor is not part of the .NET Core 3.1 framework. It is not supported by Microsoft yet and it ships as preview NuGet packages that you reference in your projects. While the release dates and numbers of the WASM flavor often match with the .NET Core versions and releases, they are separate products at the moment.
+
+>caption Telerik UI for Blazor versions per WASM Preview version
+
+| WASM Preview version      | Telerik UI for Blazor version |
+|---------------------------|-------------------------------|
+| .NET Core 3.1 preview 4 (release date matches .NET Core 3.1 GA)   | N/A - there are major issues in the Linker that prevent our code from working in this version.                         |
+| .NET Core 3.1 preview 3   | 2.4.0, 2.5.0                  |
 | .NET Core 3.1 preview 2   | 2.3.0                         |
 | .NET Core 3.1 preview 1   | 2.2.0, 2.2.1                  |
 | .NET Core 3.0 RTM         | 2.1.0, 2.1.1                  |
