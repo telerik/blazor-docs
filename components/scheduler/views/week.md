@@ -50,7 +50,6 @@ In this article:
     {
             new SchedulerAppointment
             {
-                Id = Guid.NewGuid(),
                 Title = "Board meeting",
                 Description = "Q4 is coming to a close, review the details.",
                 Start = new DateTime(2019, 12, 5, 10, 00, 0),
@@ -59,7 +58,6 @@ In this article:
 
             new SchedulerAppointment
             {
-                Id = Guid.NewGuid(),
                 Title = "Vet visit",
                 Description = "The cat needs vaccinations and her teeth checked.",
                 Start = new DateTime(2019, 12, 2, 11, 30, 0),
@@ -68,7 +66,6 @@ In this article:
 
             new SchedulerAppointment
             {
-                Id = Guid.NewGuid(),
                 Title = "Planning meeting",
                 Description = "Kick off the new project.",
                 Start = new DateTime(2019, 12, 6, 9, 30, 0),
@@ -77,7 +74,6 @@ In this article:
 
             new SchedulerAppointment
             {
-                Id = Guid.NewGuid(),
                 Title = "Trip to Hawaii",
                 Description = "An unforgettable holiday!",
                 IsAllDay = true,
@@ -88,7 +84,6 @@ In this article:
 
     public class SchedulerAppointment
     {
-        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime Start { get; set; }
