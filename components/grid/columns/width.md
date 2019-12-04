@@ -5,7 +5,7 @@ description: Column width behavior in Grid for Blazor
 slug: grid-columns-width
 tags: telerik,blazor,grid,column,width
 published: True
-position: 0
+position: 4
 ---
 
 # Grid Column Width Behavior

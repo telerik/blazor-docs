@@ -5,7 +5,7 @@ description: Command buttons per row in Grid for Blazor
 slug: components/grid/columns/command
 tags: telerik,blazor,grid,column,command
 published: True
-position: 0
+position: 1
 ---
 
 # Grid Command Column
