@@ -1,11 +1,11 @@
 ---
-title: Editing
+title: Edit Appointments
 page_title: Scheduler for Blazor | Edit Appointments
 description: Edit Appointments in the Scheduler for Blazor
 slug: scheduler-appointments-edit
 tags: telerik,blazor,scheduler,appointment,appointments,edit,editing
 published: True
-position: 1
+position: 3
 ---
 
 # Edit Appointments
@@ -40,6 +40,11 @@ There are two other events that you are not required to handle - you can use the
 
 ## User Experience
 
+>caption Some examples of the UX related to appointments, read more in the list after the figure
+
+![](images/ux-explanations.png)
+
+
 The UI for the scheduler provides the following options for interacting with the appointments collection:
 
 * Double click (or double tap) on an empty slot starts the process of inserting a new appointment. The user can cancel it without committing the data.
@@ -54,9 +59,6 @@ The UI for the scheduler provides the following options for interacting with the
     * An appointment that spans multiple days but is not marked as an all-day appointment shows up in the all-day slot for the days that it spans entirely. The first and last day would render in the day portions to denote the start and end time accurately.
 
 
->caption Some examples of the UX explanations above
-
-![](images/ux-explanations.png)
 
 
 ## Example
@@ -207,6 +209,6 @@ The example below shows the signature of the event handlers so you can copy the 
 
 ## See Also
 
-  * [Appointments Overview]({%slug scheduler-appointments-overview%})
+  * [Data Binding]({%slug scheduler-appointments-databinding%})
   * [Live Demo: Appointment Editing](https://demos.telerik.com/blazor-ui/scheduler/appointment-editing)
   

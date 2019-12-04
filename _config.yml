@@ -79,7 +79,7 @@ navigation:
         position: 2
      "*components/scheduler/views":
         title: "Views"
-        position: 3
+        position: 5
 
 ## List helpers directory names and order here, like this:
      "*appearance":
