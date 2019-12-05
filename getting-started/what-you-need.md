@@ -122,10 +122,12 @@ To allow working with detached popups (for example, dropdown lists, menus, grid 
 
 ### Client-side Project Considerations
 
-If you are using a **client-side Blazor** project, 
-@[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
+If you are using a **client-side Blazor** project:
 
-@[template](/_contentTemplates/common/issues-and-warnings.md#more-on-linker)
+1. @[template](/_contentTemplates/common/issues-and-warnings.md#linker-config) 
+1. @[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
+
+    @[template](/_contentTemplates/common/issues-and-warnings.md#more-on-linker)
 
 ## See Also
 

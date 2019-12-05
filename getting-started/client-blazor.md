@@ -89,6 +89,8 @@ Now that you have a Blazor project running, it's time to [Add the Telerik compon
     
         @[template](/_contentTemplates/common/get-started.md#telerik-main-container-snippet)
 
+1. @[template](/_contentTemplates/common/issues-and-warnings.md#linker-config)
+
 1. @[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
 
      @[template](/_contentTemplates/common/issues-and-warnings.md#more-on-linker)

@@ -37,10 +37,21 @@ Add a `Linker.xml` file to the `Client` project with the following content (make
         
 #end
 
+#linker-config
+Open the Client `.csproj` file and add the following configuration setting:
+
+    **.csproj**
+    
+          <ItemGroup>
+        	<BlazorLinkerDescriptor Include="Linker.xml" />
+          </ItemGroup>
+      
+#end
+
 #more-on-linker
 You can read more about configuring the linker in MSDN: [https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/blazor/configure-linker?view=aspnetcore-3.0#control-linking-with-a-configuration-file](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/blazor/configure-linker?view=aspnetcore-3.0#control-linking-with-a-configuration-file).
 
->caution Without such a linker configuration, the linker strips aggressively extension methods and this breaks our components.
+    >caution Without such a linker configuration, the linker strips aggressively extension methods and this breaks our components.
 #end
 
 
