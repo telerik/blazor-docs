@@ -39,12 +39,12 @@ While the release dates and numbers of the WASM flavor often match with the .NET
 
 >caption Telerik UI for Blazor versions per WASM Preview version
 
-| WASM Preview version      | Telerik UI for Blazor version |
-|---------------------------|-------------------------------|
-| preview 4 (3.1.0-preview4.19579.2) - release date matches .NET Core 3.1 RTM   | N/A - there are major issues in the Linker that prevent our code from working in this version.                         |
-| preview 3 (3.1.0-preview3.19555.2)               | 2.4.0, 2.5.0                  |
-| preview 2 (3.1.0-preview2.19528.8)                | 2.3.0                         |
-| preview 1 (3.1.0-preview1.19506.1)               | 2.2.0, 2.2.1                  |
+| WASM Preview version                 | Telerik UI for Blazor version |
+|--------------------------------------|-------------------------------|
+| preview 4 (3.1.0-preview4.19579.2)   | 2.5.0                         |
+| preview 3 (3.1.0-preview3.19555.2)   | 2.4.0                         |
+| preview 2 (3.1.0-preview2.19528.8)   | 2.3.0                         |
+| preview 1 (3.1.0-preview1.19506.1)   | 2.2.0, 2.2.1                  |
 
 
 

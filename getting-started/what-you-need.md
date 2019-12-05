@@ -125,6 +125,8 @@ To allow working with detached popups (for example, dropdown lists, menus, grid 
 If you are using a **client-side Blazor** project, 
 @[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
 
+@[template](/_contentTemplates/common/issues-and-warnings.md#more-on-linker)
+
 ## See Also
 
 * [Telerik private NuGet feed]({%slug installation/nuget%})
