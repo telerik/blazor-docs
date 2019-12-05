@@ -127,7 +127,7 @@ The example below shows the signature of the event handlers so you can copy the 
     void EditHandler(SchedulerEditEventArgs args)
     {
         SchedulerAppointment item = args.Item as SchedulerAppointment;
-        if (!args.IsNew) // an edit operation, otherwise - an insert operation
+        if (item != null) // an edit operation, otherwise - an insert operation
         {
             // you can prevent opening an item for editing based on a condition
             if (item.Title.Contains("vet", StringComparison.InvariantCultureIgnoreCase))
@@ -137,9 +137,7 @@ The example below shows the signature of the event handlers so you can copy the 
         }
         else
         {
-            // get the time range of the slot the user clicked to add an appointment
-            DateTime slotStart = item.Start;
-            DateTime slotEnd = item.End;
+            // new appointment
         }
     }
 
