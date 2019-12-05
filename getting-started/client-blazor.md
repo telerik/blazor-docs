@@ -18,10 +18,11 @@ This article explains how to get the Telerik UI for Blazor components in your **
     * [Add to an Existing Project](#add-to-existing-project)
 1. [Add a Telerik Component to a View](#add-a-telerik-component-to-a-view)
 
-
->caution The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}` and it supports `WASM .NET Core 3.1 Preview 3` and not the latest `WASM .NET Core 3.1 Preview 4` because of severe issues in the Linker. You can read more about this in the [Framework Versions Support]({%slug framework-versions-support%}) article.
+>caution Blazor WebAssembly (WASM) is still in preview and is not part of the .NET Core 3.1 release. Blazor WebAssembly will ship as a stable release at a future date.
 >
->To run a WASM project with the Telerik components, keep the WASM NuGet package references pointing to the `3.1.0-preview3.19555.2` version.
+>The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}` and it `supports` the WebAssembly update that was released with NET Core 3.1 `Preview 3`. The latest WebAssembly update - Preview 4 - released with NET Core 3.1 RTM is not supported because of severe issues in the Linker. You can read more about this in the [Framework Versions Support]({%slug framework-versions-support%}) article.
+>
+>To run a WebAssembly project with the Telerik components, keep the WASM NuGet package references pointing to the `3.1.0-preview3.19555.2` update.
 
 
 @[template](/_contentTemplates/common/get-started.md#add-latest-ms-bits-client-side-link)
