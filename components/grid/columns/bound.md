@@ -81,7 +81,7 @@ You can use the following properties on the bound columns:
 
 For an example of the column usage, see the [Grid Overview]({%slug components/grid/overview%}), the rest of the documentation and our [live demos](https://demos.telerik.com/blazor-ui/grid/overview).
 
->note For advanced operations such as grouping, filtering, sorting, you *must* set a `Field` to the column, and the field it points to must be a primitive type. If a `Field` is not set or it points to a custom object or something like an IDictionary, errors will be thrown because there are no known data operations on non-primitive types in .NET. An alternative is to implement all data source operations yourself by handling the [OnRead event](manual-operations).
+>note For advanced operations such as grouping, filtering, sorting, you *must* set a `Field` to the column, and the field it points to must be a primitive type. If a `Field` is not set or it points to a custom object or something like an IDictionary, errors will be thrown because there are no known data operations on non-primitive types in .NET. An alternative is to implement all data source operations yourself by handling the [OnRead event](../manual-operations).
 
 ## See Also
 
