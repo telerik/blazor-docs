@@ -20,7 +20,7 @@
 
 
 #blazor-tutorial-intro
-## Set Up a Blazor Project
+## Step 1 - Set Up a Blazor Project
 
 [Blazor](https://blazor.net/) is still a new technology, so you need to ensure you can run its vanilla version first. To do that, follow the MSDN tutorial and make sure that you can create and run basic sample Blazor applications:
 #end
@@ -35,12 +35,12 @@
 
 You may also find useful the [Getting started videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo) by Telerik.
 
->caption  Once you have the vanilla Blazor application running, continue to the next steps.
+>caption  Once you have a vanilla Blazor application running, continue to the next steps.
 #end
 
 
 #add-nuget-feed
-## Add the Telerik NuGet Feed to Visual Studio
+### Add the Telerik NuGet Feed to Visual Studio
 
 Telerik UI for Blazor is distributed through our private NuGet feed.
 
@@ -53,11 +53,13 @@ Once you have added the Telerik NuGet feed, continue with this tutorial.
 
 
 #project-creation-part-1
- If you have one, go to the [Add to Existing Project](#add-to-existing-project) section below.
+ If you have one, go to the [Add the Telerik Components to an Existing Project Project](#step-3---add-the-telerik-components-to-an-existing-project) section below.
 
-If you don't have a Blazor project set up, first you need to create one, then go to the [Add to Existing Project](#add-to-existing-project) section below.
 
->tip You can use the [Visual Studio Extensions]({%slug getting-started-vs-integration-new-project%}) we provide to prepare the project for you, so that you can start using the Telerik components immediately.
+
+>tip You can use the [Visual Studio Extensions]({%slug getting-started-vs-integration-overview%}) we provide to [create the project for you]({%slug getting-started-vs-integration-new-project%}), so that you can start using the Telerik components immediately.
+>
+>The rest of this article will explain the manual steps if you want to have a better understanding of the underlying process.
 
 To create a project manually, follow these steps:
 
@@ -75,7 +77,9 @@ If you don't have an active license, [start a UI for Blazor trial](https://www.t
 #end
 
 #get-access
-To get access to the UI for Blazor components, follow these steps:
+### Enable the Components in the Project
+
+To have the project use the Telerik UI for Blazor components, follow these steps:
 
 1. @[template](/_contentTemplates/common/get-started.md#start-trial)
 
