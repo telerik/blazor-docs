@@ -28,7 +28,7 @@ In this article:
 
 To use **single** row selection, set the `SelectionMode` property to `Telerik.Blazor.GridSelectionMode.Single`.
 
-Once a selection is made in Single selection mode, it cannot be removed.
+To un-select the item, click its checkbox again, or hold the `Ctrl` key and click/tap the row.
 
 >tip The [Examples](#examples) section showcases how you can use the grid features together.
 
