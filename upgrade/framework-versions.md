@@ -14,6 +14,7 @@ This article lists the .NET Core versions supported by the UI for Blazor suite, 
 
 >note Telerik supports only the latest available version of UI for Blazor (**{{site.uiForBlazorLatestVersion}}**).
 
+Telerik UI for Blazor targets `netstandard2.1` in order to be compatible with the WASM flavor. Thus, apps/libraries that reference our package must target `netstandard2.1` or `netcoreapp3.1`. These are the standard target frameworks for, respectively, WASM and Server Blazor projects, but Razor class libraries target `netstandard2.0` by default so you would need to update it.
 
 ## Serve-side Blazor
 
