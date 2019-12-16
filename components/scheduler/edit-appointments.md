@@ -34,7 +34,7 @@ There are two other events that you are not required to handle - you can use the
 * `OnEdit` - fires when the user is about to edit or create an appointment:
     * If the user is creating a new appointment the event handler arguments have their `IsNew` field set to `true` and the time slot the user clicked on is available in the `Start` and `End` of the Appointment object.
     * You can cancel the event (set the `IsCancelled` field of the event arguments to `true`) to effectively make some appointments read-only or prevent appointment creation at certain time slots. If you do that, consider showing a messages to the user to notify them that the action was deliberately prevented.
-    * You can also use it to implement a custom edit/insert form to, for example, have more fields than the built-in ones, or implement custom validation. To do that, always cancel the event and implement the desired logic after that.
+    * You can also use it to implement a [custom edit/insert form](https://github.com/telerik/blazor-ui/tree/master/scheduler/custom-edit-form) to, for example, have more fields than the built-in ones, or implement custom validation. To do that, always cancel the event and implement the desired logic after that.
 * `OnCancel` - fires when the user clicks the `Cancel` button in the edit form or the `[x]` close button at the window titlebar to discard the changes they just made to an appointment.
 
 
@@ -54,7 +54,7 @@ The UI for the scheduler provides the following options for interacting with the
     * To create an all-day appointment for a single day, the start and end dates must be the same. Selecting the next day in the end-time picker will result in a two-day appointment.
 * Double click (or double tap) on an appointment opens it for editing. The user can cancel the changes through the Cancel button or the [x] close button on the window.
 * Clicking (or tapping) the [x] button on the appointment itself deletes it. The [x] button is shown when the appointment is hovered to conserve space.
-* The built-in popup edit form implements validation logic that you can localize through your custom messages. The built-in logic works on the `IAppointment` that the scheduler uses internally, and if you want to implement custom validation, you need to implement a custom edit form. By default, a title, start and end time are required.
+* The built-in popup edit form implements validation logic that you can localize through your custom messages. The built-in logic works on the `IAppointment` that the scheduler uses internally, and if you want to implement custom validation, you need to implement a [custom edit form](https://github.com/telerik/blazor-ui/tree/master/scheduler/custom-edit-form). By default, a title, start and end time are required.
 * Arrows on the appointments indicate that they continue in invisible time ranges. For example, an arrow pointing down in an appointment at the end of the visible day indicates it continues until a later hour or until the next day(s). If an all-day appointment starts before the currently visible time range, it will show an arrow pointing left.
     * An appointment that spans multiple days but is not marked as an all-day appointment shows up in the all-day slot for the days that it spans entirely. The first and last day would render in the day portions to denote the start and end time accurately.
 
