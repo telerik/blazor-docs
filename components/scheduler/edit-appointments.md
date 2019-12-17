@@ -32,7 +32,7 @@ By default, the user can only view the appointments, because creating, updating 
 There are two other events that you are not required to handle - you can use them to implement application logic:
 
 * `OnEdit` - fires when the user is about to edit or create an appointment:
-    * If the user is creating a new appointment the event handler arguments have their `IsNew` field set to `true` and the time slot the user clicked on is available in the `Start` and `End` of the Appointment object.
+    * If the user is creating a new appointment the event handler arguments have their `IsNew` field set to `true` and the time slot the user clicked on is available in the `Start` and `End` of the event arguments object. If the user started insertion in the all-day row, the `IsAllDay` field of the event arguments is `true`.
     * You can cancel the event (set the `IsCancelled` field of the event arguments to `true`) to effectively make some appointments read-only or prevent appointment creation at certain time slots. If you do that, consider showing a messages to the user to notify them that the action was deliberately prevented.
     * You can also use it to implement a [custom edit/insert form](https://github.com/telerik/blazor-ui/tree/master/scheduler/custom-edit-form) to, for example, have more fields than the built-in ones, or implement custom validation. To do that, always cancel the event and implement the desired logic after that.
 * `OnCancel` - fires when the user clicks the `Cancel` button in the edit form or the `[x]` close button at the window titlebar to discard the changes they just made to an appointment.
@@ -127,7 +127,7 @@ The example below shows the signature of the event handlers so you can copy the 
     void EditHandler(SchedulerEditEventArgs args)
     {
         SchedulerAppointment item = args.Item as SchedulerAppointment;
-        if (item != null) // an edit operation, otherwise - an insert operation
+        if (!args.IsNew) // an edit operation, otherwise - an insert operation
         {
             // you can prevent opening an item for editing based on a condition
             if (item.Title.Contains("vet", StringComparison.InvariantCultureIgnoreCase))
@@ -138,6 +138,9 @@ The example below shows the signature of the event handlers so you can copy the 
         else
         {
             // new appointment
+            DateTime SlotStart = args.Start; // the start of the slot the user clicked
+            DateTime SlotEnd = args.End; // the start of the slot the user clicked
+            bool InsertInAllDay = args.IsAllDay; // whether the user started insertion in the All Day row
         }
     }
 
