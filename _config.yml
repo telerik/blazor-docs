@@ -313,9 +313,6 @@ cdnVersion: "2019.1.115"
 ## The MVC Core version used
 mvcCoreVersion: "2019.1.115"
 
-#Feedback Form Google Sheet ID
-ff-sheet-id: 0c41d166-7ba6-3500-20d5-609d41442f92
-
 ## Product
 product: "Telerik UI for Blazor"
 platform: blazor
@@ -365,7 +362,13 @@ defaults:
 google_tag_manager: GTM-6X92
 gcs_engine: 001595215763381649090:3v0klcxtf1c
 gcs_api_key: AIzaSyDqCekEzmMvnB7i00Xcw_Vy43a7-wePuXQ
+#Feedback Form Google Sheet ID
+ff-sheet-id: 0c41d166-7ba6-3500-20d5-609d41442f92
 
+# improved feedback form
+feedback_ab: true
+
+# other settings
 skip_tabbed_code: true
 code_lang: true
 has_kb_portal: true
