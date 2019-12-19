@@ -83,6 +83,7 @@ There are several things to keep in mind when using virtual scrolling:
     * If the row/cell height the browser would render is larger than the `RowHeight` value, the browser will ignore it. It can depend on the chosen Theme or other CSS rules, or on cell data that falls on more than one row. Inspect the rendered HTML to make sure the grid setting matches the rendering.
 * Do not mix virtualization with paging, as they are alternatives to the same feature.
 * Provide for a `PageSize` of the Grid that is large enough, so that the loaded table rows do not fit in the scrollable data area, otherwise the vertical virtual scrollbar will not be created and scrolling will not work. To do this, take into account the `Height` of the grid and the `RowHeight`.
+    * The `Data` of the grid must contain more items than the `PageSize` in order for the virtual scrolling feature to work.
 * You can control how many rows are rendered through the `PageSize`. If performance does not suit your needs, tweak mostly that property (for example, if latency is high - fetch larger chunks of data so that a remote service is called less often; or when the browser is responding slowly, decrease the page size to render fewer DOM elements).
 * When using the [`OnRead` event]({%slug components/grid/manual-operations%}), use the `PageSize` and `Skip` parameters to know what data to return, instead of `PageSize` and `Page` as with regular paging.
 * Horizontal scrolling is not virtualized, all columns are rendered.
