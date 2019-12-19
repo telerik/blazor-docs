@@ -14,12 +14,12 @@ This article provides basic information about the Window component.
 
 In this article:
 
-* [Crete a Window](#crete-a-window)
+* [Create a Window](#create-a-window)
 * [Show and Close](#show-and-close)
 * [Styling](#styling)
 * [Important Notes](#important-notes)
 
-## Crete a Window
+## Create a Window
 
 To create a Telerik Window:
 
