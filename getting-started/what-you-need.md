@@ -29,6 +29,8 @@ The Telerik UI for Blazor component suite requires the following two Telerik-spe
 
 Adding the `Telerik.UI.for.Blazor` package to your project will automatically add the `Telerik.DataSource` package as a dependency.
 
+For trial purposes, the package names are `Telerik.UI.for.Blazor.Trial` and `Telerik.DataSource.Trial`.
+
 There are four ways to get these packages:
 
 * The **[Telerik private NuGet feed]({%slug installation/nuget%})** that requires an Internet connection and credentials. It also provides information about updates and new versions.
