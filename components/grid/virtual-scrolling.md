@@ -28,13 +28,13 @@ To enable virtual scrolling:
 
 <TelerikGrid Data=@GridData
              ScrollMode="@GridScrollMode.Virtual"
-             Height="400px" RowHeight="40" PageSize="20"
+             Height="480px" RowHeight="60" PageSize="20"
              Sortable="true" FilterMode="@GridFilterMode.FilterMenu">
     <GridColumns>
         <GridColumn Field="Id" />
         <GridColumn Field="Name" Title="First Name" />
         <GridColumn Field="LastName" Title="Last Name" />
-        <GridColumn Field="HireData">
+        <GridColumn Field="HireData" Width="200px">
             <Template>
                 @((context as SampleData).HireDate.ToString("MMMM dd, yyyy"))
             </Template>
@@ -71,9 +71,11 @@ To enable virtual scrolling:
 }
 ````
 
->caption How virtual scrolling looks like (deliberately slowed down to showcase the loading signs)
+>caption How virtual scrolling looks like (deliberately slowed down to showcase the loading placeholders)
 
 ![](images/virtual-scrolling-overview.gif)
+
+>tip The column where long text is expected (the `Hire Date` in this example) has a width set so that the text does not break into multiple lines and increase the height of the row. See the notes below for more details.
 
 ## Notes
 
@@ -98,6 +100,72 @@ List of the known limitations of the virtual scrolling feature:
 * [Grouping]({%slug components/grid/features/grouping%}) is not supported.
 * [Multiple Selection]({%slug components/grid/selection/multiple%}) is not fully supported. Selecting all items from the header checkbox can select only the currently rendered page of records.
 * The `Data` of the grid must contain more items than the `PageSize` in order for the virtual scrolling feature to work. You can work around this with something similar to `ScrollMode="@(DataCollection.Count() > 30 ? GridScrollMode.Virtual : GridScrollMode.Scrollable)"`
+
+
+
+<!--
+Code for the GIF
+
+<TelerikGrid Data=@GridData 
+             ScrollMode="@GridScrollMode.Virtual"
+             Height="480px" RowHeight="60" PageSize="20"
+             Sortable="true" FilterMode="@GridFilterMode.FilterMenu"
+             TotalCount=@Total OnRead=@ReadItems Width="640px">
+    <GridColumns>
+        <GridColumn Field="Id" />
+        <GridColumn Field="Name" Title="First Name" />
+        <GridColumn Field="LastName" Title="Last Name" />
+        <GridColumn Field="HireData" Width="200px">
+            <Template>
+                @((context as SampleData).HireDate.ToString("MMMM dd, yyyy"))
+            </Template>
+        </GridColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    public List<SampleData> SourceData { get; set; }
+    public int Total { get; set; } = 0;
+    public List<SampleData> GridData { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        SourceData = await GetData();
+    }
+
+    private async Task<List<SampleData>> GetData()
+    {
+        return Enumerable.Range(1, 1000).Select(x => new SampleData
+        {
+            Id = x,
+            Name = $"name {x}",
+            LastName = $"Surname {x}",
+            HireDate = DateTime.Now.Date.AddDays(-x)
+        }).ToList();
+    }
+
+    protected async Task ReadItems(GridReadEventArgs args)
+    {
+        Console.WriteLine("before");
+        await Task.Delay(500); //delay for creating the GIF
+        Console.WriteLine("after");
+
+        GridData = SourceData.Skip(args.Request.Skip).Take(args.Request.PageSize).ToList();
+        Total = SourceData.Count;
+
+        StateHasChanged();
+    }
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+
+-->
 
 ## See Also
 
