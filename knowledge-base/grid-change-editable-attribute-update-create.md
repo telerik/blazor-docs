@@ -222,3 +222,7 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
     public static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
 }
 ````
+
+## See Also
+
+The following thread demonstrates how you can hide the Edit (or any other command buttons) when the user is inserting a new record - this can avoid loss of data and/or improve the user experience: [Is there a way to disable the "Edit" buttons when the Grid is in Add mode?](https://www.telerik.com/forums/is-there-a-way-to-disable-the-edit-buttons-when-the-grid-is-in-add-mode).
