@@ -36,9 +36,12 @@ navigation:
      "globalization":
         title: "Globalization"
         position: 16
+     "accessibility":
+        title: "Accessibility"
+        position: 17
      "upgrade":
         title: "Upgrade"
-        position: 17
+        position: 18
      "upgrade/breaking-changes":
         title: "Breaking Changes"
      "how-to":
