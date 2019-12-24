@@ -85,7 +85,7 @@ The DropDownList provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the dropdownlist.
 * `Data` - allows you to provide the data source. Required.
-* `DefaultItem` - sets the hint that is shown if no other item is selected. Set this property to an instance of the model class to which the dropdown is bound.
+* `DefaultText` - sets the hint that is shown if no other item is selected (the `Value` does not match any item in the data source, or is not provided at all). The item this creates has the default value for the type of the `ValueField` (or, thus, the `Value`). For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. You can find examples in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article.
 * `Enabled` - whether the component is enabled.
 * `PopupHeight` - the height of the expanded dropdown list element.
 * `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
@@ -107,6 +107,31 @@ The DropDownList provides the following features:
 
 
 ## Examples
+
+>caption Default text (hint) to show when no actual item is selected
+
+````CSHTML
+@MyStringItem
+<TelerikDropDownList Data="@MyStringList" @bind-Value="@MyStringItem" DefaultText="Select something">
+</TelerikDropDownList>
+
+<br />
+<br />
+
+@MyIntItem
+<TelerikDropDownList Data="@MyIntList" @bind-Value="@MyIntItem" DefaultText="Select another thing">
+</TelerikDropDownList>
+
+@code {
+    protected List<string> MyStringList = new List<string>() { "first", "second", "third" };
+
+    protected string MyStringItem { get; set; }
+
+    protected List<int> MyIntList = new List<int>() { 1, 2, 3 };
+
+    protected int MyIntItem { get; set; }
+}
+````
 
 >caption Get selected item from external code
 

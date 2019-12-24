@@ -126,7 +126,9 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 
 ## DropDownList
 
-The DropDownList always has an item selected - the first item from its data source, the item corresponding to the `Value`, or the `DefaultItem` the developer provides. This means that for required field validation to work, the current item must have a `null` value. Alternatively, if you cannot alter the dropdownlist item model you already have, you can use range validation and set a value for the default item that is outside of the range of actual values.
+The DropDownList always has an item selected - the first item from its data source, the item corresponding to the `Value`, or the item created from the `DefaultText` the developer provides (which has the default value for the type of the Value field - for example, `0` for an `int` and `null` for an `int?` or `string`).
+
+This means that for required field validation to work, the current item must have a `null` value. Alternatively, if you cannot alter the dropdownlist item model you already have, you can use range validation and set a value for the default item that is outside of the range of actual values.
 
 >caption How to validate a dropdownlist
 
@@ -134,51 +136,49 @@ The DropDownList always has an item selected - the first item from its data sour
 @using System.ComponentModel.DataAnnotations // used for the model class attributes
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
-	<DataAnnotationsValidator />
-	<ValidationSummary />
-	<p class="gender">
-		Gender: <TelerikDropDownList @bind-Value="person.Gender" DefaultItem="@ddlHint"
-								   Data="@genders" TextField="MyTextField" ValueField="MyValueField">
-				</TelerikDropDownList>
-		<ValidationMessage For="@(() => person.Gender)"></ValidationMessage>
-	</p>
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <p class="gender">
+        Gender: <TelerikDropDownList @bind-Value="person.Gender" DefaultText="Select gender"
+                                     Data="@genders" TextField="MyTextField" ValueField="MyValueField">
+        </TelerikDropDownList>
+        <ValidationMessage For="@(() => person.Gender)"></ValidationMessage>
+    </p>
 
-	<button type="submit">Submit</button>
+    <button type="submit">Submit</button>
 </EditForm>
 
 @code {
-	// Usually the model classes would be in different files
-	public class Person
-	{
-		[Required(ErrorMessage = "Gender is mandatory.")]//the value field in the dropdown model must be null in the default item
-		[Range(1, 3, ErrorMessage = "Please select your gender.")] //limits the fourth option just to showcase this is honored
-		public int? Gender { get; set; }
-	}
+    // Usually the model classes would be in different files
+    public class Person
+    {
+        [Required(ErrorMessage = "Gender is mandatory.")]//the value field in the dropdown model must be null in the default item
+        [Range(1, 3, ErrorMessage = "Please select your gender.")] //limits the fourth option just to showcase this is honored
+        public int? Gender { get; set; }
+    }
 
-	public class MyDdlModel
-	{
-		//nullable so the default item can allow required field validation
-		//alternatively, use a range validator and put a value out of that range for the default item
-		public int? MyValueField { get; set; }
-		public string MyTextField { get; set; }
-	}
+    public class MyDdlModel
+    {
+        //nullable so the default item can allow required field validation
+        //alternatively, use a range validator and put a value out of that range for the default item
+        public int? MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
 
-	Person person = new Person();
+    Person person = new Person();
 
-	MyDdlModel ddlHint = new MyDdlModel { MyValueField = null, MyTextField = "Gender" };
+    IEnumerable<MyDdlModel> genders = new List<MyDdlModel>
+    {
+        new MyDdlModel {MyTextField = "female", MyValueField = 1},
+        new MyDdlModel {MyTextField = "male", MyValueField = 2},
+        new MyDdlModel {MyTextField = "other", MyValueField = 3},
+        new MyDdlModel {MyTextField = "I'd rather not say", MyValueField = 4}
+    };
 
-	IEnumerable<MyDdlModel> genders = new List<MyDdlModel>
-	{
-		new MyDdlModel {MyTextField = "female", MyValueField = 1},
-		new MyDdlModel {MyTextField = "male", MyValueField = 2},
-		new MyDdlModel {MyTextField = "other", MyValueField = 3},
-		new MyDdlModel {MyTextField = "I'd rather not say", MyValueField = 4}
-	};
-
-	void HandleValidSubmit()
-	{
-		Console.WriteLine("OnValidSubmit");
-	}
+    void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
 }
 ````
 
