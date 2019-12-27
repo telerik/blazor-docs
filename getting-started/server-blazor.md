@@ -75,7 +75,7 @@ To use Blazor server-side, you need to use the `Blazor App` type of project with
 
 1. Add the following to your **`~/_Imports.razor`** file so the project recognizes our components in all files:
 
-    **CSHTML**
+    **_Imports.razor**
     
         @using Telerik.Blazor
         @using Telerik.Blazor.Components

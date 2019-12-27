@@ -75,7 +75,7 @@ For client-side `Blazor App`, we recommend the usage of `Blazor (ASP.NET Hosted)
          
 1. Add the following to your **`~/_Imports.razor`** file so the project recognizes our components in all files:
 
-    **CSHTML**
+    **_Imports.razor**
     
         @using Telerik.Blazor
         @using Telerik.Blazor.Components

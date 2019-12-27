@@ -89,13 +89,13 @@ To have the project use the Telerik UI for Blazor components, follow these steps
 
 #add-component-sample
 
-    **CSHTML**
+    **RAZOR**
     
         <TelerikButton>Say Hello</TelerikButton>
         
 1. Optionally, hook up a click handler that will show a message. The resulting view should look like this:
 
-    **CSHTML**
+    **RAZOR**
     
         @page "/"
         
