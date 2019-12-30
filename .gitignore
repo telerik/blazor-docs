@@ -21,6 +21,7 @@
 /favicon.ico
 /fonts/
 /styles/
+_tempconfig.yml
 bs-config.js
 build-docs.sh
 copy_content.sh
