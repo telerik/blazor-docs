@@ -18,6 +18,7 @@ The `ZIP` archive provides the following:
 
 * The [necessary `.nupkg` files]({%slug getting-started/what-you-need%}) so you can setup a [local feed in Visual Studio](#set-up-a-local-nuget-feed-in-visual-studio). You can find them in the `packages` folder in the archive.
 * An offline version of our [demos](https://demos.telerik.com/blazor-ui) that you can run and inspect in your IDE. You can find them in the `demos` folder in the archive.
+* The [document processing]({%slug common-features-dpl%}) `.nupkg` files (in the `dpl` folder).
 
 
 ## How to Download the ZIP Archive
