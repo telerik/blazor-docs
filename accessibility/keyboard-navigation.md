@@ -5,7 +5,7 @@ description: Support for keyboard navigation in the Telerik UI for Blazor suite
 slug: accessibility-keyboard-navigation
 tags: telerik,blazor,accessibility,keyboard,navigation,support
 published: True
-position: 1
+position: 2
 ---
 
 # Keyboard Navigation
@@ -14,7 +14,9 @@ The Telerik UI for Blazor components support keyboard navigation so the end user
 
 Generally, to focus a component use the `Tab` key as the keyboard support of the page follows the normal flow of the content. Once in a component, you can use specific keyboard shortcuts to trigger specific actions (such as using the arrow keys to focus different cells in the grid, or the `Enter` key to click a button).
 
-The following list shows the components that support specific keyboard combinations and links to live demos where you can see the behavior in action, together with the available keyboard shortcuts:
+By default, users can only navigate to links, buttons, and form controls with a keyboard, and we also made our components focusable so the user can interact with them too, even though they are complex structures. The navigation order in which interactive items receive keyboard focus has to be logical and intuitive. Generally, it needs to follow the visual horizontal and vertical flow of the page. For example, left to right and top to bottom, header first followed by the main and then page navigation.
+
+The following list shows the Telerik components that support specific keyboard combinations and links to live demos where you can see the behavior in action, together with the available keyboard shortcuts:
 
 *  [Button](https://demos.telerik.com/blazor-ui/button/keyboard-navigation)
 
@@ -54,4 +56,5 @@ The following list shows the components that support specific keyboard combinati
 
 ## See Also
 
+  * [Accessibility Overview]({%slug accessibility-overview%})
   * [Globalization Overview]({%slug globalization-overview%})
