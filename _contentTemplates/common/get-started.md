@@ -33,7 +33,9 @@
 >
 > The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}` and it supports `{{site.supportedFrameworkVersion}}`.
 
+<!--
 You may also find useful the [Getting started videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo) by Telerik.
+-->
 
 >caption  Once you have a vanilla Blazor application running, continue to the next steps.
 #end

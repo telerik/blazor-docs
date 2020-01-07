@@ -26,7 +26,7 @@ If you are new to Telerik UI for Blazor, we recommend that you **follow the Firs
 
 You can find the basics of what our packages include and how to set up a project in the [What You Need]({%slug getting-started/what-you-need%}) article. It is suitable for people familiar with the IDE and Blazor and lists some more advanced details than the articles above.
 
-
+<!--
 If you are not familiar with Blazor yet, you may find useful our Blazor Quick Start Guide video series:
 
 * [Blazor Getting Started Guide](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo&index=1)
@@ -37,7 +37,7 @@ If you are not familiar with Blazor yet, you may find useful our Blazor Quick St
 You can watch the entire playlist below:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+-->
 If you are just getting started with Blazor and Web development, you may find the following articles from MSDN useful in getting up to speed with the core concepts:
 
 * [First Steps with Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/get-started?view=aspnetcore-3.0&tabs=visual-studio)
