@@ -16,37 +16,39 @@ Generally, to focus a component use the `Tab` key as the keyboard support of the
 
 The following list shows the components that support specific keyboard combinations and links to live demos where you can see the behavior in action, together with the available keyboard shortcuts:
 
-*  Button
+*  [Button](https://demos.telerik.com/blazor-ui/button/keyboard-navigation)
 
-*  Calendar
+*  [Calendar](https://demos.telerik.com/blazor-ui/calendar/keyboard-navigation)
 
-*  Chart - not applicable, the chart is a visualization component only
+*  Chart - not applicable, the chart is a visualization component only.
 
-*  ComboBox
+*  [ComboBox](https://demos.telerik.com/blazor-ui/combobox/keyboard-navigation)
 
-*  DateInput
+*  [DateInput](https://demos.telerik.com/blazor-ui/dateinput/keyboard-navigation)
 
-*  DatePicker
+*  [DatePicker](https://demos.telerik.com/blazor-ui/datepicker/keyboard-navigation)
 
-*  DateTimePicker
+*  [DateTimePicker](https://demos.telerik.com/blazor-ui/datetimepicker/keyboard-navigation)
 
-*  DropDownList
+*  [DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation)
 
-*  Grid
+*  [Grid](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation)
 
-*  Menu
+*  [Menu](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation)
 
-*  NumericTextBox
+*  [NumericTextBox](https://demos.telerik.com/blazor-ui/numerictextbox/keyboard-navigation)
 
-*  TabStrip
+*  Scheduler - will have keyboard navigation in an upcoming release.
 
-*  Textbox - not applicable, it is a simple input with the standard behavior
+*  [TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation)
 
-*  TimePicker
+*  Textbox - not applicable, it is a simple input with the standard behavior.
 
-*  TreeView
+*  [TimePicker](https://demos.telerik.com/blazor-ui/timepicker/keyboard-navigation)
 
-*  Window
+*  [TreeView](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation)
+
+*  [Window](https://demos.telerik.com/blazor-ui/window/keyboard-navigation)
 
 
 
