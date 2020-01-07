@@ -10,7 +10,9 @@ position: 1
 
 # WCAG, Section 508, WAI-ARIA
 
-There are several standards, policies and principles that govern how accessible applications and components are created. This article offers an overview of them.
+There are several standards, policies and principles that govern how accessible applications and components are created. This article offers an overview of them. For a list of the accessibility compliance levels support provided by the Telerik UI for Blazor components see the [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%}) article.
+
+In this article you will find information on the general topics of accessibility:
 
 
 * [Standards and Policies](#standards-and-policies)
@@ -38,8 +40,7 @@ For more information, refer to:
 
 * [Section 508 (Latest Amendment)](https://www.access-board.gov/the-board/laws/rehabilitation-act-of-1973#508)
 * [Rehabilitation Act of 1973](https://legcounsel.house.gov/Comps/Rehabilitation%20Act%20Of%201973.pdf)
-
-<!-- * Telerik UI for Blazor: Compliance-->
+* [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%})
 
 
 ### W3C Web Content Accessibility Guidelines (WCAG) 2.1
@@ -50,8 +51,7 @@ For more information, refer to:
 
 * [WCAG 2 Quick Reference Guide](https://www.w3.org/WAI/WCAG21/quickref/)
 * [WCAG 2.1 Guidelines](https://www.w3.org/TR/WCAG21)
-
-<!-- * Telerik UI for Blazor: Compliance-->
+* [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%})
 
 
 ## Technical Specificatns
@@ -70,8 +70,7 @@ For more information, refer to:
 * [Accessible Rich Internet Applications (WAI-ARIA) 1.1](https://www.w3.org/TR/wai-aria-1.1/)
 * [WAI-ARIA Role Definitions](https://www.w3.org/TR/wai-aria-1.1/#role_definitions)
 * [WAI-ARIA State and Property Definitions](https://www.w3.org/TR/wai-aria-1.1/#state_prop_def)
-
-<!-- * Telerik UI for Blazor: Compliance-->
+* [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%})
 
 ### Keyboard Navigation
 
@@ -96,5 +95,5 @@ See the [Keyboard Support in Telerik UI for Blazor]({%slug accessibility-keyboar
   * [WCAG Keyboard Accessible Category](https://www.w3.org/WAI/WCAG21/quickref/#keyboard-accessible)
   * [Telerik UI for Blazor Accessibility Overview]({%slug accessibility-overview%})
   * [Telerik UI for Blazor Globalization Overview]({%slug globalization-overview%})
+  * [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%})
 
-<!-- * Telerik UI for Blazor: Compliance-->

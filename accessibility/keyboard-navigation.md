@@ -58,3 +58,4 @@ The following list shows the Telerik components that support specific keyboard c
 
   * [Accessibility Overview]({%slug accessibility-overview%})
   * [Globalization Overview]({%slug globalization-overview%})
+  * [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%})

@@ -18,3 +18,6 @@ Accessibility consists of several aspects:
 * [Keyboard Navigation]({%slug accessibility-keyboard-navigation%})
 * [Globalization]({%slug globalization-overview%})
 
+## See Also
+
+  * [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%})
