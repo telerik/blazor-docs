@@ -17,6 +17,13 @@ Telerik Document Processing provides the RadPdfProcessing, RadSpreadStreamProces
 * [WordsProcessing](http://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/overview) library enables you to create, import, and export `DOCX`, `HTML`, `RTF`, and `TXT` documents, and export them to PDF.
 * [ZipLibrary](http://docs.telerik.com/devtools/document-processing/libraries/radziplibrary/overview) library enables you to compress and decompress `ZIP` files.
 
+In this article:
+
+* [Supported File Formats](#supported-file-formats)
+* [Available NuGet Packages](#available-nuget-packages)
+* [Licensing](#licensing)
+* [Learning Resources](#learning-resources)
+
 ## Supported File Formats
 
 The Telerik Document Processing libraries for .NET Core support the following file formats:
@@ -36,15 +43,15 @@ You can take the required packages from the [Telerik Private NuGet Feed]({%slug 
 
 The Telerik Document Processing NuGet packages are:
 
-* `Telerik.Documents.Core.nupkg`&mdash;The main NuGet package from the Telerik Document Processing libraries. Required when you plan to use the library.
-* `Telerik.Documents.Fixed.nupkg`&mdash;The package is required when processing PDF documents.
-* `Telerik.Documents.Flow.nupkg`&mdash;The package is part of the Word (text) processing library. Required for processing `HTML`, `DOCX`, `RTF`, and `TXT` documents.
-* `Telerik.Documents.Flow.FormatProviders.Pdf.nupkg`&mdash;The package allows for exporting flow documents, such as `DOCX` and `RTF`, to PDF.
-* `Telerik.Documents.Spreadsheet.nupkg`&mdash;The package allows for working with spreadsheets.
-* `Telerik.Documents.Spreadsheet.FormatProviders.OpenXml.nupkg`&mdash;The package allows for exporting spreadsheet documents to various OpenXML formats.
-* `Telerik.Documents.Spreadsheet.FormatProviders.Pdf.nupkg`&mdash;The package allows for exporting spreadsheet documents to PDF.
-* `Telerik.Documents.SpreadsheetStreaming.nupkg`&mdash;The main package for generating huge spreadsheet files while using minimum resources.
-* `Telerik.Zip.nupkg`&mdash;The package is required when working with zipped formats, such as `DOCX` and `XLSX`, and PDF.
+* **Telerik.Documents.Core**.nupkg&mdash;The main NuGet package from the Telerik Document Processing libraries. Required when you plan to use the library.
+* **Telerik.Documents.Fixed**.nupkg&mdash;The package is required when processing PDF documents.
+* **Telerik.Documents.Flow**.nupkg&mdash;The package is part of the Word (text) processing library. Required for processing `HTML`, `DOCX`, `RTF`, and `TXT` documents.
+* **Telerik.Documents.Flow.FormatProviders.Pdf**.nupkg&mdash;The package allows for exporting flow documents, such as `DOCX` and `RTF`, to `PDF`.
+* **Telerik.Documents.Spreadsheet**.nupkg&mdash;The package allows for working with spreadsheets.
+* **Telerik.Documents.Spreadsheet.FormatProviders.OpenXml**.nupkg&mdash;The package allows for exporting spreadsheet documents to various `OpenXML` formats.
+* **Telerik.Documents.Spreadsheet.FormatProviders.Pdf**.nupkg&mdash;The package allows for exporting spreadsheet documents to `PDF`.
+* **Telerik.Documents.SpreadsheetStreaming**.nupkg&mdash;The main package for generating huge spreadsheet files while using minimum resources.
+* **Telerik.Zip**.nupkg&mdash;The package is required when working with zipped formats, such as `DOCX` and `XLSX`, and `PDF`.
 
 >tip In case you need a version of Telerik Document Processing compatible with [.NET Framework 4.0](https://dotnet.microsoft.com/download/dotnet-framework/net40) or later, check the suites which you can use to obtain the binaries from in the [Installing on Your Computer](https://docs.telerik.com/devtools/document-processing/getting-started/installing-on-your-computer) help topic.
 
