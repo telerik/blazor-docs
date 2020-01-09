@@ -102,10 +102,6 @@ You can find more information on working with the Telerik document processing li
 	
 	* [Getting Started](http://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/getting-started)
 
-* More examples
-
-    * [SDK Examples](https://github.com/telerik/document-processing-sdk)
-
 * Blazor demos
 
     * [PdfProcessing in Blazor](https://demos.telerik.com/blazor-ui/pdfprocessing/overview)
