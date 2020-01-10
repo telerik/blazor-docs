@@ -17,7 +17,7 @@ This article explains the events available in the Telerik Textbox for Blazor:
 
 ## OnChange
 
-The `OnChange` event fires when the new value is committed by the user either by pressing `Enter`, or when the input loses focus.
+The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
 
 >caption Handle OnChange
 
