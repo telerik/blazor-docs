@@ -25,7 +25,7 @@ By default, the user can only view the appointments, because creating, updating 
 
 * `AllowCreate` - enables the user to insert new appointments. Requires that you implement a handler for the `OnCreate` event where you must update the current `Data` and your actual data source.
 * `AllowDelete` - enables the user to delete existing appointments. Requires that you implement a handler for the `OnDelete` event where you must update the current `Data` and your actual data source.
-* `AllowUpdate` - enables the user to modify existing appointments. Requires that you implement a handler for the `OnUpdate` event where you must update the current `Data` and your actual data source.
+* `AllowUpdate` - enables the user to modify existing appointments (including drag-and-drop and resizing). Requires that you implement a handler for the `OnUpdate` event where you must update the current `Data` and your actual data source.
 
 >tip You can enable only certain editing features (for example, editing appointments) by enabling only their parameter. It is not required to enable all features.
 
@@ -35,6 +35,7 @@ There are two other events that you are not required to handle - you can use the
     * If the user is creating a new appointment the event handler arguments have their `IsNew` field set to `true` and the time slot the user clicked on is available in the `Start` and `End` of the event arguments object. If the user started insertion in the all-day row, the `IsAllDay` field of the event arguments is `true`.
     * You can cancel the event (set the `IsCancelled` field of the event arguments to `true`) to effectively make some appointments read-only or prevent appointment creation at certain time slots. If you do that, consider showing a messages to the user to notify them that the action was deliberately prevented.
     * You can also use it to implement a [custom edit/insert form](https://github.com/telerik/blazor-ui/tree/master/scheduler/custom-edit-form) to, for example, have more fields than the built-in ones, or implement custom validation. To do that, always cancel the event and implement the desired logic after that.
+    * `OnEdit` does not fire when the user drags to resize or move appointments, it fires only for the advanced edit form (double clicks on the appointment).
 * `OnCancel` - fires when the user clicks the `Cancel` button in the edit form or the `[x]` close button at the window titlebar to discard the changes they just made to an appointment.
 
 
@@ -53,6 +54,12 @@ The UI for the scheduler provides the following options for interacting with the
     * An appointment that starts at 12AM on one day and ends at 12AM on the next day is considered an all-day appointment and so it will also render in the all-day slot.
     * To create an all-day appointment for a single day, the start and end dates must be the same. Selecting the next day in the end-time picker will result in a two-day appointment.
 * Double click (or double tap) on an appointment opens it for editing. The user can cancel the changes through the Cancel button or the [x] close button on the window.
+* Dragging an appointment to another slot (or day, or the all-day row) fires the `OnUpdate` event with the new times. 
+    * The duration is preserved when dragging across the area of origin (for example, from the all-day slot to another day in the all-day slot). 
+    * When dragging between different areas (for example, from the all-day slot to a particular day), the new duration is the default duration for the area (for example, one day for the all-day slot, or one `TimeSlot` for the time table).
+    * If you drag the all-day portion of an appointment that has specific start and end times (that is, it is _not_ an all-day appointment), it will not become an all-day appointment.
+* Hovering an appointment shows resize handles that you can drag to change the appointment duration.
+    * Resizing is allowed in directions where the appointment has a clear end. For example, if an all-day event continues after the current scheduler view, you won't be able to resize it in that direction. If an appointment starts or ends in a different day, or before/after the shown hours in the scheduler, resizing in that direction is not allowed.
 * Clicking (or tapping) the [x] button on the appointment itself deletes it. The [x] button is shown when the appointment is hovered to conserve space.
 * The built-in popup edit form implements validation logic that you can localize through your custom messages. The built-in logic works on the `IAppointment` that the scheduler uses internally, and if you want to implement custom validation, you need to implement a [custom edit form](https://github.com/telerik/blazor-ui/tree/master/scheduler/custom-edit-form). By default, a title, start and end time are required.
 * Arrows on the appointments indicate that they continue in invisible time ranges. For example, an arrow pointing down in an appointment at the end of the visible day indicates it continues until a later hour or until the next day(s). If an all-day appointment starts before the currently visible time range, it will show an arrow pointing left.
