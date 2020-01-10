@@ -38,7 +38,7 @@ To use resources:
     * Set its `Field` parameter to a string that will point to the name of the field in the appointment that associated appointments with the resource type.
     * The `Title` parameter defines the text shown for its dropdown in the [edit form]({%slug scheduler-appointments-edit%}).
 1. Provide a collection of resource entries for each type of resource you will use to the `Data` parameter of the resource.
-    * The `ColorField`, `ValueField` and `TextField` let you specify fields in the resource model that contain the data. These fields must all be of type `string`. The default values are `Value`, `Text`, `Color` respectively. Each resource entry must have values in all three fields.
+    * The `ColorField`, `ValueField` and `TextField` let you specify fields in the resource model that contain the data. These fields must all be of type `string`. The default values are `Value`, `Text`, `Color` respectively.
 1. Define appointments [as usual]({%slug scheduler-appointments-databinding%}). Add a `string` field to them for each resources type they will require. The name of this field must match the value of the `Field` parameter of the resource declaration.
     * If you are using multiple resource types, you will need a field for each resource.
 1. Populate the appointment field that matches the resource name with the corresponding `Value` of the resource that you want associated with it.
