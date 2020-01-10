@@ -280,6 +280,7 @@ intro_columns:
       "DateTime Picker": "components/datetimepicker/overview"
       "DropDownList": "components/dropdownlist/overview"
       "ComboBox": "components/combobox/overview"
+      "AutoComplete": "autocomplete-overview"
 
   -
     title: "Layout"
