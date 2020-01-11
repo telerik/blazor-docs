@@ -17,7 +17,7 @@ The support policy includes the way bug fixes, feature enhancements, and browser
 * [Browser Compatibility](#browser-compatibility)
 * [Implementation Support](#implementation-support)
 
-> For best performance results, use the latest UI for Blazor version which contains all recent features and fixes that are available.
+>note For best performance results, use the latest UI for Blazor version ({{site.uiForBlazorLatestVersion}}) which contains all recent features and fixes that are available.
 
 ## Bug Fixes
 
