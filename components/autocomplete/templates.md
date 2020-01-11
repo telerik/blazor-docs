@@ -10,9 +10,9 @@ position: 5
 
 # AutoComplete Templates
 
-The ComboBox component allows you to change what is rendered in its items, header and footer through templates.
+The AutoComplete component allows you to change what is rendered in its items, header and footer through templates.
 
-The examples below show how to use inner tags to set the templates. You can also do this through [RenderFragment](https://blazor.net/api/Microsoft.AspNetCore.Blazor.RenderFragment.html) objects that you can pass to the properties of the ComboBox in its main tag.
+The examples below show how to use inner tags to set the templates. You can also do this through [RenderFragment](https://blazor.net/api/Microsoft.AspNetCore.Blazor.RenderFragment.html) objects that you can pass to the properties of the AutoComplete in its main tag.
 
 List of the available templates:
 
@@ -23,55 +23,31 @@ List of the available templates:
 
 ## Item Template
 
-The Item template determines how the individual items are rendered in the dropdown element of the component. By default, the text from the model is rendered.
+The Item template determines how the individual items are rendered in the dropdown element of the component. By default, the text from the particular suggestions is rendered.
 
 >caption Item Template Example
 
 ````CSHTML
 @* Define what renders for the items in the dropdown *@
 
-<TelerikComboBox @bind-Value=@SelectedValue
-                 Data="@ComboBoxData"
-                 ValueField="ProductId"
-                 TextField="ProductName">
+<TelerikAutoComplete Data="@Suggestions" @bind-Value="@Role" Placeholder="Write your position">
     <ItemTemplate>
-        <strong>@((context as Product).ProductName) - @(String.Format("{0:C2}", (context as Product).UnitPrice))</strong>
+        Are you a&nbsp;<strong>@context</strong>
     </ItemTemplate>
-</TelerikComboBox>
+</TelerikAutoComplete>
 
-@code {
-    public IEnumerable<Product> ComboBoxData { get; set; }
-    public int SelectedValue { get; set; } = 2;
+@code{
+    string Role { get; set; }
 
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i < 10; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                UnitPrice = (decimal)(i * 3.14)
-            });
-        }
-
-        ComboBoxData = products;
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
-    }
+    List<string> Suggestions { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
 }
 ````
 
 >caption The result from the code snippet above
 
-![](images/combo-item-template.png)
+![](images/autocomplete-item-template.png)
 
 ## Header
 
@@ -82,48 +58,24 @@ The header is content that you can place above the list of items inside the drop
 ````CSHTML
 @* Define a header in the dropdown *@
 
-<TelerikComboBox @bind-Value=@SelectedValue
-                 Data="@ComboBoxData"
-                 ValueField="ProductId"
-                 TextField="ProductName">
+<TelerikAutoComplete Data="@Suggestions" @bind-Value="@Role" Placeholder="Write your position">
     <HeaderTemplate>
-        <div class="k-header" style="margin-top: 10px; padding-bottom: 10px">Header</div>
+        <strong>Write your own if you don't see it in the list</strong>
     </HeaderTemplate>
-</TelerikComboBox>
+</TelerikAutoComplete>
 
-@code {
-    public IEnumerable<Product> ComboBoxData { get; set; }
-    public int SelectedValue { get; set; } = 2;
+@code{
+    string Role { get; set; }
 
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i < 10; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                UnitPrice = (decimal)(i * 3.14)
-            });
-        }
-
-        ComboBoxData = products;
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
-    }
+    List<string> Suggestions { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
 }
 ````
 
 >caption The result from the code snippet above
 
-![](images/combo-header-template.png)
+![](images/autocomplete-header-template.png)
 
 ## Footer
 
@@ -134,51 +86,27 @@ The footer is content that you can place below the list of items inside the drop
 ````CSHTML
 @* Define dropdown footer *@
 
-<TelerikComboBox @bind-Value=@SelectedValue
-                 Data="@ComboBoxData"
-                 ValueField="ProductId"
-                 TextField="ProductName">
+<TelerikAutoComplete Data="@Suggestions" @bind-Value="@Role" Placeholder="Write your position">
     <FooterTemplate>
-        <div class="k-footer" style="margin-top: 10px">A total of @ComboBoxData.Count() items</div>
+        <h5>Total Positions: @Suggestions.Count()</h5>
     </FooterTemplate>
-</TelerikComboBox>
+</TelerikAutoComplete>
 
-@code {
-    public IEnumerable<Product> ComboBoxData { get; set; }
-    public int SelectedValue { get; set; } = 2;
+@code{
+    string Role { get; set; }
 
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i < 10; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                UnitPrice = (decimal)(i * 3.14)
-            });
-        }
-
-        ComboBoxData = products;
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
-    }
+    List<string> Suggestions { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
 }
 ````
 
 >caption The result from the code snippet above
 
-![](images/combo-footer-template.png)
+![](images/autocomplete-footer-template.png)
 
 ## See Also
 
-  * [Live Demo: ComboBox Templates](https://demos.telerik.com/blazor-ui/combobox/templates)
+  * [Live Demo: AutoComplete Templates](https://demos.telerik.com/blazor-ui/autocomplete/templates)
    
   
