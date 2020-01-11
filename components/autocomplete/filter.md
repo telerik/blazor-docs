@@ -10,57 +10,50 @@ position: 3
 
 # AutoComplete Filter
 
-The ComboBox component allows the user to filter the available items by their text, so they can find the one they need faster.
+The AutoComplete component can filter the available suggestions according to the current user input, so they can find the one they need faster. To see the difference in behavior, visit the [Live Demo: AutoComplete Filtering](https://demos.telerik.com/blazor-ui/autocomplete/filtering) page.
 
-To enable filtering, set the `Filterable` parameter to `true`.
+To enable filtering, set the `Filterable` parameter to `true`. The filter operator is `starts with`, and it ignores casing.
 
-The filter operator is `contains`, it looks in the `TextField`, and filtering is reset when the dropdown closes.
+To control when the filter list appears, set the `MinLength` parameter. This can be useful if you have a very large list of data.
 
->caption Filtering in the ComboBox
+>caption Filtering in the AutoComplete
 
 ````CSHTML
-@* Type something in the input to see items whose text contains only the typed string, for example "uct 2" *@
+@* as you type "de", you will only get "Developer" and "Designer" as suggestions instead of the full list *@
 
-@SelectedValue
-<br />
+<TelerikAutoComplete Data="@Suggestions" @bind-Value="@TheValue"
+                     Filterable="true"
+                     Placeholder="Write 'de' to see the filtering" ClearButton="true" />
 
-<TelerikComboBox Data="@Data"
-                 Filterable="true"
-                 Placeholder="Find product by typing part of its name"
-                 @bind-Value="@SelectedValue" TextField="ProductName" ValueField="ProductId">
-</TelerikComboBox>
+@code{
+    string TheValue { get; set; }
 
-@code {
-    public List<Product> Data { get; set; }
-    public int? SelectedValue { get; set; }
-
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 0; i < 20; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}"
-            });
-        }
-
-        Data = products;
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-    }
+    List<string> Suggestions { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
 }
 ````
 
+>caption Filtering with MinLength
+
+````CSHTML
+@* On the first keystroke, there will be no suggestions, then you will only get "Developer" and "Designer" as you write "de" *@
+
+<TelerikAutoComplete Data="@Suggestions" @bind-Value="@TheValue"
+                     Filterable="true" MinLength="2"
+                     Placeholder="Write 'de' to see the filtering" ClearButton="true" />
+
+@code{
+    string TheValue { get; set; }
+
+    List<string> Suggestions { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
+}
+````
 
 ## See Also
 
-  * [Live Demo: ComboBox Filtering](https://demos.telerik.com/blazor-ui/combobox/filtering)
+  * [Live Demo: AutoComplete Filtering](https://demos.telerik.com/blazor-ui/autocomplete/filtering)
    
   
