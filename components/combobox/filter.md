@@ -88,21 +88,21 @@ Filtering ignores casing and the default filter operator is `contains`. Filterin
     List<Car> Data { get; set; } = new List<Car>
     {
         new Car { Id = 1, Make = "Honda" },
-        new Car { Id = 1, Make = "Opel" },
-        new Car { Id = 1, Make = "Audi" },
-        new Car { Id = 1, Make = "Lancia" },
-        new Car { Id = 1, Make = "BMW" },
-        new Car { Id = 1, Make = "Mercedes" },
-        new Car { Id = 1, Make = "Tesla" },
-        new Car { Id = 1, Make = "Vw" },
-        new Car { Id = 1, Make = "Alpha Romeo" },
-        new Car { Id = 1, Make = "Chevrolet" },
-        new Car { Id = 1, Make = "Ford" },
-        new Car { Id = 1, Make = "Cadillac" },
-        new Car { Id = 1, Make = "Dodge" },
-        new Car { Id = 1, Make = "Jeep" },
-        new Car { Id = 1, Make = "Chrysler" },
-        new Car { Id = 1, Make = "Lincoln" }
+        new Car { Id = 2, Make = "Opel" },
+        new Car { Id = 3, Make = "Audi" },
+        new Car { Id = 4, Make = "Lancia" },
+        new Car { Id = 5, Make = "BMW" },
+        new Car { Id = 6, Make = "Mercedes" },
+        new Car { Id = 7, Make = "Tesla" },
+        new Car { Id = 8, Make = "Vw" },
+        new Car { Id = 9, Make = "Alpha Romeo" },
+        new Car { Id = 10, Make = "Chevrolet" },
+        new Car { Id = 11, Make = "Ford" },
+        new Car { Id = 12, Make = "Cadillac" },
+        new Car { Id = 13, Make = "Dodge" },
+        new Car { Id = 14, Make = "Jeep" },
+        new Car { Id = 15, Make = "Chrysler" },
+        new Car { Id = 16, Make = "Lincoln" }
     };
 
     int? SelectedValue { get; set; }
