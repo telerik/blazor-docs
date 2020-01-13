@@ -58,6 +58,8 @@ To control when the filter list appears, set the `MinLength` parameter. This can
 >caption Choose FilterOperator
 
 ````CSHTML
+@* Type something in the input to see items filtered. Choose a new filter operator and repeat *@
+
 <label>
     Choose filter operator:
     <select @bind="filterOperator">

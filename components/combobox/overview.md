@@ -61,6 +61,7 @@ The ComboBox is a generic component and its type is determined by the type of th
 * `Data` - allows you to provide the data source. Required.
 * `Enabled` - whether the component is enabled.
 * `Filterable` - whether [filtering]({%slug components/combobox/filter%}) is enabled for the end user.
+* `FilterOperator` - the method of [filtering]({%slug components/combobox/filter%}) the items. Defaults to `StartsWith`.
 * `Placeholder` - the text the user sees as a hint when no item is selected (the `Value` is `null` or an empty string).
 * `PopupHeight` - the height of the expanded dropdown list element.
 * `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.

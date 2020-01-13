@@ -14,7 +14,7 @@ The ComboBox component allows the user to filter the available items by their te
 
 To enable filtering, set the `Filterable` parameter to `true`.
 
-The filter operator is `contains`, it looks in the `TextField`, and filtering is reset when the dropdown closes.
+Filtering ignores casing and the default filter operator is `contains`. Filtering looks in the `TextField`, and the filter is reset when the dropdown closes. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
 
 >caption Filtering in the ComboBox
 
@@ -54,6 +54,63 @@ The filter operator is `contains`, it looks in the `TextField`, and filtering is
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; }
+    }
+}
+````
+
+>caption Choose Filter Operator
+
+````CSHTML
+@* Type something in the input to see items filtered. Choose a new filter operator and repeat *@
+
+<label for="filterOperatorChoice">
+    Choose filter operator:
+    <select @bind="@filterOperator" class="form-control" style="width: 130px;margin-bottom:1rem;"
+            id="filterOperatorChoice">
+        @foreach (var possibleFilter in Enum.GetValues(typeof(StringFilterOperator)))
+        {
+            <option value="@possibleFilter">@possibleFilter</option>
+        }
+    </select>
+</label>
+
+@SelectedValue
+<br />
+
+<TelerikComboBox Data="@Data"
+                 Filterable="true" FilterOperator="@filterOperator"
+                 Placeholder="Find a car by typing part of its make"
+                 @bind-Value="@SelectedValue" TextField="Make" ValueField="Id">
+</TelerikComboBox>
+
+@code {
+    StringFilterOperator filterOperator { get; set; } = StringFilterOperator.Contains;
+    List<Car> Data { get; set; } = new List<Car>
+    {
+        new Car { Id = 1, Make = "Honda" },
+        new Car { Id = 1, Make = "Opel" },
+        new Car { Id = 1, Make = "Audi" },
+        new Car { Id = 1, Make = "Lancia" },
+        new Car { Id = 1, Make = "BMW" },
+        new Car { Id = 1, Make = "Mercedes" },
+        new Car { Id = 1, Make = "Tesla" },
+        new Car { Id = 1, Make = "Vw" },
+        new Car { Id = 1, Make = "Alpha Romeo" },
+        new Car { Id = 1, Make = "Chevrolet" },
+        new Car { Id = 1, Make = "Ford" },
+        new Car { Id = 1, Make = "Cadillac" },
+        new Car { Id = 1, Make = "Dodge" },
+        new Car { Id = 1, Make = "Jeep" },
+        new Car { Id = 1, Make = "Chrysler" },
+        new Car { Id = 1, Make = "Lincoln" }
+    };
+
+    int? SelectedValue { get; set; }
+
+    public class Car
+    {
+        public int Id { get; set; }
+        public string Make { get; set; }
     }
 }
 ````
