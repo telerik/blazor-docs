@@ -58,7 +58,7 @@ You can bind the AutoComplete to a model in your application. This is useful whe
 To bind the AutoComplete to a model:
 
 1. populate its `Data` property with the collection of items you want in the dropdown
-1. set the `TextField` to point to the corresponding name of the model that contains the string data for the suggestions
+1. set the `ValueField` to point to the corresponding name of the model that contains the string data for the suggestions
 1. point the `Value` parameter to a `string` field in the view-model.
 
 >caption Data binding an AutoComplete to a model
@@ -66,7 +66,7 @@ To bind the AutoComplete to a model:
 ````CSHTML
 @TheValue
 <br />
-<TelerikAutoComplete Data="@Suggestions" TextField="@( nameof(SuggestionsModel.Suggestion) )" @bind-Value="@TheValue" />
+<TelerikAutoComplete Data="@Suggestions" ValueField="@( nameof(SuggestionsModel.Suggestion) )" @bind-Value="@TheValue" />
 
 @code{
     string TheValue { get; set; }
@@ -107,7 +107,7 @@ The AutoComplete component is generic and its type depends on the type of the mo
 ````Model
 @*Reference when binding to model collections*@
 
-<TelerikAutoComplete @ref="@AutoCompleteRefWithModel" Data="@Suggestions" TextField="@( nameof(SuggestionsModel.Suggestion) )" @bind-Value="@TheValue" />
+<TelerikAutoComplete @ref="@AutoCompleteRefWithModel" Data="@Suggestions" ValueField="@( nameof(SuggestionsModel.Suggestion) )" @bind-Value="@TheValue" />
 
 @code{
     TelerikAutoComplete<SuggestionsModel> AutoCompleteRefWithModel { get; set; }

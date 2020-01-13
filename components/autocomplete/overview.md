@@ -57,8 +57,8 @@ The AutoComplete is a generic component and its type is determined by the type o
 * `PopupHeight` - the height of the expanded dropdown list element.
 * `PopupWidth` - the width of the expanded dropdown list element.
 * `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
-* `TextField` - the name of the field from the model that will be shown as hints to the user. Defaults to `Text`. Not required when binding to a simple list of strings.
 * `Value` and `bind-Value`- get/set the value of the component, can be used for binding. Use the `@bind-Value` syntax for two-way binding, for example, to a variable of your own. The `Value` must be a `string`.
+* `ValueField` - the name of the field from the model that will be shown as hints to the user. Defaults to `Value`. Not required when binding to a simple list of strings.
 * `Width` - the width of the main element.
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug autocomplete-templates%}) article for more details.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
