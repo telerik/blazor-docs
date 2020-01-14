@@ -38,7 +38,8 @@ The Blazor framework is relatively new and there may be unexpected complications
 At the time of writing, sometimes the following issues have been reported that pertain to the Telerik UI for Blazor suite:
 
 * `404 not found for telerik-blazor.js` - this indicates that the framework did not copy our static assets to the publish location. 
-    * Solutions are available in the [JS Errors - Missing File]({%slug troubleshooting-js-errors%}#missing-file) article.
+    * Some solutions are available in the [JS Errors - Missing File]({%slug troubleshooting-js-errors%}#missing-file) article.
+    * It seems that only `"ASPNETCORE_ENVIRONMENT": "Development"` copies the static assets properly, using a different environment name (either the built-in `Production` and `Staging`, or custom name) seems to break the static assets. Hopefully, this will be fixed in the framework.
     * Some reports indicate that deploying to a Docker container never copies over the static assets and you may have to either copy the file manually, or use it from our CDN.
 * `Trial Message` - if the machine that performs the build has access to a trial version of our NuGet package, the framework may get confused and copy a trial assembly to the publish location and you may see the trial messages live. Solutions are available in the [Upgrade Troubleshooting - I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-message) article.
 
