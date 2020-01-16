@@ -308,7 +308,7 @@ intro_columns:
 baseurl: /blazor-ui
 
 ## Latest UI for Blazor version. Used in some articles
-uiForBlazorLatestVersion: "2.6.0"
+uiForBlazorLatestVersion: "2.6.1"
 supportedFrameworkVersion: ".NET Core 3.1"
 
 ## The Kendo UI version used
