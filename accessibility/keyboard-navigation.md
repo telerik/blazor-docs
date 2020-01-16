@@ -18,6 +18,8 @@ By default, users can only navigate to links, buttons, and form controls with a 
 
 The following list shows the Telerik components that support specific keyboard combinations and links to live demos where you can see the behavior in action, together with the available keyboard shortcuts:
 
+*  [AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/keyboard-navigation)
+
 *  [Button](https://demos.telerik.com/blazor-ui/button/keyboard-navigation)
 
 *  [Calendar](https://demos.telerik.com/blazor-ui/calendar/keyboard-navigation)
