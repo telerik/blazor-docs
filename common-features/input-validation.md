@@ -35,30 +35,36 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 >caption How to validate inputs
 
 ````CSHTML
-@using System.ComponentModel.DataAnnotations @* used for the model class attributes *@
+@using System.ComponentModel.DataAnnotations 
+@* used for the model class attributes only *@
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
     <p class="name">
-        Name: <TelerikTextBox @bind-Value="person.Name"></TelerikTextBox>
+        Name: <TelerikTextBox @bind-Value="@person.Name"></TelerikTextBox>
         <ValidationMessage For="@(() => person.Name)"></ValidationMessage>
     </p>
+    <p class="role">
+        <TelerikAutoComplete Data="@RoleSuggestions" @bind-Value="@person.Role"
+                             Placeholder="Enter your role (can be free text)" ClearButton="true" />
+        <ValidationMessage For="@(() => person.Role)"></ValidationMessage>
+    </p>
     <p class="height">
-        Height (cm): <TelerikNumericTextBox @bind-Value="person.Height" />
+        Height (cm): <TelerikNumericTextBox @bind-Value="@person.Height" />
         <ValidationMessage For="@(() => person.Height)"></ValidationMessage>
     </p>
     <p class="birthday">
-        Birthday: <TelerikDateInput @bind-Value="person.Birthday" Format="dd MMMM yyyy"></TelerikDateInput>
+        Birthday: <TelerikDateInput @bind-Value="@person.Birthday" Format="dd MMMM yyyy"></TelerikDateInput>
         <ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
     </p>
     <p class="favorite-day">
-        Favorite date: <TelerikDatePicker @bind-Value="person.FavoriteDay" Format="dd MMMM yyyy"></TelerikDatePicker>
+        Favorite date: <TelerikDatePicker @bind-Value="@person.FavoriteDay" Format="dd MMMM yyyy"></TelerikDatePicker>
         <ValidationMessage For="@(() => person.FavoriteDay)"></ValidationMessage>
     </p>
     <p class="daily-scrum">
-        Daily scrum: <TelerikTimePicker @bind-Value="person.DailyScrum"></TelerikTimePicker>
+        Daily scrum: <TelerikTimePicker @bind-Value="@person.DailyScrum"></TelerikTimePicker>
         <ValidationMessage For="@(() => person.DailyScrum)"></ValidationMessage>
     </p>
     <p class="start-time">
@@ -66,7 +72,7 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         <ValidationMessage For="@(() => person.StartTime)"></ValidationMessage>
     </p>
     <p class="accepts-terms">
-        Accepts terms: <InputCheckbox @bind-Value="person.AcceptsTerms" />
+        Accepts terms: <InputCheckbox @bind-Value="@person.AcceptsTerms" />
         <ValidationMessage For="@(() => person.AcceptsTerms)"></ValidationMessage>
     </p>
 
@@ -80,6 +86,10 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         [Required(ErrorMessage = "Enter a name")]
         [StringLength(10, ErrorMessage = "That name is too long")]
         public string Name { get; set; }
+
+        [Required]
+        [StringLength(15, ErrorMessage = "That role name is too long, use abbreviations")]
+        public string Role { get; set; }
 
         [Required(ErrorMessage = "Provide your height in centimeters")]
         [Range(1, 300, ErrorMessage = "Nobody is that tall")]
@@ -121,6 +131,10 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
     {
         Console.WriteLine("OnValidSubmit");
     }
+
+    List<string> RoleSuggestions { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
 }
 ````
 
