@@ -99,3 +99,7 @@ from model: @person.theTbValue
     }
 }
 ```
+
+## See Also
+
+Here is a request for an implementation of a `Submit()` method on the form so you can also submit it directly from the code if you wish: [https://github.com/dotnet/aspnetcore/issues/10953](https://github.com/dotnet/aspnetcore/issues/10953)
