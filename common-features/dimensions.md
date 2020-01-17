@@ -20,6 +20,8 @@ For elements with **special positioning** (`Top` and `Left` properties), keep in
 
 When setting **percentage values** (such as `100%` or `50%`), keep in mind the following - according to the web standards, elements which have their height set in percentage require that the height of their parent is also explicitly set. This requirement applies recursively until either an element with a pixel height or the html element is reached. Elements that are 100% high should not have margins, paddings, borders, or sibling elements.
 
+When setting **percentage dimensions** to elements with **special positioning** (such as `Width` of a Window or the `PopupWidth` of a dropdown), their parent element in the DOM determines the rendered size.
+
 ## Examples
 
 The examples here showcase different units and examples of using them to set dimensions and positions. The results you get may vary from the screenshots here because of different CSS rules in your project and different browser/screen sizes. Review the explanations in the code for more details on what to expect.
