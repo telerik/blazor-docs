@@ -45,6 +45,10 @@ The following example shows how to use an image from a URL, a sprite image, and 
 
 >tip You can use relative paths to your images in the `wwwroot` folder. The example above uses absolute paths to make it easy for you to see the results without preparing images.
 
+>tip If you don't add text to the button, the button will center the icon on all sides.
+
+>note Raster images used as icons should generally be small enough to fit in a line of text - the button is an inline element and is not designed for large images. If you want to use big icon buttons, consider defining a `Class` on the button that provides `height` and `width` sufficient to accommodate the icon, or attaching an `@onclick` handler to an icon/`span`/`img` element instead of using a button.
+
 
 ## See Also
 
