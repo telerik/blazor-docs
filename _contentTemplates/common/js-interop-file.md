@@ -37,7 +37,7 @@
 
 
 #enable-static-assets
-    To enable the use of static assets in your project, make sure you have the following line to your **Server** project `Startup.cs` file:
+    To enable the use of static assets in your project, make sure you have the following line to your **Server** project `Startup.cs` and `Program.cs` files:
 
     **C#**
     
@@ -46,6 +46,7 @@
 #end
 
 #enable-static-assets-snippet
+        // Startup.cs
         namespace MyBlazorAppName
         {
             public class Startup
@@ -56,7 +57,26 @@
                     
                     //make sure this is present to enable static files from a package
                     app.UseStaticFiles();
+                    
+                    //more code may be present here
                 }
+            }
+        }
+        
+        // Program.cs
+        namespace MyBlazorAppName
+        {
+            public class Program
+            {
+                //more code may be present here
+        
+                public static IHostBuilder CreateHostBuilder(string[] args) =>
+                    Host.CreateDefaultBuilder(args)
+                        .ConfigureWebHostDefaults(webBuilder =>
+                        {
+                            webBuilder.UseStaticWebAssets(); // needed when ASPNETCORE_ENVIRONMENT is NOT set to Development
+                            webBuilder.UseStartup<Startup>();
+                        });
             }
         }
 #end
