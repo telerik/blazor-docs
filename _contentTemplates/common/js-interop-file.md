@@ -69,7 +69,8 @@
             public class Program
             {
                 //more code may be present here
-        
+                
+                //for a server project it may look like this
                 public static IHostBuilder CreateHostBuilder(string[] args) =>
                     Host.CreateDefaultBuilder(args)
                         .ConfigureWebHostDefaults(webBuilder =>
@@ -77,6 +78,16 @@
                             webBuilder.UseStaticWebAssets(); // needed when ASPNETCORE_ENVIRONMENT is NOT set to Development
                             webBuilder.UseStartup<Startup>();
                         });
+                        
+                //for a WASM project it may look like this
+                public static IWebHost BuildWebHost(string[] args) =>
+                    WebHost.CreateDefaultBuilder(args)
+                        .UseConfiguration(new ConfigurationBuilder()
+                            .AddCommandLine(args)
+                            .Build())
+                        .UseStaticWebAssets() // needed when ASPNETCORE_ENVIRONMENT is NOT set to Development
+                        .UseStartup<Startup>()
+                        .Build();
             }
         }
 #end
