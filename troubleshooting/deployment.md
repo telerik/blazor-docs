@@ -39,8 +39,44 @@ At the time of writing, sometimes the following issues have been reported that p
 
 * `404 not found for telerik-blazor.js` - this indicates that the framework did not copy our static assets to the publish location. 
     * Some solutions are available in the [JS Errors - Missing File]({%slug troubleshooting-js-errors%}#missing-file) article.
-    * Make sure that static assets are enabled both in the `Startup.cs` and in the `Program.cs` files so the server can use them even when the `ASPNETCORE_ENVIRONMENT` is _not_ set to `Development` - see the [What You Need - Static Assets]({%slug getting-started/what-you-need%}#static-assets) section.
-    * Some reports indicate that deploying to a Docker container never copies over the static assets and you may have to either copy the file manually, or use it from our CDN.
+    * When using `dotnet run` or `dotnet build` to publish an app, the static assets may not work when the `ASPNETCORE_ENVIRONMENT` is _not_ set to `Development`. This may be due to a missing server configuration for allowing static assets ([MSDN link](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-3.1&tabs=visual-studio#consume-content-from-a-referenced-rcl)). 
+    
+        Usually, the following in `Program.cs` of the server project solves the problem, or using `dotnet publish`, or publishing from Visual Studio:
+        
+        **C#**
+
+        
+            // Program.cs
+            namespace MyBlazorAppName
+            {
+                public class Program
+                {
+                    //more code may be present here
+                    
+                    //for a server project it may look like this
+                    public static IHostBuilder CreateHostBuilder(string[] args) =>
+                        Host.CreateDefaultBuilder(args)
+                            .ConfigureWebHostDefaults(webBuilder =>
+                            {
+                                webBuilder.UseStaticWebAssets(); // may be needed when ASPNETCORE_ENVIRONMENT is NOT set to Development
+                                webBuilder.UseStartup<Startup>();
+                            });
+
+
+                    //for a WASM project it may look like this
+                    public static IWebHost BuildWebHost(string[] args) =>
+                        WebHost.CreateDefaultBuilder(args)
+                            .UseConfiguration(new ConfigurationBuilder()
+                                .AddCommandLine(args)
+                                .Build())
+                            .UseStaticWebAssets() // may be needed when ASPNETCORE_ENVIRONMENT is NOT set to Development
+                            .UseStartup<Startup>()
+                            .Build();
+                }
+            }
+
+    * Some reports indicate that deploying to a Docker container never copies over the static assets and you may have to either copy the file manually, or use it from our CDN. This may be related to the static asset configuration above, however.
+
 * `Trial Message` - if the machine that performs the build has access to a trial version of our NuGet package, the framework may get confused and copy a trial assembly to the publish location and you may see the trial messages live. Solutions are available in the [Upgrade Troubleshooting - I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-message) article.
 
 We have also had reports that hosting a Server-side Blazor app on a cloud service, or even on a server that is relatively remote to the client, causes issues. The network latency may interrupt, break or re-arrange the SignalR packets and this can cause a variety of usability issues - from sluggish responses to wrong UI elements responding, or errors. If your users will have a large latency to the server, you may want to consider the Client-side (WASM) model or at least test what the experience is before rolling out to production.
