@@ -139,38 +139,38 @@ The DropDownList provides the following features:
 @result
 <br />
 
-<TelerikDropDownList @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="@initialValue">
+<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField"
+                     @bind-Value="@DdlValue" DefaultText="Select something">
 </TelerikDropDownList>
 
 <TelerikButton OnClick="@GetSelectedItem">Get Selected Item</TelerikButton>
 
 @code {
-	string result;
-    int initialValue {get;set;} = 5;
-	void GetSelectedItem()
-	{
-		if (myDdlRef.SelectedDataItem != null)
-		{
-			result = (myDdlRef.SelectedDataItem as MyDdlModel).MyTextField;
-		}
-		else
-		{
-			result = "no item selected";
-		}
+    string result;
+    int DdlValue { get; set; } = 5;
+    void GetSelectedItem()
+    {
+        // extract the data item from the data source by using the value
+        MyDdlModel selectedItem = myDdlData.Where(d => d.MyValueField == DdlValue).FirstOrDefault();
+        if (selectedItem != null)
+        {
+            result = selectedItem.MyTextField;
+        }
+        else
+        {
+            result = "no item selected";
+        }
 
-		StateHasChanged();
-	}
+        StateHasChanged();
+    }
 
-	//the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
-	Telerik.Blazor.Components.TelerikDropDownList<MyDdlModel, int> myDdlRef;
+    public class MyDdlModel
+    {
+        public int MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
 
-	public class MyDdlModel
-	{
-		public int MyValueField { get; set; }
-		public string MyTextField { get; set; }
-	}
-
-	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 }
 ````
 
