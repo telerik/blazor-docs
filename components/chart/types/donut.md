@@ -78,7 +78,9 @@ Donut series
 
 ## Donut Chart Specific Appearance Settings
 
-The donut chart is a variation of the Pie Chart graph type, and has the same features and behavior. You can read more about them in the [Pie Chart]({%slug components/chart/types/pie%}#pie-chart-specific-appearance-settings) article.
+>tip The donut chart is a variation of the Pie Chart graph type, and has the same features and behavior. You can read more about them in the [Pie Chart](pie#pie-chart-specific-appearance-settings) article. This includes features like setting colors for individual segments, exploded (separated) segments, rotation, whether to show the item in the legend. Just change the `Type` of the series to `Donut`.
+
+Here follow features specific to the donut chart that are not available in a pie chart.
 
 ### Hole Size
 
