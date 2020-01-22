@@ -14,6 +14,7 @@ The Grid component can use templates for:
 * [columns (cells)](#column-template)
 * [rows](#row-template)
 * [editing of a field](#edit-template)
+* [column header](#header-template)
 
 Like other Blazor content, they can receive a `context` argument that is the type of the model. To use templates, you must bind the grid to a named model.
 
@@ -222,6 +223,86 @@ Use a custom editor for a certain cell (a dropdown list)
 >caption The result from the code snippet above, after Edit was clicked on the first row and the user expanded the dropdown from the template
 
 ![](images/edit-template.png)
+
+
+## Header Template
+
+Bound columns render the name of the field or their `Title` in their header. Through the `HeaderTemplate`, you can define custom content there instead of the title text.
+
+>caption Sample Header Template
+
+````CSHTML
+@* Header templates override the built-in title but leave sorting indicators and filter menu icons *@
+
+<TelerikGrid Data="@MyData" Height="300px" Pageable="true" Sortable="true" FilterMode="@GridFilterMode.FilterMenu">
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.ID))" Title="This title will not be rendered">
+            <HeaderTemplate>
+                <div style="text-align:center">Id</div>
+                @* this is a block element and it will push the sorting indicator, keep this in mind *@
+            </HeaderTemplate>
+        </GridColumn>
+        <GridColumn Field="@(nameof(SampleData.Name))">
+            <HeaderTemplate>
+                Employee<br /><strong>Name</strong>
+            </HeaderTemplate>
+        </GridColumn>
+        <GridColumn Field="HireDate" Width="350px">
+            <HeaderTemplate>
+                Hire date<br />
+                <TelerikButton OnClick="@DoSomething">Do something</TelerikButton>
+                <br />
+                @{
+                    if (!string.IsNullOrEmpty(result))
+                    {
+                        <span style="color:red;">@result</span>
+                    }
+                    else
+                    {
+                        <div>something will appear here if you click the button</div>
+                    }
+                }
+            </HeaderTemplate>
+        </GridColumn>
+        <GridColumn>
+            <HeaderTemplate>
+                <span class="k-display-flex k-align-items-center">
+                    <TelerikIcon Icon="@IconName.Image" />
+                    Column with Icon
+                </span>
+            </HeaderTemplate>
+        </GridColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    string result { get; set; }
+    void DoSomething()
+    {
+        result = $"button in header template clicked on {DateTime.Now}, something happened";
+    }
+
+    public class SampleData
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
+    {
+        ID = x,
+        Name = "name " + x,
+        HireDate = DateTime.Now.AddDays(-x)
+    });
+}
+````
+
+>caption The result from the code snippet above
+
+![](images/header-template.png)
+
+>note Header Templates are not available for the `GridCheckboxColumn` and the `GridCommandColumn`.
 
 ## See Also
 
