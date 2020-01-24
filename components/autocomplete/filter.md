@@ -18,6 +18,8 @@ Filtering ignores casing and the default filter operator is `starts with`. You c
 
 To control when the filter list appears, set the `MinLength` parameter. This can be useful if you have a very large list of data.
 
+You can also implement custom filtering and set a data source dynamically through the [`OnRead` event]({%slug autocomplete-events%}#onread).
+
 >caption Filtering in the AutoComplete
 
 ````CSHTML
