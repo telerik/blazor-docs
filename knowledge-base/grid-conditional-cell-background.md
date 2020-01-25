@@ -86,3 +86,56 @@ When using a cell template, however, you put content inside the `<td>` element t
     });
 }
 ````
+
+>caption Change the built-in row backgrounds with CSS only
+
+````CSHTML
+<style>
+    .custom-row-colors .k-grid-table .k-master-row {
+        background-color: red;
+    }
+
+        .custom-row-colors .k-grid-table .k-master-row:hover {
+            background-color: pink;
+        }
+
+        .custom-row-colors .k-grid-table .k-master-row.k-alt {
+            background-color: green;
+        }
+
+            .custom-row-colors .k-grid-table .k-master-row.k-alt:hover {
+                background-color: cyan;
+            }
+</style>
+
+<TelerikGrid Data="@MyData" Height="400px" Class="custom-row-colors"
+             Pageable="true" Sortable="true" Groupable="true"
+             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
+             Resizable="true" Reorderable="true">
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
+
