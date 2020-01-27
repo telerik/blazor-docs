@@ -10,9 +10,9 @@ position: 5
 
 # MultiSelect Templates
 
-The AutoComplete component allows you to change what is rendered in its items, header and footer through templates.
+The MultiSelect component allows you to change what is rendered in its items, header and footer through templates.
 
-The examples below show how to use inner tags to set the templates. You can also do this through [RenderFragment](https://blazor.net/api/Microsoft.AspNetCore.Blazor.RenderFragment.html) objects that you can pass to the properties of the AutoComplete in its main tag.
+The examples below show how to use inner tags to set the templates. You can also do this through [RenderFragment](https://blazor.net/api/Microsoft.AspNetCore.Blazor.RenderFragment.html) objects that you can pass to the properties of the MultiSelect in its main tag.
 
 List of the available templates:
 
@@ -30,16 +30,16 @@ The Item template determines how the individual items are rendered in the dropdo
 ````CSHTML
 @* Define what renders for the items in the dropdown *@
 
-<TelerikAutoComplete Data="@Suggestions" @bind-Value="@Role" Placeholder="Write your position">
+<TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues" Placeholder="Write the roles you need">
     <ItemTemplate>
-        Are you a&nbsp;<strong>@context</strong>
+        Maybe a&nbsp;<strong>@context</strong>
     </ItemTemplate>
-</TelerikAutoComplete>
+</TelerikMultiSelect>
 
 @code{
-    string Role { get; set; }
+    List<string> TheValues { get; set; } = new List<string>();
 
-    List<string> Suggestions { get; set; } = new List<string> {
+    List<string> Roles { get; set; } = new List<string> {
         "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
     };
 }
@@ -47,27 +47,27 @@ The Item template determines how the individual items are rendered in the dropdo
 
 >caption The result from the code snippet above
 
-![](images/autocomplete-item-template.png)
+![](images/multiselect-item-template.png)
 
 ## Header
 
-The header is content that you can place above the list of items inside the dropdown element. It is always visible when the combobox is expanded. By default it is empty.
+The header is content that you can place above the list of items inside the dropdown element. It is always visible when the multiselect is expanded. By default it is empty.
 
 >caption Header Example
 
 ````CSHTML
 @* Define a header in the dropdown *@
 
-<TelerikAutoComplete Data="@Suggestions" @bind-Value="@Role" Placeholder="Write your position">
+<TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues" Placeholder="Write the roles you need">
     <HeaderTemplate>
-        <strong>Write your own if you don't see it in the list</strong>
+        <strong>Select one or more from the list</strong>
     </HeaderTemplate>
-</TelerikAutoComplete>
+</TelerikMultiSelect>
 
 @code{
-    string Role { get; set; }
+    List<string> TheValues { get; set; } = new List<string>();
 
-    List<string> Suggestions { get; set; } = new List<string> {
+    List<string> Roles { get; set; } = new List<string> {
         "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
     };
 }
@@ -75,7 +75,7 @@ The header is content that you can place above the list of items inside the drop
 
 >caption The result from the code snippet above
 
-![](images/autocomplete-header-template.png)
+![](images/multiselect-header-template.png)
 
 ## Footer
 
@@ -86,16 +86,16 @@ The footer is content that you can place below the list of items inside the drop
 ````CSHTML
 @* Define dropdown footer *@
 
-<TelerikAutoComplete Data="@Suggestions" @bind-Value="@Role" Placeholder="Write your position">
+<TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues" Placeholder="Write the roles you need">
     <FooterTemplate>
-        <h5>Total Positions: @Suggestions.Count()</h5>
+        <h5>Total New Positions: @TheValues?.Count()</h5>
     </FooterTemplate>
-</TelerikAutoComplete>
+</TelerikMultiSelect>
 
 @code{
-    string Role { get; set; }
+    List<string> TheValues { get; set; } = new List<string>();
 
-    List<string> Suggestions { get; set; } = new List<string> {
+    List<string> Roles { get; set; } = new List<string> {
         "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
     };
 }
@@ -103,7 +103,7 @@ The footer is content that you can place below the list of items inside the drop
 
 >caption The result from the code snippet above
 
-![](images/autocomplete-footer-template.png)
+![](images/multiselect-footer-template.png)
 
 ## See Also
 
