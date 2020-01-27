@@ -267,6 +267,13 @@ intro_columns:
     items:
       "Scheduler": "scheduler-overview"
       "Calendar": "components/calendar/overview"
+      
+  -
+    title: "Layout"
+    items:
+      "Window": "components/window/overview"
+      "Animation Container": "components/animationcontainer/overview"
+
 -
   categories:
   -
@@ -281,12 +288,8 @@ intro_columns:
       "DropDownList": "components/dropdownlist/overview"
       "ComboBox": "components/combobox/overview"
       "AutoComplete": "autocomplete-overview"
+      "MultiSelect": "multiselect-overview"
 
-  -
-    title: "Layout"
-    items:
-      "Window": "components/window/overview"
-      "Animation Container": "components/animationcontainer/overview"
 -
   categories:
   -
@@ -406,6 +409,7 @@ footer:
   title: "Sample Applications"
   links:
     "Dashboard": https://demos.telerik.com/blazor-dashboard-app/
+    "PWA - Stocks": https://demos.telerik.com/blazor-financial-portfolio
 
 
 footer_social:
