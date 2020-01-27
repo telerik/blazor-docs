@@ -10,7 +10,7 @@ position: 20
 
 # MultiSelect Events
 
-This article explains the events available in the Telerik AutoComplete for Blazor:
+This article explains the events available in the Telerik MultiSelect for Blazor:
 
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
@@ -19,25 +19,23 @@ This article explains the events available in the Telerik AutoComplete for Blazo
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every keystroke the user input.
+The `ValueChanged` event fires when the user selection changes (the user adds or removes items).
 
 >caption Handle ValueChanged
 
 ````CSHTML
 @result
 <br />
-<TelerikAutoComplete Data="@Suggestions" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
-</TelerikAutoComplete>
+<TelerikMultiSelect Data="@Roles" ValueChanged="@( (List<string> v) => MyValueChangeHandler(v) )" />
 
 @code{
-    string result;
-
-    private void MyValueChangeHandler(string theUserChoice)
+    string result { get; set; }
+    void MyValueChangeHandler(List<string> values)
     {
-        result = string.Format("The user wrote: {0}", theUserChoice);
+        result = $"there are now {values.Count} items selected";
     }
-
-    List<string> Suggestions { get; set; } = new List<string> {
+    
+    List<string> Roles { get; set; } = new List<string> {
         "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
     };
 }
@@ -53,25 +51,29 @@ The `ValueChanged` event fires upon every keystroke the user input.
 ````CSHTML
 @result
 <br />
-from model: @Role
+<TelerikMultiSelect Data="@Roles" Value="@TheValues" ValueChanged="@( (List<string> v) => MyValueChangeHandler(v) )" />
 <br />
-<TelerikAutoComplete Data="@Suggestions" Value="@Role" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
-</TelerikAutoComplete>
+from the model:
+<ul>
+    @foreach (var item in TheValues)
+    {
+        <li>@item</li>
+    }
+</ul>
 
 @code{
-    string result;
-
-    private void MyValueChangeHandler(string theUserChoice)
+    string result { get; set; }
+    void MyValueChangeHandler(List<string> values)
     {
-        result = string.Format("The user wrote: {0}", theUserChoice);
+        result = $"there are now {values.Count} items selected";
 
         //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        Role = theUserChoice;
+        TheValues = values;
     }
 
-    string Role { get; set; } = "Intern";
+    List<string> TheValues { get; set; } = new List<string>();
 
-    List<string> Suggestions { get; set; } = new List<string> {
+    List<string> Roles { get; set; } = new List<string> {
         "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
     };
 }
@@ -83,29 +85,36 @@ from model: @Role
 The `OnChange` event represents a user action - confirmation of the current value/item. The key differences with `ValueChanged` are:
 
 * `OnChange` does not prevent two-way binding (the `@bind-Value` syntax)
-* `OnChange` fires when the user presses `Enter` in the input, or blurs the input (for example, clicks outside of the input or dropdown). It does not fire on every keystroke, but it fires when an item is selected from the dropdown.
+* `OnChange` fires when the user presses `Enter` in the input, or blurs the input (for example, clicks outside of the input or dropdown).
+
+`OnChange` fires when an item is selected from the dropdown, just like `ValueChanged`.
 
 >caption Handle OnChange
 
 ````CSHTML
 @result
 <br />
-from model: @Role
+<TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues" OnChange="@MyOnChangeHandler" />
 <br />
-<TelerikAutoComplete Data="@Suggestions" @bind-Value="@Role" OnChange="@MyOnChangeHandler" >
-</TelerikAutoComplete>
+from the model:
+<ul>
+    @foreach (var item in TheValues)
+    {
+        <li>@item</li>
+    }
+</ul>
 
 @code{
-    string result;
-
-    private void MyOnChangeHandler(object theUserChoice)
+    string result { get; set; }
+    void MyOnChangeHandler(object theUserChoice)
     {
-        result = string.Format("The user confirmed: {0}", (string)theUserChoice);
+        List<string> theData = theUserChoice as List<string>;
+        result = $"there are now {theData.Count} items selected";
     }
 
-    string Role { get; set; }
+    List<string> TheValues { get; set; } = new List<string>();
 
-    List<string> Suggestions { get; set; } = new List<string> {
+    List<string> Roles { get; set; } = new List<string> {
         "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
     };
 }
@@ -116,27 +125,31 @@ from model: @Role
 You can use the he `OnRead` event to provide data to the component according to some custom logic and according to the current user input. The event fires when:
 
 * the component initializes
-* the user [filters]({%slug autocomplete-filter%})
+* the user [filters]({%slug multiselect-filter%})
 
 You can also call remote data through async operations.
 
->caption Custom Data according to the user input in the AutoComplete
+>caption Custom Data according to the user input in the MultiSelect
 
 ````CSHTML
-@SelectedValue
+@* this sample simulates fetching options based on the user input *@
+
+<TelerikMultiSelect Data="@Options" @bind-Value="@TheValues" OnRead="@ReadItems"
+                    Filterable="true" />
 <br />
-<TelerikAutoComplete Data="@Suggestions"
-                     OnRead="@ReadItems"
-                     Filterable="true"
-                     Placeholder="Find what you seek by typing"
-                     @bind-Value="@SelectedValue">
-</TelerikAutoComplete>
+selected values
+<ul>
+    @foreach (var item in TheValues)
+    {
+        <li>@item</li>
+    }
+</ul>
 
 @code{
-    public string SelectedValue { get; set; }
-    List<string> Suggestions { get; set; } = new List<string>();
+    List<string> TheValues { get; set; } = new List<string>();
+    List<string> Options { get; set; } = new List<string>();
 
-    async Task ReadItems(AutoCompleteReadEventArgs args)
+    async Task ReadItems(MultiSelectReadEventArgs args)
     {
         if (args.Request.Filters.Count > 0) // there is user filter input, skips providing data on initialization
         {
@@ -145,7 +158,7 @@ You can also call remote data through async operations.
             string method = filter.Operator.ToString();
 
             //new data collection comes down from the service
-            Suggestions = await GetSuggestionsData(userInput, method);
+            Options = await GetSuggestionsData(userInput, method);
         }
     }
 
@@ -153,15 +166,15 @@ You can also call remote data through async operations.
     {
         await Task.Delay(500); // simulate network delay, remove it for a real app
 
-        //sample logic for getting suggestions - here they are generated, you can call a remote service
+        //sample logic for getting options - here they are generated, you can call a remote service
         //for brevity, this example does not use the filter operator, but your actual service can
-        List<string> suggestionsData = new List<string>();
+        List<string> optionssData = new List<string>();
         for (int i = 0; i < 5; i++)
         {
-            suggestionsData.Add($"suggestion {i} for input {userInput}");
+            optionssData.Add($"suggestion {i} for input {userInput}");
         }
 
-        return suggestionsData;
+        return optionssData;
     }
 }
 ````
@@ -171,28 +184,30 @@ You can also call remote data through async operations.
 ````CSHTML
 @using Telerik.DataSource.Extensions
 
-@SelectedValue
+<TelerikMultiSelect Data="@CurrentOptions" @bind-Value="@TheValues" OnRead="@ReadItems"
+                    Filterable="true" />
 <br />
-<TelerikAutoComplete Data="@CurrentSuggestions"
-                    OnRead=@ReadItems
-                    Filterable="true"
-                    Placeholder="Find a car by typing part of its make"
-                    @bind-Value="@SelectedValue" ValueField="Make">
-</TelerikAutoComplete>
+selected values
+<ul>
+    @foreach (var item in TheValues)
+    {
+        <li>@item</li>
+    }
+</ul>
 
-@code {
-    public string SelectedValue { get; set; }
-    List<Car> AllSuggestions { get; set; }
+@code{
+    List<int> TheValues { get; set; } = new List<int>();
+    List<Car> AllOptions { get; set; }
 
-    List<Car> CurrentSuggestions { get; set; }
+    List<Car> CurrentOptions { get; set; } = new List<Car>();
 
-    protected async Task ReadItems(AutoCompleteReadEventArgs args)
+    async Task ReadItems(MultiSelectReadEventArgs args)
     {
         //generate the big data source that we want to narrow down for the user
         //in a real case you would probably have fetched it in OnInitializedAsync
-        if (AllSuggestions == null)
+        if (AllOptions == null)
         {
-            AllSuggestions = new List<Car>
+            AllOptions = new List<Car>
             {
                 new Car { Id = 1, Make = "Honda" },
                 new Car { Id = 2, Make = "Opel" },
@@ -214,10 +229,10 @@ You can also call remote data through async operations.
         }
 
         //use Telerik extension methods to filter the data source based on the request from the component
-        var datasourceResult = AllSuggestions.ToDataSourceResult(args.Request);
-        CurrentSuggestions = (datasourceResult.Data as IEnumerable<Car>).ToList();
+        var datasourceResult = AllOptions.ToDataSourceResult(args.Request);
+        CurrentOptions = (datasourceResult.Data as IEnumerable<Car>).ToList();
     }
-    
+
     public class Car
     {
         public int Id { get; set; }
