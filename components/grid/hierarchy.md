@@ -5,7 +5,7 @@ description: Enable and configure hierarchy and detail records in Grid for Blazo
 slug: components/grid/features/hierarchy
 tags: telerik,blazor,grid,hierarchy,detail,detail template
 published: True
-position: 23
+position: 25
 ---
 
 # Grid Hierarchy

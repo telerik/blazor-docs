@@ -64,7 +64,7 @@ navigation:
         position: 10
      "*components/grid/selection":
         title: "Selection"
-        position: 23
+        position: 24
      "*components/chart/types":
         title: "Types"
         position: 15
