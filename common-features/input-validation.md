@@ -25,6 +25,7 @@ This article provides examples of validating the Telerik Blazor components. The 
 * [Simple Inputs](#simple-inputs)
 * [DropDownList](#dropdownlist)
 * [ComboBox](#combobox)
+* [MultiSelect](#multiselect)
 
 
 
@@ -293,6 +294,51 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
 }
 ````
 
+
+
+## MultiSelect
+
+The MultiSelect has a value that is a `List` and the validation attributes must take that into account (for example, a regular expression attribute cannot work).
+
+>caption How to validated a MultiSelect
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations @* used for the model class attributes *@
+
+<EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <p class="languages">
+        Languages: <TelerikMultiSelect @bind-Value="@person.DevLanguages"
+                                       Placeholder="Programming languages you know"
+                                       Data="@DevSkills" />
+        <ValidationMessage For="@(() => person.DevLanguages)"></ValidationMessage>
+    </p>
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@code {
+    public class Person
+    {
+        [Required(ErrorMessage = "You must list the dev skills you have")]
+        [MinLength(3, ErrorMessage = "At least three languages are required so this application is considered")]
+        public List<string> DevLanguages { get; set; }
+    }
+
+    Person person = new Person();
+
+    List<string> DevSkills = new List<string>
+    {
+        "Blazor", "C#", "Python", "C", "C++", "Assembler", "Ruby", "Java", "JavaScript", "HTML", "CSS", "SQL", "PHP"
+    };
+
+    void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+}
+````
 
 ## See Also
 
