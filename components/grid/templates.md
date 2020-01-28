@@ -15,6 +15,9 @@ The Grid component can use templates for:
 * [rows](#row-template)
 * [editing of a field](#edit-template)
 * [column header](#header-template)
+* [column group footer](#column-group-footer)
+* [group header](#group-header)
+
 
 Like other Blazor content, they can receive a `context` argument that is the type of the model. To use templates, you must bind the grid to a named model.
 
@@ -303,6 +306,14 @@ Bound columns render the name of the field or their `Title` in their header. Thr
 ![](images/header-template.png)
 
 >note Header Templates are not available for the `GridCheckboxColumn` and the `GridCommandColumn`.
+
+## Column Group Footer
+
+When the grid is grouped, the columns can display a footer with information about the column data and some custom text/logic. The template is strongly typed and exposes the available aggregates values. For more information and examples, see the [Aggregates]({%slug grid-aggregates%}) article.
+
+## Group Header
+
+When the grid is grouped, the top row above the group provides information about the current group value by default. You can use this template to add custom content there in addition to the current value. For more information and examples, see the [Aggregates]({%slug grid-aggregates%}) article.
 
 ## See Also
 

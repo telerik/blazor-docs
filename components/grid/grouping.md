@@ -22,6 +22,8 @@ To remove a group setting, click the `[x]` button on its indicator in the group 
 
 To prevent grouping by a field, set `Groupable="false"` for on its column. This can be useful for fields with unique values like IDs or names.
 
+You can also use [aggregates]({%slug grid-aggregates%}) for the grouped data.
+
 >caption Enable grouping in Telerik Grid
 
 ````CSHTML
@@ -72,5 +74,6 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
 ## See Also
 
   * [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
+  * [Grid Aggregates]({%slug grid-aggregates%})
    
   
