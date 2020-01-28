@@ -40,6 +40,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 *  [Menu](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation)
 
+*  [MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation)
+
 *  [NumericTextBox](https://demos.telerik.com/blazor-ui/numerictextbox/keyboard-navigation)
 
 *  Scheduler - will have keyboard navigation in an upcoming release.
