@@ -14,7 +14,7 @@ The ComboBox component allows the user to filter the available items by their te
 
 To enable filtering, set the `Filterable` parameter to `true`.
 
-Filtering ignores casing and the default filter operator is `contains`. Filtering looks in the `TextField`, and the filter is reset when the dropdown closes. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
+Filtering ignores casing and the default filter operator is `starts with`. Filtering looks in the `TextField`, and the filter is reset when the dropdown closes. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
 
 You can also implement custom filtering and set a data source dynamically through the [`OnRead` event]({%slug components/combobox/events%}#onread).
 
