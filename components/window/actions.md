@@ -91,29 +91,35 @@ You can mix custom actions with built-in actions, and you do not have to define 
 >caption Mixing built-in actions with custom actions
 
 ````CSHTML
-You can define any collection of actions
+@* You can define any collection of actions. The second custom action shows all its features. *@
 
 <TelerikWindow Visible="true">
-	<WindowActions>
-		<WindowAction Name="Minimize" />
-		<WindowAction Name="MyAction" Icon="@IconName.Information" OnClick="@MyCustomActionHandler" />
-		<WindowAction Name="Maximize" />
-	</WindowActions>
-	<WindowContent>
-		@result
-		<br />
-		You can mix custom actions with the built-in ones in any order. If a custom action is used, its OnClick handler is mandatory.
-	</WindowContent>
+    <WindowActions>
+        <WindowAction Name="Minimize" />
+        <WindowAction Name="MyAction" Icon="@IconName.Information" OnClick="@MyCustomActionHandler" />
+        <WindowAction Name="Maximize" />
+        <WindowAction Hidden="@( string.IsNullOrEmpty(result) )"
+                      Icon="@IconName.ClearCss"
+                      Name="CustomActionWithAllParameters"
+                      Title="my custom title attribute that is a tooltip when you hover the action"
+                      OnClick="@( () => result = string.Empty )" />
+    </WindowActions>
+    <WindowContent>
+        @result
+        <br />
+        You can mix custom actions with the built-in ones in any order. If a custom action is used, its OnClick handler is mandatory.
+    </WindowContent>
+    <WindowTitle>Lorem ipsum</WindowTitle>
 </TelerikWindow>
 
 @code {
-	string result;
-	public void MyCustomActionHandler()
-	{
-		result = "custom action button clicked on: " + DateTime.Now.ToString();
+    string result;
+    public void MyCustomActionHandler()
+    {
+        result = "custom action button clicked on: " + DateTime.Now.ToString();
 
-		StateHasChanged();
-	}
+        StateHasChanged();
+    }
 }
 ````
 
