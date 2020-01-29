@@ -12,8 +12,6 @@ position: 5
 
 The MultiSelect component allows you to change what is rendered in its items, header and footer through templates.
 
-The examples below show how to use inner tags to set the templates. You can also do this through [RenderFragment](https://blazor.net/api/Microsoft.AspNetCore.Blazor.RenderFragment.html) objects that you can pass to the properties of the MultiSelect in its main tag.
-
 List of the available templates:
 
 * [Item Template](#item-template)

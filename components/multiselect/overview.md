@@ -70,7 +70,7 @@ The MultiSelect is a generic component and its type is determined by the type of
 
 >caption The MultiSelect provides the following features:
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the combobox.
+* `Class` - the CSS class that will be rendered on the main wrapping element of the multiselect.
 * `ClearButton` - whether the user will have the option to clear the selected items with a button on the input. When it is clicked, the `Value` will be updated to an empty list.
 * `Data` - allows you to provide the data source. Required.
 * `Enabled` - whether the component is enabled.
