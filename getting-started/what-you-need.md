@@ -79,23 +79,13 @@ Note that
 
 ## Project Configuration
 
-To have the framework recognize the Telerik Components, you must register them in the `Startup.cs` file of your Blazor project (if you are using client-side Blazor, this is the Client web application's file):
+To use the Telerik Components, you must add a few items to your projects. Depending on the type of project (server-side or client-side), the steps differ slightly in syntax.
 
-````Startup.cs
-namespace MyBlazorAppName
-{
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //more code may be present here
-            services.AddTelerikBlazor();
-        }
+1. Follow the [Common Configuration](#common-configuration) instructions
+2. Follow the section for your project type - [Client-side (WASM)](#client-side-project-specifics) or [Server-side](#server-side-project-specifics)
 
-        //more code may be present here
-    }
-}
-````
+
+### Common Configuration
 
 You can have the project recognize all our components without explicit `@using` statements on every `.razor` file. It is enough to add the following to your **`~/_Imports.razor`** file:
 
@@ -111,10 +101,60 @@ To allow working with detached popups (for example, dropdown lists, menus, grid 
 @[template](/_contentTemplates/common/get-started.md#telerik-main-container-snippet)
 ````
 
-### Client-side Project Considerations
+### Client-side Project Specifics
 
 If you are using a **client-side Blazor** project:
 @[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
+
+The final step is to register the Telerik services. In a client-side Blazor project, you do that in the `Program.cs` file of the WebAssembly (Client) project:
+
+````CS
+using Microsoft.AspNetCore.Blazor.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
+
+namespace ClientBlazorProject.Client // make sure this matches your actual WASM project namespace
+{
+    public class Program
+    {
+        public static async Task Main(string[] args)
+        {
+            // sample host builder for a WASM app, yours may differ
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            builder.RootComponents.Add<App>("app");
+            // there may be more code here
+            
+            // register the Telerik services
+            builder.Services.AddTelerikBlazor();
+
+            // there may be more code here
+            // sample host builder for a WASM app, yours may differ
+            await builder.Build().RunAsync();
+        }
+    }
+}
+````
+
+
+### Server-side Project Specifics
+
+The final step is to register the Telerik services. In a server-side Blazor project, you do that in the `Startup.cs` file:
+
+````CS
+namespace MyBlazorAppName
+{
+    public class Startup
+    {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            //more code may be present here
+            services.AddTelerikBlazor();
+        }
+
+        //more code may be present here
+    }
+}
+````
 
 
 ## See Also

@@ -55,23 +55,34 @@ For client-side `Blazor App`, we recommend the usage of `Blazor (ASP.NET Hosted)
 
 1. @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-client)
         
-1. Open the `~/Startup.cs` file in the client web application and register the Telerik Blazor service:
+1. Open the `~/Program.cs` file in the client web application and register the Telerik Blazor service:
 
     **C#**
     
-         namespace MyBlazorAppName.Client
-         {
-             public class Startup
-             {
-                 public void ConfigureServices(IServiceCollection services)
-                 {
-                     //more code may be present here
-                     services.AddTelerikBlazor();
-                 }
-                 
-                 //more code may be present here
-             }
-         }
+        using Microsoft.AspNetCore.Blazor.Hosting;
+        using Microsoft.Extensions.DependencyInjection;
+        using System.Threading.Tasks;
+        
+        namespace ClientBlazorProject.Client // make sure this matches your actual WASM project namespace
+        {
+            public class Program
+            {
+                public static async Task Main(string[] args)
+                {
+                    // sample host builder for a WASM app, yours may differ
+                    var builder = WebAssemblyHostBuilder.CreateDefault(args);
+                    builder.RootComponents.Add<App>("app");
+                    // there may be more code here
+                    
+                    // register the Telerik services
+                    builder.Services.AddTelerikBlazor();
+        
+                    // there may be more code here
+                    // sample host builder for a WASM app, yours may differ
+                    await builder.Build().RunAsync();
+                }
+            }
+        }
          
 1. Add the following to your **`~/_Imports.razor`** file so the project recognizes our components in all files:
 
