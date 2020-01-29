@@ -60,4 +60,4 @@ The priority order of the Icon properties, if more than one is defined, is
 ## See Also
 
   * [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web)
-  * [Live Demos](https://demos.telerik.com/blazor-ui)
+  * [Live Demos](https://demos.telerik.com/blazor-ui/)

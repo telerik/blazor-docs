@@ -131,5 +131,5 @@ The Telerik Bootstrap theme is not the same as the Bootstrap framework (or style
 
   * [Custom Themes]({%slug themes-custom%})
   * [Style Form Elements]({%slug themes-form-elements%})
-  * [Live Demos](https://demos.telerik.com/blazor-ui)
+  * [Live Demos](https://demos.telerik.com/blazor-ui/)
   * [Change Theme at Runtime]({%slug change-theme-runtime%})

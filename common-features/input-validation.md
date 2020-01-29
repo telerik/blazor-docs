@@ -343,5 +343,5 @@ The MultiSelect has a value that is a `List` and the validation attributes must 
 ## See Also
 
   * [Data Annotation attributes](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation)
-  * [Live Demos](https://demos.telerik.com/blazor-ui)
+  * [Live Demos](https://demos.telerik.com/blazor-ui/)
   * [ValueChanged and Validation]({%slug value-changed-validation-model%})
