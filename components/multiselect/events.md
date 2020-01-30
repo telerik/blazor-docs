@@ -185,7 +185,7 @@ selected values
 @using Telerik.DataSource.Extensions
 
 <TelerikMultiSelect Data="@CurrentOptions" @bind-Value="@TheValues" OnRead="@ReadItems"
-                    Filterable="true" />
+                    Filterable="true" ValueField="Id" TextField="Make" />
 <br />
 selected values
 <ul>
