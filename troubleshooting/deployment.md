@@ -77,6 +77,8 @@ At the time of writing, sometimes the following issues have been reported that p
 
     * Some reports indicate that deploying to a Docker container never copies over the static assets and you may have to either copy the file manually, or use it from our CDN. This may be related to the static asset configuration above, however.
 
+* `.pdb` files being requested and requests failing in a published WASM app deployed on IIS - you can follow its status in the following issue: [https://github.com/dotnet/aspnetcore/issues/18655](https://github.com/dotnet/aspnetcore/issues/18655).
+
 * `Trial Message` - if the machine that performs the build has access to a trial version of our NuGet package, the framework may get confused and copy a trial assembly to the publish location and you may see the trial messages live. Solutions are available in the [Upgrade Troubleshooting - I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-message) article.
 
 We have also had reports that hosting a Server-side Blazor app on a cloud service, or even on a server that is relatively remote to the client, causes issues. The network latency may interrupt, break or re-arrange the SignalR packets and this can cause a variety of usability issues - from sluggish responses to wrong UI elements responding, or errors. If your users will have a large latency to the server, you may want to consider the Client-side (WASM) model or at least test what the experience is before rolling out to production.
