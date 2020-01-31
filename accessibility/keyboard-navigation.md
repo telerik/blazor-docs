@@ -36,7 +36,7 @@ The following list shows the Telerik components that support specific keyboard c
 
 *  [DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation)
 
-*  [Grid](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation)
+*  [Grid](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation) (set `Navigable="true"`)
 
 *  [Menu](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation)
 
