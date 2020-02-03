@@ -30,11 +30,11 @@ Use the `ValueChanged` event to update the model value and to filter the data fo
 
 >caption Cascading DropDowns
 
-````CSHTML
+````DropDownList
 @* Cascading componentsare disabled based on the selection of their parents. Events on parent components
     trigger data loading for child components so they show relevant result only.
     You can also see how to get the selected model from a dropdown component.
-    This sample works with a ComboBox as well *@
+    The same approach works for a ComboBox (just use nullable values), see the next example *@
 
 <TelerikDropDownList Value="@CurrentOrder.CategoryId" Data="@Categories" DefaultText="Select Category"
                      TextField="CategoryName" ValueField="CategoryId"
@@ -166,6 +166,144 @@ else if(!string.IsNullOrEmpty(orderStatusMessage))
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public int Quantity { get; set; }
+    }
+}
+````
+````ComboBox
+@* The same approach works for the ComboBox, just make sure to use a nullable field so you can see the Placeholder *@
+
+<TelerikComboBox Value="@CurrentOrder.CategoryId" Data="@Categories" Placeholder="Select Category"
+                    TextField="CategoryName" ValueField="CategoryId" Filterable="true"
+                    ValueChanged="@( (int? c) => CategorySelected(c) )">
+</TelerikComboBox>
+
+<TelerikComboBox Value="@CurrentOrder.ProductId" Data="@CurrentProducts" Placeholder="Select Product" Filterable="true"
+                    TextField="ProductName" ValueField="ProductId" Enabled="@( CurrentOrder.CategoryId > 0 )"
+                    ValueChanged="@( (int? p) => ProductSelected(p) )">
+</TelerikComboBox>
+
+@* The last dropdown can use two-way binding, it does not need to filter subsequent data *@
+<TelerikComboBox @bind-Value="@CurrentOrder.Quantity" Data="@Quantities" Placeholder="Select Quantity"
+                    Enabled="@( CurrentOrder.ProductId > 0 )">
+</TelerikComboBox>
+
+<TelerikButton Enabled="@( CurrentOrder.Quantity > 0 )" OnClick="@SendOrder">Send Order</TelerikButton>
+
+@if (CurrentOrder.CategoryId > 0)
+{
+    <h5>Order Summary</h5>
+    @CurrentOrder.CategoryName
+    <br />
+    @CurrentOrder.ProductName
+    <br />
+    @CurrentOrder.Quantity
+}
+else if (!string.IsNullOrEmpty(orderStatusMessage))
+{
+    <div class="alert alert-success">@orderStatusMessage</div>
+}
+
+@code{
+    // data sources
+    List<Category> Categories { get; set; }
+    List<Product> AllProducts { get; set; }
+    List<Product> CurrentProducts { get; set; }
+    List<int> Quantities { get; set; }
+    // model
+    Order CurrentOrder { get; set; } = new Order();
+
+    string orderStatusMessage { get; set; } // UI related for the sample
+
+    // generate data we will be using in this example
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        Categories = Enumerable.Range(1, 6).Select(x => new Category
+        {
+            CategoryId = x,
+            CategoryName = $"Category {x}"
+        }).ToList();
+
+        AllProducts = Enumerable.Range(1, 50).Select(x => new Product
+        {
+            ProductId = x,
+            ProductName = $"Product {x}",
+            CategoryId = (int)Math.Ceiling((double)x % 7)
+        }).ToList();
+    }
+
+    //ValueChanged handlers - implementation of cascading dropdowns
+    void CategorySelected(int? category)
+    {
+        if (category == null) // the default value - the user selected the default item == deselected the current item
+        {
+            //reset the "form" / process
+            CurrentOrder = new Order();
+            return;
+        }
+
+        // cascade the selection by filtering the data for the next dropdown
+        CurrentProducts = AllProducts.Where(p => p.CategoryId == category).ToList();
+
+        // get the selected model from the data source
+        Category SelectedCategory = Categories.Where(c => c.CategoryId == category).First();
+
+        // business logic
+        CurrentOrder.CategoryId = SelectedCategory.CategoryId;
+        CurrentOrder.CategoryName = SelectedCategory.CategoryName;
+    }
+
+    void ProductSelected(int? product)
+    {
+        if (product == null) // the default value - the user selected the default item == deselected the current item
+        {
+            //reset the "form" / process
+            CurrentOrder.ProductId = product;
+            CurrentOrder.ProductName = string.Empty;
+            CurrentOrder.Quantity = 0;
+            return;
+        }
+
+        Random rnd = new Random();
+        Quantities = Enumerable.Range(1, new Random().Next(5, 10)).ToList();
+
+        Product SelectedProduct = AllProducts.Where(p => p.ProductId == product).First();
+
+        CurrentOrder.ProductId = SelectedProduct.ProductId;
+        CurrentOrder.ProductName = SelectedProduct.ProductName;
+    }
+
+    // sample notification of success and reseting of the process, data classes
+    async void SendOrder()
+    {
+        CurrentOrder = new Order();
+        orderStatusMessage = "Thank you for your order!";
+        await Task.Delay(2000);
+        orderStatusMessage = "";
+        StateHasChanged();
+    }
+
+    public class Category
+    {
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
+    }
+
+    public class Product
+    {
+        public int CategoryId { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+    }
+
+    public class Order
+    {
+        public int? CategoryId { get; set; }
+        public string CategoryName { get; set; }
+        public int? ProductId { get; set; }
         public string ProductName { get; set; }
         public int Quantity { get; set; }
     }
