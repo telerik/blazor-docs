@@ -309,4 +309,156 @@ else if (!string.IsNullOrEmpty(orderStatusMessage))
     }
 }
 ````
+````MultiSelect
+@using System.Collections.ObjectModel
+
+<TelerikMultiSelect Value="@CurrentOrder.Categories" Data="@Categories" Placeholder="Select Categories"
+                    TextField="CategoryName" ValueField="CategoryId" Filterable="true"
+                    ValueChanged="@( (List<int> c) => CategorySelected(c) )">
+</TelerikMultiSelect>
+
+<TelerikMultiSelect Value="@CurrentOrder.Products" Data="@CurrentProducts" Placeholder="Select Products" Filterable="true"
+                    TextField="ProductName" ValueField="ProductId" Enabled="@( CurrentOrder.Categories.Count > 0 )"
+                    ValueChanged="@( (List<int> p) => ProductSelected(p) )">
+</TelerikMultiSelect>
+
+@* This sample has only two dropdowns as even dummy data becomes rather long for a multiselect scenario, even for a demo
+    The last item could use @bind-Value instead of a handler, this just showcases the main concept. *@
+
+<TelerikButton Enabled="@( CurrentOrder.Products.Count > 0 )" OnClick="@SendOrder">Send Order</TelerikButton>
+
+@if (CurrentOrder.Products.Count > 0)
+{
+    <h5>Order Summary</h5>
+    <ul>
+        @foreach (var item in CurrentOrder.ChosenProducts)
+        {
+            <li>@item.ProductName from category @item.CategoryId</li>
+        }
+    </ul>
+}
+else if (!string.IsNullOrEmpty(orderStatusMessage))
+{
+    <div class="alert alert-success">@orderStatusMessage</div>
+}
+
+@code{
+    // data sources
+    List<Category> Categories { get; set; }
+    List<Product> AllProducts { get; set; }
+    ObservableCollection<Product> CurrentProducts { get; set; } = new ObservableCollection<Product>();
+    // model
+    Order CurrentOrder { get; set; } = new Order();
+
+    string orderStatusMessage { get; set; } // UI related for the sample
+
+    // generate data we will be using in this example
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        Categories = Enumerable.Range(1, 6).Select(x => new Category
+        {
+            CategoryId = x,
+            CategoryName = $"Category {x}"
+        }).ToList();
+
+        AllProducts = Enumerable.Range(1, 50).Select(x => new Product
+        {
+            ProductId = x,
+            ProductName = $"Product {x}",
+            CategoryId = (int)Math.Ceiling((double)x % 7)
+        }).ToList();
+    }
+
+    //ValueChanged handlers - implementation of cascading dropdowns
+    void CategorySelected(List<int> categories)
+    {
+        if (categories.Count == 0) // the user deselected all
+        {
+            //reset the "form" / process
+            CurrentOrder = new Order();
+            return;
+        }
+
+        // cascade the selection by filtering the data for the next dropdown
+        CurrentProducts.Clear();
+        foreach (var item in categories)
+        {
+            var productForCategory = AllProducts.Where(p => p.CategoryId == item);
+            foreach (var p in productForCategory)
+            {
+                CurrentProducts.Add(p);
+            }
+        }
+        CurrentProducts.OrderBy(p => p.ProductId);
+
+
+        // get the selected models from the data source and use them
+        CurrentOrder.Categories.Clear();
+        CurrentOrder.ChosenCategories.Clear();
+        foreach (var item in categories)
+        {
+            Category SelectedCategory = Categories.Where(c => c.CategoryId == item).First();
+            CurrentOrder.Categories.Add(item);
+            // business logic
+            CurrentOrder.ChosenCategories.Add(SelectedCategory);
+        }
+    }
+
+    void ProductSelected(List<int> products)
+    {
+        if (products.Count == 0) // the user deselected all
+        {
+            //reset the "form" / process
+            CurrentOrder.Products = new List<int>();
+            CurrentOrder.ChosenProducts = new List<Product>();
+            return;
+        }
+
+
+        // get the selected models from the data source and use them
+        CurrentOrder.Products.Clear();
+        CurrentOrder.ChosenProducts.Clear();
+        foreach (var item in products)
+        {
+            Product SelectedProduct = AllProducts.Where(p => p.ProductId == item).First();
+            CurrentOrder.Products.Add(item);
+            // business logic
+            CurrentOrder.ChosenProducts.Add(SelectedProduct);
+        }
+    }
+
+    // sample notification of success and resetting of the process, data classes
+    async void SendOrder()
+    {
+        CurrentOrder = new Order();
+        orderStatusMessage = "Thank you for your order!";
+        await Task.Delay(2000);
+        orderStatusMessage = "";
+        StateHasChanged();
+    }
+
+    public class Category
+    {
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
+    }
+
+    public class Product
+    {
+        public int CategoryId { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+    }
+
+    public class Order
+    {
+        public List<int> Categories { get; set; } = new List<int>();
+        public List<int> Products { get; set; } = new List<int>();
+        public List<Category> ChosenCategories { get; set; } = new List<Category>();
+        public List<Product> ChosenProducts { get; set; } = new List<Product>();
+    }
+}
+````
 
