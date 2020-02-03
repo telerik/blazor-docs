@@ -242,7 +242,17 @@ Bound columns render the name of the field or their `Title` in their header. Thr
         <GridColumn Field="@(nameof(SampleData.ID))" Title="This title will not be rendered">
             <HeaderTemplate>
                 <div style="text-align:center">Id</div>
-                @* this is a block element and it will push the sorting indicator, keep this in mind *@
+                @* this is a block element and it will push the sorting indicator, keep this in mind
+                A rule like this one can move the sort indicator out of the static order of the elements
+                <style>
+                .k-grid th.k-header .k-icon.k-i-sort-asc-sm,
+                .k-grid th.k-header .k-icon.k-i-sort-desc-sm {
+                    position: absolute;
+                    right: 0;
+                    top: 8px;
+                }
+                </style>
+                *@
             </HeaderTemplate>
         </GridColumn>
         <GridColumn Field="@(nameof(SampleData.Name))">
