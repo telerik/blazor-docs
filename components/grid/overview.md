@@ -3,14 +3,14 @@ title: Overview
 page_title: Grid for Blazor Overview
 description: Overview of the Grid for Blazor
 slug: components/grid/overview
-tags: telerik,blazor,grid,overview
+tags: telerik,blazor,grid,datagrid,overview
 published: True
 position: 0
 ---
 
-# Grid Overview
+# Blazor Grid Component Overview
 
-This article provides basic information about the Grid component.
+This article provides basic information about the Blazor Grid component.
 
 To create a basic Telerik Grid:
 
@@ -56,10 +56,10 @@ General grid with its most common features
 
 >caption The result from the code snippet above
 
-![](images/basic-grid.png)
+![Blazor DataGrid Component Example](images/basic-grid.png)
 
 
-## Reference
+## Blazor Grid Reference
 
 The grid is a generic component, and to store a reference, you must use the model type that you pass to its `Data` when declaring the variable.
 
@@ -122,7 +122,7 @@ The grid can sort data automatically. You can read more about this feature in th
 
 ## Filtering
 
-The grid can filter data automatically. You can read more about thsi feature in the [Filtering]({%slug components/grid/filtering%}) article.
+The grid can filter data automatically. You can read more about this feature in the [Filtering]({%slug components/grid/filtering%}) article.
 
 ## Grouping
 
@@ -217,7 +217,7 @@ original:
 
 >caption The result from the reduced font size is a reduction in the overall size of the grid elements
 
-![](images/grid-reduced-font-size.png)
+![Blazor Grid Component Reduced Font Size Example](images/grid-reduced-font-size.png)
 
 ## See Also
 
