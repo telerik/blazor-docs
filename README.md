@@ -9,7 +9,7 @@ Welcome to the GitHub repo for [UI for Blazor](https://www.telerik.com/products/
 
 If you've arrived here wanting to search and peruse our docs, you'd be better served heading over to [http://docs.telerik.com/blazor-ui/introduction](http://docs.telerik.com/blazor-ui/introduction) where our content is prettified and searchable.
 
-**Pull Requests are welcome!** If you see mistakes or missing info, fix it in a PR, **or open an Issue**. This will help everyone have better documentation.
+**Pull Requests are welcome!** If you see mistakes or missing info, fix it in a PR (you may need to fork the repo for something larger than a typo you can fix online), **or open an Issue**. This will help everyone have better documentation.
 
 ## Running Locally
 
