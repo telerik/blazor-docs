@@ -29,12 +29,24 @@
         <head>
           . . .
           <script src="_content/telerik.ui.for.blazor/js/telerik-blazor.js" defer></script>
+          
           <!-- For Trial licenses use
             <script src="_content/telerik.ui.for.blazor.trial/js/telerik-blazor.js" defer></script>
           -->
         </head>
 #end
 
+
+#theme-static-asset-snippet
+        <head>
+          . . .
+            <link rel="stylesheet" href="_content/telerik.ui.for.blazor/css/kendo-theme-default/all.css" />
+            
+            <!-- For Trial licenses use
+                <link rel="stylesheet" href="_content/telerik.ui.for.blazor.trial/css/kendo-theme-default/all.css" />
+              -->
+        </head>
+#end
 
 #enable-static-assets
     To enable the use of static assets in your project, make sure you have the following line to your **Server** project `Startup.cs` file:
@@ -64,17 +76,7 @@
         }
 #end
 
-#js-interop-file-snippet-cdn
-    **HTML**
 
-        <head>
-          . . .
-          <script src="https://kendo.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/telerik-blazor.min.js" defer></script>
-        </head>
-        
-    >note Make sure that the version in the URL matches the version of the Telerik UI for Blazor package.
-
-#end
 
 #app-paths
  Add the following to your main index file. For a server-side Blazor app it is `~/Pages/_Host.cshtml`, and for a client-side Blazor app, it is `wwwroot/index.html`.

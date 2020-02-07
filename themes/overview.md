@@ -21,38 +21,28 @@ These themes are shared with the Kendo UI suites with which the UI for Blazor su
 
 To use a theme, you must reference its stylesheet in the `<head>` of your main index file. For a [client-side Blazor app]({%slug getting-started/client-side%}), this is `wwwroot/index.html` and for a [server-side Blazor app]({%slug getting-started/server-side%}), it is `~/Pages/_Host.cshtml`. The Razor syntax for a server application differs and you need to escape the `@` symbols as `@@`.
 
->caption Reference the Telerik theme from the cloud
 
-````ClientApp
+>caption Reference the Telerik theme from the static assets
+
+````HTML
 <!DOCTYPE html>
 <html>
 <head>
     . . .
-    <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
+    <link rel="stylesheet" href="_content/telerik.ui.for.blazor/css/kendo-theme-default/all.css" />
     
     <!-- Choose only one of the themes -->
     <!-- 
-        <link href="https://unpkg.com/@progress/kendo-theme-bootstrap@latest/dist/all.css" rel="stylesheet" />
-        <link href="https://unpkg.com/@progress/kendo-theme-material@latest/dist/all.css" rel="stylesheet" />
+        <link href="_content/telerik.ui.for.blazor/css/kendo-theme-bootstrap/all.css" rel="stylesheet" />
+        <link href="_content/telerik.ui.for.blazor/css/kendo-theme-material/all.css" rel="stylesheet" />
     -->
-</head>
-
- . . .
- 
-</html>
-````
-````ServerApp
-<!DOCTYPE html>
-<html>
-<head>
-    . . .
-    <link rel="stylesheet" href="https://unpkg.com/@@progress/kendo-theme-default@@latest/dist/all.css" />
     
-    <!-- Choose only one of the themes -->
-    <!-- 
-        <link href="https://unpkg.com/@@progress/kendo-theme-bootstrap@@latest/dist/all.css" rel="stylesheet" />
-        <link href="https://unpkg.com/@@progress/kendo-theme-material@@latest/dist/all.css" rel="stylesheet" />
-    -->
+    <!-- For Trial licenses use one of the following -->
+    <!--
+        <link href="_content/telerik.ui.for.blazor.trial/css/kendo-theme-default/all.css" rel="stylesheet" />
+        <link href="_content/telerik.ui.for.blazor.trial/css/kendo-theme-bootstrap/all.css" rel="stylesheet" />
+        <link href="_content/telerik.ui.for.blazor.trial/css/kendo-theme-material/all.css" rel="stylesheet" />
+      -->
 </head>
 
  . . .
@@ -60,11 +50,15 @@ To use a theme, you must reference its stylesheet in the `<head>` of your main i
 </html>
 ````
 
->note We are considering a better CDN option. Until then, you can use the unpkg workaround above, or local dependency management as described below.
+
+## CDN
+
+@[template](/_contentTemplates/common/general-info.md#cdn)
+
 
 ## Optional Dependency Management
 
-Instead of a CDN link, you can fetch the stylesheet into your project. To do this, you can use the [LibMan client-side dependency manager](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/?view=aspnetcore-2.2) that is built-in ASP.NET Core:
+Instead of a CDN or our static assets, you can fetch the stylesheet into your project to, for example, customize the theme, or to bundle it with other stylesheets. To do this, you can use the [LibMan client-side dependency manager](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/?view=aspnetcore-2.2) that is built-in ASP.NET Core:
 
 1. In the server application root, add the `libman.json` file with the following content:
 

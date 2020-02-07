@@ -45,15 +45,15 @@ To use Blazor server-side, you need to use the `Blazor App` type of project with
     
          ![Add Telerik Blazor Package to the project](images/add-telerik-nuget-to-server-app.png)
 
-        
-1. Open the `~/Pages/_Host.cshtml` and register the [Theme stylesheet]({%slug general-information/themes%}) (note the escaping for the `@` symbol):
 
-    **HTML**
-    
-        <link rel="stylesheet" href="https://unpkg.com/@@progress/kendo-theme-default@@latest/dist/all.css" />
+1. @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-server)
+
+        
+1. Open the `~/Pages/_Host.cshtml` and register the [Theme stylesheet]({%slug general-information/themes%}):
+
+@[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
         
       
-1. @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-server)
         
 1. Open the `~/Startup.cs` file in the and register the Telerik Blazor service:
 

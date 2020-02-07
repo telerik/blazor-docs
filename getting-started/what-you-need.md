@@ -47,35 +47,35 @@ There are four ways to get these packages:
 To have the Telerik Blazor components look and behave as expected in the browser, you need the some assets. 
 @[template](/_contentTemplates/common/js-interop-file.md#app-paths)
 
+
 * Our component's stylesheet. You can read more about it in the [Themes]({%slug general-information/themes%}) article. Here is a short example:
 
-    **HTML**
-    
-        <head>
-            . . .
-            <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
-        </head>
-        
-    >note For a server-side app, escape the `@` symbols as `@@`.
+@[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
+
 
 * Our JS Interop file. It provides features that cannot be implemented with native Blazor.
 
-@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet-cdn)
+@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-   >tip We recommend using the [static assets](#static-assets) approach instead of a CDN, because it relies on the static assets feature from the framework, and takes the correct file from our package, so you don't have to remember to update the CDN path when upgrading to a newer version.
-    
 
 ### Static Assets
 
-You can add the JS Interop file as a [static asset](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-3.1&tabs=visual-studio#consume-content-from-a-referenced-rcl) from our package, instead of using a CDN. Static assets (the `_content` folder) are automatically included in the solution from the NuGet package, so all that's needed is then to reference the asset as shown below. The `_content` folder is expanded by the framework into the local nuget cache, and the project copies it from there.
+You can add the JS Interop file as a [static asset](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-3.1&tabs=visual-studio#consume-content-from-a-referenced-rcl) from our package. Static assets (the `_content` folder) are automatically included in the solution from the NuGet package during build, so all that's needed is then to reference the asset as shown below. The `_content` folder is expanded by the framework into the local nuget cache, and the project copies it from there.
 
-    **HTML**
-    
-@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
+
 
 Note that
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets)
 
+
+### CDN
+
+@[template](/_contentTemplates/common/general-info.md#cdn)
+
+
+>tip We recommend using the [static assets](#static-assets) approach instead of a CDN, because it relies on the static assets feature from the framework, and takes the correct file from our package, so you don't have to remember to update the CDN path when upgrading to a newer version.
+   
+   
 
 ## Project Configuration
 
