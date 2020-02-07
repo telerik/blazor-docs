@@ -48,7 +48,7 @@ Telerik UI for Blazor is distributed through our private NuGet feed.
 
 @[template](/_contentTemplates/common/get-started.md#start-trial)
 
-Follow the [Setup the Telerik Private NuGet Feed]({%slug installation/nuget%}) article to set it up in case you don't have it already.
+If you prefer to do the process yourself, follow the [Setup the Telerik Private NuGet Feed]({%slug installation/nuget%}) article to set it up manually in case you don't have it already.
 
 Once you have added the Telerik NuGet feed, continue with this tutorial.
 #end
@@ -75,7 +75,10 @@ To create a project manually, follow these steps:
 #end
 
 #start-trial
-If you don't have an active license, [start a UI for Blazor trial](https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor). The file this will download will install the [msi package]({%slug installation/msi%}). While you can use it as an offline feed, we recommend that you use our [online feed]({%slug installation/nuget%}).
+If you don't have an active license, [start a UI for Blazor trial](https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor). The file this will let you download and install the components, and will also let you setup our [online NuGet feed]({%slug installation/nuget%}) automatically - make sure to select the "Set up Telerik NuGet package source" checkbox: 
+
+  ![Automatic Telerik NuGet feed installation](/getting-started/images/automated-nuget-feed-setup.png)
+
 #end
 
 #get-access
