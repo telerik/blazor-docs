@@ -53,6 +53,7 @@ The AutoComplete is a generic component and its type is determined by the type o
 * `Enabled` - whether the component is enabled.
 * `Filterable` - whether [filtering]({%slug autocomplete-filter%}) is enabled for the end user (suggestions will get narrowed down as they type).
 * `FilterOperator` - the string operation that will be used for [filtering]({%slug autocomplete-filter%}). Defaults to `StartsWith`.
+* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
 * `MinLength` - how many characters the text has to be before the suggestions list appears. Cannot be `0`. Often works together with [filtering]({%slug autocomplete-filter%}).
 * `Placeholder` - the text the user sees as a hint when there is no text in the input.
 * `PopupHeight` - the height of the expanded dropdown list element.

@@ -41,6 +41,9 @@ The Blazor Date Picker component exposes the following features:
 * `DisabledDates` - Specifies a list of dates that can not be selected.
 * `Enabled` - Specifies whether typing in the input is allowed.
 * `Format` - Specifies the format of the DateInput of the DatePicker. [Read more about supported data formats in Telerik DateInput for Blazor UI]({%slug components/dateinput/supported-formats%}) article.
+* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+* `Min` - The earliest date that the user can select.
+* `Max` - The latest date that the user can select.
 * `PopupHeight` - Defines the height of the DatePicker's Popup. Defaults to `auto`.
 * `PopupWidth` - Defines the width of the DatePicker's Popup. Defaults to `auto`.
 * `Value` - The current value of the input. Can be used for binding.

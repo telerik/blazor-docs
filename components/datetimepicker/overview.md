@@ -53,8 +53,9 @@ The DateTimePicker component exposes the following features:
 * `Class` - the custom CSS class rendered on the wrapping element.
 * `Enabled` - Specifies whether typing in the input and opening the dropdown are allowed.
 * `Format` - Specifies the format of the DateInput of the DateTimePicker. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.
-* `Min` - The earliest date and time that the user can select in the dropdown.
-* `Max` - The latest date and time that the user can select in the dropdown.
+* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+* `Min` - The earliest date and time that the user can select.
+* `Max` - The latest date and time that the user can select.
 * `Value` - The current value of the input. Can be used for binding.
 * `Width` - Defines the width of the DateTimePicker.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.

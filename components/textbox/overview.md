@@ -34,6 +34,7 @@ The numeric textbox provides the following features:
 
 * `Class` - the CSS class that will be rendered on the `input` element.
 * `Enabled` - whether the `input` is enabled.
+* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
 * `Label` - the `label` element rendered next to the `input` to provide the user with information on its purpose.
 * `Value` - get/set the value of the input, can be used for binding.
 * `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.

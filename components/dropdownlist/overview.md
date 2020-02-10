@@ -87,6 +87,7 @@ The DropDownList provides the following features:
 * `Data` - allows you to provide the data source. Required.
 * `DefaultText` - sets the hint that is shown if no other item is selected (the `Value` does not match any item in the data source, or is not provided at all). The item this creates has the default value for the type of the `ValueField` (or, thus, the `Value`). For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. You can find examples in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article.
 * `Enabled` - whether the component is enabled.
+* `Id` - renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it.
 * `PopupHeight` - the height of the expanded dropdown list element.
 * `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
 * `TValue` - the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
