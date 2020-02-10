@@ -36,40 +36,48 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 >caption How to validate inputs
 
 ````CSHTML
-@using System.ComponentModel.DataAnnotations 
-@* used for the model class attributes only *@
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+@* The Id parameters are not mandatory for validation, they just show better forms integration *@
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
     <p class="name">
-        Name: <TelerikTextBox @bind-Value="@person.Name"></TelerikTextBox>
+        <label for="nameTextbox">Name:</label>
+        <TelerikTextBox @bind-Value="@person.Name" Id="nameTextbox"></TelerikTextBox>
         <ValidationMessage For="@(() => person.Name)"></ValidationMessage>
     </p>
     <p class="role">
-        <TelerikAutoComplete Data="@RoleSuggestions" @bind-Value="@person.Role"
+        <label for="roleAutoComplete">Role:</label>
+        <TelerikAutoComplete Data="@RoleSuggestions" @bind-Value="@person.Role" Id="roleAutoComplete"
                              Placeholder="Enter your role (can be free text)" ClearButton="true" />
         <ValidationMessage For="@(() => person.Role)"></ValidationMessage>
     </p>
     <p class="height">
-        Height (cm): <TelerikNumericTextBox @bind-Value="@person.Height" />
+        <label for="heightNumeric">Height (cm):</label>
+        <TelerikNumericTextBox @bind-Value="@person.Height" Id="heightNumeric" />
         <ValidationMessage For="@(() => person.Height)"></ValidationMessage>
     </p>
     <p class="birthday">
-        Birthday: <TelerikDateInput @bind-Value="@person.Birthday" Format="dd MMMM yyyy"></TelerikDateInput>
+        <label for="birthdayDateInput">Birthday:</label>
+        <TelerikDateInput @bind-Value="@person.Birthday" Format="dd MMMM yyyy" Id="birthdayDateInput"></TelerikDateInput>
         <ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
     </p>
     <p class="favorite-day">
-        Favorite date: <TelerikDatePicker @bind-Value="@person.FavoriteDay" Format="dd MMMM yyyy"></TelerikDatePicker>
+        <label for="favDayDatePicker">Favorite date:</label>
+        <TelerikDatePicker @bind-Value="@person.FavoriteDay" Format="dd MMMM yyyy" Id="favDayDatePicker"></TelerikDatePicker>
         <ValidationMessage For="@(() => person.FavoriteDay)"></ValidationMessage>
     </p>
     <p class="daily-scrum">
-        Daily scrum: <TelerikTimePicker @bind-Value="@person.DailyScrum"></TelerikTimePicker>
+        <label for="scrumTimePicker">Daily scrum:</label>
+        <TelerikTimePicker @bind-Value="@person.DailyScrum" Id="scrumTimePicker"></TelerikTimePicker>
         <ValidationMessage For="@(() => person.DailyScrum)"></ValidationMessage>
     </p>
     <p class="start-time">
-        Start time: <TelerikDateTimePicker Format="G" @bind-Value="@person.StartTime" Width="250px"></TelerikDateTimePicker>
+        <label for="dayStartDateTimePicker">Start time:</label>
+        <TelerikDateTimePicker Format="G" @bind-Value="@person.StartTime" Width="250px" Id="dayStartDateTimePicker"></TelerikDateTimePicker>
         <ValidationMessage For="@(() => person.StartTime)"></ValidationMessage>
     </p>
     <p class="accepts-terms">
@@ -148,19 +156,22 @@ This means that for required field validation to work, the current item must hav
 >caption How to validate a dropdownlist
 
 ````CSHTML
-@using System.ComponentModel.DataAnnotations // used for the model class attributes
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+@* The Id parameter is not mandatory for validation, ut just shows better forms integration *@
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
     <p class="gender">
-        Gender: <TelerikDropDownList @bind-Value="person.Gender" DefaultText="Select gender"
-                                     Data="@genders" TextField="MyTextField" ValueField="MyValueField">
+        <label for="genderDropdownlist">Gender:</label>
+        <TelerikDropDownList @bind-Value="person.Gender" DefaultText="Select gender" Id="genderDropdownlist"
+                             Data="@genders" TextField="MyTextField" ValueField="MyValueField">
         </TelerikDropDownList>
         <ValidationMessage For="@(() => person.Gender)"></ValidationMessage>
     </p>
 
-    <button type="submit">Submit</button>
+    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
 </EditForm>
 
 @code {
@@ -205,19 +216,22 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
 >caption How to validate a combobox without custom values
 
 ````CSHTML
-@using System.ComponentModel.DataAnnotations @*used for the model class attributes*@
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+@* The Id parameter is not mandatory for validation, ut just shows better forms integration *@
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
     <p class="team">
-        Team: <TelerikComboBox @bind-Value="person.Team" Placeholder="Select team" ClearButton="true"
-                                     Data="@teams" TextField="MyTextField" ValueField="MyValueField">
+        <label for="teamCombobox">Team:</label>
+        <TelerikComboBox @bind-Value="person.Team" Placeholder="Select team" ClearButton="true" Id="teamCombobox"
+                               Data="@teams" TextField="MyTextField" ValueField="MyValueField">
         </TelerikComboBox>
         <ValidationMessage For="@(() => person.Team)"></ValidationMessage>
     </p>
 
-    <button type="submit">Submit</button>
+    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
 </EditForm>
 
 @code {
@@ -252,12 +266,15 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
         Console.WriteLine("OnValidSubmit");
     }
 }
+
 ````
 
 >caption How to validate a combobox with custom values
 
 ````CSHTML
-@using System.ComponentModel.DataAnnotations @*used for the model class attributes*@
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+@* The Id parameter is not mandatory for validation, ut just shows better forms integration *@
 
 @*You can still use a full model, primitive types are used for brevity here*@
 
@@ -265,11 +282,12 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
     <DataAnnotationsValidator />
     <ValidationSummary />
     <p class="team">
-        Team: <TelerikComboBox Data="@ExistingTeams" @bind-Value="person.Team" AllowCustom="true" ClearButton="true"></TelerikComboBox>
+        <label for="teamComboBox">Team:</label>
+        <TelerikComboBox Data="@ExistingTeams" @bind-Value="person.Team" AllowCustom="true" ClearButton="true" Id="teamComboBox"></TelerikComboBox>
         <ValidationMessage For="@(() => person.Team)"></ValidationMessage>
     </p>
 
-    <button type="submit">Submit</button>
+    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
 </EditForm>
 
 @code {
@@ -277,7 +295,7 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
     public class Person
     {
         [Required(ErrorMessage = "Team is mandatory.")]//the combo must be empty for this to take effect
-        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", 
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$",
          ErrorMessage = "Characters are not allowed.")] // Allow up to 40 uppercase and lowercase symbols, no special characters
                                                         // Applies to custom values as well as values from the data source.
         public string Team { get; set; }
@@ -303,19 +321,23 @@ The MultiSelect has a value that is a `List` and the validation attributes must 
 >caption How to validated a MultiSelect
 
 ````CSHTML
-@using System.ComponentModel.DataAnnotations @* used for the model class attributes *@
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+@* The Id parameter is not mandatory for validation, ut just shows better forms integration *@
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
     <p class="languages">
-        Languages: <TelerikMultiSelect @bind-Value="@person.DevLanguages"
+        <label for="languagesMultiSelect">Languages:</label>
+        <TelerikMultiSelect @bind-Value="@person.DevLanguages"
                                        Placeholder="Programming languages you know"
-                                       Data="@DevSkills" />
+                                       Data="@DevSkills"
+                                       Id="languagesMultiSelect"/>
         <ValidationMessage For="@(() => person.DevLanguages)"></ValidationMessage>
     </p>
 
-    <button type="submit">Submit</button>
+    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
 </EditForm>
 
 @code {
@@ -329,7 +351,7 @@ The MultiSelect has a value that is a `List` and the validation attributes must 
     Person person = new Person();
 
     List<string> DevSkills = new List<string>
-    {
+{
         "Blazor", "C#", "Python", "C", "C++", "Assembler", "Ruby", "Java", "JavaScript", "HTML", "CSS", "SQL", "PHP"
     };
 
