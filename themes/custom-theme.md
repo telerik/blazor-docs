@@ -12,6 +12,19 @@ position: 3
 
 By customizing themes you can alter the default appearance of the Telerik components so they match the desired color scheme from your designers and fit with the rest of your site's coloring and style.
 
+This article contains the following sections:
+
+* [Using the Sass Theme Bulder](#using-the-sass-theme-bulder)
+	* [Create New Theme](#create-new-theme)
+	* [Modifying Themes](#modifying-themes)
+	* [Import Custom Theme](#import-custom-theme)
+	* [Use The Custom Theme In Your Project](#use-the-custom-theme-in-your-project)
+* [Manual Alternative](#manual-alternative)
+	* [Using the Build Process of the Application](#using-the-build-process-of-the-application)
+	* [Using the Build Process of the Themes](#using-the-build-process-of-the-themes)
+	* [Using Variables](#using-variables)
+* [Contribution](#contribution)
+
 
 ## Using the Sass Theme Bulder
 
@@ -94,7 +107,6 @@ For the full list of variables that can be modified in a theme, refer to the [Us
 
 To build a custom theme by using the theme variables, apply either of the following approaches:
 
-(Recommended) Use the build process of your application—This approach simplifies the upgrades to new theme package versions.
 * [(Recommended) Use the build process of your application](#using-the-build-process-of-the-application)&mdash;This approach simplifies the upgrades to new theme package versions.
 * [Use the build process of the themes](#using-the-build-process-of-the-themes)&mdash;This approach requires you to build the theme each time the theme packages are updated.
 
@@ -141,7 +153,12 @@ To customize a Sass-based theme, create a `.scss` file and consume the theme pac
 
 ### Using the Build Process of the Themes
 
-While each Sass-based theme has a dedicated NPM package (for example, @progress/kendo-theme-default), the source code for all themes is located in the [kendo-themes](https://github.com/telerik/kendo-themes) repository which contains a build task that compiles the theme sources to CSS. To customize a theme, modify the source code of the theme and use the build task to produce a CSS file for your application. This approach avoids the need for a setting up a build configuration when you compile SCSS, but may be harder to maintain as the process has to be repeated each time a theme is updated.
+While each Sass-based theme has a dedicated NPM package (for example, @progress/kendo-theme-default), the source code for all themes is located in the [kendo-themes](https://github.com/telerik/kendo-themes) repository which contains a build task that compiles the theme sources to CSS. To customize a theme, modify the source code of the theme and use the build task to produce a CSS file for your application. This approach avoids the need for a setting up a build configuration when you compile SCSS, but may be harder to maintain as the process has to be repeated each time we update a theme.
+
+You have two options to do that (described in turn below):
+
+* Customizing Themes with Swatches
+* Customizing the Source Code
 
 #### Customizing Themes with Swatches
 

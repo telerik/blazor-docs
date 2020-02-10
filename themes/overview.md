@@ -17,11 +17,22 @@ The UI for Blazor suite comes with a set of built-in themes that you can choose 
 * **Bootstrap** - a theme that matches the Bootstrap styling. Read more in the [Bootstrap Notes](#bootstrap-notes) section.
 * **Material** - implements the [Material Design Guidelines](https://material.io/design/).
 
-These themes are shared with the Kendo UI suites with which the UI for Blazor suite shares HTML rendering, classes and appearance (even though UI for Blazor are native components).
+These themes are shared with the Kendo UI suites with which the UI for Blazor suite shares HTML rendering, classes and appearance (even though UI for Blazor are native Blazor components).
 
 To use a theme, you must reference its stylesheet in the `<head>` of your main index file. For a [client-side Blazor app]({%slug getting-started/client-side%}), this is `wwwroot/index.html` and for a [server-side Blazor app]({%slug getting-started/server-side%}), it is `~/Pages/_Host.cshtml`. The Razor syntax for a server application differs and you need to escape the `@` symbols as `@@`.
 
-## Using Pre-Built CSS
+This article contains the following sections:
+
+* [Static Assets](#static-assets)
+* [CDN](#cdn)
+* [Optional Dependency Management](#optional-dependency-management)
+	* [Libman](#libman)
+	* [NPM Packages](#npm-packages)
+* [Bootstrap Notes](#bootstrap-notes)
+
+## Static Assets
+
+Static assets are part of the NuGet package that the framework will copy to the output folder during build. They allow you to rely only on local resources for the app and do not need to be changed in the future.
 
 >caption Reference the Telerik theme from the static assets
 
@@ -127,6 +138,8 @@ The Kendo UI Sass-based themes are located on the Progress NPM registry:
 * **Kendo UI Default Theme**&mdash;Available as @progress/kendo-theme-default.
 * **Kendo UI Bootstrap v4 Theme**&mdash;Available as @progress/kendo-theme-bootstrap.
 * **Kendo UI Material Theme**&mdash;Available as @progress/kendo-theme-material.
+
+You can read more about using this approach in the [Custom Theme - Manual Process]({%slug themes-custom%}#manual-alternative) article.
 
 ## Bootstrap Notes
 
