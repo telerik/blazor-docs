@@ -81,7 +81,8 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         <ValidationMessage For="@(() => person.StartTime)"></ValidationMessage>
     </p>
     <p class="accepts-terms">
-        Accepts terms: <InputCheckbox @bind-Value="@person.AcceptsTerms" />
+        <label class="k-checkbox-label" for="acceptTermsCheckbox">Accepts terms</label>
+        <InputCheckbox @bind-Value="@person.AcceptsTerms" id="acceptTermsCheckbox" class="k-checkbox" />
         <ValidationMessage For="@(() => person.AcceptsTerms)"></ValidationMessage>
     </p>
 
