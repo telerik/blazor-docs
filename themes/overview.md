@@ -17,10 +17,11 @@ The UI for Blazor suite comes with a set of built-in themes that you can choose 
 * **Bootstrap** - a theme that matches the Bootstrap styling. Read more in the [Bootstrap Notes](#bootstrap-notes) section.
 * **Material** - implements the [Material Design Guidelines](https://material.io/design/).
 
-These themes are shared with the Kendo UI suites with which the UI for Blazor suite shares HTML rendering, classes and appearance (even though UI for Blazor are native components). You can read more about the way the available themes function in the [Kendo SASS Themes](https://docs.telerik.com/kendo-ui/styles-and-layout/sass-themes) article.
+These themes are shared with the Kendo UI suites with which the UI for Blazor suite shares HTML rendering, classes and appearance (even though UI for Blazor are native components).
 
 To use a theme, you must reference its stylesheet in the `<head>` of your main index file. For a [client-side Blazor app]({%slug getting-started/client-side%}), this is `wwwroot/index.html` and for a [server-side Blazor app]({%slug getting-started/server-side%}), it is `~/Pages/_Host.cshtml`. The Razor syntax for a server application differs and you need to escape the `@` symbols as `@@`.
 
+## Using Pre-Built CSS
 
 >caption Reference the Telerik theme from the static assets
 
@@ -58,7 +59,13 @@ To use a theme, you must reference its stylesheet in the `<head>` of your main i
 
 ## Optional Dependency Management
 
-Instead of a CDN or our static assets, you can fetch the stylesheet into your project to, for example, customize the theme, or to bundle it with other stylesheets. To do this, you can use the [LibMan client-side dependency manager](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/?view=aspnetcore-2.2) that is built-in ASP.NET Core:
+Instead of a CDN or our static assets, you can fetch the stylesheet into your project to, for example, customize the theme, or to bundle it with other stylesheets. To do this, you can:
+
+* [Use LibMan client-side dependency manager](#libman).
+* [Use the NPM packages](#npm-packages).
+
+### Libman
+The [LibMan client-side dependency manager](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/?view=aspnetcore-2.2) is built-in ASP.NET Core:
 
 1. In the server application root, add the `libman.json` file with the following content:
 
@@ -112,6 +119,14 @@ Instead of a CDN or our static assets, you can fetch the stylesheet into your pr
             . . .
             
         </html>
+
+### NPM Packages
+
+The Kendo UI Sass-based themes are located on the Progress NPM registry:
+
+* **Kendo UI Default Theme**&mdash;Available as @progress/kendo-theme-default.
+* **Kendo UI Bootstrap v4 Theme**&mdash;Available as @progress/kendo-theme-bootstrap.
+* **Kendo UI Material Theme**&mdash;Available as @progress/kendo-theme-material.
 
 ## Bootstrap Notes
 
