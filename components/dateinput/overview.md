@@ -42,7 +42,6 @@ To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
 * `Enabled` - whether the `input` is enabled.
 * `Format` - the date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
-* `ParsingErrorMessage` - a hint that is displayed to the user through validation when their input cannot be parsed in the required format
 * `Value` - get/set the value of the input, can be used for binding.
 * `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
