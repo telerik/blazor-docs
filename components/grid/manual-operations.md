@@ -24,7 +24,15 @@ The comments in the code provide explanations on what is done and why.
 
 >tip You can also use a synchronous version of the event. Its signature is `void ReadItems(GridReadEventArgs args)`.
 
->caption Custom paging with a remote service
+Examples:
+
+
+* [Custom paging with a remote service](#custom-paging-with-a-remote-service)
+* [If you have all the data at once, the Telerik .ToDataSourceResult(request) extension method can manage the operations for you](#if-you-have-all-the-data-at-once-the-telerik-todatasourceresultrequest-extension-method-can-manage-the-operations-for-you)
+* [Extract information from the DataSourceRequest object to use in your own API](#extract-information-from-the-datasourcerequest-object-to-use-in-your-own-api)
+* [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
+
+### Custom paging with a remote service
 
 ````CSHTML
 Custom paging. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
@@ -110,7 +118,7 @@ Custom paging. There is a deliberate delay in the data source operations in this
 }
 ````
 
->caption If you have all the data at once, the Telerik .ToDataSourceResult(request) extension method can manage the operations for you
+### If you have all the data at once, the Telerik .ToDataSourceResult(request) extension method can manage the operations for you
 
 ````CSHTML
 Using Telerik DataSource extension methods to manipulate all the data into paged chunks and also perform other operations like filtering, sorting, etc. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
@@ -192,6 +200,81 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 }
 ````
 
+
+### Extract information from the DataSourceRequest object to use in your own API
+
+````CSHTML
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+@ConsoleSim
+
+<br />
+
+<TelerikGrid Data=@CurrPageData OnRead="@OnReadHandler" TotalCount=@Total
+             Sortable="true" FilterMode="@GridFilterMode.FilterRow"
+             Pageable="true" PageSize="15"
+             Height="400px">
+    <GridColumns>
+        <GridColumn Field="Id" />
+        <GridColumn Field="Name" />
+        <GridColumn Field="Team" />
+        <GridColumn Field="HireDate" />
+    </GridColumns>
+</TelerikGrid>
+
+
+@functions {
+    MarkupString ConsoleSim { get; set; }// to showcase what you get
+
+    //implementation of OnRead
+    List<SampleData> CurrPageData { get; set; }
+    int Total { get; set; }
+
+    async Task OnReadHandler(GridReadEventArgs args)
+    {
+        string output = string.Empty;
+        output += "FILTERS:<br />";
+        //loop the DataSourceRequest collections to extract the data you require
+        foreach (FilterDescriptor item in args.Request.Filters)
+        {
+            output += $"field: {item.Member}, operator {item.Operator}, value: {item.Value}<br />";
+        }
+        output += "SORTS:<br />";
+        foreach (SortDescriptor item in args.Request.Sorts)
+        {
+            output += $"field: {item.Member}, direction: {item.SortDirection} <br />";
+        }
+        output += $"Current page: {args.Request.Page}, page size: {args.Request.PageSize}";
+
+        //show that data in the UI for a visual aid
+        ConsoleSim = new MarkupString(output);
+
+        //actual data source operation, implement as required in your case (e.g., call a service with parameters you built)
+        var result = PristineData.ToDataSourceResult(args.Request);
+        CurrPageData = (result.Data as IEnumerable<SampleData>).ToList();
+        Total = result.Total;
+
+        StateHasChanged();
+    }
+
+    public IEnumerable<SampleData> PristineData = Enumerable.Range(1, 300).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
 
 
 ## See Also
