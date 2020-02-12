@@ -16,6 +16,7 @@ Sections in this article:
 
 * [Show Data In A Grid](#show-data-in-a-grid)
 * [Grid Bound Column Parameters](#grid-bound-column-parameters)
+* [Notes](#notes)
 
 
 ## Show Data In A Grid
@@ -79,9 +80,17 @@ You can use the following properties on the bound columns:
 * `ref` - the standard Blazor reference name.
 * `EditorTemplate` - this property can also be used as an inner tag and it lets you define the [column edit content]({%slug components/grid/features/templates%}#edit-template). It can also point to a component name.
 
-For an example of the column usage, see the [Grid Overview]({%slug components/grid/overview%}), the rest of the documentation and our [live demos](https://demos.telerik.com/blazor-ui/grid/overview).
+>tip For an example of the column usage, see the [Grid Overview](../overview) article, the rest of the documentation and our [live demos](https://demos.telerik.com/blazor-ui/grid/overview).
 
->note For advanced operations such as grouping, filtering, sorting, you *must* set a `Field` to the column, and the field it points to must be a primitive type. If a `Field` is not set or it points to a custom object or something like an IDictionary, errors will be thrown because there are no known data operations on non-primitive types in .NET. An alternative is to implement all data source operations yourself by handling the [OnRead event](../manual-operations).
+## Notes
+
+
+* For advanced operations such as grouping, filtering, sorting, you *must* set a `Field` to the column, and the field it points to must be a primitive type.
+    * If a `Field` is not set the column will not allow filtering, grouping, sorting for the column.
+    * If the `Field` points to a custom object or something like an `IDictionary`, errors will be thrown upon those actions because there are no known data operations on non-primitive types in .NET. An alternative is to implement all data source operations yourself by handling the [OnRead event](../manual-operations).
+* The grid skips fields marked with the [`IgnoreDataMemberAttribute`](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.ignoredatamemberattribute) when performing CUD operations. Its presence indicates that this property does not need to be part of the serialized data anyway, and skipping such fields allows [Lazy Loading Proxies in EF](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.proxiesextensions.uselazyloadingproxies?view=efcore-3.1) to work.
+* For the time being, nested models will not work (such as `Field="MyModel.AnotherModel.SomePrimitiveField"`). We are working on enabling this and you can follow its status [here](https://feedback.telerik.com/blazor/1432615-support-for-nested-complex-models).
+
 
 ## See Also
 
