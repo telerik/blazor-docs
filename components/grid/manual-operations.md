@@ -28,8 +28,9 @@ Examples:
 
 
 * [Custom paging with a remote service](#custom-paging-with-a-remote-service)
-* [If you have all the data at once, the Telerik .ToDataSourceResult(request) extension method can manage the operations for you](#if-you-have-all-the-data-at-once-the-telerik-todatasourceresultrequest-extension-method-can-manage-the-operations-for-you)
-* [Extract information from the DataSourceRequest object to use in your own API](#extract-information-from-the-datasourcerequest-object-to-use-in-your-own-api)
+* [Telerik .ToDataSourceResult(request)](#telerik-todatasourceresultrequest)
+* [Get Information From the DataSourceRequest](#get-information-from-the-datasourcerequest)
+* [Cache Data Request](#cache-data-request)
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
 
 ### Custom paging with a remote service
@@ -118,7 +119,9 @@ Custom paging. There is a deliberate delay in the data source operations in this
 }
 ````
 
-### If you have all the data at once, the Telerik .ToDataSourceResult(request) extension method can manage the operations for you
+### Telerik .ToDataSourceResult(request)
+
+If you have all the data at once, the Telerik .ToDataSourceResult(request) extension method can manage the operations for you
 
 ````CSHTML
 Using Telerik DataSource extension methods to manipulate all the data into paged chunks and also perform other operations like filtering, sorting, etc. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
@@ -201,7 +204,9 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 ````
 
 
-### Extract information from the DataSourceRequest object to use in your own API
+### Get Information From the DataSourceRequest
+
+With a few simple loops, you can extract information from the DataSourceRequest object to use in your own API (such as filters, sorts, paging state).
 
 ````CSHTML
 @using Telerik.DataSource
@@ -271,6 +276,118 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
         public int Id { get; set; }
         public string Name { get; set; }
         public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
+
+
+### Cache Data Request
+
+If you need to replay the last request for some reason (your data has updated, or you need to await some business logic that determines what data to request), store the `DataSourceRequest` object in a field in your view model, then run the method that will read the data when necessary - a button click, or when some async operation completes.
+
+
+````CSHTML
+@* This example awaits some business data in OnInitializedAsync and fetches grid data according to it
+You can call the SetGridData() method from button clicks or other events according to your needs *@
+
+@using Telerik.DataSource.Extensions
+@using Telerik.DataSource
+
+<TelerikGrid Data=@GridData TotalCount=@Total OnRead=@ReadItems
+             FilterMode=@GridFilterMode.FilterRow Sortable=true Pageable=true>
+    <GridColumns>
+        <GridColumn Field=@nameof(Employee.ID) />
+        <GridColumn Field=@nameof(Employee.Name) Title="Name" />
+        <GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    string something { get; set; } // an object on which the grid data depends
+
+    protected override async Task OnInitializedAsync()
+    {
+        // the business logic that determines the global object - such as a user, their role, access rights, settings, etc.
+        await GetSomething();
+
+        // Refresh the Grid Data after the business data has arrived
+        SetGridData();
+
+        await base.OnInitializedAsync();
+    }
+
+    async Task GetSomething()
+    {
+        // in a real case - apply the desired business logic here
+        await Task.Delay(3000);
+        something = DateTime.Now.Millisecond.ToString();
+    }
+
+    public List<Employee> SourceData { get; set; }
+    public List<Employee> GridData { get; set; }
+    public int Total { get; set; } = 0;
+
+    // cache the last data request so you can "replay" it and update the grid data anytime
+    public DataSourceRequest CurrentRequest { get; set; }
+
+
+    protected async Task ReadItems(GridReadEventArgs args)
+    {
+        // cache the last data request so you can update teh grid data with it at any time
+        CurrentRequest = args.Request;
+
+        if (!string.IsNullOrEmpty(something)) // business logic that dictates when/what to request for the grid
+        {
+            SetGridData();
+        }
+    }
+
+    // Update the grid data with the cached request at any time
+    private void SetGridData()
+    {
+        if (CurrentRequest == null)
+        {
+            return;
+        }
+
+        // implement actual reading of the data, for example, use the "something" business object above
+        // this is merely some generated data to get the grid running
+        var datasourceResult = SourceData.ToDataSourceResult(CurrentRequest);
+
+        GridData = (datasourceResult.Data as IEnumerable<Employee>).ToList();
+        Total = datasourceResult.Total;
+    }
+
+    //This sample implements only reading of the data. To add the rest of the CRUD operations see
+    //https://docs.telerik.com/blazor-ui/components/grid/editing/overview
+
+    protected override void OnInitialized()
+    {
+        SourceData = GenerateData();
+    }
+
+    private List<Employee> GenerateData()
+    {
+        var result = new List<Employee>();
+        var rand = new Random();
+        for (int i = 0; i < 100; i++)
+        {
+            result.Add(new Employee()
+            {
+                ID = i,
+                Name = "Name " + i,
+                HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20))
+            });
+        }
+
+        return result;
+    }
+
+    public class Employee
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
         public DateTime HireDate { get; set; }
     }
 }
