@@ -43,7 +43,7 @@ To control the position of the tab titles, the main tab strip tag exposes the op
 </TelerikTabStrip>
 
 @code {
-	Telerik.Blazor.Components.TabStripTabStrip myTabStrip;
+	Telerik.Blazor.Components.TelerikTabStrip myTabStrip;
 }
 ````
 
