@@ -20,7 +20,7 @@ I have a Telerik input component (such as a texbox, or an autocomplete, or a dro
 ## Cause\Possible Cause(s)
 The most common reason for this error is a combination of the following:
 
-* The component does not use `@bind-Value="@myModel.MyField"`, but simply `Value="@myModel.MyField"`
+* The component does not use `@bind-Value="@myModel.MyField"`, but simply `Value="@myModel.MyField"`, or its `Value` is not even specified
 * The component is now in an `EditForm` but this may be coming from its parent component, but it is not prepared for that
 
 This error comes from the framework and applies to generic inputs as well, not only the Telerik components. At the time of writing, I was not able to find an official resource for the `ValueExpression` feature. The closest is the example for a `ValidationMessage` at [https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-3.1#validation-summary-and-validation-message-components](https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-3.1#validation-summary-and-validation-message-components). Hopefully, the validation documentation in MSDN will be updated to include information about this parameter in the future.
@@ -42,3 +42,5 @@ There are three common ways to resolve such an error:
         @* Applies to the other input type components as well *@
     
 * Move the `EditForm` inside the component that hosts all the input. This will make it throw the exception immediately, not only when used in a particular case. This will let you evaluate how to solve the situation according to the previous points, and can let you expose only relevant events/logic/parameters to its parents, instead of expecting them to provide a form and validator.
+* If you do not define a `Value` at all, consider whether such an input needs to be in the form in the first place (for example, putting an `<InputText />` in an `EditForm` without defining the value and binding settings will throw the same error.
+
