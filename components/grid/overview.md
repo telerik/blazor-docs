@@ -58,6 +58,10 @@ General grid with its most common features
 
 ![Blazor DataGrid Component Example](images/basic-grid.png)
 
+>caption Video tutorial - Get started with Telerik Data Grid for Blazor
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NW2hHtmM2Gk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## Blazor Grid Reference
 

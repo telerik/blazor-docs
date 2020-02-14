@@ -61,6 +61,9 @@ To show data in a grid, you must define `GridColumn` instances in the `GridColum
 
 >tip The `Data` collection can be an `ObservableCollection`, an array, a `List` - it must only implement `IEnumerable`.
 
+>caption Video tutorial - Get started with Telerik Data Grid for Blazor
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NW2hHtmM2Gk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ## Grid Bound Column Parameters
