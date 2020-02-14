@@ -18,6 +18,10 @@ This article explains how to add the private Telerik NuGet feed to your system. 
 
 ## Add the Telerik Private NuGet Feed to Your System
 
+The following video explains how you can add the Telerik NuGet feed. If you prefer to do this yourself, follow the rest of this article.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c3m_BLMXNDk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 To add the Telerik private NuGet feed, follow the steps below:
 
 1. Download the [latest NuGet executable](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe). If you cannot use the `exe` (for example on Mac or Linux), you can [use a nuget.config](#nuget-config-file) file.

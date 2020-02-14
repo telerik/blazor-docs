@@ -33,16 +33,16 @@ If you are not familiar with Blazor yet, you may find useful our Blazor Quick St
 * [Blazor Component Basics](https://www.youtube.com/watch?v=z9BOkBFDbc0&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo&index=2)
 * [Blazor Component Events using EventCallback](https://www.youtube.com/watch?v=vdEQBhPoTes&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo&index=3)
 * [Blazor Two-Way Binding](https://www.youtube.com/watch?v=Y9a6rJPrFFI&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo&index=4)
-
-You can watch the entire playlist below:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 -->
+
 If you are just getting started with Blazor and Web development, you may find the following articles from MSDN useful in getting up to speed with the core concepts:
 
 * [First Steps with Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/get-started?view=aspnetcore-3.0&tabs=visual-studio)
 * [Razor Syntax Reference](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-3.0)
 
+You can watch a YouTube playlist of getting started tutorials for Telerik UI for Blazor below:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## List of Components
 
