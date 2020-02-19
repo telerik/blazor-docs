@@ -68,7 +68,7 @@ When using manual operations through the [OnRead event](https://docs.telerik.com
     public ObservableCollection<Employee> GridData { get; set; } = new ObservableCollection<Employee>(); //prevent null reference errors by intializing the field
     DataSourceRequest LastRequest { get; set; }//store the last request so we can repeat it when changing the data
 
-    async void ChangeData()
+    async Task ChangeData()
     {
         SourceData = GenerateData(DateTime.Now.Millisecond.ToString());
         await LoadData();//repeat the last request when changing data

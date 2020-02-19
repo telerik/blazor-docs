@@ -81,7 +81,7 @@ var themeChanger = {
 <TelerikButton OnClick="ChangeTheme">Change from Default to Material Built-in Theme</TelerikButton>
 
 @code {
-    async void ChangeTheme()
+    async Task ChangeTheme()
     {
         // use the new URL you will use - it can be relative and/or point to a custom theme
         string newThemeUrl = "https://unpkg.com/@progress/kendo-theme-material@latest/dist/all.css";

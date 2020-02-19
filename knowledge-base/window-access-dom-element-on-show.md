@@ -58,7 +58,7 @@ Comments in the sample below provide more explanations:
 @code{
     bool ShowWindow { get; set; }
 
-    private async void ShowWindowAndCallJs()
+    async Task ShowWindowAndCallJs()
     {
         ShowWindow = true;
 

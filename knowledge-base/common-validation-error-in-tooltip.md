@@ -98,13 +98,13 @@ There are several key aspects in implementing this:
 
     TextValidationModel validationModel = new TextValidationModel() { LengthField = "Too long text" };
 
-    async void HideTooltip()
+    async Task HideTooltip()
     {
         await AnimationContainer.HideAsync();
         // you may also want to create your own EditContext and hook to its OnValidationStateChanged event to hide the tooltip
     }
 
-    async void ShowTooltip()
+    async Task ShowTooltip()
     {
         await AnimationContainer.ShowAsync();
     }

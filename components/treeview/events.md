@@ -31,7 +31,7 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
 
     //event handler
 
-    async void ExpandCollapseHandler(TreeViewExpandEventArgs args)
+    async Task ExpandCollapseHandler(TreeViewExpandEventArgs args)
     {
         TreeItem node = args.Item as TreeItem; // Use your actual model(s) for the cast
 

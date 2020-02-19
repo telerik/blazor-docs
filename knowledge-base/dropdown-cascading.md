@@ -139,7 +139,7 @@ else if(!string.IsNullOrEmpty(orderStatusMessage))
     }
 
     // sample notification of success and reseting of the process, data classes
-    async void SendOrder()
+    async Task SendOrder()
     {
         CurrentOrder = new Order();
         orderStatusMessage = "Thank you for your order!";
@@ -277,7 +277,7 @@ else if (!string.IsNullOrEmpty(orderStatusMessage))
     }
 
     // sample notification of success and reseting of the process, data classes
-    async void SendOrder()
+    async Task SendOrder()
     {
         CurrentOrder = new Order();
         orderStatusMessage = "Thank you for your order!";
@@ -430,7 +430,7 @@ else if (!string.IsNullOrEmpty(orderStatusMessage))
     }
 
     // sample notification of success and resetting of the process, data classes
-    async void SendOrder()
+    async Task SendOrder()
     {
         CurrentOrder = new Order();
         orderStatusMessage = "Thank you for your order!";

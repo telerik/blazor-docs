@@ -21,102 +21,103 @@ The **example** below shows how you can handle load on demand in detail. It uses
 >caption Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
 
 ````CSHTML
-@using Telerik.DataSource.Extensions //used for the .AddRange() extension method
+@using Telerik.DataSource.Extensions
+@* used for the .AddRange() extension method *@
 
 <TelerikTreeView Data="@HierarchicalData" OnExpand="@LoadChildren">
-	<TreeViewBindings>
-		<TreeViewBinding TextField="Category" ItemsField="Products" />
-		<TreeViewBinding Level="1" TextField="ProductName" />
-	</TreeViewBindings>
+    <TreeViewBindings>
+        <TreeViewBinding TextField="Category" ItemsField="Products" />
+        <TreeViewBinding Level="1" TextField="ProductName" />
+    </TreeViewBindings>
 </TelerikTreeView>
 
 @code {
-	public List<ProductCategoryItem> HierarchicalData { get; set; }
+    public List<ProductCategoryItem> HierarchicalData { get; set; }
 
-	public class ProductCategoryItem
-	{
-		public string Category { get; set; }
-		public int CategoryId { get; set; } //will be used to identify the node, not for rendering in this example
-		public List<ProductItem> Products { get; set; }
-		public bool Expanded { get; set; }
-		public bool HasChildren { get; set; }
-	}
+    public class ProductCategoryItem
+    {
+        public string Category { get; set; }
+        public int CategoryId { get; set; } //will be used to identify the node, not for rendering in this example
+        public List<ProductItem> Products { get; set; }
+        public bool Expanded { get; set; }
+        public bool HasChildren { get; set; }
+    }
 
-	public class ProductItem
-	{
-		public string ProductName { get; set; }
-		// the following fields are to denote you can keep having hierarchy further down. They are not required
-		// they are not really used in this example and you would have a collection of child items too
-		// see the information about multiple data bindings earlier in this article on using them
-		public bool Expanded { get; set; }
-		public bool HasChildren { get; set; }
-	}
+    public class ProductItem
+    {
+        public string ProductName { get; set; }
+        // the following fields are to denote you can keep having hierarchy further down. They are not required
+        // they are not really used in this example and you would have a collection of child items too
+        // see the information about multiple data bindings earlier in this article on using them
+        public bool Expanded { get; set; }
+        public bool HasChildren { get; set; }
+    }
 
-	protected override void OnInitialized()
-	{
-		LoadRootHierarchical();
-	}
+    protected override void OnInitialized()
+    {
+        LoadRootHierarchical();
+    }
 
-	private void LoadRootHierarchical()
-	{
-		HierarchicalData = new List<ProductCategoryItem>();
+    private void LoadRootHierarchical()
+    {
+        HierarchicalData = new List<ProductCategoryItem>();
 
-		HierarchicalData.Add(new ProductCategoryItem
-		{
-			Category = "Category 1",
-			HasChildren = true, // allow the user to expand the item and load children on demand
-			CategoryId = 1 // an identifier for use in the service call for child items
-		});
+        HierarchicalData.Add(new ProductCategoryItem
+        {
+            Category = "Category 1",
+            HasChildren = true, // allow the user to expand the item and load children on demand
+            CategoryId = 1 // an identifier for use in the service call for child items
+        });
 
-		HierarchicalData.Add(new ProductCategoryItem
-		{
-			Category = "Category 2",
-			HasChildren = true,
-			CategoryId = 2
-		});
-	}
+        HierarchicalData.Add(new ProductCategoryItem
+        {
+            Category = "Category 2",
+            HasChildren = true,
+            CategoryId = 2
+        });
+    }
 
-	private async void LoadChildren(TreeViewExpandEventArgs args)
-	{
-	    // check if the item is expanding, we don't need to do anything if it is collapsing
-	    // in this example we will also check the type of the model to know how to identify the node and what data to load. If you use only one model for all levels, you don't have to do this
-		if (args.Expanded && args.Item is ProductCategoryItem)
-		{
-			ProductCategoryItem currCategory = args.Item as ProductCategoryItem;
-			if (currCategory.Products?.Count > 0)
-			{
-				return; // item has been expanded before so it has data, don't load data again
-						// alternatively, load it again but make sure to handle the child items correctly
-						// either overwrite the entire collection, or use some other logic to append/merge
-			}
-			int itemIdentifier = currCategory.CategoryId;
-			// in a similar fashion, you can identify the item that was just expanded through its properties
-			// in this example, we will hardcode some data and logic for brevity
-			// in a real case, you would probably await a remote endpoint/service
+    private async Task LoadChildren(TreeViewExpandEventArgs args)
+    {
+        // check if the item is expanding, we don't need to do anything if it is collapsing
+        // in this example we will also check the type of the model to know how to identify the node and what data to load. If you use only one model for all levels, you don't have to do this
+        if (args.Expanded && args.Item is ProductCategoryItem)
+        {
+            ProductCategoryItem currCategory = args.Item as ProductCategoryItem;
+            if (currCategory.Products?.Count > 0)
+            {
+                return; // item has been expanded before so it has data, don't load data again
+                        // alternatively, load it again but make sure to handle the child items correctly
+                        // either overwrite the entire collection, or use some other logic to append/merge
+            }
+            int itemIdentifier = currCategory.CategoryId;
+            // in a similar fashion, you can identify the item that was just expanded through its properties
+            // in this example, we will hardcode some data and logic for brevity
+            // in a real case, you would probably await a remote endpoint/service
 
-			if (itemIdentifier == 2) // simulate no data for a certain node - the second in our example
-			{
-				currCategory.HasChildren = false; // remove the expand icon from the node
+            if (itemIdentifier == 2) // simulate no data for a certain node - the second in our example
+            {
+                currCategory.HasChildren = false; // remove the expand icon from the node
 
-				StateHasChanged(); // inform the UI that the data is changed
+                StateHasChanged(); // inform the UI that the data is changed
 
-				return;
-			}
+                return;
+            }
 
             // data requested and received for a certain node
-			List<ProductItem> theProducts = new List<ProductItem>() {
-				new ProductItem { ProductName= $"Category {itemIdentifier} - Product 1" },
-				new ProductItem { ProductName= $"Category {itemIdentifier} - Product 2" }
-			};
+            List<ProductItem> theProducts = new List<ProductItem>() {
+                new ProductItem { ProductName= $"Category {itemIdentifier} - Product 1" },
+                new ProductItem { ProductName= $"Category {itemIdentifier} - Product 2" }
+            };
 
-			// one way to add child elements to a collection
-			currCategory.Products = new List<ProductItem>();
-			currCategory.Products.AddRange<ProductItem>(theProducts);
-			// the AddRange() method comes from the Telerik.DataSource.Extensions
+            // one way to add child elements to a collection
+            currCategory.Products = new List<ProductItem>();
+            currCategory.Products.AddRange<ProductItem>(theProducts);
+            // the AddRange() method comes from the Telerik.DataSource.Extensions
 
-			StateHasChanged(); // inform the UI that the data is changed
-		}
-	}
+            StateHasChanged(); // inform the UI that the data is changed
+        }
+    }
 }
 ````
 
