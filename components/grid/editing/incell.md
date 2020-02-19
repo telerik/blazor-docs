@@ -16,12 +16,12 @@ You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the C
 
 To enable InCell editing mode, set the `EditMode` property of the grid to `Telerik.Blazor.GridEditMode.Incell`, then handle the CRUD events as shown in the example below.
 
-@[template](/_contentTemplates/grid/common-link.md#async-events-link)
 
 >caption Values are set in the model as soon as the user finishes editing a field, and you can receive them through the grid events
 
 ````CSHTML
-Click a cell, edit it and click outside of the cell to see the change. Editing is prevented for the first two items.
+Click a cell, edit it and click outside of the cell to see the change.<br />
+<strong>Editing is prevented for the first two items.</strong>
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Incell" Pageable="true" Height="500px"
         OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler">
@@ -39,31 +39,29 @@ Click a cell, edit it and click outside of the cell to see the change. Editing i
 </TelerikGrid>
 
 @code {
-    public void EditHandler(GridCommandEventArgs args)
+    void EditHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
 
-        //prevent opening for edit based on condition
+        // prevent opening for edit based on condition
         if (item.ID < 3)
         {
-            args.IsCancelled = true;//the general approach for cancelling an event
+            args.IsCancelled = true;// the general approach for cancelling an event
         }
 
         Console.WriteLine("Edit event is fired for column " + args.Field);
     }
 
-    public void UpdateHandler(GridCommandEventArgs args)
+    async Task UpdateHandler(GridCommandEventArgs args)
     {
         string fieldName = args.Field;
-        object newVal = args.Value; //you can cast this, if necessary, according to your model
+        object newVal = args.Value; // you can cast this, if necessary, according to your model
 
-        SampleData item = (SampleData)args.Item;//you can also use the entire model
+        SampleData item = (SampleData)args.Item; // you can also use the entire model
 
-        //perform actual data source operation here
+        // perform actual data source operation here through your service
 
-        //if you have a context added through an @inject statement, you could call its SaveChanges() method
-        //myContext.SaveChanges();
-
+        // if the grid Data is not tied to the service, you may need to update the local view data too
         var index = MyData.FindIndex(i => i.ID == item.ID);
         if (index != -1)
         {
@@ -74,33 +72,32 @@ Click a cell, edit it and click outside of the cell to see the change. Editing i
         Console.WriteLine("Update event is fired for " + args.Field + " with value " + args.Value);
     }
 
-    public void CreateHandler(GridCommandEventArgs args)
+    async Task CreateHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
 
-        //perform actual data source operation here
+        // perform actual data source operation here through your service
 
+        // if the grid Data is not tied to the service, you may need to update the local view data too
         item.ID = MyData.Count + 1;
         MyData.Insert(0, item);
 
         Console.WriteLine("Create event is fired.");
     }
 
-    public void DeleteHandler(GridCommandEventArgs args)
+    async Task DeleteHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
 
-        //perform actual data source operation here
+        // perform actual data source operation here through your service
 
-        //if you have a context added through an @inject statement, you could call its SaveChanges() method
-        //myContext.SaveChanges();
-
+        // if the grid Data is not tied to the service, you may need to update the local view data too
         MyData.Remove(item);
 
         Console.WriteLine("Delete event is fired.");
     }
 
-    //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
     public class SampleData
     {
         public int ID { get; set; }

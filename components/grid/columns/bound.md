@@ -94,6 +94,10 @@ You can use the following properties on the bound columns:
 * The grid skips fields marked with the [`IgnoreDataMemberAttribute`](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.ignoredatamemberattribute) when performing CUD operations. Its presence indicates that this property does not need to be part of the serialized data anyway, and skipping such fields allows [Lazy Loading Proxies in EF](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.proxiesextensions.uselazyloadingproxies?view=efcore-3.1) to work.
 * For the time being, nested models will not work (such as `Field="MyModel.AnotherModel.SomePrimitiveField"`). We are working on enabling this and you can follow its status [here](https://feedback.telerik.com/blazor/1432615-support-for-nested-complex-models).
 
+>tip You can optimize database queries in two ways:
+>
+> * Use an `IQueriable<MyModel>` collection for the grid `Data`. The grid will build a LINQ expression internally that will be resolved only when needed. This can be useful when the `Data` comes from something like an EntityFramework context.
+> * Implement [manual data source operations](..//manual-operations) and implement the desired query yourself. In a future version, the `DataSourceRequest` object will become serializable so you can send it directly over HTTP to a controller and use the LINQ queries it will build for you.
 
 ## See Also
 

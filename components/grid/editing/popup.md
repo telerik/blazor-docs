@@ -10,7 +10,7 @@ position: 2
 
 # Grid PopUp Editing
 
-Popup editing lets the user click an [Edit command button]({%slug components/grid/columns/command%}) on the row, and a popup shows up with all its editable columns open up for changes. They can then click the `Save` button in the dialog to submit the changes to the model. This fires the `OnUpdate` event of the grid where your code receives the updated model so you can work with the data (for example, to call the `SaveChanges()` method of your context).
+Popup editing lets the user click an [Edit command button]({%slug components/grid/columns/command%}) on the row, and a popup shows up with all its editable columns open up for changes. They can then click the `Save` button in the dialog to submit the changes to the model. This fires the `OnUpdate` event of the grid where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
 
 In a similar fashion, the `Cancel`, `Delete` command buttons and the `Add` toolbar button fire events on the grid to let you handle the data source operations.
 
@@ -20,14 +20,14 @@ To enable PopUp editing in the grid, set its `EditMode` property to `Telerik.Bla
 
 The PopUp editing mode supports [validation]({%slug common-features/input-validation%}). To use it, all you need to do is decorate your model with the desired annotations. Validation errors will be shown in the popup and will prevent the Update operation.
 
-@[template](/_contentTemplates/grid/common-link.md#async-events-link)
 
 >caption The Command buttons and the grid events let you handle data operations in PopUp edit mode
 
 ````CSHTML
 @using System.ComponentModel.DataAnnotations
+@* Used for the model annotations only *@
 
-<strong>Editing is cancelled for the first two records.</strong> The DataAnnotations namespace is included in this example only because of the model class.
+<strong>Editing is cancelled for the first two records.</strong>
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Popup" Pageable="true" Height="500px"
         OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
@@ -47,28 +47,26 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 </TelerikGrid>
 
 @code {
-	public void EditHandler(GridCommandEventArgs args)
+	void EditHandler(GridCommandEventArgs args)
 	{
 		SampleData item = (SampleData)args.Item;
 
-		//prevent opening for edit based on condition
+		// prevent opening for edit based on condition
 		if (item.ID < 2)
 		{
-			args.IsCancelled = true;//the general approach for cancelling an event
+			args.IsCancelled = true;// the general approach for cancelling an event
 		}
 		
 		Console.WriteLine("Edit event is fired.");
 	}
 
-	public void UpdateHandler(GridCommandEventArgs args)
+	async Task UpdateHandler(GridCommandEventArgs args)
 	{
 		SampleData item = (SampleData)args.Item;
 
-		//perform actual data source operations here
+		// perform actual data source operations here through your service
 
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
-
+        // if the grid Data is not tied to the service, you may need to update the local view data too
         var index = MyData.FindIndex(i => i.ID == item.ID);
         if (index != -1)
         {
@@ -78,52 +76,42 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 		Console.WriteLine("Update event is fired.");
 	}
 
-	public void DeleteHandler(GridCommandEventArgs args)
+	async Task DeleteHandler(GridCommandEventArgs args)
 	{
 		SampleData item = (SampleData)args.Item;
 
-		//perform actual data source operation here
+		// perform actual data source operation here through your service
 
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
-
+        // if the grid Data is not tied to the service, you may need to update the local view data too
 		MyData.Remove(item);
 		
 		Console.WriteLine("Delete event is fired.");
 	}
 
-	public void CreateHandler(GridCommandEventArgs args)
+	async Task CreateHandler(GridCommandEventArgs args)
 	{
 		SampleData item = (SampleData)args.Item;
 
-		//perform actual data source operation here
+		// perform actual data source operation here through your service
 
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
-
+        // if the grid Data is not tied to the service, you may need to update the local view data too
 		item.ID = MyData.Count + 1;
 		MyData.Insert(0, item);
 		
 		Console.WriteLine("Create event is fired.");
 	}
 
-	public void CancelHandler(GridCommandEventArgs args)
+	async Task CancelHandler(GridCommandEventArgs args)
 	{
 		SampleData item = (SampleData)args.Item;
 
-		//if necessary, perform actual data source operation here (like cancel changes on a context)
+		// if necessary, perform actual data source operation here through your service
 
-		//if you have a context added through an @inject statement, you could use something like this to abort changes
-		//foreach (var entry in myContext.ChangeTracker.Entries().Where(entry => entry.State == EntityState.Modified))
-		//{
-		//  entry.State = EntityState.Unchanged;
-		//}
-		
 		Console.WriteLine("Cancel event is fired.");
 	}
 	
 
-	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+	// in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
 	public class SampleData
 	{
 		public int ID { get; set; }

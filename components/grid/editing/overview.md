@@ -10,7 +10,7 @@ position: 0
 
 # Grid CRUD Operations Overview
 
-CRUD operations with the Grid for Blazor are done through the dedicated CRUD events it exposes for data editing. You can use them to transfer the changes to the actual data source (for example, call a service, or use the `SaveChanges()` method of your context).
+CRUD operations with the Grid for Blazor are done through the dedicated CRUD events it exposes for data editing. You can use them to transfer the changes to the actual data source (for example, call a service that will actually work with the database, and not only with the view data).
 
 List of the available events:
 
@@ -18,7 +18,7 @@ List of the available events:
 * `OnUpdate` - fires when the `Save` command button is clicked on an existing item. Cancellable.
 * `OnDelete` - fires when the `Delete` command button is clicked. Cancellable.
 * `OnEdit` - fires when the user is about to enter edit mode for an existing row. Cancellable.
-* `OnCancel` - fires when the user clicks the `Cancel` command button. Allows you to undo the changes to the data in the context. Cancellable.
+* `OnCancel` - fires when the user clicks the `Cancel` command button. Allows you to undo the changes to the data in the view data. Cancellable.
 * `OnRead` - fires when the grid needs data - after any data source operation like updating, creating, deleting, filtering, sorting. If you cancel the CUD events, the [OnRead]({%slug components/grid/manual-operations%}) event will not fire.
 
 The CUD event handlers receive an argument of type `GridCommandEventArgs` that exposes the following fields:
@@ -34,158 +34,143 @@ The CUD event handlers receive an argument of type `GridCommandEventArgs` that e
 >caption Handling the CRUD events of the grid to save data to the actual data source
 
 ````CSHTML
-Editing is cancelled for the first two records. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
+Editing is cancelled for the first two records.
+<br />
+<strong>There is a deliberate delay</strong> in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="400px"
-        OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
-	<GridToolBar>
-		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-	</GridToolBar>
-	<GridColumns>
-		<GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-		<GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-		<GridCommandColumn>
-			<GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-			<GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-			<GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
-			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
-		</GridCommandColumn>
-	</GridColumns>
+             OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
 </TelerikGrid>
 
 @logger
 
 @code {
-	public async Task EditHandler(GridCommandEventArgs args)
-	{
-		AppendToLog("Edit", args);
-		
-		SampleData item = (SampleData)args.Item;
-		
-		await Task.Delay(1000); //simulate actual long running async operation
-		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
+    async Task EditHandler(GridCommandEventArgs args)
+    {
+        AppendToLog("Edit", args);
 
-		//prevent opening for edit based on condition
-		if (item.ID < 3)
-		{
-			args.IsCancelled = true;//the general approach for cancelling an event
-		}
-	}
+        SampleData item = (SampleData)args.Item;
 
-	public async Task UpdateHandler(GridCommandEventArgs args)
-	{
-		AppendToLog("Update", args);
+        //prevent opening for edit based on condition
+        if (item.ID < 3)
+        {
+            args.IsCancelled = true;//the general approach for cancelling an event
+        }
+    }
 
-		SampleData item = (SampleData)args.Item;
+    async Task UpdateHandler(GridCommandEventArgs args)
+    {
+        AppendToLog("Update", args);
 
-		//perform actual data source operations here
+        SampleData item = (SampleData)args.Item;
 
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
-		
-		await Task.Delay(2000); //simulate actual long running async operation
-		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
+        // perform actual data source operations here through your service
 
+        await Task.Delay(2000); // simulate actual long running async operation
+
+        // if the grid Data is not tied to the service, you may need to update the local view data too
         var index = MyData.FindIndex(i => i.ID == item.ID);
         if (index != -1)
         {
-               MyData[index] = item;
+            MyData[index] = item;
         }
-	}
+    }
 
-	public async Task DeleteHandler(GridCommandEventArgs args)
-	{
-		AppendToLog("Delete", args);
+    async Task DeleteHandler(GridCommandEventArgs args)
+    {
+        AppendToLog("Delete", args);
 
-		SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Item;
 
-		//perform actual data source operation here
+        // perform actual data source operation here through your service
 
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
+        await Task.Delay(2000); // simulate actual long running async operation
 
-		await Task.Delay(2000); //simulate actual long running async operation
-		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
+        // if the grid Data is not tied to the service, you may need to update the local view data too
+        MyData.Remove(item);
+    }
 
-		MyData.Remove(item);
-	}
+    async Task CreateHandler(GridCommandEventArgs args)
+    {
+        AppendToLog("Create", args);
 
-	public async Task CreateHandler(GridCommandEventArgs args)
-	{
-		AppendToLog("Create", args);
+        SampleData item = (SampleData)args.Item;
 
-		SampleData item = (SampleData)args.Item;
+        // perform actual data source operation here through your service
 
-		//perform actual data source operation here
+        await Task.Delay(2000); // simulate actual long running async operation
 
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
+        // if the grid Data is not tied to the service, you may need to update the local view data too
+        item.ID = MyData.Count + 1;
+        MyData.Insert(0, item);
+    }
 
-		await Task.Delay(2000); //simulate actual long running async operation
-		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
-		
-		item.ID = MyData.Count + 1;
-		MyData.Insert(0, item);
-	}
+    async Task CancelHandler(GridCommandEventArgs args)
+    {
+        AppendToLog("Cancel", args);
 
-	public async Task CancelHandler(GridCommandEventArgs args)
-	{
-		AppendToLog("Cancel", args);
+        SampleData item = (SampleData)args.Item;
 
-		SampleData item = (SampleData)args.Item;
+        // if necessary, perform actual data source operation here through your service
 
-		//if necessary, perform actual data source operation here (like cancel changes on a context)
+        await Task.Delay(1000); //simulate actual long running async operation
+    }
 
-		//if you have a context added through an @inject statement, you could use something like this to abort changes
-		//foreach (var entry in myContext.ChangeTracker.Entries().Where(entry => entry.State == EntityState.Modified))
-		//{
-		//  entry.State = EntityState.Unchanged;
-		//}
-		
-		await Task.Delay(2000); //simulate actual long running async operation
-		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
-	}
-
-	MarkupString logger;
-	private void AppendToLog(string commandName, GridCommandEventArgs args)
-	{
-		string currAction = string.Format(
-			"<br />Command: <strong>{0}</strong>; is cancelled: <strong>{1}</strong>; is the item new: <strong>{2}</strong>",
-				commandName,
-				args.IsCancelled,
-				args.IsNew
-			);
-		logger = new MarkupString(logger + currAction);
-	}
+    MarkupString logger;
+    void AppendToLog(string commandName, GridCommandEventArgs args)
+    {
+        string currAction = string.Format(
+            "<br />Command: <strong>{0}</strong>; is cancelled: <strong>{1}</strong>; is the item new: <strong>{2}</strong>",
+                commandName,
+                args.IsCancelled,
+                args.IsNew
+            );
+        logger = new MarkupString(logger + currAction);
+    }
 
 
-	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-	}
+    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+    public class SampleData
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+    }
 
-	public List<SampleData> MyData { get; set; }
+    List<SampleData> MyData { get; set; }
 
-	protected override void OnInitialized()
-	{
-		MyData = new List<SampleData>();
+    protected override void OnInitialized()
+    {
+        MyData = new List<SampleData>();
 
-		for (int i = 0; i < 50; i++)
-		{
-			MyData.Add(new SampleData()
-			{
-				ID = i,
-				Name = "Name " + i.ToString()
-			});
-		}
-	}
+        for (int i = 0; i < 50; i++)
+        {
+            MyData.Add(new SampleData()
+            {
+                ID = i,
+                Name = "Name " + i.ToString()
+            });
+        }
+    }
 }
 ````
 
 
 >note It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
+
+>important The CRUD event handlers must be `async Task` and **not** `async void`. A Task can be properly awaited and allows working with services and contexts. When the method returns `void`, the execution of the context operations is not actually awaited, and you may get errors from the context (such as "Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application" or "A second operation started on this context before a previous operation completed. This is usually caused by different threads using the same instance of DbContext")
 
 ## See Also
 
