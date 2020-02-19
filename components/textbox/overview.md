@@ -30,7 +30,7 @@ To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
 ````
 
 
-The numeric textbox provides the following features:
+>caption The textbox provides the following features:
 
 * `Class` - the CSS class that will be rendered on the `input` element.
 * `Enabled` - whether the `input` is enabled.
