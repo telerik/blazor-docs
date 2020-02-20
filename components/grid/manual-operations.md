@@ -230,9 +230,9 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 
 
 @functions {
-    MarkupString ConsoleSim { get; set; }// to showcase what you get
+    MarkupString ConsoleSim { get; set; } // to showcase what you get
 
-    //implementation of OnRead
+    // implementation of OnRead
     List<SampleData> CurrPageData { get; set; }
     int Total { get; set; }
 
@@ -240,10 +240,27 @@ With a few simple loops, you can extract information from the DataSourceRequest 
     {
         string output = string.Empty;
         output += "FILTERS:<br />";
-        //loop the DataSourceRequest collections to extract the data you require
-        foreach (FilterDescriptor item in args.Request.Filters)
+        // loop the DataSourceRequest collections to extract the data you require
+        foreach (var item in args.Request.Filters)
         {
-            output += $"field: {item.Member}, operator {item.Operator}, value: {item.Value}<br />";
+            if(item is FilterDescriptor) // filter row
+            {
+                FilterDescriptor currFilter = item as FilterDescriptor;
+                output += $"field: {currFilter.Member}, operator {currFilter.Operator}, value: {currFilter.Value}<br />";
+            }
+
+            if(item is CompositeFilterDescriptor) // filter menu
+            {
+                CompositeFilterDescriptor currFilter = item as CompositeFilterDescriptor;
+                output += $"START nested filter: logical operator: {currFilter.LogicalOperator}, details:<br />";
+                // there will actually be 1 or 2 only, this showcases the concept and the types
+                foreach (FilterDescriptor nestedFilter in currFilter.FilterDescriptors)
+                {
+
+                    output += $"field: {nestedFilter.Member}, operator {nestedFilter.Operator}, value: {nestedFilter.Value}<br />";
+                }
+                output += "END nested filter<br />";
+            }
         }
         output += "SORTS:<br />";
         foreach (SortDescriptor item in args.Request.Sorts)
@@ -252,10 +269,10 @@ With a few simple loops, you can extract information from the DataSourceRequest 
         }
         output += $"Current page: {args.Request.Page}, page size: {args.Request.PageSize}";
 
-        //show that data in the UI for a visual aid
+        // show that data in the UI for a visual aid
         ConsoleSim = new MarkupString(output);
 
-        //actual data source operation, implement as required in your case (e.g., call a service with parameters you built)
+        // actual data source operation, implement as required in your case (e.g., call a service with parameters you built)
         var result = PristineData.ToDataSourceResult(args.Request);
         CurrPageData = (result.Data as IEnumerable<SampleData>).ToList();
         Total = result.Total;
