@@ -3,7 +3,7 @@ title: How to Style the Series Labels for a Chart
 description: Learn how to style the labels for a UI for Blazor Chart.
 type: how-to
 page_title: Style the Chart Series Labels
-slug: style-the-chart-series-labels
+slug: chart-style-the-series-labels
 position: 
 tags: 
 ticketid: 1455079
