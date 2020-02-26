@@ -89,6 +89,10 @@ To have the project use the Telerik UI for Blazor components, follow these steps
 1. @[template](/_contentTemplates/common/get-started.md#start-trial)
 
 1. Install the `Telerik.UI.for.Blazor` NuGet package to your Blazor project:
+
+    You can watch a video tutorial how to add the Telerik components to your project here, or you can follow the text instructions after it.
+    
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/fwR8Yxe7DPQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 #end
 
 
