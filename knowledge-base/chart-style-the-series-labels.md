@@ -32,6 +32,8 @@ In this case, use the [ChartSeriesLabelsBase API](https://docs.telerik.com/blazo
 
 You can also explore the child tags of the labels for more options on controlling borders, margins and paddings. The third series showcases that.
 
+For more detailed control over the text shown in the labels, see the [Label Template and Format]({%slug components/chart/label-template-format%}) article.
+
 ````CSHTML
 <TelerikChart>
     <ChartSeriesItems>
@@ -84,5 +86,6 @@ You can also explore the child tags of the labels for more options on controllin
 
 *   [UI for Blazor Chart]({%slug components/chart/overview%})
 *   [ChartSeriesLabelsBase API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChartSeriesLabelsBase#properties)
+*   [Label Template and Format]({%slug components/chart/label-template-format%})
 *   [HTML Canvas API](https://developer.mozilla.org/en-US/docs/web/html/element/canvas)
 *   [Scalable Vector Graphic](https://developer.mozilla.org/en-US/docs/Web/SVG)
