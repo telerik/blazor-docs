@@ -159,6 +159,7 @@ You have two options to do that (described in turn below):
 
 * Customizing Themes with Swatches
 * Customizing the Source Code
+* Creating Custom Components Bundle
 
 #### Customizing Themes with Swatches
 
@@ -215,6 +216,25 @@ To create a custom theme by modifying the themes source code:
 1. Customize the theme variables in the `packages/THEME_NAME/scss/_variables.scss` files.
 1. Build the themes with the `npm run sass` or `npm run dart` command to create the customized version of the themes in the `packages/THEME_NAME/dist/all.css` file.
 1. After the build completes, reference the compiled CSS in your application.
+
+#### Creating Custom Components Bundle
+
+You might want to omit the styles for some components in the CSS output. To include only the styles that you need:
+
+1. Clone the [kendo-themes](https://github.com/telerik/kendo-themes) GitHub repository.
+1. Install the dependencies for all themes with `npm install && npx lerna bootstrap`.
+1. Switch the working directory to `packages/<THEME_NAME>`.
+1. Create a `CUSTOM_THEME.scss` file in the `scss` folder. For example, create `custom.scss` file with the following lines:
+
+    ```scss
+    // Import the theme file for the components you use.
+    @import "../panelbar/_index.scss";
+    @import "../grid/_index.scss";
+    ```
+
+1. To build the file, navigate to the theme folder and run `gulp sass --file "scss/CUSTOM_THEME.scss"`.
+1. Include the compiled CSS file in your project. It could be found under `dist/CUSTOM_THEME.css`.
+
 
 ### Using Variables
 
