@@ -152,3 +152,7 @@ You can find two examples below that showcase doing this:
     }
 }
 ````
+
+## Notes
+
+At the time of writing, the `MinLength` and `MaxLength` validation attributes throw in WASM, you can Follow this issue here: https://github.com/mono/mono/issues/19022
