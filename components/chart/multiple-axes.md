@@ -27,6 +27,7 @@ This article contains the following sections:
 	* [Category Axes](#category-axes)
 		* [Behavior with Bar and Column Charts](#behavior-with-bar-and-column-charts)
 	* [Numerical Chart Examples](#numerical-chart-examples)
+	* [Move X-Axis Labels to the Bottom](#move-x-axis-labels-to-the-bottom)
 
 >tip When using multiple axes, you would often set the color of the axis to match the `Color` of the series that uses it.
 
@@ -59,16 +60,19 @@ To define the position of the extra axes, you need to:
      
     The items in the array correspond to the order of the axes declaration.
 
-You can set a very large or a very small value to make a certain axis appear at the end of the chart.
+You can set a very large or a very small value to make a certain axis appear at the end of the chart. You can find an example in the [Move X-Axis Labels to the Bottom](#move-x-axis-labels-to-the-bottom) section.
 
 ## Examples
 
 In this section you can find code examples, explanations on the behavior and screenshots of the expected behavior so you can understand the behavior of the chart and use it to your advantage.
 
+
 * [Categorical Chart - Value Axes Examples](#categorical-chart---value-axes-examples)
 * [Category Axes](#category-axes)
 	* [Behavior with Bar and Column Charts](#behavior-with-bar-and-column-charts)
 * [Numerical Chart Examples](#numerical-chart-examples)
+* [Move X-Axis Labels to the Bottom](#move-x-axis-labels-to-the-bottom)
+
 
 ### Categorical Chart - Value Axes Examples
 
@@ -438,6 +442,64 @@ When using numerical charts, you define the extra axes in the `ChartXAxes` and `
 
 ![](images/multiple-axes-numerical-series.png)
 
+
+### Move X-Axis Labels to the Bottom
+
+This example shows how to move the x-axis labels to the bottom of the chart. This can be useful when you have negative values and you don't want the x-axis labels to overlap the series themselves.
+
+The general approach is to set an axis crossing point that has a very large value - in this example - `int.MinValue`.
+
+>caption X-axis Labels at the bottom of the chart with negative values
+
+````CSHTML
+@* This sample showcases how to move the x-axis labels to the bottom of the chart even when
+    there are negative values - through a very low axis crossing point for the y-axis.
+    Enabling the Stack settings changes the behavior of the 0 value for bar and column series
+    Test with and without it to see the difference and choose the behavior your prefer.
+    This sample shows how to have series that are not stacked and touch the 0 value and not the x-axis.
+    You do not need stack settings for line series, for example.
+    *@
+
+<TelerikChart>
+    <ChartValueAxes>
+        <ChartValueAxis AxisCrossingValue="@crossingValues"></ChartValueAxis>
+    </ChartValueAxes>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">
+            <ChartSeriesStack Enabled="true" Group="separateGroup1"></ChartSeriesStack>
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@series2Data">
+            <ChartSeriesStack Enabled="true" Group="separateGroup2"></ChartSeriesStack>
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 3" Data="@series3Data">
+            <ChartSeriesStack Enabled="true" Group="separateGroup3"></ChartSeriesStack>
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@categories"></ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
+    <ChartLegend Position="ChartLegendPosition.Right">
+    </ChartLegend>
+</TelerikChart>
+
+@code {
+    // very low value for the crossing value moves the axis to the corresponding end of the chart
+    public object[] crossingValues = new object[] { int.MinValue };
+
+    public List<object> series1Data = new List<object>() { -10, 2, 5, 6 };
+    public List<object> series2Data = new List<object>() { 5, 8, 2, -7 };
+    public List<object> series3Data = new List<object>() { 15, -3, 8, 8 };
+    public string[] categories = new string[] { "Q1", "Q2", "Q3", "Q4" };
+}
+````
+
+>caption The result from the code snippet above
+
+![](images/x-axis-labels-at-bottom.png)
 
 
 
