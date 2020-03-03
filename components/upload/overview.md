@@ -31,7 +31,9 @@ To use a Telerik Upload for Blazor
             var removeUrl = $"{request.Scheme}://{request.Host}{request.PathBase}{removeHandler}";
         }
         
-        <TelerikUpload SaveUrl="@url" RemoveUrl="@removeUrl" Multiple="true" AutoUpload="true" />
+        <TelerikUpload SaveUrl="@url" RemoveUrl="@removeUrl" Multiple="true" AutoUpload="true"
+                    AllowedExtensions="@( new List<string>() { ".jpg", ".png", ".jpeg" } )"
+                    MaxFileSize="2048000" MinFileSize="1024" />
 
 1. Create a suitable controller (endpoint) that can receive files from a POST request. For example:
 
@@ -132,9 +134,9 @@ To use a Telerik Upload for Blazor
         }
 
 
->caption The result from the code snippet above
+>caption The result from the code snippet above after selecting some valid and some invalid files
 
-![](images/scheduler-basic-screenshot.png)
+![Valid and Invalid files uploaded](images/upload-overview-validation.png)
 
 >caption Component namespace and reference
 
@@ -159,11 +161,25 @@ To use a Telerik Upload for Blazor
 * `WithCredentials` - Controls whether to send credentials (cookies, headers) for cross-site requests (see the [XMLHttpRequest.withCredentials property](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials)).
 * [Validation]({%slug upload-validation%})
 
->important Validation and security must be implemented in the endpoint handlers (controllers). Requests for them can be forged or manipulated and it is up to the application to ensure its security.
+
+
+## Notes
+
+The Telerik Upload component facilitates sending a file to an endpoint. There are a few considerations to keep in mind with regards to handling the files on the server.
+
+@[template](/_contentTemplates/upload/notes.md#server-security-note)
+
+The `MaxFileSize` parameter of the component is used for [client-side validation]({% slug upload-validation %}), and the server needs a separate configuration. At this stage, the files are uploaded in one piece and so the server may block large requests - server settings such as the IIS `MaxRequestLength` will always be taken into account by the endpoint. You can find some examples of configuring this in the following StackOverflow thread: [IIS7 - The request filtering module is configured to deny a request that exceeds the request content length](https://stackoverflow.com/questions/10871881/iis7-the-request-filtering-module-is-configured-to-deny-a-request-that-exceeds).
+
+Authentication, authorization and routing of the requests is up to the application logic. The Telerik Upload component makes an XHR request from the browser to the designated endpoint and further application logic is up to the server. You can use the [OnUpload and OnRemove events]({% slug upload-events %}) to add headers and data to the request so you can handle the requests accordingly on the server.
+
+Cross-origin requests depend on the application and endpoint setup. The `WidthCredentials` parameter sets the corresponding parameter of the XHR request. Handling the cookies, headers and other parameters of the Blazor app and CORS endpoint are to be implemented by the respective applications.
+
+
 
 
 ## See Also
 
   * [Events]({%slug upload-events%})
-  * [Validation]({%slug upload-validation})
+  * [Validation]({%slug upload-validation%})
 
