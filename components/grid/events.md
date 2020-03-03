@@ -16,6 +16,8 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 * [Read Event](#read-event) - event related to obtaining data
 * [Other Events](#other-events) - other events the grid provides
 	* [Command Button Click](#command-button-click)
+	* [SelectedItemsChanged](#selecteditemschanged)
+	* [PageChanged](#pagechanged)
 
 ## CUD Events
 
@@ -39,6 +41,32 @@ The command buttons of a grid provide an `OnClick` event before firing their bui
 ### SelectedItemsChanged
 
 Fires when the item selection is enabled and the user changes the selected [item]({%slug components/grid/selection/single%}#selecteditemschanged-event) or [items]({%slug components/grid/selection/multiple%}#selecteditemschanged-event).
+
+### PageChanged
+
+The event fires when the user pages the grid.
+
+````CSHTML
+@result
+
+<TelerikGrid Data="@MyData" Pageable="true" PageSize="30"
+    PageChanged="@PageChangedHandler" Height="300px">
+    <GridColumns>
+        <GridColumn Field="ID"></GridColumn>
+        <GridColumn Field="TheName" Title="Employee Name"></GridColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    string result { get; set; }
+    async Task PageChangedHandler(int currPage)
+    {
+        result = $"the user is now on page {currPage}. Note - the indexes are 1-based, not 0-based";
+    }
+
+    public IEnumerable<object> MyData = Enumerable.Range(1, 150).Select(x => new { ID = x, TheName = "name " + x });
+}
+````
 
 ## See Also
 
