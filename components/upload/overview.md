@@ -10,7 +10,7 @@ position: 0
 
 # Async Upload Overview
 
-The Upload component lets the user upload files to a server asynchronously. They can select one or multiple files, and you can control whether the upload starts immediately or upon a button click. You can also customize the selected file templates and let users delete their uploaded files. There is also validation for the selected files extensions and size.
+The Upload component lets the user upload files to a server asynchronously. They can select one or multiple files, and you can control whether the upload starts immediately or upon a button click. You can also customize the selected file templates and let users delete their uploaded files. There is also [client-side validation]({%slug upload-validation%}) for the selected files extensions and size.
 
 To use a Telerik Upload for Blazor
 
@@ -156,8 +156,8 @@ To use a Telerik Upload for Blazor
 * `SaveField` - Sets the `FormData` key which contains the files submitted to the `SaveUrl` endpoint. Defaults to `files`.
 * `SaveUrl`- The URL of the handler (endpoint, controller) that will receive the uploaded files. The handler must accept POST requests which contain one or more fields with the same name as the `SaveField`.
 * `Template` - Lets you customize the rendering of the selected files in the file list (for example, add your own images depending on the file extension, additional text, etc.).
-* `WithCredentials` - Controls whether to send credentials (cookies, headers) for cross-site requests.
-* Validation 
+* `WithCredentials` - Controls whether to send credentials (cookies, headers) for cross-site requests (see the [XMLHttpRequest.withCredentials property](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials)).
+* [Validation]({%slug upload-validation%})
 
 >important Validation and security must be implemented in the endpoint handlers (controllers). Requests for them can be forged or manipulated and it is up to the application to ensure its security.
 
@@ -165,4 +165,5 @@ To use a Telerik Upload for Blazor
 ## See Also
 
   * [Events]({%slug upload-events%})
+  * [Validation]({%slug upload-validation})
 
