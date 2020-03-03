@@ -232,7 +232,7 @@ navigation:
      "*treemap":
         title: "TreeMap"
      "*upload":
-        title: "Upload"
+        title: "Async Upload"
      "*validator":
         title: "Validator"
      "*window":
@@ -306,6 +306,15 @@ intro_columns:
       "Scatter Charts": "components/chart/types/scatter"
       "ScatterLine Charts": "components/chart/types/scatterline"
   -
+
+-
+  categories:
+  -
+    title: "Files"
+    items:
+      "Async Upload": "upload-overview"
+  -
+  
     
 ## The application virtual path
 baseurl: /blazor-ui
