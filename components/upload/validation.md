@@ -43,9 +43,13 @@ Removing invalid files from the [x] button in the UI will not call the `RemoveUr
 }
 ````
 
+>caption Valid and Invalid files
+
+![Valid and Invalid files uploaded](images/upload-overview-validation.png)
+
 >note Form validation for files is not supported in the framework at this point, see the following issue: https://github.com/dotnet/aspnetcore/issues/18821
 
->important Validation and security must be implemented in the endpoint handlers (controllers). Requests for them can be forged or manipulated and it is up to the application to ensure its security.
+@[template](/_contentTemplates/upload/notes.md#server-security-note)
 
 ## See Also
 
