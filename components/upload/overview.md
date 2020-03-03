@@ -25,8 +25,10 @@ To use a Telerik Upload for Blazor
         @{
             // sample way of defining the URLs. You can hardcode them, or use a NavigationManager instance
             var request = HttpContextAccessor.HttpContext.Request;
-            var url = $"{request.Scheme}://{request.Host}{request.PathBase}/api/upload/save";
-            var removeUrl = $"{request.Scheme}://{request.Host}{request.PathBase}/api/upload/remove";
+            string uploadHandler = "/api/upload/save";
+            string removeHandler = "/api/upload/remove";
+            var saveUrl = $"{request.Scheme}://{request.Host}{request.PathBase}{uploadHandler}";
+            var removeUrl = $"{request.Scheme}://{request.Host}{request.PathBase}{removeHandler}";
         }
         
         <TelerikUpload SaveUrl="@url" RemoveUrl="@removeUrl" Multiple="true" AutoUpload="true" />
@@ -155,10 +157,7 @@ To use a Telerik Upload for Blazor
 * `SaveUrl`- The URL of the handler (endpoint, controller) that will receive the uploaded files. The handler must accept POST requests which contain one or more fields with the same name as the `SaveField`.
 * `Template` - Lets you customize the rendering of the selected files in the file list (for example, add your own images depending on the file extension, additional text, etc.).
 * `WithCredentials` - Controls whether to send credentials (cookies, headers) for cross-site requests.
-* Validation logic is split into multiple properties as built-in validation for files is not currently supported.
-    * allowed extensions - a list of extensions
-    * max files size (in bytes)
-    * min files size (in bytes)
+* Validation 
 
 >important Validation and security must be implemented in the endpoint handlers (controllers). Requests for them can be forged or manipulated and it is up to the application to ensure its security.
 
