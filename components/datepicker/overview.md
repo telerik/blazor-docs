@@ -60,3 +60,4 @@ The date picker is, essentially, a [date input]({%slug components/dateinput/over
   * [Live Demo: Date Picker](https://demos.telerik.com/blazor-ui/datepicker/index)
   * [Input Validation]({%slug common-features/input-validation%})
   * [Supported Input Date Formats]({%slug components/dateinput/supported-formats%})
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDatePickerBase-1)

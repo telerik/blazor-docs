@@ -103,3 +103,4 @@ To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
   * [Live Demo: Date Input](https://demos.telerik.com/blazor-ui/dateinput/index)
   * [Input Validation]({%slug common-features/input-validation%})
   * [Supported Date Formats]({%slug components/dateinput/supported-formats%})
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDateInputBase-1)

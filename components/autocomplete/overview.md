@@ -73,4 +73,4 @@ The AutoComplete is a generic component and its type is determined by the type o
   * [Data Binding]({%slug autocomplete-databind%})
   * [Live Demo: AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/overview)
   * [Live Demo: AutoComplete Validation](https://demos.telerik.com/blazor-ui/AutoComplete/validation)
-
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikAutoComplete-1)

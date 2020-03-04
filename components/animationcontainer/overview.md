@@ -107,3 +107,4 @@ Choose a new animation from the dropdown and toggle the container
 ## See Also
 
   * [Live Demos: Animation Container](https://demos.telerik.com/blazor-ui/animationcontainer/index)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikAnimationContainerBase)

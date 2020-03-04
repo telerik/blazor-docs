@@ -113,4 +113,5 @@ Missing selection is most common when the initial value is `null` as data source
   * [Data Binding]({%slug components/combobox/databind%})
   * [Live Demo: ComboBox](https://demos.telerik.com/blazor-ui/combobox/overview)
   * [Live Demo: ComboBox Validation](https://demos.telerik.com/blazor-ui/combobox/validation)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikComboBoxBase-2)
 
