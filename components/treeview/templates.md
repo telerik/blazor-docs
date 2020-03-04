@@ -20,6 +20,93 @@ You can also define different templates for the different levels in each `TreeVi
 
 You can use the template to render arbitrary content according to your application's data and logic. You can use components in it and thus provide rich content instead of plain text. You can also use it to add DOM event handlers like click, doubleclick, mouseover if you need to respond to them.
 
+>caption Handle DOM events in a template - e.g., click on a node
+
+````CSHTML
+@result
+
+<TelerikTreeView Data="@TreeData">
+    <TreeViewBindings>
+        <TreeViewBinding>
+            <ItemTemplate>
+                @{
+                    TreeItem itm = context as TreeItem;
+                    <span @onclick="@( _ => NodeClick(itm) )">
+                        Node:
+                        <strong>@itm.Text</strong>
+                    </span>
+                }
+            </ItemTemplate>
+        </TreeViewBinding>
+    </TreeViewBindings>
+</TelerikTreeView>
+
+@code {
+    string result { get; set; }
+    async Task NodeClick(TreeItem clickeNode)
+    {
+        result = $"Last clicked node Id: {clickeNode.Id}";
+    }
+
+    // sample data
+
+    public IEnumerable<TreeItem> TreeData { get; set; }
+
+    public class TreeItem
+    {
+        public string Text { get; set; }
+        public int Id { get; set; }
+        public List<TreeItem> Items { get; set; } = new List<TreeItem>();
+        public bool Expanded { get; set; }
+        public bool HasChildren { get; set; }
+    }
+
+    protected override void OnInitialized()
+    {
+        LoadHierarchical();
+    }
+
+    private void LoadHierarchical()
+    {
+        List<TreeItem> roots = new List<TreeItem>() {
+            new TreeItem { Text = "Item 1", Id = 1, Expanded = true, HasChildren = true },
+            new TreeItem { Text = "Item 2", Id = 2, HasChildren = true }
+        };
+
+        roots[0].Items.Add(new TreeItem
+        {
+            Text = "Item 1 first child",
+            Id = 3
+
+        });
+
+        roots[0].Items.Add(new TreeItem
+        {
+            Text = "Item 1 second child",
+            Id = 4
+
+        });
+
+        roots[1].Items.Add(new TreeItem
+        {
+            Text = "Item 2 first child",
+            Id = 5
+
+        });
+
+        roots[1].Items.Add(new TreeItem
+        {
+            Text = "Item 2 second child",
+            Id = 6
+
+        });
+
+        TreeData = roots;
+    }
+}
+````
+
+
 >caption Use templates to implement navigation between views without the usage of the UrlField feature
 
 ````CSHTML
@@ -93,6 +180,7 @@ Implement your own navigation through NavLink elements, instead of using the bui
 }
 ````
 
+
 >caption Different templates for different node levels
 
 ````CSHTML
@@ -132,7 +220,6 @@ Multiple templates usage.
 		public int ProductId { get; set; }
 		public string ProductName { get; set; }
 	}
-
 
 	protected override void OnInitialized()
 	{
