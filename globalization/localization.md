@@ -240,7 +240,7 @@ public class CultureController : Controller
         var query = $"?culture={Uri.EscapeDataString(culture)}&redirectUri={Uri.EscapeDataString(uri)}";
 
         // use a path that matches your culture redirect controller from the previous steps
-        NavigationManager.NavigateTo("/blazor-ui/Culture/SetCulture" + query, forceLoad: true);
+        NavigationManager.NavigateTo($"{NavigationManager.BaseUri}Culture/SetCulture{query}", forceLoad: true);
     }
 }
 ````
