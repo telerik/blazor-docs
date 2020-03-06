@@ -54,6 +54,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 *  [TreeView](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation)
 
+*  [Upload](https://demos.telerik.com/blazor-ui/upload/keyboard-navigation)
+
 *  [Window](https://demos.telerik.com/blazor-ui/window/keyboard-navigation)
 
 
