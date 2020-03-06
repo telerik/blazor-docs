@@ -13,15 +13,13 @@ position: 20
 This article explains the events available in the Telerik Upload for Blazor:
 
 
-OnSelect="@OnSelect"
-OnRemove="@OnRemove"
-OnUpload="@OnUpload"
-OnProgress="@OnProgress"
-OnSuccess="@OnSuccess"
-OnError="@OnError"
-OnCancel="@OnCancel"
-
-
+* [OnSelect](#onselect)
+* [OnUpload](#onupload)
+* [OnRemove](#onremove)
+* [OnProgress](#onprogress)
+* [OnSuccess](#onsuccess)
+* [OnError](#onerror)
+* [OnCancel](#oncancel)
 
 
 ## OnSelect
@@ -617,9 +615,54 @@ namespace MyBlazorApp.Controllers
 
 
 
-##
+## OnCancel
 
+The `OnCancel` event fires when the user clicks the "cancel" button on a file that is currently uploading, indicating they don't want to upload it anymore.
 
+You can cancel the event based on a condition (for example, some information about the files such as its size and current upload progress) so that the user won't be able to prevent the file from uploading.
+
+@[template](/_contentTemplates/upload/notes.md#events-files-carry-client-validation-info)
+
+>caption Handling the OnCancel event and cancelling it on condition
+
+@[template](/_contentTemplates/upload/notes.md#see-controller-sample-in-overview)
+
+````CSHTML
+@inject NavigationManager NavigationManager
+
+<TelerikUpload SaveUrl="@SaveUrl"
+               RemoveUrl="@RemoveUrl"
+               OnCancel="@OnCancelHandler">
+</TelerikUpload>
+
+@code {
+    async Task OnCancelHandler(UploadCancelableEventArgs e)
+    {
+        // prevent the user from stopping a file upload based on condition
+        // in this case - if more than 5% of the file uploaded and it is larger than 1KB
+        if (e.Files[0].Progress > 5 && e.Files[0].Size > 1024)
+        {
+            e.IsCancelled = true;
+        }
+
+        foreach (var file in e.Files)
+        {
+            Console.WriteLine($"The user cancelled the upload of file {file.Name}");
+        }
+    }
+
+    // a sample way of generating the URLs to the endpoint
+    public string SaveUrl => ToAbsoluteUrl("api/upload/save");
+    public string RemoveUrl => ToAbsoluteUrl("api/upload/remove");
+
+    public string ToAbsoluteUrl(string url)
+    {
+        return $"{NavigationManager.BaseUri}{url}";
+    }
+}
+````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 
 
