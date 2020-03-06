@@ -18,22 +18,23 @@ To use a Telerik Upload for Blazor
 
     **CSHTML**
 
-        @* Most of this code is for defining the URLs, the Upload is just one tag *@
-        @using Microsoft.AspNetCore.Http;
-        @inject IHttpContextAccessor HttpContextAccessor
+        @inject NavigationManager NavigationManager
         
-        @{
-            // sample way of defining the URLs. You can hardcode them, or use a NavigationManager instance
-            var request = HttpContextAccessor.HttpContext.Request;
-            string uploadHandler = "/api/upload/save";
-            string removeHandler = "/api/upload/remove";
-            var saveUrl = $"{request.Scheme}://{request.Host}{request.PathBase}{uploadHandler}";
-            var removeUrl = $"{request.Scheme}://{request.Host}{request.PathBase}{removeHandler}";
+        <TelerikUpload SaveUrl="@SaveUrl" RemoveUrl="@RemoveUrl"
+                       AllowedExtensions="@( new List<string>() { ".jpg", ".png", ".jpeg" } )"
+                       MaxFileSize="2048000" MinFileSize="1024" />
+        
+        @code {
+            // one way to define relative paths, put the desired URL here
+            // can be a full URL such as https://mydomain/myendpoint/save
+            public string SaveUrl => ToAbsoluteUrl("api/upload/save");
+            public string RemoveUrl => ToAbsoluteUrl("api/upload/remove");
+        
+            public string ToAbsoluteUrl(string url)
+            {
+                return $"{NavigationManager.BaseUri}{url}";
+            }
         }
-        
-        <TelerikUpload SaveUrl="@url" RemoveUrl="@removeUrl" Multiple="true" AutoUpload="true"
-                    AllowedExtensions="@( new List<string>() { ".jpg", ".png", ".jpeg" } )"
-                    MaxFileSize="2048000" MinFileSize="1024" />
 
 1. Create a suitable controller (endpoint) that can receive files from a POST request. For example:
 
@@ -52,9 +53,9 @@ To use a Telerik Upload for Blazor
             [Route("api/[controller]/[action]")]
             public class UploadController : Controller
             {
-                public IHostingEnvironment HostingEnvironment { get; set; }
+                public IWebHostEnvironment HostingEnvironment { get; set; }
         
-                public UploadController(IHostingEnvironment hostingEnvironment)
+                public UploadController(IWebHostEnvironment hostingEnvironment)
                 {
                     HostingEnvironment = hostingEnvironment;
                 }
@@ -69,19 +70,18 @@ To use a Telerik Upload for Blazor
                             foreach (var file in files)
                             {
                                 var fileContent = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
-        
+            
                                 // Some browsers send file names with full path.
                                 // We are only interested in the file name.
-                                // You can use HtmlEncoder.Default.Encode to encode the filename
                                 var fileName = Path.GetFileName(fileContent.FileName.ToString().Trim('"'));
                                 var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
         
                                 // Implement security mechanisms here - prevent path traversals,
                                 // check for allowed extensions, types, size, content, viruses, etc.
                                 // this sample always saves the file to the root and is not sufficient for a real application
+                                
                                 using (var fileStream = new FileStream(physicalPath, FileMode.Create))
                                 {
-                                    // The files are not actually saved in this demo
                                     await file.CopyToAsync(fileStream);
                                 }
                             }
@@ -89,11 +89,12 @@ To use a Telerik Upload for Blazor
                         catch
                         {
                             // implement error handling here, this merely indicates a failure to the upload
-                            Response.StatusCode = 400;
+                            Response.StatusCode = 500;
+                            Response.WriteAsync("some error message"); // custom error message
                         }
                     }
         
-                    // Return an empty string to signify success
+                    // Return an empty string message in this case
                     return new EmptyResult();
                 }
         
@@ -123,11 +124,12 @@ To use a Telerik Upload for Blazor
                         catch
                         {
                             // implement error handling here, this merely indicates a failure to the upload
-                            Response.StatusCode = 400;
+                            Response.StatusCode = 500;
+                            Response.WriteAsync("some error message"); // custom error message
                         }
                     }
         
-                    // Return an empty string to signify success
+                    // Return an empty string message in this case
                     return new EmptyResult();
                 }
             }
@@ -158,7 +160,7 @@ To use a Telerik Upload for Blazor
 * `SaveField` - Sets the `FormData` key which contains the files submitted to the `SaveUrl` endpoint. Defaults to `files`.
 * `SaveUrl`- The URL of the handler (endpoint, controller) that will receive the uploaded files. The handler must accept POST requests which contain one or more fields with the same name as the `SaveField`.
 * `Template` - Lets you customize the rendering of the selected files in the file list (for example, add your own images depending on the file extension, additional text, etc.).
-* `WithCredentials` - Controls whether to send credentials (cookies, headers) for cross-site requests (see the [XMLHttpRequest.withCredentials property](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials)).
+* `WithCredentials` - Controls whether to send credentials (cookies, headers) for cross-site requests (see the [XMLHttpRequest.withCredentials property](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials)). You can also add extra information to the request (such as authentication tokens and other metadata) through the `OnUpload` and `OnRemove` [events]({%slug upload-events%}).
 * [Validation]({%slug upload-validation%})
 
 
