@@ -175,7 +175,7 @@ The `MaxFileSize` parameter of the component is used for [client-side validation
 
 Authentication, authorization and routing of the requests is up to the application logic. The Telerik Upload component makes an XHR request from the browser to the designated endpoint and further application logic is up to the server. You can use the [OnUpload and OnRemove events]({% slug upload-events %}) to add headers and data to the request so you can handle the requests accordingly on the server.
 
-Cross-origin requests depend on the application and endpoint setup. The `WidthCredentials` parameter sets the corresponding parameter of the XHR request. Handling the cookies, headers and other parameters of the Blazor app and CORS endpoint are to be implemented by the respective applications.
+Cross-origin requests depend on the application and endpoint setup. The `WidthCredentials` parameter sets the corresponding parameter of the XHR request. Handling the cookies, headers and other parameters of the Blazor app and [CORS](https://www.w3.org/TR/cors/) endpoint are to be implemented by the respective applications (for example, including the `Access-Control-Allow-Origin` header with an appropriate value and the `Access-Control-Allow-Credentials` header with a `true` value). You can read more on the subject in the following article: [https://www.html5rocks.com/en/tutorials/cors/](https://www.html5rocks.com/en/tutorials/cors/).
 
 
 
