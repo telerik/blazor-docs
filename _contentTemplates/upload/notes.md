@@ -5,3 +5,12 @@
 #end
 
 
+#events-files-carry-client-validation-info
+The individual files also carry information about their [client-side validation]({%slug upload-validation%}) that you can use in the event.
+#end
+
+
+#see-controller-sample-in-overview
+For brevity, this sample does not showcase a controller that consumes these files. You can find an example in the [Upload Overview]({%slug upload-overview%}) article.
+#end
+
