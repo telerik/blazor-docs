@@ -10,19 +10,17 @@ position: 0
 
 # Tooltip Overview
 
-The Tooltip component replaces the default browser tooltip to show the `title` or `alt` attribute of its target in a beautiful, cross-browser popup. You can specify a CSS selector to attach it to multiple targets, and to customize its content according to the current target through a template. You can also choose a position relative to the target and the event on which it shows.
+The Tooltip component replaces the default browser tooltip to show the `title` or `alt` attribute of its target in a beautiful, cross-browser popup. You can specify a CSS selector to attach it to multiple targets, the tooltip size, and [customize its content]({%slug tooltip-template%}) according to the current target through a template, which lets you also load content on demand. You can also choose a [position]({%slug tooltip-position%}) relative to the target and the [event on which it shows]({%slug tooltip-show-event%}).
 
 To use a Telerik Tooltip for Blazor
 
 1. Add the `TelerikTooltip` tag and set its `TargetSelector` parameter to a CSS selector that will match the element(s) you want to attach the tooltip to.
 1. Add elements to act as targets and set their `title` attribute.
-1. Optionally, set the `Position` and `ShowEvent`, and `Width` and `Height` parameters of the Tooltip to customize its behavior.
 
 >caption Basic Tooltip attached to anchors inside paragraphs to show their titles
 
 ````CSHTML
-<TelerikTooltip TargetSelector="p a[title]"
-                Position="@TooltipPosition.Top" ShowOn="@TooltipShowEvent.Hover">
+<TelerikTooltip TargetSelector="p a[title]">
 </TelerikTooltip>
 
 <p>
@@ -56,6 +54,7 @@ To use a Telerik Tooltip for Blazor
 * `Position` - where the tooltip shows up in comparison to its target element. See more at the [Position]({%slug tooltip-position%}) article.
 * `ShowOn` - what triggers the tooltip to show up. See more at the [Show Event]({%slug tooltip-show-event%}) article.
 * `TargetSelector` - the CSS selector that controls which elements the Tooltip component will associate itself with. It can be a single element (e.g., an ID selector such as `#myTarget`), or a broader selector that targets a number of elements at the same time (such as `p.specialParagraph a` to target all anchors in a special paragraph).
+* `Template` - a `RenderFragment` that lets you generate content for the tooltip based on metadata for the target. You can also fetch data on demant for the tooltip content through that. You can see examples in the [Tooltip Template]({%slug tooltip-template%}) article.
 * `Width` - he width of the tooltip. @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior)
 
 
@@ -63,4 +62,5 @@ To use a Telerik Tooltip for Blazor
 
   * [Position]({%slug tooltip-position%})
   * [Show Event]({%slug tooltip-show-event%})
-
+  * [Template]({%slug tooltip-template%})
+  * [Live Demo: Tooltip](https://demos.telerik.com/blazor-ui/tooltip/overview)
