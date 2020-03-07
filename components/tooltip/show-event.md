@@ -53,4 +53,5 @@ By default, the tooltip shows on hover (mouseover) of its target, just like the 
 ## See Also
 
 * [Tooltip Overview]({%slug tooltip-overview%})
+* [Live Demo: Tooltip Show Event](https://demos.telerik.com/blazor-ui/tooltip/show-event)
 
