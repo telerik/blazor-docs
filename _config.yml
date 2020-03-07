@@ -273,6 +273,7 @@ intro_columns:
     items:
       "Window": "components/window/overview"
       "Animation Container": "components/animationcontainer/overview"
+      "Tooltip": "tooltip-overview"
 
 -
   categories:

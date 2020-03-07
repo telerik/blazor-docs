@@ -1,0 +1,66 @@
+---
+title: Overview
+page_title: Tooltip for Blazor Overview
+description: Overview of the Tooltip for Blazor
+slug: tooltip-overview
+tags: telerik,blazor,tooltip,overview
+published: True
+position: 0
+---
+
+# Tooltip Overview
+
+The Tooltip component replaces the default browser tooltip to show the `title` or `alt` attribute of its target in a beautiful, cross-browser popup. You can specify a CSS selector to attach it to multiple targets, and to customize its content according to the current target through a template. You can also choose a position relative to the target and the event on which it shows.
+
+To use a Telerik Tooltip for Blazor
+
+1. Add the `TelerikTooltip` tag and set its `TargetSelector` parameter to a CSS selector that will match the element(s) you want to attach the tooltip to.
+1. Add elements to act as targets and set their `title` attribute.
+1. Optionally, set the `Position` and `ShowEvent`, and `Width` and `Height` parameters of the Tooltip to customize its behavior.
+
+>caption Basic Tooltip attached to anchors inside paragraphs to show their titles
+
+````CSHTML
+<TelerikTooltip TargetSelector="p a[title]"
+                Position="@TooltipPosition.Top" ShowOn="@TooltipShowEvent.Hover">
+</TelerikTooltip>
+
+<p>
+    <a title="what is 'lorem ipsum'?" href="https://lipsum.com/">lorem</a>
+    ipsum dolor
+    <a title="is this a real word?" href="https://en.wikipedia.org/wiki/SIT">sit</a>
+    amet.
+</p>
+````
+
+>caption The result from the code snippet above after hovering the "lorem" link
+
+![tooltip first look](images/tooltip-first-look.png)
+
+>caption Component namespace and reference
+
+````CSHTML
+<TelerikTooltip @ref="@theTooltipRef">
+</TelerikTooltip>
+
+@code{
+    Telerik.Blazor.Components.TelerikTooltip theTooltipRef { get; set; }
+}
+````
+
+>caption The Tooltip provides the following features:
+
+* `Class` - the CSS class rendered on the tooltip element. You can use it to customize its appearance (such as color, font, target elements in your template, and so on).
+* `Height`- the height of the tooltip. @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior)
+* `Id` - the `id` attribute of the tooltip. Can be useful so you can point an `aria-described-by` attribute of your target to the tooltip ID for the benefit of screen readers.
+* `Position` - where the tooltip shows up in comparison to its target element. See more at the [Position]({%slug tooltip-position%}) article.
+* `ShowOn` - what triggers the tooltip to show up. See more at the [Show Event]({%slug tooltip-show-event%}) article.
+* `TargetSelector` - the CSS selector that controls which elements the Tooltip component will associate itself with. It can be a single element (e.g., an ID selector such as `#myTarget`), or a broader selector that targets a number of elements at the same time (such as `p.specialParagraph a` to target all anchors in a special paragraph).
+* `Width` - he width of the tooltip. @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior)
+
+
+## See Also
+
+  * [Position]({%slug tooltip-position%})
+  * [Show Event]({%slug tooltip-show-event%})
+
