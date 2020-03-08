@@ -146,6 +146,9 @@ The grid offers two modes of scrolling through its `ScrollMode` parameter that t
 * `Scrollable` - the default setting - the scrollbars are controlled by the grid's `Width` and `Height` parameters and the data shown in it. If the rendered rows are taller than the height, there will be a vertical scrollbar. If the sum of the column widths is larger than the width, there will be a horizontal scrollbar (read more in the [Column Width]({%slug grid-columns-width%}) article).
 * `Virtual` - this enables [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}).
 
+## State
+
+The grid provides its current state (such as filtering, sorting, grouping, selection and so on) through methods and events so you can store the grid layout for your end users - this lets them continue where they left off. You can read more about this in the [Grid State]({%slug grid-state%}) article.
 
 
 ## Styling
