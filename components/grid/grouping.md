@@ -12,6 +12,11 @@ position: 22
 
 The Grid component offers support for grouping.
 
+* [Basics](#basics)
+* [Group From Code](#group-from-code)
+
+## Basics
+
 To enable grouping, set the grid's `Groupable` property to `true`.
 
 Drag a column header to the group panel and the grid will create groups in the data rows based on the available values for that field. An indicator will be shown for the column that is used for grouping. The group header shows the value for the field by which it is grouping.
@@ -70,6 +75,16 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
 
 ![](images/grouping-overview.gif)
 
+
+## Group From Code
+
+You can set the grid grouping from your code through the grid [state]({%slug grid-state%}).
+
+>caption Set grouping programmatically
+
+````CSHTML
+@[template](/_contentTemplates/grid/state.md#group-from-code)
+````
 
 ## See Also
 

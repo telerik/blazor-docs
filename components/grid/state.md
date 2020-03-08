@@ -45,13 +45,19 @@ The `GetState` and `SetState` instance methods provide flexibility for your busi
 ## Examples
 
 
->caption Set sorting programmatically
+>caption The individual tabs show how you can use the state to programmatically set the grid filtering, sorting, grouping and other features
 
 ````Sorting
 @[template](/_contentTemplates/grid/state.md#set-sort-from-code)
 ````
+````FilterRow
+@[template](/_contentTemplates/grid/state.md#filter-row-from-code)
+````
 ````FilterMenu
-@[template](/_contentTemplates/grid/state.md#set-sort-from-code)
+@[template](/_contentTemplates/grid/state.md#filter-menu-from-code)
+````
+````Grouping
+@[template](/_contentTemplates/grid/state.md#group-from-code)
 ````
 
 ## See Also

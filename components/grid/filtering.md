@@ -12,6 +12,16 @@ position: 22
 
 The Grid component offers built-in support for filtering.
 
+In this article:
+
+* [Basics](#basics)
+* [Filter Row](#filter-row)
+* [Filter Menu](#filter-menu)
+* [Filter From Code](#filter-from-code)
+
+
+## Basics
+
 To enable filtering, set the grid's `FilterMode` property to one of the following values:
 
 * [`Telerik.Blazor.GridFilterMode.FilterRow`](#filter-row) - a row of filter options is rendered below the column headers
@@ -32,7 +42,7 @@ Once a filter is a applied to a column, a button will appear that lets you clear
 >caption Filter Row in Telerik Grid
 
 ````CSHTML
-Filter row
+@* Filter row mode *@
 
 <TelerikGrid Data=@GridData FilterMode="Telerik.Blazor.GridFilterMode.FilterRow" Pageable="true" Height="400px">
 	<GridColumns>
@@ -91,7 +101,7 @@ A key difference in the behavior from the [filter row](#filter-row) is that the 
 >caption Filter Menu in Telerik Grid
 
 ````CSHTML
-Filter menu in the column header
+@* Filter menu in the column header *@
 
 <TelerikGrid Data=@GridData FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu"
 			 Pageable="true" Height="400px">
@@ -138,6 +148,19 @@ Filter menu in the column header
 
 ![](images/filter-menu-1.png)
 
+
+## Filter From Code
+
+You can set the grid filters from your code through the grid [state]({%slug grid-state%}).
+
+>caption Set sorting programmatically
+
+````FilterRow
+@[template](/_contentTemplates/grid/state.md#filter-row-from-code)
+````
+````FilterMenu
+@[template](/_contentTemplates/grid/state.md#filter-menu-from-code)
+````
 
 ## See Also
 
