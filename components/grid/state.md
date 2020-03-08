@@ -59,6 +59,9 @@ The `GetState` and `SetState` instance methods provide flexibility for your busi
 ````Grouping
 @[template](/_contentTemplates/grid/state.md#group-from-code)
 ````
+````Hierarchy
+@[template](/_contentTemplates/grid/state.md#expand-hierarchy-from-code)
+````
 
 ## See Also
 

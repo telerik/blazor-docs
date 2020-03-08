@@ -78,7 +78,7 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
 
 ## Group From Code
 
-You can set the grid grouping from your code through the grid [state]({%slug grid-state%}).
+You can set the grid grouping from your code through the grid [state]({%slug grid-state%}). You can define the list of fields by which the grid is grouped and indexes of groups that will be collapsed (all groups are expanded by default).
 
 >caption Set grouping programmatically
 
