@@ -12,6 +12,14 @@ position: 21
 
 The Grid component offers support for sorting.
 
+In this article:
+
+* [Basics](#basics)
+* [Sort From Code](#sort-from-code)
+
+
+## Basics
+
 To enable sorting, set the grid's `Sortable` property to `true`.
 
 When the user clicks the column header, the grid will sort the data according to the column's data type, and an arrow indicator of the sorting direction will be shown next to the column title.
