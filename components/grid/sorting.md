@@ -41,6 +41,16 @@ Click a column header to sort by its data
 
 You can sort this grid on the different columns to see the results. The `Name` column is a string, and sorting is done according to the rules for strings, while the `ID` column sorts acording to rules for integers.
 
+## Sort From Code
+
+You can sort the grid from your own code through its [state]({%slug grid-state%}).
+
+>caption Set sorting programmatically
+
+````CSHTML
+@[template](/_contentTemplates/grid/state.md#set-sort-from-code)
+````
+
 ## See Also
 
   * [Live Demo: Grid Sorting](https://demos.telerik.com/blazor-ui/grid/sorting)
