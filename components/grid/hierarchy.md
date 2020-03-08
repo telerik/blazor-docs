@@ -12,6 +12,13 @@ position: 25
 
 The Grid component provides options for visualizing the relations between parent and child records by displaying data in a hierarchical manner through a detail template.
 
+In this article:
+
+* [Basics](#basics)
+* [Expand Rows From Code](#expand-rows-from-code)
+
+## Basics
+
 To implement hierarchy in the Grid, define a `DetailTemplate` under the main tag of the grid. In this template, you can access the model for the concrete row through the `context`, and use other components to show detailed data from it (for example, another grid, or any other set of components and HTML).
 
 When a detail template is defined, an expand/collapse button is rendered at the beginning of the row that the user can click to show and hide the detailed data.
@@ -79,6 +86,17 @@ Click the + icon to expand the row details
 ![](images/hierarchy-grid-in-grid.png)
 
 >tip To have more levels, simply nest more grids and name the `context` variables. You can find an example in the [Multi-Level Hierarchy]({%slug grid-three-level-hierarchy%}) KB article.
+
+
+## Expand Rows From Code
+
+You can choose which detail templates will be expanded from your code through the grid [state]({%slug grid-state%}) by their indexes (all detail templates are collapsed by default).
+
+>caption Expand DetailTemplate hierarchy from code
+
+````CSHTML
+@[template](/_contentTemplates/grid/state.md#expand-hierarchy-from-code)
+````
 
 
 ## See Also
