@@ -14,7 +14,7 @@ The Upload component lets the user upload files to a server asynchronously. They
 
 To use a Telerik Upload for Blazor
 
-1. Add the `TelerikUpload` tag and set its `SaveUrl` and `DeleteUrl` (optional) to controller methods that will handle the files.
+1. Add the `TelerikUpload` tag and set its `SaveUrl` and `RemoveUrl` (optional) to controller methods that will handle the files.
 
     **CSHTML**
 
