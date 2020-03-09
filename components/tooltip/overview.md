@@ -55,8 +55,11 @@ To use a Telerik Tooltip for Blazor
 * `ShowOn` - what triggers the tooltip to show up. See more at the [Show Event]({%slug tooltip-show-event%}) article.
 * `TargetSelector` - the CSS selector that controls which elements the Tooltip component will associate itself with. It can be a single element (e.g., an ID selector such as `#myTarget`), or a broader selector that targets a number of elements at the same time (such as `p.specialParagraph a` to target all anchors in a special paragraph).
 * `Template` - a `RenderFragment` that lets you generate content for the tooltip based on metadata for the target. You can also fetch data on demant for the tooltip content through that. You can see examples in the [Tooltip Template]({%slug tooltip-template%}) article.
-* `Width` - he width of the tooltip. @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior)
+* `Width` - The width of the tooltip. @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior)
 
+>tip To have the tooltip stretch accroding to your content, you should leave _both_ the `Width` and `Height` parameters empty. If one of them has a value, the HTML element will have some layout and you may get unexpected results in terms of size and position.
+>
+> If you will be [loading large content on demand]({%slug tooltip-template%}#separate-component-and-load-on-demand), you should set dimensions that will accommodate the expected content and layout.
 
 ## See Also
 

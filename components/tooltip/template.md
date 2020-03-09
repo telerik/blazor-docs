@@ -111,6 +111,8 @@ or even entire components *@
 
 ## Separate component and load on demand
 
+This examle shows how you can use a standalone component to generate the tooltip contents. It can also be used to load content on demand and you can find a more complete example in the [Tooltips with Load-on-demand in a Grid Row](https://github.com/telerik/blazor-ui/tree/master/tooltip/in-grid) sample project.
+
 >caption Generate tooltip content through a separate component
 
 ````MainComponent
