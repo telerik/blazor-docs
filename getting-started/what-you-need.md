@@ -103,10 +103,7 @@ To allow working with detached popups (for example, dropdown lists, menus, grid 
 
 ### Client-side Project Specifics
 
-If you are using a **client-side Blazor** project:
-@[template](/_contentTemplates/common/issues-and-warnings.md#mono-linker-issue)
-
-The final step is to register the Telerik services. In a client-side Blazor project, you do that in the `Program.cs` file of the WebAssembly (Client) project:
+The final step is to register the Telerik services. In a client-side Blazor project, you register services in the `Program.cs` file of the WebAssembly (Client) project:
 
 ````CS
 using Microsoft.AspNetCore.Blazor.Hosting;
@@ -138,7 +135,7 @@ namespace ClientBlazorProject.Client // make sure this matches your actual WASM 
 
 ### Server-side Project Specifics
 
-The final step is to register the Telerik services. In a server-side Blazor project, you do that in the `Startup.cs` file:
+The final step is to register the Telerik services. In a server-side Blazor project, you register services in the `Startup.cs` file:
 
 ````CS
 namespace MyBlazorAppName
