@@ -26,6 +26,8 @@ Removing invalid files from the [x] button in the UI will not call the `RemoveUr
 
 >caption Client validation in Telerik Async Upload
 
+@[template](/_contentTemplates/upload/notes.md#see-controller-sample-in-overview)
+
 ````CSHTML
 @* Some images are only allowed, min size 1KB, max size 2MB
     This sample does not showcase a controller that consumes these files for brevity
@@ -35,7 +37,7 @@ Removing invalid files from the [x] button in the UI will not call the `RemoveUr
 <TelerikUpload AllowedExtensions="@( new List<string>() { ".jpg", ".png", ".jpeg" } )"
                MaxFileSize="2048000"
                MinFileSize="1024"
-               SaveUrl="@uploadHandler" RemoveUrl="@removeHandler" Multiple="true" AutoUpload="true" />
+               SaveUrl="@uploadHandler" RemoveUrl="@removeHandler" />
 
 @code{
     string uploadHandler = "/api/upload/save";

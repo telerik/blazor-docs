@@ -152,9 +152,9 @@ To use a Telerik Upload for Blazor
 
 >caption The Upload provides the following key features:
 
-* `AutoUpload` - Specifies whether the upload of a file should start immediately upon its selection, or the user must click the "Upload" button.
+* `AutoUpload` - Specifies whether the upload of a file should start immediately upon its selection, or the user must click the "Upload" button. Defaults to `true`.
 * `Enabled` - Whether the component is enabled for the end user.
-* `Multiple` - Enables the selection of multiple files. If set to `false` (the default value for a boolean field), only one file can be selected at a time.
+* `Multiple` - Enables the selection of multiple files. If set to `false` (defaults to `true`), only one file can be selected at a time.
 * `RemoveField` - Sets the `FormData` key which contains the file names submitted to the `RemoveUrl` endpoint when the user clicks the individual [x] button on the chosen files. Defaults to `files`.
 * `RemoveUrl`- Sets the URL of the endpoint for the remove request. The `FormData` request key is named after the `RemoveField` parameter. It contains the list of file names which should be removed from the server. The handler must accept POST requests which contain one or more fields with the same name as the `RemoveField`.
 * `SaveField` - Sets the `FormData` key which contains the files submitted to the `SaveUrl` endpoint. Defaults to `files`.
