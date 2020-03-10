@@ -41,19 +41,19 @@ Static assets are part of the NuGet package that the framework will copy to the 
 <html>
 <head>
     . . .
-    <link rel="stylesheet" href="_content/telerik.ui.for.blazor/css/kendo-theme-default/all.css" />
+    <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
     
     <!-- Choose only one of the themes -->
     <!-- 
-        <link href="_content/telerik.ui.for.blazor/css/kendo-theme-bootstrap/all.css" rel="stylesheet" />
-        <link href="_content/telerik.ui.for.blazor/css/kendo-theme-material/all.css" rel="stylesheet" />
+        <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-bootstrap/all.css" rel="stylesheet" />
+        <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-material/all.css" rel="stylesheet" />
     -->
     
     <!-- For Trial licenses use one of the following -->
     <!--
-        <link href="_content/telerik.ui.for.blazor.trial/css/kendo-theme-default/all.css" rel="stylesheet" />
-        <link href="_content/telerik.ui.for.blazor.trial/css/kendo-theme-bootstrap/all.css" rel="stylesheet" />
-        <link href="_content/telerik.ui.for.blazor.trial/css/kendo-theme-material/all.css" rel="stylesheet" />
+        <link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" rel="stylesheet" />
+        <link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-bootstrap/all.css" rel="stylesheet" />
+        <link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-material/all.css" rel="stylesheet" />
       -->
 </head>
 

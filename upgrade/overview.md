@@ -60,11 +60,11 @@ If you have just purchased a license and you need to migrate from the trial pack
     **HTML**
     
         <!-- FROM
-        <script src="_content/telerik.ui.for.blazor.trial/js/telerik-blazor.js" defer></script>
+        <script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>
         
         TO
         -->
-        <script src="_content/telerik.ui.for.blazor/js/telerik-blazor.js" defer></script>
+        <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
 
 The Trial version of our assembly has the `Telerik.Blazor Trial version` Title. You can see it by Right clicking the assembly > Properties > File Description. You can find the assembly by extracting the `.nupgk` file like a `.zip` archive, or in the publish location.
 

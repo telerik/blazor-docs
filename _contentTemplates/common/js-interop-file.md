@@ -28,10 +28,10 @@
 #js-interop-file-snippet
         <head>
           . . .
-          <script src="_content/telerik.ui.for.blazor/js/telerik-blazor.js" defer></script>
+          <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
           
           <!-- For Trial licenses use
-            <script src="_content/telerik.ui.for.blazor.trial/js/telerik-blazor.js" defer></script>
+            <script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>
           -->
         </head>
 #end
@@ -40,10 +40,10 @@
 #theme-static-asset-snippet
         <head>
           . . .
-            <link rel="stylesheet" href="_content/telerik.ui.for.blazor/css/kendo-theme-default/all.css" />
+            <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
             
             <!-- For Trial licenses use
-                <link rel="stylesheet" href="_content/telerik.ui.for.blazor.trial/css/kendo-theme-default/all.css" />
+                <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" />
               -->
         </head>
 #end
