@@ -29,7 +29,9 @@ The CUD event handlers receive an argument of type `GridCommandEventArgs` that e
 * `Field` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates which is the model field the user changed when updating data.
 * `Value` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates what is the new value the user changed when updating data.
 
->tip The grid events use `EventCallback` and can be syncrhonous or asynchronous. The example below shows async versions, and the signature for synchronous events is `void <event name>(GridCommandEventArgs args)`.
+You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the grid, or components in a column template) through the [grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item).
+
+>tip The grid events use `EventCallback` and can be syncrhonous or asynchronous. The example below shows async versions, and the signature for synchronous events is `void <MethodName>(GridCommandEventArgs args)`.
 
 >caption Handling the CRUD events of the grid to save data to the actual data source
 
