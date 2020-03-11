@@ -50,6 +50,9 @@ navigation:
      "getting-started/vs-integration":
         title: "Visual Studio Integration"
         position: 25
+     "getting-started/vs-code-integration":
+        title: "Visual Studio Code Integration"
+        position: 26
      "backwards-compatibility":
         title: "Breaking Changes"
         position: 30
