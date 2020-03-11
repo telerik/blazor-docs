@@ -58,7 +58,7 @@ For client-side `Blazor App`, we recommend the usage of `Blazor (ASP.NET Hosted)
 
     **C#**
     
-        using Microsoft.AspNetCore.Blazor.Hosting;
+        using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
         using Microsoft.Extensions.DependencyInjection;
         using System.Threading.Tasks;
         
@@ -70,6 +70,7 @@ For client-side `Blazor App`, we recommend the usage of `Blazor (ASP.NET Hosted)
                 {
                     // sample host builder for a WASM app, yours may differ
                     var builder = WebAssemblyHostBuilder.CreateDefault(args);
+                    builder.Services.AddBaseAddressHttpClient();
                     builder.RootComponents.Add<App>("app");
                     // there may be more code here
                     

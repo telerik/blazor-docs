@@ -106,7 +106,7 @@ To allow working with detached popups (for example, dropdown lists, menus, grid 
 The final step is to register the Telerik services. In a client-side Blazor project, you register services in the `Program.cs` file of the WebAssembly (Client) project:
 
 ````CS
-using Microsoft.AspNetCore.Blazor.Hosting;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 
@@ -118,6 +118,7 @@ namespace ClientBlazorProject.Client // make sure this matches your actual WASM 
         {
             // sample host builder for a WASM app, yours may differ
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            builder.Services.AddBaseAddressHttpClient();
             builder.RootComponents.Add<App>("app");
             // there may be more code here
             
