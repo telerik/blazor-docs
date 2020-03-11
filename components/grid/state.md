@@ -58,7 +58,7 @@ The `GetState` and `SetState` instance methods provide flexibility for your busi
 The following information is present in the grid state:
 
 * Columns - index (order) of the column (matches the list order in the state object), width. Requires that the grid initializes with the same collection of columns that were used to save the state.
-* Editing - whether the user was inserting or editing an item (opens the same item for editing with the current data from the built-in editors of the grid). The `OriginalEditItem` also carries the original model without the user modifications so you can compare.
+* Editing - whether the user was inserting or editing an item (opens the same item for editing with the current data from the built-in editors of the grid - the data is updated in the `OnChange` event, not on every keystroke for performance reasons). The `OriginalEditItem` carries the original model without the user modifications so you can compare.
 * Filtering - filter descriptors (fields by which the grid is filtered, the operator and value).
 * Grouping - group descriptors (fields by which the grid is grouped), collapsed group indexes.
 * Paging - page index, offset (skip) for virtual scrolling.
@@ -320,7 +320,7 @@ The grid state allows you to control the behavior of the grid programmatically -
 
 ### Initiate Editing or Inserting of an Item
 
-The grid state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the grid state.
+The grid state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the grid state. If you want to save on every keystroke instead of on `OnChange` - use a custom editor template and update the `EditItem` or `InsertedItem` of the state object as required, then save the state into your service.
 
 In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `InsertItem` fields of the state object to put the grid in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug components/grid/columns/command%}).
 
