@@ -74,6 +74,7 @@ You can use the following properties on the bound columns:
 * `Title` - the text that is rendered in the column header.
 * `Editable` - you can set this property to `true` or `false` to allow or prevent [editing]({%slug components/grid/overview%}#editing) of this field. Defaults to `true`. To edit data, you also need a [CommandColumn]({%slug components/grid/columns/command%}).
 * `Filterable` - you can set this to `false` so a [filterable]({%slug components/grid/filtering%}) grid will not let the user filter that particular column.
+* `Sortable` - set it to `false` so the user cannot [sort]({%slug components/grid/features/sorting%}) this column.
 * `Groupable` - whether the use can [group]({%slug components/grid/features/grouping%}) the grid by this column.
 * `Reorderable` - whether the user can [drag to reorder]({%slug components/grid/columns/reorder%}) this column.
 * `Resizable` - whether the user can [resize]({%slug components/grid/columns/resize%}) this column.

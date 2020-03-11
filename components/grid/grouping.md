@@ -20,7 +20,7 @@ You can also group by multiple fields and groups for subsequent fields will be n
 
 To remove a group setting, click the `[x]` button on its indicator in the group panel.
 
-To prevent grouping by a field, set `Groupable="false"` for on its column. This can be useful for fields with unique values like IDs or names.
+To prevent grouping by a field, set `Groupable="false"` on its column. This can be useful for fields with unique values like IDs or names.
 
 You can also use [aggregates]({%slug grid-aggregates%}) for the grouped data.
 

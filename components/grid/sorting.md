@@ -16,6 +16,8 @@ To enable sorting, set the grid's `Sortable` property to `true`.
 
 When the user clicks the column header, the grid will sort the data according to the column's data type, and an arrow indicator of the sorting direction will be shown next to the column title.
 
+To prevent the user from sorting a certain field by setting `Sortable="false"` on its column.
+
 >caption Enable Sorting in Telerik Grid
 
 ````CSHTML
