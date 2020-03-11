@@ -334,6 +334,129 @@ The grid state allows you to control the behavior of the grid programmatically -
 @[template](/_contentTemplates/grid/state.md#expand-hierarchy-from-code)
 ````
 
+### Initiate Editing or Inserting of an Item
+
+The grid state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the grid state.
+
+In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `InsertItem` fields of the state object to put the grid in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug components/grid/columns/command%}).
+
+>caption Put and item in Edit mode or start Inserting a new item
+
+````CSHTML
+@* This example shows how to make the grid edit a certain item or start insert operation
+    through your own code, without requiring the user to click the Command buttons *@
+
+<TelerikButton OnClick="@StartInsert">Start Insert operation</TelerikButton>
+<TelerikButton OnClick="@EditItemFour">Put item 4 in Edit mode</TelerikButton>
+
+<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px" @ref="@GridRef"
+             OnUpdate="@UpdateHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler">
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    TelerikGrid<SampleData> GridRef { get; set; }
+
+    async Task StartInsert()
+    {
+        var currState = GridRef.GetState();
+        // reset any current editing. Not mandatory.
+        currState.EditItem = null;
+        currState.OriginalEditItem = null;
+
+        // add new inserted item to the state, then set it to the grid
+        // you can predefine values here as well (not mandatory)
+        currState.InsertedItem = new SampleData() { Name = "some predefined value" };
+        await GridRef.SetState(currState);
+    }
+
+    async Task EditItemFour()
+    {
+        var currState = GridRef.GetState();
+        // reset any current insertion and any old edited items. Not mandatory.
+        currState.InsertedItem = null;
+
+        // add item you want to edit to the state, then set it to the grid
+        SampleData itemToEdit = MyData.Where(itm => itm.ID == 4).FirstOrDefault();
+        // you can alter values here as well (not mandatory)
+        //itemToEdit.Name = "Changed from code";
+        currState.OriginalEditItem = itemToEdit;
+        currState.EditItem = itemToEdit;
+        // for InCell editing, you can use the EditField property instead
+        await GridRef.SetState(currState);
+    }
+
+
+    // Sample CRUD operations and data follow
+
+    async Task UpdateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+        var index = MyData.FindIndex(i => i.ID == item.ID);
+        if (index != -1)
+        {
+            MyData[index] = item;
+        }
+    }
+
+    async Task DeleteHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+        MyData.Remove(item);
+    }
+
+    async Task CreateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+        item.ID = MyData.Count + 1;
+        MyData.Insert(0, item);
+
+    }
+
+    public class SampleData
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+
+        // example of comparing stored items (from editing or selection)
+        // with items from the current data source - IDs are used instead of the default references
+        public override bool Equals(object obj)
+        {
+            if (obj is SampleData)
+            {
+                return this.ID == (obj as SampleData).ID;
+            }
+            return false;
+        }
+    }
+
+    public List<SampleData> MyData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        MyData = new List<SampleData>();
+
+        for (int i = 0; i < 50; i++)
+        {
+            MyData.Add(new SampleData()
+            {
+                ID = i,
+                Name = "Name " + i.ToString()
+            });
+        }
+    }
+}
+````
+
 ## See Also
 
   * [Live Demo: Grid State](https://demos.telerik.com/blazor-ui/grid/persist-state)
