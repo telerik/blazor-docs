@@ -51,7 +51,13 @@ The `GetState` and `SetState` instance methods provide flexibility for your busi
 
 * `GetState` returns the grid state so you can store it only on a certain condition - for example, you may want to save the grid layout only on a button click, and not on every user interaction with the grid. You can also use it to get information about the current state of the filters, sorts and so on, if you are not using the OnRead event.
 
-* `SetState` takes an instance of a grid state so you can use your own code to alter the grid layout and state. For example, you can have a button that puts the grid in a certain configuration that helps your users review data (like certain filters, sorts, groups, expanded detail templates, initiate item editing or inserting, etc.). You can also use this method to reset the grid to a default state (pass `null`).
+* `SetState` takes an instance of a grid state so you can use your own code to alter the grid layout and state. For example, you can have a button that puts the grid in a certain configuration that helps your users review data (like certain filters, sorts, groups, expanded detail templates, initiate item editing or inserting, etc.).
+
+If you want to make changes on the current grid state, first get it from the grid through the `GetState` method, then apply the modifications on the object you got, and pass it to `SaveState`.
+
+If you want to put the grid in a certain configuration without preserving the old one, create a `new GridState<T>()` and apply the settings there, then pass it to `SetState`.
+
+To reset the grid state, call `SetState(null)`.
 
 ## Information in the Grid State
 
@@ -329,7 +335,9 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 ````CSHTML
 @* This example shows how to make the grid edit a certain item or start insert operation
     through your own code, without requiring the user to click the Command buttons.
-    The buttons that initiate these operations can be anywhere on the page, inlcuding inside the grid *@
+    The buttons that initiate these operations can be anywhere on the page, inlcuding inside the grid.
+    Note the model constructors and static method that show how to get a new instance for the edit item 
+    *@
 
 <TelerikButton OnClick="@StartInsert">Start Insert operation</TelerikButton>
 <TelerikButton OnClick="@EditItemFour">Put item 4 in Edit mode</TelerikButton>
@@ -371,11 +379,10 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         currState.InsertedItem = null;
 
         // add item you want to edit to the state, then set it to the grid
-        SampleData itemToEdit = MyData.Where(itm => itm.ID == 4).FirstOrDefault();
+        SampleData itemToEdit = SampleData.GetClonedInstance(MyData.Where(itm => itm.ID == 4).FirstOrDefault());
         // you can alter values here as well (not mandatory)
         //itemToEdit.Name = "Changed from code";
         currState.OriginalEditItem = itemToEdit;
-        currState.EditItem = itemToEdit;
         // for InCell editing, you can use the EditField property instead
         await GridRef.SetState(currState);
     }
@@ -421,6 +428,28 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
                 return this.ID == (obj as SampleData).ID;
             }
             return false;
+        }
+
+
+        // define constructors and a static method so we can deep clone instances
+        // we use that to define the edited item - otherwise the references will point
+        // to the item in the grid data sources and all changes will happen immediately on
+        // the Data collection, and we don't want that - so we need a deep clone with its own reference
+        // this is just one way to implement this, you can do it in a different way
+        public SampleData()
+        {
+
+        }
+
+        public SampleData(SampleData itmToClone)
+        {
+            this.ID = itmToClone.ID;
+            this.Name = itmToClone.Name;
+        }
+
+        public static SampleData GetClonedInstance(SampleData itmToClone)
+        {
+            return new SampleData(itmToClone);
         }
     }
 
