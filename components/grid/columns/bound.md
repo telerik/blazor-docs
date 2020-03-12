@@ -97,7 +97,7 @@ You can use the following properties on the bound columns:
 
 >tip You can optimize database queries in two ways:
 >
-> * Use an `IQueriable<MyModel>` collection for the grid `Data`. The grid will build a LINQ expression internally that will be resolved only when needed. This can be useful when the `Data` comes from something like an EntityFramework context.
+> * Use an `IQueryable<MyModel>` collection for the grid `Data`. The grid will build a LINQ expression internally that will be resolved only when needed. This can be useful when the `Data` comes from something like an EntityFramework context.
 > * Implement [manual data source operations](..//manual-operations) and implement the desired query yourself. In a future version, the `DataSourceRequest` object will become serializable so you can send it directly over HTTP to a controller and use the LINQ queries it will build for you.
 
 ## See Also
