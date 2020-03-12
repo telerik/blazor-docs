@@ -1,6 +1,6 @@
 ---
 publish: false
-layout: false
+layout: null
 ---
 
 {% capture site_url %}{% if site.url %}{{ site.url }}{% else %}{{ site.github.url }}{% endif %}{% endcapture %}
