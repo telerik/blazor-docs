@@ -34,7 +34,7 @@ This article will walk you through the tool and will explain how to use the gene
 
 >caption Figure 1: The home screen of the Sass Theme Builder
 
-![](images/theme-builder-overview.png)
+![Blazor Theme Builder home screen](images/theme-builder-overview.png)
 
 ### Create New Theme
 
@@ -44,12 +44,15 @@ To create a new theme:
 
 1. Choose one of the existing themes to use as a base.
 
-    >caption Figure 2: Selecting a base theme
+1. Select the components which you intend to style. You can also change the selection at a later stage.
+
+    >caption Figure 2: Selecting a base theme and components
     
-    ![](images/theme-builder-select-base-theme.png)
+    ![Select Blazor Theme Builder theme and components](images/theme-builder-select-base-theme.gif)
     
 1. Follow the next options in this article to customize the theme
 
+Complex Telerik UI for Blazor components, such as the Grid, rely on other components to deliver their full set of features. If you select the Grid, then all of its components dependencies styles (Button, AutoComplete, DropDownList, DatePicker, etc.) will also be included in the final bundle. The Theme Builder automatically updates the styling on all required components so that you do not need to customize each of them separately.
 
 ### Modifying Themes
 
@@ -66,13 +69,13 @@ The following list describes the Theme Builder UI:
 3. Color pickers and other controls for customizing the theme.
 4. Link to documentation.
 5. Download the theme when you are done tweaking, so you can reference it in your project.
-6. Components list - you can select which components to include in the preview.
+6. Selected Components list - you can select which components to include in the preview and the final CSS bundle.
 
 The rest is the Preview pane where you can see the changes in real-time as you make them through the controls on the left.
 
 >caption Figure 3: Theme Builder UI Explained
 
-![](images/theme-builder-ui-explanations.png)
+![Blazor Theme Builder UI explained](images/theme-builder-ui-explanations.png)
 
 ### Import Custom Theme
 
@@ -84,18 +87,16 @@ You can also upload a theme you have previously worked on:
 
 >caption Figure 4: Importing themes for customization
 
-![](images/theme-builder-import.png)
+![Importing theme in the Blazor Theme Builder](images/theme-builder-import.png)
 
 ### Use The Custom Theme In Your Project
 
 When you complete the modifications and the theme is ready to be used:
 
 1. Download the theme as a compact archive by clicking the **Download** button.
-1. Add the `all.css` file to your application. Save the `variables.scss` file for future reference in case you need to re-generate the theme again or customize it further.
-1. Include the `all.css` file in the `head` tag of your index document.
+1. Add the `THEME_NAME.css` file to your application. Save the `variables.scss` file for future reference in case you need to re-generate the theme again or customize it further.
+1. Include the `THEME_NAME.css` file in the `head` tag of your index document.
     * Make sure that this is the only Telerik Theme that is referenced in the application.
-    
-
 
 ## Manual Alternative
 
