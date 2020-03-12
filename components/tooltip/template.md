@@ -12,11 +12,13 @@ position: 4
 
 The Tooltip component offers a template that lets you customize the content so you can show rich data (such as images or other components). The template context provides the `data-*` attributes and the `title` of the tooltip target so you can tie the content to the metadata.
 
-The tooltip metadata is available from the `TargetDataAttributes` field of the `context` object, and it is of type `Dictionary<string, string>`.
+The tooltip metadata is available from the the `context` object, in the following fields:
+* `DataAttributes` - the `data-` attributes, lowercase, the field is of type `Dictionary<string, string>`
+* `Title` - the `title` attribute of the target, of type `string`
 
 This article contains the following examples for generating the tooltip content:
 
-* [Markup generated in the template](#basic-example---inline-markup). Shows how you can access the dictionariy with data and how to perform safety checks to avoid null reference errors when using key-values directly.
+* [Markup generated in the template](#basic-example---inline-markup). Shows how you can access the metadata.
 
 * [Markup generated from a string through a method](#markup-from-generated-string). Shows how you can loop over all the keys in the metadata and render markup from a function call.
 
@@ -28,38 +30,26 @@ This article contains the following examples for generating the tooltip content:
 
 ````CSHTML
 @* You can add more than text, you can also use the data to generate attributes for images
-or even entire components *@
+    or even entire components *@
 
 <TelerikTooltip TargetSelector="p strong[title]">
     <Template>
         @{
-            var dataAttributes = context?.TargetDataAttributes;
+            var dataAttributes = context.DataAttributes;
+            var title = context.Title;
             <div>
                 This is a tooltip for:
-                @if (dataAttributes != null)
-                {
                 <ul>
-                    @if (dataAttributes.ContainsKey("title"))
-                    {
-                        <li>target title: @dataAttributes["title"]</li>
-                    }
-                    @if (dataAttributes.ContainsKey("id"))
-                    {
-                        <li>target data-id: @dataAttributes["id"]</li>
-                    }
+                    <li>target title: @title</li>
+                    <li>target data-id: @dataAttributes["id"]</li>
                 </ul>
-                }
-                else
-                {
-                    <span>an element without any metadata</span>
-                }
             </div>
         }
     </Template>
 </TelerikTooltip>
 
 <p>
-    Hover these targets to see different tooltip contents generated from the same tooltip:<br/>
+    Hover these targets to see different tooltip contents generated from the same tooltip:<br />
     <strong title="one" data-id="first">target one</strong>
     and also
     <strong title="two" data-id="second">the second target</strong>.
@@ -76,21 +66,19 @@ or even entire components *@
 
 <TelerikTooltip TargetSelector="p strong[title]">
     <Template>
-        @{
-            var dataAttributes = context?.TargetDataAttributes;
-            @( new MarkupString( GetTooltipContent(dataAttributes) ) )
-        }
+        @(new MarkupString(GetTooltipContent(context.DataAttributes, context.Title)))
     </Template>
 </TelerikTooltip>
 
 @code{
-    string GetTooltipContent(Dictionary<string, string> targetMetadata)
+    string GetTooltipContent(Dictionary<string, string> targetMetadata, string targetTitle)
     {
-        if(targetMetadata == null)
+        if (targetMetadata == null && string.IsNullOrEmpty(targetTitle))
         {
             return "<strong>no data for this element</strong>";
         }
         string result = "<ul>";
+        result += $"<li>title: {targetTitle}</li>";
         foreach (string key in targetMetadata.Keys)
         {
             result += $"<li>key: {key} | value: {targetMetadata[key]}</li>";
@@ -119,23 +107,24 @@ This examle shows how you can use a standalone component to generate the tooltip
 @* Tip: set dimensions that will accommodate the data/content you fetch/generate
     to avoid sizing and/or positioning issues when the new content is rendered *@
 
-<TelerikTooltip TargetSelector="p strong[title]" Height="300px" Width="400px">
+<TelerikTooltip TargetSelector="p strong.target" Height="300px" Width="400px">
     <Template>
-        <TooltipContentComponent TargetData="@context.TargetDataAttributes" />
+        <TooltipContentComponent TargetData="@context.DataAttributes" Title="@context.Title" />
     </Template>
 </TelerikTooltip>
 
 <p>
     Hover these targets to see different tooltip contents generated from the same tooltip:<br />
-    <strong title="one" data-id="first" data-someField="data1">target one</strong>
+    <strong class="target" title="one" data-id="first" data-someField="data1">target one</strong>
     and also
-    <strong title="two" data-id="second" data-someField="third">the second target</strong>.
+    <strong class="target" title="two" data-id="second" data-someField="third">the second target</strong>
+    and event a <strong class="target">third target</strong>.
 </p>
 ````
 ````TooltipContentComponent
 @* You can apply more styling, add different content or more components
-This example showcases the concept, you can modify it to match you needs. 
-Using the OnParametersSet event and loading data on demand is not required *@
+    This example showcases the concept, you can modify it to match you needs.
+    Using the OnParametersSet event and loading data on demand is not required *@
 
 <h6>TooltipContent</h6>
 
@@ -143,13 +132,14 @@ Using the OnParametersSet event and loading data on demand is not required *@
 {
     <div>Generated on: @DataFromService</div>
 
-    if (TargetData == null)
+    if (TargetData == null && string.IsNullOrEmpty(Title))
     {
         <strong>no data for this element</strong>
     }
     else
     {
         <ul>
+            <li>Title attribute: @Title</li>
             @foreach (string key in TargetData.Keys)
             {
                 <li>@key | value: @TargetData[key]</li>
@@ -165,6 +155,9 @@ else
 @code {
     [Parameter]
     public Dictionary<string, string> TargetData { get; set; }
+
+    [Parameter]
+    public string Title { get; set; }
 
     string DataFromService { get; set; }
 

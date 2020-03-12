@@ -24,30 +24,47 @@ By default, the tooltip shows on hover (mouseover) of its target, just like the 
 ````CSHTML
 @* Setting a show event is not mandatory, it defaults to Hover *@
 
-<select @bind=@showEvent>
-    @foreach (var item in Enum.GetValues(typeof(TooltipShowEvent)))
-    {
-        <option value=@item>@item</option>
-    }
-</select>
-
-<TelerikTooltip TargetSelector="#target" ShowOn="@showEvent">
+<TelerikTooltip TargetSelector="#hoverTarget" ShowOn="@TooltipShowEvent.Hover">
 </TelerikTooltip>
 
-<div id="target" title="lorem ipsum">@showEvent me to see the tooltip</div>
+<div id="hoverTarget" title="lorem ipsum">
+    <strong>Hover</strong> me to see the tooltip.
+</div>
+
+<TelerikTooltip TargetSelector="#clickTarget" ShowOn="@TooltipShowEvent.Click">
+</TelerikTooltip>
+
+<div id="clickTarget" title="dolor sit amet">
+    <strong>Click</strong> me to see the tooltip.
+    Then click somewhere to hide the tooltip.
+</div>
 
 @code {
     TooltipShowEvent showEvent { get; set; } = TooltipShowEvent.Hover;
 }
 
 <style>
-    #target {
-        margin: 200px;
+    #hoverTarget {
+        position: absolute;
+        top: 200px;
+        left: 200px;
         width: 200px;
-        border: 1px solid red;
+        background: yellow;
+    }
+
+    #clickTarget {
+        position: absolute;
+        top: 200px;
+        left: 500px;
+        width: 200px;
+        background: green;
     }
 </style>
 ````
+
+## Notes
+
+Changing the `ShowEvent` dynamically at runtime is not supported at this stage.
 
 
 ## See Also
