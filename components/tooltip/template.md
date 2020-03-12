@@ -118,7 +118,7 @@ This examle shows how you can use a standalone component to generate the tooltip
     <strong class="target" title="one" data-id="first" data-someField="data1">target one</strong>
     and also
     <strong class="target" title="two" data-id="second" data-someField="third">the second target</strong>
-    and event a <strong class="target">third target</strong>.
+    and even a <strong class="target">third target</strong>.
 </p>
 ````
 ````TooltipContentComponent
