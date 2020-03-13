@@ -235,7 +235,7 @@ navigation:
      "*treemap":
         title: "TreeMap"
      "*upload":
-        title: "Async Upload"
+        title: "Upload"
      "*validator":
         title: "Validator"
      "*window":
@@ -316,7 +316,7 @@ intro_columns:
   -
     title: "Files"
     items:
-      "Async Upload": "upload-overview"
+      "File Upload": "upload-overview"
   -
   
     

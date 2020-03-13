@@ -1,16 +1,16 @@
 ---
 title: Overview
 page_title: Upload for Blazor Overview
-description: Overview of the Async Upload for Blazor
+description: Overview of the File Upload for Blazor
 slug: upload-overview
 tags: telerik,blazor,upload,async,overview
 published: True
 position: 0
 ---
 
-# Async Upload Overview
+# Upload Overview
 
-The Upload component lets the user upload files to a server asynchronously. They can select one or multiple files, and you can control whether the upload starts immediately or upon a button click, and also let users delete their uploaded files. The Upload offers [client-side validation]({%slug upload-validation%}) for the selected files' extensions and size.
+The Upload component lets the user upload files to a server handler asynchronously. They can select one or multiple files, and you can control whether the upload starts immediately or upon a button click, and also let users delete their uploaded files. The component offers [client-side validation]({%slug upload-validation%}) for the selected files' extensions and size.
 
 To use a Telerik Upload for Blazor
 

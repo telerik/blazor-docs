@@ -1,7 +1,7 @@
 ---
 title: Validation
 page_title: Upload for Blazor | Validation
-description: Validate chosen and uploaded files in the Async Upload for Blazor
+description: Validate chosen and uploaded files in the File Upload for Blazor
 slug: upload-validation
 tags: telerik,blazor,upload,async,validate,validation
 published: true
@@ -12,7 +12,7 @@ position: 2
 
 Files must be validated when uploading, and the process has two parts:
 
-* client validation - performed by the Telerik Async Upload component
+* client validation - performed by the Telerik Upload component
 * server validation - must be implemented in the application endpoints
 
 The Telerik Upload component offers parameters to validate the file selection on the client:
@@ -24,7 +24,7 @@ The Telerik Upload component offers parameters to validate the file selection on
 Removing invalid files from the [x] button in the UI will not call the `RemoveUrl` handler.
 
 
->caption Client validation in Telerik Async Upload
+>caption Client validation in the Telerik Upload component
 
 @[template](/_contentTemplates/upload/notes.md#see-controller-sample-in-overview)
 
