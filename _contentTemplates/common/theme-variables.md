@@ -1,3 +1,4 @@
+#variables-usage
 <style>
     .theme-variables th,
     .theme-variables td {
@@ -489,3 +490,4 @@ The following example demonstrates how to configure the Toolbar.
         </td>
     </tr>
 </table>
+#end

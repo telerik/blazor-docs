@@ -241,7 +241,8 @@ You might want to omit the styles for some components in the CSS output. To incl
 
 The following list describes the theme variables available for adjustment in the Kendo UI Default theme.
 
-{% include_relative variables.html %}
+@[template](/_contentTemplates/common/theme-variables.md#variables-usage)
+
 
 ## Contribution
 
