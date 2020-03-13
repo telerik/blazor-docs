@@ -61,6 +61,8 @@ Once you have added the Telerik NuGet feed, continue with this tutorial.
 
 >tip You can use the [Visual Studio Extensions]({%slug getting-started-vs-integration-overview%}) we provide to [create the project for you]({%slug getting-started-vs-integration-new-project%}), so that you can start using the Telerik components immediately.
 >
+> If you use VS Code, you can also use our [VS Code Extension to create a Telerik-enabled project]({%slug getting-started-vs-code-integration-overview%}).
+>
 >The rest of this article will explain the manual steps if you want to have a better understanding of the underlying process.
 
 To create a project manually, follow these steps:
