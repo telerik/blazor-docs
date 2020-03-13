@@ -306,7 +306,7 @@ public class FilterDescriptorJsonConverter : JsonConverter
 
 The grid state allows you to control the behavior of the grid programmatically - you can, for example, set sorts, filteres, expand hierarhical rows, collapse groups.
 
->caption The individual tabs show how you can use the state to programmatically set the grid filtering, sorting, grouping and other features
+>tip The individual tabs below show how you can use the state to programmatically set the grid filtering, sorting, grouping and other features.
 
 ````Sorting
 @[template](/_contentTemplates/grid/state.md#set-sort-from-code)
