@@ -32,7 +32,7 @@ By default, the user can only view the appointments, because creating, updating 
 Main events you need to implement so you can store the appointment information changed or created by the user:
 
 * `OnCreate` - fires when the user saves a new appointment, including an exception for a recurring appointment.
-* `OnUpdate` - fires when the user changes an existing appointment. Fires for the recurring appointment after an exception has been created for it.
+* `OnUpdate` - fires when the user changes an existing appointment. Fires for the recurring appointment when an exception has been created for it.
 * `OnDelete` - fires when the user deletes and appointment (including a recurring appointment).
 
 There are two other events that you are not required to handle - you can use them to implement application logic:
@@ -94,7 +94,8 @@ The example below shows the signature of the event handlers so you can copy the 
 >caption Example of handling the CUD events in a Scheduler.
 
 ````CSHTML
-@* This sample implements only updates to the view model. Your app must also update the database in the CUD events *@
+@* This sample implements only updates to the view model. Your app must also update the database in the CUD events.
+    This example uses the default field names for data binding *@
 
 <TelerikScheduler Data="@Appointments"
                   OnUpdate="@UpdateAppointment"
@@ -124,6 +125,8 @@ The example below shows the signature of the event handlers so you can copy the 
             matchingItem.Start = item.Start;
             matchingItem.End = item.End;
             matchingItem.IsAllDay = item.IsAllDay;
+            matchingItem.RecurrenceExceptions = item.RecurrenceExceptions;
+            matchingItem.RecurrenceRule = item.RecurrenceRule;
         }
 
         // save to the actual data source here
@@ -141,6 +144,20 @@ The example below shows the signature of the event handlers so you can copy the 
     {
         SchedulerAppointment item = (SchedulerAppointment)args.Item;
         Appointments.Remove(item);
+
+        if(item.RecurrenceId != null)
+        {
+            // a recurrence exception was deleted, you may want to update
+            // the actual data source - an item where theItem.Id == item.RecurrenceId
+            // and remove the current exception date from the list of its RecurrenceExceptions
+        }
+
+        if (!string.IsNullOrEmpty(item.RecurrenceRule) && item.RecurrenceExceptions?.Count > 0)
+        {
+            // a recurring appointment was deleted that had exceptions, you may want to
+            // delete or update any exceptions from the data source - look for
+            // items where theItem.RecurrenceId == item.Id
+        }
 
         // save to the actual data source here
     }
@@ -177,11 +194,11 @@ The example below shows the signature of the event handlers so you can copy the 
     public SchedulerView CurrView { get; set; } = SchedulerView.Week;
     public DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
     public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0); //the time portion is important
+
     List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
     {
             new SchedulerAppointment
             {
-                Id = 1,
                 Title = "Board meeting",
                 Description = "Q4 is coming to a close, review the details.",
                 Start = new DateTime(2019, 12, 5, 10, 00, 0),
@@ -190,7 +207,6 @@ The example below shows the signature of the event handlers so you can copy the 
 
             new SchedulerAppointment
             {
-                Id = 2,
                 Title = "Vet visit",
                 Description = "The cat needs vaccinations and her teeth checked.",
                 Start = new DateTime(2019, 12, 2, 11, 30, 0),
@@ -199,7 +215,6 @@ The example below shows the signature of the event handlers so you can copy the 
 
             new SchedulerAppointment
             {
-                Id = 3,
                 Title = "Planning meeting",
                 Description = "Kick off the new project.",
                 Start = new DateTime(2019, 12, 6, 9, 30, 0),
@@ -208,23 +223,39 @@ The example below shows the signature of the event handlers so you can copy the 
 
             new SchedulerAppointment
             {
-                Id = 4,
                 Title = "Trip to Hawaii",
                 Description = "An unforgettable holiday!",
                 IsAllDay = true,
                 Start = new DateTime(2019, 11, 27),
                 End = new DateTime(2019, 12, 05)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Morning run",
+                Description = "Some time to clear the head and exercise.",
+                Start = new DateTime(2019, 11, 27, 9, 0, 0),
+                End = new DateTime(2019, 11, 27, 9, 30, 0),
+                RecurrenceRule = "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR"
             }
     };
 
     public class SchedulerAppointment
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public bool IsAllDay { get; set; }
+        public string RecurrenceRule { get; set; }
+        public List<DateTime> RecurrenceExceptions { get; set; }
+        public Guid? RecurrenceId { get; set; }
+
+        public SchedulerAppointment()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }
 ````
