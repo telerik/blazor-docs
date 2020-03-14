@@ -29,6 +29,12 @@ By default, the user can only view the appointments, because creating, updating 
 
 >tip You can enable only certain editing features (for example, editing appointments) by enabling only their parameter. It is not required to enable all features.
 
+Main events you need to implement so you can store the appointment information changed or created by the user:
+
+* `OnCreate` - fires when the user saves a new appointment, including an exception for a recurring appointment.
+* `OnUpdate` - fires when the user changes an existing appointment. Fires for the recurring appointment after an exception has been created for it.
+* `OnDelete` - fires when the user deletes and appointment (including a recurring appointment).
+
 There are two other events that you are not required to handle - you can use them to implement application logic:
 
 * `OnEdit` - fires when the user is about to edit or create an appointment:
@@ -43,7 +49,11 @@ There are two other events that you are not required to handle - you can use the
 
 >caption Some examples of the UX related to appointments, read more in the list after the figure
 
-![](images/ux-explanations.png)
+![scheduler event handling ux explanation](images/ux-explanations.png)
+
+>caption Recurring appointments appearance and indicators
+
+![UI of recurring appointments and exceptions](images/recurring-event-ui-explanation.png)
 
 
 The UI for the scheduler provides the following options for interacting with the appointments collection:
@@ -54,10 +64,13 @@ The UI for the scheduler provides the following options for interacting with the
     * An appointment that starts at 12AM on one day and ends at 12AM on the next day is considered an all-day appointment and so it will also render in the all-day slot.
     * To create an all-day appointment for a single day, the start and end dates must be the same. Selecting the next day in the end-time picker will result in a two-day appointment.
 * Double click (or double tap) on an appointment opens it for editing. The user can cancel the changes through the Cancel button or the [x] close button on the window.
+    * Changing a recurring appointment can create an exception or alter the entire series. The user is given a propmpt to choose which one to edit.
 * Dragging an appointment to another slot (or day, or the all-day row) fires the `OnUpdate` event with the new times. 
     * The duration is preserved when dragging across the area of origin (for example, from the all-day slot to another day in the all-day slot). 
     * When dragging between different areas (for example, from the all-day slot to a particular day), the new duration is the default duration for the area (for example, one day for the all-day slot, or one `TimeSlot` for the time table).
     * If you drag the all-day portion of an appointment that has specific start and end times (that is, it is _not_ an all-day appointment), it will not become an all-day appointment.
+    * Changing a recurring appointment can create an exception or alter the entire series. The user is given a propmpt to choose which one to edit.
+    * Dragging a recurring appointment and choosing to alter the entire series will make the changed slot the new start time for the recurring event, and past instances will be removed from the UI.
 * Hovering an appointment shows resize handles that you can drag to change the appointment duration.
     * Resizing is allowed in directions where the appointment has a clear end. For example, if an all-day event continues after the current scheduler view, you won't be able to resize it in that direction. If an appointment starts or ends in a different day, or before/after the shown hours in the scheduler, resizing in that direction is not allowed.
 * Clicking (or tapping) the [x] button on the appointment itself deletes it. The [x] button is shown when the appointment is hovered to conserve space.
