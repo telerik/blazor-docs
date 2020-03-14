@@ -24,7 +24,7 @@ In this article:
 
 The scheduler appointments provide the following features that you control through the corresponding fields in their data binding. The appointment model needs to provide all fields from the list below.
 
-* `Id` - (`object`) - a unique identifier for an appointment. Useful for finding appointments in a collection, and required for recurring appointments. Must be something that can be uniquely compared, like a `Guid`.
+* `Id` - (`object`) - a unique identifier for an appointment. Useful for finding appointments in a collection, and required for recurring appointments. The scheduler uses it to establish a relationship between a recurring appointment and its exceptions. Must be something that can be uniquely compared, like a `Guid`.
 
 * `Title` - (`string`) - this is what is shown in the main scheduler view so the user can identify the event.
 
@@ -36,7 +36,7 @@ The scheduler appointments provide the following features that you control throu
 
 * `IsAllDay` - (`bool`) - whether the event is shown in the all-day slot in the applicable views. Such events are not rendered in a specific time interval (slot), but are always shown when their day is visible.
 
-* `RecurrenceRule` - (`string`) - the recurrence rule for a recurring appointment according to the [rfc5545 standard](https://tools.ietf.org/html/rfc5545#section-3.3.10). Present only for a recurring appointment, but not for an exception from it.
+* `RecurrenceRule` - (`string`) - the recurrence rule for a recurring appointment according to the [rfc5545 standard](https://tools.ietf.org/html/rfc5545#section-3.3.10). Present only for a recurring appointment, but not for an exception from it. In the data source, there is only one item that determines a recurring event, and the scheduler expands it to render the necessary number of appointments in the UI.
 
 * `RecurrenceExceptions` - (`List<DateTime>`) - a list with the exceptions for a recurring appointment. It tells the scheduler when to skip rendering a recurring appointment because its instance is explicitly changed and is an exception to the recurrence rule.
 
