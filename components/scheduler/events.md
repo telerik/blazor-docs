@@ -22,7 +22,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
 
 ## DateChanged
 
-The `DateChanged` event fires when the user [navigates]({%slug scheduler-navigation%}) to another date in the scheduler. For a view whose start is determined by outside factors and not only by the `Date` parameter (the week view), the event argument may not always be the start time of the range, but a date contained within the range.
+The `DateChanged` event fires when the user [navigates]({%slug scheduler-navigation%}) to another date in the scheduler. For a view whose start is determined by outside factors and not only by the `Date` parameter (the week view), the event argument may not always be the start time of the range, but a date contained within the range. You could also use this event to load only appointments from the view's range which can be a performance optimization technique if you have a very large number of appointments.
 
 >caption Handle the `DateChanged` event
 
