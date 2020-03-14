@@ -24,12 +24,13 @@ To use the Telerik UI for Blazor, you need to:
 
 The Telerik UI for Blazor component suite requires the following two Telerik-specific NuGet packages:
 
-* `Telerik.UI.for.Blazor`
-* `Telerik.DataSource`
+* `Telerik.UI.for.Blazor` - the UI components code
+* `Telerik.DataSource` - code for working with data, needed for data binding the components
+* `Telerik.Recurrence` - code for working with recurring appointments (e.g., in the scheduler)
 
-Adding the `Telerik.UI.for.Blazor` package to your project will automatically add the `Telerik.DataSource` package as a dependency.
+Adding the `Telerik.UI.for.Blazor` package to your project will automatically add the `Telerik.DataSource` and `Telerik.Recurrence` packages as dependencies.
 
-For trial purposes, the package names are `Telerik.UI.for.Blazor.Trial` and `Telerik.DataSource.Trial`.
+For trial purposes, the package names are `Telerik.UI.for.Blazor.Trial`, `Telerik.DataSource.Trial` and `Telerik.Recurrence.Trial`.
 
 There are four ways to get these packages:
 
