@@ -65,6 +65,7 @@ The UI for the scheduler provides the following options for interacting with the
     * To create an all-day appointment for a single day, the start and end dates must be the same. Selecting the next day in the end-time picker will result in a two-day appointment.
 * Double click (or double tap) on an appointment opens it for editing. The user can cancel the changes through the Cancel button or the [x] close button on the window.
     * Changing a recurring appointment can create an exception or alter the entire series. The user is given a propmpt to choose which one to edit.
+    * Editing an exception to an occurence does not provide the recurrence rules editor becaues an exception cannot have its own recurrence.
 * Dragging an appointment to another slot (or day, or the all-day row) fires the `OnUpdate` event with the new times. 
     * The duration is preserved when dragging across the area of origin (for example, from the all-day slot to another day in the all-day slot). 
     * When dragging between different areas (for example, from the all-day slot to a particular day), the new duration is the default duration for the area (for example, one day for the all-day slot, or one `TimeSlot` for the time table).
@@ -74,6 +75,7 @@ The UI for the scheduler provides the following options for interacting with the
 * Hovering an appointment shows resize handles that you can drag to change the appointment duration.
     * Resizing is allowed in directions where the appointment has a clear end. For example, if an all-day event continues after the current scheduler view, you won't be able to resize it in that direction. If an appointment starts or ends in a different day, or before/after the shown hours in the scheduler, resizing in that direction is not allowed.
 * Clicking (or tapping) the [x] button on the appointment itself deletes it. The [x] button is shown when the appointment is hovered to conserve space.
+    * Deleting a recurring appointment asks whether to delete the current one or the entire series.
 * The built-in popup edit form implements validation logic that you can localize through your custom messages. The built-in logic works on the `IAppointment` that the scheduler uses internally, and if you want to implement custom validation, you need to implement a [custom edit form](https://github.com/telerik/blazor-ui/tree/master/scheduler/custom-edit-form). By default, a title, start and end time are required.
 * Arrows on the appointments indicate that they continue in invisible time ranges. For example, an arrow pointing down in an appointment at the end of the visible day indicates it continues until a later hour or until the next day(s). If an all-day appointment starts before the currently visible time range, it will show an arrow pointing left.
     * An appointment that spans multiple days but is not marked as an all-day appointment shows up in the all-day slot for the days that it spans entirely. The first and last day would render in the day portions to denote the start and end time accurately.
