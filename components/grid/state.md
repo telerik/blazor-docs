@@ -69,7 +69,7 @@ The following information is present in the grid state:
 * Grouping - group descriptors (fields by which the grid is grouped), collapsed group indexes.
 * Paging - page index, offset (skip) for virtual scrolling.
 * Rows - indexes of expanded detail templates.
-* Sorting - sort descriptors (fields by which the grid is filtered, and the direction).
+* Sorting - sort descriptors (fields by which the grid is sorted, and the direction).
 * Selection - list of selected items.
 
 
