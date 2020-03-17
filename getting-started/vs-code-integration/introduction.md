@@ -8,11 +8,20 @@ position: 1
 
 # Visual Studio Code Integration Overview
 
-The Progress&reg; Telerik&reg; UI for Blazor Visual Studio Code Extension enhances the experience in developing Blazor web applications with Telerik UI for Blazor.
+The **Telerik UI for Blazor Template Wizard** [Visual Studio Code](https://code.visualstudio.com/) Extension enhances the experience in developing Blazor web applications with Telerik UI for Blazor.
 
 As its primary advantage, the VS Code extension facilitate the creation of projects through a wizard directly in Visual Studio Code.
 
-You can get the extention from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=blazor.templatewizard)
+## Get the Extension
+
+You can get the extention:
+
+* from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard)
+
+* by opening the **Extensions** tab in Visual Studio Code, then searching for **Telerik UI for Blazor Template Wizard** and clicking **Install**
+
+
+## Create a Telerik Project
 
 To create a Telerik-enabled Blazor project:
 
