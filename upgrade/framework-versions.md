@@ -51,6 +51,16 @@ While the release dates and numbers of the WASM flavor often match with the .NET
 | preview 1 (3.1.0-preview1.19506.1)   | 2.2.0, 2.2.1                  |
 
 
+## .NET 5
+
+The future of .NET Core will eventually be through .NET 5. Its [first preview](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/) is already available.
+
+The Telerik UI for Blazor suite is committed to the WASM flavor of Blazor and we need to make sure we are compatible with its own previews (at the moment - .NET Core 3.2.0-preview2.20160.5) and subsequently - its official version.
+
+Thus, we cannot guarantee compatibility with the .NET 5 previews.
+
+The situation may be revised after the client-side (WASM) implementation of Blazor becomes official.
+
 
 ## See Also
 
