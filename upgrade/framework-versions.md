@@ -43,7 +43,8 @@ While the release dates and numbers of the WASM flavor often match with the .NET
 
 | WASM Preview version                 | Telerik UI for Blazor version |
 |--------------------------------------|-------------------------------|
-| 3.2 preview 1 (3.2.0-preview1.20073.1)         | 2.7.0 - {{site.uiForBlazorLatestVersion}}                  |
+| 3.2 preview 2 (3.2.0-preview2.20160.5)         | {{site.uiForBlazorLatestVersion}}                  |
+| 3.2 preview 1 (3.2.0-preview1.20073.1)         | 2.7.0 - 2.8.0       |
 | preview 4 (3.1.0-preview4.19579.2)   | 2.5.0 - 2.6.1                 |
 | preview 3 (3.1.0-preview3.19555.2)   | 2.4.0                         |
 | preview 2 (3.1.0-preview2.19528.8)   | 2.3.0                         |
