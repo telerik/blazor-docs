@@ -2006,6 +2006,71 @@ body .toc {
 
 /* Feedback Styles */
 
+.feedback-more-info {
+  max-height: 0;
+  overflow: hidden;
+  padding-left: 15px;
+}
+
+.feedback-more-info.show {
+  display: block;
+  -webkit-transition: max-height 0.2s ease-out;
+  transition: max-height 0.2s ease-out;
+  max-height: 205px;
+}
+
+.feedback-more-info.hide {
+  max-height: 50px;
+  overflow: hidden;
+  -webkit-transition: max-height 0.2s ease-out;
+  transition: max-height 0.2s ease-out;
+}
+
+.feedback-more-info .feedback-other-text-input {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  height: 120px;
+}
+
+.feedback-more-info .feedback-other-text-input:focus {
+  outline: none;
+}
+
+.feedback-more-info .feedback-skip-button {
+  padding: 6px 0;
+  margin-left: 15px;
+  text-transform: none;
+  font-size: 14px;
+  font-weight: 400;
+  display: inline-block;
+}
+
+.feedback-more-info .feedback-skip-button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.feedback-more-info .feedback-ab-submit-button {
+  padding: 6px 12px;
+  margin: 0;
+  background-color: #27A306;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.feedback-more-info .feedback-ab-submit-button:hover, .feedback-more-info .feedback-ab-submit-button:active, .feedback-more-info .feedback-ab-submit-button:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .feedback-row {
   background-color: #27A306;
   color: #ffffff;
@@ -2013,6 +2078,122 @@ body .toc {
   padding-bottom: 13px;
   font-size: 20px;
   font-weight: 500;
+  z-index: 1100;
+}
+
+.feedback-row .close-button-container {
+  display: none;
+  position: fixed;
+  bottom: 6px;
+  right: 16px;
+  padding: 8px;
+}
+
+.feedback-row .close-button-container:hover {
+  cursor: pointer;
+}
+
+.feedback-row.vote-disabled {
+  display: none;
+}
+
+.feedback-row.vote-hide {
+  -webkit-animation-name: hideFeedback;
+  animation-name: hideFeedback;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes hideFeedback {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hideFeedback {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.feedback-row.feedback-fixed {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  z-index: 1100;
+}
+
+.feedback-row.feedback-fixed .close-button-container {
+  display: block;
+}
+
+.feedback-row h4 {
+  color: #ffffff !important;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 21px;
+}
+
+.feedback-row button {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  color: #f1f1f1;
+  cursor: pointer;
+  -webkit-transition-property: background-color, color;
+  transition-property: background-color, color;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+
+.feedback-row button:hover, .feedback-row button:focus, .feedback-row button:active, .feedback-row button:visited {
+  color: #ffffff;
+  outline: none;
+}
+
+.feedback-row div.feedback>div {
+  line-height: 23px;
+}
+
+.feedback-row h4 {
+  color: #ffffff !important;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 21px;
+}
+
+.feedback-row button {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  color: #f1f1f1;
+  cursor: pointer;
+  transition-property: background-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+.feedback-row button:hover, .feedback-row button:focus, .feedback-row button:active, .feedback-row button:visited {
+  color: #ffffff;
+  outline: none;
 }
 
 .feedback-row h4 {
