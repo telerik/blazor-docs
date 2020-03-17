@@ -183,4 +183,5 @@ Cross-origin requests depend on the application and endpoint setup. The `WidthCr
 
   * [Events]({%slug upload-events%})
   * [Validation]({%slug upload-validation%})
+  * [Live Demo: Upload](https://demos.telerik.com/blazor-ui/upload/overview)
 

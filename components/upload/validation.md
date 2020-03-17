@@ -56,4 +56,6 @@ Removing invalid files from the [x] button in the UI will not call the `RemoveUr
 ## See Also
 
 * [Upload Overview]({%slug upload-overview%})
+* [Upload Events]({%slug upload-events%})
+* [Live Demo: Upload Validation](https://demos.telerik.com/blazor-ui/upload/validation)
 

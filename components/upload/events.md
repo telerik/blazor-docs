@@ -715,4 +715,6 @@ The `OnClear` event fires when the user clicks the Clear button which is availab
 ## See Also
 
 * [Upload Overview]({%slug upload-overview%})
+* [Validation]({%slug upload-validation%})
+* [Live Demo: Upload Events](https://demos.telerik.com/blazor-ui/upload/events)
 
