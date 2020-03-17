@@ -71,7 +71,7 @@ The UI for the scheduler provides the following options for interacting with the
     * When dragging between different areas (for example, from the all-day slot to a particular day), the new duration is the default duration for the area (for example, one day for the all-day slot, or one `TimeSlot` for the time table).
     * If you drag the all-day portion of an appointment that has specific start and end times (that is, it is _not_ an all-day appointment), it will not become an all-day appointment.
     * Changing a recurring appointment can create an exception or alter the entire series. The user is given a propmpt to choose which one to edit.
-    * Dragging a recurring appointment and choosing to alter the entire series will make the changed slot the new start time for the recurring event, and past instances will be removed from the UI.
+    * Dragging a recurring appointment and choosing to alter the entire series will make the changed slot the new start time for the recurring event, and instances before that time will be removed from the UI.
 * Hovering an appointment shows resize handles that you can drag to change the appointment duration.
     * Resizing is allowed in directions where the appointment has a clear end. For example, if an all-day event continues after the current scheduler view, you won't be able to resize it in that direction. If an appointment starts or ends in a different day, or before/after the shown hours in the scheduler, resizing in that direction is not allowed.
 * Clicking (or tapping) the [x] button on the appointment itself deletes it. The [x] button is shown when the appointment is hovered to conserve space.
