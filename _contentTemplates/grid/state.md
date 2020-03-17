@@ -24,7 +24,7 @@
         {
             SortDescriptors = new List<SortDescriptor>()
             {
-                new SortDescriptor { Member = "Id", SortDirection = ListSortDirection.Descending, , MemberType = typeof(int) }
+                new SortDescriptor { Member = "Id", SortDirection = ListSortDirection.Descending, MemberType = typeof(int) }
             }
         };
 
