@@ -20,6 +20,7 @@ This article explains the events available in the Telerik Upload for Blazor:
 * [OnSuccess](#onsuccess)
 * [OnError](#onerror)
 * [OnCancel](#oncancel)
+* [OnClear](#onclear)
 
 
 ## OnSelect
@@ -665,6 +666,50 @@ You can cancel the event based on a condition (for example, some information abo
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 
+## OnClear
+
+The `OnClear` event fires when the user clicks the Clear button which is available when `AutoUpload="false"`. You can prevent the action on a condition.
+
+@[template](/_contentTemplates/upload/notes.md#events-files-carry-client-validation-info)
+
+>caption Handling the OnClear event and cancelling it on condition
+
+@[template](/_contentTemplates/upload/notes.md#see-controller-sample-in-overview)
+
+````CSHTML
+@inject NavigationManager NavigationManager
+
+<TelerikUpload SaveUrl="@SaveUrl"
+               RemoveUrl="@RemoveUrl"
+               OnClear="@OnClearHandler"
+               AutoUpload="false">
+</TelerikUpload>
+
+@code {
+    async Task OnClearHandler(UploadClearEventArgs e)
+    {
+        // cancel the action if there is exactly 1 file selected
+        if(e.Files.Count == 1)
+        {
+            e.IsCancelled = true;
+        }
+
+        foreach (var file in e.Files)
+        {
+            Console.WriteLine($"The user cleared this file before it was uploaded: {file.Name}");
+        }
+    }
+
+    // a sample way of generating the URLs to the endpoint
+    public string SaveUrl => ToAbsoluteUrl("api/upload/save");
+    public string RemoveUrl => ToAbsoluteUrl("api/upload/remove");
+
+    public string ToAbsoluteUrl(string url)
+    {
+        return $"{NavigationManager.BaseUri}{url}";
+    }
+}
+````
 
 
 ## See Also
