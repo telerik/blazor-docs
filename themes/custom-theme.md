@@ -14,7 +14,7 @@ By customizing themes you can alter the default appearance of the Telerik compon
 
 This article contains the following sections:
 
-* [Using the Sass Theme Bulder](#using-the-sass-theme-bulder)
+* [Using the Sass Theme Builder](#using-the-sass-theme-builder)
 	* [Create New Theme](#create-new-theme)
 	* [Modifying Themes](#modifying-themes)
 	* [Import Custom Theme](#import-custom-theme)
@@ -26,7 +26,7 @@ This article contains the following sections:
 * [Contribution](#contribution)
 
 
-## Using the Sass Theme Bulder
+## Using the Sass Theme Builder
 
 The Progress [**Sass Theme Builder for Blazor**](https://themebuilder.telerik.com/blazor-ui) is an Angular web application that enables you to create new or customize existing themes.
 
