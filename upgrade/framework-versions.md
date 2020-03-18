@@ -23,7 +23,8 @@ Telerik UI for Blazor targets `netstandard2.1` in order to be compatible with th
 
 | .NET version              | Telerik UI for Blazor version |
 |---------------------------|-------------------------------|
-| .NET Core 3.1.1           | 2.7.0 - {{site.uiForBlazorLatestVersion}}  |
+| .NET Core 3.1.2           | {{site.uiForBlazorLatestVersion}}  |
+| .NET Core 3.1.1           | 2.7.0 - 2.8.0                 |
 | .NET Core 3.1             | 2.5.0 - 2.6.1                 |
 | .NET Core 3.1 preview 3   | 2.4.0                         |
 | .NET Core 3.1 preview 2   | 2.3.0                         |
