@@ -10,9 +10,17 @@ position: 0
 
 # Blazor Grid Component Overview
 
-This article provides basic information about the Blazor Grid component.
+The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use features covering everything from paging, sorting, filtering, editing, and grouping to row virtualization, optimized data reading, keyboard navigation and accessibility support.
 
-To create a basic Telerik Grid:
+The Telerik Blazor grid is built on native Blazor from the ground up, by a company with a long history of making enterprise-ready Grids. This results in a Blazor data grid that delivers lighting fast performance and is highly customizable.
+
+<div class="justify-content-center mt-5 text-center">
+    <a class="button" href="https://www.telerik.com/download-trial-file/v2/ui-for-blazor" target="_blank">Start a free trial</a>
+</div>
+
+This article provides a quick introduction so you can get your first grid up and running in a few seconds, a video tutorial, and a list of the key features it provides.
+
+>caption To create a basic Telerik Grid:
 
 1. use the `TelerikGrid` tag
 1. set its `Data` attribute to the variable that will hold your collection of data
