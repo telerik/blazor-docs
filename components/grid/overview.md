@@ -16,9 +16,33 @@ The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use featur
 
 The Telerik Blazor grid is built on native Blazor from the ground up, by a company with a long history of making enterprise-ready Grids. This results in a Blazor data grid that delivers lighting fast performance and is highly customizable.
 
-<div class="justify-content-center mt-5 text-center">
+<div class="justify-content-center text-center try-button">
     <a class="button" href="https://www.telerik.com/download-trial-file/v2/ui-for-blazor" target="_blank">Start a free trial</a>
 </div>
+
+<style>
+.try-button {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.try-button .button {
+    display: inline-block;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #ff6358;
+    border-radius: 2px;
+    transition: color .2s ease,background-color .2s ease;
+    text-decoration: none;
+    padding: 10px 30px 10px 30px;
+    line-height: 1.5em;
+    height: auto;
+}
+
+.try-button .button:hover {
+    color: #ffffff;
+    background-color: #e74b3c;
+}
+</style>
 
 
 >caption To create a basic Telerik Grid:
