@@ -39,6 +39,7 @@ The Blazor Date Picker component exposes the following features:
 
 *  `BottomView` - Defines the bottommost view in the popup calendar to which the user can navigate to. Defaults to `CalendarView.Month`.
 * `DisabledDates` - Specifies a list of dates that can not be selected.
+* `Class` - The custom CSS class rendered on the wrapping element.
 * `Enabled` - Specifies whether typing in the input is allowed.
 * `Format` - Specifies the format of the DateInput of the DatePicker. [Read more about supported data formats in Telerik DateInput for Blazor UI]({%slug components/dateinput/supported-formats%}) article.
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
