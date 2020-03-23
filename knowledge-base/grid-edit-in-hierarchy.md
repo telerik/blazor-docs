@@ -9,20 +9,34 @@ tags:
 res_type: kb
 ---
 
+## Environment
+<table>
+	<tbody>
+		<tr>
+			<td>Product</td>
+			<td>Grid for Blazor</td>
+		</tr>
+	</tbody>
+</table>
 
 ## Description
 
-This article showcases how to **Create**, **Update** and **Delete** items in both the main and nested Grids. Those operations are independent from the Hierarchy. Each Grid has it`s own handlers.
+This article showcases how to **Create**, **Update** and **Delete** items in both the main and nested Grids in a [hierarchy]({%slug components/grid/features/hierarchy%}).
 
 
 ## Solution
 
-The `UpdateOrder`, `CreateOrder` and `DeleteOrder` handlers are getting the context in order to access the Data from the parent. If you do not need access to the main Grid you should not pass the context either.
+The [CRUD operations]({%slug components/grid/editing/overview%}) are independent from the Hierarchy. Each Grid has it`s own handlers.
 
-Set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Incell`. By default it is `Inline`.
+The example below showcases those separate handlers and also how you can get the parent model from the nested grid handlers in case you need information from it - the `UpdateOrder`, `CreateOrder` and `DeleteOrder` handlers are getting the context in order to access the Data from the parent. If you do not need access to the main Grid you should not pass the context through a lambda function.
 
+You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Incell`. By default it is `Inline`.
+
+>caption How to do CRUD operations in hierarchy grid - get the parent item from inside the child grid
 
 ````
+@* If the data in the nested models is sufficient for your operations, you do not need the lambda functions *@
+
 <TelerikGrid Data="@GridData"
              Pageable="true"
              PageSize="10"
@@ -216,6 +230,28 @@ Set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Incell`. By
         int range = (DateTime.Today - startDate).Days;
         return startDate.AddDays(RandomGenerator.Next(range));
     }
+
+    public class Product
+    {
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public int SupplierId { get; set; }
+        public decimal UnitPrice { get; set; }
+        public short UnitsInStock { get; set; }
+        public bool Discontinued { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public List<OrderDetails> OrderDetails { get; set; }
+    }
+
+    public class OrderDetails
+    {
+        public int OrderId { get; set; }
+        public decimal UnitPrice { get; set; }
+        public short Quantity { get; set; }
+        public float Discount { get; set; }
+        public int ProductId { get; set; }
+    }
     #endregion
 }
 ````
+
