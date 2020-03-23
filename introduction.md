@@ -35,10 +35,11 @@ If you are not familiar with Blazor yet, you may find useful our Blazor Quick St
 * [Blazor Two-Way Binding](https://www.youtube.com/watch?v=Y9a6rJPrFFI&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo&index=4)
 -->
 
-If you are just getting started with Blazor and Web development, you may find the following articles from MSDN useful in getting up to speed with the core concepts:
+If you are just getting started with Blazor and Web development, you may find the following resources useful in getting up to speed with the core concepts:
 
-* [First Steps with Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/get-started?view=aspnetcore-3.0&tabs=visual-studio)
-* [Razor Syntax Reference](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-3.0)
+* [Telerik e-book: Blazor: A Beginner's Guide](https://www.telerik.com/campaigns/blazor/wp-beginners-guide-ebook)
+* [MSDN: First Steps with Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/get-started?view=aspnetcore-3.0&tabs=visual-studio)
+* [MSDN: Razor Syntax Reference](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-3.0)
 
 You can watch a YouTube playlist of getting started tutorials for Telerik UI for Blazor below:
 
