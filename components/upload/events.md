@@ -120,7 +120,7 @@ You can cancel the event based on a condition (for example, some information abo
 }
 ````
 
->caption Sending custom metadata with the remove request (such as authentication tokens)
+>caption Sending custom metadata with the upload request (such as authentication tokens)
 
 @[template](/_contentTemplates/upload/notes.md#server-security-note)
 
@@ -246,7 +246,7 @@ You can cancel the event based on a condition (for example, some information abo
 }
 ````
 
->caption Sending custom metadata with the upload request (such as authentication tokens)
+>caption Sending custom metadata with the remove request (such as authentication tokens)
 
 @[template](/_contentTemplates/upload/notes.md#server-security-note)
 
