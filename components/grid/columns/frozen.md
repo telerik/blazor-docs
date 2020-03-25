@@ -1,55 +1,36 @@
 ---
 title: Frozen
 page_title: Grid for Blazor | Frozen Columns
-description: Drag to reorder columns in the Grid for Blazor
+description: How to freeze grid columns so they are always visible in a scrollable grid.
 slug: grid-columns-frozen
 tags: telerik,blazor,grid,column,freeze,frozen
-published: False
+published: true
 position: 5
 ---
 
-# Freeze Columns
+# Frozen Columns
 
-The Grid lets you freeze one or more columns. This will allow the user to [scroll]({%slug components/grid/overview%}#scrolling) horizontally through the Grid, but still be able to keep some important data visible at all times.
+The Grid lets you freeze one or more columns. This will allow the user to [scroll]({%slug components/grid/overview%}#scrolling) horizontally through the Grid, but still be able to keep some important columns visible at all times (such as ID or command column).
 
-The `Locked` parameter applies to the following **parts of the column**:
-* Header
-* Content
-* Footer
-
-# Requirements
 To enable the column freezing, set the `Locked` parameter of the column to `true`.
 
-Set the [Width]({%slug grid-columns-width%}) parameter of the Grid in pixels.
+If the column you want to freeze is not the first in the list, the grid must be scrollable. This requires that there are enough columns with their `Width` set so that the grid has a horizontal scrollbar (the sum of the Widths of the columns exceeds the Width of the grid). You can read more about the scrolling behavior of the grid in the [Grid Column Width Behavior]({%slug grid-columns-width%}) article.
 
-All columns need to have their `Width` parameter set in **pixels** to enable horizontal scrolling in the Grid.
-
->caption Frozen Columns in Telerik Grid
+>caption Use and toggle Frozen Columns in the Telerik Grid
 
 ````CSHTML
-@* Click on the Freeze / Unfreeze button to observe Freezing and Unfreezing a selected column. This approach can be used to programmatically toggle the Locked parameter of any column *@
+@* Click on the Freeze / Unfreeze button to observe Freezing and Unfreezing a column at runtime.
+This approach can be used to programmatically toggle the Locked parameter of any column *@
 
-<p>
-    <TelerikButton ButtonType="ButtonType.Button"
-                   Primary="true"
-                   Class="btn btn-primary btn-lg active rounded"
-                   OnClick="@(() => isFrozen = !isFrozen)">Freeze / Unfreeze Command Column</TelerikButton>
-</p>
+<TelerikButton OnClick="@(() => isFrozen = !isFrozen)">Freeze / Unfreeze Command Column</TelerikButton>
 
-<div class=@("alert w-25 p-3 " + ( isFrozen ? "alert-success" : "alert-danger" ) )>
-    The Command Column is
-    <strong class="text-muted">
-        @(isFrozen ? "Frozen" : "Unfrozen")
-    </strong>
-</div>
-
-@if (isClicked)
+@if (!string.IsNullOrEmpty(Result))
 {
     <div class="alert alert-info w-25">@Result</div>
 }
 
 <TelerikGrid Data="@GridData"
-             Width="850px"
+             Width="650px"
              Height="400px">
     <GridToolBar>
         <GridCommandButton Command="Add" Icon="add">Add Product</GridCommandButton>
@@ -63,7 +44,9 @@ All columns need to have their `Width` parameter set in **pixels** to enable hor
         <GridCommandColumn Width="250px" Locked="@isFrozen">
             <GridCommandButton Command="CustomCommand"
                                Icon="information"
-                               OnClick="(() => isClicked = !isClicked )">Information</GridCommandButton>
+                               OnClick="((GridCommandEventArgs  e) => Result = $"click from {(e.Item as Product).ProductName}" )">
+                                Information
+            </GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
@@ -71,8 +54,7 @@ All columns need to have their `Width` parameter set in **pixels** to enable hor
 
 @code {
     private bool isFrozen { get; set; } = false;
-    private bool isClicked { get; set; } = false;
-    private string Result { get; set; } = "My custom command button was clicked.";
+    private string Result { get; set; }
 
     #region Sample data
     public List<Product> GridData { get; set; }
