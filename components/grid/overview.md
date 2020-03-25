@@ -160,9 +160,6 @@ The grid can sort data automatically. You can read more about this feature in th
 
 The grid can filter data automatically. You can read more about this feature in the [Filtering]({%slug components/grid/filtering%}) article.
 
-## Freezing columns
-
-The grid lets you freeze one or more columns. You can read more about this feature in the [Frozen columns]({%slug grid-columns-frozen%}) article.
 
 ## Grouping
 
@@ -182,6 +179,10 @@ The grid offers two modes of scrolling through its `ScrollMode` parameter that t
 
 * `Scrollable` - the default setting - the scrollbars are controlled by the grid's `Width` and `Height` parameters and the data shown in it. If the rendered rows are taller than the height, there will be a vertical scrollbar. If the sum of the column widths is larger than the width, there will be a horizontal scrollbar (read more in the [Column Width]({%slug grid-columns-width%}) article).
 * `Virtual` - this enables [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}).
+
+## Frozen Columns
+
+The grid lets you freeze one or more columns. You can read more about this feature in the [Frozen columns]({%slug grid-columns-frozen%}) article.
 
 ## State
 
