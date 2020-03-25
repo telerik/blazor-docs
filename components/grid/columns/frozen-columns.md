@@ -123,11 +123,3 @@ All columns need to have their `Width` parameter set in **pixels** to enable hor
     #endregion
 }
 ````
-
->caption How column reordering works in the Telerik grid
-
-![](images/column-reorder-preview.gif)
-
-## See Also
-
-  * [Live Demo: Column Reordering](https://demos.telerik.com/blazor-ui/grid/column-reordering)
