@@ -160,6 +160,10 @@ The grid can sort data automatically. You can read more about this feature in th
 
 The grid can filter data automatically. You can read more about this feature in the [Filtering]({%slug components/grid/filtering%}) article.
 
+## Freezing columns
+
+The grid lets you freeze one or more columns. You can read more about this feature in the [Frozen columns]({%slug grid-columns-frozen%}) article.
+
 ## Grouping
 
 The grid can group data automatically. You can read more about this feature in the [Grouping]({%slug components/grid/features/grouping%}) article.
@@ -262,4 +266,3 @@ original:
 
   * [Live Demos: Grid](https://demos.telerik.com/blazor-ui/grid/index)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGridBase-1)
-
