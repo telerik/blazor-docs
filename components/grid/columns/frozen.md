@@ -77,7 +77,7 @@ If the column you want to freeze is not the first in the list, the grid must be 
 ````
 >caption The result of the code snippet above
 
-![](images/FrozenSimple.gif)
+![gif of two statically frozen columns](images/FrozenSimple.gif)
 
 >caption Use and toggle Frozen Columns in the Telerik Grid
 
@@ -170,7 +170,7 @@ This approach can be used to programmatically toggle the Locked parameter of any
 ````
 >caption The result from the code snippet above
 
-![](images/FrozenComplex.gif)
+![gif of statically locked column and a programmatically locked one](images/FrozenComplex.gif)
 
 ## See also
  * [Live demo: Frozen Columns](https://demos.telerik.com/blazor-ui/grid/grid/locked-columns)
