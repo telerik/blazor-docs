@@ -256,6 +256,7 @@ intro_columns:
     title: "Data Management"
     items:
       "Grid": "components/grid/overview"
+      "ListView": "listview-overview"
     
   -
     title: "Navigation"
