@@ -5,7 +5,7 @@ description: Paging in the ListView for Blazor
 slug: listview-paging
 tags: telerik,blazor,listview,paging
 published: True
-position: 5
+position: 4
 ---
 
 # ListView Paging

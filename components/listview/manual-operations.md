@@ -5,7 +5,7 @@ description: How to implement your own read, page, filter, sort operations for t
 slug: listview-manual-operations
 tags: telerik,blazor,listview,manual,operadtions,onread
 published: True
-position: 3
+position: 5
 ---
 
 # Manual Data Source Operations

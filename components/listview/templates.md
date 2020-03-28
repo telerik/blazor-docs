@@ -5,7 +5,7 @@ description: Templates in the ListView for Blazor
 slug: listview-templates
 tags: telerik,blazor,listview,templates
 published: True
-position: 5
+position: 2
 ---
 
 # ListView Templates
