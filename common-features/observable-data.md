@@ -24,6 +24,8 @@ The following components support observable data:
 
 * [Grid](https://demos.telerik.com/blazor-ui/grid/observable-data)
 
+* ListView
+
 * MultiSelect
 
 * TreeView
