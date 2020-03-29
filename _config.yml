@@ -138,6 +138,8 @@ navigation:
         title: "Calendar"
      "*chart":
         title: "Chart"
+     "*checkbox":
+        title: "Checkbox"
      "*colorpalette":
         title: "ColorPalette"
      "*colorpicker":
@@ -294,6 +296,7 @@ intro_columns:
       "ComboBox": "components/combobox/overview"
       "AutoComplete": "autocomplete-overview"
       "MultiSelect": "multiselect-overview"
+      "CheckBox": "checkbox-overview"
 
 -
   categories:
