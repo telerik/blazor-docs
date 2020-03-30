@@ -35,7 +35,7 @@ You can also use a [checkbox column](#checkbox-support) to select rows. To use i
 You can get or set the [selected items](#get-or-set-selected-items) through the `SelectedItems` property. It is a collection of items from the Grid's `Data`. It has the following behavior depending on the usage:
 * If the Grid has [OnRead](https://docs.telerik.com/blazor-ui/components/grid/events#read-event) event configured - The `SelectedItems` collection will be preserved. It is the developer's responsibility to clear or manipulate it.
 * No `OnRead` event configured - When the Grid `Data` is changed the collection will be cleared automatically
-* When using `ObservableCollection` - If an item is removed, it will be removed from the `SelectedItems` collection too.
+* When using `ObservableCollection` - If an item is removed, it will be automatically removed from the `SelectedItems` collection too.
 
 The [single selection]({%slug components/grid/selection/single%}) and [multiple selection]({%slug components/grid/selection/multiple%}) articles provide more examples and details on using the grid features.
 
@@ -99,7 +99,7 @@ When binding the grid to an observable collection, changing the data source does
 
 If you plan on changing the data source in your own code, you may want to clear or otherwise modify the `SelectedItems` collection to ensure the user will select only what they want from the new data.
 
-If you want to clear the data source, make sure to use its `.Clear()` method as this will notifiy the grid of the change. Creating an entirely new `ObservableCollection` will not.
+If you want to clear the data source, make sure to use its `.Clear()` method as this will notify the grid of the change. Creating an entirely new `ObservableCollection` will not.
 
 >caption Example of cleaning up selected items (review this mostly through the Select All checkbox in the header)
 
