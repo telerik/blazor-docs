@@ -18,12 +18,45 @@ To use a Telerik Checkbox for Blazor
 1. provide `Value` (one-way data binding) or `bind-Value` (two-way data binding) property
 1. (optional) set the `Indeterminate` or `bind-Indeterminate` property
 1. (optional) set the `ValueChanged` and `IndeterminateChanged` (if using one-way data binding).
-1.
 
 This article contains information about:
-* [Examples](#examples)
 * [Features](#features)
 * [Events](#events)
+* [Examples](#examples)
+
+>caption Basic setup of the Telerik CheckBox using two-way data binding
+
+````CSHTML
+@*Basic setup of the Telerik CheckBox Component*@
+<TelerikCheckBox Id="myCheckBox"
+                 @bind-Value="isSelected">
+</TelerikCheckBox>
+<label for="myCheckBox">@(isSelected ? "Selected" : "Not selected")</label>
+
+@code {
+        private bool isSelected {get; set;}
+}
+````
+
+
+## Features
+
+The CheckBox provides the following features:
+
+* `Class` - the CSS class that will be rendered on the main wrapping element of the CheckBox.
+* `Enabled` - whether the component is enabled.
+* `Id` - renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it.
+* `TabIndex` - the `tabindex` attribute rendered on the CheckBox.
+* `Value` and `bind-Value`- mapped to the `Checked` property of the normal HTML checkbox
+  * The `Value` and `bind-Value` accept `bool` type
+* `Indeterminate` and `bind-Indeterminate` - mapped to the `Indeterminate` property of the normal HTML checkbox. Every time the state is changed (checked or unchecked) the `Indeterminate` is set to false.
+  * The `Indeterminate` and `bind-Indeterminate` accept `bool` type
+
+
+
+## Events
+* `ValueChanged` and `OnChange` - fire every time the Value gets changed.
+
 
 ## Examples
 
@@ -83,15 +116,6 @@ This article contains information about:
     {
         public string ProductName { get; set; }
         public bool IsDelivered { get; set; }
-        public DateTime DeliveryDate { get; set; }
-
-        public Delivery() { }
-
-        public Delivery(string Name, bool Delivered)
-        {
-            Name = ProductName;
-            Delivered = IsDelivered;
-        }
     }
 
     //Generating dummy data
@@ -122,38 +146,130 @@ This article contains information about:
     }
 }
 ````
-
 >caption The result from the code snippet above
 
 ![screenshot to showcase checkbox with one-way data binding](images/one-way-data-binding-checkbox.jpg)
 
->caption Two-way data binding and Indeterminate state
+>caption Observe the behavior of Indeterminate state
 
 ````CSHTML
 
+@*Observe the behavior of the Select all checkbox*@
+
+<h3 class="text-muted">Deliveries</h3>
+
+<div>
+    <TelerikCheckBox Id="selectAllCheckbox"
+                     Value="SelectAll"
+                     ValueChanged="((bool newVal) => ChangeAllHander(newVal))"
+                     Indeterminate="SelectAllIndeterminate"></TelerikCheckBox>
+    <label for="selectAllCheckbox" class="text-muted">Select all items</label>
+</div>
+
+@foreach (var delivery in Deliveries)
+{
+    <div class="ml-2">
+        <label class="text-muted">
+            <TelerikCheckBox Value="delivery.IsDelivered"
+                             ValueChanged="((bool value) => ChangeHandler(value, delivery.ProductName))" />
+            @delivery.ProductName
+        </label>
+    </div>
+}
+
+@if (AlreadyDelivered.Any())
+{
+    <div>
+        <h6 class="text-info">Successfully delivered products:</h6>
+        <ul>
+            @{
+                foreach (var item in AlreadyDelivered)
+                {
+                    <li>
+                        @item.ProductName
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+}
+
+
+@code {
+    public bool SelectAll
+    {
+        get
+        {
+            return Deliveries.All(item => item.IsDelivered);
+        }
+    }
+
+    public bool SelectAllIndeterminate
+    {
+        get
+        {
+            return Deliveries.Any(item => item.IsDelivered) && !SelectAll;
+        }
+    }
+
+    public List<Delivery> Deliveries { get; set; }
+    public List<Delivery> AlreadyDelivered
+    {
+        get
+        {
+            return Deliveries.Where(x => x.IsDelivered == true).ToList();
+        }
+    }
+
+    void ChangeAllHander(bool newVal)
+    {
+        Deliveries.ForEach(item => item.IsDelivered = newVal);
+    }
+
+    void ChangeHandler(bool value, string productName)
+    {
+        var item = Deliveries.Where(x => x.ProductName == productName).First();
+        item.IsDelivered = value;
+    }
+
+    //In real case scenarios the model will be in a separate file.
+    public class Delivery
+    {
+        public string ProductName { get; set; }
+        public bool IsDelivered { get; set; }
+    }
+
+    //Generating dummy data
+    protected override void OnInitialized()
+    {
+        //Make your real data generation here.
+        Deliveries = new List<Delivery>();
+        Deliveries.Add(new Delivery()
+        {
+            ProductName = "PC",
+            IsDelivered = false
+        });
+        Deliveries.Add(new Delivery()
+        {
+            ProductName = "Mobile Phone",
+            IsDelivered = false
+        });
+        Deliveries.Add(new Delivery()
+        {
+            ProductName = "Headset",
+            IsDelivered = false
+        });
+        Deliveries.Add(new Delivery()
+        {
+            ProductName = "Monitor",
+            IsDelivered = false
+        });
+    }
+}
 ````
-## Features
+>caption The result from the code snippet above
 
-The CheckBox provides the following features:
-
-* `Class` - the CSS class that will be rendered on the main wrapping element of the CheckBox.
-* `Enabled` - whether the component is enabled.
-* `Id` - renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it.
-* `TabIndex` - the `tabindex` attribute rendered on the CheckBox.
-* `Value` and `bind-Value`- mapped to the `Checked` property of the normal HTML checkbox
-* `Indeterminate` and `bind-Indeterminate` - mapped to the `Indeterminate` property of the normal HTML checkbox.
-
-
-## Events
-
->caption Example template
-
-````CSHTML
-
-````
-
-
-
+![screenshot to showcase checkbox with bind-Indeterminate](images/checkbox-indeterminate-screenshot.jpg)
 
 ## See Also
 [Live Demo: CheckBox](https://demos.telerik.com/blazor-ui/checkbox/overview)
