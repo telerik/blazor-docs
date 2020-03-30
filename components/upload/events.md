@@ -472,7 +472,7 @@ namespace MyBlazorApp.Controllers
 
                     // you do not have to do this, just an example of how you can
                     //Response.StatusCode = 222; //some custom status code, defaults to 200
-                    //Response.WriteAsync("some custom message"); // works with new EmptyResult()
+                    //await Response.WriteAsync("some custom message"); // works with new EmptyResult()
                 }
             }
 
@@ -592,7 +592,7 @@ namespace MyBlazorApp.Controllers
                     throw new Exception("something went wrong"); // unhandled exceptions have status code 500 and the main info in the text
 
                     //Response.StatusCode = 400; // cause status code 400 for some generic error with the request
-                    //Response.WriteAsync("some error message"); // custom error message
+                    //await Response.WriteAsync("some error message"); // custom error message
 
                     // implement security and validation here
 

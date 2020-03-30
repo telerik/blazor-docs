@@ -90,7 +90,7 @@ To use a Telerik Upload for Blazor
                         {
                             // implement error handling here, this merely indicates a failure to the upload
                             Response.StatusCode = 500;
-                            Response.WriteAsync("some error message"); // custom error message
+                            await Response.WriteAsync("some error message"); // custom error message
                         }
                     }
         
