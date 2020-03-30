@@ -32,7 +32,10 @@ To select a row, click on it. To select multiple rows, hold down the `Ctrl` or `
 
 You can also use a [checkbox column](#checkbox-support) to select rows. To use it, add a `GridCheckboxColumn` in the `GridColumns` collection of the grid. It works with both selection modes. The checkbox in the header selects all items in the current page (if its `SelectAll` parameter is set to `true`).
 
-You can get or set the [selected items](#get-or-set-selected-items) through the `SelectedItems` property. It is a collection of items from the Grid's `Data`. You can use two-way binding, or the `SelectedItemsChanged` event to track the user selection.
+You can get or set the [selected items](#get-or-set-selected-items) through the `SelectedItems` property. It is a collection of items from the Grid's `Data`. It has the following behavior depending on the usage:
+* If the Grid has [OnRead](https://docs.telerik.com/blazor-ui/components/grid/events#read-event) event configured - The `SelectedItems` collection will be preserved. It is the developer's responsibility to clear or manipulate it.
+* No `OnRead` event configured - When the Grid `Data` is changed the collection will be cleared automatically
+* When using `ObservableCollection` - If an item is removed, it will be removed from the `SelectedItems` collection too.
 
 The [single selection]({%slug components/grid/selection/single%}) and [multiple selection]({%slug components/grid/selection/multiple%}) articles provide more examples and details on using the grid features.
 
@@ -92,7 +95,7 @@ In the [Incell EditMode]({%slug components/grid/editing/incell%}) selection can 
 
 ## Observable Collections
 
-When binding the grid to an observable collection, changing the data source does not change the selected items automatically. 
+When binding the grid to an observable collection, changing the data source does not change the selected items automatically.
 
 If you plan on changing the data source in your own code, you may want to clear or otherwise modify the `SelectedItems` collection to ensure the user will select only what they want from the new data.
 
@@ -165,12 +168,12 @@ If you want to clear the data source, make sure to use its `.Clear()` method as 
     async Task NewDataSet()
     {
         GridData.Clear(); // clear the current data source first
-        // fetch actual data. Adding the new items one at a time through 
+        // fetch actual data. Adding the new items one at a time through
         // the Add(), Insert(), InsertItem() methods will fire the events many times
         // and that may not be needed as it will perform a lot of unnecessary operations
         var forecasts = await WeatherForecastService.GetForecastAsync(3);
         GridData = new ObservableCollection<WeatherForecast>(forecasts);
-        
+
         // optionally, clear the selected items, as they will be the old data
         SelectedItems = Enumerable.Empty<WeatherForecast>();
     }
@@ -180,7 +183,7 @@ If you want to clear the data source, make sure to use its `.Clear()` method as 
         GridData.Clear(); // clear the current data source
         // do not create a new collection
         //GridData = new ObservableCollection<WeatherForecast>();
-        
+
         // optionally, clear the selected items, as they will be the old data
         SelectedItems = Enumerable.Empty<WeatherForecast>();
     }
@@ -248,4 +251,3 @@ If you want to clear the data source, make sure to use its `.Clear()` method as 
   * [Live Demo: Grid Checkbox Selection](https://demos.telerik.com/blazor-ui/grid/checkbox-selection)
   * [Single Selection]({%slug components/grid/selection/single%})
   * [Multiple Selection]({%slug components/grid/selection/multiple%})
-
