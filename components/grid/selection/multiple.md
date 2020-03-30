@@ -40,7 +40,20 @@ In Multiple SelectionMode, selection could be made using the following approache
 
 To add checkboxes in each row that the user can use for selection, add a `GridCheckboxColumn` in the `GridColumns` collection of the grid.
 
-The Grid allows selection and deselection of all rows on the current page via the `SelectAll` property. Setting this property to `true` (its default value) will render a checkbox in the grid header that the you can click to select whole pages.
+The Grid allows selection and deselection via the `SelectAll` property. Setting this property to `true` (its default value) will render a checkbox in the grid header.
+
+You can add a `SelectAllMode` parameter, which supports the following options:
+* `Current` - selects all rows on the current page. This also applies to filtered, sorted, etc.
+* `All` - selects all the data in the Grid.
+
+If the `SelectAllMode` is not added, in **Pageable** Grid, it will default to selecting the rows on the current page.
+
+**Usage:**
+
+````CSHTML
+<GridCheckboxColumn SelectAll="true" SelectAllMode="GridSelectAllMode.Current">
+</GridCheckboxColumn>
+````
 
 ## Selected Items
 
