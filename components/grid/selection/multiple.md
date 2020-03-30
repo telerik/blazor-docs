@@ -48,6 +48,9 @@ You can add a `SelectAllMode` parameter, which supports the following options:
 
 If the `SelectAllMode` is not added, in **Pageable** Grid, it will default to selecting the rows on the current page.
 
+**Limitations:**
+* `SelectAllMode All` is not supported for IQueryable grid collections as immediate queries will be initiated.
+
 **Usage:**
 
 ````CSHTML
