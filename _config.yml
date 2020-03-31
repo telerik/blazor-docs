@@ -56,7 +56,7 @@ navigation:
      "backwards-compatibility":
         title: "Breaking Changes"
         position: 30
-        
+
 ## List custom TOC order for folders here
 
      "*components/grid/columns":
@@ -154,7 +154,7 @@ navigation:
      "*datepicker":
         title: "Date Picker"
      "*daterangepicker":
-        title: "DateRangePicker"		
+        title: "DateRangePicker"
      "*datetimepicker":
         title: "DateTime Picker"
      "*dialog":
@@ -206,6 +206,8 @@ navigation:
         title: "ResponsivePanel"
      "*panelbar":
         title: "PanelBar"
+     "*pager":
+        title: "Pager"
      "*pivotgrid":
         title: "PivotGrid"
      "*scheduler":
@@ -246,7 +248,7 @@ navigation:
         title: "Templates"
      "*switch":
         title: "Switch"
-        
+
 ## introduction article columns. Use the slugs in the items collection
 
 api_reference_url: "api/"
@@ -259,7 +261,7 @@ intro_columns:
     items:
       "Grid": "components/grid/overview"
       "ListView": "listview-overview"
-    
+
   -
     title: "Navigation"
     items:
@@ -267,13 +269,14 @@ intro_columns:
       "Menu": "components/menu/overview"
       "Tab Strip": "components/tabstrip/overview"
       "TreeView": "components/treeview/overview"
+      "Pager": "components-pager-overview"
 
   -
     title: "Scheduling"
     items:
       "Scheduler": "scheduler-overview"
       "Calendar": "components/calendar/overview"
-      
+
   -
     title: "Layout"
     items:
@@ -322,8 +325,8 @@ intro_columns:
     items:
       "File Upload": "upload-overview"
   -
-  
-    
+
+
 ## The application virtual path
 baseurl: /blazor-ui
 
@@ -351,7 +354,7 @@ defaults:
         category: "default"
         product: "blazor"
         editable: true
-        
+
 -
     scope:
         path: "blazor"
