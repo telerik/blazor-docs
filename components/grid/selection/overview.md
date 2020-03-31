@@ -38,9 +38,9 @@ You can also use a [checkbox column](#checkbox-support) to select rows. To use i
 ## SelectedItems Collection
 
 You can get or set the [selected items](#get-or-set-selected-items) through the `SelectedItems` property. It is a collection of items from the Grid's `Data`. It has the following behavior depending on the usage:
-* If the Grid has [OnRead](https://docs.telerik.com/blazor-ui/components/grid/events#read-event) event configured - The `SelectedItems` collection will be preserved. It is the developer's responsibility to clear or manipulate it.
-* No `OnRead` event configured - When the Grid `Data` is changed the `SelectedItems` collection will be cleared automatically
-* When using [ObservableCollection](#observable-collections) - If an item is removed, it will be automatically removed from the `SelectedItems` collection too. This will not be valid for other CRUD operations (Create and Update).
+* If the Grid has [OnRead](https://docs.telerik.com/blazor-ui/components/grid/events#read-event) event configured - The `SelectedItems` collection will be preserved. You need to clear or manipulate it when the data is changed according to your needs and business logic.
+* No `OnRead` event configured - When the Grid `Data` is changed the `SelectedItems` collection will be cleared automatically.
+* When using [ObservableCollection](#observable-collections) - If an item is removed, it will be automatically removed from the `SelectedItems` collection too. This is not valid for other CRUD operations (Create and Update), you should use the grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
 
 The [single selection]({%slug components/grid/selection/single%}) and [multiple selection]({%slug components/grid/selection/multiple%}) articles provide more examples and details on using the grid features.
 
