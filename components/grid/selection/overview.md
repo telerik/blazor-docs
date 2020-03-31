@@ -32,7 +32,7 @@ You can configure the selection behavior by setting `SelectionMode` to a member 
 
 To select a row, click on it. To select multiple rows, hold down the `Ctrl` or `Shift` key to extend the selection.
 
-You can also use a [checkbox column](#checkbox-support) to select rows. To use it, add a `GridCheckboxColumn` in the `GridColumns` collection of the grid. It works with both selection modes. The checkbox in the header selects all items in the current or throughout the Grid (if its `SelectAll` parameter is set to `true` and the [SelectAllMode]({%slug components/grid/selection/multiple%})#checkbox-selection).
+You can also use a [checkbox column](#checkbox-support) to select rows. To use it, add a `GridCheckboxColumn` in the `GridColumns` collection of the grid. It works with both selection modes. The checkbox in the header selects all items in the current page or throughout the entire Grid (if its `SelectAll` parameter is set to `true` and the [SelectAllMode]({%slug components/grid/selection/multiple%}#checkbox-selection) is set to `All`).
 
 
 ## SelectedItems Collection
