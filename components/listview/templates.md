@@ -19,7 +19,7 @@ The ListView component is all about your templates - it does not have an item re
 
 ## Template
 
-This is the main building blog of the listview component. You define the layout of each item through its `Template` and you can use the `context` which is the model from the data source in order to get the information for the item.
+This is the main building block of the listview component. You define the layout of each item through its `Template` and you can use the `context` which is the model from the data source in order to get the information for the item.
 
 >caption Item template in the ListView
 
