@@ -51,7 +51,7 @@ To use Telerik Pager component for Blazor:
 * `ButtonCount` - **int** - The number of pages to be visible. To take effect the `ButtonCount` must be **less** than the pages count (ButtonCount < Total / number of items on the page)
 * `Page` and `@bind-Page` - **int** - Represents the current page of the pager. Those parameters are respectively for one and two-way data binding. If no `Page` or `@bind-Page` are provided they will default to the first page (1).
 * `PageChanged` - Fires when a new page is selected (used in one-way data binding).
-* `PageSize` - **int** - The number of items to be presented on a pages.
+* `PageSize` - **int** - The number of items to be presented on a page.
 
 ## Examples
 
