@@ -2,7 +2,7 @@
 title: Overview
 page_title: Checkbox Component for Blazor Overview
 description: Overview of the Checkbox for Blazor
-slug: components-checkbox-overview
+slug: checkbox-overview
 tags: telerik,blazor,checkbox,overview
 published: True
 position: 0
@@ -17,10 +17,6 @@ To use a Telerik Checkbox for Blazor
 1. add the `TelerikCheckBox` tag
 1. provide `Value` (one-way data binding) or `bind-Value` (two-way data binding) property
 
-
-This article contains information about:
-* [Features](#features)
-* [Examples](#examples)
 
 >caption Basic setup of the Telerik CheckBox using two-way data binding
 
