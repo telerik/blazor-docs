@@ -1,87 +1,118 @@
 ---
-title: Paging
+title: Pager
 page_title: Pager for Blazor Overview
-description: Enable and configure paging in Grid for Blazor
+description: Add a page navigation to Blazor application
 slug: components-pager-overview
 tags: telerik,blazor,pager,paging
 published: True
 position: 20
 ---
 
-# Grid Paging
+# Pager Overview
 
-The Grid component offers support for paging.
+The `Pager` component will enable you to add page navigation in your Blazor application. It follows the design patter of our components but as standalone one can be used outside of Grid.
 
-To enable paging, set its `Pageable` property to `true`. 
+To use Telerik Pager component for Blazor:
+1. Add the `TelerikPager` tag
+1. (optional) Populate it's `Total` parameter
+1. (optional) Set it's `ButtonCount` parameter
+1. (optional) Set the `PageChanged` parameter
+1. (optional) Set `Page` or `@bind-Page` (one and two-way data binding)
+1. (optional) Set a `PageSize`
 
-You can control the number of records per page through the `PageSize` property.
-
-You can set the current page of the grid through its integer `Page` property.
-
->caption Enable paging in Telerik Grid
+>caption Basic setup of Pager component in your application
 
 ````CSHTML
-Enable paging and start on the second page.
+@*Basic Pager configuration.*@
 
-<TelerikGrid Data="@MyData" Pageable="true" PageSize="15" Page="2" Height="500px">
-	<GridColumns>
-		<GridColumn Field="ID"></GridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-	</GridColumns>
-</TelerikGrid>
+<TelerikPager Total="TotalItems"
+              ButtonCount="ButtonCount"
+              PageSize="ItemsOnPage"
+              @bind-Page="CurrentPage">
+
+</TelerikPager>
 
 @code {
-	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
+    public int TotalItems { get; set; } = 80;
+    public int ButtonCount { get; set; } = 4;
+    public int ItemsOnPage { get; set; } = 10;
+    public int CurrentPage { get; set; } = 2;
 }
 ````
 
 >caption The result from the code snippet above
 
-![](images/paging-overview.png)
+![basic configuration of the pager](images/pager-basic-configuration-screenshot.jpg)
 
->tip You can bind the values of those properties to variables in the `@code {}` section. If you want to bind the page index to a variable, you must use the `@bind-Page="@MyPageIndexVariable"` syntax.
+## Features
+* `Class` - The CSS class that will be rendered on the main wrapping element of the Pager.
+* `Total` - **int** - Represents the total count of items in the pager.
+* `ButtonCount` - **int** - The number of pages to be visible. To take effect the `ButtonCount` must be **less** than the pages count (ButtonCount < Total / number of items on the page)
+* `Page` and `@bind-Page` - **int** - Represents the current page of the pager. Those parameters are respectively for one and two-way data binding. If no `Page` or `@bind-Page` are provided they will default to the first page (1).
+* `PageChanged` - Fires when a new page is selected (used in one-way data binding).
+* `PageSize` - **int** - The number of items to be presented on a pages.
 
-Here is one way to implement a page size choice that puts all records on one page.
+## Examples
 
->caption Bind Page Size to a variable
+>caption Observe the behavior of the Pager with one-way data binding
 
 ````CSHTML
-Dynamic page size change
+@*This example showcases the usage of Page and PageChanged in conjunction*@
 
-<select @onchange=@ChangePageSize>
-	@for (int i = 1; i < 4; i++)
-	{
-		<option value=@(i*10)>@(i * 10)</option>
-	}
-	<option value="all" selected>all</option>
-</select>
+<TelerikPager Total="TotalItems"
+              ButtonCount="ButtonCount"
+              PageSize="ItemsOnPage"
+              Page="CurrentPage"
+              PageChanged="@( (int page) => PageChangedHandler(page)  )">
 
-<TelerikGrid Data="@MyData" Pageable="true" PageSize="@PageSize">
-	<GridColumns>
-		<GridColumn Field="ID"></GridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-	</GridColumns>
-</TelerikGrid>
+</TelerikPager>
+
+<div class="text-info">@Result</div>
 
 @code {
-	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
+    public int TotalItems { get; set; } = 80;
+    public int ButtonCount { get; set; } = 4;
+    public int ItemsOnPage { get; set; } = 10;
+    public int CurrentPage { get; set; } = 2;
+    public string Result { get; set; } = String.Empty;
 
-	protected int PageSize { get; set; }
-
-	protected void ChangePageSize(ChangeEventArgs e)
-	{
-		if (e.Value.ToString().ToLowerInvariant() == "all")
-		{
-			PageSize = MyData.Count();
-		}
-		else
-		{
-			PageSize = int.Parse(e.Value.ToString());
-		}
-	}
+    void PageChangedHandler(int page)
+    {
+        CurrentPage = page;
+        Result = $"Current page: {page}";
+    }
 }
 ````
+>caption The result from the code snippet above
+
+![config of the pager with one-way binding](images/pager-data-binding.gif)
+
+>caption Observe the behavior of the Pager with two-way data binding
+
+````CSHTML
+@*This example showcases the usage of Page and PageChanged in conjunction*@
+
+<TelerikPager Total="TotalItems"
+              ButtonCount="ButtonCount"
+              PageSize="ItemsOnPage"
+              @bind-Page="CurrentPage">
+
+</TelerikPager>
+<div class="text-info">Current page: @CurrentPage</div>
+@code {
+    public int TotalItems { get; set; } = 80;
+    public int ButtonCount { get; set; } = 4;
+    public int ItemsOnPage { get; set; } = 10;
+    public int CurrentPage { get; set; } = 2;
+}
+````
+>caption The result from the code snippet above
+
+![config of the pager with one-way binding](images/pager-data-binding.gif)
 
 ## See Also
 
-  * [Live Demo: Grid Paging](https://demos.telerik.com/blazor-ui/grid/paging)
+* [Live Demo: Pager Overview](https://demos.telerik.com/blazor-ui/pager/overview)
+* [Live Demo: Pager Integration](https://demos.telerik.com/blazor-ui/pager/integration)
+* [Live Demo: Pager Localization](https://demos.telerik.com/blazor-ui/pager/localization)
+* [Live Demo: Pager Keyboard Navigation](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation)
