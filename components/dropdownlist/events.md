@@ -56,8 +56,6 @@ from the model: @MySelectedItem
 
 The `ValueChanged` event fires upon every change of the user selection.
 
->note If the initial `Value` is not present in the data source, the component will select the first item of the data source and this will fire the event as well. If you do not update the field from which the `Value` is taken, you may end in an infinite loop. This scenario is most common when the initial value is `null` as data sources rarely have items with a `null` value.
-
 The examples below use [binding]({%slug components/dropdownlist/databind%}) to primitive types for brevity, you can use full models as well.
 
 >caption Handle ValueChanged

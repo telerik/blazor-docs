@@ -78,8 +78,16 @@ Bind to a collection of models
 
 ## Considerations
 
-The DropDownList component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](#component-reference) and what happens [if you can't provide data or a value](#missing-value-or-data).
+The DropDownList component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](#component-reference) and what happens [if you can't provide data or a value](#missing-value-or-data). Providing a [value that is not in the data source](#value-out-of-range) needs to be taken into account be the app, because the component will not change it.
 
+### Value Out of Range
+
+When the `Value` the application provides does not match any of the values present in the `ValueField` of the `Data` collection, the DropDownList component will not change the `Value` or select a new item. In the common case, it will show up blank to indicate there is nothing selected from its data.
+
+If you have set the `DefaultText` and the `Value` matches the `default` value of the type (for example, `0` for an `int` or `null` for an `int?` or `string`), you will see the `DefaultText`. A `Value` that is non-`default` will not show the `DefaultText`.
+
+Handling such "unexpected" values is up to the application - for example, through defensive checks, or through form validation, or by first checking what is present in the data source before setting a new `Value`.
+ 
 ### Component Reference
 
 The DropDownList is a generic component and its type comes from the model it is bound to and from the value field type. When bound to a primitive type, the reference is of that primitive type only.
