@@ -24,7 +24,7 @@ This article you can observe Freezing different columns. The examples are separa
 ## Frozen first and last columns
 >caption Use static markup to Freeze the first and last columns in a Grid
 
-![gif of statically locked first and last columns](images/FrozenFirstAndLast.gif)
+![gif of statically locked first and last columns](images/frozen-first-last.gif)
 
 ````CSHTML
 @if (!string.IsNullOrEmpty(Result))
