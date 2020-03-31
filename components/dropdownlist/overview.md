@@ -49,37 +49,9 @@ Selected value: @selectedValue
 
 >caption Component namespace and reference
 
-````CSHTML
-@using Telerik.Blazor.Components.DropDownList
+See the [Component Reference]({%slug components/dropdownlist/databind%}#component-reference) section in the Data Binding article for details and examples.
 
-<TelerikDropDownList @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="3">
-</TelerikDropDownList>
-
-@code {
-	//the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
-	Telerik.Blazor.Components.TelerikDropDownList<MyDdlModel, int> myDdlRef;
-
-	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-	
-	public class MyDdlModel
-	{
-		public int MyValueField { get; set; }
-		public string MyTextField { get; set; }
-	}
-}
-
-<TelerikDropDownList @ref="myDdlRef2" Data="@MyList" @bind-Value="MyItem">
-</TelerikDropDownList>
-
-@code {
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
-
-    protected string MyItem { get; set; } = "second";
-    
-    //the type of the generic component is determined by the type of the model you pass to it, when the model is a primitive type
-	Telerik.Blazor.Components.TelerikDropDownList<string, string> myDdlRef2;
-}
-````
+## Features
 
 The DropDownList provides the following features:
 
