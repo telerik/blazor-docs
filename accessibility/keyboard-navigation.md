@@ -26,6 +26,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 *  Chart - not applicable, the chart is a visualization component only.
 
+*  Checkbox - not applicable, it is a simple input with the standard behavior.
+
 *  [ComboBox](https://demos.telerik.com/blazor-ui/combobox/keyboard-navigation)
 
 *  [DateInput](https://demos.telerik.com/blazor-ui/dateinput/keyboard-navigation)
@@ -40,9 +42,13 @@ The following list shows the Telerik components that support specific keyboard c
 
 *  [Menu](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation)
 
+*  ListView - not applicable, its entire rendering is up to the app. Its pager is a separate component that offers accessibility and keyboard navigation.
+
 *  [MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation)
 
 *  [NumericTextBox](https://demos.telerik.com/blazor-ui/numerictextbox/keyboard-navigation)
+
+*  [Pager](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation)
 
 *  Scheduler - will have keyboard navigation in an upcoming release.
 
