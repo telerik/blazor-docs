@@ -269,7 +269,7 @@ intro_columns:
       "Menu": "components/menu/overview"
       "Tab Strip": "components/tabstrip/overview"
       "TreeView": "components/treeview/overview"
-      "Pager": "components-pager-overview"
+      "Pager": "pager-overview"
 
   -
     title: "Scheduling"
