@@ -2,7 +2,7 @@
 title: Pager
 page_title: Pager for Blazor Overview
 description: Add a page navigation to Blazor application
-slug: components-pager-overview
+slug: pager-overview
 tags: telerik,blazor,pager,paging
 published: True
 position: 20
@@ -10,7 +10,7 @@ position: 20
 
 # Pager Overview
 
-The `Pager` component will enable you to add page navigation in your Blazor application. It follows the design patter of our components but as standalone one can be used outside of Grid.
+The **Pager** component will enable you to add paging for your data in a Blazor application. We use it in components like the Grid and ListView, and you can also use it for your own templates and data as a standalone component.
 
 To use Telerik Pager component for Blazor:
 1. Add the `TelerikPager` tag
