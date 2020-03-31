@@ -13,6 +13,7 @@ position: 20
 The **Pager** component will enable you to add paging for your data in a Blazor application. We use it in components like the Grid and ListView, and you can also use it for your own templates and data as a standalone component.
 
 To use Telerik Pager component for Blazor:
+
 1. Add the `TelerikPager` tag
 1. (optional) Populate it's `Total` parameter
 1. (optional) Set it's `ButtonCount` parameter
