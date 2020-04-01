@@ -82,7 +82,7 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
     </p>
     <p class="accepts-terms">
         <label class="k-checkbox-label" for="acceptTermsCheckbox">Accepts terms</label>
-        <InputCheckbox @bind-Value="@person.AcceptsTerms" id="acceptTermsCheckbox" class="k-checkbox" />
+        <TelerikCheckBox @bind-Value="@person.AcceptsTerms" Id="acceptTermsCheckbox"></TelerikCheckBox>
         <ValidationMessage For="@(() => person.AcceptsTerms)"></ValidationMessage>
     </p>
 
