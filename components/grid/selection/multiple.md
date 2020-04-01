@@ -47,12 +47,12 @@ You can add a `SelectAllMode` parameter, which supports the following options:
 * `All` - selects all the data in the Grid.
   * If IQueriable collections are used, using the header checkbox with in this mode will immediately execute the query over all the data which may be a performance hit.
 
-**Behavior in [Virtual Scrolling Grid]({%slug components/grid/virtual-scrolling%}):**
-* No `OnRead` configured:
-  * `Current` - It will select a `PageSize` number of items
-	* `All` - It will select all items in the Grid
+`SelectAllMode` behavior with [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}):
+* No `OnRead` configured (the default state):
+  * `Current` - current `PageSize` items will be selected
+  * `All` - all items in the Data will be selected
 * `OnRead` configured:
-  * `Current` and `All` will share the same behavior.
+  * `Current` and `All` will share the same behavior - the current data set (page) will be selected only, as this is the only available data.
 
 **Usage:**
 
