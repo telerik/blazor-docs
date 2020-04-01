@@ -137,10 +137,37 @@ Every time the Checkbox state is changed (checked or unchecked) the `Indetermina
     }
 }
 ````
+
 >caption The result from the code snippet above
 
 ![gif to showcase the Indeterminate state](images/checkbox-indeterminate-example.gif)
 
+>caption Handle IndeterminateChanged event
+
+````CSHTML
+@*Press the button to toggle the Indeterminate state*@
+
+<TelerikButton Primary="true" OnClick="@(() => Indeterminate = !Indeterminate)"> Toggle Indeterminate </TelerikButton>
+
+<div class="mt-2">
+    <strong class="text-muted">Indeterminate checkbox</strong>
+    <TelerikCheckBox @bind-Value="@IndeterminateValue"
+                     Indeterminate="@Indeterminate"
+                     IndeterminateChanged="((bool val) => ChangeHandler(val))">
+    </TelerikCheckBox>
+</div>
+
+@code{
+    public bool Indeterminate { get; set; }
+    public bool IndeterminateValue { get; set; }
+
+    void ChangeHandler(bool value)
+    {
+        Indeterminate = value;
+    }
+}
+````
+![Toggle Indeterminate state](images/checkbox-toggle-indeterminate-state.gif)
 
 ## See Also
 
