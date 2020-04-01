@@ -1,84 +1,180 @@
 ---
-title: Pager
+title: Overview
 page_title: Pager for Blazor Overview
-description: Add a page navigation to Blazor application
+description: Add a pager navigation for your data to the Blazor application
 slug: pager-overview
 tags: telerik,blazor,pager,paging
 published: True
-position: 20
+position: 1
 ---
 
 # Pager Overview
 
 The **Pager** component will enable you to add paging for your data in a Blazor application. We use it in components like the Grid and ListView, and you can also use it for your own templates and data as a standalone component.
 
+The Pager provides the UI for the user to change the page. To the developer, it provides the page index so you can render only the relevant data portion and an [event]({%slug pager-events%}) that you can use to implement [load on demand](#load-on-demand).
+
 To use Telerik Pager component for Blazor:
 
 1. Add the `TelerikPager` tag
-1. The Pager component provides the UI for the user and the page index and an [event]({%slug pager-events%}) for the developer. It is up to the application to fetch the appropriate data based on that information.
+1. Set its `Total` parameter to the number of items in the data source.
+1. Use the values of its `Page` and `PageSize` parameters to extract and render the desired subset of data.
 
->caption Implement TelerikPager to your own component
+>caption Use the TelerikPager to paginate your own data and content
 
 ````CSHTML
 @{
+    // take and render the relevant data portion based on the pager info
     var pageData = Games.Skip((Page - 1) * PageSize).Take(PageSize).ToList();
 
-    foreach (Game game in pageData)
-    {
-        <div class="card mb-1">
-            <div class="card-body">
-                <h5>@game.GameName</h5>
-                <h6 class="card-subtitle mb-2 text-muted">@game.GameId</h6>
-                <p class="card-text">
-                    Released on: @game.ReleaseDate.ToShortDateString()
-                </p>
+    <div class="card-deck mb-2">
+        @foreach (Game game in pageData)
+        {
+            <div class="card">
+                <div class="card-body">
+                    <h5>@game.GameName</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@game.GameId</h6>
+                    <p class="card-text">
+                        Released on: @game.ReleaseDate.ToShortDateString()
+                    </p>
+                </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 }
 
 <TelerikPager Total="@Games.Count" PageSize="@PageSize" @bind-Page="@Page"></TelerikPager>
 
 @code {
     public int PageSize { get; set; } = 3;
-    public int Page { get; set; } = 1;
+    public int Page { get; set; } = 1; // the page indexes are 1-based
 
     public List<Game> Games { get; set; }
 
-    //In real-case scenario this model should be in a separate file
-    public class Game
-    {
-        public string GameName { get; set; }
-        public int GameId { get; set; }
-        public DateTime ReleaseDate { get; set; }
-    }
-    //Generate sample data
+    // Generate sample data
     protected override void OnInitialized()
     {
         Games = new List<Game>();
-        for (int i = 0; i < 20; i++)
+        for (int i = 1; i < 20; i++)
         {
             Games.Add(new Game()
             {
                 GameName = $"Game {i}",
-                GameId = i + 1,
-                ReleaseDate = DateTime.Now.AddDays(i)
+                GameId = i,
+                ReleaseDate = DateTime.Now.AddDays(-i)
             });
         }
+    }
+
+    // In real-case scenario this model should be in a separate file
+    public class Game
+    {
+        public int GameId { get; set; }
+        public string GameName { get; set; }
+        public DateTime ReleaseDate { get; set; }
     }
 }
 ````
 
+>caption The result from the code snippet above
+
+![first look at the Telerik Blazor Pager](images/pager-first-look.png)
+
+
 ## Features
+
 * `Class` - The CSS class that will be rendered on the main wrapping element of the Pager.
-* `Total` - ``int`` - Represents the total count of items in the pager.
-* `ButtonCount` - ``int`` - The maximum number of pages to be visible. To take effect the `ButtonCount` must be **less** than the pages count (ButtonCount < Total / number of items on the page).
-* `Page` and `@bind-Page` - ``int`` - Represents the current page of the pager. Those parameters are respectively for one and two-way data binding. If no `Page` or `@bind-Page` are provided they will default to the first page (1).
-* `PageSize` - ``int`` - The number of items to be presented on a page.
+* `Total` - `int - Represents the total count of items in the pager. Required.
+* `ButtonCount` - `int` - The maximum number of page buttons that will be visible. To take effect the `ButtonCount` must be smaller than the pages count (`ButtonCount < Total / PageSize`).
+* `Page` - `int` - Represents the current page of the pager. The first page has an index of `1`. Supports two-way data binding. If no value is provided the parameter will default to the first page (1), but you should always use this parameter value in order to successfully use the component. If you don't use two-way binding and you don't update the value of the parameter after the user action, the pager UI will not reflect the change and will revert to the previous value (page index).
+* `PageSize` - `int` - The number of items to be presented on a page.
 
 ## Examples
 
->caption Observe the behavior of the Pager with two-way data binding
+### Load On Demand
+
+You can avoid loading all the data at once, as this can be a costly operation. Un such a case, you should use the `PageChanged` event of the Pager component to fetch the new subset of data to render. It is important to always provide the correct `Total` count of items in the full data source to the component so it can render the correct amount of page buttons.
+
+>caption Load paged data on demand
+
+````CSHTML
+@{
+    <div class="card-deck mb-2">
+        @foreach (Game game in PagedDataToRender)
+        {
+            <div class="card">
+                <div class="card-body">
+                    <h5>@game.GameName</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@game.GameId</h6>
+                    <p class="card-text">
+                        Released on: @game.ReleaseDate.ToShortDateString()
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<TelerikPager Total="@TotalGames" PageSize="@PageSize" Page="@CurrPage"
+              PageChanged="@( (int page) => PageChangedHandler(page)  )">
+</TelerikPager>
+
+@code {
+    int TotalGames { get; set; }
+    int CurrPage { get; set; } = 1; // the page indexes are 1-based
+    int PageSize { get; set; } = 4;
+
+    List<Game> PagedDataToRender { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadDataOnDemand();
+    }
+
+    async Task PageChangedHandler(int page)
+    {
+        CurrPage = page;
+        await LoadDataOnDemand();
+    }
+
+    async Task LoadDataOnDemand()
+    {
+        TotalGames = await GetCountFromService();
+        PagedDataToRender = await GetPagedDataFromService(CurrPage - 1, PageSize);
+    }
+
+    // simulate a service below
+    private List<Game> _allData { get; set; } = Enumerable.Range(1, 500).Select(x => new Game
+    {
+        GameName = $"Game {x}",
+        GameId = x,
+        ReleaseDate = DateTime.Now.AddDays(-x)
+    }).ToList();
+
+    public async Task<int> GetCountFromService()
+    {
+        return await Task.FromResult(_allData.Count);
+    }
+
+    public async Task<List<Game>> GetPagedDataFromService(int pageIndex, int pageSize)
+    {
+        var pagedData = _allData.Skip(pageIndex * pageSize).Take(pageSize);
+        return await Task.FromResult(pagedData.ToList());
+    }
+
+    // In real-case scenario this model should be in a separate file
+    public class Game
+    {
+        public int GameId { get; set; }
+        public string GameName { get; set; }
+        public DateTime ReleaseDate { get; set; }
+    }
+}
+````
+
+### Two-way Binding
+
+You can use two-way binding for the `Page` parameter so it can respond to changes from other element, and to also update other elements. This is the most straightforward use of the component. As an alternative, use the `PageChanged` event to implement additional logic when paging the data, such as [loading it on demand](#load-on-demand).
 
 ````CSHTML
 @*This example showcases how the Pager reacts when the page is selected from an outside input.*@
