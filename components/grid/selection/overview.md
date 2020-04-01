@@ -18,9 +18,8 @@ In this article:
 
 * [Example - Enable Row Selection](#example---enable-row-selection)
 * [Notes](#notes)
- * [Handle Data Changes](#handle-data-changes)
  * [Selection in Template](#selection-in-template)
- * [Editing Modes](#editing-modes)
+ * [Handle Data Changes](#handle-data-changes)
  * [Observable Collections](#observable-collections)
 
 ## Selection Basics
@@ -85,22 +84,30 @@ See how the row selection modes work
 
 ## Notes
 
+## Selection in Template
+
+When using the Grid [Template](https://docs.telerik.com/blazor-ui/components/grid/templates) and you want to stop the Selection from being triggered you should add `stopPropagation` directive to the element.
+
+**Usage:**
+
+````CSHTML
+<GridColumn Field=@nameof(Product.ProductId) Title="Id">
+            <Template>
+                <span @onclick:stopPropagation>
+                    <TelerikNumericTextBox Value="@((context as Product).ProductId)"></TelerikNumericTextBox>
+                </span>
+            </Template>
+        </GridColumn>
+````
+
 ## Handle Data Changes
 
 You can get or set the [selected items](#get-or-set-selected-items) through the `SelectedItems` property. It is a collection of items from the Grid's `Data`. It has the following behavior depending on the usage:
 * If the Grid has [OnRead](https://docs.telerik.com/blazor-ui/components/grid/events#read-event) event configured - The `SelectedItems` collection will be preserved. You need to clear or manipulate it when the data is changed according to your needs and business logic.
 * No `OnRead` event configured - When the Grid `Data` is changed the `SelectedItems` collection will be cleared automatically.
-* When using [ObservableCollection](#observable-collections) - If an item is removed, it will be automatically removed from the `SelectedItems` collection too. This is not valid for other CRUD operations (Create and Update), you should use the grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
+* When using [ObservableCollection](#observable-collections) - If an item is removed or the entire data is cleared using the `.Clear()` method, it will automatically update the `SelectedItems` collection too. This is not valid for other CRUD operations (Create and Update), you should use the grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
 
 The [single selection]({%slug components/grid/selection/single%}) and [multiple selection]({%slug components/grid/selection/multiple%}) articles provide more examples and details on using the grid features.
-
-## Selection in Template
-
-When using the Grid [Template](https://docs.telerik.com/blazor-ui/components/grid/templates) and you want to stop the Selection from being triggered you should add stopPropagation directive to the element
-
-## Editing Modes
-
-In the [Incell EditMode]({%slug components/grid/editing/incell%}) selection can be applied only via a checkbox column. This is required due to the overlapping action that triggers selection and incell editing (clicking in the row).
 
 ## Observable Collections
 
