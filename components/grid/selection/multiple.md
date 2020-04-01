@@ -43,13 +43,9 @@ To add checkboxes in each row that the user can use for selection, add a `GridCh
 The Grid allows selection and deselection via the `SelectAll` property. Setting this property to `true` (its default value) will render a checkbox in the grid header.
 
 You can add a `SelectAllMode` parameter, which supports the following options:
-* `Current` - selects all rows on the current page. This also applies to filtered, sorted, etc.
+* `Current` - selects all rows on the current page. This also applies to filtered, sorted, etc. This is the default value of the `SelectAllMode`.
 * `All` - selects all the data in the Grid.
-
-If the `SelectAllMode` is not added, in **Pageable** Grid, it will default to selecting the rows on the current page.
-
-**Limitations:**
-* `SelectAllMode All` is not supported for IQueryable grid collections as immediate queries will be initiated.
+  * It is not recommended to use IQueryable collection. In `All` mode an automatic selection of all data is invoked. Using IQueryable may result in performance hit.
 
 **Usage:**
 
