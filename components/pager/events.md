@@ -1,9 +1,9 @@
 ---
-title: Pager
+title: Events
 page_title: Pager for Blazor | Events
-description: Add a page navigation to Blazor application
+description: Events available in the Telerik Blazor Data Pager component
 slug: pager-events
-tags: telerik,blazor,pager,paging
+tags: telerik,blazor,pager,paging,events
 published: True
 position: 20
 ---
@@ -14,17 +14,17 @@ This article explains the events available in the Telerik Pager for Blazor:
 
 ## PageChanged
 
-The `PageChanged` event fires a new page is selected.
+The `PageChanged` event fires a new page is selected. You can use it to implement [load on demand]({%slug pager-overview%}#load-on-demand)
 
 >caption Handle PageChanged
 
 ````CSHTML
-@*This example showcases the usage of Page and PageChanged in conjunction*@
+@* Make sure to update the current page index when using the event *@
 
-<TelerikPager Total="TotalItems"
-              ButtonCount="ButtonCount"
-              PageSize="ItemsOnPage"
-              Page="CurrentPage"
+<TelerikPager Total="@TotalItems"
+              ButtonCount="@ButtonCount"
+              PageSize="@ItemsOnPage"
+              Page="@CurrentPage"
               PageChanged="@( (int page) => PageChangedHandler(page)  )">
 
 </TelerikPager>
@@ -48,3 +48,7 @@ The `PageChanged` event fires a new page is selected.
 >caption The result from the code snippet above
 
 ![config of the pager with one-way binding](images/pager-data-binding.gif)
+
+## See Also
+
+* [Pager Overview]({%slug pager-overview%})
