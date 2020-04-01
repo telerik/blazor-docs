@@ -40,7 +40,7 @@ The CheckBox provides the following features:
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to it.
 * `TabIndex` - the `tabindex` attribute rendered on the CheckBox.
 * `Value` and `bind-Value`- mapped to the `Checked` property of the normal HTML checkbox
-  * The `Value` and `bind-Value` accept `bool` type
+  * The `Value` and `bind-Value` accept `bool` and `bool?` types
 * `Indeterminate` and `bind-Indeterminate` - see the [Indeterminate state]({%slug checkbox-indeterminate-state%}) article for more information and examples
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
@@ -81,4 +81,3 @@ else
 * [Live Demo: CheckBox](https://demos.telerik.com/blazor-ui/checkbox/overview)
 * [CheckBox Events]({%slug checkbox-events%})
 * [Indeterminate State]({%slug checkbox-indeterminate-state%})
-
