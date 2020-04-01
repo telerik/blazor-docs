@@ -368,4 +368,5 @@ The MultiSelect has a value that is a `List` and the validation attributes must 
   * [Data Annotation attributes](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation)
   * [Live Demos](https://demos.telerik.com/blazor-ui/)
   * [ValueChanged and Validation]({%slug value-changed-validation-model%})
+  * [Validate on Blur/Change, not on input]({%slug textbox-validate-on-change%})
   * [Error: Requires a value for ValueExpression]({%slug common-kb-requires-valueexpression%})
