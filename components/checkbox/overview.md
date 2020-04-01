@@ -10,7 +10,7 @@ position: 0
 
 # Checkbox Overview
 
-The Checkbox component allows you to add more customizable checkboxes to your Blazor application. It maintains the behavior of the standard HTML checkbox and provides checked, unchecked and indeterminate states.
+The Checkbox component allows you to add more customizable checkboxes to your Blazor application. It maintains the behavior of the standard HTML checkbox and provides checked, unchecked and [indeterminate]({%slug checkbox-indeterminate-state%}) states.
 
 To use a Telerik Checkbox for Blazor
 
@@ -22,12 +22,12 @@ To use a Telerik Checkbox for Blazor
 
 ````CSHTML
 @*Basic setup of the Telerik CheckBox Component*@
-<TelerikCheckBox Id="myCheckBox" @bind-Value="isSelected">
-</TelerikCheckBox>
-<label for="myCheckBox">@(isSelected ? "Selected" : "Not selected")</label>
+
+<TelerikCheckBox Id="myCheckBox" @bind-Value="@isSelected" />
+<label for="myCheckBox">@( isSelected ? "Selected" : "Not selected" )</label>
 
 @code {
-        private bool isSelected {get; set;}
+    private bool isSelected { get; set; }
 }
 ````
 
@@ -37,12 +37,12 @@ The CheckBox provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the CheckBox.
 * `Enabled` - whether the component is enabled.
-* `Id` - renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it.
+* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to it.
 * `TabIndex` - the `tabindex` attribute rendered on the CheckBox.
 * `Value` and `bind-Value`- mapped to the `Checked` property of the normal HTML checkbox
   * The `Value` and `bind-Value` accept `bool` type
 * `Indeterminate` and `bind-Indeterminate` - see the [Indeterminate state]({%slug checkbox-indeterminate-state%}) article for more information and examples
-
+* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
 ## Examples
 
@@ -77,5 +77,8 @@ else
 
 
 ## See Also
-[Live Demo: CheckBox](https://demos.telerik.com/blazor-ui/checkbox/overview)
-[Events in the Telerik CheckBox]({%slug checkbox-events%})
+
+* [Live Demo: CheckBox](https://demos.telerik.com/blazor-ui/checkbox/overview)
+* [CheckBox Events]({%slug checkbox-events%})
+* [Indeterminate State]({%slug checkbox-indeterminate-state%})
+
