@@ -101,12 +101,12 @@ When using the Grid [Template](https://docs.telerik.com/blazor-ui/components/gri
 
 ````CSHTML
 <GridColumn Field=@nameof(Product.ProductId) Title="Id">
-            <Template>
-                <span @onclick:stopPropagation>
-                    <TelerikNumericTextBox Value="@((context as Product).ProductId)"></TelerikNumericTextBox>
-                </span>
-            </Template>
-        </GridColumn>
+    <Template>
+        <span @onclick:stopPropagation>
+            <TelerikNumericTextBox Value="@((context as Product).ProductId)"></TelerikNumericTextBox>
+        </span>
+    </Template>
+</GridColumn>
 ````
 
 ### Handle Data Changes
