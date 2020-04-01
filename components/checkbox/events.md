@@ -5,12 +5,12 @@ description: Events in the CheckBox for Blazor
 slug: checkbox-events
 tags: telerik,blazor,checkbox,events
 published: true
-position: 1
+position: 20
 ---
 
 # Events
 
-This article showcases the available events for Telerik CheckBox component:
+This article showcases the available events in the Telerik CheckBox component:
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
 
@@ -66,6 +66,7 @@ The `ValueChanged` event fires every time the `Value` parameter changes.
     void ChangeHandler(bool value, string productName)
     {
         var item = Deliveries.Where(x => x.ProductName == productName).First();
+        // update the model value because the framework does not allow two-way binding when the event is used
         item.IsDelivered = value;
     }
 
@@ -108,9 +109,13 @@ The `ValueChanged` event fires every time the `Value` parameter changes.
 
 ![screenshot to showcase checkbox with one-way data binding](images/one-way-data-binding-checkbox.jpg)
 
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
+
 ## OnChange
 
-The `OnChange` event fires every time the `Value` parameter changes. The key difference with `ValueChanged` is that the `OnChange` does not prevent two-way data binding (using the `@bind-Value` syntax).
+The `OnChange` event fires every time the `Value` parameter changes. The key difference with `ValueChanged` is that `OnChange` does not prevent two-way data binding (using the `@bind-Value` syntax).
 
 >caption Handle OnChange
 

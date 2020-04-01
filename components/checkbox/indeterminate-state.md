@@ -1,5 +1,5 @@
 ---
-title: Events
+title: Indeterminate
 page_title: CheckBox for Blazor | Indeterminate State
 description: Indeterminate State in the CheckBox for Blazor
 slug: checkbox-indeterminate-state
@@ -10,18 +10,17 @@ position: 2
 
 # Indeterminate State
 
-In addition to `checked` and `unchecked` basic states, the Telerik CheckBox has a third state - `Indeterminate`. This means that it is hard to tell if the checkbox is toggled or not.
-The main usecase is when the checkbox owns a number of sub-options and they have different states, than the main checkbox is in indeterminate state.
+In addition to `checked` and `unchecked` basic states, the Telerik CheckBox has a third state - `Indeterminate`. This means that its state is something in between - neither checked, nor unchecked.
+The main use case is when the checkbox owns a number of sub-options and they have different states, than the main checkbox is in indeterminate state.
 
-## Features
+To put the checkbox in the indeterminate state, set its `Indeterminate` parameter to `true`. You can bind it to a `bool` and `bool?` types, and it also exposes the [`IndeterminateChanged` event]({%slug checkbox-events%}#indeterminatechanged) and two-way binding.
 
-The Telerik CheckBox has the following features to control that state:
-`Indeterminate` and `bind-Indeterminate` - mapped to the `Indeterminate` property of the normal HTML checkbox. Every time the state is changed (checked or unchecked) the `Indeterminate` is set to false.
-  * The `Indeterminate` and `bind-Indeterminate` accept `bool` and `bool?` type
+The `Indeterminate` parameter maps to the `indeterminate` attribute of the standard HTML `<input type="checkbox" />`.
 
-## Example
+Every time the Checkbox state is changed (checked or unchecked) the `Indeterminate` parameter is set to `false`.
 
->caption Observe the behavior of Indeterminate state
+
+>caption Observe the behavior of the Indeterminate state
 
 ````CSHTML
 
@@ -141,3 +140,9 @@ The Telerik CheckBox has the following features to control that state:
 >caption The result from the code snippet above
 
 ![gif to showcase the Indeterminate state](images/checkbox-indeterminate-example.gif)
+
+
+## See Also
+
+* [Checkbox Overview]({%slug checkbox-overview%})
+* [Checkbox Events]({%slug checkbox-events%})
