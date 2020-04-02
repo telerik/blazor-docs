@@ -150,31 +150,40 @@ The `OnChange` event fires every time the `Value` parameter changes. The key dif
 
 ## IndeterminateChanged
 
-The `IndeterminateChanged` event fires every time the `Indeterminate` parameter changes.
+The `IndeterminateChanged` event fires every time the `Indeterminate` parameter changes. The component does this when the chekbox was indeterminate and the user clicks it to toggle it to a checked/unchecked state. If you toggle the parameter value yourself, the event will not be raised.
 
 >caption Handle IndeterminateChanged event
 
 ````CSHTML
-@*Press the button to toggle the Indeterminate state*@
+@* Click the checkbox when it is indeterminate to toggle its state to see when the event fires. *@
 
-<TelerikButton Primary="true" OnClick="@(() => Indeterminate = !Indeterminate)"> Toggle Indeterminate </TelerikButton>
-
+<div class="m-3">
+    Checkbox is checked: @CheckBoxValue
+    <br />
+    @result
+</div>
 <div class="mt-2">
-    <strong class="text-muted">Indeterminate checkbox</strong>
-    <TelerikCheckBox @bind-Value="@IndeterminateValue"
+    <label for="theCb" class="text-muted">Indeterminate checkbox</label>
+    <TelerikCheckBox @bind-Value="@CheckBoxValue" Id="theCb"
                      Indeterminate="@Indeterminate"
                      IndeterminateChanged="((bool val) => ChangeHandler(val))">
     </TelerikCheckBox>
 </div>
+<TelerikButton Primary="true" OnClick="@(() => Indeterminate = !Indeterminate)"> Toggle Indeterminate </TelerikButton>
 
 @code{
-    public bool Indeterminate { get; set; }
-    public bool IndeterminateValue { get; set; }
+    bool Indeterminate { get; set; } = true;
+    bool CheckBoxValue { get; set; }
+
+    string result { get; set; }
 
     void ChangeHandler(bool value)
     {
+        // make sure to set the model value, two-way binding does not update it automatically
         Indeterminate = value;
+
+        result = $"Indeterminate state changed to {value} on <strong>{DateTime.Now}</strong>";
     }
 }
 ````
-![Toggle Indeterminate state](images/checkbox-toggle-indeterminate-state.gif)
+
