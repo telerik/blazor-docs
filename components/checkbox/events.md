@@ -13,6 +13,7 @@ position: 20
 This article showcases the available events in the Telerik CheckBox component:
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
+* [IndeterminateChanged](#indeterminatechanged)
 
 ## ValueChanged
 
@@ -146,3 +147,34 @@ The `OnChange` event fires every time the `Value` parameter changes. The key dif
 >caption The result from the code snippet above
 
 ![checkbox with two-way data binding and OnChange event](images/checkbox-onchange.gif)
+
+## IndeterminateChanged
+
+The `IndeterminateChanged` event fires every time the `Indeterminate` parameter changes.
+
+>caption Handle IndeterminateChanged event
+
+````CSHTML
+@*Press the button to toggle the Indeterminate state*@
+
+<TelerikButton Primary="true" OnClick="@(() => Indeterminate = !Indeterminate)"> Toggle Indeterminate </TelerikButton>
+
+<div class="mt-2">
+    <strong class="text-muted">Indeterminate checkbox</strong>
+    <TelerikCheckBox @bind-Value="@IndeterminateValue"
+                     Indeterminate="@Indeterminate"
+                     IndeterminateChanged="((bool val) => ChangeHandler(val))">
+    </TelerikCheckBox>
+</div>
+
+@code{
+    public bool Indeterminate { get; set; }
+    public bool IndeterminateValue { get; set; }
+
+    void ChangeHandler(bool value)
+    {
+        Indeterminate = value;
+    }
+}
+````
+![Toggle Indeterminate state](images/checkbox-toggle-indeterminate-state.gif)

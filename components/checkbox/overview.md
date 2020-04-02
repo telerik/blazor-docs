@@ -42,6 +42,7 @@ The CheckBox provides the following features:
 * `Value` and `bind-Value`- mapped to the `Checked` property of the normal HTML checkbox
   * The `Value` and `bind-Value` accept `bool` and `bool?` types
 * `Indeterminate` and `bind-Indeterminate` - see the [Indeterminate state]({%slug checkbox-indeterminate-state%}) article for more information and examples
+* `IndeterminateChanged` - see the [CheckBox events]({%slug checkbox-events%}) article for more information and example
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
 ## Examples
