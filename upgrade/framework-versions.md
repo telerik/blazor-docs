@@ -23,7 +23,8 @@ Telerik UI for Blazor targets `netstandard2.1` in order to be compatible with th
 
 | .NET version              | Telerik UI for Blazor version |
 |---------------------------|-------------------------------|
-| .NET Core 3.1.2           | {{site.uiForBlazorLatestVersion}}  |
+| .NET Core 3.1.3           | {{site.uiForBlazorLatestVersion}}  |
+| .NET Core 3.1.2           | 2.9.0                         |
 | .NET Core 3.1.1           | 2.7.0 - 2.8.0                 |
 | .NET Core 3.1             | 2.5.0 - 2.6.1                 |
 | .NET Core 3.1 preview 3   | 2.4.0                         |
@@ -44,7 +45,8 @@ While the release dates and numbers of the WASM flavor often match with the .NET
 
 | WASM Preview version                 | Telerik UI for Blazor version |
 |--------------------------------------|-------------------------------|
-| 3.2 preview 2 (3.2.0-preview2.20160.5)         | {{site.uiForBlazorLatestVersion}}                  |
+| 3.2 preview 3 (3.2.0-preview3.20168.3)         | {{site.uiForBlazorLatestVersion}}                  |
+| 3.2 preview 2 (3.2.0-preview2.20160.5)         | 2.9.0                  |
 | 3.2 preview 1 (3.2.0-preview1.20073.1)         | 2.7.0 - 2.8.0       |
 | preview 4 (3.1.0-preview4.19579.2)   | 2.5.0 - 2.6.1                 |
 | preview 3 (3.1.0-preview3.19555.2)   | 2.4.0                         |
@@ -56,7 +58,7 @@ While the release dates and numbers of the WASM flavor often match with the .NET
 
 The future of .NET Core will eventually be through .NET 5. Its [first preview](https://devblogs.microsoft.com/dotnet/announcing-net-5-0-preview-1/) is already available.
 
-The Telerik UI for Blazor suite is committed to the WASM flavor of Blazor and we need to make sure we are compatible with its own previews (at the moment - .NET Core 3.2.0-preview2.20160.5) and subsequently - its official version.
+The Telerik UI for Blazor suite is committed to the WASM flavor of Blazor and we need to make sure we are compatible with its own previews (at the moment - .NET Core 3.2.0-preview3.20168.3) and subsequently - its official version.
 
 Thus, we cannot guarantee compatibility with the .NET 5 previews.
 
