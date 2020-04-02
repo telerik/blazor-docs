@@ -83,7 +83,7 @@ There are several things to keep in mind when using virtual scrolling:
 
 * The `RowHeight` is a decimal value that is always considered as pixel values. If you use [row template]({%slug components/grid/features/templates%}#row-template), make sure it matches the `RowHeight`. The `Height` does not have to be in pixels, but it may help you calculate the `PageSize` (see below).
     * If the row/cell height the browser would render is larger than the `RowHeight` value, the browser will ignore it. It can depend on the chosen Theme or other CSS rules, or on cell data that falls on more than one row. Inspect the rendered HTML to make sure the grid setting matches the rendering.
-    
+
         The default grid rendering has padding in the cells, and the loading sign has a line height set in order to render. This may impose some minimum heights that can vary with the theme and/or custom styles on the page. You can remove both with the following rules: `.k-placeholder-line{display:none;} .k-grid td{margin:0;padding:0;}`.
     * The `RowHeight` must not change at runtime, because the new dimensions will cause issues with the scrolling logic.
     * Browser zoom or monitor DPI settings can cause the browser to render different dimensions than the expected and/or non-integer values, which can break the virtualization logic.
@@ -92,7 +92,7 @@ There are several things to keep in mind when using virtual scrolling:
 * You can control how many rows are rendered through the `PageSize`. If performance does not suit your needs, tweak mostly that property (for example, if latency is high - fetch larger chunks of data so that a remote service is called less often; or when the browser is responding slowly, decrease the page size to render fewer DOM elements).
 * When using the [`OnRead` event]({%slug components/grid/manual-operations%}), use the `PageSize` and `Skip` parameters to know what data to return, instead of `PageSize` and `Page` as with regular paging.
 * Horizontal scrolling is not virtualized, all columns are rendered.
-
+* Multiple Selection has some specifics when you use the `OnRead` event, you can read more about its behavior in the [Multiple Seletion]({%slug components/grid/selection/multiple%}#checkbox-selection) article.
 
 ## Limitations
 
@@ -102,7 +102,6 @@ List of the known limitations of the virtual scrolling feature:
 
 * [Hierarchy]({%slug components/grid/features/hierarchy%}) is not supported.
 * [Grouping]({%slug components/grid/features/grouping%}) is not supported.
-* [Multiple Selection]({%slug components/grid/selection/multiple%}) is not fully supported. Selecting all items from the header checkbox can select only the currently rendered page of records.
 * The `Data` of the grid must contain more items than the `PageSize` in order for the virtual scrolling feature to work. You can work around this with something similar to `ScrollMode="@(DataCollection.Count() > 30 ? GridScrollMode.Virtual : GridScrollMode.Scrollable)"`
 
 
@@ -110,7 +109,7 @@ List of the known limitations of the virtual scrolling feature:
 <!--
 Code for the GIF
 
-<TelerikGrid Data=@GridData 
+<TelerikGrid Data=@GridData
              ScrollMode="@GridScrollMode.Virtual"
              Height="480px" RowHeight="60" PageSize="20"
              Sortable="true" FilterMode="@GridFilterMode.FilterMenu"
@@ -174,4 +173,3 @@ Code for the GIF
 ## See Also
 
   * [Live Demo: Grid Virtual Scrolling](https://demos.telerik.com/blazor-ui/grid/virtual-scrolling)
-   
