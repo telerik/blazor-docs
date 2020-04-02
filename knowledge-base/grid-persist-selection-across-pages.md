@@ -22,4 +22,4 @@ If your users don't use the `Ctrl` and/or `Shift` buttons to extend the selectio
 An example is available in the following project: [https://github.com/telerik/blazor-ui/tree/master/grid/persist-selection](https://github.com/telerik/blazor-ui/tree/master/grid/persist-selection)
 
 >tip Since our 2.10.0 release the behavior showcased above is delivered out of the box with the `SelectAllMode` parameter of the `GridCheckBoxColumn`.
-More information can be found in the [Multiple Selection]({%slug components/grid/selection/multiple%}) article
+More information can be found in the [Multiple Selection](https://docs.telerik.com/blazor-ui/components/grid/selection/multiple) article
