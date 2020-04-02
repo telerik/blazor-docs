@@ -93,7 +93,7 @@ To use Telerik Pager component for Blazor:
 
 ### Load On Demand
 
-You can avoid loading all the data at once, as this can be a costly operation. Un such a case, you should use the `PageChanged` event of the Pager component to fetch the new subset of data to render. It is important to always provide the correct `Total` count of items in the full data source to the component so it can render the correct amount of page buttons.
+You can avoid loading all the data at once, as this can be a costly operation. In such a case, you should use the `PageChanged` event of the Pager component to fetch the new subset of data to render. It is important to always provide the correct `Total` count of items in the full data source to the component so it can render the correct amount of page buttons.
 
 >caption Load paged data on demand
 
