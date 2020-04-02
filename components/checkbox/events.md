@@ -150,7 +150,7 @@ The `OnChange` event fires every time the `Value` parameter changes. The key dif
 
 ## IndeterminateChanged
 
-The `IndeterminateChanged` event fires every time the `Indeterminate` parameter changes. The component does this when the chekbox was indeterminate and the user clicks it to toggle it to a checked/unchecked state. If you toggle the parameter value yourself, the event will not be raised.
+The `IndeterminateChanged` event fires every time the `Indeterminate` parameter changes. The component does this when the checkbox was indeterminate and the user clicks it to toggle it to a checked/unchecked state. If you toggle the parameter value yourself, the event will not be raised.
 
 >caption Handle IndeterminateChanged event
 
