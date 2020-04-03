@@ -21,7 +21,7 @@ This approach of providing nodes lets you gather separate collections of data fo
 >caption Example of using hierarchical data in a menu (for brevity, URLs are omitted)
 
 ````CSHTML
-Hierarchical menu data source and navigation through different views
+@* Hierarchical menu data source and navigation through different views *@
 
 <TelerikMenu Data="@MenuItems"
              ItemsField="@nameof(MenuItem.SubSectionList)"
@@ -42,7 +42,8 @@ Hierarchical menu data source and navigation through different views
     protected override void OnInitialized()
     {
         MenuItems = new List<MenuItem>()
-{
+        {
+            // sample URLs for SPA navigation
             new MenuItem()
             {
                 Section = "Company",
@@ -65,26 +66,28 @@ Hierarchical menu data source and navigation through different views
                     }
                 }
             },
+            // sample URLs for external navigation
             new MenuItem()
             {
                 Section = "Services",
                 SubSectionList = new List<MenuItem>()
-        {
+                {
                     new MenuItem()
                     {
                         Section = "Consulting",
-                        Page = "services/consulting"
+                        Page = "https://mycompany.com/services/consulting"
                     },
                     new MenuItem()
                     {
                         Section = "Education",
-                        Page = "services/education"
+                        Page = "https://mycompany.com/services/education"
                     }
                 }
             },
             new MenuItem()
             {
-                Section = "Contact"
+                Section = "Contact",
+                Page = "https://mycompany.com/contact"
             }
         };
 
