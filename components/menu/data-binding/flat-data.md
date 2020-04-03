@@ -28,32 +28,36 @@ Using a self-referencing flat data source for the menu
 <TelerikMenu Data="@MenuItems"
              ParentIdField="@nameof(MenuItem.SectionId)"
              IdField="@nameof(MenuItem.Id)"
-             TextField="@nameof(MenuItem.Section)">
+             TextField="@nameof(MenuItem.Section)"
+             UrlField="@nameof(MenuItem.Page)">
 </TelerikMenu>
 
 @code {
     public List<MenuItem> MenuItems { get; set; }
-    
+
     public class MenuItem
     {
         public int Id { get; set; }
         public int? SectionId { get; set; }
         public string Section { get; set; }
+        public string Page { get; set; }
     }
-    
+
     protected override void OnInitialized()
     {
         MenuItems = new List<MenuItem>()
-        {
+{
             new MenuItem()
             {
                 Id = 1,
-                Section = "Overview"
+                Section = "Overview",
+                Page = "https://docs.telerik.com/blazor-ui/components/menu/overview"
             },
             new MenuItem()
             {
                 Id = 2,
-                Section = "Demos"
+                Section = "Demos",
+                Page = "https://demos.telerik.com/blazor-ui/menu/overview"
             },
             new MenuItem()
             {
@@ -64,19 +68,23 @@ Using a self-referencing flat data source for the menu
             {
                 Id = 4,
                 SectionId = 3,
-                Section = "What's new"
+                Section = "What's new",
+                Page = "https://www.telerik.com/support/whats-new"
             },
             new MenuItem()
             {
                 Id = 5,
                 SectionId = 3,
-                Section = "Roadmap"
+                Section = "Roadmap",
+                Page = "https://www.telerik.com/support/whats-new/blazor-ui/roadmap"
+
             },
             new MenuItem()
             {
                 Id = 6,
                 SectionId = 3,
-                Section = "Release History"
+                Section = "Release History",
+                Page = "https://www.telerik.com/support/whats-new/blazor-ui/release-history"
             }
         };
 
