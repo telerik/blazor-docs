@@ -37,7 +37,7 @@ If you are not familiar with Blazor yet, you may find useful our Blazor Quick St
 
 If you are just getting started with Blazor and Web development, you may find the following resources useful in getting up to speed with the core concepts:
 
-* [Telerik e-book: Blazor: A Beginner's Guide](https://www.telerik.com/campaigns/blazor/wp-beginners-guide-ebook)
+* [Telerik e-book: Blazor: A Beginner's Guide](https://www.telerik.com/campaigns/blazor/wp-beginners-guide-ebook) and its [Samples repo](https://github.com/EdCharbeneau/BlazorBookExamples)
 * [MSDN: First Steps with Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/get-started?view=aspnetcore-3.0&tabs=visual-studio)
 * [MSDN: Razor Syntax Reference](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-3.0)
 
