@@ -21,26 +21,28 @@ This approach of providing nodes lets you gather separate collections of data fo
 >caption Example of using hierarchical data in a menu (for brevity, URLs are omitted)
 
 ````CSHTML
-Hierarchical menu data source
+Hierarchical menu data source and navigation through different views
 
 <TelerikMenu Data="@MenuItems"
              ItemsField="@nameof(MenuItem.SubSectionList)"
-             TextField="@nameof(MenuItem.Section)">
+             TextField="@nameof(MenuItem.Section)"
+             UrlField="@nameof(MenuItem.Page)">
 </TelerikMenu>
 
 @code {
     public List<MenuItem> MenuItems { get; set; }
-    
+
     public class MenuItem
     {
         public string Section { get; set; }
+        public string Page { get; set; }
         public List<MenuItem> SubSectionList { get; set; }
     }
-    
+
     protected override void OnInitialized()
     {
         MenuItems = new List<MenuItem>()
-        {
+{
             new MenuItem()
             {
                 Section = "Company",
@@ -48,15 +50,18 @@ Hierarchical menu data source
                 {
                     new MenuItem()
                     {
-                        Section = "Overview"
+                        Section = "Overview",
+                        Page = "company/overview"
                     },
                     new MenuItem()
                     {
-                        Section = "Events"
+                        Section = "Events",
+                        Page = "events/all"
                     },
                     new MenuItem()
                     {
-                        Section = "Careers"
+                        Section = "Careers",
+                        Page = "careers"
                     }
                 }
             },
@@ -64,14 +69,16 @@ Hierarchical menu data source
             {
                 Section = "Services",
                 SubSectionList = new List<MenuItem>()
-                {
+        {
                     new MenuItem()
                     {
-                        Section = "Consulting"
+                        Section = "Consulting",
+                        Page = "services/consulting"
                     },
                     new MenuItem()
                     {
-                        Section = "Education"
+                        Section = "Education",
+                        Page = "services/education"
                     }
                 }
             },
