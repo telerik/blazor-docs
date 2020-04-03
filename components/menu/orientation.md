@@ -28,11 +28,11 @@ Change the orientation of the menu to fit your layout
     <option value=@MenuOrientation.Vertical>Vertical</option>
 </select>
 
-<TelerikMenu Data="@MenuItems" Orientation="@orientation">
+<TelerikMenu Data="@MenuItems" Orientation="@orientation" UrlField="@nameof(MenuItem.Page)">
 </TelerikMenu>
 
 @code {
-     MenuOrientation orientation;
+    MenuOrientation orientation;
 
     public List<MenuItem> MenuItems { get; set; }
 
@@ -40,40 +40,45 @@ Change the orientation of the menu to fit your layout
     {
         public string Text { get; set; }
         public string Icon { get; set; }
+        public string Page { get; set; }
         public List<MenuItem> Items { get; set; }
     }
 
     protected override void OnInitialized()
     {
         MenuItems = new List<MenuItem>()
-        {
+{
             new MenuItem()
             {
                 Text = "Share",
                 Icon = IconName.Share,
                 Items = new List<MenuItem>()
-                {
+        {
                     new MenuItem()
                     {
                         Text = "FaceBook",
-                        Icon = IconName.Facebook
+                        Icon = IconName.Facebook,
+                        Page = "https://facebook.com"
                     },
                     new MenuItem()
                     {
                         Text = "LinkedIn",
-                        Icon = IconName.Linkedin
+                        Icon = IconName.Linkedin,
+                        Page = "https://linkedin.com"
                     },
                     new MenuItem()
                     {
                         Text = "Twitter",
-                        Icon = IconName.Twitter
+                        Icon = IconName.Twitter,
+                        Page = "https://twitter.com"
                     },
                 }
             },
             new MenuItem()
             {
                 Text = "Map Location",
-                Icon = IconName.MarkerPin
+                Icon = IconName.MarkerPin,
+                Page = "https://maps.google.com"
             }
         };
 
