@@ -46,24 +46,26 @@ Using a self-referencing flat data source for the menu
     protected override void OnInitialized()
     {
         MenuItems = new List<MenuItem>()
-{
+        {
+            // sample URLs for SPA navigation
             new MenuItem()
             {
                 Id = 1,
                 Section = "Overview",
-                Page = "https://docs.telerik.com/blazor-ui/components/menu/overview"
+                Page = "menu/overview"
             },
             new MenuItem()
             {
                 Id = 2,
                 Section = "Demos",
-                Page = "https://demos.telerik.com/blazor-ui/menu/overview"
+                Page = "menu/demos"
             },
             new MenuItem()
             {
                 Id = 3,
                 Section = "Roadmap"
             },
+            // sample URLs for external navigation
             new MenuItem()
             {
                 Id = 4,
