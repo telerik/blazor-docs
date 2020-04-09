@@ -87,7 +87,7 @@ article:not(.api-reference)>p:first-child, article:not(.api-reference) h1+p {
 The API reference section of the documentation contains a list and descriptions of all public available classes, methods and properties of the Telerik UI for Blazor product.
 
 
->tip You can use the Filter at the top left hand side to search for a component name (class) to filter the table of contents and find what you are looking for easily.
+> You can use the Filter at the top left hand side to search for a component name (class) to filter the table of contents and find what you are looking for easily.
 
 
 This documentation refers to the latest version of Telerik UI for Blazor.
