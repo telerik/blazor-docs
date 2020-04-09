@@ -72,4 +72,4 @@ The calendar provides a number of features that allow you to control the user ex
   * [Selection]({%slug components/calendar/selection%})
   * [Multiple Views]({%slug components/calendar/multiview%})
   * [Live Demo: Calendar](https://demos.telerik.com/blazor-ui/calendar/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendarBase)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar)

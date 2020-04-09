@@ -72,4 +72,4 @@ The time format specifiers in the `Format` control the tumblers available in the
   * [Live Demo: DateTime Picker](https://demos.telerik.com/blazor-ui/datetimepicker/index)
   * [Input Validation]({%slug common-features/input-validation%})
   * [Supported Input Date Formats]({%slug components/dateinput/supported-formats%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDateTimePickerBase-1)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDateTimePicker)

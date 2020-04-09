@@ -119,5 +119,5 @@ Built-in navigation between views
 
   * [Data Binding a TreeView]({%slug components/treeview/data-binding/overview%})
   * [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/treeview/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeViewBase)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView)
 

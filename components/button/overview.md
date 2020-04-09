@@ -119,5 +119,5 @@ You can style the button through its `Class` attribute to define your own CSS ru
   * [Events]({%slug button-events%})
   * [Icons]({%slug button-icons%})
   * [Type]({%slug button-type%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikButtonBase)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikButton)
    

@@ -87,11 +87,7 @@ article:not(.api-reference)>p:first-child, article:not(.api-reference) h1+p {
 The API reference section of the documentation contains a list and descriptions of all public available classes, methods and properties of the Telerik UI for Blazor product.
 
 
-> If you are looking for a particular component, look for the `<ComponentName>Base` class. This is where its actual properties and methods reside, due to the specifics of the Blazor Comopnent class library structure.
->
-> For example, if you are looking for details on the `TelerikWindow` component, look for the `TelerikWindowBase` class.
->
-> You can use the Filter at the top left hand side to search for a component name (class) to filter the table of contents and find what you are looking for easily.
+>tip You can use the Filter at the top left hand side to search for a component name (class) to filter the table of contents and find what you are looking for easily.
 
 
 This documentation refers to the latest version of Telerik UI for Blazor.

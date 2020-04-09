@@ -16,7 +16,7 @@
 </TelerikGrid>
 
 @code {
-    public TelerikGridBase<SampleData> Grid { get; set; }
+    public TelerikGrid<SampleData> Grid { get; set; }
 
     async Task SetGridSort()
     {
@@ -70,7 +70,7 @@
 </TelerikGrid>
 
 @code {
-    public TelerikGridBase<SampleData> Grid { get; set; }
+    public TelerikGrid<SampleData> Grid { get; set; }
 
     async Task SetGridFilter()
     {
@@ -123,7 +123,7 @@
 </TelerikGrid>
 
 @code {
-    public TelerikGridBase<SampleData> Grid { get; set; }
+    public TelerikGrid<SampleData> Grid { get; set; }
 
     async Task SetGridFilter()
     {
@@ -190,7 +190,7 @@
 </TelerikGrid>
 
 @code {
-    public TelerikGridBase<SampleData> Grid { get; set; }
+    public TelerikGrid<SampleData> Grid { get; set; }
 
     async Task SetGridGroup()
     {
@@ -262,7 +262,7 @@
 </TelerikGrid>
 
 @code {
-    public TelerikGridBase<MainModel> Grid { get; set; }
+    public TelerikGrid<MainModel> Grid { get; set; }
 
     async Task ExpandHierarchy()
     {

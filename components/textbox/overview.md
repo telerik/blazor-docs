@@ -46,4 +46,4 @@ To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
   * [Live Demo: Textbox](https://demos.telerik.com/blazor-ui/textbox/index)
   * [Live Demo: Textbox Validation](https://demos.telerik.com/blazor-ui/textbox/validation)
   * [Input Validation]({%slug common-features/input-validation%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBoxBase)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)

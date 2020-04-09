@@ -26,8 +26,7 @@ To use a Telerik Scheduler for Blazor
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px" Width="800px">
     <SchedulerViews>
         <SchedulerDayView StartTime="@DayStart" />
-        <SchedulerWeekView StartTime="@DayStart" />
-        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
+        <SchedulerWeekView StartTime="@DayStart" /><SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
     </SchedulerViews>
 </TelerikScheduler>
 
@@ -117,5 +116,5 @@ The Scheduler is a generic component and its type is determined by the type of t
 
   * [Data Binding]({%slug scheduler-appointments-databinding%})
   * [Live Demo: Scheduler](https://demos.telerik.com/blazor-ui/scheduler/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikScheduler-1)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikScheduler)
 

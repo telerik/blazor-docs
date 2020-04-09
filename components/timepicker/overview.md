@@ -75,4 +75,4 @@ The Time Picker component supports `DateTime`, `DateTime?`, `DateTimeOffset` and
   * [Live Demo: Time Picker](https://demos.telerik.com/blazor-ui/timepicker/index)
   * [Input Validation]({%slug common-features/input-validation%})
   * [Supported Input Date Formats]({%slug components/dateinput/supported-formats%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTimePickerBase-1)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTimePicker)
