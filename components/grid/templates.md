@@ -23,8 +23,6 @@ Like other Blazor content, they can receive a `context` argument that is the typ
 
 You must make sure to provide valid HTML in the templates.
 
-You can also use templates to [bind to navigation properties in complex objects]({%slug grid-use-navigation-properties%}).
-
 ## Column Template
 
 By default, the grid renders the value of the field in the column, as it is provided from the data source. You can change this behavior by using the `Template` of the column and add your own content and/or logic to make a string out of the object.
