@@ -61,6 +61,7 @@ The DropDownList provides the following features:
 * `Enabled` - whether the component is enabled.
 * `Id` - renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it.
 * `PopupHeight` - the height of the expanded dropdown list element.
+* `PopupWidth` - the width of the expanded dropdown list element.
 * `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
 * `TValue` - the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
 * `TabIndex` - the `tabindex` attribute rendered on the dropdown.
