@@ -261,14 +261,7 @@ public class LocalStorage
         var data = await JSRuntimeInstance.InvokeAsync<string>("localStorage.getItem", key);
         if (!string.IsNullOrEmpty(data))
         {
-            return JsonConvert.DeserializeObject<T>(data, new JsonSerializerSettings()
-            {
-                Converters = new JsonConverter[]
-                {
-                    new FilterDescriptorJsonConverter()
-                },
-                NullValueHandling = NullValueHandling.Ignore
-            });
+            return return JsonConvert.DeserializeObject<T>(data);
         }
 
         return default;
@@ -277,27 +270,6 @@ public class LocalStorage
     public ValueTask RemoveItem(string key)
     {
         return JSRuntimeInstance.InvokeVoidAsync("localStorage.removeItem", key);
-    }
-}
-
-// to store the serialized grid state, we need to have a custom serialized
-// based on Newtonsoft.Json serialization. In the future this may not be required
-public class FilterDescriptorJsonConverter : JsonConverter
-{
-    public override bool CanConvert(Type objectType)
-    {
-        return objectType == typeof(FilterDescriptorBase);
-    }
-
-    public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-    {
-        JObject filterDescriptor = JObject.Load(reader);
-
-        return filterDescriptor.ToObject<FilterDescriptor>(serializer);
-    }
-
-    public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-    {
     }
 }
 ````
