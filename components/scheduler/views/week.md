@@ -5,7 +5,7 @@ description: Week View in the Scheduler for Blazor
 slug: scheduler-views-week
 tags: telerik,blazor,scheduler,view,week
 published: True
-position: 1
+position: 3
 ---
 
 # Week View

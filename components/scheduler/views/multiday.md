@@ -5,7 +5,7 @@ description: MultiDay View in the Scheduler for Blazor
 slug: scheduler-views-multiday
 tags: telerik,blazor,scheduler,view,multiday
 published: True
-position: 1
+position: 2
 ---
 
 # MultiDay View
