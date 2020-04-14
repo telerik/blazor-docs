@@ -82,13 +82,15 @@ The ComboBox component attempts to infer the type of its model and value based o
 
 ### Value Out of Range
 
+This specific is applicable for the case when [custom value input]({%slug components/combobox/custom-value%}) is disabled (`AllowCustom="false"` which is its default value).
+
 When the `Value` the application provides does not match any of the values present in the `ValueField` of the `Data` collection, the ComboBox component will not change the `Value` or select a new item. In the common case, it will show up blank to indicate there is nothing selected from its data.
 
 If you have set the `Placeholder` and the `Value` matches the `default` value of the type (for example, `0` for an `int` or `null` for an `int?` or `string`), you will see the `Placeholder`. A `Value` that is non-`default` will not show the `Placeholder`.
 
-This behavior applies for both with and without [custom value input]({%slug components/combobox/custom-value%}).
-
 Handling such "unexpected" values is up to the application - for example, through defensive checks, or through form validation, or by first checking what is present in the data source before setting a new `Value`.
+
+When `AllowCustom="true"`, what the user types in the input will be set to the `Value` of the component regardless of the data source.
 
 ### Component Reference
 
