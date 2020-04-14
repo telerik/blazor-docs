@@ -85,7 +85,7 @@ The ComboBox is a generic component and its type is determined by the type of th
 
 ## Selected Item
 
-By default, if no `Value` is provided, the ComboBox will appear empty, or will display the `Placeholder` defined. If a `Value` is provided, the first item from the data source whose ValueField matches will be selected.
+By default, if no `Value` is provided, the ComboBox will appear empty, or will display the `Placeholder` defined. If a `Value` is provided, it should match an item in the data source (see more in the [Value Out of Range]({%slug components/combobox/databind%}#value-out-of-range) section).
 
 The ComboBox will not always have a selected item, however, because it can act as an input. There will be no selected item in the following cases that depend on the settings of the component that the developer can control:
 
