@@ -121,7 +121,11 @@ Custom paging. There is a deliberate delay in the data source operations in this
 
 ### Telerik .ToDataSourceResult(request)
 
-If you have all the data at once, the Telerik .ToDataSourceResult(request) extension method can manage the operations for you
+If you have all the data at once, the Telerik .ToDataSourceResult(request) extension method can manage the operations for you.
+
+>tip You can find examples of how to use this object to easily retrieve data on the server in a performant manner in the following repo: [https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
+
+>caption Use Telerik .ToDataSourceResult() extension method to filter, sort and page data.
 
 ````CSHTML
 Using Telerik DataSource extension methods to manipulate all the data into paged chunks and also perform other operations like filtering, sorting, etc. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
