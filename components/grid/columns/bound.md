@@ -75,7 +75,6 @@ You can use the following properties on the bound columns:
 
 * `Field` - the name of the field in the data source that the column will render as a string. You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model (`Field=@nameof(MyModelClass.SomeFIeld)`).
 * `Title` - the text that is rendered in the column header.
-* `[Display(Name = "My Column Title")]` - set the value of the `Name` parameter of this attribute to change the text rendered in the column header. If `Title` parameter of the `GridColumn` is provided its value will be taken as header since it has bigger priority.
 * `Editable` - you can set this property to `true` or `false` to allow or prevent [editing]({%slug components/grid/overview%}#editing) of this field. Defaults to `true`. To edit data, you also need a [CommandColumn]({%slug components/grid/columns/command%}).
 * `Filterable` - you can set this to `false` so a [filterable]({%slug components/grid/filtering%}) grid will not let the user filter that particular column.
 * `Sortable` - set it to `false` so the user cannot [sort]({%slug components/grid/features/sorting%}) this column.
@@ -98,12 +97,12 @@ You can use the following properties on the bound columns:
     * If the `Field` points to a custom object or something like an `IDictionary`, errors will be thrown upon those actions because there are no known data operations on non-primitive types in .NET. An alternative is to implement all data source operations yourself by handling the [OnRead event](../manual-operations).
     * To bind to nested (complex) models (also called navigation properties), use only the name of the field that holds the child class and its own field. For an example, see the [Bind to navigation properties in complex objects]({%slug grid-use-navigation-properties%}) article.
 * The grid skips fields marked with the [`IgnoreDataMemberAttribute`](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.ignoredatamemberattribute) when performing CUD operations. Its presence indicates that this property does not need to be part of the serialized data anyway, and skipping such fields allows [Lazy Loading Proxies in EF](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.proxiesextensions.uselazyloadingproxies?view=efcore-3.1) to work.
-* For the time being, nested models will not work (such as `Field="MyModel.AnotherModel.SomePrimitiveField"`). We are working on enabling this and you can follow its status [here](https://feedback.telerik.com/blazor/1432615-support-for-nested-complex-models).
+* If you don't set a `Title` for a column, the grid will take the `[Display(Name = "My Column Title")]` data annotation attribute from the model field. If that's not available either, the name of the field will be shown.
 
 >tip You can optimize database queries in two ways:
 >
 > * Use an `IQueryable<MyModel>` collection for the grid `Data`. The grid will build a LINQ expression internally that will be resolved only when needed. This can be useful when the `Data` comes from something like an EntityFramework context.
-> * Implement [manual data source operations](..//manual-operations) and implement the desired query yourself. In a future version, the `DataSourceRequest` object will become serializable so you can send it directly over HTTP to a controller and use the LINQ queries it will build for you.
+> * Implement [manual data source operations](..//manual-operations) and implement the desired query yourself.
 
 ## See Also
 
