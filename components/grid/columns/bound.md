@@ -28,10 +28,13 @@ To show data in a grid, you must define `GridColumn` instances in the `GridColum
 ````CSHTML
 @* define data, model and columns for a grid *@
 
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+
 <TelerikGrid Data="@MyData">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
+        <GridColumn Field="@(nameof(SampleData.Name))" />
         <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
         <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
     </GridColumns>
@@ -49,13 +52,13 @@ To show data in a grid, you must define `GridColumn` instances in the `GridColum
     public class SampleData
     {
         public int Id { get; set; }
+        [Display(Name = "Employee Name")]
         public string Name { get; set; }
         public string Team { get; set; }
         public DateTime HireDate { get; set; }
     }
 }
 ````
-
 
 >tip You can also use a string for the field name, using the `nameof` operator is not necessary. For example, the ID column can be defined like this: `<GridColumn Field="Id" />`.
 
@@ -72,6 +75,7 @@ You can use the following properties on the bound columns:
 
 * `Field` - the name of the field in the data source that the column will render as a string. You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model (`Field=@nameof(MyModelClass.SomeFIeld)`).
 * `Title` - the text that is rendered in the column header.
+* `[Display(Name = "My Column Title")]` - set the value of the `Name` parameter of this attribute to change the text rendered in the column header. If `Title` parameter of the `GridColumn` is provided its value will be taken as header since it has bigger priority.
 * `Editable` - you can set this property to `true` or `false` to allow or prevent [editing]({%slug components/grid/overview%}#editing) of this field. Defaults to `true`. To edit data, you also need a [CommandColumn]({%slug components/grid/columns/command%}).
 * `Filterable` - you can set this to `false` so a [filterable]({%slug components/grid/filtering%}) grid will not let the user filter that particular column.
 * `Sortable` - set it to `false` so the user cannot [sort]({%slug components/grid/features/sorting%}) this column.
