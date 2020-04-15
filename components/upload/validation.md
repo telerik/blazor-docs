@@ -49,7 +49,7 @@ Removing invalid files from the [x] button in the UI will not call the `RemoveUr
 
 ![Valid and Invalid files uploaded](images/upload-overview-validation.png)
 
->note Form validation for files is not supported in the framework at this point, see the following issue: https://github.com/dotnet/aspnetcore/issues/18821. We made an example that creates similar experience in our demos, so you can use it as base for your implementation: [https://demos.telerik.com/blazor-ui/upload/overview](https://demos.telerik.com/blazor-ui/upload/overview)
+>note Form validation for files is not supported in the framework at this point, see the following issue: https://github.com/dotnet/aspnetcore/issues/18821. We made an example that creates similar experience in the following repo, so you can use it as base for your implementation: [https://github.com/telerik/blazor-ui/tree/master/upload/form-validation](https://github.com/telerik/blazor-ui/tree/master/upload/form-validation)
 
 @[template](/_contentTemplates/upload/notes.md#server-security-note)
 
