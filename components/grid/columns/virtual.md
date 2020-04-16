@@ -15,6 +15,7 @@ The Grid lets you add Virtualized Columns. This means that columns and the corre
 ## Requirements
 To enable Virtualized Columns:
 * Set the `ColumnVirtualization` parameter of the Grid to `true`.
+* Set the `Width` parameter of the Grid in `px`.
 * Set the `Width` parameter of all columns in `px` so that the total sum is greater than the `Width` of the Grid which will enable horizontal scrollbar. You can read more about the scrolling behavior of the grid in the [Grid Column Width Behavior]({%slug grid-columns-width%}) article.
 * Set the `RowHeight` so that the content of all cells fit in the row. For more information see the [Notes](#notes) section.
 * Set the `Height` of the Grid in `px`. For more information see the [Notes](#notes) section.
