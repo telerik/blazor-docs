@@ -81,7 +81,7 @@ You can add a checkbox column for selection. It is required if the `InCell` edit
 You can select items by clicking a checkbox, or by clicking the rows. The Ctrl and Shift keys let you select more than one row when clicking it.
 
 <TelerikGrid Data=@GridData
-             SelectionMode="GridSelectionMode.Multiple"
+             SelectionMode="@GridSelectionMode.Multiple"
              Pageable="true">
     <GridColumns>
         <GridCheckboxColumn />
@@ -123,11 +123,12 @@ You can respond to the user action of selecting a new item through the `Selected
 >caption Multiple Selection and handling the SelectedItemsChanged event
 
 ````CSHTML
-Show details for selected items via the selection changed event
+@*Show details for selected items via the selection changed event*@
 
 <TelerikGrid Data=@GridData
-             SelectionMode="GridSelectionMode.Multiple"
+             SelectionMode="@GridSelectionMode.Multiple"
              SelectedItemsChanged="@((IEnumerable<Employee> employeeList) => OnSelect(employeeList))"
+             SelectedItems="@SelectedEmployees"
              Pageable="true"
              Height="400px">
     <GridColumns>
@@ -151,7 +152,7 @@ Show details for selected items via the selection changed event
 
 @code {
     public List<Employee> GridData { get; set; }
-    public IEnumerable<Employee> SelectedEmployees { get; set; }
+    public IEnumerable<Employee> SelectedEmployees { get; set; } = Enumerable.Empty<Employee>();
 
     protected override void OnInitialized()
     {
@@ -192,7 +193,7 @@ You can predefine the selected items for your users through the two-way binding 
 >caption Multiple Selection and two-way binding of the `SelectedItems` property
 
 ````CSHTML
-Use the selected items collection
+@*Use the selected items collection*@
 
 <TelerikGrid Data=@GridData
              SelectionMode="GridSelectionMode.Multiple"
@@ -220,7 +221,7 @@ Use the selected items collection
 
 @code {
     public List<Employee> GridData { get; set; }
-    public IEnumerable<Employee> SelectedItems { get; set; }
+    public IEnumerable<Employee> SelectedItems { get; set; } = Enumerable.Empty<Employee>();
 
     protected override void OnInitialized()
     {
@@ -235,7 +236,7 @@ Use the selected items collection
             });
         }
 
-        // select Employee with 3 through 5
+        // select Employee with 3 through 5. Not required
         SelectedItems = GridData.Skip(2).Take(3).ToList();
     }
 
