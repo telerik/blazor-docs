@@ -14,6 +14,8 @@ Virtual scrolling is an alternative to paging. Instead of using a pager, the use
 
 The same set of elements is reused to improve performance. While the next data is loading, a loading indicator is shown on the cells. If the user scrolls back up after scrolling down to a next page, the previous page will be loaded anew from the data source, like with regular paging.
 
+You can also Virtually Scroll the Grid Columns. More information can be found in the [Column Virtualization]({%slug grid-columns-virtual%}) article.
+
 ## Requirements
 
 To enable virtual scrolling:
