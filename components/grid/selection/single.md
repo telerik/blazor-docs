@@ -60,7 +60,7 @@ You can add a checkbox column for single selection. It is required if the `InCel
 Single selection can be done by clicking a row or through a checkbox
 
 <TelerikGrid Data=@GridData
-             SelectionMode="GridSelectionMode.Single"
+             SelectionMode="@GridSelectionMode.Single"
              Pageable="true">
     <GridColumns>
         <GridCheckboxColumn SelectAll="false" Title="Select" Width="70px" />
@@ -104,11 +104,12 @@ The example below shows how to handle the `SelectedItemsChanged` event to extrac
 >caption Single Selection and handling the SelectedItemsChanged event
 
 ````CSHTML
-Use the selection change event to show detail data
+@* Use the selection change event to show detail data *@
 
 <TelerikGrid Data=@GridData
              SelectionMode="GridSelectionMode.Single"
              SelectedItemsChanged="@((IEnumerable<Employee> employeeList) => OnSelect(employeeList))"
+             SelectedItems="@SelectedItems"
              Pageable="true"
              Height="300px">
     <GridColumns>
@@ -129,11 +130,34 @@ Use the selection change event to show detail data
 
 @code {
     public List<Employee> GridData { get; set; }
-    public List<Employee> TeamMatesList { get; set; }
-    public Employee SelectedEmployee { get; set; }
+    public IEnumerable<Employee> SelectedItems { get; set; } = Enumerable.Empty<Employee>();
 
-    protected override void OnInitialized()
+    public Employee SelectedEmployee { get; set; }
+    public List<Employee> TeamMatesList { get; set; }
+
+    protected async Task OnSelect(IEnumerable<Employee> employees)
     {
+        SelectedEmployee = employees.FirstOrDefault();
+        // update the collection so that the grid can highlight the correct item
+        // when two-way binding is used this happens automatically, but the framework does not allow two-way binding and the event at the same time
+        SelectedItems = new List<Employee> { SelectedEmployee };
+
+        await GetChildGridData();
+    }
+
+    async Task GetChildGridData()
+    {
+        if (TeamMatesList == null)
+        {
+            TeamMatesList = new List<Employee>();
+        }
+        TeamMatesList.Clear();
+        TeamMatesList = GridData.Where(empl => empl.Team == SelectedEmployee.Team).ToList();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+
         GridData = new List<Employee>();
         for (int i = 0; i < 15; i++)
         {
@@ -144,20 +168,11 @@ Use the selection change event to show detail data
                 Team = "Team " + i % 3
             });
         }
-    }
 
-    protected async Task OnSelect(IEnumerable<Employee> employees)
-    {
-        SelectedEmployee = employees.FirstOrDefault();
-        //with single row selection, there is only one item in the collection
-
-        //fetch actual data for the child grid here. This example filters the original data for brevity
-        if(TeamMatesList == null)
-        {
-            TeamMatesList = new List<Employee>();
-        }
-        TeamMatesList.Clear();
-        TeamMatesList = GridData.Where(empl => empl.Team == SelectedEmployee.Team).ToList();
+        // add default selection and execute its logic. Not required
+        SelectedItems = new List<Employee> { GridData.FirstOrDefault() };
+        SelectedEmployee = GridData.FirstOrDefault();
+        await GetChildGridData();
     }
 
     public class Employee
@@ -183,8 +198,8 @@ You can predefine the selected item for your users through the two-way binding o
 Selected item: @SelectedItems.FirstOrDefault().Name
 
 <TelerikGrid Data=@GridData
-             SelectionMode="GridSelectionMode.Single"
-             @bind-SelectedItems="SelectedItems"
+             SelectionMode="@GridSelectionMode.Single"
+             @bind-SelectedItems="@SelectedItems"
              Pageable="true"
              Height="400px">
     <GridColumns>
@@ -195,7 +210,7 @@ Selected item: @SelectedItems.FirstOrDefault().Name
 
 @code {
     public List<Employee> GridData { get; set; }
-    public IEnumerable<Employee> SelectedItems { get; set; }
+    public IEnumerable<Employee> SelectedItems { get; set; } = Enumerable.Empty<Employee>();
 
     protected override void OnInitialized()
     {
