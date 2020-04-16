@@ -183,6 +183,8 @@ The grid offers two modes of scrolling through its `ScrollMode` parameter that t
 * `Scrollable` - the default setting - the scrollbars are controlled by the grid's `Width` and `Height` parameters and the data shown in it. If the rendered rows are taller than the height, there will be a vertical scrollbar. If the sum of the column widths is larger than the width, there will be a horizontal scrollbar (read more in the [Column Width]({%slug grid-columns-width%}) article).
 * `Virtual` - this enables [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}).
 
+The Grid offers Virtual horizontal scrolling. You can read more about this feature in the [Column Virtualization]({%slug grid-columns-virtual%}) article.
+
 ## Frozen Columns
 
 The grid lets you freeze one or more columns. You can read more about this feature in the [Frozen columns]({%slug grid-columns-frozen%}) article.
