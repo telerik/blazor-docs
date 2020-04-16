@@ -8,7 +8,7 @@ published: true
 position: 5
 ---
 
-# Virtual Columns
+# Virtualized Columns
 
 The Grid lets you add Virtualized Columns. This means that columns and the corresponding data will be rendered only for the currently visible viewport. When changing the [Page]({%slug components/grid/features/paging%}) or [Sorting]({%slug components/grid/features/sorting%}) the Grid less elements are rendered which improves the responsiveness and the overall user experience.
 
@@ -31,7 +31,7 @@ This article will be separated in the following sections:
 
 The targeted scenario is for Grid with big volume of columns, since the performance improvement will be most significant there.
 
->caption Basic setup of the Virtual Columns
+>caption Basic setup of the Virtualized Columns
 
 ````CSHTML
 @*Observe the behavior of the Grid with enabled ColumnVirtualization*@
@@ -112,9 +112,9 @@ The targeted scenario is for Grid with big volume of columns, since the performa
 >caption The result from the code snippet above
 ![gif of virtual columns](images/virtual-columns-basic.gif)
 
-## Virtual Columns and Rows
+## Virtualized Columns and Rows
 
-To use Virtualized Columns and Rows together you need to set `Height` parameter of the Grid as well. More information on Virtual Rows can be found in the [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}) article.
+You can use Virtualized Columns and Rows together. More information on Virtual Rows can be found in the [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}) article.
 
 >caption Use Virtualized Columns and Rows together
 
