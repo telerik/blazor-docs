@@ -120,7 +120,7 @@ When the grid `Data` collection changes, the `SelectedItems` collection has the 
 * When using an `ObservableCollection` for the grid `Data`- If an item is removed or the entire data is cleared using the collection's `.Clear()` method, it will automatically update the `SelectedItems` collection too (the removed Data items will be removed from the Selected Items collection). 
 
     * The other CRUD operations (Create and Update), you should use the grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
-
+    * When the data changes and the selected items are cleared, the `SelectedItemsChanged` event will fire with the empty collection. If you are using two-way binding, the collection will be cleared.
 
 
 
