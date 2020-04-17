@@ -44,6 +44,7 @@ To use the animation container, add the `TelerikAnimationContainer` tag.
 The animation container exposes the following properties and methods:
 
 * `Show()`, `Hide()` and `Toggle()`; `ShowAsync()`, `HideAsync()` and `ToggleAsync()` - to control whether the container is shown.
+    * To show an animation container immediately when the page loads, use the `OnAfterRenderAsync` event.
 * `Width` and `Height` - to control its [size]({%slug common-features/dimensions%}). The `Height` cannot be in percentage values, it is recommended to use pixels for it.
 * `Top` and `Left` - to control its offset from its parent with special positioning (`relative`, `absolute`, `fixed`).
 * `AnimationType` and `AnimationDuration` to control the way it is shown and hidden. The animation duration is in milliseconds (defaults to `300`), and the type is of the `Telerik.Blazor.AnimationType` enum with the following options:
