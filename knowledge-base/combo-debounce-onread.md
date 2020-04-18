@@ -38,6 +38,7 @@ For min filter length, just add a check in the handler for the desired string le
 >caption Use a `CancellationTokenSource` to debounce OnRead filter calls in the combo box. Add Min Filter Length
 
 ````CSHTML
+@implements IDisposable
 @using System.Threading
 
 @SelectedValue
@@ -93,6 +94,15 @@ For min filter length, just add a check in the handler for the desired string le
                 Options = new List<string>() { "one", "two", "three" };
             }
         }
+    }
+    
+    public void Dispose()
+    {
+        try
+        {
+            tokenSource.Dispose();
+        }
+        catch { }
     }
 
     async Task<List<string>> GetOptions(string userInput, string filterOperator)

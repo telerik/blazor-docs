@@ -1,9 +1,9 @@
 ---
-title: Debounce/Throttle grid data source operations
-description: how to debounce or throttle grid data source operations
+title: Debounce grid data source operations
+description: how to debounce the grid data source operations
 type: how-to
-page_title: Debounce/Throttle grid data source operations
-slug: grid-kb-throttle-operations
+page_title: Debounce grid data source operations
+slug: grid-kb-debounce-operations
 position: 
 tags: 
 ticketid: 1451805
@@ -40,15 +40,15 @@ There are three ideas on the basic approach how to do this:
 * Implement your own filtering (a second example is available below).
 
 
->caption Throttle grid data source requests
+>caption Debounce grid data source requests
 
 ````CSHTML
-@* This example throttles all events. You may want to add logic that checks how the data source request changed
-for example, whether the filters changed or something else, so you can throttle only filtering, for example *@
+@* This example debounces all actions. You may want to add logic that checks how the data source request changed
+    for example, whether the filters changed or something else, so you can debounce only filtering, for example *@
 
 @implements IDisposable
-
 @using System.Threading
+
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
@@ -66,25 +66,22 @@ for example, whether the filters changed or something else, so you can throttle 
     public int Total { get; set; } = 0;
 
     DataSourceRequest lastRequest { get; set; }
-    Timer ThrottleTimer { get; set; }
-
-    void InitializeTimer()
-    {
-        int throttleTime = 500;
-
-        ThrottleTimer = new System.Threading.Timer(async (obj) =>
-            {
-                await InvokeAsync(RequestData);
-                ThrottleTimer.Dispose();
-            },
-            null, throttleTime, System.Threading.Timeout.Infinite);
-    }
+    CancellationTokenSource tokenSource = new CancellationTokenSource(); // for debouncing
 
     protected async Task ReadItems(GridReadEventArgs args)
     {
+        // debouncing
+        tokenSource.Cancel();
+        tokenSource.Dispose();
+
+        tokenSource = new CancellationTokenSource();
+        var token = tokenSource.Token;
+
+        await Task.Delay(500, token); // 500ms timeout for the debouncing
+
+        //new data collection comes down from the service after debouncing
         lastRequest = args.Request;
-        ThrottleTimer?.Dispose();
-        InitializeTimer();
+        await RequestData();
     }
 
     async Task RequestData()
@@ -101,7 +98,7 @@ for example, whether the filters changed or something else, so you can throttle 
     {
         try
         {
-            ThrottleTimer.Dispose();
+            tokenSource.Dispose();
         }
         catch { }
     }
@@ -110,6 +107,8 @@ for example, whether the filters changed or something else, so you can throttle 
 
     public async Task<DataEnvelope> FetchPagedData(DataSourceRequest request)
     {
+        Console.WriteLine("I am called more rarely when the user types a filter");
+
         List<Employee> fullList = new List<Employee>();
 
         int totalCount = 100;
@@ -200,7 +199,8 @@ for example, whether the filters changed or something else, so you can throttle 
     void UserFilters(string input, string field)
     {
         // do debouncing and filtering of the grid data (MyData in this sample) here
-        // see the previous snippet on a way to implement throttling
+        // see the previous snippet on a way to implement debouncing
+        // see also how you can tell the grid to call filtering https://docs.telerik.com/blazor-ui/components/grid/filtering#filter-from-code
         operationsList = new MarkupString($"{operationsList}<br />filter string: {input}, field: {field}");
         StateHasChanged();
     }
