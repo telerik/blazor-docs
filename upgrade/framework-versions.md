@@ -23,7 +23,7 @@ Telerik UI for Blazor targets `netstandard2.1` in order to be compatible with th
 
 | .NET version              | Telerik UI for Blazor version |
 |---------------------------|-------------------------------|
-| .NET Core 3.1.3           | {{site.uiForBlazorLatestVersion}}  |
+| .NET Core 3.1.3           | 2.10.0 - {{site.uiForBlazorLatestVersion}}  |
 | .NET Core 3.1.2           | 2.9.0                         |
 | .NET Core 3.1.1           | 2.7.0 - 2.8.0                 |
 | .NET Core 3.1             | 2.5.0 - 2.6.1                 |
@@ -45,7 +45,8 @@ While the release dates and numbers of the WASM flavor often match with the .NET
 
 | WASM Preview version                 | Telerik UI for Blazor version |
 |--------------------------------------|-------------------------------|
-| 3.2 preview 3 (3.2.0-preview3.20168.3)         | {{site.uiForBlazorLatestVersion}}                  |
+| 3.2 preview 4 (3.2.0-preview4.20210.8)         | {{site.uiForBlazorLatestVersion}}                  |
+| 3.2 preview 3 (3.2.0-preview3.20168.3)         | 2.10.0                  |
 | 3.2 preview 2 (3.2.0-preview2.20160.5)         | 2.9.0                  |
 | 3.2 preview 1 (3.2.0-preview1.20073.1)         | 2.7.0 - 2.8.0       |
 | preview 4 (3.1.0-preview4.19579.2)   | 2.5.0 - 2.6.1                 |

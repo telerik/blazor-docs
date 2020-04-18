@@ -61,6 +61,8 @@ For client-side `Blazor App`, we recommend the usage of `Blazor (ASP.NET Hosted)
         using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
         using Microsoft.Extensions.DependencyInjection;
         using System.Threading.Tasks;
+        using System.Net.Http;
+        using System;
         
         namespace ClientBlazorProject.Client // make sure this matches your actual WASM project namespace
         {
@@ -70,10 +72,10 @@ For client-side `Blazor App`, we recommend the usage of `Blazor (ASP.NET Hosted)
                 {
                     // sample host builder for a WASM app, yours may differ
                     var builder = WebAssemblyHostBuilder.CreateDefault(args);
-                    builder.Services.AddBaseAddressHttpClient();
                     builder.RootComponents.Add<App>("app");
+                    builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
                     // there may be more code here
-                    
+        
                     // register the Telerik services
                     builder.Services.AddTelerikBlazor();
         
