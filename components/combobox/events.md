@@ -212,6 +212,8 @@ You can also call remote data through async operations.
 
 >caption Custom Data according to the user input in the ComboBox
 
+>tip You can also [debounce the service calls and implement minimum filter length]({%slug combo-kb-debounce-onread%}).
+
 ````CSHTML
 @SelectedValue
 <br />
