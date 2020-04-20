@@ -14,6 +14,8 @@ This article explains how to upgrade to a new version of Telerik UI for Blazor.
 
 To upgrade the Telerik components, you need to update their NuGet package reference, and, if you use them, the CDN links.
 
+The **latest** available version of UI for Blazor is **{{site.uiForBlazorLatestVersion}}**.
+
 >tip Before starting an upgrade of your project, you may find it useful to review the following information:
 >
 > * [Framework Versions Support]({%slug framework-versions-support%}) - this will let you see what version of the .NET framework you need and which UI for Blazor versions work on it.
