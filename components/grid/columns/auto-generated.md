@@ -24,7 +24,7 @@ The content of this article will be separated into groups for clarity:
 
 ## Basics
 
-To display all model fields in the grid, just set its `AutoGenerateColumns` parameter to `true`. This will also generate columns for fields from nested models.
+To display all model fields in the grid, just set its `AutoGenerateColumns` parameter to `true`.
 
 If you don't need explicitly declared columns (such as a command column or frozen columns) the `GridColumns` tag is not required.
 
