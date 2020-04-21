@@ -31,8 +31,17 @@ Telerik provides and supports the default English texts. The offline demos carry
 
 When localizing a Blazor app, make sure you are familiar with the way localization works in the framework. You can start from the following resources:
 
-* [Localization in Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/components?view=aspnetcore-3.0#localization)
+* [Globalization and Localization in Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/globalization-localization?view=aspnetcore-3.1)
 * [Localization in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-3.0)
+
+>tip You can find sample runnable projects for both server-side Blazor and for WebAssembly in the [Telerik Blazor UI Samples Repo](https://github.com/telerik/blazor-ui/tree/master/common/localization/).
+>
+>You can also find an example server-side implementation in our offline demos project that are available your Telerik UI for Blazor installation (both [msi]({%slug installation/msi%}) and [zip]({%slug installation/zip%})).
+
+
+### Walkthrough - How to Add Globalization and Localization to a Server-side Blazor App
+
+This section will show a tutorial on how to add globalization and localization to a server-side Blazor app. For a WebAssemly app, chek out the [ClientLocalizationResx sample project](https://github.com/telerik/blazor-ui/tree/master/common/localization/ClientLocalizationResx).
 
 The necessary steps are to:
 
@@ -41,13 +50,9 @@ The necessary steps are to:
 1. Optionally, add UI that will let the user change the culture so you can test how this works (for example, a dropdownlist that will redirect to the appropriate controller). Alternatively, you can hardcode the `options.DefaultRequestCulture` in the `ConfigureServices` method inside `Startup.cs` when generating the options for the framework localization service.
 1. Implement a service for localizing the Telerik components - it must return the desired string based on the current culture and the requested key (see the explanations above).
 
->note The code snippets below will showcase a sample implementation for a server-side app. For a client-side app, some framework configurations my differ and you cannot use `.resx` files because the framework does not support them.
 
->tip You can find an example implementation in our offline demos project that are available your Telerik UI for Blazor installation (both [msi]({%slug installation/msi%}) and [zip]({%slug installation/zip%})).
->
-> More examples are available in the following repo: [https://github.com/telerik/blazor-ui/tree/master/common/localization/](https://github.com/telerik/blazor-ui/tree/master/common/localization/).
 
->note When following this tutorial to add localization to an existing app, make sure to compare the configuration you are copying so that you do not remove configuration necessary for your app.
+>note When following this tutorial to add localization to an existing app, make sure to compare the configuration you are copying so that you do not remove configuration necessary for your app. Code comments and regions explain details.
 
 >caption Step 1 - Example for enabling localization in the app
 
@@ -148,10 +153,7 @@ public class CultureController : Controller
         {
             HttpContext.Response.Cookies.Append(
                 CookieRequestCultureProvider.DefaultCookieName,
-                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture("en-US", culture)));
-            // for the time being the thread culture is hardcoded to "en-US"
-            // until culture-aware number and date formats are implemented
-            // so here we only change the UICulture of the thread to the new culture
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture, culture)));
         }
 
         return LocalRedirect(redirectUri);
@@ -247,9 +249,11 @@ public class CultureController : Controller
 
 >caption Step 4 - Sample Telerik localization service implementation - this example relies on a `~/Resources` folder with the necessary `.resx` files.
 
->important You must implement the indexer only. You can obtain the needed strings from any source you prefer and that matches you application, such as database, `resx` files (not supported in client-side projects at the time of writing), `json` files, hash tables, and so on.
+>tip You must implement the indexer only. You can obtain the needed strings from any source you prefer and that matches your application needs, such as database, `resx` files, `json` files, hash tables, and so on.
 
 ````CS
+using Telerik.Blazor.Services;
+
 public class SampleResxLocalizer : ITelerikStringLocalizer
 {
     // this is the indexer you must implement
@@ -278,7 +282,7 @@ It is required that you add the resource file provided in your Telerik UI for Bl
 Make sure to:
 
 * Mark the `resx` files as `Embedded Resource` (right click > Properties > Build Action).
-* Have the following in your `ProjectName.csproj` file so the designer file is generated (it should be added when you add the main messages file, or when you open and save it. Copy the snippet in case it is not added). If the `Designer` file does not get generated, open the `resx` file in Visual Studio and toggle its `Access Modifier` to `Public`.
+* Have the following in your `ProjectName.csproj` file so the designer file is generated. It should be added when you add the main messages file, or when you open and save it. Copy the snippet in case it is not added. If the `Designer` file does not get generated, open the `resx` file in Visual Studio and toggle its `Access Modifier` to `Public`.
 
     **XML**
     
