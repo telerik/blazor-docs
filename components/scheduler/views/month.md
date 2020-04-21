@@ -14,7 +14,7 @@ The Month view of the Scheduler for Blazor shows the entire month to the user.
 
 The `Date` parameter of the scheduler controls which month is displayed - the one containing the date.
 
-A day shows up to two events and if there are more - an ellipsis button provides access to the DayView for the specific day so the user can see the needed deatils. This avoids cluttering and ugly rendering. You can also access the day view from the day number. Of course, you must also define a day view so the use can see it.
+A day shows up to two events and if there are more - an ellipsis button provides access to the DayView for the specific day so the user can see the needed details. This avoids cluttering and ugly rendering. You can also access the day view from the day number. Of course, you must also define a day view so the use can see it.
 
 >caption Figure: Month View in the scheduler
 
