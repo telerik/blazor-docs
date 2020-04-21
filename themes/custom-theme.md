@@ -113,6 +113,8 @@ To build a custom theme by using the theme variables, apply either of the follow
 
 ### Using the Build Process of the Application
 
+When you want to built the Telerik themes yourself (for example, to combine them with the rest of your styles in to one stylesheet), review the following article first, before continuing with the steps below: [https://github.com/telerik/kendo-themes/wiki/Compiling-themes](https://github.com/telerik/kendo-themes/wiki/Compiling-themes).
+
 To customize a Sass-based theme, create a `.scss` file and consume the theme package in the following way:
 
 1. Obtain the theme source through the NPM package.
