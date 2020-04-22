@@ -192,7 +192,7 @@ This example shows how to:
 * Make multiple selection
 * Add paging to the Grid
 
->caption Observe the behavior of auto-generated columns with [CUD operations]({%slug grid-events%}#cud-events), [Selection]({%slug components/grid/selection/overview%}), [Paging]({%slug components/grid/features/paging%}) and using the custom attributes.
+>caption Observe the behavior of auto-generated columns with [Editing operations](../editing/overview), [Selection](../selection/overview), [Paging](../paging) and using the custom attributes.
 
 ````CSHTML
 @using System.ComponentModel.DataAnnotations
