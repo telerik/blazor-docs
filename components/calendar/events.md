@@ -15,6 +15,8 @@ This article explains the events available in the Telerik Calendar for Blazor:
 * [ValueChanged](#valuechanged)
 * [DateChanged](#datechanged)
 * [ViewChanged](#viewchanged)
+* [RangeStartChanged](#rangestartchanged)
+* [RangeEndChanged](#rangeendchanged)
 
 ## ValueChanged
 
@@ -75,6 +77,72 @@ When handling the `ViewChanged` event, you cannot use two-way binding for the `V
 ````
 
 >tip You are not required to provide an initial value to the `View` parameter. It will default to `CalendarView.Month`.
+
+## RangeStartChanged
+
+The `RangeStartChanged` fires every time the user selects a new starting date for the range of dates. The first click on a date in the Calendar will always be the starting date and the range can be consisted of dates only onwards.
+
+## RangeEndChanged
+
+The `RangeEndChanged` fires every time when the selection of dates is finished.
+
+>caption Example of `Range` Selection with `RangeStartChanged` and `RangeEndChanged` events
+
+````CSHTML
+@* Observe the behavior of the RangeStartChanged and RangeEndChanged events and adding the selected dates to a List *@
+
+<div class="example-wrapper">
+    <h4>Range Selection Initial Selection</h4>
+
+    <TelerikCalendar Views="3"
+                     Date="@Date"
+                     RangeStart="@RangeStart"
+                     RangeEnd="@RangeEnd"
+                     SelectionMode="@CalendarSelectionMode.Range"
+                     RangeStartChanged="@StartChangeHandler"
+                     RangeEndChanged="@EndChangeHandler">
+    </TelerikCalendar>
+</div>
+
+@if (SelectedDates.Any())
+{
+    <div class="mt-3">
+        <h5 class="text-info">Selected dates:</h5>
+        @foreach (var day in SelectedDates)
+        {
+            <p class="text-muted">@day</p>
+        }
+    </div>
+}
+
+@code {
+    public DateTime Date { get; set; } = new DateTime(2020, 3, 1);
+    public DateTime RangeStart { get; set; } = new DateTime(2020, 3, 14);
+    public DateTime RangeEnd { get; set; } = new DateTime(2020, 3, 18);
+    public List<DateTime> SelectedDates { get; set; } = new List<DateTime>();
+
+    public void StartChangeHandler(DateTime startDate)
+    {
+        RangeStart = startDate;
+        GetDates();
+    }
+
+    public void EndChangeHandler(DateTime endDate)
+    {
+        RangeEnd = endDate;
+        GetDates();
+    }
+
+    public void GetDates()
+    {
+        var datesInBetween = Enumerable.Range(0, 1 + RangeEnd.Subtract(RangeStart).Days)
+                                           .Select(offset => RangeStart.AddDays(offset))
+                                           .ToList();
+
+        SelectedDates = datesInBetween;
+    }
+}
+````
 
 ## See Also
 
