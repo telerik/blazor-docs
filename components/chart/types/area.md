@@ -32,34 +32,30 @@ To create an area chart:
 >caption An area chart that shows product revenues
 
 ````CSHTML
-Area series
+@*Area series*@
 
 <TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Area" Name="Product 1" Data="@series1Data">
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@series2Data">
-		</ChartSeries>
-	</ChartSeriesItems>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Area" Name="Product 1" Data="@series1Data">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Area" Name="Product 2" Data="@series2Data">
+        </ChartSeries>
+    </ChartSeriesItems>
 
-	<ChartValueAxes>
-		<ChartValueAxis Color="red"></ChartValueAxis>
-	</ChartValueAxes>
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
 
-	<ChartCategoryAxes>
-		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-	</ChartCategoryAxes>
+    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
 
-	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-	<ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-	</ChartLegend>
+    <ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Right">
+    </ChartLegend>
 </TelerikChart>
 
 @code {
-	public List<object> series1Data = new List<object>() { 10, 2, 7, 5 };
-	public List<object> series2Data = new List<object>() { 10, 2, 7, 5 };
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+    public List<object> series1Data = new List<object>() { 10, 2, 7, 5 };
+    public List<object> series2Data = new List<object>() { 5, 12, 8, 2 };
+    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
 
@@ -85,7 +81,7 @@ If some values are missing from the series data (they are `null`), you can have 
 
 ### Line Style
 
-You can render the lines between the points with different styles. The supported styles can be set via the `Style` property that takes a member of `Telerik.Blazor.ChartSeriesStyle` enum:
+You can render the lines between the points with different styles. The supported styles can be set via the `Style` property of the child `ChartSeriesLine` tag - it takes a member of `Telerik.Blazor.ChartSeriesStyle` enum:
 
 * `Normal`—This is the default style. It produces a straight line between data points.
 * `Step`—The style renders the connection between data points through vertical and horizontal lines. It is suitable for indicating that the value is constant between the changes.
