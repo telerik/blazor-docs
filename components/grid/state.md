@@ -159,7 +159,7 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
         await LocalStorage.SetItem(UniqueStorageKey, args.GridState);
     }
 
-    TelerikGridBase<SampleData> Grid { get; set; }
+    TelerikGrid<SampleData> Grid { get; set; }
     async Task ResetState()
     {
         // clean up the storage
