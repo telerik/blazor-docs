@@ -35,7 +35,7 @@ Column series
 	<ChartSeriesItems>
 		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">
 		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Column"Name="Product 2" Data="@series2Data">
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@series2Data">
 		</ChartSeries>
 	</ChartSeriesItems>
 
