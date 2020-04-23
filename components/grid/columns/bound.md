@@ -98,6 +98,8 @@ You can use the following properties on the bound columns:
     * To bind to nested (complex) models (also called navigation properties), use only the name of the field that holds the child class and its own field. For an example, see the [Bind to navigation properties in complex objects]({%slug grid-use-navigation-properties%}) article.
 * The grid skips fields marked with the [`IgnoreDataMemberAttribute`](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.ignoredatamemberattribute) when performing CUD operations. Its presence indicates that this property does not need to be part of the serialized data anyway, and skipping such fields allows [Lazy Loading Proxies in EF](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.proxiesextensions.uselazyloadingproxies?view=efcore-3.1) to work.
 * If you don't set a `Title` for a column, the grid will take the `[Display(Name = "My Column Title")]` data annotation attribute from the model field. If that's not available either, the name of the field will be shown.
+* The Grid uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert or Filter action is invoked, so the Model should have a Parameterless constructor defined. A workaround for Insert operations might be [invoking them through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
+
 
 >tip You can optimize database queries in two ways:
 >
