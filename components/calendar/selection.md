@@ -17,10 +17,13 @@ The user can select one or mode dates depending on the Calendar configuration se
 To control how many dates the user can select, use the `SelectionMode` property. It takes a member of the `Telerik.Blazor.CalendarSelectionMode` enum and can be:
 * `Single`
 * `Multiple`
+* `Range`
 
 You can pre-select a date in Single selection mode by setting the `Value` property of the calendar to the desired date.
 
 To pre-select dates in the Multiple selection mode, use the `SelectedDates` property which is of type `List<DateTime>`.
+
+In `Range` selection mode you can get the start and end dates through the `RangeStart` and `RangeEnd` parameters of type `DateTime`. You also get events `RangeStartChanged` and `RangeEndChanged`. You can read more about them in the [Events]({%slug components/calendar/events%}) article.
 
 ## Receive User Selection
 
@@ -99,4 +102,3 @@ The user will not be able to select the first and second of April 2019.
 ## See Also
 
   * [Live Demo: Calendar Selection](https://demos.telerik.com/blazor-ui/calendar/selection)
-  
