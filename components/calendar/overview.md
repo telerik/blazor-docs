@@ -62,7 +62,7 @@ The selected date is: @selectedDate
 The calendar provides a number of features that allow you to control the user experience:
 
 * [Navigation]({%slug components/calendar/navigation%}) - the calendar level (view) at which the user starts, to what detail (view) they can go, the min, max and current date.
-* [Selection]({%slug components/calendar/selection%}) - whether the user can select only one ore more dates, and also a collection of dates they cannot select.
+* [Selection]({%slug components/calendar/selection%}) - whether the user can select only one or more dates, a collection of disabled dates so that the user cannot select from them and also a range selection of days.
 * [Multiple Views]({%slug components/calendar/multiview%}) - you can show the user a wider range of dates.
 
 
