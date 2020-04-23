@@ -22,6 +22,7 @@ This article explains the events available in the Telerik Upload for Blazor:
 * [OnCancel](#oncancel)
 * [OnClear](#onclear)
 
+>note The file `Name` in the event arguments is HTML encoded. If you want the actual name you may need to decode it (for example, use `System.Net.WebUtility.HtmlDecode(file.Name)`). The file name that the controller (endpoint) receives is *not* encoded.
 
 ## OnSelect
 
