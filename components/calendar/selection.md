@@ -23,7 +23,7 @@ You can pre-select a date in Single selection mode by setting the `Value` proper
 
 To pre-select dates in the Multiple selection mode, use the `SelectedDates` property which is of type `List<DateTime>`.
 
-In `Range` selection mode you can get the start and end dates through the `RangeStart` and `RangeEnd` parameters of type `DateTime`. You also get events `RangeStartChanged` and `RangeEndChanged`. You can read more about them in the [Events]({%slug components/calendar/events%}) article.
+In `Range` selection mode you can get the start and end dates of a selected range, by the user, through the `RangeStart` and `RangeEnd` parameters of type `DateTime`. You also get events `RangeStartChanged` and `RangeEndChanged`. You can read more about them in the [Events]({%slug components/calendar/events%}) article.
 
 ## Receive User Selection
 
