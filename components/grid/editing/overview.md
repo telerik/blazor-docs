@@ -12,6 +12,16 @@ position: 0
 
 CRUD operations with the Grid for Blazor are done through the dedicated CRUD events it exposes for data editing. You can use them to transfer the changes to the actual data source (for example, call a service that will actually work with the database, and not only with the view data).
 
+Sections in this article:
+
+* [Basics](#basics)
+* [Example](#example)
+* [Notes](#notes)
+
+## Basics
+
+This section explains the available events and command buttons that you need to use for editing records in a grid. After that, you will find a code example.
+
 List of the available events:
 
 * `OnCreate` - fires when the `Save` [command button]({%slug components/grid/columns/command%}) button for a newly added item is clicked. Cancellable.
@@ -30,6 +40,10 @@ The CUD event handlers receive an argument of type `GridCommandEventArgs` that e
 * `Value` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates what is the new value the user changed when updating data.
 
 You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the grid, or components in a column template) through the [grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item).
+
+## Example
+
+The example below shows how you can handle the events the grid exposes, so you can Create, Update or Delete records in your data source and the view model.
 
 >tip The grid events use `EventCallback` and can be syncrhonous or asynchronous. The example below shows async versions, and the signature for synchronous events is `void <MethodName>(GridCommandEventArgs args)`.
 
@@ -169,10 +183,15 @@ Editing is cancelled for the first two records.
 }
 ````
 
+## Notes
 
->note It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
+There are a few considerations to keep in mind with the CUD operations of the grid. They are explained in the following list:
 
->important The CRUD event handlers must be `async Task` and **not** `async void`. A Task can be properly awaited and allows working with services and contexts. When the method returns `void`, the execution of the context operations is not actually awaited, and you may get errors from the context (such as "Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application" or "A second operation started on this context before a previous operation completed. This is usually caused by different threads using the same instance of DbContext")
+* It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
+
+* The CRUD event handlers must be `async Task` and **not** `async void`. A Task can be properly awaited and allows working with services and contexts. When the method returns `void`, the execution of the context operations is not actually awaited, and you may get errors from the context (such as "Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application" or "A second operation started on this context before a previous operation completed. This is usually caused by different threads using the same instance of DbContext").
+
+* The Grid uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert or Filter action is invoked, so the Model should have a Parameterless constructor defined. A workaround for Insert operations might be [invoking them through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
 
 ## See Also
 
