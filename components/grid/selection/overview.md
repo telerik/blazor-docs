@@ -91,7 +91,7 @@ See how the row selection modes work
 
 ### Editing Modes
 
-In the [Incell EditMode]({%slug components/grid/editing/incell%}) selection can be applied only via a checkbox column. This is required due to the overlapping action that triggers selection and incell editing (clicking in the row).
+In the [Incell EditMode]({%slug components/grid/editing/incell%}) selection can be applied only via a checkbox column (`<GridCheckboxColumn />`). This is required due to the overlapping action that triggers selection and incell editing (clicking in the row) - if row click selection was enabled with InCell editing, each attempt to select a row would put a cell in edit mode; and each attempt to edit a cell would select a new row. Such user experience is confusing, and so selection will only work through the row selection checkbox.
 
 ### Selection in Template
 
