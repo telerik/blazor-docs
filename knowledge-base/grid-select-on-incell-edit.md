@@ -1,9 +1,9 @@
 ---
-title: Row Selection in Edit
-description: How to Select a row in Edit
+title: Row Selection in Edit with InCell EditMode
+description: How to Select a row that is being edited in InCell editing mode
 type: how-to
-page_title: Row selection in Edit
-slug: grid-kb-row-selection-in-edit
+page_title: Row Selection in Edit with InCell EditMode
+slug: grid-kb-row-select-incell-edit
 position:
 tags:
 res_type: kb
@@ -21,15 +21,19 @@ res_type: kb
 
 ## Description
 
-This article showcases how to programmatically [select]({%slug components/grid/selection/overview%}) a row which is edited in [InCell]({%slug components/grid/editing/incell%}) Editing Mode.
+When using the [InCell]({%slug components/grid/editing/incell%}) Editing Mode, I want the row that is currently edited to be selected. I want the user to get the current row selected when they edit it.
+
+ By default, the click action opens a cell for editing and does not select a row to avoid an ambiguous action, and so rows can only be selected with the dedicated grid selection column.
 
 
 ## Solution
 
-Use the `OnEdit` and `OnUpdate` [Grid events](%slug grid-events%#cud-events). In the handler for the `OnEdit` event add the currently edited item, passed to the method through the object of type `GridCommandEventArgs`, into the SelectedItems collection. The item added to the collection is with the old value, before the editing.
-In the handler for the `OnUpdate` update the SelectedItems collection with the new value of the edited item otherwise the visual representation of the row selection will not be present.
+Use the `OnEdit` and `OnUpdate` [Grid events]({%slug grid-events%}#cud-events):
+* In the handler for the `OnEdit` event add the currently edited item, passed to the method through the object of type `GridCommandEventArgs`, into the `SelectedItems` collection.
+    * The item added to the collection is with the old value, before the editing.
+* In the handler for the `OnUpdate` event, update the `SelectedItems` collection with the new value of the edited item to ensure data integrity.
 
->caption How to Select a row in Edit
+>caption How to Select the row that is being edited in InCell edit mode
 
 ````CSHTML
 @* You can create your own extension method to add an item into IEnumerable collection without the usage of a mediator one. *@
@@ -70,10 +74,10 @@ In the handler for the `OnUpdate` update the SelectedItems collection with the n
 
         if (foundItem == null)
         {
+            // add the currently edited row to the selected items
             var selItemsList = SelectedItems.ToList();
             selItemsList.Add(item);
             SelectedItems = new List<Product>(selItemsList);
-            StateHasChanged();
         }
     }
 
@@ -86,14 +90,18 @@ In the handler for the `OnUpdate` update the SelectedItems collection with the n
 
         if (index != -1)
         {
-            GridData[index] = item;
+            // update the selected items collection
             currentSelectedItems[selectedItemIndex] = item;
             SelectedItems = currentSelectedItems;
+
+            // The actual Update operation for the view-model data. Add your actual data source operations here
+            GridData[index] = item;
         }
     }
 
     public List<Product> GridData { get; set; }
     public IEnumerable<Product> SelectedItems { get; set; } = new List<Product>();
+
     protected override void OnInitialized()
     {
         GridData = GenerateProducts();
