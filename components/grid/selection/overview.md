@@ -95,6 +95,8 @@ See how the row selection modes work
 
 In the [Incell EditMode]({%slug components/grid/editing/incell%}) selection can be applied only via a checkbox column (`<GridCheckboxColumn />`). This is required due to the overlapping action that triggers selection and InCell editing (clicking in the row) - if row click selection was enabled with InCell editing, each attempt to select a row would put a cell in edit mode; and each attempt to edit a cell would select a new row. Such user experience is confusing, and so selection will only work through the row selection checkbox.
 
+To see how to select the row that is being edited in InCell edit mode without using a `<GridCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode]({%slug grid-kb-row-select-incell-edit%}) Knowledge Base article.
+
 #### Inline and PopUp Edit Modes
 
 In [Inline EditMode]({%slug components/grid/editing/inline%}) and [PopUp EditMode]({%slug components/grid/editing/popup%}) selection can be done by clicking on the desired row or by using a `< GridCheckboxColumn />`.
