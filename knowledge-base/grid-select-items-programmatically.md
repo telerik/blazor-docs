@@ -27,7 +27,7 @@ This article showcases how to programmatically [select]({%slug components/grid/s
 ## Solution
 
 Use the `OnEdit` and `OnUpdate` [Grid events](%slug grid-events%#cud-events). In the handler for the `OnEdit` event add the currently edited item, passed to the method through the object of type `GridCommandEventArgs`, into the SelectedItems collection. The item added to the collection is with the old value, before the editing.
-In the handler for the `OnUpdate` update the SelectedItems collection with the new value of the edited item.
+In the handler for the `OnUpdate` update the SelectedItems collection with the new value of the edited item otherwise the visual representation of the row selection will not be present.
 
 >caption How to Select a row in Edit
 
