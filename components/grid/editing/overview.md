@@ -45,7 +45,7 @@ You can initiate editing or inserting of an item from anywhere on the page (butt
 
 The example below shows how you can handle the events the grid exposes, so you can Create, Update or Delete records in your data source and the view model.
 
->tip The grid events use `EventCallback` and can be syncrhonous or asynchronous. The example below shows async versions, and the signature for synchronous events is `void <MethodName>(GridCommandEventArgs args)`.
+>tip The grid events use `EventCallback` and can be synchronous or asynchronous. The example below shows async versions, and the signature for synchronous events is `void <MethodName>(GridCommandEventArgs args)`.
 
 >caption Handling the CRUD events of the grid to save data to the actual data source
 
@@ -201,4 +201,3 @@ There are a few considerations to keep in mind with the CUD operations of the gr
   * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
   * [Live Demo: Grid Custom Edit Form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form)
   * [Batch Editing Example](https://github.com/telerik/blazor-ui/tree/master/grid/batch-editing)
-  
