@@ -132,11 +132,12 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
 
 ![](images/incell-editing.png)
 
->note It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
+
 
 ## Notes
 
-* When the InCell Edit Mode is enabled and you want to enable item selection a `< GridCheckBox />` must be provided. More information on that can be read in the [Selection]({%slug components/grid/selection/overview%}#notes) article.
+* When the InCell Edit Mode is enabled and you want to enable item selection a `<GridCheckboxColumn />` must be added to the `<Columns>` collection. More information on that can be read in the [Selection]({%slug components/grid/selection/overview%}#notes) article.
+* It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
 
 ## See Also
 
