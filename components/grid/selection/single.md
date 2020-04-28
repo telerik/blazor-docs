@@ -135,17 +135,17 @@ The example below shows how to handle the `SelectedItemsChanged` event to extrac
     public Employee SelectedEmployee { get; set; }
     public List<Employee> TeamMatesList { get; set; }
 
-    protected async Task OnSelect(IEnumerable<Employee> employees)
+    protected void OnSelect(IEnumerable<Employee> employees)
     {
         SelectedEmployee = employees.FirstOrDefault();
         // update the collection so that the grid can highlight the correct item
         // when two-way binding is used this happens automatically, but the framework does not allow two-way binding and the event at the same time
         SelectedItems = new List<Employee> { SelectedEmployee };
 
-        await GetChildGridData();
+        GetChildGridData(); // note: an async operation here can break the selection and may not even render its results in the view
     }
 
-    async Task GetChildGridData()
+    void GetChildGridData()
     {
         if (TeamMatesList == null)
         {
@@ -172,7 +172,7 @@ The example below shows how to handle the `SelectedItemsChanged` event to extrac
         // add default selection and execute its logic. Not required
         SelectedItems = new List<Employee> { GridData.FirstOrDefault() };
         SelectedEmployee = GridData.FirstOrDefault();
-        await GetChildGridData();
+        GetChildGridData();
     }
 
     public class Employee
@@ -183,8 +183,6 @@ The example below shows how to handle the `SelectedItemsChanged` event to extrac
     }
 }
 ````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
