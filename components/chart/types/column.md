@@ -78,6 +78,9 @@ The color of a series is controlled through the `Color` property that can take a
 
 @[template](/_contentTemplates/chart/link-to-basics.md#gap-and-spacing)
 
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+
 ## See Also
 
   * [Live Demo: Column Chart](https://demos.telerik.com/blazor-ui/chart/column-chart)
