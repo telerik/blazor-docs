@@ -21,7 +21,7 @@ res_type: kb
 
 ## Description
 
-When using the [InCell]({%slug components/grid/editing/incell%}) Editing Mode, I want the row that is currently edited to be selected. I want the user to get the current row selected when they edit it.
+When using the [InCell]({%slug components/grid/editing/incell%}) Editing Mode, I want the row that is currently edited to be selected. I want the user to get the current row selected by clicking both in editable and non-editable cells.
 
  By default, the click action opens a cell for editing and does not select a row to avoid an ambiguous action, and so rows can only be selected with the dedicated grid selection column.
 
@@ -32,6 +32,8 @@ Use the `OnEdit` and `OnUpdate` [Grid events]({%slug grid-events%}#cud-events):
 * In the handler for the `OnEdit` event add the currently edited item, passed to the method through the object of type `GridCommandEventArgs`, into the `SelectedItems` collection.
     * The item added to the collection is with the old value, before the editing.
 * In the handler for the `OnUpdate` event, update the `SelectedItems` collection with the new value of the edited item to ensure data integrity.
+* For non-editable cells add a [Column Template]({%slug components/grid/features/templates%}#column-template).
+    * Use a `<div>` block and add an `onclick` event with a method where the row data is added to the SelectedItems collection.
 
 >caption How to Select the row that is being edited in InCell edit mode
 
@@ -46,8 +48,15 @@ Use the `OnEdit` and `OnUpdate` [Grid events]({%slug grid-events%}#cud-events):
              OnUpdate="@UpdateItem"
              OnEdit="@EditHandler">
     <GridColumns>
-        <GridCheckboxColumn SelectAllMode="@GridSelectAllMode.All"></GridCheckboxColumn>
-        <GridColumn Field=@nameof(Product.ProductId) Title="Product Id" Editable="false" />
+        @* You can add the information from the non-editable row to the SelectedItems collection *@
+        <GridColumn Field=@nameof(Product.ProductId) Title="Product Id" Editable="false">
+            <Template>
+                @{
+                    Product item = context as Product;
+                    <div @onclick="@( () => AddToSelectedCollection(item) )">@item.ProductId</div>
+                }
+            </Template>
+        </GridColumn>
         <GridColumn Field=@nameof(Product.ProductName) Title="Product Name" />
         <GridColumn Field=@nameof(Product.SupplierId) Title="Supplier Id" />
         <GridColumn Field=@nameof(Product.UnitPrice) Title="Unit Price" />
@@ -79,6 +88,13 @@ Use the `OnEdit` and `OnUpdate` [Grid events]({%slug grid-events%}#cud-events):
             selItemsList.Add(item);
             SelectedItems = new List<Product>(selItemsList);
         }
+    }
+		//Add the information from clicking on non-editable cell to the SelectedItems collection
+    public void AddToSelectedCollection(Product item)
+    {
+        var currentSelectedItems = new List<Product>(SelectedItems);
+        currentSelectedItems.Add(item);
+        SelectedItems = currentSelectedItems;
     }
 
     public void UpdateItem(GridCommandEventArgs args)
