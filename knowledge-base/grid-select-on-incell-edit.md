@@ -79,22 +79,19 @@ Use the `OnEdit` and `OnUpdate` [Grid events]({%slug grid-events%}#cud-events):
     public void EditHandler(GridCommandEventArgs args)
     {
         var item = args.Item as Product;
-        var foundItem = SelectedItems.Where(x => x.ProductId == item.ProductId).FirstOrDefault();
-
-        if (foundItem == null)
-        {
-            // add the currently edited row to the selected items
-            var selItemsList = SelectedItems.ToList();
-            selItemsList.Add(item);
-            SelectedItems = new List<Product>(selItemsList);
-        }
+        AddToSelectedCollection(item);
     }
-		//Add the information from clicking on non-editable cell to the SelectedItems collection
+
+    //Add the information from clicking on non-editable cell to the SelectedItems collection
     public void AddToSelectedCollection(Product item)
     {
         var currentSelectedItems = new List<Product>(SelectedItems);
-        currentSelectedItems.Add(item);
-        SelectedItems = currentSelectedItems;
+        if(currentSelectedItems.FindIndex(x => x.ProductId == item.ProductId) == -1)
+        {
+            currentSelectedItems.Add(item);
+            SelectedItems = currentSelectedItems;
+        }
+
     }
 
     public void UpdateItem(GridCommandEventArgs args)
