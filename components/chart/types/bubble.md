@@ -10,7 +10,7 @@ position: 0
 
 # Bubble Chart
 
-A **Bubble** chart shows the data as points with coordinates and size defined by their items' values. You might think of a Bubble chart as a variation of the [Scatter chart]({%slug components/chart/types/scatter%}), in which the data points are replaced with bubbles. This allows a Bubble chart to display three dimensional data — two values for the items' coordinates and one for their size. 
+A **Bubble** chart shows the data as points with coordinates and size defined by their items' values. You might think of a Bubble chart as a variation of the [Scatter chart]({%slug components/chart/types/scatter%}), in which the data points are replaced with bubbles. This allows a Bubble chart to display three dimensional data — two values for the items' coordinates and one for their size.
 
 A Bubble chart is useful for visualizing different scientific relationships (e.g, economical, social, etc.). This chart type's x-axis is also numerical and does not require items.
 
@@ -100,12 +100,16 @@ To create a bubble chart:
 
 ### Color
 
-The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`). The color control the fill color of the bubble. 
+The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`). The color control the fill color of the bubble.
 
 The `ColorField` can change the color of individual items. To use it, pass a valid CSS color to the corresponding field in the model and the chart will use its values instead of the `Color` parameter.
 
 
 @[template](/_contentTemplates/chart/link-to-basics.md#opacity-area-bubble)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-numerical)
 
 
 ### Negative Values

@@ -59,7 +59,7 @@ Basic chart and common settings/elements
 	};
 
 	public List<object> simpleData = new List<object>() { 10, 2, 7, 5 };
-	
+
 	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
@@ -70,6 +70,7 @@ Basic chart and common settings/elements
 
 >tip When configuring nested properties and child elements in your chart, the inner tags will contain their parent tag name and add specifics to its end. You can see an example of this with the `ChartSeries` > `ChartSeriesLabels` tags in the above example.
 
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
 >caption Component namespace and reference
 

@@ -10,7 +10,7 @@ position: 0
 
 # ScatterLine Chart
 
-The **ScatterLine** chart is very similar to the [Scatter]({%slug components/chart/types/scatter%}) chart—it shows data as points defined by their items' values, but the points are connected by lines and thus it can account for missing values in a series. Its x-axis is numerical and does not require items. 
+The **ScatterLine** chart is very similar to the [Scatter]({%slug components/chart/types/scatter%}) chart—it shows data as points defined by their items' values, but the points are connected by lines and thus it can account for missing values in a series. Its x-axis is numerical and does not require items.
 
 You would usually use ScatterLine charts for showing the relation between different sets of data, for example scientific (experimental) results, or when you need to have two numerical axes on a line-type chart.
 
@@ -115,6 +115,7 @@ To create a scatter chart:
 }
 ````
 
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
 ## ScatterLine Chart Specific Appearance Settings
 
@@ -123,6 +124,12 @@ To create a scatter chart:
 @[template](/_contentTemplates/chart/link-to-basics.md#color-line-scatter)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#line-style-line)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-numerical)
+
+>tip See the code snippet above to observe changing the Labels' Format and Text for the `ChartXAxis` and the `ChartYAxes`.
 
 ## See Also
 
