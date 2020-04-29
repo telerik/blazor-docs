@@ -112,9 +112,18 @@ The color of a series is controlled through the `Color` property that can take a
 </TelerikChart>
 
 @code {
-    public List<object> series1Data = new List<object>() { 10, 2, 5, 6, 8, 8, 13, 11, 4, 9, 10, 15, 14, 3, 2, 7 };
-    public List<object> series2Data = new List<object>() { 5, 8, 2, 7, 6, 11, 14, 13, 8, 7, 2, 7, 5, 9, 11, 10 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label" };
+    public List<object> series1Data = new List<object>() { 10, 2, 5, 6, 8, 8, 13, 11, 4, 9, 10, 15, 14, 3, 2 };
+    public List<object> series2Data = new List<object>() { 5, 8, 2, 7, 6, 11, 14, 13, 8, 7, 2, 7, 5, 9, 11 };
+    public string[] xAxisItems = new string[15];
+
+    protected override void OnInitialized()
+    {
+        for (int i = 0; i < 15; i++)
+        {
+            xAxisItems[i] = $"looooong label {i + 1}";
+        }
+        base.OnInitialized();
+    }
 }
 ````
 
