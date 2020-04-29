@@ -76,6 +76,44 @@ If some values are missing from the series data (they are `null`), you can have 
 
 @[template](/_contentTemplates/chart/link-to-basics.md#line-style-line)
 
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-categorical)
+
+>caption A line chart that shows cow to rotate the labels
+
+````CSHTML
+@* Change the rotation angle of the Labels *@
+
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Line" Name="Product 1" Data="@series1Data">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@series2Data">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@xAxisItems">
+            <ChartCategoryAxisLabels>
+                <ChartCategoryAxisLabelsRotation Angle="-45" />
+            </ChartCategoryAxisLabels>
+        </ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
+
+    <ChartLegend Position="ChartLegendPosition.Right">
+    </ChartLegend>
+</TelerikChart>
+
+@code {
+    public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
+    public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
+    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+}
+````
+
 
 ## See Also
 

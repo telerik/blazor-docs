@@ -141,42 +141,28 @@ When configuring nested properties and child elements in your chart, the inner t
 * ChartYAxes
 * and others
 
-An example of this is the rotation the labels of a [categorical](%slug components/chart/databind%#series-types) chart. You can use the `ChartCategoryAxes` > `ChartCategoryAxis` > `ChartCategoryAxisLabels` > `ChartCategoryAxisLabelsRotation` and set the `Angle` property to the desired value in degrees (they might be negative or positive numbers). For [numerical](%slug components/chart/databind%#series-types) chart rotation will be similar, as you have to use the `ChartXAxes` or `ChartYAxes` depending on your application design needs and layout.
+#end
 
->caption Configuring Label Rotation, Skipping the rendering of every second label and adding borders and padding to the Labels.
+#configurable-nested-chart-settings-categorical
 
-````CSHTML
-@* Skip rendering every second label and customize them to have borders, padding and rotation. *@
+An example of this is the rotation the Labels of a [categorical](%slug components/chart/databind%#series-types) chart. You can use the `ChartCategoryAxes` > `ChartCategoryAxis` > `ChartCategoryAxisLabels` > `ChartCategoryAxisLabelsRotation` and set the `Angle` property to the desired value in degrees (they might be negative or positive numbers). By using similar approach you can take control over `ChartCategoryAxisLabelsMargin` (add margin for top, bottom, left and right), `ChartCategoryAxisLabelsPadding` (add padding for top, bottom, left and right) and others.
 
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
+This approach is not limited only to the Labels but can be applied to all Category tags who are applicable for the chart type, for example the Chart Title `ChartTitle` > `ChartTitleMargin`.
 
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems">
-            <ChartCategoryAxisLabels Step="2"> @* With this you set the rendering step, in this case it will skip the rendering of every second label*@
-                <ChartCategoryAxisLabelsRotation Angle="-45"></ChartCategoryAxisLabelsRotation>
-                <ChartCategoryAxisLabelsPadding Top="10" Left="10" Right="10" Bottom="10"></ChartCategoryAxisLabelsPadding>
-                <ChartCategoryAxisLabelsBorder Width="1" Color="#FF0000" DashType="DashType.DashDot"></ChartCategoryAxisLabelsBorder>
-            </ChartCategoryAxisLabels>
-        </ChartCategoryAxis>
-    </ChartCategoryAxes>
+#end
 
-    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
+#configurable-nested-chart-settings-numerical
 
-    <ChartLegend Position="ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
+ For [numerical](%slug components/chart/databind%#series-types) charts you can rotate the Labels for `ChartXAxes` or `ChartYAxes` depending on your application design needs and layout. This can be done by `ChartXAxes` > `ChartXAxis` > `ChartXAxisLabelsRotation` and set the `Angle` property to the desired value in degrees (they might be negative or positive numbers). By using similar approach you can take control over `ChartXAxisLabelsBorder` (add borders), `ChartXAxisLabelsMargin` (add margin for top, bottom, left and right) and others.
 
-@code {
-    public List<object> series1Data = new List<object>() { 10, 2, 5, 6, 8, 8, 13, 11, 4, 9, 10, 15, 14, 3, 2, 7 };
-    public List<object> series2Data = new List<object>() { 5, 8, 2, 7, 6, 11, 14, 13, 8, 7, 2, 7, 5, 9, 11, 10 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label", "loooooooong label" };
-}
-````
+This approach is not limited only to the Labels but can be applied to all Category tags who are applicable for the chart type, for example the Chart Title `ChartTitle` > `ChartTitleMargin`.
+
+#end
+
+#configurable-nested-chart-settings-axis-free
+
+For [axis-free](%slug components/chart/databind%#series-types) charts you can rotate their Labels, Title, Legend and others. Example for doing so is customizing the Chart Series Labels by `ChartSeriesItems` > `ChartSeries` > `ChartSeriesLabels`.
+
+This approach is not limited only to the Labels but can be applied to all Category tags who are applicable for the chart type, for example the Chart Title `ChartTitle` > `ChartTitleMargin`.
 
 #end

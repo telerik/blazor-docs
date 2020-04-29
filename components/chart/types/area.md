@@ -91,6 +91,42 @@ You can render the lines between the points with different styles. The supported
 
 ![](images/area-chart-step-and-smooth.png)
 
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-categorical)
+
+>caption Change the rendering Step, Color and Font of the Category Axis Labels
+
+````CSHTML
+@* Change the rendering Step, Color and Font of the Category Axis Labels *@
+
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Area" Name="Product 1" Data="@series1Data">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Area" Name="Product 2" Data="@series2Data">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@xAxisItems">
+            <ChartCategoryAxisLabels Step="2" Color="#008000" Font="bold 12px 'Helvetica'"></ChartCategoryAxisLabels>
+        </ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
+
+    <ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Right">
+    </ChartLegend>
+</TelerikChart>
+
+@code {
+    public List<object> series1Data = new List<object>() { 10, 2, 7, 5 };
+    public List<object> series2Data = new List<object>() { 5, 12, 8, 2 };
+    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+}
+````
+
 
 ## See Also
 

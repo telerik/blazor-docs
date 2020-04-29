@@ -125,6 +125,12 @@ To create a scatter chart:
 
 @[template](/_contentTemplates/chart/link-to-basics.md#line-style-line)
 
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-numerical)
+
+>tip See the code snippet above to observe changing the Labels' Format and Text for the `ChartXAxis` and the `ChartYAxes`.
+
 ## See Also
 
   * [Live Demo: ScatterLine Chart](https://demos.telerik.com/blazor-ui/chart/scatter-line-chart)
