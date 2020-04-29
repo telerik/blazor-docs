@@ -156,12 +156,12 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
         *@
         
         <TelerikGrid @ref="@Grid"
-                        Data=@MyData
-                        EditMode="@GridEditMode.Incell"
-                        Pageable="true"
-                        Height="500px"
-                        OnUpdate="@UpdateHandler" OnCreate="@CreateHandler"
-                        Navigable="true">
+                     Data=@MyData
+                     EditMode="@GridEditMode.Incell"
+                     Pageable="true"
+                     Height="500px"
+                     OnUpdate="@UpdateHandler" OnCreate="@CreateHandler"
+                     Navigable="true">
             <GridColumns>
                 <GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="ID" />
                 <GridColumn Field=@nameof(SampleData.Name) Title="Name">
@@ -176,8 +176,8 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
                     <EditorTemplate>
                         @{
                             currentItem = context as SampleData;
-                            <TelerikNumericTextBox @bind-Value=@currentItem.Ranking OnChange="@CloseEditor" 
-                                                    Width="100%" Max="10" Min="0" Step="1">
+                            <TelerikNumericTextBox @bind-Value=@currentItem.Ranking OnChange="@CloseEditor"
+                                                   Width="100%" Max="10" Min="0" Step="1">
                             </TelerikNumericTextBox>
                         }
                     </EditorTemplate>
@@ -187,13 +187,13 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
                         @{
                             currentItem = context as SampleData;
                             <TelerikDropDownList Data="@Roles" @bind-Value="@currentItem.Role" OnChange="@CloseEditor"
-                                                    Width="120px" PopupHeight="auto">
+                                                 Width="120px" PopupHeight="auto">
                             </TelerikDropDownList>
                         }
                     </EditorTemplate>
                 </GridColumn>
                 <GridCommandColumn>
-                    <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+                    <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Save</GridCommandButton>
                 </GridCommandColumn>
             </GridColumns>
             <GridToolBar>
@@ -212,7 +212,7 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
         
                 if (currentItem.ID == 0 && state.InsertedItem != null)
                 {
-                    //insert operation - the item is new
+                    // insert operation - the item is new
                     await CreateHandler(new GridCommandEventArgs()
                     {
                         Item = state.InsertedItem
@@ -221,8 +221,7 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
                 else
                 if (currentItem.ID > 0 && state.EditItem != null)
                 {
-                    //edit operation on an existing item
-        
+                    // edit operation on an existing item
                     await UpdateHandler(new GridCommandEventArgs()
                     {
                         Item = state.EditItem,
@@ -231,6 +230,8 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
                 }
         
                 state.InsertedItem = state.OriginalEditItem = state.EditItem = default;
+        
+                await Task.Delay(20); // let the grid re-render and close the cell if keyboard navigation is enabled
         
                 await Grid?.SetState(state);
             }
@@ -244,10 +245,17 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
                 var index = MyData.FindIndex(i => i.ID == item.ID);
                 if (index != -1)
                 {
-                    MyData[index] = item;
+                    // with keyboard navigation and Enter key press in the component
+                    // both the grid, and the OnChange handler will raise the update event
+                    // you may want to add an equality comparison for the item to only call the database once
+                    // when the item has changed, not both times
+                    if (!MyData[index].Equals(item))
+                    {
+                        MyData[index] = item;
+                        Console.WriteLine("update");
+                        //perform actual data source operations here
+                    }
                 }
-        
-                //perform actual data source operations here
             }
         
             async Task CreateHandler(GridCommandEventArgs args)
@@ -257,6 +265,7 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
                 item.ID = MyData.Count + 1;
                 MyData.Insert(0, item);
         
+                Console.WriteLine("create");
                 // perform actual data source operation here through your service
             }
         
@@ -283,6 +292,16 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
                 public string Name { get; set; }
                 public string Role { get; set; }
                 public int Ranking { get; set; }
+        
+                public override bool Equals(object obj)
+                {
+                    if (obj != null && obj is SampleData)
+                    {
+                        SampleData curr = obj as SampleData;
+                        return (ID == curr.ID) && (Name == curr.Name) && (Role == curr.Role) && (Ranking == curr.Ranking);
+                    }
+                    return false;
+                }
             }
         
             List<SampleData> MyData { get; set; }
