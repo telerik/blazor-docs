@@ -29,7 +29,7 @@ You can use the `VisibleChanged` event to get notifications when the user tries 
 ````CSHTML
 @result
 
-<button @onclick="ToggleWindow">Toggle the Window</button>
+<TelerikButton OnClick="@ToggleWindow">Toggle the Window</TelerikButton>
 
 <TelerikWindow Visible="@isVisible" VisibleChanged="@VisibleChangedHandler">
     <WindowTitle>
@@ -52,6 +52,8 @@ You can use the `VisibleChanged` event to get notifications when the user tries 
         isVisible = currVisible; // if you don't do this, the window won't close because of the user action
 
         result = $"the window is now visible: {isVisible}";
+
+        Console.WriteLine("The user closed the window with the [x] button on its toolbar");
     }
 
     public void ToggleWindow()
@@ -59,6 +61,50 @@ You can use the `VisibleChanged` event to get notifications when the user tries 
         isVisible = !isVisible;
 
         result = $"the window is now visible: {isVisible}";
+    }
+}
+````
+
+>caption Prevent the user from closing the window based on a condition
+
+````CSHTML
+@* Not propagating the visible value from the handler to the model can prevent the user from closing the window
+    Using the application code to explicitly set the visibility of the window will still close it as it will not fire the event*@
+
+<TelerikButton OnClick="@( _ => isVisible = !isVisible )">Toggle the Window</TelerikButton>
+
+<TelerikWindow Visible="@isVisible" VisibleChanged="@VisibleChangedHandler">
+    <WindowTitle>
+        <strong>The Title</strong>
+    </WindowTitle>
+    <WindowContent>
+        Try closing the window with the [x] button on its toolbar, then toggle the checkbox and try again.
+        <br />
+        <label>
+            The user can close the window with the [x] button:
+            <TelerikCheckBox @bind-Value="@isClosable" />
+        </label>
+    </WindowContent>
+    <WindowActions>
+        <WindowAction Name="Close" />
+    </WindowActions>
+</TelerikWindow>
+
+@code {
+    bool isVisible { get; set; } = true;
+    bool isClosable { get; set; }
+
+    void VisibleChangedHandler(bool currVisible)
+    {
+        if (isClosable)
+        {
+            isVisible = currVisible; // if you don't do this, the window won't close because of the user action
+        }
+        else
+        {
+            Console.WriteLine("The user tried to close the window but the code didn't let them");
+        }
+
     }
 }
 ````
