@@ -92,7 +92,7 @@ You can use the following properties on the bound columns:
 ## Notes
 
 
-* For advanced operations such as grouping, filtering, sorting, you *must* set a `Field` to the column, and the field it points to must be a primitive type.
+* For advanced operations such as grouping, filtering, sorting, you *must* set a `Field` to the column, and the field it points to must be a string or a value type (such as a number, string, DateTime, boolean).
     * If a `Field` is not set the column will not allow filtering, grouping, sorting and editing for the column.
     * If the `Field` points to a custom object or something like an `IDictionary`, errors will be thrown upon those actions because there are no known data operations on non-primitive types in .NET. An alternative is to implement all data source operations yourself by handling the [OnRead event](../manual-operations).
     * To bind to nested (complex) models (also called navigation properties), use only the name of the field that holds the child class and its own field. For an example, see the [Bind to navigation properties in complex objects]({%slug grid-use-navigation-properties%}) article.
