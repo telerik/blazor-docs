@@ -68,6 +68,60 @@ The color of a series is controlled through the `Color` property that can take a
 
 @[template](/_contentTemplates/chart/link-to-basics.md#gap-and-spacing)
 
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-categorical)
+
+>caption Configuring Label Template for the Value Axis and change the Font of the Category Axis.
+
+````CSHTML
+@* Add configuration settings for the Category and Value Axes *@
+
+<TelerikChart>
+    <ChartTitle Text="Site Visitors Stats"></ChartTitle>
+    <ChartLegend Visible="false"></ChartLegend>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Total Visits" Data="@Series1Data">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Unique visitors" Data="@Series2Data">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartValueAxes>
+        <ChartValueAxis Max="140000">
+            <ChartValueAxisLabels Template="#=value/1000#k"></ChartValueAxisLabels>
+        </ChartValueAxis>
+    </ChartValueAxes>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@Categories">
+            <ChartCategoryAxisLabels Font="bold 14px 'Times New Roman'" />
+        </ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+</TelerikChart>
+
+@code {
+    public class ModelData
+    {
+        public int Value { get; set; }
+    }
+
+    public List<ModelData>
+    Data = new List<ModelData>()
+    {
+        new ModelData() { Value = 1 },
+        new ModelData() { Value = 3 },
+        new ModelData() { Value = 2 },
+        };
+
+    public List<object> Series1Data = new List<object>() { 56000, 63000, 74000, 91000, 117000, 138000 };
+    public List<object> Series2Data = new List<object>() { 52000, 34000, 23000, 48000, 67000, 83000 };
+    public string[] Categories = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun" };
+}
+````
+
 ## See Also
 
  * [Live Demo: Bar Chart](https://demos.telerik.com/blazor-ui/chart/index)

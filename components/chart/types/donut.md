@@ -34,7 +34,7 @@ Donut series
 
 <TelerikChart>
 	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Donut" Data="@donutData" 
+		<ChartSeries Type="ChartSeriesType.Donut" Data="@donutData"
 							Field="@nameof(MyDonutChartModel.SegmentValue)" CategoryField="@nameof(MyDonutChartModel.SegmentName)">
 		</ChartSeries>
 	</ChartSeriesItems>
@@ -52,7 +52,7 @@ Donut series
 		public double SegmentValue { get; set; }
 		public bool ShouldShowInLegend { get; set; } = true;
 	}
-	
+
 	public List<MyDonutChartModel> donutData = new List<MyDonutChartModel>
 	{
 		new MyDonutChartModel
@@ -73,8 +73,6 @@ Donut series
 	};
 }
 ````
-
-
 
 ## Donut Chart Specific Appearance Settings
 
@@ -109,7 +107,7 @@ Control the hole size of the donut chart
 		public double SegmentValue { get; set; }
 		public bool ShouldShowInLegend { get; set; } = true;
 	}
-	
+
 	public List<MyDonutChartModel> donutData = new List<MyDonutChartModel>
 	{
 		new MyDonutChartModel
@@ -254,6 +252,80 @@ You can also use the `ColorField` property to define a field with the segments' 
             SegmentName = "Product Line 3 - Product 4",
             SegmentValue = 20
         }
+    };
+}
+````
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-axis-free)
+
+>caption Configuring Title Margin, changing Font and adding Borders to the Labels.
+
+````CSHTML
+@* Add margin to the Title, changing the Font and Borders of the labels. *@
+
+<TelerikChart>
+    <ChartTitle Text="What is you favourite sport?">
+        <ChartTitleMargin Bottom="20"></ChartTitleMargin>
+    </ChartTitle>
+    <ChartLegend Visible="true" Position="ChartLegendPosition.Top"></ChartLegend>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Donut"
+                     Data="@Data"
+                     Field="@nameof(ModelData.Value)"
+                     CategoryField="@nameof(ModelData.Category)">
+            <ChartSeriesLabels Position="ChartSeriesLabelsPosition.OutsideEnd"
+                               Visible="true"
+                               Background="transparent"
+                               Template="#= dataItem.Category # - #= percentage*100 #%"
+                               Font="20px 'Helvetica'">
+                <ChartSeriesLabelsBorder Width="1"
+                                               Color="#0000FF"
+                                               DashType="DashType.LongDashDotDot">
+                </ChartSeriesLabelsBorder>
+            </ChartSeriesLabels>
+        </ChartSeries>
+    </ChartSeriesItems>
+
+</TelerikChart>
+
+@code {
+    public class ModelData
+    {
+        public string Category { get; set; }
+        public Int32 Value { get; set; }
+    }
+
+    public List<ModelData> Data = new List<ModelData>()
+{
+        new ModelData()
+        {
+            Category = "Football",
+            Value = 35
+        },
+        new ModelData()
+        {
+            Category = "Basketball",
+            Value = 25
+        },
+        new ModelData()
+        {
+            Category = "Volleyball",
+            Value = 20
+        },
+        new ModelData()
+        {
+            Category = "Rugby",
+            Value = 10
+        },
+        new ModelData()
+        {
+            Category = "Tennis",
+            Value = 10
+        },
+
     };
 }
 ````

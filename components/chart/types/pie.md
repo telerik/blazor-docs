@@ -34,7 +34,7 @@ Pie series
 
 <TelerikChart>
 	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Pie" Data="@pieData" 
+		<ChartSeries Type="ChartSeriesType.Pie" Data="@pieData"
 							Field="@nameof(MyPieChartModel.SegmentValue)" CategoryField="@nameof(MyPieChartModel.SegmentName)">
 		</ChartSeries>
 	</ChartSeriesItems>
@@ -51,7 +51,7 @@ Pie series
 		public string SegmentName { get; set; }
 		public double SegmentValue { get; set; }
 	}
-	
+
 	public List<MyPieChartModel> pieData = new List<MyPieChartModel>
 	{
 		new MyPieChartModel
@@ -106,7 +106,7 @@ Set color to the pie chart items
 		public double SegmentValue { get; set; }
 		public string SegmentColor { get; set; }
 	}
-	
+
 	public List<MyPieChartModel> pieData = new List<MyPieChartModel>
 	{
 		new MyPieChartModel
@@ -166,7 +166,7 @@ Separate items from the main body of the chart
 		public double SegmentValue { get; set; }
 		public bool? IsSeparated { get; set; }
 	}
-	
+
 	public List<MyPieChartModel> pieData = new List<MyPieChartModel>
     {
 		new MyPieChartModel
@@ -222,7 +222,7 @@ Show only some items in the legend
 		public double SegmentValue { get; set; }
 		public bool ShouldShowInLegend { get; set; } = true;
 	}
-	
+
 	public List<MyPieChartModel> pieData = new List<MyPieChartModel>
 	{
 		new MyPieChartModel
@@ -254,7 +254,10 @@ Show only some items in the legend
 
 ![](images/pie-chart-hide-from-legend.png)
 
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-axis-free)
+
 ## See Also
 
   * [Live Demo: Pie Chart](https://demos.telerik.com/blazor-ui/chart/pie-chart)
-  
