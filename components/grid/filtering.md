@@ -31,6 +31,8 @@ The behavior of the filter input and the available filter operators will depend 
 
 You can filter more than one column at a time, and all filter rules will be applied together with an `AND` logic.
 
+You can prevent the user from filtering a certain field by setting `Filterable="false"` on its column.
+
 ## Filter Row
 
 To enable the filter row set the `FilterMode` property of the grid to `Telerik.Blazor.GridFilterMode.FilterRow`.
