@@ -107,10 +107,6 @@ The `ColorField` can change the color of individual items. To use it, pass a val
 
 @[template](/_contentTemplates/chart/link-to-basics.md#opacity-area-bubble)
 
-@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
-
-@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-numerical)
-
 
 ### Negative Values
 
@@ -158,6 +154,11 @@ The size field should, generally, have positive values as it correlates to the p
 >caption The result from the code snippet above
 
 ![](images/bubble-chart-negative-values.png)
+
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-numerical)
 
 
 ## See Also

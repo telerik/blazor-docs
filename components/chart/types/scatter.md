@@ -106,7 +106,7 @@ To create a scatter chart:
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-numerical)
 
->tip See the code snippet above to observe setting the Labels' Text for the `ChartXAxis` and the `ChartYAxes`.
+>tip See the code snippet above to observe setting the title text for the `ChartXAxis` and the `ChartYAxes`.
 
 ## See Also
 

@@ -129,8 +129,14 @@ You can render the lines between the points with different styles. The supported
 You can control how transparent the series fill is through the `Opacity` property. `0` means a completely transparent series, and `1` means a completely opaque (non-transparent) fill. You can use decimal values to set the desired transparency (for example, `Opacity="0.3"`).
 #end
 
+
+#tip-look-for-nested-tags
+>tip To customize the chart, look for nested tags and heir properties - the inner tags will contain their parent tag name and add specifics to its end. For example, the `ChartSeries` tag has a `ChartSeriesLabels` tag that exposes configuration otions and more child tags.
+#end
+
+
 #configurable-nested-chart-settings
-### Configurable Nested Chart Settings
+### Customize Chart Elements - Nested Tags Settings
 
 When configuring nested properties and child elements in your chart, the inner tags will contain their parent tag name and add specifics to its end. In general the structure of such nested tags will be `<Chart*Category**Specifics*>` where the Category can be one of the following:
 * SeriesItems
@@ -141,28 +147,40 @@ When configuring nested properties and child elements in your chart, the inner t
 * ChartYAxes
 * and others
 
+@[template](/_contentTemplates/chart/link-to-basics.md#tip-look-for-nested-tags)
+
 #end
 
 #configurable-nested-chart-settings-categorical
 
-An example of this is the rotation the Labels of a [categorical](%slug components/chart/databind%#series-types) chart. You can use the `ChartCategoryAxes` > `ChartCategoryAxis` > `ChartCategoryAxisLabels` > `ChartCategoryAxisLabelsRotation` and set the `Angle` property to the desired value in degrees (they might be negative or positive numbers). By using similar approach you can take control over `ChartCategoryAxisLabelsMargin` (add margin for top, bottom, left and right), `ChartCategoryAxisLabelsPadding` (add padding for top, bottom, left and right) and others.
+An example of this is the rotation the Labels of a [categorical]({%slug components/chart/databind%}#series-types) chart. You can use the
 
-This approach is not limited only to the Labels but can be applied to all Category tags who are applicable for the chart type, for example the Chart Title `ChartTitle` > `ChartTitleMargin`.
+`ChartCategoryAxes` > `ChartCategoryAxis` > `ChartCategoryAxisLabels` > `ChartCategoryAxisLabelsRotation` tag
+
+and set the `Angle` property to the desired value in degrees (they might be negative or positive numbers). By using similar approach you can take control over `ChartCategoryAxisLabelsMargin` (add margin for top, bottom, left and right), `ChartCategoryAxisLabelsPadding` (add padding for top, bottom, left and right) and others.
+
+This approach is not limited only to the Labels - it can be used with all tags that are applicable for the chart type, for example the Chart Title `ChartTitle` > `ChartTitleMargin`.
 
 #end
 
 #configurable-nested-chart-settings-numerical
 
- For [numerical](%slug components/chart/databind%#series-types) charts you can rotate the Labels for `ChartXAxes` or `ChartYAxes` depending on your application design needs and layout. This can be done by `ChartXAxes` > `ChartXAxis` > `ChartXAxisLabelsRotation` and set the `Angle` property to the desired value in degrees (they might be negative or positive numbers). By using similar approach you can take control over `ChartXAxisLabelsBorder` (add borders), `ChartXAxisLabelsMargin` (add margin for top, bottom, left and right) and others.
+For example, for [numerical]({%slug components/chart/databind%}#series-types) charts you can rotate the Labels for `ChartXAxes` or `ChartYAxes` depending on your application design needs and layout. This can be done through the
 
-This approach is not limited only to the Labels but can be applied to all Category tags who are applicable for the chart type, for example the Chart Title `ChartTitle` > `ChartTitleMargin`.
+`ChartXAxes` > `ChartXAxis` > `ChartXAxisLabelsRotation` tag
+
+where you can set the `Angle` property to the desired value in degrees (they might be negative or positive numbers). By using similar approach you can take control over `ChartXAxisLabelsBorder` (add borders), `ChartXAxisLabelsMargin` (add margin for top, bottom, left and right) and others.
+
+This approach is not limited only to the Labels - it can be used with to all tags that are applicable for the chart type, for example the Chart Title `ChartTitle` > `ChartTitleMargin`.
 
 #end
 
 #configurable-nested-chart-settings-axis-free
 
-For [axis-free](%slug components/chart/databind%#series-types) charts you can rotate their Labels, Title, Legend and others. Example for doing so is customizing the Chart Series Labels by `ChartSeriesItems` > `ChartSeries` > `ChartSeriesLabels`.
+For example, for [axis-free]({%slug components/chart/databind%}#series-types) charts you can rotate their Labels, Title, Legend and others. Example for doing so is customizing the Chart Series Labels by using the parameters in the
 
-This approach is not limited only to the Labels but can be applied to all Category tags who are applicable for the chart type, for example the Chart Title `ChartTitle` > `ChartTitleMargin`.
+`ChartSeriesItems` > `ChartSeries` > `ChartSeriesLabels` tag and its child tags.
+
+This approach is not limited only to the Labels - it can be used with to all tags that are applicable for the chart type, for example the Chart Title `ChartTitle` > `ChartTitleMargin`.
 
 #end
