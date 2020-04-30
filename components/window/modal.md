@@ -15,19 +15,27 @@ The Window for Blazor can be modal so that the user is unable to interact with t
 To make a modal window, set its `Modal` property to `true`.
 
 ````CSHTML
-<TelerikWindow Modal="true" Visible="true">
-	<WindowTitle>
-		<strong>The Title</strong>
-	</WindowTitle>
-	<WindowContent>
-		I am modal so the page behind me is not available to the user.
-	</WindowContent>
-	<WindowActions>
-		<WindowAction Name="Minimize" />
-		<WindowAction Name="Maximize" />
-		<WindowAction Name="Close" />
-	</WindowActions>
+@* Open and close a modal window *@
+
+<TelerikWindow Modal="true" @bind-Visible="@isModalVisible">
+    <WindowTitle>
+        <strong>The Title</strong>
+    </WindowTitle>
+    <WindowContent>
+        I am modal so the page behind me is not available to the user.
+    </WindowContent>
+    <WindowActions>
+        <WindowAction Name="Minimize" />
+        <WindowAction Name="Maximize" />
+        <WindowAction Name="Close" />
+    </WindowActions>
 </TelerikWindow>
+
+<TelerikButton OnClick="@( _ => isModalVisible = true )">Open the window</TelerikButton>
+
+@code{
+    bool isModalVisible { get; set; } = true;
+}
 ````
 
 >note A modal window is centered.
