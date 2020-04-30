@@ -1,8 +1,8 @@
 ---
 title: Responsive Window
-description: How to adjust the size of a Window when its container or the browser window size changes
+description: How to adjust the size of a Window when the browser window size changes so that it is responsive
 type: how-to
-page_title: How to make a responsive Window
+page_title: Responsive Window
 slug: window-kb-responsive
 position:
 tags:
@@ -22,7 +22,7 @@ res_type: kb
 
 ## Description
 
-When the user resizes the browser window you may want to have the window resized with the new dimensions.
+When the user resizes the browser window you may want to have the window resized with the new dimensions, so it is also responsive.
 
 
 
@@ -32,18 +32,14 @@ The following examples show how you can make responsive Window:
 * [Dimensions set in percent](#dimensions-set-in-percent)
 * [CSS media queries](#css-media-queries)
 
+
 ### Dimensions set in percent
-Generally, the `Width` and `Height` parameters of the Window can take values in `%`, and the chart will render according to the dimensions of its parent element.
 
-This works well for the initial rendering and the chart will be "responsive" immediately according to your layout, regardless of the display (desktop, tablet, phone).
-
->note When being rendered those parameters will be inline CSS styles, meaning that they will have the highest priority. If you want to override them you must use the `!important` statement.
+Generally, the `Width` and `Height` parameters of the Window can take values in `%`, `vw` or `vh`, and the window will render according to the dimensions of its parent element (which is the `TelerikRootComponent` which should match the browser viewport).
 
 >caption Observe the behavior of a Window with set `Width` and `Height` in `%`
 
 ````CSHTML
-@* The Width and Height parameters are set to 40% *@
-
 <TelerikWindow Modal="true"
                Visible="true"
                Width="40%"
@@ -61,14 +57,21 @@ This works well for the initial rendering and the chart will be "responsive" imm
     </WindowActions>
 </TelerikWindow>
 ````
+
+
+>note The `Width` and `Height` parameters render as inline CSS styles, meaning that they will have the highest priority. If you want to override them in a stylesheet (see below) you must use the `!important` statement.
+
+
 ### CSS media queries
 
-If you want to use the CSS media queries you have to create a separate CSS file under the wwwroot. This is required because the media queries start with @ which conflicts with the Razor syntax.
+You can change the dimensions of the window based on the viewport size through media queries, not only through percentage units.
+
+If you want to use the CSS media queries, you have to create a separate CSS file under the `wwwroot` folder. This is required because the media queries start with `@` which conflicts with the Razor syntax. Technically, you could escape them as `@@`.
 
 >caption Observe the behavior of a Window made responsive with media queries
 
 **Component:**
-````CSHTML
+````Component
 @* The Class parameter is set to make cascading the styles easier *@
 
 <TelerikWindow Modal="true"
@@ -87,10 +90,7 @@ If you want to use the CSS media queries you have to create a separate CSS file 
     </WindowActions>
 </TelerikWindow>
 ````
-
-**CSS file:**
-
-````CSHTML
+````Stylesheet
 @* The myWindow class used in the media queries is the same as in the Class parameter *@
 @* Add the CSS file in the _Host.cshtml *@
 
