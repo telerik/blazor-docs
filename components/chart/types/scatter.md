@@ -10,7 +10,7 @@ position: 0
 
 # Scatter Chart
 
-A **Scatter** chart shows data as points defined by their items' values. Its x-axis is also numerical and does not require categorical items, but numerical values. 
+A **Scatter** chart shows data as points defined by their items' values. Its x-axis is also numerical and does not require categorical items, but numerical values.
 
 Scatter charts are useful for showing the relation between different sets of data, for example scientific (experimental) results.
 
@@ -102,6 +102,11 @@ To create a scatter chart:
 
 @[template](/_contentTemplates/chart/link-to-basics.md#color-line-scatter)
 
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-numerical)
+
+>tip See the code snippet above to observe setting the title text for the `ChartXAxis` and the `ChartYAxes`.
 
 ## See Also
 
