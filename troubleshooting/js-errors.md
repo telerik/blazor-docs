@@ -42,7 +42,14 @@ You can check if this is the case by inspecting the Network tab of your browser 
 * Static assets are not enabled on the server project, or the hosting environment does not work well with them. You need to ensure that the static assets are available after the build and on the deployment server - they are in the local NuGet cache, under a path similar to `C:\Users\<theUser>\.nuget\packages\telerik.ui.for.blazor\<theVersion>\staticwebassets`. It is also possible that the hosting server does not support static assets or has issues with them and you may need to confirm this with the hosting provider or by testing with a simple package having a static asset to see whether it gets returned.
     * [Clearing the NuGet cache](https://docs.microsoft.com/en-us/nuget/consume-packages/managing-the-global-packages-and-cache-folders#clearing-local-folders), then running a `Clean` and `Rebuild` on the solution may fix the problem in case something went wrong with fetching the NuGet package. In case `Clean` does not clean up the `bin` and `obj` folders, you can also delete them manually before `Rebuild`.
 
-* The file is referenced correctly and returns successfully, but sometimes you get the error. This indicates a timing issue (for example, low machine performance or slow network) that causes the script to load and be parsed too late, after it is needed. A solution is to remove the `defer` attribute we have added in our documentation. We have added it to improve performance of your app by not making the script a blocking resource.
+
+### Defer Attribute
+
+Sometimes, the JS Interop file is referenced correctly and returns successfully, but occasionally you get the error. This indicates a timing issue (for example, low machine performance or slow network) that causes the script to load and be parsed too late, after it is needed.
+
+A solution is to remove the `defer` attribute we have added in our documentation.
+
+We have added it to improve performance of your app by not making the script a blocking resource.
 
 ## Object doesn't support property or method 'assign'
 
