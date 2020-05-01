@@ -32,12 +32,17 @@ After an upgrade, the version may be wrong (and thus, not having all the needed 
 You can check if this is the case by inspecting the Network tab of your browser console to see if it is returning successfully. There are a few common causes for the JS Interop file to be missing:
 
 * The application is missing references to the needed [assets]({%slug getting-started/what-you-need%}#client-assets).
+
 * Network setup blocks access to the cloud, and thus, to our CDN. If this is the case, you have two options:
     * Discuss the case with your network administrators to have our CDN allowed.
     * Use [static assets]({%slug getting-started/what-you-need%}#static-assets) from the app folder to avoid going to the cloud.
+
 * The application was upgraded from a trial to a commercial license, but the path to the file was not. See the [Upgrade from Trial to Commercial]({%slug upgrade-tutorial%}#upgrade-from-trial-to-commercial) section for details.
+
 * Static assets are not enabled on the server project, or the hosting environment does not work well with them. You need to ensure that the static assets are available after the build and on the deployment server - they are in the local NuGet cache, under a path similar to `C:\Users\<theUser>\.nuget\packages\telerik.ui.for.blazor\<theVersion>\staticwebassets`. It is also possible that the hosting server does not support static assets or has issues with them and you may need to confirm this with the hosting provider or by testing with a simple package having a static asset to see whether it gets returned.
     * [Clearing the NuGet cache](https://docs.microsoft.com/en-us/nuget/consume-packages/managing-the-global-packages-and-cache-folders#clearing-local-folders), then running a `Clean` and `Rebuild` on the solution may fix the problem in case something went wrong with fetching the NuGet package. In case `Clean` does not clean up the `bin` and `obj` folders, you can also delete them manually before `Rebuild`.
+
+* The file is referenced correctly and returns successfully, but sometimes you get the error. This indicates a timing issue (for example, low machine performance or slow network) that causes the script to load and be parsed too late, after it is needed. A solution is to remove the `defer` attribute we have added in our documentation. We have added it to improve performance of your app by not making the script a blocking resource.
 
 ## Object doesn't support property or method 'assign'
 
