@@ -70,6 +70,61 @@ You can cancel the event based on a condition (for example, some information abo
 }
 ````
 
+
+>caption Changing the file name and checking for duplicate files on the server
+
+In some cases, you may have duplicate files with the same name on the server and you may need to change the current file name when uploading it. This must happen in the endpoint only, and there are a couple of ways to notify the client for that:
+
+* Use the [OnSuccess event](#onsuccess) to read information the endpoint will send so you can use it in the view (for example, to add a preview of an image). In this case, the file name in the Upload component will not change.
+
+* Use the OnSelect event to call the endpoint and check for duplicates before the actual upload process starts. You can generate a new name, if needed, and set it to the `Name` of the file that will be uploaded. This will update the rendered file name in the UI for the user. Note that this will not change the file name that will be sent to the endpoint - it will still be the original file name from the user's file system and it is up to the endpoint to implement the same logic when saving the file.
+
+Of course, you can combine both approaches.
+
+
+````CSHTML
+@inject NavigationManager NavigationManager
+
+<TelerikUpload SaveUrl="@SaveUrl"
+               RemoveUrl="@RemoveUrl"
+               OnSelect="@OnSelectHandler">
+</TelerikUpload>
+
+@code {
+    async Task OnSelectHandler(UploadSelectEventArgs e)
+    {
+        foreach (var item in e.Files)
+        {
+            // this will change the file name displayed in the TelerikUpload component
+            // delays will result in a delay in rendering the file and starting the upload
+            // NOTE: the file name in the XHR request to the server will be the original file name
+            // and it is up to the server to handle it with the same logic for naming
+            item.Name = await AskServerForFinalFileName(item.Name, "currentUserName");
+        }
+    }
+
+    async Task<string> AskServerForFinalFileName(string fileName, string userName)
+    {
+        await Task.Delay(500); // simulate network delay. Remove for a real app
+
+        // in a real case this can be the controller that will save the files on the server
+        // make sure that the same name generation logic will be used when actually saving the file
+        string finalName = $"{userName}-{fileName}";
+
+        return await Task.FromResult(finalName);
+    }
+
+    // a sample way of generating the URLs to the endpoint
+    public string SaveUrl => ToAbsoluteUrl("api/upload/save");
+    public string RemoveUrl => ToAbsoluteUrl("api/upload/remove");
+
+    public string ToAbsoluteUrl(string url)
+    {
+        return $"{NavigationManager.BaseUri}{url}";
+    }
+}
+````
+
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 
