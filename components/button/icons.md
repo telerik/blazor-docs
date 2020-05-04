@@ -49,7 +49,7 @@ The following example shows how to use an image from a URL, a sprite image, and 
 
 >note Images used as icons should generally be small enough to fit in a line of text - the button is an inline element and is not designed for large images. If you want to use big icon buttons, consider one of the following options:
 >
-> * defining a `Class` on the button that provides `height` and `width` sufficient to accommodate the icon,
+> * defining a `Class` on the button that provides `height` and `width`. The width and height can be set in `px` sufficient to accommodate the icon or to `auto`,
 > * or attaching an `@onclick` handler to an icon/`span`/`img` element instead of using a button,
 > * or adding your own HTML inside the button, something like: `<TelerikButton><img style="width: 400px; height: 400px;" src="my-icon.svg" />some text</TelerikButton>`
 
