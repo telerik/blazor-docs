@@ -28,11 +28,17 @@ Examples:
 
 
 * [Custom paging with a remote service](#custom-paging-with-a-remote-service)
+
 * [Telerik .ToDataSourceResult(request)](#telerik-todatasourceresultrequest)
+
 * [Get Information From the DataSourceRequest](#get-information-from-the-datasourcerequest)
+
 * [Cache Data Request](#cache-data-request)
+
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
+
 * [Serialize the DataSoureRequest to the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
+
 * [Debounce Data Source Operations and Requests]({%slug grid-kb-debounce-operations%})
 
 ### Custom paging with a remote service
