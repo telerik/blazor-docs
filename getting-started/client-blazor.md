@@ -22,7 +22,7 @@ This article explains how to get the Telerik UI for Blazor components in your **
 @[template](/_contentTemplates/common/get-started.md#add-latest-ms-bits-client-side-link)
 
 
-For client-side `Blazor App`, we recommend the usage of `Blazor (ASP.NET Hosted)` project. 
+For client-side `Blazor App`, we recommend the usage of **`Blazor (ASP.NET Hosted)`** project. 
 @[template](/_contentTemplates/common/get-started.md#project-creation-part-1)
 
 1. Choose the `Blazor WebAssembly App` project type, select the `ASP.NET Core hosted` checkbox, and click `Create`.

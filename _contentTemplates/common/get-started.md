@@ -65,6 +65,16 @@ Once you have added the Telerik NuGet feed, continue with this tutorial.
 >
 >The rest of this article will explain the manual steps if you want to have a better understanding of the underlying process.
 
+### Create a Project with the CLI
+
+The next section shows how to create the Blazor through the Visual Studio interface. If you are not running Visual Studio, follow the MSDN tutorial on creating the Blazor project from the command prompt: 
+* <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/get-started?view=aspnetcore-3.1&tabs=netcore-cli&viewFallbackFrom=aspnetcore-3.0" target="_blank">https://docs.microsoft.com/en-us/aspnet/core/blazor/get-started?view=aspnetcore-3.1&tabs=netcore-cli&viewFallbackFrom=aspnetcore-3.0</a>
+
+The rest of this article shows some steps through the Visual Studio interface, as it is the most common IDE used with Blazor. Where such steps exist, there are links and instructions on performing them yourself (e.g., adding a nuget feed through the CLI).
+
+
+### Create a Project with Visual Studio
+
 To create a project manually, follow these steps:
 
 1. Open Visual Studio 2019
