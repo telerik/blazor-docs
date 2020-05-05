@@ -12,15 +12,19 @@ position: 1
 
 This article explains how to add the private Telerik NuGet feed to your system. You can use it to obtain the Telerik UI for Blazor components.
 
-@[template](/_contentTemplates/common/get-started.md#start-trial)
+There are several approaches:
 
->tip Once you have the feed working, you can add the Telerik components to your project - both [client-side Blazor](../getting-started/client-blazor) and [server-side Blazor](../getting-started/server-blazor). You can also find more details in the [What You Need](../getting-started/what-you-need) article.
+* [Video Tutorial - Visual Studio](#video-tutorial---visual-studio)
+* [Manual Steps - CLI](#manual-steps---cli)
+* [Nuget Config File](#nuget-config-file)
 
-## Add the Telerik Private NuGet Feed to Your System
+## Video Tutorial - Visual Studio
 
 The following video explains how you can add the Telerik NuGet feed. If you prefer to do this yourself, follow the rest of this article.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/c3m_BLMXNDk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Manual Steps - CLI
 
 To add the Telerik private NuGet feed, follow the steps below:
 
@@ -53,7 +57,7 @@ NuGet Sources Update -Name "telerik.com" -Source "https://nuget.telerik.com/nuge
 
 The ASP.NET Core tooling does not fully support encrypted credentials.
 
-### Nuget Config File
+## Nuget Config File
 
 NuGet feeds and other settings can be stored in a `nuget.config` file. You can read more about it in the [Nuget Config File - Package Sources](https://docs.microsoft.com/en-us/nuget/reference/nuget-config-file#packagesources) article.
 
