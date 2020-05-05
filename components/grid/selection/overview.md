@@ -117,6 +117,8 @@ When using the Grid [Template](https://docs.telerik.com/blazor-ui/components/gri
 </GridColumn>
 ````
 
+If you are using the [Row Template]({%slug components/grid/features/templates%}#row-template), the grid cannot render selection checkboxes for you, so you have to bind them yourself to a field in the model, and handle their selection changed event to populate the `SelectedItems` collection of the grid. You can find an example to get started in the following thread: [Grid Row Template with Selection - Unsure how to Bind to Selected Item](https://feedback.telerik.com/blazor/1463819-grid-row-template-with-selection-unsure-how-to-bind-to-selected-item)
+
 ### Handle Data Changes
 
 When the grid `Data` collection changes, the `SelectedItems` collection has the following behavior:
