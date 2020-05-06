@@ -80,11 +80,11 @@ When handling the `ViewChanged` event, you cannot use two-way binding for the `V
 
 ## RangeStartChanged
 
-The `RangeStartChanged` fires every time the user selects a new starting date for the range of dates. The first click on a date in the Calendar will always be the starting date and the range can be consisted of dates only onwards.
+The `RangeStartChanged` fires every time the user selects a new starting date for the range of dates when the Calendar is in `Range` selection mode. The first click on a date in the Calendar will always be the starting date and the range can be consisted of dates only onwards.
 
 ## RangeEndChanged
 
-The `RangeEndChanged` fires every time when the selection of dates is finished.
+The `RangeEndChanged` fires after the `RangeStartChanged` with the `default` value of the model field, and every time when the selection of dates is finished.
 
 >caption Example of `Range` Selection with `RangeStartChanged` and `RangeEndChanged` events
 
@@ -123,12 +123,16 @@ The `RangeEndChanged` fires every time when the selection of dates is finished.
 
     public void StartChangeHandler(DateTime startDate)
     {
+        // you have to update the model manually because handling the <Parameter>Changed event does not let you use @bind-<Parameter>
+        // not updating the model will effectively cancel the event
         RangeStart = startDate;
         GetDates();
     }
 
     public void EndChangeHandler(DateTime endDate)
     {
+        // you have to update the model manually because handling the <Parameter>Changed event does not let you use @bind-<Parameter>
+        // not updating the model will effectively cancel the event
         RangeEnd = endDate;
         GetDates();
     }
