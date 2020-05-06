@@ -26,6 +26,7 @@ This article provides examples of validating the Telerik Blazor components. The 
 * [DropDownList](#dropdownlist)
 * [ComboBox](#combobox)
 * [MultiSelect](#multiselect)
+* [DateRangePicker](#daterangepicker)
 
 
 
@@ -362,6 +363,89 @@ The MultiSelect has a value that is a `List` and the validation attributes must 
     }
 }
 ````
+
+## DateRangePicker
+
+The Date Range Picker component consists of two inputs that the user can change independently. They can choose to alter one or both, and the application cannot know their intent - they can change one to an invalid value (for example, a start date that is after the end date), but then intend to change the second input as well.
+
+There is no built-in provision in the framework for validating a field value based on another field value and so you need to implement a custom data annotation attribute to ensure the start date is before the end date.
+
+>caption Validate that the start date is before the end date through a custom attribute
+
+````CSHTML
+@* These using statements are for the custom data annotation validation attribute. Check its implementation at the end of this code snippet *@
+@using System.Reflection
+@using System.ComponentModel.DataAnnotations
+
+<EditForm Model="@dateRange" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <p>Try typing a date in the End input that is earlier than the Start date, and press Submit.
+    Or, use the Up and Down arrows to change the value of either input.</p>
+    <TelerikDateRangePicker @bind-StartValue="@dateRange.StartDate"
+                            @bind-EndValue="@dateRange.EndDate" />
+
+    <TelerikButton Class="mt-4" ButtonType="@ButtonType.Submit">Submit</TelerikButton>
+</EditForm>
+
+@code {
+    private DateRangeModel dateRange { get; set; } = new DateRangeModel()
+    {
+        StartDate = DateTime.Today,
+        EndDate = DateTime.Today.AddDays(5)
+    };
+
+    async void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+
+    // A custom validation attribute is used to show an error message to the user
+    // if they type an end date that is before the start date in the input
+    public class CompareDateAttribute : ValidationAttribute
+    {
+        public string compareToDateTimeProperty;
+
+        public CompareDateAttribute(string compareToPropertyName)
+        {
+            this.compareToDateTimeProperty = compareToPropertyName;
+        }
+
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            var validationObject = validationContext.ObjectInstance;
+            PropertyInfo propertyInfo = validationObject.GetType().GetProperty(compareToDateTimeProperty);
+
+            var currentValue = (DateTime?)value;
+            var compareToValue = (DateTime?)propertyInfo?.GetValue(validationObject);
+
+            return currentValue < compareToValue ? ValidationResult.Success : new ValidationResult(ErrorMessage);
+        }
+    }
+
+    public class DateRangeModel
+    {
+        [Required]
+        [Range(typeof(DateTime), "1/1/2019", "1/12/2025",
+        ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy} and {2:dd MMM yyyy}")]
+        // custom validation attribute to ensure start date is before the end date
+        [CompareDate(nameof(EndDate), ErrorMessage = "The Start date must be before the End date.")]
+        public DateTime? StartDate { get; set; }
+
+        [Required]
+        [Range(typeof(DateTime), "1/1/2019", "1/12/2025",
+        ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy} and {2:dd MMM yyyy}")]
+        public DateTime? EndDate { get; set; }
+
+        public DateRangeModel()
+        {
+
+        }
+    }
+}
+````
+
+
 
 ## See Also
 
