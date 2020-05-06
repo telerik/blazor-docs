@@ -80,7 +80,7 @@ When handling the `ViewChanged` event, you cannot use two-way binding for the `V
 
 ## RangeStartChanged
 
-The `RangeStartChanged` fires every time the user selects a new starting date for the range of dates when the Calendar is in `Range` selection mode. The first click on a date in the Calendar will always be the starting date and the range can be consisted of dates only onwards.
+The `RangeStartChanged` fires every time the user selects a new starting date for the range of dates when the Calendar is in `Range` selection mode. The first click on a date in the Calendar will always be the starting date and the range can be consisted of dates only onward.
 
 ## RangeEndChanged
 
