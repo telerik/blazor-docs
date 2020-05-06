@@ -26,7 +26,8 @@ To use a Telerik Scheduler for Blazor
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px" Width="800px">
     <SchedulerViews>
         <SchedulerDayView StartTime="@DayStart" />
-        <SchedulerWeekView StartTime="@DayStart" /><SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
+        <SchedulerWeekView StartTime="@DayStart" />
+        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
     </SchedulerViews>
 </TelerikScheduler>
 
