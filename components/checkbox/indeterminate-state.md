@@ -17,8 +17,34 @@ To put the checkbox in the indeterminate state, set its `Indeterminate` paramete
 
 The `Indeterminate` parameter maps to the `indeterminate` attribute of the standard HTML `<input type="checkbox" />`.
 
-Every time the Checkbox state is changed (checked or unchecked) the `Indeterminate` parameter is set to `false`.
+The Indeterminate state is something that the application logic should set to show information to the user. A user interaction with the component will clear that state and will set a `true` or `false` value to it and the `Indeterminate` parameter will be set to `false`.. 
 
+For example, if you bind the checkbox to a nullable field and its value is `null`, you may want to show the checkbox as indeterminate.
+
+>caption Basic setup - show Indeterminate checkbox when its Value is not defined (null)
+
+````CSHTML
+@* 
+    This example shows how to make a checkbox indeterminate when its Value is unknown (e.g., null)
+    It also shows that when the user changes the state of the CheckBox, the Indeterminate status is set to false
+*@
+
+Indeterminate: @( !TheValue.HasValue )
+<br />
+
+Checked: @TheValue
+<br />
+
+<TelerikButton Primary="true" OnClick="@( _ => TheValue = null )">Make indeterminate</TelerikButton>
+<br />
+
+<TelerikCheckBox Id="DemoCheckbox" @bind-Value="@TheValue" Indeterminate="@( !TheValue.HasValue )" />
+<label for="DemoCheckbox">Checkbox</label>
+
+@code{
+    bool? TheValue { get; set; } // defaults to null so the checkbox will be indeterminate initially
+}
+````
 
 >caption Observe the behavior of the Indeterminate state
 
