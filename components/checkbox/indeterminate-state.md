@@ -19,6 +19,28 @@ The `Indeterminate` parameter maps to the `indeterminate` attribute of the stand
 
 Every time the Checkbox state is changed (checked or unchecked) the `Indeterminate` parameter is set to `false`.
 
+>caption Basic setup
+
+````CSHTML
+@* This example shows that when the state of the CheckBox changes the Indeterminate is set to false *@
+
+Indeterminate: @( !TheValue.HasValue )
+<br />
+
+Checked: @TheValue
+<br />
+
+<TelerikButton Primary="true" OnClick="@( _ => TheValue = null )">Make indeterminate</TelerikButton>
+<br />
+
+<TelerikCheckBox Id="DemoCheckbox" @bind-Value="@TheValue" Indeterminate="@( !TheValue.HasValue )" />
+<label for="DemoCheckbox">Checkbox</label>
+
+@code{
+    bool? TheValue { get; set; }
+}
+
+````
 
 >caption Observe the behavior of the Indeterminate state
 
