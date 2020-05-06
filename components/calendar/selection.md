@@ -12,6 +12,15 @@ position: 2
 
 The user can select one or mode dates depending on the Calendar configuration set by the developer. They may also be forbidden selection of certain disabled dates.
 
+This article contains the following sections:
+
+* [Selection Mode](#selection-mode)
+* [Receive User Selection](#receive-user-selection)
+	* [Single Selection Mode](#single-selection-mode)
+	* [Multiple Selection Mode](#multiple-selection-mode)
+	* [Range Selection Mode](#range-selection-mode)
+* [Disabled Dates](#disabled-dates)
+
 ## Selection Mode
 
 To control how many dates the user can select, use the `SelectionMode` property. It takes a member of the `Telerik.Blazor.CalendarSelectionMode` enum and can be:
@@ -19,25 +28,55 @@ To control how many dates the user can select, use the `SelectionMode` property.
 * `Multiple`
 * `Range`
 
-You can pre-select a date in Single selection mode by setting the `Value` property of the calendar to the desired date.
+You can pre-select a date in `Single` selection mode by setting the `Value` property of the calendar to the desired date.
 
-To pre-select dates in the Multiple selection mode, use the `SelectedDates` property which is of type `List<DateTime>`.
+To pre-select dates in the `Multiple` selection mode, use the `SelectedDates` property which is of type `List<DateTime>`.
 
-In `Range` selection mode you can get the start and end dates of a selected range, by the user, through the `RangeStart` and `RangeEnd` parameters of type `DateTime`. You also get events `RangeStartChanged` and `RangeEndChanged`. You can read more about them and see an example in the [Events]({%slug components/calendar/events%}) article.
+In `Range` selection mode you can get the start and end dates of the range the user selected through the `RangeStart` and `RangeEnd` parameters of type `DateTime`. You also get events `RangeStartChanged` and `RangeEndChanged`. You can read more about them and see an example in the [Events]({%slug components/calendar/events%}) article.
 
 ## Receive User Selection
 
+The way you can get the user selection depends on the selection mode you use:
+
+* [Single Selection Mode](#single-selection-mode)
+* [Multiple Selection Mode](#multiple-selection-mode)
+* [Range Selection Mode](#range-selection-mode)
+
 ### Single Selection Mode
 
-Use the `ValueChanged` event. The handler receives a `DateTime` object as parameter which represents the new selected date.
+When using single selection mode, you can get the selected date through:
 
->caption Handle Single selection in the Calendar
+* two-way binding of the `Value` parameter
+* the `ValueChanged` event - the event handler receives a `DateTime` object as parameter which represents the new selected date.
+
+You can find examples of both below.
+
+>caption Two-way binding for the selected date
+
+````CSHTML
+@* With single selection, you can use two-way binding of the selected date *@
+
+<TelerikCalendar Date="@startDate"
+                 @bind-Value="@SelectedDate"
+                 SelectionMode="@CalendarSelectionMode.Single">
+</TelerikCalendar>
+
+<p>
+    Selected Date: @SelectedDate
+</p>
+
+@code {
+    private DateTime SelectedDate { get; set; } = DateTime.Now.Date;
+    private DateTime startDate = DateTime.Now.Date;
+}
+````
+
+>caption Handle Single selection in the Calendar through an event
 
 ````CSHTML
 @* This example shows how to handle Single selection *@
 
 <TelerikCalendar Date="@startDate"
-                 View="CalendarView.Month"
                  SelectionMode="@CalendarSelectionMode.Single"
                  ValueChanged="SelectionHandler">
 </TelerikCalendar>
@@ -49,7 +88,6 @@ Use the `ValueChanged` event. The handler receives a `DateTime` object as parame
 @code {
     private DateTime SelectedDate { get; set; }
     private DateTime startDate = new DateTime(2019, 5, 2);
-    private TelerikCalendar CalendarRef { get; set; }
 
     public void SelectionHandler(DateTime selectedDate)
     {
@@ -58,9 +96,10 @@ Use the `ValueChanged` event. The handler receives a `DateTime` object as parame
 }
 ````
 
+
 ### Multiple Selection Mode
 
-Use the `SelectedDates` property of the component reference in the `ValueChanged` handler.
+With multiple selection mode, to get the user selection, use the `SelectedDates` property of the component reference in the `ValueChanged` handler.
 
 >caption Handle Multiple selection in the Calendar
 
@@ -68,7 +107,6 @@ Use the `SelectedDates` property of the component reference in the `ValueChanged
 @* This example shows how to handle Multiple selection *@
 
 <TelerikCalendar Date="@startDate"
-                 View="@CalendarView.Month"
                  SelectionMode="@CalendarSelectionMode.Multiple"
                  ValueChanged="@SelectionHandler"
                  @ref="@CalendarRef">
@@ -99,36 +137,51 @@ Use the `SelectedDates` property of the component reference in the `ValueChanged
 ````
 ### Range Selection Mode
 
-Use the `RangeStart`, representing the first date of the selection, and the `RangeEnd` - the last date of the selection.
+With range selection mode, you have two options to get the user choice:
 
->caption Handle Range selection
+* two-way binding for the `RangeStart` (representing the first date of the selection) and the `RangeEnd` (the last date of the selection) parameters.
+* Handling the [RangeStartChanged and RangeEndChanged events]({%slug components/calendar/events%}#rangestartchanged-and-rangeendchanged)
+
+
+>caption Range selection with two-way binding
 
 ````CSHTML
-@* This example shows how to handle Range selection *@
+@* This example shows how to handle Range selection through two-way binding *@
 
 <TelerikCalendar Views="2"
                  Date="@Date"
-                 RangeStart="@RangeStart"
-                 RangeEnd="@RangeEnd"
+                 @bind-RangeStart="@RangeStart"
+                 @bind-RangeEnd="@RangeEnd"
                  SelectionMode="@CalendarSelectionMode.Range">
 </TelerikCalendar>
 
+<p>
+    Start: @RangeStart
+    <br />
+    End: @RangeEnd
+</p>
+
 @code {
-    public static DateTime dateTimeNow { get; set; } = DateTime.Now;
-    public DateTime Date { get; set; } = dateTimeNow.AddDays(-5);
-    public DateTime RangeStart { get; set; } = dateTimeNow;
-    public DateTime RangeEnd { get; set; } = dateTimeNow.AddDays(15);
+    public DateTime Date { get; set; } = DateTime.Now.AddDays(-5);
+    public DateTime RangeStart { get; set; } = DateTime.Now.Date;
+    public DateTime RangeEnd { get; set; } = DateTime.Now.AddDays(15).Date;
+
+    // the RangeEnd value will be the default(DateTime) while the user is selecting a range
+    // that is, while they have clicked only once in the calendar
 }
 ````
 
-### Disabled Dates
+
+## Disabled Dates
 
 To prevent the user from selecting certain dates (for example, holidays), add those dates to the `DisabledDates` collection.
 
->caption Handle Disabled dates with Calendar Multiple selection
+With `Single` and `Multiple` selection, the user can't select these dates. With `Range` selection, these dates cannot be the start or end of a range, but can be included in the range.
+
+>caption Add Disabled dates to a Calendar with Multiple selection
 
 ````CSHTML
-The user will not be able to select the first and second of April 2019.
+@* The user will not be able to select the first and second of April 2019. *@
 
 <TelerikCalendar SelectionMode="@CalendarSelectionMode.Multiple"
                  ValueChanged="@MultipleSelectionChangeHandler"
@@ -164,7 +217,6 @@ The user will not be able to select the first and second of April 2019.
         chosenDates = multipleSelCalendar.SelectedDates;
     }
 }
-
 ````
 
 ## See Also

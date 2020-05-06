@@ -15,8 +15,7 @@ This article explains the events available in the Telerik Calendar for Blazor:
 * [ValueChanged](#valuechanged)
 * [DateChanged](#datechanged)
 * [ViewChanged](#viewchanged)
-* [RangeStartChanged](#rangestartchanged)
-* [RangeEndChanged](#rangeendchanged)
+* [RangeStartChanged and RangeEndChanged](#rangestartchanged-and-rangeendchanged)
 
 ## ValueChanged
 
@@ -78,31 +77,26 @@ When handling the `ViewChanged` event, you cannot use two-way binding for the `V
 
 >tip You are not required to provide an initial value to the `View` parameter. It will default to `CalendarView.Month`.
 
-## RangeStartChanged
+## RangeStartChanged and RangeEndChanged
 
-The `RangeStartChanged` fires every time the user selects a new starting date for the range of dates when the Calendar is in `Range` selection mode. The first click on a date in the Calendar will always be the starting date and the range can be consisted of dates only onward.
+The two RangeChanged events (`RangeStartChanged` and `RangeEndChanged`) fire when the user selects a new range.
 
-## RangeEndChanged
-
-The `RangeEndChanged` fires after the `RangeStartChanged` with the `default` value of the model field, and every time when the selection of dates is finished.
+When the user selects a range from the calendar, the first click always fires the start change with the selected date, and then clears the end of the range, so the end change event fires as well, with the default value for `DateTime` - this indicates that the end of the range is undefined. If the second click is on a date before the range start - it will become the new start.
 
 >caption Example of `Range` Selection with `RangeStartChanged` and `RangeEndChanged` events
 
 ````CSHTML
 @* Observe the behavior of the RangeStartChanged and RangeEndChanged events and adding the selected dates to a List *@
 
-<div class="example-wrapper">
-    <h4>Range Selection Initial Selection</h4>
+<TelerikCalendar Views="2"
+                 Date="@Date"
+                 SelectionMode="@CalendarSelectionMode.Range"
+                 RangeStart="@RangeStart"
+                 RangeEnd="@RangeEnd"
+                 RangeStartChanged="@StartChangeHandler"
+                 RangeEndChanged="@EndChangeHandler">
+</TelerikCalendar>
 
-    <TelerikCalendar Views="3"
-                     Date="@Date"
-                     RangeStart="@RangeStart"
-                     RangeEnd="@RangeEnd"
-                     SelectionMode="@CalendarSelectionMode.Range"
-                     RangeStartChanged="@StartChangeHandler"
-                     RangeEndChanged="@EndChangeHandler">
-    </TelerikCalendar>
-</div>
 
 @if (SelectedDates.Any())
 {
@@ -116,28 +110,40 @@ The `RangeEndChanged` fires after the `RangeStartChanged` with the `default` val
 }
 
 @code {
-    public DateTime Date { get; set; } = new DateTime(2020, 3, 1);
-    public DateTime RangeStart { get; set; } = new DateTime(2020, 3, 14);
-    public DateTime RangeEnd { get; set; } = new DateTime(2020, 3, 18);
-    public List<DateTime> SelectedDates { get; set; } = new List<DateTime>();
+    DateTime Date { get; set; } = DateTime.Now.AddDays(-5);
+    DateTime RangeStart { get; set; } = DateTime.Now;
+    DateTime RangeEnd { get; set; } = DateTime.Now.AddDays(6);
+    List<DateTime> SelectedDates { get; set; } = new List<DateTime>();
 
-    public void StartChangeHandler(DateTime startDate)
+    void StartChangeHandler(DateTime startDate)
     {
         // you have to update the model manually because handling the <Parameter>Changed event does not let you use @bind-<Parameter>
         // not updating the model will effectively cancel the event
         RangeStart = startDate;
-        GetDates();
+
+        Console.WriteLine($"The user started making a new selection from {startDate}");
+
+        RenderDateRange();
     }
 
-    public void EndChangeHandler(DateTime endDate)
+    void EndChangeHandler(DateTime endDate)
     {
         // you have to update the model manually because handling the <Parameter>Changed event does not let you use @bind-<Parameter>
         // not updating the model will effectively cancel the event
         RangeEnd = endDate;
-        GetDates();
+
+
+        // sample check to execute logic only after the user has selected both ends of the range
+        // if this does not pass, the user has only clicked once in the calendar popup
+        if (endDate != default(DateTime))
+        {
+            Console.WriteLine($"The user finished making a new selection from {RangeStart} to {endDate}");
+        }
+
+        RenderDateRange();
     }
 
-    public void GetDates()
+    void RenderDateRange()
     {
         var datesInBetween = Enumerable.Range(0, 1 + RangeEnd.Subtract(RangeStart).Days)
                                            .Select(offset => RangeStart.AddDays(offset))
