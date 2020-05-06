@@ -154,7 +154,7 @@ navigation:
      "*datepicker":
         title: "Date Picker"
      "*daterangepicker":
-        title: "DateRangePicker"
+        title: "DateRange Picker"
      "*datetimepicker":
         title: "DateTime Picker"
      "*dialog":
@@ -295,6 +295,7 @@ intro_columns:
       "Date Picker": "components/datepicker/overview"
       "Time Picker": "components/timepicker/overview"
       "DateTime Picker": "components/datetimepicker/overview"
+      "DateRange Picker": "daterangepicker-overview"
       "DropDownList": "components/dropdownlist/overview"
       "ComboBox": "components/combobox/overview"
       "AutoComplete": "autocomplete-overview"
