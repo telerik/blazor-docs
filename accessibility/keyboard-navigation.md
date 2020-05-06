@@ -34,6 +34,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 *  [DatePicker](https://demos.telerik.com/blazor-ui/datepicker/keyboard-navigation)
 
+*  [DateRangePicker](https://demos.telerik.com/blazor-ui/daterangepicker/keyboard-navigation)
+
 *  [DateTimePicker](https://demos.telerik.com/blazor-ui/datetimepicker/keyboard-navigation)
 
 *  [DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation)
