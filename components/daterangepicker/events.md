@@ -12,31 +12,38 @@ position: 20
 
 This article explains the events available in the Telerik DateRangePicker for Blazor:
 
+
 * [OnChange](#onchange)
-* [ValueChanged](#valuechanged)
+* [StartValueChanged and EndValueChanged](#startvaluechanged-and-endvaluechanged)
+* [ViewChanged](#viewchanged)
+
 
 ## OnChange
 
-The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
-
-The date picker is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
+The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus. The focus will also be lost when the user starts clicking in the calendar popup.
 
 >caption Handle OnChange
 
 ````CSHTML
-@result
+@StartValue?.ToString("dd MMM yyyy")
 <br />
-
-<TelerikDatePicker T="DateTime" OnChange="@MyOnChangeHandler"></TelerikDatePicker>
+@EndValue?.ToString("dd MMM yyyy")
+<br />
+<TelerikDateRangePicker @bind-StartValue="@StartValue"
+                        @bind-EndValue="@EndValue"
+                        OnChange="@OnChangeHandler">
+</TelerikDateRangePicker>
 
 @code {
-    string result;
+    public DateTime? StartValue { get; set; } = DateTime.Now;
+    public DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
 
-    private void MyOnChangeHandler(object theUserInput)
+    async Task OnChangeHandler(DateRangePickerChangeEventArgs e)
     {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0:dd/MMM/yyyy}", (DateTime)theUserInput);
+        Console.WriteLine($"The range is from {e.StartValue} to {e.EndValue}");
+
+        // the fields are of type object because you can use nullable or non-nullable DateTime
+        // so you may need to cast them if you want to use the actual DateTime objects
     }
 }
 ````
@@ -45,48 +52,54 @@ The date picker is a generic component, so you must provide either a `Value`, or
 
 >tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
 
->caption Handle OnChange and use two-way binding
+
+
+## StartValueChanged and EndValueChanged
+
+The two `ValueChanged` events (`StartValueChanged` and `EndValueChanged`) fire when the user selects a new range.
+
+When the user types in the inputs, they fire independently - only the event for the corresponding input fires.
+
+When the user selects a range from the calendar popup, the first click always fires the start change with the selected date, and then clears the end of the range, so the end change event fires as well, with the `default` value for the model field.
+
+>caption Handle StartValueChanged and EndValueChanged
 
 ````CSHTML
-@result
+@StartValue?.ToString("dd MMM yyyy")
 <br />
-model value: @thePickerValue
+@EndValue?.ToString("dd MMM yyyy")
 <br />
-
-<TelerikDatePicker @bind-Value="@thePickerValue" OnChange="@MyOnChangeHandler"></TelerikDatePicker>
+<TelerikDateRangePicker StartValue="@StartValue"
+                        EndValue="@EndValue"
+                        StartValueChanged="@( (DateTime? sV) => StartValueChangedHandler(sV) )"
+                        EndValueChanged="@( (DateTime? eV) => EndValueChangedHandler(eV) )">
+</TelerikDateRangePicker>
 
 @code {
-    string result;
+    public DateTime? StartValue { get; set; } = DateTime.Now;
+    public DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
 
-    DateTime? thePickerValue { get; set; } = DateTime.Now;
-
-    private void MyOnChangeHandler(object theUserInput)
+    async Task StartValueChangedHandler(DateTime? currStart)
     {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0:dd/MMM/yyyy}", (theUserInput as DateTime?).Value);
+        //you have to update the model manually because handling the <Parameter>Changed event does not let you use @bind-<Parameter>
+        //not updating the model will effectively cancel the event
+        StartValue = currStart;
+
+        Console.WriteLine($"start changed to: {currStart}");
     }
-}
-````
 
-## ValueChanged
-
-The `ValueChanged` event fires upon every change (for example, keystroke) in the input.
-
->caption Handle ValueChanged
-
-````CSHTML
-@result
-<br />
-
-<TelerikDatePicker ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDatePicker>
-
-@code {
-    string result;
-
-    private void MyValueChangeHandler(DateTime theUserInput)
+    async Task EndValueChangedHandler(DateTime? currEnd)
     {
-        result = string.Format("The user entered: {0}", theUserInput);
+        // you have to update the model manually because handling the <Parameter>Changed event does not let you use @bind-<Parameter>
+        // not updating the model will effectively cancel the event
+        EndValue = currEnd;
+
+        // sample check to execute logic only after the user has selected both ends of the range
+        // if this does not pass, the user has only clicked once in the calendar popup
+        if (currEnd != default(DateTime?))
+        {
+            Console.WriteLine($"end changed to: {currEnd}. The range is from {StartValue} to {EndValue}");
+        }
     }
 }
 ````
@@ -95,31 +108,37 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
->caption Handle ValueChanged and provide initial value
+
+## ViewChanged
+
+The `ViewChanged` event fires when the user changes the view they are seeing in the calendar popup (for example, goes up from the days in the month to the months in the year).
+
+>caption Handle the ViewChanged event
 
 ````CSHTML
-@result
+@StartValue?.ToString("dd MMM yyyy")
 <br />
-model value: @thePickerValue
+@EndValue?.ToString("dd MMM yyyy")
 <br />
-
-<TelerikDatePicker Value="@thePickerValue" ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDatePicker>
+<TelerikDateRangePicker @bind-StartValue="@StartValue"
+                        @bind-EndValue="@EndValue"
+                        ViewChanged="@ViewChangeHandler">
+</TelerikDateRangePicker>
 
 @code {
-    string result;
+    public DateTime? StartValue { get; set; } = DateTime.Now;
+    public DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
 
-    DateTime thePickerValue { get; set; } = DateTime.Now;
-
-    private void MyValueChangeHandler(DateTime theUserInput)
+    async Task ViewChangeHandler(CalendarView currView)
     {
-        result = string.Format("The user entered: {0:dd/MMM/yyyy}", theUserInput);
-
-        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        thePickerValue = theUserInput;
+        Console.WriteLine($"The use is now looking at the {currView} calendar view");
     }
 }
 ````
 
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+
 ## See Also
 
-* [ValueChanged and Validation]({%slug value-changed-validation-model%})
+  * [ValueChanged and Validation]({%slug value-changed-validation-model%})
