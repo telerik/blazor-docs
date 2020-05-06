@@ -62,6 +62,8 @@ When the user types in the inputs, they fire independently - only the event for 
 
 When the user selects a range from the calendar popup, the first click always fires the start change with the selected date, and then clears the end of the range, so the end change event fires as well, with the `default` value for the model field.
 
+>note The user can only type in the inputs and that will fire the corresponding event. Selecting from the calendar popup also fires the event. There is no way to know what the user intent is when they start modifying the values - whether they will modify one or both, so there is no definitive way to know when the user has finished using the component. Such logic is heuristic and is up to the application.
+
 >caption Handle StartValueChanged and EndValueChanged
 
 ````CSHTML
