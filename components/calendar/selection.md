@@ -27,38 +27,114 @@ In `Range` selection mode you can get the start and end dates of a selected rang
 
 ## Receive User Selection
 
-To receive the user selection, handle the `ValueChanged`. There are two ways of obtaining the user selection, depending on the chosen selection mode:
+### Single Selection Mode
 
-* for `Single` selection mode - the event handler received a `DateTime` object that is the new selected date
-* for `Multiple` selection mode - access the `SelectedDates` property of the component reference in the `ValueChanged` handler.
+Use the `ValueChanged` event. The handler receives a `DateTime` object as parameter which represents the new selected date.
 
-## Disabled Dates
+>caption Handle Single selection in the Calendar
+
+````CSHTML
+@* This example shows how to handle Single selection *@
+
+<TelerikCalendar Date="@startDate"
+                 View="CalendarView.Month"
+                 SelectionMode="@CalendarSelectionMode.Single"
+                 ValueChanged="SelectionHandler">
+</TelerikCalendar>
+
+<p>
+    Selected Date: @SelectedDate
+</p>
+
+@code {
+    private DateTime SelectedDate { get; set; }
+    private DateTime startDate = new DateTime(2019, 5, 2);
+    private TelerikCalendar CalendarRef { get; set; }
+
+    public void SelectionHandler(DateTime selectedDate)
+    {
+        SelectedDate = selectedDate;
+    }
+}
+````
+
+### Multiple Selection Mode
+
+Use the `SelectedDates` property of the component reference in the `ValueChanged` handler.
+
+>caption Handle Multiple selection in the Calendar
+
+````CSHTML
+@* This example shows how to handle Multiple selection *@
+
+<TelerikCalendar Date="@startDate"
+                 View="@CalendarView.Month"
+                 SelectionMode="@CalendarSelectionMode.Multiple"
+                 ValueChanged="@SelectionHandler"
+                 @ref="@CalendarRef">
+</TelerikCalendar>
+
+@if (SelectedDates.Any())
+{
+    <ul>
+        @foreach (var date in SelectedDates)
+        {
+            <li>
+                @date
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    public List<DateTime> SelectedDates { get; set; } = new List<DateTime>();
+    private DateTime startDate = new DateTime(2019, 5, 2);
+    private TelerikCalendar CalendarRef { get; set; }
+
+    public void SelectionHandler()
+    {
+        SelectedDates = CalendarRef.SelectedDates;
+    }
+}
+````
+### Range Selection Mode
+
+Use the `RangeStart`, representing the first date of the selection, and the `RangeEnd` - the last date of the selection.
+
+>caption Handle Range selection
+
+````CSHTML
+@* This example shows how to handle Range selection *@
+
+<TelerikCalendar Views="2"
+                 Date="@Date"
+                 RangeStart="@RangeStart"
+                 RangeEnd="@RangeEnd"
+                 SelectionMode="@CalendarSelectionMode.Range">
+</TelerikCalendar>
+
+@code {
+    public static DateTime dateTimeNow { get; set; } = DateTime.Now;
+    public DateTime Date { get; set; } = dateTimeNow.AddDays(-5);
+    public DateTime RangeStart { get; set; } = dateTimeNow;
+    public DateTime RangeEnd { get; set; } = dateTimeNow.AddDays(15);
+}
+````
+
+### Disabled Dates
 
 To prevent the user from selecting certain dates (for example, holidays), add those dates to the `DisabledDates` collection.
 
-## Examples
-
->caption Handle calendar date selection and disable certain dates from being selected
+>caption Handle Disabled dates with Calendar Multiple selection
 
 ````CSHTML
 The user will not be able to select the first and second of April 2019.
 
-<h4>Single Selection</h4>
-
-<TelerikCalendar SelectionMode="@CalendarSelectionMode.Single" ValueChanged="@SingleSelectionChangeHandler"
-                 DisabledDates="@DisabledDates" @bind-Date="@startDate">
-</TelerikCalendar>
-<br />
-@if (selectedDate != null)
-{
-    @selectedDate.Value.ToString("dd MMM yyyy");
-}
-
-
-<h4>Multiple Selection</h4>
-
-<TelerikCalendar SelectionMode="@CalendarSelectionMode.Multiple" ValueChanged="@MultipleSelectionChangeHandler"
-                 DisabledDates="@DisabledDates" @bind-Date="@startDate" @ref="multipleSelCalendar">
+<TelerikCalendar SelectionMode="@CalendarSelectionMode.Multiple"
+                 ValueChanged="@MultipleSelectionChangeHandler"
+                 DisabledDates="@DisabledDates"
+                 @bind-Date="@startDate"
+                 @ref="multipleSelCalendar">
 </TelerikCalendar>
 <br />
 @if (chosenDates != null && chosenDates.Count > 0)
@@ -78,14 +154,7 @@ The user will not be able to select the first and second of April 2019.
     private List<DateTime> DisabledDates = new List<DateTime>() { new DateTime(2019, 4, 1), new DateTime(2019, 4, 2) };
 
     // fields to store and render the user selection
-    private DateTime? selectedDate { get; set; } = null;
     private List<DateTime> chosenDates { get; set; }
-
-    private void SingleSelectionChangeHandler(DateTime newValue)
-    {
-        // with single selection, the argument is a single DateTime object with the new selection
-        selectedDate = newValue;
-    }
 
     // reference used to obtain the selected dates from a multiple selection calendar
     private Telerik.Blazor.Components.TelerikCalendar multipleSelCalendar;
@@ -97,7 +166,6 @@ The user will not be able to select the first and second of April 2019.
 }
 
 ````
-
 
 ## See Also
 
