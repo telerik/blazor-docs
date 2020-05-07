@@ -171,5 +171,5 @@ The Excel export has the following specifics:
 
 ## See Also
 
-  * [Live Demo: Grid Excel Export](https://demos.telerik.com/blazor-ui/grid/excel-export)
+  * [Live Demo: Grid Excel Export](https://demos.telerik.com/blazor-ui/grid/export-excel)
    
