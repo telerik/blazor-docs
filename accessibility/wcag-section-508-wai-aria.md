@@ -38,8 +38,7 @@ Since 1998, Section 508 is part of the [U.S. Rehabilitation Act of 1973](https:/
 
 For more information, refer to:
 
-* [Section 508 (Latest Amendment)](https://www.access-board.gov/the-board/laws/rehabilitation-act-of-1973#508)
-* [Rehabilitation Act of 1973](https://legcounsel.house.gov/Comps/Rehabilitation%20Act%20Of%201973.pdf)
+* [Rehabilitation Act of 1973 Section 508 (Latest Amendment)](https://www.access-board.gov/the-board/laws/rehabilitation-act-of-1973#508)
 * [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%})
 
 
