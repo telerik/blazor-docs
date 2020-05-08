@@ -164,6 +164,8 @@ navigation:
         title: "Dialog"
      "*draganddrop":
         title: "DragAndDrop"
+    "*drawer":
+        title: "Drawer"
      "*dropdownlist":
         title: "DropDownList"
      "*dropdowntree":
@@ -286,6 +288,7 @@ intro_columns:
       "Window": "components/window/overview"
       "Animation Container": "components/animationcontainer/overview"
       "Tooltip": "tooltip-overview"
+      "Drawer": "drawer-overview"
 
 -
   categories:
