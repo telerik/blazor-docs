@@ -65,6 +65,9 @@ navigation:
      "*components/grid/editing":
         title: "Editing"
         position: 10
+     "*components/grid/export":
+        title: "Export"
+        position: 24
      "*components/grid/selection":
         title: "Selection"
         position: 24
