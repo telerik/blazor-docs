@@ -133,7 +133,7 @@ The `ViewChanged` event fires when the user changes the view they are seeing in 
 
     async Task ViewChangeHandler(CalendarView currView)
     {
-        Console.WriteLine($"The use is now looking at the {currView} calendar view");
+        Console.WriteLine($"The user is now looking at the {currView} calendar view");
     }
 }
 ````
