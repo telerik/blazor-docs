@@ -91,6 +91,31 @@ To use a `nuget.config` file for the Telerik feed, you need to:
 
 @[template](/_contentTemplates/common/get-started.md#after-install)
 
+## Troubleshooting
+
+### I do not see the Telerik Packages
+
+There are two common reasons for the Telerik packages to be missing in the Telerik Online Feed:
+
+* There is a network issue. For example, a proxy, firewall or other similar software blocks requests to our server.
+
+* Your license is tied to a different account than the one used for the feed credentials.
+
+To check if this is a networking issue, open the following URL in your browser and enter your `telerik.com` credentials: <a href="https://nuget.telerik.com/nuget/Search()?$filter=IsAbsoluteLatestVersion&searchTerm=%27Blazor%27&includePrerelease=true&$skip=0&$top=100&semVerLevel=2.0.0" target="_blank">https://nuget.telerik.com/nuget/Search()?$filter=IsAbsoluteLatestVersion&searchTerm=%27Blazor%27&includePrerelease=true&$skip=0&$top=100&semVerLevel=2.0.0</a>. You should see an XML result with the list of packages you can access and you should see the `Telerik.UI.for.Blazor` package with the version appropriate to your license.
+
+If you can access the feed in the browser, but you do not see the packages in Visual Studio, the most likely problem is wrong credentials that are not associated with a license.
+
+Here is a sample process of removing stored credentials from Windows so you can re-add the correct ones:
+
+1. Remove saved credentials in <a href="https://support.microsoft.com/en-us/help/4026814/windows-accessing-credential-manager" target="_blank">Windows Credential Manager</a>. They will appear as nuget.telerik.com and/or VSCredentials_nuget.telerik.com entries.
+2. Remove the Telerik Nuget package source from Visual Studio.
+3. If you have added the Telerik  package source by nuget CLI, then try to remove it from the CLI.
+4. Check if there are any credentials stored in `%AppData%\NuGet\Nuget.Config` and if so you have to remove them.
+5. Try to reset Visual Studio user data. You can read how to do that <a href="https://stackoverflow.com/questions/43550797/how-to-force-nuget-to-ask-for-authentication-when-connecting-to-a-private-feed" target="_blank">here</a>.
+6. Restart Visual Studio.
+7. Enter the Telerik nuget package source again through Visual Studio or CLI. If you are using the feed in .NET Core application, [store your credentials as plain text](#store-credentials-in-clear-text-for-the-telerik-nuget-feed).
+
+
 
 ## See Also
 
