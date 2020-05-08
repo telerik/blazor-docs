@@ -19,19 +19,26 @@ To use the animation container, add the `TelerikAnimationContainer` tag.
 ````CSHTML
 @* Click the button to toggle the visibility of the customized popup *@
 
-<TelerikAnimationContainer @ref="myPopupRef" Top="300px" Width="100px" Height="100px" AnimationType="AnimationType.ZoomOut" Class="k-popup">
-	My content goes here. The "k-popup" class adds some background and borders which you can define through your own styles instead.
-</TelerikAnimationContainer>
+<div style="position:relative; border: 1px solid red; height: 300px;">
+    <TelerikButton OnClick="@ToggleContainer">Toggle Animation Container</TelerikButton>
 
-<TelerikButton OnClick="@ToggleContainer">Toggle Animation Container</TelerikButton>
+    <TelerikAnimationContainer @ref="myPopupRef" Top="50px" Left="50px" Width="250px" Height="150px" AnimationType="AnimationType.ZoomOut" Class="k-popup">
+        <p>
+            The "k-popup" class adds some background and borders which you can define through your own styles instead.
+        </p>
+        <p>
+            My parent element has <code>position: relative</code> to control my <code>Top</code> and <code>Left</code> offset.
+        </p>
+    </TelerikAnimationContainer>
+</div>
 
 @code {
-	Telerik.Blazor.Components.TelerikAnimationContainer myPopupRef;
+    Telerik.Blazor.Components.TelerikAnimationContainer myPopupRef;
 
-	public void ToggleContainer()
-	{
-		myPopupRef.ToggleAsync();
-	}
+    async Task ToggleContainer()
+    {
+        await myPopupRef.ToggleAsync();
+    }
 }
 ````
 
@@ -66,42 +73,45 @@ The animation container exposes the following properties and methods:
 >caption Explore the animation options
 
 ````CSHTML
-Choose a new animation from the dropdown and toggle the container
+@*Choose a new animation from the dropdown and toggle the container*@
 
-<TelerikAnimationContainer @ref="myPopup" Top="300px" Width="200px" Height="200px" AnimationType="@AnimType" Class="my-popup">
-	My content goes here.<br />
-	<TelerikButton OnClick="@HideContainer">Hide Animation Container</TelerikButton>
-</TelerikAnimationContainer>
+<div style="position:relative;">
 
-<select @bind="AnimType">
-	@foreach (var possibleAnimation in Enum.GetValues(typeof(AnimationType)))
-	{
-		<option value="@possibleAnimation">@possibleAnimation</option>
-	}
-</select>
+    <select @bind="AnimType">
+        @foreach (var possibleAnimation in Enum.GetValues(typeof(AnimationType)))
+        {
+            <option value="@possibleAnimation">@possibleAnimation</option>
+        }
+    </select>
 
-<TelerikButton OnClick="@ShowContainer">Show Animation Container</TelerikButton>
+    <TelerikButton OnClick="@ShowContainer">Show Animation Container</TelerikButton>
+
+    <TelerikAnimationContainer @ref="myPopup" Top="40px" Width="200px" Height="200px" AnimationType="@AnimType" Class="my-popup">
+        My content goes here.<br />
+        <TelerikButton OnClick="@HideContainer">Hide Animation Container</TelerikButton>
+    </TelerikAnimationContainer>
+</div>
 
 @code {
-	TelerikAnimationContainer myPopup;
-	public AnimationType AnimType { get; set; } = AnimationType.Fade;
+    TelerikAnimationContainer myPopup;
+    AnimationType AnimType { get; set; } = AnimationType.Fade;
 
-	public void ShowContainer()
-	{
-		myPopup.ShowAsync();
-	}
+    async Task ShowContainer()
+    {
+        await myPopup.ShowAsync();
+    }
 
-	public void HideContainer()
-	{
-		myPopup.HideAsync();
-	}
+    async Task HideContainer()
+    {
+        await myPopup.HideAsync();
+    }
 }
 
 <style>
-	.my-popup {
-		border: 2px solid red;
-		background: #ccc;
-	}
+    .my-popup {
+        border: 2px solid red;
+        background: #ccc;
+    }
 </style>
 ````
 
