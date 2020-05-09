@@ -33,14 +33,13 @@ The members of the enum are:
 * `Content` - acces the `<Content>` child tag of `<TelerikDrawer>` to render a component or custom HTML as the content of the Drawer.
 * `SelectedItem` - Bindable property that contains the currently selected item in the Drawer. For more information read the [Selection]({%slug drawer-selection%}) article.
 * `SelectedItemChanged` - read the [Events]({%slug drawer-events%}) article for more information.
-* `Template` - define a custom template for the Content of the Drawer. For more information read the [Templates]({%slug drawer-templates%}) article.
+* `Template` - define a custom template for the entire Drawer. For more information read the [Templates]({%slug drawer-templates%}) article.
 * `ItemTemplate` - define a custom template for the Items of the Drawer. For more information read the [Templates]({%slug drawer-templates%}) article
 * `Icon` / `IconClass` / `ImageUrl` - the [Telerik icon]({%slug general-information/font-icons%}), a class for a custom font icon, or the URL to a raster image that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `Icon` will have the highest importance).
 
 ## ToggleAsync method
 
 The `ToggleAsync` method is accessible through the reference of the Drawer. It allows you to expand or collapse the component by a click of a button.
-
 
 ## Example
 
@@ -92,4 +91,9 @@ The `ToggleAsync` method is accessible through the reference of the Drawer. It a
 
 ## See Also
 
-  * Add links here
+  * [Drawer Overview Demo]()
+  * [Drawer Modes]({%slug drawer-modes%})
+  * [Drawer Events]({%slug drawer-events%})
+  * [Drawer Templates]({%slug drawer-templates%})
+  * [Drawer Selection]({%slug drawer-selection%})
+  * [Drawer Data Binding]({%slug drawer-data-binding%})
