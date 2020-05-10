@@ -27,7 +27,7 @@ To create a scatter chart:
 3. provide a data collection to its `Data` property, which contains numerical data for the X and Y axes
 
 
->caption A bubble chart that shows projected population change on a plot of life expectancy versus fertility rate
+>caption A scatter line chart that shows battery charging percentage over minutes depending on the charging current
 
 ````CSHTML
 @* ScatterLine Series *@
