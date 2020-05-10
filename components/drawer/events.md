@@ -10,11 +10,11 @@ position: 5
 
 # Drawer Events
 
-This article explains the available events in the Drawer.
+This article explains the available event in the Drawer.
 
 ## SelectedItemChanged
 
-The `SelectedItemChanged` event is used in one-way data binding to respond to the user selection. It takes an argument of the Drawer data model type. The event is fired every time the user clicks on a new item from the Drawer.
+The `SelectedItemChanged` event is used in one-way data binding to respond to the user selection. It takes an argument of the Drawer data model type. The event is fires every time the user clicks on a new item from the Drawer.
 
 >caption Handle SelectedItemChanged event.
 
