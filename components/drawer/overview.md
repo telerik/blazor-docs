@@ -37,9 +37,22 @@ The members of the enum are:
 * `ItemTemplate` - define a custom template for the Items of the Drawer. For more information read the [Templates]({%slug drawer-templates%}) article
 * `Icon` / `IconClass` / `ImageUrl` - the [Telerik icon]({%slug general-information/font-icons%}), a class for a custom font icon, or the URL to a raster image that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `Icon` will have the highest importance).
 
-## ToggleAsync method
+## Methods
 
-The `ToggleAsync` method is accessible through the reference of the Drawer. It allows you to expand or collapse the component by a click of a button.
+The Drawer methods are accessible through it's reference.
+
+### ExpandAsync
+
+The `ExpandAsync` method allows you to change the state of the Drawer so it is expanded and add some custom logic.
+
+### CollapseAsync
+
+The `CollapseAsync` method allows you to change the state of the Drawer so it is in [MiniMode]({%slug drawer-mini-mode%}) (collapsed) and add some custom logic.
+
+### ToggleAsync
+
+The `ToggleAsync` method allows you to expand or collapse the component depending on the current state of the Drawer.
+
 
 ## Example
 
