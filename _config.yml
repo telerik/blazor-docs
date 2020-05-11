@@ -164,7 +164,7 @@ navigation:
         title: "Dialog"
      "*draganddrop":
         title: "DragAndDrop"
-    "*drawer":
+     "*drawer":
         title: "Drawer"
      "*dropdownlist":
         title: "DropDownList"
