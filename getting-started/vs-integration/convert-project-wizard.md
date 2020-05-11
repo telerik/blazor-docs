@@ -34,6 +34,12 @@ The wizard provides you with the following options:
 
 
 
+To get a better understanding of what the wizard does for you, see either of the following articles:
+
+* [Getting Started with Client-side apps]({%slug getting-started/client-side%})
+* [Getting Started with Server-side apps]({%slug getting-started/server-side%})
+* [Overview of what you need]({%slug getting-started/what-you-need%})
+
 
 
 ## See Also
