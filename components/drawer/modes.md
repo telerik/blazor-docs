@@ -22,19 +22,18 @@ If the `Mode` is not set, by default the Drawer will be in Overlay mode.
 
 When the `DrawerMode` enum is set to `Push` the Drawer's default width when expanded is set to `240px` and `50px` when in [MiniMode]({%slug drawer-mini-mode%}) (collapsed). The component's height is dynamic based on the height of the content. When it's state is changed (expanded/collapsed) the content is resized - the width is increased or decreased based on the state.
 
->caption Handle the Drawer in its basic scenario - as navigation menu on the view.
+>caption Handle the Drawer in Push mode.
 
 ````CSHTML
 
 @* This example shows how to use the Drawer to change its content based on user selecetion *@
 <div>
     <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="rows">Toggle drawer</TelerikButton>
-    <TelerikDrawer Expanded="Expanded"
+    <TelerikDrawer @bind-Expanded="Expanded"
                    Data="Data"
                    MiniMode="true"
                    Mode="DrawerMode.Push"
-                   SelectedItem="selectedItem"
-                   SelectedItemChanged="((DrawerItem item) => SelectedItemChangedHandler(item))"
+                   @bind-SelectedItem="selectedItem"
                    @ref="DrawerRef">
         <Content>
             @{
@@ -77,14 +76,76 @@ When the `DrawerMode` enum is set to `Push` the Drawer's default width when expa
         public string Icon { get; set; }
     }
 }
-
-
 ````
 >caption The result from the code snippet above
 
-![drawer basic example](images/drawer-modes-push-example.gif)
+![drawer push mode example](images/drawer-modes-push-example.gif)
 
 
 ## Overlay
 
-When the `DrawerMode` enum is set to `Overlay` the Drawer's navigation is placed on top of the content. It also adds blurred background on top of the content until the user clicks on an item of the Drawer or outside.
+When the `DrawerMode` enum is set to `Overlay` the Drawer's navigation is placed on top of the content and its height takes all available vertical space (100%). It also adds blurred background on top of the content until the user clicks on an item of the Drawer or outside.
+
+>caption Handle the Drawer in Overlay mode
+
+````CSHTML
+@* Add padding to the left of the content so that it is not overlapped by the Drawer in collapsed mode. *@
+
+<div class="pl-4">
+    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="rows">Toggle drawer</TelerikButton>
+</div>
+<TelerikDrawer @bind-Expanded="Expanded"
+               Data="Data"
+               MiniMode="true"
+               Mode="DrawerMode.Overlay"
+               @bind-SelectedItem="selectedItem"
+               @ref="DrawerRef">
+    <Content>
+        @{
+            var lowerCaseText = selectedItem?.Text.ToLower();
+
+            if (lowerCaseText == "counter")
+            {
+                <div class="pl-4">
+                    <Counter />
+                </div>
+            }
+            else if (lowerCaseText == "fetchdata")
+            {
+                <div class="pl-4">
+                    <FetchData />
+                </div>
+            }
+        }
+    </Content>
+</TelerikDrawer>
+
+@code {
+
+    private void SelectedItemChangedHandler(DrawerItem item)
+    {
+        selectedItem = item;
+    }
+
+    public TelerikDrawer<DrawerItem> DrawerRef { get; set; }
+    public DrawerItem selectedItem { get; set; }
+    public bool Expanded { get; set; } = true;
+    public IEnumerable<DrawerItem> Data { get; set; } =
+        new List<DrawerItem>
+        {
+            new DrawerItem { Text = "Counter", Icon = IconName.Plus},
+            new DrawerItem { Text = "FetchData", Icon = IconName.GridLayout},
+                                };
+
+    public class DrawerItem
+    {
+        public string Text { get; set; }
+
+        public string Icon { get; set; }
+    }
+}
+````
+
+>caption The result from the code snippet above
+
+![drawer overlay mode example](images/drawer-modes-overlay-example.gif)
