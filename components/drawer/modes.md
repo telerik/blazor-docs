@@ -12,9 +12,11 @@ position: 2
 
 This article explains the different modes the Drawer could be set to.
 
-The Drawer's mode can be controlled by using the `DrawerMode` enum, which has two members:
+The Drawer's mode can be controlled by setting the `Mode` parameter and the `DrawerMode` enum, which has two members:
 * [Push](#push)
 * [Overlay](#overlay)
+
+If the `Mode` is not set, by default the Drawer will be in Overlay mode.
 
 ## Push
 
