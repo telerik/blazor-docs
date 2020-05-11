@@ -105,11 +105,6 @@ The `CollapseAsync` method allows you to change the state of the Drawer so it is
 The `ToggleAsync` method allows you to expand or collapse the component depending on the current state of the Drawer.
 
 
-## Example
-
-
-
-
 ## See Also
 
   * [Drawer Overview Demo]()
