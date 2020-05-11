@@ -98,7 +98,7 @@ The `ExpandAsync` method allows you to change the state of the Drawer so it is e
 
 ### CollapseAsync
 
-The `CollapseAsync` method allows you to change the state of the Drawer so it is in [MiniMode]({%slug drawer-mini-mode%}) (collapsed).
+The `CollapseAsync` method allows you to change the state of the Drawer so it is collapsed.
 
 ### ToggleAsync
 
