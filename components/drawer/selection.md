@@ -64,4 +64,14 @@ The `SelectedItem` is of the same type as the Drawer data model.
 
 ## Cascade the Selected Item From Another Component
 
-The Drawer can be used as navigation to the entire applicaiton, for example in the `MainLayout` page. If you need to access the `SelectedItem` from another component you can cascade it through `CascadingParameter` as shown in this [example](link) in the public Blazor UI repository.
+The Drawer can be used as navigation to the entire applicaiton, for example in the `MainLayout` page. If you need to access the `SelectedItem` from another component you can cascade it through `CascadingParameter`.
+
+````Component
+
+````
+````MainLayout
+
+````
+````Model Class
+
+````
