@@ -47,24 +47,42 @@ User input: @TheValue
 
 The AutoComplete is a generic component and its type is determined by the type of the model you use as its data source. You can find examples in the [Data Bind - Considerations]({%slug autocomplete-databind%}#considerations) article.
 
+## Features
+
 >caption The AutoComplete provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the combobox.
+
 * `ClearButton` - whether the user will have the option to clear the selected value with a button on the input. When it is clicked, the `Value` will be updated to `string.Empty`.
+
 * `Data` - allows you to provide the data source. Required.
+
 * `Enabled` - whether the component is enabled.
+
 * `Filterable` - whether [filtering]({%slug autocomplete-filter%}) is enabled for the end user (suggestions will get narrowed down as they type).
+
 * `FilterOperator` - the string operation that will be used for [filtering]({%slug autocomplete-filter%}). Defaults to `StartsWith`.
+
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+
 * `MinLength` - how many characters the text has to be before the suggestions list appears. Cannot be `0`. Often works together with [filtering]({%slug autocomplete-filter%}).
+
 * `Placeholder` - the text the user sees as a hint when there is no text in the input.
+
 * `PopupHeight` - the height of the expanded dropdown list element.
-* `PopupWidth` - the width of the expanded dropdown list element.
+
+* `PopupWidth` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
+
 * `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
+
 * `Value` and `bind-Value`- get/set the value of the component, can be used for binding. Use the `@bind-Value` syntax for two-way binding, for example, to a variable of your own. The `Value` must be a `string`.
+
 * `ValueField` - the name of the field from the model that will be shown as hints to the user. Defaults to `Value`. Not required when binding to a simple list of strings.
+
 * `Width` - the width of the main element.
+
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug autocomplete-templates%}) article for more details.
+
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
 

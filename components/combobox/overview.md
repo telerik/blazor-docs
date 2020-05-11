@@ -58,20 +58,35 @@ The ComboBox is a generic component and its type is determined by the type of th
 >caption The ComboBox provides the following features:
 
 * `AllowCustom` - whether the user can enter [custom values]({%slug components/combobox/custom-value%}). If enabled, the `ValueField` must be a `string`.
+
 * `Class` - the CSS class that will be rendered on the main wrapping element of the combobox.
+
 * `ClearButton` - whether the user will have the option to clear the selected value. When it is clicked, the `Value` will be updated to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, clearing the value will lead to a `0` `Value`, so if there is an Item with `0` in its `ValueField` - issues may arise with its selection. This feature can often go together with `AllowCustom`.
+
 * `Data` - allows you to provide the data source. Required.
+
 * `Enabled` - whether the component is enabled.
+
 * `Filterable` - whether [filtering]({%slug components/combobox/filter%}) is enabled for the end user.
+
 * `FilterOperator` - the method of [filtering]({%slug components/combobox/filter%}) the items. Defaults to `StartsWith`.
+
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+
 * `Placeholder` - the text the user sees as a hint when no item is selected (the `Value` is `null` or an empty string).
+
 * `PopupHeight` - the height of the expanded dropdown list element.
-* `PopupWidth` - the width of the expanded dropdown list element.
+
+* `PopupWidth` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
+
 * `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
+
 * `TValue` - the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
+
 * `TextField` - the name of the field from the model that will be shown to the user. Defaults to `Text`.
+
 * `ValueField` - the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
+
 * `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
 
     The `Value` and `ValueField` can be of types:
@@ -80,8 +95,11 @@ The ComboBox is a generic component and its type is determined by the type of th
     * `string`
     * `Guid`
     * `Enum`
+
 * `Width` - the width of the dropdown and the main element.
+
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug components/combobox/templates%}) article for more details.
+
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
 

@@ -56,17 +56,29 @@ See the [Component Reference]({%slug components/dropdownlist/databind%}#componen
 The DropDownList provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the dropdownlist.
+
 * `Data` - allows you to provide the data source. Required.
+
 * `DefaultText` - sets the hint that is shown if the `Value` has the `default` value for the type of the `ValueField`. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. You can find examples in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article.
+
 * `Enabled` - whether the component is enabled.
+
 * `Id` - renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it.
+
 * `PopupHeight` - the height of the expanded dropdown list element.
-* `PopupWidth` - the width of the expanded dropdown list element.
+
+* `PopupWidth` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
+
 * `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
+
 * `TValue` - the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
+
 * `TabIndex` - the `tabindex` attribute rendered on the dropdown.
+
 * `TextField` - the name of the field from the model that will be shown to the user. Defaults to `Text`.
+
 * `ValueField` - the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
+
 * `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own. 
     
     The `Value` and `ValueField` can be of types:
@@ -75,8 +87,11 @@ The DropDownList provides the following features:
     * `string`
     * `Guid`
     * `Enum`
+
 * `Width` - the width of the dropdown and the main element.
+
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug components/dropdownlist/templates%}) article for more details.
+
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
 
