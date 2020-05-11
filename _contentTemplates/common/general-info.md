@@ -61,3 +61,13 @@ You can reference the built-in Telerik assets from a cloud CDN instead of a loca
 >note We are considering a better CDN option for the themes. Until then, you can use the unpkg workaround above, or local dependency management as described below.
 
 #end
+
+
+
+#vsx-download
+You can get them from the:
+
+* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions)
+* [Telerik UI for Blazor automated installer]({%slug installation/msi%})
+
+#end
