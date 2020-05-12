@@ -10,13 +10,13 @@ position: 7
 
 # Mini View
 
-The Drawer's `MiniMode` is a visual representation of the collapsed state. In general it will contain an icon which describes the item.
+When the Drawer is collapsed, it is not visible at all by default. You can, however, leave a small hint for the user that shows the icons of the items so they can navigate with just a single action.
 
-To enable mini mode set the `MiniMode` parameter to `true`. By default this parameter is set to `false`.
+To enable the mini view when the drawer is collapsed (minimized), set the `MiniMode` parameter to `true`. By default this parameter is set to `false`.
 
-When the `MiniMode` parameter is `false` the Drawer will not be visible when collapsed.
+>caption Mini View behavior
 
-## Examples
+![drawer expanded example](images/drawer-mini-mode-overview.jpg)
 
 >caption Observe the behavior of the MiniMode.
 
@@ -26,24 +26,21 @@ When the `MiniMode` parameter is `false` the Drawer will not be visible when col
 
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
 <TelerikButton OnClick="@(() => MiniMode = !MiniMode)">Toggle MiniMode</TelerikButton>
-<TelerikDrawer @bind-Expanded="Expanded"
-               Data="Data"
-               MiniMode="MiniMode"
-               Mode="DrawerMode.Push"
-               @ref="DrawerRef">
+<TelerikDrawer Data="@Data"
+               MiniMode="@MiniMode"
+               Mode="@DrawerMode.Push"
+               @ref="@DrawerRef">
 </TelerikDrawer>
-
 
 @code {
     public TelerikDrawer<DrawerItem> DrawerRef { get; set; }
-    public bool Expanded { get; set; } = true;
     public bool MiniMode { get; set; } = true;
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
             new DrawerItem { Text = "Counter", Icon = IconName.Plus},
             new DrawerItem { Text = "FetchData", Icon = IconName.GridLayout},
-                                };
+        };
 
     public class DrawerItem
     {
@@ -53,10 +50,6 @@ When the `MiniMode` parameter is `false` the Drawer will not be visible when col
 }
 ````
 
->caption The result from the code snippet above
 
-![drawer expanded example](images/drawer-minimode-expanded.jpg)
 
-![drawer collapsed example](images/drawer-minimode-collapsed.jpg)
 
-![drawer disabled mini mode example](images/drawer-minimode-disabled.jpg)
