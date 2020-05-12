@@ -33,7 +33,7 @@ The treeview items provide the following features that you control through the c
 * `HasChildren` - whether the item has children. Determines whether an expand arrow is rendered next to the item. Required for binding to flat data and for load-on-demand. With hierarchical data, the treeview will render the icon based on the existence of child items, but `HasChildren` will take precedence.
 * `Items` - the collection of child items that will be rendered under the current item. Required only when binding to hierarchical data.
 * `Text` - the text that will be shown on the item.
-* `Icon` / `IconClass` / `ImageUrl` - the [Telerik icon]({%slug general-information/font-icons%}), a class for a custom font icon, or the URL to a raster image that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `Icon` will have the highest importance).
+* `ImageUrl` / `Icon` / `IconClass` - the [Telerik icon]({%slug general-information/font-icons%}), a class for a custom font icon, or the URL to a raster image that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `ImageUrl` will have the highest importance).
 * `Url` - the view the item will navigate to by generating a link.
 
 ## Data Bindings
@@ -94,7 +94,7 @@ If a certain level does not have an explicit data bindings tag, it will use the 
 >caption How to use per-level data binding settings to change model fields
 
 ````CSHTML
-The third level will use the main data bindings settings that do not have a level specified 
+The third level will use the main data bindings settings that do not have a level specified
 
 <TelerikTreeView Data="@FlatData">
 	<TreeViewBindings>
@@ -178,4 +178,3 @@ The third level will use the main data bindings settings that do not have a leve
   * [Live Demo: TreeView Hierarchical Data](https://demos.telerik.com/blazor-ui/treeview/hierarchical-data)
   * [Live Demo: TreeView Per-Level Data Bindings](https://demos.telerik.com/blazor-ui/treeview/bindings)
   * [Live Demo: TreeView Load on Demand](https://demos.telerik.com/blazor-ui/treeview/lazy-loading)
-
