@@ -31,7 +31,7 @@ The menu items provide the following features that you control through the corre
 * `HasChildren` - can hide child items. The menu will fetch its children from the data source based on the `Id`-`ParentId` relationships (for flat data) or on the presence of the `Items` collection (for hierarchical data). @[template](/_contentTemplates/menu/basic-example.md#has-children-behavior)
 * `Items` - the collection of child items that will be rendered under the current item. Required only when binding to hierarchical data.
 * `Text` - the text that will be shown on the item.
-* `ImageUrl` / `Icon` / `ImageClass` - the [Telerik icon]({%slug general-information/font-icons%}), a class for a custom font icon, or the URL to a raster image that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `ImageUrl` will have the highest importance).
+* `ImageUrl` / `Icon` / `ImageClass` - the URL to a raster image, the [Telerik icon]({%slug general-information/font-icons%}), or a class for a custom font icon that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `ImageUrl` will have the highest importance).
 * `Url` - the view the item will navigate to by generating a link.
 
 ## Data Bindings
