@@ -164,6 +164,8 @@ navigation:
         title: "Dialog"
      "*draganddrop":
         title: "DragAndDrop"
+     "*drawer":
+        title: "Drawer"
      "*dropdownlist":
         title: "DropDownList"
      "*dropdowntree":
@@ -280,12 +282,6 @@ intro_columns:
       "Scheduler": "scheduler-overview"
       "Calendar": "components/calendar/overview"
 
-  -
-    title: "Layout"
-    items:
-      "Window": "components/window/overview"
-      "Animation Container": "components/animationcontainer/overview"
-      "Tooltip": "tooltip-overview"
 
 -
   categories:
@@ -329,6 +325,12 @@ intro_columns:
     items:
       "File Upload": "upload-overview"
   -
+    title: "Layout"
+    items:
+      "Window": "components/window/overview"
+      "Animation Container": "components/animationcontainer/overview"
+      "Tooltip": "tooltip-overview"
+      "Drawer": "drawer-overview"
 
 
 ## The application virtual path
