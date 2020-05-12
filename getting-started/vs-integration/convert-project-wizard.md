@@ -23,11 +23,22 @@ To use the **Convert Project Wizard**, install the Telerik UI for Blazor Visual 
 To start the wizard, do the following:
 
 1. In the **Solution Explorer**, select the Blazor app you want to add the Telerik components to (either WebAssembly, or Server-side Blazor)
+1. **Right click** the **project file** and select **Telerik UI for Blazor** > **Concert to Telerik Application**.
+1. Follow the wizard.
+
+Alternatively, instead of the context menu, you can use the extensions menu at the top:
+
+1. In the **Solution Explorer**, select the Blazor app you want to add the Telerik components to (either WebAssembly, or Server-side Blazor)
 1. Open the **Extensions** menu.
 1. Click **Telerik** > **Telerik UI for Blazor** > **Concert to Telerik Application**.
 1. Follow the wizard.
 
-The wizard, basically, adds the information from the [What You Need]({%slug getting-started/what-you-need%}) article to your project.
+>caption Start the Convert Wizard from the project context menu
+
+![Start the Convert Project Wizard from the context menu](images/convert-wizard-from-context-menu.png)
+
+
+>caption Start the wizard from the Extensions menu
     
 ![Start the Convert Project Wizard](images/vs-ext-convert-project-entry.png)
 
