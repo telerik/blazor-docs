@@ -29,7 +29,7 @@ The `SelectedItemChanged` event is used in one-way data binding to respond to th
                SelectedItemChanged="((DrawerItem item) => SelectedItemChangedHandler(item))"
                @ref="DrawerRef">
     <Content>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="rows">Toggle drawer</TelerikButton>
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
         <div class="text-info">
             Content for the @selectedItem?.Text
         </div>
@@ -77,7 +77,7 @@ The `ExpandedChanged` event is used in one-way data binding for the `Expanded` p
 @{
     if (!Expanded)
     {
-        <TelerikButton OnClick="@(() => DrawerRef.ExpandAsync())" Icon="rows">Expand Drawer</TelerikButton>
+        <TelerikButton OnClick="@(() => DrawerRef.ExpandAsync())" Icon="@IconName.Menu">Expand Drawer</TelerikButton>
     }
 }
 

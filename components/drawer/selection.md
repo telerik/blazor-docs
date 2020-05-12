@@ -34,7 +34,7 @@ The `SelectedItem` is of the same type as the Drawer data model.
                @bind-SelectedItem="@selectedItem"
                @ref="DrawerRef">
     <Content>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="rows">Toggle drawer</TelerikButton>
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
         <div class="text-info">
             Content for the @selectedItem?.Text
         </div>

@@ -20,15 +20,19 @@ If the `Mode` is not set, by default the Drawer will be in Overlay mode.
 
 ## Push
 
-When the `DrawerMode` enum is set to `Push` the Drawer's default width when expanded is set to `240px` and `50px` when in [MiniMode]({%slug drawer-mini-mode%}) (collapsed). The component's height is dynamic based on the height of the content. When it's state is changed (expanded/collapsed) the content is resized - the width is increased or decreased based on the state.
+When the `DrawerMode` enum is set to `Push` the Drawer's default width when expanded is set to `240px` and `50px` when collapsed in [MiniMode]({%slug drawer-mini-mode%}). The component's height is dynamic based on the height of the content. When it's state is changed (expanded/collapsed) the content is resized - the width is increased or decreased based on the state.
 
 >caption Handle the Drawer in Push mode.
 
-````CSHTML
+>caption The result from the code snippet below
 
+![drawer push mode example](images/drawer-modes-push-example.gif)
+
+````CSHTML
 @* This example shows how to use the Drawer to change its content based on user selecetion *@
+
 <div>
-    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="rows">Toggle drawer</TelerikButton>
+    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
     <TelerikDrawer @bind-Expanded="Expanded"
                    Data="Data"
                    MiniMode="true"
@@ -67,10 +71,6 @@ When the `DrawerMode` enum is set to `Push` the Drawer's default width when expa
     }
 }
 ````
->caption The result from the code snippet above
-
-![drawer push mode example](images/drawer-modes-push-example.gif)
-
 
 ## Overlay
 
@@ -78,11 +78,15 @@ When the `DrawerMode` enum is set to `Overlay` the Drawer's navigation is placed
 
 >caption Handle the Drawer in Overlay mode
 
+>caption The result from the code snippet below
+
+![drawer overlay mode example](images/drawer-modes-overlay-example.gif)
+
 ````CSHTML
 @* Add padding to the left of the content so that it is not overlapped by the Drawer in collapsed mode. *@
 
 <div class="pl-4">
-    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="rows">Toggle drawer</TelerikButton>
+    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
 </div>
 <TelerikDrawer @bind-Expanded="Expanded"
                Data="Data"
@@ -115,7 +119,3 @@ When the `DrawerMode` enum is set to `Overlay` the Drawer's navigation is placed
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![drawer overlay mode example](images/drawer-modes-overlay-example.gif)

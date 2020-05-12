@@ -31,7 +31,7 @@ To use a Telerik Drawer for Blazor
                Mode="DrawerMode.Push"
                @ref="DrawerRef">
     <Content>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="rows">Toggle drawer</TelerikButton>
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
 
         @*Place your contents here*@
     </Content>
@@ -86,7 +86,7 @@ The members of the enum are:
 
 * `ItemTemplate` - define a custom template for the Items of the Drawer. For more information read the [Templates]({%slug drawer-templates%}) article.
 
-* `Icon` / `IconClass` / `ImageUrl` - the [Telerik icon]({%slug general-information/font-icons%}), a class for a custom font icon, or the URL to a raster image that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `Icon` will have the highest importance).
+* `ImageUrl` / `Icon` / `IconClass` - the [Telerik icon]({%slug general-information/font-icons%}), a class for a custom font icon, or the URL to a raster image that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `ImageUrl` will have the highest importance).
 
 ## Methods
 
@@ -107,7 +107,7 @@ The `ToggleAsync` method allows you to expand or collapse the component dependin
 
 ## See Also
 
-  * [Drawer Overview Demo]()
+  * [Drawer Overview Demo](https://demos.telerik.com/blazor-ui/drawer/overview)
   * [Drawer Modes]({%slug drawer-modes%})
   * [Drawer Events]({%slug drawer-events%})
   * [Drawer Templates]({%slug drawer-templates%})
