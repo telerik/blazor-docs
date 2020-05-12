@@ -20,6 +20,10 @@ To use the Telerik UI for Blazor, you need to:
 1. [set up the project](#project-configuration) to recognize the Telerik components
 
 
+If you want to add the Telerik components to an existing project, our [Convert Project Wizard for VS]({%slug getting-started-vs-integration-convert-project%}) can do this for you. If you will be starting a new project, our [New Project Wizard for VS]({%slug getting-started-vs-integration-new-project%}) or [VS Code Wizard]({%slug getting-started-vs-code-integration-overview%}) can create one for you.
+
+You can review the rest of this article for information on how things work and what is required to get the Telerik components in a project.
+
 ## Telerik Specific Packages
 
 The Telerik UI for Blazor component suite requires the following two Telerik-specific NuGet packages:
