@@ -8,7 +8,6 @@ published: True
 position: 12
 ---
 
-
 # Drawer Templates
 
 The Drawer can be customized by using Templates. This article explains the available layout templates for the component.
@@ -21,9 +20,11 @@ The Drawer can be customized by using Templates. This article explains the avail
 The template allows you to control the whole rendering of the Drawer. To set it, provide the
 `<Template>` tag. The component is rendered as `<ul>` with `<li>`.
 
-When using this template the item selection is disabled and must be implemented by the application as shown in the example below. The changing of the state of the component (expanded or collapsed) will happen, but the content has to be controlled by the application too.
+When using this template the item selection is disabled and must be implemented by the application as shown in the example below. The changing of the state of the component (expanded or collapsed) will happen, but the content has to be controlled by the application too. The `Content` tag is not available too.
 
->caption Using a row template with manual item selection
+This template recieves a `context` argument that is `IEnumerable` of the data model type (the data source).
+
+>caption Using a template with manual item selection
 
 ````CSHTML
 @* This example shows how to create header and footer for the Drawer and select an item manually. *@
@@ -110,4 +111,60 @@ When using this template the item selection is disabled and must be implemented 
 
 ## ItemTemplate
 
-The `<ItemTemplate>` controls the rendering of the items in the menu of the Drawer.
+The `<ItemTemplate>` controls the rendering of the items in the Drawer.
+
+This template recieves a `context` argument that is of the data model type.
+
+>caption Use ItemTemplate to control the rendering of the items in the Drawer.
+
+````CSHTML
+@* This example shows how to control the rendering of the items in the Drawer's menu *@
+
+<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu" />
+
+<TelerikDrawer @bind-Expanded="Expanded"
+               Data="Data"
+               MiniMode="MiniMode"
+               Mode="DrawerMode.Push"
+               @bind-SelectedItem="SelectedItem"
+               @ref="DrawerRef">
+    <ItemTemplate Context="item">
+        <span class="k-icon k-i-@item.Icon" style="margin-right: 8px;"></span>
+        @if (Expanded)
+        {
+            <div>
+                <div style="font-weight:bold; border-bottom:thin">@item.Text</div>
+            </div>
+        }
+    </ItemTemplate>
+    <Content>
+        <strong>@SelectedItem?.Description</strong>
+    </Content>
+</TelerikDrawer>
+
+
+@code {
+    public TelerikDrawer<DrawerItem> DrawerRef { get; set; }
+    public DrawerItem SelectedItem { get; set; }
+    public bool Expanded { get; set; } = true;
+    public bool MiniMode { get; set; } = true;
+    public IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>
+{
+        new DrawerItem {Text = "Shopping Cart", Icon = IconName.Cart, Description = "Items in shopping cart"},
+        new DrawerItem {Text = "Settings", Icon = IconName.Gear, Description = "My profile settings"},
+        new DrawerItem {Text = "Notifications", Icon = IconName.Notification, Description = "My profile notifications"},
+        new DrawerItem {Text = "Calendar", Icon = IconName.Calendar, Description = "My events"},
+    };
+
+    public class DrawerItem
+    {
+        public string Text { get; set; }
+        public string Icon { get; set; }
+        public string Description { get; set; }
+    }
+}
+````
+
+>caption The result of the code snippet above
+
+![drawer template example](images/drawer-templates-itemtemplate-example.gif)
