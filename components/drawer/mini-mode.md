@@ -1,14 +1,14 @@
 ---
-title: Mini Mode
-page_title: Drawer for Blazor | Mini Mode
-description: Modes in the Drawer for Blazor
+title: Mini View
+page_title: Drawer for Blazor | Mini View
+description: Minimized View in the Drawer for Blazor
 slug: drawer-mini-mode
 tags: telerik,blazor,drawer,mode,mini
 published: True
 position: 7
 ---
 
-# Mini Mode
+# Mini View
 
 The Drawer's `MiniMode` is a visual representation of the collapsed state. In general it will contain an icon which describes the item.
 
