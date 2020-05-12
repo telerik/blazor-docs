@@ -16,7 +16,7 @@ To use a Telerik Drawer for Blazor
 
 1. Add the `TelerikDrawer` tag.
 1. Populate its `Data` property with the collection of items you want the user to see.
-1. Place the content of the Drawer in the `<Content>` tag. 
+1. Place the content of the Drawer in the `<Content>` tag.
     * In this example, we keep it simple by using the selected item. See the [Navigation]({%slug drawer-navigation%}) article for a menu-like experience with links.
 
 >caption Basic configuration of the Drawer.
@@ -83,7 +83,7 @@ The members of the enum are:
 
 * `Mode` - controls whether the Drawer is in `Push` or `Overlay` mode. For more information read the [Display Modes]({%slug drawer-modes%}) article.
 
-* `MiniMode` - controsl whether there is mini view when the Drawer is collapsed. For more information read the [Mini View]({%slug drawer-mini-mode%}) article.
+* `MiniMode` - controls whether there is mini view when the Drawer is collapsed. For more information read the [Mini View]({%slug drawer-mini-mode%}) article.
 
 * `Content` - the `<Content>` child tag of `<TelerikDrawer>` is a `RenderFragment` where you put a component or custom HTML as the content of the Drawer - this is what the drawer will push or overlay.
 
