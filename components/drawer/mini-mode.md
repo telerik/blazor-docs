@@ -1,5 +1,5 @@
 ---
-title: MiniMode
+title: Mini Mode
 page_title: Drawer for Blazor | MiniMode
 description: Modes in the Drawer for Blazor
 slug: drawer-mini-mode
@@ -8,7 +8,7 @@ published: True
 position: 3
 ---
 
-# MiniMode
+# Mini Mode
 
 The Drawer's `MiniMode` is a visual representation of the collapsed state. In general it will contain an icon which describes the item.
 
@@ -48,7 +48,6 @@ When the `MiniMode` parameter is `false` the Drawer will not be visible when col
     public class DrawerItem
     {
         public string Text { get; set; }
-
         public string Icon { get; set; }
     }
 }

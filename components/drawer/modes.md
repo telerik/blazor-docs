@@ -3,7 +3,7 @@ title: Modes
 page_title: Drawer for Blazor | Modes
 description: Modes in the Drawer for Blazor
 slug: drawer-modes
-tags: telerik,blazor,drawer,mode,modes,overlay,push,mini
+tags: telerik,blazor,drawer,mode,modes,overlay,push
 published: True
 position: 2
 ---
@@ -36,18 +36,9 @@ When the `DrawerMode` enum is set to `Push` the Drawer's default width when expa
                    @bind-SelectedItem="selectedItem"
                    @ref="DrawerRef">
         <Content>
-            @{
-                var lowerCaseText = selectedItem?.Text.ToLower();
-
-                if (lowerCaseText == "counter")
-                {
-                    <Counter />
-                }
-                else if (lowerCaseText == "fetchdata")
-                {
-                    <FetchData />
-                }
-            }
+        <div class="text-info">
+                    Content for the @selectedItem?.Text
+                </div>
         </Content>
     </TelerikDrawer>
 </div>
@@ -72,7 +63,6 @@ When the `DrawerMode` enum is set to `Push` the Drawer's default width when expa
     public class DrawerItem
     {
         public string Text { get; set; }
-
         public string Icon { get; set; }
     }
 }
@@ -101,32 +91,13 @@ When the `DrawerMode` enum is set to `Overlay` the Drawer's navigation is placed
                @bind-SelectedItem="selectedItem"
                @ref="DrawerRef">
     <Content>
-        @{
-            var lowerCaseText = selectedItem?.Text.ToLower();
-
-            if (lowerCaseText == "counter")
-            {
-                <div class="pl-4">
-                    <Counter />
-                </div>
-            }
-            else if (lowerCaseText == "fetchdata")
-            {
-                <div class="pl-4">
-                    <FetchData />
-                </div>
-            }
-        }
+        <div class="text-info pl-4">
+            Content for the @selectedItem?.Text
+        </div>
     </Content>
 </TelerikDrawer>
 
 @code {
-
-    private void SelectedItemChangedHandler(DrawerItem item)
-    {
-        selectedItem = item;
-    }
-
     public TelerikDrawer<DrawerItem> DrawerRef { get; set; }
     public DrawerItem selectedItem { get; set; }
     public bool Expanded { get; set; } = true;
@@ -135,12 +106,11 @@ When the `DrawerMode` enum is set to `Overlay` the Drawer's navigation is placed
         {
             new DrawerItem { Text = "Counter", Icon = IconName.Plus},
             new DrawerItem { Text = "FetchData", Icon = IconName.GridLayout},
-                                };
+                                    };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-
         public string Icon { get; set; }
     }
 }

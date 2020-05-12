@@ -15,7 +15,6 @@ The Drawer can allow the user to select an item.
 This article is separated in the following sections:
 
 * [Basics](#basics)
-* [Cascade the Selected Item From Another Component](#cascade-the-selected-item-from-anoter-component)
 
 ## Basics
 
@@ -28,7 +27,7 @@ The `SelectedItem` is of the same type as the Drawer data model.
 ````CSHTML
 @* Use two-way data binding with the SelectedItem to display contents according to the user selection *@
 
-<TelerikDrawer Expanded="Expanded"
+<TelerikDrawer @bind-Expanded="Expanded"
                Data="Data"
                MiniMode="true"
                Mode="DrawerMode.Push"
@@ -56,22 +55,7 @@ The `SelectedItem` is of the same type as the Drawer data model.
     public class DrawerItem
     {
         public string Text { get; set; }
-
         public string Icon { get; set; }
     }
 }
-````
-
-## Cascade the Selected Item From Another Component
-
-The Drawer can be used as navigation to the entire applicaiton, for example in the `MainLayout` page. If you need to access the `SelectedItem` from another component you can cascade it through `CascadingParameter`.
-
-````Component
-
-````
-````MainLayout
-
-````
-````Model Class
-
 ````
