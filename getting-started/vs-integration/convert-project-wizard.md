@@ -50,10 +50,11 @@ To get a better understanding of what the wizard does for you, see either of the
 
 ## Troubleshooting
 
-There are two common problems when converting a project:
+There are three common problems when converting a project:
 
 * The convertion wizard fails with an [error screen](#error-screen)
 * The [Telerik components do not work](#components-fail) after you run the converted project
+* [Extra Shared Folder Appears](#extra-shared-folder)
 
 ### Error Screen
 
@@ -76,6 +77,13 @@ The issue can manifest in a couple of ways:
 The most common reason for this problem is a mismatch between the installed version and the actual license that you have. For example, the wizard did not properly detect it, or there is only a Trial version installed, but already have a license, but simply never installed the new version.
 
 At its root, the problem stems from wrong paths to the needed web assets and you can easily fix it by opening your index file (`wwwroot/index.html` for a WebAssembly app, and `Pages/_Host.cshtml` for a server-side Blazor app) - the wizard has left comments in the `<head>` near the Telerik assets that show the correct paths for a trial and commercial license.
+
+
+### Extra Shared Folder
+
+You may get a `Shared` folder that contains a file `TelerikLayout.razor` in an unexpected place in the project. This can happen when a folder in the project was selected instead of the project itself, when running the convert wizard.
+
+The fix is to simply move the `TelerikLayout.razor` file to the original `Shared` folder of your project, next to the `MainLayout.razor` file.
 
 
 
