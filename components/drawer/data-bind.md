@@ -59,7 +59,7 @@ public class DrawerItem
 
 ## Navigation Example
 
-The Drawer is a differernt kind of a [menu]({%slug components/menu/overview%}) that is commonly used to navigate between pages in the app. To use the Drawer for navigating between pages:
+The Drawer is a differerent kind of a [menu]({%slug components/menu/overview%}) that is commonly used to navigate between pages in the app. To use the Drawer for navigating between pages:
 
 * Add the Drawer to the `MainLayot.razor` of your app
 * Put the `@Body` tag in the `<Content>` tag of the drawer
