@@ -16,7 +16,7 @@ This article has the following sections:
 
 * The available (bindable) [features of a drawer item](#drawer-item-features).
 * How to match fields in the model with the drawer item [data bindings](#data-bindings).
-
+* [Example](#example---data-binding-to-non-default-field-names) of using non-default field names for data binding.
 
 ## Drawer Item Features
 
@@ -55,6 +55,37 @@ public class DrawerItem
 }
 ````
 
+## Example - Data Binding to Non-Default Field Names
+
+````CSHTML
+@* This example shows how you can data bind the drawer and set the field names it will use from the model 
+Place it in the MainLayout.razor so you can use it for navigation:
+https://docs.telerik.com/blazor-ui/components/drawer/navigation
+*@
+
+<TelerikDrawer Data="@Data" UrlField="ItemUrl" TextField="ItemText" IconField="ItemIcon"
+               MiniMode="true" Mode="@DrawerMode.Push" Expanded="true">
+    <Content>
+        @Body
+    </Content>
+</TelerikDrawer>
+
+@code {
+    IEnumerable<DrawerItem> Data { get; set; } =
+        new List<DrawerItem>
+        {
+            new DrawerItem { ItemText = "Counter", ItemIcon = IconName.Plus, ItemUrl = "counter" },
+            new DrawerItem { ItemText = "FetchData", ItemIcon = IconName.GridLayout, ItemUrl = "fetchdata" },
+        };
+
+    public class DrawerItem
+    {
+        public string ItemText { get; set; }
+        public string ItemIcon { get; set; }
+        public string ItemUrl { get; set; }
+    }
+}
+````
 
 
 
