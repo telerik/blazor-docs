@@ -1,6 +1,6 @@
 ---
 title: Mini Mode
-page_title: Drawer for Blazor | MiniMode
+page_title: Drawer for Blazor | Mini Mode
 description: Modes in the Drawer for Blazor
 slug: drawer-mini-mode
 tags: telerik,blazor,drawer,mode,mini
@@ -24,7 +24,7 @@ When the `MiniMode` parameter is `false` the Drawer will not be visible when col
 @* Click on the Toggle MiniMode button to enable or disable it. *@
 @* The same behavior will be observed in both Push and Overlay modes *@
 
-<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="rows">Toggle drawer</TelerikButton>
+<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
 <TelerikButton OnClick="@(() => MiniMode = !MiniMode)">Toggle MiniMode</TelerikButton>
 <TelerikDrawer @bind-Expanded="Expanded"
                Data="Data"
@@ -43,7 +43,7 @@ When the `MiniMode` parameter is `false` the Drawer will not be visible when col
         {
             new DrawerItem { Text = "Counter", Icon = IconName.Plus},
             new DrawerItem { Text = "FetchData", Icon = IconName.GridLayout},
-                            };
+                                };
 
     public class DrawerItem
     {
@@ -51,9 +51,12 @@ When the `MiniMode` parameter is `false` the Drawer will not be visible when col
         public string Icon { get; set; }
     }
 }
-
 ````
 
 >caption The result from the code snippet above
 
-![drawer basic example](images/drawer-minimode-push-example.gif)
+![drawer expanded example](images/drawer-minimode-expanded.jpg)
+
+![drawer collapsed example](images/drawer-minimode-collapsed.jpg)
+
+![drawer disabled mini mode example](images/drawer-minimode-disabled.jpg)
