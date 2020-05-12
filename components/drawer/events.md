@@ -5,7 +5,7 @@ description: Events in the Drawer for Blazor
 slug: drawer-events
 tags: telerik,blazor,drawer,event,events
 published: True
-position: 5
+position: 25
 ---
 
 # Drawer Events

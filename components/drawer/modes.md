@@ -5,7 +5,7 @@ description: Modes in the Drawer for Blazor
 slug: drawer-modes
 tags: telerik,blazor,drawer,mode,modes,overlay,push
 published: True
-position: 2
+position: 5
 ---
 
 # Drawer Modes

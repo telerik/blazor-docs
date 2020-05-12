@@ -5,7 +5,7 @@ description: Item selection in the Drawer for Blazor
 slug: drawer-selection
 tags: telerik,blazor,drawer,selection,item,selected,items
 published: True
-position: 3
+position: 10
 ---
 
 # Drawer Selection

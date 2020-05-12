@@ -5,7 +5,7 @@ description: Modes in the Drawer for Blazor
 slug: drawer-mini-mode
 tags: telerik,blazor,drawer,mode,mini
 published: True
-position: 3
+position: 7
 ---
 
 # Mini Mode

@@ -16,7 +16,6 @@ This article has the following sections:
 
 * The available (bindable) [features of a drawer item](#drawer-item-features).
 * How to match fields in the model with the drawer item [data bindings](#data-bindings).
-* Example of using the Drawer as a [Navigation Menu](#navigation-example).
 
 
 ## Drawer Item Features
@@ -57,54 +56,10 @@ public class DrawerItem
 ````
 
 
-## Navigation Example
-
-The Drawer is a differerent kind of a [menu]({%slug components/menu/overview%}) that is commonly used to navigate between pages in the app. To use the Drawer for navigating between pages:
-
-* Add the Drawer to the `MainLayot.razor` of your app
-* Put the `@Body` tag in the `<Content>` tag of the drawer
-* Provide a collection of models that describe the pages you want the user to navigate to
-
->caption Use the Drawer for Navigation
-
-````CSHTML
-@* This is a very basic layout to showcase the concept. You may want to add a header, footer, 
-    collapse/expand button and add desired heights to the layout and drawwer *@
-
-@inherits LayoutComponentBase
-
-<TelerikRootComponent>
-
-    <TelerikDrawer Data="@NavigablePages" Expanded="true" MiniMode="true" Mode="@DrawerMode.Push">
-        <Content>
-            @Body
-        </Content>
-    </TelerikDrawer>
-
-</TelerikRootComponent>
-
-@code{ 
-    List<DrawerItem> NavigablePages { get; set; } =
-        new List<DrawerItem>
-        {
-            new DrawerItem { Text = "Home", Url = "/", Icon = "home" },
-            new DrawerItem { IsSeparator = true },
-            new DrawerItem { Text = "Counter", Url = "counter", Icon = IconName.PlusOutline },
-            new DrawerItem { Text = "FetchData", Url = "fetchdata", Icon = IconName.Grid }
-        };
-
-    public class DrawerItem
-    {
-        public string Text { get; set; }
-        public string Url { get; set; }
-        public string Icon { get; set; }
-        public bool IsSeparator { get; set; }
-    }
-}
-````
 
 
 ## See Also
 
 * [Drawer Overview]({% slug drawer-overview%})
+* [Drawer Navigation]({% slug drawer-navigation%})
 
