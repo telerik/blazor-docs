@@ -105,7 +105,7 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
             <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu" />
             @if (DrawerExpanded)
             {
-                <div class="text-info" style="border-bottom:solid; font-weight: bold; margin-bottom: 3em;">
+                <div class="text-info" style="border-bottom:solid; font-weight: bold; margin-bottom: 3em; white-space:nowrap">
                     My Custom Navigation
                 </div>
             }
@@ -116,14 +116,14 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
                 </div>
             }
         </div>
-        
+
         @* custom items rendering and item selection *@
-        
+
         <div class="k-drawer-items">
             <ul>
                 @if (SelectedItem != null && DrawerExpanded)
                 {
-                    <li>
+                    <li class="k-drawer-item" style="white-space:nowrap">
                         <div>
                             <p><strong>@SelectedItem.Text</strong></p>
                             <p>@SelectedItem.Description</p>
@@ -135,23 +135,23 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
                 {
                     @* Use onclick to handle manual item selection *@
                     <li @onclick="@(() => SelectedItem = item)"
-                        class="k-drawer-item @GetSelectedItemClass(item)">
-                            <span class="k-icon k-i-@item.Icon" style="margin-right: 8px;"></span>
-                            @if (DrawerExpanded)
-                            {
-                                <div>
-                                    <div>@item.Text</div>
-                                </div>
-                            }
+                        class="k-drawer-item @GetSelectedItemClass(item)" style="white-space:nowrap">
+                        <span class="k-icon k-i-@item.Icon" style="margin-right: 8px;"></span>
+                        @if (DrawerExpanded)
+                        {
+                            <div>
+                                <div>@item.Text</div>
+                            </div>
+                        }
                     </li>
                 }
             </ul>
         </div>
-        
+
         @* the footer *@
         @if (DrawerExpanded)
         {
-            <div style="text-align: center; margin-top: 3em; padding-top: 2em; border-top: 2px solid black;">
+            <div style="text-align: center; margin-top: 3em; padding-top: 2em; border-top: 2px solid black; white-space:nowrap">
                 <img src="user-avatar.png" alt="my avatar" style="border-radius: 50%; width: 50px; height: 50px;" />
                 <br /><br />
                 <TelerikButton Icon="@IconName.Logout" Primary="true">Log Out</TelerikButton>
@@ -168,7 +168,7 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
     public DrawerItem SelectedItem { get; set; }
     public bool DrawerExpanded { get; set; } = true;
     public IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>
-    {
+{
         new DrawerItem {Text = "Shopping Cart", Icon = IconName.Cart, Description = "Items in shopping cart"},
         new DrawerItem {Text = "Settings", Icon = IconName.Gear, Description = "My profile settings"},
         new DrawerItem {Text = "Notifications", Icon = IconName.Notification, Description = "My profile notifications"},
