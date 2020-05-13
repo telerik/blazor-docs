@@ -1,20 +1,23 @@
 ---
-title: MSI Installer
-page_title: MSI Installer
-description: What the MSI installation package of Telerik UI for Blazor brings.
+title: Automated Installer
+page_title: Automated Installer
+description: What the Automated installation package of Telerik UI for Blazor brings.
 slug: installation/msi
-tags: get,started,installation,msi,wizard
+previous_url: installation/msi
+tags: get,started,installation,msi,p,wizard
 published: True
 position: 3
 ---
 
-# MSI Wizard Installer
+# Automated Wizard Installer
 
-This article explains what the automated `msi` installer does for Telerik UI for Blazor components, and how to get it.
+This article explains what the automated install wizard does for Telerik UI for Blazor components, and how to get it.
 
 While the most common way to install the Telerik UI for Blazor components is to use the [Telerik private NuGet feed]({%slug installation/nuget%}), you can also use a wizard installer, or a [zip archive]({%slug installation/zip%}).
 
-The `MSI` installer provides the following:
+There is an automated installer for Windows (`.msi`) and for Mac (`.pkg`).
+
+The automated installer provides the following:
 
 * The [necessary `.nupkg` files]({%slug getting-started/what-you-need%}) so you can setup a [local feed in Visual Studio](#set-up-a-local-nuget-feed-in-visual-studio). You can find them in the `packages` folder under the installation folder.
 * An offline version of our [demos](https://demos.telerik.com/blazor-ui/) that you can run and inspect in your IDE. You can find them in the `demos` folder in the installation.
@@ -24,15 +27,15 @@ The `MSI` installer provides the following:
 
 
 
-## How to Download the MSI Installer
+## How to Download the Automated Installer
 
-To download the automated `msi` installer:
+To download the automated `msi` (for Windows) or `pkg` (for Mac) installer:
 
 @[template](/_contentTemplates/common/get-started.md#navigate-account)
 
-1. Download the Automatic installation (MSI) file.
+1. Download the Automatic installation file for your operating system
 
-Once the download completes, run the MSI file and follow the instructions. The default installation path is `C:\Program Files (x86)\Progress\Telerik UI for Blazor <VERSION>\`.
+Once the download completes, run the downloaded file and follow the instructions. The default installation path is `C:\Program Files (x86)\Progress\Telerik UI for Blazor <VERSION>\`.
 
 @[template](/_contentTemplates/common/get-started.md#setup-local-feed-vs)
 
