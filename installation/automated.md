@@ -3,7 +3,7 @@ title: Automated Installer
 page_title: Automated Installer
 description: What the Automated installation package of Telerik UI for Blazor brings.
 slug: installation/msi
-previous_url: /blazor-ui/installation/msi
+previous_url: installation/msi
 tags: get,started,installation,msi,p,wizard
 published: True
 position: 3
