@@ -27,9 +27,9 @@ I would like to add [Tooltips]({%slug tooltip-overview%}) to the [Drawer's]({%sl
 
 ## Solution
 
-To add a tooltip to the drawer navigation icons you have to use the [ItemTemplate]({%slug drawer-templates%}#itemtemplate) to set a `title` attribute to the span that contains the icon.4
+To add a tooltip to the drawer navigation icons you have to use the [ItemTemplate]({%slug drawer-templates%}#itemtemplate) to set a `title` attribute to the desired element (like the `span` that contains the icon).
 
-If using a TelerikTooltip, add a suitable CSS selector, which targets the span with the icon, to the `TargetSelector` parameter of the component.
+If using a [TelerikTooltip](https://demos.telerik.com/blazor-ui/tooltip/overview), add a suitable CSS selector, which targets the span with the icon, to the `TargetSelector` parameter of the component.
 
 >caption Add a tooltip to the Drawer navigation icons
 
@@ -59,15 +59,17 @@ If using a TelerikTooltip, add a suitable CSS selector, which targets the span w
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Title="Counter Title", Text = "Counter", Icon = IconName.Plus},
-            new DrawerItem { Title="FetchData Title", Text = "FetchData", Icon = IconName.GridLayout},
-        };
+            new DrawerItem { Title="Counter Title", Text = "Counter", Icon = IconName.Plus, Url = "counter" },
+            new DrawerItem { Title="FetchData Title", Text = "FetchData", Icon = IconName.GridLayout, Url = "fetchdata" },
+         };
 
     public class DrawerItem
     {
         public string Title { get; set; }
         public string Text { get; set; }
         public string Icon { get; set; }
+        public string Url { get; set; }
     }
 }
 ````
+
