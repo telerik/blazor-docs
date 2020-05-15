@@ -15,6 +15,7 @@ The TreeView can be used to navigate between different pages in the applicaiton.
 To use the TreeView for navigating between pages:
 
 * Add the TreeView to your application.
+    * You may want to add it in the `MainLayout.razor` outside of the @Body, for example, in the sidebar section of your app.
 * Provide a collection of models that describe the pages you want the user to navigate to.
 * Populate its `UrlField` with the corresponding data from the model or provide a `Url` property in the model.
 
@@ -34,7 +35,7 @@ To use the TreeView for navigating between pages:
         GenerateData();
     }
 
-    public List<TreeViewModel> GenerateData()
+    public void GenerateData()
     {
         TreeViewData = new List<TreeViewModel>();
 
@@ -107,8 +108,6 @@ To use the TreeView for navigating between pages:
             HasChildren = false,
             Url = "/producs/other"
         });
-
-        return TreeViewData;
     }
 
     public class TreeViewModel
