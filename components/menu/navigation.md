@@ -84,4 +84,4 @@ To use the Menu for navigating between pages:
 
 * [Menu Overview]({%slug components/menu/overview%})
 * [Menu Data Binding]({%slug components/menu/data-binding/overview%})
-* [Drawer Templates]({%components/menu/templates%})
+* [Menu Templates]({%slug components/menu/templates%})
