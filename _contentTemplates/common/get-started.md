@@ -160,7 +160,11 @@ To setup a local NuGet package source, so you can install the Telerik components
 
 1. Find the **NuGet Package Manager** node, expand it, and select **Package Sources**.
 
-1. Click the Add (`+`) icon at the top to add the new local feed, select its name and point it to the path where you installed the components or placed the `.nupkg files` (by default, the installation goes to `C:\Program Files (x86)\Progress\Telerik UI for Blazor <VERSION>\packages`). For example:
+1. Click the Add (`+`) icon at the top to add the new local feed, select its name and point it to the path where you installed the components or placed the `.nupkg files` (by default, the installation goes to `C:\Program Files (x86)\Progress\Telerik UI for Blazor <VERSION>\packages`). 
+
+    >tip Make sure to add the packages from both the `packages` and `dpl` folders to your custom feed.
+
+    For example:
 
     ![](images/create-local-nuget-feed.png)
 #end
