@@ -15,6 +15,7 @@ The Menu can be used to navigate between different pages in the applicaiton. It 
 To use the Menu for navigating between pages:
 
 * Add the Menu to your application.
+    * You may want to add it in the `MainLayout.razor` outside of the `@Body`, for example, in the header section of your app.
 * Provide a collection of models that describe the pages you want the user to navigate to.
 * Populate its `UrlField` with the corresponding data from the model or provide a `Url` property in the model.
 
@@ -23,7 +24,7 @@ To use the Menu for navigating between pages:
 ````CSHTML
 @* This a basic example of a Menu used as Navigation. *@
 
-<TelerikMenu Data="MenuData"></TelerikMenu>
+<TelerikMenu Data="@MenuData"></TelerikMenu>
 
 
 @code {
@@ -31,13 +32,13 @@ To use the Menu for navigating between pages:
 
     protected override void OnInitialized()
     {
-        GenerateData();
+        GenerateMenuData();
     }
 
-    public List<MenuModel> GenerateData()
+    public void GenerateMenuData()
     {
         MenuData = new List<MenuModel>()
-    {
+        {
             new MenuModel()
             {
                 Text = "Contact us",
@@ -50,7 +51,7 @@ To use the Menu for navigating between pages:
                 Url = "/settings",
                 Icon = IconName.Gear,
                 Items = new List<MenuModel>()
-            {
+                {
                     new MenuModel()
                     {
                         Text = "Profile Settings",
@@ -66,8 +67,6 @@ To use the Menu for navigating between pages:
                 }
             }
         };
-
-        return MenuData;
     }
 
     public class MenuModel
