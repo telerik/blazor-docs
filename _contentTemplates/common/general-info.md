@@ -13,9 +13,9 @@ the `Format` is culture-specific and the same format may produce different resul
 #cdn
 You can reference the built-in Telerik assets from a cloud CDN instead of a local resource on your server.
 
->caption Reference the Telerik assets from the cloud
+>caption Reference the Telerik assets from the cloud in a `WebAssembly` app
 
-````ClientApp
+````CSHTML
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +35,10 @@ You can reference the built-in Telerik assets from a cloud CDN instead of a loca
  
 </html>
 ````
-````ServerApp
+
+>caption Reference the Telerik assets from the cloud in a `Server-side` app
+
+````CSHTML
 <!DOCTYPE html>
 <html>
 <head>
