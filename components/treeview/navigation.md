@@ -16,7 +16,7 @@ To use the TreeView for navigating between pages:
 
 * Add the TreeView to your application.
 * Provide a collection of models that describe the pages you want the user to navigate to.
-* Populate its `UrlField` with the corresponding data from the model or provide a `URL` property in the model.
+* Populate its `UrlField` with the corresponding data from the model or provide a `Url` property in the model.
 
 >caption Use the TreeView to navigate between pages
 
