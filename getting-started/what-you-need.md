@@ -26,15 +26,18 @@ You can review the rest of this article for information on how things work and w
 
 ## Telerik Specific Packages
 
-The Telerik UI for Blazor component suite requires the following two Telerik-specific NuGet packages:
+The Telerik UI for Blazor component suite requires the following Telerik-specific NuGet packages:
 
-* `Telerik.UI.for.Blazor` - the UI components code
+* `Telerik.UI.for.Blazor` - *the only one you need to explicitly reference* - the UI components code
 * `Telerik.DataSource` - code for working with data, needed for data binding the components
 * `Telerik.Recurrence` - code for working with recurring appointments (e.g., in the scheduler)
 
+
 Adding the `Telerik.UI.for.Blazor` package to your project will automatically add the `Telerik.DataSource` and `Telerik.Recurrence` packages as dependencies.
 
-For trial purposes, the package names are `Telerik.UI.for.Blazor.Trial`, `Telerik.DataSource.Trial` and `Telerik.Recurrence.Trial`.
+For trial purposes, the package names have the `.Trial` suffix, for example `Telerik.UI.for.Blazor.Trial`, `Telerik.DataSource.Trial` and `Telerik.Recurrence.Trial`.
+
+Exporting features use the `Telerik.Documents.SpreadsheetStreaming` package as well, and it also comes in as a dependency automatically.
 
 There are four ways to get these packages:
 
