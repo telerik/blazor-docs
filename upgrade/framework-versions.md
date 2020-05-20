@@ -23,7 +23,8 @@ Telerik UI for Blazor targets `netstandard2.1` in order to be compatible with th
 
 | .NET version              | Telerik UI for Blazor version |
 |---------------------------|-------------------------------|
-| .NET Core 3.1.3           | 2.10.0 - {{site.uiForBlazorLatestVersion}}  |
+| .NET Core 3.1.4           | {{site.uiForBlazorLatestVersion}}  |
+| .NET Core 3.1.3           | 2.10.0 - 2.13.0               |
 | .NET Core 3.1.2           | 2.9.0                         |
 | .NET Core 3.1.1           | 2.7.0 - 2.8.0                 |
 | .NET Core 3.1             | 2.5.0 - 2.6.1                 |
@@ -35,17 +36,14 @@ Telerik UI for Blazor targets `netstandard2.1` in order to be compatible with th
 
 ## Client-side Blazor
 
-The client-side (WebAssembly) flavor of Blazor is still in preview and is not part of the .NET Core 3.1 release. Blazor WebAssembly will ship as a stable release at a future date.
+The client-side (WebAssembly) flavor of Blazor is part of the .NET Core 3.1.4 release now, even though its reference versions are `3.2.0`.
 
-It is not supported by Microsoft yet and it ships as preview NuGet packages that you reference in your projects.
-
-While the release dates and numbers of the WASM flavor often match with the .NET Core versions and releases, they are separate products at the moment.
-
->caption Telerik UI for Blazor versions per WASM Preview version
+>caption Telerik UI for Blazor versions per framework version for the WebAssembly flavor
 
 | WASM Preview version                 | Telerik UI for Blazor version |
 |--------------------------------------|-------------------------------|
-| 3.2 RC1 (3.2.0-rc1.20223.4)          | 2.12.0 - {{site.uiForBlazorLatestVersion}}                  |
+| .NET Core 3.1.4                      | {{site.uiForBlazorLatestVersion}}  |
+| 3.2 RC1 (3.2.0-rc1.20223.4)          | 2.12.0 - 2.13.0               |
 | 3.2 preview 4 (3.2.0-preview4.20210.8)         | 2.11.0              |
 | 3.2 preview 3 (3.2.0-preview3.20168.3)         | 2.10.0              |
 | 3.2 preview 2 (3.2.0-preview2.20160.5)         | 2.9.0               |
