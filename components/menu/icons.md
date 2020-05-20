@@ -10,7 +10,7 @@ position: 2
 
 # Menu Icons
 
-You can put an image, sprite or a font icon for each item in the menu to illustrate its purpose for your end users. To apply them, use the following properties:
+You can put an image, icon class or a font icon for each item in the menu to illustrate its purpose for your end users. To apply them, use the following properties:
 
 * for a font icon, populate the `IconField` parameter of the component or provide an `Icon` property in the data model.
 * for an image, populate the `ImageUrlField` parameter of the component or provide an `ImageUrl` property in the data model. This is rendered as `<img src="" />` tag.
@@ -19,8 +19,6 @@ You can put an image, sprite or a font icon for each item in the menu to illustr
 You can see how to use the built-in icons in the [Font Icons]({%slug  general-information/font-icons%}) article.
 
 For a custom font icon, define the font and glyph in your `Icon` CSS class.
-
-The following example shows how to use an image from a URL, a class image, and the built-in font icons.
 
 >caption How to use icons in Telerik Menu
 
