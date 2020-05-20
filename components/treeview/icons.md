@@ -13,7 +13,7 @@ position: 2
 You can put an image, icon class or a font icon for each item in the TreeView to illustrate its purpose for your end users. To apply them, use the following properties:
 
 * for a font icon, populate the `IconField` parameter of the component or provide an `Icon` property in the data model.
-* for an image, populate the `ImageUrlField` parameter of the component or provide an `ImageUrl` property in the data model. This is rendered as `<img src="" />` tag.
+* for an image, populate the `ImageUrlField` parameter of the component or provide an `ImageUrl` property in the data model.
 * for a icon class, populate the `IconClassField` parameter of the component or provide an `IconClass` property in the data model.
 
 You can see how to use the built-in icons in the [Font Icons]({%slug  general-information/font-icons%}) article.
