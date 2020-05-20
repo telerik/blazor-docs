@@ -12,12 +12,9 @@ position: 2
 
 You can put an image, sprite or a font icon for each item in the menu to illustrate its purpose for your end users. To apply them, use the following properties:
 
-* for a font icon, populate the `IconField` parameter of the component.
- * provide an `Icon` property in the data model.
-* for an image, populate the `ImageUrlField` parameter of the component with the corresponding URL.
- * provide an `ImageUrl` property in the data model.
-* for a icon class, populate the `IconClassField` parameter of the component with the desired image class.
- * provide an `IconClass` property in the data model.
+* for a font icon, populate the `IconField` parameter of the component or provide an `Icon` property in the data model.
+* for an image, populate the `ImageUrlField` parameter of the component or provide an `ImageUrl` property in the data model. This is rendered as `<img src="" />` tag.
+* for a icon class, populate the `IconClassField` parameter of the component or provide an `IconClass` property in the data model.
 
 You can see how to use the built-in icons in the [Font Icons]({%slug  general-information/font-icons%}) article.
 
@@ -28,9 +25,13 @@ The following example shows how to use an image from a URL, a class image, and t
 >caption How to use icons in Telerik Menu
 
 ````CSHTML
-@* This example shows how to add icons to menu items provided from the data model *@
+@* This example shows how to add icons or images to menu items using the component's parameters *@
 
-<TelerikMenu Data="@MenuData"></TelerikMenu>
+<TelerikMenu Data="@MenuData"
+             IconField="@nameof(MenuModel.CustomIcon)"
+             ImageUrlField="@nameof(MenuModel.Image)"
+             IconClassField="@nameof(MenuModel.CustomIconClass)">
+</TelerikMenu>
 
 @code {
     public List<MenuModel> MenuData { get; set; }
@@ -47,17 +48,17 @@ The following example shows how to use an image from a URL, a class image, and t
             new MenuModel()
             {
                 Text = "IconField",
-                Icon = IconName.Email
+                CustomIcon = IconName.Email
             },
             new MenuModel()
             {
                 Text = "IconClassField",
-                IconClass = "oi oi-wrench",
+                CustomIconClass = "oi oi-wrench",
             },
-             new MenuModel()
+            new MenuModel()
              {
                 Text = "ImageUrlField",
-                ImageUrl = "https://demos.telerik.com/kendo-ui/content/shared/icons/16/video.png"
+                Image = "https://demos.telerik.com/kendo-ui/content/shared/icons/16/video.png"
              }
         };
     }
@@ -65,9 +66,9 @@ The following example shows how to use an image from a URL, a class image, and t
     public class MenuModel
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
-        public string ImageUrl { get; set; }
-        public string IconClass { get; set; }
+        public string CustomIcon { get; set; }
+        public string Image { get; set; }
+        public string CustomIconClass { get; set; }
     }
 }
 ````
@@ -76,6 +77,7 @@ The following example shows how to use an image from a URL, a class image, and t
 
 ![icons](images/icons.jpg)
 
+>note The `IconField` and `IconClassField` are rendered as `<span class="" />`, whereas the `ImageUrlField` is rendered as `<img src="" />`
 
 ## See Also
 
