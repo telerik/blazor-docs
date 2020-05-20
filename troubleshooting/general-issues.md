@@ -14,6 +14,8 @@ This page provides solutions for common issues you may encounter while working w
 
 * [Popups Do Not Work](#popups-do-not-work)
 * [Wrong Popup Position](#wrong-popup-position)
+* [Unable to find package Telerik.Documents.SpreadsheetStreaming](#unable-to-find-package-telerikdocumentsspreadsheetstreaming)
+
 
 ## Popups Do Not Work
 
@@ -58,6 +60,23 @@ There are several common cases when such a mismatch occurs:
 * There is more than one `<TelerikRootComponent>` in the app (for example, a certain Razor Component has its own) - there should be only one instance in the main layout.
 
 You can check the application for such issues and ensure that the `<app>` element size and position matches the `<body>` and the browser viewport, and that the `<TelerikRootComponent>` is a direct child of the `<app>` element and encompasses the `@Body` in the main layout.
+
+
+## Unable to find package Telerik.Documents.SpreadsheetStreaming
+
+When attempting to restore packages or build a solution with the `Telerik.UI.for.Blazor` NuGet package, you may get an error similar to
+
+>warning `Unable to find package Telerik.Documents.SpreadsheetStreaming. No packages exist with this id in source(s) Microsoft Visual Studio Offline Packages, nuget.org, Telerik, MyOfflinePackages`
+
+The `Telerik.Documents.SpreadsheetStreaming` package is used internally for exporting and the main package references it. It is also available from our online feed and it is in the `dpl` folder of your offline installation.
+
+The most common reasons and solutions for seeing this error (being unable to restore this particular package) are:
+
+* An offline package source is being used that does not contain it. Make sure that you add the packages from both the `packages` and `dpl` folders to such a custom local feed.
+
+* There is an issue with connecting to our online feed. For example, a firewall, network downtime or wrong credentials are used. Check the [Troubleshooting NuGet Feed Issues]({%slug installation/nuget%}#troubleshooting) section of the documentation to see how to handle that.
+
+* There is a mismatch between the versions available for restore and the referenced versions, while the Visual Studio "treat warnings as errors" setting is turned on. This can happen if one version is referenced, but another is available (for example, only certain versions are available in a custom local feed for the [Document Processing]({%slug common-features-dpl%}) packages, but the main package references an older version). In such cases, the tooling would usually resolve the newest version, but it will show a warning and VS can treat it as an error and not let you build. The solution is to check the version that is referenced by `Telerik.UI.for.Blazor` and ensure you can access that. Cleaning the solution, manually restoring the packages and re-building can also help.
 
 ## See Also
 
