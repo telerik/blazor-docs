@@ -61,8 +61,6 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
 }
 ````
 
->caption The result from the code snippet above
-
 >note The `IconField` and `IconClassField` are rendered as `<span class="" />`, whereas the `ImageUrlField` is rendered as `<img src="" />`
 
 ## See Also
