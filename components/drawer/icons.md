@@ -5,7 +5,7 @@ description: Icons and images in the Drawer for Blazor
 slug: drawer-icons
 tags: telerik,blazor,drawer,icon,iconclass,image
 published: True
-position: 15
+position: 30
 ---
 
 # Drawer Icons
@@ -20,7 +20,7 @@ You can see how to use the built-in icons in the [Font Icons]({%slug  general-in
 
 For a custom font icon, define the font and glyph in your `Icon` CSS class.
 
->caption How to use icons in Telerik Menu
+>caption How to use icons in Telerik Drawer
 
 ````CSHTML
 @* This example shows how to add icons or images to the Drawer's items properties of the model *@
