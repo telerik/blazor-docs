@@ -36,13 +36,20 @@ Telerik UI for Blazor targets `netstandard2.1` in order to be compatible with th
 
 ## Client-side Blazor
 
-The client-side (WebAssembly) flavor of Blazor is part of the .NET Core 3.1.4 release now, even though its reference versions are `3.2.0`.
+The client-side (WebAssembly) flavor of Blazor is a set of separate NuGet packages whose version may not match the .NET Core version they run on.
 
->caption Telerik UI for Blazor versions per framework version for the WebAssembly flavor
+>caption Telerik UI for Blazor versions per WebAssembly packages version
+
+| WebAssembly version                  | Telerik UI for Blazor version      |
+|--------------------------------------|-------------------------------     |
+| 3.2.0 RTM                            | {{site.uiForBlazorLatestVersion}}  |
+
+
+
+>caption Telerik UI for Blazor versions per WASM Preview version
 
 | WASM Preview version                 | Telerik UI for Blazor version |
 |--------------------------------------|-------------------------------|
-| .NET Core 3.1.4                      | {{site.uiForBlazorLatestVersion}}  |
 | 3.2 RC1 (3.2.0-rc1.20223.4)          | 2.12.0 - 2.13.0               |
 | 3.2 preview 4 (3.2.0-preview4.20210.8)         | 2.11.0              |
 | 3.2 preview 3 (3.2.0-preview3.20168.3)         | 2.10.0              |
