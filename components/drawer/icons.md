@@ -23,6 +23,7 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
 >caption How to use icons in Telerik Drawer
 
 ````CSHTML
+
 @* This example shows how to add icons or images to the Drawer's items properties of the model *@
 
 <TelerikDrawer Data="@Data"
