@@ -23,7 +23,7 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
 >caption How to use icons in Telerik Menu
 
 ````CSHTML
-@* This example shows how to add icons or images to menu items using the component's parameters *@
+@* This example shows how to add icons or images to menu items using the component parameters *@
 
 <TelerikMenu Data="@MenuData"
              IconField="@nameof(MenuModel.CustomIcon)"

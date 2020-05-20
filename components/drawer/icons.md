@@ -24,7 +24,7 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
 
 ````CSHTML
 
-@* This example shows how to add icons or images to the Drawer's items properties of the model *@
+@* This example shows how to add icons or images to the Drawer items properties of the model *@
 
 <TelerikDrawer Data="@Data"
                MiniMode="true"
@@ -67,4 +67,4 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
 
 ## See Also
 
-  * [Menu Overview]({%slug components/menu/overview%})
+  * [Drawer Overview]({%slug drawer-overview%})
