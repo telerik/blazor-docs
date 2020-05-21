@@ -34,9 +34,9 @@ You can find the full list of available icons in the [Kendo UI Web Font Icons Li
 
 @* <TelerikIcon Icon="audio" /> *@ @* This would also render the same audio icon *@
 
-<TelerikIcon IconClass="oi oi-home" /> @* home icon from OpenIconic, assuming you have loaded the font on the pag, you can use your own CSS classes and font icon fonts *@
+<TelerikIcon IconClass="oi oi-home" /> @* home icon from OpenIconic, assuming you have loaded the font on the page, you can use your own CSS classes and font icon fonts *@
 
-<TelerikIcon ImageUrl="https://demos.telerik.com/kendo-ui/content/shared/icons/sports/snowboarding.png" /> @* an image by URL, renders an actual <img /> tag *@
+<TelerikIcon ImageUrl="https://docs.telerik.com/blazor-ui/images/snowboarding.png" /> @* an image by URL, renders an actual <img /> tag *@
 ````
 
 >caption The result from the snippet above
