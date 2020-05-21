@@ -56,7 +56,7 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
             new MenuModel()
              {
                 Text = "ImageUrlField",
-                MyImage = "https://demos.telerik.com/kendo-ui/content/shared/icons/16/video.png"
+                MyImage = "https://docs.telerik.com/blazor-ui/images/video.png"
              }
         };
     }
