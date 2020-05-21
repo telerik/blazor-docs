@@ -5,30 +5,30 @@ description: Icons and images in the Menu for Blazor
 slug: menu-icons
 tags: telerik,blazor,menu,icon,iconclass,image
 published: True
-position: 2
+position: 22
 ---
 
 # Menu Icons
 
-You can put an image, icon class or a font icon for each item in the menu to illustrate its purpose for your end users. To apply them, use the following properties:
+You can put an image, icon class or a font icon for each item in the Menu to illustrate its purpose for your end users. To apply them, use the following properties:
 
-* for a font icon, populate the `IconField` parameter of the component or provide an `Icon` property in the data model.
-* for an image, populate the `ImageUrlField` parameter of the component or provide an `ImageUrl` property in the data model.
-* for a icon class, populate the `IconClassField` parameter of the component or provide an `IconClass` property in the data model.
+* for a [Telerik font icon]({%slug general-information/font-icons%}), point the `IconField` parameter of the component to a string field of the model that contains the corresponding icon name.
 
-You can see how to use the built-in icons in the [Font Icons]({%slug  general-information/font-icons%}) article.
+* for a raster image, point the `ImageUrlField` parameter of the component to a `string` field of the model that contains the url to the icon (relative or absolute).
 
-For a custom font icon, define the font and glyph in your `Icon` CSS class.
+* for a custom font icon class, point the `IconClassField` parameter of the component to a `string` field of the model that contains the desired CSS class list which provides the required rules (like font name and glyph symbol). Make sure to also reference the desired font in your app and to use its own recommendations.
+
+The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span class="the custom class" />` and as `<img src="the-image-src" />`
 
 >caption How to use icons in Telerik Menu
 
 ````CSHTML
-@* This example shows how to add icons or images to menu items using the component parameters *@
+@* This example shows how to add icons or images to menu items *@
 
 <TelerikMenu Data="@MenuData"
-             IconField="@nameof(MenuModel.CustomIcon)"
-             ImageUrlField="@nameof(MenuModel.Image)"
-             IconClassField="@nameof(MenuModel.CustomIconClass)">
+             IconField="@nameof(MenuModel.TelerikIcon)"
+             ImageUrlField="@nameof(MenuModel.MyImage)"
+             IconClassField="@nameof(MenuModel.MyIconClass)">
 </TelerikMenu>
 
 @code {
@@ -46,17 +46,17 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
             new MenuModel()
             {
                 Text = "IconField",
-                CustomIcon = IconName.Email
+                TelerikIcon = IconName.Email
             },
             new MenuModel()
             {
                 Text = "IconClassField",
-                CustomIconClass = "oi oi-wrench",
+                MyIconClass = "oi oi-wrench",
             },
             new MenuModel()
              {
                 Text = "ImageUrlField",
-                Image = "https://demos.telerik.com/kendo-ui/content/shared/icons/16/video.png"
+                MyImage = "https://demos.telerik.com/kendo-ui/content/shared/icons/16/video.png"
              }
         };
     }
@@ -64,9 +64,9 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
     public class MenuModel
     {
         public string Text { get; set; }
-        public string CustomIcon { get; set; }
-        public string Image { get; set; }
-        public string CustomIconClass { get; set; }
+        public string TelerikIcon { get; set; }
+        public string MyImage { get; set; }
+        public string MyIconClass { get; set; }
     }
 }
 ````
@@ -74,8 +74,6 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
 >caption The result from the code snippet above
 
 ![icons](images/icons.jpg)
-
->note The `IconField` and `IconClassField` are rendered as `<span class="" />`, whereas the `ImageUrlField` is rendered as `<img src="" />`
 
 ## See Also
 
