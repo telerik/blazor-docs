@@ -24,7 +24,7 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
 
 ````CSHTML
 
-@* This example shows how to add icons or images to the Drawer items properties of the model *@
+@* This example shows how to add icons to the Drawer items properties of the model *@
 
 <TelerikDrawer Data="@Data"
                MiniMode="true"
@@ -47,19 +47,20 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
     IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>()
 {
             new DrawerItem { Text = "Current Location", Icon = IconName.Pin},
-            new DrawerItem { Text = "Navigation", IconClass = "oi oi-globe"},
-            new DrawerItem { Text = "Favourite Locations", ImageUrl = "https://demos.telerik.com/kendo-ui/content/shared/icons/16/star.png"},
+            new DrawerItem { Text = "Navigation", Icon = IconName.Globe},
+            new DrawerItem { Text = "Favourite Locations", Icon = IconName.Star},
     };
 
     public class DrawerItem
     {
         public string Text { get; set; }
         public string Icon { get; set; }
-        public string ImageUrl { get; set; }
-        public string IconClass { get; set; }
     }
 }
 ````
+>caption The result from the code snippet above
+
+![icons](images/drawer-icons.png)
 
 >note The `IconField` and `IconClassField` are rendered as `<span class="" />`, whereas the `ImageUrlField` is rendered as `<img src="" />`
 
