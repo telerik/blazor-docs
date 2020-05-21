@@ -33,7 +33,7 @@ The following example shows how to use an image from a URL, a sprite image, and 
 <style>
     /* the sprite for the first button is defined through a CSS rule matchin its Class */
     .netherlandsFlag {
-        background-image: url("https://demos.telerik.com/kendo-ui/content/shared/styles/flags.png");
+        background-image: url("https://docs.telerik.com/blazor-ui/images/flags.png");
         background-position: 0 -64px;
     }
 </style>

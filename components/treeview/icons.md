@@ -5,7 +5,7 @@ description: Icons and images in the TreeView for Blazor
 slug: treeview-icons
 tags: telerik,blazor,treeview,icon,iconclass,image
 published: True
-position: 6
+position: 10
 ---
 
 # TreeView Icons
@@ -23,7 +23,8 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
 >caption How to use icons in Telerik TreeView
 
 ````CSHTML
-@* This example shows how to add icons or images to the TreeView items *@
+@* This example shows how to add icons or images to the TreeView items
+Make sure that you also refernce the OpenIconic font that comes with the Blazor App template to see the custom font icon *@
 
 <TelerikTreeView Data="@TreeViewData">
     <TreeViewBindings>
@@ -85,9 +86,9 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
 }
 ````
 
->caption The result from the code snippet above
+>caption The result from the code snippet above, after expanding the first node
 
-![icons](images/icons.jpg)
+![icons](images/icons.png)
 
 ## See Also
 

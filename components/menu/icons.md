@@ -5,7 +5,7 @@ description: Icons and images in the Menu for Blazor
 slug: menu-icons
 tags: telerik,blazor,menu,icon,iconclass,image
 published: True
-position: 22
+position: 15
 ---
 
 # Menu Icons
@@ -23,7 +23,8 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
 >caption How to use icons in Telerik Menu
 
 ````CSHTML
-@* This example shows how to add icons or images to menu items *@
+@* This example shows how to add icons or images to menu items
+Make sure that you also refernce the OpenIconic font that comes with the Blazor App template to see the custom font icon *@
 
 <TelerikMenu Data="@MenuData"
              IconField="@nameof(MenuModel.TelerikIcon)"
@@ -42,7 +43,7 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
     public void GenerateMenuData()
     {
         MenuData = new List<MenuModel>()
-{
+        {
             new MenuModel()
             {
                 Text = "IconField",
@@ -73,7 +74,7 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
 
 >caption The result from the code snippet above
 
-![icons](images/icons.jpg)
+![icons](images/icons.png)
 
 ## See Also
 
