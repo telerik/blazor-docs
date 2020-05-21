@@ -5,27 +5,33 @@ description: Icons and images in the TreeView for Blazor
 slug: treeview-icons
 tags: telerik,blazor,treeview,icon,iconclass,image
 published: True
-position: 2
+position: 6
 ---
 
 # TreeView Icons
 
 You can put an image, icon class or a font icon for each item in the TreeView to illustrate its purpose for your end users. To apply them, use the following properties:
 
-* for a font icon, populate the `IconField` parameter of the component or provide an `Icon` property in the data model.
-* for an image, populate the `ImageUrlField` parameter of the component or provide an `ImageUrl` property in the data model.
-* for a icon class, populate the `IconClassField` parameter of the component or provide an `IconClass` property in the data model.
+* for a [Telerik font icon]({%slug general-information/font-icons%}), point the `IconField` parameter of the component to a string field of the model that contains the corresponding icon name.
 
-You can see how to use the built-in icons in the [Font Icons]({%slug  general-information/font-icons%}) article.
+* for a raster image, point the `ImageUrlField` parameter of the component to a `string` field of the model that contains the url to the icon (relative or absolute).
 
-For a custom font icon, define the font and glyph in your `Icon` CSS class.
+* for a custom font icon class, point the `IconClassField` parameter of the component to a `string` field of the model that contains the desired CSS class list which provides the required rules (like font name and glyph symbol). Make sure to also reference the desired font in your app and to use its own recommendations.
+
+The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span class="the custom class" />` and as `<img src="the-image-src" />`
 
 >caption How to use icons in Telerik TreeView
 
 ````CSHTML
-@* This example shows how to add icons or images to the TreeView items properties of the model *@
+@* This example shows how to add icons or images to the TreeView items *@
 
-<TelerikTreeView Data="@TreeViewData"></TelerikTreeView>
+<TelerikTreeView Data="@TreeViewData">
+    <TreeViewBindings>
+        <TreeViewBinding IconClassField="@nameof(TreeViewModel.MyIconClass)"
+                         ImageUrlField="@nameof(TreeViewModel.MyImageUrl)"
+                         IconField="@nameof(TreeViewModel.TelerikIcon)" />
+    </TreeViewBindings>
+</TelerikTreeView>
 
 @code {
     public List<TreeViewModel> TreeViewData { get; set; }
@@ -45,7 +51,7 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
             Text = "Company",
             ParentId = null,
             HasChildren = true,
-            Icon = "home"
+            TelerikIcon = "home"
         });
 
         TreeViewData.Add(new TreeViewModel()
@@ -54,7 +60,7 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
             Text = "Contact us",
             ParentId = 1,
             HasChildren = false,
-            IconClass = "oi oi-envelope-closed"
+            MyIconClass = "oi oi-envelope-closed"
         });
 
         TreeViewData.Add(new TreeViewModel()
@@ -62,7 +68,7 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
             Id = 3,
             Text = "Audio",
             ParentId = null,
-            ImageUrl = "https://demos.telerik.com/kendo-ui/content/shared/icons/16/speaker.png"
+            MyImageUrl = "https://docs.telerik.com/blazor-ui/images/speaker.png"
         });
     }
 
@@ -72,9 +78,9 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
         public string Text { get; set; }
         public bool HasChildren { get; set; }
         public int? ParentId { get; set; }
-        public string Icon { get; set; }
-        public string IconClass { get; set; }
-        public string ImageUrl { get; set; }
+        public string TelerikIcon { get; set; }
+        public string MyIconClass { get; set; }
+        public string MyImageUrl { get; set; }
     }
 }
 ````
@@ -82,8 +88,6 @@ For a custom font icon, define the font and glyph in your `Icon` CSS class.
 >caption The result from the code snippet above
 
 ![icons](images/icons.jpg)
-
->note The `IconField` and `IconClassField` are rendered as `<span class="" />`, whereas the `ImageUrlField` is rendered as `<img src="" />`
 
 ## See Also
 
