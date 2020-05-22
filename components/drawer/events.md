@@ -44,13 +44,20 @@ The `SelectedItemChanged` event fires every time the user clicks on a new item f
         Console.WriteLine($"The user selected {item.Text}");
     }
 
+    protected override void OnInitialized()
+    {
+        //You can preselect an item in the lifecycle methods that the framework provides.
+        selectedItem = Data.FirstOrDefault();
+        //Here you can use another LINQ expressions like Where() or else depending on your application needs.
+    }
+
     public DrawerItem selectedItem { get; set; }
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
             new DrawerItem { Text = "Counter", Icon = IconName.Plus},
             new DrawerItem { Text = "FetchData", Icon = IconName.GridLayout},
-        };
+                };
 
     public class DrawerItem
     {
