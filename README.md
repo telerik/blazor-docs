@@ -11,6 +11,10 @@ If you've arrived here wanting to search and peruse our docs, you'd be better se
 
 **Pull Requests are welcome!** If you see mistakes or missing info, fix it in a PR (you may need to fork the repo for something larger than a typo you can fix online), **or open an Issue**. This will help everyone have better documentation.
 
+## Offline PDF Version
+
+You can download a PDF with this documentation from your telerik.com account. Go to the Downloads section, navigate to UI for Blazor, choose the version you want from the dropdown, and get the PDF file under the Documentation section.
+
 ## Running Locally
 
 You can generate a static web site from the Telerik® UI for Blazor documentation and browse it locally.
