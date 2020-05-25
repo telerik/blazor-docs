@@ -127,6 +127,8 @@ navigation:
         title: "AutoComplete"
      "*barcode":
         title: "BarCode"
+     "*togglebutton":
+        title: "ToggleButton"
      "*button":
         title: "Button"
      "*buttongroup":
@@ -271,6 +273,7 @@ intro_columns:
     title: "Navigation"
     items:
       "Button": "components/button/overview"
+      "Toggle Button": "togglebutton-overview"
       "Menu": "components/menu/overview"
       "Tab Strip": "components/tabstrip/overview"
       "TreeView": "components/treeview/overview"
