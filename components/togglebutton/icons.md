@@ -13,35 +13,56 @@ position: 2
 
 You can put an image, sprite or a font icon in the toggle button to illustrate its purpose for your end users. To apply them, use the following properties:
 
-* for a font icon, use the `Icon` attribute to set the font icon class.
-* for an image, use the `ImageUrl` attribute to provide the URL
+* for a [Telerik font icon]({%slug general-information/font-icons%}), use the `Icon` attribute to set the font icon class.
+
+* for a raster image, use the `ImageUrl` attribute to provide the URL to the icon (relative or absolute).
+
+* for a custom font icon class, set the `IconClass` parameter of the component to the desired CSS class list which provides the required rules (like font name and glyph symbol). Make sure to also reference the desired font in your app and to use its own recommendations.
+
 * for a sprite, set the `SpriteClass` attribute to `k-icon MySpriteClass` where `MySpriteClass` defines the CSS rules for the sprite.
 
-You can see how to use the built-in icons in the [Font Icons]({%slug  general-information/font-icons%}) article.
-
-For a custom font icon, define the font and glyph in your `Icon` CSS class.
 
 The following example shows how to use an image from a URL, a sprite image, and the built-in font icons.
 
->caption How to use icons in Telerik Button
+>caption How to use icons in the Telerik Toggle Button
 
 ````CSHTML
-<TelerikButton SpriteClass="k-icon netherlandsFlag">Sprite</TelerikButton>
-<TelerikButton Icon="@IconName.Filter">Font Icon</TelerikButton>
-<TelerikButton ImageUrl="https://docs.telerik.com/blazor-ui/images/snowboarding.png">Image URL</TelerikButton>
+@* This sample shows how you can use conditional logic to show different icons in the different states.
+It also shows how to use telerik icons, raster icons and sprite images*@
+
+<TelerikToggleButton SpriteClass="@( FlagSelected ? "flag netherlands" : "flag brazil")" @bind-Selected="@FlagSelected">Sprite</TelerikToggleButton>
+
+<TelerikToggleButton Icon="@( FontSelected ? IconName.VolumeOff : IconName.VolumeUp )" @bind-Selected="@FontSelected">Font Icon</TelerikToggleButton>
+
+<TelerikToggleButton ImageUrl="@RasterIconUrl" @bind-Selected="@RasterSelected">Image URL</TelerikToggleButton>
 
 <style>
     /* the sprite for the first button is defined through a CSS rule matchin its Class */
-    .netherlandsFlag {
+    .flag {
         background-image: url("https://docs.telerik.com/blazor-ui/images/flags.png");
-        background-position: 0 -64px;
     }
+
+        .flag.netherlands {
+            background-position: 0 -64px;
+            background-color: white;
+        }
+
+        .flag.brazil {
+            background-position: 0 0;
+        }
 </style>
+
+@code{
+    bool FlagSelected { get; set; }
+    bool FontSelected { get; set; }
+    bool RasterSelected { get; set; }
+    string RasterIconUrl => RasterSelected ? "https://docs.telerik.com/blazor-ui/images/snowboarding.png" : "https://docs.telerik.com/blazor-ui/images/swimming.png";
+}
 ````
 
 >caption The result from the code snippet above
 
-![](images/icon-buttons.png)
+![Icons in Toggle Buttons](images/toggle-button-images.png)
 
 >tip You can use relative paths to your images in the `wwwroot` folder. The example above uses absolute paths to make it easy for you to see the results without preparing images.
 
@@ -56,4 +77,4 @@ The following example shows how to use an image from a URL, a sprite image, and 
 
 ## See Also
 
-  * [Button Overview]({%slug components/button/overview%})
+  * [ToggleButton Overview]({%slug togglebutton-overview%})

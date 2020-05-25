@@ -18,26 +18,56 @@ This article explains the events available in the Telerik ToggleButton for Blazo
 
 ## SelectedChanged
 
+The `SelectedChanged` fires when the user changes the state of the button by clicking it (or by using `Space` or `Enter`). You can use it to call local view-model logic. To fetch data or perform async operations, use the [OnClick](#onclick) event.
+
+>caption Handle the SelectedChanged event
+
+````CSHTML
+@* If you do not update the view-model in the handler, you can effectively cancel the event *@
+
+<TelerikToggleButton Selected="@IsSelected" SelectedChanged="@MySelectedChangedHandler">
+    Selected: @IsSelected
+</TelerikToggleButton>
+
+@code {
+    bool IsSelected { get; set; }
+
+    void MySelectedChangeHandler(bool currSelectedState)
+    {
+        IsSelected = currSelectedState;
+        //you have to update the model manually because handling the SelectedChanged event does not let you use @bind-Selected
+
+        Console.WriteLine($"Current state is {IsSelected}");
+    }
+}
+````
 
 
 ## OnClick 
 
-The `OnClick` event fires when the user clicks or taps the button.
+The `OnClick` event fires when the user clicks or taps the button. You can use it to invoke async logic such as fetching data or calling a service.
 
->caption Handle the button click
+>caption Handle the Toggle Button OnClick event
 
 ````CSHTML
-@someVariable
+@result
+<br />
 
-<TelerikButton OnClick="@myHandler">Click me!</TelerikButton>
+<TelerikToggleButton @bind-Selected="@IsSelected" OnClick="@ToggleButtonClickHandler">
+    Selected: &nbsp; <strong>@IsSelected</strong>
+</TelerikToggleButton>
 
 @code {
-	MarkupString someVariable;
+    bool IsSelected { get; set; } = true;
 
-	void myHandler()
-	{
-		someVariable = new MarkupString(DateTime.Now.ToString());
-	}
+    string result { get; set; }
+
+    async Task ToggleButtonClickHandler()
+    {
+        await Task.Delay(500); // simulate a service call
+        string currState = IsSelected ? "ON" : "OFF";
+        result = $"The user clicked the {currState} state.";
+    }
 }
 ````
 
@@ -46,4 +76,4 @@ The `OnClick` event fires when the user clicks or taps the button.
 
 ## See Also
 
-  * [Button Overview]({%slug components/button/overview%})
+  * [ToggleButton Overview]({%slug togglebutton-overview%})

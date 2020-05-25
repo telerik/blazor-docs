@@ -12,112 +12,102 @@ position: 0
 
 This article provides information about the ToggleButton component and its core features.
 
-The ToggleButton component provides styling according to the [chosen theme]({%slug general-information/themes%}), click [event]({%slug button-events%}) and [icons]({%slug button-icons%}). You can also disable the button and set its [type]({%slug button-type%}).
+The ToggleButton component provides two-state styling according to the [chosen theme]({%slug general-information/themes%}), [events]({%slug togglebutton-events%}) and [icons]({%slug togglebutton-icons%}).
 
 In this article:
 
 * [Basic Button](#basic-button)
-* [Primary Button](#primary-button)
 * [Disabled State](#disabled-state)
 * [Styling](#styling)
 
 
-
 ## Basic Button
 
-To add a Telerik Button to your Blazor app, use the `<TelerikButton>` tag:
+To add a Telerik ToggleButton to your Blazor app, use the `<TelerikToggleButton>` tag. You may also want to add conditional logic for its content, icon or class based on its `Selected` field.
 
->caption Basic Telerik Button with OnClick event handling
+>caption Basic Telerik ToggleButton
 
 ````CSHTML
 @result
 <br />
-<TelerikButton OnClick="@OnClickHandler">Hello!</TelerikButton>
+
+<TelerikToggleButton @bind-Selected="@IsSelected" OnClick="@ToggleButtonClickHandler">
+    Selected: &nbsp; <strong>@IsSelected</strong>
+</TelerikToggleButton>
 
 @code {
-    string result;
+    bool IsSelected { get; set; } = true;
 
-    async Task OnClickHandler()
+    string result { get; set; }
+
+    async Task ToggleButtonClickHandler()
     {
-        result = DateTime.Now.ToString();
+        string currState = IsSelected ? "ON" : "OFF";
+        result = $"The user clicked the {currState} state.";
     }
 }
 ````
 
 >caption The result from the code snippet above
 
-![](images/basic-button.png)
-
->caption Component namespace and reference
-
-````CSHTML
-@using Telerik.Blazor.Components
-
-<TelerikButton @ref="theButton">Hello!</TelerikButton>
-
-@code{
-	Telerik.Blazor.Components.TelerikButton theButton;
-}
-````
-
-## Primary Button
-
-You can also make the button use a strong color to attact attention, called Primary button styling. To do that, set its `Primary` property to true.
-
->caption Button with the Primary color scheme from the current theme
-
-````CSHTML
-<TelerikButton Primary="true">Primary</TelerikButton>
-````
-
->caption The result from the code snippet above, with the Default theme
-
-![](images/primary-button.png)
+![Basic Toggle Button](images/toggle-button-overview.gif)
 
 
 ## Disabled State
 
 To disable a button, set its `Enabled` attribute to `false`.
 
->caption Disabled Telerik Button
+>caption Disabled Telerik ToggleButton
 
 ````CSHTML
-<TelerikButton Enabled="false">Disabled Button</TelerikButton>
+<TelerikToggleButton Enabled="false">Disabled Button</TelerikToggleButton>
 ````
 
 >caption Comparison between disabled and enabled button
 
-![](images/disabled-button.png)
+![Disabled and Enabled Toggle Button](images/disabled-toggle-button.png)
 
 ## Styling
 
-You can style the button through its `Class` attribute to define your own CSS rules that apply to the HTML rendering.
+You can style the button through its `Class` attribute to define your own CSS rules that apply to the HTML rendering. You may want to make them conditional based on its `Selected` state.
 
 >caption Set CSS class to the button and change its appearance
 
 ````CSHTML
-<TelerikButton Class="RedText">My text is red.</TelerikButton>
+<TelerikToggleButton Class="@( IsSelected ? "my-on-class" : "the-off-class" )"
+                     @bind-Selected="@IsSelected">
+    Selected: @IsSelected
+</TelerikToggleButton>
+
+@code {
+    bool IsSelected { get; set; }
+}
 
 <style>
-	.RedText,
-	.RedText:hover {
-		color: red;
-	}
+    .my-on-class,
+    .my-on-class:hover {
+        color: yellow;
+        font-weight: 700;
+    }
+
+    .the-off-class,
+    .the-off-class:hover {
+        border: 2px solid blue;
+    }
 </style>
 ````
 
 >caption The result from the code snippet above
 
-![](images/red-button.png)
+![Toggle Button Conditional Styling](images/toggle-button-styling.png)
 
 
 
 
 ## See Also
 
-  * [Live Demo: Button](https://demos.telerik.com/blazor-ui/button/index)
-  * [Events]({%slug button-events%})
-  * [Icons]({%slug button-icons%})
-  * [Type]({%slug button-type%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikButton)
+  * [Live Demo: ToggleButton](https://demos.telerik.com/blazor-ui/togglebutton/index)
+  * [Events]({%slug togglebutton-events%})
+  * [Icons]({%slug togglebutton-icons%})
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikToggleButton)
    
