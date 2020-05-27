@@ -374,6 +374,14 @@ defaults:
         res_type: api
         kind: api
 
+- 
+    scope:
+        path: ""
+    values:
+        announcement: |
+             Learn how to build Full-Stack C# apps with Telerik UI for Blazor and Entity Framework in no time. <a href="https://www.telerik.com/campaigns/blazor/wb-blazor-in-depth-webinar?utm_medium=internal&utm_source=yellowribbon&utm_campaign=blazor-webinar-weekofblazor" target="_blank">Save your seat</a>!
+
+
 #type_links:
 #    "kendo.Class": "/api/javascript/class"
 #    "kendo.data.DataSource": "/api/javascript/data/datasource"
