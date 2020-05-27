@@ -13,6 +13,7 @@ position: 20
 This article explains the events available in the Telerik TreeView for Blazor:
 
 * [OnExpand](#onexpand)
+* [OnItemClick](#onitemclick)
 
 ## OnExpand
 
@@ -36,7 +37,7 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
         TreeItem node = args.Item as TreeItem; // Use your actual model(s) for the cast
 
         string action = args.Expanded ? "expanded" : "collapsed";
-        
+
         string lastAction = $"{node.Text} is now {action}, on {DateTime.Now}<br />";
         Logger = new MarkupString(Logger + lastAction);
     }
@@ -132,6 +133,159 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
+## OnItemClick
+
+The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an node (item) of the TreeView. You can use this event to react on user clicking on a node and load data on demand for another component.
+
+ >caption Handle OnItemClick to load data on demand for another component based on user click
+
+ ````CSHTML
+@* Load data on demand based on user click action *@
+
+ <div>
+     <TelerikTreeView Data="@FlatData" OnItemClick="@OnItemClickHandler">
+         <TreeViewBindings>
+             <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+         </TreeViewBindings>
+     </TelerikTreeView>
+ </div>
+
+ @if (ChosenItem != null)
+ {
+     <TelerikGrid Data="@GridData"
+                  Width="500px">
+         <GridColumns>
+             <GridColumn Field="@nameof(GridDataModel.Id)" Title="Id"></GridColumn>
+             <GridColumn Field="@nameof(GridDataModel.Name)" Title="Name"></GridColumn>
+         </GridColumns>
+     </TelerikGrid>
+ }
+
+
+ @code {
+     TreeItem ChosenItem { get; set; }
+
+     void OnItemClickHandler(TreeViewItemClickEventArgs e)
+     {
+         var item = e.Item as TreeItem;
+         ChosenItem = item;
+
+         //perform actual database operations here
+         LoadGridDataOnDemand(ChosenItem.Id);
+     }
+
+     public IEnumerable<GridDataModel> GridData { get; set; }
+
+     public List<TreeItem> FlatData { get; set; }
+
+     protected override void OnInitialized()
+     {
+         LoadFlatData();
+         GridData = Data;
+     }
+
+     private void LoadGridDataOnDemand(int id)
+     {
+         GridData = Data.Where(x => x.Id == id);
+     }
+
+     #region Data Generation
+     public IEnumerable<GridDataModel> Data { get; set; } = Enumerable.Range(1, 20).Select(x => new GridDataModel()
+     {
+         Id = x,
+         Name = $"Name {x}"
+     });
+
+     private void LoadFlatData()
+     {
+         List<TreeItem> items = new List<TreeItem>();
+
+         items.Add(new TreeItem()
+         {
+             Id = 1,
+             Text = "Project",
+             ParentIdValue = null,
+             HasChildren = true,
+             Icon = "folder",
+             Expanded = true
+         });
+
+         items.Add(new TreeItem()
+         {
+             Id = 2,
+             Text = "Design",
+             ParentIdValue = 1,
+             HasChildren = true,
+             Icon = "brush",
+             Expanded = true
+         });
+         items.Add(new TreeItem()
+         {
+             Id = 3,
+             Text = "Implementation",
+             ParentIdValue = 1,
+             HasChildren = true,
+             Icon = "folder",
+             Expanded = true
+         });
+
+         items.Add(new TreeItem()
+         {
+             Id = 4,
+             Text = "site.psd",
+             ParentIdValue = 2,
+             HasChildren = false,
+             Icon = "psd",
+             Expanded = true
+         });
+         items.Add(new TreeItem()
+         {
+             Id = 5,
+             Text = "index.js",
+             ParentIdValue = 3,
+             HasChildren = false,
+             Icon = "js"
+         });
+         items.Add(new TreeItem()
+         {
+             Id = 6,
+             Text = "index.html",
+             ParentIdValue = 3,
+             HasChildren = false,
+             Icon = "html"
+         });
+         items.Add(new TreeItem()
+         {
+             Id = 7,
+             Text = "styles.css",
+             ParentIdValue = 3,
+             HasChildren = false,
+             Icon = "css"
+         });
+
+         FlatData = items;
+     }
+     #endregion
+
+     #region Data Models
+     public class GridDataModel
+     {
+         public int Id { get; set; }
+         public string Name { get; set; }
+     }
+
+     public class TreeItem
+     {
+         public int Id { get; set; }
+         public string Text { get; set; }
+         public int? ParentIdValue { get; set; }
+         public bool HasChildren { get; set; }
+         public string Icon { get; set; }
+         public bool Expanded { get; set; }
+     }
+     #endregion
+ }
+ ````
 
 ## See Also
 
