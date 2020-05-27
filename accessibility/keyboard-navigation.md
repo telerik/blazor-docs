@@ -60,6 +60,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 *  [TimePicker](https://demos.telerik.com/blazor-ui/timepicker/keyboard-navigation)
 
+*  [ToggleButton](https://demos.telerik.com/blazor-ui/togglebutton/keyboard-navigation)
+
 *  [TreeView](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation)
 
 *  [Upload](https://demos.telerik.com/blazor-ui/upload/keyboard-navigation)
