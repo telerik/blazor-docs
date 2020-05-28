@@ -12,15 +12,12 @@ position: 1
 
 This page provides solutions for common issues you may encounter while working with Telerik UI for Blazor components.
 
-
-<!-- Start Document Outline -->
-
 * [Popups Do Not Work](#popups-do-not-work)
 * [Wrong Popup Position](#wrong-popup-position)
 * [Unable to find package Telerik.Documents.SpreadsheetStreaming](#unable-to-find-package-telerikdocumentsspreadsheetstreaming)
 * [Cannot provide a value for property 'Localizer'](#cannot-provide-a-value-for-property-localizer)
+* [Slow Performance](#slow-performance)
 
-<!-- End Document Outline -->
 
 
 ## Popups Do Not Work
@@ -97,6 +94,28 @@ There can be two common causes for the problem:
 * The Telerik services are not registered on the app, a line similar to `services.AddTelerikBlazor();` is missing. You can read more about where you need to add that in the [What You Need - Project Configuration]({%slug getting-started/what-you-need%}#project-configuration) article section.
 
 * The application uses localization, or there is a code snippet that does (e.g., a grid with custom buttons that are localized, copied over from another place), but the current app does not provide the necessary project-specific service. You can read more about implementing one in the [Localization]({%slug globalization-localization%}) article.
+
+
+## Slow Performance
+
+When building a Blazor app, especially on the WebAssembly flavor, it is likely that the first time you have a large set of data and complex interactions will be when you add a Telerik Grid to your project. So, it may seem like a slowdown comes from the grid, but this is not necessarily the case, and there are several important factors into play:
+
+* Whether you build the WebAssembly app in `Debug` or `Release` mode makes a significant difference in its performance. To see what you users will see, build your app in `Release` mode. It defaults to `Debug` while you are developing it.
+
+* WebAssembly is still considerably slower than server-side Blazor, and Microsoft are working on that.
+    * The first big improvement that should come from the framework is AOT Compilation (ahead-of-time compilation), and when it becomes available the grid should benefit from it immediately.
+    
+* The performance of the Telerik components is quite close to plain HTML elements rendering, especially considering all the additional features, events and beautiful rendering they add.
+
+There are also certain measures a web app should take to improve its performance in general. For example:
+
+* Enable [Paging]({%slug components/grid/features/paging%}) or [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}) in the grid, and use a reasonable page size (for exapmle, 10 to 20 or 40, as more than 20 items can rarely fit on a screen anyway). Also, if you have many columns, enable [Column Virtualization]({%slug grid-columns-virtual%}).
+
+* Avoid loading all the data at once, only load and render relevant chunks. For example, use the [OnRead event of the Grid]({%slug components/grid/manual-operations%}) for the grid to perform all operations, and use [custom filtering in the ComboBox through its own OnRead event]({%slug components/combobox/events%}#onread). This also applies to creating lists of a lot of components in your own `foreach` loops - consider implementing your own virtual scrolling or use the [Telerik Pager]({%slug pager-overview%}) to help you separate them into smaller sets.
+
+* When using a series of your own components on the page, consider overriding their `ShouldRender` methods so they render only when needed. For example, an `EventCallback` whose handler is an `async Task` will render its own component, its parent and siblings twice, and you can reduce that to once.
+
+
 
 
 ## See Also
