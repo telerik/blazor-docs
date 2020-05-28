@@ -53,6 +53,8 @@ You can sort this grid on the different columns to see the results. The `Name` c
 
 You can sort the grid from your own code through its [state]({%slug grid-state%}).
 
+@[template](/_contentTemplates/grid/state.md#initial-state)
+
 >caption Set sorting programmatically
 
 ````CSHTML

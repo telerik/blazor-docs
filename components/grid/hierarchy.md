@@ -92,6 +92,8 @@ Click the + icon to expand the row details
 
 You can choose which detail templates will be expanded from your code through the grid [state]({%slug grid-state%}) by their indexes (all detail templates are collapsed by default).
 
+@[template](/_contentTemplates/grid/state.md#initial-state)
+
 >caption Expand DetailTemplate hierarchy from code
 
 ````CSHTML

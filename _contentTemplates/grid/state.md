@@ -1,3 +1,8 @@
+#initial-state
+>tip If you want to set an initial state to the grid, use a similar snippet, but in the [`OnStateInit event`]({%slug grid-state%}#set-default-initial-state)
+#end
+
+
 #set-sort-from-code
 @* This snippet shows how to set sorting state to the grid from your code *@
 
