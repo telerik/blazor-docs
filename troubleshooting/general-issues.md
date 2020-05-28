@@ -12,12 +12,16 @@ position: 1
 
 This page provides solutions for common issues you may encounter while working with Telerik UI for Blazor components.
 
+
+<!-- Start Document Outline -->
+
 * [Popups Do Not Work](#popups-do-not-work)
 * [Wrong Popup Position](#wrong-popup-position)
 * [Unable to find package Telerik.Documents.SpreadsheetStreaming](#unable-to-find-package-telerikdocumentsspreadsheetstreaming)
 * [Cannot provide a value for property 'Localizer'](#cannot-provide-a-value-for-property-localizer)
 * [Slow Performance](#slow-performance)
 
+<!-- End Document Outline -->
 
 
 ## Popups Do Not Work
