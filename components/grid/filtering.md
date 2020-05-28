@@ -155,6 +155,8 @@ A key difference in the behavior from the [filter row](#filter-row) is that the 
 
 You can set the grid filters from your code through the grid [state]({%slug grid-state%}).
 
+@[template](/_contentTemplates/grid/state.md#initial-state)
+
 >caption Set sorting programmatically
 
 ````FilterRow

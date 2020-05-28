@@ -16,6 +16,8 @@ You can see this feature in the [Live Demo: Grid State](https://demos.telerik.co
 
 This article contains the following sections:
 
+<!-- Start Document Outline -->
+
 * [Basics](#basics)
 	* [Events](#events)
 	* [Methods](#methods)
@@ -23,7 +25,12 @@ This article contains the following sections:
 * [Examples](#examples)
 	* [Save and Load Grid State from Browser LocalStorage](#save-and-load-grid-state-from-browser-localstorage)
 	* [Set Grid Options Through State](#set-grid-options-through-state)
+	* [Set Default (Initial) State](#set-default-initial-state)
+	* [Get and Override User Action That Changes The Grid](#get-and-override-user-action-that-changes-the-grid)
 	* [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
+
+
+<!-- End Document Outline -->
 
 
 ## Basics
@@ -282,6 +289,9 @@ The grid state allows you to control the behavior of the grid programmatically -
 
 >tip The individual tabs below show how you can use the state to programmatically set the grid filtering, sorting, grouping and other features.
 
+@[template](/_contentTemplates/grid/state.md#initial-state)
+
+
 ````Sorting
 @[template](/_contentTemplates/grid/state.md#set-sort-from-code)
 ````
@@ -296,6 +306,140 @@ The grid state allows you to control the behavior of the grid programmatically -
 ````
 ````Hierarchy
 @[template](/_contentTemplates/grid/state.md#expand-hierarchy-from-code)
+````
+
+### Set Default (Initial) State
+
+If you want the grid to start with certain settings for your end users, you can pre-define them in the `OnStateInit event`.
+
+>caption Choose a default state of the grid for your users
+
+````CSHTML
+@* Set default (initial) state of the grid
+    In this example, the records with ID < 5 will be shown, and the Name field will be sorted descending *@
+
+<TelerikGrid Data="@MyData" Sortable="true" FilterMode="@GridFilterMode.FilterRow" AutoGenerateColumns="true"
+             OnStateInit="@((GridStateEventArgs<SampleData> args) => OnStateInitHandler(args))">
+</TelerikGrid>
+
+@code {
+    async Task OnStateInitHandler(GridStateEventArgs<SampleData> args)
+    {
+        var state = new GridState<SampleData>
+        {
+            SortDescriptors = new List<Telerik.DataSource.SortDescriptor>
+            {
+                new Telerik.DataSource.SortDescriptor{ Member = "Name", SortDirection = Telerik.DataSource.ListSortDirection.Descending }
+            },
+            FilterDescriptors = new List<Telerik.DataSource.FilterDescriptorBase>()
+            {
+                new Telerik.DataSource.FilterDescriptor() { Member = "Id", Operator = Telerik.DataSource.FilterOperator.IsLessThan, Value = 5, MemberType = typeof(int) },
+            }
+        };
+
+       args.GridState = state;
+    }
+
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
+
+### Get and Override User Action That Changes The Grid
+
+Sometimes you may want to know what the user changed in the grid (e.g., when they filter, sort and so on) and even override those operations. One way to do that is to monitor the [`OnRead`]({%slug components/grid/manual-operations%}#cache-data-request) event, cache the previous `DataSourceRequest`, compare against it, alter it if needed, and implement the operations yourself. Another is to use the `OnStateChanged` event.
+
+The example below shows the latter. Review the code comments to see how it works and to make sure you don't get issues.
+
+>caption Know when the grid state changes, which parameter changes, and amend the change
+
+````CSHTML
+@* This example does the following:
+    * Logs to the console what changed in the grid
+    * If the user changes the Name column filtering, the filter is always overriden to "Contains" and its value to "name 1"
+    * if there is no filter on the ID column, the ID column is filtered with ID < 15.
+To test it out, try filtering the name column
+*@
+
+@using Telerik.DataSource 
+
+<TelerikGrid Data="@MyData" Sortable="true" FilterMode="@GridFilterMode.FilterRow" AutoGenerateColumns="true" Pageable="true"
+             OnStateChanged="@((GridStateEventArgs<SampleData> args) => OnStateChangedHandler(args))" @ref="GridRef">
+</TelerikGrid>
+
+@code {
+    TelerikGrid<SampleData> GridRef { get; set; }
+
+    // Note: This can cause a performance delay if you do long operations here
+    // Note 2: The grid does not await this event, its purpose is to notify you of changes
+    //         so you must not perform async operations and data loading here, or issues with the grid state may occur
+    //         or other things you change on the page won't actually change. The .SetState() call redraws only the grid, but not the rest of the page
+    async void OnStateChangedHandler(GridStateEventArgs<SampleData> args)
+    {
+        Console.WriteLine(args.PropertyName); // get the setting that was just changed (paging, sorting,...)
+
+        if (args.PropertyName == "FilterDescriptors") // sorting changed for our example
+        {
+            // ensure certain state based on some condition
+            // in this example - ensure that the ID field is always filtered with a certain setting unless the user filters it explicitly
+            bool isIdFiltered = false;
+            foreach (FilterDescriptor item in args.GridState.FilterDescriptors)
+            {
+                if(item.Member == "Id")
+                {
+                    isIdFiltered = true;
+                }
+
+                // you could override a user action as well - change settings on the corresponding parameter
+                // make sure that the .SetState() method of the grid is always called if you do that
+                if(item.Member == "Name")
+                {
+                    item.Value = "name 1";
+                    item.Operator = FilterOperator.Contains;
+                }
+            }
+            if (!isIdFiltered)
+            {
+                args.GridState.FilterDescriptors.Add(new FilterDescriptor
+                {
+                    Member = "Id", MemberType = typeof (int), Operator = FilterOperator.IsLessThan, Value = 15
+                });
+            }
+            // needed only if you will be overriding user actions or amending them
+            // if you only need to be notified of changes, you should not call this method
+            await GridRef.SetState(args.GridState);
+        }
+    }
+
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 300).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
 ````
 
 ### Initiate Editing or Inserting of an Item
