@@ -30,7 +30,7 @@ You get or set the selected items through the `SelectedItems` parameter. It is a
 ### Example - Enable node selection
 
 ````CSHTML
-@* Observe how the node selection works *@
+@* Observe how the node selection works and preselect the second node. *@
 
 <TelerikTreeView Data="@Data"
                  SelectionMode="@TreeViewSelectionMode.Single"
@@ -63,6 +63,8 @@ You get or set the selected items through the `SelectedItems` parameter. It is a
     protected override void OnInitialized()
     {
         LoadData();
+        // Preselection of the second node
+        SelectedItems = new List<object>() { Data.Skip(1).FirstOrDefault() };
     }
 
     private void LoadData()
