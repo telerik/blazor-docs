@@ -14,6 +14,7 @@ This article explains the events available in the Telerik TreeView for Blazor:
 
 * [OnExpand](#onexpand)
 * [OnItemClick](#onitemclick)
+* [SelectedItemsChanged](#selecteditemschanged)
 
 ## OnExpand
 
@@ -286,6 +287,10 @@ The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an no
      #endregion
  }
  ````
+
+## SelectedItemsChanged
+
+Fires when the item selection is enabled and the user changes the selected [item]({%slug treeview-selection-single%}) or [items]({%slug treeview-selection-multiple%}).
 
 ## See Also
 
