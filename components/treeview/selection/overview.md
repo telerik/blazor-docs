@@ -142,3 +142,9 @@ You get or set the selected items through the `SelectedItems` parameter. It is a
 >caption The result of the code snippet above
 
 ![selection overview example](../images/selection-overview-example.png)
+
+## See Also
+
+  * [Live Demo: TreeView Selection](https://demos.telerik.com/blazor-ui/treeview/selection)
+  * [Single Selection]({%slug treeview-selection-single%})
+  * [Multiple Selection]({%slug treeview-selection-multiple%})
