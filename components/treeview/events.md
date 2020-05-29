@@ -135,20 +135,19 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
 
 ## OnItemClick
 
-The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an node (item) of the TreeView. You can use this event to react on user clicking on a node and load data on demand for another component.
+The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an node (item) of the TreeView. You can use this event to react on user clicking on a node and load data on demand for another component, for example.
 
- >caption Handle OnItemClick to load data on demand for another component based on user click
+>caption Handle OnItemClick to load data on demand for another component based on user click
 
- ````CSHTML
+````CSHTML
 @* Load data on demand based on user click action *@
 
 <TelerikTreeView Data="@FlatData" OnItemClick="@OnItemClickHandler"></TelerikTreeView>
 
 @if (ChosenItem != null)
 {
-    <div>People working on the @ChosenItem.Text area of the project:</div>
-    <TelerikGrid Data="@GridData"
-                 Width="500px">
+    <div>People working on the <strong>@ChosenItem.Text </strong> area of the project:</div>
+    <TelerikGrid Data="@GridData" Width="500px">
         <GridColumns>
             <GridColumn Field="@nameof(GridDataModel.Id)" Title="Id"></GridColumn>
             <GridColumn Field="@nameof(GridDataModel.Name)" Title="Employee Name"></GridColumn>
@@ -158,6 +157,11 @@ The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an no
 
 
 @code {
+    TreeItem ChosenItem { get; set; }
+    public List<GridDataModel> Data { get; set; }
+    public List<GridDataModel> GridData { get; set; }
+    public List<TreeItem> FlatData { get; set; }
+
     async Task OnItemClickHandler(TreeViewItemClickEventArgs e)
     {
         var item = e.Item as TreeItem;
@@ -167,29 +171,24 @@ The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an no
         GridData = await LoadGridDataOnDemand(ChosenItem.Id);
     }
 
-    TreeItem ChosenItem { get; set; }
-    public List<GridDataModel> Data { get; set; }
-    public List<GridDataModel> GridData { get; set; }
-    public List<TreeItem> FlatData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        LoadFlatData();
-    }
-
+    #region Data Generation
     private async Task<List<GridDataModel>> LoadGridDataOnDemand(int id)
     {
+        Random rand = new Random();
         Data = Enumerable.Range(1, 20).Select(x => new GridDataModel()
         {
-            Id = x,
-            Name = $"Name {x}",
+            Id = rand.Next(1, 5000),
+            Name = $"Name {rand.Next(1, 5000)}",
             WorkingOn = x % 8
         }).ToList();
 
         return Data.Where(x => x.WorkingOn == id).ToList();
     }
 
-    #region Data Generation
+    protected override void OnInitialized()
+    {
+        LoadFlatData();
+    }
 
     private void LoadFlatData()
     {
@@ -281,7 +280,7 @@ The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an no
     }
     #endregion
 }
- ````
+````
 
 ## See Also
 
