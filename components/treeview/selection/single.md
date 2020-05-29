@@ -10,7 +10,7 @@ position: 9
 
 # Single Selection in TreeView
 
-The TreeView lets the user select a single node at a time.
+The TreeView lets the user to select a single node at a time.
 
 In this article:
 * [Basics](#basics)
@@ -19,7 +19,7 @@ In this article:
 
 ## Basics
 
-To use **single** node selection, set the `SelectionMode` property to `Telerik.Blazor.TreeViewSelectionMode.Single`.
+To use **single** node selection, set the `SelectionMode` parameter to `Telerik.Blazor.TreeViewSelectionMode.Single`.
 
 To deselect the node hold the `Ctrl` key and click on it.
 
