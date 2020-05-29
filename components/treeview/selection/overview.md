@@ -25,7 +25,7 @@ You can configure the node selection behavior by setting the `SelectionMode` par
 * [`Single`]({%slug treeview-selection-single%})
 * [`Multiple`]({%slug treeview-selection-single%})
 
-You get or set the selected items through the `SelectedItems` parameter. It is an `IEnumerable<object>` collection. It allows two-way binding (`@bind-SelectedItems`) and one-way binding + `SelectedItemsChanged` event.
+You get or set the selected items through the `SelectedItems` parameter. It is an `IEnumerable<object>` collection. It allows two-way binding (`@bind-SelectedItems`) and one-way binding + [`SelectedItemsChanged`]({%slug treeview-events%}#selecteditemschanged) event.
 
 ### Example - Enable node selection
 
