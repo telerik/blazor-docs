@@ -18,6 +18,10 @@ This article explains how to get the Telerik UI for Blazor components in your **
     1. [Enable the Components in the Project](#enable-the-components-in-the-project)
 1. [Add a Telerik Component to a View](#step-3---add-a-telerik-component-to-a-view)
 
+
+@[template](/_contentTemplates/common/get-started.md#download-intro-para-for-get-started)
+
+
 @[template](/_contentTemplates/common/get-started.md#add-latest-ms-bits-server-side-link)
 
 

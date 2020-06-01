@@ -199,3 +199,43 @@ Open the main layout file (by default, the `~/Shared/MainLayout.razor` file in t
         </TelerikRootComponent>
 #end
 
+
+
+#start-trial-button
+<div class="justify-content-center text-center try-button">
+    <a class="button" href="https://www.telerik.com/download-trial-file/v2/ui-for-blazor" target="_blank">Start a free trial</a>
+</div>
+
+<style>
+.try-button {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.try-button .button {
+    display: inline-block;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #ff6358;
+    border-radius: 2px;
+    transition: color .2s ease,background-color .2s ease;
+    text-decoration: none;
+    padding: 10px 30px 10px 30px;
+    line-height: 1.5em;
+    height: auto;
+}
+
+.try-button .button:hover {
+    color: #ffffff;
+    background-color: #e74b3c;
+}
+</style>
+#end
+
+
+#download-intro-para-for-get-started
+## Step 0 - Download the Components
+
+A pre-requisite is having access to the Telerik UI for Blazor components. The easiest way to get them to your development machine is to use the <a href="https://www.telerik.com/download-trial-file/v2/control-panel" target="_blank">Progress Control Panel</a> or to download the [automated installer]({%slug installation/msi%}) from <a href="https://www.telerik.com/account/product-download?product=BLAZOR" target="_blank">your telerik.com account</a>.
+
+If you are not a customer, you can <a href="https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor" target="_blank">download a free, fully functional trial</a> and the same options will apply to you as well.
+#end

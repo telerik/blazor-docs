@@ -16,6 +16,10 @@ The UI for Blazor suite shares HTML rendering and web assets (like stylesheets) 
 
 Telerik UI for Blazor supports both Client-side Blazor and Serve-side Blazor apps.
 
+To read more about the benefits of using Telerik UI for Blazor, please visit the <a href="https://www.telerik.com/blazor-ui" target="_blank">product overview page</a>.
+
+@[template](/_contentTemplates/common/get-started.md#start-trial-button)
+
 ## Getting Started
 
 If you are new to Telerik UI for Blazor, we recommend that you **follow the First Steps articles** to add the Telerik components to your application:
@@ -55,4 +59,49 @@ At the moment, the following components are available:
 {% include intro-page-table.html %}
 
 Tell us which components you want implemented and how you intend to use them, and Blazor, at [our feedback portal](https://feedback.telerik.com/blazor).
+
+## Trial Version and Commercial License
+
+This UI for Blazor library is a commercial UI library. You are welcome to explore its full functionality and get technical support from the team when you register for a free 30-day trial. To use it commercially, you need to <a href="https://www.telerik.com/purchase/blazor-ui" target="_blank">purchase a license</a>. Feel free to review the Telerik UI for Blazor <a href="https://www.telerik.com/purchase/license-agreement/blazor-ui" target="_blank">License Agreement</a> to get acquainted with the full terms of use.
+
+
+## Support Options
+
+For any issues you might encounter while working with Telerik UI for Blazor, use any of the available support channels:
+
+* License holders and active trialists can take advantage of our outstanding customer support delivered by the developers building the library. To submit a support ticket, use the [UI for Blazor dedicated support](https://www.telerik.com/account/support-tickets/) system.
+* [UI for Blazor forums](https://www.telerik.com/forums/blazor) are part of the free support you can get from the community and from the UI for Blazor team on all kinds of general issues.
+* [UI for Blazor feedback portal](https://feedback.telerik.com/blazor) and [UI for Blazor roadmap](https://www.telerik.com/support/whats-new/blazor-ui/roadmap) provide information on the features in discussion and also the planned ones for release.
+* UI for Blazor uses [its feedback portal](https://feedback.telerik.com/blazor) as its bug tracker and you can submit any related reports there. Also, check out the [closed bugs list](https://feedback.telerik.com/blazor?listMode=Recent&typeId=3&statusId=2).
+* You may still need a tailor-made solution for your project. In such cases, go straight to [Progress Services](https://www.progress.com/services).
+
+
+## Learning Resources
+
+* <a href="https://demos.telerik.com/blazor-ui" target="_blank">Online Demos</a> - also available as a project you can inspect and run locally. You can find them in the `demos` folder of your [installation]({%slug installation/msi%}).
+
+* <a href="https://docs.telerik.com/blazor-ui/knowledge-base" target="_blank">Knowledge Base</a> - contains answers to some common questions, problems and errors. Free-text search is also available.
+
+* <a href="https://github.com/telerik/blazor-ui" target="_blank">Samples Repo</a> - example projects that showcase popular scenarios so you can jump-start your project by copying from them.
+
+* <a href="https://www.telerik.com/support/blazor-ui" target="_blank">Blazor UI Support and Learning Resources</a> - a hub with links to all resources such as blogs, videos, repos, docs and so on.
+
+<!-- TODO: add virtual classroom link when available -->
+
+
+## Next Steps
+
+* [First steps with Client-side Blazor]({%slug getting-started/client-side%}) (online guide)
+
+* [First steps with Server-side Blazor]({%slug getting-started/server-side%}) (online guide)
+
+* [What You Need]({%slug getting-started/what-you-need%}) - concise version of the tutorials above
+
+* Generate a new Telerik Project (guided wizard) - for  [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and for [Visual Studio Code]({%slug getting-started-vs-code-integration-overview%}).
+
+* [Convert an existing project to a Telerik-enabled project]({%slug getting-started-vs-integration-convert-project%})
+
+* [Upgrade to a newer version of Telerik UI for Blazor]({%slug upgrade-tutorial%})
+
+
 
