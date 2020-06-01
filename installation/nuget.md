@@ -18,6 +18,14 @@ There are several approaches:
 * [Manual Steps - CLI](#manual-steps---cli)
 * [Nuget Config File](#nuget-config-file)
 
+This article also offers some troubleshooting information in case you encounter problems:
+
+
+* [Troubleshooting](#troubleshooting)
+	* [I do not see the Telerik Packages](#i-do-not-see-the-telerik-packages)
+	* [CI and CD Automated Builds](#ci-and-cd-automated-builds)
+		* Azure
+
 ## Video Tutorial - Visual Studio
 
 The following video explains how you can add the Telerik NuGet feed. If you prefer to do this yourself, follow the rest of this article.
@@ -93,6 +101,12 @@ To use a `nuget.config` file for the Telerik feed, you need to:
 
 ## Troubleshooting
 
+This section lists problems related to the Telerik NuGet feed and their solutions
+
+* [I do not see the Telerik Packages](#i-do-not-see-the-telerik-packages)
+* [CI and CD Automated Builds](#ci-and-cd-automated-builds)
+	* Azure
+
 ### I do not see the Telerik Packages
 
 There are two common reasons for the Telerik packages to be missing in the Telerik Online Feed:
@@ -116,6 +130,29 @@ Here is a sample process of removing stored credentials from Windows so you can 
 7. Enter the Telerik nuget package source again through Visual Studio or CLI. If you are using the feed in .NET Core application, [store your credentials as plain text](#store-credentials-in-clear-text-for-the-telerik-nuget-feed).
 
 
+### CI and CD Automated Builds
+
+Often enough, you would want to set up Continuous Integration and/or Continuous Delivery (CI/CD) pipelines or builds for your project that uses the Telerik components. This is a valid scenario and the "one license per developer" license does not prevent you from doing so. The Telerik components are commercial software and as such can only be distributed through channels that are private and/or behind authentication.
+
+There are a couple of common ways people implement CI/CD automated builds:
+
+* You can put your own credentials (or the credentials of the license holder, depending on how your licenses are set up) in the nuget.config of the build machine/pipeline. In many cases, when doing so, they will even be encrypted when you add the Telerik feed source through the CLI. Alternatively, you can copy an encrypted version from your own local config if you have one and if plain text is an issue.
+
+* Creating a local folder (for example, on a shared network drive or other suitable location accessible by your builds and team) that holds the `.nupkg` files we provide (you can download them from your telerik.com account).
+
+You must protect your credentials and/or the Telerik packages and ensure they are used only by you and not by other developers, according to the [license-per-developer policy](https://www.telerik.com/purchase/license-agreement/blazor-ui). They can by such colleagues (like other developers, QAs, designers, front-end devs, DBAs and so on) for building and running a solution, provided they do not use the Telerik components to create functionality. Of course, you must ensure that such credentials or package sources are not available to the general public (for example, in public repositories). 
+
+#### Azure
+
+When using Azure pipelines, we encourage you to review the following blog post on setting things up: [Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages).
+
+There are a couple of common questions and issues:
+
+* Obtaining credentials - see the points above for either using your own credentials, or using a shared package source.
+
+* Telerik feed not being found - the most common reason for a problem is that the path to the `nuget.config` file is wrong (it should, by default, be at the root level).
+
+* An `index.json not found` error can occur from many root causes. If you have successfully authenticated, this error usually means that the feed wasn't able to be searched or connected to. A common reason is an incorrect feed URL, such as including a trailing slash - Correct: `https://nuget.telerik.com/nuget` and Incorrect: `https://nuget.telerik.com/nuget/`, or a connectivity issue such as a firewall rule in your organization.
 
 ## See Also
 
