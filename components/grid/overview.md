@@ -271,4 +271,4 @@ original:
 ## See Also
 
   * [Live Demos: Grid](https://demos.telerik.com/blazor-ui/grid/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)
