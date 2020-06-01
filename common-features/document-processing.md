@@ -79,35 +79,35 @@ You can find more information on working with the Telerik document processing li
 
 * Words (text) processing
 
-	* [DOCX format provider](http://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/docx/docxformatprovider)
+	* [DOCX format provider](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/docx/docxformatprovider)
 
-	* [HTML format provider](http://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/html/htmlformatprovider)
+	* [HTML format provider](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/html/htmlformatprovider)
 
-	* [RTF format provider](http://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/rtf/rtfformatprovider)
+	* [RTF format provider](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/rtf/rtfformatprovider)
 
-	* [TXT format provider](http://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/plain-text/txt-txtformatprovider)
+	* [TXT format provider](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/plain-text/txt-txtformatprovider)
 
 * Spreadsheet processing
 
-	* [Getting Started](http://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/getting-started)
+	* [Getting Started](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview)
 
-	* [XLSX format provider](http://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/xlsx/xlsxformatprovider)
+	* [XLSX format provider](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/xlsx/xlsxformatprovider)
 
-	* [CSV format provider](http://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider)
+	* [CSV format provider](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider)
 
-	* [PDF format provider](http://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/pdf/pdfformatprovider)
+	* [PDF format provider](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/pdf/pdfformatprovider)
 
-	* [TXT format provider](http://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/txt/txtformatprovider)
+	* [TXT format provider](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/txt/txtformatprovider)
 
 * PDF processing
 
-	* [PDF format provider](http://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/formats-and-conversion/pdf/pdfformatprovider)
+	* [PDF format provider](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/formats-and-conversion/pdf/pdfformatprovider/pdfformatprovider)
 	
 	* [Text format provider](http://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/formats-and-conversion/plain-text/textformatprovider)
 
 * Fast spreadsheet generation
 	
-	* [Getting Started](http://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/getting-started)
+	* [Getting Started](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview)
 
 * Blazor demos
 
