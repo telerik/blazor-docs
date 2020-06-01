@@ -152,19 +152,7 @@ There are a couple of common questions and issues:
 
 * Telerik feed not being found - the most common reason for a problem is that the path to the `nuget.config` file is wrong (it should, by default, be at the root level).
 
-* `index.json` not found - a failure with text similar to `Unable to load the service index for source https://nuget.telerik.com/nuget.` indicates that the pipeline is attempting to use NuGet v5 and it should use v4.x. Here are a couple of examples:
-
->caption Example configurations of setting NuGet protocol version to 4.x
-
-````YML
-  - task: NuGetToolInstaller@1
-    displayName: 'Install NuGet 4.x'
-    inputs:
-      versionSpec: 4.x
-````
-````Classic
-#snippetTBD
-````
+* An `index.json not found` error can occur from many root causes. If you have successfully authenticated, this error usually means that the feed wasn't able to be searched or connected to. A common reason is an incorrect feed URL, such as including a trailing slash - Correct: `https://nuget.telerik.com/nuget` and Incorrect: `https://nuget.telerik.com/nuget/`, or a connectivity issue such as a firewall rule in your organization.
 
 ## See Also
 
