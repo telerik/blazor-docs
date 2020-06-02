@@ -407,7 +407,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
 ````
 >caption The result of the code snippet above
 
-![selection single example](../images/treeview-selection-single.png)
+![selection single example](./images/treeview-selection-single.png)
 
 ## See Also
 
