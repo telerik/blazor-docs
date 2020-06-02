@@ -379,7 +379,7 @@ defaults:
         path: ""
     values:
         announcement: |
-             Learn how to build Full-Stack C# apps with Telerik UI for Blazor and Entity Framework in no time. <a href="https://www.telerik.com/campaigns/blazor/wb-blazor-in-depth-webinar?utm_medium=internal&utm_source=yellowribbon&utm_campaign=blazor-webinar-weekofblazor" target="_blank">Save your seat</a>!
+              Learn how to convert a Blazor web app into a desktop PWA with <em>Dan Roth</em>! Starts at 11AM ET on 3 Jun 2020 at <a href="https://www.twitch.tv/codeitlive">https://www.twitch.tv/codeitlive</a>
 
 
 #type_links:
