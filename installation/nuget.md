@@ -152,7 +152,14 @@ There are a couple of common questions and issues:
 
 * Telerik feed not being found - the most common reason for a problem is that the path to the `nuget.config` file is wrong (it should, by default, be at the root level).
 
-* An `index.json not found` error can occur from many root causes. If you have successfully authenticated, this error usually means that the feed wasn't able to be searched or connected to. A common reason is an incorrect feed URL, such as including a trailing slash - Correct: `https://nuget.telerik.com/nuget` and Incorrect: `https://nuget.telerik.com/nuget/`, or a connectivity issue such as a firewall rule in your organization.
+* An `index.json not found` error can occur from many root causes. If you have successfully authenticated, this error usually means that the feed wasn't able to be searched or connected to. A common reason is an incorrect feed URL, such as including a trailing slash - Correct: `https://nuget.telerik.com/nuget` and Incorrect: `https://nuget.telerik.com/nuget/`.
+
+A few things to double check to ensure correct setup:
+
+* The Service connection is using Basic Authentication and the URL is correct (`https://nuget.telerik.com/nuget` exactly, no trailing slash).
+* That Service Connection is selected as the credentials source.
+* The credentials being used have a UI for Blazor license.
+* Make sure that you use `dotnet restore` and not `nuget restore` in your pipeline step.
 
 ## See Also
 
