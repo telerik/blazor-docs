@@ -14,6 +14,7 @@ The Telerik Blazor Grid provides Virtual Scrolling for its Columns. This means t
 
 This article provides the following sections:
 * [Basics](#basics)
+* [Limitations](#limitations)
 * [Notes](#notes)
 * [More Examples](#more-examples)
     * [Virtualized Columns and Rows](#virtualized-columns-and-rows)
@@ -114,6 +115,10 @@ To enable Virtualized Columns:
 >caption The result from the code snippet above - scrolling through the grid is the same as without virtual scrolling, but the rendering performance and responsiveness of all other actions will be improved.
 ![gif of virtual columns](images/virtual-columns-basic.gif)
 
+
+## Limitations
+
+* Virtualized and [Frozen]({%slug grid-columns-frozen%}) are not supported to work together. The idea behind freezing some columns is so that they are visible at all time disregarding their position in the Grid. The Virtualized Columns, on the other hand, render only the columns for the current Grid viewport.
 
 ## Notes
 
