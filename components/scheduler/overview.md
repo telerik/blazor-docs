@@ -117,5 +117,5 @@ The Scheduler is a generic component and its type is determined by the type of t
 
   * [Data Binding]({%slug scheduler-appointments-databinding%})
   * [Live Demo: Scheduler](https://demos.telerik.com/blazor-ui/scheduler/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikScheduler)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikScheduler-1)
 
