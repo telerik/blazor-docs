@@ -153,7 +153,8 @@ If you need to perform logic more complex than simple data binding, use the chan
 >caption Sample edit template
 
 ````CSHTML
-Use a custom editor for a certain cell (a dropdown list)
+@* This example shows how to use a dropdownlist to edit strings. You can implement any desired logic instead.
+If you have an enum, the grid can edit and filter it out-of-the-box without the need for an edit template *@
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px" OnUpdate="@UpdateHandler">
     <GridColumns>
