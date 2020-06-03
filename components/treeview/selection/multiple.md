@@ -5,7 +5,7 @@ description: Multiple nodes selection in the TreeView for Blazor
 slug: treeview-selection-multiple
 tags: telerik,blazor,treeview,selection,multiple
 published: True
-position: 9
+position: 10
 ---
 
 # Multiple Seletion in TreeView

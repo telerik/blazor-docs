@@ -5,7 +5,7 @@ description: Node selection in the TreeView for Blazor
 slug: treeview-selection-overview
 tags: telerik,blazor,treeview,selection,overview
 published: True
-position: 9
+position: 1
 ---
 
 # TreeView Selection

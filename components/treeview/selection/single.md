@@ -5,7 +5,7 @@ description: Single node selection in the TreeView for Blazor
 slug: treeview-selection-single
 tags: telerik,blazor,treeview,selection,single
 published: True
-position: 9
+position: 5
 ---
 
 # Single Selection in TreeView
