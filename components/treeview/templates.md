@@ -5,7 +5,7 @@ description: Templates in the Treeview for Blazor
 slug: components/treeview/templates
 tags: telerik,blazor,treeview,templates
 published: True
-position: 5
+position: 10
 ---
 
 # Treeview Templates

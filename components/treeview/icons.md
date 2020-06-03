@@ -5,7 +5,7 @@ description: Icons and images in the TreeView for Blazor
 slug: treeview-icons
 tags: telerik,blazor,treeview,icon,iconclass,image
 published: True
-position: 10
+position: 15
 ---
 
 # TreeView Icons

@@ -14,6 +14,7 @@ This article explains the events available in the Telerik TreeView for Blazor:
 
 * [OnExpand](#onexpand)
 * [OnItemClick](#onitemclick)
+* [SelectedItemsChanged](#selecteditemschanged)
 
 ## OnExpand
 
@@ -282,6 +283,133 @@ The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an no
 }
 ````
 
+## SelectedItemsChanged
+
+The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-selection-overview%}) is enabled and the user clicks on a new item.
+
+>caption Handle the SelectedItemsChanged events
+
+````CSHTML
+<TelerikTreeView Data="@Data"
+                 SelectionMode="@TreeViewSelectionMode.Single"
+                 SelectedItems="@SelectedItems"
+                 SelectedItemsChanged="@((IEnumerable<object> item) => SelectedItemsHandler(item))">
+</TelerikTreeView>
+
+@if (SelectedItems.Any())
+{
+    TreeItem selectedItem = SelectedItems.FirstOrDefault() as TreeItem;
+    <div>
+        <strong>Selected item:</strong>
+        <div class="card" style="width: 15rem">
+            <span><strong>Icon:</strong> <TelerikIcon Icon="@selectedItem.Icon" /></span>
+            <span><strong>Title:</strong> @selectedItem.Text</span>
+            <span><strong>Id:</strong> @selectedItem.Id </span>
+        </div>
+    </div>
+}
+
+@code {
+    void SelectedItemsHandler(IEnumerable<object> item)
+    {
+        SelectedItems = item;
+    }
+
+    public IEnumerable<object> SelectedItems { get; set; } = new List<object>();
+
+    public IEnumerable<TreeItem> Data { get; set; }
+
+    protected override void OnInitialized()
+    {
+        LoadData();
+    }
+
+    private void LoadData()
+    {
+        List<TreeItem> items = new List<TreeItem>();
+        items.Add(new TreeItem()
+        {
+            Id = 1,
+            Text = "Project",
+            ParentId = null,
+            HasChildren = true,
+            Icon = "folder",
+            Expanded = true
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 2,
+            Text = "Design",
+            ParentId = 1,
+            HasChildren = true,
+            Icon = "brush",
+            Expanded = true
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 3,
+            Text = "Implementation",
+            ParentId = 1,
+            HasChildren = true,
+            Icon = "folder",
+            Expanded = true
+        });
+
+        items.Add(new TreeItem()
+        {
+            Id = 4,
+            Text = "site.psd",
+            ParentId = 2,
+            HasChildren = false,
+            Icon = "psd",
+            Expanded = true
+        });
+
+        items.Add(new TreeItem()
+        {
+            Id = 5,
+            Text = "index.js",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = "js"
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 6,
+            Text = "index.html",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = "html"
+        });
+
+        items.Add(new TreeItem()
+        {
+            Id = 7,
+            Text = "styles.css",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = "css"
+        });
+
+        Data = items;
+    }
+
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public int? ParentId { get; set; }
+        public bool HasChildren { get; set; }
+        public string Icon { get; set; }
+        public bool Expanded { get; set; }
+    }
+}
+````
+>caption The result of the code snippet above
+
+![selection single example](./images/treeview-selection-single.png)
+
 ## See Also
 
   * [TreeView Overview]({%slug components/treeview/overview%})
+  * [TreeView Selection]({%slug treeview-selection-overview%})

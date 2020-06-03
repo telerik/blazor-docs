@@ -5,7 +5,7 @@ description: Using the Blazor TreeView for navigating between pages
 slug: treeview-navigation
 tags: telerik,blazor,treeview,navigation
 published: True
-position: 3
+position: 5
 ---
 
 # TreeView for Navigation
