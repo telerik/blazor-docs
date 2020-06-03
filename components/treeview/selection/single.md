@@ -10,11 +10,14 @@ position: 5
 
 # Single Selection in TreeView
 
-The TreeView lets the user to select a single node at a time.
+The TreeView lets the user select a single node at a time.
 
 In this article:
+
 * [Basics](#basics)
 * [Examples](#examples)
+	* [Selection of a single node using one-way data binding](#selection-of-a-single-node-using-one-way-data-binding)
+	* [Selection of a single node using two-way data binding](#selection-of-a-single-node-using-two-way-data-binding)
 
 
 ## Basics
@@ -25,7 +28,15 @@ To deselect the node hold the `Ctrl` key and click on it.
 
 ## Examples
 
->caption Handle selection of a single node using one-way data binding
+This section contains the following examples:
+
+* [One-way binding](#selection-of-a-single-node-using-one-way-data-binding)
+* [Two-way binding](#selection-of-a-single-node-using-two-way-data-binding)
+
+
+### Selection of a single node using one-way data binding
+
+You can use one-way binding to provide an initial node selection, and respond to the `SelectedItemsChanged` to update the view-model when user selection occurs. If you don't update the model, selection is effectively cancelled. If you want to load async data on demand based on the chosen node, use the [`OnItemClick`]({%slug treeview-events%}#onitemclick) event.
 
 ````CSHTML
 @* Handle single node selection with one-way data binding *@
@@ -145,11 +156,14 @@ To deselect the node hold the `Ctrl` key and click on it.
     }
 }
 ````
+
 >caption The result of the code snippet above
 
-![selection single example](../images/treeview-selection-single.png)
+![selection single example](images/treeview-selection-single.png)
 
->caption Handle selection of a single node using two-way data binding
+### Selection of a single node using two-way data binding
+
+You can use two-way binding to get the node the user has selected. This can be useful if the node model already contains all the information you need to show based on the selection.
 
 ````CSHTML
 @* Handle single node selection with two-way data binding *@
@@ -266,7 +280,7 @@ To deselect the node hold the `Ctrl` key and click on it.
 
 >caption The result of the code snippet above
 
-![selection single example](../images/treeview-selection-single.png)
+![selection single example](images/treeview-selection-single.png)
 
 ## See Also
 

@@ -10,24 +10,16 @@ position: 1
 
 # TreeView Selection
 
-The TreeView lets the user select a node. You can also preselect an item.
-
-In this article you can see:
-
-* [Selection Basics](#selection-basics)
- * [Example - Enable node selection](#example---enable-node-selection)
-
-
-## Selection Basics
+The TreeView lets the user select one or more nodes. You can also pre-select them with your own code.
 
 You can configure the node selection behavior by setting the `SelectionMode` parameter to a member of the `TreeViewSelectionMode` enum:
 * `None` - disable the node selection. This is the default setting.
 * [`Single`]({%slug treeview-selection-single%})
 * [`Multiple`]({%slug treeview-selection-single%})
 
-You get or set the selected items through the `SelectedItems` parameter. It is an `IEnumerable<object>` collection. It allows two-way binding (`@bind-SelectedItems`) and one-way binding + [`SelectedItemsChanged`]({%slug treeview-events%}#selecteditemschanged) event.
+You get or set the selected items through the `SelectedItems` parameter. It is an `IEnumerable<object>` collection that you need to cast to the correct model type. This is required because you can [bind the treeview]({%slug components/treeview/data-binding/overview%}) to different model types at each level. The selection allows two-way binding (`@bind-SelectedItems`) and one-way binding + [`SelectedItemsChanged`]({%slug treeview-events%}#selecteditemschanged) event.
 
-### Example - Enable node selection
+>caption Enable node selection
 
 ````CSHTML
 @* Observe how the node selection works and preselect the second node. *@
@@ -63,7 +55,8 @@ You get or set the selected items through the `SelectedItems` parameter. It is a
     protected override void OnInitialized()
     {
         LoadData();
-        // Preselection of the second node
+        
+        // Preselection of the second node (not required)
         SelectedItems = new List<object>() { Data.Skip(1).FirstOrDefault() };
     }
 
@@ -139,9 +132,11 @@ You get or set the selected items through the `SelectedItems` parameter. It is a
 }
 
 ````
+
 >caption The result of the code snippet above
 
-![selection overview example](../images/selection-overview-example.png)
+![selection overview example](images/treeview-selection-single.png)
+
 
 ## See Also
 
