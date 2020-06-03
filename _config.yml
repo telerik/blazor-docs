@@ -74,6 +74,9 @@ navigation:
      "*components/chart/types":
         title: "Types"
         position: 15
+     "*components/chart/tooltip":
+        title: "Tooltips"
+        position: 32
      "*components/animationcontainer":
         title: "Animation Container"
         position: 2000000
