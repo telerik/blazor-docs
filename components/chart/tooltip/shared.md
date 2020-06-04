@@ -21,13 +21,13 @@ In this article:
 
 ## Basics
 
-The shared tooltip provides summarized information of all data points from the hovered category. This tooltip will take precedence over tooltip settings defined for a specific series.
+The shared tooltip provides summarized information of all data points from the hovered category (applies for [Categorical Charts]({%slug components/chart/databind%}#series-types)). This tooltip will take precedence over tooltip settings defined for a specific series.
 
 To enable the shared tooltip:
 
-1. Include the `<ChartTooltip>` tag nested inside the `<TelerikChart>`.
-1. Set it's `Visible` parameter to `true`.
-1. Set it's `Shared` parameter to `true`.
+1. Inside the `<TelerikChart>` tag, add the `<ChartTooltip>` tag.
+1. Set its `Visible` parameter to `true`.
+1. Set its `Shared` parameter to `true`.
 
 >caption Basic configuration of a Chart with Shared Tooltip
 
@@ -73,20 +73,27 @@ There are two types of customizations you can do for the tooltips:
 ### Parameter Settings
 You can customize the rendering of the `Shared` tooltip by using:
 
-* `Background` - control the background color by applying a CSS color string, including HEX and RGB. By default the it will match the color for the category.
-* `Color` - control the text color by applying a CSS color string, including HEX and RGB.
-* `Opacity` - control the opacity of the tooltip.
-* `Border` - control the `Color` and the `Width` of the tooltip by using the `<ChartSeriesTooltipBorder />` nested inside the `<ChartSeriesTooltip>` tag.
-* `Padding` - control the `Left`, `Right`, `Top` and `Bottom` padding of the tooltip by using the `<ChartSeriesTooltipPadding />` nested inside the `<ChartSeriesTooltip>` tag.
+@[template](/_contentTemplates/chart/link-to-basics.md#shared-tooltip-parameter-settings)
 
 
 ### Shared Template
 
 The `SharedTemplate` allows you to control the rendering of the shared tooltip.
 
-It provides `context` which contains the following information:
+In the template you can:
+
+* Use business logic and render HTML
+
+* Use the `context` parameter that provides information about the current category and all data points in it.
+
+The `context` contains the following information:
+
 * `Category` - renders the name of the Category.
-* `Point` - provides the following information on the points:
+
+* `Points` - a collection of data for each series data point in this category.
+
+
+Each `Point` contains the following data:
 
 @[template](/_contentTemplates/chart/link-to-basics.md#context-parameter-information)
 

@@ -10,7 +10,7 @@ position: 1
 
 # Tooltip for Telerik Blazor Chart
 
-The Telerik Chart provides a tooltip for its data points. They can be set either to a specific `<ChartSeries>` or as a [shared]({%slug chart-tooltip-shared%}) tooltip for all categories.
+The Telerik Chart provides a tooltip for its data points. You can have settings specific to each `<ChartSeries>`, common tooltip settings for all series, or a [shared]({%slug chart-tooltip-shared%}) tooltip for all categories.
 
 In this article:
 
@@ -23,27 +23,28 @@ In this article:
 
 ## Basics
 
-You can enable tooltips for the data points by:
+By default the value of the point will be presented when hovered over.
 
-1. Include the `<ChartSeriesTooltip>` tag nested inside the `<ChartSeries>`.
-1. Set it's `Visible` parameter to `true`.
+To enable tooltips for the data points of each individual series:
 
-By default the value of the point will be presented whey hovered over.
+1. Inside the `<ChartSeries>`, include the `<ChartSeriesTooltip>` tag.
+1. Set its `Visible` parameter to `true`.
 
 
-
->caption Basic configuration to enable the tooltip for the Chart Series
+>caption Enable the tooltip for a specific Chart Series
 
 ````CSHTML
-@* Enable tooltip for a Chart Series *@
+@* Enable tooltip for a single Chart Series *@
 
 <TelerikChart>
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Column" Name="Series 1" Data="@data1">
         </ChartSeries>
+        
         <ChartSeries Type="ChartSeriesType.Column" Name="Series 2" Data="@data2">
             <ChartSeriesTooltip Visible="true"></ChartSeriesTooltip>
         </ChartSeries>
+        
     </ChartSeriesItems>
 
     <ChartCategoryAxes>
@@ -57,32 +58,33 @@ By default the value of the point will be presented whey hovered over.
     public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
+
 >caption The result from the code snippet above
 
-![tooltip basic example](images/tooltip-basic-config.png)
+![single series tooltip](images/tooltip-basic-config.png)
 
 
 ## Common Tooltip
 
-The Chart allows you to add a common tooltip for every data point.
+The Chart allows you to enable and define common tooltip settings for all series at once. It looks like the individual tooltips (the value of the point will be presented when hovered over), but you declare it only once.
 
-You can enable it by:
+A tooltip set to a specific `<ChartSeries>` will take precedence over the common tooltip settings.
 
-1. Include the `<ChartTooltip>` tag nested inside the `<TelerikChart>`.
-1. Set it's `Visible` parameter to `true`.
+To enable the same tooltip for all series:
 
-By default the value of the point will be presented whey hovered over.
+1. Inside the `<TelerikChart>`, add the `<ChartTooltip>`.
+1. Set its `Visible` parameter to `true`.
 
-The tooltip set to a specific `<ChartSeries>` will take precedence over the common tooltip.
-
->caption Set a Common Tooltip for all the data points
+>caption Set a Common Tooltip for all series at once
 
 ````CSHTML
 @* This example shows you how to create a common tooltip for all data points *@
 
 <TelerikChart>
+
     <ChartTooltip Visible="true">
     </ChartTooltip>
+    
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">
         </ChartSeries>
@@ -109,7 +111,7 @@ The tooltip set to a specific `<ChartSeries>` will take precedence over the comm
 
 >caption The result from the code snippet above
 
-![tooltip basic example](images/tooltip-common-example.gif)
+![common tooltip settings for all series](images/tooltip-common-example.gif)
 
 
 ## Customization
@@ -121,7 +123,7 @@ There are two types of customizations you can do for the tooltips:
 
 ### Parameter Settings
 
-You can customize the appearance of the tooltip by using:
+You can customize the appearance of the individual series tooltip by using:
 
 * `Background` - control the background color by applying a CSS color string, including HEX and RGB. By default the it will match the color for the category.
 
@@ -194,6 +196,15 @@ You can customize the appearance of the tooltip by using:
 
 ![tooltip parameter customization example](images/tooltip-customized-example.png)
 
+* Use the [Template](#template) to take control over what is rendered in the tooltip - the tag name and data it provides is the same as for the specific tooltip, but it affects all series at once.
+
+#### Common Tooltip Settings
+
+In a similar fashion, you can declare these settings in the common tooltip section. Their tag names are slightly different, however:
+
+@[template](/_contentTemplates/chart/link-to-basics.md#shared-tooltip-parameter-settings)
+
+
 ### Template
 
 The `Template` allows you to take control over the rendering of the tooltip and include additional information to the user.
@@ -202,7 +213,9 @@ In the template you can:
 
 * Use business logic and render HTML
 
-* Use the `context` parameter that provides the following information:
+* Use the `context` parameter that provides information about the current data point.
+
+The available series data point information in the `context` is:
 
 @[template](/_contentTemplates/chart/link-to-basics.md#context-parameter-information)
 
