@@ -145,7 +145,7 @@ Each `Point` contains the following data:
 ````
 >caption The result from the code snippet above
 
-![shared tooltip example](images/shared-tooltip-template.png)
+![shared tooltip template example](images/shared-tooltip-template.png)
 
 ## See also
 
