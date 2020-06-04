@@ -26,6 +26,8 @@ The Themes are shared with the Kendo library and you can reuse any existing know
 
 A specific class on a `label` element can give you a checkbox that looks the same in all browsers. You will still need the actual `input` element, but it will have another class that will hide it visually.
 
+>tip You can use the [TelerikCheckBox]({%slug checkbox-overview%}) component instead. It offers a few extra features and events.
+
 ![](images/style-checkbox.png)
 
 >caption Checkboxes with Telerik Theme styling
@@ -66,7 +68,7 @@ A specific class on a `label` element can give you a radio buttons that looks th
 
 You can match standard `input` elements with the styling of a Telerik component like a numeric textbox.
 
-This can be useful for creating things the Telerik Textbox cannot do at the moment, like password fields.
+>tip Telerik provides the majority of necessary inputs - [numeric]({%slug components/numerictextbox/overview%}) textbox, [date]({%slug components/datepicker/overview%}) and [time]({%slug components/timepicker/overview%}) pickers, [password]({%slug components/textbox/overview%}) input, various [dropdowns]({%slug components/combobox/overview%}).
 
 ![](images/style-input.png)
 
@@ -102,6 +104,8 @@ You can match standard `button` and `a` elements with the styling of a Telerik B
 ## Cards
 
 The Telerik Themes carry styling for card elements. You can read more about them in the [Kendo UI Cards](https://docs.telerik.com/kendo-ui/styles-and-layout/cards) article.
+
+>tip The Cards that Telerik provides styles and sample HTML for can be put into reusable Blazor components in your app where you can define titles and content templates and any other features if needed by your use case and expose them as parameters.
 
 ## See Also
 
