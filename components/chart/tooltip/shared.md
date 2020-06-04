@@ -87,6 +87,7 @@ The `SharedTemplate` allows you to control the rendering of the shared tooltip.
 It provides `context` which contains the following information:
 * `Category` - renders the name of the Category.
 * `Point` - provides the following information on the points:
+
 @[template](/_contentTemplates/chart/context-parameter-information)
 
 
