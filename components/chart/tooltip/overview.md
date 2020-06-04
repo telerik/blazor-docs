@@ -15,6 +15,7 @@ The Telerik Chart provides a tooltip for its data points. They can be set either
 In this article:
 
 * [Basics](#basics)
+* [Common Tooltip](#common-tooltip)
 * [Customization](#customization)
 	* [Parameter Settings](#parameter-settings)
 	* [Template](#template)
@@ -28,6 +29,8 @@ You can enable tooltips for the data points by:
 1. Set it's `Visible` parameter to `true`.
 
 By default the value of the point will be presented whey hovered over.
+
+
 
 >caption Basic configuration to enable the tooltip for the Chart Series
 
@@ -57,6 +60,56 @@ By default the value of the point will be presented whey hovered over.
 >caption The result from the code snippet above
 
 ![tooltip basic example](images/tooltip-basic-config.png)
+
+
+## Common Tooltip
+
+The Chart allows you to add a common tooltip for every data point.
+
+You can enable it by:
+
+1. Include the `<ChartTooltip>` tag nested inside the `<TelerikChart>`.
+1. Set it's `Visible` parameter to `true`.
+
+By default the value of the point will be presented whey hovered over.
+
+The tooltip set to a specific `<ChartSeries>` will take precedence over the common tooltip.
+
+>caption Set a Common Tooltip for all the data points
+
+````CSHTML
+@* This example shows you how to create a common tooltip for all data points *@
+
+<TelerikChart>
+    <ChartTooltip Visible="true">
+    </ChartTooltip>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 2" Data="@series2Data">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
+
+    <ChartLegend Position="ChartLegendPosition.Right">
+    </ChartLegend>
+</TelerikChart>
+
+@code {
+    public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
+    public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
+    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+}
+````
+
+>caption The result from the code snippet above
+
+![tooltip basic example](images/tooltip-common-example.gif)
 
 
 ## Customization
@@ -145,21 +198,13 @@ You can customize the appearance of the tooltip by using:
 
 The `Template` allows you to take control over the rendering of the tooltip and include additional information to the user.
 
-It provides a `context` parameter with the following information:
+In the template you can:
 
-* `Value` - maps to the value of the data point that is being hovered.
+* Use business logic and render HTML
 
-* `DataItem` - provides the data model of the current series item. You may need to cast it to its type.
+* Use the `context` parameter that provides the following information:
 
-* `Percentage` - applicable to [Donut]({%slug components/chart/types/donut%}), [Pie]({%slug components/chart/types/pie%}) and [Stacked 100%]({%slug components/chart/stack%}#stack-100) Charts - the percentage value of the current data point from the whole.
-
-* `SeriesIndex` - provides the index of the `<ChartSeries>` the data point belongs to.
-
-* `SeriesName` - bound to the `Name` parameter of the `<ChartSeries>` the data point belongs to.
-
-* `SeriesColor` - shows the RGB color of the Series the data point belongs to.
-
-* `CategoryIndex` - shows the index of the data point's x-axis category.
+@[template](/_contentTemplates/chart/link-to-basics.md#context-parameter-information)
 
 
 >caption Use the Tooltip Template to add an Icon and additional information to the series tooltip

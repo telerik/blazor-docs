@@ -88,7 +88,7 @@ It provides `context` which contains the following information:
 * `Category` - renders the name of the Category.
 * `Point` - provides the following information on the points:
 
-@[template](/_contentTemplates/chart/context-parameter-information)
+@[template](/_contentTemplates/chart/link-to-basics.md#context-parameter-information)
 
 
 >caption Usage of the SharedTemplate
