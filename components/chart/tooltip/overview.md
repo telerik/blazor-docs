@@ -196,13 +196,14 @@ You can customize the appearance of the individual series tooltip by using:
 
 ![tooltip parameter customization example](images/tooltip-customized-example.png)
 
-* Use the [Template](#template) to take control over what is rendered in the tooltip - the tag name and data it provides is the same as for the specific tooltip, but it affects all series at once.
 
 #### Common Tooltip Settings
 
 In a similar fashion, you can declare these settings in the common tooltip section. Their tag names are slightly different, however:
 
 @[template](/_contentTemplates/chart/link-to-basics.md#shared-tooltip-parameter-settings)
+
+* Use the [Template](#template) to take control over what is rendered in the tooltip - the tag name and data it provides is the same as for the specific tooltip, but it affects all series at once.
 
 
 ### Template
