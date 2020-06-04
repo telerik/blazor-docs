@@ -24,6 +24,7 @@ In this article:
 The shared tooltip provides summarized information of all data points from the hovered category. This tooltip will take precedence over tooltip settings defined for a specific series.
 
 To enable the shared tooltip:
+
 1. Include the `<ChartTooltip>` tag nested inside the `<TelerikChart>`.
 1. Set it's `Visible` parameter to `true`.
 1. Set it's `Shared` parameter to `true`.

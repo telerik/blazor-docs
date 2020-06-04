@@ -23,6 +23,7 @@ In this article:
 ## Basics
 
 You can enable tooltips for the data points by:
+
 1. Include the `<ChartSeriesTooltip>` tag nested inside the `<ChartSeries>`.
 1. Set it's `Visible` parameter to `true`.
 
