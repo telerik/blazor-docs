@@ -184,3 +184,19 @@ For example, for [axis-free]({%slug components/chart/databind%}#series-types) ch
 This approach is not limited only to the Labels - it can be used with to all tags that are applicable for the chart type, for example the Chart Title `ChartTitle` > `ChartTitleMargin`.
 
 #end
+
+#context-parameter-information
+* `Value` - maps to the value of the data point that is being hovered.
+
+* `DataItem` - provides the data model of the current series item. You may need to cast it to its type.
+
+* `Percentage` - applicable to [Donut]({%slug components/chart/types/donut%}), [Pie]({%slug components/chart/types/pie%}) and [Stacked 100%]({%slug components/chart/stack%}#stack-100) Charts - the percentage value of the current data point from the whole.
+
+* `SeriesIndex` - provides the index of the `<ChartSeries>` the data point belongs to.
+
+* `SeriesName` - bound to the `Name` parameter of the `<ChartSeries>` the data point belongs to.
+
+* `SeriesColor` - shows the RGB color of the Series the data point belongs to.
+
+* `CategoryIndex` - shows the index of the data point's x-axis category.
+#end

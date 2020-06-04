@@ -14,15 +14,19 @@ The Telerik Chart allows you to show a unified tooltip for all categories in [Ca
 
 In this article:
 * [Basics](#basics)
- * [Customization Features](#customization-features)
-* [Shared Template](#shared-template)
+* [Customization](#customization)
+ * [Parameter Settings](#parameter-settings)
+ * [Shared Template](#shared-template)
 
 
 ## Basics
 
 The shared tooltip provides summarized information of all data points from the hovered category. This tooltip will take precedence over tooltip settings defined for a specific series.
 
-To enable the shared tooltip include the `<ChartTooltip>` tag nested inside the `<TelerikChart>`, and set it's `Visible` and `Shared` parameters to `true`. 
+To enable the shared tooltip:
+1. Include the `<ChartTooltip>` tag nested inside the `<TelerikChart>`.
+1. Set it's `Visible` parameter to `true`.
+1. Set it's `Shared` parameter to `true`.
 
 >caption Basic configuration of a Chart with Shared Tooltip
 
@@ -58,29 +62,37 @@ To enable the shared tooltip include the `<ChartTooltip>` tag nested inside the 
 
 ![shared tooltip example](images/shared-tooltip-basic.png)
 
-### Customization Features
+## Customization
 
+There are two types of customizations you can do for the tooltips:
+
+* [Parameter Settings](#parameter-settings) - lets you alter cosmetic settings such as borders, colors and padding through simple parameters
+* [Shared Template](#shared-template) - lets you control the entire content
+
+### Parameter Settings
 You can customize the rendering of the `Shared` tooltip by using:
 
 * `Background` - control the background color by applying a CSS color string, including HEX and RGB. By default the it will match the color for the category.
 * `Color` - control the text color by applying a CSS color string, including HEX and RGB.
 * `Opacity` - control the opacity of the tooltip.
-* `Border` - control the `Color` and the `Width` of the tooltip by using the `<ChartTooltipBorder />` nested inside the `<ChartTooltip>` tag.
-* `Padding` - control the `Left`, `Right`, `Top` and `Bottom` padding of the tooltip by using the `<ChartTooltipPadding />` nested inside the `<ChartTooltip>` tag.
+* `Border` - control the `Color` and the `Width` of the tooltip by using the `<ChartSeriesTooltipBorder />` nested inside the `<ChartSeriesTooltip>` tag.
+* `Padding` - control the `Left`, `Right`, `Top` and `Bottom` padding of the tooltip by using the `<ChartSeriesTooltipPadding />` nested inside the `<ChartSeriesTooltip>` tag.
 
 
-## Shared Template
+### Shared Template
 
 The `SharedTemplate` allows you to control the rendering of the shared tooltip.
 
 It provides `context` which contains the following information:
 * `Category` - renders the name of the Category.
-* `Point` - provides information on the points like their `Value`, `DataItem`, `CategoryIndex`, etc.
+* `Point` - provides the following information on the points:
+@[template](/_contentTemplates/chart/context-parameter-information)
 
->caption Handle the SharedTemplate
+
+>caption Usage of the SharedTemplate
 
 ````CSHTML
-@* This example shows how to handle the SharedTemplate and extract information on the data points value and category from the context *@
+@* This example shows how to use the SharedTemplate and extract information on the data points value and category from the context *@
 
 <TelerikChart>
     <ChartTooltip Visible="true" Shared="true">
@@ -125,3 +137,8 @@ It provides `context` which contains the following information:
 >caption The result from the code snippet above
 
 ![shared tooltip example](images/shared-tooltip-template.png)
+
+## See also
+
+* [Chart Overview]({%slug components/chart/overview%})
+* [Chart Tooltip Overview]({%slug chart-tooltip-overview%})

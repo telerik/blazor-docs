@@ -22,7 +22,11 @@ In this article:
 
 ## Basics
 
-You can enable tooltips for the data points by setting the `Visible` parameter of the `<ChartSeriesTooltip>`, nested inside the `<ChartSeries>` tag, to `true`. By default the value of the point will be presented whey hovered over.
+You can enable tooltips for the data points by:
+1. Include the `<ChartSeriesTooltip>` tag nested inside the `<ChartSeries>`.
+1. Set it's `Visible` parameter to `true`.
+
+By default the value of the point will be presented whey hovered over.
 
 >caption Basic configuration to enable the tooltip for the Chart Series
 
@@ -58,7 +62,7 @@ You can enable tooltips for the data points by setting the `Visible` parameter o
 
 There are two types of customizations you can do for the tooltips:
 
-* [Parameter Settings](#parameter-settings) - lets you alter comsetic settings such as borders, colors and padding through simple parameters
+* [Parameter Settings](#parameter-settings) - lets you alter cosmetic settings such as borders, colors and padding through simple parameters
 * [Template](#template) - lets you control the entire content
 
 ### Parameter Settings
