@@ -48,6 +48,8 @@ You can use the `SelectedItems` collection in two-way binding. You can use this 
 
 The `SelectedItems` collection persists across paging operations. Changing the page will keep it populated.
 
+If the collection has more than one item in it, the grid will use the last item to select the row in single selection mode.
+
 ## Examples
 
 ### Single Row Selection and Checkbox
