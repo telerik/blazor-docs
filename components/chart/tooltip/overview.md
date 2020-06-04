@@ -13,9 +13,12 @@ position: 1
 The Telerik Chart provides a tooltip for its data points. They can be set either to a specific `<ChartSeries>` or as a [shared]({%slug chart-tooltip-shared%}) tooltip for all categories.
 
 In this article:
+
 * [Basics](#basics)
- * [Customization Features](#customization-features)
-* [Template](#template)
+* [Customization](#customization)
+	* [Parameter Settings](#parameter-settings)
+	* [Template](#template)
+
 
 ## Basics
 
@@ -51,13 +54,25 @@ You can enable tooltips for the data points by setting the `Visible` parameter o
 ![tooltip basic example](images/tooltip-basic-config.png)
 
 
-### Customization Features
+## Customization
+
+There are two types of customizations you can do for the tooltips:
+
+* [Parameter Settings](#parameter-settings) - lets you alter comsetic settings such as borders, colors and padding through simple parameters
+* [Template](#template) - lets you control the entire content
+
+### Parameter Settings
 
 You can customize the appearance of the tooltip by using:
+
 * `Background` - control the background color by applying a CSS color string, including HEX and RGB. By default the it will match the color for the category.
+
 * `Color` - control the text color by applying a CSS color string, including HEX and RGB.
+
 * `Border` - control the `Color` and the `Width` of the tooltip by using the `<ChartSeriesTooltipBorder />` nested inside the `<ChartSeriesTooltip>` tag.
+
 * `Padding` - control the `Left`, `Right`, `Top` and `Bottom` padding of the tooltip by using the `<ChartSeriesTooltipPadding />` nested inside the `<ChartSeriesTooltip>` tag.
+
 * Use the [Template](#template) to take control over what is rendered in the tooltip.
 
 >caption Configuration of the tooltips with applied customization settings
@@ -103,7 +118,7 @@ You can customize the appearance of the tooltip by using:
     }
 
     public List<MyDataModel> modelData = new List<MyDataModel>()
-{
+    {
         new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
         new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
         new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
@@ -119,22 +134,30 @@ You can customize the appearance of the tooltip by using:
 
 >caption The result from the code snippet above
 
-![tooltip basic example](images/tooltip-customized-example.png)
+![tooltip parameter customization example](images/tooltip-customized-example.png)
 
-## Template
+### Template
 
 The `Template` allows you to take control over the rendering of the tooltip and include additional information to the user.
 
-It also provides a `context` with the following information:
-* `Value` - maps to the value of the data point that is being hovered.
-* `DataItem` - provides the data model of the component.
-* `Percentage` - applicable to [Donut]({%slug components/chart/types/donut%}), [Pie]({%slug components/chart/types/pie%}) and [Stacked 100%]({%slug components/chart/stack%}#stack-100) Charts
-* `SeriesIndex` - provides the index of the `<ChartSeries>`
-* `SeriesName` - bound to the `Name` parameter of the `<ChartSeries>`
-* `SeriesColor` - shows the color of the Series in RGB.
-* `CategoryIndex` - shows the index of the data points.
+It provides a `context` parameter with the following information:
 
->caption Handle the Template to add an Icon and additional information to the tooltip
+* `Value` - maps to the value of the data point that is being hovered.
+
+* `DataItem` - provides the data model of the current series item. You may need to cast it to its type.
+
+* `Percentage` - applicable to [Donut]({%slug components/chart/types/donut%}), [Pie]({%slug components/chart/types/pie%}) and [Stacked 100%]({%slug components/chart/stack%}#stack-100) Charts - the percentage value of the current data point from the whole.
+
+* `SeriesIndex` - provides the index of the `<ChartSeries>` the data point belongs to.
+
+* `SeriesName` - bound to the `Name` parameter of the `<ChartSeries>` the data point belongs to.
+
+* `SeriesColor` - shows the RGB color of the Series the data point belongs to.
+
+* `CategoryIndex` - shows the index of the data point's x-axis category.
+
+
+>caption Use the Tooltip Template to add an Icon and additional information to the series tooltip
 
 ````CSHTML
 @* This example shows how to use the Template to provide an Icon and additional information from the model *@
@@ -177,7 +200,7 @@ It also provides a `context` with the following information:
     }
 
     public List<MyDataModel> modelData = new List<MyDataModel>()
-{
+    {
         new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
         new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
         new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
@@ -192,7 +215,8 @@ It also provides a `context` with the following information:
 
 >caption The result from the code snippet above
 
-![tooltip basic example](images/tooltip-template-example.png)
+![tooltip template example](images/tooltip-template-example.png)
+
 
 ## See Also
 
