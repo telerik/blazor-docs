@@ -43,6 +43,30 @@ Once the download completes, run the downloaded file and follow the instructions
 
 @[template](/_contentTemplates/common/get-started.md#after-install)
 
+## Troubleshooting
+
+### Can't Install on MacOS Catalina
+
+MacOS requires that installer packages are signed. The UI for Blazor installation `.pkg` package is signed and the MacOS system should not block the installation. Nevertheless, in rare cases MacOS may still block the Telerik Installer.
+
+There are several approaches you can try:
+
+* Make sure that the "identified developers" downloads are enabled:
+
+    1. Open **System Preferences**
+    2. Go to **Security & Privacy** and select the **General** tab
+    3. In the bottom half of the window under **Allow apps downloaded from**: option select the **App Store and identified developers**
+    4. Apply the option and then give the installer another try
+
+* Install the file manually with either of these approaches:
+
+    * Right-click on the `.pkg` and select "Open". This should bring up an install dialog, but with an option to **Open the file anyway**.
+    
+    * Right-click on the `.pkg` and select "Open With", and choose **Installer**.
+    
+    * Or, get around Apple's security precautions by removing the quarantine Extended Attribute on the `.pkg` file by executing `xattr -d com.apple.quarantine /path/to/file`
+
+* You can, alternatively, obtain all the files you need from the [ZIP archive we provide]({%slug installation/zip%}) which does not require an installation.
 
 ## See Also
 
