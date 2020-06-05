@@ -156,11 +156,13 @@ Once you have the NuGet feed set up, follow the instructions to create either a 
 
 To setup a local NuGet package source, so you can install the Telerik components without an active Internet connection and without setting up our private feed, do the following:
 
+1. Copy all the `.nupkg` files we provide from the **`packages`** and **`dpl`** folders of your Telerik UI for Blazor installation to your preferred local feed location. By default, the installation path is `C:\Program Files (x86)\Progress\Telerik UI for Blazor <VERSION>` or where you unzip the ZIP installer.
+
 1. Open **Visual Studio** and go to **Tools** > **Options**.
 
 1. Find the **NuGet Package Manager** node, expand it, and select **Package Sources**.
 
-1. Click the Add (`+`) icon at the top to add the new local feed, select its name and point it to the path where you installed the components or placed the `.nupkg files` (by default, the installation goes to `C:\Program Files (x86)\Progress\Telerik UI for Blazor <VERSION>\packages`). 
+1. Click the Add (`+`) icon at the top to add the new local feed, select its name and point it to the path where you placed all the Telerik `.nupkg` files.
 
     >tip Make sure to add the packages from both the `packages` and `dpl` folders to your custom feed.
 
