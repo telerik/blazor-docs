@@ -80,7 +80,7 @@ If some values are missing from the series data (they are `null`), you can have 
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-categorical)
 
->caption A line chart that shows cow to rotate the labels
+>caption A line chart that shows how to rotate the labels
 
 ````CSHTML
 @* Change the rotation angle of the Labels *@
