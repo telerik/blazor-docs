@@ -16,6 +16,8 @@ The parameter of type `DataSourceRequest` exposes information about the desired 
 
 When the `OnRead` event is used, the internal operations are disabled and you must perform them all in the `OnRead` event. You must also set the `TotalCount` property of the grid to the total number of items in the data source.
 
+If you are using an `ObservableCollection`, make sure to create a `new` one, because using `.Add()`, `.Remove()` or `.Clear()` on it will cause an infinite loop - the [grid monitors the ObservableCollection events]({%slug common-features-observable-data%}) and updates its data, which will fire `OnRead`.
+
 ## Examples
 
 Below you can find a few examples of using the `OnRead` event to perform custom data source operations. They may not implement all operations for brevity. They showcase the basics only, and it is up to the application's data access layer to implement them. You can read more about implementing the CUD operations in the [CRUD Operations Overview](editing/overview) article.
