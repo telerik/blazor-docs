@@ -29,13 +29,79 @@ I'm using manual data operations, how do I use an observable collection to refre
 
 ## Solution
 
+There are two different cases:
+
+* [Automatic operations](#automatic-operations)
+* [Manual operations](#manual-operations)
+
 ### Automatic operations
 
 For general cases, to change the data that is rendered in the grid from an external source, use an `ObservableCollection`: [https://demos.telerik.com/blazor-ui/grid/observable-data](https://demos.telerik.com/blazor-ui/grid/observable-data). To change the entire data collection, `.Clear()` the collection first to notify the grid that this old data is gone, then create a new one with the new data.
 
+If you don't use an `ObservableCollection`, you can create a `new` instance of the collection and set it to the `Data` parameter. A `new` instance provides a new reference, which fires the `OnParametersSet` event from the framework which lets the grid redraw. If you only add/remove items from the same collection, the reference to the entire data collection stays the same and the grid is not notified of the change.
+
+>caption Refresh grid data with automatic data source operations
+
+
+````CSHTML
+@* change grid data on external action. 
+    Try grouping or filtering the grid, for example, then change its data through the button above it *@
+
+<button @onclick="@ChangeGridData">change grid data</button>
+
+<TelerikGrid Data="@MyData" Height="400px"
+             Pageable="true" Sortable="true" Groupable="true"
+             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
+             Resizable="true" Reorderable="true">
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    async Task ChangeGridData()
+    {
+        Random rnd = new Random();
+        var newData = Enumerable.Range(1, 30).Select(x => new SampleData
+        {
+            Id = x,
+            Name = "name " + rnd.Next(1, 100),
+            Team = "team " + rnd.Next(1, 100),
+            HireDate = DateTime.Now.AddDays(-rnd.Next(1, 100)).Date
+        });
+
+        // create a new collection to get a new reference
+        MyData = new List<SampleData>(newData);
+    }
+    
+
+    public List<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    }).ToList();
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
+
 ### Manual operations
 
-When using manual operations through the [OnRead event](https://docs.telerik.com/blazor-ui/components/grid/manual-operations), the general pattern is to store the last `DataSourceRequest` so you can repeat it over the new data. Here is an example:
+When using manual operations through the [OnRead event](https://docs.telerik.com/blazor-ui/components/grid/manual-operations), the general pattern is to store the last `DataSourceRequest` so you can repeat it over the new data and create a `new` Data collection. Here is an example:
+
+>caption Refresh grid data with manual data source operations
+
 
 ````CSHTML
 @using Telerik.DataSource
