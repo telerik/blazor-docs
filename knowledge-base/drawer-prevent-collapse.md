@@ -27,7 +27,8 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
 
 ## Solution
 
-Use the [Template]({%slug drawer-templates%}#template) to take control over the rendering of the entire component. The Drawer renders as `ul` with `li`. In order to stop the component from collapsing on item click you need to add the `@onclick:stopPropagation` to the `<li>` tag.
+1. Use the [Template]({%slug drawer-templates%}#template) to take control over the rendering of the entire component. The Drawer renders as `ul` with `li` elements for the individual items.
+2. In order to stop the component from collapsing on item click you need to add the `@onclick:stopPropagation` to the `<li>` tag.
 
 >caption Stop the Drawer from collapsing on item click
 
@@ -41,65 +42,28 @@ Use the [Template]({%slug drawer-templates%}#template) to take control over the 
                @bind-SelectedItem="@SelectedItem"
                @ref="@DrawerRef">
     <Template>
-        @* the header *@
-        <div>
-            <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu" />
-            @if (DrawerExpanded)
-            {
-                <div class="text-info" style="border-bottom:solid; font-weight: bold; margin-bottom: 3em; white-space:nowrap">
-                    My Custom Navigation
-                </div>
-            }
-            else
-            {
-                <div class="text-info" style="border-bottom:solid; font-weight: bold;">
-                    Nav
-                </div>
-            }
-        </div>
-
-        @* custom items rendering and item selection *@
-
         <div class="k-drawer-items">
             <ul>
-                @if (SelectedItem != null && DrawerExpanded)
-                {
-                    <li class="k-drawer-item" style="white-space:nowrap">
-                        <div>
-                            <p><strong>@SelectedItem.Text</strong></p>
-                            <p>@SelectedItem.Description</p>
-                        </div>
-                    </li>
-                }
-
                 @foreach (var item in Data)
                 {
-                    @* Use onclick to handle manual item selection *@
-                    <li @onclick="@(() => SelectedItem = item)"
-                        class="k-drawer-item @GetSelectedItemClass(item)" @onclick:stopPropagation style="white-space:nowrap">
+                    @* stop the propagation of the onclick event to prevent the drawer from collapsing *@
+                    @* Use onclick to handle manual item selection and toggle the selected class *@
+                    <li @onclick:stopPropagation 
+                        @onclick="@(() => SelectedItem = item)"
+                        class="k-drawer-item @GetSelectedItemClass(item)"
+                        style="white-space:nowrap">
                         <span class="k-icon k-i-@item.Icon" style="margin-right: 8px;"></span>
                         @if (DrawerExpanded)
                         {
-                            <div>
-                                <div>@item.Text</div>
-                            </div>
+                           <span class="k-item-text">@item.Text</span>
                         }
                     </li>
                 }
             </ul>
         </div>
-
-        @* the footer *@
-        @if (DrawerExpanded)
-        {
-            <div style="text-align: center; margin-top: 3em; padding-top: 2em; border-top: 2px solid black; white-space:nowrap">
-                <img src="user-avatar.png" alt="my avatar" style="border-radius: 50%; width: 50px; height: 50px;" />
-                <br /><br />
-                <TelerikButton Icon="@IconName.Logout" Primary="true">Log Out</TelerikButton>
-            </div>
-        }
     </Template>
     <Content>
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu" />
         <div class="m-5">Content for @SelectedItem?.Text - @SelectedItem?.Description</div>
     </Content>
 </TelerikDrawer>
@@ -109,7 +73,7 @@ Use the [Template]({%slug drawer-templates%}#template) to take control over the 
     public DrawerItem SelectedItem { get; set; }
     public bool DrawerExpanded { get; set; } = true;
     public IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>
-{
+    {
         new DrawerItem {Text = "Shopping Cart", Icon = IconName.Cart, Description = "Items in shopping cart"},
         new DrawerItem {Text = "Settings", Icon = IconName.Gear, Description = "My profile settings"},
         new DrawerItem {Text = "Notifications", Icon = IconName.Notification, Description = "My profile notifications"},
@@ -119,7 +83,7 @@ Use the [Template]({%slug drawer-templates%}#template) to take control over the 
     public string GetSelectedItemClass(DrawerItem item)
     {
         if (SelectedItem == null) return string.Empty;
-        return SelectedItem.Text.ToLowerInvariant().Equals(item.Text.ToLowerInvariant()) ? "text-info" : "";
+        return SelectedItem.Text.ToLowerInvariant().Equals(item.Text.ToLowerInvariant()) ? "k-state-selected" : "";
     }
 
     public class DrawerItem
@@ -130,3 +94,4 @@ Use the [Template]({%slug drawer-templates%}#template) to take control over the 
     }
 }
 ````
+
