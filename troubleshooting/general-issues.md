@@ -115,6 +115,8 @@ There are also certain measures a web app should take to improve its performance
 
 * When using a series of your own components on the page, consider overriding their `ShouldRender` methods so they render only when needed. For example, an `EventCallback` whose handler is an `async Task` will render its own component, its parent and siblings twice, and you can reduce that to once.
 
+* Loading content on demand (such as a cell value) should be done through a nested component and its `OnParemetersSetAsync` method. A similar example is available in the [load tooltip content on demand](https://github.com/telerik/blazor-ui/tree/master/tooltip/in-grid) and [load hierarchy data on demand](https://github.com/telerik/blazor-ui/tree/master/grid/load-on-demand-hierarchy) sample projects. You should not use an async method in a component's `Template` (or any `RenderFragment`) directly, because their execution is awaited by the framework before the fragment can render at all (`Templates` and `RenderFragment` instances are basically synchronous).
+
 
 
 
