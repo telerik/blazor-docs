@@ -415,6 +415,7 @@ skip_tabbed_code: true
 code_lang: true
 has_kb_portal: true
 edit_repo_url: https://github.com/telerik/blazor-docs/edit/master
+product_url: https://www.telerik.com/blazor-ui
 download: https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor
 
 
