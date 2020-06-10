@@ -101,23 +101,25 @@ Each `Point` contains the following data:
 >caption Usage of the SharedTemplate
 
 ````CSHTML
-@* This example shows how to use the SharedTemplate and extract information on the data points value and category from the context *@
+@* This example shows how to use the SharedTemplate and extract information on the data points value, parse them to int and get the category from the context *@
 
 <TelerikChart>
     <ChartTooltip Visible="true" Shared="true">
         <SharedTemplate>
-           @{
-               var points = context.Points;
+            @{
+                var points = context.Points;
 
-               foreach (var point in points)
-               {
-                   <div>
-                       <TelerikIcon Icon="@IconName.Information" />
-                       Point value: @point.Value
-                       Category: @context.Category
-                   </div>
-               }
-           }
+                foreach (var point in points)
+                {
+                    <div>
+                        <TelerikIcon Icon="@IconName.Information" />
+                        @*this example shows how to parse the FormattedValue to a int,*@
+                        @*but you can also parse it to any other type*@
+                        Point value: @(int.Parse(point.FormattedValue).ToString("C"))
+                        Category: @context.Category
+                    </div>
+                }
+            }
         </SharedTemplate>
     </ChartTooltip>
     <ChartSeriesItems>

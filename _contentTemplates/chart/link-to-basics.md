@@ -186,7 +186,8 @@ This approach is not limited only to the Labels - it can be used with to all tag
 #end
 
 #context-parameter-information
-* `Value` - maps to the value of the data point that is being hovered.
+* `FormattedValue` - maps to the value of the data point that is being hovered, formatted as a string.
+ * Use this when the chart's data is bound by [Independent Series Binding]({%slug components/chart/databind%}#independent-series-binding). You can parse this to a numerical value (`int`, `double`, etc.) in order to format the value. Otherwise, use the `DataItem` to get the value of the point.
 
 * `DataItem` - provides the data model of the current series item. You may need to cast it to its type.
 
