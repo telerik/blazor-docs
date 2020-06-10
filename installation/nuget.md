@@ -144,7 +144,10 @@ You must protect your credentials and/or the Telerik packages and ensure they ar
 
 #### Azure
 
-When using Azure pipelines, we encourage you to review the following blog post on setting things up: [Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages).
+When using Azure pipelines, we encourage you to review the following resources on setting things up:
+
+* Blog post: [Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)
+* Sample Repo and Video Tutorial: [Telerik DevOpsExamples by LanceMcCarthy](https://github.com/LanceMcCarthy/DevOpsExamples)
 
 There are a couple of common questions and issues:
 
