@@ -201,7 +201,7 @@ You can customize the appearance of the individual series tooltip by using:
 
 In a similar fashion, you can declare these settings in the common tooltip section. Their tag names are slightly different, however:
 
-@[template](/_contentTemplates/chart/link-to-basics.md#shared-tooltip-parameter-settings)
+@[template](/_contentTemplates/chart/chart-context-templates.md#shared-tooltip-parameter-settings)
 
 * Use the [Template](#template) to take control over what is rendered in the tooltip - the tag name and data it provides is the same as for the specific tooltip, but it affects all series at once.
 
@@ -218,7 +218,7 @@ In the template you can:
 
 The available series data point information in the `context` is:
 
-@[template](/_contentTemplates/chart/link-to-basics.md#context-parameter-information)
+@[template](/_contentTemplates/chart/chart-context-templates.md#context-parameter-information)
 
 
 >caption Use the Tooltip Template and use the DataItem to get the value of the point and add additional information
