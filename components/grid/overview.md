@@ -70,6 +70,27 @@ General grid with its most common features
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NW2hHtmM2Gk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+## Data Binding
+
+To show data in a grid, you need to define [GridColumn]({%slug components/grid/columns/bound%}) instances - they take a model `Field` and expose settings for [templates]({%slug components/grid/features/templates%}), [grouping](#grouping) and [reordering]({%slug components/grid/columns/reorder%}). To [edit](#editing) data or invoke custom logic, you define a [CommandColumn]({%slug components/grid/columns/command%}).
+
+>tip The Telerik Blazor Grid is data source agnostic - you can use any database and service according to your project, you only need to get the collection of data models to the grid in the view-model of the component hosting it.
+
+The following list of resources provides examples for data binding a grid in various scenarios:
+
+* Basic **example**, tutorial **video** and **notes** - [Grid Data Binding Overview]({%slug components/grid/columns/bound%}). Also lists the features (parameters) of a bound column.
+
+* **Optimizing the data source queries** - see the [Notes]({%slug components/grid/columns/bound%}#notes) section in the article above. In a server-side app, an `IQueriable` that ties to an appropriate context (such as EntityFramework) that can optimize the LINQ queries the grid generates is a quick option. For full control, use the [OnRead event]({%slug components/grid/manual-operations%}).
+
+* **SQL** (or any other) **database** - you can find examples in our [online demos](https://demos.telerik.com/blazor-ui/grid/overview). You can see an offline version of the demos project in the `demos` folder of your installation ([automated]({%slug installation/msi%}) or [archive]({%slug installation/zip%})). They showcase an EntityFramework context using an SQL database that provides data to a grid through a service, which is a common architecture for decouping the front-end from the actual data source that you can apply to any database.
+
+    * The **CRUD sample project** our extensions for [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-overview%}) can generate for you showcases a similar architecture that you can use as a starting point.
+
+* **WebAPI** data source - you can see how to send an appropriate request for data and return an optimized query in the following sample projects: [Grid DataSourceRequest on the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server). This is a flexible approach that you can use for any type of service you have - serializing and deserializing the data according to the application logic and needs, and optimizing the database queries on the backend.
+
+* **OData** data source - an extension method we provide lets you make OData v4 queries as shown in the following example: [Grid and OData](https://github.com/telerik/blazor-ui/tree/master/grid/odata).
+
+
 ## Blazor Grid Reference
 
 The grid is a generic component, and to store a reference, you must use the model type that you pass to its `Data` when declaring the variable.
@@ -106,25 +127,6 @@ The grid is a generic component, and to store a reference, you must use the mode
 }
 ````
 
-## Data Binding
-
-To show data in a grid, you need to define [GridColumn]({%slug components/grid/columns/bound%}) instances - they take a model `Field` and expose settings for [templates]({%slug components/grid/features/templates%}), [grouping](#grouping) and [reordering]({%slug components/grid/columns/reorder%}). To [edit](#editing) data or invoke custom logic, you define a [CommandColumn]({%slug components/grid/columns/command%}).
-
->tip The Telerik Blazor Grid is data source agnostic - you can use any database and service according to your project, you only need to get the collection of data models to the grid in the view-model of the component hosting it.
-
-The following list of resources provides examples for data binding a grid in various scenarios:
-
-* Basic **example**, tutorial **video** and **notes** - [Grid Data Binding Overview]({%slug components/grid/columns/bound%}). Also lists the features (parameters) of a bound column.
-
-* **Optimizing the data source queries** - see the [Notes]({%slug components/grid/columns/bound%}#notes) section in the article above. In a server-side app, an `IQueriable` that ties to an appropriate context (such as EntityFramework) that can optimize the LINQ queries the grid generates is a quick option. For full control, use the [OnRead event]({%slug components/grid/manual-operations%}).
-
-* **SQL** (or any other) **database** - you can find examples in our [online demos](https://demos.telerik.com/blazor-ui/grid/overview). You can see an offline version of the demos project in the `demos` folder of your installation ([automated]({%slug installation/msi%}) or [archive]({%slug installation/zip%})). They showcase an EntityFramework context using an SQL database that provides data to a grid through a service, which is a common architecture for decouping the front-end from the actual data source that you can apply to any database.
-
-    * The **CRUD sample project** our extensions for [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-overview%}) can generate for you showcases a similar architecture that you can use as a starting point.
-
-* **WebAPI** data source - you can see how to send an appropriate request for data and return an optimized query in the following sample projects: [Grid DataSourceRequest on the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server). This is a flexible approach that you can use for any type of service you have - serializing and deserializing the data according to the application logic and needs, and optimizing the database queries on the backend.
-
-* **OData** data source - an extension method we provide lets you make OData v4 queries as shown in the following example: [Grid and OData](https://github.com/telerik/blazor-ui/tree/master/grid/odata).
 
 ## Autogenerated Columns
 
