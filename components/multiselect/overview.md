@@ -81,7 +81,7 @@ The MultiSelect is a generic component and its type is determined by the type of
 
 * `Enabled` - whether the component is enabled.
 
-* `Filterable` - whether [filtering]({%slug multiselect-filter%}) is enabled for the end user 
+* `Filterable` - whether [filtering]({%slug multiselect-filter%}) is enabled for the end user
 (suggestions will get narrowed down as they type).
 
 * `FilterOperator` - the string operation that will be used for [filtering]({%slug multiselect-filter%}). Defaults to `StartsWith`.
@@ -103,12 +103,12 @@ The MultiSelect is a generic component and its type is determined by the type of
 * `TValue` - the type of the value field in the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
 
     The type of the values can be:
-    
+
     * `number` (such as `int`, `double` and so on)
     * `string`
     * `Guid`
     * `Enum`
-    
+
 * `Value` and `bind-Value`- get/set the value of the component, can be used for binding. Use the `@bind-Value` syntax for two-way binding, for example, to a variable of your own. The `Value` must be a `List<TValue>`.
 
 * `ValueField` - the name of the field from the model that will be used as values in the selection. Defaults to `Value`.
@@ -125,7 +125,14 @@ The MultiSelect is a generic component and its type is determined by the type of
 >caption Pre-select items for the user
 
 ````CSHTML
-@* If the List of items provided to the component contains an item matching the data source, that item will be selected *@
+@* You can pre-select an item or set of items only if they exist in the data source. *@
+
+<div>
+    <TelerikButton OnClick="@SelectHandler">Pre-select countries</TelerikButton>
+    <TelerikButton OnClick="@ClearSelectionHandler">Clear selection</TelerikButton>
+</div>
+
+<br />
 
 <TelerikMultiSelect Data="@Countries"
                     @bind-Value="@Values"
@@ -143,8 +150,26 @@ The MultiSelect is a generic component and its type is determined by the type of
 }
 
 @code {
-    List<string> Countries { get;set; } = new List<string>();
-    List<string> Values { get;set; } = new List<string>() { "Bulgaria", "Croatia" };
+    List<string> Countries { get; set; } = new List<string>();
+    List<string> Values { get; set; } = new List<string>();
+
+    List<string> PreselectedValues { get; set; } = new List<string>()
+    {
+        "Bulgaria", "Croatia"
+    };
+
+    void SelectHandler()
+    {
+        PreselectedValues.Add("Croatia");
+        PreselectedValues.Add("Bulgaria");
+        Values = new List<string>(PreselectedValues);
+    }
+
+    void ClearSelectionHandler()
+    {
+        Values = new List<string>();
+        PreselectedValues = new List<string>();
+    }
 
     protected override void OnInitialized()
     {
@@ -169,4 +194,3 @@ The MultiSelect is a generic component and its type is determined by the type of
   * [Live Demo: MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/overview)
   * [Live Demo: MultiSelect Validation](https://demos.telerik.com/blazor-ui/multiselect/validation)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMultiSelect)
-
