@@ -8,13 +8,13 @@ published: True
 position: 0
 ---
 
-# Grid Bound Column
+# Grid Data Binding Overview
 
 This article explains the basics of showing data in a grid and the features of its bound columns.
 
 Sections in this article:
 
-* [Show Data In A Grid](#show-data-in-a-grid)
+* [Show Data In A Grid](#show-data-in-a-grid) (with video tutorial)
 * [Grid Bound Column Parameters](#grid-bound-column-parameters)
 * [Notes](#notes)
 
@@ -87,7 +87,7 @@ You can use the following properties on the bound columns:
 * `ref` - the standard Blazor reference name.
 * `EditorTemplate` - this property can also be used as an inner tag and it lets you define the [column edit content]({%slug components/grid/features/templates%}#edit-template). It can also point to a component name.
 
->tip For an example of the column usage, see the [Grid Overview](../overview) article, the rest of the documentation and our [live demos](https://demos.telerik.com/blazor-ui/grid/overview).
+>tip You can find more examples in the rest of the grid documentation and in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview).
 
 ## Notes
 
