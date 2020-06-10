@@ -40,11 +40,11 @@ To enable tooltips for the data points of each individual series:
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Column" Name="Series 1" Data="@data1">
         </ChartSeries>
-        
+
         <ChartSeries Type="ChartSeriesType.Column" Name="Series 2" Data="@data2">
             <ChartSeriesTooltip Visible="true"></ChartSeriesTooltip>
         </ChartSeries>
-        
+
     </ChartSeriesItems>
 
     <ChartCategoryAxes>
@@ -84,7 +84,7 @@ To enable the same tooltip for all series:
 
     <ChartTooltip Visible="true">
     </ChartTooltip>
-    
+
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">
         </ChartSeries>
@@ -201,7 +201,7 @@ You can customize the appearance of the individual series tooltip by using:
 
 In a similar fashion, you can declare these settings in the common tooltip section. Their tag names are slightly different, however:
 
-@[template](/_contentTemplates/chart/link-to-basics.md#shared-tooltip-parameter-settings)
+@[template](/_contentTemplates/chart/chart-tooltip-context-templates.md#shared-tooltip-parameter-settings)
 
 * Use the [Template](#template) to take control over what is rendered in the tooltip - the tag name and data it provides is the same as for the specific tooltip, but it affects all series at once.
 
@@ -218,10 +218,10 @@ In the template you can:
 
 The available series data point information in the `context` is:
 
-@[template](/_contentTemplates/chart/link-to-basics.md#context-parameter-information)
+@[template](/_contentTemplates/chart/chart-tooltip-context-templates.md#context-parameter-information)
 
 
->caption Use the Tooltip Template to add an Icon and additional information to the series tooltip
+>caption Use the Tooltip Template and use the DataItem to get the value of the point and add additional information
 
 ````CSHTML
 @* This example shows how to use the Template to provide an Icon and additional information from the model *@
@@ -235,7 +235,7 @@ The available series data point information in the `context` is:
             <ChartSeriesTooltip Visible="true">
                 <Template>
                     <TelerikIcon Icon="@IconName.Information" />
-                    @context.Value for @((context.DataItem as MyDataModel).ExtraData)
+                    @((context.DataItem as MyDataModel).SecondSeriesValue) for @((context.DataItem as MyDataModel).ExtraData)
                 </Template>
             </ChartSeriesTooltip>
         </ChartSeries>
@@ -264,7 +264,7 @@ The available series data point information in the `context` is:
     }
 
     public List<MyDataModel> modelData = new List<MyDataModel>()
-    {
+{
         new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
         new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
         new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },

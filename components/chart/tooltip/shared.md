@@ -73,7 +73,7 @@ There are two types of customizations you can do for the tooltips:
 ### Parameter Settings
 You can customize the rendering of the `Shared` tooltip by using:
 
-@[template](/_contentTemplates/chart/link-to-basics.md#shared-tooltip-parameter-settings)
+@[template](/_contentTemplates/chart/chart-tooltip-context-templates.md#shared-tooltip-parameter-settings)
 
 
 ### Shared Template
@@ -95,29 +95,31 @@ The `context` contains the following information:
 
 Each `Point` contains the following data:
 
-@[template](/_contentTemplates/chart/link-to-basics.md#context-parameter-information)
+@[template](/_contentTemplates/chart/chart-tooltip-context-templates.md#context-parameter-information)
 
 
 >caption Usage of the SharedTemplate
 
 ````CSHTML
-@* This example shows how to use the SharedTemplate and extract information on the data points value and category from the context *@
+@* This example shows how to use the SharedTemplate and extract information on the data points value, parse them to int and get the category from the context *@
 
 <TelerikChart>
     <ChartTooltip Visible="true" Shared="true">
         <SharedTemplate>
-           @{
-               var points = context.Points;
+            @{
+                var points = context.Points;
 
-               foreach (var point in points)
-               {
-                   <div>
-                       <TelerikIcon Icon="@IconName.Information" />
-                       Point value: @point.Value
-                       Category: @context.Category
-                   </div>
-               }
-           }
+                foreach (var point in points)
+                {
+                    <div>
+                        <TelerikIcon Icon="@IconName.Information" />
+                        @*this example shows how to parse the FormattedValue to a int,*@
+                        @*but you can also parse it to any other type your data uses / has*@
+                        Point value: @(int.Parse(point.FormattedValue).ToString("C"))
+                        Category: @context.Category
+                    </div>
+                }
+            }
         </SharedTemplate>
     </ChartTooltip>
     <ChartSeriesItems>
