@@ -132,8 +132,6 @@ The MultiSelect is a generic component and its type is determined by the type of
     <TelerikButton OnClick="@ClearSelectionHandler">Clear selection</TelerikButton>
 </div>
 
-<br />
-
 <TelerikMultiSelect Data="@Countries"
                     @bind-Value="@Values"
                     Placeholder="Enter Balkan country, e.g., Bulgaria"
@@ -153,22 +151,20 @@ The MultiSelect is a generic component and its type is determined by the type of
     List<string> Countries { get; set; } = new List<string>();
     List<string> Values { get; set; } = new List<string>();
 
-    List<string> PreselectedValues { get; set; } = new List<string>()
-    {
-        "Bulgaria", "Croatia"
-    };
-
     void SelectHandler()
     {
-        PreselectedValues.Add("Croatia");
-        PreselectedValues.Add("Bulgaria");
+        List<string> PreselectedValues = new List<string>()
+        {
+            "Bulgaria", "Croatia"
+        };
+
+        // create a new reference so that the framework can notify the component to update
         Values = new List<string>(PreselectedValues);
     }
 
     void ClearSelectionHandler()
     {
         Values = new List<string>();
-        PreselectedValues = new List<string>();
     }
 
     protected override void OnInitialized()
@@ -182,6 +178,8 @@ The MultiSelect is a generic component and its type is determined by the type of
         Countries.Add("Montenegro");
         Countries.Add("Serbia");
         Countries.Add("Slovenia");
+
+        // you can also pre-select items here based on data you fetch, not just on a button click
 
         base.OnInitialized();
     }
