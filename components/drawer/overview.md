@@ -148,3 +148,4 @@ The Drawer methods are accessible through it's reference. The reference exposes 
   * [Drawer Events]({%slug drawer-events%})
   * [Drawer Templates]({%slug drawer-templates%})
   * [Drawer Selection]({%slug drawer-selection%})
+  * [Sample Project: Drawer as Side Navigation](https://github.com/telerik/blazor-ui/tree/master/drawer/sidenav)

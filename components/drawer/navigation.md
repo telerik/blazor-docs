@@ -18,6 +18,8 @@ To use the Drawer for navigating between pages:
 * Put the `@Body` tag in the `<Content>` tag of the drawer.
 * Provide a collection of models that describe the pages you want the user to navigate to.
 
+>tip You can find a runnable sample that showcases this in the [Drawer as Side Navigation](https://github.com/telerik/blazor-ui/tree/master/drawer/sidenav) sample project.
+
 >caption Use the Drawer for Navigation in `MainLayout.razor`
 
 ````CSHTML
