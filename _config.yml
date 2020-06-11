@@ -280,6 +280,7 @@ intro_columns:
     items:
       "Button": "components/button/overview"
       "Toggle Button": "togglebutton-overview"
+      "Button Group" : "buttongroup-overview"
       "Menu": "components/menu/overview"
       "Tab Strip": "components/tabstrip/overview"
       "TreeView": "components/treeview/overview"
