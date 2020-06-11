@@ -36,7 +36,7 @@ When localizing a Blazor app, make sure you are familiar with the way localizati
 
 >tip You can find sample runnable projects for both server-side Blazor and for WebAssembly in the [Telerik Blazor UI Samples Repo](https://github.com/telerik/blazor-ui/tree/master/common/localization/).
 >
->You can also find an example server-side implementation in our offline demos project that are available your Telerik UI for Blazor installation (both [msi]({%slug installation/msi%}) and [zip]({%slug installation/zip%})).
+>You can also find an example server-side implementation in our offline demos project that are available your Telerik UI for Blazor installation (both [automated](../installation/automated) and [zip](../installation/zip)).
 
 
 ### Walkthrough - How to Add Globalization and Localization to a Server-side Blazor App
