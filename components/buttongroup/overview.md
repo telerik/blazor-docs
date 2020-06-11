@@ -10,104 +10,136 @@ position: 0
 
 # ButtonGroup Overview
 
-This article provides information about the ToggleButton component and its core features.
+This article provides information about the ButtonGroup component and its core features.
 
-The ToggleButton component provides two-state styling according to the [chosen theme]({%slug general-information/themes%}), [events]({%slug togglebutton-events%}) and [icons]({%slug togglebutton-icons%}).
+The ButtonGroup component is a container for a buttons that can be toggle buttons, and lets you [select one or more]({%slug buttongroup-selection%}), and respond to the [selection and click events]({%slug buttongroup-events%}). The buttons inside fill up the container, match the styling according to the [chosen theme]({%slug general-information/themes%}) and provide the regular button features like images and icons and the other parameters and attributes.
 
 In this article:
 
-* [Basic Button](#basic-button)
+* [Basic and Toggle Buttons](#basic-and-toggle-buttons)
 * [Disabled State](#disabled-state)
+* [Hide Buttons](#hide-buttons)
 * [Styling](#styling)
 
+## Basic and Toggle Buttons
 
-## Basic Button
+To add a Telerik ButtonGroup to your Blazor app:
 
-To add a Telerik ToggleButton to your Blazor app, use the `<TelerikToggleButton>` tag. You may also want to add conditional logic for its content, icon or class based on its `Selected` field.
+1. Add the `TelerikButtonGroup` tag.
+1. Inside it, add `ButtonGroupToggleButton` or `ButtonGroupButton` tags that denote each button.
+    * The `ButtonGroupToggleButton` becomes primary when clicked and de-selects when another one is clicked. Read more in the [Selection]({%slug buttongroup-selection%}) article.
+    * The `ButtonGroupButton` does not change its visual state when clicked.
+1. Use the `OnClick` event of these buttons to handle the user actions.
 
->caption Basic Telerik ToggleButton
+>caption TelerikButtonGroup with regular buttons and toggle buttons, and their respective OnClick handlers
 
 ````CSHTML
-@result
-<br />
+@* Each individual button lets you control its selected state, have a click handler and template, icons, text *@
 
-<TelerikToggleButton @bind-Selected="@IsSelected" OnClick="@ToggleButtonClickHandler">
-    Selected: &nbsp; <strong>@IsSelected</strong>
-</TelerikToggleButton>
+<TelerikButtonGroup>
+    <ButtonGroupButton OnClick="@FirstClick">First button</ButtonGroupButton>
+    <ButtonGroupToggleButton OnClick="@SecondClick">Second button</ButtonGroupToggleButton>
+</TelerikButtonGroup>
 
-@code {
-    bool IsSelected { get; set; } = true;
-
-    string result { get; set; }
-
-    async Task ToggleButtonClickHandler()
+@code{
+    async Task FirstClick()
     {
-        string currState = IsSelected ? "ON" : "OFF";
-        result = $"The user clicked the {currState} state.";
+        Console.WriteLine("the first button was clicked.");
+    }
+
+    async Task SecondClick()
+    {
+        Console.WriteLine("the second button was clicked. It becomes primary when clicked.");
     }
 }
 ````
 
->caption The result from the code snippet above
+>caption The result from the code snippet above, after clicking the second button
 
-![Basic Toggle Button](images/toggle-button-overview.gif)
+![Basic ButtonGroup](images/buttongroup-overview.png)
 
 
 ## Disabled State
 
 To disable a button, set its `Enabled` attribute to `false`.
 
->caption Disabled Telerik ToggleButton
+>caption Disabled buttons in a button group
 
 ````CSHTML
-<TelerikToggleButton Enabled="false">Disabled Button</TelerikToggleButton>
+<TelerikButtonGroup>
+    <ButtonGroupButton>Enabled</ButtonGroupButton>
+    <ButtonGroupButton Enabled="false">Disabled</ButtonGroupButton>
+    <ButtonGroupToggleButton Selected="true">Enabled</ButtonGroupToggleButton>
+    <ButtonGroupToggleButton Enabled="false">Disabled</ButtonGroupToggleButton>
+</TelerikButtonGroup>
 ````
 
 >caption Comparison between disabled and enabled button
 
-![Disabled and Enabled Toggle Button](images/disabled-toggle-button.png)
+![Disabled buttons in button group](images/button-group-disabled-state.png)
+
+
+## Hide Buttons
+
+You can set the `Visible` parameter of individual buttons to `false` to hide them based on certain logic. This lets you maintain the same markup and toggle features on and off with simple flags without affecting indexes and event handlers.
+
+>caption Hide buttons from a ButtonGroup
+
+````CSHTML
+<TelerikButtonGroup>
+    <ButtonGroupButton>First</ButtonGroupButton>
+    <ButtonGroupButton Visible="false">Hidden</ButtonGroupButton>
+    <ButtonGroupButton>Third</ButtonGroupButton>
+</TelerikButtonGroup>
+````
+
+>caption Only two visible buttons are rendered
+
+![Hide buttongroup buttons conditionally](images/buttongroup-hide-buttons.png)
+
 
 ## Styling
 
-You can style the button through its `Class` attribute to define your own CSS rules that apply to the HTML rendering. You may want to make them conditional based on its `Selected` state.
+You can style the individual buttons through their `Class` attribute to define your own CSS rules that apply to the HTML rendering. You may want to make them conditional based on their `Selected` state.
 
 >caption Set CSS class to the button and change its appearance
 
 ````CSHTML
-<TelerikToggleButton Class="@( IsSelected ? "my-on-class" : "the-off-class" )"
-                     @bind-Selected="@IsSelected">
-    Selected: @IsSelected
-</TelerikToggleButton>
+<TelerikButtonGroup>
+    <ButtonGroupToggleButton>Default</ButtonGroupToggleButton>
+    <ButtonGroupToggleButton @bind-Selected="@IsSelected"
+                             Class="@( IsSelected ? "my-on-class" : "the-off-class" )">Styled - Selected: @IsSelected</ButtonGroupToggleButton>
+</TelerikButtonGroup>
 
 @code {
     bool IsSelected { get; set; }
 }
 
 <style>
-    .my-on-class,
-    .my-on-class:hover {
+    .k-button-group button.k-button.my-on-class,
+    .k-button-group button.k-button.my-on-class:hover {
         color: yellow;
         font-weight: 700;
     }
 
-    .the-off-class,
-    .the-off-class:hover {
-        border: 2px solid blue;
+    .k-button-group button.k-button.the-off-class,
+    .k-button-group button.k-button.the-off-class:hover {
+        color: pink;
     }
 </style>
 ````
 
 >caption The result from the code snippet above
 
-![Toggle Button Conditional Styling](images/toggle-button-styling.png)
+![conditional styling of buttongroup](images/buttongroup-styling.png)
 
 
 
 
 ## See Also
 
-  * [Live Demo: ToggleButton](https://demos.telerik.com/blazor-ui/togglebutton/index)
-  * [Events]({%slug togglebutton-events%})
-  * [Icons]({%slug togglebutton-icons%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikToggleButton)
+  * [Live Demo: ButtonGroup](https://demos.telerik.com/blazor-ui/buttongroup/overview)
+  * [Events]({%slug buttongroup-events%})
+  * [Icons]({%slug buttongroup-icons%})
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikButtonGroup)
    
