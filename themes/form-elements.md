@@ -68,7 +68,7 @@ A specific class on a `label` element can give you a radio buttons that looks th
 
 You can match standard `input` elements with the styling of a Telerik component like a numeric textbox.
 
->tip Telerik provides the majority of necessary inputs - [numeric]({%slug components/numerictextbox/overview%}) textbox, [date]({%slug components/datepicker/overview%}) and [time]({%slug components/timepicker/overview%}) pickers, [password]({%slug components/textbox/overview%}) input, various [dropdowns]({%slug components/combobox/overview%}).
+>tip Telerik provides the majority of necessary inputs - [numeric](../components/numerictextbox/overview) textbox, [date](../components/datepicker/overview) and [time](../components/timepicker/overview) pickers, [password](../components/textbox/overview) input, various [dropdowns](../components/combobox/overview).
 
 ![](images/style-input.png)
 
