@@ -5,7 +5,7 @@ description: Icons and images in the ButtonGroup for Blazor
 slug: buttongroup-icons
 tags: telerik,blazor,Toggle,button,group,icon,sprite,image
 published: True
-position: 2
+position: 5
 ---
 
 

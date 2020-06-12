@@ -13,8 +13,8 @@ position: 2
 
 The ButtonGroup lets you select one or more of its `ButtonGroupToggleButton` instances depending on the `SelectionMode` setting:
 
-* Single - the buttons act like radio buttons
-* Multiple - the buttons act like checkboxes
+* [Single](#single-selection) - the buttons act like radio buttons
+* [Multiple](#multiple-selection) - the buttons act like checkboxes
 
 You can control whether a button is selected (it is in its `Primary` state) through its `Selected` parameter. It offers two-way binding and an [SelectedChanged event]({%slug buttongroup-events%}) so you can respond to the user actions.
 
@@ -27,7 +27,7 @@ When you click a button, it becomes selected. When you click another button, the
 ![Single selection in the button group](images/buttongroup-single-selection.gif)
 
 ````CSHTML
-@* You can use more complex logic to show different components. To load data asynchronously, use the SelectedChanged event or the OnParametersSetAsync event of a component you render *@
+@* You can use more complex logic to show different components. To load data asynchronously, use the OnClick event or the OnParametersSetAsync event of a component you render *@
 
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
     <ButtonGroupToggleButton @bind-Selected="@FirstSelected">First</ButtonGroupToggleButton>
@@ -67,7 +67,7 @@ When you click a button, it becomes selected. When you click another button, the
 ![Multiple selection in the button group](images/buttongroup-multiple-selection.gif)
 
 ````CSHTML
-@* You can use more complex logic to show different components. To load data asynchronously, use the SelectedChanged event or the OnParametersSetAsync event of a component you render *@
+@* You can use more complex logic to show different components. To load data asynchronously, use the OnClick event or the OnParametersSetAsync event of a component you render *@
 
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Multiple">
     <ButtonGroupToggleButton @bind-Selected="@FirstSelected">First</ButtonGroupToggleButton>

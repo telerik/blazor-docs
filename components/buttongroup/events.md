@@ -10,7 +10,7 @@ position: 20
 
 # ButtonGroup Events
 
-This article explains the events available in the Telerik ToggleButton for Blazor:
+This article explains the events available in the Telerik buttons in a ButtonGroup for Blazor:
 
 * [SelectedChanged](#selectedchanged)
 * [OnClick](#onclick)
@@ -20,24 +20,38 @@ This article explains the events available in the Telerik ToggleButton for Blazo
 
 The `SelectedChanged` fires when the user changes the state of the button by clicking it (or by using `Space` or `Enter`). You can use it to call local view-model logic. To fetch data or perform async operations, use the [OnClick](#onclick) event.
 
+This event is available only for `ButtonGroupToggleButton` instances, as they are the only selecteble buttons.
+
 >caption Handle the SelectedChanged event
 
 ````CSHTML
 @* If you do not update the view-model in the handler, you can effectively cancel the event *@
 
-<TelerikToggleButton Selected="@IsSelected" SelectedChanged="@MySelectedChangedHandler">
-    Selected: @IsSelected
-</TelerikToggleButton>
+<TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
+    <ButtonGroupToggleButton Selected="@FirstSelected" SelectedChanged="@FirstSelectedChangedHandler">First</ButtonGroupToggleButton>
+    <ButtonGroupToggleButton Selected="@SecondSelected" SelectedChanged="@SecondSelectedChangedHandler">Second</ButtonGroupToggleButton>
+</TelerikButtonGroup>
 
-@code {
-    bool IsSelected { get; set; }
+@code{
+    bool FirstSelected { get; set; }
+    bool SecondSelected { get; set; } = true; // you can pre-select buttons
 
-    void MySelectedChangeHandler(bool currSelectedState)
+    void FirstSelectedChangedHandler(bool currState)
     {
-        IsSelected = currSelectedState;
-        //you have to update the model manually because handling the SelectedChanged event does not let you use @bind-Selected
+        FirstSelected = currState;
+        // you have to update the model manually because handling the SelectedChanged event does not let you use @bind-Selected
+        // if you don't update the View-Model, you will effectively cancel the event
 
-        Console.WriteLine($"Current state is {IsSelected}");
+        Console.WriteLine($"The first button is selected: {FirstSelected}");
+    }
+
+    void SecondSelectedChangedHandler(bool currState)
+    {
+        SecondSelected = currState;
+        // you have to update the model manually because handling the SelectedChanged event does not let you use @bind-Selected
+        // if you don't update the View-Model, you will effectively cancel the event
+
+        Console.WriteLine($"The Second button is now selected: {FirstSelected}");
     }
 }
 ````
@@ -47,26 +61,44 @@ The `SelectedChanged` fires when the user changes the state of the button by cli
 
 The `OnClick` event fires when the user clicks or taps the button. You can use it to invoke async logic such as fetching data or calling a service.
 
->caption Handle the Toggle Button OnClick event
+>caption Handle the Button OnClick event in a ButtonGroup
 
 ````CSHTML
+@* This example shows how to handle each click individually, and also a way to use the same async handler from several instances, and pass arguments to it *@ 
+
 @result
+
 <br />
 
-<TelerikToggleButton @bind-Selected="@IsSelected" OnClick="@ToggleButtonClickHandler">
-    Selected: &nbsp; <strong>@IsSelected</strong>
-</TelerikToggleButton>
+<TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
+    <ButtonGroupButton OnClick="@FirstClickHandler">First</ButtonGroupButton>
+    <ButtonGroupButton OnClick="@( async() => await SharedClickHandler("Second button, shared handler") )">Second</ButtonGroupButton>
+    <ButtonGroupToggleButton OnClick="@( async() => await SharedClickHandler("Shared Toggle Button") )">Toggle Button</ButtonGroupToggleButton>
+    <ButtonGroupToggleButton OnClick="@ToggleButtonClickHandler">Toggle Button Two</ButtonGroupToggleButton>
+</TelerikButtonGroup>
 
-@code {
-    bool IsSelected { get; set; } = true;
-
+@code{
     string result { get; set; }
+
+    async Task FirstClickHandler()
+    {
+        await Task.Delay(500);//simulate network delay from real data retrieval. Remove from a real app
+
+        result = "First button: " + DateTime.Now.Millisecond;
+    }
 
     async Task ToggleButtonClickHandler()
     {
-        await Task.Delay(500); // simulate a service call
-        string currState = IsSelected ? "ON" : "OFF";
-        result = $"The user clicked the {currState} state.";
+        await Task.Delay(500);//simulate network delay from real data retrieval. Remove from a real app
+
+        result = "Standalone Toggle Button: " + DateTime.Now.Millisecond;
+    }
+
+    async Task SharedClickHandler(string sender)
+    {
+        await Task.Delay(500);//simulate network delay from real data retrieval. Remove from a real app
+
+        result = sender + DateTime.Now.Millisecond;
     }
 }
 ````
@@ -76,4 +108,4 @@ The `OnClick` event fires when the user clicks or taps the button. You can use i
 
 ## See Also
 
-  * [ToggleButton Overview]({%slug togglebutton-overview%})
+  * [ButtonGroup Overview]({%slug buttongroup-overview%})
