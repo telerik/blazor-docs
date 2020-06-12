@@ -3,7 +3,7 @@ title: Built-in Themes
 page_title: Themes
 description: The built-in themes in the UI for Blazor components
 slug: general-information/themes
-previous_url: /blazor-ui/themes
+previous_url: /themes
 tags: telerik,blazor,theme,built-in
 published: True
 position: 0

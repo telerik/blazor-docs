@@ -3,7 +3,7 @@ title: What You Need
 page_title: What You Need
 description: What you need to use the Telerik Blazor components.
 slug: getting-started/what-you-need
-previous_url: /blazor-ui/installation/what-you-need
+previous_url: /installation/what-you-need
 tags: get,started,installation,what,need,list
 published: True
 position: 3
