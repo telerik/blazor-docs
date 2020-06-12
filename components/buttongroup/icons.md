@@ -11,7 +11,7 @@ position: 2
 
 # ButtonGroup Icons
 
-You can put an image, sprite or a font icon in the toggle button to illustrate its purpose for your end users. To apply them, use the following properties:
+You can put an image, sprite or a font icon in the buttons within a ButtonGroup to illustrate its purpose for your end users. To apply them, use the following properties:
 
 * for a [Telerik font icon]({%slug general-information/font-icons%}), use the `Icon` attribute to set the font icon class.
 
@@ -24,17 +24,19 @@ You can put an image, sprite or a font icon in the toggle button to illustrate i
 
 The following example shows how to use an image from a URL, a sprite image, and the built-in font icons.
 
->caption How to use icons in the Telerik Toggle Button
+>caption How to use icons in the Telerik ButtonGroup Button
 
 ````CSHTML
 @* This sample shows how you can use conditional logic to show different icons in the different states.
 It also shows how to use telerik icons, raster icons and sprite images*@
 
-<TelerikToggleButton SpriteClass="@( FlagSelected ? "flag netherlands" : "flag brazil")" @bind-Selected="@FlagSelected">Sprite</TelerikToggleButton>
+<TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Multiple">
+    <ButtonGroupToggleButton SpriteClass="@( FlagSelected ? "flag netherlands" : "flag brazil")" @bind-Selected="@FlagSelected">Sprite</ButtonGroupToggleButton>
 
-<TelerikToggleButton Icon="@( FontSelected ? IconName.VolumeOff : IconName.VolumeUp )" @bind-Selected="@FontSelected">Font Icon</TelerikToggleButton>
+    <ButtonGroupToggleButton Icon="@( FontSelected ? IconName.VolumeOff : IconName.VolumeUp )" @bind-Selected="@FontSelected">Font Icon</ButtonGroupToggleButton>
 
-<TelerikToggleButton ImageUrl="@RasterIconUrl" @bind-Selected="@RasterSelected">Image URL</TelerikToggleButton>
+    <ButtonGroupToggleButton ImageUrl="@RasterIconUrl" @bind-Selected="@RasterSelected">Image URL</ButtonGroupToggleButton>
+</TelerikButtonGroup>
 
 <style>
     /* the sprite for the first button is defined through a CSS rule matchin its Class */
@@ -62,7 +64,7 @@ It also shows how to use telerik icons, raster icons and sprite images*@
 
 >caption The result from the code snippet above
 
-![Icons in Toggle Buttons](images/toggle-button-images.png)
+![Icons in ButtonGroup Buttons](images/buttongroup-icons.png)
 
 >tip You can use relative paths to your images in the `wwwroot` folder. The example above uses absolute paths to make it easy for you to see the results without preparing images.
 
@@ -77,4 +79,4 @@ It also shows how to use telerik icons, raster icons and sprite images*@
 
 ## See Also
 
-  * [ToggleButton Overview]({%slug togglebutton-overview%})
+  * [ButtonGroup Overview]({%slug buttongroup-overview%})

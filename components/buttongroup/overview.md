@@ -140,6 +140,7 @@ You can style the individual buttons through their `Class` attribute to define y
 
   * [Live Demo: ButtonGroup](https://demos.telerik.com/blazor-ui/buttongroup/overview)
   * [Events]({%slug buttongroup-events%})
+  * [Selection]({%slug buttongroup-selection%})
   * [Icons]({%slug buttongroup-icons%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikButtonGroup)
    
