@@ -49,7 +49,7 @@ To add a Telerik ButtonGroup to your Blazor app:
 
     async Task SecondClick()
     {
-        Console.WriteLine("the second button was clicked. It becomes primary when clicked.");
+        Console.WriteLine("the second button was clicked. It becomes selected when clicked.");
     }
 }
 ````
