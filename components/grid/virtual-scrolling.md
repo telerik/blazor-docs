@@ -5,7 +5,7 @@ description: Enable and configure virtual scrolling in Grid for Blazor
 slug: components/grid/virtual-scrolling
 tags: telerik,blazor,grid,virtual,scrolling
 published: True
-position: 55
+position: 60
 ---
 
 # Virtual Scrolling

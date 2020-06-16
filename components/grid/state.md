@@ -5,7 +5,7 @@ description: Save, load, change the Grid for Blazor state - grouping, sorting, f
 slug: grid-state
 tags: telerik,blazor,grid,state,save,load,layout,set,change,management
 published: True
-position: 40
+position: 50
 ---
 
 # Grid State

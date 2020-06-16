@@ -65,12 +65,15 @@ navigation:
      "*components/grid/editing":
         title: "Editing"
         position: 10
+     "*components/grid/templates":
+        title: "Templates"
+        position: 25
      "*components/grid/export":
         title: "Export"
-        position: 24
+        position: 30
      "*components/grid/selection":
         title: "Selection"
-        position: 24
+        position: 35
      "*components/chart/types":
         title: "Types"
         position: 15
