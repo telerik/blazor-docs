@@ -51,7 +51,7 @@ This event is available only for `ButtonGroupToggleButton` instances, as they ar
         // you have to update the model manually because handling the SelectedChanged event does not let you use @bind-Selected
         // if you don't update the View-Model, you will effectively cancel the event
 
-        Console.WriteLine($"The Second button is now selected: {FirstSelected}");
+        Console.WriteLine($"The Second button is now selected: {SecondSelected}");
     }
 }
 ````
