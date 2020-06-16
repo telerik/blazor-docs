@@ -129,10 +129,6 @@ You can customize the appearance of the individual series tooltip by using:
 
 * `Color` - control the text color by applying a CSS color string, including HEX and RGB.
 
-* `Border` - control the `Color` and the `Width` of the tooltip by using the `<ChartSeriesTooltipBorder />` nested inside the `<ChartSeriesTooltip>` tag.
-
-* `Padding` - control the `Left`, `Right`, `Top` and `Bottom` padding of the tooltip by using the `<ChartSeriesTooltipPadding />` nested inside the `<ChartSeriesTooltip>` tag.
-
 * Use the [Template](#template) to take control over what is rendered in the tooltip.
 
 >caption Configuration of the tooltips with applied customization settings
@@ -149,8 +145,6 @@ You can customize the appearance of the individual series tooltip by using:
             <ChartSeriesTooltip Visible="true"
                                 Background="#0000FF"
                                 Color="#D3D3D3">
-                <ChartSeriesTooltipBorder Color="#ADD8E6" Width="10" />
-                <ChartSeriesTooltipPadding Top="10" Bottom="10" Left="15" Right="15" />
             </ChartSeriesTooltip>
         </ChartSeries>
     </ChartSeriesItems>

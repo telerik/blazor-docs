@@ -22,8 +22,4 @@
 * `Color` - control the text color by applying a CSS color string, including HEX and RGB.
 
 * `Opacity` - control the opacity of the tooltip.
-
-* `Border` - control the `Color` and the `Width` of the tooltip by using the `<ChartSeriesTooltipBorder />` nested inside the `<ChartSeriesTooltip>` tag.
-
-* `Padding` - control the `Left`, `Right`, `Top` and `Bottom` padding of the tooltip by using the `<ChartSeriesTooltipPadding />` nested inside the `<ChartSeriesTooltip>` tag.
 #end
