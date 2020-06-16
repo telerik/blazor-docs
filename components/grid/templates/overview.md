@@ -23,7 +23,7 @@ The Grid component can use templates for:
 
 * [column header]({%slug grid-templates-column-header%}) - the title portion of the column.
 
-* [column group footer]({%slug grid-templates-column-group-footer%}) - the footer of the column when the grid is [grouped]({%slug components/grid/features/grouping%}) by this column. You can use it, for example, to display [aggregates]({%slug grid-aggregates%}).
+* [column group footer]({%slug grid-templates-column-group-footer%}) - the footer of the column when the grid is [grouped]({%slug components/grid/features/grouping%}). You can use it, for example, to display [aggregates]({%slug grid-aggregates%}).
 
 * [group header]({%slug grid-templates-group-header%}) - the shared section that denotes each grid [group]({%slug components/grid/features/grouping%}).
 
