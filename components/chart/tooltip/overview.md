@@ -258,7 +258,7 @@ The available series data point information in the `context` is:
     }
 
     public List<MyDataModel> modelData = new List<MyDataModel>()
-{
+    {
         new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
         new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
         new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
