@@ -164,7 +164,7 @@ To setup a local NuGet package source, so you can install the Telerik components
 
 1. Click the Add (`+`) icon at the top to add the new local feed, select its name and point it to the path where you placed all the Telerik `.nupkg` files.
 
-    >tip Make sure to add the packages from both the `packages` and `dpl` folders to your custom feed.
+    >tip Make sure to add the packages from both the `packages` and `dpl` folders to your custom feed. You can also point the package source to the Telerik installation folder to include all packages recursively.
 
     For example:
 
