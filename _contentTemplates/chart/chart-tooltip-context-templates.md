@@ -4,7 +4,7 @@
 
 * `DataItem` - provides the data model of the current series item. You may need to cast it to its type. If you are using [Date Axis]({%slug components/chart/date-axis%}) the `DataItem` will contain the aggregated value.
 
-* `Category` - provides information on the category the data point is located in. You may need to cast it to its type, for example `DateTime`, `string`, `int` or another type.
+* `Category` - provides information on the category the data point is located in. You may need to cast it to its type, for example `DateTime`, `string`, `int` or another type. That parameter is applicable to Categorical Charts such as [Area]({%slug components/chart/types/area%}), [Line]({%slug components/chart/types/line%}) and [Column]({%slug components/chart/types/column%}).
 
 * `Percentage` - applicable to [Donut]({%slug components/chart/types/donut%}), [Pie]({%slug components/chart/types/pie%}) and [Stacked 100%]({%slug components/chart/stack%}#stack-100) Charts - the percentage value of the current data point from the whole.
 
