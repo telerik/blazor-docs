@@ -2,7 +2,9 @@
 * `FormattedValue` - maps to the default rendering of the tooltip, formatted as a string.
  * Use this when the chart's data is bound by [Independent Series Binding]({%slug components/chart/databind%}#independent-series-binding). You can parse this to a numerical value (`int`, `double`, etc.) in order to apply formatting. Otherwise, use the `DataItem` to get the value of the point.
 
-* `DataItem` - provides the data model of the current series item. You may need to cast it to its type.
+* `DataItem` - provides the data model of the current series item. You may need to cast it to its type. If you are using [Date Axis]({%slug components/chart/date-axis%}) the `DataItem` will contain the aggregated value.
+
+* `Category` - provides information on the category the data point is located in. You may need to cast it to its type, for example `DateTime`, `string`, `int` or another type.
 
 * `Percentage` - applicable to [Donut]({%slug components/chart/types/donut%}), [Pie]({%slug components/chart/types/pie%}) and [Stacked 100%]({%slug components/chart/stack%}#stack-100) Charts - the percentage value of the current data point from the whole.
 
