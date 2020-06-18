@@ -193,7 +193,7 @@ You can customize the appearance of the individual series tooltip by using:
 
 #### Common Tooltip Settings
 
-In a similar fashion, you can declare these settings in the common tooltip section. Their tag names are slightly different, however:
+In a similar fashion, you can declare these settings in the common tooltip section:
 
 @[template](/_contentTemplates/chart/chart-tooltip-context-templates.md#shared-tooltip-parameter-settings)
 
