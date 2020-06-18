@@ -27,8 +27,11 @@ The Grid component can use templates for:
 
 * [group header]({%slug grid-templates-group-header%}) - the shared section that denotes each grid [group]({%slug components/grid/features/grouping%}).
 
+* [filter]({%slug grid-templates-filter%})  - the content of the filter cell or filter menu where you can implement custom rendering and logic for the filters.
 
-Like other Blazor content, they can receive a `context` argument that is the type of the model. To use templates, you must bind the grid to a named model.
+
+
+Like other Blazor content, most of them can receive a `context` argument that is the type of the model. To use templates, you must bind the grid to a named model. The filter templates are the exception as they are not related to rows and models.
 
 You must make sure to provide valid HTML in the templates.
 

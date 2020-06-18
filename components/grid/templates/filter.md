@@ -15,9 +15,14 @@ The Filter Template lets you customize the appearance and logic of the built-in 
 
 There are two different templates you can use depending on the [Filter Mode]({%slug components/grid/filtering%}) that you use:
 
-* Filter Menu
+<!-- Start Document Outline -->
 
-* Filter Row
+* [Filter Menu](#filter-menu)
+	* [Basic Template - Single Filter Operator](#basic-template---single-filter-operator)
+	* [Add A Third Filter Operator](#add-a-third-filter-operator)
+* [Filter Row](#filter-row)
+
+<!-- End Document Outline -->
 
 ## Filter Menu
 
@@ -25,11 +30,8 @@ By default, the filter menu contains two filter values that are tied with a logi
 
 You can get started from the following examples:
 
-<!-- Start Document Outline -->
-
 * [Basic Template - Single Filter Operator](#basic-template---single-filter-operator)
 * [Add A Third Filter Operator](#add-a-third-filter-operator)
-
 
 
 ### Basic Template - Single Filter Operator
@@ -397,6 +399,11 @@ Comments in the code offer more insights into how all the features tie together.
 >caption The result from the code snippet above, after opening the filter menu and applying some filteres
 
 ![Three filteres in the filter menu](images/filter-menu-template-three-operators.png)
+
+
+
+
+## Filter Row
 
 
 
