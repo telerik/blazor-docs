@@ -46,14 +46,13 @@ Fires when the item selection is enabled and the user changes the selected [item
 
 ### OnRowClick
 
-The `OnRowClick` event fires as a response to the user clicking on a row of the Grid. Clicking on the `GridCommandButton`, `CheckBox`, expanding a `Detail Template` or when the row is in `edit mode` will not trigger the event.
+The `OnRowClick` event fires as a response to the user clicking on a row of the Grid. Clicking on the `GridCommandButton`, select row `CheckBox`, expanding a `Detail Template` or when the row is in `edit/insert mode` will not trigger the event.
 
-It exposes a `GridRowClickEventArgs` object which provides data for the currently clicked row.
+The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
 >caption Use the OnRowClick event to receive information on the clicked row
 
 ````CSHTML
-
 @* Use the OnRowClick event to receive information on the row the user clicked on *@
 
 <TelerikGrid Data="@MyData"
@@ -107,11 +106,12 @@ It exposes a `GridRowClickEventArgs` object which provides data for the currentl
 
 ![onrowclick basic example](images/onrowclick-example.gif)
 
+
 ### OnRowDoubleClick
 
-The `OnRowDoubleClick` event fires as a response to the user clicking on a row of the Grid. Clicking on the `GridCommandButton`, `CheckBox`, expanding a `Detail Template` or when the row is in `edit mode` will not trigger the event.
+The `OnRowDoubleClick` event fires as a response to the user double clicking on a row of the Grid. Clicking on the `GridCommandButton`, select row `CheckBox`, expanding a `Detail Template` or when the row is in `edit/insert mode` will not trigger the event.
 
-It exposes a `GridRowClickEventArgs` object which provides data for the currently clicked row.
+The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type
 
 >caption Use the OnRowDoubleClick event to receive information on the clicked row
 
@@ -165,12 +165,12 @@ It exposes a `GridRowClickEventArgs` object which provides data for the currentl
         public DateTime HireDate { get; set; }
     }
 }
-
 ````
 
 >caption The result from the code snippet above
 
-![onrowclick basic example](images/onrowdoubleclick-example.gif)
+![onrowdoubleclick basic example](images/onrowdoubleclick-example.gif)
+
 
 ## See Also
 
