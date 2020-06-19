@@ -172,6 +172,32 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
 ![onrowdoubleclick basic example](images/onrowdoubleclick-example.gif)
 
 
+### PageChanged
+
+The event fires when the user pages the grid.
+
+````CSHTML
+@result
+
+<TelerikGrid Data="@MyData" Pageable="true" PageSize="30"
+    PageChanged="@PageChangedHandler" Height="300px">
+    <GridColumns>
+        <GridColumn Field="ID"></GridColumn>
+        <GridColumn Field="TheName" Title="Employee Name"></GridColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    string result { get; set; }
+    async Task PageChangedHandler(int currPage)
+    {
+        result = $"the user is now on page {currPage}. Note - the indexes are 1-based, not 0-based";
+    }
+
+    public IEnumerable<object> MyData = Enumerable.Range(1, 150).Select(x => new { ID = x, TheName = "name " + x });
+}
+````
+
 ## See Also
 
   * [Grid Overview]({%slug components/grid/overview%})
