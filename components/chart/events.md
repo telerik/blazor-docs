@@ -10,14 +10,27 @@ position: 32
 
 # Chart Events
 
-This article explains the available events for the Telerik Chart for Blazor.
+This article explains the available events for the Telerik Chart for Blazor:
+
+* [OnSeriesClick](#onseriesclick)
 
 
 ## OnSeriesClick
 
 The `OnSeriesClick` event fires as a response to the user click on a `<ChartSeries>`.
 
-It exposes a `ChartSeriesClickEventArgs` object which provides the following data:
+Below you can find:
+
+* [Event Arguments](#event-arguments)
+* Examples:
+	* [Basic Click Handler](#basic-click-handler)
+	* [Get The Data Model For The Clicked Series](#get-the-data-model-for-the-clicked-series)
+	* [Load Data On Demand Based On Series Click](#load-data-on-demand-based-on-series-click)
+
+
+### Event Arguments
+
+The event handler receives a `ChartSeriesClickEventArgs` object which provides the following data:
 
 * `DataItem` - provides the data model of the current series item. You need to cast it to the type from your datasource, which needs to be serializable.
 
@@ -43,11 +56,11 @@ It exposes a `ChartSeriesClickEventArgs` object which provides the following dat
 
 These examples showcase the different applications of the `OnSeriesClick` event.
 
-* [Basic Configuration](#basic-configuration)
+* [Basic Click Handler](#basic-click-handler)
 * [Get The Data Model For The Clicked Series](#get-the-data-model-for-the-clicked-series)
 * [Load Data On Demand Based On Series Click](#load-data-on-demand-based-on-series-click)
 
-### Basic Configuration
+### Basic Click Handler
 
 ````CSHTML
 @* Get the Category from which the user clicked. *@
@@ -78,6 +91,7 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 <div>
    Clicked from: @logger
 </div>
+
 @code {
     public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
     public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
@@ -91,17 +105,16 @@ These examples showcase the different applications of the `OnSeriesClick` event.
         logger = category;
     }
 }
-
 ````
 
 >caption The result from the code snippet above
 
 ![onseriesclick basic example](images/onseries-click-basic-example.gif)
 
+
 ### Get The Data Model For The Clicked Series
 
 ````CSHTML
-
 @* Receive the data model based on the series the user clicked on *@
 
 <TelerikChart OnSeriesClick="@OnSeriesClickHandler">
@@ -144,7 +157,7 @@ These examples showcase the different applications of the `OnSeriesClick` event.
     }
 
     public List<MyPieChartModel> pieData = new List<MyPieChartModel>
-{
+    {
         new MyPieChartModel
         {
             SegmentName = "Product 1",
@@ -162,17 +175,16 @@ These examples showcase the different applications of the `OnSeriesClick` event.
         }
     };
 }
-
 ````
 
 >caption The result from the code snippet above
 
-![onseriesclick basic example](images/onseries-click-get-model-example.gif)
+![onseriesclick get data model example](images/onseries-click-get-model-example.gif)
+
 
 ### Load Data On Demand Based On Series Click
 
 ````CSHTML
-
 @* Load data on demand based on series click *@
 
 <TelerikChart OnSeriesClick="@OnSeriesClickHandler">
@@ -223,7 +235,7 @@ These examples showcase the different applications of the `OnSeriesClick` event.
     }
 
     public List<MyPieChartModel> pieData = new List<MyPieChartModel>
-{
+    {
         new MyPieChartModel
         {
             SegmentId = 1,
@@ -259,9 +271,10 @@ These examples showcase the different applications of the `OnSeriesClick` event.
         public bool isActive { get; set; }
     }
 }
-
 ````
 
->caption The result from the code snippet above
 
-![onseriesclick basic example](images/onseries-click-get-model-example.gif)
+
+## See Also
+
+* [Live Demo: Chart Events](https://demos.telerik.com/blazor-ui/chart/events)
