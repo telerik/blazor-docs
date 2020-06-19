@@ -51,14 +51,15 @@ To bind the DropDownList to a model:
 
 1. populate its `Data` property with the collection of items you want in the dropdown
 1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
-1. set the `Value` property to the intial value of the model. If not set, it will be populated with the first item in the data source.
+2. set the `Value` property to the initial value of the model. If not set, it will be populated with the first item in the data source or the `DefaultText`.
+3. (optional) set `DefaultText` value. This will show when the selected value isn't in the collection of items. For example, 0 for int and null for an int? or string.
 
 >caption Data binding a DropDownList to a model
 
 ````CSHTML
 Bind to a collection of models
 
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue">
+<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue" DefaultText="Select an Item">
 </TelerikDropDownList>
 
 @code {
