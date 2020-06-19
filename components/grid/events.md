@@ -103,7 +103,9 @@ It exposes a `GridRowClickEventArgs` object which provides data for the currentl
     }
 }
 ````
+>caption The result from the code snippet above
 
+![onrowclick basic example](images/onrowclick-example.gif)
 
 ### OnRowDoubleClick
 
@@ -165,6 +167,10 @@ It exposes a `GridRowClickEventArgs` object which provides data for the currentl
 }
 
 ````
+
+>caption The result from the code snippet above
+
+![onrowclick basic example](images/onrowdoubleclick-example.gif)
 
 ## See Also
 
