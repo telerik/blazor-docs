@@ -16,6 +16,7 @@ In this article:
 
 * [Basics](#basics)
 * [Expand Rows From Code](#expand-rows-from-code)
+* [More Examples](#more-examples)
 
 ## Basics
 
@@ -99,6 +100,20 @@ You can choose which detail templates will be expanded from your code through th
 ````CSHTML
 @[template](/_contentTemplates/grid/state.md#expand-hierarchy-from-code)
 ````
+
+## More Examples
+
+The following articles and sample projects can be helpful when implementing hierarchy:
+
+* [Editing in Hierarchy]({%slug grid-kb-editing-in-hierarchy%})
+
+* [Load Hierarchical Data On Demand](https://github.com/telerik/blazor-ui/tree/master/grid/load-on-demand-hierarchy)
+
+* [Multi-Level Hierarchy]({%slug grid-three-level-hierarchy%})
+
+* [Align Columns in Nested Grids]({%slug grid-kb-align-columns-hierarchy%})
+
+* [Custom Excel Export that Includes Hierarchy](https://github.com/telerik/blazor-ui/tree/master/grid/export-to-xlsx-hierarchy)
 
 
 ## See Also
