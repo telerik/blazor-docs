@@ -83,13 +83,13 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
     {
         var item = args.Item as SampleData;
 
-        ProjectData = await GenerateProjectData(item.Id);
+        ProjectData = await GetProjectData(item.Id);
     }
 
-    async Task<List<ProjectModel>> GenerateProjectData(int id)
+    async Task<List<ProjectModel>> GetProjectData(int id)
     {
         ProjectData = new List<ProjectModel>()
-{
+        {
             new ProjectModel()
             {
                 ProjectManagerId = id,
