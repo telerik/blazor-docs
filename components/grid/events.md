@@ -102,9 +102,6 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
     }
 }
 ````
->caption The result from the code snippet above
-
-![onrowclick basic example](images/onrowclick-example.gif)
 
 
 ### OnRowDoubleClick
@@ -166,10 +163,6 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![onrowdoubleclick basic example](images/onrowdoubleclick-example.gif)
 
 
 ### PageChanged
