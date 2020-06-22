@@ -19,6 +19,7 @@ In this article:
 * [Notes](#notes)
 	* [Editing Modes](#editing-modes)
 	* [Selection in Template](#selection-in-template)
+	* [Asynchronous Operations](#asynchronous-operations)
 	* [Handle Data Changes](#handle-data-changes)
 
 
@@ -118,6 +119,10 @@ When using the Grid [Template](https://docs.telerik.com/blazor-ui/components/gri
 ````
 
 If you are using the [Row Template]({%slug components/grid/features/templates%}#row-template), the grid cannot render selection checkboxes for you, so you have to bind them yourself to a field in the model, and handle their selection changed event to populate the `SelectedItems` collection of the grid. You can find an example to get started in the following thread: [Grid Row Template with Selection - Unsure how to Bind to Selected Item](https://feedback.telerik.com/blazor/1463819-grid-row-template-with-selection-unsure-how-to-bind-to-selected-item)
+
+### Asynchronous Operations
+
+Asynchronous operations such as loading data on demand should be handled in the [`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick) events rather than in the [`SelectedItemsChanged`]({%slug grid-events%}#selecteditemschanged).
 
 ### Handle Data Changes
 

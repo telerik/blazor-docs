@@ -103,6 +103,8 @@ You can respond to the user action of selecting a new item through the `Selected
 
 The example below shows how to handle the `SelectedItemsChanged` event to extract information about the selected item and use it to populate a second grid with details about the selected record.
 
+>tip If you want to load that data on demand, you should use the [OnRowClick event]({%slug grid-events%}#onrowclick).
+
 >caption Single Selection and handling the SelectedItemsChanged event
 
 ````CSHTML
@@ -145,6 +147,7 @@ The example below shows how to handle the `SelectedItemsChanged` event to extrac
         SelectedItems = new List<Employee> { SelectedEmployee };
 
         GetChildGridData(); // note: an async operation here can break the selection and may not even render its results in the view
+        // for async operations, use the OnRowClick event
     }
 
     void GetChildGridData()

@@ -17,6 +17,8 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 * [Other Events](#other-events) - other events the grid provides
 	* [Command Button Click](#command-button-click)
 	* [SelectedItemsChanged](#selecteditemschanged)
+	* [OnRowClick](#onrowclick)
+	* [OnRowDoubleClick](#onrowdoubleclick)
 	* [PageChanged](#pagechanged)
 
 ## CUD Events
@@ -41,6 +43,153 @@ The command buttons of a grid provide an `OnClick` event before firing their bui
 ### SelectedItemsChanged
 
 Fires when the item selection is enabled and the user changes the selected [item]({%slug components/grid/selection/single%}#selecteditemschanged-event) or [items]({%slug components/grid/selection/multiple%}#selecteditemschanged-event).
+
+### OnRowClick
+
+The `OnRowClick` event fires as a response to the user clicking on a row of the Grid. Clicking on the `GridCommandButton`, select row `CheckBox`, expanding a `Detail Template` or when the row is in `edit/insert mode` will not trigger the event.
+
+The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+
+>caption Use the OnRowClick event to load data on demand based on the clicked row
+
+````CSHTML
+@* Use the OnRowClick event to load data on demand based on the clicked row *@
+
+<TelerikGrid Data="@MyData"
+             Height="400px"
+             Width="700px"
+             Pageable="true"
+             OnRowClick="@OnRowClickHandler">
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@if (ProjectData.Any())
+{
+    <br />
+    <TelerikGrid Data="@ProjectData" AutoGenerateColumns="true"
+                 Pageable="true" PageSize="4" Width="700px">
+    </TelerikGrid>
+}
+
+@code {
+    public List<ProjectModel> ProjectData { get; set; } = new List<ProjectModel>();
+
+    async Task OnRowClickHandler(GridRowClickEventArgs args)
+    {
+        var item = args.Item as SampleData;
+
+        ProjectData = await GetProjectData(item.Id);
+    }
+
+    async Task<List<ProjectModel>> GetProjectData(int id)
+    {
+        ProjectData = new List<ProjectModel>()
+        {
+            new ProjectModel()
+            {
+                ProjectManagerId = id,
+                ProjectName = $"Project name {id}",
+                DueDate = DateTime.Today.AddDays(-id),
+                isActive = id % 2 == 0 ? true : false
+            }
+        };
+        return await Task.FromResult(ProjectData);
+    }
+
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    public class ProjectModel
+    {
+        public int ProjectManagerId { get; set; }
+        public string ProjectName { get; set; }
+        public DateTime DueDate { get; set; }
+        public bool isActive { get; set; }
+    }
+}
+````
+
+>caption The result from the code snippet above
+
+![OnRowClick example](images/onrowclick-example.gif)
+
+### OnRowDoubleClick
+
+The `OnRowDoubleClick` event fires as a response to the user double clicking on a row of the Grid. Clicking on the `GridCommandButton`, select row `CheckBox`, expanding a `Detail Template` or when the row is in `edit/insert mode` will not trigger the event.
+
+The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type
+
+>caption Use the OnRowDoubleClick event to receive information on the clicked row
+
+````CSHTML
+
+@* Use the OnRowDoubleClick event to receive information on the row the user clicked on *@
+
+<TelerikGrid Data="@MyData"
+             Height="400px"
+             Width="700px"
+             Pageable="true"
+             OnRowDoubleClick="@OnRowDoubleClickHandler">
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@if (!String.IsNullOrEmpty(logger))
+{
+    <div>
+        @logger
+    </div>
+}
+
+@code {
+    string logger = String.Empty;
+
+    void OnRowDoubleClickHandler(GridRowClickEventArgs args)
+    {
+        var item = args.Item as SampleData;
+
+        logger = $"Double clicked on {item.Name}";
+    }
+
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
 
 ### PageChanged
 
