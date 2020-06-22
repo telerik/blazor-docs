@@ -14,10 +14,15 @@ This article explains the different ways to provide data to a DropDownList compo
 
 There are two key ways to bind data:
 
-* [Primitive Types](#primitive-types)
-* [Model](#bind-to-a-model)
+* [Bind to Primitive Types](#primitive-types)
+* [Bind to a Model](#bind-to-a-model)
 
-There are also some [considerations](#considerations) to keep in mind.
+and some considerations you may find useful, such as showing the `DefaultText` when the value is out of the data source range:
+
+* [Considerations](#considerations)
+	* [Value Out of Range](#value-out-of-range)
+	* [Component Reference](#component-reference)
+	* [Missing Value or Data](#missing-value-or-data)
 
 ## Primitive Types
 
