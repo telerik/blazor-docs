@@ -15,6 +15,7 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 * [CUD Events](#cud-events) - events related to Creating, Updating and Deleting items
 * [Read Event](#read-event) - event related to obtaining data
 * [Other Events](#other-events) - other events the grid provides
+    * [State Events](#state-events)
 	* [Command Button Click](#command-button-click)
 	* [SelectedItemsChanged](#selecteditemschanged)
 	* [OnRowClick](#onrowclick)
@@ -35,6 +36,16 @@ In the common case, you provide all the data to the grid's `Data` collection and
 
 
 ## Other Events
+
+### State Events
+
+The grid state lets you control through code the aspects of the grid the user can control in the UI - such as filtering, sorting, grouping. The grid provides two events related to the state:
+
+* `OnStateInit` - fires when the grid initializes so you can provide a stored version of the grid.
+
+* `OnStateChanged` - fires when the user performs an action so you can see what area was changed and, if needed, alter the grid state.
+
+Review the [grid state]({%slug grid-state%}) article for more details and examples on how the grid state works and what you can do with it.
 
 ### Command Button Click
 
