@@ -40,6 +40,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 *  [DateTimePicker](https://demos.telerik.com/blazor-ui/datetimepicker/keyboard-navigation)
 
+*  [Drawer](https://demos.telerik.com/blazor-ui/drawer/keyboard-navigation)
+
 *  [DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation)
 
 *  [Grid](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation) (set `Navigable="true"`)
