@@ -50,10 +50,10 @@ The `OnRowClick` event fires as a response to the user clicking on a row of the 
 
 The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
->caption Use the OnRowClick event to receive information on the clicked row
+>caption Use the OnRowClick event to load data on demand based on the clicked row
 
 ````CSHTML
-@* Use the OnRowClick event to receive information on the row the user clicked on *@
+@* Use the OnRowClick event to load data on demand based on the clicked row *@
 
 <TelerikGrid Data="@MyData"
              Height="400px"
@@ -68,21 +68,37 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
     </GridColumns>
 </TelerikGrid>
 
-@if (!String.IsNullOrEmpty(logger))
+@if (ProjectData.Any())
 {
-    <div>
-        @logger
-    </div>
+    <br />
+    <TelerikGrid Data="@ProjectData" AutoGenerateColumns="true"
+                 Pageable="true" PageSize="4" Width="700px">
+    </TelerikGrid>
 }
 
 @code {
-    string logger = String.Empty;
+    public List<ProjectModel> ProjectData { get; set; } = new List<ProjectModel>();
 
-    void OnRowClickHandler(GridRowClickEventArgs args)
+    async Task OnRowClickHandler(GridRowClickEventArgs args)
     {
         var item = args.Item as SampleData;
 
-        logger = $"Clicked on employee {item.Name} with ID: {item.Id}";
+        ProjectData = await GenerateProjectData(item.Id);
+    }
+
+    async Task<List<ProjectModel>> GenerateProjectData(int id)
+    {
+        ProjectData = new List<ProjectModel>()
+{
+            new ProjectModel()
+            {
+                ProjectManagerId = id,
+                ProjectName = $"Project name {id}",
+                DueDate = DateTime.Today.AddDays(-id),
+                isActive = id % 2 == 0 ? true : false
+            }
+        };
+        return await Task.FromResult(ProjectData);
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
@@ -100,9 +116,20 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
         public string Team { get; set; }
         public DateTime HireDate { get; set; }
     }
+
+    public class ProjectModel
+    {
+        public int ProjectManagerId { get; set; }
+        public string ProjectName { get; set; }
+        public DateTime DueDate { get; set; }
+        public bool isActive { get; set; }
+    }
 }
 ````
 
+>caption The result from the code snippet above
+
+![OnRowClick example](images/onrowclick-example.gif)
 
 ### OnRowDoubleClick
 
@@ -163,7 +190,6 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
     }
 }
 ````
-
 
 ### PageChanged
 
