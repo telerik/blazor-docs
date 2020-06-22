@@ -22,6 +22,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 *  [Button](https://demos.telerik.com/blazor-ui/button/keyboard-navigation)
 
+*  [ButtonGroup](https://demos.telerik.com/blazor-ui/buttongroup/keyboard-navigation)
+
 *  [Calendar](https://demos.telerik.com/blazor-ui/calendar/keyboard-navigation)
 
 *  Chart - not applicable, the chart is a visualization component only.
