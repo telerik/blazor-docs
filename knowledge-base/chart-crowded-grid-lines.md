@@ -36,7 +36,7 @@ You can apply the following settings:
 * `Skip` - skip the rendering of the first `n` lines, where `n` is the `double` number passed to the parameter.
 * You can also control other visual settings of the lines like their `Color`, `Width` and `DashType`.
 
-For a [`Date Axis` Chart]({%slug components/chart/date-axis%}) you can set the `BaseUnit` parameter of the `<ChartCategoryAxis>` tag according to the data of your application to further control the granularity of the grid lines
+For a [`Date Axis` Chart]({%slug components/chart/date-axis%}) you can set the `BaseUnit` parameter of the `<ChartCategoryAxis>` tag according to the data of your application to further control the granularity of the grid lines.
 
 >caption Customize the grid lines of a Categorical Chart
 
