@@ -212,10 +212,10 @@ This custom filter menu lets you choose more than one option to match against th
                 @foreach (var size in Sizes)
                 {
                     <div>
-                        <TelerikCheckBox Value="@(CheckedSizes.Contains(size))"
-                                            TValue="bool"
-                                            ValueChanged="@((value) => UpdateCheckedSizes(value, size))"
-                                            Id="@($"size_{size}")">
+                        <TelerikCheckBox Value="@(IsCheckboxInCurrentFilter(context.FilterDescriptor, size))"
+                                         TValue="bool"
+                                         ValueChanged="@((value) => UpdateCheckedSizes(value, size))"
+                                         Id="@($"size_{size}")">
                         </TelerikCheckBox>
                         <label for="@($"size_{size}")">
                             @size
@@ -232,6 +232,12 @@ This custom filter menu lets you choose more than one option to match against th
 @code {
     FilterMenuTemplateContext theFilterContext { get; set; }
     public List<string> CheckedSizes { get; set; } = new List<string>();
+
+    public bool IsCheckboxInCurrentFilter(CompositeFilterDescriptor filterDescriptor, string size)
+    {
+        // get all current filter descriptors and evaluate whether to select the current checkbox
+        return filterDescriptor.FilterDescriptors.Select(f => (f as FilterDescriptor).Value?.ToString()).ToList().Contains(size);
+    }
 
     public void UpdateCheckedSizes(bool value, string itemValue)
     {
