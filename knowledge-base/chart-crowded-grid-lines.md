@@ -26,7 +26,12 @@ I have a Chart that has to visualize a big volume of data. This makes the grid l
 
 ## Solution
 
-The general approach to customize the Chart is to apply settings using nested tags. In the case of the grid lines the parent tag is `<ChartCategoryAxis>` or `<ChartValueAxis>` for [categorical charts]({%slug components/chart/databind%}#series-types) and `<ChartXAxis>` and `<ChartYAxis>` for [numerical charts]({%slug components/chart/databind%}#series-types).
+You can choose which grid lines to show (every `n`-th `Step`) and to `Skip` the first `m` through parameters on the respective grid line tag. Read more to see how to get to those tags and use the parameters.
+
+The general approach to customize a Chart is to apply settings using nested tags. In the case of the grid lines the parent tag is
+
+* for [categorical charts]({%slug components/chart/databind%}#series-types): x-axis `<ChartCategoryAxis>` and y-axis `<ChartValueAxis>`.
+* for [numerical charts]({%slug components/chart/databind%}#series-types): x-axis `<ChartXAxis>` and y-axis `<ChartYAxis>`.
 
 You can control the `MajorGridLines` for both axes from their respective nested tags - `<ChartCategoryAxisMajorGridLines />` (the vertical grid lines) and `<ChartValueAxisMajorGridLines />` (the horizontal grid lines).
 
@@ -36,12 +41,13 @@ You can apply the following settings:
 * `Skip` - skip the rendering of the first `n` lines, where `n` is the `double` number passed to the parameter.
 * You can also control other visual settings of the lines like their `Color`, `Width` and `DashType`.
 
-For a [`Date Axis` Chart]({%slug components/chart/date-axis%}) you can set the `BaseUnit` parameter of the `<ChartCategoryAxis>` tag according to the data of your application to further control the granularity of the grid lines.
+You can do the same for the `MinorGridLines` too.
 
->caption Customize the grid lines of a Categorical Chart
+For a [`Date Axis` Chart]({%slug components/chart/date-axis%}), you can set the `BaseUnit` parameter of the `<ChartCategoryAxis>` tag according to the data of your application to further control the granularity of the grid lines - this is what the number of categories and, thus, grid lines, depends on.
+
+>caption Declutter the grid lines of a Categorical Chart
 
 ````CSHTML
-
 @* This example shows how to render every second grid line for the category axis and disable the lines for the value axis *@
 
 <TelerikChart>
