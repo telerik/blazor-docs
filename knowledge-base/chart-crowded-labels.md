@@ -130,3 +130,7 @@ To **skip** the rendering of every n-th label, when the data in your application
 >caption The result from the code snippet above
 
 ![rotate chart labels](images/chart-label-step-example.png)
+
+## Notes
+
+You can also see the Knowledge base article regarding [clustered grid lines]({%slug chart-kb-crowded-grid-lines%}) to further improve the layout of the Chart.
