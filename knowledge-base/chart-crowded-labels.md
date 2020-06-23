@@ -27,25 +27,34 @@ I am having a Chart with big load of data. The labels are overlapping and thus -
 
 ## Solution
 
-The general approach to customize the Chart is to apply settings using nested tags. In the case of the `Labels` the parent tag is `<ChartCategoryAxisLabels>` for [categorical charts]({%slug components/chart/databind%}#series-types) and `<ChartXAxisLabels>` and `<ChartYAxisLabels>` for [numerical charts]({%slug components/chart/databind%}#series-types).
+You can control how many labels render, their rotation angle and even font in order to reduce clutter. Read further to see how to find and use the appropriate tags and parameters.
+
+You can also skip directly to the examples:
+
+* [Example - Rotate the Chart Labels](#example---rotate-the-chart-labels)
+* [Example - Skip rendering every n-th label](#example---skip-rendering-every-n-th-label)
+
+
+The general approach to customize the Chart is to apply settings using nested tags. In the case of the `Labels` the tag is 
+* for [categorical charts]({%slug components/chart/databind%}#series-types) -  `<ChartCategoryAxisLabels>` under the `<ChartCategoryAxis>`.
+* for [numerical charts]({%slug components/chart/databind%}#series-types) - `<ChartXAxisLabels>` and `<ChartYAxisLabels>` under the `<ChartXAxis>` and `<ChartYAxis>`.
 
 
 You can control the `Labels` by applying the following settings to the `<ChartCategoryAxisLabels>` or `<ChartXAxisLabels>` tags depending on the Chart type:
-* `Angle` - rotate the Labels to a desired degrees
-* `Step` - skip the rendering of every `n-th` label, where `n` is the `double` number passed to the parameter..
-* `Skip` - skip the rendering of the first `n` labels, where `n` is the `double` number passed to the parameter.
+* **Angle** - rotate the Labels to a desired degree - can be useful for long texts even if you have few items
+* **Step** - skip the rendering of every `n-th` label, where `n` is the `double` number passed to the parameter.
+* **Skip** - skip the rendering of the first `n` labels, where `n` is the `double` number passed to the parameter.
 
 
 To **rotate** the `Labels` to a desired degree you can use the `Angle` setting of the `<ChartCategoryAxisLabelsRotation />`, nested tag of `<ChartXAxisLabelsRotation />`, or `<ChartYAxisLabelsRotation />` respectively for categorical and numerical charts.
 
-To **skip** the rendering of every n-th label, when the data in your application allows it, you can use the `Step` setting of the `<ChartCategoryAxisLabels>` or `<ChartXAxisLabels>`. Applying that would notify the chart to skip every n-th label, for example if set to `2` only the even labels would be rendered.
+To **skip** the rendering of every n-th label, when the data in your application allows it (e.g., for a date axis or numerical axes), you can use the `Step` setting of the `<ChartCategoryAxisLabels>` or `<ChartXAxisLabels>`. Applying that would notify the chart to skip every n-th label, for example if set to `2` only the even labels would be rendered.
 
-You can also control other visual settings of the Labels such as `Padding`, `Borders` and `Margin` by using the respective nested tags - `<ChartCategoryAxisLabels<SETTING NAME> />`
+You can also control other visual settings of the Labels such as `Padding`, `Borders` and `Margin` by using the respective nested tags - `<ChartCategoryAxisLabels<SETTING NAME> />`. The labels also have a `Font` parameter where you can pass a CSS font setting to reduce the size of the text.
 
->caption Rotate the Chart Labels
+### Example - Rotate the Chart Labels
 
 ````CSHTML
-
 @* This example shows how to rotate the labels of a Categorical Chart by a certain angle *@
 
 <TelerikChart>
@@ -84,7 +93,6 @@ You can also control other visual settings of the Labels such as `Padding`, `Bor
         base.OnInitialized();
     }
 }
-
 ````
 
 >caption The result from the code snippet above
@@ -92,10 +100,9 @@ You can also control other visual settings of the Labels such as `Padding`, `Bor
 ![rotate chart labels](images/chart-label-rotation-example.png)
 
 
->caption Skip rendering every n-th label
+### Example - Skip rendering every n-th label
 
 ````CSHTML
-
 @* This example shows how render only every third label *@
 
 <TelerikChart>
@@ -132,7 +139,6 @@ You can also control other visual settings of the Labels such as `Padding`, `Bor
         }
     }
 }
-
 ````
 
 >caption The result from the code snippet above
