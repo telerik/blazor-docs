@@ -30,9 +30,17 @@ I am having a Chart with big load of data. The labels are overlapping and thus -
 The general approach to customize the Chart is to apply settings using nested tags. In the case of the `Labels` the parent tag is `<ChartCategoryAxisLabels>` for [categorical charts]({%slug components/chart/databind%}#series-types) and `<ChartXAxisLabels>` and `<ChartYAxisLabels>` for [numerical charts]({%slug components/chart/databind%}#series-types).
 
 
+You can control the `Labels` by applying the following settings to the `<ChartCategoryAxisLabels>` or `<ChartXAxisLabels>` tags depending on the Chart type:
+* `Angle` - rotate the Labels to a desired degrees
+* `Step` - skip the rendering of every `n-th` label, where `n` is the `double` number passed to the parameter..
+* `Skip` - skip the rendering of the first `n` labels, where `n` is the `double` number passed to the parameter.
+
+
 To **rotate** the `Labels` to a desired degree you can use the `Angle` setting of the `<ChartCategoryAxisLabelsRotation />`, nested tag of `<ChartXAxisLabelsRotation />`, or `<ChartYAxisLabelsRotation />` respectively for categorical and numerical charts.
 
 To **skip** the rendering of every n-th label, when the data in your application allows it, you can use the `Step` setting of the `<ChartCategoryAxisLabels>` or `<ChartXAxisLabels>`. Applying that would notify the chart to skip every n-th label, for example if set to `2` only the even labels would be rendered.
+
+You can also control other visual settings of the Labels such as `Padding`, `Borders` and `Margin` by using the respective nested tags - `<ChartCategoryAxisLabels<SETTING NAME> />`
 
 >caption Rotate the Chart Labels
 
