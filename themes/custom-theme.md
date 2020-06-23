@@ -25,6 +25,7 @@ This article contains the following sections:
 	* [Using Variables](#using-variables)
 * [Contribution](#contribution)
 
+>tip To get theme updates and fixes, re-generate the custom themes from the latest built-in base theme when we release a new version of the suite, or when you upgrade the Telerik components in your project.
 
 ## Using the Sass Theme Builder
 
@@ -61,6 +62,7 @@ The Sass Theme Builder supports the following options for customization:
 * Color pickers which customize the main aspects of the components' coloring based on your deired color scheme.
     * For the Material theme, there are fewer options as per its guidelines - colors are derived from fewer variables.
 * Predefined color swatches - these are predefined color palettes that you can step on. They were chosen by our design team.
+    * They match known Kendo themes such as BlueOpal, Silver, Office365.
 
 The following list describes the Theme Builder UI:
 
