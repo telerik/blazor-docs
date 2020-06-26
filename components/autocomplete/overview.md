@@ -51,7 +51,7 @@ The AutoComplete is a generic component and its type is determined by the type o
 
 >caption The AutoComplete provides the following features:
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the combobox.
+* `Class` - the CSS class that will be rendered on the main wrapping element of the AutoComplete.
 
 * `ClearButton` - whether the user will have the option to clear the selected value with a button on the input. When it is clicked, the `Value` will be updated to `string.Empty`.
 
