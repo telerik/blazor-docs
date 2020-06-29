@@ -20,7 +20,7 @@ To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
 @theTbValue
 <br />
 
-<TelerikTextBox @bind-Value="theTbValue" Label="Enter Information" @ref="theTextBoxRef"></TelerikTextBox>
+<TelerikTextBox @bind-Value="theTbValue" Label="Enter Information"></TelerikTextBox>
 
 @code {
     string theTbValue { get; set; } = "lorem ipsum";
@@ -33,7 +33,7 @@ To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
 ````CSHTML
 <label for="email">Email</label>
 <TelerikTextBox PlaceHolder="john@smith.com" Title="write your email here"
-                TabIndex="3" Width="180px" 
+                TabIndex="3" Width="180px"
                 InputMode="email" Id="email" AutoComplete="email" Name="email">
 </TelerikTextBox>
 ````
@@ -43,7 +43,7 @@ To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
 
 ````CSHTML
 @* An example of enabling the Password mode of the textbox. Make sure to add a form and validation
-for example: https://demos.telerik.com/blazor-ui/textbox/password 
+for example: https://demos.telerik.com/blazor-ui/textbox/password
 *@
 
 <TelerikTextBox Password="true"
