@@ -60,7 +60,7 @@ To show data in a grid, you must define `GridColumn` instances in the `GridColum
 }
 ````
 
->tip You can also use a string for the field name, using the `nameof` operator is not necessary. For example, the ID column can be defined like this: `<GridColumn Field="Id" />`.
+>tip You can also use a string for the field name, using the `nameof` operator is not necessary. For example, the ID column can be defined like this: `<GridColumn Field="Id" />`. The field name is, however, **case-sensitive**.
 
 >tip The `Data` collection can be an `ObservableCollection`, an array, a `List` - it must only implement `IEnumerable`.
 
@@ -73,7 +73,7 @@ To show data in a grid, you must define `GridColumn` instances in the `GridColum
 
 You can use the following properties on the bound columns:
 
-* `Field` - the name of the field in the data source that the column will render as a string. You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model (`Field=@nameof(MyModelClass.SomeFIeld)`).
+* `Field` - the name of the field in the data source that the column will render as a string (case-sensitive). You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeFIeld)`).
 * `Title` - the text that is rendered in the column header.
 * `Editable` - you can set this property to `true` or `false` to allow or prevent [editing]({%slug components/grid/overview%}#editing) of this field. Defaults to `true`. To edit data, you also need a [CommandColumn]({%slug components/grid/columns/command%}).
 * `Filterable` - you can set this to `false` so a [filterable]({%slug components/grid/filtering%}) grid will not let the user filter that particular column.
@@ -89,8 +89,8 @@ You can use the following properties on the bound columns:
 
 >tip You can find more examples in the rest of the grid documentation and in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview).
 
-## Notes
 
+## Notes
 
 * For advanced operations such as grouping, filtering, sorting, you *must* set a `Field` to the column, and the field it points to must be a string or a value type (such as a number, string, DateTime, boolean).
     * If a `Field` is not set the column will not allow filtering, grouping, sorting and editing for the column.
