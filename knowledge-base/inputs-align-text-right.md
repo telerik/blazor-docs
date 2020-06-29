@@ -1,8 +1,8 @@
 ---
-title: Align the text in the Telerik inputs
+title: Right-align text in the Telerik inputs
 description: How to align the text in the Telerik inputs
 type: how-to
-page_title: Align the text in the Telerik inputs
+page_title: Right-align text in the Telerik inputs
 slug: inputs-kb-align-text
 position:
 tags:
@@ -22,16 +22,18 @@ res_type: kb
 
 ## Description
 
-I am using one or more inputs across my application and I would like to align their text to the right or center.
+How to align the text to the right or center in my inputs (such as textbox and numeric textbox).
 
 ## Solution
 
-You can use all available CSS customizations for the inputs in the Telerik UI for Blazor. To make cascading of the styles easier you can use the `Class` parameter available to all inputs and pass a custom CSS class. Use the `text-align` with a suitable query selector.
+You can use all standard CSS customizations for inputs in the Telerik UI for Blazor. To make cascading of the styles easier you can use the `Class` parameter available to all inputs and pass a custom CSS class. Use the `text-align` rule with a suitable query selector.
 
->caption Change the text alignment for the inputs in the Telerik UI for Blazor
+The example below shows how to align a numeric textbox and a combo box to the right, and how to align a textbox to the center.
+
+>caption Change the text alignment for inputs in Telerik UI for Blazor
 
 ````CSHTML
-@* This example shows how to render every second grid line for the category axis and disable the lines for the value axis *@
+@* right align and center align text in inputs *@
 
 <style>
     .myNumericTextbox.k-numerictextbox .k-input,
