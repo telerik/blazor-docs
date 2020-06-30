@@ -1,7 +1,7 @@
 ---
 title: Earlier Versions Support Policy
 page_title: Support Policy for Earlier UI for Blazor Versions
-description: "Learn about the support policy on old versions, how bug fixes and feature requests are implemented, and how you can get them.".
+description: "Learn about the support policy on old versions, how bug fixes and feature requests are implemented, and how you can get them."
 slug: old_versions_support_policy
 position: 50
 ---
