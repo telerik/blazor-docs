@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Menu | Data Binding Overview
-description: Data Binding basics in the Menu for Blazor
+description: Data Binding basics in the Menu for Blazor.
 slug: components/menu/data-binding/overview
 tags: telerik,blazor,menu,data,bind,databind,databinding,basics
 published: True

@@ -1,7 +1,7 @@
 ---
 title: How to Upgrade
 page_title: How to Upgrade
-description: How to Upgrade the version of the Telerik UI for Blazor package
+description: How to Upgrade the version of the Telerik UI for Blazor package.
 slug: upgrade-tutorial
 tags: upgrade,tutorial,changes,update
 published: True

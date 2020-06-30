@@ -1,6 +1,6 @@
 ---
 title: Print the Grid
-description: How to Print the Grid
+description: How to Print the Grid.
 type: how-to
 page_title: Print the Grid
 slug: grid-kb-print

@@ -1,7 +1,7 @@
 ---
 title: Excel
 page_title: Grid | Excel Export
-description: Export to Excel the Grid for Blazor
+description: Export to Excel the Grid for Blazor.
 slug: grid-export-excel
 tags: telerik,blazor,grid,export,excel
 published: True

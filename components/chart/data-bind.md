@@ -1,7 +1,7 @@
 ---
 title: Data Binding
 page_title: Chart | Data Binding
-description: Data Binding the Chart for Blazor
+description: Data Binding the Chart for Blazor.
 slug: components/chart/databind
 tags: telerik,blazor,chart,databind,data,bind
 published: True

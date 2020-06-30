@@ -1,7 +1,7 @@
 ---
 title: Resize
 page_title: Grid | Resize Columns
-description: Drag to resize columns in the Grid for Blazor
+description: Drag to resize columns in the Grid for Blazor.
 slug: components/grid/columns/resize
 tags: telerik,blazor,grid,column,resize,drag
 published: True

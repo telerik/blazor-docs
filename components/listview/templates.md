@@ -1,7 +1,7 @@
 ---
 title: Templates
 page_title: ListView | Templates
-description: Templates in the ListView for Blazor
+description: Templates in the ListView for Blazor.
 slug: listview-templates
 tags: telerik,blazor,listview,templates
 published: True

@@ -1,6 +1,6 @@
 ---
 title: Debounce custom filter calls, implement min filter length
-description: how to debounce the custom server filter service calls and to implement min filter length
+description: how to debounce the custom server filter service calls and to implement min filter length.
 type: how-to
 page_title: Debounce OnRead calls, Min Filter Length
 slug: combo-kb-debounce-onread

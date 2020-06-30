@@ -1,6 +1,6 @@
 ---
 title: Menu and AuthorizeView
-description: How to Show/Hide menu items when using AuthorizeView
+description: How to Show/Hide menu items when using AuthorizeView.
 type: how-to
 page_title: Show/Hide menu items using AuthorizeView
 slug: menu-kb-authorize-view

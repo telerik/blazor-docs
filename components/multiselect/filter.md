@@ -1,7 +1,7 @@
 ---
 title: Filter
 page_title: MultiSelect | Filter
-description: Filtering in the MultiSelect for Blazor
+description: Filtering in the MultiSelect for Blazor.
 slug: multiselect-filter
 tags: telerik,blazor,combo,multiselect,filter
 published: True

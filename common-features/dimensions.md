@@ -1,7 +1,7 @@
 ---
 title: Dimensions
 page_title: Dimensions
-description: How dimensions work and are set in the Telerik UI for Blazor component suite
+description: How dimensions work and are set in the Telerik UI for Blazor component suite.
 slug: common-features/dimensions
 tags: telerik,blazor,dimensions,width,height,percent,pixel
 published: True

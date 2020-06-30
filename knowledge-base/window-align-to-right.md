@@ -1,6 +1,6 @@
 ---
 title: Align the window to the right side of the screen
-description: How to align the window to the right side of the screen
+description: How to align the window to the right side of the screen.
 type: how-to
 page_title: Align the window to the right side of the screen
 slug: window-kb-align-to-right

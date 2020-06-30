@@ -1,6 +1,6 @@
 ---
 title: Window Inside EditContext
-description: Using an EditContext for a form holding a window requires updating the EditContext
+description: Using an EditContext for a form holding a window requires updating the EditContext.
 type: troubleshooting
 page_title: Propagating changes from inside a Window to the EditContext of its parent form
 slug: window-in-form-edit-context

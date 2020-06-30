@@ -1,7 +1,7 @@
 ---
 title: Data Binding
 page_title: AutoComplete | Data Binding
-description: Data Binding the AutoComplete for Blazor
+description: Data Binding the AutoComplete for Blazor.
 slug: autocomplete-databind
 tags: telerik,blazor,autocomplete,data,bind,binding,databind
 published: True

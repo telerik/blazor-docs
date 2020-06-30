@@ -1,7 +1,7 @@
 ---
 title: Navigation
 page_title: TreeView | Navigation
-description: Using the Blazor TreeView for navigating between pages
+description: Using the Blazor TreeView for navigating between pages.
 slug: treeview-navigation
 tags: telerik,blazor,treeview,navigation
 published: True

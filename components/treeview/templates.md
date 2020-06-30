@@ -1,7 +1,7 @@
 ---
 title: Templates
 page_title: Treeview | Templates
-description: Templates in the Treeview for Blazor
+description: Templates in the Treeview for Blazor.
 slug: components/treeview/templates
 tags: telerik,blazor,treeview,templates
 published: True

@@ -1,7 +1,7 @@
 ---
 title: Custom Value
 page_title: ComboBox | Custom Value
-description: Custom values and user input in the ComboBox for Blazor
+description: Custom values and user input in the ComboBox for Blazor.
 slug: components/combobox/custom-value
 tags: telerik,blazor,combo,combobox,custom,value,input
 published: True

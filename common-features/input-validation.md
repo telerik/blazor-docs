@@ -1,7 +1,7 @@
 ---
 title: Input Validation
 page_title: Input Validation
-description: How to validate Blazor inputs
+description: How to validate Blazor inputs.
 slug: common-features/input-validation
 tags: telerik,blazor,validation,data,annotation,form
 published: True

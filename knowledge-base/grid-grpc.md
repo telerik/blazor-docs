@@ -1,6 +1,6 @@
 ---
 title: Consume gRPC services in Blazor
-description: How to Consume gRPC services in Blazor
+description: How to Consume gRPC services in Blazor.
 type: how-to
 page_title: Consume gRPC services in Blazor
 slug: common-kb-grpc

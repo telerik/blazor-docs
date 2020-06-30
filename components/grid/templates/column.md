@@ -1,7 +1,7 @@
 ---
 title: Column (Cell)
 page_title: Grid | Column (Cell) Template
-description: Use custom column and cell templates in Grid for Blazor
+description: Use custom column and cell templates in Grid for Blazor.
 slug: grid-templates-column
 tags: telerik,blazor,grid,templates,column,cell
 published: True

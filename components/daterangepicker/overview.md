@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: DateRange Picker Overview
-description: Overview of the Date Range Picker for Blazor
+description: Overview of the Date Range Picker for Blazor.
 slug: daterangepicker-overview
 tags: telerik,blazor,date,range,picker,daterangepicker,overview
 published: True

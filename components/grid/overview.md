@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Grid Overview
-description: Overview of the Grid for Blazor
+description: Overview of the Grid for Blazor.
 slug: components/grid/overview
 tags: telerik,blazor,grid,datagrid,overview
 published: True

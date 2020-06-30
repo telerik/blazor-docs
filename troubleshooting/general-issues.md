@@ -1,7 +1,7 @@
 ---
 title: General Issues
 page_title: General Issues
-description: Troubleshooting general issues in the UI for Blazor suite
+description: Troubleshooting general issues in the UI for Blazor suite.
 slug: troubleshooting-general-issues
 tags: general,issues,troubleshoot,fix
 published: True

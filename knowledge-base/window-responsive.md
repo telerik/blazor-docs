@@ -1,6 +1,6 @@
 ---
 title: Responsive Window
-description: How to adjust the size of a Window when the browser window size changes so that it is responsive
+description: How to adjust the size of a Window when the browser window size changes so that it is responsive.
 type: how-to
 page_title: Responsive Window
 slug: window-kb-responsive

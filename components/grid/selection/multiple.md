@@ -1,7 +1,7 @@
 ---
 title: Multiple Rows
 page_title: Grid | Multiple Selection
-description: Single row selection in the Grid for Blazor
+description: Single row selection in the Grid for Blazor.
 slug: components/grid/selection/multiple
 tags: telerik,blazor,grid,selection,multiple
 published: True

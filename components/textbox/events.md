@@ -1,7 +1,7 @@
 ---
 title: Events
 page_title: Textbox | Events
-description: Events in the Textbox for Blazor
+description: Events in the Textbox for Blazor.
 slug: components/textbox/events
 tags: telerik,blazor,textbox,events
 published: true

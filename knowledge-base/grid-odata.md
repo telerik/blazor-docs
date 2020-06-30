@@ -1,6 +1,6 @@
 ---
 title: Consume ODATA services in the grid
-description: How to ConsumeODATA services in the grid
+description: How to ConsumeODATA services in the grid.
 type: how-to
 page_title: Consume ODATA services in the grid
 slug: common-kb-odata

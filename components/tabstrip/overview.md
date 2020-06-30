@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Tab Strip Overview
-description: Overview of the Tab Strip for Blazor
+description: Overview of the Tab Strip for Blazor.
 slug: components/tabstrip/overview
 tags: telerik,blazor,tab strip,overview
 published: True

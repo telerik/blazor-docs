@@ -1,6 +1,6 @@
 ---
 title: DropDown fires OnChange twice
-description: how to fire OnChange only once, it seems to fire twice
+description: how to fire OnChange only once, it seems to fire twice.
 type: troubleshooting
 page_title: Fire OnChange only once
 slug: ddl-kb-onchange-fires-twices

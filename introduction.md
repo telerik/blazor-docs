@@ -1,7 +1,7 @@
 ---
 title: Introduction
 page_title: Introduction
-description: "Overview of Progress Telerik UI for Blazor"
+description: "Overview of Progress Telerik UI for Blazor".
 slug: blazor-overview
 position: 1
 ---

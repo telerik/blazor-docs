@@ -1,7 +1,7 @@
 ---
 title: Filter
 page_title: AutoComplete | Filter
-description: Filtering in the ComboBox for Blazor
+description: Filtering in the ComboBox for Blazor.
 slug: autocomplete-filter
 tags: telerik,blazor,combo,autocomplete,filter
 published: True

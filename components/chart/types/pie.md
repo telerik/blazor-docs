@@ -1,7 +1,7 @@
 ---
 title: Pie
 page_title: Chart | Pie
-description: Overview of the Pie Chart for Blazor
+description: Overview of the Pie Chart for Blazor.
 slug: components/chart/types/pie
 tags: telerik,blazor,chart,pie
 published: True

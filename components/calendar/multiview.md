@@ -1,7 +1,7 @@
 ---
 title: MultiView
 page_title: Calendar | MultiView
-description: Multiple Views in the Calendar for Blazor
+description: Multiple Views in the Calendar for Blazor.
 slug: components/calendar/multiview
 tags: telerik,blazor,calendar,multi,view,multiple
 published: True

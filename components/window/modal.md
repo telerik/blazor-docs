@@ -1,7 +1,7 @@
 ---
 title: Modal
 page_title: Window | Modal
-description: How to make a modal Window for Blazor
+description: How to make a modal Window for Blazor.
 slug: components/window/modal
 tags: telerik,blazor,window,modal
 published: True

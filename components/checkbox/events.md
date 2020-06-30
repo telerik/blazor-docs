@@ -1,7 +1,7 @@
 ---
 title: Events
 page_title: CheckBox | Events
-description: Events in the CheckBox for Blazor
+description: Events in the CheckBox for Blazor.
 slug: checkbox-events
 tags: telerik,blazor,checkbox,events
 published: true

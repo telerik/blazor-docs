@@ -1,6 +1,6 @@
 ---
 title: Change Checkbox Icon
-description: How to change the CheckBox icon to a custom one
+description: How to change the CheckBox icon to a custom one.
 type: how-to
 page_title: Custom Checkbox Icon
 slug: checkbox-kb-custom-icon

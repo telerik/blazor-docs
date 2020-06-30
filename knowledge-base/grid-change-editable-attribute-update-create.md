@@ -1,6 +1,6 @@
 ---
 title: Dynamically control column attributes during update or create.  (Editable = true/false)
-description: How to change a column Editable for new or old items - during update or create
+description: How to change a column Editable for new or old items - during update or create.
 type: how-to
 page_title: Change column Editable attribute during update or create
 slug: grid-change-editable-attribute-update-create

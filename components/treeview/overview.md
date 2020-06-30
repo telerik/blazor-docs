@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Treeview Overview
-description: Overview of the Treeview for Blazor
+description: Overview of the Treeview for Blazor.
 slug: components/treeview/overview
 tags: telerik,blazor,treeview,overview
 published: True

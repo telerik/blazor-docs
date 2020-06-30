@@ -1,6 +1,6 @@
 ---
 title: Unable to detect a div in a Telerik Window from JavaScript
-description: How to access an HTML element in a Telerik Window from JavaScript when showing the window
+description: How to access an HTML element in a Telerik Window from JavaScript when showing the window.
 type: troubleshooting
 page_title: Reference DOM element in Window from JS
 slug: window-access-dom-element-on-show

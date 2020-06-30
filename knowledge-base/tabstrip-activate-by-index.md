@@ -1,6 +1,6 @@
 ---
 title: Set active tab by index
-description: how to select or activate a tab by index
+description: how to select or activate a tab by index.
 type: how-to
 page_title: Select tab by index
 slug: tabstrip-activate-by-index

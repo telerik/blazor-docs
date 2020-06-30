@@ -1,7 +1,7 @@
 ---
 title: JavaScript Errors
 page_title: JavaScript Errors
-description: Troubleshooting JavaScript errors in the UI for Blazor suite
+description: Troubleshooting JavaScript errors in the UI for Blazor suite.
 slug: troubleshooting-js-errors
 tags: js,errors,interop,missing
 published: True

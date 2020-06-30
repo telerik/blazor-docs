@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Accessibility Overview
-description: Accessibility features in the Telerik UI for Blazor suite
+description: Accessibility features in the Telerik UI for Blazor suite.
 slug: accessibility-overview
 tags: telerik,blazor,accessibility,overview
 published: True

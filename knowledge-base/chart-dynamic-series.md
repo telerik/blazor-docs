@@ -1,6 +1,6 @@
 ---
 title: How to add dynamic series in a chart
-description: How to use dynamic series collection in a chart from the code-behind
+description: How to use dynamic series collection in a chart from the code-behind.
 type: how-to
 page_title: How to use dynamic series in a chart
 slug: chart-dynamic-series

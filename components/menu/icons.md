@@ -1,7 +1,7 @@
 ---
 title: Icons
 page_title: Menu | Icon
-description: Icons and images in the Menu for Blazor
+description: Icons and images in the Menu for Blazor.
 slug: menu-icons
 tags: telerik,blazor,menu,icon,iconclass,image
 published: True

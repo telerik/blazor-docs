@@ -1,6 +1,6 @@
 ---
 title: Cascading parameter on a razor component inside a Telerik window control - not getting a value set
-description: How to get a CascadingParameter Value in a Telerik Window
+description: How to get a CascadingParameter Value in a Telerik Window.
 type: troubleshooting
 page_title: CascadingParameter Value null in Window
 slug: window-cascading-parameter-null

@@ -1,6 +1,6 @@
 ---
 title: Failed to execute compile on WebAssembly - expected magic word 00 61 73 6d
-description: WASM Compile Error When Hosted - expected magic word and fail to execute compile
+description: WASM Compile Error When Hosted - expected magic word and fail to execute compile.
 type: troubleshooting
 page_title: WASM Compile Error When Hosted - expected magic word 00 61 73 6d
 slug: common-kb-wasm-magic-word

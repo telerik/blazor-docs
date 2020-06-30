@@ -1,6 +1,6 @@
 ---
 title: Only one filter option in FilterMenu
-description: How to leave Only one filter option in FilterMenu
+description: How to leave Only one filter option in FilterMenu.
 type: how-to
 page_title: Only one filter option in FilterMenu
 slug: grid-kb-only-one-filtermenu-option

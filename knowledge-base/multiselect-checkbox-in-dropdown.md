@@ -1,6 +1,6 @@
 ---
 title: Checkbox in MultiSelect
-description: How to add checkbox in the MultiSelect dropdown
+description: How to add checkbox in the MultiSelect dropdown.
 type: how-to
 page_title: Checkbox in MultiSelect
 slug: multiselect-kb-checkbox-in-dropdown

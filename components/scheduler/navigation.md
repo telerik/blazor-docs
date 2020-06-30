@@ -1,7 +1,7 @@
 ---
 title: Navigation
 page_title: Scheduler | Navigation
-description: Navigating the Scheduler for Blazor
+description: Navigating the Scheduler for Blazor.
 slug: scheduler-navigation
 tags: telerik,blazor,scheduler,navigation
 published: true

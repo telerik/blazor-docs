@@ -1,6 +1,6 @@
 ---
 title: Debounce grid data source operations
-description: how to debounce the grid data source operations
+description: how to debounce the grid data source operations.
 type: how-to
 page_title: Debounce grid data source operations
 slug: grid-kb-debounce-operations

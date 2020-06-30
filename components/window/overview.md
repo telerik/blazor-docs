@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Window Overview
-description: Overview of the Window for Blazor
+description: Overview of the Window for Blazor.
 slug: components/window/overview
 tags: telerik,blazor,window,overview
 published: True

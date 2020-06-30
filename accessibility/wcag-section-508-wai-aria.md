@@ -1,7 +1,7 @@
 ---
 title: WCAG, Section 508, WAI-ARIA
 page_title: WCAG, Section 508, WAI-ARIA
-description: Accessibility standards - WCAG, Section 508, WAI-ARIA
+description: Accessibility standards - WCAG, Section 508, WAI-ARIA.
 slug: accessibility-standards
 tags: telerik,blazor,accessibility,standards
 published: True

@@ -1,6 +1,6 @@
 ---
 title: Returning data from window does not update parent
-description: how to ensure updating a model from within a window updates the parent
+description: how to ensure updating a model from within a window updates the parent.
 type: troubleshooting
 page_title: Changing data in a component with a window does not change the parent
 slug: window-does-not-update-parent

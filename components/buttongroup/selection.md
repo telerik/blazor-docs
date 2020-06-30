@@ -1,7 +1,7 @@
 ---
 title: Selection
 page_title: ButtonGroup | Selection
-description: Selected Items in the ButtonGroup for Blazor
+description: Selected Items in the ButtonGroup for Blazor.
 slug: buttongroup-selection
 tags: telerik,blazor,button,group,selection
 published: True

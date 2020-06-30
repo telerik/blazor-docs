@@ -1,7 +1,7 @@
 ---
 title: Keyboard Navigation
 page_title: Keyboard Navigation
-description: Support for keyboard navigation in the Telerik UI for Blazor suite
+description: Support for keyboard navigation in the Telerik UI for Blazor suite.
 slug: accessibility-keyboard-navigation
 tags: telerik,blazor,accessibility,keyboard,navigation,support
 published: True

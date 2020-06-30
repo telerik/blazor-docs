@@ -1,7 +1,7 @@
 ---
 title: Group Header
 page_title: Grid | Group Header Template
-description: Use custom group header templates in Grid for Blazor
+description: Use custom group header templates in Grid for Blazor.
 slug: grid-templates-group-header
 tags: telerik,blazor,grid,templates,group,header
 published: True

@@ -1,6 +1,6 @@
 ---
 title: Static Group in Grid
-description: How to have a static (constant) group in the grid
+description: How to have a static (constant) group in the grid.
 type: how-to
 page_title: Static Group in Grid
 slug: grid-kb-static-group

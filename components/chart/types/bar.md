@@ -1,7 +1,7 @@
 ---
 title: Bar
 page_title: Chart | Bar
-description: Overview of the Bar Chart for Blazor
+description: Overview of the Bar Chart for Blazor.
 slug: components/chart/types/bar
 tags: telerik,blazor,chart,bar
 published: True

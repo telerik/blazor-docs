@@ -1,6 +1,6 @@
 ---
 title: Custom Edit Form in the grid
-description: How to implement a custom edit form in the grid
+description: How to implement a custom edit form in the grid.
 type: how-to
 page_title: Grid Custom Edit Form
 slug: grid-kb-custom-edit-form

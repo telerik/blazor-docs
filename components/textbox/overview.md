@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Textbox Overview
-description: Overview of the Textbox for Blazor
+description: Overview of the Textbox for Blazor.
 slug: components/textbox/overview
 tags: telerik,blazor,textbox,overview
 published: True

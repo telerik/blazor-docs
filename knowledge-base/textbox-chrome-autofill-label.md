@@ -1,6 +1,6 @@
 ---
 title: Label not moved from input on browser autofill in Chrome
-description: Using the Chrome AutoFill does not update the inputs value and causes rendering issues with the floating label
+description: Using the Chrome AutoFill does not update the inputs value and causes rendering issues with the floating label.
 type: troubleshooting
 page_title: Chrome AutoFill does not update input Value
 slug: textbox-chrome-autofill-label

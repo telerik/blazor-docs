@@ -1,7 +1,7 @@
 ---
 title: Events
 page_title: Button | Events
-description: Events of the Button for Blazor
+description: Events of the Button for Blazor.
 slug: button-events
 tags: telerik,blazor,button,events
 published: True

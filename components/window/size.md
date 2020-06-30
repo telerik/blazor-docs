@@ -1,7 +1,7 @@
 ---
 title: Size
 page_title: Window | Size
-description: How to control size of the Window for Blazor
+description: How to control size of the Window for Blazor.
 slug: components/window/size
 tags: telerik,blazor,window,size
 published: True

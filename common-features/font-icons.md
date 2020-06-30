@@ -1,7 +1,7 @@
 ---
 title: Icons
 page_title: Icons
-description: How to use the built-in font icons in the UI for Blazor suite
+description: How to use the built-in font icons in the UI for Blazor suite.
 slug: general-information/font-icons
 tags: telerik,blazor,icon,font,built-in
 published: True

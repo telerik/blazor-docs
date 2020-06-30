@@ -1,7 +1,7 @@
 ---
 title: Indeterminate
 page_title: CheckBox | Indeterminate State
-description: Indeterminate State in the CheckBox for Blazor
+description: Indeterminate State in the CheckBox for Blazor.
 slug: checkbox-indeterminate-state
 tags: telerik,blazor,checkbox,state,indeterminate
 published: true

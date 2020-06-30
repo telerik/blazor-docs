@@ -1,7 +1,7 @@
 ---
 title: Grouping
 page_title: Grid | Grouping
-description: Enable and configure grouping in Grid for Blazor
+description: Enable and configure grouping in Grid for Blazor.
 slug: components/grid/features/grouping
 tags: telerik,blazor,grid,grouping
 published: True

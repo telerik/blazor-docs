@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Menu Overview
-description: Overview of the Menu for Blazor
+description: Overview of the Menu for Blazor.
 slug: components/menu/overview
 tags: telerik,blazor,menu,overview
 published: True

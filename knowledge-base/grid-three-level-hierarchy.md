@@ -1,6 +1,6 @@
 ---
 title: Multi-level Hierarchy
-description: Show multiple levels of hierarchical data in a grid
+description: Show multiple levels of hierarchical data in a grid.
 type: how-to
 page_title: Multi-level Hierarchy
 slug: grid-three-level-hierarchy

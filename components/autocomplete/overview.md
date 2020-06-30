@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: AutoComplete Overview
-description: Overview of the AutoComplete for Blazor
+description: Overview of the AutoComplete for Blazor.
 slug: autocomplete-overview
 tags: telerik,blazor,autocomplete,combo,overview
 published: True

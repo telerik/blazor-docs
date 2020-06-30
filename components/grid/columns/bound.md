@@ -1,7 +1,7 @@
 ---
 title: Data Binding
 page_title: Grid | DataBound Column
-description: Data binding and bound column properties in Grid for Blazor
+description: Data binding and bound column properties in Grid for Blazor.
 slug: components/grid/columns/bound
 tags: telerik,blazor,grid,bound,column
 published: True

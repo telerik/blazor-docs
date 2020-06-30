@@ -1,7 +1,7 @@
 ---
 title: Events
 page_title: ToggleButton | Events
-description: Events of the ToggleButton for Blazor
+description: Events of the ToggleButton for Blazor.
 slug: togglebutton-events
 tags: telerik,blazor,Toggle,button,events
 published: True

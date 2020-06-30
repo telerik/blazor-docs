@@ -1,6 +1,6 @@
 ---
 title: Virtual Scrolling Does Not Work
-description: How to fix Virtual Scrolling does not work and does not load data
+description: How to fix Virtual Scrolling does not work and does not load data.
 type: troubleshooting
 page_title: Virtual Scrolling - Not Working
 slug: grid-kb-virtual-scrolling-troubleshooting

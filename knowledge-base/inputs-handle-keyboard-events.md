@@ -1,6 +1,6 @@
 ---
 title: Capture input keyboard events
-description: how to handle keyboard events in Telerik inputs (textbox, numeric textbox, etc.)
+description: how to handle keyboard events in Telerik inputs (textbox, numeric textbox, etc.).
 type: how-to
 page_title: Capture input keyboard events
 slug: inputs-kb-handle-keyboard-events

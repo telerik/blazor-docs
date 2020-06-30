@@ -1,7 +1,7 @@
 ---
 title: Compliance
 page_title: Accessibility Compliance
-description: Compliance with the accessibility standards and requirements in the Telerik UI for Blazor suite
+description: Compliance with the accessibility standards and requirements in the Telerik UI for Blazor suite.
 slug: accessibility-compliance
 tags: telerik,blazor,accessibility,standards,compliance
 published: True

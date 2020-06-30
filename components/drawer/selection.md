@@ -1,7 +1,7 @@
 ---
 title: Selection
 page_title: Drawer | Seletion
-description: Item selection in the Drawer for Blazor
+description: Item selection in the Drawer for Blazor.
 slug: drawer-selection
 tags: telerik,blazor,drawer,selection,item,selected,items
 published: True

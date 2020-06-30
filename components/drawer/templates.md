@@ -1,7 +1,7 @@
 ---
 title: Templates
 page_title: Drawer | Templates
-description: Templates in the Drawer for Blazor
+description: Templates in the Drawer for Blazor.
 slug: drawer-templates
 tags: telerik,blazor,drawer,templates
 published: True

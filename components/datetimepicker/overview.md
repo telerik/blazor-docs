@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Date-Time Picker Overview
-description: Overview of the DateTime Picker for Blazor
+description: Overview of the DateTime Picker for Blazor.
 slug: components/datetimepicker/overview
 tags: telerik,blazor,datetime,picker,datetimepicker,overview
 published: True

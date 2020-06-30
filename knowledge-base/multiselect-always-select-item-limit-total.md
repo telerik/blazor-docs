@@ -1,6 +1,6 @@
 ---
 title: Preserve multiselect option and limit total items
-description: How to have an item that is always selected, and how to limit the number of selections
+description: How to have an item that is always selected, and how to limit the number of selections.
 type: how-to
 page_title: Always selected option and items limit
 slug: multiselect-kb-always-select-limit

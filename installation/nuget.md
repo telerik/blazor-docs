@@ -1,7 +1,7 @@
 ---
 title: Telerik Private NuGet Feed
 page_title: Telerik NuGet Feed
-description: How to use the Telerik Private NuGet Feed
+description: How to use the Telerik Private NuGet Feed.
 slug: installation/nuget
 tags: get,started,installation,nuget,feed
 published: True

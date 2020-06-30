@@ -1,7 +1,7 @@
 ---
 title: Row
 page_title: Grid | Row Template
-description: Use custom row templates in Grid for Blazor
+description: Use custom row templates in Grid for Blazor.
 slug: grid-templates-row
 tags: telerik,blazor,grid,templates,row
 published: True

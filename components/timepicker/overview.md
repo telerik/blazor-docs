@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Time Picker Overview
-description: Overview of the Time Picker for Blazor
+description: Overview of the Time Picker for Blazor.
 slug: components/timepicker/overview
 tags: telerik,blazor,time,picker,timepicker,overview
 published: True

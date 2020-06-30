@@ -1,7 +1,7 @@
 ---
 title: Stacked Series
 page_title: Chart | Stacked Series
-description: Stack or group series the Chart for Blazor
+description: Stack or group series the Chart for Blazor.
 slug: components/chart/stack
 tags: telerik,blazor,chart,stack,group
 published: True

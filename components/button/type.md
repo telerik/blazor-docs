@@ -1,7 +1,7 @@
 ---
 title: Type
 page_title: Button | Type
-description: Choosing a type attribute of the Button for Blazor
+description: Choosing a type attribute of the Button for Blazor.
 slug: button-type
 tags: telerik,blazor,button,type
 published: True

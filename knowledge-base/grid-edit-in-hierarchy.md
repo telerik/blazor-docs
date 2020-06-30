@@ -1,6 +1,6 @@
 ---
 title: Hierarchy Editing
-description: How to perform Editing in Hierarchy Grid
+description: How to perform Editing in Hierarchy Grid.
 type: how-to
 page_title: Edit in Hierarchy
 slug: grid-kb-editing-in-hierarchy

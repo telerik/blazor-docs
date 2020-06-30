@@ -1,7 +1,7 @@
 ---
 title: Deployment
 page_title: Deployment
-description: Troubleshooting deployment issues involving the UI for Blazor suite
+description: Troubleshooting deployment issues involving the UI for Blazor suite.
 slug: troubleshooting-deployment
 tags: deploy,deployment,issues,troubleshoot,fix
 published: True

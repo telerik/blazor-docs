@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Button Overview
-description: Overview of the Button for Blazor
+description: Overview of the Button for Blazor.
 slug: components/button/overview
 tags: telerik,blazor,button,overview
 published: True

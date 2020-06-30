@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Calendar Overview
-description: Overview of the Calendar for Blazor
+description: Overview of the Calendar for Blazor.
 slug: components/calendar/overview
 tags: telerik,blazor,calendar,overview
 published: True
