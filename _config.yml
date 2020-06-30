@@ -430,7 +430,7 @@ defaults:
         category: "default"
         product: "blazor"
         editable: true
-        description_suffix: " - read more in our Blazor Knowledgebase articles."
+        description_suffix: "Read more in our Blazor Knowledgebase articles."
 
 #type_links:
 #    "kendo.Class": "/api/javascript/class"
