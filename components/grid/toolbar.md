@@ -1,6 +1,6 @@
 ---
 title: Toolbar
-page_title: Grid for Blazor | Toolbar
+page_title: Grid | Toolbar
 description: Use toolbar and custom actions in Grid for Blazor
 slug: components/grid/features/toolbar
 tags: telerik,blazor,grid,toolbar

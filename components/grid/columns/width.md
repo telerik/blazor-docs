@@ -1,6 +1,6 @@
 ---
 title: Width
-page_title: Grid for Blazor | Column Width
+page_title: Grid | Column Width
 description: Column width behavior in Grid for Blazor
 slug: grid-columns-width
 tags: telerik,blazor,grid,column,width

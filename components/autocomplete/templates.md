@@ -1,6 +1,6 @@
 ---
 title: Templates
-page_title: AutoComplete for Blazor | Templates
+page_title: AutoComplete | Templates
 description: Templates in the AutoComplete for Blazor
 slug: autocomplete-templates
 tags: telerik,blazor,combo,autocomplete,templates

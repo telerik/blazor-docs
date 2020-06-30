@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Visual Studio Code Integration Overview | Telerik UI for Blazor
+page_title: Visual Studio Code Integration Overview
 description: "Learn how to enhance your experience in developing web applications with Progress Telerik UI for Blazor."
 slug: getting-started-vs-code-integration-overview
 position: 1

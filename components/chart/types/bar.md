@@ -1,6 +1,6 @@
 ---
 title: Bar
-page_title: Chart for Blazor | Bar
+page_title: Chart | Bar
 description: Overview of the Bar Chart for Blazor
 slug: components/chart/types/bar
 tags: telerik,blazor,chart,bar

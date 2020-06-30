@@ -1,6 +1,6 @@
 ---
 title: Label Template and Format
-page_title: Chart for Blazor | Label Template and Format
+page_title: Chart | Label Template and Format
 description: Use Label Template and Format their text in the Chart for Blazor
 slug: components/chart/label-template-format
 tags: telerik,blazor,chart,label,template,format

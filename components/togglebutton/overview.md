@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: ToggleButton for Blazor Overview
+page_title: ToggleButton Overview
 description: Overview of the ToggleButton for Blazor
 slug: togglebutton-overview
 tags: telerik,blazor,Toggle,button,overview

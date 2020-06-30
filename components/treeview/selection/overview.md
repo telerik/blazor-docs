@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: TreeView for Blazor | Selection Overview
+page_title: TreeView | Selection Overview
 description: Node selection in the TreeView for Blazor
 slug: treeview-selection-overview
 tags: telerik,blazor,treeview,selection,overview

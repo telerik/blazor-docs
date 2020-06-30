@@ -1,6 +1,6 @@
 ---
 title: Paging
-page_title: Grid for Blazor | Paging
+page_title: Grid | Paging
 description: Enable and configure paging in Grid for Blazor
 slug: components/grid/features/paging
 tags: telerik,blazor,grid,paging

@@ -1,6 +1,6 @@
 ---
 title: Testing With Test Studio
-page_title: Testing With Test Studio | Telerik UI for Blazor
+page_title: Testing With Test Studio
 description: Testing Telerik UI for Blazor with Test Studio
 slug: testing-with-test-studio
 position: 250

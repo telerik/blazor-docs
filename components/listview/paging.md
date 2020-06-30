@@ -1,6 +1,6 @@
 ---
 title: Paging
-page_title: ListView for Blazor | Paging
+page_title: ListView | Paging
 description: Paging in the ListView for Blazor
 slug: listview-paging
 tags: telerik,blazor,listview,paging

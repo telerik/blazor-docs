@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Treeview for Blazor | Data Binding Overview
+page_title: Treeview | Data Binding Overview
 description: Data Binding basics in the Treeview for Blazor
 slug: components/treeview/data-binding/overview
 tags: telerik,blazor,treeview,data,bind,databind,databinding,basics

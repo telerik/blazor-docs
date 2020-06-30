@@ -1,6 +1,6 @@
 ---
 title: Data Binding
-page_title: ComboBox for Blazor | Data Binding
+page_title: ComboBox | Data Binding
 description: Data Binding the ComboBox for Blazor
 slug: components/combobox/databind
 tags: telerik,blazor,combobox,combo,data,bind,binding,databind

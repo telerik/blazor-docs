@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Tooltip for Blazor Overview
+page_title: Tooltip Overview
 description: Overview of the Tooltip for Blazor
 slug: tooltip-overview
 tags: telerik,blazor,tooltip,overview

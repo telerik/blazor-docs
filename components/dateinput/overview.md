@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Date Input for Blazor Overview
+page_title: Date Input Overview
 description: Overview of the Date Input for Blazor
 slug: components/dateinput/overview
 tags: telerik,blazor,date,input,dateinput,overview

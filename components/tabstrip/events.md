@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: TabStrip for Blazor | Events
+page_title: TabStrip | Events
 description: Events of the Tab Strip for Blazor
 slug: tabstrip-events
 tags: telerik,blazor,tab strip,events

@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Drawer for Blazor Overview
+page_title: Drawer Overview
 description: Overview of the Drawer for Blazor
 slug: drawer-overview
 tags: telerik,blazor,drawer,overview

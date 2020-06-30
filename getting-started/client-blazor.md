@@ -1,6 +1,6 @@
 ---
 title: Client-side Blazor - Tutorial
-page_title: First Steps with Client-side UI for Blazor
+page_title: First Steps with Client-side Blazor
 description: First Steps with UI for Blazor Client-side
 slug: getting-started/client-side
 tags: get,started,first,steps,client

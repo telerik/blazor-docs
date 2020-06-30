@@ -1,6 +1,6 @@
 ---
 title: Icons
-page_title: ToggleButton for Blazor | Icon
+page_title: ToggleButton | Icon
 description: Icons and images in the ToggleButton for Blazor
 slug: togglebutton-icons
 tags: telerik,blazor,Toggle,button,icon,sprite,image

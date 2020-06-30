@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: ListView for Blazor | Events
+page_title: ListView | Events
 description: Events in the ListView for Blazor
 slug: listview-events
 tags: telerik,blazor,listview,events

@@ -1,6 +1,6 @@
 ---
 title: Column Header
-page_title: Grid for Blazor | Column Header Template
+page_title: Grid | Column Header Template
 description: Use custom column header templates in Grid for Blazor
 slug: grid-templates-column-header
 tags: telerik,blazor,grid,templates,column,header

@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: TimePicker for Blazor | Events
+page_title: TimePicker | Events
 description: Events in the TimePicker for Blazor
 slug: components/timepicker/events
 tags: telerik,blazor,TimePicker,events

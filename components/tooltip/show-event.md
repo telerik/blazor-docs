@@ -1,6 +1,6 @@
 ---
 title: Show Event
-page_title: Tooltip for Blazor | Show Event
+page_title: Tooltip | Show Event
 description: Choose when the Tooltip for Blazor shows up
 slug: tooltip-show-event
 tags: telerik,blazor,tooltip,show,event

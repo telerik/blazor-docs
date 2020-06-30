@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: Grid for Blazor | Events
+page_title: Grid | Events
 description: Events of the Grid for Blazor
 slug: grid-events
 tags: telerik,blazor,grid,events

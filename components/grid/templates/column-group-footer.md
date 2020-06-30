@@ -1,6 +1,6 @@
 ---
 title: Column Group Footer
-page_title: Grid for Blazor | Column Group Footer Template
+page_title: Grid | Column Group Footer Template
 description: Use custom column group footer templates in Grid for Blazor
 slug: grid-templates-column-group-footer
 tags: telerik,blazor,grid,templates,column,group,footer

@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: Scheduler for Blazor | Events
+page_title: Scheduler | Events
 description: Events in the Scheduler for Blazor
 slug: scheduler-events
 tags: telerik,blazor,scheduler,events

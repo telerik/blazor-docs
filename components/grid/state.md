@@ -1,6 +1,6 @@
 ---
 title: State
-page_title: Grid for Blazor | State
+page_title: Grid | State
 description: Save, load, change the Grid for Blazor state - grouping, sorting, filtering and so on.
 slug: grid-state
 tags: telerik,blazor,grid,state,save,load,layout,set,change,management

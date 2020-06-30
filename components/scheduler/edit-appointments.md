@@ -1,6 +1,6 @@
 ---
 title: Edit Appointments
-page_title: Scheduler for Blazor | Edit Appointments
+page_title: Scheduler | Edit Appointments
 description: Edit Appointments in the Scheduler for Blazor
 slug: scheduler-appointments-edit
 tags: telerik,blazor,scheduler,appointment,appointments,edit,editing

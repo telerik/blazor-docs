@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Numeric Textbox for Blazor Overview
+page_title: Numeric Textbox Overview
 description: Overview of the Numeric Textbox for Blazor
 slug: components/numerictextbox/overview
 tags: telerik,blazor,numeric textbox,overview

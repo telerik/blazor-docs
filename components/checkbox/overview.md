@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Checkbox Component for Blazor Overview
+page_title: Checkbox Component Overview
 description: Overview of the Checkbox for Blazor
 slug: checkbox-overview
 tags: telerik,blazor,checkbox,overview

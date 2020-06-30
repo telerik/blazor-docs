@@ -1,6 +1,6 @@
 ---
 title: Create New Project
-page_title: Create New Project | Visual Studio Integration | Telerik UI for Blazor
+page_title: Create New Project | Visual Studio Integration
 description: "Learn how to create a new Progress&reg; Telerik&reg; UI for Blazor project with our Visual Studio Templates."
 slug: getting-started-vs-integration-new-project
 position: 2

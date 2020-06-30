@@ -1,6 +1,6 @@
 ---
 title: Server-side Blazor - Tutorial
-page_title: First Steps with Server-side UI for Blazor
+page_title: First Steps with Server-side Blazor
 description: First Steps with UI for Blazor Server-side
 slug: getting-started/server-side
 tags: get,started,first,steps,server

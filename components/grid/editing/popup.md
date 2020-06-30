@@ -1,6 +1,6 @@
 ---
 title: PopUp Editing
-page_title: Grid for Blazor | PopUp Editing
+page_title: Grid | PopUp Editing
 description: Popup editing of data in Grid for Blazor
 slug: components/grid/editing/popup
 tags: telerik,blazor,grid,PopUp,editing

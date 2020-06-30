@@ -1,6 +1,6 @@
 ---
 title: Column
-page_title: Chart for Blazor | Column
+page_title: Chart | Column
 description: Overview of the Column Chart for Blazor
 slug: components/chart/types/column
 tags: telerik,blazor,chart,column

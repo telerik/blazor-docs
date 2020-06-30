@@ -1,6 +1,6 @@
 ---
 title: Hierarchical Data
-page_title: Menu for Blazor | Data Binding to Hierarchical Data
+page_title: Menu | Data Binding to Hierarchical Data
 description: Data Binding the Menu for Blazor to hierarchical data
 slug: components/menu/data-binding/hierarchical-data
 tags: telerik,blazor,menu,data,bind,databind,databinding,hierarchical

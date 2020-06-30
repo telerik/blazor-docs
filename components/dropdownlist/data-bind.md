@@ -1,6 +1,6 @@
 ---
 title: Data Binding
-page_title: DropDown List for Blazor | Data Binding
+page_title: DropDown List | Data Binding
 description: Data Binding the DropdownList for Blazor
 slug: components/dropdownlist/databind
 tags: telerik,blazor,dropdownlist,dropdown,list,data,bind,binding,databind

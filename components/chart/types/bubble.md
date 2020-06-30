@@ -1,6 +1,6 @@
 ---
 title: Bubble
-page_title: Chart for Blazor | Bubble
+page_title: Chart | Bubble
 description: Overview of the Bubble Chart for Blazor
 slug: components/chart/types/bubble
 tags: telerik,blazor,chart,bubble

@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: Menu for Blazor | Events
+page_title: Menu | Events
 description: Events in the Menu for Blazor
 slug: components/menu/events
 tags: telerik,blazor,menu,events

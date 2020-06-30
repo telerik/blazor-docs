@@ -1,6 +1,6 @@
 ---
 title: Filter
-page_title: Grid for Blazor | Filter Template
+page_title: Grid | Filter Template
 description: Use custom filter templates in Grid for Blazor
 slug: grid-templates-filter
 tags: telerik,blazor,grid,templates,filter

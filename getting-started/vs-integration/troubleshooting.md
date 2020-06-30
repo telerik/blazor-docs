@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-page_title: Troubleshooting | Visual Studio Integration | Telerik UI for Blazor
+page_title: Troubleshooting | Visual Studio Integration
 description: "Troubleshooting steps for Progress&reg; Telerik&reg; UI for Blazor Visual Studio extensions."
 slug: getting-started-vs-integration-troubleshooting
 position: 4

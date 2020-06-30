@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Date Picker for Blazor Overview
+page_title: Date Picker Overview
 description: Overview of the Date Picker for Blazor
 slug: components/datepicker/overview
 tags: telerik,blazor,date,picker,datepicker,overview

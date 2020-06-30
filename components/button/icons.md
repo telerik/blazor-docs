@@ -1,6 +1,6 @@
 ---
 title: Icons
-page_title: Button for Blazor | Icon
+page_title: Button | Icon
 description: Icons and images in the Button for Blazor
 slug: button-icons
 tags: telerik,blazor,button,icon,sprite,image

@@ -1,6 +1,6 @@
 ---
 title: Modes
-page_title: Drawer for Blazor | Modes
+page_title: Drawer | Modes
 description: Modes in the Drawer for Blazor
 slug: drawer-modes
 tags: telerik,blazor,drawer,mode,modes,overlay,push

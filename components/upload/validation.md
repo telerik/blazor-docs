@@ -1,6 +1,6 @@
 ---
 title: Validation
-page_title: Upload for Blazor | Validation
+page_title: Upload | Validation
 description: Validate chosen and uploaded files in the File Upload for Blazor
 slug: upload-validation
 tags: telerik,blazor,upload,async,validate,validation
