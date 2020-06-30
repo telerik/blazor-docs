@@ -10,9 +10,9 @@
                 <h6 class="mt-0 mb-10">Getting Started</h6>
                 <ul class="list-unstyled">
                   
-                    <li><a href="https://docs.telerik.com/blazor/getting-started/client-blazor" target="_blank">Client-side Blazor</a></li>
+                    <li><a href="https://docs.telerik.com/blazor-ui/getting-started/client-blazor" target="_blank">Client-side Blazor</a></li>
                   
-                    <li><a href="https://docs.telerik.com/blazor/getting-started/server-blazor" target="_blank">Server-side Blazor</a></li>
+                    <li><a href="https://docs.telerik.com/blazor-ui/getting-started/server-blazor" target="_blank">Server-side Blazor</a></li>
                   
                     <li><a href="https://demos.telerik.com/blazor-ui" target="_blank">Demos</a></li>
                   
