@@ -74,4 +74,4 @@ The date range picker is, essentially, a [date input]({%slug components/dateinpu
   * [Live Demo: Date Range Picker](https://demos.telerik.com/blazor-ui/daterangepicker/index)
   * [Input Validation]({%slug common-features/input-validation%})
   * [Supported Input Date Formats]({%slug components/dateinput/supported-formats%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1)

@@ -85,7 +85,7 @@ For more detailed control over the text shown in the labels, see the [Label Temp
 ## See Also
 
 *   [UI for Blazor Chart]({%slug components/chart/overview%})
-*   [ChartSeriesLabelsBase API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChartSeriesLabelsBase#properties)
+*   [ChartSeriesLabelsBase API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChartSeriesLabels)
 *   [Label Template and Format]({%slug components/chart/label-template-format%})
 *   [HTML Canvas API](https://developer.mozilla.org/en-US/docs/web/html/element/canvas)
 *   [Scalable Vector Graphic](https://developer.mozilla.org/en-US/docs/Web/SVG)
