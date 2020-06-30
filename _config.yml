@@ -373,6 +373,9 @@ defaults:
         category: "default"
         product: "blazor"
         editable: true
+        title_prefix: "Blazor"
+        title_prefix_separator: " "
+        description_suffix: "Read more in Telerik UI for Blazor Documentation."
 
 -
     scope:
@@ -386,6 +389,7 @@ defaults:
         editable: false
         res_type: api
         kind: api
+        title_prefix: "Blazor "
 
 #type_links:
 #    "kendo.Class": "/api/javascript/class"
