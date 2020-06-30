@@ -373,10 +373,7 @@ defaults:
         category: "default"
         product: "blazor"
         editable: true
-        title_prefix: "Blazor"
-        title_prefix_separator: " "
         description_suffix: "Read more in Telerik UI for Blazor Documentation."
-
 -
     scope:
         path: "blazor"
@@ -389,7 +386,51 @@ defaults:
         editable: false
         res_type: api
         kind: api
-        title_prefix: "Blazor "
+-
+    scope:
+        path: "components"
+    values:
+        title_prefix: "Blazor"
+        title_prefix_separator: " "
+-
+    scope:
+        path: "themes"
+    values:
+        title_prefix: "Blazor"
+        title_prefix_separator: " "
+-
+    scope:
+        path: "common-features"
+    values:
+        title_prefix: "Blazor"
+        title_prefix_separator: " "
+-
+    scope:
+        path: "globalization"
+    values:
+        title_prefix: "Blazor"
+        title_prefix_separator: " "
+-
+    scope:
+        path: "accessibility"
+    values:
+        title_prefix: "Blazor"
+        title_prefix_separator: " "
+-
+    scope:
+        path: "themes"
+    values:
+        title_prefix: "Blazor"
+        title_prefix_separator: " "
+-
+    scope:
+        path: "knowledge-base"
+    values:
+        layout: "documentation"
+        category: "default"
+        product: "blazor"
+        editable: true
+        description_suffix: " - read more in our Blazor Knowledgebase articles."
 
 #type_links:
 #    "kendo.Class": "/api/javascript/class"
