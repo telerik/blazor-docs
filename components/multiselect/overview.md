@@ -191,4 +191,4 @@ The MultiSelect is a generic component and its type is determined by the type of
   * [Data Binding]({%slug multiselect-databind%})
   * [Live Demo: MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/overview)
   * [Live Demo: MultiSelect Validation](https://demos.telerik.com/blazor-ui/multiselect/validation)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMultiSelect)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMultiSelect-2)

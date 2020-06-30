@@ -144,4 +144,4 @@ You can make a responsive chart
 
   * [Data Binding]({%slug components/chart/databind%})
   * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikChartBase)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikChart)

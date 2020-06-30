@@ -127,5 +127,5 @@ A menu is often used to list pages, views or sections in an application so the u
 
   * [Data Binding a Menu]({%slug components/menu/data-binding/overview%})
   * [Live Demo: Menu](https://demos.telerik.com/blazor-ui/menu/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMenu)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMenu-1)
 
