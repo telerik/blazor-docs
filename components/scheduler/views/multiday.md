@@ -1,6 +1,6 @@
 ---
 title: MultiDay
-page_title: Scheduler | MultiDay View
+page_title: Scheduler - MultiDay View
 description: MultiDay View in the Scheduler for Blazor.
 slug: scheduler-views-multiday
 tags: telerik,blazor,scheduler,view,multiday

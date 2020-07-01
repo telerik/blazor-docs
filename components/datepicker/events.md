@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: DatePicker | Events
+page_title: DatePicker - Events
 description: Events in the DatePicker for Blazor.
 slug: components/datepicker/events
 tags: telerik,blazor,DatePicker,events

@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: Pager | Events
+page_title: Pager - Events
 description: Events available in the Telerik Blazor Data Pager component.
 slug: pager-events
 tags: telerik,blazor,pager,paging,events

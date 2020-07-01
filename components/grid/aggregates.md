@@ -1,6 +1,6 @@
 ---
 title: Aggregates
-page_title: Grid | Aggregates
+page_title: Grid - Aggregates
 description: Enable and configure field aggregates in Grid for Blazor.
 slug: grid-aggregates
 tags: telerik,blazor,grid,aggreagates,aggregate

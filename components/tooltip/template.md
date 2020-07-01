@@ -1,6 +1,6 @@
 ---
 title: Template
-page_title: Tooltip | Template
+page_title: Tooltip - Template
 description: Add custom dynamic content in the Tooltip for Blazor based on its target.
 slug: tooltip-template
 tags: telerik,blazor,tooltip,template

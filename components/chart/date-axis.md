@@ -1,6 +1,6 @@
 ---
 title: Date Axis
-page_title: Chart | Date Axis
+page_title: Chart - Date Axis
 description: Use Date Axis in the Chart for Blazor.
 slug: components/chart/date-axis
 tags: telerik,blazor,chart,date,axis

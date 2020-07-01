@@ -1,6 +1,6 @@
 ---
 title: Manual Data Source Operations
-page_title: ListView | Manual Data Source Operations
+page_title: ListView - Manual Data Source Operations
 description: How to implement your own read, page, filter, sort operations for the listview data.
 slug: listview-manual-operations
 tags: telerik,blazor,listview,manual,operadtions,onread

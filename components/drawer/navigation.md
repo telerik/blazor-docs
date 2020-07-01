@@ -1,6 +1,6 @@
 ---
 title: Navigation
-page_title: Drawer | Navigation
+page_title: Drawer - Navigation
 description: Using the Blazor Drawer for navigating between pages.
 slug: drawer-navigation
 tags: telerik,blazor,drawer,navigation

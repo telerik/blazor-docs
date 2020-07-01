@@ -1,6 +1,6 @@
 ---
 title: Actions
-page_title: Window | Actions
+page_title: Window - Actions
 description: Action buttons in Window for Blazor.
 slug: components/window/actions
 tags: telerik,blazor,window,actions

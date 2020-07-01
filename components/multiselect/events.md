@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: MultiSelect | Events
+page_title: MultiSelect - Events
 description: Events in the MultiSelect for Blazor.
 slug: multiselect-events
 tags: telerik,blazor,multiselect,events

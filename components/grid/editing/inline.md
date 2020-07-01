@@ -1,6 +1,6 @@
 ---
 title: Inline Editing
-page_title: Grid | Inline Editing
+page_title: Grid - Inline Editing
 description: Inline (row) editing of data in Grid for Blazor.
 slug: components/grid/editing/inline
 tags: telerik,blazor,grid,inline,editing

@@ -1,6 +1,6 @@
 ---
 title: Filtering
-page_title: Grid | Filtering
+page_title: Grid - Filtering
 description: Enable and configure filtering in Grid for Blazor.
 slug: components/grid/filtering
 tags: telerik,blazor,grid,filtering,filter

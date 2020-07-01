@@ -1,6 +1,6 @@
 ---
 title: Mini View
-page_title: Drawer | Mini View
+page_title: Drawer - Mini View
 description: Minimized View in the Drawer for Blazor.
 slug: drawer-mini-mode
 tags: telerik,blazor,drawer,mode,mini

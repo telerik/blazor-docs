@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Chart | Tooltip Overview
+page_title: Chart - Tooltip Overview
 description: Tooltip for the Blazor Chart.
 slug: chart-tooltip-overview
 tags: telerik,blazor,chart,tooltip,tooltips

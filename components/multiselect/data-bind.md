@@ -1,6 +1,6 @@
 ---
 title: Data Binding
-page_title: MultiSelect | Data Binding
+page_title: MultiSelect - Data Binding
 description: Data Binding the MultiSelect for Blazor.
 slug: multiselect-databind
 tags: telerik,blazor,multiselect,data,bind,binding,databind

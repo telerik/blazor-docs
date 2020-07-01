@@ -1,6 +1,6 @@
 ---
 title: Icons
-page_title: Drawer | Icon
+page_title: Drawer - Icon
 description: Icons and images in the Drawer for Blazor.
 slug: drawer-icons
 tags: telerik,blazor,drawer,icon,iconclass,image

@@ -1,6 +1,6 @@
 ---
 title: Sorting
-page_title: Grid | Sorting
+page_title: Grid - Sorting
 description: Enable and configure sorting in Grid for Blazor.
 slug: components/grid/features/sorting
 tags: telerik,blazor,grid,sorting

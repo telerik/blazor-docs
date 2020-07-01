@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Scheduler | Views Overview
+page_title: Scheduler - Views Overview
 description: Views basics in the Scheduler for Blazor.
 slug: scheduler-views-overview
 tags: telerik,blazor,scheduler,view,overview

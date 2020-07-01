@@ -1,6 +1,6 @@
 ---
 title: Multiple Nodes
-page_title: TreeView | Multiple Selection
+page_title: TreeView - Multiple Selection
 description: Multiple nodes selection in the TreeView for Blazor.
 slug: treeview-selection-multiple
 tags: telerik,blazor,treeview,selection,multiple

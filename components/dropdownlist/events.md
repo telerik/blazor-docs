@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: DropDownList | Events
+page_title: DropDownList - Events
 description: Events in the DropDownList for Blazor.
 slug: components/dropdownlist/events
 tags: telerik,blazor,dropdown,list,dropdownlist,events

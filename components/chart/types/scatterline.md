@@ -1,6 +1,6 @@
 ---
 title: ScatterLine
-page_title: Chart | ScatterLine
+page_title: Chart - ScatterLine
 description: Overview of the ScatterLine Chart for Blazor.
 slug: components/chart/types/scatterline
 tags: telerik,blazor,chart,scatterline

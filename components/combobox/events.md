@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: ComboBox | Events
+page_title: ComboBox - Events
 description: Events in the ComboBox for Blazor.
 slug: components/combobox/events
 tags: telerik,blazor,combobox,combo,events

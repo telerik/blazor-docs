@@ -1,6 +1,6 @@
 ---
 title: Area
-page_title: Chart | Area
+page_title: Chart - Area
 description: Overview of the Area Chart for Blazor.
 slug: components/chart/types/area
 tags: telerik,blazor,chart,area

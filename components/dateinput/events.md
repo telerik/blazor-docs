@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: DateInput | Events
+page_title: DateInput - Events
 description: Events in the DateInput for Blazor.
 slug: components/dateinput/events
 tags: telerik,blazor,DateInput,events

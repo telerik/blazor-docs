@@ -1,6 +1,6 @@
 ---
 title: Selection
-page_title: Calendar | Selection
+page_title: Calendar - Selection
 description: Selection in the Calendar for Blazor.
 slug: components/calendar/selection
 tags: telerik,blazor,calendar,selection,select date,multiple selection

@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: Window | Events
+page_title: Window - Events
 description: Events of the Window for Blazor.
 slug: window-events
 tags: telerik,blazor,window,events

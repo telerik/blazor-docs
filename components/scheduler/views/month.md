@@ -1,6 +1,6 @@
 ---
 title: Month
-page_title: Scheduler | Month View
+page_title: Scheduler - Month View
 description: Monthy View in the Scheduler for Blazor.
 slug: scheduler-views-month
 tags: telerik,blazor,scheduler,view,month

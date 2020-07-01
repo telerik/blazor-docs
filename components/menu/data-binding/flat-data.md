@@ -1,6 +1,6 @@
 ---
 title: Flat Data
-page_title: Menu | Data Binding to Flat Data
+page_title: Menu - Data Binding to Flat Data
 description: Data Binding the Menu for Blazor to flat data.
 slug: components/menu/data-binding/flat-data
 tags: telerik,blazor,menu,data,bind,databind,databinding,flat
