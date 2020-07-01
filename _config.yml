@@ -386,6 +386,9 @@ defaults:
         editable: false
         res_type: api
         kind: api
+        title_prefix: "Telerik UI for Blazor API Reference Documentation"
+        title_prefix_separator: " "
+        description_suffix: "Everything you need to know for Blazor API Reference. Complete documentation for available classes, interfaces, syntax, properties, constructurs and etc. "
 -
     scope:
         path: "components"
