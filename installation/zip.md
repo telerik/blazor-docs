@@ -1,7 +1,7 @@
 ---
 title: ZIP Archive
 page_title: ZIP Archive
-description: What the ZIP Archive of Telerik UI for Blazor brings.
+description: This article explains what the Zip Archive for Telerik UI for Blazor components includes, and how to get it.
 slug: installation/zip
 tags: get,started,installation,zip,archive
 published: True

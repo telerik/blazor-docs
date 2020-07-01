@@ -1,7 +1,7 @@
 ---
 title: Style Form Elements
 page_title: Form Elements
-description: Styling form elements from the Telerik Theme.
+description: The UI for Blazor Themes provide classes that you can use to style elements on the page so they can match the used Telerik Theme.
 slug: themes-form-elements
 tags: telerik,blazor,form,element,class,styling
 published: True

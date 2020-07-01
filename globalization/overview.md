@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Globalization
-description: Globalization features in the Telerik UI for Blazor suite.
+description: Learn which globalization features are supported in the Telerik UI for Blazor components suite.
 slug: globalization-overview
 tags: telerik,blazor,globalization,overview
 published: True

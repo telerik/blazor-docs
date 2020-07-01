@@ -1,7 +1,7 @@
 ---
 title: Built-in Themes
 page_title: Themes
-description: The built-in themes in the UI for Blazor components.
+description: The UI for Blazor suite comes with a set of built-in themes that you can choose from. Bootstrap and Material themes are also included.
 slug: general-information/themes
 previous_url: /themes
 tags: telerik,blazor,theme,built-in

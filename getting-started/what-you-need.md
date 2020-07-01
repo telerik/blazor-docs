@@ -1,7 +1,7 @@
 ---
 title: What You Need
-page_title: What You Need
-description: What you need to use the Telerik Blazor components.
+page_title: What You Need to Use the Telerik Blazor Components
+description: The packages and assets you need to use the Telerik UI for Blazor components, how to get them, and how to configure your project to include the Telerik Blazor components.
 slug: getting-started/what-you-need
 previous_url: /installation/what-you-need
 tags: get,started,installation,what,need,list
