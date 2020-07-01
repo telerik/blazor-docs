@@ -1,7 +1,7 @@
 ---
 title: Donut
-page_title: Chart for Blazor | Donut
-description: Overview of the Donut Chart for Blazor
+page_title: Chart - Donut
+description: Overview of the Donut Chart for Blazor.
 slug: components/chart/types/donut
 tags: telerik,blazor,chart,donut
 published: True

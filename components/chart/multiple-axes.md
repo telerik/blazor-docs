@@ -1,7 +1,7 @@
 ---
 title: Multiple Axes
-page_title: Chart for Blazor | Multiple Axes
-description: Use Multiple Axes in the Chart for Blazor
+page_title: Chart - Multiple Axes
+description: Use Multiple Axes in the Chart for Blazor.
 slug: components/chart/multiple-axes
 tags: telerik,blazor,chart,multiple,axis,axes
 published: true

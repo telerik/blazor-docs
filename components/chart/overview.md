@@ -1,7 +1,7 @@
 ---
 title: Overview
-page_title: Chart for Blazor Overview
-description: Overview of the Chart for Blazor
+page_title: Chart Overview
+description: Overview of the Chart for Blazor.
 slug: components/chart/overview
 tags: telerik,blazor,chart,overview
 published: True

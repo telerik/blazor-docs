@@ -1,6 +1,6 @@
 ---
 title: RenderFragment Parameter Causes Exception
-description: Having a RenderFragment Parameter used as a property causes Delegate to an instance method cannot have null 'this'
+description: Having a RenderFragment Parameter used as a property causes Delegate to an instance method cannot have null 'this'.
 type: troubleshooting
 page_title: RenderFragment Parameter Causes Exception
 slug: common-kb-render-fragment-parameter-null

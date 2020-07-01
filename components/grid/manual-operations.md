@@ -1,6 +1,6 @@
 ---
 title: Manual Data Source Operations
-page_title: Grid for Blazor | Manual Operations
+page_title: Grid - Manual Operations
 description: How to implement your own read, page, fiter, sort operations for the grid data.
 slug: components/grid/manual-operations
 tags: telerik,blazor,grid,read,filter,sort,page,manual,data,data source

@@ -1,7 +1,7 @@
 ---
 title: Overview
-page_title: ButtonGroup for Blazor Overview
-description: Overview of the ButtonGroup for Blazor
+page_title: ButtonGroup Overview
+description: Overview of the ButtonGroup for Blazor.
 slug: buttongroup-overview
 tags: telerik,blazor,Toggle,button,group
 published: True

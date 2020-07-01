@@ -1,7 +1,7 @@
 ---
 title: Templates
-page_title: MultiSelect for Blazor | Templates
-description: Templates in the MultiSelect for Blazor
+page_title: MultiSelect - Templates
+description: Templates in the MultiSelect for Blazor.
 slug: multiselect-templates
 tags: telerik,blazor,multiselect,templates
 published: True

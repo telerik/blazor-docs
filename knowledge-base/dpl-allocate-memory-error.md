@@ -1,6 +1,6 @@
 ---
 title: DPL export throws in WASM
-description: DPL export throws in WASM
+description: DPL export throws in WASM.
 type: troubleshooting
 page_title: DPL export throws in WASM
 slug: dpl-kb-allocate-memory-error

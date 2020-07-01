@@ -1,6 +1,6 @@
 ---
 title: How to change theme at runtime
-description: Switch the Telerik Blazor Theme at runtime on the fly
+description: Switch the Telerik Blazor Theme at runtime on the fly.
 type: how-to
 page_title: Change Theme at Runtime
 slug: change-theme-runtime

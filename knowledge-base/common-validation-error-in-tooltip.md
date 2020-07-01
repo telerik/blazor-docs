@@ -1,6 +1,6 @@
 ---
 title: ValidationMessage as Tooltip
-description: How to show validation errors and messages in a tooltip
+description: How to show validation errors and messages in a tooltip.
 type: how-to
 page_title: Validation error in tooltip
 slug: common-kb-validation-error-in-tooltip

@@ -1,7 +1,7 @@
 ---
 title: Events
-page_title: Calendar for Blazor | Events
-description: Events in the Calendar for Blazor
+page_title: Calendar - Events
+description: Events in the Calendar for Blazor.
 slug: components/calendar/events
 tags: telerik,blazor,calendar,events
 published: true

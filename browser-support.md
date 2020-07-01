@@ -1,7 +1,7 @@
 ---
 title: Browser Support
-page_title: Browser Support | Telerik UI for Blazor
-description: Browser support for Telerik UI for Blazor
+page_title: Browser Support
+description: Browser support for Telerik UI for Blazor.
 slug: browser-support
 position: 200
 ---

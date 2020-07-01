@@ -1,7 +1,7 @@
 ---
 title: Content Security Policy
 page_title: Content Security Policy
-description: Content Security Policy and the UI for Blazor suite
+description: Content Security Policy and the Telerik UI for Blazor components suite.
 slug: troubleshooting-csp
 tags: Content Security Policy,csp,unsafe-eval,eval
 published: True

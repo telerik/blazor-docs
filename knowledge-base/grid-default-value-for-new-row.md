@@ -1,6 +1,6 @@
 ---
 title: Setting default values in new row
-description: How to set default values in a new grid row
+description: How to set default values in a new grid row.
 type: how-to
 page_title: Set default values in new row
 slug: grid-kb-default-value-for-new-row

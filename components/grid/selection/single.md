@@ -1,7 +1,7 @@
 ---
 title: Single Row
-page_title: Grid for Blazor | Single Selection
-description: Single row selection in the Grid for Blazor
+page_title: Grid - Single Selection
+description: Single row selection in the Grid for Blazor.
 slug: components/grid/selection/single
 tags: telerik,blazor,grid,selection,single
 published: True

@@ -1,7 +1,7 @@
 ---
 title: Position
-page_title: Tooltip for Blazor | Position
-description: Choose the position of the Tooltip for Blazor relative to its target
+page_title: Tooltip - Position
+description: Choose the position of the Tooltip for Blazor relative to its target.
 slug: tooltip-position
 tags: telerik,blazor,upload,async,validate,validation
 published: true

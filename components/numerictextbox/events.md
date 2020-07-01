@@ -1,7 +1,7 @@
 ---
 title: Events
-page_title: NumericTextbox for Blazor | Events
-description: Events in the NumericTextbox for Blazor
+page_title: NumericTextbox - Events
+description: Events in the NumericTextbox for Blazor.
 slug: components/numerictextbox/events
 tags: telerik,blazor,numeric,textbox,events
 published: true

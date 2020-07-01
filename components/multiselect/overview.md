@@ -1,7 +1,7 @@
 ---
 title: Overview
-page_title: MultiSelect for Blazor Overview
-description: Overview of the MultiSelect for Blazor
+page_title: MultiSelect Overview
+description: Overview of the MultiSelect for Blazor.
 slug: multiselect-overview
 tags: telerik,blazor,multiselect,overview
 published: True

@@ -1,7 +1,7 @@
 ---
 title: Overview
-page_title: ComboBox for Blazor Overview
-description: Overview of the ComboBox for Blazor
+page_title: ComboBox Overview
+description: Overview of the ComboBox for Blazor.
 slug: components/combobox/overview
 tags: telerik,blazor,combobox,combo,overview
 published: True

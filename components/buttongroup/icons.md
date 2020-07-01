@@ -1,7 +1,7 @@
 ---
 title: Icons
-page_title: ButtonGroup for Blazor | Icon
-description: Icons and images in the ButtonGroup for Blazor
+page_title: ButtonGroup - Icon
+description: Icons and images in the ButtonGroup for Blazor.
 slug: buttongroup-icons
 tags: telerik,blazor,Toggle,button,group,icon,sprite,image
 published: True

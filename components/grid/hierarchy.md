@@ -1,7 +1,7 @@
 ---
 title: Hierarchy
-page_title: Grid for Blazor | Hierarchy
-description: Enable and configure hierarchy and detail records in Grid for Blazor
+page_title: Grid - Hierarchy
+description: Enable and configure hierarchy and detail records in Grid for Blazor.
 slug: components/grid/features/hierarchy
 tags: telerik,blazor,grid,hierarchy,detail,detail template
 published: True

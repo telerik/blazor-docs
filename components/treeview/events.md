@@ -1,7 +1,7 @@
 ---
 title: Events
-page_title: TreeView for Blazor | Events
-description: Events of the TreeView for Blazor
+page_title: TreeView - Events
+description: Events of the TreeView for Blazor.
 slug: treeview-events
 tags: telerik,blazor,treeview,events
 published: True

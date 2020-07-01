@@ -1,7 +1,7 @@
 ---
 title: Scatter
-page_title: Chart for Blazor | Scatter
-description: Overview of the Scatter Chart for Blazor
+page_title: Chart - Scatter
+description: Overview of the Scatter Chart for Blazor.
 slug: components/chart/types/scatter
 tags: telerik,blazor,chart,scatter
 published: True

@@ -1,6 +1,6 @@
 ---
 title: Case Insensitive Matching with Custom Values
-description: How to perform Case Insensitive Matching in ComboBox
+description: How to perform Case Insensitive Matching in ComboBox.
 type: how-to
 page_title: Case Insensitive Matching
 slug: combobox-kb-case-insensitive-matching

@@ -1,6 +1,6 @@
 ---
 title: Two Components with the Same Name
-description: Two components with the same (File) name can break your app
+description: Two components with the same (File) name can break your app.
 type: troubleshooting
 page_title: Two Components with the Same Name
 slug: two-components-same-name

@@ -1,6 +1,6 @@
 ---
 title: Filter and Edit Enum in Grid
-description: How to filter and edit enum fields in a grid
+description: How to filter and edit enum fields in a grid.
 type: how-to
 page_title: Filter and Edit Enum in Grid
 slug: grid-kb-filter-edit-enum

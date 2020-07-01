@@ -1,7 +1,7 @@
 ---
 title: Overview
-page_title: Grid for Blazor | Templates Overview
-description: Use custom templates in Grid for Blazor
+page_title: Grid - Templates Overview
+description: Use custom templates in Grid for Blazor.
 slug: components/grid/features/templates
 tags: telerik,blazor,grid,templates
 published: True

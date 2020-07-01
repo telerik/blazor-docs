@@ -1,6 +1,6 @@
 ---
 title: GridColumn does not have a property ChildContent
-description: Fixing an exception GridColumn does not have a property ChildContent
+description: Fixing an exception GridColumn does not have a property ChildContent.
 type: troubleshooting
 page_title: GridColumn does not have a property ChildContent
 slug: grid-kb-no-childcontent

@@ -1,7 +1,7 @@
 ---
 title: Overview
-page_title: Pager for Blazor Overview
-description: Add a pager navigation for your data to the Blazor application
+page_title: Pager Overview
+description: Add a pager navigation for your data to the Blazor application.
 slug: pager-overview
 tags: telerik,blazor,pager,paging
 published: True

@@ -1,6 +1,6 @@
 ---
 title: How to handle the ValueChanged event and use forms and validation
-description: How to handle the ValueChanged event and use forms and validation
+description: How to handle the ValueChanged event and use forms and validation.
 type: how-to
 page_title: How to handle the ValueChanged event and use forms and validation
 slug: value-changed-validation-model

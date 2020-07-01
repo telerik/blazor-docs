@@ -1,6 +1,6 @@
 ---
 title: Transparent Filled Series Markers
-description: how to make semi-transparent chart series markers with solid fill
+description: how to make semi-transparent chart series markers with solid fill.
 type: how-to
 page_title: Transparent Filled Series Markers
 slug: chart-kb-transparent-marker

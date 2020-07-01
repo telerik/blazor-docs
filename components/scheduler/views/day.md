@@ -1,7 +1,7 @@
 ---
 title: Day
-page_title: Scheduler for Blazor | Day View
-description: Day View in the Scheduler for Blazor
+page_title: Scheduler - Day View
+description: Day View in the Scheduler for Blazor.
 slug: scheduler-views-day
 tags: telerik,blazor,scheduler,view,day
 published: True

@@ -1,7 +1,7 @@
 ---
 title: Orientation
-page_title: Menu for Blazor | Orienatation
-description: Orientation on the Menu for Blazor
+page_title: Menu - Orienatation
+description: Orientation on the Menu for Blazor.
 slug: components/menu/orientation
 tags: telerik,blazor,menu,events
 published: true

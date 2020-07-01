@@ -1,7 +1,7 @@
 ---
 title: Events
-page_title: DateRangePicker for Blazor | Events
-description: Events in the DateRangePicker for Blazor
+page_title: DateRangePicker - Events
+description: Events in the DateRangePicker for Blazor.
 slug: daterangepicker-events
 tags: telerik,blazor,DateRangePicker,events
 published: true

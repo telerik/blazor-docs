@@ -1,7 +1,7 @@
 ---
 title: Editor
-page_title: Grid for Blazor | Editor Template
-description: Use custom editor templates in Grid for Blazor
+page_title: Grid - Editor Template
+description: Use custom editor templates in Grid for Blazor.
 slug: grid-templates-editor
 tags: telerik,blazor,grid,templates,editor
 published: True

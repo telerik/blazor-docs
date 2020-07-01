@@ -1,6 +1,6 @@
 ---
 title: Persist Grid Selection Across Pages
-description: How to Persist Grid Selection Across Pages
+description: How to Persist Grid Selection Across Pages.
 type: how-to
 page_title: Persist Grid Selection Across Pages
 slug: common-kb-persist-selection-across-pages

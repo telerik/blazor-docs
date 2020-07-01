@@ -1,7 +1,7 @@
 ---
 title: Overview
-page_title: Grid for Blazor | CRUD Overview
-description: CRUD basics for the Grid for Blazor
+page_title: Grid - CRUD Overview
+description: CRUD basics for the Grid for Blazor.
 slug: components/grid/editing/overview
 tags: telerik,blazor,grid,editing,overview
 published: True

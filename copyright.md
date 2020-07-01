@@ -1,7 +1,7 @@
 ---
 title: Copyright
-page_title: Copyright | Telerik UI for Blazor
-description: "Copyright notice for Progress Telerik UI for Blazor"
+page_title: Copyright
+description: Copyright notice for Progress Telerik UI for Blazor.
 slug: copyright_blazor
 position: 260
 ---

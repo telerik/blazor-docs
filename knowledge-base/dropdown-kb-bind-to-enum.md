@@ -1,6 +1,6 @@
 ---
 title: How to bind DropDown to an Enum
-description: how to bind a dropdown to an enum (combo, dropdownlist)
+description: how to bind a dropdown to an enum (combo, dropdownlist).
 type: how-to
 page_title: Bind DropDownList or ComboBox to Enum
 slug: dropdown-kb-bind-to-enum

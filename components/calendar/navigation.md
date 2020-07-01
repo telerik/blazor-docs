@@ -1,7 +1,7 @@
 ---
 title: Navigation
-page_title: Calendar for Blazor | Navigation
-description: Navigation in the Calendar for Blazor
+page_title: Calendar - Navigation
+description: Navigation in the Calendar for Blazor.
 slug: components/calendar/navigation
 tags: telerik,blazor,calendar,navigation,min,max
 published: True

@@ -1,6 +1,6 @@
 ---
 title: Right-align text in the Telerik inputs
-description: How to align the text in the Telerik inputs
+description: How to align the text in the Telerik inputs.
 type: how-to
 page_title: Right-align text in the Telerik inputs
 slug: inputs-kb-align-text

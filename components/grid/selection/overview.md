@@ -1,7 +1,7 @@
 ---
 title: Overview
-page_title: Grid for Blazor | Selection Overview
-description: Selection basics in the Grid for Blazor
+page_title: Grid - Selection Overview
+description: Selection basics in the Grid for Blazor.
 slug: components/grid/selection/overview
 tags: telerik,blazor,grid,selection,overview
 published: True

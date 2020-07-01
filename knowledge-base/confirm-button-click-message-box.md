@@ -1,6 +1,6 @@
 ---
 title: Confirm Button Click and Create a Message Box
-description: How to confirm the click of a button and to create a message box
+description: How to confirm the click of a button and to create a message box.
 type: how-to
 page_title: How to confirm button click and create a message box
 slug: common-kb-confirm-button-messagebox

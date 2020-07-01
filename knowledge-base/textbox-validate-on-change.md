@@ -1,6 +1,6 @@
 ---
 title: Avoid Validation When Typing
-description: how to make Telerik textbox validate not immediately when typing but when blurred
+description: how to make Telerik textbox validate not immediately when typing but when blurred.
 type: troubleshooting
 page_title: Do not validate when typing, but on blur
 slug: textbox-validate-on-change

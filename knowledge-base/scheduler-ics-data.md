@@ -1,6 +1,6 @@
 ---
 title: Use ICS data in scheduler
-description: How to show ICS data in the scheduler
+description: How to show ICS data in the scheduler.
 type: how-to
 page_title: ICS data in Scheduler
 slug: scheduler-kb-ics-data

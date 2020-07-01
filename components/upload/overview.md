@@ -1,7 +1,7 @@
 ---
 title: Overview
-page_title: Upload for Blazor Overview
-description: Overview of the File Upload for Blazor
+page_title: Upload Overview
+description: Overview of the File Upload for Blazor.
 slug: upload-overview
 tags: telerik,blazor,upload,async,overview
 published: True

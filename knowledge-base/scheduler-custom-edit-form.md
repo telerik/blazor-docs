@@ -1,6 +1,6 @@
 ---
 title: Scheduler Custom Edit Form
-description: How to create a Scheduler Custom Edit Form
+description: How to create a Scheduler Custom Edit Form.
 type: how-to
 page_title: Scheduler Custom Edit Form
 slug: scheduler-kb-custom-edit-form

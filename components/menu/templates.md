@@ -1,7 +1,7 @@
 ---
 title: Templates
-page_title: Menu for Blazor | Templates
-description: Templates in the Menu for Blazor
+page_title: Menu - Templates
+description: Templates in the Menu for Blazor.
 slug: components/menu/templates
 tags: telerik,blazor,menu,templates
 published: True

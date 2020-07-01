@@ -1,6 +1,6 @@
 ---
 title: Add tooltips to the Drawer items
-description: How to add tooltips to the Drawer items
+description: How to add tooltips to the Drawer items.
 type: how-to
 page_title: Drawer tooltips
 slug: drawer-kb-tooltips

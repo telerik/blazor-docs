@@ -1,7 +1,7 @@
 ---
 title: Observable Data
 page_title: Observable Collection
-description: Support for live data through observable collections and INotifyCollectionChanged in Telerik UI for Blazor
+description: Support for live data through observable collections and INotifyCollectionChanged in Telerik UI for Blazor.
 slug: common-features-observable-data
 tags: telerik,blazor,observable,data,live,INotifyCollectionChanged 
 published: True

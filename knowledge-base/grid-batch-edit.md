@@ -1,6 +1,6 @@
 ---
 title: Batch Editing in the Grid
-description: How to implement batch editing in the grid
+description: How to implement batch editing in the grid.
 type: how-to
 page_title: Grid Batch Edit
 slug: grid-kb-batch-edit

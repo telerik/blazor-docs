@@ -1,6 +1,6 @@
 ---
 title: Manual Data Source Operations
-page_title: Scheduler for Blazor | Manual Operations
+page_title: Scheduler - Manual Operations
 description: How to implement your own read and navigate operations for the scheduler appointments.
 slug: scheduler-manual-operations
 tags: telerik,blazor,scheduler,read,navigate,manual,data,data source

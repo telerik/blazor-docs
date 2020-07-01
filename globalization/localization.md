@@ -1,7 +1,7 @@
 ---
 title: Localization
 page_title: Localization
-description: Localization texts in the Telerik UI for Blazor suite.
+description: The Telerik UI for Blazor suite lets you translate its UI elements into the desired language. This includes texts of buttons, filter operators, WAI-ARIA attributes and so on.
 slug: globalization-localization
 tags: telerik,blazor,localization
 published: True

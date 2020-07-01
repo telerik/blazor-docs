@@ -1,7 +1,7 @@
 ---
 title: Reorder
-page_title: Grid for Blazor | Reorder Columns
-description: Drag to reorder columns in the Grid for Blazor
+page_title: Grid - Reorder Columns
+description: Drag to reorder columns in the Grid for Blazor.
 slug: components/grid/columns/reorder
 tags: telerik,blazor,grid,column,reorder,drag
 published: True

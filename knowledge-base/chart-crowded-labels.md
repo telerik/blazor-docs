@@ -1,6 +1,6 @@
 ---
 title: Prevent crowded labels in the Chart
-description: How to prevent crowded labels in the Chart
+description: How to prevent crowded labels in the Chart.
 type: how-to
 page_title: Prevent crowded labels in the Chart
 slug: chart-kb-crowded-labels

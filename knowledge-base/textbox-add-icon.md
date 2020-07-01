@@ -1,6 +1,6 @@
 ---
 title: How can I add an icon to a TextBox?
-description: How to add an icon or button in the textbox
+description: How to add an icon or button in the textbox.
 type: how-to
 page_title: How to add icon to the textbox
 slug: textbox-kb-add-icon

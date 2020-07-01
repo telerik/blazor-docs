@@ -1,7 +1,7 @@
 ---
 title: Overview
-page_title: ListView for Blazor Overview
-description: Overview of the ListView for Blazor
+page_title: ListView Overview
+description: Overview of the ListView for Blazor.
 slug: listview-overview
 tags: telerik,blazor,listview,overview
 published: True

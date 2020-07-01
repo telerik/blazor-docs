@@ -1,7 +1,7 @@
 ---
 title: Position
-page_title: Window for Blazor | Position
-description: How to control the position of the Window for Blazor
+page_title: Window - Position
+description: How to control the position of the Window for Blazor.
 slug: components/window/position
 tags: telerik,blazor,window,position
 published: True

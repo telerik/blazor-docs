@@ -1,7 +1,7 @@
 ---
 title: Overview
-page_title: Scheduler for Blazor Overview
-description: Overview of the Scheduler for Blazor
+page_title: Scheduler Overview
+description: Overview of the Scheduler for Blazor.
 slug: scheduler-overview
 tags: telerik,blazor,scheduler,overview
 published: True

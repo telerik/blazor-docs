@@ -1,7 +1,7 @@
 ---
 title: Filter
-page_title: ComboBox for Blazor | Filter
-description: Filtering in the ComboBox for Blazor
+page_title: ComboBox - Filter
+description: Filtering in the ComboBox for Blazor.
 slug: components/combobox/filter
 tags: telerik,blazor,combo,combobox,filter
 published: True

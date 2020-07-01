@@ -1,6 +1,6 @@
 ---
 title: Force a Grid to Refresh
-description: how to force a grid to refresh its data
+description: how to force a grid to refresh its data.
 type: how-to
 page_title: Refresh Grid Data
 slug: grid-force-refresh

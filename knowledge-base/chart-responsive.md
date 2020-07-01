@@ -1,6 +1,6 @@
 ---
 title: Responsive Chart
-description: How to adjust the size of a chart when its container or the browser window size changes
+description: How to adjust the size of a chart when its container or the browser window size changes.
 type: how-to
 page_title: How to make a responsive chart
 slug: chart-kb-responsive

@@ -1,7 +1,7 @@
 ---
 title: Overview
-page_title: DropDown List for Blazor Overview
-description: Overview of the DropdownList for Blazor
+page_title: DropDown List Overview
+description: Overview of the DropdownList for Blazor.
 slug: components/dropdownlist/overview
 tags: telerik,blazor,dropdownlist,dropdown,list,overview
 published: True

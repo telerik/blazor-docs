@@ -1,7 +1,7 @@
 ---
 title: Week
-page_title: Scheduler for Blazor | Week View
-description: Week View in the Scheduler for Blazor
+page_title: Scheduler - Week View
+description: Week View in the Scheduler for Blazor.
 slug: scheduler-views-week
 tags: telerik,blazor,scheduler,view,week
 published: True

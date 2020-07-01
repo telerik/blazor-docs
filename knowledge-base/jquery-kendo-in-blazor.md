@@ -1,6 +1,6 @@
 ---
 title: Kendo UI for jQuery in Blazor
-description: Use jQuery widgets (Kendo UI) in Blazor
+description: Use jQuery widgets (Kendo UI) in Blazor.
 type: how-to
 page_title: Use Kendo UI in Blazor
 slug: jquery-kendo-in-blazor

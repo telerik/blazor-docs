@@ -1,7 +1,7 @@
 ---
 title: Overview
-page_title: Animation Container for Blazor |
-description: How to use the Animation Container in the UI for Blazor suite to create messages and popups
+page_title: Animation Container Overview 
+description: How to use the Animation Container in the UI for Blazor suite to create messages and popups.
 slug: components/animationcontainer/overview
 tags: telerik,blazor,animation,container
 published: True

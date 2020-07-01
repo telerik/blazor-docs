@@ -1,7 +1,7 @@
 ---
 title: Events
-page_title: Chart for Blazor | Events
-description: Events in the Charts for Blazor
+page_title: Chart - Events
+description: Events in the Charts for Blazor.
 slug: chart-events
 tags: telerik,blazor,chart,events,event
 published: true

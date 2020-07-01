@@ -1,6 +1,6 @@
 ---
 title: Frozen
-page_title: Grid for Blazor | Frozen Columns
+page_title: Grid - Frozen Columns
 description: How to freeze grid columns so they are always visible in a scrollable grid.
 slug: grid-columns-frozen
 tags: telerik,blazor,grid,column,freeze,frozen

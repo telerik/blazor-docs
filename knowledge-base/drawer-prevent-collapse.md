@@ -1,6 +1,6 @@
 ---
 title: Prevent Drawer from collapsing on item click
-description: How to prevent the Drawer from collapsing when item is clicked
+description: How to prevent the Drawer from collapsing when item is clicked.
 type: how-to
 page_title: Prevent Drawer collapse
 slug: drawer-kb-prevent-collapse

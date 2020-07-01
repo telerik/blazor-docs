@@ -1,6 +1,6 @@
 ---
 title: Prevent crowded grid lines in the Chart
-description: How to prevent crowded grid lines in the Chart
+description: How to prevent crowded grid lines in the Chart.
 type: how-to
 page_title: Prevent crowded grid lines in the Chart
 slug: chart-kb-crowded-grid-lines

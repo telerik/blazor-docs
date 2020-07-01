@@ -1,7 +1,7 @@
 ---
 title: InCell Editing
-page_title: Grid for Blazor | InCell Editing
-description: In-cell editing of data in Grid for Blazor
+page_title: Grid - InCell Editing
+description: In-cell editing of data in Grid for Blazor.
 slug: components/grid/editing/incell
 tags: telerik,blazor,grid,in cell,editing
 published: True

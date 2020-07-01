@@ -1,6 +1,6 @@
 ---
 title: Row Selection in Edit with InCell EditMode
-description: How to Select a row that is being edited in InCell editing mode
+description: How to Select a row that is being edited in InCell editing mode.
 type: how-to
 page_title: Row Selection in Edit with InCell EditMode
 slug: grid-kb-row-select-incell-edit

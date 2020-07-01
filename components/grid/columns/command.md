@@ -1,7 +1,7 @@
 ---
 title: Command Column
-page_title: Grid for Blazor | Command Column
-description: Command buttons per row in Grid for Blazor
+page_title: Grid - Command Column
+description: Command buttons per row in Grid for Blazor.
 slug: components/grid/columns/command
 tags: telerik,blazor,grid,column,command
 published: True

@@ -1,6 +1,6 @@
 ---
 title: How to format the percent in a label for a pie or donut chart
-description: How to format the percent in a label for a pie or donut chart
+description: How to format the percent in a label for a pie or donut chart.
 type: how-to
 page_title: How to format the percent in a label for a pie or donut chart
 slug: chart-format-percent

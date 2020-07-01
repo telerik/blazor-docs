@@ -1,7 +1,7 @@
 ---
 title: Templates
-page_title: DropDown List for Blazor | Templates
-description: Templates in the DropdownList for Blazor
+page_title: DropDown List - Templates
+description: Templates in the DropdownList for Blazor.
 slug: components/dropdownlist/templates
 tags: telerik,blazor,dropdownlist,dropdown,list,templates
 published: True

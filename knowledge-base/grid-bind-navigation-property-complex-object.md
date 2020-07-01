@@ -1,6 +1,6 @@
 ---
 title: Bind to navigation properties in complex objects
-description: Bind grid columns to navigation properties in complex objects
+description: Bind grid columns to navigation properties in complex objects.
 type: how-to
 page_title: Bind to navigation properties in complex objects
 slug: grid-use-navigation-properties

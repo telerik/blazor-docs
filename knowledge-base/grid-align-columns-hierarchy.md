@@ -1,6 +1,6 @@
 ---
 title: Align Columns in Hierarchical Grid
-description: How to align columns in nested detail template of a hierarchical grid
+description: How to align columns in nested detail template of a hierarchical grid.
 type: how-to
 page_title: Align Columns in Hierarchical Grid
 slug: grid-kb-align-columns-hierarchy

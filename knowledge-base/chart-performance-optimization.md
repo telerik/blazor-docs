@@ -1,6 +1,6 @@
 ---
 title: Chart Performance Optimization
-description: How to improve the performance of the chart rendering if you encounter jerky updates or slow render
+description: How to improve the performance of the chart rendering if you encounter jerky updates or slow render.
 type: how-to
 page_title: Chart Performance Imrovement
 slug: chart-performance-optimization

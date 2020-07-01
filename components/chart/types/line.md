@@ -1,7 +1,7 @@
 ---
 title: Line
-page_title: Chart for Blazor | Line
-description: Overview of the Line Chart for Blazor
+page_title: Chart - Line
+description: Overview of the Line Chart for Blazor.
 slug: components/chart/types/line
 tags: telerik,blazor,chart,line
 published: True

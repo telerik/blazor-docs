@@ -1,7 +1,7 @@
 ---
 title: Single Node
-page_title: TreeView for Blazor | Sigle Selection
-description: Single node selection in the TreeView for Blazor
+page_title: TreeView - Sigle Selection
+description: Single node selection in the TreeView for Blazor.
 slug: treeview-selection-single
 tags: telerik,blazor,treeview,selection,single
 published: True

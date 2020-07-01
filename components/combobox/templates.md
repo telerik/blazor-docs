@@ -1,7 +1,7 @@
 ---
 title: Templates
-page_title: ComboBox for Blazor | Templates
-description: Templates in the ComboBox for Blazor
+page_title: ComboBox - Templates
+description: Templates in the ComboBox for Blazor.
 slug: components/combobox/templates
 tags: telerik,blazor,combo,combobox,templates
 published: True

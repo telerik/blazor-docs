@@ -1,7 +1,7 @@
 ---
 title: Events
-page_title: AutoComplete for Blazor | Events
-description: Events in the AutoComplete for Blazor
+page_title: AutoComplete - Events
+description: Events in the AutoComplete for Blazor.
 slug: autocomplete-events
 tags: telerik,blazor,autocomplete,events
 published: true

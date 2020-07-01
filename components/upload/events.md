@@ -1,7 +1,7 @@
 ---
 title: Events
-page_title: Upload for Blazor | Events
-description: Events in the File Upload for Blazor
+page_title: Upload - Events
+description: Events in the File Upload for Blazor.
 slug: upload-events
 tags: telerik,blazor,upload,async,events
 published: true

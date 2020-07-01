@@ -1,7 +1,7 @@
 ---
 title: Supported Formats
-page_title: DateInput for Blazor | Supported Formats
-description: Supported date and time formats in the DateInput for Blazor
+page_title: DateInput - Supported Formats
+description: Supported date and time formats in the DateInput for Blazor.
 slug: components/dateinput/supported-formats
 tags: telerik,blazor,DateInput,format,formats
 published: true

@@ -1,6 +1,6 @@
 ---
 title: Requires a value for ValueExpression
-description: Requires a value for ValueExpression
+description: Requires a value for ValueExpression.
 type: troubleshooting
 page_title: Requires a value for ValueExpression
 slug: common-kb-requires-valueexpression

@@ -1,7 +1,7 @@
 ---
 title: Events
-page_title: ButtonGroup for Blazor | Events
-description: Events of the ButtonGroup for Blazor
+page_title: ButtonGroup - Events
+description: Events of the ButtonGroup for Blazor.
 slug: buttongroup-events
 tags: telerik,blazor,Toggle,button,group
 published: True

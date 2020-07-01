@@ -1,6 +1,6 @@
 ---
 title: Individual (conditional) cell back color
-description: How to apply Individual (conditional) cell back color in the Telerik Blazor grid
+description: How to apply Individual (conditional) cell back color in the Telerik Blazor grid.
 type: how-to
 page_title: Individual (conditional) cell back color
 slug: grid-conditional-cell-background

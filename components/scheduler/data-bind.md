@@ -1,7 +1,7 @@
 ---
 title: Data Binding
-page_title: Scheduler for Blazor | Data Binding Appointments
-description: Data Binding appointments in the Scheduler for Blazor
+page_title: Scheduler - Data Binding Appointments
+description: Data Binding appointments in the Scheduler for Blazor.
 slug: scheduler-appointments-databinding
 tags: telerik,blazor,scheduler,data,bind,databind,databinding,appointments
 published: True

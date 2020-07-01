@@ -1,7 +1,7 @@
 ---
 title: Icons
-page_title: TreeView for Blazor | Icon
-description: Icons and images in the TreeView for Blazor
+page_title: TreeView - Icon
+description: Icons and images in the TreeView for Blazor.
 slug: treeview-icons
 tags: telerik,blazor,treeview,icon,iconclass,image
 published: True
