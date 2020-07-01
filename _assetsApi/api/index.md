@@ -1,3 +1,8 @@
+---
+page_title: Telerik UI for Blazor API Reference Documentation
+description: Everything you need to know for Blazor API Reference. Complete documentation for available classes, interfaces, syntax, properties, constructurs and etc.
+---
+
 <style>
 article {
   background: transparent !important;
