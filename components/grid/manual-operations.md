@@ -33,6 +33,8 @@ Examples:
 
 * [Telerik .ToDataSourceResult(request)](#telerik-todatasourceresultrequest)
 
+* [Grouping with OnRead](#grouping-with-onread)
+
 * [Get Information From the DataSourceRequest](#get-information-from-the-datasourcerequest)
 
 * [Cache Data Request](#cache-data-request)
@@ -216,6 +218,105 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 		public string Name { get; set; }
 		public DateTime HireDate { get; set; }
 	}
+}
+````
+
+
+### Grouping with OnRead
+
+When the grid needs to be grouped, the shape of the data changes - it is no longer a flat list of models, but a nested list of collections that describe each group and have the group data.
+
+When you let the grid handle the operations internally, it hides that complexity from you, but when you perform the operations youerself, this data structure cannot be expressed with the typical `IEnumerable<TItem>` data source for the grid.
+
+Thus, to use the `OnRead` event with grouping, you must:
+
+1. Use an `IEnumerable<object>` for the grid `Data`.
+1. Prepare the appropriate group collections.
+    * The example below shows a simple way through the Telerik `.ToDataSourceResult` extension method that is easy to use when you have all the data, or when you can pass objects by reference, like in a server-side Blazor app.
+    * The examples in the following repo show one way you can serialize such data through HTTP and service calls: [Use Telerik DataSourceRequest and DataSourceResult on the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server).
+
+>caption Grouping with OnRead
+
+````CSHTML
+@using Telerik.DataSource.Extensions
+
+<TelerikGrid Data=@GridData TotalCount=@Total OnRead=@ReadItems Groupable="true"
+             FilterMode=@GridFilterMode.FilterRow Sortable=true Pageable=true EditMode="@GridEditMode.Inline">
+    <GridColumns>
+        <GridColumn Field=@nameof(Employee.Name) Groupable="false" />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+        <GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+    </GridToolBar>
+</TelerikGrid>
+
+@code {
+    public List<Employee> SourceData { get; set; }
+
+    // the grid Data needs to be IEnumerable<object> to work with grouping in OnRead
+    public List<object> GridData { get; set; }
+
+    public int Total { get; set; } = 0;
+
+    protected override void OnInitialized()
+    {
+        SourceData = GenerateData();
+    }
+
+    // Handling grouping happens here - by casting the DataSourceResult.Data to objects
+    protected async Task ReadItems(GridReadEventArgs args)
+    {
+        // in this example, we use the Telerik extension methods to shape the data
+        // you can, instead, call a service, read more in the following example projects
+        // https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server
+        var datasourceResult = SourceData.ToDataSourceResult(args.Request);
+
+        // to work with grouping, the grid Data needs to be an IEnumerable<object>
+        // because grouped data has a different shape than non-grouped data
+        // and this is, generally, hidden from you by the grid, but now it cannot be
+        GridData = datasourceResult.Data.Cast<object>().ToList();
+
+        Total = datasourceResult.Total;
+
+        StateHasChanged();
+    }
+
+    //This sample implements only reading of the data. To add the rest of the CRUD operations see
+    //https://docs.telerik.com/blazor-ui/components/grid/editing/overview
+
+    private List<Employee> GenerateData()
+    {
+        var result = new List<Employee>();
+        var rand = new Random();
+        for (int i = 0; i < 15; i++)
+        {
+            result.Add(new Employee()
+            {
+                EmployeeId = i,
+                Name = "Employee " + i.ToString(),
+                Team = "Team " + i % 3,
+                IsOnLeave = i % 2 == 0
+            });
+        }
+
+        return result;
+    }
+
+    public class Employee
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public bool IsOnLeave { get; set; }
+    }
 }
 ````
 
