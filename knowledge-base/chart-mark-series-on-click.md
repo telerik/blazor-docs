@@ -2,8 +2,8 @@
 title: Mark a Chart Series on Click
 description: How Mark a Chart Series on Click
 type: how-to
-page_title: Print the Grid
-slug: grid-kb-print
+page_title: Mark a Chart Series on Click
+slug: chart-mark-series-on-click
 position:
 tags:
 res_type: kb
@@ -12,7 +12,7 @@ res_type: kb
 
 ## Description
 
-I would like to mark a Chart Series [on click]({%slug chart-events%}#onseriesclick).
+I would like to mark a Chart Series [on click]({%slug chart-events%}#onseriesclick) by changing the color and opacity or to separate the clicked series from the rest. 
 
 
 ## Solution
