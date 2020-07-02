@@ -320,6 +320,8 @@ Thus, to use the `OnRead` event with grouping, you must:
 }
 ````
 
+>important This approach cannot work with a [DataTable](https://demos.telerik.com/blazor-ui/grid/data-table) or [OData](https://github.com/telerik/blazor-ui/tree/master/grid/odata) as underlying data sources, because these two external data sources do not return objects that can be converted to the data structure needed for grouping. We recommend that you consider creating actual models to use the Grid in a native Blazor way. If that's not possible, you can consider [ExpandoObject collections](https://github.com/telerik/blazor-ui/tree/master/grid/binding-to-expando-object) which are a bit more flexible.
+
 
 ### Get Information From the DataSourceRequest
 
