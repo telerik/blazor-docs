@@ -45,7 +45,7 @@ Examples:
 
 * [Debounce Data Source Operations and Requests]({%slug grid-kb-debounce-operations%})
 
-### Custom paging with a remote service
+## Custom paging with a remote service
 
 ````CSHTML
 Custom paging. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
@@ -131,7 +131,7 @@ Custom paging. There is a deliberate delay in the data source operations in this
 }
 ````
 
-### Telerik .ToDataSourceResult(request)
+## Telerik .ToDataSourceResult(request)
 
 If you have all the data at once, the Telerik .ToDataSourceResult(request) extension method can manage the operations for you.
 
@@ -222,15 +222,17 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 ````
 
 
-### Grouping with OnRead
+## Grouping with OnRead
 
-When the grid needs to be grouped, the shape of the data changes - it is no longer a flat list of models, but a nested list of collections that describe each group and have the group data.
+When the grid needs to be grouped, the shape of the data changes - it is no longer a flat list of models, but a nested list of collections that describe each group and have the group data. At the same time, the grid is designed for a data source that is a collection of models, and the source of this collection is up to the application.
 
 When you let the grid handle the operations internally, it hides that complexity from you, but when you perform the operations youerself, this data structure cannot be expressed with the typical `IEnumerable<TItem>` data source for the grid.
 
 Thus, to use the `OnRead` event with grouping, you must:
 
 1. Use an `IEnumerable<object>` for the grid `Data`.
+1. Set the `FieldType` of the columns to match the type of the field you will be showing.
+    * If you also use [filtering]({%slug components/grid/filtering%}), do not use nullable types. For example, if the model field is `int?`, set `FieldType="@(typeof(int))"`. If a nullable type is used, you may get errors similar to `Error: System.ArgumentException: Operator 'IsEqualTo' is incompatible with operand types 'Int16?'`.
 1. Prepare the appropriate group collections.
     * The example below shows a simple way through the Telerik `.ToDataSourceResult` extension method that is easy to use when you have all the data, or when you can pass objects by reference, like in a server-side Blazor app.
     * The examples in the following repo show one way you can serialize such data through HTTP and service calls: [Use Telerik DataSourceRequest and DataSourceResult on the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server).
@@ -238,14 +240,16 @@ Thus, to use the `OnRead` event with grouping, you must:
 >caption Grouping with OnRead
 
 ````CSHTML
+This sample shows how to set up the grid to use grouping with manual data source operations, and how to use the Telerik DataSource extensions to prepare grouped data.
+
 @using Telerik.DataSource.Extensions
 
 <TelerikGrid Data=@GridData TotalCount=@Total OnRead=@ReadItems Groupable="true"
              FilterMode=@GridFilterMode.FilterRow Sortable=true Pageable=true EditMode="@GridEditMode.Inline">
     <GridColumns>
-        <GridColumn Field=@nameof(Employee.Name) Groupable="false" />
-        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
-        <GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
+        <GridColumn Field=@nameof(Employee.Name) FieldType="@(typeof(string))" Groupable="false" />
+        <GridColumn Field=@nameof(Employee.Team) FieldType="@(typeof(string))" Title="Team" />
+        <GridColumn Field=@nameof(Employee.IsOnLeave) FieldType="@(typeof(bool))" Title="On Vacation" />
         <GridCommandColumn>
             <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
             <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
@@ -320,10 +324,10 @@ Thus, to use the `OnRead` event with grouping, you must:
 }
 ````
 
->important This approach cannot work with a [DataTable](https://demos.telerik.com/blazor-ui/grid/data-table) or [OData](https://github.com/telerik/blazor-ui/tree/master/grid/odata) as underlying data sources, because these two external data sources do not return objects that can be converted to the data structure needed for grouping. We recommend that you consider creating actual models to use the Grid in a native Blazor way. If that's not possible, you can consider [ExpandoObject collections](https://github.com/telerik/blazor-ui/tree/master/grid/binding-to-expando-object) which are a bit more flexible.
+>important This approach cannot work directly with a [DataTable](https://demos.telerik.com/blazor-ui/grid/data-table) or [OData](https://github.com/telerik/blazor-ui/tree/master/grid/odata) as underlying data sources, because these two external data sources do not return objects that can be converted to the data structure needed for grouping by the grid. We recommend that you consider creating actual models to use the Grid in a native Blazor way. If that's not possible, you can consider [ExpandoObject collections](https://github.com/telerik/blazor-ui/tree/master/grid/binding-to-expando-object) which are a bit more flexible and can be parsed to the needed grouping structure.
 
 
-### Get Information From the DataSourceRequest
+## Get Information From the DataSourceRequest
 
 With a few simple loops, you can extract information from the DataSourceRequest object to use in your own API (such as filters, sorts, paging state).
 
@@ -418,7 +422,7 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 ````
 
 
-### Cache Data Request
+## Cache Data Request
 
 If you need to replay the last request for some reason (your data has updated, or you need to await some business logic that determines what data to request), store the `DataSourceRequest` object in a field in your view model, then run the method that will read the data when necessary - a button click, or when some async operation completes.
 
@@ -535,4 +539,5 @@ You can call the SetGridData() method from button clicks or other events accordi
   * [CRUD Operations Overview]({%slug components/grid/editing/overview%})
   * [Live Demo: Manual Data Source Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
   * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
+  * [Custom Server Operations](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
   
