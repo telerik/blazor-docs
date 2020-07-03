@@ -12,7 +12,7 @@ res_type: kb
 
 ## Description
 
-I would like to mark a Chart Series [on click]({%slug chart-events%}#onseriesclick) by changing the color and opacity or to separate the clicked series from the rest. 
+I would like to mark a Chart Series [on click]({%slug chart-events%}#onseriesclick) by changing the color and opacity or to separate the clicked series from the rest.
 
 
 ## Solution
@@ -24,6 +24,8 @@ You can use the `ColorField` and the `ExplodeField` to visually distinguish the 
 ````CSHTML
 
 @* Visually distinguish a clicked chart series *@
+
+@using System.Text.RegularExpressions;
 
 <TelerikChart OnSeriesClick="@OnSeriesClickHandler" Transitions="false">
     <ChartSeriesItems>
@@ -50,15 +52,15 @@ You can use the `ColorField` and the `ExplodeField` to visually distinguish the 
 
         dataModel.isExploadedField = !dataModel.isExploadedField;
 
-
         //Apply your own coloring logic depending on the needs of the layout
         if (dataModel.isExploadedField)
         {
-            dataModel.RGBAColor = "rgba(104, 192, 108, 0.3)";
+            dataModel.RGBAColor = dataModel.RGBAColor.Insert(dataModel.RGBAColor.LastIndexOf(")"), ", 0.2");
         }
         else
         {
-            dataModel.RGBAColor = "rgba(104, 192, 108, 1)";
+            var match = Regex.Match(dataModel.RGBAColor, @",\s(\d\.\d)").Value;
+            dataModel.RGBAColor = dataModel.RGBAColor.Replace(match, "");
         }
     }
 
@@ -96,7 +98,6 @@ You can use the `ColorField` and the `ExplodeField` to visually distinguish the 
         }
     };
 }
-
 ````
 
 >caption The result of the code snippet above
