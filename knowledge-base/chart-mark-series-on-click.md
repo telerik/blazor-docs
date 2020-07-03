@@ -12,24 +12,23 @@ res_type: kb
 
 ## Description
 
-I would like to mark a Chart Series [on click]({%slug chart-events%}#onseriesclick) by changing the color and opacity or to separate the clicked series from the rest.
+I would like to mark a Chart Series [on click]({%slug chart-events%}#onseriesclick) by changing the color and opacity or to separate the clicked item from the rest.
 
 
 ## Solution
 
-You can use the `ColorField` and the `ExplodeField` to visually distinguish the clicked series of the chart. In the handler for the `OnSeriesClick` event you should handle the color change and the toggling of the exploded field.
+You can use the `ColorField` and the `ExplodeField` (for pie-type charts) to visually distinguish the clicked series of the chart. In the handler for the `OnSeriesClick` event you should handle the color change and the toggling of the exploded field.
 
 >caption Mark a Chart Series On Click
 
 ````CSHTML
-
 @* Visually distinguish a clicked chart series *@
 
 @using System.Text.RegularExpressions;
 
 <TelerikChart OnSeriesClick="@OnSeriesClickHandler" Transitions="false">
     <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Donut"
+        <ChartSeries Type="@ChartSeriesType.Donut"
                      Data="@donutData"
                      Field="@nameof(MyDonutChartModel.SegmentValue)"
                      CategoryField="@nameof(MyDonutChartModel.SegmentName)"
@@ -40,7 +39,7 @@ You can use the `ColorField` and the `ExplodeField` to visually distinguish the 
 
     <ChartTitle Text="Revenue per product"></ChartTitle>
 
-    <ChartLegend Position="ChartLegendPosition.Bottom">
+    <ChartLegend Position="@ChartLegendPosition.Bottom">
     </ChartLegend>
 </TelerikChart>
 
@@ -80,7 +79,7 @@ You can use the `ColorField` and the `ExplodeField` to visually distinguish the 
             SegmentName = "Product 1",
             SegmentValue = 2,
             isExploadedField = true,
-            RGBAColor = $"rgba(104, 192, 108)"
+            RGBAColor = $"rgba(104, 192, 108, 0.2)" // has initial opacity because it is already exploded (marked, separated)
         },
         new MyDonutChartModel
         {
