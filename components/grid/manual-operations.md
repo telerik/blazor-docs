@@ -1,7 +1,7 @@
 ---
 title: Manual Data Source Operations
 page_title: Grid - Manual Operations
-description: How to implement your own read, page, fiter, sort operations for the grid data.
+description: How to implement your own read, page, fiter, sort operations for the grid data and load data on demand.
 slug: components/grid/manual-operations
 tags: telerik,blazor,grid,read,filter,sort,page,manual,data,data source
 published: True
@@ -12,7 +12,7 @@ position: 55
 
 By default, the grid will receive the entire collection of data, and it will perform the necessary operations (like [paging]({%slug components/grid/features/paging%}), [sorting]({%slug components/grid/features/sorting%}), [filtering]({%slug components/grid/filtering%})) internally to it. You can perform these operations yourself by handling the `OnRead` event of the grid as shown in the example below. The data source will be read after each [CUD operation]({%slug components/grid/editing/overview%}) as well, to ensure fresh data.
 
-The parameter of type `DataSourceRequest` exposes information about the desired paging, filtering and sorting so you can, for example, call your remote endpoint with appropriate parameters so its performance is optimized and it fetches only the relevant data.
+The parameter of type `DataSourceRequest` exposes information about the desired paging, filtering and sorting so you can, for example, call your remote endpoint with appropriate parameters so its performance is optimized and it fetches only the relevant data. Through this event, you can load data on demand.
 
 When the `OnRead` event is used, the internal operations are disabled and you must perform them all in the `OnRead` event. You must also set the `TotalCount` property of the grid to the total number of items in the data source.
 
