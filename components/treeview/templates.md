@@ -13,11 +13,7 @@ position: 10
 The Treeview component allows you to define a custom template for its nodes. This article explains how you can use it.
 
 In this article:
-* [Basics](#basics)
-* [Examples](#examples)
- * [Handle DOM events in a template - e.g., click on a node](#handle-dom-events-in-a-template---e.g.,-click-on-a-node)
- * [Use templates to implement navigation between views without the usage of the UrlField feature](#use-templates-to-implement-navigation-between-views-without-the-usage-of-the-urlfield-feature)
- * [Different templates for different node levels](#different-templates-for-different-node-levels)
+
 
 
 ## Basics
@@ -31,6 +27,12 @@ You can also define different templates for the different levels in each `TreeVi
 You can use the template to render arbitrary content according to your application's data and logic. You can use components in it and thus provide rich content instead of plain text. You can also use it to add DOM event handlers like click, double click, mouseover if you need to respond to them.
 
 ## Examples
+
+* [Examples](#examples)
+	* [Handle DOM events in a template - e.g., click on a node](#handle-dom-events-in-a-template---eg-click-on-a-node)
+	* [Use templates to implement navigation between views without the usage of the UrlField feature](#use-templates-to-implement-navigation-between-views-without-the-usage-of-the-urlfield-feature)
+	* [Different templates for different node levels](#different-templates-for-different-node-levels)
+* [See Also](#see-also)
 
 ### Handle DOM events in a template - e.g., click on a node
 
