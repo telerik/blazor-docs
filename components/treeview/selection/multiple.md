@@ -303,118 +303,89 @@ You can bind the treeview to different models at each level, and the selection a
 ````CSHTML
 @* Handle multiple selection of items from different data models *@
 
-<TelerikTreeView Data="@Data"
-                 SelectionMode="@TreeViewSelectionMode.Single"
+<TelerikTreeView Data="@HierarchicalData"
+                 SelectionMode="@TreeViewSelectionMode.Multiple"
                  SelectedItems="@SelectedItems"
-                 SelectedItemsChanged="@((IEnumerable<object> item) => SelectedItemsHandler(item))">
+                 SelectedItemsChanged="@((IEnumerable<object> items) => SelectedItemsHandler(items))">
+    <TreeViewBindings>
+        <TreeViewBinding TextField="Category" ItemsField="Products" />
+        <TreeViewBinding Level="1" TextField="ProductName" />
+    </TreeViewBindings>
 </TelerikTreeView>
 
 @if (SelectedItems.Any())
 {
-    TreeItem selectedItem = SelectedItems.FirstOrDefault() as TreeItem;
-    <div>
-        <strong>Selected item:</strong>
-        <div class="card" style="width: 15rem">
-            <span><strong>Icon:</strong> <TelerikIcon Icon="@selectedItem.Icon" /></span>
-            <span><strong>Title:</strong> @selectedItem.Text</span>
-            <span><strong>Id:</strong> @selectedItem.Id </span>
-        </div>
-    </div>
+    foreach (var item in SelectedItems)
+    {
+        if (item is ProductCategoryItem)
+        {
+            <div>
+                <strong>Selected item:</strong>
+                <span><strong>Category:</strong> @((item as ProductCategoryItem).Category)</span>
+            </div>
+        }
+        else
+        {
+            <div>
+                <strong>Selected item:</strong>
+                <span><strong>Product Name:</strong> @((item as ProductItem).ProductName)</span>
+            </div>
+        }
+    }
 }
 
 @code {
-    void SelectedItemsHandler(IEnumerable<object> item)
-    {
-        SelectedItems = item;
-    }
-
+    public IEnumerable<ProductCategoryItem> HierarchicalData { get; set; }
     public IEnumerable<object> SelectedItems { get; set; } = new List<object>();
 
-    public IEnumerable<TreeItem> Data { get; set; }
+    void SelectedItemsHandler(IEnumerable<object> items)
+    {
+        SelectedItems = items;
+    }
+
+    public class ProductCategoryItem
+    {
+        public string Category { get; set; }
+        public List<ProductItem> Products { get; set; }
+        public bool Expanded { get; set; }
+    }
+
+    public class ProductItem
+    {
+        public string ProductName { get; set; }
+        public bool Expanded { get; set; }
+    }
+
 
     protected override void OnInitialized()
     {
-        LoadData();
+        LoadHierarchical();
     }
 
-    private void LoadData()
+    private void LoadHierarchical()
     {
-        List<TreeItem> items = new List<TreeItem>();
-        items.Add(new TreeItem()
+        List<ProductCategoryItem> roots = new List<ProductCategoryItem>();
+
+        List<ProductItem> firstCategoryProducts = new List<ProductItem>()
+{
+            new ProductItem { ProductName= "Category 1 - Product 1" },
+            new ProductItem { ProductName= "Category 1 - Product 2" }
+        };
+
+        roots.Add(new ProductCategoryItem
         {
-            Id = 1,
-            Text = "Project",
-            ParentId = null,
-            HasChildren = true,
-            Icon = "folder",
-            Expanded = true
-        });
-        items.Add(new TreeItem()
-        {
-            Id = 2,
-            Text = "Design",
-            ParentId = 1,
-            HasChildren = true,
-            Icon = "brush",
-            Expanded = true
-        });
-        items.Add(new TreeItem()
-        {
-            Id = 3,
-            Text = "Implementation",
-            ParentId = 1,
-            HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Category = "Category 1",
+            Expanded = true,
+            Products = firstCategoryProducts // this is how child items are provided
+
         });
 
-        items.Add(new TreeItem()
+        roots.Add(new ProductCategoryItem
         {
-            Id = 4,
-            Text = "site.psd",
-            ParentId = 2,
-            HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Category = "Category 2" // we will set no other properties and it will not have children, nor will it be expanded
         });
 
-        items.Add(new TreeItem()
-        {
-            Id = 5,
-            Text = "index.js",
-            ParentId = 3,
-            HasChildren = false,
-            Icon = "js"
-        });
-        items.Add(new TreeItem()
-        {
-            Id = 6,
-            Text = "index.html",
-            ParentId = 3,
-            HasChildren = false,
-            Icon = "html"
-        });
-
-        items.Add(new TreeItem()
-        {
-            Id = 7,
-            Text = "styles.css",
-            ParentId = 3,
-            HasChildren = false,
-            Icon = "css"
-        });
-
-        Data = items;
-    }
-
-    public class TreeItem
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-        public int? ParentId { get; set; }
-        public bool HasChildren { get; set; }
-        public string Icon { get; set; }
-        public bool Expanded { get; set; }
+        HierarchicalData = roots;
     }
 }
 ````
