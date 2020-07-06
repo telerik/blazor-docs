@@ -231,8 +231,10 @@ When you let the grid handle the operations internally, it hides that complexity
 Thus, to use the `OnRead` event with grouping, you must:
 
 1. Use an `IEnumerable<object>` for the grid `Data`.
+    * This is required so the special data structure for grouped data can be used, otherwise you will get compile-time errors.
 1. Set the `FieldType` of the columns to match the type of the field you will be showing.
-    * If you also use [filtering]({%slug components/grid/filtering%}), do not use nullable types. For example, if the model field is `int?`, set `FieldType="@(typeof(int))"`. If a nullable type is used, you may get errors similar to `Error: System.ArgumentException: Operator 'IsEqualTo' is incompatible with operand types 'Int16?'`.
+    * If you also use [filtering]({%slug components/grid/filtering%}), do not use nullable types. For example, if the model field is `int?`, set `FieldType="@(typeof(int))"`.
+    * This is required because the grid is not bound to a specific type anymore, but to an `object`, and cannot infer the column type in order to define filters and new items.
 1. Prepare the appropriate group collections.
     * The example below shows a simple way through the Telerik `.ToDataSourceResult` extension method that is easy to use when you have all the data, or when you can pass objects by reference, like in a server-side Blazor app.
     * The examples in the following repo show one way you can serialize such data through HTTP and service calls: [Use Telerik DataSourceRequest and DataSourceResult on the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server).
