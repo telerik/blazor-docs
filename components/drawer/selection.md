@@ -12,7 +12,7 @@ position: 10
 
 The Drawer lets the user select an item. You can also pre-select a desired item. You can use this highlighted item to load/generate content, or to denote the current page.
 
-To use the item selection, use set the `SelectedItem` parameter. It allows two-way binding (`@bind-SelectedItem`) and one-way binding + [SelectedItemChanged]({%slug drawer-events%}#selecteditemchanged) event.
+To use the item selection, set the `SelectedItem` parameter. It allows two-way binding (`@bind-SelectedItem`) and one-way binding + [SelectedItemChanged]({%slug drawer-events%}#selecteditemchanged) event. You could also use it to preselect an item.
 
 The `SelectedItem` is of the same type as the Drawer data model.
 
