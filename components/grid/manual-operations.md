@@ -12,7 +12,13 @@ position: 55
 
 By default, the grid will receive the entire collection of data, and it will perform the necessary operations (like [paging]({%slug components/grid/features/paging%}), [sorting]({%slug components/grid/features/sorting%}), [filtering]({%slug components/grid/filtering%})) internally to it. You can perform these operations yourself by handling the `OnRead` event of the grid as shown in the example below. The data source will be read after each [CUD operation]({%slug components/grid/editing/overview%}) as well, to ensure fresh data.
 
-The parameter of type `DataSourceRequest` exposes information about the desired paging, filtering and sorting so you can, for example, call your remote endpoint with appropriate parameters so its performance is optimized and it fetches only the relevant data. Through this event, you can load data on demand.
+>tip This article describes how you can load data on demand and implement filtering, paging, sorting on the server.
+>
+> Detailed examples showcase the functionality of the `OnRead` event that you need to use.
+>
+> You can also find runnable sample apps in the [Serialize the DataSoureRequest to the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server) repo.
+
+The parameter of type `DataSourceRequest` exposes information about the desired paging, filtering and sorting so you can, for example, call your remote endpoint with appropriate parameters so its performance is optimized and it fetches only the relevant data. 
 
 When the `OnRead` event is used, the internal operations are disabled and you must perform them all in the `OnRead` event. You must also set the `TotalCount` property of the grid to the total number of items in the data source.
 
@@ -24,7 +30,6 @@ Below you can find a few examples of using the `OnRead` event to perform custom 
 
 The comments in the code provide explanations on what is done and why.
 
->tip You can also use a synchronous version of the event. Its signature is `void ReadItems(GridReadEventArgs args)`.
 
 Examples:
 
