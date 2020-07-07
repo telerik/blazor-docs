@@ -44,7 +44,7 @@ If you add a checkbox column, you should set its `SelectAll` parameter to `false
 
 The `SelectedItemsChanged` event receives a collection of the grid data model that has one member only.
 
-You can use the `SelectedItems` collection in two-way binding. You can use this to pre-select a row for your users.
+You can use the `SelectedItems` collection in two-way binding. You can use this to preselect a row for your users.
 
 The `SelectedItems` collection persists across paging operations. Changing the page will keep it populated.
 

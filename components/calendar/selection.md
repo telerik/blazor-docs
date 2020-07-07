@@ -15,7 +15,7 @@ The user can select one or mode dates depending on the Calendar configuration se
 This article contains the following sections:
 
 * [Selection Mode](#selection-mode)
-* [Pre-selection of Dates](#pre-selection-of-dates)
+* [Preselection of Dates](#preselection-of-dates)
 * [Receive User Selection](#receive-user-selection)
 	* [Single Selection Mode](#single-selection-mode)
 	* [Multiple Selection Mode](#multiple-selection-mode)
@@ -32,9 +32,9 @@ To control how many dates the user can select, use the `SelectionMode` property.
 
 In `Range` selection mode you can get the start and end dates of the range the user selected through the `RangeStart` and `RangeEnd` parameters of type `DateTime`. You also get events `RangeStartChanged` and `RangeEndChanged`. You can read more about them and see an example in the [Events]({%slug components/calendar/events%}) article.
 
-## Pre-selection of Dates
+## Preselection of Dates
 
-You can pre-select a date:
+You can preselect a date:
 * In `Single` selection mode by setting the `Value` property of the calendar to the desired date.
 * In `Multiple` selection mode, use the `SelectedDates` property which is of type `List<DateTime>`.
 

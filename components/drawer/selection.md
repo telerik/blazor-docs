@@ -10,7 +10,7 @@ position: 10
 
 # Drawer Selection
 
-The Drawer lets the user select an item. You can also pre-select a desired item. You can use this highlighted item to load/generate content, or to denote the current page.
+The Drawer lets the user select an item. You can also preselect a desired item. You can use this highlighted item to load/generate content, or to denote the current page.
 
 To use the item selection, set the `SelectedItem` parameter. It allows two-way binding (`@bind-SelectedItem`) and one-way binding + [SelectedItemChanged]({%slug drawer-events%}#selecteditemchanged) event. You could also use it to preselect an item.
 
@@ -48,7 +48,7 @@ If you use the drawer for [page navigation]({%slug drawer-navigation%}), the sel
 
     protected override void OnInitialized()
     {
-        // pre-select an item. Not required
+        // preselect an item. Not required
         selectedItem = Data[Data.Count - 1];
     }
 

@@ -122,13 +122,13 @@ The MultiSelect is a generic component and its type is determined by the type of
 
 ## Examples
 
->caption Pre-select items for the user
+>caption Preselect items for the user
 
 ````CSHTML
-@* You can pre-select an item or set of items only if they exist in the data source. *@
+@* You can preselect an item or set of items only if they exist in the data source. *@
 
 <div>
-    <TelerikButton OnClick="@SelectHandler">Pre-select countries</TelerikButton>
+    <TelerikButton OnClick="@SelectHandler">Preselect countries</TelerikButton>
     <TelerikButton OnClick="@ClearSelectionHandler">Clear selection</TelerikButton>
 </div>
 
@@ -179,7 +179,7 @@ The MultiSelect is a generic component and its type is determined by the type of
         Countries.Add("Serbia");
         Countries.Add("Slovenia");
 
-        // you can also pre-select items here based on data you fetch, not just on a button click
+        // you can also preselect items here based on data you fetch, not just on a button click
 
         base.OnInitialized();
     }

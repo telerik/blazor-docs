@@ -10,7 +10,7 @@ position: 1
 
 # TreeView Selection
 
-The TreeView lets the user select one or more nodes. You can also pre-select them with your own code.
+The TreeView lets the user select one or more nodes. You can also preselect them with your own code.
 
 You can configure the node selection behavior by setting the `SelectionMode` parameter to a member of the `TreeViewSelectionMode` enum:
 * `None` - disable the node selection. This is the default setting.
@@ -19,7 +19,7 @@ You can configure the node selection behavior by setting the `SelectionMode` par
 
 You get or set the selected items through the `SelectedItems` parameter. It is an `IEnumerable<object>` collection that you need to cast to the correct model type. This is required because you can [bind the treeview]({%slug components/treeview/data-binding/overview%}) to different model types at each level. The selection allows two-way binding (`@bind-SelectedItems`) and one-way binding + [`SelectedItemsChanged`]({%slug treeview-events%}#selecteditemschanged) event.
 
->caption Enable node selection and pre-select an item
+>caption Enable node selection and preselect an item
 
 ````CSHTML
 @* Observe how the node selection works and preselect the second node. *@

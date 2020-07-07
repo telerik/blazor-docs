@@ -65,7 +65,7 @@ You can add a `SelectAllMode` parameter, which supports the following options:
 
 The `SelectedItemsChanged` event receives a collection of the grid data model. It may have no items in it.
 
-You can use the `SelectedItems` collection in two-way binding. You can use this to pre-select rows for your users.
+You can use the `SelectedItems` collection in two-way binding. You can use this to preselect rows for your users.
 
 The `SelectedItems` collection persists across paging operations. Changing the page will keep it populated and you can add more items to the selection.
 

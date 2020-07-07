@@ -87,7 +87,7 @@ The ComboBox is a generic component and its type is determined by the type of th
 
 * `ValueField` - the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
 
-* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
+* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be preselected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
 
     The `Value` and `ValueField` can be of types:
 
