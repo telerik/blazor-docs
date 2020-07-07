@@ -47,6 +47,11 @@ To use the animation container, add the `TelerikAnimationContainer` tag.
 ![](images/animation-container-overview.gif)
 
 >note The component renderes in its place of declaration and has `position: absolute`. Parent elements in the DOM with special positioning can affect its position and the calculation of the `Top` and `Left` offsets.
+>
+> If you have `overflow: hidden` on the parent element, you may want to use `position: absolute` or `fixed` on it, instead of `relative` like in the example above.
+>
+>Toggling an additional element with the desired positioning together with the animation container can even let you size it up to match the viewport and adding an `@onclick` handler to it lets you hide the popup when the user clicks outside of it.
+
 
 The animation container exposes the following properties and methods:
 
