@@ -29,7 +29,7 @@ When running a Telerik Blazor application I receive an error similar to the foll
 
 ## Cause\Possible Cause(s)
 
-The origin of this behavior is a missing `<TelerikRootComponent>` from the `MainLayout.cs` file in the project. 
+The origin of this behavior is a missing `<TelerikRootComponent>` from the `MainLayout.razor` file in the project. 
 
 You can reproduce this with the following snippet:
 
@@ -56,7 +56,7 @@ You can reproduce this with the following snippet:
 
 ## Solution
 
-Wrap the entire content of the `MainLayout.cs` file inside the `<TelerikRootComponent>`. Read more on the assets and configuration steps you need in the [What You Need]({%slug getting-started/what-you-need%}) article.
+Wrap the entire content of the `MainLayout.razor` file inside the `<TelerikRootComponent>`. Read more on the assets and configuration steps you need in the [What You Need]({%slug getting-started/what-you-need%}) article.
 
 >caption Wrapping the content of the MainLayout file inside the TelerikRootComponent
 
