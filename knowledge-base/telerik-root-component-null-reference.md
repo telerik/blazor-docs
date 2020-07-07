@@ -10,17 +10,6 @@ ticketid: 1475025
 res_type: kb
 ---
 
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
-</table>
-
-
 ## Description
 
 When running a Telerik Blazor application I am getting one of the following errors:
