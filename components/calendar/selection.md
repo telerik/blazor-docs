@@ -38,6 +38,56 @@ You can preselect a date:
 * In `Single` selection mode by setting the `Value` property of the calendar to the desired date.
 * In `Multiple` selection mode, use the `SelectedDates` property which is of type `List<DateTime>`.
 
+>caption Preselect date / dates in the Calendar
+
+````CSHTML
+
+@* Preselect date or multiple dates based on the calendar selection type *@ 
+
+<div>
+    <label for"calendarSelectionDDL">Calendar selection type:</label>
+    <TelerikDropDownList Data="@MyList" @bind-Value="@CalendarSelectionType" Id="calendarSelectionDDL" />
+</div>
+
+<br />
+
+@if (CalendarSelectionType == "Single")
+{
+    <TelerikCalendar SelectionMode="@CalendarSelectionMode.Single"
+                     ValueChanged="@( (DateTime d) => OnValueChangedHandler(d) )"
+                     Value="@MyDate">
+    </TelerikCalendar>
+}
+else
+{
+    <TelerikCalendar SelectionMode="@CalendarSelectionMode.Multiple"
+                     SelectedDates="@SelectedDates">
+    </TelerikCalendar>
+}
+
+
+@code {
+    protected DateTime MyDate { get; set; } = DateTime.Now;
+    protected List<DateTime> SelectedDates { get; set; } = new List<DateTime>();
+
+    protected List<string> MyList = new List<string>() { "Single", "Multiple" };
+    protected string CalendarSelectionType { get; set; } = "Single";
+
+    void OnValueChangedHandler(DateTime date)
+    {
+        MyDate = date;
+    }
+
+    protected override void OnInitialized()
+    {
+        SelectedDates.Add(DateTime.Now);
+        SelectedDates.Add(DateTime.Now.AddDays(1));
+        base.OnInitialized();
+    }
+}
+
+````
+
 ## Receive User Selection
 
 The way you can get the user selection depends on the selection mode you use:
