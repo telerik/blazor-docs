@@ -79,8 +79,8 @@ The DropDownList provides the following features:
 
 * `ValueField` - the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
 
-* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own. 
-    
+* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
+
     The `Value` and `ValueField` can be of types:
 
     * `number` (such as `int`, `double` and so on)
@@ -96,6 +96,30 @@ The DropDownList provides the following features:
 
 
 ## Examples
+
+>caption Preselect an item using data binding
+
+````CSHTML
+
+@* Preselect an item using two-way data-binding *@
+
+<TelerikDropDownList Data="@MyList" @bind-Value="@MyItem" />
+
+@code {
+    protected string MyItem { get; set; }
+
+    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+
+    protected override void OnInitialized()
+    {
+        // preselect an item from the data source
+        // you can use another LINQ expression, like Where(), if it better suits your application needs
+        MyItem = MyList.FirstOrDefault();
+        base.OnInitialized();
+    }
+}
+
+````
 
 >caption Default text (hint) to show when no actual item is selected
 
@@ -175,4 +199,3 @@ The DropDownList provides the following features:
   * [Data Binding]({%slug components/dropdownlist/databind%})
   * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/index)
   * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor-ui/dropdownlist/validation)
-  
