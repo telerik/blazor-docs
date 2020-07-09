@@ -214,7 +214,7 @@ You can also call remote data through `async` operations.
 
 >tip You can also [debounce the service calls and implement minimum filter length]({%slug combo-kb-debounce-onread%}).
 
->important You should **change** **only** the `Data` of the ComboBox in the `OnRead` handler. You should **not** change other parameters such as `Value`, because this can lead to issues with the asynchronous nature of the event - the ComboBox cannot know whether the change of those parameters comes from somewhere external, and race conditions can occur with the arrival of the new data.
+>important You should **change** **only** the `Data` of the ComboBox in the `OnRead` handler. You should **not** change other parameters such as `Value`, because this can lead to issues with the asynchronous nature of the event - the ComboBox cannot know whether the change of those parameters comes from somewhere external, and race conditions can occur with the arrival of the new data. Moreover, such a change is likely to be unwanted and unexpected for the end user and cause bad UX.
 
 ````CSHTML
 @SelectedValue
