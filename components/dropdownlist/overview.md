@@ -106,17 +106,17 @@ The DropDownList provides the following features:
 <TelerikDropDownList Data="@MyList" @bind-Value="@MyItem" />
 
 @code {
-    protected string MyItem { get; set; }
+protected string MyItem { get; set; }
 
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+protected List<string> MyList = new List<string>() { "first", "second", "third" };
 
-    protected override void OnInitialized()
-    {
-        // preselect an item from the data source
-        // you can use another LINQ expression, like Where(), if it better suits your application needs
-        MyItem = MyList.FirstOrDefault();
-        base.OnInitialized();
-    }
+protected override void OnInitialized()
+{
+    // preselect an item from the data source
+    // you can use another LINQ expression, like Where(), if it better suits your application needs
+    // you can preselect the item from different places in the application, e.g. a service, a parameter, the logic in the view model, etc.
+    MyItem = MyList.FirstOrDefault();
+    base.OnInitialized();
 }
 
 ````
