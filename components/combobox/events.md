@@ -208,11 +208,13 @@ You can use the he `OnRead` event to provide data to the component according to 
 * the component initializes
 * the user [filters]({%slug components/combobox/filter%})
 
-You can also call remote data through async operations.
+You can also call remote data through `async` operations.
 
 >caption Custom Data according to the user input in the ComboBox
 
 >tip You can also [debounce the service calls and implement minimum filter length]({%slug combo-kb-debounce-onread%}).
+
+>important You should **change** **only** the `Data` of the ComboBox in the `OnRead` handler. You should **not** change other parameters such as `Value`, because this can lead to issues with the asynchronous nature of the event - the ComboBox cannot know whether the change of those parameters comes from somewhere external, and race conditions can occur with the arrival of the new data.
 
 ````CSHTML
 @SelectedValue
