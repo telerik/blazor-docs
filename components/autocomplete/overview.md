@@ -79,7 +79,7 @@ The AutoComplete is a generic component and its type is determined by the type o
 
 * `ValueField` - the name of the field from the model that will be shown as hints to the user. Defaults to `Value`. Not required when binding to a simple list of strings.
 
-* `Width` - the width of the main element.
+* `Width` - the width of the main element. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
 
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug autocomplete-templates%}) article for more details.
 

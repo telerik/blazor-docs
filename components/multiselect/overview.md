@@ -113,7 +113,7 @@ The MultiSelect is a generic component and its type is determined by the type of
 
 * `ValueField` - the name of the field from the model that will be used as values in the selection. Defaults to `Value`.
 
-* `Width` - the width of the main element.
+* `Width` - the width of the main element. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
 
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug multiselect-templates%}) article for more details.
 

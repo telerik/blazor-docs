@@ -79,8 +79,8 @@ The DropDownList provides the following features:
 
 * `ValueField` - the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
 
-* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own. 
-    
+* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
+
     The `Value` and `ValueField` can be of types:
 
     * `number` (such as `int`, `double` and so on)
@@ -88,7 +88,7 @@ The DropDownList provides the following features:
     * `Guid`
     * `Enum`
 
-* `Width` - the width of the dropdown and the main element.
+* `Width` - the width of the dropdown and the main element. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
 
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug components/dropdownlist/templates%}) article for more details.
 
@@ -175,4 +175,3 @@ The DropDownList provides the following features:
   * [Data Binding]({%slug components/dropdownlist/databind%})
   * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/index)
   * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor-ui/dropdownlist/validation)
-  

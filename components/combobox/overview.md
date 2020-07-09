@@ -96,7 +96,7 @@ The ComboBox is a generic component and its type is determined by the type of th
     * `Guid`
     * `Enum`
 
-* `Width` - the width of the dropdown and the main element.
+* `Width` - the width of the dropdown and the main element. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
 
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug components/combobox/templates%}) article for more details.
 
