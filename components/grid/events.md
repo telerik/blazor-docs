@@ -61,16 +61,22 @@ The `OnRowClick` event fires as a response to the user clicking on a row of the 
 
 The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
+The `OnRowClick` event fires before selection happens.
+
 >caption Use the OnRowClick event to load data on demand based on the clicked row
 
 ````CSHTML
 @* Use the OnRowClick event to load data on demand based on the clicked row *@
 
+There is a deliberate delay in the data loading to showcase the async nature of the event
+
 <TelerikGrid Data="@MyData"
              Height="400px"
              Width="700px"
              Pageable="true"
-             OnRowClick="@OnRowClickHandler">
+             OnRowClick="@OnRowClickHandler"
+             SelectionMode="@GridSelectionMode.Single"
+             @bind-SelectedItems="@SelectedItems">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
@@ -88,6 +94,10 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
 }
 
 @code {
+    // enable single row selection to showcase the clicked row to the user. Not mandatory
+    public IEnumerable<SampleData> SelectedItems { get; set; } = Enumerable.Empty<SampleData>();
+
+    // data that will be loaded on demand for the next components - another grid in this sample
     public List<ProjectModel> ProjectData { get; set; } = new List<ProjectModel>();
 
     async Task OnRowClickHandler(GridRowClickEventArgs args)
@@ -99,6 +109,8 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
 
     async Task<List<ProjectModel>> GetProjectData(int id)
     {
+        await Task.Delay(500); // simulate loading data from a service, remove from a real app
+
         ProjectData = new List<ProjectModel>()
         {
             new ProjectModel()
@@ -146,7 +158,9 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
 
 The `OnRowDoubleClick` event fires as a response to the user double clicking on a row of the Grid. Clicking on the `GridCommandButton`, select row `CheckBox`, expanding a `Detail Template` or when the row is in `edit/insert mode` will not trigger the event.
 
-The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type
+The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+
+The `OnRowDoubleClick` event fires before selection happens.
 
 >caption Use the OnRowDoubleClick event to receive information on the clicked row
 
