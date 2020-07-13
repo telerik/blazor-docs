@@ -2,7 +2,7 @@
 title: Overview
 page_title: Grid - Templates Overview
 description: Use custom templates in Grid for Blazor.
-slug: treelist-templates
+slug: treelist-templates-overview
 tags: telerik,blazor,grid,templates
 published: True
 position: 0

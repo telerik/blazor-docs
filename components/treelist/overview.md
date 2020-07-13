@@ -1,25 +1,19 @@
 ---
 title: Overview
-page_title: Grid Overview
-description: Overview of the Grid for Blazor.
+page_title: TreeList Overview
+description: Overview of the TreeList for Blazor.
 slug: treelist-overview
-tags: telerik,blazor,grid,datagrid,overview
+tags: telerik,blazor,treelist,overview
 published: True
 position: 0
 ---
 
-# Blazor Grid Component Overview
+# Blazor TreeList Component Overview
 
-This article provides a quick introduction so you can get your first Blazor data grid up and running in a few seconds, a video tutorial, and a list of the key features it provides.
-
-The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use features covering everything from paging, sorting, filtering, editing, and grouping to row virtualization, optimized data reading, keyboard navigation and accessibility support.
-
-The Telerik Blazor grid is built on native Blazor from the ground up, by a company with a long history of making enterprise-ready Grids. This results in a Blazor data grid that delivers lighting fast performance and is highly customizable.
-
-@[template](/_contentTemplates/common/get-started.md#start-trial-button)
+The TreeList displays hierarchical data in a tabular format and allows [sorting]({%slug treelist-sorting%}), [filtering]({%slug treelist-filtering%}), [data editing]({%slug treelist-editing-overview%}); provides [aggregates]({%slug treelist-aggregates%}), item [selection]({%slug treelist-selection-overview%}), [templates]({%slug treelist-templates-overview%}) and [load on demand]({%slug treelist-data-binding-load-on-demand%}).
 
 
->caption To create a basic Telerik Grid:
+>caption To create a basic Telerik TreeList:
 
 1. use the `TelerikGrid` tag
 1. set its `Data` attribute to the variable that will hold your collection of data
