@@ -42,7 +42,7 @@ The menu items provide the following features that you control through the corre
 
 * `Separator` - when set to `true`, the item will be just a line that makes a distinction between its neighbors clearly visible. Thus, you can place logically grouped items between two separators to distinguish them. A separator item does not render text, icons, children or a navigable link.
 
-* `Enabled` - You can disable items by setting this field to `false`. You may want to have it default to `true` in your model to ensure that items will be disabled only when you explicitly want them to be.
+* `Disabled` - You can disable items by setting this field to `true`. Such items will keep rendering but will not be clickable.
 
 ## Data Bindings
 
@@ -57,7 +57,7 @@ The properties of a menu item match directly to a field of the model the menu is
 * UrlField => Url
 * HasChildrenField => HasChildren
 * ItemsField => Items
-* EnabledField => Enabled
+* DisabledField => DisabledField
 * SeparatorField => Separator
 
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
@@ -73,7 +73,7 @@ public class MenuItem
 	public bool HasChildren { get; set; }
 	public string Icon { get; set; }
 	public string Url { get; set; }
-	public bool Enabled { get; set; }
+	public bool Disabled { get; set; }
 	public bool Separator { get; set; }
 }
 ````
@@ -88,7 +88,7 @@ public class MenuItem
              IdField="@nameof(MenuItem.Id)"
              TextField="@nameof(MenuItem.Section)"
              UrlField="@nameof(MenuItem.Page)"
-             EnabledField="@nameof(MenuItem.IsEnabled)"
+             DisabledField="@nameof(MenuItem.IsDisabled)"
              SeparatorField="@nameof(MenuItem.IsItemSeparator)">
 </TelerikMenu>
 
@@ -101,7 +101,7 @@ public class MenuItem
         public int? SectionId { get; set; }
         public string Section { get; set; }
         public string Page { get; set; }
-        public bool IsEnabled { get; set; } = true; // if we don't set a default value of true all items will be disabled by default because bool defaults to false
+        public bool IsDisabled { get; set; }
         public bool IsItemSeparator { get; set; }
     }
 
@@ -131,7 +131,7 @@ public class MenuItem
             {
                 Id = 4,
                 Section = "Disbled Item",
-                IsEnabled = false
+                IsDisabled = true
             },
             new MenuItem()
             {
