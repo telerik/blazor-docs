@@ -115,7 +115,6 @@ To create a scatter chart:
 }
 ````
 
-@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
 ## ScatterLine Chart Specific Appearance Settings
 
