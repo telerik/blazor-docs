@@ -288,137 +288,154 @@ The TreeList displays hierarchical data in a tabular format and allows [sorting]
 
 ## Data Binding
 
-To show data in a grid, you need to define [GridColumn]({%slug components/grid/columns/bound%}) instances - they take a model `Field` and expose settings for [templates]({%slug components/grid/features/templates%}), [grouping](#grouping) and [reordering]({%slug components/grid/columns/reorder%}). To [edit](#editing) data or invoke custom logic, you define a [CommandColumn]({%slug components/grid/columns/command%}).
+To show data in a treelist, you need to define [TreeListColumn]({%slug treelist-columns-bound%}) instances - they take a model `Field` and expose settings for [templates]({%slug treelist-templates-overview%}), [resizing]({%slug treelist-columns-resize%}) [reordering]({%slug treelist-columns-reorder%}). To [edit](#editing) data or invoke custom logic, you define a [CommandColumn]({%slug treelist-columns-command%}).
 
->tip The Telerik Blazor Grid is data source agnostic - you can use any database and service according to your project, you only need to get the collection of data models to the grid in the view-model of the component hosting it.
+>tip The Telerik Blazor TreeList is data source agnostic - you can use any database and service according to your project, you only need to get the collection of data models to the treelist in the view-model of the component hosting it.
 
-The following list of resources provides examples for data binding a grid in various scenarios:
+The following list of resources provides examples for data binding a treelist in various scenarios:
 
-* Basic **example**, tutorial **video** and **notes** - [Grid Data Binding Overview]({%slug components/grid/columns/bound%}). Also lists the features (parameters) of a bound column.
+* General information on how data binding works - [TreeList Data Binding Overview]({%slug treelist-data-binding-overview%}).
 
-* **Optimizing the data source queries** - see the [Notes]({%slug components/grid/columns/bound%}#notes) section in the article above. In a server-side app, an `IQueriable` that ties to an appropriate context (such as EntityFramework) that can optimize the LINQ queries the grid generates is a quick option. For full control, use the [OnRead event]({%slug components/grid/manual-operations%}).
+* Binding to a self-referencing flat data source - [Bind TreeList to Flat Self-Referencing Data]({%slug treelist-data-binding-flat-data%}).
 
-* **SQL** (or any other) **database** - you can find examples in our [online demos](https://demos.telerik.com/blazor-ui/grid/overview). You can see an offline version of the demos project in the `demos` folder of your installation ([automated]({%slug installation/msi%}) or [archive]({%slug installation/zip%})). They showcase an EntityFramework context using an SQL database that provides data to a grid through a service, which is a common architecture for decouping the front-end from the actual data source that you can apply to any database.
+* Using hierarchical data source with item collections nested in each item - [Bind TreeList to Hierarchical Data]({%slug treelist-data-binding-hierarchical-data%}).
 
-    * The **CRUD sample project** our extensions for [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-overview%}) can generate for you showcases a similar architecture that you can use as a starting point.
+* Loading child nodes data on demand - [Load On Demand in TreeList]({%slug treelist-data-binding-load-on-demand%})
 
-* **WebAPI** data source - you can see how to send an appropriate request for data and return an optimized query in the following sample projects: [Grid DataSourceRequest on the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server). This is a flexible approach that you can use for any type of service you have - serializing and deserializing the data according to the application logic and needs, and optimizing the database queries on the backend.
 
-* **OData** data source - an extension method we provide lets you make OData v4 queries as shown in the following example: [Grid and OData](https://github.com/telerik/blazor-ui/tree/master/grid/odata).
-
-* **DataTable**, **ExpandoObject** collection - If you don't have actual strongly typed models (yet) and you use `ExpandoObject`, or your backend comes from an older technology and still returns `DataTable`s, the grid can accommodate such dynamic data types. You can get started from our examples on how to bind the grid to a [ExpandoObject collection](https://github.com/telerik/blazor-ui/tree/master/grid/binding-to-expando-object) and to a [DataTable](https://demos.telerik.com/blazor-ui/grid/data-table) which also support [editing](#editing).
-
-* **gRPC** - the gRPC tooling supports .NET Core, and as of mid-June 2020, there is a package that brings it to WebAssembly. You can find a basic example and more resources to get you started with gRPC in Blazor in the [Grid Data from gRPC Sample Project](https://github.com/telerik/blazor-ui/tree/master/common/grpc-example).
+<!-- * **OData** data source - an extension method we provide lets you make OData v4 queries as shown in the following example: [Grid and OData](https://github.com/telerik/blazor-ui/tree/master/grid/odata). -->
 
 
 
-## Blazor Grid Reference
+## Blazor TreeList Reference
 
-The grid is a generic component, and to store a reference, you must use the model type that you pass to its `Data` when declaring the variable.
+The treelist is a generic component, and to store a reference, you must use the model type that you pass to its `Data` when declaring the variable.
 
->caption Store a reference to a Telerik Grid
+>caption Store a reference to a Telerik TreeList
 
 ````CSHTML
-@using Telerik.Blazor.Components
+@* The reference type depends on the Data model type *@
 
-<TelerikGrid Data="@MyData" @ref="theGridReference">
-	<GridColumns>
-		<GridColumn Field="@(nameof(SampleData.ID))">
-		</GridColumn>
-		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-		</GridColumn>
-	</GridColumns>
-</TelerikGrid>
+<TelerikTreeList Data="@Data"
+                 @ref="@TreeListRef"
+                 IdField="EmployeeId"
+                 ParentIdField="ReportsTo"
+                 Pageable="true">
+    <TreeListColumns>
+        <TreeListColumn Field="FirstName" Expandable="true"></TreeListColumn>
+        <TreeListColumn Field="EmployeeId"></TreeListColumn>
+    </TreeListColumns>
+</TelerikTreeList>
 
 @code {
-	Telerik.Blazor.Components.TelerikGrid<SampleData> theGridReference;
+    TelerikTreeList<Employee> TreeListRef { get; set; }
+    public List<Employee> Data { get; set; }
 
-	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		ID = x,
-		Name = "name " + x
-	});
+    public class Employee
+    {
+        public int EmployeeId { get; set; }
+        public string FirstName { get; set; }
+        public int? ReportsTo { get; set; }
+    }
 
-	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-	}
+    protected override void OnInitialized()
+    {
+        Data = new List<Employee>();
+        var rand = new Random();
+        int currentId = 1;
+
+        for (int i = 1; i < 6; i++)
+        {
+            Data.Add(new Employee()
+            {
+                EmployeeId = currentId,
+                ReportsTo = null,
+                FirstName = "Employee  " + i.ToString()
+            });
+
+            currentId++;
+        }
+        for (int i = 1; i < 6; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                Data.Add(new Employee()
+                {
+                    EmployeeId = currentId,
+                    ReportsTo = i,
+                    FirstName = "    Employee " + i + " : " + j.ToString()
+                });
+
+                currentId++;
+            }
+        }
+    }
 }
 ````
 
 
 ## Autogenerated Columns
 
-You can autogenerate columns in a Grid for each public property in its model. For more information about this feature you can read the [Autogenerated Columns]({%slug grid-columns-automatically-generated%}) article.
+You can autogenerate columns in a TreeList for each public property in its model. For more information about this feature you can read the [Autogenerated Columns]({%slug treelist-columns-automatically-generated%}) article.
 
 ## Editing
 
-The grid can perform CRUD operations on its current data collection and exposes events that let you control the operations and transfer changes to the actual data source. The [CRUD Operations Overview]({%slug components/grid/editing/overview%}) article offers more details on this.
+The treelist can perform CRUD operations on its current data collection and exposes events that let you control the operations and transfer changes to the actual data source. The [CRUD Operations Overview]({%slug treelist-editing-overview%}) article offers more details on this.
 
-The grid offers several editing modes with different user experience through the `EditMode` property that is a member of the `GridEditMode` enum:
+The treelist offers several editing modes with different user experience through the `EditMode` property that is a member of the `TreeListEditMode` enum:
 
-* `Incell` - editing is done [in the current cell]({%slug components/grid/editing/incell%}) with a double click
-* `Inline` - editing is done for the [entire row]({%slug components/grid/editing/inline%}) with an [Edit Command Button]({%slug components/grid/columns/command%})
-* `Popup` - editing is done in a [popup]({%slug components/grid/editing/popup%}) for the entire row with an [Edit Command Button]({%slug components/grid/columns/command%})
+* `Incell` - editing is done [in the current cell]({%slug treelist-editing-incell%}) with a double click
+* `Inline` - editing is done for the [entire row]({%slug  treelist-editing-inline%}) with an [Edit Command Button]({%slug treelist-columns-command%})
+* `Popup` - editing is done in a [popup]({%slug treelist-editing-popup%}) for the entire row with an [Edit Command Button]({%slug treelist-columns-command%})
 
 
 ## Paging
 
-The grid supports paging of the data out of the box. You can read more about it in the [Paging]({%slug components/grid/features/paging%}) article. An alternative to standard paging is [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}) that provides a different user experience.
+The TreeList supports paging of the data out of the box. You can read more about it in the [Paging]({%slug treelist-paging%}) article.
 
 ## Sorting
 
-The grid can sort data automatically. You can read more about this feature in the [Sorting]({%slug components/grid/features/sorting%}) article.
+The treelist can sort data automatically. You can read more about this feature in the [Sorting]({%slug treelist-sorting%}) article.
 
 ## Filtering
 
-The grid can filter data automatically. You can read more about this feature in the [Filtering]({%slug components/grid/filtering%}) article.
+The TreeList can filter data automatically. You can read more about this feature in the [Filtering]({%slug treelist-filtering%}) article.
 
-
-## Grouping
-
-The grid can group data automatically. You can read more about this feature in the [Grouping]({%slug components/grid/features/grouping%}) article.
 
 ## Selection
 
-The grid offers single or multiple selection modes. You can read more about this feature in the [Selection]({%slug components/grid/selection/overview%}) article.
+The tree list offers single or multiple selection modes. You can read more about this feature in the [Selection]({%slug treelist-selection-overview%}) article.
 
 ## Toolbar
 
-You can define user actions in a [dedicated toolbar]({%slug components/grid/features/toolbar%}). For the moment, they are mostly custom actions, but in future versions you will be able to add features like exporting there.
+You can define user actions in a [dedicated toolbar]({%slug treelist-toolbar%}). For the moment, they are mostly custom actions, but in future versions you will be able to add features like exporting there.
 
 ## Scrolling
 
-The grid offers two modes of scrolling through its `ScrollMode` parameter that takes a member of the `Telerik.Blazor.GridScrollMode` enum:
+When the total column width exceeds the width of the treelist, you will get a horizontal scrollbar.
 
-* `Scrollable` - the default setting - the scrollbars are controlled by the grid's `Width` and `Height` parameters and the data shown in it. If the rendered rows are taller than the height, there will be a vertical scrollbar. If the sum of the column widths is larger than the width, there will be a horizontal scrollbar (read more in the [Column Width]({%slug grid-columns-width%}) article).
-* `Virtual` - this enables [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}).
+When the height of the rows exceeds the Height of the tree list, you will get a vertical scrollbar.
 
-The Grid offers Virtual horizontal scrolling. You can read more about this feature in the [Column Virtualization]({%slug grid-columns-virtual%}) article.
+The treelist also offers Virtual horizontal scrolling. You can read more about this feature in the [Column Virtualization]({%slug treelist-columns-virtual%}) article.
 
 ## Frozen Columns
 
-The grid lets you freeze one or more columns. You can read more about this feature in the [Frozen columns]({%slug grid-columns-frozen%}) article.
+The TreeList lets you freeze one or more columns. You can read more about this feature in the [Frozen columns]({%slug treelist-columns-frozen%}) article.
 
-## State
-
-The grid provides its current state (such as filtering, sorting, grouping, selection and so on) through methods and events so you can store the grid layout for your end users - this lets them continue where they left off. You can read more about this in the [Grid State]({%slug grid-state%}) article.
 
 
 ## Styling
 
-You can define your own content for column cells or even the entire row through [Templates]({%slug components/grid/features/templates%}).
+You can define your own content for column cells or even the entire row through [Templates]({%slug treelist-templates-overview%}).
 
-You can also set the [`Height` of the grid]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
+You can also set the [`Height` of the treelist]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
 
 For example, you can benefit from the elastic design the components expose to change their font size so they change dimensions.
 
->caption Change font size and dimensions of a grid
+>caption Change font size and dimensions of a treelist
 
 ````CSHTML
-The grid offers elastic design capabilities
+@* The treelist offers elastic design capabilities *@
 
 <style>
     div.smallerFont,
@@ -426,62 +443,83 @@ The grid offers elastic design capabilities
         font-size: 10px;
     }
 
-    div.smallerFont .k-dropdown.k-header.k-dropdown-operator {
-        width: calc(8px + 2em) !important;
-    }
+        div.smallerFont .k-dropdown.k-header.k-dropdown-operator {
+            width: calc(8px + 2em) !important;
+        }
 </style>
 
-<TelerikGrid Data="@MyData" Class="smallerFont"
-			  Pageable="true" FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-			  Sortable="true" Height="200px">
-	<GridColumns>
-		<GridColumn Field="@(nameof(SampleData.ID))">
-		</GridColumn>
-		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-		</GridColumn>
-		<GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
-		</GridColumn>
-	</GridColumns>
-</TelerikGrid>
+<TelerikTreeList Data="@Data"
+                 Class="smallerFont"
+                 IdField="EmployeeId"
+                 ParentIdField="ReportsTo"
+                 Pageable="true" Height="200px">
+    <TreeListColumns>
+        <TreeListColumn Field="FirstName" Expandable="true"></TreeListColumn>
+        <TreeListColumn Field="EmployeeId"></TreeListColumn>
+    </TreeListColumns>
+</TelerikTreeList>
 
-original:
-
-<TelerikGrid Data="@MyData"
-			  Pageable="true" FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-			  Sortable="true" Height="200px">
-	<GridColumns>
-		<GridColumn Field="@(nameof(SampleData.ID))">
-		</GridColumn>
-		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-		</GridColumn>
-		<GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
-		</GridColumn>
-	</GridColumns>
-</TelerikGrid>
+<TelerikTreeList Data="@Data"
+                 IdField="EmployeeId"
+                 ParentIdField="ReportsTo"
+                 Pageable="true" Height="200px">
+    <TreeListColumns>
+        <TreeListColumn Field="FirstName" Expandable="true"></TreeListColumn>
+        <TreeListColumn Field="EmployeeId"></TreeListColumn>
+    </TreeListColumns>
+</TelerikTreeList>
 
 @code {
-	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-		public DateTime HireDate { get; set; }
-	}
+    public List<Employee> Data { get; set; }
 
-	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		ID = x,
-		Name = "name " + x,
-		HireDate = DateTime.Now.AddDays(-x)
-	});
+    public class Employee
+    {
+        public int EmployeeId { get; set; }
+        public string FirstName { get; set; }
+        public int? ReportsTo { get; set; }
+
+    }
+
+    protected override void OnInitialized()
+    {
+        Data = new List<Employee>();
+        var rand = new Random();
+        int currentId = 1;
+
+        for (int i = 1; i < 6; i++)
+        {
+            Data.Add(new Employee()
+            {
+                EmployeeId = currentId,
+                ReportsTo = null,
+                FirstName = "Employee  " + i.ToString()
+            });
+
+            currentId++;
+        }
+        for (int i = 1; i < 6; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                Data.Add(new Employee()
+                {
+                    EmployeeId = currentId,
+                    ReportsTo = i,
+                    FirstName = "    Employee " + i + " : " + j.ToString()
+                });
+
+                currentId++;
+            }
+        }
+    }
 }
 ````
 
->caption The result from the reduced font size is a reduction in the overall size of the grid elements
+>caption The result from the reduced font size is a reduction in the overall size of the treelist elements
 
-![Blazor Grid Component Reduced Font Size Example](images/grid-reduced-font-size.png)
+![Blazor TreeList Component Reduced Font Size Example](images/treelist-small-font-size.png)
 
 ## See Also
 
-  * [Live Demos: Grid](https://demos.telerik.com/blazor-ui/grid/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)
+  * [Live Demos: TreeList](https://demos.telerik.com/blazor-ui/treelist/index)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeList-1)
