@@ -1,70 +1,111 @@
 ---
 title: Row
-page_title: Grid - Row Template
-description: Use custom row templates in Grid for Blazor.
+page_title: TreeList - Row Template
+description: Use custom row templates in treelist for Blazor.
 slug: treelist-templates-row
-tags: telerik,blazor,grid,templates,row
+tags: telerik,blazor,treelist,templates,row
 published: True
 position: 10
 ---
 
 # Row Template
 
-The row template allows you to define in your own code the entire contents of the `<tr>` element the grid will render for each record. To set it, provide contents to the `<RowTemplate>` inner tag of the grid.
+The row template allows you to define in your own code the entire contents of the `<tr>` element the treelist will render for each record. To set it, provide contents to the `<RowTemplate>` inner tag of the treelist.
 
 It can be convenient if you want to use templates for most or all of the columns, as it requires less markup than setting individual templates for many columns.
 
-The contents of the row template must be `<td>` elements and their number (or total `colspan`) must match the number of columns defined in the grid.
+The contents of the row template must be `<td>` elements and their number (or total `colspan`) must match the number of columns defined in the treelist.
 
-You can use the `Context` attribute of the `<RowTemplate>` tag of the grid to set the name of the context variable. Its type is the model type to which the grid is bound.
+You can use the `Context` attribute of the `<RowTemplate>` tag of the treelist to set the name of the context variable. Its type is the model type to which the treelist is bound.
 
->important Using the row template takes functionality away from the grid because it no longer controls its own rendering. For example, InCell and Inline editing could not render editors, detail templates will not be available, column resizing and reordering cannot change the data cells anymore, only the headers, and row selection must be implemented by the app ([example](https://feedback.telerik.com/blazor/1463819)).
+>important Using the row template takes functionality away from the treelist because it no longer controls its own rendering. For example, editing could not render editors, expand-collapse arrows will not be available, column resizing and reordering cannot change the data cells anymore, only the headers, and row selection must be implemented by the app.
 
 >caption Using a row template
 
 ````CSHTML
 Render the entire row with your own code and logic
 
-<TelerikGrid Data=@MyData Height="500px">
-	<RowTemplate Context="employee">
-		<td>
-			<img class="rounded-circle" src="@($"/images/{employee.ID}.jpg")" alt="employee photo" />
-			<strong>@employee.Name</strong>
-		</td>
-		<td>
-			Hired on: @(String.Format("{0:dd MMM yyyy}", employee.HireDate))
-		</td>
-	</RowTemplate>
-	<GridColumns>
-		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-	</GridColumns>
-</TelerikGrid>
+<TelerikTreeList Data="@Data" Pageable="true" IdField="Id" ParentIdField="ParentId" Width="750px">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px">
+        </TreeListColumn>
+        <TreeListColumn Title="Manager" Width="300px">
+        </TreeListColumn>
+    </TreeListColumns>
+    <RowTemplate Context="employee">
+        <td>
+            @employee.Id - @employee.Name
+        </td>
+        <td>
+            @{ var manager = Data.FirstOrDefault(d => d.Id.Equals(employee.ParentId));
+                <strong>"Manager: "</strong> @(manager == null ? "none" : manager.Name) }
+        </td>
+    </RowTemplate>
+</TelerikTreeList>
 
 @code {
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-		public DateTime HireDate { get; set; }
-	}
+    public List<Employee> Data { get; set; }
 
-	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		ID = x,
-		Name = "name " + x,
-		HireDate = DateTime.Now.AddDays(-x)
-	});
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    // sample models and data generation
+
+    public class Employee
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; }
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            data.Add(new Employee
+            {
+                Id = i,
+                ParentId = null,
+                Name = $"root: {i}"
+            });
+
+            for (int j = 1; j < 5; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                {
+                    Id = currId,
+                    ParentId = i,
+                    Name = $"first level child {j} of {i}"
+                });
+
+                for (int k = 1; k < 5; k++)
+                {
+                    data.Add(new Employee
+                    {
+                        Id = currId * 1000 + k,
+                        ParentId = currId,
+                        Name = $"second level child {k} of {i} and {currId}"
+                    }); ;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
 }
 ````
 
->caption The result from the code snippet above
+>caption The result from the code snippet above - the treelist looks like a grid and does not showcase the records hierarchy
 
 ![](images/row-template.png)
 
 
 ## See Also
 
- * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
- * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/customeditor)
+ * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
 
