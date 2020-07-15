@@ -106,39 +106,95 @@ Here is one way to implement a page size choice that puts all records on one pag
 Dynamic page size change
 
 <select @onchange=@ChangePageSize>
-	@for (int i = 1; i < 4; i++)
-	{
-		<option value=@(i*10)>@(i * 10)</option>
-	}
-	<option value="all" selected>all</option>
+    <option value="10" selected>10</option>
+    @for (int i = 2; i < 5; i++)
+    {
+        <option value=@(i*10)>@(i * 10)</option>
+    }
+    <option value="all">all</option>
 </select>
 
-<TelerikGrid Data="@MyData" Pageable="true" PageSize="@PageSize">
-	<GridColumns>
-		<GridColumn Field="ID"></GridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-	</GridColumns>
-</TelerikGrid>
+<TelerikTreeList Data="@Data"
+                 Pageable="true" PageSize="@PageSize"
+                 IdField="Id" ParentIdField="ParentId"
+                 Width="650px">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="300px"></TreeListColumn>
+        <TreeListColumn Field="Id"></TreeListColumn>
+    </TreeListColumns>
+</TelerikTreeList>
 
 @code {
-	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
+    int PageSize { get; set; } = 10;
 
-	protected int PageSize { get; set; }
+    void ChangePageSize(ChangeEventArgs e)
+    {
+        if (e.Value.ToString().ToLowerInvariant() == "all")
+        {
+            PageSize = Data.Count();
+        }
+        else
+        {
+            PageSize = int.Parse(e.Value.ToString());
+        }
+    }
 
-	protected void ChangePageSize(ChangeEventArgs e)
-	{
-		if (e.Value.ToString().ToLowerInvariant() == "all")
-		{
-			PageSize = MyData.Count();
-		}
-		else
-		{
-			PageSize = int.Parse(e.Value.ToString());
-		}
-	}
+    public List<Employee> Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    // sample models and data generation
+
+    public class Employee
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; }
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            data.Add(new Employee
+            {
+                Id = i,
+                ParentId = null,
+                Name = $"root: {i}"
+            });
+
+            for (int j = 2; j < 5; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                {
+                    Id = currId,
+                    ParentId = i,
+                    Name = $"first level child of {i}"
+                });
+
+                for (int k = 3; k < 5; k++)
+                {
+                    data.Add(new Employee
+                    {
+                        Id = currId * 1000 + k,
+                        ParentId = currId,
+                        Name = $"second level child of {i} and {currId}"
+                    }); ;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
 }
 ````
 
 ## See Also
 
-  * [Live Demo: Grid Paging](https://demos.telerik.com/blazor-ui/grid/paging)
+  * [Live Demo: TreeList Paging](https://demos.telerik.com/blazor-ui/treelist/paging)
