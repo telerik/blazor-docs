@@ -1,37 +1,94 @@
 ---
 title: Paging
-page_title: Grid - Paging
-description: Enable and configure paging in Grid for Blazor.
+page_title: TreeList - Paging
+description: Enable and configure paging in TreeList for Blazor.
 slug: treelist-paging
-tags: telerik,blazor,grid,paging
+tags: telerik,blazor,treelist,paging
 published: True
 position: 20
 ---
 
-# Grid Paging
+# TreeList Paging
 
-The Grid component offers support for paging.
+The TreeList component offers support for paging.
 
-To enable paging, set its `Pageable` property to `true`. 
+To enable paging, set its `Pageable` property to `true`.
 
 You can control the number of records per page through the `PageSize` property.
 
-You can set the current page of the grid through its integer `Page` property.
+You can set the current page of the treelist through its integer `Page` property.
 
->caption Enable paging in Telerik Grid
+Paging is calculated for the currently expanded and visible items. Children in collapsed nodes are not included in the total count. Thus, expanding or collapsing a node (row) can change the items you see on the current page.
+
+>caption Enable paging in Telerik TreeList
 
 ````CSHTML
 Enable paging and start on the second page.
 
-<TelerikGrid Data="@MyData" Pageable="true" PageSize="15" Page="2" Height="500px">
-	<GridColumns>
-		<GridColumn Field="ID"></GridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-	</GridColumns>
-</TelerikGrid>
+<TelerikTreeList Data="@Data"
+                 Pageable="true" PageSize="15" Page="2"
+                 IdField="Id" ParentIdField="ParentId"
+                 Width="650px">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="300px"></TreeListColumn>
+        <TreeListColumn Field="Id"></TreeListColumn>
+    </TreeListColumns>
+</TelerikTreeList>
 
 @code {
-	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
+    public List<Employee> Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    // sample models and data generation
+
+    public class Employee
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; }
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List <Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            data.Add(new Employee
+            {
+                Id = i,
+                ParentId = null,
+                Name = $"root: {i}"
+            });
+
+            for (int j = 2; j < 5; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                {
+                    Id = currId,
+                    ParentId = i,
+                    Name = $"first level child of {i}"
+                });
+
+                for (int k = 3; k < 5; k++)
+                {
+                    data.Add(new Employee
+                    {
+                        Id = currId * 1000 + k,
+                        ParentId = currId,
+                        Name = $"second level child of {i} and {currId}"
+                    }); ;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
 }
 ````
 
