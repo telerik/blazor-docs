@@ -20,6 +20,8 @@ You can prevent the user from sorting a certain field by setting `Sortable="fals
 
 You can sort the treelist on the different columns and sorting is done according to the rules for the concrete column type (for example, rules for a `string` are different from rules for an `int`).
 
+Sorting keeps the expanded/collapsed state of items. For example, if filtering brings into view a child whose parent is collapsed, you will only see the collapsed parent.
+
 >caption Enable Sorting in Telerik TreeList
 
 ````CSHTML
