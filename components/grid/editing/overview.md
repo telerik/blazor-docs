@@ -39,7 +39,7 @@ The CUD event handlers receive an argument of type `GridCommandEventArgs` that e
 * `Field` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates which is the model field the user changed when updating data.
 * `Value` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates what is the new value the user changed when updating data.
 
-You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the grid, or components in a column template) through the [grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item).
+You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the grid, or components in a column template) through the [grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item). You can also use the state and the item in the CRUD event handlers to put the grid back in edit/insert mode with the model the user changed, in case the data service call fails.
 
 ## Example
 
