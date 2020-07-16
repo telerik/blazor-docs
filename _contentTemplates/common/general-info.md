@@ -74,3 +74,9 @@ You can get them from the:
 * [Telerik UI for Blazor automated installer]({%slug installation/msi%})
 
 #end
+
+
+
+#valuebind-vs-databind-link
+For details on Value Binding and Data Binding, and the differences between them, see the [Value Binding vs Data Binding]({%slug get-started-value-vs-data-binding%}) article.
+#end

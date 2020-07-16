@@ -12,6 +12,8 @@ position: 1
 
 The Scheduler component is designed to work with a collection of appointments. This article will explain their basic features.
 
+@[template](/_contentTemplates/common/general-info.md#valuebind-vs-databind-link)
+
 In this article:
 
 * [Appointment Features](#appointment-features)

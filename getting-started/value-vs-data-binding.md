@@ -5,7 +5,7 @@ description: Differences between Value Binding and Data Binding in Telerik UI fo
 slug: get-started-value-vs-data-binding
 tags: telerik,blazor,value,data,binding
 published: True
-position: 4
+position: 30
 ---
 
 # Value Binding vs Data Binding
