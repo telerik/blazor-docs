@@ -25,6 +25,8 @@ To show data in a treelist, you must define `TreeListColumn` instances in the `T
 
 Since the treelist is designed for hierarchical data, you should also define which column will hold the expand/collapse arrow for the child items. It can be any column, not necessarily the first, and you denote it by setting its `Expandable` parameter to `true`.
 
+You can read more details on how to tie the treelist to your data fields and child elements in the [Data Binding Overview]({%slug treelist-data-binding-overview%}) article. It provides information on the features of the model, and describing the parent-child relationships in two different ways.
+
 >caption Provide data to the treelist and choose which columns (fields) to see
 
 ````CSHTML
