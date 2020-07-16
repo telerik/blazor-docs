@@ -12,6 +12,8 @@ position: 1
 
 This article explains the different ways to provide data to an AutoComplete component, the properties related to data binding and their results. The key requirements is to have a string field for the suggestions.
 
+@[template](/_contentTemplates/common/general-info.md#valuebind-vs-databind-link)
+
 There are two key ways to bind data:
 
 * [Primitive Type](#primitive-type)

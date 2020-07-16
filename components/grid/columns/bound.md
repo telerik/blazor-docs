@@ -12,6 +12,8 @@ position: 0
 
 This article explains the basics of showing data in a grid and the features of its bound columns.
 
+@[template](/_contentTemplates/common/general-info.md#valuebind-vs-databind-link)
+
 Sections in this article:
 
 * [Show Data In A Grid](#show-data-in-a-grid) (with video tutorial)

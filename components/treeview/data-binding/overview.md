@@ -12,6 +12,8 @@ position: 0
 
 This article explains the different ways to provide data to a TreeView component, the properties related to data binding and their results.
 
+@[template](/_contentTemplates/common/general-info.md#valuebind-vs-databind-link)
+
 First, review:
 
 * The available (bindable) [features of a treeview item](#treeview-item-features).
