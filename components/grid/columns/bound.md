@@ -94,7 +94,7 @@ You can use the following properties on the bound columns:
 
 >tip You can find more examples in the rest of the grid documentation and in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview).
 
->tip The Grid can [automatically generate]({%slug grid-columns-automatically-generated%}) it's columns out of the public properties of the model.
+>tip The Grid can [automatically generate]({%slug grid-columns-automatically-generated%}) its columns out of the public properties of the model.
 
 
 
