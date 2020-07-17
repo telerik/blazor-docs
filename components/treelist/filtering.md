@@ -122,7 +122,7 @@ Once a filter is a applied to a column, a button will appear that lets you clear
 
 ## Filter Menu
 
-To use a filter menu, set the `FilterMode` property of the grid to `Telerik.Blazor.TreeListFilterMode.FilterMenu`.
+To use a filter menu, set the `FilterMode` property of the treelist to `Telerik.Blazor.TreeListFilterMode.FilterMenu`.
 
 The treelist will render a button in the column header that you click to get a popup with filtering options. The popup lets you choose filter operator, filter criteria, to apply and clear the filter.
 
