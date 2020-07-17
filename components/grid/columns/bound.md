@@ -84,12 +84,18 @@ You can use the following properties on the bound columns:
 * `Reorderable` - whether the user can [drag to reorder]({%slug components/grid/columns/reorder%}) this column.
 * `Resizable` - whether the user can [resize]({%slug components/grid/columns/resize%}) this column.
 * `Width` - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article. Keep in mind that these are columns in a `<table>`, so it is often a good practice to leave one column without explicit dimensions so it can accommodate the remaining width and changes to the container size.
+* `Locked` - if this parameter is set to true it [locks]({%slug grid-columns-frozen%}) the column so it is always visible to the user.
 * `Template` - this property can also be used as an inner tag and it lets you define the [column display content]({%slug components/grid/features/templates%}#column-template). It can also point to a component name.
 * `Context` - the standard Blazor context variable name for use inside the inline template.
 * `ref` - the standard Blazor reference name.
 * `EditorTemplate` - this property can also be used as an inner tag and it lets you define the [column edit content]({%slug components/grid/features/templates%}#edit-template). It can also point to a component name.
+* `FilterCellTemplate` - this property can also be used as an inner tag and it lets you customize [the Grid Filter Row]({%slug grid-templates-filter%}#filter-row-template). It can also point to a component name.
+* `FilterMenuTemplate` - this property can also be used as an inner tag and it lets you customize [the Grid Filter Menu]({%slug grid-templates-filter%}#filter-menu-template). It can also point to a component name.
 
 >tip You can find more examples in the rest of the grid documentation and in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview).
+
+>tip The Grid can [automatically generate]({%slug grid-columns-automatically-generated%}) its columns out of the public properties of the model.
+
 
 
 ## Notes
