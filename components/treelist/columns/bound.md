@@ -111,6 +111,7 @@ You can read more details on how to tie the treelist to your data fields and chi
 
 >tip The `Data` collection can be an `ObservableCollection`, an array, a `List` - it must only implement `IEnumerable`.
 
+>tip The TreeList can [generate the columns from the model for you]({%slug treelist-columns-automatically-generated%}).
 
 
 ## TreeList Bound Column Parameters
