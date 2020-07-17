@@ -1,167 +1,108 @@
 ---
 title: Frozen
-page_title: Grid - Frozen Columns
-description: How to freeze grid columns so they are always visible in a scrollable grid.
+page_title: TreeList - Frozen Columns
+description: How to freeze treelist columns so they are always visible in a scrollable treelist.
 slug: treelist-columns-frozen
-tags: telerik,blazor,grid,column,freeze,frozen
+tags: telerik,blazor,treelist,column,freeze,frozen
 published: true
 position: 5
 ---
 
 # Frozen Columns
 
-The Grid lets you freeze one or more columns. This will allow the user to [scroll]({%slug components/grid/overview%}#scrolling) horizontally through the Grid, but still be able to keep some important columns visible at all times (such as ID or command column).
+The treelist lets you freeze one or more columns. This will allow the user to scroll horizontally through the treelist, but still be able to keep some important columns visible at all times (such as ID or command column).
 
 To enable the column freezing, set the `Locked` parameter of the column to `true`.
 
-If the column you want to freeze is not the first in the list, the grid must be scrollable. This requires that there are enough columns with their `Width` set so that the grid has a horizontal scrollbar (the sum of the Widths of the columns exceeds the Width of the grid). You can read more about the scrolling behavior of the grid in the [Grid Column Width Behavior]({%slug grid-columns-width%}) article.
+If the column you want to freeze is not the first in the list, the treelist must be scrollable. This requires that there are enough columns with their `Width` set so that the treelist has a horizontal scrollbar (the sum of the Widths of the columns exceeds the Width of the treelist). You can read more about the scrolling behavior of the treelist in the [TreeList Column Width Behavior]({%slug treelist-columns-width%}) article.
 
-This article you can observe Freezing different columns. The examples are separated into types for clarity:
-* [Frozen first and last columns](#frozen-first-and-last-columns)
-* [Frozen column in the middle of the Grid](#frozen-column-in-the-middle-of-the-grid)
-
-
-## Frozen first and last columns
->caption Use static markup to Freeze the first and last columns in a Grid
-
-![gif of statically locked first and last columns](images/frozen-first-last.gif)
+>caption Frozen columns in the beginning, middle and at the end of the treelist
 
 ````CSHTML
-@if (!string.IsNullOrEmpty(Result))
-{
-    <div class="alert alert-info w-25">@Result</div>
-}
+@* Explore how locked (frozen) columns behave when scrolling. For brevity, editing is not implemented *@
 
-<TelerikGrid Data="@GridData"
-             Width="850px"
-             Height="400px">
-    <GridColumns>
-        <GridColumn Field=@nameof(Product.ProductName) Title="Product Name" Width="150px" Locked="true" />
-        <GridColumn Field=@nameof(Product.UnitPrice) Title="Unit Price" Width="150px" />
-        <GridColumn Field=@nameof(Product.UnitsInStock) Title="Units in stock" Width="150px" />
-        <GridColumn Field=@nameof(Product.CreatedAt) Title="Date created" Width="250px" />
-        <GridColumn Field=@nameof(Product.Discontinued) Title="Discontinued" Width="150px" />
-        <GridCommandColumn Width="250px" Locked="true">
-            <GridCommandButton Command="CustomCommand"
-                               Icon="information"
-                               OnClick="@((GridCommandEventArgs  e) => Result = $" click from {(e.Item as Product).ProductName}" )">
-                Information
-            </GridCommandButton>
-        </GridCommandColumn>
-    </GridColumns>
-</TelerikGrid>
+<TelerikTreeList Data="@Data" Pageable="true" IdField="Id" ParentIdField="ParentId"
+                 Width="850px" Height="400px">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" Locked="true" />
+        <TreeListColumn Field="Id"  Width="120px" />
+        <TreeListColumn Field="ParentId" Locked="true" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="320px" />
+        <TreeListColumn Field="HireDate"  Width="220px" />
+        <TreeListCommandColumn Locked="true" Width="100px">
+            <TreeListCommandButton Command="Edit">Edit</TreeListCommandButton>
+        </TreeListCommandColumn>
+    </TreeListColumns>
+</TelerikTreeList>
 
 @code {
-    private string Result { get; set; }
+    public List<Employee> Data { get; set; }
 
-    #region Sample data
-    public List<Product> GridData { get; set; }
-    DateTime StartDate = new DateTime(2018, 1, 1);
-    static Random RandomGenerator = new Random();
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        GridData = GenerateProducts();
+        Data = await GetTreeListData();
     }
-    private List<Product> GenerateProducts()
+
+    // sample model
+
+    public class Employee
     {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i <= 100; i++)
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    // data generation
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
         {
-            var product = new Product()
+            data.Add(new Employee
             {
-                ProductId = i,
-                ProductName = "Product " + i.ToString(),
-                SupplierId = i,
-                UnitPrice = (decimal)(i * 3.14),
-                UnitsInStock = (short)(i * 1),
-                Discontinued = RandomGenerator.NextDouble() >= 0.5,
-                CreatedAt = GetRandomDate(StartDate)
-            };
-            products.Add(product);
+                Id = i,
+                ParentId = null,
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i)
+            }); ;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                {
+                    Id = currId,
+                    ParentId = i,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId)
+                });
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = currId * 1000 + k;
+                    data.Add(new Employee
+                    {
+                        Id = nestedId,
+                        ParentId = currId,
+                        Name = $"second level child {k} of {i} and {currId}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                }
+            }
         }
-        return products;
+
+        return await Task.FromResult(data);
     }
-    private DateTime GetRandomDate(DateTime startDate)
-    {
-        int range = (DateTime.Today - startDate).Days;
-        return startDate.AddDays(RandomGenerator.Next(range));
-    }
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public int SupplierId { get; set; }
-        public decimal UnitPrice { get; set; }
-        public short UnitsInStock { get; set; }
-        public bool Discontinued { get; set; }
-        public DateTime CreatedAt { get; set; }
-    }
-    #endregion
 }
 ````
-## Frozen column in the middle of the Grid
 
->caption Observe the behavior of a locked column that is neither first, nor last
-
-![gif of two statically frozen columns](images/FrozenSimple.gif)
-
-````CSHTML
-@*You can observe the behavior of a frozen column that is neither first, nor last*@
-
-<TelerikGrid Data="@GridData"
-             Width="550px"
-             Height="400px">
-    <GridColumns>
-        <GridColumn Field=@nameof(Product.ProductName) Title="Product Name" Width="200px" Locked="true" />
-        <GridColumn Field=@nameof(Product.UnitPrice) Title="Unit Price" Width="200px" />
-        <GridColumn Field=@nameof(Product.SupplierId) Title="Supplier Id" Width="150px" Locked="true" />
-        <GridColumn Field="@nameof(Product.UnitsInStock)" Title="Units In Stock" Width="200px" />
-    </GridColumns>
-</TelerikGrid>
-
-
-@code {
-    private bool isFrozen { get; set; } = false;
-    private string Result { get; set; }
-
-    #region Sample data
-    public List<Product> GridData { get; set; }
-    static Random RandomGenerator = new Random();
-    protected override void OnInitialized()
-    {
-        GridData = GenerateProducts();
-    }
-
-    private List<Product> GenerateProducts()
-    {
-        List<Product> products = new List<Product>();
-
-        for (int i = 1; i <= 100; i++)
-        {
-            var product = new Product()
-            {
-                ProductId = i,
-                ProductName = "Product " + i.ToString(),
-                SupplierId = i,
-                UnitPrice = (decimal)(i * 3.14),
-                UnitsInStock = (short)(i * 1),
-            };
-            products.Add(product);
-        }
-        return products;
-    }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public int SupplierId { get; set; }
-        public decimal UnitPrice { get; set; }
-        public short UnitsInStock { get; set; }
-    }
-    #endregion
-}
-````
 
 ## See also
- * [Live demo: Frozen Columns](https://demos.telerik.com/blazor-ui/grid/frozen-columns)
+ * [Live demo: Frozen Columns](https://demos.telerik.com/blazor-ui/treelist/frozen-columns)
