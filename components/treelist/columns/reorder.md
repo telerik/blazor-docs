@@ -1,74 +1,100 @@
 ---
 title: Reorder
-page_title: Grid - Reorder Columns
-description: Drag to reorder columns in the Grid for Blazor.
+page_title: TreeList - Reorder Columns
+description: Drag to reorder columns in the treelist for Blazor.
 slug: treelist-columns-reorder
-tags: telerik,blazor,grid,column,reorder,drag
+tags: telerik,blazor,treelist,column,reorder,drag
 published: True
 position: 2
 ---
 
 # Reorder Columns
 
-The Grid lets the user reorder its columns by dragging their headers.
+The treelist lets the user reorder its columns by dragging their headers.
 
-To enable the column reordering, set the `Reorderable` parameter of the grid to `true`.
+To enable the column reordering, set the `Reorderable` parameter of the treelist to `true`.
 
 To prevent the user from moving a certain column, set its own parameter `Reordarable="false"`. Note that the user can still re-arrange other columns around it.
 
->caption Enable column reordering in Telerik Grid
+>caption Enable column reordering in Telerik treelist
 
 ````CSHTML
-@* Drag a column header between other columns to change the columns positions. You cannot drag the command column. Note that actual CRUD operations and settings are not implemented here for brevity. *@
+@* Drag a column header between other columns to change the columns positions. You cannot drag the Name column itself. *@
 
-<TelerikGrid Data="@GridData"
-             Reorderable="true"
-             Pageable="true" PageSize="10" Sortable="true" Height="300px">
-    <GridColumns>
-        <GridColumn Field=@nameof(SampleData.Id) Title="Id" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="First Name" />
-        <GridColumn Field=@nameof(SampleData.LastName) Title="Last Name" />
-        <GridCommandColumn Width="100px" Reorderable="false">
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
-        </GridCommandColumn>
-    </GridColumns>
-</TelerikGrid>
+<TelerikTreeList Data="@Data" Reorderable="true"
+                 Pageable="true" IdField="Id" ParentIdField="ParentId" Width="650px">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Reorderable="false" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" />
+        <TreeListColumn Field="ParentId" />
+        <TreeListColumn Field="HireDate" />
+    </TreeListColumns>
+</TelerikTreeList>
 
 @code {
-    public List<SampleData> GridData { get; set; }
+    public List<Employee> Data { get; set; }
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        GridData = GetData();
+        Data = await GetTreeListData();
     }
 
-    private List<SampleData> GetData()
-    {
-        return Enumerable.Range(1, 50).Select(x => new SampleData
-        {
-            Id = x,
-            Name = $"name {x}",
-            LastName = $"Surname {x}"
-        }).ToList();
-    }
+    // sample models and data generation
 
-    public class SampleData
+    public class Employee
     {
         public int Id { get; set; }
+        public int? ParentId { get; set; }
         public string Name { get; set; }
-        public string LastName { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            data.Add(new Employee
+            {
+                Id = i,
+                ParentId = null,
+                Name = $"root: {i}",
+                HireDate = DateTime.Now.AddYears(-i)
+            }); ;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                {
+                    Id = currId,
+                    ParentId = i,
+                    Name = $"first level child {j} of {i}",
+                    HireDate = DateTime.Now.AddDays(-currId)
+                });
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = currId * 1000 + k;
+                    data.Add(new Employee
+                    {
+                        Id = nestedId,
+                        ParentId = currId,
+                        Name = $"second level child {k} of {i} and {currId}",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
     }
 }
 ````
 
 
->caption How column reordering works in the Telerik grid
-
-![](images/column-reorder-preview.gif)
 
 ## See Also
 
-  * [Live Demo: Column Reordering](https://demos.telerik.com/blazor-ui/grid/column-reordering)
+  * [Live Demo: Column Reordering](https://demos.telerik.com/blazor-ui/treelist/column-reordering)
