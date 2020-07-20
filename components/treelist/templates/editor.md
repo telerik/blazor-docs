@@ -10,7 +10,7 @@ position: 15
 
 # Edit Template
 
-The column's `EditTemplate` defines the inline template or component that will be rendered when the user is [editing]({%slug treelist-overview%}#editing) the field.
+The column's `EditTemplate` defines the inline template or component that will be rendered when the user is [editing]({%slug treelist-overview%}#editing) the field. It is also used when inserting a new item.
 
 You can data bind components in it to the current context, which is an instance of the model the treelist is bound to. You will need a global variable that is also an instance of the model to store those changes. The model the template receives is a copy of the original model, so that changes can be cancelled (the `Cancel` command).
 
@@ -21,79 +21,174 @@ If you need to perform logic more complex than simple data binding, use the chan
 ````CSHTML
 @* This example shows how to use a dropdownlist to edit strings. You can implement any desired logic instead.
 If you have an enum, the treelist can edit and filter it out-of-the-box without the need for an edit template *@
+@* For brevity, only Editing is implemented in this sample *@
 
-<Teleriktreelist Data=@MyData EditMode="@treelistEditMode.Inline" Pageable="true" Height="500px" OnUpdate="@UpdateHandler">
-    <treelistColumns>
-        <treelistColumn Field=@nameof(SampleData.ID) Editable="false" Title="ID" />
-        <treelistColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <treelistColumn Field=@nameof(SampleData.Role) Title="Position">
+<TelerikTreeList Data="@Data"
+                 EditMode="@TreeListEditMode.Inline"
+                 OnUpdate="@UpdateItem"
+                 Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
+                 Width="850px">
+    <TreeListColumns>
+        <TreeListCommandColumn Width="100px">
+            <TreeListCommandButton Command="Edit" Icon="@IconName.Edit">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="@IconName.Save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="@IconName.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+        </TreeListCommandColumn>
+
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Role" Width="150px" Title="Position">
             <EditorTemplate>
                 @{
-                    CurrentlyEditedEmployee = context as SampleData;
-                    <TelerikDropDownList Data="@Roles" @bind-Value="CurrentlyEditedEmployee.Role" Width="120px" PopupHeight="auto"></TelerikDropDownList>
+                    CurrentlyEditedEmployee = context as Employee;
+                    <TelerikDropDownList Data="@Roles" @bind-Value="@CurrentlyEditedEmployee.Role"
+                                         Width="100%" PopupHeight="auto" DefaultText="Select Role...">
+                    </TelerikDropDownList>
                 }
             </EditorTemplate>
-        </treelistColumn>
-        <treelistCommandColumn>
-            <treelistCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</treelistCommandButton>
-            <treelistCommandButton Command="Edit" Icon="edit">Edit</treelistCommandButton>
-        </treelistCommandColumn>
-    </treelistColumns>
-</Teleriktreelist>
+        </TreeListColumn>
+        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
 
 @code {
-    public SampleData CurrentlyEditedEmployee { get; set; }
+    public List<Employee> Data { get; set; }
+    public static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
+    public Employee CurrentlyEditedEmployee { get; set; }
 
-    public void UpdateHandler(treelistCommandEventArgs args)
+    // used in this example for data generation and retrieval for CUD operations on the current view-model data
+    public int LastId { get; set; } = 1;
+
+    // Sample CUD operations for the local data
+    async Task UpdateItem(TreeListCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        var item = args.Item as Employee; // you can also use the entire model
 
-        //perform actual data source operations here
-        //if you have a context added through an @inject statement, you could call its SaveChanges() method
-        //myContext.SaveChanges();
+        // perform actual data source operations here through your service
 
-        var index = MyData.FindIndex(i => i.ID == item.ID);
-        if (index != -1)
+        // if the treelist Data is not tied to the service, you may need to update the local view data too
+        var foundItem = FindItemRecursive(Data, item.Id);
+        if (foundItem != null)
         {
-            MyData[index] = item;
+            foundItem.Name = item.Name;
+            foundItem.Role = item.Role;
+            foundItem.HireDate = item.HireDate;
+            foundItem.EmailAddress = item.EmailAddress;
+            // for simplicity, this copies all fields, consider altering only the needed field
         }
     }
 
-    protected override void OnInitialized()
-    {
-        MyData = new List<SampleData>();
 
-        for (int i = 0; i < 50; i++)
+    // sample helper methods for handling the view-model data hierarchy
+
+    private Employee FindItemRecursive(List<Employee> items, int id)
+    {
+        foreach (var item in items)
         {
-            MyData.Add(new SampleData()
+            if (item.Id.Equals(id))
             {
-                ID = i,
-                Name = "name " + i,
-                Role = Roles[i % Roles.Count]
-            });
+                return item;
+            }
+
+            if (item.DirectReports?.Count > 0)
+            {
+                var childItem = FindItemRecursive(item.DirectReports, id);
+
+                if (childItem != null)
+                {
+                    return childItem;
+                }
+            }
         }
+
+        return null;
     }
 
-    //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
+    // sample model
+
+    public class Employee
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Role { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+
+        public List<Employee> DirectReports { get; set; }
+        public bool HasChildren { get; set; }
     }
 
-    public List<SampleData> MyData { get; set; }
+    // data generation
 
-    public static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            Employee root = new Employee
+            {
+                Id = LastId,
+                Name = $"root: {i}",
+                Role = Roles[i % Roles.Count],
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i),
+                DirectReports = new List<Employee>(),
+                HasChildren = true
+            };
+            data.Add(root);
+            LastId++;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = LastId;
+                Employee firstLevelChild = new Employee
+                {
+                    Id = currId,
+                    Name = $"first level child {j} of {i}",
+                    Role = Roles[j % Roles.Count],
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId),
+                    DirectReports = new List<Employee>(),
+                    HasChildren = true
+                };
+                root.DirectReports.Add(firstLevelChild);
+                LastId++;
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = LastId;
+                    firstLevelChild.DirectReports.Add(new Employee
+                    {
+                        Id = LastId,
+                        Name = $"second level child {k} of {j} and {i}",
+                        Role = Roles[k % Roles.Count],
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                    LastId++;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
 }
 ````
 
->caption The result from the code snippet above, after Edit was clicked on the first row and the user expanded the dropdown from the template
+>caption The result from the code snippet above, after Edit was clicked on the row with ID 4, and the user expanded the dropdown from the template
 
 ![](images/edit-template.png)
 
 ## See Also
 
+ * [TreeList Editing]({%slug treelist-editing-overview%})
  * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
  * [Live Demo: TreeList Custom Editor Template](https://demos.telerik.com/blazor-ui/treelist/customeditor)
 

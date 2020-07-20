@@ -278,7 +278,7 @@ Editing is cancelled for the first record.<br />
 
 * It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
 
-* When using an [editor template]({%slug treelist-templates-edit%}), the treelist cannot always know what the custom editor needs to do, and when it needs to close the cell and update the data, because this is up to the editor. Thus, to save changes when a custom editor is used, a click on the Save command button is necessary.
+* When using an [editor template]({%slug treelist-templates-editor%}), the treelist cannot always know what the custom editor needs to do, and when it needs to close the cell and update the data, because this is up to the editor. Thus, to save changes when a custom editor is used, a click on the Save command button is necessary.
 
 
 <!-- Thus, you can use the treelist [state]({%slug treelist-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`.

@@ -272,5 +272,5 @@ Editing is cancelled for the first record.<br />
 ## See Also
 
   * [Live Demo: TreeList PopUp Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
-  * [Custom Editor Template Per Field]({%slug treelist-templates-edit%})
+  * [Custom Editor Template Per Field]({%slug treelist-templates-editor%})
 
