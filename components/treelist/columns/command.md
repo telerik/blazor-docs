@@ -1,157 +1,235 @@
 ---
 title: Command Column
-page_title: Grid - Command Column
-description: Command buttons per row in Grid for Blazor.
+page_title: TreeList - Command Column
+description: Command buttons per row in treelist for Blazor.
 slug: treelist-columns-command
-tags: telerik,blazor,grid,column,command
+tags: telerik,blazor,treelist,column,command
 published: True
 position: 1
 ---
 
-# Grid Command Column
+# TreeList Command Column
 
-The command column of a grid allows you to initiate [inline]({%slug components/grid/editing/inline%}) or [popup]({%slug components/grid/editing/popup%}) editing, or to execute your own commands.
+The command column of a treelist allows you to initiate [inline]({%slug treelist-editing-inline%}) or [popup]({%slug treelist-editing-popup%}) editing, or to execute your own commands.
 
-To define it, add a `GridCommandColumn` in the `GridColumns` collection of a grid. The command column takes a collection of `GridCommandButton` instances that invoke the commands. It also offers the `Title` property so you can set its header text.
+To define it, add a `TreeListCommandColumn` in the `TreeListColumns` collection of a treelist. The command column takes a collection of `TreeListCommandButton` instances that invoke the commands. It also offers the `Title` property so you can set its header text.
 
 >tip The lists below showcase the available features and their use. After them you can find a code example that shows declarations and handling.
 
-The `GridCommandButton` tag offers the following features:
+The `TreeListCommandButton` tag offers the following features:
 
 * `Command` - the command that will be invoked. Can be one of the built-in commands (see below), or a custom command name.
-* `OnClick` - the event handler that the button will fire. If used on a built-in command, this handler will fire before the [corresponding CRUD event]({%slug components/grid/editing/overview%}). Cancelling it will prevent the built-in CRUD event from firing.
+* `OnClick` - the event handler that the button will fire. If used on a built-in command, this handler will fire before the [corresponding CRUD event]({%slug treelist-editing-overview%}). Cancelling it will prevent the built-in CRUD event from firing.
 * `ShowInEdit` - a boolean property indicating whether the button is only visible while the user is editing/inserting data.
 * `ChildContent` - the text the button will render. You can also place it between the command button's opening and closing tags.
 * Appearance properties like `Icon`, `Class`, `Enabled` that are come from the underlying [Button Component features]({%slug components/button/overview%}).
 
-There are three built-in commands:
+There are four built-in commands:
 
-* `Edit` - initiates the inline or popup editing (depending on the GridEditMode configuration of the grid).
-* `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was added through the grid or not.
+* `Add` - initiates the creation of a new item. Can apply to rows as well, to create a child element for the current row.
+* `Edit` - initiates the inline or popup editing (depending on the TreeListEditMode configuration of the treelist).
+* `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was added through the treelist or not.
 * `Cancel` - aborts the current operation (edit or insert).
 
-The `OnClick` handler of the commands receives an argument of type `GridCommandEventArgs` that exposes the following properties:
+The `OnClick` handler of the commands receives an argument of type `TreeListCommandEventArgs` that exposes the following properties:
 
 * `IsCancelled` - set this to true to prevent the operation if the business logic requires it.
-* `Item` - the model item the grid row is bound to. You can use it to access the model fields and methods in order to preform the actual data source operations.
-* `IsNew` - a boolean field indicating whether the item was just added through the grid interface.
+* `Item` - the model item the treelist row is bound to. You can use it to access the model fields and methods in order to preform the actual data source operations. Applicable for buttons in a row, not in a toolbar.
+* `ParentItem` - the parent item of the current item, if any, otherwise `null`.
+* `IsNew` - a boolean field indicating whether the item was just added through the treelist interface.
 
->tip For handling CRUD operations we recommend that you use the grid events (`OnEdit`, `OnUpdate`, `OnCancel`, `OnCreate`). The `OnClick` handler is available for the built-in commands to provide consistency of the API.
+>tip For handling CRUD operations we recommend that you use the treelist events (`OnEdit`, `OnUpdate`, `OnCancel`, `OnCreate`). The `OnClick` handler is available for the built-in commands to provide consistency of the API.
 
->tip The event handlers use `EventCallback` and can be syncronous or async. This example shows async versions, and the signature for the syncrhronous handlers is `void MyHandlerName(GridCommandEventArgs args)`.
+>tip The event handlers use `EventCallback` and can be synchronous or async. This example shows async versions, and the signature for the synchronous handlers is `void MyHandlerName(TreeListCommandEventArgs args)`.
 
->caption Example of adding and handling command columns for inline editing of a grid
+>caption Example of adding and handling command columns for inline editing of a treelist
 
 ````CSHTML
-Edit will be cancelled for "name 2". There is a deliberate delay in the event handlers to showcase their async nature. Actual CRUD operations are not implemented, the code showcases how you can obtain the information so you can use it.
-<br />
+@* This sample showcases custom command handling for:
+    - the built-in Save command that prevents it based on some condition
+    - a custom command for a row
+    *@
+
 @CustomCommandResult
 
-<TelerikGrid Data=@GridData EditMode="@GridEditMode.Inline"
-			 Pageable="true" PageSize="15" Height="500px">
-	<GridColumns>
-		<GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />
-		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-		<GridCommandColumn>
-			<GridCommandButton Command="Edit" Icon="edit" OnClick="@MyEditHandler">Edit</GridCommandButton>
-			<GridCommandButton Command="Save" Icon="save" ShowInEdit="true" OnClick="@MyUpdateHandler">Update</GridCommandButton>
-			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true" OnClick="@MyCancelHandler">Cancel</GridCommandButton>
-			<GridCommandButton Command="MyOwnCommand" Icon="information" ShowInEdit="false" OnClick="@MyCustomCommand">My Command</GridCommandButton>
-		</GridCommandColumn>
-	</GridColumns>
-</TelerikGrid>
+<TelerikTreeList Data="@Data"
+                 EditMode="@TreeListEditMode.Inline"
+                 OnUpdate="@UpdateItem"
+                 Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
+                 Width="850px">
+    <TreeListColumns>
+
+        <TreeListCommandColumn Width="250px">
+            <TreeListCommandButton Command="Edit" Icon="@IconName.Edit">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="@IconName.Save" ShowInEdit="true" OnClick="@CustomSaveClick">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="@IconName.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+            <TreeListCommandButton Command="MyCustomCommand" Icon="@IconName.Gear" OnClick="@MyCustomCommandHandler">Custom Command</TreeListCommandButton>
+        </TreeListCommandColumn>
+
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Role" Width="150px" Title="Position" />
+        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
 
 @code {
-	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-		public DateTime HireDate { get; set; }
-	}
+    public List<Employee> Data { get; set; }
+    public static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
+    public Employee CurrentlyEditedEmployee { get; set; }
 
-	public IEnumerable<SampleData> GridData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		ID = x,
-		Name = "name " + x,
-		HireDate = DateTime.Now.AddDays(-x)
-	});
+    // used in this example for data generation and retrieval for CUD operations on the current view-model data
+    public int LastId { get; set; } = 1;
 
-	private async Task MyEditHandler(GridCommandEventArgs args)
-	{
-		Console.WriteLine("Edit Click fired. Please wait for the long operation to finish");
+    // Sample CUD operations for the local data
+    async Task UpdateItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee; // you can also use the entire model
 
-		int empId = (args.Item as SampleData).ID;
+        // perform actual data source operations here through your service
 
-		//example of cancelling an event based on condition
-		//we recommend you do this in the corresponding CRUD event
-		if (empId == 2)
-		{
-			args.IsCancelled = true;
-		}
+        // if the treelist Data is not tied to the service, you may need to update the local view data too
+        var foundItem = FindItemRecursive(Data, item.Id);
+        if (foundItem != null)
+        {
+            foundItem.Name = item.Name;
+            foundItem.Role = item.Role;
+            foundItem.HireDate = item.HireDate;
+            foundItem.EmailAddress = item.EmailAddress;
+        }
+    }
 
-		await Task.Delay(2000); //simulate actual long running async operation
-		//await httpClient.PutJsonAsync("myApiUrl/" + empId, args.Item as SampleData); //sample HTTP call
-	}
+    // sample custom command handling
 
-	private async Task MyUpdateHandler(GridCommandEventArgs args)
-	{
-		Console.WriteLine("Update Click fired. Please wait for the long operation to finish");
+    async Task CustomSaveClick(TreeListCommandEventArgs e)
+    {
+        Employee theUpdatedItem = e.Item as Employee;
+        // any custom logic
+        if (theUpdatedItem.Name.Contains("a"))
+        {
+            // prevent the operation based on a condition. Will prevent the OnUpdate event from firing
+            CustomCommandResult = new MarkupString("Update Click fired. Custom logic prevent it from continuing.");
+            e.IsCancelled = true;
+        }
+    }
 
-		SampleData theUpdatedItem = args.Item as SampleData;
-		//save changes, for example by using the model fields and/or methods
-		//we recommend you do this in the corresponding CRUD event
+    MarkupString CustomCommandResult;
+    async Task MyCustomCommandHandler(TreeListCommandEventArgs args)
+    {
+        CustomCommandResult = new MarkupString(string.Format("Custom command triggered for item {0}", (args.Item as Employee).Id));
 
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
+        Console.WriteLine("The Custom command fired. Please wait for the long operation to finish");
 
-		await Task.Delay(2000); //simulate actual long running async operation
-		//await httpClient.PutJsonAsync("myApiUrl/" + theUpdatedItem.ID, theUpdatedItem); //sample HTTP call
-	}
+        await Task.Delay(2000); //simulate actual long running async operation
+    }
 
-	private async Task MyCancelHandler(GridCommandEventArgs args)
-	{
-		Console.WriteLine("Cancel Click fired. Please wait for the long operation to finish");
+    // sample helper methods for handling the view-model data hierarchy
 
-		SampleData theUpdatedItem = args.Item as SampleData;
-		//revert the changes
-		//we recommend you do this in the corresponding CRUD event
+    private Employee FindItemRecursive(List<Employee> items, int id)
+    {
+        foreach (var item in items)
+        {
+            if (item.Id.Equals(id))
+            {
+                return item;
+            }
 
-		//if you have a context added through an @inject statement, you could use something like this to abort changes
-		//foreach (var entry in nwContext.ChangeTracker.Entries().Where(entry => entry.State == EntityState.Modified))
-		//{
-		//  entry.State = EntityState.Unchanged;
-		//}
+            if (item.DirectReports?.Count > 0)
+            {
+                var childItem = FindItemRecursive(item.DirectReports, id);
 
-		await Task.Delay(2000); //simulate actual long running async operation
-		//await httpClient.PutJsonAsync("myApiUrl/" + theUpdatedItem.ID, theUpdatedItem); //sample HTTP call
+                if (childItem != null)
+                {
+                    return childItem;
+                }
+            }
+        }
 
-		//inform the view to update
-		StateHasChanged();
-	}
+        return null;
+    }
 
-	private MarkupString CustomCommandResult;
+    // sample model
 
-	private async Task MyCustomCommand(GridCommandEventArgs args)
-	{
-		Console.WriteLine("The Custom command fired. Please wait for the long operation to finish");
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Role { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
 
-		CustomCommandResult = new MarkupString(string.Format("Custom command triggered for item {0}", (args.Item as SampleData).ID));
+        public List<Employee> DirectReports { get; set; }
+        public bool HasChildren { get; set; }
+    }
 
-		await Task.Delay(2000); //simulate actual long running async operation
-		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
+    // data generation
 
-		//inform the UI for changes because this sample implementation needs it
-		StateHasChanged();
-	}
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            Employee root = new Employee
+            {
+                Id = LastId,
+                Name = $"root: {i}",
+                Role = Roles[i % Roles.Count],
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i),
+                DirectReports = new List<Employee>(),
+                HasChildren = true
+            };
+            data.Add(root);
+            LastId++;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = LastId;
+                Employee firstLevelChild = new Employee
+                {
+                    Id = currId,
+                    Name = $"first level child {j} of {i}",
+                    Role = Roles[j % Roles.Count],
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId),
+                    DirectReports = new List<Employee>(),
+                    HasChildren = true
+                };
+                root.DirectReports.Add(firstLevelChild);
+                LastId++;
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = LastId;
+                    firstLevelChild.DirectReports.Add(new Employee
+                    {
+                        Id = LastId,
+                        Name = $"second level child {k} of {j} and {i}",
+                        Role = Roles[k % Roles.Count],
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                    LastId++;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
 }
 ````
 
->caption The result from the code snippet above, after Edit was clicked on the first row, and the custom command button on the third row was clicked.
+>caption The result from the code snippet above, after the custom command was clicked for the second row, and after the user tried to edit the first row to put the letter "a" in the Name column.
 
 ![](images/command-column-result.png)
 
 ## See Also
 
-  * [Live Demo: Grid Command Column](https://demos.telerik.com/blazor-ui/grid/inlineediting)
+  * [Live Demo: TreeList Command Column](https://demos.telerik.com/blazor-ui/treelist/inlineediting)

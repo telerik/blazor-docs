@@ -24,8 +24,9 @@ The `GridCommandButton` tag offers the following features:
 * `ChildContent` - the text the button will render. You can also place it between the command button's opening and closing tags.
 * Appearance properties like `Icon`, `Class`, `Enabled` that are come from the underlying [Button Component features]({%slug components/button/overview%}).
 
-There are three built-in commands:
+There are four built-in commands:
 
+* `Add` - initiates the creation of a new item.
 * `Edit` - initiates the inline or popup editing (depending on the GridEditMode configuration of the grid).
 * `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was added through the grid or not.
 * `Cancel` - aborts the current operation (edit or insert).
@@ -33,12 +34,12 @@ There are three built-in commands:
 The `OnClick` handler of the commands receives an argument of type `GridCommandEventArgs` that exposes the following properties:
 
 * `IsCancelled` - set this to true to prevent the operation if the business logic requires it.
-* `Item` - the model item the grid row is bound to. You can use it to access the model fields and methods in order to preform the actual data source operations.
+* `Item` - the model item the grid row is bound to. You can use it to access the model fields and methods in order to preform the actual data source operations. Applicable for buttons in a row, not in a toolbar.
 * `IsNew` - a boolean field indicating whether the item was just added through the grid interface.
 
 >tip For handling CRUD operations we recommend that you use the grid events (`OnEdit`, `OnUpdate`, `OnCancel`, `OnCreate`). The `OnClick` handler is available for the built-in commands to provide consistency of the API.
 
->tip The event handlers use `EventCallback` and can be syncronous or async. This example shows async versions, and the signature for the syncrhronous handlers is `void MyHandlerName(GridCommandEventArgs args)`.
+>tip The event handlers use `EventCallback` and can be synchronous or async. This example shows async versions, and the signature for the synchronous handlers is `void MyHandlerName(GridCommandEventArgs args)`.
 
 >caption Example of adding and handling command columns for inline editing of a grid
 

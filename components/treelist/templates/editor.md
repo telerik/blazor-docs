@@ -75,7 +75,6 @@ If you have an enum, the treelist can edit and filter it out-of-the-box without 
             foundItem.Role = item.Role;
             foundItem.HireDate = item.HireDate;
             foundItem.EmailAddress = item.EmailAddress;
-            // for simplicity, this copies all fields, consider altering only the needed field
         }
     }
 
