@@ -42,7 +42,7 @@ The `OnClick` handler of the commands receives an argument of type `TreeListComm
 
 >tip The event handlers use `EventCallback` and can be synchronous or async. This example shows async versions, and the signature for the synchronous handlers is `void MyHandlerName(TreeListCommandEventArgs args)`.
 
->caption Example of adding and handling command columns for inline editing of a treelist
+>caption Example of handling custom commands in a treelist
 
 ````CSHTML
 @* This sample showcases custom command handling for:

@@ -41,115 +41,86 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 
 >tip The event handlers use `EventCallback` and can be synchronous or async. This example shows async versions, and the signature for the synchronous handlers is `void MyHandlerName(GridCommandEventArgs args)`.
 
->caption Example of adding and handling command columns for inline editing of a grid
+>caption Example of handling custom commands in a grid column
 
 ````CSHTML
-Edit will be cancelled for "name 2". There is a deliberate delay in the event handlers to showcase their async nature. Actual CRUD operations are not implemented, the code showcases how you can obtain the information so you can use it.
-<br />
+@* This sample showcases custom command handling for:
+    - the built-in Save command that prevents it based on some condition
+    - a custom command for a row
+    *@
+    
 @CustomCommandResult
 
-<TelerikGrid Data=@GridData EditMode="@GridEditMode.Inline"
-			 Pageable="true" PageSize="15" Height="500px">
-	<GridColumns>
-		<GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />
-		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-		<GridCommandColumn>
-			<GridCommandButton Command="Edit" Icon="edit" OnClick="@MyEditHandler">Edit</GridCommandButton>
-			<GridCommandButton Command="Save" Icon="save" ShowInEdit="true" OnClick="@MyUpdateHandler">Update</GridCommandButton>
-			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true" OnClick="@MyCancelHandler">Cancel</GridCommandButton>
-			<GridCommandButton Command="MyOwnCommand" Icon="information" ShowInEdit="false" OnClick="@MyCustomCommand">My Command</GridCommandButton>
-		</GridCommandColumn>
-	</GridColumns>
+<TelerikGrid Data=@GridData EditMode="@GridEditMode.Inline" OnUpdate="@MyUpdateHandler"
+             Pageable="true" PageSize="15" Height="500px">
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />
+        <GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
+        <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true" OnClick="@CustomSaveClick">Update</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="MyOwnCommand" Icon="information" ShowInEdit="false" OnClick="@MyCustomCommandHandler">My Command</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
 </TelerikGrid>
 
 @code {
-	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-		public DateTime HireDate { get; set; }
-	}
+    //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+    public class SampleData
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public DateTime HireDate { get; set; }
+    }
 
-	public IEnumerable<SampleData> GridData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		ID = x,
-		Name = "name " + x,
-		HireDate = DateTime.Now.AddDays(-x)
-	});
+    List<SampleData> GridData = Enumerable.Range(1, 50).Select(x => new SampleData
+    {
+        ID = x,
+        Name = "name " + x,
+        HireDate = DateTime.Now.AddDays(-x)
+    }).ToList();
 
-	private async Task MyEditHandler(GridCommandEventArgs args)
-	{
-		Console.WriteLine("Edit Click fired. Please wait for the long operation to finish");
+    // sample custom commands handling
 
-		int empId = (args.Item as SampleData).ID;
+    async Task CustomSaveClick(GridCommandEventArgs e)
+    {
+        SampleData theUpdatedItem = e.Item as SampleData;
+        // any custom logic
+        if (theUpdatedItem.Name.Contains("3"))
+        {
+            // prevent the operation based on a condition. Will prevent the OnUpdate event from firing
+            CustomCommandResult = new MarkupString(CustomCommandResult + "<br />Update Click fired. Custom logic prevent it from continuing.");
+            e.IsCancelled = true;
+        }
+    }
 
-		//example of cancelling an event based on condition
-		//we recommend you do this in the corresponding CRUD event
-		if (empId == 2)
-		{
-			args.IsCancelled = true;
-		}
+    MarkupString CustomCommandResult;
+    async Task MyCustomCommandHandler(GridCommandEventArgs args)
+    {
+        CustomCommandResult = new MarkupString(CustomCommandResult + string.Format("<br />Custom command triggered for item {0}", (args.Item as SampleData).ID));
 
-		await Task.Delay(2000); //simulate actual long running async operation
-		//await httpClient.PutJsonAsync("myApiUrl/" + empId, args.Item as SampleData); //sample HTTP call
-	}
+        Console.WriteLine("The Custom command fired. Please wait for the long operation to finish");
 
-	private async Task MyUpdateHandler(GridCommandEventArgs args)
-	{
-		Console.WriteLine("Update Click fired. Please wait for the long operation to finish");
+    }
 
-		SampleData theUpdatedItem = args.Item as SampleData;
-		//save changes, for example by using the model fields and/or methods
-		//we recommend you do this in the corresponding CRUD event
+    // sample CUD operations
 
-		//if you have a context added through an @inject statement, you could call its SaveChanges() method
-		//myContext.SaveChanges();
-
-		await Task.Delay(2000); //simulate actual long running async operation
-		//await httpClient.PutJsonAsync("myApiUrl/" + theUpdatedItem.ID, theUpdatedItem); //sample HTTP call
-	}
-
-	private async Task MyCancelHandler(GridCommandEventArgs args)
-	{
-		Console.WriteLine("Cancel Click fired. Please wait for the long operation to finish");
-
-		SampleData theUpdatedItem = args.Item as SampleData;
-		//revert the changes
-		//we recommend you do this in the corresponding CRUD event
-
-		//if you have a context added through an @inject statement, you could use something like this to abort changes
-		//foreach (var entry in nwContext.ChangeTracker.Entries().Where(entry => entry.State == EntityState.Modified))
-		//{
-		//  entry.State = EntityState.Unchanged;
-		//}
-
-		await Task.Delay(2000); //simulate actual long running async operation
-		//await httpClient.PutJsonAsync("myApiUrl/" + theUpdatedItem.ID, theUpdatedItem); //sample HTTP call
-
-		//inform the view to update
-		StateHasChanged();
-	}
-
-	private MarkupString CustomCommandResult;
-
-	private async Task MyCustomCommand(GridCommandEventArgs args)
-	{
-		Console.WriteLine("The Custom command fired. Please wait for the long operation to finish");
-
-		CustomCommandResult = new MarkupString(string.Format("Custom command triggered for item {0}", (args.Item as SampleData).ID));
-
-		await Task.Delay(2000); //simulate actual long running async operation
-		//await httpClient.PutJsonAsync("myApiUrl/" + item.Id, item); //sample HTTP call
-
-		//inform the UI for changes because this sample implementation needs it
-		StateHasChanged();
-	}
+    private async Task MyUpdateHandler(GridCommandEventArgs args)
+    {
+        SampleData theUpdatedItem = args.Item as SampleData;
+        // if the grid Data is not tied to the service, you may need to update the local view data too
+        var index = GridData.FindIndex(i => i.ID == theUpdatedItem.ID);
+        if (index != -1)
+        {
+            GridData[index] = theUpdatedItem;
+        }
+    }
 }
 ````
 
->caption The result from the code snippet above, after Edit was clicked on the first row, and the custom command button on the third row was clicked.
+>caption The result from the code snippet above, after the custom command button was clicked on the first row, and after the user tried to edit the second row to put the number "3" in the Name column.
 
 ![](images/command-column-result.png)
 
