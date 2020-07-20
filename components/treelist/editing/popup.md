@@ -27,8 +27,7 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 @using System.ComponentModel.DataAnnotations
 @* Used for the model annotations only *@
 
-Editing is cancelled for the first record.
-<br />
+Editing is cancelled for the first record.<br />
 
 <TelerikTreeList Data="@Data"
                  EditMode="@TreeListEditMode.Popup"
