@@ -41,7 +41,7 @@ The CUD event handlers receive an argument of type `TreeListCommandEventArgs` th
 * `Value` - specific to [InCell editing]({%slug treelist-editing-incell%}) - indicates what is the new value the user changed when updating data.
 
 <!--
-You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the treelist, or components in a column template) through the [treelist state]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item).
+You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the treelist, or components in a column template) through the [treelist state]({                      %slug treelist-state%}#initiate-editing-or-inserting-of-an-item).
 -->
 
 ## Example
@@ -324,7 +324,7 @@ There are a few considerations to keep in mind with the CUD operations of the tr
 
 * The treelist uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert action is invoked, so the Model should have a Parameterless constructor defined. 
 
-<!-- A workaround might be [invoking Insert through the treelist state]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
+<!-- A workaround might be [invoking Insert through the treelist state]({                    %slug treelist-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
 -->
 
 ## See Also

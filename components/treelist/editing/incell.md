@@ -281,7 +281,7 @@ Editing is cancelled for the first record.<br />
 * When using an [editor template]({%slug treelist-templates-editor%}), the treelist cannot always know what the custom editor needs to do, and when it needs to close the cell and update the data, because this is up to the editor. Thus, to save changes when a custom editor is used, a click on the Save command button is necessary.
 
 
-<!-- Thus, you can use the treelist [state]({%slug treelist-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`.
+<!-- Thus, you can use the treelist [state]({                   %slug treelist-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`.
     * When keyboard navigation is enabled in the treelist (`Navigable=true`), the treelist will capture `Enter` keypresses when the cell is focused, and will close the cell with the corresponding update. You can either use that (e.g., a simple input will let the keypress event propagate to the treelist cell), or you can prevent the event propagation and use only your business logic.
     
     The example below shows how you can use both a navigable treelist and events on the custom editor templates to close the cells when Enter is pressed or when they lose focus, much like an Excel spreadsheet behaves.

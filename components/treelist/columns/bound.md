@@ -152,7 +152,7 @@ You can use the following properties on the bound columns:
 
 * The treelist uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert action is invoked, so the Model should have a Parameterless constructor defined. 
 
-<!-- A workaround might be [invoking Insert through the treelist state]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code. -->
+<!-- A workaround might be [invoking Insert through the treelist state]({            %slug treelist-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code. -->
 
 
 >tip You can improve performance by loading child nodes only when the user expands them. Read more in the [Load on Demand]({%slug treelist-data-binding-load-on-demand%}) article.
