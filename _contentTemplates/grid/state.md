@@ -183,7 +183,7 @@
 
 <TelerikButton Primary="true" OnClick="@SetGridGroup">set grouping from code</TelerikButton>
 
-<TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
+<TelerikGrid Data="@MyData" Height="400px" @ref="@Grid" Groupable="true"
              Pageable="true" FilterMode="@GridFilterMode.FilterMenu">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
