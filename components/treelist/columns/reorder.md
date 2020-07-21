@@ -22,7 +22,7 @@ To prevent the user from moving a certain column, set its own parameter `Reordar
 @* Drag a column header between other columns to change the columns positions. You cannot drag the Name column itself. *@
 
 <TelerikTreeList Data="@Data" Reorderable="true"
-                 Pageable="true" IdField="Id" ParentIdField="ParentId" Width="650px">
+                 Pageable="true" IdField="Id" ParentIdField="ParentId" Width="650px" Height="400px">
     <TreeListColumns>
         <TreeListColumn Field="Name" Reorderable="false" Expandable="true" Width="320px" />
         <TreeListColumn Field="Id" />
@@ -92,6 +92,10 @@ To prevent the user from moving a certain column, set its own parameter `Reordar
     }
 }
 ````
+
+>caption Reordering columns in the Telerik TreeList
+
+![Reorder columns in the telerik treelist](images/column-reorder.gif)
 
 
 
