@@ -10,7 +10,7 @@ position: 0
 
 # Blazor TreeList Component Overview
 
-The TreeList displays hierarchical data in a tabular format and allows [sorting]({%slug treelist-sorting%}), [filtering]({%slug treelist-filtering%}), [data editing]({%slug treelist-editing-overview%}); provides [aggregates]({%slug treelist-aggregates%}), item [selection]({%slug treelist-selection-overview%}), [templates]({%slug treelist-templates-overview%}) and [load on demand]({%slug treelist-data-binding-load-on-demand%}).
+The TreeList displays hierarchical data in a tabular format and allows [sorting]({%slug treelist-sorting%}), [filtering]({%slug treelist-filtering%}), [data editing]({%slug treelist-editing-overview%}); provides item [selection]({%slug treelist-selection-overview%}), [templates]({%slug treelist-templates-overview%}) and [load on demand]({%slug treelist-data-binding-load-on-demand%}).
 
 
 >caption To create a basic Telerik TreeList:
@@ -20,10 +20,14 @@ The TreeList displays hierarchical data in a tabular format and allows [sorting]
     * Read more on how to tie the model fields to the treelist in the [Data Binding Overview]({%slug treelist-data-binding-overview%}) article. In this example, we point the treelist to the location of the nested items and the field that indicates whether an Expand arrow will be generated (that there are child items).
 1. under its `TreeListColumns` tag, set the desired [`TreeListColumn`]({%slug treelist-columns-bound%}) instances whose `Field` property points to the name of the model field that you want to show
 
+>caption The result from the code snippet below
+
+![Blazor TreeList Component Example](images/basic-treelist.png)
+
 >caption Get started with the treelist by providing it with a data collection and enabling its key features
 
 ````CSHTML
-@* General treelist with its most common features and hierarchical data binding. 80% of this snippet is hardcoded data *@
+@* General treelist with its most common features and hierarchical data binding. 80% of this snippet is hardcoded data that is designed to look realistic *@
 
 <TelerikTreeList Data="@Data"
                  ItemsField="DirectReports"
@@ -279,10 +283,6 @@ The TreeList displays hierarchical data in a tabular format and allows [sorting]
 }
 ````
 
->caption The result from the code snippet above
-
-![Blazor TreeList Component Example](images/basic-treelist.png)
-
 
 
 
@@ -385,8 +385,10 @@ The treelist can perform CRUD operations on its current data collection and expo
 The treelist offers several editing modes with different user experience through the `EditMode` property that is a member of the `TreeListEditMode` enum:
 
 * `Incell` - editing is done [in the current cell]({%slug treelist-editing-incell%}) with a double click
-* `Inline` - editing is done for the [entire row]({%slug  treelist-editing-inline%}) with an [Edit Command Button]({%slug treelist-columns-command%})
-* `Popup` - editing is done in a [popup]({%slug treelist-editing-popup%}) for the entire row with an [Edit Command Button]({%slug treelist-columns-command%})
+
+* `Inline` - editing is done for the [entire row]({%slug treelist-editing-inline%}) with an [Edit Command Button]({%slug treelist-columns-command%})
+
+* `Popup` - editing is done in a [popup]({%slug treelist-editing-popup%}) for the entire row with an [Edit Command Button]({%slug treelist-columns-command%}), and model Validation through Data Annotation attributes is available.
 
 
 ## Paging
