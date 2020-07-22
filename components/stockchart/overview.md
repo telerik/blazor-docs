@@ -1,0 +1,223 @@
+---
+title: Overview
+page_title: Stock Chart Overview
+description: Overview of the Stock Chart for Blazor.
+slug: stockchart-overview
+tags: telerik,blazor,stock,chart,overview
+published: True
+position: 0
+---
+
+# Stock Chart Overview
+
+The Blazor Stock Chart allows you to visualize the deviation of a financial unit over a period of time to the user in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins, tooltips and templates.
+
+To use the Telerik Stock Chart for Blazor, add the `TelerikStockChart` tag.
+
+The Telerik Stock Chart provides a [Navigator]({%slug stockchart-navigator%}) to widen or shorten the defined period of time and zoom on particular part of the chart.
+
+>caption Basic configuration of a Stock Chart with common settings
+
+````CSHTML
+@* Basic Stock Chart with common settings*@
+
+<TelerikStockChart Width="100%"
+                   Height="450px"
+                   DateField="@nameof(StockDataPoint.Date)">
+
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
+    </StockChartCategoryAxes>
+
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 1"
+                          Data="@StockChartProduct1Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+        </StockChartSeries>
+    </StockChartSeriesItems>
+
+</TelerikStockChart>
+
+@code {
+    public List<StockDataPoint> StockChartProduct1Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GenerateChartData();
+    }
+
+    public async Task GenerateChartData()
+    {
+        StockChartProduct1Data = new List<StockDataPoint>()
+        {
+            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)41.62, (decimal)40.12, (decimal)41.69, (decimal)39.81, 2632000),
+            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)39.88, (decimal)40.12, (decimal)41.12, (decimal)39.75, 3584700),
+            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)42.62, (decimal)43.31, (decimal)41.38, 7631700),
+            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)42.25, (decimal)43.06, (decimal)43.31, (decimal)41.12, 4922200),
+        };
+
+        await Task.FromResult(StockChartProduct1Data);
+    }
+
+    public class StockDataPoint
+    {
+        public StockDataPoint() { }
+
+        public StockDataPoint(DateTime date, decimal open, decimal close, decimal high, decimal low, int volume)
+        {
+            Date = date;
+            Open = open;
+            Close = close;
+            High = high;
+            Low = low;
+            Volume = volume;
+        }
+        public DateTime Date { get; set; }
+
+        public decimal Open { get; set; }
+
+        public decimal Close { get; set; }
+
+        public decimal High { get; set; }
+
+        public decimal Low { get; set; }
+
+        public int Volume { get; set; }
+    }
+}
+````
+
+>caption The result from the code snippet above
+
+![stockchart basic example](images/stockchart-basic-example.png)
+
+
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+>caption Component namespace and reference
+
+````CSHTML
+@using Telerik.Blazor.Components
+
+<TelerikStockChart @ref="myStockChartRef">
+</TelerikStockChart>
+
+@code {
+	Telerik.Blazor.Components.TelerikStockChart myStockChartRef { get; set; }
+}
+````
+
+## Stock Chart Size
+
+To control the chart size, use its `Width` and `Height` properties. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+
+You can also set the chart size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the chart's `Refresh()` C# method after the DOM has been redrawn and the new container dimensions are rendered. You can do this when you explicitly change container sizes (like in the example below), or from code that gets called by events like `window.resize`. You can find an example of making charts redraw on `window.resize` in the [Responsive Chart](https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart) sample.
+
+
+>caption Change the 100% chart size dynamically to have a responsive chart
+
+````CSHTML
+You can make a responsive chart
+
+<TelerikButton OnClick="@ResizeChart">Resize the container and redraw the chart</TelerikButton>
+
+<div style="border: 1px solid red;width:@ContainerWidth; height: @ContainerHeight">
+
+    <TelerikStockChart Width="100%"
+                       Height="450px"
+                       DateField="@nameof(StockDataPoint.Date)"
+                       @ref="myStockChartRef">
+
+        <StockChartCategoryAxes>
+            <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
+        </StockChartCategoryAxes>
+
+        <StockChartSeriesItems>
+            <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                              Name="Product 1"
+                              Data="@StockChartProduct1Data"
+                              OpenField="@nameof(StockDataPoint.Open)"
+                              CloseField="@nameof(StockDataPoint.Close)"
+                              HighField="@nameof(StockDataPoint.High)"
+                              LowField="@nameof(StockDataPoint.Low)">
+            </StockChartSeries>
+        </StockChartSeriesItems>
+
+    </TelerikStockChart>
+
+</div>
+
+@code {
+    Telerik.Blazor.Components.TelerikStockChart myStockChartRef { get; set; }
+
+    string ContainerWidth { get; set; } = "400px";
+    string ContainerHeight { get; set; } = "300px";
+
+    public List<StockDataPoint> StockChartProduct1Data { get; set; }
+
+    async Task ResizeChart()
+    {
+        ContainerHeight = "500px";
+        ContainerWidth = "800px";
+
+        await Task.Delay(20);
+
+        myStockChartRef.Refresh();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GenerateChartData();
+    }
+
+    public async Task GenerateChartData()
+    {
+        StockChartProduct1Data = new List<StockDataPoint>()
+{
+            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)41.62, (decimal)40.12, (decimal)41.69, (decimal)39.81, 2632000),
+            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)39.88, (decimal)40.12, (decimal)41.12, (decimal)39.75, 3584700),
+            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)42.62, (decimal)43.31, (decimal)41.38, 7631700),
+            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)42.25, (decimal)43.06, (decimal)43.31, (decimal)41.12, 4922200),
+        };
+
+        await Task.FromResult(StockChartProduct1Data);
+    }
+
+    public class StockDataPoint
+    {
+        public StockDataPoint() { }
+
+        public StockDataPoint(DateTime date, decimal open, decimal close, decimal high, decimal low, int volume)
+        {
+            Date = date;
+            Open = open;
+            Close = close;
+            High = high;
+            Low = low;
+            Volume = volume;
+        }
+        public DateTime Date { get; set; }
+
+        public decimal Open { get; set; }
+
+        public decimal Close { get; set; }
+
+        public decimal High { get; set; }
+
+        public decimal Low { get; set; }
+
+        public int Volume { get; set; }
+    }
+}
+````
+
+## See Also
+
+  * [Data Binding]({%slug stockchart-data-binding%})
+  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/todo)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikStockChart)
