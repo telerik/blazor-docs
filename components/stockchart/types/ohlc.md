@@ -20,8 +20,8 @@ The **OHLC** (open-high-low-close) chart is typically used to illustrate movemen
 
 To create a OHLC chart:
 
-1. set the `DateField` property of the `TelerikStockChart` to the corresponding field in the model that carry the value.
-1. add a `StockChartSeries` to the `StockChartSeriesItems` collection.
+1. set the `DateField` property of the `<TelerikStockChart>` to the corresponding field in the model that carry the value.
+1. add a `<StockChartSeries>` to the `<StockChartSeriesItems>` collection.
 1. set its `Type` property to `StockChartSeriesType.OHLC`.
 1. provide a data model collection to its `Data` property.
 1. set the `OpenField`, `ClosedField`, `HighField` and `LowField` properties to the corresponding fields in the model that carry the values.
