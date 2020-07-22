@@ -66,7 +66,7 @@ The following list shows the Telerik components that support specific keyboard c
 
 *  [ToggleButton](https://demos.telerik.com/blazor-ui/togglebutton/keyboard-navigation)
 
-*  [TreeList](https://demos.telerik.com/blazor-ui/treelist/keyboard-navigation)
+*  TreeList - will have keyboard navigation in an upcoming release.
 
 *  [TreeView](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation)
 
