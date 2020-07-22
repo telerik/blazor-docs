@@ -64,7 +64,7 @@ The client-side (WebAssembly) flavor of Blazor is a set of separate NuGet packag
 
 ## .NET 5
 
-The future of .NET Core will eventually be through .NET 5. Its [fifth preview](https://devblogs.microsoft.com/aspnet/asp-net-core-updates-in-net-5-preview-5/) is already available.
+The future of .NET Core will eventually be through .NET 5. Its [seventh preview](https://devblogs.microsoft.com/aspnet/asp-net-core-updates-in-net-5-preview-7/) is already available.
 
 The Telerik UI for Blazor suite is committed to the WebAssembly flavor of Blazor and we need to make sure we are compatible with its own main line of releases (at the moment - .NET Core 3.2.0).
 
