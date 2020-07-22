@@ -1,93 +1,129 @@
 ---
 title: Hierarchical Data
-page_title: Treeview - Data Binding to Hierarchical Data
-description: Data Binding the Treeview for Blazor to hierarchical data.
+page_title: TreeList - Data Binding to Hierarchical Data
+description: Data Binding the treelist for Blazor to hierarchical data.
 slug: treelist-data-binding-hierarchical-data
-tags: telerik,blazor,treeview,data,bind,databind,databinding,hierarchical
+tags: telerik,blazor,treelist,data,bind,databind,databinding,hierarchical
 published: True
-position: 2
+position: 1
 ---
 
-# Treeview Data Binding to Hierarchical Data
+# TreeList Data Binding to Hierarchical Data
 
-This article explains how to bind the TreeView for Blazor to hierarchical data. 
-@[template](/_contentTemplates/treeview/basic-example.md#data-binding-basics-link)
+This article explains how to bind the treelist for Blazor to hierarchical data. 
+@[template](/_contentTemplates/treelist/databinding.md#link-to-basics)
 
 
-Hierarchical data means that the collection child items is provided in a field of its parent's model. By default, this is the `Items` field. If there are items for a certain node, it will have an expand icon. The `HasChildren` field can override this, however, but it is not required for hierarchical data binding.
+Hierarchical data means that the collection of child items is provided in a field of its parent's model. By default, this is the `Items` field, and hierarchical data binding is the default mode of the treelist. This approach of providing items lets you gather separate collections of data that may even come from different sources.
 
-This approach of providing nodes lets you gather separate collections of data and/or use different models at each different level. Note that the data binding settings are per level, so a certain level will always use the same bindings, regardless of the model they represent and their parent.
+If there are items for a certain node, it will have an expand icon. The `HasChildren` field can override this, however, but it is not required for hierarchical data binding.
 
->caption Example of hierarchical data that uses different models for the parent and the child. Using different models is not required.
+>caption Example of hierarchical data binding
 
 ````CSHTML
-Hierarchical data hold collections of the child items
+@* Hierarchical data items hold collections of the child items *@
 
-<TelerikTreeView Data="@HierarchicalData">
-	<TreeViewBindings>
-		<TreeViewBinding TextField="Category" ItemsField="Products" />
-		<TreeViewBinding Level="1" TextField="ProductName" />
-	</TreeViewBindings>
-</TelerikTreeView>
+<TelerikTreeList Data="@Data"
+
+                 ItemsField="@(nameof(Employee.DirectReports))"
+
+                 Pageable="true" Width="850px">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
 
 @code {
-	public IEnumerable<ProductCategoryItem> HierarchicalData { get; set; }
+    public List<Employee> Data { get; set; }
 
-	public class ProductCategoryItem
-	{
-		public string Category { get; set; }
-		public List<ProductItem> Products { get; set; }
-		public bool Expanded { get; set; }
-	}
+    // sample model
 
-	public class ProductItem
-	{
-		public string ProductName { get; set; }
-		// the following fields are to denote you can keep having hierarchy further down. They are not required
-		// they are not really used in this example and you would have a collection of child items too
-		// see the information about multiple data bindings earlier in this article on using them
-		public bool Expanded { get; set; }
-	}
-
-
-	protected override void OnInitialized()
-	{
-		LoadHierarchical();
-	}
-
-	private void LoadHierarchical()
-	{
-		List<ProductCategoryItem> roots = new List<ProductCategoryItem>();
-
-		List<ProductItem> firstCategoryProducts = new List<ProductItem>()
+    public class Employee
     {
-			new ProductItem { ProductName= "Category 1 - Product 1" },
-			new ProductItem { ProductName= "Category 1 - Product 2" }
-		};
+        // hierarchical data collections
+        public List<Employee> DirectReports { get; set; }
 
-		roots.Add(new ProductCategoryItem
-		{
-			Category = "Category 1",
-			Expanded = true,
-			Products = firstCategoryProducts // this is how child items are provided
+        // data fields for display
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+    }
 
-		});
+    // data generation
 
-		roots.Add(new ProductCategoryItem
-		{
-			Category = "Category 2" // we will set no other properties and it will not have children, nor will it be expanded
-		});
+    // used in this example for data generation and retrieval for CUD operations on the current view-model data
+    public int LastId { get; set; } = 1;
 
-		HierarchicalData = roots;
-	}
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            Employee root = new Employee
+            {
+                Id = LastId,
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i),
+                DirectReports = new List<Employee>(), // prepare a collection for the child items, will be populated later in the code
+            };
+            data.Add(root);
+            LastId++;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = LastId;
+                Employee firstLevelChild = new Employee
+                {
+                    Id = currId,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId),
+                    DirectReports = new List<Employee>(), // collection for child nodes
+                };
+                root.DirectReports.Add(firstLevelChild); // populate the parent's collection
+                LastId++;
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = LastId;
+                    // populate the parent's collection
+                    firstLevelChild.DirectReports.Add(new Employee
+                    {
+                        Id = LastId,
+                        Name = $"second level child {k} of {j} and {i}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                    LastId++;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
 }
 ````
+
+>caption The result from the code snippet above
+
+![TreeList bound to hierarchical data](images/hierarchical-databinding.png)
 
 
 ## See Also
 
-  * [TreeView Data Binding Basics]({%slug components/treeview/data-binding/overview%})
-  * [Live Demo: TreeView Hierarchical Data](https://demos.telerik.com/blazor-ui/treeview/hierarchical-data)
-  * [Binding to Flat Data]({%slug components/treeview/data-binding/flat-data%})
-  * [Load on Demand]({%slug components/treeview/data-binding/load-on-demand%})
+  * [TreeList Data Binding Basics]({%slug treelist-data-binding-overview%})
+  * [Live Demo: TreeList Hierarchical Data](https://demos.telerik.com/blazor-ui/treelist/hierarchical-data)
+  * [Binding to Flat Data]({%slug treelist-data-binding-flat-data%})
+  * [Load on Demand]({%slug treelist-data-binding-load-on-demand%})
 

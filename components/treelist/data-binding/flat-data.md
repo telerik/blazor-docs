@@ -5,7 +5,7 @@ description: Data Binding the treelist for Blazor to flat data.
 slug: treelist-data-binding-flat-data
 tags: telerik,blazor,treelist,data,bind,databind,databinding,flat
 published: True
-position: 1
+position: 2
 ---
 
 # TreeList Data Binding to Flat Data
@@ -117,8 +117,8 @@ You must also provide the correct value for the `HasChildren` field - for items 
 
 ## See Also
 
-  * [TreeList Data Binding Basics]({%slug components/treelist/data-binding/overview%})
+  * [TreeList Data Binding Basics]({%slug treelist-data-binding-overview%})
   * [Live Demo: TreeList Flat Data](https://demos.telerik.com/blazor-ui/treelist/flat-data)
-  * [Binding to Hierarchical Data]({%slug components/treelist/data-binding/hierarchical-data%})
-  * [Load on Demand]({%slug components/treelist/data-binding/load-on-demand%})
+  * [Binding to Hierarchical Data]({%slug treelist-data-binding-hierarchical-data%})
+  * [Load on Demand]({%slug treelist-data-binding-load-on-demand%})
 
