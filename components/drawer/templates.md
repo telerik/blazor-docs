@@ -80,11 +80,11 @@ This template receives a `context` argument that is of the data model type and r
 
 The `<Template>` allows you to control the whole rendering of the Drawer so you can add extra content and application logic. This template receives a `context` argument that is `IEnumerable<TItem>` - it is the `Data` collection of the component.
 
-When using this template all built-in features of the Drawer are disabled and should be implemented by the application, for example the [item selection]({%slug drawer-selection%}) and rendering, navigation to different pages, etc. Page navigation can be done with `<a>`, `<NavLink>`, `NavigationManager` and etc.
+When using this template all built-in features of the Drawer are disabled and should be implemented by the application, for example the [item selection]({%slug drawer-selection%}) and rendering, navigation to different pages, etc. Page navigation can be done with `<a>`, `<NavLink>`, `NavigationManager` and so on.
 
 The drawer will expand and collapse as usual, but the content has to be controlled by the application entirely.
 
-Make sure that the `<Content>` tag is outside of the `<Template>` - one renders the app outside of the drawer, the second renders the contents of the drawer only. In the `<Content>` tag you can place the `@Body` when you are using the Drawer as a sidebar navigation. 
+Make sure that the `<Content>` tag is outside of the `<Template>` - the `<Content>` is responsible for the rendering the application outside of the Drawer, whereas the `<Template>` controls only the rendering of the component. In the `<Content>` tag you can place the `@Body` when you are using the Drawer as a sidebar navigation. 
 
 >tip You can find a runnable sample that showcases this in the [Drawer as Side Navigation using the Template](https://github.com/telerik/blazor-ui/tree/master/drawer/template) sample project.
 
