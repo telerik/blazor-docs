@@ -80,7 +80,7 @@ This template receives a `context` argument that is of the data model type and r
 
 The `<Template>` allows you to control the whole rendering of the Drawer so you can add extra content and application logic. This template receives a `context` argument that is `IEnumerable<TItem>` - it is the `Data` collection of the component.
 
-When using this template all built-in features of the Drawer are disabled and should be implemented by the application, for example the [item selection]({%slug drawer-selection%}) and rendering, navigation to different pages, etc.
+When using this template all built-in features of the Drawer are disabled and should be implemented by the application, for example the [item selection]({%slug drawer-selection%}) and rendering, navigation to different pages, etc. Page navigation can be done with `<a>`, `<NavLink>`, `NavigationManager` and etc.
 
 The drawer will expand and collapse as usual, but the content has to be controlled by the application entirely.
 
