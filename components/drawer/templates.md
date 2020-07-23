@@ -84,7 +84,9 @@ When using this template all built-in features of the Drawer are disabled and sh
 
 The drawer will expand and collapse as usual, but the content has to be controlled by the application entirely.
 
-Make sure that the `<Content>` tag is outside of the `<Template>` - one renders the app outside of the drawer, the second renders the contents of the drawer only.
+Make sure that the `<Content>` tag is outside of the `<Template>` - one renders the app outside of the drawer, the second renders the contents of the drawer only. In the `<Content>` tag you can place the `@Body` when you are using the Drawer as a sidebar navigation. 
+
+>tip You can find a runnable sample that showcases this in the [Drawer as Side Navigation using the Template](https://github.com/telerik/blazor-ui/tree/master/drawer/template) sample project.
 
 Using the `<Template>` and `<ItemTemplate>` together is not possible - the Template removes any built-in rendering from the Drawer.
 
