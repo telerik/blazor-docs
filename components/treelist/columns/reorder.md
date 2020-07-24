@@ -14,7 +14,7 @@ The treelist lets the user reorder its columns by dragging their headers.
 
 To enable the column reordering, set the `Reorderable` parameter of the treelist to `true`.
 
-To prevent the user from moving a certain column, set its own parameter `Reordarable="false"`. Note that the user can still re-arrange other columns around it.
+To prevent the user from moving a certain column, set its own parameter `Reorderable="false"`. Note that the user can still re-arrange other columns around it.
 
 >caption Enable column reordering in Telerik treelist
 
