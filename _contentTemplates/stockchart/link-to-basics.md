@@ -20,10 +20,6 @@ When configuring nested properties and child elements in your chart, the inner t
 
 @[template](/_contentTemplates/chart/link-to-basics.md#tip-look-for-nested-tags)
 
-#end
-
-#configurable-nested-chart-settings
-
 You can customize all aspects of the stock chart by using the settings provided by the nested tags.
 
 An example of this is the rotation the Labels. You can use the
