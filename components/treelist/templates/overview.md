@@ -16,6 +16,8 @@ The TreeList component can use templates for:
 
 * [columns (cells)]({%slug treelist-templates-column%}) - the rendering of each cell (column). You can, for example, change string formats or add your own components.
 
+* [editing of a cell]({%slug treelist-templates-editor%}) - when a cell is in edit mode, it will render this template where you can use custom editors, components and logic.
+
 * [rows]({%slug treelist-templates-row%}) - the entire rendering of the `tr` element of the row, so you can fully customize the treelist behavior and rendering.
 
 * [column header]({%slug treelist-templates-column-header%}) - the title portion of the column.

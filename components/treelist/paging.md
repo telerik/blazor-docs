@@ -26,7 +26,7 @@ Paging is calculated for the currently expanded and visible items. Children in c
 Enable paging and start on the second page.
 
 <TelerikTreeList Data="@Data"
-                 Pageable="true" PageSize="15" Page="2"
+                 Pageable="true" PageSize="15"
                  IdField="Id" ParentIdField="ParentId"
                  Width="650px">
     <TreeListColumns>
