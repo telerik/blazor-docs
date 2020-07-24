@@ -28,9 +28,9 @@ In this article:
 
 You can configure the selection behavior by setting `SelectionMode` to a member of the `Telerik.Blazor.TreeListSelectionMode` enum. The row selection can be:
 
+* `None` - (the default value) to disable row selection
 * [Single]({%slug treelist-selection-single%})
 * [Multiple]({%slug treelist-selection-multiple%})
-* `None` - to disable row selection
 
 To select a row, click on it. To select multiple rows, hold down the `Ctrl` or `Shift` key to extend the selection.
 
