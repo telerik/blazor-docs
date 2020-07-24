@@ -281,5 +281,5 @@ Each `Point` contains the following data:
 
 ## See also
 
-* [Chart Overview]({%slug components/chart/overview%})
-* [Chart Tooltip Overview]({%slug chart-tooltip-overview%})
+* [Stock Chart Overview]({%slug stockchart-overview%})
+* [Stock Chart Tooltip Overview]({%slug stockchart-tooltip-overview%})
