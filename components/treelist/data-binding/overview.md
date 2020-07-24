@@ -25,13 +25,13 @@ There are three modes of providing data to a treelist, and they all use the item
 
 The treelist items provide the following features that you control through the corresponding fields in their data binding:
 
-* `Id` - a unique identifier for the item. Required for binding to flat data.
-
-* `ParentId` - identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, this must be `null`.
+* `Items` - the collection of child items that will be rendered under the current item. Required only when binding to hierarchical data.
 
 * `HasChildren` - whether the item has children. Determines whether an expand arrow is rendered next to the item in an Expandable column. Required for binding to flat data and for load-on-demand. With hierarchical data, the treelist will render the icon based on the existence of child items, but `HasChildren` will take precedence.
 
-* `Items` - the collection of child items that will be rendered under the current item. Required only when binding to hierarchical data.
+* `Id` - a unique identifier for the item. Required for binding to flat data.
+
+* `ParentId` - identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, this must be `null`. There must be at least one node with a `null` parent id.
 
 ## Data Bindings
 
@@ -43,17 +43,15 @@ The properties of a treelist item match directly to a field of the model the tre
 * ItemsField => Items
 
 
->tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
+>tip There are default values for the field names in hierarchical binding. If you use hiararchical binding (the dafault mode) and your model names match the defaults, you don't have to define them in the bindings settings.
 
->caption Default field names for treelist item bindings. If you use these, you don't have to specify them in the treelist tag explicitly.
+>caption Default field names for treelist hierarchical data binding. If you use these, you don't have to specify them in the treelist tag explicitly.
 
 ````CSHTML
 public class TreeListItem
 {
-	public int Id { get; set; }
-	public int? ParentId { get; set; }
-	public bool HasChildren { get; set; }
-	public List<TreeListItem> Items { get; set; }
+	public bool HasChildren { get; set; } // whether the item has an expand-collapse icon
+	public List<TreeListItem> Items { get; set; } // the collection of child items
 }
 ````
 
