@@ -18,6 +18,8 @@ If the column you want to freeze is not the first in the list, the treelist must
 
 >caption Frozen columns in the beginning, middle and at the end of the treelist
 
+![TreeList frozen columns behavior](images/frozen-columns-overview.gif)
+
 ````CSHTML
 @* Explore how locked (frozen) columns behave when scrolling. For brevity, editing is not implemented *@
 
