@@ -25,7 +25,6 @@ Below you can find:
 * Examples:
 	* [Basic Click Handler](#basic-click-handler)
 	* [Get The Data Model For The Clicked Series](#get-the-data-model-for-the-clicked-series)
-	* [Load Data On Demand Based On Series Click](#load-data-on-demand-based-on-series-click)
 
 
 ### Event Arguments
@@ -154,8 +153,8 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 ````CSHTML
 @* Receive the data model based on the series the user clicked on *@
 
-<TelerikStockChart Width="100%"
-                   Height="450px"
+<TelerikStockChart Width="750px"
+                   Height="300px"
                    DateField="@nameof(StockDataPoint.Date)"
                    OnSeriesClick="@OnSeriesClickHandler">
 
@@ -184,7 +183,7 @@ These examples showcase the different applications of the `OnSeriesClick` event.
         <div>Close Value: @dataModel.Close</div>
         <div>High Value: @dataModel.High</div>
         <div>Low Value: @dataModel.Low</div>
-        <div>Category: @Category.ToShortDateString()</div>
+        <div>Date: @dataModel.Date.ToShortDateString()</div>
     </div>
 }
 
@@ -192,18 +191,16 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 @code {
     public StockDataPoint dataModel { get; set; }
     public string SeriesName { get; set; }
-    public DateTime Category { get; set; }
 
     void OnSeriesClickHandler(ChartSeriesClickEventArgs args)
     {
         dataModel = new StockDataPoint();
-        StockDataPoint model = args.DataItem as StockDataPoint;
+
         DateTime category = DateTime.Parse(args.Category.ToString());
         string seriesName = args.SeriesName;
 
+        dataModel = StockChartProduct1Data.Where(x => x.Date == category).FirstOrDefault();
         SeriesName = seriesName;
-        dataModel = model;
-        Category = category;
     }
 
     public List<StockDataPoint> StockChartProduct1Data { get; set; }
