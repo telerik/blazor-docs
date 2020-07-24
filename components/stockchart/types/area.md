@@ -1,9 +1,9 @@
 ---
 title: Area
-page_title: Chart - Area
-description: Overview of the Area Chart for Blazor.
-slug: components/chart/types/area
-tags: telerik,blazor,chart,area
+page_title: Stock Chart - Area
+description: Overview of the Area Stock Chart for Blazor.
+slug: stockchart-area
+tags: telerik,blazor,stock,chart,area
 published: True
 position: 0
 ---
