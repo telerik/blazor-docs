@@ -23,10 +23,10 @@ An Area chart emphasizes the volume of money, data or any other unit that the gi
 
 To create an area chart:
 
-1. add a `ChartSeries` to the `ChartSeriesItems` collection
+1. add a `StockChartSeries` to the `StockChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Area`
 3. provide a data collection to its `Data` property
-4. optionally, provide data for the x-axis `Categories`
+4. set the `Field` and `CategoryField` properties to the corresponding fields in the model that carry the values.
 
 
 >caption An area chart that shows product revenues
@@ -34,28 +34,66 @@ To create an area chart:
 ````CSHTML
 @*Area series*@
 
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Area" Name="Product 1" Data="@series1Data">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Area" Name="Product 2" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
+<TelerikStockChart Height="450px"
+                   Width="700px">
 
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Years"></StockChartCategoryAxis>
+    </StockChartCategoryAxes>
 
-    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Area"
+                          Name="Product 1"
+                          Data="@Data"
+                          Field="@nameof(ChartSeriesData.Product1Sales)"
+                          CategoryField="@nameof(ChartSeriesData.Year)">
+        </StockChartSeries>
 
-    <ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
+        <StockChartSeries Type="StockChartSeriesType.Area"
+                          Name="Product 1"
+                          Data="@Data"
+                          Field="@nameof(ChartSeriesData.Product2Sales)"
+                          CategoryField="@nameof(ChartSeriesData.Year)">
+        </StockChartSeries>
+    </StockChartSeriesItems>
+
+</TelerikStockChart>
 
 @code {
-    public List<object> series1Data = new List<object>() { 10, 2, 7, 5 };
-    public List<object> series2Data = new List<object>() { 5, 12, 8, 2 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+    public List<ChartSeriesData> Data { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Data = ChartSeriesData.GenerateData();
+    }
+
+    public class ChartSeriesData
+    {
+        public int Product1Sales { get; set; }
+        public double Product2Sales { get; set; }
+        public DateTime Year { get; set; }
+        public string SegmentName { get; set; }
+
+        public static List<ChartSeriesData> GenerateData()
+        {
+            List<ChartSeriesData> data = new List<ChartSeriesData>();
+
+            for (int i = 1; i <= 3; i++)
+            {
+                var dataItem = new ChartSeriesData
+                {
+                    Product1Sales = i,
+                    Product2Sales = i + 1.123,
+                    Year = new DateTime(2000 + i, 3, i),
+                    SegmentName = $"{i * 100}"
+                };
+
+                data.Add(dataItem);
+            }
+
+            return data;
+        }
+    }
 }
 ````
 
@@ -64,66 +102,79 @@ To create an area chart:
 
 ### Color
 
-The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`). The color control the fill color of the area.
-
-You can control the color of the line itself separately by using the `Color` property of the nested `TelerikChartSeriesLine` tag.
-
-@[template](/_contentTemplates/chart/link-to-basics.md#opacity-area-bubble)
+The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`). The `Color` controls the fill color of the area.
 
 ### Missing Values
 
-If some values are missing from the series data (they are `null`), you can have the chart work around this by setting the `MissingValues` property of the series to the desired behavior (member of the `Telerik.Blazor.ChartSeriesMissingValues` enum):
-
-* `Zero` - the default behavior. The line goes to the 0 value mark.
-* `Interpolate` - the line will go through the interpolated value of the missing data points and connect to the next data point with a value.
-* `Gap` - behaves the same way as `Zero` because a line chart cannot have a gap in its filled area.
-
-
-### Line Style
-
-You can render the lines between the points with different styles. The supported styles can be set via the `Style` property of the child `ChartSeriesLine` tag - it takes a member of `Telerik.Blazor.ChartSeriesStyle` enum:
-
-* `Normal`—This is the default style. It produces a straight line between data points.
-* `Step`—The style renders the connection between data points through vertical and horizontal lines. It is suitable for indicating that the value is constant between the changes.
-* `Smooth`—This style causes the Area Chart to display a fitted curve through data points. It is suitable when the data requires to be displayed with a curve, or when you wish to connect the points with smooth instead of straight lines.
-
->caption Comparison between line styles
-
-![](images/area-chart-step-and-smooth.png)
-
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
-
-@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-categorical)
 
 >caption Change the rendering Step, Color and Font of the Category Axis Labels
 
 ````CSHTML
-@* Change the rendering Step, Color and Font of the Category Axis Labels *@
+@* Change the rendering Step and Color of the Category Axis Labels *@
 
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Area" Name="Product 1" Data="@series1Data">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Area" Name="Product 2" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
+<TelerikStockChart Height="450px"
+                   Width="700px">
 
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems">
-            <ChartCategoryAxisLabels Step="2" Color="#008000" Font="bold 12px 'Helvetica'"></ChartCategoryAxisLabels>
-        </ChartCategoryAxis>
-    </ChartCategoryAxes>
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Years">
+            <StockChartCategoryAxisLabels Step="1" Color="#0000FF"></StockChartCategoryAxisLabels>
+        </StockChartCategoryAxis>
+    </StockChartCategoryAxes>
 
-    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Area"
+                          Name="Product 1"
+                          Data="@Data"
+                          Field="@nameof(ChartSeriesData.Product1Sales)"
+                          CategoryField="@nameof(ChartSeriesData.Year)">
+        </StockChartSeries>
 
-    <ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
+        <StockChartSeries Type="StockChartSeriesType.Area"
+                          Name="Product 1"
+                          Data="@Data"
+                          Field="@nameof(ChartSeriesData.Product2Sales)"
+                          CategoryField="@nameof(ChartSeriesData.Year)">
+        </StockChartSeries>
+    </StockChartSeriesItems>
+
+</TelerikStockChart>
 
 @code {
-    public List<object> series1Data = new List<object>() { 10, 2, 7, 5 };
-    public List<object> series2Data = new List<object>() { 5, 12, 8, 2 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+    public List<ChartSeriesData> Data { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Data = ChartSeriesData.GenerateData();
+    }
+
+    public class ChartSeriesData
+    {
+        public int Product1Sales { get; set; }
+        public double Product2Sales { get; set; }
+        public DateTime Year { get; set; }
+        public string SegmentName { get; set; }
+
+        public static List<ChartSeriesData> GenerateData()
+        {
+            List<ChartSeriesData> data = new List<ChartSeriesData>();
+
+            for (int i = 1; i <= 3; i++)
+            {
+                var dataItem = new ChartSeriesData
+                {
+                    Product1Sales = i,
+                    Product2Sales = i + 1.123,
+                    Year = new DateTime(2000 + i, 3, i),
+                    SegmentName = $"{i * 100}"
+                };
+
+                data.Add(dataItem);
+            }
+
+            return data;
+        }
+    }
 }
 ````
 
