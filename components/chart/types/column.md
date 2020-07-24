@@ -10,7 +10,7 @@ position: 0
 
 # Column Chart
 
-A **Column** chart displays data as vertical bars whose heights vary according to their value. You can use a Column chart to show a comparison between several sets of data (for example, summaries of sales data for different time periods). Each series is automatically colored differently for easier reading.
+A <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Blazor Column chart</a> displays data as vertical bars whose heights vary according to their value. You can use a Column chart to show a comparison between several sets of data (for example, summaries of sales data for different time periods). Each series is automatically colored differently for easier reading.
 
 >caption Column chart.  Results from the first code snippet below
 

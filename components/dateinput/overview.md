@@ -10,7 +10,7 @@ position: 0
 
 # Date Input Overview
 
-The Date Input component allows the user to enter a date. The developer can control the format of the date. If the user input does not match the desired pattern, the value is not accepted. If the input can be parsed, it will be corrected automatically.
+The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazor Date Input component</a> allows the user to enter a date. The developer can control the format of the date. If the user input does not match the desired pattern, the value is not accepted. If the input can be parsed, it will be corrected automatically.
 
 To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
 

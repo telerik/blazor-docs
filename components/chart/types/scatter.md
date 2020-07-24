@@ -10,7 +10,7 @@ position: 0
 
 # Scatter Chart
 
-A **Scatter** chart shows data as points defined by their items' values. Its x-axis is also numerical and does not require categorical items, but numerical values.
+A <a href="https://www.telerik.com/blazor-ui/scatter-chart" target="_blank">Blazor Scatter chart</a> shows data as points defined by their items' values. Its x-axis is also numerical and does not require categorical items, but numerical values.
 
 Scatter charts are useful for showing the relation between different sets of data, for example scientific (experimental) results.
 

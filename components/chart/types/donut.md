@@ -10,7 +10,7 @@ position: 0
 
 # Donut Chart
 
-The **Donut** chart displays the data as sectors from a two-dimensional circle and is therefore useful for displaying data as parts of a whole. Unlike a pie chart, it can have multiple series in the same chart. There is a hole in the middle of the circle, hence the name of the chart.
+The <a href="https://www.telerik.com/blazor-ui/donut-chart" target="_blank">Blazor Donut chart</a> displays the data as sectors from a two-dimensional circle and is therefore useful for displaying data as parts of a whole. Unlike a pie chart, it can have multiple series in the same chart. There is a hole in the middle of the circle, hence the name of the chart.
 
 >caption Donut chart. Results from the first code snippet below
 

@@ -10,7 +10,7 @@ position: 0
 
 # Textbox Overview
 
-The Textbox component allows the user to enter a generic plain text message. You can also add an animated floating Label, a custom CSS class or control various attributes of the `input` element such as making it a password box, the `name`, `placeholder`, `tabindex`, `inputmode`, `autocomplete` and [more](#features) and also respond to [events]({%slug components/textbox/events%}).
+The <a href="https://www.telerik.com/blazor-ui/textbox" target="_blank">Blazor Textbox component</a> allows the user to enter a generic plain text message. You can also add an animated floating Label, a custom CSS class or control various attributes of the `input` element such as making it a password box, the `name`, `placeholder`, `tabindex`, `inputmode`, `autocomplete` and [more](#features) and also respond to [events]({%slug components/textbox/events%}).
 
 To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
 

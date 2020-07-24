@@ -10,7 +10,7 @@ position: 0
 
 # ButtonGroup Overview
 
-This article provides information about the ButtonGroup component and its core features.
+This article provides information about the <a href="https://www.telerik.com/blazor-ui/buttongroup" target="_blank">Blazor ButtonGroup component</a> and its core features.
 
 The ButtonGroup component is a container for buttons that can be toggle buttons, and lets you [select one or more]({%slug buttongroup-selection%}), and respond to the [selection and click events]({%slug buttongroup-events%}). The buttons inside fill up the container, match the styling according to the [chosen theme]({%slug general-information/themes%}) and provide the regular button features like images and icons and the other parameters and attributes.
 

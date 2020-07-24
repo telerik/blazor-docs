@@ -10,7 +10,7 @@ position: 0
 
 # Window Overview
 
-This article provides basic information about the Window component.
+This article provides basic information about the <a href="https://www.telerik.com/blazor-ui/window" target="_blank">Blazor Window component</a>.
 
 In this article:
 
