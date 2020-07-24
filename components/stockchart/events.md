@@ -194,8 +194,6 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 
     void OnSeriesClickHandler(ChartSeriesClickEventArgs args)
     {
-        dataModel = new StockDataPoint();
-
         DateTime category = DateTime.Parse(args.Category.ToString());
         string seriesName = args.SeriesName;
 
