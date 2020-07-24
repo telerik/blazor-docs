@@ -118,17 +118,28 @@ You can read more details on how to tie the treelist to your data fields and chi
 
 You can use the following properties on the bound columns:
 
-* `Expandable` - when set to true, the column shows an expand/collapse arrow in front of the value and denotes hierarchy be intending it. You should set this to at least one column of your treelist to showcase the hierarchical nature of the data.
-* `Field` - the name of the field in the data source that the column will render as a string (case-sensitive). You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeFIeld)`).
-* `Title` - the text that is rendered in the column header.
-* `Editable` - you can set this property to `true` or `false` to allow or prevent [editing]({%slug treelist-overview%}#editing) of this field. Defaults to `true`. To edit data, you also need a [CommandColumn]({%slug treelist-columns-command%}).
-* `Filterable` - you can set this to `false` so a [filterable]({%slug treelist-filtering%}) treelist will not let the user filter that particular column.
-* `Locked` - defines whether the column is [locked (frozen, pinned)]({%slug treelist-columns-frozen%}).
-* `Sortable` - set it to `false` so the user cannot [sort]({%slug treelist-sorting%}) this column.
-* `Reorderable` - whether the user can [drag to reorder]({%slug treelist-columns-reorder%}) this column.
-* `Resizable` - whether the user can [resize]({%slug treelist-columns-resize%}) this column.
-* `Width` - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article. Keep in mind that these are columns in a `<table>`, so it is often a good practice to leave one column without explicit dimensions so it can accommodate the remaining width and changes to the container size.
+* `Expandable` - (defaults to `false`) - when set to true, the column shows an expand/collapse arrow in front of the value and denotes hierarchy be intending it. You should set this to at least one column of your treelist to showcase the hierarchical nature of the data.
+
+* `Field` - (defaults to `null`) - the name of the field in the data source that the column will render as a string (case-sensitive). You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeFIeld)`).
+
+* `Title` - the text that is rendered in the column header. See the Notes below for its behavior.
+
+* `Editable` - (defaults to `true`) - you can set this property to `true` or `false` to allow or prevent [editing]({%slug treelist-overview%}#editing) of this field. Defaults to `true`. To edit data, you also need a [CommandColumn]({%slug treelist-columns-command%}).
+
+* `Filterable` - (defaults to `true`) - you can set this to `false` so a [filterable]({%slug treelist-filtering%}) treelist will not let the user filter that particular column.
+
+* `Locked` - (defaults to `false`) - defines whether the column is [locked (frozen, pinned)]({%slug treelist-columns-frozen%}).
+
+* `Sortable` - (defaults to `true`) - set it to `false` so the user cannot [sort]({%slug treelist-sorting%}) this column.
+
+* `Reorderable` - (defaults to `true`) - whether the user can [drag to reorder]({%slug treelist-columns-reorder%}) this column.
+
+* `Resizable` - (defaults to `true`) - whether the user can [resize]({%slug treelist-columns-resize%}) this column.
+
+* `Width` -  (defaults to `null`) - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article. Keep in mind that these are columns in a `<table>`, so it is often a good practice to leave one column without explicit dimensions so it can accommodate the remaining width and changes to the container size.
+
 * `Template` - this property can also be used as an inner tag and it defines the [custom cell content]({%slug treelist-templates-column%}) that renders instead of the default field value the treelist puts in it.
+
 * `HeaderTemplate` - this property can also be used as an inner tag and defines the custom contents of the [header cell]({%slug treelist-templates-column-header%}) that you can render instead of the Title.
 * `EditorTemplate` - this property can also be used as an inner tag and defines a [custom input and logic that is used for editing the field]({%slug treelist-templates-editor%}).
 
