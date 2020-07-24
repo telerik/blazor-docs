@@ -18,7 +18,7 @@ Flat data means that the entire collection of treelist items is available at one
 
 The parent-child relationships are created through internal data in the model - the `ParentId` field which points to the `Id` of the item that will contain the current item. The root level has `null` for `ParentId`. There must be at least one node with a `null` value so that the treelist renders anything.
 
-You must also provide the correct value for the `HasChildren` field - for items that have children, you must set it to `true` so that the expand arrow is rendered.
+If there are child items for a certain node (items whose `ParentId` points to the current item's `Id`), it will have an expand icon. The `HasChildren` field can override this, however, but it is not required for flat data binding.
 
 >caption Example of flat data in a treelist - you need to point the TreeList to the Id and ParentId fields in your model
 

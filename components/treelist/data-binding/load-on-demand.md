@@ -12,13 +12,16 @@ position: 3
 
 This article explains how to load nodes on demand the treelist for Blazor so you can improve the performance. 
 @[template](/_contentTemplates/treelist/databinding.md#link-to-basics)
+Loading nodes on demand can improve the performance of your application by requesting less data at any given time.
 
 
 You don't have to provide all the data the treelist will render at once - the root nodes are sufficient for an initial display. You can then use the `OnExpand` event of the treelist to provide [hierarchical data]({%slug treelist-data-binding-hierarchical-data%}) to the node that was just expanded or amend [flat data]({%slug treelist-data-binding-flat-data%}) source with new nodes.
 
-In the `OnExpand` event, you will receive the current node that was just expanded so you can check whether you need to load items for it. You can then load those items from your data service and update the corresponding data collection. You can also use the `HasChildren` field as a flag to know whether you need data for the given node. It is up to the application to populate it - you may choose not to do so, but keep in mind that setting it to `false` will override the presence of child items and will prevent the expand icon from rendering.
+In the `OnExpand` event, you will receive the current node that was just expanded so you can check whether you need to load items for it. You can then load those items from your data service and update the corresponding data collection. 
 
-Loading nodes on demand can improve the performance of your application by requesting less data at any given time.
+You can also use the `HasChildren` field as a flag to know whether you need data for the given node. It is up to the application to populate it - you may choose not to do so, but keep in mind that setting it to `false` will override the presence of child items and will prevent the expand icon from rendering so the user will never be able to expand a node. Thus, you may want to default this field to `true` and only reset it to `false` if the data request does not return child items.
+
+
 
 Below you will find two examples - for [hierarchical](#load-hierarchical-data-on-demand) and for [flat](#load-flat-data-on-demand) data.
 
