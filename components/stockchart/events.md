@@ -32,7 +32,10 @@ Below you can find:
 
 The event handler receives a `ChartSeriesClickEventArgs` object which provides the following data:
 
-* `DataItem` - provides the data model of the current series item. You need to cast it to the type from your data source, which needs to be serializable. The `DataItem` will contain an aggregated value for the date, so in order to get it you can use the `Category` and parse it to `DateTime`.
+* `DataItem` - provides the data model of the current series item. You need to cast it to the type from your data source, which needs to be serializable.
+    * For [`OHLC`]({%slug stockchart-ohlc%}) and [`Candlestick`]({%slug stockchart-candlestick%}) chart types the `DataItem` will contain the information mapped to the `OpenField`, `CloseField`, `HighField` and `LowField` properties.
+    * For [`Line`]({%slug stockchart-line%}), [`Area`]({%slug stockchart-area%}) and [`Column`]({%slug column%}) the `DataItem` will contain the information mapped to the `Field` properties.
+    * The `DataItem` will contain an aggregated value for the date, so in order to get it you can use the `Category` and parse it to `DateTime`.
 
 * `Category` - provides information on the category the data point is located in. Since the Stock Chart has a date X axis the `Category` should be cast to `DateTime`.
 

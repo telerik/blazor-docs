@@ -291,7 +291,7 @@ The Navigator is defined closely to the way the charts are. As such you can use 
 
 >caption The result from the code snippet above
 
-![](images/navigator-customization-settings-example.png)
+![navigator customization settings example](images/navigator-customization-settings-example.png)
 
 
 ## See Also

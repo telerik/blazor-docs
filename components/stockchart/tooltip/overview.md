@@ -1,16 +1,16 @@
 ---
 title: Overview
-page_title: Chart - Tooltip Overview
-description: Tooltip for the Blazor Chart.
-slug: chart-tooltip-overview
-tags: telerik,blazor,chart,tooltip,tooltips
+page_title: Stock Chart - Tooltip Overview
+description: Tooltip for the Blazor Stock Chart.
+slug: stockchart-tooltip-overview
+tags: telerik,blazor,stock,chart,tooltip,tooltips
 published: True
 position: 1
 ---
 
-# Tooltip for Telerik Blazor Chart
+# Tooltip for Telerik Blazor Stock Chart
 
-The Telerik Chart provides a tooltip for its data points. You can have settings specific to each `<ChartSeries>`, common tooltip settings for all series, or a [shared]({%slug chart-tooltip-shared%}) tooltip for all categories.
+The Telerik Stock Chart provides a tooltip for its data points. You can have settings specific to each `<StockChartSeries>`, common tooltip settings for all series, or a [shared]({%slug stockchart-tooltip-shared%}) tooltip for all categories.
 
 In this article:
 
@@ -25,54 +25,123 @@ In this article:
 
 By default the value of the point will be presented when hovered over.
 
-To enable tooltips for the data points of each individual series:
+By default the tooltip for the data points of the Stock Chart are enabled.
 
-1. Inside the `<ChartSeries>`, include the `<ChartSeriesTooltip>` tag.
-1. Set its `Visible` parameter to `true`.
+To setup tooltips for the data points of each individual series:
 
+1. Inside the `<StockChartSeries>`, include the `<StockChartSeriesTooltip>` tag.
+1. Set its `Visible` parameter to `true` or `false`.
 
 >caption Enable the tooltip for a specific Chart Series
 
 ````CSHTML
-@* Enable tooltip for a single Chart Series *@
+@* Disable the tooltip for a specific Chart Series *@
 
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Series 1" Data="@data1">
-        </ChartSeries>
+<TelerikStockChart Width="750px"
+                   Height="450px"
+                   DateField="@nameof(StockDataPoint.Date)">
 
-        <ChartSeries Type="ChartSeriesType.Column" Name="Series 2" Data="@data2">
-            <ChartSeriesTooltip Visible="true"></ChartSeriesTooltip>
-        </ChartSeries>
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
+    </StockChartCategoryAxes>
 
-    </ChartSeriesItems>
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 1"
+                          Data="@StockChartProduct1Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+        </StockChartSeries>
 
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-</TelerikChart>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 2"
+                          Data="@StockChartProduct2Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+            <StockChartSeriesTooltip Visible="false"></StockChartSeriesTooltip>
+        </StockChartSeries>
+    </StockChartSeriesItems>
+
+</TelerikStockChart>
+
 
 @code {
-    public List<object> data1 = new List<object>() { 1, 2, 3, 4 };
-    public List<object> data2 = new List<object>() { 2, 3, 4, 5 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+    public List<StockDataPoint> StockChartProduct1Data { get; set; }
+    public List<StockDataPoint> StockChartProduct2Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GenerateChartData();
+    }
+
+    public async Task GenerateChartData()
+    {
+        StockChartProduct1Data = new List<StockDataPoint>()
+{
+            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)41.62, (decimal)40.12, (decimal)41.69, (decimal)39.81, 2632000),
+            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)39.88, (decimal)40.12, (decimal)41.12, (decimal)39.75, 3584700),
+            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)42.62, (decimal)43.31, (decimal)41.38, 7631700),
+            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)42.25, (decimal)43.06, (decimal)43.31, (decimal)41.12, 4922200),
+        };
+
+        StockChartProduct2Data = new List<StockDataPoint>()
+    {
+            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)39, (decimal)38, (decimal)44, (decimal)37, 26320),
+            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)37, (decimal)38, (decimal)41, (decimal)40, 35847),
+            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)43, (decimal)45, (decimal)41, 76317),
+            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)40, (decimal)42, (decimal)43, (decimal)42, 49222),
+        };
+
+        await Task.FromResult(StockChartProduct1Data);
+        await Task.FromResult(StockChartProduct2Data);
+    }
+
+    public class StockDataPoint
+    {
+        public StockDataPoint() { }
+
+        public StockDataPoint(DateTime date, decimal open, decimal close, decimal high, decimal low, int volume)
+        {
+            Date = date;
+            Open = open;
+            Close = close;
+            High = high;
+            Low = low;
+            Volume = volume;
+        }
+        public DateTime Date { get; set; }
+
+        public decimal Open { get; set; }
+
+        public decimal Close { get; set; }
+
+        public decimal High { get; set; }
+
+        public decimal Low { get; set; }
+
+        public int Volume { get; set; }
+    }
 }
 ````
 
 >caption The result from the code snippet above
 
-![single series tooltip](images/tooltip-basic-config.png)
+![setup stockchart series tooltip](images/stockchart-tooltip-basic.gif)
 
 
 ## Common Tooltip
 
 The Chart allows you to enable and define common tooltip settings for all series at once. It looks like the individual tooltips (the value of the point will be presented when hovered over), but you declare it only once.
 
-A tooltip set to a specific `<ChartSeries>` will take precedence over the common tooltip settings.
+A tooltip set to a specific `<StockChartSeries>` will take precedence over the common tooltip settings.
 
 To enable the same tooltip for all series:
 
-1. Inside the `<TelerikChart>`, add the `<ChartTooltip>`.
+1. Inside the `<TelerikStockChart>`, add the `<StockChartTooltip>`.
 1. Set its `Visible` parameter to `true`.
 
 >caption Set a Common Tooltip for all series at once
@@ -80,38 +149,101 @@ To enable the same tooltip for all series:
 ````CSHTML
 @* This example shows you how to create a common tooltip for all data points *@
 
-<TelerikChart>
+<TelerikStockChart Width="750px"
+                   Height="450px"
+                   DateField="@nameof(StockDataPoint.Date)">
 
-    <ChartTooltip Visible="true">
-    </ChartTooltip>
+    <StockChartTooltip Visible="true"></StockChartTooltip>
 
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 2" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
+    </StockChartCategoryAxes>
 
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 1"
+                          Data="@StockChartProduct1Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+        </StockChartSeries>
 
-    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 2"
+                          Data="@StockChartProduct2Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+        </StockChartSeries>
+    </StockChartSeriesItems>
 
-    <ChartLegend Position="ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
+</TelerikStockChart>
+
 
 @code {
-    public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-    public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+    public List<StockDataPoint> StockChartProduct1Data { get; set; }
+    public List<StockDataPoint> StockChartProduct2Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GenerateChartData();
+    }
+
+    public async Task GenerateChartData()
+    {
+        StockChartProduct1Data = new List<StockDataPoint>()
+{
+            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)41.62, (decimal)40.12, (decimal)41.69, (decimal)39.81, 2632000),
+            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)39.88, (decimal)40.12, (decimal)41.12, (decimal)39.75, 3584700),
+            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)42.62, (decimal)43.31, (decimal)41.38, 7631700),
+            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)42.25, (decimal)43.06, (decimal)43.31, (decimal)41.12, 4922200),
+        };
+
+        StockChartProduct2Data = new List<StockDataPoint>()
+    {
+            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)39, (decimal)38, (decimal)44, (decimal)37, 26320),
+            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)37, (decimal)38, (decimal)41, (decimal)40, 35847),
+            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)43, (decimal)45, (decimal)41, 76317),
+            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)40, (decimal)42, (decimal)43, (decimal)42, 49222),
+        };
+
+        await Task.FromResult(StockChartProduct1Data);
+        await Task.FromResult(StockChartProduct2Data);
+    }
+
+    public class StockDataPoint
+    {
+        public StockDataPoint() { }
+
+        public StockDataPoint(DateTime date, decimal open, decimal close, decimal high, decimal low, int volume)
+        {
+            Date = date;
+            Open = open;
+            Close = close;
+            High = high;
+            Low = low;
+            Volume = volume;
+        }
+        public DateTime Date { get; set; }
+
+        public decimal Open { get; set; }
+
+        public decimal Close { get; set; }
+
+        public decimal High { get; set; }
+
+        public decimal Low { get; set; }
+
+        public int Volume { get; set; }
+    }
 }
 ````
 
 >caption The result from the code snippet above
 
-![common tooltip settings for all series](images/tooltip-common-example.gif)
+![common tooltip settings for all series](images/stockchart-tooltip-common.gif)
 
 
 ## Customization
@@ -134,61 +266,104 @@ You can customize the appearance of the individual series tooltip by using:
 >caption Configuration of the tooltips with applied customization settings
 
 ````CSHTML
-@* This example shows how to customize the tooltip *@
+@* This example shows how to customize the tooltip using the Parameter Settings *@
 
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Product 2 (bound to model)"
-                     Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
-            <ChartSeriesTooltip Visible="true"
-                                Background="#0000FF"
-                                Color="#D3D3D3">
-            </ChartSeriesTooltip>
-        </ChartSeries>
-    </ChartSeriesItems>
+<TelerikStockChart Width="750px"
+                   Height="450px"
+                   DateField="@nameof(StockDataPoint.Date)">
 
-    <ChartValueAxes>
-        <ChartValueAxis Color="red"></ChartValueAxis>
-    </ChartValueAxes>
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
+    </StockChartCategoryAxes>
 
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 1"
+                          Data="@StockChartProduct1Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+            <StockChartSeriesTooltip Visible="true"
+                                     Background="#6495ED"
+                                     Color="#F0F8FF"></StockChartSeriesTooltip>
+        </StockChartSeries>
 
-    <ChartTitle Text="Quarterly sales trend"></ChartTitle>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 2"
+                          Data="@StockChartProduct2Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+        </StockChartSeries>
+    </StockChartSeriesItems>
 
-    <ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-    </ChartLegend>
-</TelerikChart>
+</TelerikStockChart>
+
 
 @code {
-    public class MyDataModel
-    {
-        public int SecondSeriesValue { get; set; }
-        public string ExtraData { get; set; }
+    public List<StockDataPoint> StockChartProduct1Data { get; set; }
+    public List<StockDataPoint> StockChartProduct2Data { get; set; }
 
+    protected override async Task OnInitializedAsync()
+    {
+        await GenerateChartData();
     }
 
-    public List<MyDataModel> modelData = new List<MyDataModel>()
+    public async Task GenerateChartData()
     {
-        new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
-        new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
-        new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
-        new MyDataModel() { SecondSeriesValue = 2, ExtraData = "fourth" },
-    };
+        StockChartProduct1Data = new List<StockDataPoint>()
+{
+            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)41.62, (decimal)40.12, (decimal)41.69, (decimal)39.81, 2632000),
+            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)39.88, (decimal)40.12, (decimal)41.12, (decimal)39.75, 3584700),
+            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)42.62, (decimal)43.31, (decimal)41.38, 7631700),
+            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)42.25, (decimal)43.06, (decimal)43.31, (decimal)41.12, 4922200),
+        };
 
-    public List<object> simpleData = new List<object>() { 10, 2, 7, 5 };
+        StockChartProduct2Data = new List<StockDataPoint>()
+{
+            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)39, (decimal)38, (decimal)44, (decimal)37, 26320),
+            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)37, (decimal)38, (decimal)41, (decimal)40, 35847),
+            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)43, (decimal)45, (decimal)41, 76317),
+            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)40, (decimal)42, (decimal)43, (decimal)42, 49222),
+        };
 
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+        await Task.FromResult(StockChartProduct1Data);
+        await Task.FromResult(StockChartProduct2Data);
+    }
+
+    public class StockDataPoint
+    {
+        public StockDataPoint() { }
+
+        public StockDataPoint(DateTime date, decimal open, decimal close, decimal high, decimal low, int volume)
+        {
+            Date = date;
+            Open = open;
+            Close = close;
+            High = high;
+            Low = low;
+            Volume = volume;
+        }
+        public DateTime Date { get; set; }
+
+        public decimal Open { get; set; }
+
+        public decimal Close { get; set; }
+
+        public decimal High { get; set; }
+
+        public decimal Low { get; set; }
+
+        public int Volume { get; set; }
+    }
 }
-
 ````
 
 >caption The result from the code snippet above
 
-![tooltip parameter customization example](images/tooltip-customized-example.png)
+![tooltip parameter customization example](images/stockchart-tooltip-param-customization.png)
 
 
 #### Common Tooltip Settings
@@ -220,63 +395,108 @@ The available series data point information in the `context` is:
 ````CSHTML
 @* This example shows how to use the Template to provide an Icon and additional information from the model *@
 
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Product 2 (bound to model)"
-                     Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
-            <ChartSeriesTooltip Visible="true">
+<TelerikStockChart Width="750px"
+                   Height="450px"
+                   DateField="@nameof(StockDataPoint.Date)">
+
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
+    </StockChartCategoryAxes>
+
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 1"
+                          Data="@StockChartProduct1Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+            <StockChartSeriesTooltip Visible="true">
                 <Template>
                     <TelerikIcon Icon="@IconName.Information" />
-                    @((context.DataItem as MyDataModel).SecondSeriesValue) for @((context.DataItem as MyDataModel).ExtraData)
+                    The high value for @context.SeriesName is @(((context.DataItem as StockDataPoint).High).ToString("C2"))
                 </Template>
-            </ChartSeriesTooltip>
-        </ChartSeries>
-    </ChartSeriesItems>
+            </StockChartSeriesTooltip>
+        </StockChartSeries>
 
-    <ChartValueAxes>
-        <ChartValueAxis Color="red"></ChartValueAxis>
-    </ChartValueAxes>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 2"
+                          Data="@StockChartProduct2Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+        </StockChartSeries>
+    </StockChartSeriesItems>
 
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
+</TelerikStockChart>
 
-    <ChartTitle Text="Quarterly sales trend"></ChartTitle>
-
-    <ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-    </ChartLegend>
-</TelerikChart>
 
 @code {
-    public class MyDataModel
-    {
-        public int SecondSeriesValue { get; set; }
-        public string ExtraData { get; set; }
+    public List<StockDataPoint> StockChartProduct1Data { get; set; }
+    public List<StockDataPoint> StockChartProduct2Data { get; set; }
 
+    protected override async Task OnInitializedAsync()
+    {
+        await GenerateChartData();
     }
 
-    public List<MyDataModel> modelData = new List<MyDataModel>()
+    public async Task GenerateChartData()
     {
-        new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
-        new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
-        new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
-        new MyDataModel() { SecondSeriesValue = 2, ExtraData = "fourth" },
-    };
+        StockChartProduct1Data = new List<StockDataPoint>()
+{
+            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)41.62, (decimal)40.12, (decimal)41.69, (decimal)39.81, 2632000),
+            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)39.88, (decimal)40.12, (decimal)41.12, (decimal)39.75, 3584700),
+            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)42.62, (decimal)43.31, (decimal)41.38, 7631700),
+            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)42.25, (decimal)43.06, (decimal)43.31, (decimal)41.12, 4922200),
+        };
 
-    public List<object> simpleData = new List<object>() { 10, 2, 7, 5 };
+        StockChartProduct2Data = new List<StockDataPoint>()
+    {
+            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)39, (decimal)38, (decimal)44, (decimal)37, 26320),
+            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)37, (decimal)38, (decimal)41, (decimal)40, 35847),
+            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)43, (decimal)45, (decimal)41, 76317),
+            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)40, (decimal)42, (decimal)43, (decimal)42, 49222),
+        };
 
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+        await Task.FromResult(StockChartProduct1Data);
+        await Task.FromResult(StockChartProduct2Data);
+    }
+
+    public class StockDataPoint
+    {
+        public StockDataPoint() { }
+
+        public StockDataPoint(DateTime date, decimal open, decimal close, decimal high, decimal low, int volume)
+        {
+            Date = date;
+            Open = open;
+            Close = close;
+            High = high;
+            Low = low;
+            Volume = volume;
+        }
+        public DateTime Date { get; set; }
+
+        public decimal Open { get; set; }
+
+        public decimal Close { get; set; }
+
+        public decimal High { get; set; }
+
+        public decimal Low { get; set; }
+
+        public int Volume { get; set; }
+    }
 }
 ````
 
 >caption The result from the code snippet above
 
-![tooltip template example](images/tooltip-template-example.png)
+![tooltip template example](images/stockchart-tooltip-template.png)
 
 
 ## See Also
 
-  * [Chart Overview]({%slug components/chart/overview%})
-  * [Chart Shared Tooltip]({%slug chart-tooltip-shared%})
+  * [Stock Chart Overview]({%slug stockchart-overview%})
+  * [Stock Chart Shared Tooltip]({%slug stockchart-tooltip-shared%})
