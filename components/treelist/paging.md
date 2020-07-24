@@ -18,7 +18,7 @@ You can control the number of records per page through the `PageSize` property.
 
 You can set the current page of the treelist through its integer `Page` property.
 
-Paging is calculated for the currently expanded and visible items. Children in collapsed nodes are not included in the total count. Thus, expanding or collapsing a node (row) can change the items you see on the current page.
+Paging is calculated for the currently expanded and visible items. Children in collapsed nodes are not included in the total count and in the current page. Thus, expanding or collapsing a node (row) can change the items you see on the current page.
 
 >caption Enable paging in Telerik TreeList
 
