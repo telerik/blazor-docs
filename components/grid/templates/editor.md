@@ -8,7 +8,7 @@ published: True
 position: 15
 ---
 
-# Edit Template
+# Editor Template
 
 The column's `EditTemplate` defines the inline template or component that will be rendered when the user is [editing]({%slug components/grid/overview%}#editing) the field.
 
@@ -16,7 +16,7 @@ You can data bind components in it to the current context, which is an instance 
 
 If you need to perform logic more complex than simple data binding, use the change event of the custom editor component to perform it. You can also consider using a [custom edit form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form).
 
->caption Sample edit template
+>caption Sample editor template for a field
 
 ````CSHTML
 @* This example shows how to use a dropdownlist to edit strings. You can implement any desired logic instead.
