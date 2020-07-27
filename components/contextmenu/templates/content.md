@@ -8,208 +8,114 @@ published: True
 position: 10
 ---
 
-# Menu Templates
+# Content Template
 
-The Menu component allows you to define a custom template for its items. This article explains how you can use it.
+The Context Menu component allows you to define a custom template for its entire content so you can render what you want in it
 
-The `ItemTemplate` of an item is defined under the `ItemTemplate` tag of the menu.
+To override the context menu rendering, use the `<Template>` tag, and define your desired components and layout there.
 
-The template receives the model to which the item is bound as its `context`. You can use it to render the desired content. The menu is a generic component, so you can use a named context variable that will be of the model type without additional casting.
+The template receives the data source to which the context menu is bound as its `context`.
 
 You can use the template to render arbitrary content according to your application's data and logic. You can use components in it and thus provide rich content instead of plain text. You can also use it to add DOM event handlers like click, doubleclick, mouseover if you need to respond to them.
 
->caption Use templates to implement navigation between views without the UrlField feature
+>caption Use the content template to implement a custom layout that can also use the current target to alter itself
 
 ````CSHTML
-Use your own NavLink elements for navigation instead of the built-in feature of the menu
+@* Use the target to generate different custom layout in the context menu depending on what was clicked *@
 
-<TelerikMenu Data="@MenuItems"
-             ItemsField="@nameof(MenuItem.SubSectionList)">
-    <ItemTemplate Context="item">
+<div @oncontextmenu:preventDefault="true"
+     @oncontextmenu="@( (MouseEventArgs e) => ShowContextMenu(e, false) )"
+     class="menuTarget">
+    normal target
+</div>
+
+<div @oncontextmenu:preventDefault="true"
+     @oncontextmenu="@( (MouseEventArgs e) => ShowContextMenu(e, true) )"
+     class="menuTarget">
+    SPECIAL target
+</div>
+
+<TelerikContextMenu Data="@MenuItems" @ref="@TheContextMenu">
+    <Template>
+        @* Shows how to use the data source you give to the menu *@
         @{
-            var shouldNavigate = !string.IsNullOrEmpty(item.Page);
-            if (shouldNavigate)
-            {
-                <NavLink href="@item.Page">@item.Section</NavLink>
-            }
-            else
-            {
-                <span style="font-weight: bold;">See more about our @item.Section.ToLowerInvariant()</span>
-            }
+            var dataSource = context as List<ContextMenuItem>;
+            <p>We have this data:</p>
+            <ul>
+                @foreach (var item in dataSource)
+                {
+                    <li>@item.Text</li>
+                }
+            </ul>
         }
-    </ItemTemplate>
-</TelerikMenu>
+
+        @* sample template *@
+
+        <NavLink href="@dataSource[0].Metadata">Get Info</NavLink>
+
+        @* Sample conditional template that depends on the target *@
+        @if (UseSpecialMenu)
+        {
+            <TelerikButton OnClick="@( () => Console.WriteLine($"do more with {dataSource[1].Text}") )">Do More</TelerikButton>
+        }
+    </Template>
+</TelerikContextMenu>
 
 @code {
-    public List<MenuItem> MenuItems { get; set; }
+    public List<ContextMenuItem> MenuItems { get; set; }
+    TelerikContextMenu<ContextMenuItem> TheContextMenu { get; set; }
+    bool UseSpecialMenu { get; set; }
 
-    public class MenuItem
+    async Task ShowContextMenu(MouseEventArgs e, bool IsSpecial)
     {
-        public string Section { get; set; }
-        public string Page { get; set; }
-        public List<MenuItem> SubSectionList { get; set; }
+        // use information to toggle the menu content
+        UseSpecialMenu = IsSpecial;
+        // show the menu
+        await TheContextMenu.ShowAsync(e.ClientX, e.ClientY);
     }
 
+    // generate sample data for the listview and the menu
     protected override void OnInitialized()
     {
-        MenuItems = new List<MenuItem>()
-    {
-            new MenuItem()
+        MenuItems = new List<ContextMenuItem>()
+        {
+            new ContextMenuItem
             {
-                Section = "Company",
-                SubSectionList = new List<MenuItem>()
-            {
-                    new MenuItem()
-                    {
-                        Section = "Overview",
-                        Page = "company/overview"
-                    },
-                    new MenuItem()
-                    {
-                        Section = "Events",
-                        Page = "company/events"
-                    },
-                    new MenuItem()
-                    {
-                        Section = "Careers",
-                        Page = "company/careers"
-                    }
-                }
+                Text = "More Info",
+                Metadata = "info"
             },
-            new MenuItem()
+            new ContextMenuItem
             {
-                Section = "Services",
-                SubSectionList = new List<MenuItem>()
-            {
-                    new MenuItem()
-                    {
-                        Section = "Consulting",
-                        Page = "consultingservices"
-                    },
-                    new MenuItem()
-                    {
-                        Section = "Education",
-                        Page = "education"
-                    }
-                }
+                Text = "Special Command",
+                Metadata = "special"
             }
         };
 
         base.OnInitialized();
     }
-}
-````
 
->caption Use templates to visually distinguish the current page as an item that is styled differently, and to open external links in new tabs
-
-````CSHTML
-@inject NavigationManager navigationManager
-
-<TelerikMenu Data="@MenuItems" OnClick="@((MenuItem item) => OnClick(item))">
-    <ItemTemplate Context="item">
-        @{
-            if (EqualityComparer<MenuItem>.Default.Equals(item, SelectedMenuItem))
-            {
-                <span style="color: black; font-weight: bold">@item.Text</span>
-            }
-            else
-            {
-                string target = "";
-                if (!IsInternalPage(item.Url))
-                {
-                    target = "_blank";
-                }
-                <NavLink target="@target" href="@item.Url" class="k-link k-menu-link">@item.Text</NavLink>
-            }
-        }
-    </ItemTemplate>
-</TelerikMenu>
-
-@code {
-    public List<MenuItem> MenuItems { get; set; }
-
-    public MenuItem SelectedMenuItem { get; set; }
-
-    protected override void OnInitialized()
-    {
-        MenuItems = new List<MenuItem>()
-        {
-            new MenuItem()
-            {
-                Text = "Home",
-                Url = "/",
-            },
-            new MenuItem()
-            {
-                Text = "Fetch Data",
-                Url = "/fetchdata"
-            },
-            new MenuItem()
-            {
-                Text = "Counter",
-                Url = "/counter"
-            },
-            new MenuItem()
-            {
-                Text = "Telerik UI for Blazor",
-                Items = new List<MenuItem>()
-                {
-                    new MenuItem()
-                    {
-                        Text = "Documentation",
-                        Url = "https://docs.telerik.com/blazor-ui/introduction"
-                    },
-                    new MenuItem()
-                    {
-                        Text = "Live Demos",
-                        Url = "https://demos.telerik.com/blazor-ui"
-                    }
-                }
-            }
-        };
-
-        SelectedMenuItem = MenuItems.Find(item => CompareCurrentPageUrl(item.Url));
-
-        base.OnInitialized();
-    }
-
-    private void OnClick(MenuItem item)
-    {
-        if (IsInternalPage(item.Url))
-        {
-            SelectedMenuItem = item;
-        }
-    }
-
-    private bool CompareCurrentPageUrl(string urlToCopmare)
-    {
-        return navigationManager.Uri.Substring(navigationManager.BaseUri.Length - 1).Equals(urlToCopmare);
-    }
-
-    private bool IsInternalPage(string url)
-    {
-        if (string.IsNullOrEmpty(url))
-        {
-            return false;
-        }
-        return !(url.StartsWith("https://") || url.StartsWith("http://"));
-    }
-	
-	public class MenuItem
+    public class ContextMenuItem
     {
         public string Text { get; set; }
-        public string Url { get; set; }
-        public List<MenuItem> Items { get; set; }
+        public string Metadata { get; set; }
     }
 }
+
+<style>
+    .menuTarget{
+        width: 100px;
+        background: yellow;
+        margin: 50px;
+    }
+</style>
 ````
 
->caption The result from the snippet above, asuming the current page URL is `/counter`
+>caption The result from the snippet above
 
-![](images/menu-template-distinguish-item.png)
+![Context Menu Conditional Content Template with custom layout](images/content-template-in-action.gif)
 
 ## See Also
 
-  * [Data Binding a Menu]({%slug components/menu/data-binding/overview%})
-  * [Live Demo: Menu Temlate](https://demos.telerik.com/blazor-ui/menu/template)
+  * [Data Binding a Context Menu]({%slug contextmenu-data-binding-overview%})
+  * [Live Demo: Context Menu Temlate](https://demos.telerik.com/blazor-ui/contextmenu/template)
 
