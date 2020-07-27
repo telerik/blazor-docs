@@ -5,7 +5,7 @@ description: Templates in the Context Menu for Blazor.
 slug: contextmenu-templates-overview
 tags: telerik,blazor,context menu,templates
 published: True
-position: 10
+position: 1
 ---
 
 # Context Menu Templates

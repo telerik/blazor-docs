@@ -1,14 +1,14 @@
 ---
 title: Content Template
-page_title: Menu - Templates
-description: Templates in the Menu for Blazor.
+page_title: Menu - Content Template
+description: Content Template in the Menu for Blazor.
 slug: contextmenu-content-template
 tags: telerik,blazor,menu,templates
 published: True
-position: 10
+position: 5
 ---
 
-# Content Template
+# Context Menu Content Template
 
 The Context Menu component allows you to define a custom template for its entire content so you can render what you want in it
 
