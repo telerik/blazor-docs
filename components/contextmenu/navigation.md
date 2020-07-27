@@ -1,30 +1,34 @@
 ---
 title: Navigation
-page_title: Menu - Navigation
-description: Using the Blazor Menu for navigating between pages.
+page_title: Context Menu - Navigation
+description: Using the Blazor Context Menu for navigating between pages.
 slug: contextmenu-navigation
 tags: telerik,blazor,menu,navigation
 published: True
 position: 3
 ---
 
-# Menu for Navigation
+# Context Menu for Navigation
 
-The Menu can be used to navigate between different pages in the applicaiton. It can generate the needed links for you through its `UrlField` when [data binding]({%slug components/menu/data-binding/overview%}).
+The Context Menu can be used to navigate between different pages in the application. It can generate the needed links for you through its `UrlField` when [data binding]({%slug contextmenu-data-binding-overview%}).
 
 To use the Menu for navigating between pages:
 
-* Add the Menu to your application.
-    * You may want to add it in the `MainLayout.razor` outside of the `@Body`, for example, in the header section of your app.
+* Add the ContextMenu to your application and [choose a target]({%slug contextmenu-overview%}) or [show it with your own code]({%slug contextmenu-overview%}#know-the-target-and-adjust-items).
 * Provide a collection of models that describe the pages you want the user to navigate to.
 * Populate its `UrlField` with the corresponding data from the model or provide a `Url` property in the model.
 
->caption Use the Menu to navigate between pages
+>caption Use the Context Menu to navigate between pages
 
 ````CSHTML
-@* This a basic example of a Menu used as Navigation. *@
+@* This a basic example of a Context Menu used as Navigation. *@
 
-<TelerikMenu Data="@MenuData"></TelerikMenu>
+<div id="navigation-trigger" style="height: 100px; background: yellow;">
+    right click me for navigation options<br />I could be a hamburger icon or other trigger that suits your design
+</div>
+
+<TelerikContextMenu Data="@MenuData" Selector="#navigation-trigger">
+</TelerikContextMenu>
 
 
 @code {
@@ -51,7 +55,7 @@ To use the Menu for navigating between pages:
                 Url = "/settings",
                 Icon = IconName.Gear,
                 Items = new List<MenuModel>()
-                {
+            {
                     new MenuModel()
                     {
                         Text = "Profile Settings",
@@ -81,6 +85,6 @@ To use the Menu for navigating between pages:
 
 ## See Also
 
-* [Menu Overview]({%slug components/menu/overview%})
-* [Menu Data Binding]({%slug components/menu/data-binding/overview%})
-* [Menu Templates]({%slug components/menu/templates%})
+* [Context Menu Overview]({%slug contextmenu-overview%})
+* [Context Menu Data Binding]({%slug contextmenu-data-binding-overview%})
+* [Context Menu Templates]({%slug contextmenu-templates-overview%})
