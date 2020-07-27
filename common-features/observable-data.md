@@ -28,6 +28,8 @@ The following components support observable data:
 
 * MultiSelect
 
+* TreeList
+
 * TreeView
 
 The Scheduler and Menu will receive this feature in a future release.

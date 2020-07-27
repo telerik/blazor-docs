@@ -74,6 +74,24 @@ navigation:
      "*components/grid/selection":
         title: "Selection"
         position: 35
+     "*components/treelist/data-binding":
+        title: "Data Binding"
+        position: 2
+     "*components/treelist/columns":
+        title: "Columns"
+        position: 5
+     "*components/treelist/editing":
+        title: "Editing"
+        position: 10
+     "*components/treelist/templates":
+        title: "Templates"
+        position: 25
+     "*components/treelist/export":
+        title: "Export"
+        position: 30
+     "*components/treelist/selection":
+        title: "Selection"
+        position: 35
      "*components/chart/types":
         title: "Types"
         position: 15
@@ -276,6 +294,7 @@ intro_columns:
     title: "Data Management"
     items:
       "Grid": "components/grid/overview"
+      "TreeList": "treelist-overview"
       "ListView": "listview-overview"
 
   -
@@ -288,13 +307,6 @@ intro_columns:
       "Tab Strip": "components/tabstrip/overview"
       "TreeView": "components/treeview/overview"
       "Pager": "pager-overview"
-
-  -
-    title: "Scheduling"
-    items:
-      "Scheduler": "scheduler-overview"
-      "Calendar": "components/calendar/overview"
-
 
 -
   categories:
@@ -344,6 +356,12 @@ intro_columns:
       "Animation Container": "components/animationcontainer/overview"
       "Tooltip": "tooltip-overview"
       "Drawer": "drawer-overview"
+  -
+    title: "Scheduling"
+    items:
+      "Scheduler": "scheduler-overview"
+      "Calendar": "components/calendar/overview"
+
 
 
 ## The application virtual path

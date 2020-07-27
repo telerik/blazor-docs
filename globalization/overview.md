@@ -31,6 +31,8 @@ The Telerik Components use the current thread culture to render the appropriate 
 
 * [DatePicker](https://demos.telerik.com/blazor-ui/datepicker/globalization) - @[template](/_contentTemplates/common/general-info.md#date-format-per-culture)
 
+* [DateRangePicker](https://demos.telerik.com/blazor-ui/daterangepicker/globalization) - @[template](/_contentTemplates/common/general-info.md#date-format-per-culture)
+
 * [DateTimePicker](https://demos.telerik.com/blazor-ui/datetimepicker/globalization) - @[template](/_contentTemplates/common/general-info.md#date-format-per-culture)
 
 * [Grid](https://demos.telerik.com/blazor-ui/grid/globalization) - the various inputs and editors are Telerik components and respond to the culture. Custom code and format strings in the templates will also default to using the current culture unless you explicitly use a certain culture in them.
@@ -41,7 +43,7 @@ The Telerik Components use the current thread culture to render the appropriate 
 
 * [TimePicker](https://demos.telerik.com/blazor-ui/timepicker/globalization) - @[template](/_contentTemplates/common/general-info.md#date-format-per-culture)
 
-
+* [TreeList](https://demos.telerik.com/blazor-ui/treelist/globalization) - the various inputs and editors are Telerik components and respond to the culture. Custom code and format strings in the templates will also default to using the current culture unless you explicitly use a certain culture in them.
 
 ## See Also
 
