@@ -1,18 +1,18 @@
 ---
 title: Overview
-page_title: Menu Overview
-description: Overview of the Menu for Blazor.
+page_title: Context Menu Overview
+description: Overview of the Context Menu for Blazor.
 slug: contextmenu-overview
-tags: telerik,blazor,menu,overview
+tags: telerik,blazor,context menu,overview
 published: True
 position: 0
 ---
 
-# Menu Overview
+# Context Menu Overview
 
-The Context Menu component displays a contextual popup with data (flat or hierarchical) in a traditional menu-like structure. It lets you invoke commands while preserving screen real estate.
+The Blazor Context Menu component displays a contextual popup with data (flat or hierarchical) in a traditional menu-like structure. It lets you invoke commands while preserving screen real estate.
 
-In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%}), you can browse through the items and their children, define [templates]({%slug contextmenu-templates%}) for the individual nodes, render text and icons/images, and respond to [events]({%slug contextmenu-events%}).
+In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%}), you can browse through the items and their children, define [templates]({%slug contextmenu-templates-overview%}) for the individual nodes, render text and icons/images, and respond to [events]({%slug contextmenu-events%}).
 
 To use a Telerik Context Menu for Blazor:
 
@@ -147,7 +147,7 @@ To use a Telerik Context Menu for Blazor:
 A menu is often used to list pages, views or sections in an application so the user can navigate through them. To do that with a menu, you have two options:
 
 * Use the built-in `UrlField` in the [bound data]({%slug contextmenu-data-binding-overview%}) to populate the URLs in the anchors the menu will generate for you if an URL is provided for the given item. An example is available in the beginning of this article.
-* Use a [Template]({%slug contextmenu-templates%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
+* Use a [Template]({%slug contextmenu-templates-overview%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
 
 >tip You can find an example of a menu used to navigate between pages in an app in the [Navigation]({%slug contextmenu-navigation%}) article.
 

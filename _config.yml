@@ -92,6 +92,9 @@ navigation:
      "*components/contextmenu/data-binding":
         title: "Data Binding"
         position: 2
+     "*components/contextmenu/templates":
+        title: "Templates"
+        position: 25
      "*components/menu/data-binding":
         title: "Data Binding"
         position: 2
