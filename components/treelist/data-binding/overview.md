@@ -12,6 +12,8 @@ position: 0
 
 This article explains the different ways to provide data to a treelist component and the properties related to data binding. Reviewing this article will explain the basics of how you can describe the hierarchy of items in your data source to the treelist component so they can render.
 
+@[template](/_contentTemplates/common/general-info.md#valuebind-vs-databind-link)
+
 First, review:
 
 * The available (bindable) [features of a treelist item](#treelist-item-features).
