@@ -1,16 +1,16 @@
 ---
 title: Events
-page_title: Menu - Events
-description: Events in the Menu for Blazor.
+page_title: Context Menu - Events
+description: Events in the Context Menu for Blazor.
 slug: contextmenu-events
-tags: telerik,blazor,menu,events
+tags: telerik,blazor,context menu,events
 published: true
 position: 30
 ---
 
 # Events
 
-This article explains the events available in the Telerik Menu for Blazor:
+This article explains the events available in the Telerik Context Menu for Blazor:
 
 * [OnClick](#onclick)
 
@@ -24,9 +24,11 @@ You can use the `OnClick` event to react to user choices in a menu without using
 
 ````CSHTML
 Last clicked item: @ClickedItem?.Text
+<div id="context-menu-target" style="background:yellow;">right click for context menu</div>
 
-<TelerikMenu Data="@MenuItems" OnClick="@((MenuItem item) => OnClickHandler(item))">
-</TelerikMenu>
+<TelerikContextMenu Data="@MenuItems" Selector="#context-menu-target"
+                    OnClick="@((MenuItem item) => OnClickHandler(item))">
+</TelerikContextMenu>
 
 @code {
     public MenuItem ClickedItem { get; set; }
@@ -87,4 +89,4 @@ Last clicked item: @ClickedItem?.Text
 
 ## See Also
 
-* [Templates]({%slug components/menu/templates%})
+* [Templates]({%slug contextmenu-templates-overview%})
