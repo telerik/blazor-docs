@@ -298,6 +298,221 @@ To achieve such flexibility and granularity, you can:
 </style>
 ````
 
+## Context Menu for a Grid Row
+
+To integrate the context menu with the Telerik Grid, you need to:
+
+1. Use the grid's `OnRowContextMenu` event to get the current row model and show the menu
+2. Use the context menu's `OnClick` event to handle the desired operation
+
+In this example, the context menu is used to select/deselect items, put an item in edit mode and delete items
+
+>caption Use a Context Menu for Grid rows
+
+````CSHTML
+@using System.Collections.Generic
+@using System.Collections.ObjectModel
+
+<TelerikContextMenu @ref="@ContextMenuRef" Data="@MenuItems" OnClick="@((MenuItem item) => OnItemClick(item))"></TelerikContextMenu>
+
+<TelerikGrid Data="@GridData" @ref="@GridRef"
+             EditMode="@GridEditMode.Inline"
+             Height="500px"
+             Pageable="true"
+             OnCreate="@CreateItem" OnUpdate="@UpdateHandler"
+             OnRowContextMenu="@OnContextMenu"
+             SelectionMode="@GridSelectionMode.Multiple"
+             @bind-SelectedItems="@SelectedItems">
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Editable="false" />
+        <GridColumn Field=@nameof(SampleData.Name) />
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@if (SelectedItems.Any())
+{
+    <ul>
+        @foreach (var item in SelectedItems)
+        {
+            <li>@item.Name</li>
+        }
+    </ul>
+}
+
+@code {
+    //data sources
+    ObservableCollection<SampleData> GridData { get; set; }
+    List<MenuItem> MenuItems { get; set; }
+    IEnumerable<SampleData> SelectedItems { get; set; } = Enumerable.Empty<SampleData>();
+    //metadata for the context menu actions
+    SampleData SelectedPerson { get; set; }
+    //component references so we can use their methods
+    TelerikContextMenu<MenuItem> ContextMenuRef { get; set; }
+    TelerikGrid<SampleData> GridRef { get; set; }
+
+    // sample menu item class
+    public class MenuItem
+    {
+        public string Text { get; set; }
+        public string Icon { get; set; }
+        public Action Action { get; set; }
+        public string CommandName { get; set; }
+    }
+
+    // show the context menu for a particular row
+    async Task OnContextMenu(GridRowClickEventArgs args)
+    {
+        var argsItem = args.Item as SampleData;
+
+        SelectedPerson = argsItem;
+
+        if (args.EventArgs is MouseEventArgs mouseEventArgs)
+        {
+            await ContextMenuRef.ShowAsync(mouseEventArgs.ClientX, mouseEventArgs.ClientY);
+        }
+    }
+
+    // sample handling of the context menu click
+    async Task OnItemClick(MenuItem item)
+    {
+        // one way to pass handlers is to use an Action, you don't have to use this
+        if (item.Action != null)
+        {
+            item.Action.Invoke();
+        }
+        else
+        {
+            // or you can use local code to perform a task
+            // such as put a row in edit mode or select it
+            switch (item.CommandName)
+            {
+                case "BeginEdit": // read more at https://localhost/blazor-ui/components/grid/state#initiate-editing-or-inserting-of-an-item
+                    var currState = GridRef.GetState();
+                    currState.InsertedItem = null;
+                    SampleData itemToEdit = SampleData.GetClonedInstance(GridData.Where(itm => itm.ID == SelectedPerson.ID).FirstOrDefault());
+                    currState.OriginalEditItem = itemToEdit;
+                    await GridRef.SetState(currState);
+                    break;
+                case "ToggleSelect":
+                    var selItems = SelectedItems.ToList();
+                    if (SelectedItems.Contains(SelectedPerson))
+                    {
+                        selItems.Remove(SelectedPerson);
+                    }
+                    else
+                    {
+                        selItems.Add(SelectedPerson);
+                    }
+                    SelectedItems = selItems;
+                    break;
+                default:
+                    break;
+            }
+        }
+        SelectedPerson = null; // clean up
+    }
+
+    // generate data
+    protected override void OnInitialized()
+    {
+        // context menu items
+        MenuItems = new List<MenuItem>()
+        {
+            new MenuItem(){ Text = "Select", Icon=IconName.CheckboxChecked, CommandName="ToggleSelect" },
+            new MenuItem(){ Text = "Edit", Icon=IconName.Edit, CommandName="BeginEdit" },
+            new MenuItem(){ Text = "Delete", Icon=IconName.Delete, Action = DeleteItem }
+        };
+
+        // generate data for the grid
+        GridData = new ObservableCollection<SampleData>();
+        var rand = new Random();
+
+        for (int i = 0; i < 100; i++)
+        {
+            GridData.Add(new SampleData()
+            {
+                ID = i,
+                Name = "Employee " + i.ToString(),
+            });
+        }
+    }
+
+
+    // CUD operations for the grid
+
+    async Task CreateItem(GridCommandEventArgs args)
+    {
+        var argsItem = args.Item as SampleData;
+
+        // call the actual data service here
+
+        argsItem.ID = GridData.Count + 1;
+
+        GridData.Insert(0, argsItem);
+    }
+
+    void DeleteItem() // not async so it can be passed as an Action
+    {
+        var argsItem = SelectedPerson;
+
+        // call the actual data service here
+
+        GridData.Remove(argsItem);
+    }
+
+    async Task UpdateHandler(GridCommandEventArgs args)
+    {
+        var argsItem = args.Item as SampleData;
+
+        // call the actual data service here
+
+        var index = GridData.ToList().FindIndex(i => i.ID == argsItem.ID);
+        if (index != -1)
+        {
+            GridData[index] = argsItem;
+        }
+    }
+
+    public class SampleData
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+
+
+        public override bool Equals(object obj)
+        {
+            if (obj is SampleData)
+            {
+                return this.ID == (obj as SampleData).ID;
+            }
+            return false;
+        }
+
+        public SampleData()
+        {
+
+        }
+
+        public SampleData(SampleData itmToClone)
+        {
+            this.ID = itmToClone.ID;
+            this.Name = itmToClone.Name;
+        }
+
+        public static SampleData GetClonedInstance(SampleData itmToClone)
+        {
+            return new SampleData(itmToClone);
+        }
+    }
+}
+````
 
 
 ## See Also
