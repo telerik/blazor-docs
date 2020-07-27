@@ -1,16 +1,16 @@
 ---
 title: Overview
-page_title: Menu - Data Binding Overview
-description: Data Binding basics in the Menu for Blazor.
+page_title: Context Menu - Data Binding Overview
+description: Data Binding basics in the Context Menu for Blazor.
 slug: contextmenu-data-binding-overview
-tags: telerik,blazor,menu,data,bind,databind,databinding,basics
+tags: telerik,blazor,context menu,data,bind,databind,databinding,basics
 published: True
 position: 0
 ---
 
-# Menu Data Binding Basics
+# Context Menu Data Binding Basics
 
-This article explains the different ways to provide data to a Menu component, the properties related to data binding and their results.
+This article explains the different ways to provide data to a Context Menu component, the properties related to data binding and their results.
 
 @[template](/_contentTemplates/common/general-info.md#valuebind-vs-databind-link)
 
@@ -21,8 +21,8 @@ First, review:
 
 There are two modes of providing data to a menu, and they all use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
 
-* [Hierarchical data]({%slug components/menu/data-binding/hierarchical-data%}) - separate collections of items and their child items.
-* [Flat data]({%slug components/menu/data-binding/flat-data%}) - a single collection of items with defined parent-child relationships.
+* [Hierarchical data]({%slug contextmenu-data-binding-hierarchical-data%}) - separate collections of items and their child items.
+* [Flat data]({%slug contextmenu-data-binding-flat-data%}) - a single collection of items with defined parent-child relationships.
 
 ## Menu Item Features
 
@@ -30,7 +30,7 @@ The menu items provide the following features that you control through the corre
 
 * `Id` - a unique identifier for the item. Required for binding to flat data.
 
-* `ParentId` - identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, this must be `null`.
+* `ParentId` - identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, this must be `null`. There should be at least one root-level item.
 
 * `HasChildren` - can hide child items. The menu will fetch its children from the data source based on the `Id`-`ParentId` relationships (for flat data) or on the presence of the `Items` collection (for hierarchical data). @[template](/_contentTemplates/menu/basic-example.md#has-children-behavior)
 
@@ -67,7 +67,7 @@ The properties of a menu item match directly to a field of the model the menu is
 >caption Default field names for menu item bindings. If you use these, you don't have to specify them in the `TelerikMenu` tag explicitly.
 
 ````CSHTML
-public class MenuItem
+public class ContextMenuItem
 {
 	public int Id { get; set; }
 	public string Text { get; set; }
@@ -80,24 +80,28 @@ public class MenuItem
 }
 ````
 
->caption Data bind the menu to a model with custom field names
+>caption Data bind the context menu to a model with custom field names
 
 ````CSHTML
 @* This example shows flat data binding with custom fields, and two separator items around a disabled item at the root level and in the nested menu *@
 
-<TelerikMenu Data="@MenuItems"
-             ParentIdField="@nameof(MenuItem.SectionId)"
-             IdField="@nameof(MenuItem.Id)"
-             TextField="@nameof(MenuItem.Section)"
-             UrlField="@nameof(MenuItem.Page)"
-             DisabledField="@nameof(MenuItem.IsDisabled)"
-             SeparatorField="@nameof(MenuItem.IsItemSeparator)">
-</TelerikMenu>
+<div class="menuTarget">
+    right click this context menu target
+</div>
+
+<TelerikContextMenu Data="@ContextMenuItems" Selector=".menuTarget"
+             ParentIdField="@nameof(ContextMenuItem.SectionId)"
+             IdField="@nameof(ContextMenuItem.Id)"
+             TextField="@nameof(ContextMenuItem.Section)"
+             UrlField="@nameof(ContextMenuItem.Page)"
+             DisabledField="@nameof(ContextMenuItem.IsDisabled)"
+             SeparatorField="@nameof(ContextMenuItem.IsItemSeparator)">
+</TelerikContextMenu>
 
 @code {
-    public List<MenuItem> MenuItems { get; set; }
+    public List<ContextMenuItem> ContextMenuItems { get; set; }
 
-    public class MenuItem
+    public class ContextMenuItem
     {
         public int Id { get; set; }
         public int? SectionId { get; set; }
@@ -109,64 +113,64 @@ public class MenuItem
 
     protected override void OnInitialized()
     {
-        MenuItems = new List<MenuItem>()
+        ContextMenuItems = new List<ContextMenuItem>()
         {
             // sample URLs for SPA navigation
-            new MenuItem()
+            new ContextMenuItem()
             {
                 Id = 1,
                 Section = "Overview",
-                Page = "menu/overview"
+                Page = "contextmenu/overview"
             },
-            new MenuItem()
+            new ContextMenuItem()
             {
                 Id = 2,
                 Section = "Demos",
-                Page = "menu/demos"
+                Page = "contextmenu/demos"
             },
-            new MenuItem() // separator item
+            new ContextMenuItem() // separator item
             {
                 Id = 3,
                 IsItemSeparator = true
             },
-            new MenuItem() // disabled item
+            new ContextMenuItem() // disabled item
             {
                 Id = 4,
                 Section = "Disbled Item",
                 IsDisabled = true
             },
-            new MenuItem()
+            new ContextMenuItem()
             {
                 Id = 5,
                 IsItemSeparator = true
             },
-            new MenuItem()
+            new ContextMenuItem()
             {
                 Id = 6,
                 Section = "Roadmap"
             },
             // sample URLs for external navigation
-            new MenuItem()
+            new ContextMenuItem()
             {
                 Id = 7,
                 SectionId = 6,
                 Section = "What's new",
                 Page = "https://www.telerik.com/support/whats-new"
             },
-            new MenuItem()
+            new ContextMenuItem()
             {
                 Id = 9,
                 SectionId = 6,
                 Section = "Release History",
                 Page = "https://www.telerik.com/support/whats-new/blazor-ui/release-history"
             },
-            new MenuItem()
+            new ContextMenuItem()
             {
                 Id = 10,
                 IsItemSeparator = true,
                 SectionId = 6
             },
-            new MenuItem()
+            new ContextMenuItem()
             {
                 Id = 11,
                 SectionId = 6,
@@ -179,17 +183,26 @@ public class MenuItem
         base.OnInitialized();
     }
 }
+
+<style>
+    .menuTarget {
+        width: 100px;
+        background: yellow;
+        margin: 50px;
+    }
+</style>
+
 ````
 
 >caption The result from the snippet above
 
-![menu data binding example](images/menu-databinding-example.png)
+![context menu data binding example](images/context-menu-databinding-example.png)
 
 
 
 ## See Also
 
-  * [Binding to Flat Data]({%slug components/menu/data-binding/flat-data%})
-  * [Binding to Hierarchical Data]({%slug components/menu/data-binding/hierarchical-data%})
-  * [Live Demo: Menu Flat Data](https://demos.telerik.com/blazor-ui/menu/flat-data)
-  * [Live Demo: Menu Hierarchical Data](https://demos.telerik.com/blazor-ui/menu/hierarchical-data)
+  * [Binding to Flat Data]({%slug contextmenu-data-binding-flat-data%})
+  * [Binding to Hierarchical Data]({%slug contextmenu-data-binding-hierarchical-data%})
+  * [Live Demo: Context Menu Flat Data](https://demos.telerik.com/blazor-ui/contextmenu/flat-data)
+  * [Live Demo: Context Menu Hierarchical Data](https://demos.telerik.com/blazor-ui/contextmenu/hierarchical-data)
