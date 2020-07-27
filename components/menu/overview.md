@@ -122,6 +122,7 @@ A menu is often used to list pages, views or sections in an application so the u
 * Use the built-in `UrlField` in the [bound data]({%slug components/menu/data-binding/overview%}#data-bindings) to populate the URLs in the anchors the menu will generate for you if an URL is provided for the given item. An example is available in the beginning of this article.
 * Use a [Template]({%slug components/menu/templates%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
 
+>tip You can find an example of a menu used to navigate between pages in an app in the [Navigation]({%slug menu-navigation%}) article.
 
 ## See Also
 

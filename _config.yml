@@ -107,6 +107,12 @@ navigation:
      "*components/treeview/selection":
         title: "Selection"
         position: 3
+     "*components/contextmenu/data-binding":
+        title: "Data Binding"
+        position: 2
+     "*components/contextmenu/templates":
+        title: "Templates"
+        position: 25
      "*components/menu/data-binding":
         title: "Data Binding"
         position: 2
@@ -181,6 +187,8 @@ navigation:
         title: "MultiColumnComboBox"
      "*combobox":
         title: "ComboBox"
+     "*contextmenu":
+        title: "Context Menu"
      "*dateinput":
         title: "Date Input"
      "*datepicker":
@@ -304,6 +312,7 @@ intro_columns:
       "Toggle Button": "togglebutton-overview"
       "Button Group" : "buttongroup-overview"
       "Menu": "components/menu/overview"
+      "Context Menu": "contextmenu-overview"
       "Tab Strip": "components/tabstrip/overview"
       "TreeView": "components/treeview/overview"
       "Pager": "pager-overview"
