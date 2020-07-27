@@ -1,9 +1,9 @@
 ---
 title: Line
-page_title: Chart - Line
-description: Overview of the Line Chart for Blazor.
-slug: components/chart/types/line
-tags: telerik,blazor,chart,line
+page_title: Stock Chart - Line
+description: Overview of the Line Stock Chart for Blazor.
+slug: stockchart-line
+tags: telerik,blazor,stock,chart,line
 published: True
 position: 0
 ---
