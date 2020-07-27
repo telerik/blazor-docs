@@ -10,7 +10,7 @@ position: 0
 
 # Time Picker Overview
 
-The Time Picker component allows the user to choose a time from a visual list in a dropdown, or to type it into a [date input]({%slug components/dateinput/overview%}) that can accept only DateTime values. You can control the format shown in the input and respond to [events]({%slug components/timepicker/events %}).
+The <a href="https://www.telerik.com/blazor-ui/timepicker" target="_blank">Blazor Time Picker component</a> allows the user to choose a time from a visual list in a dropdown, or to type it into a [date input]({%slug components/dateinput/overview%}) that can accept only DateTime values. You can control the format shown in the input and respond to [events]({%slug components/timepicker/events %}).
 
 To use a Telerik Time Picker for Blazor, add the `TelerikTimePicker` tag.
 

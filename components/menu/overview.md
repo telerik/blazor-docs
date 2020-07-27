@@ -10,7 +10,7 @@ position: 0
 
 # Menu Overview
 
-The Menu component displays data (flat or hierarchical) in a traditional menu-like structure. In addition to built-in navigation capabilities, you can browse through the items and their children, define [templates]({%slug components/menu/templates%}) for the individual nodes, render text and icons/images, and respond to [events]({%slug components/menu/events%}).
+The <a href="https://www.telerik.com/blazor-ui/menu" target="_blank">Blazor Menu component</a> displays data (flat or hierarchical) in a traditional menu-like structure. In addition to built-in navigation capabilities, you can browse through the items and their children, define [templates]({%slug components/menu/templates%}) for the individual nodes, render text and icons/images, and respond to [events]({%slug components/menu/events%}).
 
 To use a Telerik Menu for Blazor:
 

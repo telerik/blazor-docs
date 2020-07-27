@@ -10,7 +10,7 @@ position: 0
 
 # Button Overview
 
-This article provides information about the Button component and its core features.
+This article provides information about the <a href="https://www.telerik.com/blazor-ui/buttons" target="_blank">Blazor Button component</a> and its core features.
 
 The Button component provides styling according to the [chosen theme]({%slug general-information/themes%}), click [event]({%slug button-events%}) and [icons]({%slug button-icons%}). You can also disable the button and set its [type]({%slug button-type%}).
 

@@ -10,7 +10,7 @@ position: 0
 
 # Checkbox Overview
 
-The Checkbox component allows you to add more customizable checkboxes to your Blazor application. It maintains the behavior of the standard HTML checkbox and provides checked, unchecked and [indeterminate]({%slug checkbox-indeterminate-state%}) states.
+The <a href="https://www.telerik.com/blazor-ui/checkbox" target="_blank">Blazor Checkbox component</a> allows you to add more customizable checkboxes to your application. It maintains the behavior of the standard HTML checkbox and provides checked, unchecked and [indeterminate]({%slug checkbox-indeterminate-state%}) states.
 
 To use a Telerik Checkbox for Blazor
 
