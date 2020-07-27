@@ -1,17 +1,17 @@
 ---
 title: Flat Data
-page_title: Menu - Data Binding to Flat Data
-description: Data Binding the Menu for Blazor to flat data.
+page_title: Context Menu - Data Binding to Flat Data
+description: Data Binding the Context Menu for Blazor to flat data.
 slug: contextmenu-data-binding-flat-data
-tags: telerik,blazor,menu,data,bind,databind,databinding,flat
+tags: telerik,blazor,context menu,data,bind,databind,databinding,flat
 published: True
 position: 2
 ---
 
-# Menu Data Binding to Flat Data
+# Context Menu Data Binding to Flat Data
 
-This article explains how to bind the Menu for Blazor to flat data. 
-@[template](/_contentTemplates/menu/basic-example.md#data-binding-basics-link)
+This article explains how to bind the Context Menu for Blazor to flat data. 
+@[template](/_contentTemplates/menu/basic-example.md#context-menudata-binding-basics-link)
 
 
 Flat data means that the entire collection of menu items is available at one level, for example `List<MyMenuModel>`.
@@ -20,17 +20,21 @@ The parent-child relationships are created through internal data in the model - 
 
 You are *not* required to provide a value for the `HasChildren` field. @[template](/_contentTemplates/menu/basic-example.md#has-children-behavior)
 
->caption Example of flat data in a menu (for brevity, URLs are omitted)
+>caption Example of flat data in a context menu
 
 ````CSHTML
-Using a self-referencing flat data source for the menu
+@* Using a self-referencing flat data source for the menu *@
 
-<TelerikMenu Data="@MenuItems"
+<div class="menuTarget">
+    right click this context menu target
+</div>
+
+<TelerikContextMenu Data="@MenuItems" Selector=".menuTarget"
              ParentIdField="@nameof(MenuItem.SectionId)"
              IdField="@nameof(MenuItem.Id)"
              TextField="@nameof(MenuItem.Section)"
              UrlField="@nameof(MenuItem.Page)">
-</TelerikMenu>
+</TelerikContextMenu>
 
 @code {
     public List<MenuItem> MenuItems { get; set; }
@@ -93,11 +97,19 @@ Using a self-referencing flat data source for the menu
         base.OnInitialized();
     }
 }
+
+<style>
+    .menuTarget {
+        width: 100px;
+        background: yellow;
+        margin: 50px;
+    }
+</style>
 ````
 
 >caption The result from the code snippet above, after hovering the "Roadmap" item
 
-![](images/menu-flat-data-overview.png)
+![](images/context-menu-flat-data-overview.png)
 
 
 ## See Also
