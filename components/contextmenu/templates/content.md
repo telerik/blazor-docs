@@ -1,5 +1,5 @@
 ---
-title: Templates
+title: Content Template
 page_title: Menu - Templates
 description: Templates in the Menu for Blazor.
 slug: contextmenu-content-template
