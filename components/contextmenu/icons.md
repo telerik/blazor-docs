@@ -1,16 +1,16 @@
 ---
 title: Icons
-page_title: Menu - Icon
+page_title: Context Menu - Icon
 description: Icons and images in the Menu for Blazor.
 slug: contextmenu-icons
-tags: telerik,blazor,menu,icon,iconclass,image
+tags: telerik,blazor,context menu,icon,iconclass,image
 published: True
 position: 15
 ---
 
-# Menu Icons
+# Context Menu Icons
 
-You can put an image, icon class or a font icon for each item in the Menu to illustrate its purpose for your end users. To apply them, use the following properties:
+You can put an image, icon class or a font icon for each item in the Context Menu to illustrate its purpose for your end users. To apply them, use the following properties:
 
 * for a [Telerik font icon]({%slug general-information/font-icons%}), point the `IconField` parameter of the component to a string field of the model that contains the corresponding icon name.
 
@@ -20,10 +20,10 @@ You can put an image, icon class or a font icon for each item in the Menu to ill
 
 The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span class="the custom class" />` and as `<img src="the-image-src" />`
 
->caption How to use icons in Telerik Menu
+>caption How to use icons in Telerik Context Menu
 
 ````CSHTML
-@* This example shows how to add icons or images to menu items
+@* This example shows how to add icons or images to context menu items
 Make sure that you also refernce the OpenIconic font that comes with the Blazor App template to see the custom font icon *@
 
 <TelerikMenu Data="@MenuData"
@@ -78,4 +78,4 @@ Make sure that you also refernce the OpenIconic font that comes with the Blazor 
 
 ## See Also
 
-  * [Menu Overview]({%slug components/menu/overview%})
+  * [Context Menu Overview]({%slug contextmenu-overview%})
