@@ -10,7 +10,7 @@ position: 0
 
 # Scheduler Overview
 
-The Scheduler component lets the user see, edit and add appointments so they can plan their agenda. It offers different views, control over the workday start and end, appointment editing and various other features and settings.
+The <a href="https://www.telerik.com/blazor-ui/scheduler" target="_blank">Blazor Scheduler component</a> lets the user see, edit and add appointments so they can plan their agenda. It offers different views, control over the workday start and end, appointment editing and various other features and settings.
 
 To use a Telerik Scheduler for Blazor
 

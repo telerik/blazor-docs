@@ -10,7 +10,7 @@ position: 0
 
 # Pie Chart
 
-The **Pie** chart displays the data as sectors from a two-dimensional circle and is therefore useful for displaying data as parts of a whole. There can only be one series in a pie chart.
+The <a href="https://www.telerik.com/blazor-ui/pie-chart" target="_blank">Blazor Pie chart</a> displays the data as sectors from a two-dimensional circle and is therefore useful for displaying data as parts of a whole. There can only be one series in a pie chart.
 
 >caption Pie chart. Results from the first code snippet below
 

@@ -10,7 +10,7 @@ position: 0
 
 # Line Chart
 
-A **Line** chart displays data as continuous lines that pass through points defined by the values of their items. It is useful for rendering a trend over time and comparing several sets of similar data.
+A <a href="https://www.telerik.com/blazor-ui/line-chart" target="_blank">Blazor Line chart</a> displays data as continuous lines that pass through points defined by the values of their items. It is useful for rendering a trend over time and comparing several sets of similar data.
 
 >caption Line chart.  Results from the first code snippet below
 

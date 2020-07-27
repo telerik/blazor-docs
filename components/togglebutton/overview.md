@@ -10,7 +10,7 @@ position: 0
 
 # ToggleButton Overview
 
-This article provides information about the ToggleButton component and its core features.
+This article provides information about the <a href="https://www.telerik.com/blazor-ui/togglebutton" target="_blank">Blazor ToggleButton component</a> and its core features.
 
 The ToggleButton component provides two-state styling according to the [chosen theme]({%slug general-information/themes%}), [events]({%slug togglebutton-events%}) and [icons]({%slug togglebutton-icons%}).
 
