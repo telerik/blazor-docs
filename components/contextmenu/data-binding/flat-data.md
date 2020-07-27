@@ -5,7 +5,7 @@ description: Data Binding the Menu for Blazor to flat data.
 slug: contextmenu-data-binding-flat-data
 tags: telerik,blazor,menu,data,bind,databind,databinding,flat
 published: True
-position: 1
+position: 2
 ---
 
 # Menu Data Binding to Flat Data
