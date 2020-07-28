@@ -80,6 +80,12 @@ navigation:
      "*components/chart/tooltip":
         title: "Tooltips"
         position: 32
+     "*components/stockchart/types":
+        title: "Types"
+        position: 15
+     "*components/stockchart/tooltip":
+        title: "Tooltips"
+        position: 32
      "*components/animationcontainer":
         title: "Animation Container"
         position: 2000000
