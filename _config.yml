@@ -242,6 +242,8 @@ navigation:
         title: "Sortable"
      "*splitter":
         title: "Splitter"
+     "*stockchart":
+        title: "Stock Chart"
      "*tabstrip":
         title: "TabStrip"
      "*textbox":
