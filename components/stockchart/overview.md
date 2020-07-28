@@ -12,16 +12,19 @@ position: 0
 
 The Blazor Stock Chart allows you to visualize the deviation of a financial unit over a period of time to the user in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins, tooltips and templates.
 
-To use the Telerik Stock Chart for Blazor, add the `TelerikStockChart` tag.
-
 The Telerik Stock Chart provides a [Navigator]({%slug stockchart-navigator%}) to widen or shorten the defined period of time and zoom on particular part of the chart.
+
+To use the Telerik Stock Chart for Blazor: 
+1. add the `TelerikStockChart` tag
+2. for [`OHLC`]({%slug stockchart-ohlc%}) and [`Candlestick`]({%slug stockchart-candlestick%}) set the `DateField` parameter of the `TelerikStockChart` to the corresponding property of the model.
+3. provide data to the series as described in the [Data binding article]({%slug stockchart-data-binding%})
 
 >caption Basic configuration of a Stock Chart with common settings
 
 ````CSHTML
 @* Basic Stock Chart with common settings*@
 
-<TelerikStockChart Width="100%"
+<TelerikStockChart Width="700px"
                    Height="450px"
                    DateField="@nameof(StockDataPoint.Date)">
 
@@ -53,11 +56,11 @@ The Telerik Stock Chart provides a [Navigator]({%slug stockchart-navigator%}) to
     public async Task GenerateChartData()
     {
         StockChartProduct1Data = new List<StockDataPoint>()
-        {
-            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)41.62, (decimal)40.12, (decimal)41.69, (decimal)39.81, 2632000),
-            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)39.88, (decimal)40.12, (decimal)41.12, (decimal)39.75, 3584700),
-            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)42.62, (decimal)43.31, (decimal)41.38, 7631700),
-            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)42.25, (decimal)43.06, (decimal)43.31, (decimal)41.12, 4922200),
+    {
+            new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
+            new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
+            new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),
+            new StockDataPoint(new DateTime(2019, 4, 1), 42.25m, 43.06m, 43.31m, 41.12m, 4922200),
         };
 
         await Task.FromResult(StockChartProduct1Data);
