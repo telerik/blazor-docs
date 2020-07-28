@@ -22,11 +22,9 @@ In this article:
 You can provide a `List<object>` to the `Data` property of a series that contains both its data points, and its x-axis categories. Then, set the following parameters based on the type of the chart:
 
 * `Column`, `Area` and `Line` - `Field` and `CategoryField` to the corresponding fields in the model that carry the values
-* `OHLC` and `Candlestick` - `OpenField`, `ClosedField`, `HighField` and `LowField` properties to the corresponding fields in the model that carry the values.
+* `OHLC` and `Candlestick` - `OpenField`, `ClosedField`, `HighField` and `LowField` properties to the corresponding fields in the model that carry the values. Set the `DateField` parameter of the `<TelerikStockChart>` to a `DateTime` property from the model.
 
 With this, the items from the series will be matched to the items (categories) on the x-axis. Each series will add its own categories to the x-axis in order of appearance, and the series items will appear above them only.
-
->tip For [`OHLC`]({%slug stockchart-ohlc%}) and [`Candlestick`]({%slug stockchart-candlestick%}) charts you have to set their `DateField` and provide a `DateTime` property from the model. In this article, below, you can see an example.
 
 >tip This approach lets you define the `CategoryField` for only one series and the rest of the series will match the categories by their index. In such a case, you can provide a single data collection to the chart that holds all data points and x-axis categories.
 
@@ -108,7 +106,9 @@ With this, the items from the series will be matched to the items (categories) o
 >caption Bind an Candlestick Stock Chart to a model
 
 ````CSHTML
-Separate fields for series categories
+
+@* Bind an Candlestick Stock Chart to a model *@
+
 <TelerikStockChart Width="700px"
                    Height="450px"
                    DateField="@nameof(StockDataPoint.Date)">
@@ -153,19 +153,19 @@ Separate fields for series categories
     public async Task GenerateChartData()
     {
         StockChartProduct1Data = new List<StockDataPoint>()
-{
-            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)41.62, (decimal)40.12, (decimal)41.69, (decimal)39.81, 2632000),
-            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)39.88, (decimal)40.12, (decimal)41.12, (decimal)39.75, 3584700),
-            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)42.62, (decimal)43.31, (decimal)41.38, 7631700),
-            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)42.25, (decimal)43.06, (decimal)43.31, (decimal)41.12, 4922200),
+        {
+            new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
+            new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
+            new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),
+            new StockDataPoint(new DateTime(2019, 4, 1), 42.25m, 43.06m, 43.31m, 41.12m, 4922200)
         };
 
         StockChartProduct2Data = new List<StockDataPoint>()
-{
-            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)39, (decimal)38, (decimal)44, (decimal)37, 26320),
-            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)37, (decimal)38, (decimal)41, (decimal)40, 35847),
-            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)43, (decimal)45, (decimal)41, 76317),
-            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)40, (decimal)42, (decimal)43, (decimal)42, 49222),
+        {   
+            new StockDataPoint(new DateTime(2019, 1, 1), 39m, 38m, 44m, 37m, 26320),
+            new StockDataPoint(new DateTime(2019, 2, 1), 37m, 38m, 41m, 40m, 35847),
+            new StockDataPoint(new DateTime(2019, 3, 1), 42m, 43m, 45m, 41m, 76317),
+            new StockDataPoint(new DateTime(2019, 4, 1), 40m, 42m, 43m, 42m, 49222)
         };
 
         await Task.FromResult(StockChartProduct1Data);
@@ -198,6 +198,7 @@ Separate fields for series categories
         public int Volume { get; set; }
     }
 }
+
 ````
 
 >caption The result from the code snippet above
