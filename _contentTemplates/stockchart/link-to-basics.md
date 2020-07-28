@@ -20,7 +20,6 @@ You can configure the values of `Gap` and `Spacing` for the whole chart in the f
 
 >caption  Configuring Gap and Spacing in a Column chart. 'g' and 's' are the values of Gap and Spacing respectively and 'x' is the width of the series item. For this chart g = 2 and s = 1.
 
-![](images/gap-and-spacing.png)
 #end
 
 
@@ -74,11 +73,6 @@ Colors per series item
 	};
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/color-field-bar-column-chart.png)
-
 #end
 
 

@@ -12,13 +12,13 @@ position: 0
 
 A **Candlestick** chart shows data for the movement of the price of a financial unit. It consists of a bar (the candle), representing the open and close values, and vertical lines, the candlesticks, which illustrate the highest and lowest values.
 
->caption OHLC basic setup. Result from the first code snippet below.
+>caption Candlestick series in a stock chart. Results from the first code snippet below.
 
 ![](images/basic-candlestick-chart.png)
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a Candlestick chart:
+To add a `Candlestick` chart to a stock chart component::
 
 1. set the `DateField` property of the `TelerikStockChart` to the corresponding field in the model that carry the value.
 1. add a `StockChartSeries` to the `StockChartSeriesItems` collection.
@@ -27,18 +27,12 @@ To create a Candlestick chart:
 1. set the `OpenField`, `ClosedField`, `HighField` and `LowField` properties to the corresponding fields in the model that carry the values.
 
 
->caption A bubble chart that shows projected population change on a plot of life expectancy versus fertility rate
+>caption Candlestick chart that shows the deviation of stock prices.
 
 ````CSHTML
 @* Candlestick stock chart *@
 
-<TelerikStockChart Height="450px"
-                   DateField="@nameof(StockDataPoint.Date)">
-
-    <StockChartTitle Text="My">
-        <StockChartTitleBorder></StockChartTitleBorder>
-        <StockChartTitleBorder></StockChartTitleBorder>
-    </StockChartTitle>
+<TelerikStockChart Height="450px" DateField="@nameof(StockDataPoint.Date)">
 
     <StockChartLegend></StockChartLegend>
 
@@ -71,11 +65,11 @@ To create a Candlestick chart:
     public async Task GenerateChartData()
     {
         StockChartProduct1Data = new List<StockDataPoint>()
-{
-            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)41.62, (decimal)40.12, (decimal)41.69, (decimal)39.81, 2632000),
-            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)39.88, (decimal)40.12, (decimal)41.12, (decimal)39.75, 3584700),
-            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)42.62, (decimal)43.31, (decimal)41.38, 7631700),
-            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)42.25, (decimal)43.06, (decimal)43.31, (decimal)41.12, 4922200),
+        {
+            new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
+            new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
+            new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),
+            new StockDataPoint(new DateTime(2019, 4, 1), 42.25m, 43.06m, 43.31m, 41.12m, 4922200)
         };
 
         await Task.FromResult(StockChartProduct1Data);
@@ -120,7 +114,7 @@ Set the color - a valid CSS, RGB, RGBA color - of the series when the `OpenField
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#gap-and-spacing)
 
-@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+@[template](/_contentTemplates/stockchart/link-to-basics.md#configurable-nested-chart-settings)
 
 ## See Also
 
