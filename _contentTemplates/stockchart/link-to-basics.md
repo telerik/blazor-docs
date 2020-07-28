@@ -92,7 +92,7 @@ When configuring nested properties and child elements in your chart, the inner t
 * Legend
 * and others
 
-@[template](/_contentTemplates/chart/link-to-basics.md#tip-look-for-nested-tags)
+@[template](/_contentTemplates/stockchart/link-to-basics.md#tip-look-for-nested-tags)
 
 You can customize all aspects of the stock chart by using the settings provided by the nested tags.
 
