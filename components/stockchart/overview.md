@@ -97,7 +97,7 @@ The Telerik Stock Chart provides a [Navigator]({%slug stockchart-navigator%}) to
 
 
 
-@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+@[template](/_contentTemplates/stockchart/link-to-basics.md#configurable-nested-chart-settings)
 
 >caption Component namespace and reference
 
