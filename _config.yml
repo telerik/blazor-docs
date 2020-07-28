@@ -242,7 +242,7 @@ navigation:
         title: "Sortable"
      "*splitter":
         title: "Splitter"
-     "*stockchart":
+      "*stockchart":
         title: "StockChart"
      "*tabstrip":
         title: "TabStrip"
