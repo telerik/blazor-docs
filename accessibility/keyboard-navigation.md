@@ -18,63 +18,65 @@ By default, users can only navigate to links, buttons, and form controls with a 
 
 The following list shows the Telerik components that support specific keyboard combinations and links to live demos where you can see the behavior in action, together with the available keyboard shortcuts:
 
-*  [AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/keyboard-navigation)
+* [AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/keyboard-navigation)
 
-*  [Button](https://demos.telerik.com/blazor-ui/button/keyboard-navigation)
+* [Button](https://demos.telerik.com/blazor-ui/button/keyboard-navigation)
 
-*  [ButtonGroup](https://demos.telerik.com/blazor-ui/buttongroup/keyboard-navigation)
+* [ButtonGroup](https://demos.telerik.com/blazor-ui/buttongroup/keyboard-navigation)
 
-*  [Calendar](https://demos.telerik.com/blazor-ui/calendar/keyboard-navigation)
+* [Calendar](https://demos.telerik.com/blazor-ui/calendar/keyboard-navigation)
 
-*  Chart - not applicable, the chart is a visualization component only.
+* Chart - not applicable, the chart is a visualization component only.
 
-*  Checkbox - not applicable, it is a simple input with the standard behavior.
+* Checkbox - not applicable, it is a simple input with the standard behavior.
 
-*  [Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/keyboard-navigation)
+* [Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/keyboard-navigation)
 
-*  [ComboBox](https://demos.telerik.com/blazor-ui/combobox/keyboard-navigation)
+* [ComboBox](https://demos.telerik.com/blazor-ui/combobox/keyboard-navigation)
 
-*  [DateInput](https://demos.telerik.com/blazor-ui/dateinput/keyboard-navigation)
+* [DateInput](https://demos.telerik.com/blazor-ui/dateinput/keyboard-navigation)
 
-*  [DatePicker](https://demos.telerik.com/blazor-ui/datepicker/keyboard-navigation)
+* [DatePicker](https://demos.telerik.com/blazor-ui/datepicker/keyboard-navigation)
 
-*  [DateRangePicker](https://demos.telerik.com/blazor-ui/daterangepicker/keyboard-navigation)
+* [DateRangePicker](https://demos.telerik.com/blazor-ui/daterangepicker/keyboard-navigation)
 
-*  [DateTimePicker](https://demos.telerik.com/blazor-ui/datetimepicker/keyboard-navigation)
+* [DateTimePicker](https://demos.telerik.com/blazor-ui/datetimepicker/keyboard-navigation)
 
-*  [Drawer](https://demos.telerik.com/blazor-ui/drawer/keyboard-navigation)
+* [Drawer](https://demos.telerik.com/blazor-ui/drawer/keyboard-navigation)
 
-*  [DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation)
+* [DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation)
 
-*  [Grid](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation) (set `Navigable="true"`)
+* Editor - will have keyboard navigation in an upcoming release.
 
-*  [Menu](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation)
+* [Grid](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation) (set `Navigable="true"`)
 
-*  ListView - not applicable, its entire rendering is up to the app. Its pager is a separate component that offers accessibility and keyboard navigation.
+* [Menu](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation)
 
-*  [MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation)
+* ListView - not applicable, its entire rendering is up to the app. Its pager is a separate component that offers accessibility and keyboard navigation.
 
-*  [NumericTextBox](https://demos.telerik.com/blazor-ui/numerictextbox/keyboard-navigation)
+* [MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation)
 
-*  [Pager](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation)
+* [NumericTextBox](https://demos.telerik.com/blazor-ui/numerictextbox/keyboard-navigation)
 
-*  Scheduler - will have keyboard navigation in an upcoming release.
+* [Pager](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation)
 
-*  [TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation)
+* Scheduler - will have keyboard navigation in an upcoming release.
 
-*  Textbox - not applicable, it is a simple input with the standard behavior.
+* [TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation)
 
-*  [TimePicker](https://demos.telerik.com/blazor-ui/timepicker/keyboard-navigation)
+* Textbox - not applicable, it is a simple input with the standard behavior.
 
-*  [ToggleButton](https://demos.telerik.com/blazor-ui/togglebutton/keyboard-navigation)
+* [TimePicker](https://demos.telerik.com/blazor-ui/timepicker/keyboard-navigation)
 
-*  TreeList - will have keyboard navigation in an upcoming release.
+* [ToggleButton](https://demos.telerik.com/blazor-ui/togglebutton/keyboard-navigation)
 
-*  [TreeView](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation)
+* TreeList - will have keyboard navigation in an upcoming release.
 
-*  [Upload](https://demos.telerik.com/blazor-ui/upload/keyboard-navigation)
+* [TreeView](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation)
 
-*  [Window](https://demos.telerik.com/blazor-ui/window/keyboard-navigation)
+* [Upload](https://demos.telerik.com/blazor-ui/upload/keyboard-navigation)
+
+* [Window](https://demos.telerik.com/blazor-ui/window/keyboard-navigation)
 
 
 
