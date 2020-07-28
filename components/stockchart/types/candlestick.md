@@ -16,7 +16,7 @@ A **Candlestick** chart shows data for the movement of the price of a financial 
 
 ![](images/basic-candlestick-chart.png)
 
-@[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
+@[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 
 To create a Candlestick chart:
 
