@@ -135,4 +135,4 @@ Set the color - a valid CSS, RGB, RGBA color - of the series when the `OpenField
 
 ## See Also
 
- * [Live Demo: Bar Chart](https://demos.telerik.com/blazor-ui/chart/index)
+ * [Live Demo: Candlestick Chart](https://demos.telerik.com/blazor-ui/chart/candlestick-chart)
