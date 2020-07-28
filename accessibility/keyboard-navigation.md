@@ -30,6 +30,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 *  Checkbox - not applicable, it is a simple input with the standard behavior.
 
+*  [Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/keyboard-navigation)
+
 *  [ComboBox](https://demos.telerik.com/blazor-ui/combobox/keyboard-navigation)
 
 *  [DateInput](https://demos.telerik.com/blazor-ui/dateinput/keyboard-navigation)
