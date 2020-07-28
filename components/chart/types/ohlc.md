@@ -128,4 +128,4 @@ To create an OHLC chart:
 
 ## See Also
 
- * [Live Demo: Bar Chart](https://demos.telerik.com/blazor-ui/chart/index)
+ * [Live Demo: OHLC Chart](https://demos.telerik.com/blazor-ui/chart/ohlc-chart)
