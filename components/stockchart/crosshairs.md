@@ -12,7 +12,7 @@ position: 1
 
 The Crosshairs are lines perpendicular to the axes that allow the user to see the exact value of a point at the current cursor position.
 
-To enable the Crosshairs for `Category` and/or `Value` axis:
+To enable the Crosshairs for the `Category` and/or the `Value` axis:
 
 1. Inside the `<StockChart*AxisName*Axis>`, include the `<StockChart*AxisName*AxisCrosshair>` tag.
 1. Set its `Visible` parameter to `true`.
