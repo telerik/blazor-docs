@@ -26,7 +26,7 @@ You can provide a `List<object>` to the `Data` property of a series that contain
 
 With this, the items from the series will be matched to the items (categories) on the x-axis. Each series will add its own categories to the x-axis in order of appearance, and the series items will appear above them only.
 
->tip For `OHLC` and `Candlestick` charts you have to set their `DateField` and provide a `DateTime` property from the model. In this article, below, you can see an example.
+>tip For `OHLC`]({%slug stockchart-ohlc%}) and [`Candlestick`]({%slug stockchart-candlestick%}) charts you have to set their `DateField` and provide a `DateTime` property from the model. In this article, below, you can see an example.
 
 >tip This approach lets you define the `CategoryField` for only one series and the rest of the series will match the categories by their index. In such a case, you can provide a single data collection to the chart that holds all data points and x-axis categories.
 
