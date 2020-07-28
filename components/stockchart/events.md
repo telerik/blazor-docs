@@ -22,7 +22,7 @@ The `OnSeriesClick` event fires as a response to the user click on a `<StockChar
 Below you can find:
 
 * [Event Arguments](#event-arguments)
-* Examples:
+* [Examples](#examples):
 	* [Basic Click Handler](#basic-click-handler)
 	* [Get The Data Model For The Clicked Series](#get-the-data-model-for-the-clicked-series)
 
