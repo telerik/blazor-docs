@@ -18,7 +18,7 @@ An Area chart emphasizes the volume of money, data or any other unit that the gi
 
 ![basic area chart](images/stockchart-basic-area-chart.png)
 
-@[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
+@[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 
 To create an area chart:
 

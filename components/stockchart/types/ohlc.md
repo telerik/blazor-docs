@@ -100,6 +100,11 @@ To create a OHLC chart:
 }
 ````
 
+## OHLC Chart Specific Appearance Settings
+
+@[template](/_contentTemplates/stockchart/link-to-basics.md##color-field-column-ohlc-candlestick)
+
+@[template](/_contentTemplates/stockchart/link-to-basics.md#gap-and-spacing)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
