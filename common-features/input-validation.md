@@ -27,6 +27,7 @@ This article provides examples of validating the Telerik Blazor components. The 
 * [ComboBox](#combobox)
 * [MultiSelect](#multiselect)
 * [DateRangePicker](#daterangepicker)
+* [Editor](#editor)
 
 
 
@@ -320,7 +321,7 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
 
 The MultiSelect has a value that is a `List` and the validation attributes must take that into account (for example, a regular expression attribute cannot work).
 
->caption How to validated a MultiSelect
+>caption How to validate a MultiSelect
 
 ````CSHTML
 @using System.ComponentModel.DataAnnotations
@@ -353,7 +354,7 @@ The MultiSelect has a value that is a `List` and the validation attributes must 
     Person person = new Person();
 
     List<string> DevSkills = new List<string>
-{
+   {
         "Blazor", "C#", "Python", "C", "C++", "Assembler", "Ruby", "Java", "JavaScript", "HTML", "CSS", "SQL", "PHP"
     };
 
@@ -441,6 +442,49 @@ There is no built-in provision in the framework for validating a field value bas
         {
 
         }
+    }
+}
+````
+
+
+## Editor
+
+The Editor produces an HTML string in the field you bind its `Value` to. Thus, while the user may see a certain amount of content, the actual content may have many more symbols, because the HTML tags count towards the total string length, but the user does not see them.
+
+Unlike other components, the editor does not trigger form validation on every keystroke, because it is expected to require a lot of content and that would be bad for performance. To trigger validation in the editor, you must submit the form it is in.
+
+>caption How to validate the Editor component
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+@* The Id parameter is not mandatory for validation, it just shows better forms integration *@
+
+<EditForm Model="@theProduct" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <label for="descriptionEditor">Description</label>
+    <TelerikEditor @bind-Value="@theProduct.Description" Id="descriptionEditor">
+    </TelerikEditor>
+
+    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
+</EditForm>
+
+@code {
+    public class Product
+    {
+        [Required(ErrorMessage = "Description is required")]
+        [MaxLength(100, ErrorMessage = "The max allowed length of the content is 100 symbols")]
+        [MinLength(20, ErrorMessage = "The min allowed length of the content is 20 symbols")]
+        public string Description { get; set; }
+    }
+
+    Product theProduct = new Product();
+
+    void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
     }
 }
 ````
