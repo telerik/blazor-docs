@@ -12,18 +12,18 @@ position: 0
 
 A **Line** chart displays data as continuous lines that pass through points defined by the values of their items. It is useful for rendering a trend over time and comparing several sets of similar data.
 
->caption Line chart.  Results from the first code snippet below
+>caption Line chart. Results from the first code snippet below
 
 ![](images/basic-line-chart.png)
 
-@[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
+@[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 
 To create a line chart:
 
-1. add a `ChartSeries` to the `ChartSeriesItems` collection
+1. add a `StockChartSeries` to the `StockChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Line`
 3. provide a data collection to its `Data` property
-4. optionally, provide data for the x-axis `Categories`
+4. set the `Field` and `CategoryField` properties to the corresponding fields in the model that carry the values.
 
 
 >caption A line chart that shows product revenues
@@ -31,89 +31,72 @@ To create a line chart:
 ````CSHTML
 Line series
 
-<TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Line" Name="Product 1" Data="@series1Data">
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@series2Data">
-		</ChartSeries>
-	</ChartSeriesItems>
+<TelerikStockChart Height="450px"
+                   Width="700px">
 
-	<ChartCategoryAxes>
-		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-	</ChartCategoryAxes>
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Years"></StockChartCategoryAxis>
+    </StockChartCategoryAxes>
 
-	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Line"
+                          Name="Product 1"
+                          Data="@Data"
+                          Field="@nameof(ChartSeriesData.Product1Sales)"
+                          CategoryField="@nameof(ChartSeriesData.Year)">
+        </StockChartSeries>
 
-	<ChartLegend Position="ChartLegendPosition.Right">
-	</ChartLegend>
-</TelerikChart>
+        <StockChartSeries Type="StockChartSeriesType.Line"
+                          Name="Product 1"
+                          Data="@Data"
+                          Field="@nameof(ChartSeriesData.Product2Sales)"
+                          CategoryField="@nameof(ChartSeriesData.Year)">
+        </StockChartSeries>
+    </StockChartSeriesItems>
+
+</TelerikStockChart>
 
 @code {
-	public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-	public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+    public List<ChartSeriesData> Data { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Data = ChartSeriesData.GenerateData();
+    }
+
+    public class ChartSeriesData
+    {
+        public int Product1Sales { get; set; }
+        public double Product2Sales { get; set; }
+        public DateTime Year { get; set; }
+        public string SegmentName { get; set; }
+
+        public static List<ChartSeriesData> GenerateData()
+        {
+            List<ChartSeriesData> data = new List<ChartSeriesData>();
+
+            for (int i = 1; i <= 3; i++)
+            {
+                var dataItem = new ChartSeriesData
+                {
+                    Product1Sales = i,
+                    Product2Sales = i + 1.123,
+                    Year = new DateTime(2000 + i, 3, i),
+                    SegmentName = $"{i * 100}"
+                };
+
+                data.Add(dataItem);
+            }
+
+            return data;
+        }
+    }
 }
 ````
-
-
 
 ## Line Chart Specific Appearance Settings
 
-@[template](/_contentTemplates/chart/link-to-basics.md#markers-line-scatter)
-
-@[template](/_contentTemplates/chart/link-to-basics.md#color-line-scatter)
-
-
-### Missing Values
-
-If some values are missing from the series data (they are `null`), you can have the chart work around this by setting the `MissingValues` property of the series to the desired behavior (member of the `Telerik.Blazor.ChartSeriesMissingValues` enum):
-
-* `Zero` - the default behavior. The line goes to the 0 value mark.
-* `Interpolate` - the line will go through the interpolated value of the missing data points and connect to the next data point with a value.
-* `Gap` - behaves the same way as `Zero` because a line chart cannot have a gap in its filled area.
-
-
-@[template](/_contentTemplates/chart/link-to-basics.md#line-style-line)
-
-@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
-
-@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-categorical)
-
->caption A line chart that shows how to rotate the labels
-
-````CSHTML
-@* Change the rotation angle of the Labels *@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Product 1" Data="@series1Data">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems">
-            <ChartCategoryAxisLabels>
-                <ChartCategoryAxisLabelsRotation Angle="-45" />
-            </ChartCategoryAxisLabels>
-        </ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-    public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
-
+@[template](/_contentTemplates/stockchart/link-to-basics.md#configurable-nested-chart-settings)
 
 ## See Also
 
