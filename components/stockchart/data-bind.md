@@ -12,6 +12,11 @@ position: 1
 
 This article explains how to provide data to a Stock Chart component, the properties related to data binding and their results.
 
+In this article:
+
+* [Attach Series Items to Their Categories](#attach-series-items-to-their-categories)
+* [Examples](#examples)
+
 ## Attach Series Items to Their Categories
 
 You can provide a `List<object>` to the `Data` property of a series that contains both its data points, and its x-axis categories. Then, set the following parameters based on the type of the chart:
@@ -24,6 +29,8 @@ With this, the items from the series will be matched to the items (categories) o
 >tip For `OHLC` and `Candlestick` charts you have to set their `DateField` and provide a `DateTime` property from the model. In this article, below, you can see an example.
 
 >tip This approach lets you define the `CategoryField` for only one series and the rest of the series will match the categories by their index. In such a case, you can provide a single data collection to the chart that holds all data points and x-axis categories.
+
+## Examples
 
 >caption Bind a Column Stock Chart to a model
 
