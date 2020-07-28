@@ -180,7 +180,7 @@ navigation:
         title: "MultiViewCalendar"
      "*calendar":
         title: "Calendar"
-     "*chart":
+     "*components/chart":
         title: "Chart"
      "*checkbox":
         title: "Checkbox"
