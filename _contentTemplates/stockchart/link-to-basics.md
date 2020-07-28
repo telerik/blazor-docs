@@ -7,6 +7,80 @@ This article assumes you are familiar with the [stock chart basics]({%slug stock
 >tip To customize the chart, look for nested tags and their properties - the inner tags will contain their parent tag name and add specifics to its end. For example, the `StockChartSeries` tag has a `StockChartSeriesTooltip` tag that exposes configuration options and more child tags.
 #end
 
+#gap-and-spacing
+### Gap and Spacing
+
+You can control the distance between the categories that cluster a data point from each series. To do this, use the `Gap` property of the series. It is the distance between categories expressed as a percentage of the bar width.
+
+To set the distance between the bars of different series in the same category, use the `Spacing` property. It is the space between the series items in one series category as a proportion of the width of a single series item.
+
+To create overlap, set negative values.
+
+You can configure the values of `Gap` and `Spacing` for the whole chart in the first series and they are applied for all categories and series items.
+
+>caption  Configuring Gap and Spacing in a Column chart. 'g' and 's' are the values of Gap and Spacing respectively and 'x' is the width of the series item. For this chart g = 2 and s = 1.
+
+![](images/gap-and-spacing.png)
+#end
+
+
+#color-field-column-ohlc-candlestick
+### Color Field
+
+Column, OHLC and Candlestick charts can take the color of the series item from the `ColorField` of the data source. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
+
+````CSHTML
+Colors per series item
+
+<TelerikChart>
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Bar" Data="@theData" ColorField="@nameof(MyChartDataModel.Color)"
+							Field="@nameof(MyChartDataModel.ItemValue)" CategoryField="@nameof(MyChartDataModel.Category)" />
+	</ChartSeriesItems>
+
+	<ChartTitle Text="Revenue per product" />
+
+	<ChartLegend Position="ChartLegendPosition.Right" />
+</TelerikChart>
+
+@code {
+	public class MyChartDataModel
+	{
+		public string Category { get; set; }
+		public double ItemValue { get; set; }
+		public string Color { get; set; }
+	}
+
+	public List<MyChartDataModel> theData = new List<MyChartDataModel>
+    {
+		new MyChartDataModel
+		{
+			Category = "Product 1",
+			ItemValue = 2,
+			Color = "red"
+		},
+		new MyChartDataModel
+		{
+			Category = "Product 2",
+			ItemValue = 3,
+			Color = "#00ff00"
+		},
+		new MyChartDataModel
+		{
+			Category = "Product 3",
+			ItemValue = 4,
+			Color = "#00f"
+		}
+	};
+}
+````
+
+>caption The result from the code snippet above
+
+![](images/color-field-bar-column-chart.png)
+
+#end
+
 
 #configurable-nested-chart-settings
 ### Customize Chart Elements - Nested Tags Settings
