@@ -20,6 +20,7 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 	* [SelectedItemsChanged](#selecteditemschanged)
 	* [OnRowClick](#onrowclick)
 	* [OnRowDoubleClick](#onrowdoubleclick)
+	* [OnRowContextMenu](#onrowcontextmenu)
 	* [PageChanged](#pagechanged)
 
 ## CUD Events
@@ -205,6 +206,63 @@ The `OnRowDoubleClick` event fires before selection happens.
         Team = "team " + x % 5,
         HireDate = DateTime.Now.AddDays(-x).Date
     });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
+
+### OnRowContextMenu
+
+The `OnRowContextMenu` event fires as a response to the user right clicking on a row of the Grid, the context menu keyboard button or long-touch for mobile devices. Clicking on the `GridCommandButton`, select row `CheckBox`, expanding a `Detail Template` or when the row is in `edit/insert mode` will not trigger the event.
+
+The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+
+The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmenu-overview%}#context-menu-for-a-grid-row) to the Grid Row.
+
+>caption Use the OnRowContextMenu event and get the data model
+
+````CSHTML
+
+<TelerikGrid Data="@MyData"
+             Pageable="true"
+             PageSize="6"
+             OnRowContextMenu="@OnRowContextMenuHandler">
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+<br />
+
+@logger
+
+@code {
+    void OnRowContextMenuHandler(GridRowClickEventArgs args)
+    {
+        SampleData model = args.Item as SampleData;
+
+        logger = $"OnRowContextMenu event fired from right clicking on {model.Name}";
+    }
+
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    });
+
+    public string logger { get; set; } = String.Empty;
+
 
     public class SampleData
     {
