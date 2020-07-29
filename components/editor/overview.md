@@ -55,7 +55,10 @@ To use the Telerik Editor for Blazor:
 ![Editor first look](images/editor-overview.png)
 
 
->caption Component reference
+## Component reference
+
+You can use the component reference to call its [Methods](#methods), especially when creating [custom tools]({%slug editor-custom-tool%}). This snippet shows how to obtain a reference and its namespace.
+
 
 ````CSHTML
 @using Telerik.Blazor.Components 
@@ -71,7 +74,10 @@ To use the Telerik Editor for Blazor:
 
 ## Dependencies
 
-list the JS files for ProseMirror, that the editor registers them upon initialization to reduce initial load time and simplify usage; why JS is needed (HTML editing is a browser feature and happens in the browser, so that's where the logic for that must lie by necessity).
+Authoring HTML content happens in the browser and relies on the browser HTML editing engine (see the [contenteditable](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content) attribute). Thus, an HTML Editor component must rely on that and use JavaScript.
+
+The Telerik UI for Blazor Editor uses the ProseMirror engine and it depends on it. You do not need to add any assets or references yourself, the Editor registers them for you when it initializes, and it takes points them to the static assets of the Telerik UI for Blazor package. This approach improves the initial load time of your app and removes the dependency management task from you.
+
 
 
 ## Get/Set content
