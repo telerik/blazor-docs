@@ -14,6 +14,7 @@ This article explains the events available in the Telerik TreeList for Blazor. T
 
 * [CUD Events](#cud-events) - events related to Creating, Updating and Deleting items
 * [Other Events](#other-events) - other events the treelist provides
+    * [OnExpand and OnCollapse](#onexpand-and-oncollapse)
 	* [Command Button Click](#command-button-click)
 	* [SelectedItemsChanged](#selecteditemschanged)
 	* [PageChanged](#pagechanged)
@@ -28,6 +29,129 @@ You can read more about the CUD events in the [Editing Overview]({%slug treelist
 
 ## Other Events
 
+### OnExpand and OnCollapse
+
+The `OnExpand` event fires when the user clicks the expand arrow on a row that has children but they are collapsed. It receives arguments of type `TreeListExpandEventArgs<T>` where `T` is the model you bind the treelist to, and the `Item` field in the event arguments is the current model.
+
+
+You can use `OnExpand` to know the user action and/or to [load data on demand]({%slug treelist-data-binding-load-on-demand%}).
+
+The `OnCollapse` event fires when the user collapses an expanded row through the collapse arrow. It receives arguments of type `TreeListCollapseEventArgs<T>` where `T` is the model you bind the treelist to, and the `Item` field in the event arguments is the current model.
+
+>caption Handle OnExpand and OnCollapse
+
+````CSHTML
+@lastAction
+
+<TelerikTreeList Data="@Data"
+                 ItemsField="@(nameof(Employee.DirectReports))"
+
+                 OnExpand="@((TreeListExpandEventArgs<Employee> args) => OnExpand(args))"
+                 OnCollapse="@((TreeListCollapseEventArgs<Employee> args) => OnCollapse(args))"
+
+                 Pageable="true" Width="850px">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    public List<Employee> Data { get; set; }
+
+    string lastAction { get; set; }
+
+    // get when the user expands an item
+    async Task OnExpand(TreeListExpandEventArgs<Employee> args)
+    {
+        Employee currRow = args.Item;
+        lastAction = $"The user expanded {currRow.Name} with ID {currRow.Id}";
+    }
+
+    // get when the user collapses an item
+    async Task OnCollapse(TreeListCollapseEventArgs<Employee> args)
+    {
+        Employee currRow = args.Item;
+        lastAction = $"The user collapsed {currRow.Name} with ID {currRow.Id}";
+    }
+
+    // sample model
+
+    public class Employee
+    {
+        // hierarchical data collections
+        public List<Employee> DirectReports { get; set; }
+
+        // data fields for display
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    // data generation
+
+    // used in this example for data generation and retrieval for CUD operations on the current view-model data
+    public int LastId { get; set; } = 1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            Employee root = new Employee
+            {
+                Id = LastId,
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i),
+                DirectReports = new List<Employee>(), // prepare a collection for the child items, will be populated later in the code
+            };
+            data.Add(root);
+            LastId++;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = LastId;
+                Employee firstLevelChild = new Employee
+                {
+                    Id = currId,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId),
+                    DirectReports = new List<Employee>(), // collection for child nodes
+                };
+                root.DirectReports.Add(firstLevelChild); // populate the parent's collection
+                LastId++;
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = LastId;
+                    // populate the parent's collection
+                    firstLevelChild.DirectReports.Add(new Employee
+                    {
+                        Id = LastId,
+                        Name = $"second level child {k} of {j} and {i}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                    LastId++;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
+````
 
 
 ### Command Button Click

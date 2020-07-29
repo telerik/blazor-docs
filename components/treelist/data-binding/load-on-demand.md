@@ -50,8 +50,7 @@ Below you will find two examples - for [hierarchical](#load-hierarchical-data-on
     // load on demand through the event
     async Task OnExpand(TreeListExpandEventArgs<Employee> args)
     {
-        if (args.Expanded && // the item got expanded
-            args.Item.HasChildren && // it is marked as having children
+        if (args.Item.HasChildren && // it is marked as having children
             (args.Item.DirectReports == null || args.Item.DirectReports.Count == 0) // there are no child items
             )
         {
