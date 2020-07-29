@@ -105,9 +105,10 @@ There is a deliberate delay in the data loading to showcase the async nature of 
 
     async Task OnRowClickHandler(GridRowClickEventArgs args)
     {
-        var item = args.Item as SampleData;
+        var model = args.Item as SampleData;
 
-        ProjectData = await GetProjectData(item.Id);
+        ProjectData = await GetProjectData(model.Id);
+        @[template](/_contentTemplates/grid/common-link.md#rowclick-args-example)
     }
 
     async Task<List<ProjectModel>> GetProjectData(int id)
@@ -198,9 +199,11 @@ The `OnRowDoubleClick` event fires before selection happens.
 
     void OnRowDoubleClickHandler(GridRowClickEventArgs args)
     {
-        var item = args.Item as SampleData;
+        var model = args.Item as SampleData;
 
-        logger = $"Double clicked on {item.Name}";
+        logger = $"Double clicked on {model.Name}";
+        @[template](/_contentTemplates/grid/common-link.md#rowclick-args-example)
+        
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
@@ -257,6 +260,7 @@ The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmen
         SampleData model = args.Item as SampleData;
 
         logger = $"OnRowContextMenu event fired from right clicking on {model.Name}";
+        @[template](/_contentTemplates/grid/common-link.md#rowclick-args-example)
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
