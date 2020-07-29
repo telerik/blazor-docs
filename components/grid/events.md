@@ -282,11 +282,12 @@ The `OnRowExpand` event fires as a response to the user expanding the [`DetailTe
 
 The event handler receives a `GridRowToggleEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
->caption Use the OnRowExpand event to load detailed data on demand
+
+
+>caption Use the OnRowExpand event to load detailed data on demand. Another approach can be found on our [public github repository](https://github.com/telerik/blazor-ui/tree/master/grid/load-on-demand-hierarchy).
 
 ````CSHTML
-
-@* Load data on demand for the expanded detail row *@
+@* Load data on demand for the expanded detail row.  *@
 
 <TelerikGrid Data="salesTeamMembers"
              OnRowExpand="@OnRowExpandHandler">
@@ -308,17 +309,20 @@ The event handler receives a `GridRowToggleEventArgs` object which provides the 
 </TelerikGrid>
 
 @code {
-    void OnRowExpandHandler(Telerik.Blazor.Components.Grid.GridRowToggleEventArgs args)
+    async Task OnRowExpandHandler(Telerik.Blazor.Components.Grid.GridRowToggleEventArgs args)
     {
         MainModel item = args.Item as MainModel;
 
-        item.Orders = GenerateOrdersData(item.Id);
+        if(item.Orders == null)
+        {
+            item.Orders = await GenerateOrdersData(item.Id);
+        }
     }
 
-    List<DetailsModel> GenerateOrdersData(int id)
+    async Task<List<DetailsModel>> GenerateOrdersData(int id)
     {
         var data = new List<DetailsModel>()
-    {
+        {
             new DetailsModel()
             {
                 OrderId = id,
@@ -326,7 +330,7 @@ The event handler receives a `GridRowToggleEventArgs` object which provides the 
             }
         };
 
-        return data;
+        return await Task.FromResult(data);
     }
 
     List<MainModel> salesTeamMembers { get; set; }
@@ -360,7 +364,6 @@ The event handler receives a `GridRowToggleEventArgs` object which provides the 
         public double DealSize { get; set; }
     }
 }
-
 ````
 
 ### OnRowCollapse
@@ -372,7 +375,6 @@ The event handler receives a `GridRowToggleEventArgs` object which provides the 
 >caption Use the OnRowCollapse event to get the Id of the collapsed row from the data model
 
 ````CSHTML
-
 @* Get the Id of the collapsed row *@
 
 <TelerikGrid Data="salesTeamMembers"
