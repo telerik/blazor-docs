@@ -223,6 +223,8 @@ The `OnRowContextMenu` event fires as a response to the user right clicking on a
 
 The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
+The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmenu-overview%}#context-menu-for-a-grid-row) to the Grid Row.
+
 >caption Use the OnRowContextMenu event and get the data model
 
 ````CSHTML
@@ -241,12 +243,7 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
 
 <br />
 
-@if (!String.IsNullOrEmpty(logger))
-{
-    <div>
-        @logger
-    </div>
-}
+@logger
 
 @code {
     void OnRowContextMenuHandler(GridRowClickEventArgs args)
@@ -275,7 +272,6 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
         public DateTime HireDate { get; set; }
     }
 }
-
 ````
 
 ### PageChanged
