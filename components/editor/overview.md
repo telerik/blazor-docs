@@ -80,11 +80,23 @@ The Telerik UI for Blazor Editor uses the ProseMirror engine and it depends on i
 
 
 
-## Get/Set content
+## Get/Set Content
 
-value binding - one and two-way (link value bind vs data bind article, link validation article); the UpdateInterval parameter.
+The Blazor HTML Editor interacts with its content (value) like all standard components - through its `Value` parameter. You can use it to get and set the HTML string the editor will work with. You can read more about value binding and data binding [here]({%slug get-started-value-vs-data-binding%}).
 
-Maybe a note that you must sanitize the html string before storing to DB and after getting it from DB to ensure it does not contain malicious content.
+You can use the following features to get or set the editor content:
+
+* `Value` - one-way binding of the parameter lets you set the initial content. Without two-way binding, however, the component can be reset to that initial value when `StateHasChanged()` is called.
+
+* `@bind-Value` - the recommended approach of using two-way binding to get and set the content of the editor. It lets your view-model provide the initial value, and it will update the view-model as the user alters the HTML.
+
+* `UpdateInterval` - the time in milliseconds that passes between updates on the `Value`. The default is `100ms` and if that causes performance issues with many repaints on your view, you can increase it. Since the editor is expected to handler longer editing sessions and larger content than regular inputs, we added this parameter to debounce the view-model updates and events.
+
+* [Validation]({%slug common-features/input-validation%}#editor) - the standard Data Annotation attributes are supported for validation, but for the performance reasons listed above, validation happens when explicit form submission is invoked, not on every keystroke, unlike simpler inputs. 
+
+* The `ValueChanged` and `OnChange` [events]({%slug editor-events%}) let you receive the value and act on it without two-way binding. If you use the `ValueChanged` event, you can effectively cancel the user's input by not updating the view-model, or you can even alter it with something else.
+
+>important The application must sanitize the content before passing it to the editor and, optionally, before saving it to its storage after obtaining it from the editor. It is up to the application to ensure there is no malicious content. Its sanitization, XSS attack prevention and security is in the domain of the application.
 
 
 ## Methods
