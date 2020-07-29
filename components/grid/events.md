@@ -21,6 +21,8 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 	* [OnRowClick](#onrowclick)
 	* [OnRowDoubleClick](#onrowdoubleclick)
 	* [OnRowContextMenu](#onrowcontextmenu)
+	* [OnRowExpand](#onrowexpand)
+	* [OnRowCollapse](#onrowcollapse)
 	* [PageChanged](#pagechanged)
 
 ## CUD Events
@@ -273,6 +275,172 @@ The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmen
     }
 }
 ````
+
+### OnRowExpand
+
+The `OnRowExpand` event fires as a response to the user expanding the [`DetailTemplate`]({%slug components/grid/features/hierarchy%}) of the Grid.
+
+The event handler receives a `GridRowToggleEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+
+>caption Use the OnRowExpand event to load detailed data on demand
+
+````CSHTML
+
+@* Load data on demand for the expanded detail row *@
+
+<TelerikGrid Data="salesTeamMembers"
+             OnRowExpand="@OnRowExpandHandler">
+    <DetailTemplate>
+        @{
+            var employee = context as MainModel;
+            <TelerikGrid Data="employee.Orders" Pageable="true" PageSize="5">
+                <GridColumns>
+                    <GridColumn Field="OrderId"></GridColumn>
+                    <GridColumn Field="DealSize"></GridColumn>
+                </GridColumns>
+            </TelerikGrid>
+        }
+    </DetailTemplate>
+    <GridColumns>
+        <GridColumn Field="Id"></GridColumn>
+        <GridColumn Field="Name"></GridColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    void OnRowExpandHandler(Telerik.Blazor.Components.Grid.GridRowToggleEventArgs args)
+    {
+        MainModel item = args.Item as MainModel;
+
+        item.Orders = GenerateOrdersData(item.Id);
+    }
+
+    List<DetailsModel> GenerateOrdersData(int id)
+    {
+        var data = new List<DetailsModel>()
+    {
+            new DetailsModel()
+            {
+                OrderId = id,
+                DealSize = id * 1234,
+            }
+        };
+
+        return data;
+    }
+
+    List<MainModel> salesTeamMembers { get; set; }
+
+    protected override void OnInitialized()
+    {
+        salesTeamMembers = GenerateData();
+    }
+
+    private List<MainModel> GenerateData()
+    {
+        List<MainModel> data = new List<MainModel>();
+        for (int i = 1; i <= 5; i++)
+        {
+            MainModel mdl = new MainModel { Id = i, Name = $"Name {i}" };
+            data.Add(mdl);
+        }
+        return data;
+    }
+
+    public class MainModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public List<DetailsModel> Orders { get; set; }
+    }
+
+    public class DetailsModel
+    {
+        public int OrderId { get; set; }
+        public double DealSize { get; set; }
+    }
+}
+
+````
+
+### OnRowCollapse
+
+The `OnRowCollapse` event fires as a response to the user collapsing the [`DetailTemplate`]({%slug components/grid/features/hierarchy%}) of the Grid.
+
+The event handler receives a `GridRowToggleEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+
+>caption Use the OnRowCollapse event to get the Id of the collapsed row from the data model
+
+````CSHTML
+
+@* Get the Id of the collapsed row *@
+
+<TelerikGrid Data="salesTeamMembers"
+             OnRowCollapse="@OnRowCollapseHandler">
+    <DetailTemplate>
+        @{
+            var employee = context as MainModel;
+            <TelerikGrid Data="employee.Orders" Pageable="true" PageSize="5">
+                <GridColumns>
+                    <GridColumn Field="OrderId"></GridColumn>
+                    <GridColumn Field="DealSize"></GridColumn>
+                </GridColumns>
+            </TelerikGrid>
+        }
+    </DetailTemplate>
+    <GridColumns>
+        <GridColumn Field="Id"></GridColumn>
+        <GridColumn Field="Name"></GridColumn>
+    </GridColumns>
+</TelerikGrid>
+
+<br />
+
+@logger
+
+@code {
+    void OnRowCollapseHandler(Telerik.Blazor.Components.Grid.GridRowToggleEventArgs args)
+    {
+        MainModel item = args.Item as MainModel;
+        logger = $"The collapsed row is with id: {item.Id}";
+    }
+
+    public string logger { get; set; } = String.Empty;
+    List<MainModel> salesTeamMembers { get; set; }
+
+    protected override void OnInitialized()
+    {
+        salesTeamMembers = GenerateData();
+    }
+
+    private List<MainModel> GenerateData()
+    {
+        List<MainModel> data = new List<MainModel>();
+        for (int i = 0; i < 5; i++)
+        {
+            MainModel mdl = new MainModel { Id = i, Name = $"Name {i}" };
+            mdl.Orders = Enumerable.Range(1, 15).Select(x => new DetailsModel { OrderId = x, DealSize = x ^ i }).ToList();
+            data.Add(mdl);
+        }
+        return data;
+    }
+
+    public class MainModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public List<DetailsModel> Orders { get; set; }
+    }
+
+    public class DetailsModel
+    {
+        public int OrderId { get; set; }
+        public double DealSize { get; set; }
+    }
+}
+
+````
+
 
 ### PageChanged
 
