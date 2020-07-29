@@ -5,7 +5,7 @@ description: Built-in Tools in the Editor for Blazor.
 slug: editor-built-in-tools
 tags: telerik,blazor,built-in,tools
 published: True
-position: 2
+position: 40
 ---
 
 

@@ -5,7 +5,7 @@ description: Events of the Editor for Blazor.
 slug: editor-events
 tags: telerik,blazor,editor,event
 published: True
-position: 20
+position: 150
 ---
 
 # Editor Events

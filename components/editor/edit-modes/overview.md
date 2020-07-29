@@ -5,7 +5,7 @@ description: Overview of the edit modes in the Editor for Blazor.
 slug: editor-edit-modes-overview
 tags: telerik,blazor,edit,mode,overview
 published: True
-position: 2
+position: 0
 ---
 
 

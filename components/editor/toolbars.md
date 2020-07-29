@@ -5,7 +5,7 @@ description: Controlling the Toolbar in the Editor for Blazor - add and define b
 slug: editor-toolbars
 tags: telerik,blazor,toolbar
 published: True
-position: 5
+position: 20
 ---
 
 

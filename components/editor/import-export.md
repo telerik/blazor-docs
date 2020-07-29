@@ -5,7 +5,7 @@ description: Import and Export of the content of the Editor for Blazor.
 slug: editor-import-export
 tags: telerik,blazor,editor,import,export
 published: false
-position: 20
+position: 100
 ---
 
 # Editor Import and Export

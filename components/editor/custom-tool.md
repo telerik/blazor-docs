@@ -5,7 +5,7 @@ description: How to make a custom Tool in the Editor for Blazor.
 slug: editor-custom-tool
 tags: telerik,blazor,custom,tool
 published: True
-position: 2
+position: 60
 ---
 
 

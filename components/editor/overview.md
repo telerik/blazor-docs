@@ -15,7 +15,7 @@ The Blazor HTML Editor component enables your users to create rich textual conte
 To use the Telerik Editor for Blazor:
 
 1. Add the `<TelerikEditor>` tag.
-1. Bind its Value to the `string` field you want to get the HTML content in.
+1. Bind its `Value` to the `string` field you want to get the HTML content in.
 
 ````CSHTML
 @* This sample simulates loading some content from a data source and lets the Editor alter it in the view-model *@
