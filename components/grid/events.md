@@ -62,6 +62,8 @@ The `OnRowClick` event fires as a response to the user clicking on a row of the 
 
 The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
+@[template](/_contentTemplates/grid/common-link.md#rowclick-args)
+
 The `OnRowClick` event fires before selection happens.
 
 >caption Use the OnRowClick event to load data on demand based on the clicked row
@@ -161,6 +163,8 @@ The `OnRowDoubleClick` event fires as a response to the user double clicking on 
 
 The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
+@[template](/_contentTemplates/grid/common-link.md#rowclick-args)
+
 The `OnRowDoubleClick` event fires before selection happens.
 
 >caption Use the OnRowDoubleClick event to receive information on the clicked row
@@ -222,6 +226,8 @@ The `OnRowDoubleClick` event fires before selection happens.
 The `OnRowContextMenu` event fires as a response to the user right clicking on a row of the Grid, the context menu keyboard button or long-touch for mobile devices. Clicking on the `GridCommandButton`, select row `CheckBox`, expanding a `Detail Template` or when the row is in `edit/insert mode` will not trigger the event.
 
 The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+
+@[template](/_contentTemplates/grid/common-link.md#rowclick-args)
 
 The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmenu-overview%}#context-menu-for-a-grid-row) to the Grid Row.
 
