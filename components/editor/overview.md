@@ -10,19 +10,63 @@ position: 0
 
 # Editor Overview
 
-first simple example, something like
+The Blazor HTML Editor component enables your users to create rich textual content through a What-You-See-Is-What-You-Get (WYSIWYG) interface and delivers a set of tools for creating, editing, and formatting text, paragraphs, lists, and other HTML elements.
 
-````
-<TelerikEditor @bind-Value="@TheEditorValue"></TelerikEditor>
+To use the Telerik Editor for Blazor:
 
-@TheEditorValue
+1. Add the `<TelerikEditor>` tag.
+1. Bind its Value to the `string` field you want to get the HTML content in.
+
+````CSHTML
+@* This sample simulates loading some content from a data source and lets the Editor alter it in the view-model *@
+
+<TelerikEditor @bind-Value="@TheEditorValue" Width="650px" Height="400px"></TelerikEditor>
 
 @code{
     string TheEditorValue { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        TheEditorValue = @"
+            <p>
+                The Blazor Editor allows your users to edit HTML in a familiar, user-friendly way. Your users do not have to understand HTML in order to create it.
+            </p>
+            <p>
+                The widget <strong>outputs identical HTML</strong> across all major browsers, follows
+                accessibility standards, and provides API for content manipulation.
+            </p>
+            <p>Features include:</p>
+            <ul>
+                <li>Text formatting</li>
+                <li>Bulleted and numbered lists</li>
+                <li>Hyperlinks</li>
+                <li>Cross-browser support</li>
+                <li>Identical HTML output across browsers</li>
+                <li>Ability to create custom tools, dropdowns, dialogs</li>
+            </ul>
+        ";
+        return base.OnInitializedAsync();
+    }
 }
 ````
 
-## Reference
+>caption The result from the code snippet above
+
+![Editor first look](images/editor-overview.png)
+
+
+>caption Component reference
+
+````CSHTML
+@using Telerik.Blazor.Components 
+
+<TelerikEditor @ref="@TheEditorReference"></TelerikEditor>
+
+@code{
+    TelerikEditor TheEditorReference { get; set; }
+}
+````
+
 
 
 ## Dependencies
