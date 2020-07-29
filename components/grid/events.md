@@ -171,7 +171,6 @@ The `OnRowDoubleClick` event fires before selection happens.
 >caption Use the OnRowDoubleClick event to receive information on the clicked row
 
 ````CSHTML
-
 @* Use the OnRowDoubleClick event to receive information on the row the user clicked on *@
 
 <TelerikGrid Data="@MyData"
@@ -237,6 +236,7 @@ The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmen
 >caption Use the OnRowContextMenu event and get the data model
 
 ````CSHTML
+@* Get the row model from a context menu action (right click/long tap) *@
 
 <TelerikGrid Data="@MyData"
              Pageable="true"
