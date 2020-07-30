@@ -20,6 +20,10 @@ This article contains the following sections:
 * [Basics](#basics)
 * [Built-in Tool Lists](#built-in-tool-lists)
 * [Choose Toolbar Items](#choose-toolbar-items)
+	* [Add/Remove Tools From Existing Toolbar](#addremove-tools-from-existing-toolbar)
+	* [Create a Toolbar From Scratch](#create-a-toolbar-from-scratch)
+	* [Customize Built-in Tools](#customize-built-in-tools)
+
 
 ## Basics
 
@@ -60,7 +64,13 @@ To define a button group, add a `new EditorButtonGroup(comma-separated collectio
 
 Button groups can take only buttons, and dropdowns and custom tools cannot be added to them.
 
-### Add/Remove tools from existing toolbar
+>caption Examples:
+
+* [Add/Remove Tools From Existing Toolbar](#addremove-tools-from-existing-toolbar)
+* [Create a Toolbar From Scratch](#create-a-toolbar-from-scratch)
+* [Customize Built-in Tools](#customize-built-in-tools)
+
+### Add/Remove Tools From Existing Toolbar
 
 This example shows how to start from the existing `Default` toolbar collection of the editor and to modify it to:
 
