@@ -55,7 +55,7 @@ To use the Telerik Editor for Blazor:
 ![Editor first look](images/editor-overview.png)
 
 
-## Component reference
+## Component Reference
 
 You can use the component reference to call its [Methods](#methods), especially when creating [custom tools]({%slug editor-custom-tool%}). This snippet shows how to obtain a reference and its namespace.
 
@@ -99,7 +99,33 @@ You can use the following features to get or set the editor content:
 
 ## Methods
 
-talk about ExecuteAsync, where to find the command arguments and names, snippet with "paste at cursor position".
+The editor [reference](#component-reference) exposes the `ExecuteAsync` method which lets you call programmatically the tools and commands of the editor (such as the Bold too, or a Back Color tool, or inserting HTML).
+
+You can find the reference for the available commands and their respective arguments in the [Command Reference]({%slug editor-custom-tool%}#command-reference) section of the documentation.
+
+>caption Paste at the cursor position
+
+````CSHTML
+@* This snippet shows how to insert a horizontal rule (<hr /> tag) at the cursor position.
+You can replace that string with any other content you can generate/obtain according to your application needs*@
+
+@using Telerik.Blazor.Components.Editor
+
+<TelerikButton OnClick="@InsertHr">insert hr</TelerikButton>
+
+<TelerikEditor @ref="@TheEditor" @bind-Value="@TheContent"></TelerikEditor>
+
+@code{
+    TelerikEditor TheEditor { get; set; }
+
+    string TheContent { get; set; } = "<p>Lorem ipsum.</p><p>Dolor sit amet.</p>";
+
+    async Task InsertHr()
+    {
+        await TheEditor.ExecuteAsync(new FormatCommandArgs("insertHtml", "<hr />"));
+    }
+}
+````
 
 
 ## Features
