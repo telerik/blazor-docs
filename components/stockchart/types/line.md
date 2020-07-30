@@ -14,7 +14,7 @@ A **Line** chart displays data as continuous lines that pass through points defi
 
 >caption Line chart. Results from the first code snippet below
 
-![](images/basic-line-chart.png)
+![](images/stockchart-basic-line-chart.png)
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 
