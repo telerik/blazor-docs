@@ -32,7 +32,7 @@ To setup tooltips for the data points of each individual series:
 1. Inside the `<StockChartSeries>`, include the `<StockChartSeriesTooltip>` tag.
 1. Set its `Visible` parameter to `true` or `false`.
 
->caption Enable the tooltip for a specific Chart Series
+>caption Disable the tooltip for a specific series and leave the rest enabled
 
 ````CSHTML
 @* Disable the tooltip for a specific Chart Series *@

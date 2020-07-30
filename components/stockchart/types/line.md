@@ -12,13 +12,13 @@ position: 0
 
 A **Line** chart displays data as continuous lines that pass through points defined by the values of their items. It is useful for rendering a trend over time and comparing several sets of similar data.
 
->caption Line chart. Results from the first code snippet below
+>caption Line series in a stock chart. Results from the first code snippet below.
 
 ![](images/stockchart-basic-line-chart.png)
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a line chart:
+To add a `Line` chart to a stock chart component:
 
 1. add a `StockChartSeries` to the `StockChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Line`

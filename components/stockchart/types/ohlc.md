@@ -12,13 +12,13 @@ position: 0
 
 The **OHLC** (open-high-low-close) chart is typically used to illustrate movements in the price of a financial instrument over time. Each vertical line on the chart shows the price range (the highest and lowest prices) over a period of time.
 
->caption OHLC basic setup. Result from the first code snippet below.
+>caption OHLC series in a stock chart. Results from the first code snippet below.
 
 ![](images/basic-ohlc-chart.png)
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a OHLC chart:
+To add a `OHLC` chart to a stock chart component:
 
 1. set the `DateField` property of the `<TelerikStockChart>` to the corresponding field in the model that carry the value.
 1. add a `<StockChartSeries>` to the `<StockChartSeriesItems>` collection.

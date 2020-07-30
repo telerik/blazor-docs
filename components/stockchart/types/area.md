@@ -20,7 +20,7 @@ An Area chart emphasizes the volume of money, data or any other unit that the gi
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create an area chart:
+To add a `Area` chart to a stock chart component:
 
 1. add a `StockChartSeries` to the `StockChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Area`

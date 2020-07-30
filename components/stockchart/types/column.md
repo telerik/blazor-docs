@@ -12,13 +12,13 @@ position: 0
 
 A **Column** chart displays data as vertical bars whose heights vary according to their value. You can use a Column chart to show a comparison between several sets of data (for example, summaries of sales data for different time periods). Each series is automatically colored differently for easier reading.
 
->caption Column chart. Results from the code snippet below
+>caption Column series in a stock chart. Results from the first code snippet below.
 
 ![](images/stockchart-basic-column-chart.png)
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a column chart:
+To add a `Column` chart to a stock chart component:
 
 1. add a `StockChartSeries` to the `StockChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Column`
