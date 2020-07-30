@@ -356,6 +356,10 @@ intro_columns:
       "Bubble Charts": "components/chart/types/bubble"
       "Scatter Charts": "components/chart/types/scatter"
       "ScatterLine Charts": "components/chart/types/scatterline"
+      "Candlestick Charts": "chart-types-candlestick"
+      "OHLC Charts": "chart-types-ohlc"
+      "Stock Chart": "stockchart-overview"
+      
   -
 
 -
