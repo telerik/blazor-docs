@@ -30,83 +30,9 @@ With this, the items from the series will be matched to the items (categories) o
 
 ## Examples
 
->caption Bind a Column Stock Chart to a model
+>caption Bind a Candlestick Stock Chart to a model
 
 ````CSHTML
-@* Bind a Column Chart to a model *@ 
-
-<TelerikStockChart Height="450px"
-                   Width="700px">
-
-    <StockChartCategoryAxes>
-        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Years">
-        </StockChartCategoryAxis>
-    </StockChartCategoryAxes>
-
-    <StockChartSeriesItems>
-        <StockChartSeries Type="StockChartSeriesType.Column"
-                          Name="Product 1"
-                          Data="@Data"
-                          Field="@nameof(ChartSeriesData.Product1Sales)"
-                          CategoryField="@nameof(ChartSeriesData.Year)">
-        </StockChartSeries>
-
-        <StockChartSeries Type="StockChartSeriesType.Column"
-                          Name="Product 1"
-                          Data="@Data"
-                          Field="@nameof(ChartSeriesData.Product2Sales)"
-                          CategoryField="@nameof(ChartSeriesData.Year)">
-        </StockChartSeries>
-    </StockChartSeriesItems>
-
-</TelerikStockChart>
-
-@code {
-    public List<ChartSeriesData> Data { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Data = ChartSeriesData.GenerateData();
-    }
-
-    public class ChartSeriesData
-    {
-        public int Product1Sales { get; set; }
-        public double Product2Sales { get; set; }
-        public DateTime Year { get; set; }
-        public string SegmentName { get; set; }
-
-        public static List<ChartSeriesData> GenerateData()
-        {
-            List<ChartSeriesData> data = new List<ChartSeriesData>();
-
-            for (int i = 1; i <= 4; i++)
-            {
-                var dataItem = new ChartSeriesData
-                {
-                    Product1Sales = i,
-                    Product2Sales = i + 1.123,
-                    Year = new DateTime(2000 + i, 3, i),
-                    SegmentName = $"{i * 100}"
-                };
-
-                data.Add(dataItem);
-            }
-
-            return data;
-        }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![](images/stockchart-databind-column-chart.png)
-
->caption Bind an Candlestick Stock Chart to a model
-
-````CSHTML
-
 @* Bind an Candlestick Stock Chart to a model *@
 
 <TelerikStockChart Width="700px"
@@ -198,7 +124,6 @@ With this, the items from the series will be matched to the items (categories) o
         public int Volume { get; set; }
     }
 }
-
 ````
 
 >caption The result from the code snippet above
@@ -206,6 +131,80 @@ With this, the items from the series will be matched to the items (categories) o
 ![](images/stockchart-databind-candlestick-chart.png)
 
 
+>caption Bind a Column Stock Chart to a model
+
+````CSHTML
+@* Bind a Column Chart to a model *@ 
+
+<TelerikStockChart Height="450px"
+                   Width="700px">
+
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Years">
+        </StockChartCategoryAxis>
+    </StockChartCategoryAxes>
+
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Column"
+                          Name="Product 1"
+                          Data="@Data"
+                          Field="@nameof(ChartSeriesData.Product1Sales)"
+                          CategoryField="@nameof(ChartSeriesData.Year)">
+        </StockChartSeries>
+
+        <StockChartSeries Type="StockChartSeriesType.Column"
+                          Name="Product 1"
+                          Data="@Data"
+                          Field="@nameof(ChartSeriesData.Product2Sales)"
+                          CategoryField="@nameof(ChartSeriesData.Year)">
+        </StockChartSeries>
+    </StockChartSeriesItems>
+
+</TelerikStockChart>
+
+@code {
+    public List<ChartSeriesData> Data { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Data = ChartSeriesData.GenerateData();
+    }
+
+    public class ChartSeriesData
+    {
+        public int Product1Sales { get; set; }
+        public double Product2Sales { get; set; }
+        public DateTime Year { get; set; }
+        public string SegmentName { get; set; }
+
+        public static List<ChartSeriesData> GenerateData()
+        {
+            List<ChartSeriesData> data = new List<ChartSeriesData>();
+
+            for (int i = 1; i <= 4; i++)
+            {
+                var dataItem = new ChartSeriesData
+                {
+                    Product1Sales = i,
+                    Product2Sales = i + 1.123,
+                    Year = new DateTime(2000 + i, 3, i),
+                    SegmentName = $"{i * 100}"
+                };
+
+                data.Add(dataItem);
+            }
+
+            return data;
+        }
+    }
+}
+````
+
+>caption The result from the code snippet above
+
+![](images/stockchart-databind-column-chart.png)
+
+
 ## See Also
 
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)
+  * [Live Demos: Stock Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)

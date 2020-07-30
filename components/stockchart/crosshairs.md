@@ -318,4 +318,4 @@ For the `Category` axis the `FormattedValue` represents the labels of the catego
 
 ## See Also
 
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)
+  * [Live Demos: Stock Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)

@@ -255,4 +255,4 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 
 ## See Also
 
-* [Live Demo: Chart Events](https://demos.telerik.com/blazor-ui/todo)
+* [Live Demo: Stock Chart Events](https://demos.telerik.com/blazor-ui/stockchart/events)

@@ -12,7 +12,7 @@ position: 0
 
 The Blazor Stock Chart allows you to visualize the deviation of a financial unit over a period of time to the user in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins, tooltips and templates.
 
-The Telerik Stock Chart provides a [Navigator]({%slug stockchart-navigator%}) to widen or shorten the defined period of time and zoom on particular part of the chart.
+The Telerik Stock Chart provides a [Navigator]({%slug stockchart-navigator%}) to widen or shorten the defined period of time and zoom on particular part of the chart; and a [crosshair]({%slug stockchart-crosshairs%}) to see precise values in data-dense charts.
 
 To use the Telerik Stock Chart for Blazor: 
 
@@ -235,5 +235,7 @@ You can make a responsive chart
 ## See Also
 
   * [Data Binding]({%slug stockchart-data-binding%})
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)
+  * [Crosshair]({%slug stockchart-crosshairs%})
+  * [Navigator]({%slug stockchart-navigator%})
+  * [Live Demos: Stock Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikStockChart)

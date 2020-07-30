@@ -304,4 +304,4 @@ You can control from which side (or both) the data navigation with shorten the t
 
 ## See Also
 
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)
+  * [Live Demos: Stock Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)
