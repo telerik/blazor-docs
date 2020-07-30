@@ -5,7 +5,7 @@ description: Navigator in the Stock Chart for Blazor.
 slug: stockchart-navigator
 tags: telerik,blazor,stock,chart,navigator
 published: true
-position: 32
+position: 2
 ---
 
 # Navigator
