@@ -12,7 +12,7 @@ position: 5
 
 By default, the TreeList renders the value of the field in the column, as it is provided from the data source. You can change this behavior by using the `Template` of the column and add your own content and/or logic to make a string out of the object.
 
-Using a template will remove the `Expandable` feature from the column - the expand/collapse arrows that the treelist renders for you.
+Using a template will keep the `Expandable="true"` feature in a column - the expand/collapse arrows that the treelist renders for you. Your template will render after the arrow.
 
 The example below shows how to:
 
@@ -28,16 +28,16 @@ Cell template that renders an image based on model data
 
 <TelerikTreeList Data="@Data" Pageable="true" IdField="Id" ParentIdField="ParentId" Width="650px">
     <TreeListColumns>
-        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Name" Title="Photo" Width="100px">
+        <TreeListColumn Field="Name" Expandable="true" Title="Photo" Width="250px">
             <Template>
                 @{
                     Employee empl = context as Employee;
                     <img src="@( $"images/employees/{empl.Id}.png" )" />
+                    <strong>@empl.Name</strong>
                 }
             </Template>
         </TreeListColumn>
-        <TreeListColumn Title="Manager" Width="400px">
+        <TreeListColumn Title="Manager" Width="200px">
             <Template Context="item">
                 @{
                     var manager = Data.FirstOrDefault(d => d.Id.Equals(((Employee)item).ParentId));
