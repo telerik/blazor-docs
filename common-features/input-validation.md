@@ -7,7 +7,6 @@ tags: telerik,blazor,validation,data,annotation,form
 published: True
 position: 2
 ---
-
 # Input Validation
 
 The UI for Blazor suite supports and integrates seamlessly into Blazor's Forms and Validation infrastructure. All Telerik UI for Blazor Input components work out of the box when placed inside an `EditForm`, respond to `EditContext` changes and provide default invalid styles.
@@ -449,9 +448,9 @@ There is no built-in provision in the framework for validating a field value bas
 
 ## Editor
 
-The Editor produces an HTML string in the field you bind its `Value` to. Thus, while the user may see a certain amount of content, the actual content may have many more symbols, because the HTML tags count towards the total string length, but the user does not see them.
+The Editor produces an HTML string in the field you bind its `Value` to. Thus, while the user may see a certain amount of content, the actual content may have more symbols, because the HTML tags count towards the total string length, but the user does not see them.
 
-Unlike other components, the editor does not trigger form validation on every keystroke, because it is expected to require a lot of content and that would be bad for performance. To trigger validation in the editor, you must submit the form it is in.
+Unlike other components, the editor does not trigger form validation on every keystroke, because it is expected to require a lot of content and that would be bad for performance. Validation is still triggered upon the `ValueChanged` event, but that fires with a delay - the `UpdateInterval` parameter which defaults to 100ms.
 
 >caption How to validate the Editor component
 
