@@ -19,15 +19,16 @@ To use the Telerik Stock Chart for Blazor:
 1. add the `TelerikStockChart` tag
 2. for [`OHLC`]({%slug stockchart-ohlc%}) and [`Candlestick`]({%slug stockchart-candlestick%}) set the `DateField` parameter of the `TelerikStockChart` to the corresponding property of the model.
 3. provide data to the series as described in the [Data binding article]({%slug stockchart-data-binding%})
+4. (optional) enable the [navigator]({%slug stockchart-navigator%}) by including its `StockChartNavigator` tag and adding a series that mirrors the main chart data to it.
 
 >caption Basic configuration of a Stock Chart with common settings
 
 ````CSHTML
-@* Basic Stock Chart with common settings*@
+@* Basic Stock Chart with common settings and a navigator *@
 
 <TelerikStockChart Width="700px"
-                   Height="450px"
-                   DateField="@nameof(StockDataPoint.Date)">
+                    Height="450px"
+                    DateField="@nameof(StockDataPoint.Date)">
 
     <StockChartCategoryAxes>
         <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
@@ -35,14 +36,25 @@ To use the Telerik Stock Chart for Blazor:
 
     <StockChartSeriesItems>
         <StockChartSeries Type="StockChartSeriesType.Candlestick"
-                          Name="Product 1"
-                          Data="@StockChartProduct1Data"
-                          OpenField="@nameof(StockDataPoint.Open)"
-                          CloseField="@nameof(StockDataPoint.Close)"
-                          HighField="@nameof(StockDataPoint.High)"
-                          LowField="@nameof(StockDataPoint.Low)">
+                            Name="Product 1"
+                            Data="@StockChartProduct1Data"
+                            OpenField="@nameof(StockDataPoint.Open)"
+                            CloseField="@nameof(StockDataPoint.Close)"
+                            HighField="@nameof(StockDataPoint.High)"
+                            LowField="@nameof(StockDataPoint.Low)">
         </StockChartSeries>
     </StockChartSeriesItems>
+
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                        Name="Product 1"
+                                        Data="@StockChartProduct1Data"
+                                        Field="@(nameof(StockDataPoint.High))"
+                            CategoryField="@(nameof(StockDataPoint.Date))">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
 
 </TelerikStockChart>
 
@@ -57,7 +69,7 @@ To use the Telerik Stock Chart for Blazor:
     public async Task GenerateChartData()
     {
         StockChartProduct1Data = new List<StockDataPoint>()
-    {
+        {
             new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
             new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
             new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),

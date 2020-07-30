@@ -22,7 +22,7 @@ In this article:
 You can provide a `List<object>` to the `Data` property of a series that contains both its data points, and its x-axis categories. Then, set the following parameters based on the type of the chart:
 
 * `Column`, `Area` and `Line` - `Field` and `CategoryField` to the corresponding fields in the model that carry the values
-* `OHLC` and `Candlestick` - `OpenField`, `ClosedField`, `HighField` and `LowField` properties to the corresponding fields in the model that carry the values. Set the `DateField` parameter of the `<TelerikStockChart>` to a `DateTime` property from the model.
+* `OHLC` and `Candlestick` - `OpenField`, `ClosedField`, `HighField` and `LowField` properties to the corresponding fields in the model that carry the values. Set the `DateField` parameter of the `<TelerikStockChart>` to the `DateTime` property from the model that will be used for the x-axis.
 
 With this, the items from the series will be matched to the items (categories) on the x-axis. Each series will add its own categories to the x-axis in order of appearance, and the series items will appear above them only.
 
