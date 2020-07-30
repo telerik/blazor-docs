@@ -86,8 +86,6 @@ This example shows how to start from the existing `Default` toolbar collection o
 
 <TelerikEditor Tools="@customTools" @bind-Value="@TheEditorValue"></TelerikEditor>
 
-@TheEditorValue
-
 @code{
     string TheEditorValue { get; set; } = "<p>Lorem ipsum</p><p>Dolor sit amet.</p>";
     public List<IEditorTool> customTools { get; set; }
