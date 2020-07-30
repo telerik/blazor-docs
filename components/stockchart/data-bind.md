@@ -208,4 +208,4 @@ With this, the items from the series will be matched to the items (categories) o
 
 ## See Also
 
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
+  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)

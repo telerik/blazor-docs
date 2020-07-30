@@ -223,5 +223,5 @@ You can make a responsive chart
 ## See Also
 
   * [Data Binding]({%slug stockchart-data-binding%})
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/todo)
+  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikStockChart)

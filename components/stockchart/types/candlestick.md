@@ -116,6 +116,4 @@ Set the color - a valid CSS, RGB, RGBA color - of the series when the `OpenField
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#configurable-nested-chart-settings)
 
-## See Also
 
-  * [Live Demo: Candlestick Stock Chart](https://demos.telerik.com/blazor-ui/chart/todo)

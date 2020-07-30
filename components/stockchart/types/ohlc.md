@@ -108,6 +108,4 @@ To add a `OHLC` chart to a stock chart component:
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
-## See Also
 
-  * [Live Demo: OHLC Stock Chart](https://demos.telerik.com/blazor-ui/chart/todo)

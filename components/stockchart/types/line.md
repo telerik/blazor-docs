@@ -98,6 +98,4 @@ Line series
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#configurable-nested-chart-settings)
 
-## See Also
 
-  * [Live Demo: Line Chart](https://demos.telerik.com/blazor-ui/chart/line-chart)

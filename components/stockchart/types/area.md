@@ -177,6 +177,3 @@ The color of a series is controlled through the `Color` property that can take a
 ![](images/area-chart-customization.png)
 
 
-## See Also
-
-  * [Live Demo: Area Chart](https://demos.telerik.com/blazor-ui/chart/area-chart)
