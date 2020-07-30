@@ -457,14 +457,12 @@ Unlike other components, the editor does not trigger form validation on every ke
 ````CSHTML
 @using System.ComponentModel.DataAnnotations
 @* This Using is for the model class attributes only *@
-@* The Id parameter is not mandatory for validation, it just shows better forms integration *@
 
 <EditForm Model="@theProduct" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
-    <label for="descriptionEditor">Description</label>
-    <TelerikEditor @bind-Value="@theProduct.Description" Id="descriptionEditor">
+    <TelerikEditor @bind-Value="@theProduct.Description">
     </TelerikEditor>
 
     <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
