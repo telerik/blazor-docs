@@ -14,7 +14,7 @@ An **Area** chart shows the data as continuous lines that pass through points de
 
 An Area chart emphasizes the volume of money, data or any other unit that the given series has encompassed. When backgrounds are semi-transparent, it lets the user clearly see where different sets of data overlap.
 
->caption Area chart. Results from the first code snippet below
+>caption Area series in a stock chart. Results from the first code snippet below.
 
 ![basic area chart](images/stockchart-basic-area-chart.png)
 

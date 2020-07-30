@@ -24,25 +24,50 @@ To enable data navigation you have to:
 1. add a `<StockChartNavigator>` inside the main `<TelerikStockChart>`
 1. add a `<StockChartNavigatorSeries>` to the `<StockChartNavigatorSeriesItems>` collection.
 1. set its `Type` property to one of the following:
-* `StockChartSeriesType.Column`
-* `StockChartSeriesType.Area`
-* `StockChartSeriesType.Line`
-* `StockChartSeriesType.Candlestick`
-* `StockChartSeriesType.OHCL`
+    * `StockChartSeriesType.Column`
+    * `StockChartSeriesType.Area`
+    * `StockChartSeriesType.Line`
+    * `StockChartSeriesType.Candlestick`
+    * `StockChartSeriesType.OHCL`
 5. provide a data model collection to its `Data` property. The data source should be the same as the one used for the `<StockChartSeries>`.
 1. set the following properties depending on what `Type` the Navigator is:
 * `Column`, `Area` and `Line` - `Field` and `CategoryField` to the corresponding fields in the model that carry the values
 * `OHLC` and `Candlestick` - `OpenField`, `ClosedField`, `HighField` and `LowField` properties to the corresponding fields in the model that carry the values.
 
->tip The Navigator should be used with an adjacent `<TelerikStockChart>`.
 
->caption Basic configuration on the Navigator
+>caption Data Navigation in a stock chart. Results from the first code snippet below.
+
+![](images/navigator-basic-explanation.png)
 
 ````CSHTML
+@* Navigator basic setup *@
 
-<TelerikStockChart Width="100%"
+<TelerikStockChart Width="700px"
                    Height="450px"
                    DateField="@nameof(StockDataPoint.Date)">
+
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Candlestick"
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       OpenField="@nameof(StockDataPoint.Open)"
+                                       CloseField="@nameof(StockDataPoint.Close)"
+                                       HighField="@nameof(StockDataPoint.High)"
+                                       LowField="@nameof(StockDataPoint.Low)">
+            </StockChartNavigatorSeries>
+
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Candlestick"
+                                       Name="Product 2"
+                                       Data="@StockChartProduct2Data"
+                                       OpenField="@nameof(StockDataPoint.Open)"
+                                       CloseField="@nameof(StockDataPoint.Close)"
+                                       HighField="@nameof(StockDataPoint.High)"
+                                       LowField="@nameof(StockDataPoint.Low)">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+
+    </StockChartNavigator>
 
     <StockChartCategoryAxes>
         <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
@@ -70,30 +95,7 @@ To enable data navigation you have to:
         </StockChartSeries>
     </StockChartSeriesItems>
 
-    <StockChartNavigator>
-        <StockChartNavigatorSeriesItems>
-            <StockChartNavigatorSeries Type="StockChartSeriesType.Candlestick"
-                                       Name="Product 1"
-                                       Data="@StockChartProduct1Data"
-                                       OpenField="@nameof(StockDataPoint.Open)"
-                                       CloseField="@nameof(StockDataPoint.Close)"
-                                       HighField="@nameof(StockDataPoint.High)"
-                                       LowField="@nameof(StockDataPoint.Low)">
-            </StockChartNavigatorSeries>
-
-            <StockChartNavigatorSeries Type="StockChartSeriesType.Candlestick"
-                                       Name="Product 2"
-                                       Data="@StockChartProduct2Data"
-                                       OpenField="@nameof(StockDataPoint.Open)"
-                                       CloseField="@nameof(StockDataPoint.Close)"
-                                       HighField="@nameof(StockDataPoint.High)"
-                                       LowField="@nameof(StockDataPoint.Low)">
-            </StockChartNavigatorSeries>
-        </StockChartNavigatorSeriesItems>
-
-    </StockChartNavigator>
 </TelerikStockChart>
-
 
 @code {
     public List<StockDataPoint> StockChartProduct1Data { get; set; }
@@ -107,19 +109,19 @@ To enable data navigation you have to:
     public async Task GenerateChartData()
     {
         StockChartProduct1Data = new List<StockDataPoint>()
-{
-            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)41.62, (decimal)40.12, (decimal)41.69, (decimal)39.81, 2632000),
-            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)39.88, (decimal)40.12, (decimal)41.12, (decimal)39.75, 3584700),
-            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)42.62, (decimal)43.31, (decimal)41.38, 7631700),
-            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)42.25, (decimal)43.06, (decimal)43.31, (decimal)41.12, 4922200),
+        {
+            new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
+            new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
+            new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),
+            new StockDataPoint(new DateTime(2019, 4, 1), 42.25m, 43.06m, 43.31m, 41.12m, 4922200)
         };
 
         StockChartProduct2Data = new List<StockDataPoint>()
         {
-            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)39, (decimal)38, (decimal)44, (decimal)37, 26320),
-            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)37, (decimal)38, (decimal)41, (decimal)40, 35847),
-            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)43, (decimal)45, (decimal)41, 76317),
-            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)40, (decimal)42, (decimal)43, (decimal)42, 49222),
+            new StockDataPoint(new DateTime(2019, 1, 1), 39m, 38m, 44m, 37m, 26320),
+            new StockDataPoint(new DateTime(2019, 2, 1), 37m, 38m, 41m, 40m, 35847),
+            new StockDataPoint(new DateTime(2019, 3, 1), 42m, 43m, 45m, 41m, 76317),
+            new StockDataPoint(new DateTime(2019, 4, 1), 40m, 42m, 43m, 42m, 49222)
         };
 
         await Task.FromResult(StockChartProduct1Data);
@@ -152,7 +154,6 @@ To enable data navigation you have to:
         public int Volume { get; set; }
     }
 }
-
 ````
 
 >caption The result from the code snippet above
@@ -163,6 +164,13 @@ To enable data navigation you have to:
  
 The Navigator is defined closely to the way the charts are. As such you can use the nested tags settings to apply different customizations.
 
+To programatically set a time interval to the `Navigator` upon initialization use the `From` and `To` parameters of the `<StockChartNavigatorSelect>` and pass valid `DateTime` values according to your data.
+
+You can control from which side (or both) the data navigation with shorten the time interval when the users cursor is located inside Navigator and is using the mouse wheel. To set it use the `Zoom` parameter of the `<StockChartNavigatorSelectMousewheel>`, child of `<StockChartNavigatorSelect>` to a member of the `ChartMousewheelZoom` enum:
+ * `ChartMousewheelZoom.Left`
+ * `ChartMousewheelZoom.Right`
+ * `ChartMousewheelZoom.Both`
+
 >caption Common settings for the Navigator
 
 ````CSHTML
@@ -171,32 +179,6 @@ The Navigator is defined closely to the way the charts are. As such you can use 
 <TelerikStockChart Width="750px"
                    Height="450px"
                    DateField="@nameof(StockDataPoint.Date)">
-
-    <StockChartCategoryAxes>
-        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
-    </StockChartCategoryAxes>
-
-    <StockChartSeriesItems>
-        <StockChartSeries Type="StockChartSeriesType.Candlestick"
-                          Name="Product 1"
-                          Data="@StockChartProduct1Data"
-                          OpenField="@nameof(StockDataPoint.Open)"
-                          CloseField="@nameof(StockDataPoint.Close)"
-                          HighField="@nameof(StockDataPoint.High)"
-                          LowField="@nameof(StockDataPoint.Low)">
-            <StockChartSeriesTooltip Visible="false"></StockChartSeriesTooltip>
-        </StockChartSeries>
-
-        <StockChartSeries Type="StockChartSeriesType.Candlestick"
-                          Name="Product 2"
-                          Data="@StockChartProduct2Data"
-                          OpenField="@nameof(StockDataPoint.Open)"
-                          CloseField="@nameof(StockDataPoint.Close)"
-                          HighField="@nameof(StockDataPoint.High)"
-                          LowField="@nameof(StockDataPoint.Low)">
-            <StockChartSeriesTooltip Visible="false"></StockChartSeriesTooltip>
-        </StockChartSeries>
-    </StockChartSeriesItems>
 
     <StockChartNavigator>
 
@@ -225,9 +207,36 @@ The Navigator is defined closely to the way the charts are. As such you can use 
             <StockChartNavigatorSelectMousewheel Zoom="@ChartMousewheelZoom.Left" />
         </StockChartNavigatorSelect>
         <StockChartNavigatorHint Visible="true" Format="From {0:d} To: {1:d}" />
-    </StockChartNavigator>
-</TelerikStockChart>
 
+    </StockChartNavigator>
+
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
+    </StockChartCategoryAxes>
+
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 1"
+                          Data="@StockChartProduct1Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+            <StockChartSeriesTooltip Visible="false"></StockChartSeriesTooltip>
+        </StockChartSeries>
+
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 2"
+                          Data="@StockChartProduct2Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+            <StockChartSeriesTooltip Visible="false"></StockChartSeriesTooltip>
+        </StockChartSeries>
+    </StockChartSeriesItems>
+
+</TelerikStockChart>
 
 @code {
     public List<StockDataPoint> StockChartProduct1Data { get; set; }
@@ -241,19 +250,19 @@ The Navigator is defined closely to the way the charts are. As such you can use 
     public async Task GenerateChartData()
     {
         StockChartProduct1Data = new List<StockDataPoint>()
-{
-            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)41.62, (decimal)40.12, (decimal)41.69, (decimal)39.81, 2632000),
-            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)39.88, (decimal)40.12, (decimal)41.12, (decimal)39.75, 3584700),
-            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)42.62, (decimal)43.31, (decimal)41.38, 7631700),
-            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)42.25, (decimal)43.06, (decimal)43.31, (decimal)41.12, 4922200),
+        {
+            new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
+            new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
+            new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),
+            new StockDataPoint(new DateTime(2019, 4, 1), 42.25m, 43.06m, 43.31m, 41.12m, 4922200)
         };
 
         StockChartProduct2Data = new List<StockDataPoint>()
-    {
-            new StockDataPoint(new DateTime(2019, 1, 1), (decimal)39, (decimal)38, (decimal)44, (decimal)37, 26320),
-            new StockDataPoint(new DateTime(2019, 2, 1), (decimal)37, (decimal)38, (decimal)41, (decimal)40, 35847),
-            new StockDataPoint(new DateTime(2019, 3, 1), (decimal)42, (decimal)43, (decimal)45, (decimal)41, 76317),
-            new StockDataPoint(new DateTime(2019, 4, 1), (decimal)40, (decimal)42, (decimal)43, (decimal)42, 49222),
+        {
+            new StockDataPoint(new DateTime(2019, 1, 1), 39m, 38m, 44m, 37m, 26320),
+            new StockDataPoint(new DateTime(2019, 2, 1), 37m, 38m, 41m, 40m, 35847),
+            new StockDataPoint(new DateTime(2019, 3, 1), 42m, 43m, 45m, 41m, 76317),
+            new StockDataPoint(new DateTime(2019, 4, 1), 40m, 42m, 43m, 42m, 49222)
         };
 
         await Task.FromResult(StockChartProduct1Data);
@@ -286,7 +295,6 @@ The Navigator is defined closely to the way the charts are. As such you can use 
         public int Volume { get; set; }
     }
 }
-
 ````
 
 >caption The result from the code snippet above
