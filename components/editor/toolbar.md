@@ -214,7 +214,7 @@ When adding a built-in tool to the collection, you can set various parameters to
             Data = new List<EditorDropDownListItem>
             {
                 new EditorDropDownListItem { Text = "heading", Value = "h1" },
-                new EditorDropDownListItem { Text = "separated block", Value = "div class='m-5'" },
+                new EditorDropDownListItem { Text = "separated block", Value = "blockquote" },
             }
         });
 
