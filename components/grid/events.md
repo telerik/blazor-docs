@@ -290,7 +290,7 @@ The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmen
 
 The `OnRowExpand` event fires as a response to the user expanding the [`DetailTemplate`]({%slug components/grid/features/hierarchy%}) of the Grid.
 
-The event handler receives a `GridRowToggleEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+The event handler receives a `GridRowExpandEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
 
 
@@ -319,7 +319,7 @@ The event handler receives a `GridRowToggleEventArgs` object which provides the 
 </TelerikGrid>
 
 @code {
-    async Task OnRowExpandHandler(Telerik.Blazor.Components.Grid.GridRowToggleEventArgs args)
+    async Task OnRowExpandHandler(GridRowExpandEventArgs args)
     {
         MainModel item = args.Item as MainModel;
 
@@ -380,7 +380,7 @@ The event handler receives a `GridRowToggleEventArgs` object which provides the 
 
 The `OnRowCollapse` event fires as a response to the user collapsing the [`DetailTemplate`]({%slug components/grid/features/hierarchy%}) of the Grid.
 
-The event handler receives a `GridRowToggleEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+The event handler receives a `GridRowCollapseEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
 >caption Use the OnRowCollapse event to get the Id of the collapsed row from the data model
 
@@ -411,7 +411,7 @@ The event handler receives a `GridRowToggleEventArgs` object which provides the 
 @logger
 
 @code {
-    void OnRowCollapseHandler(Telerik.Blazor.Components.Grid.GridRowToggleEventArgs args)
+    void OnRowCollapseHandler(GridRowCollapseEventArgs args)
     {
         MainModel item = args.Item as MainModel;
         logger = $"The collapsed row is with id: {item.Id}";
