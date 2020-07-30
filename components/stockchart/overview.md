@@ -15,6 +15,7 @@ The Blazor Stock Chart allows you to visualize the deviation of a financial unit
 The Telerik Stock Chart provides a [Navigator]({%slug stockchart-navigator%}) to widen or shorten the defined period of time and zoom on particular part of the chart.
 
 To use the Telerik Stock Chart for Blazor: 
+
 1. add the `TelerikStockChart` tag
 2. for [`OHLC`]({%slug stockchart-ohlc%}) and [`Candlestick`]({%slug stockchart-candlestick%}) set the `DateField` parameter of the `TelerikStockChart` to the corresponding property of the model.
 3. provide data to the series as described in the [Data binding article]({%slug stockchart-data-binding%})
