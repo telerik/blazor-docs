@@ -98,6 +98,12 @@ navigation:
      "*components/chart/tooltip":
         title: "Tooltips"
         position: 32
+     "*components/stockchart/types":
+        title: "Types"
+        position: 12
+     "*components/stockchart/tooltip":
+        title: "Tooltips"
+        position: 22
      "*components/animationcontainer":
         title: "Animation Container"
         position: 2000000
@@ -174,7 +180,7 @@ navigation:
         title: "MultiViewCalendar"
      "*calendar":
         title: "Calendar"
-     "*chart":
+     "*components/chart":
         title: "Chart"
      "*checkbox":
         title: "Checkbox"
@@ -263,7 +269,7 @@ navigation:
      "*splitter":
         title: "Splitter"
      "*stockchart":
-        title: "StockChart"
+        title: "Stock Chart"
      "*tabstrip":
         title: "TabStrip"
      "*textbox":
@@ -350,6 +356,10 @@ intro_columns:
       "Bubble Charts": "components/chart/types/bubble"
       "Scatter Charts": "components/chart/types/scatter"
       "ScatterLine Charts": "components/chart/types/scatterline"
+      "Candlestick Charts": "chart-types-candlestick"
+      "OHLC Charts": "chart-types-ohlc"
+      "Stock Chart": "stockchart-overview"
+      
   -
 
 -

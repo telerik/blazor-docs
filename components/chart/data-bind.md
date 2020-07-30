@@ -23,8 +23,10 @@ You can, of course, [mix these approaches](#mixed-data-source).
 
 There are three main types of chart in terms of the data they require for their x-axis:
 
-* **Categorical** - series like Area, Line, Column require a set of categories to match the data points values against. Those categories can be shared among different series, or unique. The categories are usually strings, but can also be [dates]({%slug components/chart/date-axis%}). While there are X and Y axes, the x-axis is not a progression of numerical values - spacing between all x-axis items is equal and they show the text of the category.
+* **Categorical** - series like Area, Line, Column, Candlestick require a set of categories to match the data points values against. Those categories can be shared among different series, or unique. The categories are usually strings, but can also be [dates]({%slug components/chart/date-axis%}). While there are X and Y axes, the x-axis is not a progression of numerical values - spacing between all x-axis items is equal and they show the text of the category.
+
 * **Numerical** - series like Bubble, Scatter and Scatter Line represent two numerical values for the X and Y axes. They do not use categories on the x-axis and thus each data point is independent. This makes it easier to bind each series to a separate collection of data that can have different number of items in it, because plotting the data points is not dependent on string categories, but on numeric values that will be plotted and spaced according to their values.
+
 * **Axis-free** - series like Pie and Donut do not have a x-axis at all. They use categories to build a list of items for each series and show those categories in the legend, as opposed to the series name that is usually shown by the other chart types.
 
 With this in mind, the information below is applicable for all chart types, but the finer points are mostly relevant to categorical charts.
