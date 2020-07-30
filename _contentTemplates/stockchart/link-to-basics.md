@@ -18,8 +18,6 @@ To create overlap, set negative values.
 
 You can configure the values of `Gap` and `Spacing` for the whole chart in the first series and they are applied for all categories and series items.
 
->caption  Configuring Gap and Spacing in a Column chart. 'g' and 's' are the values of Gap and Spacing respectively and 'x' is the width of the series item. For this chart g = 2 and s = 1.
-
 #end
 
 
