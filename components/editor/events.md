@@ -46,30 +46,7 @@ When you use that event, you cannot use two-way binding and so you must update t
 
 ## OnChange
 
-The `OnChange` event fires when the editor loses focus. It does not prevent two-way value binding.
-
->caption Handle the OnChange event
-
-````CSHTML
-@* The user moved focus away from the editor *@
-
-<TelerikEditor @bind-Value="@TheEditorContent" OnChange="@OnChangeHandler">
-</TelerikEditor>
-
-@TheEditorContent
-
-@code {
-    string TheEditorContent { get; set; } = "<p>Lorem ipsum</p><p>Dolor sit amet.</p>";
-
-    void OnChangeHandler(object value)
-    {
-        string currContent = (string)value;
-        Console.WriteLine($"OnChange fired with {currContent}");
-    }
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+The `OnChange` parameter is inherited and while it may appear in the Intellisense, it will not function for the Editor component. In our other input components, it denotes a confirmation from the user that this is the content they want, and fires when the input loses focus or the user presses `Enter`. Both of these actions have different meaning in the editor - enter adds a new paragraph, and focus is lost all the time when you use the toolbar but this does not mean you are done writing. Thus, this event would not provide usable hooks for the application and shows up because Blazor does not allow you to hide inherited members.
 
 
 ## See Also
