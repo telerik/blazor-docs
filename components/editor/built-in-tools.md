@@ -11,7 +11,7 @@ position: 40
 
 # Editor Built-in Tools
 
-This article explains which are the built-in tools of the `Editor`, how to invoke them from programatically and what functionality do they offer. 
+This article explains which are the built-in tools of the `Editor`, how to invoke them from programatically and what functionality they offer. 
 
 In this article:
 
@@ -19,14 +19,34 @@ In this article:
     * [Inline Tools](#inline-tools) 
     * [Block Tools](#block-tools)
     * [Table Tools](#table-tools)
-* [Tools Execution](#tools-execution)
+* [Programmatic Execution](#programmatic-execution)
 
 
 ## Built-in Tools
 
+The sections below list the tools that come with the editor and provide the following information:
+
+* `Tool Name` - the human-readable name of the tool.
+
+* `Command Name` - the `commandName` of the tool for [executing it programmatically](#programmatic-execution).
+
+* `Tool Type` - the type of the tool - whether it is a button or a dropdown. Only buttons can be added to tool groups in the [toolbar]({%slug editor-toolbars%}).
+
+* `Description` - more detailed information on what the tool does.
+
+* `Class Name` - the name of the class that you need to instantiate in order to [add the tool to the toolbar]({%slug editor-toolbars%}) in your own code.
+
+* `Arguments` - the type of the argument you must pass to the `ExecuteAsync` method of the editor in order to invoke the command programmatically.
+
+There are the following types of tools:
+
+* [Inline Tools](#inline-tools) 
+* [Block Tools](#block-tools)
+* [Table Tools](#table-tools)
+
 ### Inline Tools
 
-The `Inline` tools add an inline HTML element. Example of these are an `<a>`, `<img>`, `<strong>` and `<em>`.
+The `Inline` tools work with or add an inline HTML element. Example of these are an `<a>`, `<img>`, `<strong>` and `<em>`.
 
 <table>
     <thead>
@@ -125,7 +145,7 @@ The `Inline` tools add an inline HTML element. Example of these are an `<a>`, `<
 
 ### Block Tools
 
-The `Block` tools add a block HTML element, like `<h1>`, `<h2>`, `<p>` and `<ul>`.
+The `Block` tools work with or add a block HTML element, like `<h1>`, `<h2>`, `<p>` and `<ul>`.
 
 <table>
     <thead>
@@ -337,11 +357,13 @@ The `Table` tools add an HTML `<table>` or control its rendering, like adding co
     </tbody>
 </table>
 
-## Tools Execution
+## Programmatic Execution
 
-You can invoke the `Editors` tools from outside the component. 
+You can invoke the built-in editor tools from outside the component or from [custom tools]({%slug editor-custom-tool%}).
 
-In order to do so you need to use the [Editor reference]({%slug editor-overview%}#component-reference) and use the [ExecuteAsync method]({%slug editor-overview%}#methods).
+In order to do so you need to use the [Editor reference]({%slug editor-overview%}#component-reference) and to call the [ExecuteAsync method]({%slug editor-overview%}#methods).
+
+>tip Use the reference tables above to find the command name and its arguments for the tool you want to invoke.
 
 >caption Execute tools from buttons outside the Editor
 
@@ -356,7 +378,7 @@ In order to do so you need to use the [Editor reference]({%slug editor-overview%
 <TelerikButton OnClick="@InsertImage">Insert Image</TelerikButton>
 
 
-<TelerikEditor @ref="@TheEditor" @bind-Value="@TheContent" Height="100%"></TelerikEditor>
+<TelerikEditor @ref="@TheEditor" @bind-Value="@TheContent"></TelerikEditor>
 
 @code{
     TelerikEditor TheEditor { get; set; }
@@ -370,7 +392,7 @@ In order to do so you need to use the [Editor reference]({%slug editor-overview%
 
     async Task InsertImage()
     {
-        await TheEditor.ExecuteAsync(new ImageCommandArgs("https://demos.telerik.com/blazor-ui/images/articles/1-220x140.png", "image", "220px", "140px"));
+        await TheEditor.ExecuteAsync(new ImageCommandArgs("https://demos.telerik.com/blazor-ui/images/articles/1-220x140.png", "the alt text", "220px", "140px"));
     }
 
     async Task BoldText()
