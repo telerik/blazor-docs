@@ -23,7 +23,7 @@ In this article:
 
 We provide a component that you can use to render icons - the `TelerikIcon` component. Its `Icon` parameter takes a Telerik icon from the set we provide out-of-the-box, and you can also configure it to use your own font icons, raster icons or even image sprites.
 
-To use a Telerik font icon, you can set the `Icon` property to a member of the `Telerik.Blazor.IconName` static class. The Visual Studio intellisense should provide you with the available options.
+To use a Telerik font icon, you can set the `Icon` property to a member of the `Telerik.Blazor.IconName` static class. The Visual Studio intellisense should provide you with the available options and you can also see them in the [online API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.IconName).
 
 You can find the full list of available icons in the [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web) article. The names of the icons match the classes you see in the article, but without the `k-i-` prefix. You can use them as hardcoded strings as well. Their corresponding class members are in `CamelCase`.
 
