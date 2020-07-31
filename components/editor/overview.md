@@ -76,9 +76,11 @@ You can use the component reference to call its [Methods](#methods), especially 
 
 Authoring HTML content happens in the browser and relies on the browser HTML editing engine (see the [contenteditable](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content) attribute). Thus, an HTML Editor component must rely on that and use JavaScript.
 
-The Telerik UI for Blazor Editor uses the ProseMirror engine and it depends on it. You do not need to add any assets or references yourself, the Editor registers them for you when it initializes, and it takes points them to the static assets of the Telerik UI for Blazor package. This approach improves the initial load time of your app and removes the dependency management task from you.
+The Telerik UI for Blazor Editor uses the ProseMirror engine and it depends on it. You do not need to add any extra assets or references yourself, though.
 
+<!-- the Editor registers them for you when it initializes, and it takes points them to the static assets of the Telerik UI for Blazor package. This approach improves the initial load time of your app and removes the dependency management task from you.
 
+-->
 
 ## Get/Set Content
 
@@ -126,12 +128,12 @@ You can replace that string with any other content you can generate/obtain accor
     }
 }
 ````
-
+<!--
 
 ## Features
 
 consider - maybe link toolbars, import/export, custom commands, events, validation. There isn't much left so this may drop out.
-
+-->
 
 ## See Also
 
