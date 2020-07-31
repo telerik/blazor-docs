@@ -26,51 +26,6 @@ You can configure the values of `Gap` and `Spacing` for the whole chart in the f
 
 Column, OHLC and Candlestick charts can take the color of the series item from the `ColorField` of the data source. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
-````CSHTML
-Colors per series item
-
-<TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Bar" Data="@theData" ColorField="@nameof(MyChartDataModel.Color)"
-							Field="@nameof(MyChartDataModel.ItemValue)" CategoryField="@nameof(MyChartDataModel.Category)" />
-	</ChartSeriesItems>
-
-	<ChartTitle Text="Revenue per product" />
-
-	<ChartLegend Position="ChartLegendPosition.Right" />
-</TelerikChart>
-
-@code {
-	public class MyChartDataModel
-	{
-		public string Category { get; set; }
-		public double ItemValue { get; set; }
-		public string Color { get; set; }
-	}
-
-	public List<MyChartDataModel> theData = new List<MyChartDataModel>
-    {
-		new MyChartDataModel
-		{
-			Category = "Product 1",
-			ItemValue = 2,
-			Color = "red"
-		},
-		new MyChartDataModel
-		{
-			Category = "Product 2",
-			ItemValue = 3,
-			Color = "#00ff00"
-		},
-		new MyChartDataModel
-		{
-			Category = "Product 3",
-			ItemValue = 4,
-			Color = "#00f"
-		}
-	};
-}
-````
 #end
 
 
