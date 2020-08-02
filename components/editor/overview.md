@@ -76,7 +76,7 @@ You can use the component reference to call its [Methods](#methods), especially 
 
 Authoring HTML content happens in the browser and relies on the browser HTML editing engine (see the [contenteditable](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content) attribute). Thus, an HTML Editor component must rely on that and use JavaScript.
 
-The Telerik UI for Blazor Editor uses the ProseMirror engine and it depends on it. You do not need to add any extra assets or references yourself, though.
+The Telerik UI for Blazor Editor uses the ProseMirror engine and it depends on it. You do not need to add any extra assets or references yourself, though, we have taken care of everything internally.
 
 <!-- the Editor registers them for you when it initializes, and it takes points them to the static assets of the Telerik UI for Blazor package. This approach improves the initial load time of your app and removes the dependency management task from you.
 
@@ -103,7 +103,7 @@ You can use the following features to get or set the editor content:
 
 The editor [reference](#component-reference) exposes the `ExecuteAsync` method which lets you call programmatically the tools and commands of the editor (such as the Bold too, or a Back Color tool, or inserting HTML).
 
-You can find the reference for the available commands and their respective arguments in the [Command Reference]({%slug editor-custom-tool%}#command-reference) section of the documentation.
+You can find the reference for the available commands and their respective arguments in the [Built-in Tools list]({%slug editor-built-in-tools%}) section of the documentation.
 
 >caption Paste at the cursor position
 
@@ -137,8 +137,11 @@ consider - maybe link toolbars, import/export, custom commands, events, validati
 
 ## See Also
 
-  * [Live Demo: Editor](https://demos.telerik.com/blazor-ui/editor/overview)
   * [Toolbar]({%slug editor-toolbars%})
+  * [Built-in Tools and Commands]({%slug editor-built-in-tools%})
+  * [Custom Tools]({%slug editor-custom-tool%})
+  * [Import and Export]({%slug editor-import-export%})
   * [Events]({%slug editor-events%})
+  * [Live Demo: Editor](https://demos.telerik.com/blazor-ui/editor/overview)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikEditor)
    
