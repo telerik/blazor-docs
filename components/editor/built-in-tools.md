@@ -213,7 +213,7 @@ The `Block` tools work with or add a block HTML element, like `<h1>`, `<h2>`, `<
             <td>Button</td>
             <td>Inserts image from a desired URL</td>
             <td>new InsertImage()</td>
-            <td>new ImageCommandArgs(string src, string alt, string width, string height, string commandName)</td>
+            <td>new ImageCommandArgs(string src, string alt, string width, string height)</td>
         </tr>
         <tr>
             <td>OrderedList</td>
@@ -353,6 +353,66 @@ The `Table` tools add an HTML `<table>` or control its rendering, like adding co
             <td>Splits already merged cells</td>
             <td>new SplitCell()</td>
             <td>new ToolCommandArgs(string commandName)</td>
+        </tr>
+    </tbody>
+</table>
+
+
+### Commands Without Built-in Tools
+
+There are commands without built-in tools, but can be [executed programmatically](#programmatic-execution).
+
+<table>
+    <thead>
+        <tr>
+            <th>Tool Name</th>
+            <th>Command Name</th>
+            <th>Tool Type</th>
+            <th>Description</th>
+            <th>Class Name</th>
+            <th>Arguments</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Clean Formatting</td>
+            <td>cleanFormatting</td>
+            <td>N/A</td>
+            <td>Cleans the inline formatting of a text</td>
+            <td>N/A</td>
+            <td>new ToolCommandArgs(string commandName)</td>
+        </tr>
+        <tr>
+            <td>Insert HTML</td>
+            <td>insertHTML</td>
+            <td>N/A</td>
+            <td>Insert HTML to the Editor component content area</td>
+            <td>N/A</td>
+            <td>new HtmlCommandArgs(string commandName, string value)</td>
+        </tr>
+        <tr>
+            <td>Insert HTML</td>
+            <td>insertHTML</td>
+            <td>N/A</td>
+            <td>Insert HTML to the Editor component content area</td>
+            <td>N/A</td>
+            <td>new HtmlCommandArgs(string commandName, string value)</td>
+        </tr>
+        <tr>
+            <td>Back Color</td>
+            <td>backColor</td>
+            <td>N/A</td>
+            <td>Change the background color of the selected text</td>
+            <td>N/A</td>
+            <td>new FormatCommandArgs(string commandName, string Value)</td>
+        </tr>
+        <tr>
+            <td>Fore Color</td>
+            <td>foreColor</td>
+            <td>N/A</td>
+            <td>Change the font color of a selected text</td>
+            <td>N/A</td>
+            <td>new FormatCommandArgs(string commandName, string Value)</td>
         </tr>
     </tbody>
 </table>
