@@ -11,7 +11,7 @@ position: 40
 
 # Editor Built-in Tools
 
-This article explains which are the built-in tools of the `Editor`, how to invoke them from programatically and what functionality they offer. 
+This article explains which are the built-in tools of the `Editor`, how to invoke them programatically and what functionality they offer. 
 
 In this article:
 
