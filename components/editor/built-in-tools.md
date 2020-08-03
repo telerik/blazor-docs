@@ -15,10 +15,11 @@ This article explains which are the built-in tools of the `Editor`, how to invok
 
 In this article:
 
-* [Built-in Tools](#build-in-tools)
-    * [Inline Tools](#inline-tools) 
-    * [Block Tools](#block-tools)
-    * [Table Tools](#table-tools)
+* [Built-in Tools](#built-in-tools)
+	* [Inline Tools](#inline-tools)
+	* [Block Tools](#block-tools)
+	* [Table Tools](#table-tools)
+	* [Commands Without Built-in Tools](#commands-without-built-in-tools)
 * [Programmatic Execution](#programmatic-execution)
 
 
@@ -40,13 +41,16 @@ The sections below list the tools that come with the editor and provide the foll
 
 There are the following types of tools:
 
-* [Inline Tools](#inline-tools) 
+* [Inline Tools](#inline-tools)
 * [Block Tools](#block-tools)
 * [Table Tools](#table-tools)
+* [Commands Without Built-in Tools](#commands-without-built-in-tools)
 
 ### Inline Tools
 
 The `Inline` tools work with or add an inline HTML element. Example of these are an `<a>`, `<img>`, `<strong>` and `<em>`.
+
+>caption Table 1: Inline tools in the Editor
 
 <table>
     <thead>
@@ -146,6 +150,8 @@ The `Inline` tools work with or add an inline HTML element. Example of these are
 ### Block Tools
 
 The `Block` tools work with or add a block HTML element, like `<h1>`, `<h2>`, `<p>` and `<ul>`.
+
+>caption Table 2: Block tools in the Editor
 
 <table>
     <thead>
@@ -270,6 +276,8 @@ The `Block` tools work with or add a block HTML element, like `<h1>`, `<h2>`, `<
 
 The `Table` tools add an HTML `<table>` or control its rendering, like adding columns and rows, merging and splitting cells.
 
+>caption Table 3: Table tools in the Editor
+
 <table>
     <thead>
         <tr>
@@ -361,6 +369,8 @@ The `Table` tools add an HTML `<table>` or control its rendering, like adding co
 ### Commands Without Built-in Tools
 
 There are commands without built-in tools, but can be [executed programmatically](#programmatic-execution).
+
+>caption Table 4: Commands without tools in the Editor
 
 <table>
     <thead>
