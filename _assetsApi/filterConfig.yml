@@ -20,3 +20,5 @@ apiRules:
     uidRegex: ^Telerik\.DataSource\.\w*Expression\w*$
 - exclude:
     uidRegex: ^Telerik\.DataSource\.\w+Aggregate\w*$
+- exclude:
+    uidRegex: ^Telerik.Blazor.Components.ToolBarw*$
