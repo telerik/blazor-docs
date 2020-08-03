@@ -388,7 +388,7 @@ There are commands without built-in tools, but can be [executed programmatically
             <td>Clean Formatting</td>
             <td>cleanFormatting</td>
             <td>N/A</td>
-            <td>Cleans the inline formatting of a text</td>
+            <td>Cleans the inline formatting of a selected text</td>
             <td>N/A</td>
             <td>new ToolCommandArgs(string commandName)</td>
         </tr>
@@ -396,15 +396,7 @@ There are commands without built-in tools, but can be [executed programmatically
             <td>Insert HTML</td>
             <td>insertHTML</td>
             <td>N/A</td>
-            <td>Insert HTML to the Editor component content area</td>
-            <td>N/A</td>
-            <td>new HtmlCommandArgs(string commandName, string value)</td>
-        </tr>
-        <tr>
-            <td>Insert HTML</td>
-            <td>insertHTML</td>
-            <td>N/A</td>
-            <td>Insert HTML to the Editor component content area</td>
+            <td>Insert HTML to the Editor component content area at the cursor position</td>
             <td>N/A</td>
             <td>new HtmlCommandArgs(string commandName, string value)</td>
         </tr>
