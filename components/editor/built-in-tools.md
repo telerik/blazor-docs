@@ -299,6 +299,14 @@ The `Table` tools add an HTML `<table>` or control its rendering, like adding co
             <td>new TableCommandArgs(int rows, int cols)</td>
         </tr>
         <tr>
+            <td>DeleteTable</td>
+            <td>deleteTable</td>
+            <td>Button</td>
+            <td>Deletes the selected HTML table</td>
+            <td>new DeleteTable()</td>
+            <td>new ToolCommandArgs(string commandName)</td>
+        </tr>
+        <tr>
             <td>AddColumnBefore</td>
             <td>addColumnBefore</td>
             <td>Button</td>
