@@ -128,6 +128,9 @@ navigation:
      "*components/scheduler/views":
         title: "Views"
         position: 5
+     "*components/editor/edit-modes":
+        title: "Edit Modes"
+        position: 80
 
 ## List helpers directory names and order here, like this:
      "*appearance":
@@ -340,6 +343,7 @@ intro_columns:
       "AutoComplete": "autocomplete-overview"
       "MultiSelect": "multiselect-overview"
       "CheckBox": "checkbox-overview"
+      "HTML Editor": "editor-overview"
 
 -
   categories:
