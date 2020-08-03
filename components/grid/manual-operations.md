@@ -231,7 +231,7 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 
 When the grid needs to be grouped, the shape of the data changes - it is no longer a flat list of models, but a nested list of collections that describe each group and have the group data. At the same time, the grid is designed for a data source that is a collection of models, and the source of this collection is up to the application.
 
-When you let the grid handle the operations internally, it hides that complexity from you, but when you perform the operations youerself, this data structure cannot be expressed with the typical `IEnumerable<TItem>` data source for the grid.
+When you let the grid handle the operations internally, it hides that complexity from you, but when you perform the operations yourself, this data structure cannot be expressed with the typical `IEnumerable<TItem>` data source for the grid.
 
 Thus, to use the `OnRead` event with grouping, you must:
 
