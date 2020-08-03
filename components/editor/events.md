@@ -16,7 +16,7 @@ This article explains the events available in the Telerik Editor for Blazor:
 
 ## ValueChanged
 
-The `ValueChanged` event in the editor is debounced with the `UpdateInterval` value (100ms by default). Every time the use changes the content and that interval elapses, the event will fire and will provide you with the new content.
+The `ValueChanged` event in the editor is debounced with the `UpdateInterval` value (100ms by default). Every time the user changes the content and that interval elapses, the event will fire and will provide you with the new content.
 
 When you use that event, you cannot use two-way binding and so you must update the view-model field yourself. If you do not do that, you can effectively cancel the user input, or you can even alter the content.
 
