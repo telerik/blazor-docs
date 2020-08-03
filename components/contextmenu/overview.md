@@ -155,7 +155,7 @@ A menu is often used to list pages, views or sections in an application so the u
 
 Using the simple `Selector` parameter to attach the context menu to one or more targets at a time is simple, and can be useful when you want the same menu for many elements, but it does not matter which one the user clicked.
 
-In some cases, you may need to know which element the user clicked so you can use it in the command handling. You may also want to adjust the menu contentes based on which element the user clicked (e.g., disable or entirely remove some items from the menu based on a condition).
+In some cases, you may need to know which element the user clicked so you can use it in the command handling. You may also want to adjust the menu contents based on which element the user clicked (e.g., disable or entirely remove some items from the menu based on a condition).
 
 To achieve such flexibility and granularity, you can:
 
