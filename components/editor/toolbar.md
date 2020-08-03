@@ -58,7 +58,7 @@ The `Tools` collection is a `List<IEditorTool>`.
 
 Editor tools can be individual buttons (such as Undo, Bold), dropdowns (such as Format or FontSize), and button groups that hold several buttons. 
 
-To add a button, add a `new <Command>()` where `Command` is the name of the tool from [this table](). The VS Intellisense can also show you the classes in the `Telerik.Blazor.Components.Editor.` namespace.
+To add a button, add a `new <Command>()` where `Command` is the name of the tool from [this table]({%slug editor-built-in-tools%}#built-in-tools). The VS Intellisense can also show you the classes in the `Telerik.Blazor.Components.Editor.` namespace.
 
 To define a button group, add a `new EditorButtonGroup(comma-separated collection of button commands)`.
 
