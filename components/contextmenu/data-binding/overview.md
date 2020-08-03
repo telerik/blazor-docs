@@ -16,7 +16,7 @@ This article explains the different ways to provide data to a Context Menu compo
 
 First, review:
 
-* The available (bindable) [features of a menu item](#menu-item-features).
+* The available (bindable) [features of a context menu item](#context-menu-item-features).
 * How to match fields in the model with the menu item [data bindings](#data-bindings).
 
 There are two modes of providing data to a menu, and they all use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
@@ -24,7 +24,7 @@ There are two modes of providing data to a menu, and they all use the items' fea
 * [Hierarchical data]({%slug contextmenu-data-binding-hierarchical-data%}) - separate collections of items and their child items.
 * [Flat data]({%slug contextmenu-data-binding-flat-data%}) - a single collection of items with defined parent-child relationships.
 
-## Menu Item Features
+## Context Menu Item Features
 
 The menu items provide the following features that you control through the corresponding fields in their data binding:
 
