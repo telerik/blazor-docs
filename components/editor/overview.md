@@ -94,7 +94,7 @@ You can use the following features to get or set the editor content:
 
 * [Validation]({%slug common-features/input-validation%}#editor) - the standard Data Annotation attributes are supported for validation, but for the performance reasons listed above, validation happens with the `UpdateInterval` delay, not immediately on every keystroke, like simpler inputs. 
 
-* The `ValueChanged` and `OnChange` [events]({%slug editor-events%}) let you receive the value and act on it. If you use the `ValueChanged` event (no two-way binding), you can effectively cancel the user's input by not updating the view-model, or you can even alter it with something else.
+* The `ValueChanged` [event]({%slug editor-events%}) lets you receive the value and act on it. If you use the `ValueChanged` event (no two-way binding), you can effectively cancel the user's input by not updating the view-model, or you can even alter it with something else.
 
 >important The application must sanitize the content before passing it to the editor and, optionally, before saving it to its storage after obtaining it from the editor. It is up to the application to ensure there is no malicious content (such as input sanitization, XSS attack prevention and other security concerns).
 
