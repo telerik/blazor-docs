@@ -200,7 +200,7 @@ For example, try filtering with a Min value of 50+ to leave only root-level item
 
 By default, the filter menu contains two filter values that are tied with a logical operator - OR or AND, with filgering being triggered through a dedicated Filter button and a Clear button removes the filter.
 
-To customize the filter menu, use the `<FilterMenuTemplate>` tag of the `<treelistColumn>`. The `Filter` and `Clear` buttons are still available below the template.
+To customize the filter menu, use the `<FilterMenuTemplate>` tag of the `<TreeListColumn>`. The `Filter` and `Clear` buttons are still available below the template.
 
 The template receives a `context` of type `FilterMenuTemplateContext` that provides the following members:
 
@@ -216,8 +216,6 @@ The example below shows a custom filter that:
 * Shows how you can store a reference to the context or use it inline in the template.
 * Showcases building multiple filter descriptors for each value the user chooses.
 
-You can find more examples in the [Live Demo: Custom Filter Menu](https://demos.telerik.com/blazor-ui/treelist/custom-filter-menu) that is available in your local installation under the `demos` folder.
-
 
 >caption Custom Filter Menu Template - Multiple Checkboxes
 
@@ -225,13 +223,15 @@ You can find more examples in the [Live Demo: Custom Filter Menu](https://demos.
 @using Telerik.DataSource
 
 This custom filter menu lets you choose more than one option to match against the data source
+Note that a treelist keeps parent items when filtering should show child items.
+For example, try filtering just for a "Manager" to leave only root-level items in this sample.
 
-<Teleriktreelist Data=@treelistData FilterMode="@treelistFilterMode.FilterMenu"
-             Height="400px" Width="600px" Pageable="true">
-    <treelistColumns>
-        <treelistColumn Field="Id" Filterable="false" Width="80px" />
-
-        <treelistColumn Field="Size">
+<TelerikTreeList Data="@Data" FilterMode="@TreeListFilterMode.FilterMenu"
+                 Pageable="true" IdField="Id" ParentIdField="ParentId" Width="850px">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" Filterable="false" />
+        <TreeListColumn Field="Id" Filterable="false" Width="100px" />
+        <TreeListColumn Field="Role" Width="350px">
             <FilterMenuTemplate>
                 @{
                     // we store a reference to the filter context to use in the business logic to show we can
@@ -241,29 +241,27 @@ This custom filter menu lets you choose more than one option to match against th
                     theFilterContext = context;
                 }
 
-                @foreach (var size in Sizes)
+                @foreach (var role in Roles)
                 {
                     <div>
-                        <TelerikCheckBox Value="@(IsCheckboxInCurrentFilter(context.FilterDescriptor, size))"
+                        <TelerikCheckBox Value="@(IsCheckboxInCurrentFilter(context.FilterDescriptor, role))"
                                          TValue="bool"
-                                         ValueChanged="@((value) => UpdateCheckedSizes(value, size))"
-                                         Id="@($"size_{size}")">
+                                         ValueChanged="@((value) => UpdateCheckedRoles(value, role))"
+                                         Id="@($"role_{role}")">
                         </TelerikCheckBox>
-                        <label for="@($"size_{size}")">
-                            @size
+                        <label for="@($"role_{role}")">
+                            @role
                         </label>
                     </div>
                 }
             </FilterMenuTemplate>
-        </treelistColumn>
-
-        <treelistColumn Field="ProductName" Title="Product" Filterable="false" />
-    </treelistColumns>
-</Teleriktreelist>
+        </TreeListColumn>
+    </TreeListColumns>
+</TelerikTreeList>
 
 @code {
     FilterMenuTemplateContext theFilterContext { get; set; }
-    public List<string> CheckedSizes { get; set; } = new List<string>();
+    public List<string> CheckedRoles { get; set; } = new List<string>();
 
     public bool IsCheckboxInCurrentFilter(CompositeFilterDescriptor filterDescriptor, string size)
     {
@@ -271,18 +269,18 @@ This custom filter menu lets you choose more than one option to match against th
         return filterDescriptor.FilterDescriptors.Select(f => (f as FilterDescriptor).Value?.ToString()).ToList().Contains(size);
     }
 
-    public void UpdateCheckedSizes(bool value, string itemValue)
+    public void UpdateCheckedRoles(bool value, string itemValue)
     {
         // update the list of items we want to filter by
-        var isSizeChecked = CheckedSizes.Contains(itemValue);
+        var isSizeChecked = CheckedRoles.Contains(itemValue);
         if (value && !isSizeChecked)
         {
-            CheckedSizes.Add(itemValue);
+            CheckedRoles.Add(itemValue);
         }
 
         if (!value && isSizeChecked)
         {
-            CheckedSizes.Remove(itemValue);
+            CheckedRoles.Remove(itemValue);
         }
 
         // prepare filter descriptor
@@ -291,9 +289,9 @@ This custom filter menu lets you choose more than one option to match against th
         filterDescriptor.FilterDescriptors.Clear();
         // use the OR logical operator so we include all possible values
         filterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.Or;
-        CheckedSizes.ForEach(s =>
+        CheckedRoles.ForEach(s =>
             // instantiate a filter descriptor for the desired field, and with the desired operator and value
-            filterDescriptor.FilterDescriptors.Add(new FilterDescriptor("Size", FilterOperator.IsEqualTo, s))
+            filterDescriptor.FilterDescriptors.Add(new FilterDescriptor("Role", FilterOperator.IsEqualTo, s))
         );
 
         //ensure there is at least one blank filter to avoid null reference exceptions
@@ -303,29 +301,56 @@ This custom filter menu lets you choose more than one option to match against th
         }
     }
 
+
     // sample treelist data
 
-    public List<SampleData> treelistData { get; set; }
+    public List<Employee> Data { get; set; }
+    public static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        treelistData = Enumerable.Range(1, 70).Select(x => new SampleData
-        {
-            Id = x,
-            Size = Sizes[x % Sizes.Length],
-            ProductName = $"Product {x}"
-        }).ToList();
-        base.OnInitialized();
+        Data = await GetTreeListData();
     }
 
-    public class SampleData
+    // sample models and data generation
+
+    public class Employee
     {
         public int Id { get; set; }
-        public string Size { get; set; }
-        public string ProductName { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; }
+        public string Role { get; set; }
     }
 
-    public string[] Sizes = new string[] { "XS", "S", "M", "L", "XL" };
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            data.Add(new Employee
+            {
+                Id = i,
+                ParentId = null,
+                Name = $"root: {i}",
+                Role = Roles[0] // manager at root level
+            });
+
+            for (int j = 2; j < 5; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                {
+                    Id = currId,
+                    ParentId = i,
+                    Name = $" child {j} of {i}",
+                    Role = Roles[j % 2 == 0 ? 1 : 2] // the employee and contractor roles
+                });
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
 }
 ````
 
@@ -334,8 +359,4 @@ This custom filter menu lets you choose more than one option to match against th
 ![Custom Filter Menu Template with Checkboxes](images/custom-filter-menu-checkboxes.png)
 
 
-## See Also
-
- * [Live Demo: treelist Custom Filter Row](https://demos.telerik.com/blazor-ui/treelist/custom-filter-row)
- * [Live Demo: treelist Custom Filter Menu](https://demos.telerik.com/blazor-ui/treelist/custom-filter-menu)
 
