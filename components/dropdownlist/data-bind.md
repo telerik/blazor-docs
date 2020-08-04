@@ -58,7 +58,7 @@ To bind the DropDownList to a model:
 
 1. populate its `Data` property with the collection of items you want in the dropdown
 1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
-1. set the `Value` property to the intial value of the model.
+1. bind the `Value` parameter to the desired field of the view-model. It is populated from the `ValueField` so it must match the its type.
 
 >caption Data binding a DropDownList to a model
 
