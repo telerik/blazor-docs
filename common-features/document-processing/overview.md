@@ -4,8 +4,9 @@ page_title: Document Processing
 description: Get Telerik Document Processing with UI for Blazor.
 slug: common-features-dpl
 tags: telerik,blazor,dpl,pdf,excel,word,txt,csv,get
+previous_url: /common-features/document-processing
 published: True
-position: 5
+position: 1
 ---
 
 # Telerik Document Processing
