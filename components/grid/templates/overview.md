@@ -31,7 +31,7 @@ The Grid component can use templates for:
 
 
 
-Like other Blazor content, most of them can receive a `context` argument that is the type of the model. To use templates, you must bind the grid to a named model. The filter templates are the exception as they are not related to rows and models.
+Like other Blazor content, most of them can receive a `context` argument that is the type of the model. To use templates, you must bind the grid to a named model. The filter and header templates are the exception as they are not related to rows and models.
 
 You must make sure to provide valid HTML in the templates.
 

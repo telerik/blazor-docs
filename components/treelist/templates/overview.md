@@ -22,8 +22,11 @@ The TreeList component can use templates for:
 
 * [column header]({%slug treelist-templates-column-header%}) - the title portion of the column.
 
+* [filter]({%slug treelist-templates-filter%}) - the content of the filter cell or filter menu where you can implement custom rendering and logic for the filters.
 
-Like other Blazor content, most of them can receive a `context` argument that is the type of the model. To use templates, you must bind the treelist to a named model. The header templates are the exception as they are not related to rows and models.
+
+
+Like other Blazor content, most of them can receive a `context` argument that is the type of the model. To use templates, you must bind the treelist to a named model. The filter and header templates are the exception as they are not related to rows and models.
 
 You must make sure to provide valid HTML in the templates.
 
