@@ -23,11 +23,7 @@ Telerik UI for Blazor targets `netstandard2.1` in order to be compatible with th
 
 | .NET version              | Telerik UI for Blazor version |
 |---------------------------|-------------------------------|
-| .NET Core 3.1.4           | 2.14.0 - {{site.uiForBlazorLatestVersion}}  |
-| .NET Core 3.1.3           | 2.10.0 - 2.13.0               |
-| .NET Core 3.1.2           | 2.9.0                         |
-| .NET Core 3.1.1           | 2.7.0 - 2.8.0                 |
-| .NET Core 3.1             | 2.5.0 - 2.6.1                 |
+| .NET Core 3.1.x           | 2.5.0 - {{site.uiForBlazorLatestVersion}}                 |
 | .NET Core 3.1 preview 3   | 2.4.0                         |
 | .NET Core 3.1 preview 2   | 2.3.0                         |
 | .NET Core 3.1 preview 1   | 2.2.0, 2.2.1                  |
@@ -42,7 +38,7 @@ The client-side (WebAssembly) flavor of Blazor is a set of separate NuGet packag
 
 | WebAssembly version                  | Telerik UI for Blazor version      |
 |--------------------------------------|-------------------------------     |
-| 3.2.0 RTM                            | 2.14.0 - {{site.uiForBlazorLatestVersion}}  |
+| 3.2.x RTM                            | 2.14.0 - {{site.uiForBlazorLatestVersion}}  |
 
 
 
