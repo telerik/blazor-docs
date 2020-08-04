@@ -1,14 +1,14 @@
 ---
-title: RadSpreadStreamProcessing
-page_title: RadSpreadStreamProcessing Overview
-description: RadSpreadStreamProcessing Overview
+title: SpreadStreamProcessing
+page_title: Telerik SpreadStreamProcessing Overview
+description: Telerik SpreadStreamProcessing Overview
 slug: spreadstreamprocessing-overview
 tags: overview
 published: True
 position: 1
 ---
 
-# Overview
+# Telerik SpreadStreamProcessing
 
 This article briefly explains the specifics of **RadSpreadStreamProcessing** - what is spread streaming, how it works compared to the RadSpreadProcessing library and when to use it.
 

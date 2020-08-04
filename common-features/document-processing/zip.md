@@ -1,14 +1,14 @@
 ---
-title: Overview
-page_title: Overview | RadZipLibrary for ASP.NET AJAX Documentation
-description: Overview
+title: Zip
+page_title: Telerik RadZipLibrary
+description: Telerik RadZipLibrary
 slug: radziplibrary-overview
 tags: overview
 published: True
 position: 1
 ---
 
-# Overview
+# Telerik Zip Library
 
 
 >note **RadZipLibrary** is part of the **Telerik Document Processing** libraries. The full documentation for this component is available at [https://docs.telerik.com/devtools/document-processing/libraries/radziplibrary](https://docs.telerik.com/devtools/document-processing/libraries/radziplibrary/overview).

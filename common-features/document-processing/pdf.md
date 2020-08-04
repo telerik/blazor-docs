@@ -1,14 +1,14 @@
 ---
-title: RadPdfProcessing
-page_title: RadPdfProcessing Overview
-description: RadPdfProcessing overview
+title: Pdf Processing
+page_title: Telerik Pdf Processing Overview
+description: Telerik RadPdfProcessing overview
 slug: radpdfprocessing-overview
 tags: overview
 published: True
 position: 1
 ---
 
-# Overview
+# Telerik Pdf Processing
 
 
 >note **RadPdfProcessing** is part of the **Telerik Document Processing** libraries. The full documentation for this component is available at [https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/overview).

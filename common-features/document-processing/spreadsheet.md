@@ -1,14 +1,14 @@
 ---
-title: RadSpreadProcessing
-page_title: RadSpreadProcessing Overview
-description: RadSpreadProcessing Overview
+title: Spreadsheet Processing
+page_title: Telerik Spreadsheet Processing Overview
+description: Telerik Spreadsheet Processing Overview
 slug: radspreadprocessing-overview
 tags: overview
 published: True
 position: 1
 ---
 
-# Overview
+# Telerik Spreadsheet Processing
 
 
 >note **RadSpreadProcessing** is part of the **Telerik Document Processing** libraries. The full documentation for this component is available at [https://docs.telerik.com/devtools/document-processing/libraries/radspreadsprocessing](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview).
