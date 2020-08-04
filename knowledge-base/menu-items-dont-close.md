@@ -1,8 +1,8 @@
 ---
-title: Menu items dont close when hovered over
-description: Menu items dont close when hovered over
+title: Menu items do not close when hovered over
+description: Menu items do not close when hovered over
 type: troubleshooting
-page_title: Menu items dont close when hovered over
+page_title: Menu items do not close when hovered over
 slug: kb-menu-items-dont-close
 position: 
 tags: 
