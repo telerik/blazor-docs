@@ -99,6 +99,8 @@ The Excel export has the following specifics:
 
 * Only columns that have a `Field` set are exported.
 
+* Excel does not understand units different than `px` for the column `Width`, and if you use them (such as `rem` or `%`), it will fail to parse them and will render a collapsed (hidden) column with zero width.
+
 * If you are using the `OnRead` event, only the current page of data will be exported, because that's all the grid has at the time of the export action.
 
 * With Server-side Blazor, the file may become larger than the default SignalR connection limit, and this can disconnect the client and result in an error. Generally, this requires quite a lot of data to happen, but you may need to increase the size limit of the connection in the `ConfigureServices` method of your `Startup.cs` file, for example:
