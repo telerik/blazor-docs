@@ -33,6 +33,9 @@ navigation:
      "common-features":
         title: "Common Features"
         position: 15
+     "common-features/document-processing":
+        title: "Document Processing"
+        position: 25
      "globalization":
         title: "Globalization"
         position: 16
