@@ -32,7 +32,7 @@ The `SelectedChanged` fires when the user changes the state of the button by cli
 @code {
     bool IsSelected { get; set; }
 
-    void MySelectedChangeHandler(bool currSelectedState)
+    void MySelectedChangedHandler(bool currSelectedState)
     {
         IsSelected = currSelectedState;
         //you have to update the model manually because handling the SelectedChanged event does not let you use @bind-Selected
