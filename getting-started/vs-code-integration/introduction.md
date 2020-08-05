@@ -57,3 +57,10 @@ To create a Telerik-enabled Blazor project:
 1. You now have a Blazor SPA app running!
 
 
+## Troubleshooting
+
+If the extension does not work right (missing pages, does not start, etc.), you can try the following to clean up cache files and get it working again:
+
+1. Uninstall the extension from VS Code.
+2. Go to `%localappdata%` and delete the `BlazorT` and `KendoT` folders - they are where caches for the Telerik extensions are kept.
+3. [Install](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard) the extension again.
