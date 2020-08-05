@@ -1,14 +1,14 @@
 ---
-title: Pdf Processing
-page_title: Telerik Pdf Processing Overview
-description: Telerik RadPdfProcessing overview
-slug: radpdfprocessing-overview
+title: PdfProcessing
+page_title: Telerik PdfProcessing Overview
+description: Telerik PdfProcessing overview
+slug: pdfprocessing-overview
 tags: overview
 published: True
 position: 1
 ---
 
-# Telerik Pdf Processing
+# Telerik PdfProcessing
 
 
 >note **RadPdfProcessing** is part of the **Telerik Document Processing** libraries. The full documentation for this component is available at [https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/overview).
@@ -32,8 +32,6 @@ The document model of the library provides support for:
 * [**Form XObjects**](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/model/form): The Form XObjects enables you to describe composite objects (consisting of text, images, vector elements, etc.) within a PDF file and reuse this content among the document, for smaller document size and better rendering performance.
 
 * [**Interactive Forms**](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/model/interactive-forms/overview): Create and modify PDF files containing textboxes, buttons, listboxes and other interactive controls making available for the PDF file user to interactively fill some data in the PDF document and/or digitally sign the filled document.
-
-* [**Digital Signature**](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/features/digital-signature): The digital signature feature enables you to sign and validate PDF document.
 
 * [**Clipping**](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/concepts/clipping): You can define the outline of other content elements like images and paths.
 

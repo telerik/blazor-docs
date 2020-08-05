@@ -1,14 +1,14 @@
 ---
-title: Word Processing
-page_title: Telerik Word Processing Overview
+title: WordsProcessing
+page_title: Telerik WordsProcessing Overview
 description: Telerik WordsProcessing Overview
-slug: radwordsprocessing-overview
+slug: wordsprocessing-overview
 tags: overview
 published: True
 position: 1
 ---
 
-# Telerik Word Processing
+# Telerik WordsProcessing
 
 >note **RadWordsProcessing** is part of the **Telerik Document Processing** libraries. The full documentation for this component is available at [https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/overview).
       
