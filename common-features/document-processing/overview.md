@@ -1,11 +1,12 @@
 ---
-title: Document Processing
+title: Overview
 page_title: Document Processing
 description: Get Telerik Document Processing with UI for Blazor.
 slug: common-features-dpl
 tags: telerik,blazor,dpl,pdf,excel,word,txt,csv,get
+previous_url: /common-features/document-processing
 published: True
-position: 5
+position: 1
 ---
 
 # Telerik Document Processing
@@ -41,7 +42,9 @@ The Telerik Document Processing libraries for .NET Core support the following fi
 
 You can take the required packages from the [Telerik Private NuGet Feed]({%slug installation/nuget%}), your Telerik UI for Blazor [msi installation]({%slug installation/msi%}) or [zip archive]({%slug installation/zip%}).
 
-The Telerik Document Processing NuGet packages are:
+The following list shows the available packages and a short summary of their purpose, you can read more about their features and how to use them from their overview articles, linked in the Related Articles section on the side, and more detailed articles likned from the Learning Resources section below.
+
+>caption List of the available Document Processing NuGet Packages
 
 * **Telerik.Documents.Core**.nupkg&mdash;The main NuGet package from the Telerik Document Processing libraries. Required when you plan to use the library.
 * **Telerik.Documents.Fixed**.nupkg&mdash;The package is required when processing PDF documents.
@@ -126,3 +129,8 @@ You can find more information on working with the Telerik document processing li
 
 * [Get Started with Telerik Document Processing](http://docs.telerik.com/devtools/document-processing/installation-and-deployment/installing-on-your-computer)
 * [Telerik UI for Blazor Overview]({% slug blazor-overview%})
+* [PdfProcessing Overview]({%slug pdfprocessing-overview%})
+* [SpreadProcessing Overview]({%slug spreadprocessing-overview%})
+* [SpreadStreamProcessing Overview]({%slug spreadstreamprocessing-overview%})
+* [WordsProcessing Overview]({%slug wordsprocessing-overview%})
+* [ZipLibrary Overview]({%slug ziplibrary-overview%})
