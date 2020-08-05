@@ -5,7 +5,7 @@ description: Using the Blazor Context Menu for navigating between pages.
 slug: contextmenu-navigation
 tags: telerik,blazor,menu,navigation
 published: True
-position: 3
+position: 10
 ---
 
 # Context Menu for Navigation
