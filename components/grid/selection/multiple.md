@@ -253,6 +253,5 @@ You can predefine the selected items for your users through the two-way binding 
 ## See Also
 
   * [Live Demo: Grid Selection](https://demos.telerik.com/blazor-ui/grid/selection)
-  * [Live Demo: Grid Checkbox Selection](https://demos.telerik.com/blazor-ui/grid/checkbox-selection)
   * [Single Selection]({%slug components/grid/selection/single%})
   * [Sample Project: Select Across Pages](https://github.com/telerik/blazor-ui/tree/master/grid/persist-selection)

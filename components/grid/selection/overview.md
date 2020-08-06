@@ -142,6 +142,5 @@ When the grid `Data` collection changes, the `SelectedItems` collection has the 
 ## See Also
 
   * [Live Demo: Grid Selection](https://demos.telerik.com/blazor-ui/grid/selection)
-  * [Live Demo: Grid Checkbox Selection](https://demos.telerik.com/blazor-ui/grid/checkbox-selection)
   * [Single Selection]({%slug components/grid/selection/single%})
   * [Multiple Selection]({%slug components/grid/selection/multiple%})

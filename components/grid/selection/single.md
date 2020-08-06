@@ -246,5 +246,4 @@ Selected item: @SelectedItems.FirstOrDefault().Name
 ## See Also
 
   * [Live Demo: Grid Selection](https://demos.telerik.com/blazor-ui/grid/selection)
-  * [Live Demo: Grid Checkbox Selection](https://demos.telerik.com/blazor-ui/grid/checkbox-selection)
   * [Multiple Selection]({%slug components/grid/selection/multiple%})
