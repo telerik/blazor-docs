@@ -32,9 +32,9 @@ To add a `Candlestick` chart to a stock chart component::
 ````CSHTML
 @* Candlestick stock chart *@
 
-<TelerikStockChart Height="450px" DateField="@nameof(StockDataPoint.Date)">
-
-    <StockChartLegend></StockChartLegend>
+<TelerikStockChart Height="450px" 
+                   Width="700px"
+                   DateField="@nameof(StockDataPoint.Date)">
 
     <StockChartCategoryAxes>
         <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months">
@@ -51,6 +51,17 @@ To add a `Candlestick` chart to a stock chart component::
                           LowField="@nameof(StockDataPoint.Low)">
         </StockChartSeries>
     </StockChartSeriesItems>
+
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       Field="@(nameof(StockDataPoint.High))"
+                                       CategoryField="@(nameof(StockDataPoint.Date))">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
 
 </TelerikStockChart>
 
