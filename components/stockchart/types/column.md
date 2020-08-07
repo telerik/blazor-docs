@@ -56,6 +56,17 @@ Column series
         </StockChartSeries>
     </StockChartSeriesItems>
 
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@Data"
+                                       Field="@(nameof(ChartSeriesData.Product1Sales))"
+                                       CategoryField="@(nameof(ChartSeriesData.Year))">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
+
 </TelerikStockChart>
 
 @code {
