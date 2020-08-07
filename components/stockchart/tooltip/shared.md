@@ -64,6 +64,17 @@ To enable the shared tooltip:
         </StockChartSeries>
     </StockChartSeriesItems>
 
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       Field="@(nameof(StockDataPoint.High))"
+                                       CategoryField="@(nameof(StockDataPoint.Date))">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
+
 </TelerikStockChart>
 
 
@@ -79,7 +90,7 @@ To enable the shared tooltip:
     public async Task GenerateChartData()
     {
         StockChartProduct1Data = new List<StockDataPoint>()
-        {
+{
             new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
             new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
             new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),
@@ -87,7 +98,7 @@ To enable the shared tooltip:
         };
 
         StockChartProduct2Data = new List<StockDataPoint>()
-        {
+{
             new StockDataPoint(new DateTime(2019, 1, 1), 39m, 38m, 44m, 37m, 26320),
             new StockDataPoint(new DateTime(2019, 2, 1), 37m, 38m, 41m, 40m, 35847),
             new StockDataPoint(new DateTime(2019, 3, 1), 42m, 43m, 45m, 41m, 76317),
@@ -214,8 +225,18 @@ Each `Point` contains the following data:
         </StockChartSeries>
     </StockChartSeriesItems>
 
-</TelerikStockChart>
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       Field="@(nameof(StockDataPoint.High))"
+                                       CategoryField="@(nameof(StockDataPoint.Date))">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
 
+</TelerikStockChart>
 
 @code {
     public List<StockDataPoint> StockChartProduct1Data { get; set; }
