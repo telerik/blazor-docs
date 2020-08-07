@@ -61,6 +61,8 @@ You can reference the built-in Telerik assets from a cloud CDN instead of a loca
 
 >note Make sure that the version in the JS file URL matches the version of the Telerik UI for Blazor package.
 
+>tip If you decide to use a CDN over static assets, you may want to implement a [fallback]({%slug common-kb-cdn-fallback%}) in case it is unavailable to your users.
+
 >note We are considering a better CDN option for the themes. Until then, you can use the unpkg workaround above, or local dependency management as described below.
 
 #end
