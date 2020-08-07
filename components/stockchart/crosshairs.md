@@ -81,7 +81,7 @@ To enable the Crosshairs for the `Category` and/or the `Value` axis:
     public async Task GenerateChartData()
     {
         StockChartProduct1Data = new List<StockDataPoint>()
-{
+        {
             new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
             new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
             new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),
