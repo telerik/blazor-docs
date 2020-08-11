@@ -38,7 +38,8 @@
       var gcsInstance = '001595215763381649090:3v0klcxtf1c';
       var gcsKey = 'AIzaSyDqCekEzmMvnB7i00Xcw_Vy43a7-wePuXQ';
       isKbPage =  false ;
-      siteHasKbPortal = 'true'
+      siteHasKbPortal = 'true';
+         showSearchPopup = false;
    </script>
    <script type="text/javascript" src="/blazor-ui/assets/search-results.js"></script>
   </div>
