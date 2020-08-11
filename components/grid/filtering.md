@@ -18,6 +18,7 @@ In this article:
 * [Filter Row](#filter-row)
 * [Filter Menu](#filter-menu)
 * [Filter From Code](#filter-from-code)
+* [More Examples](#more-examples)
 
 
 ## Basics
@@ -165,6 +166,19 @@ You can set the grid filters from your code through the grid [state]({%slug grid
 ````FilterMenu
 @[template](/_contentTemplates/grid/state.md#filter-menu-from-code)
 ````
+
+## More Examples
+
+The following articles and sample projects can be helpful when implementing filtering:
+
+* [Capture Filtered event]({%slug grid-state%}#get-and-override-user-action-that-changes-the-grid) - the grid state lets you know when it changes so you can capture different aspects of the change
+
+* [Server Filtering]({%slug components/grid/manual-operations%}) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
+
+* [Filter and Edit Enum fields]({%slug grid-kb-filter-edit-enum%})
+
+* [Leave only one option in the Filter Menu]({%slug grid-kb-only-one-filtermenu-option%}) - this is a CSS approach, or you can implement a [custom filter template]({%slug grid-templates-filter%}).
+
 
 ## See Also
 

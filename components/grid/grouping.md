@@ -14,6 +14,7 @@ The Grid component offers support for grouping.
 
 * [Basics](#basics)
 * [Group From Code](#group-from-code)
+* [More Examples](#more-examples)
 
 ## Basics
 
@@ -87,6 +88,16 @@ You can set the grid grouping from your code through the grid [state]({%slug gri
 ````CSHTML
 @[template](/_contentTemplates/grid/state.md#group-from-code)
 ````
+
+## More Examples
+
+The following articles and sample projects can be helpful when implementing grouping:
+
+* [Capture Group event]({%slug grid-state%}#get-and-override-user-action-that-changes-the-grid) - the grid state lets you know when it changes so you can capture different aspects of the change
+
+* [Server Grouping]({%slug components/grid/manual-operations%}) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
+
+* [Static group that is always present]({%slug grid-kb-static-group%})
 
 ## See Also
 

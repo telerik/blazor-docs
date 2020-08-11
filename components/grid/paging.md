@@ -82,6 +82,14 @@ Dynamic page size change
 }
 ````
 
+## More Examples
+
+The following articles and sample projects can be helpful when implementing paging:
+
+* [Capture PageChanged event]({%slug grid-events%}#pagechanged)
+
+* [Server Paging]({%slug components/grid/manual-operations%}) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
+
 ## See Also
 
   * [Live Demo: Grid Paging](https://demos.telerik.com/blazor-ui/grid/paging)

@@ -16,6 +16,7 @@ In this article:
 
 * [Basics](#basics)
 * [Sort From Code](#sort-from-code)
+* [More Examples](#more-examples)
 
 
 ## Basics
@@ -60,6 +61,14 @@ You can sort the grid from your own code through its [state]({%slug grid-state%}
 ````CSHTML
 @[template](/_contentTemplates/grid/state.md#set-sort-from-code)
 ````
+
+## More Examples
+
+The following articles and sample projects can be helpful when implementing sorting:
+
+* [Capture Sorted event]({%slug grid-state%}#get-and-override-user-action-that-changes-the-grid) - the grid state lets you know when it changes so you can capture different aspects of the change
+
+* [Server Sorting]({%slug components/grid/manual-operations%}) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
 
 ## See Also
 
