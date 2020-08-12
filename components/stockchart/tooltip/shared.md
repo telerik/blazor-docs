@@ -64,6 +64,17 @@ To enable the shared tooltip:
         </StockChartSeries>
     </StockChartSeriesItems>
 
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       Field="@(nameof(StockDataPoint.High))"
+                                       CategoryField="@(nameof(StockDataPoint.Date))">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
+
 </TelerikStockChart>
 
 
@@ -214,8 +225,18 @@ Each `Point` contains the following data:
         </StockChartSeries>
     </StockChartSeriesItems>
 
-</TelerikStockChart>
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       Field="@(nameof(StockDataPoint.High))"
+                                       CategoryField="@(nameof(StockDataPoint.Date))">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
 
+</TelerikStockChart>
 
 @code {
     public List<StockDataPoint> StockChartProduct1Data { get; set; }

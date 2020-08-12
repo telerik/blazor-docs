@@ -32,6 +32,7 @@ To add a `OHLC` chart to a stock chart component:
 @* OHLC stock chart *@
 
 <TelerikStockChart Height="450px"
+                   Width="700px"
                    DateField="@nameof(StockDataPoint.Date)">
 
     <StockChartCategoryAxes>
@@ -48,6 +49,17 @@ To add a `OHLC` chart to a stock chart component:
                           LowField="@nameof(StockDataPoint.Low)">
         </StockChartSeries>
     </StockChartSeriesItems>
+
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       Field="@(nameof(StockDataPoint.High))"
+                                       CategoryField="@(nameof(StockDataPoint.Date))">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
 
 </TelerikStockChart>
 

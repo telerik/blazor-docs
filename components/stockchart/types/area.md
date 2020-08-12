@@ -54,6 +54,18 @@ To add a `Area` chart to a stock chart component:
                           Field="@nameof(ChartSeriesData.Product2Sales)"
                           CategoryField="@nameof(ChartSeriesData.Year)">
         </StockChartSeries>
+
+        <StockChartNavigator>
+            <StockChartNavigatorSeriesItems>
+                <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                           Name="Product 1"
+                                           Data="@Data"
+                                           Field="@(nameof(ChartSeriesData.Product1Sales))"
+                                           CategoryField="@(nameof(ChartSeriesData.Year))">
+                </StockChartNavigatorSeries>
+            </StockChartNavigatorSeriesItems>
+        </StockChartNavigator>
+
     </StockChartSeriesItems>
 
 </TelerikStockChart>
@@ -132,6 +144,17 @@ The color of a series is controlled through the `Color` property that can take a
                           CategoryField="@nameof(ChartSeriesData.Year)">
         </StockChartSeries>
     </StockChartSeriesItems>
+
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@Data"
+                                       Field="@(nameof(ChartSeriesData.Product1Sales))"
+                                       CategoryField="@(nameof(ChartSeriesData.Year))">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
 
 </TelerikStockChart>
 

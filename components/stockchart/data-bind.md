@@ -63,6 +63,17 @@ With this, the items from the series will be matched to the items (categories) o
         </StockChartSeries>
     </StockChartSeriesItems>
 
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       Field="@(nameof(StockDataPoint.High))"
+                                       CategoryField="@(nameof(StockDataPoint.Date))">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
+
 </TelerikStockChart>
 
 
@@ -87,7 +98,7 @@ With this, the items from the series will be matched to the items (categories) o
         };
 
         StockChartProduct2Data = new List<StockDataPoint>()
-        {   
+        {
             new StockDataPoint(new DateTime(2019, 1, 1), 39m, 38m, 44m, 37m, 26320),
             new StockDataPoint(new DateTime(2019, 2, 1), 37m, 38m, 41m, 40m, 35847),
             new StockDataPoint(new DateTime(2019, 3, 1), 42m, 43m, 45m, 41m, 76317),
@@ -159,6 +170,17 @@ With this, the items from the series will be matched to the items (categories) o
                           CategoryField="@nameof(ChartSeriesData.Year)">
         </StockChartSeries>
     </StockChartSeriesItems>
+
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@Data"
+                                       Field="@(nameof(ChartSeriesData.Product1Sales))"
+                                       CategoryField="@(nameof(ChartSeriesData.Year))">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
 
 </TelerikStockChart>
 
