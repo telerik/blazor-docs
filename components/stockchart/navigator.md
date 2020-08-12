@@ -47,23 +47,20 @@ To enable data navigation you have to:
                    DateField="@nameof(StockDataPoint.Date)">
 
     <StockChartNavigator>
+
         <StockChartNavigatorSeriesItems>
-            <StockChartNavigatorSeries Type="StockChartSeriesType.Candlestick"
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
                                        Name="Product 1"
                                        Data="@StockChartProduct1Data"
-                                       OpenField="@nameof(StockDataPoint.Open)"
-                                       CloseField="@nameof(StockDataPoint.Close)"
-                                       HighField="@nameof(StockDataPoint.High)"
-                                       LowField="@nameof(StockDataPoint.Low)">
+                                       Field="@nameof(StockDataPoint.High)"
+                                       CategoryField="@nameof(StockDataPoint.Date)">
             </StockChartNavigatorSeries>
 
-            <StockChartNavigatorSeries Type="StockChartSeriesType.Candlestick"
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
                                        Name="Product 2"
                                        Data="@StockChartProduct2Data"
-                                       OpenField="@nameof(StockDataPoint.Open)"
-                                       CloseField="@nameof(StockDataPoint.Close)"
-                                       HighField="@nameof(StockDataPoint.High)"
-                                       LowField="@nameof(StockDataPoint.Low)">
+                                       Field="@nameof(StockDataPoint.High)"
+                                       CategoryField="@nameof(StockDataPoint.Date)">
             </StockChartNavigatorSeries>
         </StockChartNavigatorSeriesItems>
 
@@ -109,7 +106,7 @@ To enable data navigation you have to:
     public async Task GenerateChartData()
     {
         StockChartProduct1Data = new List<StockDataPoint>()
-        {
+    {
             new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
             new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
             new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),
@@ -117,7 +114,7 @@ To enable data navigation you have to:
         };
 
         StockChartProduct2Data = new List<StockDataPoint>()
-        {
+    {
             new StockDataPoint(new DateTime(2019, 1, 1), 39m, 38m, 44m, 37m, 26320),
             new StockDataPoint(new DateTime(2019, 2, 1), 37m, 38m, 41m, 40m, 35847),
             new StockDataPoint(new DateTime(2019, 3, 1), 42m, 43m, 45m, 41m, 76317),
@@ -188,14 +185,14 @@ You can control from which side (or both) the data navigation with shorten the t
         </StockChartNavigatorCategoryAxis>
 
         <StockChartNavigatorSeriesItems>
-            <StockChartNavigatorSeries Type="StockChartSeriesType.Column"
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
                                        Name="Product 1"
                                        Data="@StockChartProduct1Data"
                                        Field="@nameof(StockDataPoint.Open)"
                                        CategoryField="@nameof(StockDataPoint.Date)">
             </StockChartNavigatorSeries>
 
-            <StockChartNavigatorSeries Type="StockChartSeriesType.Column"
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
                                        Name="Product 2"
                                        Data="@StockChartProduct2Data"
                                        Field="@nameof(StockDataPoint.Open)"
