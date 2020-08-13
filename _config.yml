@@ -33,9 +33,6 @@ navigation:
      "common-features":
         title: "Common Features"
         position: 15
-     "common-features/document-processing":
-        title: "Document Processing"
-        position: 25
      "globalization":
         title: "Globalization"
         position: 16
@@ -59,6 +56,12 @@ navigation:
      "backwards-compatibility":
         title: "Breaking Changes"
         position: 30
+     "integrations":
+        title: "Integrations"
+        position: 250
+     "integrations/document-processing":
+        title: "Document Processing"
+        position: 20
 
 ## List custom TOC order for folders here
 
