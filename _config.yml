@@ -61,7 +61,7 @@ navigation:
         position: 250
      "integrations/document-processing":
         title: "Document Processing"
-        position: 1
+        position: 20
 
 ## List custom TOC order for folders here
 

@@ -3,7 +3,7 @@ title: Reporting
 page_title: Reporting
 description: Reporting for Blazor apps.
 slug: reporting-in-blazor
-position: 4
+position: 0
 ---
 
 # Reporting
