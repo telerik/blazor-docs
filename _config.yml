@@ -57,7 +57,7 @@ navigation:
         title: "Breaking Changes"
         position: 30
      "integrations":
-        title: "Integrations"
+        title: "Integration With Other Telerik Products"
         position: 250
      "integrations/document-processing":
         title: "Document Processing"
