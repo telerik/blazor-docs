@@ -193,9 +193,15 @@ Open the main layout file (by default, the `~/Shared/MainLayout.razor` file in t
             <div class="sidebar">
                 <NavMenu />
             </div>
-            
+        
             <div class="main">
-                @Body
+                <div class="top-row px-4">
+                    <a href="https://docs.microsoft.com/en-us/aspnet/" target="_blank">About</a>
+                </div>
+        
+                <div class="content px-4">
+                    @Body
+                </div>
             </div>
         
         </TelerikRootComponent>
