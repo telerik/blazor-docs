@@ -410,6 +410,9 @@ mvcCoreVersion: "2019.1.115"
 product: "Telerik UI for Blazor"
 platform: blazor
 
+## Color Scheme
+main_theme: blazor
+
 ## Assign layout and category per different paths
 defaults:
 -
