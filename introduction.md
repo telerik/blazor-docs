@@ -70,11 +70,14 @@ This UI for Blazor library is a commercial UI library. You are welcome to explor
 For any issues you might encounter while working with Telerik UI for Blazor, use any of the available support channels:
 
 * License holders and active trialists can take advantage of our outstanding customer support delivered by the developers building the library. To submit a support ticket, use the [UI for Blazor dedicated support](https://www.telerik.com/account/support-tickets/) system.
-* [UI for Blazor forums](https://www.telerik.com/forums/blazor) are part of the free support you can get from the community and from the UI for Blazor team on all kinds of general issues.
-* [UI for Blazor feedback portal](https://feedback.telerik.com/blazor) and [UI for Blazor roadmap](https://www.telerik.com/support/whats-new/blazor-ui/roadmap) provide information on the features in discussion and also the planned ones for release.
-* UI for Blazor uses [its feedback portal](https://feedback.telerik.com/blazor) as its bug tracker and you can submit any related reports there. Also, check out the [closed bugs list](https://feedback.telerik.com/blazor?listMode=Recent&typeId=3&statusId=2).
-* You may still need a tailor-made solution for your project. In such cases, go straight to [Progress Services](https://www.progress.com/services).
 
+* [UI for Blazor forums](https://www.telerik.com/forums/blazor) are part of the free support you can get from the community and from the UI for Blazor team on all kinds of general issues.
+
+* [UI for Blazor feedback portal](https://feedback.telerik.com/blazor) and [UI for Blazor roadmap](https://www.telerik.com/support/whats-new/blazor-ui/roadmap) provide information on the features in discussion and also the planned ones for release.
+
+* UI for Blazor uses [its feedback portal](https://feedback.telerik.com/blazor) as its bug tracker and you can submit any related reports there. Also, check out the [closed bugs list](https://feedback.telerik.com/blazor?listMode=Recent&typeId=3&statusId=2).
+
+* You may still need a tailor-made solution for your project. In such cases, go straight to [Progress Services](https://www.progress.com/services).
 
 ## Learning Resources
 
@@ -86,7 +89,7 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 
 * <a href="https://www.telerik.com/support/blazor-ui" target="_blank">Blazor UI Support and Learning Resources</a> - a hub with links to all resources such as blogs, videos, repos, docs and so on.
 
-<!-- TODO: add virtual classroom link when available -->
+* [Online Technical Training]({%slug online-technical-training-vc%}) - through the Telerik Virtual Classroom, you can watch videos and learn how to build a Blazor app at your leisure.
 
 
 ## Next Steps
