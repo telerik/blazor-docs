@@ -113,6 +113,9 @@ navigation:
      "*components/animationcontainer":
         title: "Animation Container"
         position: 2000000
+     "*components/document-processing":
+        title: "Document Processing"
+        position: 2200000
      "*components/treeview/data-binding":
         title: "Data Binding"
         position: 2
@@ -378,6 +381,7 @@ intro_columns:
     title: "Files"
     items:
       "File Upload": "upload-overview"
+      "Document Processing": "common-features-dpl"
   -
     title: "Layout"
     items:
