@@ -457,7 +457,7 @@ In order to do so you need to use the [Editor reference]({%slug editor-overview%
 
     async Task InsertHr()
     {
-        await TheEditor.ExecuteAsync(new FormatCommandArgs("insertHtml", "<hr />"));
+        await TheEditor.ExecuteAsync(new HtmlCommandArgs("insertHtml", "<hr />"));
     }
 
     async Task InsertImage()

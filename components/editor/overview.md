@@ -124,7 +124,7 @@ You can replace that string with any other content you can generate/obtain accor
 
     async Task InsertHr()
     {
-        await TheEditor.ExecuteAsync(new FormatCommandArgs("insertHtml", "<hr />"));
+        await TheEditor.ExecuteAsync(new HtmlCommandArgs("insertHtml", "<hr />"));
     }
 }
 ````
