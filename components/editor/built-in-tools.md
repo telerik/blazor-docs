@@ -404,7 +404,7 @@ There are commands without built-in tools, but can be [executed programmatically
             <td>Insert HTML</td>
             <td>insertHTML</td>
             <td>N/A</td>
-            <td>Insert HTML to the Editor component content area at the cursor position</td>
+            <td>Insert HTML to the Editor component content area at the cursor position. <br />NOTE: this is a block command, so if you pass an inline element to it, it will be wrapped in a block element such as `p` or `div`, depending on the context. There are specific commands for creating links and images (two common inline elements).</td>
             <td>N/A</td>
             <td>new HtmlCommandArgs(string commandName, string value)</td>
         </tr>
