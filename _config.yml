@@ -382,6 +382,11 @@ intro_columns:
     items:
       "File Upload": "upload-overview"
       "Document Processing": "common-features-dpl"
+      "PdfProcessing": "pdfprocessing-overview"
+      "SpreadProcessing": "spreadprocessing-overview"
+      "SpreadStreamProcessing": "spreadstreamprocessing-overview"
+      "WordsProcessing": "wordsprocessing-overview"
+      "ZipLibrary": "ziplibrary-overview"
   -
     title: "Layout"
     items:
