@@ -32,7 +32,7 @@ The following components support observable data:
 
 * TreeView
 
-The Scheduler and Menu will receive this feature in a future release.
+The Scheduler, Menu, Drawer, ContextMenu will receive this feature in a future release.
 
 ## See Also
 
