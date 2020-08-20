@@ -12,6 +12,8 @@ position: 5
 
 By default, the grid renders the value of the field in the column, as it is provided from the data source. You can change this behavior by using the `Template` of the column and add your own content and/or logic to make a string out of the object.
 
+The column template (the `<Template>` tag under the column definition) is what the grid uses to show the "view" representation of the cell. This also includes a column that is marked as `Editable="false"` and is in edit mode.
+
 The example below shows how to:
 
 * set the `Template` (make sure to use the capital `T`, at the time of writing the Visual Studio autocomplete tends to use the lowercase `t` which breaks the template logic and does not allow you to access the context)
