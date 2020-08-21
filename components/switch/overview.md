@@ -12,13 +12,13 @@ position: 0
 
 //Opening
 
-To use a Telerik Checkbox for Blazor
+To use a Telerik Switch for Blazor
 
-1. add the `TelerikCheckBox` tag
+1. add the `TelerikSwitch` tag
 1. provide `Value` (one-way data binding) or `bind-Value` (two-way data binding) property
 
 
->caption Basic setup of the Telerik CheckBox using two-way data binding
+>caption Basic setup of the Telerik Switch using two-way data binding
 
 ````CSHTML
 @*Basic setup of the Telerik CheckBox Component*@
