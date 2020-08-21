@@ -18,6 +18,8 @@ To be able to drag and reorder a tile, it must have some [content]({%slug tilela
 
 @[template](/_contentTemplates/tilelayout/basics.md#resizing-reordering-logic)
 
+Reordering a tile fires the [OnReorder event]({%slug tilelayout-events%}#onreorder).
+
 >caption Reordering tiles in the TileLayout
 
 ![reorder tiles](images/tilelayout-reordering-overview.gif)

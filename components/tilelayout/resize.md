@@ -16,6 +16,8 @@ To enable resizing, set the `Resizable` parameter of the main `TelerikTileLayout
 
 @[template](/_contentTemplates/tilelayout/basics.md#resizing-reordering-logic)
 
+Resizing a tile fires the [OnResize event]({%slug tilelayout-events%}#onresize).
+
 >caption Resizing tiles in the TileLayout
 
 ![resize tiles](images/tilelayout-resizing-overview.gif)
