@@ -1,5 +1,5 @@
 ---
-title: Events
+title: Reorder
 page_title: TileLayout - Reorder
 description: Reorder tiles in the TileLayout for Blazor.
 slug: tilelayout-reorder

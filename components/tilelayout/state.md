@@ -1,5 +1,5 @@
 ---
-title: Events
+title: State
 page_title: TileLayout - State
 description: Control, save and load the state of the TileLayout for Blazor.
 slug: tilelayout-state

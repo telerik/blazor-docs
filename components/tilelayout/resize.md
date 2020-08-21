@@ -1,5 +1,5 @@
 ---
-title: Events
+title: Resize
 page_title: TileLayout - Resize
 description: Resize items in the TileLayout for Blazor.
 slug: tilelayout-resize
