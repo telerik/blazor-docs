@@ -49,4 +49,7 @@ Reordering a tile fires the [OnReorder event]({%slug tilelayout-events%}#onreord
 
 ## See Also
 
-  * [TileLayout Overview]({%slug tilelayout-overview%})
+  * [Overview]({%slug tilelayout-overview%})
+  * [State]({%slug tilelayout-state%})
+  * [Events]({%slug tilelayout-events%})
+  * [Live Demo: TileLayout Reorder](https://demos.telerik.com/blazor-ui/tilelayout/reorder)

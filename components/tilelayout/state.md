@@ -171,3 +171,6 @@ public class LocalStorage
 ## See Also
 
   * [TileLayout Overview]({%slug tilelayout-overview%})
+  * [TileLayout Reorder]({%slug tilelayout-reorder%})
+  * [TileLayout Resize]({%slug tilelayout-resize%})
+  * [Live Demo: TileLayout State](https://demos.telerik.com/blazor-ui/tilelayout/persist-state)

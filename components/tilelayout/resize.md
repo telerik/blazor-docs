@@ -48,4 +48,7 @@ Resizing a tile fires the [OnResize event]({%slug tilelayout-events%}#onresize).
 
 ## See Also
 
-  * [TileLayout Overview]({%slug tilelayout-overview%})
+  * [Overview]({%slug tilelayout-overview%})
+  * [State]({%slug tilelayout-state%})
+  * [Events]({%slug tilelayout-events%})
+  * [Live Demo: TileLayout Resize](https://demos.telerik.com/blazor-ui/tilelayout/resize)

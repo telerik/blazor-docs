@@ -155,5 +155,6 @@ To set the tile contents, you have the following options:
 
   * [Live Demo: TileLayout](https://demos.telerik.com/blazor-ui/tilelayout/overview)
   * [Events]({%slug tilelayout-events%})
+  * [State]({%slug tilelayout-state%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTileLayout)
    
