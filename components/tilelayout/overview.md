@@ -12,6 +12,17 @@ position: 0
 
 The Blazor TileLayout is based on the two-dimensional <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS grid</a> and is able to display content in tiles. They can be dragged around and [rearranged]({%slug tilelayout-reorder%}) as desired by the user. The tiles can be [resized]({%slug tilelayout-resize%}) to change the way they span across the rows and columns too. This allows you to build customizable dashboards for your end users whose [state]({%slug tilelayout-state%}) they can save.
 
+This article contains the following sections:
+
+* [First Steps](#first-steps)
+* [Component Reference](#component-reference)
+* [Appearance Settings](#appearance-settings)
+	* [Main Element](#main-element)
+	* [Individual Tiles](#individual-tiles)
+* [Tile Contents](#tile-contents)
+
+## First Steps
+
 To create a basic dashboard with the TileLayout component:
 
 1. Add the `TelerikTileLayout` tag.
@@ -104,7 +115,9 @@ If the width and height dimensions are insufficient to accommodate that, the CSS
 
 The available height will be distributed between the total number of rows if it is lower than their sum.
 
-There are two other settings you should take into account as well - the `ColumnSpacing` and `RowSpacing` - they are CSS units that define the gaps between the individual tiles and count towards the total dimensions of the component.
+`Columns`, `Width` and `Height`  have no default values. `ColumnWidth` and `RowHeight` default to `1fr`.
+
+There are two other settings you should take into account as well - the `ColumnSpacing` and `RowSpacing` - they are CSS units that define the gaps between the individual tiles and count towards the total dimensions of the component. They default to `16px`.
 
 ### Individual Tiles
 
