@@ -21,7 +21,7 @@ To use a Telerik Switch for Blazor
 >caption Basic setup of the Telerik Switch using two-way data binding
 
 ````CSHTML
-@* Basic setup of the Telerik Switch Component *@
+@* Basic setup of the Telerik Switch Component, the label is not required *@
 
 <TelerikSwitch Id="mySwitch" @bind-Value="@isSelected" />
 <label for="mySwitch">@( isSelected ? "Selected" : "Not selected" )</label>
@@ -69,12 +69,34 @@ The Switch is a generic component and its type comes from the model field it is 
 <TelerikSwitch @bind-Value="@toggleSwitch" @ref="@TheSwitchRef" />
 
 @code{
-    bool toggleSwitch { get; set; }
+    bool toggleSwitch { get; set; } // the type of this field determines the type of the reference
     TelerikSwitch<bool> TheSwitchRef { get; set; }
 }
 ````
 
 ## Examples
+
+This section shows the following two examples
+
+* [Remove Labels](#remove-labels)
+* [Custom Labels and Size](#custom-labels-and-size)
+
+
+### Remove Labels
+
+>caption Switch without labels
+
+````CSHTML
+@* Use a blank space to remove visible labels *@
+
+<TelerikSwitch @bind-Value="@isSelected" OnLabel=" " OffLabel=" " />
+
+@code {
+    private bool isSelected { get; set; }
+}
+````
+
+### Custom Labels and Size
 
 The example below shows how to:
 
