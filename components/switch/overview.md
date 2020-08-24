@@ -93,5 +93,6 @@ else
 
 
 ## See Also
-
+* [Live Demo: CheckBox](https://demos.telerik.com/blazor-ui/switch/overview)
+* [CheckBox Events]({%slug switch-events%})
 

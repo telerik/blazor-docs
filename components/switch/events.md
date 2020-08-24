@@ -52,7 +52,7 @@ The `ValueChanged` event fires every time the `Value` parameter changes.
 
 ## OnChange
 
-The `OnChange` event fires every time the `Value` parameter changes. The key difference with `ValueChanged` is that `OnChange` does not prevent two-way data binding (using the `@bind-Value` syntax).
+The `OnChange` event fires every time the `Value` parameter changes. The key difference between `ValueChanged` is that `OnChange` does not prevent two-way data binding (using the `@bind-Value` syntax).
 
 >caption Handle OnChange
 
