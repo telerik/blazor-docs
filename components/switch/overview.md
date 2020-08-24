@@ -39,17 +39,31 @@ To use a Telerik Switch for Blazor
 
 The Switch provides the following features:
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the CheckBox.
+* `Class` - the CSS class that will be rendered on the main wrapping element of the Switch.
+
 * `Enabled` - whether the component is enabled.
+
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to it.
-* `TabIndex` - the `tabindex` attribute rendered on the CheckBox.
+
+* `TabIndex` - the `tabindex` attribute rendered on the Switch.
+
 * `Value` and `bind-Value` -  accept `bool` and `bool?` data types.
+
 * `OnLabel` - the label of the component when the `Value` is `true`.
+
 * `OffLabel` - the label of the component when the `Value` is `false`.
+
 * Events - see the [Switch events]({%slug switch-events%}) article for more information and examples.
+
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
 ## Examples
+
+The example below shows how to:
+
+* Bind the switch to a value
+* Set custom labels for its On and Off states
+* Use its `Class` to set a width that can accommodate long labels
 
 >caption Example that showcases the "I agree to the terms and conditions" basic scenario
 

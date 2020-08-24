@@ -86,6 +86,11 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         <TelerikCheckBox @bind-Value="@person.AcceptsTerms" Id="acceptTermsCheckbox"></TelerikCheckBox>
         <ValidationMessage For="@(() => person.AcceptsTerms)"></ValidationMessage>
     </p>
+    <p class="subscribe-mail">
+        <label for="subscribeSwitch">Newsletter subscription</label>
+        <TelerikSwitch @bind-Value="@person.SubscribeToNewsletter" Id="subscribeSwitch"></TelerikSwitch>
+        <ValidationMessage For="@(() => person.SubscribeToNewsletter)"></ValidationMessage>
+    </p>
 
     <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
 </EditForm>
@@ -130,6 +135,10 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         [Required]
         [Range(typeof(bool), "true", "true", ErrorMessage = "Must accept terms")]
         public bool AcceptsTerms { get; set; }
+
+        [Required]
+        [Range(typeof(bool), "true", "true", ErrorMessage = "Must subscribe to the newsletter")]
+        public bool SubscribeToNewsletter { get; set; }
     }
 
     Person person = new Person()
