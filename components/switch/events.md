@@ -84,3 +84,4 @@ The `OnChange` event fires every time the `Value` parameter changes. The key dif
 >caption The result from the code snippet above
 
 ![onchange event example](images/switch-onchange-event-example.gif)
+

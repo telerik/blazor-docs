@@ -57,6 +57,23 @@ The Switch provides the following features:
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
+## Component Reference
+
+The Switch is a generic component and its type comes from the model field it is bound to - it is either `bool` or `bool?` (a `null` value is treated as `false`).
+
+>caption Switch Reference
+
+````CSHTML
+@* The Switch reference type comes from its Value type *@
+
+<TelerikSwitch @bind-Value="@toggleSwitch" @ref="@TheSwitchRef" />
+
+@code{
+    bool toggleSwitch { get; set; }
+    TelerikSwitch<bool> TheSwitchRef { get; set; }
+}
+````
+
 ## Examples
 
 The example below shows how to:
