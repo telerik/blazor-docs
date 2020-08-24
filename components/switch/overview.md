@@ -23,13 +23,17 @@ To use a Telerik Switch for Blazor
 ````CSHTML
 @* Basic setup of the Telerik Switch Component *@
 
-<TelerikCheckBox Id="myCheckBox" @bind-Value="@isSelected" />
-<label for="myCheckBox">@( isSelected ? "Selected" : "Not selected" )</label>
+<TelerikSwitch Id="mySwitch" @bind-Value="@isSelected" />
+<label for="mySwitch">@( isSelected ? "Selected" : "Not selected" )</label>
 
 @code {
     private bool isSelected { get; set; }
 }
 ````
+
+>caption The result from the code snippet above
+
+![Telerik Switch Component](images/swtich-first-look.gif)
 
 ## Features
 
