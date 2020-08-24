@@ -28,7 +28,7 @@ The `ValueChanged` event fires every time the `Value` parameter changes.
 </TelerikSwitch>
 
 <div>
-    The Switch component Value is <strong>@(toggleSwitch ? "true" : "false")</strong> and the ValueChangedHandler fired @Count @(Count == 1 ? "time" : "times").
+    The Switch component Value is <strong>@toggleSwitch</strong> and the ValueChangedHandler fired @Count @(Count == 1 ? "time" : "times").
 </div>
 
 @code {
@@ -42,6 +42,7 @@ The `ValueChanged` event fires every time the `Value` parameter changes.
     }
 }
 ````
+
 >caption The result from the code snippet above
 
 ![valuechanged event example](images/switch-valuechanged-event-example.gif)
@@ -79,6 +80,7 @@ The `OnChange` event fires every time the `Value` parameter changes. The key dif
     }
 }
 ````
+
 >caption The result from the code snippet above
 
 ![onchange event example](images/switch-onchange-event-example.gif)
