@@ -10,7 +10,7 @@ position: 0
 
 # Switch Overview
 
-//Opening
+The Switch allows the user to toggle between checked and unchecked states.
 
 To use a Telerik Switch for Blazor
 
@@ -21,7 +21,7 @@ To use a Telerik Switch for Blazor
 >caption Basic setup of the Telerik Switch using two-way data binding
 
 ````CSHTML
-@*Basic setup of the Telerik CheckBox Component*@
+@* Basic setup of the Telerik Switch Component *@
 
 <TelerikCheckBox Id="myCheckBox" @bind-Value="@isSelected" />
 <label for="myCheckBox">@( isSelected ? "Selected" : "Not selected" )</label>
@@ -40,6 +40,8 @@ The Switch provides the following features:
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to it.
 * `TabIndex` - the `tabindex` attribute rendered on the CheckBox.
 * `Value` and `bind-Value` -  accept `bool` and `bool?` data types.
+* `OnLabel` - the label of the component when the `Value` is `true`.
+* `OffLabel` - the label of the component when the `Value` is `false`.
 * Events - see the [Switch events]({%slug switch-events%}) article for more information and examples.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
@@ -48,6 +50,16 @@ The Switch provides the following features:
 >caption Example that showcases the "I agree to the terms and conditions" basic scenario
 
 ````CSHTML
+@* Use the OnLabel and OffLabel to customize the labels of the Switch. Use the Class parameter to manipulate the width of the component. *@ 
+
+<style>
+    .k-switch.mySwitchClass{
+        width:100px;
+    }
+</style>
+
+<h2 class="text-info">Terms and conditions</h2>
+
 @if (hasAgreed)
 {
     <div class="alert alert-success w-50">
@@ -62,17 +74,22 @@ else
     </p>
 }
 
-<TelerikCheckBox Id="myCheckBox" @bind-Value="@hasAgreed" />
-<label for="myCheckBox">I agree to the terms and conditions</label>
-
+<TelerikSwitch @bind-Value="@hasAgreed" 
+               Id="mySwitch"
+               OnLabel="@myOnLabel"
+               OffLabel="@myOffLabel"
+               Class="mySwitchClass"></TelerikSwitch>
+<label for="mySwitch">I agree to the terms and conditions</label>
 
 @code {
-    private bool hasAgreed { get; set; }
+    public bool hasAgreed { get; set; }
+    public string myOnLabel { get; set; } = "Agree";
+    public string myOffLabel { get; set; } = "Disagree";
 }
 ````
 >caption The result from the code snippet above
 
-![screenshot to showcase checkbox with bind-Indeterminate](images/checkbox-two-way-data-bind.gif)
+![agree to terms and conditions](images/switch-terms-and-conditions-example.gif)
 
 
 ## See Also
