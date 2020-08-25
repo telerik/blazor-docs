@@ -16,6 +16,7 @@ In this article:
 * [Basics](#basics)
 * [Notes](#notes)
 * [Examples](#examples)
+    * [Toggle The Visibility Of A Column On Button Click](#toggle-the-visibility-of-a-column-on-button-click)
     * [Hidden Grid Column With Template](#hidden-grid-column-with-template)
     * [Hide A Grid Column Based On A Condition](#hide-a-grid-column-based-on-a-condition)
 
@@ -76,6 +77,68 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
 
 ## Examples
 
+### Toggle The Visibility Of A Column On Button
+
+
+
+````CSHTML
+@* Toggling the visibily of a column keeps its original order in the Grid. *@
+
+<div>
+    <TelerikButton OnClick="@(() => isVisible = !isVisible)">Toggle the visibility of the Hire Date column</TelerikButton>
+</div>
+
+<br />
+
+<TelerikGrid Data=@MyData
+             Pageable="true"
+             PageSize="5"
+             Width="700px">
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" />
+        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" Visible="@isVisible" />
+        <GridColumn Field=@nameof(SampleData.Salary) Title="Salary" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    public bool isVisible { get; set; } = true;
+
+    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+    public class SampleData
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public DateTime HireDate { get; set; }
+        public int Salary { get; set; }
+    }
+
+    public List<SampleData> MyData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        MyData = new List<SampleData>();
+
+        for (int i = 0; i < 50; i++)
+        {
+            MyData.Add(new SampleData()
+            {
+                ID = i,
+                Name = "Name " + i.ToString(),
+                Salary = (i + 1) * 100,
+                HireDate = DateTime.Today.AddDays(-i)
+            });
+        }
+    }
+}
+
+````
+
+>caption The result from the code snippet above
+
+![toggle the visibility of a column gif](images/visible-parameter-toggle-column-visibility-example.gif)
+
 ### Hidden Grid Column With Template
 
 ````CSHTML
@@ -86,9 +149,6 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
              Pageable="true"
              PageSize="5"
              Width="700px">
-    <GridToolBar>
-        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
@@ -138,6 +198,8 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
 
 ![visible parameter column with template screenshot](images/visible-parameter-column-with-template-example.png)
 
+
+
 ### Hide A Grid Column Based On A Condition
 
 ````CSHTML
@@ -148,9 +210,6 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
              Pageable="true"
              PageSize="5"
              Width="700px">
-    <GridToolBar>
-        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" Visible="@((MyData.Any(x => x.Name.Contains("Name 2"))) ? false : true)" />
