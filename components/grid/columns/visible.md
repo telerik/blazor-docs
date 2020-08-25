@@ -79,8 +79,6 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
 
 ### Toggle The Visibility Of A Column On Button
 
-
-
 ````CSHTML
 @* Toggling the visibily of a column keeps its original order in the Grid. *@
 
@@ -132,7 +130,6 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
         }
     }
 }
-
 ````
 
 >caption The result from the code snippet above
@@ -142,7 +139,6 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
 ### Hidden Grid Column With Template
 
 ````CSHTML
-
 @* The Template for the Salary column will not be rendered *@
 
 <TelerikGrid Data=@MyData
@@ -198,12 +194,9 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
 
 ![visible parameter column with template screenshot](images/visible-parameter-column-with-template-example.png)
 
-
-
 ### Hide A Grid Column Based On A Condition
 
 ````CSHTML
-
 @* The Name column is hidden, because the data for the grid contains "Name 2" *@
 
 <TelerikGrid Data=@MyData
