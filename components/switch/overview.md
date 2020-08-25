@@ -45,6 +45,8 @@ The Switch provides the following features:
 
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to it.
 
+* `Width` - the width of the component.
+
 * `TabIndex` - the `tabindex` attribute rendered on the Switch.
 
 * `Value` and `bind-Value` -  accept `bool` and `bool?` data types.
@@ -102,18 +104,12 @@ The example below shows how to:
 
 * Bind the switch to a value
 * Set custom labels for its On and Off states
-* Use its `Class` to set a width that can accommodate long labels
+* Use the `Width` parameter to control the size of the component
 
 >caption Example that showcases the "I agree to the terms and conditions" basic scenario
 
 ````CSHTML
-@* Use the OnLabel and OffLabel to customize the labels of the Switch. Use the Class parameter to manipulate the width of the component. *@ 
-
-<style>
-    .k-switch.mySwitchClass{
-        width:100px;
-    }
-</style>
+@* Use the OnLabel and OffLabel to customize the labels of the Switch. Use the Width parameter to manipulate the width of the component. *@ 
 
 <h2 class="text-info">Terms and conditions</h2>
 
@@ -131,11 +127,11 @@ else
     </p>
 }
 
-<TelerikSwitch @bind-Value="@hasAgreed" 
+<TelerikSwitch @bind-Value="@hasAgreed"
                Id="mySwitch"
                OnLabel="@myOnLabel"
                OffLabel="@myOffLabel"
-               Class="mySwitchClass"></TelerikSwitch>
+               Width="100px"></TelerikSwitch>
 <label for="mySwitch">I agree to the terms and conditions</label>
 
 @code {
