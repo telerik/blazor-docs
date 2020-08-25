@@ -195,4 +195,4 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
 
 ## See Also
 
-  * [Live Demo: Visible Columns](https://demos.telerik.com/blazor-ui/grid/visible-columns)
+  * [Live Demo: Visible Columns](https://demos.telerik.com/blazor-ui/grid/columns)
