@@ -3,7 +3,7 @@ title: Remove the Expand Arrow from the Menu Dropdown
 description: Discover how to use CSS properties to hide the arrow icon from the menu dropdown
 type: how-to
 page_title: How to remove the expand arrow from a menu dropdown
-slug: remove-the-expand-arrow-icon
+slug: menu-kb-remove-the-expand-arrow-icon
 position: 
 tags: 
 ticketid: 1482238
@@ -13,10 +13,6 @@ res_type: kb
 ## Environment
 <table>
 	<tbody>
-		<tr>
-			<td>Product Version</td>
-			<td>2.16.0</td>
-		</tr>
 		<tr>
 			<td>Product</td>
 			<td>Menu for Blazor</td>
