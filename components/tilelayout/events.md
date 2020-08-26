@@ -24,10 +24,7 @@ The `OnResize` event is fired when any tile is resized. It lets you respond to t
 ````CSHTML
 @* Respond to a tile resizing to resize its contents, if needed *@
 
-<TelerikTileLayout ColumnWidth="200px"
-                   RowHeight="150px"
-                   Width="850px"
-                   Columns="4"
+<TelerikTileLayout Columns="4"
                    Resizable="true"
                    OnResize="@OnResizeHandler">
     <TileLayoutItems>
@@ -89,10 +86,7 @@ The `OnReorder` event fires when tiles have been reordered. You can use it to, f
 ````CSHTML
 @* Handle the OnResized event *@
 
-<TelerikTileLayout ColumnWidth="200px"
-                   RowHeight="150px"
-                   Width="700px"
-                   Columns="3"
+<TelerikTileLayout Columns="3"
                    Reorderable="true"
                    OnReorder="@OnReorderHandler">
     <TileLayoutItems>

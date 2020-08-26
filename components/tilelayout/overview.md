@@ -27,7 +27,9 @@ To create a basic dashboard with the TileLayout component:
 
 1. Add the `TelerikTileLayout` tag.
 
-1. Configure the `Width`, `Height`, `ColumnWidth` and `RowHeight` to define the desired dimensions for the layout and the base size for the individual tiles. Read more in the [Appearance Settings](#appearance-settings) section below.
+1. Set the desired number of `Columns` for the layout.
+
+    * Optionally, configure the `Width`, `Height`, `ColumnWidth` and/or `RowHeight` to define the desired dimensions for the layout and the base size for the individual tiles. Read more in the [Appearance Settings](#appearance-settings) section below.
 
 1. Under its `TileLayoutItems` tag, add `TileLayoutItem` instances whose `Content` tag you can populate with the desired [content](#tile-contents).
 
@@ -38,10 +40,9 @@ To create a basic dashboard with the TileLayout component:
 >caption Basic Tile Layout with its core features
 
 ````CSHTML
-<TelerikTileLayout ColumnWidth="200px"
+<TelerikTileLayout Columns="3"
+                   ColumnWidth="200px"
                    RowHeight="150px"
-                   Width="700px"
-                   Columns="3"
                    Resizable="true"
                    Reorderable="true">
     <TileLayoutItems>
@@ -71,12 +72,7 @@ You can use the component reference to get or set its [state]({%slug tilelayout-
 
 ````CSHTML
 <TelerikTileLayout @ref="@TileLayoutRef"
-                   ColumnWidth="200px"
-                   RowHeight="150px"
-                   Width="700px"
-                   Columns="3"
-                   Resizable="true"
-                   Reorderable="true">
+                   Columns="3">
     <TileLayoutItems>
         <TileLayoutItem HeaderText="Panel 1">
             <Content>Regular sized first panel.</Content>
@@ -109,15 +105,23 @@ The main feature that the component exposes are divided into two levels:
 
 ### Main Element
 
-The main element defines the number of `Columns`, the `Width` and `Height` of the layout, as well as the `ColumnWidth` and `RowHeight`. Generally, you should settings that allow the desired number of columns and rows (depending on their settings) to fit in the set width and height.
+The main element defines the number of `Columns`, the `Width` and `Height` of the layout, as well as the `ColumnWidth` and `RowHeight`. 
 
-If the width and height dimensions are insufficient to accommodate that, the CSS rules will reduce the individual row height and/or column width so that the appointed number of columns fit in the available width. 
+The `ColumnWidth` and `RowHeight` define the maximum dimensions for each column and row.
 
-The available height will be distributed between the total number of rows if it is lower than their sum.
+Generally, you should use settings that allow the desired number of columns and rows (depending on their width and height) to fit in the set width and height of the entire component.
 
-`Columns`, `Width` and `Height`  have no default values. `ColumnWidth` and `RowHeight` default to `1fr`.
+You do not, however, have to set `Width` and `Height` - the main measure is the `Columns` and it will suffice to create a layout.
 
-There are two other settings you should take into account as well - the `ColumnSpacing` and `RowSpacing` - they are CSS units that define the gaps between the individual tiles and count towards the total dimensions of the component. They default to `16px`.
+Since the Tile Layout is a block element, its width defaults to `auto` in the browser, and the actual width is distributed evenly between the number of `Columns`. Setting `Height="100%"` can let the component take up its parent dimensions in terms of height as well.
+
+If the width and height dimensions are insufficient to accommodate the defined row height and column width that the current tiles create, the actual row height and/or column width will decrease so that the appointed number of columns fit in the available width and the existing number of rows fit in the available height.
+
+`Columns`, `Width` and `Height`  have no default values.
+
+`ColumnWidth` and `RowHeight` default to `1fr`.
+
+There are two other settings you should take into account if you set explicit dimensions to the main element - the `ColumnSpacing` and `RowSpacing` - they are CSS units that define the gaps between the individual columns and rows and count towards the total dimensions of the component. They default to `16px`.
 
 ### Individual Tiles
 

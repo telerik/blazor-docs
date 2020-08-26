@@ -42,9 +42,6 @@ You can consider saving the current state of the component in events that it exp
 
 <TelerikTileLayout @ref="@TileLayoutInstance"
                    Columns="3"
-                   ColumnWidth="350px"
-                   RowHeight="235px"
-                   Width="900px"
                    Resizable="true"
                    Reorderable="true">
     <TileLayoutItems>
