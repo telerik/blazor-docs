@@ -95,6 +95,8 @@ You can use the following properties on the bound columns:
 
 * `Locked` - (defaults to `false`) - if this parameter is set to true it [locks]({%slug grid-columns-frozen%}) the column so it is always visible to the user.
 
+* `Visible` - (defaults to `true`) - if this parameter is set to `false` it [hides]({%slug grid-columns-visible%}) the adjacent column from the Grid
+
 * `Template` - this property can also be used as an inner tag and it lets you define the [column display content]({%slug components/grid/features/templates%}#column-template). It can also point to a component name.
 
 * `Context` - the standard Blazor context variable name for use inside the inline template.
