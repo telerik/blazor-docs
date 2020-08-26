@@ -206,7 +206,7 @@ When cell-specific templates are used, they are not rendered at all. If you are 
 
 ### Hide A Grid Column Based On A Condition
 
-This example shows hiding a column based on a simple condition in its data. You can extend it further to use other view-model data - such as screen dimensions, user preferences you have stored,
+This example shows hiding a column based on a simple condition in its data. You can change it to use other view-model data - such as screen dimensions, user preferences you have stored, or any other logic.
 
 ````CSHTML
 @* The Name column is hidden, because the data for the grid contains "Name 2" *@
