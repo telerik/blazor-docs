@@ -22,7 +22,7 @@ In this article:
 
 ## Basics
 
-To hide a Grid column set the `Visible` parameter to `false`. To hide a column based on a certain condition you can pass a ternary operator or a method that returns a `bool`.
+To hide a Grid column set the `Visible` parameter to `false`. To hide a column based on a certain condition you can pass, for example, a ternary operator or a method that returns `bool` - the app can provide an expression according to its logic (like screen size).
 
 >caption Hide a column from the Grid. Basic example.
 
@@ -71,13 +71,21 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
 * Will not be exported in [excel export]({%slug grid-export-excel%}).
 * Will not be visible when the data is [grouped]({%slug components/grid/features/grouping%}).
 * [Templates]({%slug components/grid/features/templates%}) will not be rendered.
-    * When using [Row Template]({%slug grid-templates-row%}) the visiblity of the column should be implemented by the application.
+    * When using [Row Template]({%slug grid-templates-row%}) the visiblity of the column should be implemented by the application in the row template itself - the grid can only toggle the visibility of the header.
 * You can control the visibility of the column through the [Grid State]({%slug grid-state%}).
 
 
 ## Examples
 
+In this section you will find the following examples:
+
+* [Toggle The Visibility Of A Column On Button Click](#toggle-the-visibility-of-a-column-on-button-click)
+* [Hidden Grid Column With Template](#hidden-grid-column-with-template)
+* [Hide A Grid Column Based On A Condition](#hide-a-grid-column-based-on-a-condition)
+
 ### Toggle The Visibility Of A Column On Button
+
+The application can later the value of the `Visible` parameter and that will toggle the column.
 
 ````CSHTML
 @* Toggling the visibily of a column keeps its original order in the Grid. *@
@@ -138,6 +146,8 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
 
 ### Hidden Grid Column With Template
 
+When cell-specific templates are used, they are not rendered at all. If you are using the RowTemplate, however, make sure to handle the column visiblity there as well.
+
 ````CSHTML
 @* The Template for the Salary column will not be rendered *@
 
@@ -195,6 +205,8 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
 ![visible parameter column with template screenshot](images/visible-parameter-column-with-template-example.png)
 
 ### Hide A Grid Column Based On A Condition
+
+This example shows hiding a column based on a simple condition in its data. You can extend it further to use other view-model data - such as screen dimensions, user preferences you have stored,
 
 ````CSHTML
 @* The Name column is hidden, because the data for the grid contains "Name 2" *@
