@@ -70,7 +70,7 @@ To reset the grid state, call `SetState(null)`.
 
 The following information is present in the grid state:
 
-* Columns - index (order) of the column (matches the list order in the state object), width. Requires that the grid initializes with the same collection of columns that were used to save the state.
+* Columns - visibility, width, index (order) of the column. The grid matches the columns from its declaration with the columns list in the state object, in the same order, so the grid must initialize with the same collection of columns that were used to save the state.
 * Editing - whether the user was inserting or editing an item (opens the same item for editing with the current data from the built-in editors of the grid - the data is updated in the `OnChange` event, not on every keystroke for performance reasons). The `OriginalEditItem` carries the original model without the user modifications so you can compare.
 * Filtering - filter descriptors (fields by which the grid is filtered, the operator and value).
 * Grouping - group descriptors (fields by which the grid is grouped), collapsed group indexes.
