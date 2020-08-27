@@ -18,7 +18,9 @@ Sections in this article:
 
 ## Basics
 
-You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below. To add a new item, you must also add a [command column]({%slug components/grid/columns/command%}) with a `Save` command and a [toolbar]({%slug components/grid/features/toolbar%}) with an `Add` command. Cancellation of changes is not supported at the moment, you can prevent them by not calling the data access layer.
+You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below. To add a new item, you must also add a [command column]({%slug components/grid/columns/command%}) with a `Save` command and a [toolbar]({%slug components/grid/features/toolbar%}) with an `Add` command. 
+
+
 
 To enable InCell editing mode, set the `EditMode` property of the grid to `Telerik.Blazor.GridEditMode.Incell`, then handle the CRUD events as shown in the example below.
 
@@ -141,6 +143,8 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
     * To see how to select the row that is being edited in InCell edit mode without using a `<GridCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode]({%slug grid-kb-row-select-incell-edit%}) Knowledge Base article.
 
 * It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
+
+* The `OnCancel` event and the `Cancel` command button are not supported in InCell editing mode. Clicking outside the currently edited cell will trigger the `OnUpdate` event and thus, clicking on the `Cancel` command button will not fire the `OnCancel` event.
 
 * When using an [editor template]({%slug components/grid/features/templates%}#edit-template), the grid cannot always know what the custom editor needs to do, and when it needs to close the cell and update the data, because this is up to the editor. Thus, you can use the grid [state]({%slug grid-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`.
     * When keyboard navigation is enabled in the grid (`Navigable=true`), the grid will capture `Enter` keypresses when the cell is focused, and will close the cell with the corresponding update. You can either use that (e.g., a simple input will let the keypress event propagate to the grid cell), or you can prevent the event propagation and use only your business logic.
