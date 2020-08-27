@@ -37,6 +37,12 @@ To start the wizard, use either of the following approaches:
 
 You will have the standard options to select a location and name for your app, and then you will receive a list of predefined **Telerik templates** and the **Telerik Blazor versions** list to choose from:
 
+* Blank Template - This is a blank solution based on the Microsoft template, but with the Telerik components added (NuGet package reference, assets, service, the TelerikRootComponent).
+
+* CRUD, Form, Chart Template - A small app that showcases the Telerik Grid, Chart and forms validation. The grid also uses a basic CUD service which is a common pattern for data updates in a real application.
+
+* Dashboard Template- A basic dashboard layout that uses the TileLayout component for customizable dashboards and showcases several ways individual blocks (tiles) can fetch data.
+
 ![The Create New Project Wizard Templates Options](images/new-project-wizard-templates-options.png)
 
 
