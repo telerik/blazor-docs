@@ -282,6 +282,8 @@ navigation:
         title: "Splitter"
      "*stockchart":
         title: "Stock Chart"
+     "*switch":
+        title: "Switch"
      "*tabstrip":
         title: "TabStrip"
      "*textbox":
@@ -306,8 +308,6 @@ navigation:
         title: "Window"
      "*templates":
         title: "Templates"
-     "*switch":
-        title: "Switch"
 
 ## introduction article columns. Use the slugs in the items collection
 
@@ -352,6 +352,7 @@ intro_columns:
       "AutoComplete": "autocomplete-overview"
       "MultiSelect": "multiselect-overview"
       "CheckBox": "checkbox-overview"
+      "Switch": "switch-overview"
       "HTML Editor": "editor-overview"
 
 -
@@ -372,7 +373,7 @@ intro_columns:
       "Candlestick Charts": "chart-types-candlestick"
       "OHLC Charts": "chart-types-ohlc"
       "Stock Chart": "stockchart-overview"
-      
+
   -
 
 -
