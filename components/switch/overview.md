@@ -21,10 +21,10 @@ To use a Telerik Switch for Blazor
 >caption Basic setup of the Telerik Switch using two-way data binding
 
 ````CSHTML
-@* Basic setup of the Telerik Switch Component, the label is not required *@
+@* Basic setup of the Telerik Switch Component *@
 
 <TelerikSwitch Id="mySwitch" @bind-Value="@isSelected" />
-<label for="mySwitch">@( isSelected ? "Selected" : "Not selected" )</label>
+@( isSelected ? "Selected" : "Not selected" )
 
 @code {
     private bool isSelected { get; set; }
@@ -43,7 +43,7 @@ The Switch provides the following features:
 
 * `Enabled` - whether the component is enabled.
 
-* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to it.
+* `Id` - renders as the `id` attribute on the wrapping `<span />` element of the component.
 
 * `Width` - the width of the component.
 
@@ -131,8 +131,9 @@ else
                Id="mySwitch"
                OnLabel="@myOnLabel"
                OffLabel="@myOffLabel"
-               Width="100px"></TelerikSwitch>
-<label for="mySwitch">I agree to the terms and conditions</label>
+               Width="100px">
+</TelerikSwitch>
+I agree to the terms and conditions
 
 @code {
     public bool hasAgreed { get; set; }

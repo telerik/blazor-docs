@@ -87,8 +87,8 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         <ValidationMessage For="@(() => person.AcceptsTerms)"></ValidationMessage>
     </p>
     <p class="subscribe-mail">
-        <label for="subscribeSwitch">Newsletter subscription</label>
-        <TelerikSwitch @bind-Value="@person.SubscribeToNewsletter" Id="subscribeSwitch"></TelerikSwitch>
+        Newsletter subscription
+        <TelerikSwitch @bind-Value="@person.SubscribeToNewsletter"></TelerikSwitch>
         <ValidationMessage For="@(() => person.SubscribeToNewsletter)"></ValidationMessage>
     </p>
 
