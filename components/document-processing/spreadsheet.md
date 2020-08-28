@@ -67,7 +67,7 @@ This library enables you to work with spreadsheet documents – create ones from
 
 * [**XLSX**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/xlsx/xlsxformatprovider)
 
-* [**XLS**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/xls/xls) - See the [supported features](https://testdocs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/xls/features).
+* [**XLS**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/xls/xls) - See the [supported features](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/xls/features).
 
 * [**CSV**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider) 
 
