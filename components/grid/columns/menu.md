@@ -10,17 +10,18 @@ position: 20
 
 # Column Menu
 
-The Grid allows you to setup a menu for it's columns. It enables you to perform high-level customization like sorting, filtering, showing or hiding columns and freezing or unfreezing them.
+The Grid allows you to setup a menu for it's columns. It enables you to perform high-level customization like [sorting]({%slug components/grid/features/sorting%}), [filtering]({%slug components/grid/filtering%}), [showing or hiding]({%slug grid-columns-visible%}) columns and [freezing or unfreezing]({%slug grid-columns-frozen%}) them.
 
 In this article:
 * [Basics](#basics)
 * [Notes](#notes)
+* [Features](#features)
+    * [Column Chooser](#column-chooser)
 * [Examples](#examples)
-    * [Disable The Column Menu For A Specific Column](#disable-the-column-menu-for-a-specific-column)
 
 ## Basics
 
-To enable the column menu set the `ShowColumnMenu` parameter of the `<TelerikGrid>` tag to `true`. This will enable the menu for each column of the Grid. 
+To enable the column menu set the `ShowColumnMenu` parameter of the `<TelerikGrid>` tag to `true`. This will enable the menu for each column of the Grid.
 
 >caption Enable the column menu for all Grid columns. Basic example.
 
@@ -30,6 +31,9 @@ To enable the column menu set the `ShowColumnMenu` parameter of the `<TelerikGri
 <TelerikGrid Data="@MyData" 
              Pageable="true"
              PageSize="5"
+             Width="700px"
+             FilterMode="@GridFilterMode.FilterMenu"
+             Sortable="true"
              ShowColumnMenu="true">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
@@ -60,7 +64,25 @@ To enable the column menu set the `ShowColumnMenu` parameter of the `<TelerikGri
 
 >caption The result from the code snippet above
 
-![visible parameter basic example screenshot](images/visible-parameter-basic-example.png)
+![column menu basic example screenshot](images/column-menu-basic-example.png)
+
+
+## Features
+
+The Column Menu provides the following features:
+
+* To allow sorting and filtering from the Column Menu you have to enable those functions to the Grid - set the FilterMode to `FilterMenu` (see the [Notes](#notes) section for more information) and `Sortable` to `true`.
+
+* To allow locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the adjacent column to `true`.
+
+* To hide a column from the Grid use the [Column Chooser](#column-chooser).
+
+
+### Column Chooser
+
+![column chooser screenshot](images/column-menu-column-chooser.png)
+
+The Column Chooser is enabled by default in the Column Menu and allows you to toggle the visiblity of Grid columns from the Column Menu. By the default all columns are visible under the `Columns` section of the Column Menu. In order to hide a column from the Column Chooser set the `VisibleInColumnChooser` property of the adjacent column to `false`.
 
 ## Notes
 
