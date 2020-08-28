@@ -43,7 +43,7 @@ The Switch provides the following features:
 
 * `Enabled` - whether the component is enabled.
 
-* `Id` - renders as the `id` attribute on the wrapping `<span />` element of the component.
+* `Id` - renders as the `id` attribute on the wrapping `<span>` element of the component.
 
 * `Width` - the width of the component.
 
