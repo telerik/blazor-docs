@@ -62,9 +62,13 @@ The following list shows the Telerik components that support specific keyboard c
 
 * Scheduler - will have keyboard navigation in an upcoming release.
 
+* [Switch](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation)
+
 * [TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation)
 
 * Textbox - not applicable, it is a simple input with the standard behavior.
+
+* TileLayout - not applicable, the resize and drag actions apply to mouse/touch gestures only.
 
 * [TimePicker](https://demos.telerik.com/blazor-ui/timepicker/keyboard-navigation)
 
