@@ -49,6 +49,8 @@ The following list shows the [available Document Processing packages](https://do
 
 * **Telerik.Documents.Core**.nupkg&mdash;The main NuGet package from the Telerik Document Processing libraries. Required when you plan to use the library.
 * **Telerik.Documents.Fixed**.nupkg&mdash;The package is required when processing PDF documents.
+* **Telerik.Documents.ImageUtils**.nupkg&mdash;This package is required when exporting to PDF format a document containing images different than Jpeg and Jpeg2000 or ImageQuality different than High. For more information check the [PdfProcessing`s Cross-Platform Support](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/cross-platform) article.
+* **Telerik.Documents.CMapUtils**.nupkg&mdash;Provides a default implementation for getting the data of a predefined CMap table by a given name. The package is optional and you will need to include a reference to it only if you need to process documents with [CMap tables](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/concepts/cmaps).
 * **Telerik.Documents.Flow**.nupkg&mdash;The package is part of the Word (text) processing library. Required for processing `HTML`, `DOCX`, `RTF`, and `TXT` documents.
 * **Telerik.Documents.Flow.FormatProviders.Pdf**.nupkg&mdash;The package allows for exporting flow documents, such as `DOCX` and `RTF`, to `PDF`.
 * **Telerik.Documents.Spreadsheet**.nupkg&mdash;The package allows for working with spreadsheets.
@@ -57,7 +59,7 @@ The following list shows the [available Document Processing packages](https://do
 * **Telerik.Documents.Spreadsheet.FormatProviders.Xls**.nupkg&mdash;The package allows for working with `XLS` spreadsheet documents.
 * **Telerik.Documents.SpreadsheetStreaming**.nupkg&mdash;The main package for generating huge spreadsheet files while using minimum resources.
 * **Telerik.Zip**.nupkg&mdash;The package is required when working with zipped formats, such as `DOCX` and `XLSX`, and `PDF`.
-* **Telerik.Documents.ImageUtils**.nupkg&mdash;This package is required when exporting to PDF format a document containing images different than Jpeg and Jpeg2000 or ImageQuality different than High. For more information check the [PdfProcessing`s Cross-Platform Support](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/cross-platform) article.
+
 
 >tip In case you need a version of Telerik Document Processing compatible with [.NET Framework 4.0](https://dotnet.microsoft.com/download/dotnet-framework/net40) or later, check the suites which you can use to obtain the binaries from in the [Installing on Your Computer](https://docs.telerik.com/devtools/document-processing/getting-started/installing-on-your-computer) help topic.
 
