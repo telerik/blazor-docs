@@ -23,8 +23,10 @@ To use a Telerik Switch for Blazor
 ````CSHTML
 @* Basic setup of the Telerik Switch Component *@
 
-<TelerikSwitch Id="mySwitch" @bind-Value="@isSelected" />
-@( isSelected ? "Selected" : "Not selected" )
+<label>
+    <TelerikSwitch @bind-Value="@isSelected" />
+    @( isSelected ? "Selected" : "Not selected" )
+</label>
 
 @code {
     private bool isSelected { get; set; }
