@@ -49,6 +49,7 @@ The following list shows the [available Document Processing packages](https://do
 
 * **Telerik.Documents.Core**.nupkg&mdash;The main NuGet package from the Telerik Document Processing libraries. Required when you plan to use the library.
 * **Telerik.Documents.Fixed**.nupkg&mdash;The package is required when processing PDF documents.
+* **Telerik.Documents.CMapUtils**.nupkg&mdash;Provides a default implementation for getting the data of a predefined CMap table by a given name. The package is optional and you will need to include a reference to it only if you need to process documents with [CMap tables](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/concepts/cmaps).
 * **Telerik.Documents.Flow**.nupkg&mdash;The package is part of the Word (text) processing library. Required for processing `HTML`, `DOCX`, `RTF`, and `TXT` documents.
 * **Telerik.Documents.Flow.FormatProviders.Pdf**.nupkg&mdash;The package allows for exporting flow documents, such as `DOCX` and `RTF`, to `PDF`.
 * **Telerik.Documents.Spreadsheet**.nupkg&mdash;The package allows for working with spreadsheets.
