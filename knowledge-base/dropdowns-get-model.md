@@ -15,29 +15,92 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>MultiSelect for Blazor, DropDownList for Blazor, ComboBox for Blazor, AutoCopmlete for Blazor</td>
+			<td>DropDownList for Blazor, ComboBox for Blazor, AutoCopmlete for Blazor, MultiSelect for Blazor</td>
 		</tr>
 	</tbody>
 </table>
 
 
-## Description
+## Problem
 
 I want to get an instance of my model when I select an item from a dropdown (such as a DropDownList, ComboBox, AutoComplete, MultiSelect). I can get only a primitive type that is the type of the `Value` and `ValueField`.
+
+## Description
 
 The dropdowns provide a primitive `Value` so that [validation]({%slug common-features/input-validation%}) can work, and so that other data source operations (such as filtering) can work. The Value and Text cannot be classes (models) because that would prevent validation from working and filtering/comparing entire classes is an operation that is not defined.
 
 ## Solution
 
+There are two approaches you can take - to keep using the Telerik components and their functionality, and use a bit of Data operations to retrieve the required data, or to build your own component that provides the desired functionality:
+
+* [Telerik Components](#telerik-components)
+* [Custom Dropdown Component](#custom-dropdown-component)
+
+### Telerik Components
+
 The solution is to use the unique identifier you get from the component (the `Value`) and to get the entire model from its data source (the `Data` collection) by filtering it (e.g., by using the `Where()` operator).
 
-The example below uses the DropDownList component, and the same approach is applicable for the others as well. For the MultiSelect you will have to loop over the selected values collection, of course, and for the AutoComplete you may want to ensure unique Text values (the autocomplete is a free text input with suggestions, not a dropdown with mandatory choices).
+The examples below show one way to do this for the DropDownList, ComboBox and AutoComplete components. For the MultiSelect you would have to loop over the selected values collection, of course, and for the AutoComplete you may want to ensure unique Text values (the autocomplete is a free text input with suggestions, not a dropdown with mandatory choices).
 
 >caption Get model from dropdown
 
+````DropDownList
+Value: @DdlValue
+<br />
+From the Model: @result
+<br />
 
+<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField"
+                     Value="@DdlValue" ValueChanged="@( (int v) => ValueChangedHandler(v) )" DefaultText="Select something">
+</TelerikDropDownList>
+
+<br />
+
+<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField"
+                     @bind-Value="@DdlValue" DefaultText="Select something"
+                     OnChange="@GetItemFromModelData">
+</TelerikDropDownList>
+
+@code {
+    string result;
+    int DdlValue { get; set; } = 5;
+
+    void GetSelectedItem()
+    {
+        GetItemFromModelData();
+    }
+
+    void ValueChangedHandler(int v)
+    {
+        DdlValue = v;
+
+        GetItemFromModelData();
+    }
+
+    void GetItemFromModelData()
+    {
+        // extract the data item from the data source by using the value
+        MyDdlModel selectedItem = myDdlData.Where(d => d.MyValueField == DdlValue).FirstOrDefault();
+        if (selectedItem != null) // e.g., custom text in a combo, or no match for an autocomplete
+        {
+            result = selectedItem.MyTextField;
+        }
+        else
+        {
+            result = "no item selected";
+        }
+    }
+
+    public class MyDdlModel
+    {
+        public int MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
+
+    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+}
+````
 ````ComboBox
-
 @selectedValue
 
 <br />
@@ -69,8 +132,6 @@ The example below uses the DropDownList component, and the same approach is appl
 
         if (item != null)
         {
-            selectedItem = new MyDdlModel();
-
             selectedItem = item;
         }
         else
@@ -81,7 +142,7 @@ The example below uses the DropDownList component, and the same approach is appl
 
     public class MyDdlModel
     {
-        public int MyValueField { get; set; } 
+        public int MyValueField { get; set; }
         public string MyTextField { get; set; }
     }
 
@@ -92,13 +153,13 @@ The example below uses the DropDownList component, and the same approach is appl
 }
 ````
 ````AutoComplete
-
 @TheValue
 <br />
 <TelerikAutoComplete Data="@Suggestions"
                      ValueField="@( nameof(SuggestionsModel.Suggestion) )"
                      @bind-Value="@TheValue"
-                     OnChange="@OnChangedHandler" />
+                     OnChange="@OnChangedHandler">
+</TelerikAutoComplete>
 
 @if (selectedItem != null)
 {
@@ -118,20 +179,11 @@ The example below uses the DropDownList component, and the same approach is appl
     void OnChangedHandler(object input)
     {
         // Extract the data model from the data collection
-        SuggestionsModel item = Suggestions.FirstOrDefault(x => x.Suggestion == (string)input);
+        SuggestionsModel matchingItem = Suggestions.FirstOrDefault(x => x.Suggestion == (string)input);
 
-        if (item != null)
-        {
-            selectedItem = new SuggestionsModel();
-
-            TheValue = (string)input;
-            selectedItem = item;
-        }
-        else
-        {
-            TheValue = "no item selected";
-            selectedItem = null;
-        }
+        selectedItem = matchingItem;
+        // Note: The matchingItem might be null because the AutoComplete is a free text input 
+        // and the user may write something of their own that is not in the data source
     }
 
     List<SuggestionsModel> Suggestions { get; set; } = new List<SuggestionsModel>
@@ -143,13 +195,23 @@ The example below uses the DropDownList component, and the same approach is appl
 
     public class SuggestionsModel
     {
-        public string Suggestion { get; set; }//the auto complete needs only the string field
+        public string Suggestion { get; set; }
         public Guid UniqueIdentifier { get; set; } = Guid.NewGuid();
     }
 }
 ````
 
-````Custom DropDownList
+>tip You can apply the same approach in the `ValueChanged` or in the `OnChange` events. If you use `ValueChanged`, make sure to also update the view-model with the new `Value` because the framework does not allow two-way binding then. The differences between the two events are when they fire, and that `OnChange` is more suitable for `async` operations if you need any.
+
+### Custom Dropdown Component
+
+You can emulate the appearance and behavior of Telerik components with your own code in order to expose only a selected item.
+
+The example below copies the Telerik DropDownList rendering and uses a grid to provide an entire item selection. You can take this further by making it generic and exposing parameters for data and value fields as needed, instead of hardcoding data and field names like in this sample.
+
+>caption Custom component that disguises a Grid as a dropdown so you can use its built-in item selection features
+
+````CSHTML
 @*This example shows how to create a custom dropdown list using the Grid to handle the selection and return the entire model *@
 
 @if (SelectedEmployee != null)
@@ -256,61 +318,3 @@ The example below uses the DropDownList component, and the same approach is appl
     }
 }
 ````
-````DropDownList
-@result
-<br />
-
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField"
-                     Value="@DdlValue" ValueChanged="@( (int v) => ValueChangedHandler(v) )" DefaultText="Select something">
-</TelerikDropDownList>
-
-<br />
-
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField"
-                     @bind-Value="@DdlValue" DefaultText="Select something">
-</TelerikDropDownList>
-
-<TelerikButton OnClick="@GetSelectedItem">Get Selected Item</TelerikButton>
-
-@code {
-    string result;
-    int DdlValue { get; set; } = 5;
-    
-    void GetSelectedItem()
-    {
-        GetItemFromModelData();
-    }
-
-    void ValueChangedHandler(int v)
-    {
-        DdlValue = v;
-
-        GetItemFromModelData();
-    }
-
-    void GetItemFromModelData()
-    {
-        // extract the data item from the data source by using the value
-        MyDdlModel selectedItem = myDdlData.Where(d => d.MyValueField == DdlValue).FirstOrDefault();
-        if (selectedItem != null) // e.g., custom text in a combo, or no match for an autocomplete
-        {
-            result = selectedItem.MyTextField;
-        }
-        else
-        {
-            result = "no item selected";
-        }
-
-        StateHasChanged();
-    }
-
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-}
-````
-
