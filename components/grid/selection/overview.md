@@ -20,6 +20,7 @@ In this article:
 	* [Editing Modes](#editing-modes)
 	* [Selection in Template](#selection-in-template)
 	* [Asynchronous Operations](#asynchronous-operations)
+	* [SelectedItems Equals Comparison](#selecteditems-equals-comparison)
 	* [Handle Data Changes](#handle-data-changes)
 
 
@@ -124,6 +125,12 @@ If you are using the [Row Template]({%slug components/grid/features/templates%}#
 
 Asynchronous operations such as loading data on demand should be handled in the [`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick) events rather than in the [`SelectedItemsChanged`]({%slug grid-events%}#selecteditemschanged).
 
+### SelectedItems Equals Comparison
+
+The `SelectedItems` collection is compared against the Grid `Data` collection in order to determine which rows will be highlighted. The default behavior of the framework is to compare objects by their reference.
+
+When the `SelectedItems` are obtained from a different data source to the Grid (e.g., from a separate service method and not from the view-model), the references may not match and so there will be no highlighted items. In such cases, you have to override the `Equals` method of the underlying model class so that it matches them, for example, by a unique identifier rather than by reference so that two objects can be equal regardless of their origin, but according to their contents. A similar example is available in the [Initiate Editing or Inserting of an Item]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) example for the Grid State where a similar scenario exists for items deserialized from the state.
+
 ### Handle Data Changes
 
 When the grid `Data` collection changes, the `SelectedItems` collection has the following behavior:
@@ -137,7 +144,7 @@ When the grid `Data` collection changes, the `SelectedItems` collection has the 
     * The other CRUD operations (Create and Update), you should use the grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
     * When the data changes and the selected items are cleared, the `SelectedItemsChanged` event will fire with the empty collection. If you are using two-way binding, the collection will be cleared.
     
-* The `SelectedItems` collection is compared against the Grid Data collection in order to determine which rows will be highlighted. The default behavior of the framework is to compare objects by their reference. When the `SelectedItems` are obtained from a different data source to the Grid, the references may not match and so there will be no highlighted items. In such cases, you have to override the `Equals` method of the underlying model class so that it matches them, for example, by a unique identifier rather than by reference so that two objects can be equal regardless of their origin, but according to their contents.
+
 
 
 
