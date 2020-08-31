@@ -21,13 +21,20 @@ In this article:
 
 ## Standalone Icon Component
 
-We provide a component that you can use to render icons - the `TelerikIcon` component. Its `Icon` parameter takes a Telerik icon from the set we provide out-of-the-box, and you can also configure it to use your own font icons, raster icons or even image sprites.
+Telerik UI for Blazor provides a component that you can use to render icons - the `TelerikIcon` component. It works with the following types of images (examples of their usage follow):
 
-To use a Telerik font icon, you can set the `Icon` property to a member of the `Telerik.Blazor.IconName` static class. The Visual Studio intellisense should provide you with the available options and you can also see them in the [online API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.IconName).
+* **Telerik font icon** - the `Icon` parameter takes a Telerik icon from the set we provide out-of-the-box through the `Telerik.Blazor.IconName` static class.
+    * The Visual Studio intellisense should provide you with the available options and you can also see them in the [online API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.IconName).
 
-You can find the full list of available icons in the [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web) article. The names of the icons match the classes you see in the article, but without the `k-i-` prefix. You can use them as hardcoded strings as well. Their corresponding class members are in `CamelCase`.
+    * You can find the full list of available icons in the [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web) article. The names of the icons match the classes you see in the article, but without the `k-i-` prefix. You can use them as hardcoded strings as well. Their corresponding class members are in `CamelCase`.
 
->caption Render a standalone font icon through the TelerikIcon component
+* **Third party font-icon** - the `IconClass` parameter lets you set a CSS class that provides the required font name, font size and content for the `::before` pseudoelement.
+
+* **Raster image** - the `ImageUrl` is a string points to the image - it can be a path relative to the `wwwroot` folder, or an absolute URL.
+
+* **Raster image sprite** - the `SpriteClass` parameter lets you provide the classes from your site's stylesheet that produce the desired appearance and background positions for your sprites.
+
+>caption Render a standalone icon through the TelerikIcon component
 
 ````CSHTML
 <TelerikIcon Icon="@IconName.Audio" /> @* will render the audio note icon *@
@@ -47,10 +54,10 @@ You can find the full list of available icons in the [Kendo UI Web Font Icons Li
 
 The priority order of the Icon properties, if more than one is defined, is
 
-1. ImageUrl
-2. Icon
-3. IconClass
-4. SpriteClass
+1. `ImageUrl`
+2. `Icon`
+3. `IconClass`
+4. `SpriteClass`
 
 This order applies to other components that expose the same parameters, such as the TelerikButton or the grid command buttons.
 
