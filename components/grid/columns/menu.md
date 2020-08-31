@@ -73,9 +73,13 @@ The Column Menu provides the following features:
 
 * To allow sorting and filtering from the Column Menu you have to enable those functions to the Grid - set the FilterMode to `FilterMenu` (see the [Notes](#notes) section for more information) and `Sortable` to `true`.
 
-* To allow locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the adjacent column to `true`.
+* To allow locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the column to `true`.
 
 * To hide a column from the Grid use the [Column Chooser](#column-chooser).
+
+* To disable the Column Menu for a specific column in the Grid set the `ShowColumnMenu` parameter of the column to `false`.
+
+* To disable filtering and sorting for a specific column set the `Filterable` and `Sortable` parameters of the column to `false`.
 
 
 ### Column Chooser
@@ -86,197 +90,13 @@ The Column Chooser is enabled by default in the Column Menu and allows you to to
 
 ## Notes
 
-Non-visible columns (`Visible="false"`) will have the following behavior:
-
-* Will not be [editable]({%slug components/grid/editing/overview%}).
-* Will not be exported in [excel export]({%slug grid-export-excel%}).
-* Will not be visible when the data is [grouped]({%slug components/grid/features/grouping%}).
-* [Templates]({%slug components/grid/features/templates%}) will not be rendered.
-    * When using [Row Template]({%slug grid-templates-row%}) the visiblity of the column should be implemented by the application in the row template itself - the grid can only toggle the visibility of the header.
-* You can control the visibility of the column through the [Grid State]({%slug grid-state%}).
+* If the `FilterMode` of the Grid is set to `None`, but a column is `Filterable`, the "Filter" section of the column menu will still be displayed. 
+* An exception will be thrown if the `FilterMode.FilterRow` is used with a column menu as the filter descriptors of the two features are not compatible.
 
 
 ## Examples
 
-In this section you will find the following examples:
 
-* [Toggle The Visibility Of A Column On Button Click](#toggle-the-visibility-of-a-column-on-button-click)
-* [Hidden Grid Column With Template](#hidden-grid-column-with-template)
-* [Hide A Grid Column Based On A Condition](#hide-a-grid-column-based-on-a-condition)
-
-### Toggle The Visibility Of A Column On Button
-
-The application can later the value of the `Visible` parameter and that will toggle the column.
-
-````CSHTML
-@* Toggling the visibily of a column keeps its original order in the Grid. *@
-
-<div>
-    <TelerikButton OnClick="@(() => isVisible = !isVisible)">Toggle the visibility of the Hire Date column</TelerikButton>
-</div>
-
-<br />
-
-<TelerikGrid Data=@MyData
-             Pageable="true"
-             PageSize="5"
-             Width="700px">
-    <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" Visible="@isVisible" />
-        <GridColumn Field=@nameof(SampleData.Salary) Title="Salary" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public bool isVisible { get; set; } = true;
-
-    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-        public int Salary { get; set; }
-    }
-
-    public List<SampleData> MyData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        MyData = new List<SampleData>();
-
-        for (int i = 0; i < 50; i++)
-        {
-            MyData.Add(new SampleData()
-            {
-                ID = i,
-                Name = "Name " + i.ToString(),
-                Salary = (i + 1) * 100,
-                HireDate = DateTime.Today.AddDays(-i)
-            });
-        }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![toggle the visibility of a column gif](images/visible-parameter-toggle-column-visibility-example.gif)
-
-### Hidden Grid Column With Template
-
-When cell-specific templates are used, they are not rendered at all. If you are using the RowTemplate, however, make sure to handle the column visiblity there as well.
-
-````CSHTML
-@* The Template for the Salary column will not be rendered *@
-
-<TelerikGrid Data=@MyData
-             Pageable="true"
-             PageSize="5"
-             Width="700px">
-    <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire date" />
-        <GridColumn Field=@nameof(SampleData.Salary) Title="Salary" Visible="false">
-            <Template>
-                @{ 
-                    var item = context as SampleData;
-                    @item.Salary.ToString("C2");
-                }
-            </Template>
-        </GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-        public int Salary { get; set; }
-    }
-
-    public List<SampleData> MyData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        MyData = new List<SampleData>();
-
-        for (int i = 0; i < 50; i++)
-        {
-            MyData.Add(new SampleData()
-            {
-                ID = i,
-                Name = "Name " + i.ToString(),
-                Salary = (i + 1) * 100,
-                HireDate = DateTime.Today.AddDays(-i)
-            });
-        }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![visible parameter column with template screenshot](images/visible-parameter-column-with-template-example.png)
-
-### Hide A Grid Column Based On A Condition
-
-This example shows hiding a column based on a simple condition in its data. You can change it to use other view-model data - such as screen dimensions, user preferences you have stored, or any other logic.
-
-````CSHTML
-@* The Name column is hidden, because the data for the grid contains "Name 2" *@
-
-<TelerikGrid Data=@MyData
-             Pageable="true"
-             PageSize="5"
-             Width="700px">
-    <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" Visible="@((MyData.Any(x => x.Name.Contains("Name 2"))) ? false : true)" />
-        <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire date" />
-        <GridColumn Field=@nameof(SampleData.Salary) Title="Salary" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-        public int Salary { get; set; }
-    }
-
-    public List<SampleData> MyData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        MyData = new List<SampleData>();
-
-        for (int i = 0; i < 50; i++)
-        {
-            MyData.Add(new SampleData()
-            {
-                ID = i,
-                Name = "Name " + i.ToString(),
-                Salary = (i + 1) * 100,
-                HireDate = DateTime.Today.AddDays(-i)
-            });
-        }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![visible parameter based on condition screenshot](images/visible-parameter-based-on-condition-example.png)
 
 ## See Also
 
