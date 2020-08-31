@@ -123,9 +123,11 @@ If the width and height dimensions are insufficient to accommodate the defined r
 
 There are two other settings you should take into account if you set explicit dimensions to the main element - the `ColumnSpacing` and `RowSpacing` - they are CSS units that define the gaps between the individual columns and rows and count towards the total dimensions of the component. They default to `16px`.
 
+Lastly, you can also set the `Class` parameter that renders at the main wrapping element of the tile layout so you can cascade custom CSS rules through it.
+
 ### Individual Tiles
 
-Each tile provides settings that define how many columns and rows its takes up - the `ColSpan` and `RowSpan` parameters. 
+Each tile provides settings that define how many columns and rows its takes up - the `ColSpan` and `RowSpan` parameters. It also provides a `Class` parameter so you can cascade CSS rules through it.
 
 @[template](/_contentTemplates/tilelayout/basics.md#resizing-reordering-logic)
 
