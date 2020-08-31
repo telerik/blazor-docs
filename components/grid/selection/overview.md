@@ -136,6 +136,8 @@ When the grid `Data` collection changes, the `SelectedItems` collection has the 
 
     * The other CRUD operations (Create and Update), you should use the grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
     * When the data changes and the selected items are cleared, the `SelectedItemsChanged` event will fire with the empty collection. If you are using two-way binding, the collection will be cleared.
+    
+* The Selected items collection is compared against the Grid's data source in order to determine which rows to be highlighted. The default behavior of the framework is to compare them by their default reference. When the Selected items are from a different data source to the Grid the default references will not match. You have to override the `Equals` method of the underlying class so that it matches them by a unique identifier rather than by reference.
 
 
 
