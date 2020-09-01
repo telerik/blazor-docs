@@ -304,7 +304,7 @@ In this section you will find the following examples:
 * [Hidden TreeList Column With Template](#hidden-treelist-column-with-template)
 * [Hide A TreeList Column Based On A Condition](#hide-a-treelist-column-based-on-a-condition)
 
-### Toggle The Visibility Of A Column On Button
+### Toggle The Visibility Of A Column On Button Click
 
 The application can later the value of the `Visible` parameter and that will toggle the column.
 
