@@ -47,7 +47,7 @@ The Telerik Date Input supports the standard format strings and specifiers that 
 
 We recommend avoiding two-digit year formats (something like `yy`) in favor of four-digit formats (like `yyyy`). Two-digit years produce the following issues:
 
-* for the end user - it is unclear for the user whether the year will be 1960, 1960, 2060 or in some other century
+* for the end user - it is unclear for the user whether the year will be 1960, 1860, 2060 or in some other century
 * for the component - it is unclear for the code of the component which the date should be from the above list - determining that is a heuristic task while our components must provide consistent experience - the same input should result in the same output
 
 This also makes it unclear how would validation work in such a case because the actual value for the year is undefined - for example, should a range starting from the year 2000 accept the "01" input since we don't know if it is the year 2001 or the year 0001.
