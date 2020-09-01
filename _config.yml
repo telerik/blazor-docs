@@ -288,6 +288,8 @@ navigation:
         title: "TabStrip"
      "*textbox":
         title: "TextBox"
+     "*tilelayout":
+        title: "TileLayout"
      "*timepicker":
         title: "TimePicker"
      "*tooltip":
@@ -395,6 +397,7 @@ intro_columns:
       "Animation Container": "components/animationcontainer/overview"
       "Tooltip": "tooltip-overview"
       "Drawer": "drawer-overview"
+      "Tile Layout": "tilelayout-overview"
   -
     title: "Scheduling"
     items:

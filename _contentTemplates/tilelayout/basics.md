@@ -1,0 +1,5 @@
+#resizing-reordering-logic
+
+Resizing and reordering tiles makes them snap to the dimensions of the rows and columns of the main element, and their size determines how they render - they are rendered in the first available slot that accommodates their current size, and then the next tile is rendered in the next available slot. This means that large tiles can leave small gaps that will not be filled in by tiles that do not come immediately after them, even if they are sufficiently small to fit in those gaps, and that dragging a large tile into a slot where there is no room might not be possible. Whether a tile will move before another tile is determined by the mouse cursor position relative to the static tile, not by the overall dimensions and position of the dragged tile - if the mouse cursor is to the left of the vertical middle, the dragged tile will go before the static tile and if the mouse cursor is on the right of the vertical middle, the dragged tile will go after the static tile.
+
+#end
