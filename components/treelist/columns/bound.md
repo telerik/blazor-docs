@@ -138,6 +138,9 @@ You can use the following properties on the bound columns:
 
 * `Width` -  (defaults to `null`) - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article. Keep in mind that these are columns in a `<table>`, so it is often a good practice to leave one column without explicit dimensions so it can accommodate the remaining width and changes to the container size.
 
+* `Visible` - (defaults to `null`) - if this parameter is set to `false` it [hides]({%slug grid-columns-visible%}) the column from the TreeList.
+    * Accepts both `bool` and `bool?` types.
+
 * `Template` - this property can also be used as an inner tag and it defines the [custom cell content]({%slug treelist-templates-column%}) that renders instead of the default field value the treelist puts in it.
 
 * `HeaderTemplate` - this property can also be used as an inner tag and defines the custom contents of the [header cell]({%slug treelist-templates-column-header%}) that you can render instead of the Title.
