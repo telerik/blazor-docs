@@ -38,7 +38,7 @@ To use resources:
     * Set its `Field` parameter to a string that will point to the name of the field in the appointment that associated appointments with the resource type.
     * The `Title` parameter defines the text shown for its dropdown in the [edit form]({%slug scheduler-appointments-edit%}).
 1. Provide a collection of resource entries for each type of resource you will use to the `Data` parameter of the resource.
-    * The `ColorField`, `ValueField` and `TextField` let you specify fields in the resource model that contain the data. These fields must all be of type `string`. The default values are `Value`, `Text`, `Color` respectively.
+    * The `ColorField`, `ValueField` and `TextField` let you specify field names in the resource model that contain the data. These fields must all be of type `string`. The default values are `Value`, `Text`, `Color` respectively.
 1. Define appointments [as usual]({%slug scheduler-appointments-databinding%}). Add a `string` field to them for each resources type they will require. The name of this field must match the value of the `Field` parameter of the resource declaration.
     * If you are using multiple resource types, you will need a field for each resource.
 1. Populate the appointment field that matches the resource name with the corresponding `Value` of the resource that you want associated with it.
@@ -48,6 +48,8 @@ To use resources:
 ## Examples
 
 The two examples below showcase [single resource](#one-resource) and [multiple resources](#multiple-resource) respectively. For brevity, they use hardcoded data, but you can populate the corresponding collections dynamically from your actual data service, and you can also use `async` methods to do so (our [live demo](https://demos.telerik.com/blazor-ui/scheduler/resources) shows an example of that).
+
+>tip The examples below hardcode the resource collections for brevity. In a real case you might be fetching them from asynchronous API. If so, initialize the resource collections to avoid null references while the scheduler is initializing, something like `List<SchedulerResource> Managers { get; set; } = new List<SchedulerResource>();`.
 
 ### One Resource
 
