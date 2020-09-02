@@ -20,6 +20,7 @@ This article contains the following sections:
 	* [Main Element](#main-element)
 	* [Individual Tiles](#individual-tiles)
 * [Tile Contents](#tile-contents)
+    * [Content Scrollbars](#content-scrollbars)
 
 ## First Steps
 
@@ -169,6 +170,51 @@ To set the tile contents, you have the following options:
 >caption The result from the code snippet above
 
 ![tile content settings](images/tilelayout-tile-content.png)
+
+
+### Content Scrollbars
+
+The Tile Layout component targets modern web development and thus - responsive dimensions for the content. Therefore, we expect that most content will have `width: 100%; height: 100%;` so that it can stretch according to the size of the tile that the end user chooses.
+
+If you want to change that (for example, because you have certain content that requires dimensions set in `px`), you can use the `Class` of the individual tile and choose the required setting for the `overflow` CSS rule of the `.k-card-body` element in that particular tile.
+
+>caption Content scrollbars and overflow behavior in the Tile Layout
+
+````CSHTML
+<TelerikTileLayout ColumnWidth="300px"
+                   RowHeight="150px"
+                   Columns="3"
+                   Resizable="true"
+                   Reorderable="true">
+    <TileLayoutItems>
+        <TileLayoutItem HeaderText="Responsive Content">
+            <Content>
+                <div style="width: 100%; height: 100%; background: cyan;">Resize this tile - my size fits it</div>
+            </Content>
+        </TileLayoutItem>
+        <TileLayoutItem HeaderText="Static Content">
+            <Content>
+                <div style="width: 300px; height: 300px; background: yellow;">I will be cut off by default</div>
+            </Content>
+        </TileLayoutItem>
+        <TileLayoutItem HeaderText="Custom Scrollbars" Class="tile-with-overflow">
+            <Content>
+                <div style="width: 300px; height: 300px; background: yellow;">I am contained in the tile and produce scrollbars</div>
+            </Content>
+        </TileLayoutItem>
+    </TileLayoutItems>
+</TelerikTileLayout>
+
+<style>
+    .tile-with-overflow .k-card-body {
+        overflow: scroll; /* choose a value that fits your needs */
+    }
+</style>
+````
+
+>caption The result from the code snippet above
+
+![Content scrollbar behavior and customization](images/tile-content-scrollbars.png)
 
 ## See Also
 
