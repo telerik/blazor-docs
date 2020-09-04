@@ -208,7 +208,7 @@ A key difference in the behavior from the [filter row](#filter-row) is that the 
 
 You can add a search box in the treelist toolbar that lets the user type their query and the treelist will look up all visible string columns with a case-insensitive `Contains` operator, and filter them accordingly. You can change the filter delay, and the fields the treelist will use - see the [Customize the SearchBox](#customize-the-searchbox) section below.
 
-The Search Box is, effectively, a filter on the treelist. This means that it applies filter operators to the columns and if you combine it with other filtering modes, the text from the search box will appear on those filter inputs. When you type in the searchbox, all previous filters will be cleared.
+The search box is independent from the standard filters. If you have filters applied, the searchbox will amend and respect them. Thus, you can also apply filtering to results returned from the search box.
 
 To enable the search box, add the `<TreeListSearchBox>` tag in the `<TreeListToolBar>`.
 
