@@ -95,24 +95,33 @@ Since the purpose of the footer template is to display aggregates, you need to b
     **Razor**
 
         @using Telerik.DataSource.Extensions
+        @using Telerik.DataSource
+    
+        The current data aggregates will differ from the aggregates on all the data
     
         <TelerikGrid Data=@GridData TotalCount=@Total OnRead=@ReadItems Pageable="true">
-            <GridAggregates>
-                <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Max" />
-                <GridAggregate Field=@nameof(Employee.ID) Aggregate="@GridAggregateType.Count" />
-            </GridAggregates>
             <GridColumns>
                 <GridColumn Field=@nameof(Employee.ID)>
                     <FooterTemplate>
                         Total employees: @totalEmployees
+                        <hr />
+                        Total employees (from current data): @context.Count
+                    </FooterTemplate>
+                </GridColumn>
+                <GridColumn Field="@nameof(Employee.Salary)">
+                    <FooterTemplate>
+                        Top salary: @highestSalary
+                        <hr />
+                        Top salary (from current data): @context.Max
                     </FooterTemplate>
                 </GridColumn>
                 <GridColumn Field=@nameof(Employee.Name) Title="Name">
-                    <FooterTemplate>
-                        Top salary: @highestSalary
-                    </FooterTemplate>
                 </GridColumn>
             </GridColumns>
+            <GridAggregates>
+                <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Max" />
+                <GridAggregate Field=@nameof(Employee.ID) Aggregate="@GridAggregateType.Count" />
+            </GridAggregates>
         </TelerikGrid>
     
         @code {
@@ -120,7 +129,7 @@ Since the purpose of the footer template is to display aggregates, you need to b
             public List<Employee> GridData { get; set; }
             public int Total { get; set; } = 0;
     
-            //
+            // values for the "real" aggregations
             int totalEmployees { get; set; }
             decimal highestSalary { get; set; }
     
@@ -138,17 +147,41 @@ Since the purpose of the footer template is to display aggregates, you need to b
     
                 // use Telerik Extension methods to aggregate the entire data source per the aggregates defined in the grid
                 // in a real case, this code should be in a controller that can query the database directly. We cast here for simplicity
-                IQueryable allDataAsQueriable = SourceData as IQueryable;
+                IQueryable allDataAsQueriable = SourceData.AsQueryable();
+    
                 // get the aggregate functions from the grid data source request
-                var gridAggregates = args.Request.Aggregates.SelectMany(a => a.Aggregates);
+                IEnumerable<AggregateFunction> gridAggregates = Enumerable.Empty<AggregateFunction>();
+                if (args.Request.Aggregates.Count == 0)
+                {
+                    // aggregate descriptors - the ones from the markup will not be present in the first call to OnRead
+                    // because the framework initializes child components too late and the GridAggregates component is not available yet
+                    gridAggregates = new List<AggregateFunction>()
+                    {
+                        new MaxFunction()
+                        {
+                            SourceField = nameof(Employee.Salary)
+                        },
+                        new CountFunction()
+                        {
+                            SourceField = nameof(Employee.ID)
+                        }
+                    };
+                }
+                else
+                {
+                    gridAggregates = args.Request.Aggregates.SelectMany(a => a.Aggregates);
+                }
+    
                 // use the Telerik Aggregate() extension method to perform aggregation on the IQueryable collection
-                var aggregatedResults = allDataAsQueriable.Aggregate(gridAggregates);
+                AggregateResultCollection aggregatedResults = allDataAsQueriable.Aggregate(gridAggregates);
     
                 // extract the aggregate data like you would within the footer template - by the function and field name
                 // and put it in the view-model. In a real case that would be extra data returned in the response
-                totalEmployees = (int)aggregatedResults.FirstOrDefault(r => r.AggregateMethodName == "Count" && r.Member == nameof(Employee.ID))?.Value;
+                totalEmployees = (int)aggregatedResults.FirstOrDefault(
+                    r => r.AggregateMethodName == "Count" && r.Member == nameof(Employee.ID))?.Value;
     
-                highestSalary = (decimal)aggregatedResults.FirstOrDefault(r => r.AggregateMethodName == "Max" && r.Member == nameof(Employee.Salary))?.Value;
+                highestSalary = (decimal)aggregatedResults.FirstOrDefault(
+                    r => r.AggregateMethodName == "Max" && r.Member == nameof(Employee.Salary))?.Value;
     
     
                 // for the grid data update itself
@@ -179,7 +212,6 @@ Since the purpose of the footer template is to display aggregates, you need to b
                 public decimal Salary { get; set; }
             }
         }
-
 
 * Footer Templates are not available for the `GridCheckboxColumn` and the `GridCommandColumn`.
 
