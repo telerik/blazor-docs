@@ -15,7 +15,7 @@ The Grid component offers support for sorting.
 In this article:
 
 * [Basics](#basics)
-    * [Multi-Column Sorting](#multi-column-sorting)
+    * [Multi Column Sorting](#multi-column-sorting)
 * [Sort From Code](#sort-from-code)
 * [More Examples](#more-examples)
 
