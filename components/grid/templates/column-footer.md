@@ -18,112 +18,73 @@ You can use [aggregates]({%slug grid-aggregates%}) for the current field directl
 >caption Footer Template with grand total data
 
 ````CSHTML
-@* Header templates override the built-in title but leave sorting indicators and filter menu icons *@
+@* grand total footer that is always visible *@
 
-<TelerikGrid Data="@MyData" Height="300px" Pageable="true" Sortable="true" FilterMode="@GridFilterMode.FilterMenu">
+<TelerikGrid Data=@GridData Pageable="true" Height="300px">
+    <GridAggregates>
+        <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Max" />
+        <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Sum" />
+        <GridAggregate Field=@nameof(Employee.EmployeeId) Aggregate="@GridAggregateType.Count" />
+    </GridAggregates>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.ID))" Title="This title will not be rendered">
-            <HeaderTemplate>
-                <div style="text-align:center">Id</div>
-                @* this is a block element and it will push the sorting indicator, see the notes below *@
-            </HeaderTemplate>
-        </GridColumn>
-        <GridColumn Field="@(nameof(SampleData.Name))">
-            <HeaderTemplate>
-                Employee<br /><strong>Name</strong>
-            </HeaderTemplate>
-        </GridColumn>
-        <GridColumn Field="HireDate" Width="350px">
-            <HeaderTemplate>
-                Hire date<br />
-                <TelerikButton OnClick="@DoSomething">Do something</TelerikButton>
+        <GridColumn Field=@nameof(Employee.Salary) Title="Salary">
+            <FooterTemplate>
+                Total salaries: @context.Sum.Value.ToString("C0")
                 <br />
-                @{
-                    if (!string.IsNullOrEmpty(result))
-                    {
-                        <span style="color:red;">@result</span>
-                    }
-                    else
-                    {
-                        <div>something will appear here if you click the button</div>
-                    }
-                }
-            </HeaderTemplate>
+                Highest salary: @context.Max.Value.ToString("C0")
+            </FooterTemplate>
         </GridColumn>
-        <GridColumn>
-            <HeaderTemplate>
-                <span class="k-display-flex k-align-items-center">
-                    <TelerikIcon Icon="@IconName.Image" />
-                    Column with Icon
-                </span>
-            </HeaderTemplate>
+        <GridColumn Field=@nameof(Employee.Name)>
+            <FooterTemplate>
+                @{
+                    // you can use aggregates for other fields/columns by extracting the desired one by its
+                    // field name and aggregate function from the AggregateResults collection
+                    // The type of its Value is determined by the type of its field - decimal for the Salary field here
+                    int headCount = (int)context.AggregateResults
+                        .FirstOrDefault(r => r.AggregateMethodName == "Count" && r.Member == nameof(Employee.EmployeeId))?.Value;
+                }
+                Total employees: @headCount
+            </FooterTemplate>
         </GridColumn>
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    string result { get; set; }
-    void DoSomething()
+    public List<Employee> GridData { get; set; }
+
+    protected override void OnInitialized()
     {
-        result = $"button in header template clicked on {DateTime.Now}, something happened";
+        GridData = new List<Employee>();
+        var rand = new Random();
+        for (int i = 0; i < 15; i++)
+        {
+            Random rnd = new Random();
+            GridData.Add(new Employee()
+            {
+                EmployeeId = i,
+                Name = "Employee " + i.ToString(),
+                Salary = rnd.Next(1000, 5000),
+            });
+        }
     }
 
-    public class SampleData
+    public class Employee
     {
-        public int ID { get; set; }
+        public int EmployeeId { get; set; }
         public string Name { get; set; }
-        public DateTime HireDate { get; set; }
+        public decimal Salary { get; set; }
     }
-
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-    {
-        ID = x,
-        Name = "name " + x,
-        HireDate = DateTime.Now.AddDays(-x)
-    });
 }
 ````
 
 >caption The result from the code snippet above
 
-![](images/header-template.png)
+![](images/footer-template.png)
 
->note Header Templates are not available for the `GridCheckboxColumn` and the `GridCommandColumn`.
+>note Footer Templates are not available for the `GridCheckboxColumn` and the `GridCommandColumn`.
 
->note If you need to use block elements in the header templates, keep in mind that they will push the sort indicator out of its expected position. If you cannot avoid block elements (such as in the `ID` column in the example above), add a CSS rule like the ones below to adjust the sort indicator.
-
->caption Sort indicator adjustments when block elements are in the header template
-
-````CSS
-.k-grid th.k-header .k-icon.k-i-sort-asc-sm,
-.k-grid th.k-header .k-icon.k-i-sort-desc-sm {
-    position: absolute;
-    right: 0;
-    top: 8px;
-}
-
-/* OR */
-
-.k-grid-header .k-header > .k-link {
-    padding-right: 1.5em;
-}
-
-    .k-grid-header .k-header > .k-link > .k-icon {
-        position: absolute;
-        top: 50%;
-        right: 0.5em;
-        transform: translateY(-50%);
-        margin-left: 0;
-    }
-
-.k-grid-header .k-sort-order {
-    position: absolute;
-    right: 0.25em;
-}
-````
 
 ## See Also
 
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
- * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/customeditor)
 
