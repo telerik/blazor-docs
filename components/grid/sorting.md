@@ -15,6 +15,7 @@ The Grid component offers support for sorting.
 In this article:
 
 * [Basics](#basics)
+    * [Multi-Column Sorting](#multi-column-sorting)
 * [Sort From Code](#sort-from-code)
 * [More Examples](#more-examples)
 
@@ -49,6 +50,55 @@ Click a column header to sort by its data
 ![](images/basic-sorting.png)
 
 You can sort this grid on the different columns to see the results. The `Name` column is a string, and sorting is done according to the rules for strings, while the `ID` column sorts acording to rules for integers.
+
+
+### Multi Column Sorting
+
+To allow sorting on more than one column at a time, set the `SortMode` parameter of the grid to `Telerik.Blazor.SortMode.Multiple`.
+
+>caption Enable multi column sorting
+
+````CSHTML
+@* Try sorting by Team, then by Name to see how the multiple sorts apply *@
+
+<TelerikGrid Data=@GridData Sortable="true" SortMode="@SortMode.Multiple"
+            Pageable="true" Height="400px">
+    <GridColumns>
+        <GridColumn Field=@nameof(Employee.Name) Groupable="false" />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+        <GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    public List<Employee> GridData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<Employee>();
+        var rand = new Random();
+        for (int i = 0; i < 15; i++)
+        {
+            GridData.Add(new Employee()
+            {
+                EmployeeId = i,
+                Name = "Employee " + i.ToString(),
+                Team = "Team " + i % 3,
+                IsOnLeave = i % 2 == 0
+            });
+        }
+    }
+
+    public class Employee
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public bool IsOnLeave { get; set; }
+    }
+}
+````
+
 
 ## Sort From Code
 
