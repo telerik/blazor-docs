@@ -98,7 +98,6 @@ These predefined options match the main [Telerik Theme]({%slug general-informati
     foreach (var f in fields)
     {
         string color = f.GetValue(null).ToString();
-        Console.WriteLine(color);
         <div style="float: left; margin: 20px;">
             @color
             <br /><br />
