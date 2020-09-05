@@ -111,6 +111,8 @@ The `ThemeColor` parameter renders as the `k-loader-<ThemeColor>` CSS class on t
 
 >caption Custom loader color without customizing the Telerik Theme
 
+![Custom loader color](images/loader-custom-color.png)
+
 ````CSHTML
 <style>
     .k-loader-custom-color .k-loader-segment::after {
