@@ -16,6 +16,8 @@ The loader component provides the following parameters that control its appearan
 * [Size](#size)
 * [ThemeColor](#themecolor)
 
+You can use all three together to get the desired appearance. This article will explain their effect one by one.
+
 ## Type
 
 The `Type` parameter controls the general shape of the animation. It takes a member of the `Telerik.Blazor.Components.LoaderType` enum:
@@ -26,6 +28,21 @@ The `Type` parameter controls the general shape of the animation. It takes a mem
 
 You can see them in action in the [Loader Overview](https://demos.telerik.com/blazor-ui/loader/overview) Live Demo.
 
+>caption Loader Types
+
+![loader types](images/loader-types.gif)
+
+````CSHTML
+@foreach (LoaderType type in Enum.GetValues(typeof(Telerik.Blazor.Components.LoaderType)))
+{
+    <div style="float: left; margin: 20px;">
+        @type
+        <br /><br />
+        <TelerikLoader Type="@type"></TelerikLoader>
+    </div>
+}
+````
+
 ## Size
 
 There are three predefined sizes for the loader that you can set through its `Size` parameter that takes a member of the `Telerik.Blazor.Components.LoaderSize` enum:
@@ -35,6 +52,21 @@ There are three predefined sizes for the loader that you can set through its `Si
 * `Large`
 
 You can see them in action in the [Loader Overview](https://demos.telerik.com/blazor-ui/loader/overview) Live Demo.
+
+>caption Loader Size
+
+![loader size](images/loader-size.png)
+
+````CSHTML
+@foreach (LoaderSize size in Enum.GetValues(typeof(Telerik.Blazor.Components.LoaderSize)))
+{
+    <div style="float: left; margin: 20px;">
+        @size
+        <br /><br />
+        <TelerikLoader Size="@size"></TelerikLoader>
+    </div>
+}
+````
 
 ## ThemeColor
 
@@ -52,6 +84,29 @@ The color of the animated loading icon is controlled through the `ThemeColor` pa
 * `Inverse`
 
 These predefined options match the main [Telerik Theme]({%slug general-information/themes%}) and you can see that in action in the [Appearance](https://demos.telerik.com/blazor-ui/loader/appearance) Live Demo.
+
+>caption Built-in Theme Colors
+
+![Loader Theme Colors](images/loader-built-in-theme-colors.png)
+
+````CSHTML
+@{
+    var fields = typeof(Telerik.Blazor.ThemeColors)
+                    .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static |
+                       System.Reflection.BindingFlags.FlattenHierarchy)
+                    .Where(fi => fi.IsLiteral && !fi.IsInitOnly).ToList();
+    foreach (var f in fields)
+    {
+        string color = f.GetValue(null).ToString();
+        Console.WriteLine(color);
+        <div style="float: left; margin: 20px;">
+            @color
+            <br /><br />
+            <TelerikLoader ThemeColor="@color"></TelerikLoader>
+        </div>
+    }
+}
+````
 
 The `ThemeColor` parameter renders as the `k-loader-<ThemeColor>` CSS class on the wrapping element and you can set it to a custom value to cascade through and set the color to a setting of your own without customizing the entire theme.
 
