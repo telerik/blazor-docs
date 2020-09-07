@@ -179,7 +179,7 @@ If you need to perform logic more complex than simple data binding, use the chan
             {
                 ID = i,
                 Name = "name " + i,
-                RoleId = i % 5 // every one in four is an unknown one that will not be present in the roles list
+                RoleId = i % 4 // every one in four is an unknown one that will not be present in the roles list
                 // and will have an ID of 0 to match the DefaultText of the dropdownlist
                 // you can perform more complicated checks as necessary in your app and/or in the templates
                 // and/or in the view-model data to present it with suitable values and avoid exceptions
