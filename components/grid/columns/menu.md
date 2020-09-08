@@ -94,10 +94,11 @@ The Column Chooser is enabled by default in the Column Menu and allows you to to
 
 To disable the Column Chooser from the Column Menu set the `ShowColumnChooser` paramter of the `<GridColumnMenuSettings>` to `false`.
 
+To disable the Column Chooser from the Column Menu for a specific column set the `ShowColumnChooser` paramter of the Grid column to false.
+
 ## Notes
 
-* If the `FilterMode` of the Grid is set to `None`, but a column is `Filterable`, the "Filter" section of the column menu will still be displayed. 
-* An exception will be thrown if the `FilterMode.FilterRow` is used with a column menu as the filter descriptors of the two features are not compatible.
+* An exception will be thrown if the `FilterMode` of the Grid is set to `FilterRow` and a column menu is used as the filter descriptors of the two features are not compatible.
 
 
 ## Examples
