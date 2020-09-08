@@ -100,36 +100,36 @@ To disable locking and unlocking of a column from the Column Menu, set the `Lock
 
 ### Column Chooser
 
-The Column Chooser in the Column Menu and allows you to toggle the visiblity of Grid columns from the Column Menu. By the default all columns are visible under the `Columns` section of the Column Menu. 
+The Column Chooser in the Column Menu and allows you to toggle the visiblity of Grid columns from the Column Menu. By the default all columns are visible under the `Columns` section of the Column Menu (click the Columns item to expand it).
 
-To enable the column chooser, set the `ShowColumnChooser` paramter of the `<GridColumnMenuSettings>` to `true`.
+![column chooser screenshot](images/column-menu-chooser-in-action.gif)
 
-![column chooser screenshot](images/column-menu-column-chooser.png)
+To disable the column chooser, set the `ShowColumnChooser` paramter of the `<GridColumnMenuSettings>` to `false`.
 
 To hide a column from the Column Chooser set the `VisibleInColumnChooser` property of the column to `false`.
 
 ### Example of Column Menu Features Settings
 
->caption Use the GridColumnMenuSettings tag to control the common features of the Column Menu
+>caption Use the GridColumnMenuSettings tag to control the common features of the Column Menu, use column parameters to affect its relationship with the column menu
 
 ````CSHTML
-@* Disable the column chooser from the Column Menu and disable the filtering for the Id column. *@
+@* Disable filtering and locking columns, hide a column from the chooser (Team), disable the menu for a column (Name). *@
 
-<TelerikGrid Data="@MyData" 
-             Height="400px"
-             Width="700px"
+<TelerikGrid Data="@MyData"
+             Pageable="true"
+             PageSize="5"
+             FilterMode="@GridFilterMode.FilterMenu"
+             Sortable="true"
              ShowColumnMenu="true">
     <GridSettings>
-        <GridColumnMenuSettings Sortable="true"
-                                Lockable="true"
-                                FilterMode="@ColumnMenuFilterMode.FilterMenu"
-                                ShowColumnChooser="false">
+        <GridColumnMenuSettings Lockable="false"
+                                FilterMode="@ColumnMenuFilterMode.None">
         </GridColumnMenuSettings>
     </GridSettings>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" Filterable="false" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" ShowColumnMenu="false" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" VisibleInColumnChooser="false" />
         <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
     </GridColumns>
 </TelerikGrid>
@@ -155,7 +155,7 @@ To hide a column from the Column Chooser set the `VisibleInColumnChooser` proper
 
 >caption Column menu with filtering, locking and sorting, but without a column chooser
 
-![column menu common settings example](images/column-menu-common-settings-example.png)
+![column menu common settings example](images/column-menu-settings-example.gif)
 
 ## Notes
 
