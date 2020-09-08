@@ -237,266 +237,95 @@ The application can later the value of the `Visible` parameter and that will tog
 When cell-specific templates are used, they are not rendered at all. If you are using the RowTemplate, however, make sure to handle the column visiblity there as well.
 
 ````CSHTML
-@* The Template for the FirstName column will not be rendered *@
+@* The Template for the Name column will not be rendered *@
 
 <TelerikTreeList Data="@Data"
-                 ItemsField="DirectReports"
-                 HasChildrenField="HasReports"
-                 Pageable="true"
-                 Sortable="true"
-                 FilterMode="@TreeListFilterMode.FilterMenu"
-                 Width="850px" Height="400px"
-                 Resizable="true" Reorderable="true">
+                 ItemsField="@(nameof(Employee.DirectReports))"
+                 Pageable="true" Width="850px">
     <TreeListColumns>
-        <TreeListColumn Expandable="true" Field="Position" Width="400px"></TreeListColumn>
-        <TreeListColumn Field="FirstName" Width="200px" Visible="false">
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" Visible="false">
             <Template>
-                @{ 
-                    var item = context as EmployeeHierarchical;
+                @{
+                    Employee employee = context as Employee;
 
-                    @item.FirstName.ToUpperInvariant();
-                 }
+                    @employee.HireDate.ToShortDateString();
+                }
             </Template>
         </TreeListColumn>
-        <TreeListColumn Field="LastName" Width="200px"></TreeListColumn>
-        <TreeListColumn Field="EmployeeId" Width="200px"></TreeListColumn>
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
-    // a model to bind the treelist. Should usually be in its own separate location
-    public class EmployeeHierarchical
+    public List<Employee> Data { get; set; }
+
+    public class Employee
     {
-        public int EmployeeId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Position { get; set; }
-        public List<EmployeeHierarchical> DirectReports { get; set; }
-        public bool HasReports { get; set; }
+        public List<Employee> DirectReports { get; set; }
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
     }
 
-    // treelist data
-    public List<EmployeeHierarchical> Data { get; set; }
+    public int LastId { get; set; } = 1;
 
-    // fetch the treelist data
     protected override async Task OnInitializedAsync()
     {
-        Data = await GetEmployees();
+        Data = await GetTreeListData();
     }
 
-    // The next 200 lines are hardcoded data so you can explore the TreeList freely
-
-    async Task<List<EmployeeHierarchical>> GetEmployees()
+    async Task<List<Employee>> GetTreeListData()
     {
-        List<EmployeeHierarchical> sampleData = new List<EmployeeHierarchical>();
+        List<Employee> data = new List<Employee>();
 
-        EmployeeHierarchical theCEO = new EmployeeHierarchical
+        for (int i = 1; i < 15; i++)
         {
-            EmployeeId = 1,
-            FirstName = "Daryl",
-            LastName = "Sweeney",
-            Position = "CEO",
-            HasReports = true
-        };
+            Employee root = new Employee
+            {
+                Id = LastId,
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i),
+                DirectReports = new List<Employee>()
+            };
+            data.Add(root);
+            LastId++;
 
-        theCEO.DirectReports = new List<EmployeeHierarchical>
-{
-            new EmployeeHierarchical
+            for (int j = 1; j < 4; j++)
             {
-                EmployeeId = 2,
-                FirstName = "Guy",
-                LastName = "Wooten",
-                Position = "Chief Technical Officer",
-                HasReports = true
-            },
-            new EmployeeHierarchical
-            {
-                EmployeeId = 3,
-                FirstName = "Nevada",
-                LastName = "Hart",
-                Position = "Chief Financial Officer",
-                HasReports = true,
-                DirectReports = new List<EmployeeHierarchical>
-        {
-                    new EmployeeHierarchical
+                int currId = LastId;
+                Employee firstLevelChild = new Employee
+                {
+                    Id = currId,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId),
+                    DirectReports = new List<Employee>(),
+                };
+                root.DirectReports.Add(firstLevelChild);
+                LastId++;
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = LastId;
+                    // populate the parent's collection
+                    firstLevelChild.DirectReports.Add(new Employee
                     {
-                        EmployeeId = 24,
-                        FirstName = "Zena",
-                        LastName = "Stanford",
-                        Position = "VP, Finance"
-                    }
+                        Id = LastId,
+                        Name = $"second level child {k} of {j} and {i}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                    LastId++;
                 }
             }
-        };
+        }
 
-        theCEO.DirectReports[0].DirectReports = new List<EmployeeHierarchical>
-{
-            new EmployeeHierarchical
-            {
-                EmployeeId = 4,
-                FirstName = "Buffy",
-                LastName = "Weber",
-                Position = "VP, Engineering",
-                HasReports = true,
-                DirectReports = new List<EmployeeHierarchical>
-        {
-                    new EmployeeHierarchical
-                    {
-                        EmployeeId = 6,
-                        FirstName = "Hyacinth",
-                        LastName = "Hood",
-                        Position = "Team Lead",
-                        HasReports = true,
-                        DirectReports = new List<EmployeeHierarchical>
-                {
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 7,
-                                FirstName = "Akeem",
-                                LastName = "Carr",
-                                Position = "Software Developer, Junior"
-                            },
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 8,
-                                FirstName = "Rinah",
-                                LastName = "Simon",
-                                Position = "Software Developer"
-                            }
-                        }
-                    },
-                    new EmployeeHierarchical
-                    {
-                        EmployeeId = 9,
-                        FirstName = "Gage",
-                        LastName = "Daniels",
-                        Position = "Software Architect"
-                    },
-                    new EmployeeHierarchical
-                    {
-                        EmployeeId = 10,
-                        FirstName = "Constance",
-                        LastName = "Vazquez",
-                        Position = "Director, Engineering",
-                        HasReports = true,
-                        DirectReports = new List<EmployeeHierarchical>
-                {
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 11,
-                                FirstName = "Darrel",
-                                LastName = "Solis",
-                                Position = "Team Lead",
-                                HasReports = true,
-                                DirectReports = new List<EmployeeHierarchical>
-                        {
-                                    new EmployeeHierarchical
-                                    {
-                                        EmployeeId = 12,
-                                        FirstName = "Brian",
-                                        LastName = "Yang",
-                                        Position = "Software Developer, Senior"
-                                    },
-                                    new EmployeeHierarchical
-                                    {
-                                        EmployeeId = 13,
-                                        FirstName = "Lillian",
-                                        LastName = "Bradshaw",
-                                        Position = "Software Developer"
-                                    },
-                                    new EmployeeHierarchical
-                                    {
-                                        EmployeeId = 14,
-                                        FirstName = "Keiko",
-                                        LastName = "Espinoza",
-                                        Position = "QA Engineer, Junior"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            new EmployeeHierarchical
-            {
-                EmployeeId = 5,
-                FirstName = "Skyler",
-                LastName = "Cleveland",
-                Position = "VP, Engineering",
-                HasReports = true,
-                DirectReports = new List<EmployeeHierarchical>
-        {
-                    new EmployeeHierarchical
-                    {
-                        EmployeeId = 16,
-                        FirstName = "Karleigh",
-                        LastName = "Garza",
-                        Position = "Team Lead",
-                        HasReports = true,
-                        DirectReports = new List<EmployeeHierarchical>
-                {
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 17,
-                                FirstName = "Elmo",
-                                LastName = "Tyson",
-                                Position = "Software Developer"
-                            },
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 18,
-                                FirstName = "Stacey",
-                                LastName = "Lynn",
-                                Position = "QA Engineer",
-                                HasReports = true,
-                                DirectReports = new List<EmployeeHierarchical>
-                        {
-                                    new EmployeeHierarchical
-                                    {
-                                        EmployeeId = 19,
-                                        FirstName = "Meredith",
-                                        LastName = "Parish",
-                                        Position = "QA Engineer, Junior"
-                                    }
-                                }
-                            },
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 20,
-                                FirstName = "Martha",
-                                LastName = "Sargent",
-                                Position = "Software Developer, Senior"
-                            },
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 21,
-                                FirstName = "Cassady",
-                                LastName = "Whitley",
-                                Position = "Software Developer"
-                            },
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 22,
-                                FirstName = "Haviva",
-                                LastName = "Campbell",
-                                Position = "Support Officer"
-                            },
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 23,
-                                FirstName = "Cameron",
-                                LastName = "Ayers",
-                                Position = "Support Officer"
-                            }
-                        }
-                    }
-                }
-            }
-        };
-
-        sampleData.Add(theCEO);
-
-        return await Task.FromResult(sampleData);
+        return await Task.FromResult(data);
     }
 }
 ````
@@ -510,258 +339,87 @@ When cell-specific templates are used, they are not rendered at all. If you are 
 This example shows hiding a column based on a simple condition in its data. You can change it to use other view-model data - such as screen dimensions, user preferences you have stored, or any other logic.
 
 ````CSHTML
-@* The EmployeeId column is hidden, because the data for the TreeList contains "1" *@
+@* The Id column is hidden, because the data for the TreeList contains 1 *@
 
 <TelerikTreeList Data="@Data"
-                 ItemsField="DirectReports"
-                 HasChildrenField="HasReports"
-                 Pageable="true"
-                 Sortable="true"
-                 FilterMode="@TreeListFilterMode.FilterMenu"
-                 Width="850px" Height="400px"
-                 Resizable="true" Reorderable="true">
+                 ItemsField="@(nameof(Employee.DirectReports))"
+                 Pageable="true" Width="850px">
     <TreeListColumns>
-        <TreeListColumn Expandable="true" Field="Position" Width="400px"></TreeListColumn>
-        <TreeListColumn Field="FirstName" Width="200px"></TreeListColumn>
-        <TreeListColumn Field="LastName" Width="200px"></TreeListColumn>
-        <TreeListColumn Field="EmployeeId" Width="200px" Visible="@((Data.Any(x => x.EmployeeId == 1)) ? false : true)"></TreeListColumn>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Editable="false" Width="120px" Visible="@((Data.Any(x => x.Id == 1)) ? false : true)" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
-    // a model to bind the treelist. Should usually be in its own separate location
-    public class EmployeeHierarchical
+    public List<Employee> Data { get; set; }
+
+    public class Employee
     {
-        public int EmployeeId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Position { get; set; }
-        public List<EmployeeHierarchical> DirectReports { get; set; }
-        public bool HasReports { get; set; }
+        public List<Employee> DirectReports { get; set; }
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
     }
 
-    // treelist data
-    public List<EmployeeHierarchical> Data { get; set; }
+    public int LastId { get; set; } = 1;
 
-    // fetch the treelist data
     protected override async Task OnInitializedAsync()
     {
-        Data = await GetEmployees();
+        Data = await GetTreeListData();
     }
 
-    // The next 200 lines are hardcoded data so you can explore the TreeList freely
-
-    async Task<List<EmployeeHierarchical>> GetEmployees()
+    async Task<List<Employee>> GetTreeListData()
     {
-        List<EmployeeHierarchical> sampleData = new List<EmployeeHierarchical>();
+        List<Employee> data = new List<Employee>();
 
-        EmployeeHierarchical theCEO = new EmployeeHierarchical
+        for (int i = 1; i < 15; i++)
         {
-            EmployeeId = 1,
-            FirstName = "Daryl",
-            LastName = "Sweeney",
-            Position = "CEO",
-            HasReports = true
-        };
+            Employee root = new Employee
+            {
+                Id = LastId,
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i),
+                DirectReports = new List<Employee>()
+            };
+            data.Add(root);
+            LastId++;
 
-        theCEO.DirectReports = new List<EmployeeHierarchical>
-        {
-            new EmployeeHierarchical
+            for (int j = 1; j < 4; j++)
             {
-                EmployeeId = 2,
-                FirstName = "Guy",
-                LastName = "Wooten",
-                Position = "Chief Technical Officer",
-                HasReports = true
-            },
-            new EmployeeHierarchical
-            {
-                EmployeeId = 3,
-                FirstName = "Nevada",
-                LastName = "Hart",
-                Position = "Chief Financial Officer",
-                HasReports = true,
-                DirectReports = new List<EmployeeHierarchical>
-        {
-                    new EmployeeHierarchical
+                int currId = LastId;
+                Employee firstLevelChild = new Employee
+                {
+                    Id = currId,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId),
+                    DirectReports = new List<Employee>(),
+                };
+                root.DirectReports.Add(firstLevelChild);
+                LastId++;
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = LastId;
+                    // populate the parent's collection
+                    firstLevelChild.DirectReports.Add(new Employee
                     {
-                        EmployeeId = 24,
-                        FirstName = "Zena",
-                        LastName = "Stanford",
-                        Position = "VP, Finance"
-                    }
+                        Id = LastId,
+                        Name = $"second level child {k} of {j} and {i}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                    LastId++;
                 }
             }
-        };
+        }
 
-        theCEO.DirectReports[0].DirectReports = new List<EmployeeHierarchical>
-{
-            new EmployeeHierarchical
-            {
-                EmployeeId = 4,
-                FirstName = "Buffy",
-                LastName = "Weber",
-                Position = "VP, Engineering",
-                HasReports = true,
-                DirectReports = new List<EmployeeHierarchical>
-        {
-                    new EmployeeHierarchical
-                    {
-                        EmployeeId = 6,
-                        FirstName = "Hyacinth",
-                        LastName = "Hood",
-                        Position = "Team Lead",
-                        HasReports = true,
-                        DirectReports = new List<EmployeeHierarchical>
-                {
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 7,
-                                FirstName = "Akeem",
-                                LastName = "Carr",
-                                Position = "Software Developer, Junior"
-                            },
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 8,
-                                FirstName = "Rinah",
-                                LastName = "Simon",
-                                Position = "Software Developer"
-                            }
-                        }
-                    },
-                    new EmployeeHierarchical
-                    {
-                        EmployeeId = 9,
-                        FirstName = "Gage",
-                        LastName = "Daniels",
-                        Position = "Software Architect"
-                    },
-                    new EmployeeHierarchical
-                    {
-                        EmployeeId = 10,
-                        FirstName = "Constance",
-                        LastName = "Vazquez",
-                        Position = "Director, Engineering",
-                        HasReports = true,
-                        DirectReports = new List<EmployeeHierarchical>
-                {
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 11,
-                                FirstName = "Darrel",
-                                LastName = "Solis",
-                                Position = "Team Lead",
-                                HasReports = true,
-                                DirectReports = new List<EmployeeHierarchical>
-                        {
-                                    new EmployeeHierarchical
-                                    {
-                                        EmployeeId = 12,
-                                        FirstName = "Brian",
-                                        LastName = "Yang",
-                                        Position = "Software Developer, Senior"
-                                    },
-                                    new EmployeeHierarchical
-                                    {
-                                        EmployeeId = 13,
-                                        FirstName = "Lillian",
-                                        LastName = "Bradshaw",
-                                        Position = "Software Developer"
-                                    },
-                                    new EmployeeHierarchical
-                                    {
-                                        EmployeeId = 14,
-                                        FirstName = "Keiko",
-                                        LastName = "Espinoza",
-                                        Position = "QA Engineer, Junior"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            new EmployeeHierarchical
-            {
-                EmployeeId = 5,
-                FirstName = "Skyler",
-                LastName = "Cleveland",
-                Position = "VP, Engineering",
-                HasReports = true,
-                DirectReports = new List<EmployeeHierarchical>
-        {
-                    new EmployeeHierarchical
-                    {
-                        EmployeeId = 16,
-                        FirstName = "Karleigh",
-                        LastName = "Garza",
-                        Position = "Team Lead",
-                        HasReports = true,
-                        DirectReports = new List<EmployeeHierarchical>
-                {
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 17,
-                                FirstName = "Elmo",
-                                LastName = "Tyson",
-                                Position = "Software Developer"
-                            },
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 18,
-                                FirstName = "Stacey",
-                                LastName = "Lynn",
-                                Position = "QA Engineer",
-                                HasReports = true,
-                                DirectReports = new List<EmployeeHierarchical>
-                        {
-                                    new EmployeeHierarchical
-                                    {
-                                        EmployeeId = 19,
-                                        FirstName = "Meredith",
-                                        LastName = "Parish",
-                                        Position = "QA Engineer, Junior"
-                                    }
-                                }
-                            },
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 20,
-                                FirstName = "Martha",
-                                LastName = "Sargent",
-                                Position = "Software Developer, Senior"
-                            },
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 21,
-                                FirstName = "Cassady",
-                                LastName = "Whitley",
-                                Position = "Software Developer"
-                            },
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 22,
-                                FirstName = "Haviva",
-                                LastName = "Campbell",
-                                Position = "Support Officer"
-                            },
-                            new EmployeeHierarchical
-                            {
-                                EmployeeId = 23,
-                                FirstName = "Cameron",
-                                LastName = "Ayers",
-                                Position = "Support Officer"
-                            }
-                        }
-                    }
-                }
-            }
-        };
-
-        sampleData.Add(theCEO);
-
-        return await Task.FromResult(sampleData);
+        return await Task.FromResult(data);
     }
 }
 ````
