@@ -23,6 +23,8 @@ In this article:
 
 To enable the column menu set the `ShowColumnMenu` parameter of the `<TelerikGrid>` tag to `true`. This will enable the menu for each column of the Grid.
 
+By default all the [features](#features) of the Column Menu are enabled.
+
 >caption Enable the column menu for all Grid columns. Basic example.
 
 ````CSHTML
