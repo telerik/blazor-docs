@@ -34,7 +34,7 @@ To hide a TreeList column set its `Visible` parameter to `false`. To hide a colu
                  Pageable="true" Width="850px">
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Editable="false" Width="120px" Visible="false"/>
+        <TreeListColumn Field="Id" Width="120px" Visible="false"/>
         <TreeListColumn Field="EmailAddress" Width="220px" />
         <TreeListColumn Field="HireDate" Width="220px" />
     </TreeListColumns>
@@ -112,7 +112,7 @@ To hide a TreeList column set its `Visible` parameter to `false`. To hide a colu
 }
 ````
 
->caption The result from the code snippet above
+>caption The result from the code snippet above - the ID column is not rendered
 
 ![visible parameter basic example screenshot](images/treelist-visible-parameter-basic-example.png)
 
@@ -149,7 +149,7 @@ The application can later the value of the `Visible` parameter and that will tog
                  Pageable="true" Width="850px">
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Editable="false" Width="120px" Visible="@isVisible" />
+        <TreeListColumn Field="Id" Width="120px" Visible="@isVisible" />
         <TreeListColumn Field="EmailAddress" Width="220px" />
         <TreeListColumn Field="HireDate" Width="220px" />
     </TreeListColumns>
@@ -244,7 +244,7 @@ When cell-specific templates are used, they are not rendered at all. If you are 
                  Pageable="true" Width="850px">
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="Id" Width="120px" />
         <TreeListColumn Field="EmailAddress" Width="220px" />
         <TreeListColumn Field="HireDate" Width="220px" Visible="false">
             <Template>
@@ -330,7 +330,7 @@ When cell-specific templates are used, they are not rendered at all. If you are 
 }
 ````
 
->caption The result from the code snippet above
+>caption The result from the code snippet above - the HireDate column is not rendered
 
 ![visible parameter column with template screenshot](images/treelist-visible-parameter-column-with-template-exampl.png)
 
@@ -346,7 +346,7 @@ This example shows hiding a column based on a simple condition in its data. You 
                  Pageable="true" Width="850px">
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Editable="false" Width="120px" Visible="@((Data.Any(x => x.Id == 1)) ? false : true)" />
+        <TreeListColumn Field="Id" Width="120px" Visible="@((Data.Any(x => x.Id == 1)) ? false : true)" />
         <TreeListColumn Field="EmailAddress" Width="220px" />
         <TreeListColumn Field="HireDate" Width="220px" />
     </TreeListColumns>
