@@ -1,7 +1,7 @@
 ---
 title: Column Footer
 page_title: Grid - Column Footer Template
-description: Use custom column fotter templates for grand total data in Grid for Blazor.
+description: Use custom column footer templates for grand total data in Grid for Blazor.
 slug: grid-templates-column-footer
 tags: telerik,blazor,grid,templates,column,footer,grand,total
 published: True
