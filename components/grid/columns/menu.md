@@ -90,7 +90,9 @@ To use the features of the `Column Menu` use the `<GridColumnMenuSettings>`, nes
 
 ![column chooser screenshot](images/column-menu-column-chooser.png)
 
-The Column Chooser is enabled by default in the Column Menu and allows you to toggle the visiblity of Grid columns from the Column Menu. By the default all columns are visible under the `Columns` section of the Column Menu. In order to hide a column from the Column Chooser set the `VisibleInColumnChooser` property of the adjacent column to `false`.
+The Column Chooser is enabled by default in the Column Menu and allows you to toggle the visiblity of Grid columns from the Column Menu. By the default all columns are visible under the `Columns` section of the Column Menu. 
+
+To hide a column from the Column Chooser set the `VisibleInColumnChooser` property of the adjacent column to `false`.
 
 To disable the Column Chooser from the Column Menu set the `ShowColumnChooser` paramter of the `<GridColumnMenuSettings>` to `false`.
 
