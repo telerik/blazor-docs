@@ -22,6 +22,8 @@ You can sort the treelist on the different columns and sorting is done according
 
 Sorting keeps the expanded/collapsed state of items. For example, if filtering brings into view a child whose parent is collapsed, you will only see the collapsed parent.
 
+You can let the user sort by more than one field by setting the `SortMode` parameter to `Telerik.Blazor.SortMode.Multiple`.
+
 >caption Enable Sorting in Telerik TreeList
 
 ````CSHTML
@@ -95,6 +97,8 @@ Click a column header to sort by its data
 >caption The result from the code snippet above, after the user clicked twice on the "ID" header to sort it in descending order
 
 ![](images/basic-sorting.png)
+
+
 
 ## See Also
 
