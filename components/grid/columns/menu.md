@@ -159,7 +159,7 @@ List of know limitations of the Column Menu:
 }
 ````
 
-![column menu common settings example](images/column-menu-common-settings-example.png.png)
+![column menu common settings example](images/column-menu-common-settings-example.png)
 
 ## See Also
 
