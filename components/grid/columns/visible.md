@@ -22,7 +22,7 @@ In this article:
 
 ## Basics
 
-To hide a Grid column set the `Visible` parameter to `false`. To hide a column based on a certain condition you can pass, for example, a ternary operator or a method that returns `bool` - the app can provide an expression according to its logic (like screen size).
+To hide a Grid column set its `Visible` parameter to `false`. To hide a column based on a certain condition you can pass, for example, a ternary operator or a method that returns `bool` - the app can provide an expression according to its logic (like screen size).
 
 >caption Hide a column from the Grid. Basic example.
 
