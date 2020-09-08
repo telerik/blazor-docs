@@ -20,6 +20,9 @@ In this article:
 * [Basics](#basics)
 * [Features](#features)
     * [Column Chooser](#column-chooser)
+    * [Sorting](#sorting)
+    * [Filtering](#filtering)
+    * [Frozen Columns](#frozen-columns)
 * [Notes](#notes)
 
 ## Basics
@@ -71,15 +74,21 @@ By default all the [features](#features) of the Column Menu are enabled.
 
 To control the common features of the `Column Menu` use the `<GridColumnMenuSettings>`, nested inside the `<GridSettings>`.
 
-* To disable sorting from the Column Menu for all columns set the `Sortable` parameter to `false`.
+### Sorting
 
-* To control the filtering from the Column Menu set the `FilterMode` parameter to a member of the `ColumnMenuFilterMode` enum:
+To disable sorting from the Column Menu for all columns set the `Sortable` parameter to `false`.
+
+### Filtering
+
+To control the filtering from the Column Menu set the `FilterMode` parameter to a member of the `ColumnMenuFilterMode` enum:
     * `None` - disables the filtering from the Column Menu.
     * `FilterMenu` - enables a filter menu to apply filtering.
+    
+    
+### Frozen Columns
 
-* To disable locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the column to `false`.
+To disable locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the column to `false`.
 
-* To hide a column from the Grid use the [Column Chooser](#column-chooser).
 
 ### Column Chooser
 
