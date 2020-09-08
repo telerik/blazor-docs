@@ -31,7 +31,7 @@ To enable the column menu set the `ShowColumnMenu` parameter of the `<TelerikGri
 
 To disable the Column Menu for a specific column in the Grid set the `ShowColumnMenu` parameter of the column to `false`.
 
-You can see the what the column menu can do and how to control its settings in the [Features](#features) section.
+You can see the what the column menu can do and how to control its settings in the [Features](#features) section. By default, all of them are enabled.
 
 >caption Enable the column menu for all Grid columns. Results in the screnshot above.
 
