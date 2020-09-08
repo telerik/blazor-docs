@@ -10,7 +10,7 @@ position: 23
 
 # Grid Aggregates
 
-The Grid component provides built-in aggregates for column values based on [grouping]({%slug components/grid/features/grouping%}).
+The Grid component provides built-in aggregates for column values based on [grouping]({%slug components/grid/features/grouping%}) and also a grand total row.
 
 There are several available aggregate functions under the `Telerik.Blazor.GridAggregateType` enum:
 
@@ -24,15 +24,17 @@ The `Count` aggregate can be applied to any type of field. The other aggregates 
 
 You can use aggregates in the following templates:
 
-* `GroupFooterTemplate` of a `GridColumn` - a footer in the respective column that renders when the grid is grouped.
-* `GroupHeaderTemplate` of a `GridColumn` - a header in the respective column that renders when the grid is grouped by that column. The `Value` field in the context carries the current group value.
+* [`GroupFooterTemplate`]({%slug grid-templates-column-group-footer%}) of a `GridColumn` - a footer in the respective column that renders when the grid is grouped.
+* [`GroupHeaderTemplate`]({%slug grid-templates-group-header%}) of a `GridColumn` - a header in the respective column that renders when the grid is grouped by that column. The `Value` field in the context carries the current group value.
+* [`FooterTemplate`]({%slug grid-templates-column-footer%}) of a `GridColumn` - a grand total row of footers for the entire grid.
 
 To enable aggregates:
 
-1. Set the grid's `Groupable` property to `true`.
 1. Under the `GridAggregates` tag, define the `GridAggregate` entries to enable the aggregations per field you want to use.
 1. Use the aggregate result in the templates that support it - their `context` is strongly typed and carries the aggregate values in the respective fields.
-1. Group the grid to see the effect
+1. Set the grid's `Groupable` property to `true`.
+    * If you will be using only `FooterTemplate`s - grouping is not required.
+1. Group the grid to see the effect on group-specific templates
 
 You should define only aggregates that you will use to avoid unnecessary calculations that may be noticeable on large data sets.
 
@@ -42,16 +44,30 @@ If you try to use an aggregate that is not defined, or an aggregate over an unsu
 >caption Use Aggregates in the Telerik Blazor Grid
 
 ````CSHTML
-@* Enable and use aggregates. To see the effect, group by a column - "Team" and then "Active Projects" *@
+@* Enable and use aggregates. To see the full effect, group by a column - "Team" and then "Active Projects" *@
 
-<TelerikGrid Data=@GridData Groupable="true" Pageable="true" Height="650px">
+<TelerikGrid Data=@GridData Groupable="true" Pageable="true" Height="700px">
     <GridAggregates>
+        <GridAggregate Field=@nameof(Employee.Name) Aggregate="@GridAggregateType.Count" />
         <GridAggregate Field=@nameof(Employee.Team) Aggregate="@GridAggregateType.Count" />
         <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Max" />
         <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Sum" />
     </GridAggregates>
     <GridColumns>
-        <GridColumn Field=@nameof(Employee.Name) Groupable="false" />
+        <GridColumn Field=@nameof(Employee.Name) Groupable="false">
+            <FooterTemplate>
+                Total: @context.Count employees.
+                <br />
+                @{
+                    // you can use aggregates for other fields/columns by extracting the desired one by its
+                    // field name and aggregate function from the AggregateResults collection
+                    // The type of its Value is determined by the type of its field - decimal for the Salary field here
+                    decimal salaries = (decimal)context.AggregateResults
+                        .FirstOrDefault(r => r.AggregateMethodName == "Sum" && r.Member == "Salary")?.Value;
+                }
+                Total salaries: @salaries.ToString("C0")
+            </FooterTemplate>
+        </GridColumn>
         <GridColumn Field=@nameof(Employee.Team) Title="Team">
             <GroupFooterTemplate>
                 Team Members: <strong>@context.Count</strong>
@@ -64,9 +80,9 @@ If you try to use an aggregate that is not defined, or an aggregate over an unsu
         <GridColumn Field=@nameof(Employee.Salary) Title="Salary" Groupable="false">
             <GroupFooterTemplate>
                 @* you can use a group footer for non-groupable columns as well *@
-                Total montly salary: @context.Sum
+                Total salaries: @context.Sum
                 <br />
-                <span style="color: red;">Top paid employee: @context.Max</span>
+                <span style="color: red;">Highest: @context.Max</span>
             </GroupFooterTemplate>
         </GridColumn>
         <GridColumn Field=@nameof(Employee.ActiveProjects) Title="Active Projects">
@@ -75,7 +91,7 @@ If you try to use an aggregate that is not defined, or an aggregate over an unsu
                     <span>Currently active projects: @context.Value &nbsp;</span>
 
                     //sample of conditional logic in the group header
-                    if ( (int)context.Value > 3) // in a real case, you may want to ensure type safety and add defensive checks
+                    if ((int)context.Value > 3) // in a real case, you may want to ensure type safety and add defensive checks
                     {
                         <strong style="color: red;">These people work on too many projects</strong>
                     }
