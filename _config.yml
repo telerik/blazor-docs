@@ -236,6 +236,8 @@ navigation:
         title: "LinearGauge"
      "*listbox":
         title: "ListBox"
+     "*loader":
+        title: "Loader"
      "*map":
         title: "Map"
      "*maskedtextbox":
@@ -336,6 +338,7 @@ intro_columns:
       "Tab Strip": "components/tabstrip/overview"
       "TreeView": "components/treeview/overview"
       "Pager": "pager-overview"
+      "Loader": "loader-overview"
 
 -
   categories:
