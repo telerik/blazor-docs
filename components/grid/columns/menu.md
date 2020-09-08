@@ -69,9 +69,13 @@ To enable the column menu set the `ShowColumnMenu` parameter of the `<TelerikGri
 
 ## Features
 
-The Column Menu provides the following features:
+To use the features of the `Column Menu` use the `<GridColumnMenuSettings>`, nested inside the `<GridSettings>`.
 
-* To allow sorting and filtering from the Column Menu you have to enable those functions to the Grid - set the FilterMode to `FilterMenu` (see the [Notes](#notes) section for more information) and `Sortable` to `true`.
+* To allow sorting from the Column Menu set the `Sortable` parameter to `true`.
+
+* To control the filtering from the Column Menu set the `FilterMode` parameter to a member of the `ColumnMenuFilterMode` enum:
+    * `None` - disables the filtering from the Column Menu.
+    * `FilterMenu` - enables a filter menu to apply filtering.
 
 * To allow locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the column to `true`.
 
@@ -87,6 +91,8 @@ The Column Menu provides the following features:
 ![column chooser screenshot](images/column-menu-column-chooser.png)
 
 The Column Chooser is enabled by default in the Column Menu and allows you to toggle the visiblity of Grid columns from the Column Menu. By the default all columns are visible under the `Columns` section of the Column Menu. In order to hide a column from the Column Chooser set the `VisibleInColumnChooser` property of the adjacent column to `false`.
+
+To disable the Column Chooser from the Column Menu set the `ShowColumnChooser` paramter of the `<GridColumnMenuSettings>` to `false`.
 
 ## Notes
 
