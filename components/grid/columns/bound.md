@@ -97,6 +97,12 @@ You can use the following properties on the bound columns:
 
 * `Visible` - (defaults to `true`) - if this parameter is set to `false` it [hides]({%slug grid-columns-visible%}) the column from the Grid.
 
+* `ShowColumnMenu` - (defaults to `true`) - if set to false, disables the [column menu]({%slug grid-column-menu%}) for that particular column.
+
+* `Lockable` - (defaults to `true`) - determines whether the user can [pin the column]({%slug grid-columns-frozen%}) through the [column menu]({%slug grid-column-menu%}).
+
+* `VisibleInColumnChooser` - (defaults to `true`) - if set to false, removes the column from the Column chooser of the [column menu]({%slug grid-column-menu%}).
+
 * `Template` - this property can also be used as an inner tag and it lets you define the [column display content]({%slug components/grid/features/templates%}#column-template). It can also point to a component name.
 
 * `Context` - the standard Blazor context variable name for use inside the inline template.

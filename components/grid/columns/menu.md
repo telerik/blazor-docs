@@ -19,32 +19,33 @@ The Grid allows you to setup a menu for it's columns. It enables you to perform 
 In this article:
 * [Basics](#basics)
 * [Features](#features)
-    * [Column Chooser](#column-chooser)
     * [Sorting](#sorting)
     * [Filtering](#filtering)
     * [Frozen Columns](#frozen-columns)
+    * [Column Chooser](#column-chooser)
 * [Notes](#notes)
 
 ## Basics
 
 To enable the column menu set the `ShowColumnMenu` parameter of the `<TelerikGrid>` tag to `true`. This will enable the menu for each column of the Grid.
 
-By default all the [features](#features) of the Column Menu are enabled.
+To disable the Column Menu for a specific column in the Grid set the `ShowColumnMenu` parameter of the column to `false`.
 
->caption Enable the column menu for all Grid columns. Basic example.
+You can see the what the column menu can do and how to control its settings in the [Features](#features) section.
+
+>caption Enable the column menu for all Grid columns. Results in the screnshot above.
 
 ````CSHTML
 @* Set the ShowColumnMenu parameter to true *@
 
-<TelerikGrid Data="@MyData" 
+<TelerikGrid Data="@MyData"
              Pageable="true"
              PageSize="5"
-             Width="700px"
              FilterMode="@GridFilterMode.FilterMenu"
              Sortable="true"
              ShowColumnMenu="true">
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
         <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
         <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
@@ -72,19 +73,26 @@ By default all the [features](#features) of the Column Menu are enabled.
 
 ## Features
 
-To control the common features of the `Column Menu` use the `<GridColumnMenuSettings>`, nested inside the `<GridSettings>`.
+To control the common features of the `Column Menu` use the `<GridColumnMenuSettings>`, nested inside the `<GridSettings>`:
+
+* [Sorting](#sorting)
+* [Filtering](#filtering)
+* [Frozen Columns](#frozen-columns)
+* [Column Chooser](#column-chooser)
 
 ### Sorting
 
-To disable sorting from the Column Menu for all columns set the `Sortable` parameter to `false`.
+To remove the sorting option from the Column Menu set the `Sortable` parameter of the `GridColumnMenuSettings` tag to `false`.
+
 
 ### Filtering
 
-To control the filtering from the Column Menu set the `FilterMode` parameter to a member of the `ColumnMenuFilterMode` enum:
-    * `None` - disables the filtering from the Column Menu.
-    * `FilterMenu` - enables a filter menu to apply filtering.
-    
-    
+To control whether filtering is possible from the Column Menu set the `FilterMode` parameter of the `GridColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
+
+* `None` - disables the filtering from the Column Menu.
+* `FilterMenu` - enables a filter menu to apply filtering.
+
+
 ### Frozen Columns
 
 To disable locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the column to `false`.
@@ -92,18 +100,17 @@ To disable locking and unlocking of a column from the Column Menu, set the `Lock
 
 ### Column Chooser
 
+The Column Chooser in the Column Menu and allows you to toggle the visiblity of Grid columns from the Column Menu. By the default all columns are visible under the `Columns` section of the Column Menu. 
+
+To enable the column chooser, set the `ShowColumnChooser` paramter of the `<GridColumnMenuSettings>` to `true`.
+
 ![column chooser screenshot](images/column-menu-column-chooser.png)
 
-The Column Chooser is enabled by default in the Column Menu and allows you to toggle the visiblity of Grid columns from the Column Menu. By the default all columns are visible under the `Columns` section of the Column Menu. 
+To hide a column from the Column Chooser set the `VisibleInColumnChooser` property of the column to `false`.
 
-To hide a column from the Column Chooser set the `VisibleInColumnChooser` property of the adjacent column to `false`.
+### Example of Column Menu Features Settings
 
-To disable the Column Chooser from the Column Menu set the `ShowColumnChooser` paramter of the `<GridColumnMenuSettings>` to `false`.
-
-To disable the Column Chooser from the Column Menu for a specific column set the `ShowColumnChooser` paramter of the Grid column to false.
-
-
->caption Use the GridColumnMenuSettings tag to control the common feature of the Column Menu
+>caption Use the GridColumnMenuSettings tag to control the common features of the Column Menu
 
 ````CSHTML
 @* Disable the column chooser from the Column Menu and disable the filtering for the Id column. *@
@@ -146,19 +153,17 @@ To disable the Column Chooser from the Column Menu for a specific column set the
 }
 ````
 
+>caption Column menu with filtering, locking and sorting, but without a column chooser
+
 ![column menu common settings example](images/column-menu-common-settings-example.png)
 
 ## Notes
 
-* Applying settings to a Grid column like `Filterable="false"`, `Sortable="false"`, `Lockable="false"` will take precendense over the common settings applied in the `<GridColumnMenuSettings>` and disable the above-mentioned functionalities for the adjacent column.
+* Applying settings to a Grid column like `Filterable="false"`, `Sortable="false"`, `Lockable="false"` will take precendense over the common settings applied in the `<GridColumnMenuSettings>` and disable the above-mentioned functionalities for the corresponding column.
 
-* An exception will be thrown if the `FilterMode` of the Grid is set to `FilterRow` and a column menu is used as the filter descriptors of the two features are not compatible.
+* An exception will be thrown if the `FilterMode` of the Grid is set to `FilterRow` and a column menu is used - the filter descriptors of the two features are not compatible.
 
-* To disable the Column Menu for a specific column in the Grid set the `ShowColumnMenu` parameter of the column to `false`.
-
-* To disable filtering and sorting for a specific column set the `Filterable` and `Sortable` parameters of the column to `false`.
-
-* If the Grid has a [frozen]({%slug grid-columns-frozen%}) column (`Locked="true"`) that column cannot be unfrozen from the column menu.
+* If the Grid has a [frozen]({%slug grid-columns-frozen%}) column (`Locked="true"`), that column cannot be unfrozen from the column menu.
 
 ## See Also
 
