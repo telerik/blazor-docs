@@ -72,7 +72,7 @@ By default all the [features](#features) of the Column Menu are enabled.
 
 ## Features
 
-To control the features of the `Column Menu` use the `<GridColumnMenuSettings>`, nested inside the `<GridSettings>`. See the [Examples](#examples) section for a code snippet.
+To control the common features of the `Column Menu` use the `<GridColumnMenuSettings>`, nested inside the `<GridSettings>`. See the [Examples](#examples) section for a code snippet.
 
 * To disable sorting from the Column Menu for all columns set the `Sortable` parameter to `false`.
 
