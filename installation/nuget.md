@@ -168,11 +168,11 @@ A few things to double check to ensure correct setup:
 
 #### GitHub Secrets
 
-In some cases, [GitHub Secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) are used to store credentials that you would later have to consume from the `nuget.config` file in order to connect to the Telerik feed.
+In some cases, [GitHub Secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) are used to store credentials that you would later have to consume from the `nuget.config` file in order to connect to the Telerik feed in your GitHub Actions workflows.
 
-A way to pass them along is to mark them as environment variables. You can find an example in the [MediaFileManager repo by Lance McCarthy](https://github.com/LanceMcCarthy/MediaFileManager). Here follow the two relevant extracts.
+A way to pass them along is to mark them as environment variables. You can find an example in the [DevOpsExamples repo by Lance McCarthy](https://github.com/LanceMcCarthy/DevOpsExamples). Here follow the two relevant extracts.
 
->caption Example of getting GitHub Secrets for Telerik Login into Environment Variables
+>caption Example of setting GitHub Secrets into Environment Variables for Telerik Login
 
 ````YAML
 jobs:
@@ -183,23 +183,30 @@ jobs:
       TELERIK_USERNAME: ${ { secrets.MyTelerikAccountUsername } }  # remove the space between the brackets
       TELERIK_PASSWORD: ${ { secrets.MyTelerikAccountPassword } }  # remove the space between the brackets
 
-
-
 ````
+>tip Even though you are copying secrets into Environment Variables on the runner, Github Actions will continue to treat the values as protected string and mask the values in all output.
 
-Then, read them as such in the `nuget.config` file, for example:
+Finally, you need a `nuget.config` file that lists the Telerik server in the `packageSources`, as well as an accompanying `packageSourceCredentials` that uses those named environment variables for the `Username` and `ClearTextPassword` keys.
 
->caption Example of reading the environment variables with the Telerik credentials in the nuget.config file
+>caption Example of Using Environment Variables in NuGet.config
 
 ````XML
-  <packageSourceCredentials>
-    <Telerik>
-      <add key="Username" value="%TELERIK_USERNAME%" />
-      <add key="ClearTextPassword" value="%TELERIK_PASSWORD%" />
-    </Telerik>
-  </packageSourceCredentials>
+<packageSources>
+  <clear />
+  <add key="NuGet" value="https://api.nuget.org/v3/index.json" />
+  <add key="TelerikFeed" value="https://nuget.telerik.com/nuget" />
+</packageSources>
+<packageSourceCredentials>
+  <TelerikFeed>
+    <add key="Username" value="%TELERIK_USERNAME%" />
+    <add key="ClearTextPassword" value="%TELERIK_PASSWORD%" />
+  </TelerikFeed>
+</packageSourceCredentials>
 ````
 
+>warning GitHub does not allow secrets to be used in workflows that have been [triggered by a pull request event](https://docs.github.com/en/actions/reference/events-that-trigger-workflows). In such a case, the runner will not be able to authenticate with the Telerik NuGet server and the job will expectedly fail.
+
+Note: 
 
 ## See Also
 
