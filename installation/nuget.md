@@ -25,6 +25,7 @@ This article also offers some troubleshooting information in case you encounter 
 	* [I do not see the Telerik Packages](#i-do-not-see-the-telerik-packages)
 	* [CI and CD Automated Builds](#ci-and-cd-automated-builds)
 		* Azure
+		* GitHub Secrets
 
 ## Video Tutorial - Visual Studio
 
@@ -163,6 +164,39 @@ A few things to double check to ensure correct setup:
 * That Service Connection is selected as the credentials source.
 * The credentials being used have a UI for Blazor license.
 * Make sure that you use `dotnet restore` and not `nuget restore` in your pipeline step.
+
+
+#### GitHub Secrets
+
+In some cases, [GitHub Secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) are used to store credentials that you would later have to consume from the `nuget.config` file in order to connect to the Telerik feed.
+
+A way to pass them along is to mark them as environment variables. You can find an example in the [MediaFileManager repo by Lance McCarthy](https://github.com/LanceMcCarthy/MediaFileManager). Here follow the two relevant extracts.
+
+>caption Example of getting GitHub Secrets for Telerik Login into Environment Variables
+
+````YAML
+jobs:
+  build:
+    runs-on: windows-latest
+
+    env:
+      TELERIK_USERNAME: ${ { secrets.TELERIK_USERNAME } }  # remove the space between the brackets
+      TELERIK_PASSWORD: ${ { secrets.TELERIK_PASSWORD } }  # remove the space between the brackets
+````
+
+Then, read them as such in the `nuget.config` file, for example:
+
+>caption Example of reading the environment variables with the Telerik credentials in the nuget.config file
+
+````XML
+  <packageSourceCredentials>
+    <Telerik>
+      <add key="Username" value="%TELERIK_USERNAME%" />
+      <add key="ClearTextPassword" value="%TELERIK_PASSWORD%" />
+    </Telerik>
+  </packageSourceCredentials>
+````
+
 
 ## See Also
 
