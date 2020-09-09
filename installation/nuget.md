@@ -180,8 +180,11 @@ jobs:
     runs-on: windows-latest
 
     env:
-      TELERIK_USERNAME: ${ { secrets.TELERIK_USERNAME } }  # remove the space between the brackets
-      TELERIK_PASSWORD: ${ { secrets.TELERIK_PASSWORD } }  # remove the space between the brackets
+      TELERIK_USERNAME: ${ { secrets.MyTelerikAccountUsername } }  # remove the space between the brackets
+      TELERIK_PASSWORD: ${ { secrets.MyTelerikAccountPassword } }  # remove the space between the brackets
+
+
+
 ````
 
 Then, read them as such in the `nuget.config` file, for example:
