@@ -458,6 +458,8 @@ The event handler receives a `GridRowCollapseEventArgs` object which provides th
 
 The event fires when the user pages the grid.
 
+>caption Handle the PageChanged event to know when the user changes the page
+
 ````CSHTML
 @result
 
@@ -474,6 +476,31 @@ The event fires when the user pages the grid.
     async Task PageChangedHandler(int currPage)
     {
         result = $"the user is now on page {currPage}. Note - the indexes are 1-based, not 0-based";
+    }
+
+    public IEnumerable<object> MyData = Enumerable.Range(1, 150).Select(x => new { ID = x, TheName = "name " + x });
+}
+````
+
+>caption One-way binding of the Page parameter should be used with the PageChanged event to keep the view-model in sync
+
+````CSHTML
+@* Set initial page index, and keep it updated with the grid state to prevent it from resetting the grid page index on re-renders *@
+
+<TelerikGrid Data="@MyData" Pageable="true" PageSize="30" Height="300px"
+             PageChanged="@PageChangedHandler" Page="@PageIndex">
+    <GridColumns>
+        <GridColumn Field="ID"></GridColumn>
+        <GridColumn Field="TheName" Title="Employee Name"></GridColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    int PageIndex { get; set; } = 2;
+    async Task PageChangedHandler(int currPage)
+    {
+        PageIndex = currPage;
+        // when using one-way binding for the Page parametr, make sure to update it in the PageChanged event
     }
 
     public IEnumerable<object> MyData = Enumerable.Range(1, 150).Select(x => new { ID = x, TheName = "name " + x });

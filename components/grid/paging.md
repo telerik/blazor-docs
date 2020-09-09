@@ -39,7 +39,7 @@ Enable paging and start on the second page.
 
 ![](images/paging-overview.png)
 
->tip You can bind the values of those properties to variables in the `@code {}` section. If you want to bind the page index to a variable, you must use the `@bind-Page="@MyPageIndexVariable"` syntax.
+>note If you want to bind the page index to a variable, you must use two-way binding - the `@bind-Page="@MyPageIndexVariable"` syntax. If you only use one-way binding -  `Page="@MyPageIndexVariable"` - the grid will reset to the value of that parameter on every re-render. If you choose to use one-way binding, you must update the field value in the [`PageChanged` event]({%slug grid-events%}#pagechanged) to avoid that.
 
 Here is one way to implement a page size choice that puts all records on one page.
 
