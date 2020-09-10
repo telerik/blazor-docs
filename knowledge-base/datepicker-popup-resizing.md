@@ -22,11 +22,15 @@ res_type: kb
 
 ## Description
 
-I am using the Bootstrap theme and due to the larger font size the popup is being resized based on the length of the month's name. This cases the navigational arrows to be displaced.
+I am using the Bootstrap theme and the popup resizes when I navigate between the months. This cases the navigational arrows to be displaced so I cannot click on them repeatedly.
 
 >caption The popup of the DatePicker is resized based on month's name length. Problematic example.
 
 ![DatePicker popup resizing gif](images/datepicker-popup-resizing-problematic-example.gif)
+
+## Cause
+
+The Bootstrap theme has a larger font size which causes long month names to take up more space than in other themes. For example, the month of September is long and pushes the layout of the popup to be wider, which, in turn, changes its width and the relative position of the next/prev arrows to the mouse.
 
 
 ## Solutions
