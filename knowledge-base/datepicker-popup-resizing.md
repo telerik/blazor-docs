@@ -33,10 +33,10 @@ I am using the Bootstrap theme and due to the larger font size the popup is bein
 
 There are two possible solutions:
 
-* [Using the PopupWidth parameter](#using-the-popupwidth-parameter)
-* [Using CSS to reduce the font-size of the months name](#using-css-to-reduce-the-font--size-of-the-months-name)
+* [Use the PopupWidth parameter](#use-the-popupwidth-parameter)
+* [Use CSS to reduce the font size of the months name](#use-css-to-reduce-the-font-size-of-the-months-name)
 
-### Using the PopupWidth parameter
+### Use the PopupWidth parameter
 
 You can control the popup width for the DatePicker by using the `PopupWidth` parameter that the components exposes. You can set it in `pixels` or any other valid CSS dimensions to fit the content of the dropdown.
 
@@ -53,7 +53,7 @@ You can control the popup width for the DatePicker by using the `PopupWidth` par
 
 ![fit the content of the popup](images/datepicker-popup-resizing-fit-content-example.gif)
 
-### Using CSS to reduce the font-size of the months name
+### Use CSS to reduce the font size of the months name
 
 This example utilizes CSS to reduce the font-size of the month's name in the dropdown of the DatePicker. This solution might also be applied to the Telerik Calendar component for Blazor. 
 
