@@ -38,7 +38,7 @@ There are two possible solutions:
 
 ### Use the PopupWidth parameter
 
-You can control the popup width for the DatePicker by using the `PopupWidth` parameter that the components exposes. You can set it in `pixels` or any other valid CSS dimensions to fit the content of the dropdown.
+You can control the popup width for the DatePicker by using the `PopupWidth` parameter that the components exposes. You can set it in `pixels` or any other valid CSS dimensions to fit the content of the popup.
 
 
 ````CSHTML
