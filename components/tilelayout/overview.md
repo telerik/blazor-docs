@@ -108,7 +108,7 @@ The main feature that the component exposes are divided into two levels:
 
 The main element defines the number of `Columns`, the `Width` and `Height` of the layout, as well as the `ColumnWidth` and `RowHeight`. 
 
-The `ColumnWidth` and `RowHeight` define the maximum dimensions for each column and row.
+The `ColumnWidth` and `RowHeight` define the maximum dimensions for each column and row of the main layout. As the overall component dimensions change (e.g., because of different viewports), the column and row heights might decrease to provide even distribution. A single tile can span more than one column or row.
 
 Generally, you should use settings that allow the desired number of columns and rows (depending on their width and height) to fit in the set width and height of the entire component.
 
