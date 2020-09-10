@@ -24,7 +24,7 @@ res_type: kb
 
 I am using the Bootstrap theme and due to the larger font size the popup is being resized based on the length of the month's name. This cases the navigational arrows to be displaced.
 
->caption The popup of the DatePicker is resized based on month's name length
+>caption The popup of the DatePicker is resized based on month's name length. Problematic example.
 
 ![DatePicker popup resizing gif](images/datepicker-popup-resizing-problematic-example.gif)
 
