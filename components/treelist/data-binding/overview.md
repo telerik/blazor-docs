@@ -51,6 +51,10 @@ For samples of using each data binding approach listed above, see its correspond
 
 @[template](/_contentTemplates/treelist/databinding.md#data-binding-modes)
 
+## Notes
+
+* If you provide an `List<object>` to the `Data` parameter of the component, you should set the `FieldType` of the TreeList columns to the corresponding data types of the properties. If you pass a collection of models the component will iterate over the properties and set the `FieldType` internally. 
+
 
 ## See Also
 
