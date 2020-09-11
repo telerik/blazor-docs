@@ -78,6 +78,73 @@ The default font typeface of the content area of the Editor is based on the defa
 
 ![set the default content font using CSS](images/editor-default-font-family-example.png)
 
+## Additional Example
+
+This example showcases how to set a default font for the content area of the Editor and add that font to the built-in FontFamily tool.
+
+````CSHTML
+<style>
+    .myTelerikEditor div.k-editor-content div.k-content {
+        font-family: "Arial Black", Gadget, sans-serif;
+    }
+</style>
+
+<TelerikEditor @bind-Value="@TheEditorValue"
+               Width="650px" 
+               Height="400px"
+               EditMode="@EditorEditMode.Div"
+               Tools="@MyTools"
+               Class="myTelerikEditor">
+</TelerikEditor>
+
+@code{
+    string TheEditorValue { get; set; }
+    public List<IEditorTool> MyTools { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        //initialize the toolbar collection with all built-in tools
+        MyTools = new List<IEditorTool>(EditorToolSets.Default);
+
+        //add the typeface to the default list of fonts
+        List<EditorDropDownListItem> fontFamilyChoices = new List<EditorDropDownListItem>(EditorDropDownListToolItems.FontFamilyItems);
+        fontFamilyChoices.Add(new EditorDropDownListItem()
+        {
+            Text = "Arial Black",
+            Value = "Arial Black"
+        });
+
+        MyTools.Add(new FontFamily() { Data = fontFamilyChoices });
+
+        TheEditorValue = @"
+        <p>
+            The Blazor Editor allows your users to edit HTML in a familiar, user-friendly way. Your users do not have to understand HTML in order to create it.
+        </p>
+        <p>
+            The widget <strong>outputs identical HTML</strong> across all major browsers, follows
+            accessibility standards, and provides API for content manipulation.
+        </p>
+        <p>Features include:</p>
+        <ul>
+            <li>Text formatting</li>
+            <li>Bulleted and numbered lists</li>
+            <li>Hyperlinks</li>
+            <li>Cross-browser support</li>
+            <li>Identical HTML output across browsers</li>
+            <li>Ability to create custom tools, dropdowns, dialogs</li>
+        </ul>
+    ";
+        return base.OnInitializedAsync();
+    }
+}
+````
+
+>caption The result from the code snippet above
+
+![set the default content font using CSS](images/editor-default-font-family-additional-example.png)
+
+
+
 
 
 
