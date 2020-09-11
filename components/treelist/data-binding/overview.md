@@ -51,6 +51,10 @@ For samples of using each data binding approach listed above, see its correspond
 
 @[template](/_contentTemplates/treelist/databinding.md#data-binding-modes)
 
+## Notes
+
+* The TreeList is designed to work with a collection of strongly typed models (e.g., `IENumerable<SomeDataModel>`). If you provide an `IEnumerable<object>` instead, you must set the `FieldType` of the `<TreeListColumn>` instances to the data type of the fields they use (e.g., `<TreeListColumn Field=@nameof(Employee.Name) FieldType="@(typeof(string))" />`).
+
 
 ## See Also
 
