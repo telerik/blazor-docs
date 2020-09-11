@@ -141,7 +141,7 @@ This example showcases how to set a default font for the content area of the Edi
 
 >caption The result from the code snippet above
 
-![set the default content font using CSS](images/editor-default-font-family-additional-example.png)
+![set the default content font using CSS and the fond to the Font family tool](images/editor-default-font-family-additional-example.png)
 
 
 
