@@ -14,7 +14,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Editor</td>
+			<td>Editor for Blazor</td>
 		</tr>
 	</tbody>
 </table>
@@ -76,7 +76,7 @@ The default font typeface of the content area of the Editor is based on the defa
 
 >caption The result from the code snippet above
 
-![fit the content of the popup using CSS](images/editor-default-font-family-example.png)
+![set the default content font using CSS](images/editor-default-font-family-example.png)
 
 
 
