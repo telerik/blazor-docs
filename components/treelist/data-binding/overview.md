@@ -53,7 +53,7 @@ For samples of using each data binding approach listed above, see its correspond
 
 ## Notes
 
-* If you provide an `List<object>` to the `Data` parameter of the component, you should set the `FieldType` of the TreeList columns to the corresponding data types of the properties. If you pass a collection of models the component will iterate over the properties and set the `FieldType` internally. 
+* The TreeList is designed to work with a collection of strongly typed models (e.g., `IENumerable<SomeDataModel>`). If you provide an `IEnumerable<object>` instead, you must set the `FieldType` of the `<TreeListColumn>` instances to the data type of the fields they use (e.g., `<TreeListColumn Field=@nameof(Employee.Name) FieldType="@(typeof(string))" />`).
 
 
 ## See Also
