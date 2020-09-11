@@ -1,0 +1,39 @@
+## Document new component
+
+- [ ] - Overview article
+    - [ ] General information on the purpose of the component.
+    - [ ] Instruction on how to add the component to a razor component.
+    - [ ] Basic configuration of the component - code snippet with a scenario that is both basic, and meaningful.
+    - [ ] Provide information on the component's reference.
+    - [ ] List the available features for the component and/or provide links (slugs) for the articles that explain them in details. For simpler components listing parameters might be enough, for more complex ones sections with a sentence or two that links corresponding articles might be more suitable.
+    - [ ] Maybe some Example(s) - very common scenarios, notes, typical use case, etc. Not mandatory, depends on the component.
+
+
+- [ ] - Data binding article - applicable if data can be provided to the component. My be one article or a folder with several articles (examples - DropDownList and TreeView)
+
+
+- [ ] - Feature/component specific articles - those articles explain the component specific features, which do not suit in any of the before-mentioned articles. Examples of such articles are the [Navigator](https://docs.telerik.com/blazor-ui/components/stockchart/navigator) for the Stock Chart, the [Indeterminate](https://docs.telerik.com/blazor-ui/components/checkbox/indeterminate-state) state for the CheckBox and others. 
+
+
+- [ ] - Selection article - applicable if the component exposes items selection. May be a folder.
+    [ ] - Single item selection
+    [ ] - Multiple item selection
+
+
+- [ ] - Templates - applicable if additional customization is allowed with Templates. Usually a folder, see the grid 
+
+
+- [ ] - Events article - applicable if the component expose events. 
+Examples of such events could be:
+ * OnClick
+ * OnChange
+ * ValueChanged
+ * SelectedItemsChanged
+ * OnRead
+ * etc.
+ 
+- [ ] Update Input Validation, Globalization, Keyboard Navigation, Accessibility Compliance articles as applicable.
+
+- [ ] Link from the Overview components list
+
+
