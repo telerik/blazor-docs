@@ -33,6 +33,8 @@ The default font typeface of the content area of the Editor is based on the defa
 >caption Set a default font family for the content area of the Editor in Div edit mode
 
 ````CSHTML
+@* The style rule is important, it matches the Class of the component *@
+
 <style>
     .myTelerikEditor div.k-editor-content div.k-content {
         font-family: "Arial Black", Gadget, sans-serif;
@@ -52,23 +54,23 @@ The default font typeface of the content area of the Editor is based on the defa
     protected override Task OnInitializedAsync()
     {
         TheEditorValue = @"
-    <p>
-        The Blazor Editor allows your users to edit HTML in a familiar, user-friendly way. Your users do not have to understand HTML in order to create it.
-    </p>
-    <p>
-        The widget <strong>outputs identical HTML</strong> across all major browsers, follows
-        accessibility standards, and provides API for content manipulation.
-    </p>
-    <p>Features include:</p>
-    <ul>
-        <li>Text formatting</li>
-        <li>Bulleted and numbered lists</li>
-        <li>Hyperlinks</li>
-        <li>Cross-browser support</li>
-        <li>Identical HTML output across browsers</li>
-        <li>Ability to create custom tools, dropdowns, dialogs</li>
-    </ul>
-";
+            <p>
+                The Blazor Editor allows your users to edit HTML in a familiar, user-friendly way. Your users do not have to understand HTML in order to create it.
+            </p>
+            <p>
+                The widget <strong>outputs identical HTML</strong> across all major browsers, follows
+                accessibility standards, and provides API for content manipulation.
+            </p>
+            <p>Features include:</p>
+            <ul>
+                <li>Text formatting</li>
+                <li>Bulleted and numbered lists</li>
+                <li>Hyperlinks</li>
+                <li>Cross-browser support</li>
+                <li>Identical HTML output across browsers</li>
+                <li>Ability to create custom tools, dropdowns, dialogs</li>
+            </ul>
+        ";
         return base.OnInitializedAsync();
     }
 }
@@ -83,6 +85,8 @@ The default font typeface of the content area of the Editor is based on the defa
 This example showcases how to set a default font for the content area of the Editor and add that font to the built-in FontFamily tool.
 
 ````CSHTML
+@using Telerik.Blazor.Components.Editor
+
 <style>
     .myTelerikEditor div.k-editor-content div.k-content {
         font-family: "Arial Black", Gadget, sans-serif;
@@ -117,23 +121,23 @@ This example showcases how to set a default font for the content area of the Edi
         MyTools.Add(new FontFamily() { Data = fontFamilyChoices });
 
         TheEditorValue = @"
-        <p>
-            The Blazor Editor allows your users to edit HTML in a familiar, user-friendly way. Your users do not have to understand HTML in order to create it.
-        </p>
-        <p>
-            The widget <strong>outputs identical HTML</strong> across all major browsers, follows
-            accessibility standards, and provides API for content manipulation.
-        </p>
-        <p>Features include:</p>
-        <ul>
-            <li>Text formatting</li>
-            <li>Bulleted and numbered lists</li>
-            <li>Hyperlinks</li>
-            <li>Cross-browser support</li>
-            <li>Identical HTML output across browsers</li>
-            <li>Ability to create custom tools, dropdowns, dialogs</li>
-        </ul>
-    ";
+            <p>
+                The Blazor Editor allows your users to edit HTML in a familiar, user-friendly way. Your users do not have to understand HTML in order to create it.
+            </p>
+            <p>
+                The widget <strong>outputs identical HTML</strong> across all major browsers, follows
+                accessibility standards, and provides API for content manipulation.
+            </p>
+            <p>Features include:</p>
+            <ul>
+                <li>Text formatting</li>
+                <li>Bulleted and numbered lists</li>
+                <li>Hyperlinks</li>
+                <li>Cross-browser support</li>
+                <li>Identical HTML output across browsers</li>
+                <li>Ability to create custom tools, dropdowns, dialogs</li>
+            </ul>
+        ";
         return base.OnInitializedAsync();
     }
 }
