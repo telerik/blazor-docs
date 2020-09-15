@@ -140,6 +140,155 @@ Implementing beautiful rendering is up to the application, this example shows th
 
 ![editing in the listview](images/listview-editing-sample.png)
 
+>tip You can add validation in the edit/insert templates as well, and handle it by cancelling the `OnUpdate` and `OnCreate` events depending on the result of the validation (be that local `DataAnnotation` validation, or remote validation through your data service).
+
+>caption Validation in ListView editing
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations
+
+<TelerikListView Data="@ListViewData" Pageable="true"
+                 OnCreate="@CreateHandler" OnDelete="@DeleteHandler" OnUpdate="@UpdateHandler" OnCancel="@CancelHandler">
+    <EditTemplate>
+        <div style="border: 1px solid green; margin: 10px; padding: 10px; display: inline-block;">
+            @{ 
+                currEditItem = context;
+                if(currEditContext == null)
+                {
+                    currEditContext = new EditContext(currEditItem);
+                }
+                <EditForm EditContext="@currEditContext" Context="formContext">
+                    <DataAnnotationsValidator />
+                    <TelerikTextBox @bind-Value="@currEditItem.Name" Label="Name" />
+                    <ValidationMessage For="@(() => currEditItem.Name)"></ValidationMessage>
+
+                    <br />
+                    <TelerikDropDownList Data="@Teams" @bind-Value="@currEditItem.Team" />
+
+                    <ListViewCommandButton Command="Save" Icon="@IconName.Save">Save</ListViewCommandButton>
+                    <ListViewCommandButton Command="Cancel" Icon="@IconName.Cancel">Cancel</ListViewCommandButton>
+                </EditForm>
+            }
+        </div>
+    </EditTemplate>
+    <Template>
+        <div style="border: 1px solid black; margin: 10px; padding: 10px; display: inline-block;">
+            Employee: @context.Id <br />
+            Name: @context.Name in team: @context.Team
+            <ListViewCommandButton Command="Edit" Icon="@IconName.Edit">Edit</ListViewCommandButton>
+            <ListViewCommandButton Command="Delete" Icon="@IconName.Delete">Delete</ListViewCommandButton>
+        </div>
+    </Template>
+    <HeaderTemplate>
+        <ListViewCommandButton Command="Add" Icon="@IconName.Plus">Add Employee</ListViewCommandButton>
+        <p>In this sample, the first item will not open for editing because of the code in the OnEdit handler</p>
+    </HeaderTemplate>
+</TelerikListView>
+
+@code{
+    Employee currEditItem { get; set; }
+    EditContext currEditContext { get; set; }
+
+    async Task CreateHandler(ListViewCommandEventArgs e)
+    {
+        Employee insertedItem = e.Item as Employee;
+
+        // sample validation
+        if (!currEditContext.Validate())
+        {
+            // prevent the listview from going back in view mode
+            e.IsCancelled = true;
+            return;
+        }
+
+        // if you need remote validation (e.g., check for duplicates on the server)
+        // add it here through your data service and cancel the event as well
+
+        // save actual data here through your service
+
+        // update the view-model, can use returned data from the remote service too
+        insertedItem.Id = ListViewData.Count + 1;
+        ListViewData.Insert(0, insertedItem);
+
+        CleanUpValidation();
+    }
+
+    async Task DeleteHandler(ListViewCommandEventArgs e)
+    {
+        Employee deletedItem = e.Item as Employee;
+
+        ListViewData.Remove(deletedItem);
+
+        // save to the actual data source here as well
+    }
+
+    async Task UpdateHandler(ListViewCommandEventArgs e)
+    {
+        Employee updatedItem = e.Item as Employee;
+
+        // sample validation
+        if (!currEditContext.Validate())
+        {
+            // prevent the listview from going back in view mode
+            e.IsCancelled = true;
+            return;
+        }
+
+        // if you need remote validation (e.g., check for duplicates on the server)
+        // add it here through your data service and cancel the event as well
+
+        // save actual data here through your service
+
+        // update the view-model, can use returned data from the remote service too
+        int index = ListViewData.FindIndex(itm => itm.Id == updatedItem.Id);
+        if (index > -1)
+        {
+            ListViewData[index] = updatedItem;
+        }
+
+        CleanUpValidation();
+    }
+
+    void CancelHandler(ListViewCommandEventArgs e)
+    {
+        CleanUpValidation();
+    }
+
+    void CleanUpValidation()
+    {
+        // clean up for next run
+        currEditContext = null;
+        currEditItem = null;
+    }
+
+    // data and models follow
+
+    List<Employee> ListViewData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        ListViewData = Enumerable.Range(1, 250).Select(x => new Employee
+        {
+            Id = x,
+            Name = $"Name {x}",
+            Team = Teams[x % Teams.Count]
+        }).ToList();
+    }
+
+    List<string> Teams = new List<string> { "Sales", "Dev", "Support" };
+
+    public class Employee
+    {
+        public int Id { get; set; }
+
+        [Required(ErrorMessage = "Enter a name")]
+        public string Name { get; set; }
+
+        public string Team { get; set; }
+    }
+}
+````
+
 ## See Also
 
   * [ListView Overview]({%slug listview-overview%})
