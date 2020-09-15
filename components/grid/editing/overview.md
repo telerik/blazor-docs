@@ -24,11 +24,11 @@ This section explains the available events and command buttons that you need to 
 
 List of the available events:
 
-* `OnCreate` - fires when the `Save` [command button]({%slug components/grid/columns/command%}) button for a newly added item is clicked. Cancellable.
-* `OnUpdate` - fires when the `Save` command button is clicked on an existing item. Cancellable. The model reference is a copy of the original data source item.
-* `OnDelete` - fires when the `Delete` command button is clicked. Cancellable.
-* `OnEdit` - fires when the user is about to enter edit mode for an existing row. Cancellable.
-* `OnCancel` - fires when the user clicks the `Cancel` command button. Allows you to undo the changes to the data in the view data. Cancellable.
+* `OnCreate` - fires when the `Save` [command button]({%slug components/grid/columns/command%}) button for a newly added item is clicked. Cancellable (cancelling it keeps the grid in Insert mode).
+* `OnUpdate` - fires when the `Save` command button is clicked on an existing item. Cancellable (cancelling it keeps the grid in Edit mode). The model reference is a copy of the original data source item.
+* `OnDelete` - fires when the `Delete` command button is clicked.
+* `OnEdit` - fires when the user is about to enter edit mode for an existing row. Cancellable (cancelling it prevents the item from opening for editing).
+* `OnCancel` - fires when the user clicks the `Cancel` command button. Allows you to undo the changes to the data in the view data. Cancellable (keeps the grid in Edit/Insert mode).
 * `OnRead` - fires when the grid needs data - after any data source operation like updating, creating, deleting, filtering, sorting. If you cancel the CUD events, the [OnRead]({%slug components/grid/manual-operations%}) event will not fire.
 
 The CUD event handlers receive an argument of type `GridCommandEventArgs` that exposes the following fields:
@@ -39,7 +39,7 @@ The CUD event handlers receive an argument of type `GridCommandEventArgs` that e
 * `Field` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates which is the model field the user changed when updating data.
 * `Value` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates what is the new value the user changed when updating data.
 
-You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the grid, or components in a column template) through the [grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item). You can also use the state and the item in the CRUD event handlers to put the grid back in edit/insert mode with the model the user changed, in case the data service call fails.
+You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the grid, or components in a column template) through the [grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item).
 
 ## Example
 
@@ -188,6 +188,8 @@ Editing is cancelled for the first two records.
 There are a few considerations to keep in mind with the CUD operations of the grid. They are explained in the following list:
 
 * It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
+    
+    * For example, you may want to update the view-model only on success of the data service with the model returned from the server. Another thing you may want to do is to inform the user for server (async, remote) validation errors such as duplicates. You can find examples of both in the [Remote Validation sample project](https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation).
 
 * The CRUD event handlers must be `async Task` and **not** `async void`. A Task can be properly awaited and allows working with services and contexts. When the method returns `void`, the execution of the context operations is not actually awaited, and you may get errors from the context (such as "Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application" or "A second operation started on this context before a previous operation completed. This is usually caused by different threads using the same instance of DbContext").
 
