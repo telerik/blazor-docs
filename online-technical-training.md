@@ -8,7 +8,7 @@ position: 220
 
 # Online Technical Training
 
-Telerik UI for Blazor includes a technical online training available to its active license holders. The training is part the Progress Telerik® Video Learning Platform and covers multiple topics related to application development for both Blazor as a framework and Telerik UI for Blazor components.
+Telerik UI for Blazor includes a technical online training available to both its active trial and license holders. The training is part the Progress Telerik® Video Learning Platform and covers multiple topics related to application development for both Blazor as a framework and Telerik UI for Blazor components.
 
 The training format and syllabus allow learning at your own pace and referring to topics of interest when needed. It provides a great way to onboard team members on Blazor and Telerik UI for Blazor and boosts developer productivity with hands-on experience for building a real-world application, along with multiple how-to topics and code examples.
 
