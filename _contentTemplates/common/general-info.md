@@ -72,8 +72,9 @@ You can reference the built-in Telerik assets from a cloud CDN instead of a loca
 #vsx-download
 You can get them from the:
 
-* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions)
-* [Telerik UI for Blazor automated installer]({%slug installation/msi%})
+* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions) (for Windows)
+* [Telerik UI for Blazor automated installer]({%slug installation/msi%}) (for Windows and Mac)
+* Your [Telerik.com account](https://www.telerik.com/account/product-download?product=BLAZOR) - the `.mpack` file for VS for Mac
 
 #end
 

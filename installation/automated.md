@@ -15,7 +15,14 @@ This article explains what the automated install wizard does for Telerik UI for 
 
 While the most common way to install the Telerik UI for Blazor components is to use the [Telerik private NuGet feed]({%slug installation/nuget%}), you can also use a wizard installer, or a [zip archive]({%slug installation/zip%}).
 
-There is an automated installer for Windows (`.msi`) and for Mac (`.pkg`).
+There is an automated installer for:
+
+* Windows (`.msi`)
+
+* MacOS (`.pkg`)
+
+* Linux (`.sh` + `.tar.gz`). Pass `-s <path to the archive>` when running the script. Other arguments are `-d` for the location where the archive will be extracted (defaults to `${HOME}/telerik-blazor"`) and `-SkipNETCoreInstall` to skip the installation of .NET Core (note that the framework is required).
+
 
 The automated installer provides the following:
 
