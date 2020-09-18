@@ -27,6 +27,8 @@ If you get such errors, the reason is that the JS Interop file we need is missin
 
 After an upgrade, the version may be wrong (and thus, not having all the needed features), if you use our CDN to fetch the file, and its path is not updated to match the package version. See the [Upgrade Process]({%slug upgrade-tutorial%}#upgrade-process) article to update the path.
 
+Another common reason is the browser caching the file if it comes from the static assets. Clearing the browser cache (or using `Ctrl`+`F5` to refresh the page) fix that. A real server should look at the modified date of those files and serve them fully when they have been upgraded, so in a production environment this should not occur, but a development server is more likely to return a "not modified" response even after the file was updated.
+
 ### Missing File
 
 You can check if this is the case by inspecting the Network tab of your browser console to see if it is returning successfully. There are a few common causes for the JS Interop file to be missing:
