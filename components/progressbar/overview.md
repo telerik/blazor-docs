@@ -28,14 +28,18 @@ Add basic progress bar config example here
 The Progress Bar provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element. You can use it to cascade styles more easily.
-* `Min` - defaults to `0` (`double`) - the minimum value of the Progress Bar.
-* `Max` - defaults to `100` (`double`) - the maximum value of the Progress Bar.
+* `Min` - `double`, defaults to `0` - the minimum value of the Progress Bar.
+* `Max` - `double`, defaults to `100` - the maximum value of the Progress Bar.
 * `Value` - `double` - the value of the Progress bar. Must be between the `Min` and `Max` values.
 * `Orientation` - you can control the orientation of the Progress Bar, through the `ProgressBarOrientation` enum, with members:
     * `Horizontal` - this is the default value
     * `Vertical`
-* `Indeterminate` - defaults to `false` (`bool`) - controls if the Progress Bar is in indeterminate state. 
+* `Indeterminate` - `bool`, defaults to `false` - controls if the Progress Bar is in indeterminate state. This parameter might be used as indicator that a task is still in progress.
 * `Labels` - see the [Labels]({%slug progress-bar-labels%}) article for more information.
+
+## Examples
+
+* []
 
 ## See Also
 
