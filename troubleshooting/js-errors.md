@@ -54,6 +54,11 @@ A solution is to remove the `defer` attribute we have added in our documentation
 
 We have added it to improve performance of your app by not making the script a blocking resource.
 
+
+### TypeScript
+
+By default, TypeScript results in compiled code that needs the `exports` object, and that is not available in Blazor by default, so it throws an error. A common workaround for that (defining an empty `exporst` object) causes errors from the Telerik JS Interop files. You can read more about the errors and the solutions in the [TypeScript Exports error breaks Telerik Blazor]({%slug common-kb-typescript-exports%}) KnowledgeBase article.
+
 ## Object doesn't support property or method 'assign'
 
-Under IE, you may get errors similar to `Object doesn't support property or method 'assign'` or errors that relate other modern JS features that are not supported under IE. The reason is that we use modern code that may not work under IE - it is not one of the [browsers we support]({%slug browser-support%}), and WASM does not work on it anyway, so modern Blazor apps won't run on IE regardless.
+Under IE, you may get errors similar to `Object doesn't support property or method 'assign'` or errors that relate other modern JS features that are not supported under IE. The reason is that we use modern code that may not work under IE - it is not one of the [browsers we support]({%slug browser-support%}), and WebAssembly does not work on it anyway, so modern Blazor apps won't run on IE regardless.
