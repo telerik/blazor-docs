@@ -24,7 +24,7 @@ res_type: kb
 
 I am having a Chart with negative value. This causes the labels of the X-Axis to be overlapped by the chart series and make them unreadable.
 
->caption Overlapped labels. Problematic example.
+>caption Labels overlapped by the chart series. Problematic example.
 
 ![chart crossing values problematic example](images/chart-crossing-values-problematic-example.png)
 
@@ -34,7 +34,7 @@ I am having a Chart with negative value. This causes the labels of the X-Axis to
 You can control the point where the axes cross each other by using the `AxisCrossingValue` parameter. To move the labels of the categorical axis to the bottom of the Chart you have to set a very low value of the `AxisCrossingValue` parameter for the value axis (`ChartValueAxis`). 
 
 
-### Example - Move the X-Axis labels to the bottom of the Chart
+>caption Move the X-Axis labels to the bottom of the Chart
 
 ````CSHTML
 @* This example shows how to move the X-Axis labels to the bottom of the Chart by setting the AxisCrossingValue to a low value *@
