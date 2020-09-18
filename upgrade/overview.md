@@ -37,11 +37,11 @@ To upgrade the Telerik UI for Blazor components used in your project, perform th
 
 1. Update the version of the `Telerik.UI.for.Blazor` package your project references. If you are using a trial version, the package name is `Telerik.UI.for.Blazor.Trial`.
 
-1. If you are using our CDN for the JS Interop file, update the version in its URL. It must match the version of the package itself. For example, if you are upgrading to the `2.0.0` version, the CDN link must be:
+1. If you are using our CDN for the JS Interop file, update the version in its URL. It must match the version of the package itself. For example, if you are upgrading to the `{{site.uiForBlazorLatestVersion}}` version, the CDN link must be:
 
     **HTML**
     
-        <script src="https://kendo.cdn.telerik.com/blazor/2.0.0/telerik-blazor.min.js" defer></script>
+        <script src="https://kendo.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/telerik-blazor.min.js" defer></script>
         
     Generally, the URL has the following format:
     
