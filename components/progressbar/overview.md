@@ -44,6 +44,6 @@ The Progress Bar provides the following features:
 ## See Also
 
   * [Live Demo: Progress Bar](https://demos.telerik.com/blazor-ui/TODO)
-  * [Appearance Settings]({%slug progress-bar-labels%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikLoader)
+  * [Labels]({%slug progress-bar-labels%})
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikProgressBar)
    
