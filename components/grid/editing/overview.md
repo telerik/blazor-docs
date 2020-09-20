@@ -195,6 +195,9 @@ There are a few considerations to keep in mind with the CUD operations of the gr
 
 * The Grid uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert action is invoked, so the Model should have a Parameterless constructor defined. A workaround might be [invoking Insert through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
 
+* If you want to pre-populate values to the user, see the [Setting default values in new row]({%slug grid-kb-default-value-for-new-row%}) KnowledgeBase article.
+
+
 ## See Also
 
   * [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor-ui/grid/editing-inline)

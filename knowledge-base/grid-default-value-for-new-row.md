@@ -31,7 +31,14 @@ Or, if the field is not nullable it would default to a zero or to a `Jan 01` in 
 
 ## Solution
 
-To set default values in the new row, set them in the default constructor of the model class.
+There are two ways to set default values in a new row:
+
+* [Set them in the default constructor of the model class.](#set-them-in-the-default-constructor-of-the-model-class)
+* [Use the grid state](#use-the-grid-state)
+
+
+
+### Set them in the default constructor of the model class.
 
 >caption How to set default values in a new grid row
 
@@ -120,3 +127,10 @@ Click the <strong>Add</strong> button to see the default values for the HireDate
     }
 }
 ````
+
+### Use the grid state
+
+You can use the grid state to put the grid in insert/edit mode without the built-in "Add" command. You can add a button (your own or a GridCommandButton but with a custom command name) to the toolbar, and in its OnClick event you can set the `InsertedItem` of the grid state as desired.
+
+You can find an example of this in the [Initiate Editing or Inserting of an Item]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) example.
+
