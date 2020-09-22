@@ -214,19 +214,18 @@ If your password contains a special character, those characters need to be escap
 #### Solutions
 
 1. Change the password so that it only includes characters that do not need to be escaped
-2. Escape the special characters before storing it as server credentials. 
-    * For example, `my§uper&P@§§word` gets encoded to `my&sect;uper&amp;P@&sect;&sect;word`. 
+2. Escape the special characters before storing it as server credentials. For example, `my§uper&P@§§word` encodes to `my&sect;uper&amp;P@&sect;&sect;word`. 
 
-We **strongly** discourage using a online HTML or Url encoder utility for a password. You can use a simple Powershell command instead, here's an example.
+We **strongly** discourage using a online encoder utility for a password. You can use Powershell command instead, here's one example:
 
 ```
-$myRawPassword = "PUT_YOUR_PASSWORD_HERE"
-$myEncodedPassword = ([uri]::EscapeDataString($myRawPassword))
-Write-Host $myEncodedPassword
+Add-Type -AssemblyName System.Web
+[System.Web.HttpUtility]::HtmlEncode('my§uper&P@§§word')
 ```
 
-Here's what that looks like in Powershell, you can now use the value of `$myEncodedPassword` for your stored credentials.
-![Powershell Uri Encoding](https://user-images.githubusercontent.com/3520532/93897424-0bcb1380-fcc0-11ea-9a66-30ef1f8a3be6.png)
+Fig. 1
+
+![Powershell Encoding](https://user-images.githubusercontent.com/3520532/93901989-13d98200-fcc5-11ea-9d36-0eaee4272453.png)
 
 
 ## See Also
