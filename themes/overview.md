@@ -112,6 +112,8 @@ The [LibMan client-side dependency manager](https://docs.microsoft.com/en-us/asp
         
         
     >note There have been some reports that the `@latest` version sometimes does not work with a message similar to `The "@progress/kendo-theme-material@latest" library could not be resolved by the "unpkg" provider`. If trying again a bit later does not help, you can replace the `@latest` moniker with the current latest version of the theme that you can find at the [Themes Repo Releases section](https://github.com/telerik/kendo-themes/releases). For example, `^3.0.0` to get the latest version of the major release `3`. If you commit such a version, you may want to check for updates after a while.
+    
+    >tip You may want to add a package reference to the `Microsoft.Web.LibraryManager.Build` package so that dependencies are resolved at build-time by LibMan, instead of manually. If a version has already been restored, you may need to invoke a `Rebuild` to update it.
 
 1. In the client Blazor application, go to the `wwwroot/index.html` file and replace the CDN link with the following one. For a server-side Blazor project, do that in the `~/Pages/_Host.cshtml` file.
 
