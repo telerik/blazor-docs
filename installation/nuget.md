@@ -223,9 +223,7 @@ Add-Type -AssemblyName System.Web
 [System.Web.HttpUtility]::HtmlEncode('my§uper&P@§§word')
 ```
 
-Fig. 1
-
-![Powershell Encoding](https://user-images.githubusercontent.com/3520532/93901989-13d98200-fcc5-11ea-9d36-0eaee4272453.png)
+![Powershell Encoding](images/encode-passwords-with-powershell.png)
 
 
 ## See Also
