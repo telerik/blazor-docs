@@ -99,6 +99,57 @@ You can also control other visual settings of the Labels such as `Padding`, `Bor
 
 ![rotate chart labels](images/chart-label-rotation-example.png)
 
+#### Example - Automatic Rotation
+
+The chart can try to calculate whether the labels will fit and rotate them only if they won't. Here's how you can enable this:
+
+````CSHTML
+This example shows how to enable automatic label rotation - try running the page with one browser size, then with a small one
+
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@series2Data">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@xAxisItems">
+            <ChartCategoryAxisLabels>
+                <ChartCategoryAxisLabelsRotation Angle="@AutoLabelsRotation" />
+            </ChartCategoryAxisLabels>
+        </ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
+
+    <ChartLegend Position="ChartLegendPosition.Right">
+    </ChartLegend>
+</TelerikChart>
+
+@code {
+    string AutoLabelsRotation = "auto";
+
+    public List<object> series1Data = new List<object>() { 10, 2, 5, 6, 8 };
+    public List<object> series2Data = new List<object>() { 5, 8, 2, 7, 6 };
+    public string[] xAxisItems = new string[5];
+
+    protected override void OnInitialized()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            xAxisItems[i] = $"looooong label {i + 1}";
+        }
+        base.OnInitialized();
+    }
+}
+````
+
+>caption Comparison between a large and small chart size that shows how the labels get rotated when needed
+
+![automatic rotation for crowded labels](images/chart-crowded-labels-auto-rotation.png)
+
 
 ### Example - Skip rendering every n-th label
 
