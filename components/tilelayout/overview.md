@@ -120,7 +120,7 @@ If the width and height dimensions are insufficient to accommodate the defined r
 
 `Columns`, `Width` and `Height`  have no default values.
 
-`ColumnWidth` and `RowHeight` default to `1fr`.
+`ColumnWidth` and `RowHeight` default to `1fr`. Thus, you may want to omit setting a `ColumnWidth` in order to get a more responsive (fluid) layout - all columns will then have the same width - a fraction of the total width.
 
 There are two other settings you should take into account if you set explicit dimensions to the main element - the `ColumnSpacing` and `RowSpacing` - they are CSS units that define the gaps between the individual columns and rows and count towards the total dimensions of the component. They default to `16px`.
 
@@ -129,6 +129,8 @@ Lastly, you can also set the `Class` parameter that renders at the main wrapping
 ### Individual Tiles
 
 Each tile provides settings that define how many columns and rows its takes up - the `ColSpan` and `RowSpan` parameters. It also provides a `Class` parameter so you can cascade CSS rules through it.
+
+The largest `ColSpan` any tile has determines the lowest number of `Columns` the entire layout will actually have - for example, if you have a tile with `ColSpan=2` and `Columns=1`, there will still be two columns.
 
 @[template](/_contentTemplates/tilelayout/basics.md#resizing-reordering-logic)
 
