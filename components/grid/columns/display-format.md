@@ -20,34 +20,39 @@ position: 2
 @using System.ComponentModel.DataAnnotations
 @* This Using is for the model class attribute only *@
 
-<TelerikGrid Data="@GridData">
+<TelerikGrid Data="@GridData" Pageable="true">
     <GridColumns>
-        <GridColumn DisplayFormat="{0:P3}" Title="Percentage with 3 decimals" Field="@nameof(SampleModel.SomeField)" />
-        <GridColumn Title="Currency format" Field="@nameof(SampleModel.NumericPropertyWithAnnotation)" />
+        <GridColumn Field="@nameof(SampleModel.Name)" />
+
+        <GridColumn Field="@nameof(SampleModel.Salary)" />
+        <GridColumn DisplayFormat="{0:dd MMM yy}" Field="@nameof(SampleModel.HireDate)" />
+
     </GridColumns>
 </TelerikGrid>
 
 @code {
     class SampleModel
     {
-        public double SomeField { get; set; }
+        public string Name { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
-        public decimal NumericPropertyWithAnnotation { get; set; }
+        public decimal Salary { get; set; }
+        public DateTime HireDate { get; set; }
     }
+
+    // sample data generation
 
     List<SampleModel> GridData { get; set; }
 
     protected override void OnInitialized()
     {
-        GridData = new List<SampleModel>
+        Random rand = new Random();
+        GridData = Enumerable.Range(1, 50).Select(x => new SampleModel
         {
-            new SampleModel()
-            {
-                SomeField = 0.123456789d,
-                NumericPropertyWithAnnotation = 7.3M
-            }
-        };
+            Name = $"name {x}",
+            Salary = x * 20000 / 12.34m,
+            HireDate = DateTime.Now.Date.AddMonths(rand.Next(-20, 20)).AddDays(rand.Next(-10, 10)),
+        }).ToList();
     }
 }
 ````
