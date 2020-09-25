@@ -8,7 +8,7 @@ published: True
 position: 2
 ---
 
-# Display Format
+# Column Display Format
 
 You can set a C# format string to the column so that it renders the values with the corresponding styling according to the current culture of the thread.
 
