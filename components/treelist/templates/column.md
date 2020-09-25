@@ -14,6 +14,8 @@ By default, the TreeList renders the value of the field in the column, as it is 
 
 Using a template will keep the `Expandable="true"` feature in a column - the expand/collapse arrows that the treelist renders for you. Your template will render after the arrow.
 
+>tip If you only want to format numbers, dates, enums, you can do so with the [DisplayFormat feature]({%slug treelist-columns-displayformat%}) without the need to declare a template.
+
 The example below shows how to:
 
 * set the `Template` (make sure to use the capital `T`, at the time of writing the Visual Studio autocomplete tends to use the lowercase `t` which breaks the template logic and does not allow you to access the context)

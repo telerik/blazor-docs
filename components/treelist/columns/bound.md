@@ -124,6 +124,8 @@ You can use the following properties on the bound columns:
 
 * `Title` - the text that is rendered in the column header. See the Notes below for its behavior.
 
+* `DisplayFormat` - the C# format string that is used to render the field value in the cell when the grid is in display mode. Read more in the [Column Display Format]({%slug treelist-columns-displayformat%}) article.
+
 * `Editable` - (defaults to `true`) - you can set this property to `true` or `false` to allow or prevent [editing]({%slug treelist-overview%}#editing) of this field. Defaults to `true`. To edit data, you also need a [CommandColumn]({%slug treelist-columns-command%}).
 
 * `Filterable` - (defaults to `true`) - you can set this to `false` so a [filterable]({%slug treelist-filtering%}) treelist will not let the user filter that particular column.
@@ -159,6 +161,8 @@ You can use the following properties on the bound columns:
 * The treelist skips fields marked with the [`IgnoreDataMemberAttribute`](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.ignoredatamemberattribute) when performing CUD operations. Its presence indicates that this property does not need to be part of the serialized data anyway, and skipping such fields allows [Lazy Loading Proxies in EF](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.proxiesextensions.uselazyloadingproxies?view=efcore-3.1) to work.
 
 * If you don't set a `Title` for a column, the treelist will take the `[Display(Name = "My Column Title")]` data annotation attribute from the model field. If that's not available either, the name of the field will be shown.
+
+* If the model has a `[DisplayFormat(DataFormatString = "{0:C}")]` data annotation attribute, the display format will be taken from the format string in the attribute.
 
 * If you want to prevent data mutation for a specific property you can set the `Editable` parameter of the TreeListColumn or the `[Editable]` data annotation attribute to `false` for the desired model field.
     * Columns generated out of model properties that do not have a `setter` or it is not accessible (private) will not be editable too.
