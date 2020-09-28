@@ -338,7 +338,13 @@ intro_columns:
       "Tab Strip": "components/tabstrip/overview"
       "TreeView": "components/treeview/overview"
       "Pager": "pager-overview"
+
+  -
+    title: "Interactivity and UX"
+    items:
       "Loader": "loader-overview"
+      "Progress Bar": "progressbar-overview"
+
 
 -
   categories:
