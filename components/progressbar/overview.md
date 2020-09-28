@@ -55,7 +55,7 @@ The Progress Bar provides the following features:
     * `Horizontal` - this is the default value
     * `Vertical`
 * `Indeterminate` - `bool`, defaults to `false` - controls if the Progress Bar is in indeterminate state. This parameter might be used as indicator that a task is still in progress.
-* `Labels` - see the [Labels]({%slug progress-bar-labels%}) article for more information.
+* `Labels` - see the [Labels]({%slug progressbar-labels%}) article for more information.
 
 ## Use the Indeterminate state to indicate that the task is still not completed
 
@@ -129,6 +129,6 @@ The Progress Bar provides the following features:
 ## See Also
 
   * [Live Demo: Progress Bar](https://demos.telerik.com/blazor-ui/TODO)
-  * [Labels]({%slug progress-bar-labels%})
+  * [Labels]({%slug progressbar-labels%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikProgressBar)
    
