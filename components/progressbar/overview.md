@@ -27,7 +27,7 @@ To use the Telerik Progress Bar in your Blazor application:
 <TelerikProgressBar Max="@MaxValue" Value="@PBValue" />
 
 @code {
-    public double MaxValue { get; set; } = 50;
+    public double MaxValue { get; set; } = 100;
     public double PBValue { get; set; } = 10;
 }
 ````
@@ -59,7 +59,7 @@ The Progress Bar provides the following features:
 * `Indeterminate` - `bool`, defaults to `false` - see the [Indeterminate]({%slug progressbar-indeterminate-state%}) article for more information.
 * `Label` - see the [Label]({%slug progressbar-label%}) article for more information.
 
-## Use a Timer to simulate the completing of a task
+## Use a Timer to simulate the completion of a task
 
 ![progress bar with timer example](images/progress-bar-timer-example.gif)
 
@@ -130,5 +130,6 @@ The Progress Bar provides the following features:
 
   * [Live Demo: Progress Bar](https://demos.telerik.com/blazor-ui/TODO)
   * [Label]({%slug progressbar-label%})
+  * [Indeterminate state]({%slug progressbar-indeterminate-state%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikProgressBar)
    

@@ -56,10 +56,11 @@ To control the position of the label for the Progress Bar, set the `ProgressBarL
     
 ### Template
 
-The `Template` allows you to control the entire rendering of the labels for the Progress Bar. The `Context` provides the current value of the Progress Bar through the `Value`, `double`, parameter.
+The `Template` allows you to control the entire rendering of the label for the Progress Bar.
 
 
 ## See Also
 
-  * [Live Demo: ProgressBar Overview](https://demos.telerik.com/blazor-ui/loader/overview)
-  * [Live Demo: Loader Appearance](https://demos.telerik.com/blazor-ui/loader/appearance)
+  * [Live Demo: ProgressBar Overview](https://demos.telerik.com/blazor-ui/progressbar/overview)
+  * [Overview]({%slug progressbar-overview%})
+  * [Indeterminate state]({%slug progressbar-indeterminate-state%})
