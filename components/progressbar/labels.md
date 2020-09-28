@@ -33,10 +33,28 @@ To control the position of the labels for the Progress Bar, set the `ProgressBar
     
 ### Template
 
-The `Template` allows you to control the entire rendering of the labels for the Progress Bar.
-
+The `Template` allows you to control the entire rendering of the labels for the Progress Bar. The `Context` provides the current value of the Progress Bar through the `Value`, `double`, parameter.
 
 ### Example of customizing the labels using the features
+
+````CSHTML
+<TelerikProgressBar Max="@MaxValue" Value="@PBValue">
+    <ProgressBarLabel Visible="true" Position="@ProgressBarLabelPosition.Center">
+        <Template>
+            <div>
+                The value of the ProgressBar is: <span style="font-weight:bold">@(context.Value)</span>
+            </div>
+        </Template>
+    </ProgressBarLabel>
+</TelerikProgressBar>
+
+@code {
+    public double MaxValue { get; set; } = 50;
+    public double PBValue { get; set; } = 10;
+}
+````
+
+![customize the labels of the progress bar](images/progress-bar-customize-label.png)
 
 
 ## See Also
