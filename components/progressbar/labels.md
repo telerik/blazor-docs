@@ -20,7 +20,7 @@ To customize the labels for the Progress Bar add the `<ProgressBarLabel>` tag, n
 
 ### Visible
 
-The `Visible` parameter takes a `boolean` and controls whether the labels of the Progress Bar are visible and defaults to `true`.
+The `Visible` parameter takes a `boolean` value and controls whether the labels of the Progress Bar are visible and defaults to `true`.
 
 ### Position
 

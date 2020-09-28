@@ -17,10 +17,17 @@ The Progress Bar tracks the execution of time consuming operations and displays 
 
 To add a Telerik Progress Bar to your Blazor application, use the `<TelerikProgressBar>` tag. 
 
-![](images/progress-bar-overview.gif)
+![](images/progress-bar-overview.png)
 
 ````CSHTML
-Add basic progress bar config example here
+@*Set the maximum and the current values of the ProgressBar*@
+
+<TelerikProgressBar Max="@MaxValue" Value="@PBValue" />
+
+@code {
+    public double MaxValue { get; set; } = 50;
+    public double PBValue { get; set; } = 10;
+}
 ````
 
 ## Features
@@ -28,8 +35,7 @@ Add basic progress bar config example here
 The Progress Bar provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element. You can use it to cascade styles more easily.
-* `Min` - `double`, defaults to `0` - the minimum value of the Progress Bar.
-* `Max` - `double`, defaults to `100` - the maximum value of the Progress Bar.
+* `Max` - `double`, defaults to `100` - the maximum value of the Progress Bar. It must be greater than `0`.
 * `Value` - `double` - the value of the Progress bar. Must be between the `Min` and `Max` values.
 * `Orientation` - you can control the orientation of the Progress Bar, through the `ProgressBarOrientation` enum, with members:
     * `Horizontal` - this is the default value
