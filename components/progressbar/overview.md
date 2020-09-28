@@ -17,7 +17,7 @@ The Progress Bar tracks the execution of time consuming operations and displays 
 
 To add a Telerik Progress Bar to your Blazor application, use the `<TelerikProgressBar>` tag. 
 
-![](images/progress-bar-overview.png)
+![progress-bar basic example](images/progress-bar-overview.png)
 
 ````CSHTML
 @*Set the maximum and the current values of the ProgressBar*@
@@ -43,9 +43,74 @@ The Progress Bar provides the following features:
 * `Indeterminate` - `bool`, defaults to `false` - controls if the Progress Bar is in indeterminate state. This parameter might be used as indicator that a task is still in progress.
 * `Labels` - see the [Labels]({%slug progress-bar-labels%}) article for more information.
 
-## Examples
+## Use the Indeterminate state to indicate that the task is still not completed
 
-* []
+![progress bar indeterminate state example](images/progress-bar-indeterminate-example.gif)
+
+````CSHTML
+@using System.Timers
+@implements IDisposable
+
+<TelerikButton Primary="true" OnClick="@StartProgress">Start</TelerikButton>
+
+<br />
+
+<TelerikProgressBar Max="@MaxValue" Value="@PBValue" Indeterminate="@isIndeterminate">
+</TelerikProgressBar>
+
+@code {
+    public double MaxValue { get; set; } = 100;
+    public double PBValue { get; set; } = 10;
+    public bool isIndeterminate { get; set; } = false;
+
+    public Timer Timer { get; set; } = new Timer();
+
+    public void Dispose()
+    {
+        StopProgress();
+        Timer?.Close();
+    }
+
+    public void StartProgress()
+    {
+        if (Timer?.Enabled == false)
+        {
+            Timer.Interval = 200;
+            Timer.Elapsed -= OnTimerElapsedEvent;
+            Timer.Elapsed += OnTimerElapsedEvent;
+            Timer.AutoReset = true;
+            isIndeterminate = true;
+            Timer.Start();
+        }
+    }
+
+    public void OnTimerElapsedEvent(Object source, ElapsedEventArgs e)
+    {
+        if (PBValue < MaxValue)
+        {
+            UpdateProgress();
+        }
+        else
+        {
+            StopProgress();
+        }
+    }
+
+    public void UpdateProgress()
+    {
+        PBValue += 5;
+
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void StopProgress()
+    {
+        isIndeterminate = false;
+        Timer?.Stop();
+        InvokeAsync(StateHasChanged);
+    }
+}
+````
 
 ## See Also
 
