@@ -30,6 +30,20 @@ To add a Telerik Progress Bar to your Blazor application, use the `<TelerikProgr
 }
 ````
 
+
+>caption Component namespace and reference
+
+````CSHTML
+<TelerikProgressBar Max="@MaxValue" Value="@PBValue" @ref="MyProgressBar" />
+
+@code {
+    Telerik.Blazor.Components.TelerikProgressBar MyProgressBar { get; set; }
+    
+    public double MaxValue { get; set; } = 50;
+    public double PBValue { get; set; } = 10;
+}
+````
+
 ## Features
 
 The Progress Bar provides the following features:
