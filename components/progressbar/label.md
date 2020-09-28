@@ -43,17 +43,16 @@ To access the customization settings use the `<ProgressBarLabel>`. It provides a
 
 ### Visible
 
-The `Visible` parameter takes a `boolean` value and controls whether the label of the Progress Bar are visible and defaults to `true`.
+The `Visible` parameter takes a `boolean` value and controls whether the label of the Progress Bar is visible and defaults to `true`.
 
 ### Position
 
 To control the position of the label for the Progress Bar, set the `ProgressBarLabelPosition` enum to one of its members:
 
-    * `Start`
-    * `Center`
-    * `End` - this is the default value
-    
-    
+* `Start`
+* `Center`
+* `End` - this is the default value
+
 ### Template
 
 The `Template` allows you to control the entire rendering of the label for the Progress Bar.
