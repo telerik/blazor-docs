@@ -8,9 +8,9 @@ published: True
 position: 5
 ---
 
-# Labels for the Progress Bar
+# Label for the ProgressBar
 
-To customize the labels for the Progress Bar add the `<ProgressBarLabel>` tag, nested in `<TelerikProgressBar>`.
+The label for the ProgressBar is a text representation for the completion of the task. To customize the label for the Progress Bar add the `<ProgressBarLabel>` tag, nested in `<TelerikProgressBar>`.
 
 ## Features
 
@@ -20,11 +20,11 @@ To customize the labels for the Progress Bar add the `<ProgressBarLabel>` tag, n
 
 ### Visible
 
-The `Visible` parameter takes a `boolean` value and controls whether the labels of the Progress Bar are visible and defaults to `true`.
+The `Visible` parameter takes a `boolean` value and controls whether the label of the Progress Bar are visible and defaults to `true`.
 
 ### Position
 
-To control the position of the labels for the Progress Bar, set the `ProgressBarLabelPosition` enum to one of its members:
+To control the position of the label for the Progress Bar, set the `ProgressBarLabelPosition` enum to one of its members:
 
     * `Start`
     * `Center`
@@ -59,5 +59,5 @@ The `Template` allows you to control the entire rendering of the labels for the 
 
 ## See Also
 
-  * [Live Demo: Loader Overview](https://demos.telerik.com/blazor-ui/loader/overview)
+  * [Live Demo: ProgressBar Overview](https://demos.telerik.com/blazor-ui/loader/overview)
   * [Live Demo: Loader Appearance](https://demos.telerik.com/blazor-ui/loader/appearance)
