@@ -1,5 +1,5 @@
 ---
-title: Indeterminate state
+title: Indeterminate State
 page_title: Indeterminate state for the Progress Bar
 description: Indeterminate state for the Progress Bar for Blazor.
 slug: progressbar-indeterminate-state
@@ -10,11 +10,12 @@ position: 10
 
 # Indeterminate state
 
+The Indeterminate state of the ProgressBar can be used in cases when the estimated time of completion of the task is unknown or the progress can not be represented as a physical value. The ProgressBar is filled with flowing motion animation to showcase that the task is running. 
+
 >caption Telerik ProgressBar in Indeterminate state
 
 ![progress bar in indeterminate state](images/progress-bar-indeterminate-example.gif)
 
-The Indeterminate state of the ProgressBar can be used in cases when the estimated time of completion of the task is unknown or the progress can not be represented as a physical value. The ProgressBar is filled with flowing motion animation to showcase that the task is running. 
 
 To put the ProgressBar in Indeterminate state set the `Indeterminate`, `boolean` parameter to `true`.
 

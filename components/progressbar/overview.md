@@ -10,14 +10,14 @@ position: 0
 
 # Progress Bar Overview
 
-The Progress Bar tracks the execution of time consuming operations and displays what portion of it is completed. 
+The Progress Bar tracks the execution of operations and displays what portion of it is completed. For very long tasks, you can also make it [indeterminate]({%slug progressbar-indeterminate-state%}).
 
 
 ## Basic Progress Bar
 
 To use the Telerik Progress Bar in your Blazor application:
 * add the `<TelerikProgressBar>` tag.
-* set the `Value` parameter.
+* set its `Value` parameter to denote how much is completed.
 
 ![progress-bar basic example](images/progress-bar-basic-example.png)
 
@@ -57,7 +57,7 @@ The Progress Bar provides the following features:
     * `Horizontal` - this is the default value
     * `Vertical`
 * `Indeterminate` - `bool`, defaults to `false` - see the [Indeterminate]({%slug progressbar-indeterminate-state%}) article for more information.
-* `Label` - see the [Label]({%slug progressbar-label%}) article for more information.
+* `Label` - see the [Label]({%slug progressbar-label%}) article for more information. Shows the `Value` with a `%` sign by default
 
 ## Use a Timer to simulate the completion of a task
 
