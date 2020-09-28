@@ -17,7 +17,7 @@ The Progress Bar tracks the execution of time consuming operations and displays 
 
 To add a Telerik Progress Bar to your Blazor application, use the `<TelerikProgressBar>` tag. 
 
-![progress-bar basic example](images/progress-bar-overview.png)
+![progress-bar basic example](images/progress-bar-basic-example.png)
 
 ````CSHTML
 @*Set the maximum and the current values of the ProgressBar*@
