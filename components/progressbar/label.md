@@ -1,9 +1,9 @@
 ---
-title: Labels
-page_title: Labels for the Progress Bar
-description: Labels for the Progress Bar for Blazor.
-slug: progressbar-labels
-tags: telerik,blazor,progress,bar,progressbar,labels
+title: Label
+page_title: Label for the Progress Bar
+description: Label for the Progress Bar for Blazor.
+slug: progressbar-label
+tags: telerik,blazor,progress,bar,progressbar,label
 published: True
 position: 5
 ---

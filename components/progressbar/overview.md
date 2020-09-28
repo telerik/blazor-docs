@@ -56,8 +56,8 @@ The Progress Bar provides the following features:
 * `Orientation` - you can control the orientation of the Progress Bar, through the `ProgressBarOrientation` enum, with members:
     * `Horizontal` - this is the default value
     * `Vertical`
-* `Indeterminate` - `bool`, defaults to `false` - controls if the Progress Bar is in indeterminate state. This parameter might be used as indicator that a task is still in progress.
-* `Labels` - see the [Labels]({%slug progressbar-labels%}) article for more information.
+* `Indeterminate` - `bool`, defaults to `false` - see the [Indeterminate]({%slug progressbar-indeterminate-state%}) article for more information.
+* `Label` - see the [Label]({%slug progressbar-label%}) article for more information.
 
 ## Use a Timer to simulate the completing of a task
 
@@ -129,6 +129,6 @@ The Progress Bar provides the following features:
 ## See Also
 
   * [Live Demo: Progress Bar](https://demos.telerik.com/blazor-ui/TODO)
-  * [Labels]({%slug progressbar-labels%})
+  * [Label]({%slug progressbar-label%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikProgressBar)
    
