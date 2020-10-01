@@ -108,7 +108,7 @@ When the `Max` and `ChunkCount` parameters do not match in value, the `Value` pa
 
 ## See Also
 
-  * [Live Demo: Progress Bar](https://demos.telerik.com/blazor-ui/TODO)
+  * [Live Demo: ChunkProgressBar](https://demos.telerik.com/blazor-ui/TODO)
   * [Indeterminate state]({%slug chunkprogressbar-indeterminate-state%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChunkTelerikProgressBar)
    
