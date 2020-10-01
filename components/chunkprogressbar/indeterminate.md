@@ -12,14 +12,14 @@ position: 10
 
 The Indeterminate state of the ChunkProgressBar can be used in cases when the estimated time of completion of the task is unknown or the progress can not be represented as a physical value. The ChunkProgressBar is filled with flowing motion animation to showcase that the task is running. 
 
->caption Telerik ProgressBar in Indeterminate state
+>caption Telerik ChunkProgressBar in Indeterminate state
 
 ![chunkprogress bar in indeterminate state](images/chunkprogressbar-indeterminate-state-basic-example.png)
 
 
 To put the ChunkProgressBar in Indeterminate state set the `Indeterminate`, `boolean` parameter to `true`.
 
->caption Put the ProgressBar in Indeterminate State
+>caption Put the ChunkProgressBar in Indeterminate State
 
 ````CSHTML
 <div>
