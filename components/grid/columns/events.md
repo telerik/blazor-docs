@@ -80,5 +80,5 @@ This event fires upon the rendering of the Grids columns. It takes `GridCellRend
 ## See Also
 
   * [Grid Overview]({%slug components/grid/overview%})
-  * [Grid Editing Overview]({%slug components/grid/editing/overview%})
+  * [Grid Events]({%slug grid-events%})
   * [Manual Data Source Operations]({%slug components/grid/manual-operations%})
