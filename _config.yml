@@ -196,6 +196,8 @@ navigation:
         title: "Chart"
      "*checkbox":
         title: "Checkbox"
+     "*chunkprogressbar":
+        title: "ChunkProgressBar"
      "*colorpalette":
         title: "ColorPalette"
      "*colorpicker":
@@ -338,7 +340,14 @@ intro_columns:
       "Tab Strip": "components/tabstrip/overview"
       "TreeView": "components/treeview/overview"
       "Pager": "pager-overview"
+
+  -
+    title: "Interactivity and UX"
+    items:
       "Loader": "loader-overview"
+      "Progress Bar": "progressbar-overview"
+      "Chunk Progress Bar": "chunkprogressbar-overview"
+
 
 -
   categories:
