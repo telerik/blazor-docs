@@ -58,7 +58,7 @@ The Progress Bar provides the following features:
 * `Orientation` - you can control the orientation of the Progress Bar, through the `ProgressBarOrientation` enum, with members:
     * `Horizontal` - this is the default value
     * `Vertical`
-* `Indeterminate` - `bool`, defaults to `false` - see the [Indeterminate]({%slug progressbar-indeterminate-state%}) article for more information.
+* `Indeterminate` - `bool`, defaults to `false` - see the [Indeterminate]({%slug chunkprogressbar-indeterminate-state%}) article for more information.
 
 ## Examples
 
