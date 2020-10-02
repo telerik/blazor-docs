@@ -23,4 +23,25 @@ The `GridRowClickEventArgs` class exposes an `EventArgs` property. It maps to `M
 #end
 
 
+#display-format-basics
+You can set a C# format string to the column so that it renders the values with the corresponding styling according to the current culture of the thread.
+
+## Basics
+
+To set the desired format string, use the `DisplayFormat` parameter of the column.
+
+If the model field has the `DataFormatString` set through the `DisplayFormat` DataAnnotation attribute, the grid will honor that without an explicit setting in the markup of the column.
+
+You can use the standard C# formatting options, because the grid uses a `string.Format` call: <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/formatting-types" target="_blank">MSDN: Format types in .NET</a>.
+#end
+
+
+#display-format-notes
+## Notes
+
+* Numeric, DateTime and Enum types can use such formats. String and Boolean types are displayed without such a format, however.
+
+* The `CurrentInfo.CurrentCulture` is used when rendering the formats, so if you need specific formats for specific users, you must set the culture of the app accordingly.
+#end
+
 
