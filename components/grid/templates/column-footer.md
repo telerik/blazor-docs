@@ -29,9 +29,9 @@ You can use [aggregates]({%slug grid-aggregates%}) for the current field directl
     <GridColumns>
         <GridColumn Field=@nameof(Employee.Salary) Title="Salary">
             <FooterTemplate>
-                Total salaries: @context.Sum.Value.ToString("C0")
+                Total salaries: @context.Sum?.ToString("C0")
                 <br />
-                Highest salary: @context.Max.Value.ToString("C0")
+                Highest salary: @context.Max?.ToString("C0")
             </FooterTemplate>
         </GridColumn>
         <GridColumn Field=@nameof(Employee.Name)>
@@ -39,8 +39,9 @@ You can use [aggregates]({%slug grid-aggregates%}) for the current field directl
                 @{
                     // you can use aggregates for other fields/columns by extracting the desired one by its
                     // field name and aggregate function from the AggregateResults collection
-                    // The type of its Value is determined by the type of its field - decimal for the Salary field here
-                    int headCount = (int)context.AggregateResults
+                    // The type of its Value is determined by the type of its field - decimal for the Salary field or int for the count of IDs
+                    // Casts are towards nullable types to avoid errors when filering removes all items and aggregation
+                    int? headCount = (int?)context?.AggregateResults
                         .FirstOrDefault(r => r.AggregateMethodName == "Count" && r.Member == nameof(Employee.EmployeeId))?.Value;
                 }
                 Total employees: @headCount

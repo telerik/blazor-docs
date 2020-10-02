@@ -196,6 +196,8 @@ navigation:
         title: "Chart"
      "*checkbox":
         title: "Checkbox"
+     "*chunkprogressbar":
+        title: "ChunkProgressBar"
      "*colorpalette":
         title: "ColorPalette"
      "*colorpicker":

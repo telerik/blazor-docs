@@ -27,6 +27,8 @@ If you get such errors, the reason is that the JS Interop file we need is missin
 
 After an upgrade, the version may be wrong (and thus, not having all the needed features), if you use our CDN to fetch the file, and its path is not updated to match the package version. See the [Upgrade Process]({%slug upgrade-tutorial%}#upgrade-process) article to update the path.
 
+Another common reason is the browser caching the file if it comes from the static assets. Clearing the browser cache (or using `Ctrl`+`F5` to refresh the page) fix that. A real server should look at the modified date of those files and serve them fully when they have been upgraded, so in a production environment this should not occur, but a development server is more likely to return a "not modified" response even after the file was updated.
+
 ### Missing File
 
 You can check if this is the case by inspecting the Network tab of your browser console to see if it is returning successfully. There are a few common causes for the JS Interop file to be missing:
@@ -52,6 +54,11 @@ A solution is to remove the `defer` attribute we have added in our documentation
 
 We have added it to improve performance of your app by not making the script a blocking resource.
 
+
+### TypeScript
+
+By default, TypeScript results in compiled code that needs the `exports` object, and that is not available in Blazor by default, so it throws an error. A common workaround for that (defining an empty `exporst` object) causes errors from the Telerik JS Interop files. You can read more about the errors and the solutions in the [TypeScript Exports error breaks Telerik Blazor]({%slug common-kb-typescript-exports%}) KnowledgeBase article.
+
 ## Object doesn't support property or method 'assign'
 
-Under IE, you may get errors similar to `Object doesn't support property or method 'assign'` or errors that relate other modern JS features that are not supported under IE. The reason is that we use modern code that may not work under IE - it is not one of the [browsers we support]({%slug browser-support%}), and WASM does not work on it anyway, so modern Blazor apps won't run on IE regardless.
+Under IE, you may get errors similar to `Object doesn't support property or method 'assign'` or errors that relate other modern JS features that are not supported under IE. The reason is that we use modern code that may not work under IE - it is not one of the [browsers we support]({%slug browser-support%}), and WebAssembly does not work on it anyway, so modern Blazor apps won't run on IE regardless.

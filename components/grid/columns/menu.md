@@ -10,7 +10,7 @@ position: 20
 
 # Column Menu
 
-The Grid allows you to setup a menu for it's columns. It enables you to perform high-level customization like [sorting]({%slug components/grid/features/sorting%}), [filtering]({%slug components/grid/filtering%}), [showing or hiding]({%slug grid-columns-visible%}) columns and [freezing or unfreezing]({%slug grid-columns-frozen%}) them.
+The Grid allows you to setup a menu for its columns. It enables you to perform high-level customization like [sorting]({%slug components/grid/features/sorting%}), [filtering]({%slug components/grid/filtering%}), [showing or hiding]({%slug grid-columns-visible%}) columns and [freezing or unfreezing]({%slug grid-columns-frozen%}) them.
 
 >caption Telerik Column Menu for the Grid
 
@@ -159,7 +159,7 @@ To hide a column from the Column Chooser set the `VisibleInColumnChooser` proper
 
 ## Notes
 
-* Applying settings to a Grid column like `Filterable="false"`, `Sortable="false"`, `Lockable="false"` will take precendense over the common settings applied in the `<GridColumnMenuSettings>` and disable the above-mentioned functionalities for the corresponding column.
+* Applying settings to a Grid column like `Filterable="false"`, `Sortable="false"`, `Lockable="false"` will take precendence over the common settings applied in the `<GridColumnMenuSettings>` and disable the above-mentioned functionalities for the corresponding column.
 
 * An exception will be thrown if the `FilterMode` of the Grid is set to `FilterRow` and a column menu is used - the filter descriptors of the two features are not compatible.
 

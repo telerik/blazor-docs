@@ -163,5 +163,13 @@ This article you can observe Freezing different columns. The examples are separa
 }
 ````
 
+
+## Limitations
+
+The frozen columns pose some requirements:
+
+* When a column is frozen (it has `Locked="true"`), its `Width` **must** be in `px` units.
+
+
 ## See also
  * [Live demo: Frozen Columns](https://demos.telerik.com/blazor-ui/grid/frozen-columns)

@@ -20,12 +20,12 @@ There are several approaches:
 
 This article also offers some troubleshooting information in case you encounter problems:
 
-
 * [Troubleshooting](#troubleshooting)
-	* [I do not see the Telerik Packages](#i-do-not-see-the-telerik-packages)
-	* [CI and CD Automated Builds](#ci-and-cd-automated-builds)
-		* Azure
-		* GitHub Secrets
+    * [I do not see the Telerik Packages](#i-do-not-see-the-telerik-packages)
+    * [CI and CD Automated Builds](#ci-and-cd-automated-builds)
+        * Azure DevOps Pipelines
+        * GitHub Secrets
+    * [Error 401 Logon failed.](#error-401-login-failed)
 
 ## Video Tutorial - Visual Studio
 
@@ -106,14 +106,15 @@ This section lists problems related to the Telerik NuGet feed and their solution
 
 * [I do not see the Telerik Packages](#i-do-not-see-the-telerik-packages)
 * [CI and CD Automated Builds](#ci-and-cd-automated-builds)
-	* Azure
+  * Azure DevOps Pipelines
+  * GitHub Secrets
+* [Error 401 Logon failed.](#error-401-login-failed)
 
 ### I do not see the Telerik Packages
 
 There are two common reasons for the Telerik packages to be missing in the Telerik Online Feed:
 
 * There is a network issue. For example, a proxy, firewall or other similar software blocks requests to our server.
-
 * Your license is tied to a different account than the one used for the feed credentials.
 
 To check if this is a networking issue, open the following URL in your browser and enter your `telerik.com` credentials: <a href="https://nuget.telerik.com/nuget/Search()?$filter=IsAbsoluteLatestVersion&searchTerm=%27Blazor%27&includePrerelease=true&$skip=0&$top=100&semVerLevel=2.0.0" target="_blank">https://nuget.telerik.com/nuget/Search()?$filter=IsAbsoluteLatestVersion&searchTerm=%27Blazor%27&includePrerelease=true&$skip=0&$top=100&semVerLevel=2.0.0</a>. You should see an XML result with the list of packages you can access and you should see the `Telerik.UI.for.Blazor` package with the version appropriate to your license.
@@ -143,7 +144,7 @@ There are a couple of common ways people implement CI/CD automated builds:
 
 You must protect your credentials and/or the Telerik packages and ensure they are used only by you and not by other developers, according to the [license-per-developer policy](https://www.telerik.com/purchase/license-agreement/blazor-ui). They can by such colleagues (like other developers, QAs, designers, front-end devs, DBAs and so on) for building and running a solution, provided they do not use the Telerik components to create functionality. Of course, you must ensure that such credentials or package sources are not available to the general public (for example, in public repositories). 
 
-#### Azure
+#### Azure DevOps Pipelines
 
 When using Azure pipelines, we encourage you to review the following resources on setting things up:
 
@@ -206,7 +207,24 @@ Finally, you need a `nuget.config` file that lists the Telerik server in the `pa
 
 >warning GitHub does not allow secrets to be used in workflows that have been [triggered by a pull request event](https://docs.github.com/en/actions/reference/events-that-trigger-workflows). In such a case, the runner will not be able to authenticate with the Telerik NuGet server and the job will expectedly fail.
 
-Note: 
+### Error 401 login failed
+
+If your password contains a special character, those characters need to be escaped or it may fail authentication resulting in *Error 401 login failure* from the NuGet server. A common character that needs to be escaped is the ampersand `&`, but it can be as unique as the section character `§`.
+
+#### Solutions
+
+1. Change the password so that it only includes characters that do not need to be escaped
+2. Escape the special characters before storing it as server credentials. For example, `my§uper&P@§§word` encodes to `my&sect;uper&amp;P@&sect;&sect;word`. 
+
+We **strongly** discourage using a online encoder utility for a password. You can use Powershell command instead, here's one example:
+
+```
+Add-Type -AssemblyName System.Web
+[System.Web.HttpUtility]::HtmlEncode('my§uper&P@§§word')
+```
+
+![Powershell Encoding](images/encode-passwords-with-powershell.png)
+
 
 ## See Also
 

@@ -76,9 +76,209 @@ Donut series
 
 ## Donut Chart Specific Appearance Settings
 
->tip The donut chart is a variation of the Pie Chart graph type, and has the same features and behavior. You can read more about them in the [Pie Chart](pie#pie-chart-specific-appearance-settings) article. This includes features like setting colors for individual segments, exploded (separated) segments, rotation, whether to show the item in the legend. Just change the `Type` of the series to `Donut`.
+The following sections explain speciifc configuration options to the donut charts:
 
-Here follow features specific to the donut chart that are not available in a pie chart.
+* [Rotation](#rotation)
+* [Color Field](#color-field)
+* [Exploded Segment](#exploded-segment)
+* [Visible In Legend](#visible-in-legend)
+* [Hole Size](#hole-size)
+* [Multiple Series](#multiple-series)
+* [Customize Chart Elements - Nested Tags Settings](#customize-chart-elements---nested-tags-settings)
+
+### Rotation
+
+By default, the firt segment starts at the top. You can change that by using the `StartAngle` property of the series.
+
+### Color Field
+
+You can control the color of the individual segments of the donut chart by providing a string with the desired color in the model, and setting the `ColorField` of the series to it. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
+
+````CSHTML
+@*Set color to the donut chart items*@
+
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Donut"
+                     Data="@donutData"
+                     
+                     ColorField="@nameof(MyDonutChartModel.SegmentColor)"
+
+                     Field="@nameof(MyDonutChartModel.SegmentValue)"
+                     CategoryField="@nameof(MyDonutChartModel.SegmentName)">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartTitle Text="Revenue per product"></ChartTitle>
+
+    <ChartLegend Position="ChartLegendPosition.Right">
+    </ChartLegend>
+</TelerikChart>
+
+@code {
+    public class MyDonutChartModel
+    {
+        public string SegmentName { get; set; }
+        public double SegmentValue { get; set; }
+        public string SegmentColor { get; set; }
+    }
+
+    public List<MyDonutChartModel> donutData = new List<MyDonutChartModel>
+    {
+        new MyDonutChartModel
+        {
+            SegmentName = "Product 1",
+            SegmentValue = 2,
+            SegmentColor = "red"
+        },
+        new MyDonutChartModel
+        {
+            SegmentName = "Product 2",
+            SegmentValue = 3,
+            SegmentColor = "#00ff00"
+        },
+        new MyDonutChartModel
+        {
+            SegmentName = "Product 3",
+            SegmentValue = 4,
+            SegmentColor = "#00f"
+        }
+    };
+}
+````
+
+>caption The result from the code snippet above
+
+![](images/custom-color-in-segments-donut.png)
+
+### Exploded Segment
+
+You can have some of the segments of the donut chart separated from the rest of the circle with a small margin. This helps bring attention to them as outliers or as important bits that the viewer should focus on.
+
+To explode (separate) a segment, use the `ExplodeField` property of the series and set it to a boolean field that indicates whether the segment is exploded. Only a `true` value explodes a segment, so you can use a nullable field as well and only provide values for the items you want separated.
+
+>caption Exploded Items
+
+````CSHTML
+@*Separate items from the main body of the chart*@
+
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Donut"
+                     Data="@donutData"
+                     
+                     ExplodeField="@nameof(MyDonutChartModel.IsSeparated)"
+
+                     Field="@nameof(MyDonutChartModel.SegmentValue)"
+                     CategoryField="@nameof(MyDonutChartModel.SegmentValue)">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartTitle Text="Revenue per product"></ChartTitle>
+
+    <ChartLegend Position="ChartLegendPosition.Right">
+    </ChartLegend>
+</TelerikChart>
+
+@code {
+    public class MyDonutChartModel
+    {
+        public string SegmentName { get; set; }
+        public double SegmentValue { get; set; }
+        public bool? IsSeparated { get; set; }
+    }
+
+    public List<MyDonutChartModel> donutData = new List<MyDonutChartModel>
+    {
+        new MyDonutChartModel
+        {
+            SegmentName = "Product 1",
+            SegmentValue = 2,
+            IsSeparated = true
+        },
+        new MyDonutChartModel
+        {
+            SegmentName = "Product 2",
+            SegmentValue = 3
+        },
+        new MyDonutChartModel
+        {
+            SegmentName = "Product 3",
+            SegmentValue = 4
+        }
+    };
+}
+````
+
+>caption The result from the code snippet above
+
+![](images/exploded-donut-chart.png)
+
+### Visible In Legend
+
+You can hide certain segments from the legend (for example, if their contribution is insignificantly small). To do this, add a boolean field to the model and set its name to the `VisibleInLegendField` property of the donut series. The flags in this field will denote whether the particular item will be rendered in the legend.
+
+>caption Hide segments from the legend
+
+````CSHTML
+@*Show only some items in the legend*@
+
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Donut"
+                     Data="@donutData"
+                     
+                     VisibleInLegendField="@nameof(MyDonutChartModel.ShouldShowInLegend)"
+
+                     Field="@nameof(MyDonutChartModel.SegmentValue)" 
+                     CategoryField="@nameof(MyDonutChartModel.SegmentName)">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartTitle Text="Revenue per product"></ChartTitle>
+
+    <ChartLegend Position="ChartLegendPosition.Right">
+    </ChartLegend>
+</TelerikChart>
+
+@code {
+    public class MyDonutChartModel
+    {
+        public string SegmentName { get; set; }
+        public double SegmentValue { get; set; }
+        public bool ShouldShowInLegend { get; set; } = true;
+    }
+
+    public List<MyDonutChartModel> donutData = new List<MyDonutChartModel>
+    {
+        new MyDonutChartModel
+        {
+            SegmentName = "Product 1",
+            SegmentValue = 2
+        },
+        new MyDonutChartModel
+        {
+            SegmentName = "Product 2",
+            SegmentValue = 3
+        },
+        new MyDonutChartModel
+        {
+            SegmentName = "Product 3",
+            SegmentValue = 4
+        },
+        new MyDonutChartModel
+        {
+            SegmentName = "Insignificant Product",
+            SegmentValue = 0.1,
+            ShouldShowInLegend = false
+        }
+    };
+}
+````
+
+>caption The result from the code snippet above
+
+![](images/donut-chart-hide-from-legend.png)
 
 ### Hole Size
 
@@ -133,7 +333,7 @@ Control the hole size of the donut chart
 
 ![](images/donut-hole-size.png)
 
-## Multiple Series
+### Multiple Series
 
 Unlike a pie chart, a donut chart can have multiple series in a single chart. Each series is nested in the next - the first declared series is in the center, and the last series is at the outer edge.
 
@@ -299,7 +499,7 @@ You can also use the `ColorField` property to define a field with the segments' 
     }
 
     public List<ModelData> Data = new List<ModelData>()
-{
+    {
         new ModelData()
         {
             Category = "Football",

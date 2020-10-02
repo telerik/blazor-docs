@@ -44,8 +44,6 @@ The Blazor Date Range Picker component exposes the following features:
 
 * `DisabledDates` - Specifies a list of dates that can not be selected as the start or end of the range, see the <a href="https://demos.telerik.com/blazor-ui/daterangepicker/disabled-dates" target="_blank">Live Demo: Date Range Picker Disabled Dates</a>.
 
-* `Class` - The custom CSS class rendered on the wrapping element.
-
 * `Enabled` - Specifies whether typing in the input is allowed.
 
 * `Format` - Specifies the format of the DateInputs of the DateRangePicker. [Read more about supported data formats in Telerik DateInput for Blazor UI]({%slug components/dateinput/supported-formats%}) article.
