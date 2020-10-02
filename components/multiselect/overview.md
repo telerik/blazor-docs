@@ -26,7 +26,7 @@ To use a Telerik MultiSelect for Blazor
 <TelerikMultiSelect Data="@Countries"
                     @bind-Value="@Values"
                     Placeholder="Enter Balkan country, e.g., Bulgaria"
-                    Width="350px" ClearButton="true" />
+                    Width="350px" ClearButton="true" AutoClose="false" />
 
 @if (Values.Count > 0)
 {
@@ -39,8 +39,8 @@ To use a Telerik MultiSelect for Blazor
 }
 
 @code {
-    List<string> Countries { get;set; } = new List<string>();
-    List<string> Values { get;set; } = new List<string>();
+    List<string> Countries { get; set; } = new List<string>();
+    List<string> Values { get; set; } = new List<string>();
 
     protected override void OnInitialized()
     {
@@ -57,7 +57,6 @@ To use a Telerik MultiSelect for Blazor
         base.OnInitialized();
     }
 }
-
 ````
 
 >caption The result from the code snippet above, after you select something
