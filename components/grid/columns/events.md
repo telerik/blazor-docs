@@ -2,7 +2,7 @@
 title: Column Events
 page_title: Grid - Column Events
 description: Events of the Grid Column for Blazor.
-slug: grid-columns-events
+slug: grid-column-events
 tags: telerik,blazor,grid,column,columns,events
 published: True
 position: 100
@@ -16,7 +16,7 @@ This article explains the events available for the Columns of the Telerik Grid f
 
 ## OnCellRender
 
-This event fires upon the rendering of the Grids columns. It takes `GridCellRenderEventArgs` object which exposes the following fields:
+This event fires upon the rendering of the Grids columns. It receives an argument of type `GridCellRenderEventArgs` which exposes the following fields:
 
 * `Item` - an object you can cast to your model class to obtain the current data item.
 * `Value` - an object that contains the value that is rendered in the Grid cell. You can cast it to its data type, for example to a `string`, `DateTime` or a number.

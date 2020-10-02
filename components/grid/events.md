@@ -23,6 +23,7 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 	* [OnRowContextMenu](#onrowcontextmenu)
 	* [OnRowExpand](#onrowexpand)
 	* [OnRowCollapse](#onrowcollapse)
+	* [OnRowRender](#onrowrender)
 	* [PageChanged](#pagechanged)
 
 ## CUD Events
@@ -453,6 +454,65 @@ The event handler receives a `GridRowCollapseEventArgs` object which provides th
 
 ````
 
+### OnRowRender
+
+This event fires upon the rendering of the Grid. It receives an argument of type `GridRowRenderEventArgs` which exposes the following fields:
+
+* `Item` - an object you can cast to your model class to obtain the current data item.
+* `Class` - the CSS class that will be applied to the cells.
+
+>caption Use the OnRowRender event to apply custom format to Grid rows based on certain condition
+
+````CSHTML
+<style>
+    .myCustomRowFormatting {
+        background-color: blue;
+        color: white;
+        font-size: 10px;
+        font-weight: bold;
+    }
+</style>
+
+<TelerikGrid Data="@MyData" Height="400px"
+             Pageable="true" Sortable="true" Groupable="true"
+             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
+             Resizable="true" Reorderable="true" OnRowRender="@OnRowRenderHandler">
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    void OnRowRenderHandler(GridRowRenderEventArgs args)
+    {
+        var item = args.Item as SampleData;
+
+        if (item.Name.Contains("5"))
+        {
+            args.Class = "myCustomRowFormatting";
+        }
+    }
+
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
 
 ### PageChanged
 
@@ -511,4 +571,5 @@ The event fires when the user pages the grid.
 
   * [Grid Overview]({%slug components/grid/overview%})
   * [Grid Editing Overview]({%slug components/grid/editing/overview%})
+  * [Grid Column Events]({%slug grid-column-events%})
   * [Manual Data Source Operations]({%slug components/grid/manual-operations%})

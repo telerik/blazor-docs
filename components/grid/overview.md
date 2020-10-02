@@ -201,7 +201,102 @@ You can define your own content for column cells or even the entire row through 
 
 You can also set the [`Height` of the grid]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
 
-For example, you can benefit from the elastic design the components expose to change their font size so they change dimensions.
+
+### Conditional Formatting
+
+You can format the cells and rows of the Grid based on certain condition in the logic of the application. 
+
+To do so, use the [OnCellRender]({%slug grid-column-events%}#oncellrender) and [OnRowRender]({%slug grid-events%}#onrowrender) events and pass a CSS class to the event handlers.
+
+>caption Use the OnCellRender and OnRowRender events to customize the formatting of the Grid rows and cells based on conditions.
+
+````CSHTML
+<style>
+    .highlightCellBackGroud {
+        background-color: lightyellow;
+    }
+
+    .negativeValuesRowFormatting {
+        color: red;
+    }
+
+    .positiveValuesRowFormatting {
+        color: green;
+    }
+</style>
+
+<TelerikGrid Data="@GridData"
+             Height="400px"
+             Pageable="true"
+             Sortable="true"
+             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
+             Resizable="true"
+             Reorderable="true"
+             OnRowRender="@OnRowRenderHandler">
+    <GridColumns>
+        <GridColumn Field="@(nameof(AccountingData.ClientId))" Width="120px" />
+        <GridColumn Field="@(nameof(AccountingData.ClientName))" Title="Client Name" Groupable="false" />
+        <GridColumn Field="@(nameof(AccountingData.DateOfLastReport))" Title="Date Of Last Report" />
+        <GridColumn Field="@(nameof(AccountingData.NetBalance))"
+                    Title="Net Balance"
+                    OnCellRender="@OnCellRenderHandler" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+
+    void OnCellRenderHandler(GridCellRenderEventArgs args)
+    {
+        args.Class = "highlightCellBackGroud";
+    }
+    void OnRowRenderHandler(GridRowRenderEventArgs args)
+    {
+        AccountingData item = args.Item as AccountingData;
+
+        args.Class = item.NetBalance > 0 ? "positiveValuesRowFormatting" : "negativeValuesRowFormatting";
+    }
+
+    public List<AccountingData> GridData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<AccountingData>();
+        GenerateAccountingData();
+        base.OnInitialized();
+    }
+
+    public void GenerateAccountingData()
+    {
+        Random rand = new Random();
+        for (int i = 0; i < 50; i++)
+        {
+            GridData.Add(new AccountingData()
+            {
+                ClientId = i,
+                ClientName = $"Client {i}",
+                DateOfLastReport = DateTime.Today.AddDays(-i),
+                NetBalance = rand.Next(-15000, 25000)
+            });
+        }
+    }
+
+    public class AccountingData
+    {
+        public int ClientId { get; set; }
+        public string ClientName { get; set; }
+        public DateTime DateOfLastReport { get; set; }
+        public int NetBalance { get; set; }
+    }
+}
+````
+
+>caption The result from the code snippet above
+
+![conditional formatting of the grid](images/grid-styling-conditional-formatting-example.png)
+
+### Elastic Design
+
+You can benefit from the elastic design the components expose to change their font size so they change dimensions.
 
 >caption Change font size and dimensions of a grid
 
