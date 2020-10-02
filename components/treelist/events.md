@@ -168,7 +168,7 @@ Fires when the item selection is enabled and the user changes the selected [item
 This event fires upon the rendering of the TreeList. It receives an argument of type `TreeListRowRenderEventArgs` which exposes the following fields:
 
 * `Item` - an object you can cast to your model class to obtain the current data item.
-* `Class` - the CSS class that will be applied to the cells.
+* `Class` - the CSS class that will be applied to the cells. The CSS rules that are set for that class will be visibly rendered on the Grid cells.
 
 >caption Use the OnRowRender event to apply custom format to TreeList rows based on certain condition
 

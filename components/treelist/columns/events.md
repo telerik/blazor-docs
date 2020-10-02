@@ -20,7 +20,7 @@ This event fires upon the rendering of the TreeLists columns. It receives an arg
 
 * `Item` - an object you can cast to your model class to obtain the current data item.
 * `Value` - an object that contains the value that is rendered in the TreeList cell. You can cast it to its data type, for example to a `string`, `DateTime` or a number.
-* `Class` - the CSS class that will be applied to the cells.
+* `Class` - the CSS class that will be applied to the cells. The CSS rules that are set for that class will be visibly rendered on the Grid cells.
 
 >caption Use the OnCellRender event to apply custom format to TreeList cells based on certain value
 
