@@ -26,7 +26,8 @@ To use a Telerik MultiSelect for Blazor
 <TelerikMultiSelect Data="@Countries"
                     @bind-Value="@Values"
                     Placeholder="Enter Balkan country, e.g., Bulgaria"
-                    Width="350px" ClearButton="true" />
+                    Width="350px" ClearButton="true" AutoClose="false">
+</TelerikMultiSelect>
 
 @if (Values.Count > 0)
 {
@@ -39,8 +40,8 @@ To use a Telerik MultiSelect for Blazor
 }
 
 @code {
-    List<string> Countries { get;set; } = new List<string>();
-    List<string> Values { get;set; } = new List<string>();
+    List<string> Countries { get; set; } = new List<string>();
+    List<string> Values { get; set; } = new List<string>();
 
     protected override void OnInitialized()
     {
@@ -57,7 +58,6 @@ To use a Telerik MultiSelect for Blazor
         base.OnInitialized();
     }
 }
-
 ````
 
 >caption The result from the code snippet above, after you select something
@@ -72,6 +72,8 @@ The MultiSelect is a generic component and its type is determined by the type of
 ## Features
 
 >caption The MultiSelect provides the following features:
+
+* `AutoClose` - `bool`, defaults to `true` - defines wheter the dropdown list containing the items for the MultiSelect will automatically close after each user selection.
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the multiselect.
 
