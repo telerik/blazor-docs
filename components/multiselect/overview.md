@@ -26,7 +26,8 @@ To use a Telerik MultiSelect for Blazor
 <TelerikMultiSelect Data="@Countries"
                     @bind-Value="@Values"
                     Placeholder="Enter Balkan country, e.g., Bulgaria"
-                    Width="350px" ClearButton="true" AutoClose="false" />
+                    Width="350px" ClearButton="true" AutoClose="false">
+</TelerikMultiSelect>
 
 @if (Values.Count > 0)
 {
