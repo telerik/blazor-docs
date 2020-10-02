@@ -85,6 +85,8 @@ You can use the following properties on the bound columns:
 
 * `Filterable` - (defaults to `true`) - you can set this to `false` so a [filterable]({%slug components/grid/filtering%}) grid will not let the user filter that particular column.
 
+* `OnCellRender` - an event that fires upon the rendering of the Grids columns. For more information read the columns [events]({%slug grid-column-events%}#oncellrender) article.
+
 * `Sortable` - (defaults to `true`) - set it to `false` so the user cannot [sort]({%slug components/grid/features/sorting%}) this column.
 
 * `Groupable` - (defaults to `true`) - whether the use can [group]({%slug components/grid/features/grouping%}) the grid by this column.
