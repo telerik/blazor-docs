@@ -56,11 +56,15 @@ The following list shows the Telerik components that support specific keyboard c
 
 * ListView - not applicable, its entire rendering is up to the app. Its pager is a separate component that offers accessibility and keyboard navigation.
 
+* Loader - not applicable, it is merely a visualization component the user cannot interact with.
+
 * [MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation)
 
 * [NumericTextBox](https://demos.telerik.com/blazor-ui/numerictextbox/keyboard-navigation)
 
 * [Pager](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation)
+
+* ProgressBar - not applicable, it is merely a visualization component the user cannot interact with.
 
 * Scheduler - will have keyboard navigation in an upcoming release.
 

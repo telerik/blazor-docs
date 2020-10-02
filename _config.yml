@@ -346,7 +346,6 @@ intro_columns:
     items:
       "Loader": "loader-overview"
       "Progress Bar": "progressbar-overview"
-      "Chunk Progress Bar": "chunkprogressbar-overview"
 
 
 -
