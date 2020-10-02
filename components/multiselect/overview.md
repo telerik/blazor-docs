@@ -73,7 +73,7 @@ The MultiSelect is a generic component and its type is determined by the type of
 
 >caption The MultiSelect provides the following features:
 
-* `AutoClose` - `bool`, defaults to `true` - defines if the dropdown list containing the items will automatically close after each user selection.
+* `AutoClose` - `bool`, defaults to `true` - defines wheter the dropdown list containing the items for the MultiSelect will automatically close after each user selection.
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the multiselect.
 
