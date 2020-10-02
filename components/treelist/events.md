@@ -361,5 +361,6 @@ The event fires when the user pages the treelist.
 ## See Also
 
   * [TreeList Overview]({%slug treelist-overview%})
+  * [TreeList Column Events]({%slug treelist-column-events%})
   * [TreeList Editing Overview]({%slug treelist-editing-overview%})
   
