@@ -25,6 +25,8 @@ This event fires upon the rendering of the Grids columns. It receives an argumen
 >caption Use the OnCellRender event to apply custom format to Grid cells based on certain value
 
 ````CSHTML
+@* Conditional styling/formatting for a cell *@
+
 <style>
     .myCustomCellFormatting {
         background-color: red;

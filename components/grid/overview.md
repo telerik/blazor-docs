@@ -201,17 +201,19 @@ You can define your own content for column cells or even the entire row through 
 
 You can also set the [`Height` of the grid]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
 
-In this article, below, you can see examples on how to format the cells and the rows of the Grid based on certain conditions and how to take advantage of the elastic design.
+Below, you can see examples on how to [format the cells and the rows of the Grid based on certain conditions](#conditional-formatting) and how to take advantage of the [elastic design](#elastic-design).
 
 ### Conditional Formatting
 
 You can format the cells and rows of the Grid based on certain condition in the logic of the application. 
 
-To do so, use the [OnCellRender]({%slug grid-column-events%}#oncellrender) and [OnRowRender]({%slug grid-events%}#onrowrender) events and pass a CSS class to the event handlers.
+To do so, use the [OnCellRender]({%slug grid-column-events%}#oncellrender) and [OnRowRender]({%slug grid-events%}#onrowrender) events and set the desired CSS class through the event handlers arguments.
 
 >caption Use the OnCellRender and OnRowRender events to customize the formatting of the Grid rows and cells based on conditions.
 
 ````CSHTML
+@* Conditional styling/formatting for a cell and row *@
+
 <style>
     .highlightCellBackGroud {
         background-color: lightyellow;

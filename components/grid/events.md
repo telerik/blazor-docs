@@ -464,6 +464,8 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
 >caption Use the OnRowRender event to apply custom format to Grid rows based on certain condition
 
 ````CSHTML
+@* Conditional styling/formatting for a row *@
+
 <style>
     .myCustomRowFormatting {
         background-color: blue;

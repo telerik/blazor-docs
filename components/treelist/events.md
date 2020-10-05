@@ -173,6 +173,8 @@ This event fires upon the rendering of the TreeList rows. It receives an argumen
 >caption Use the OnRowRender event to apply custom format to TreeList rows based on certain condition
 
 ````CSHTML
+@* Conditional styling/formatting for a row *@
+
 <style>
     .myCustomTreeListRowFormatting {
         background-color: blue;
