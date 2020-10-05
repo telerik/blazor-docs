@@ -23,6 +23,90 @@ The `GridRowClickEventArgs` class exposes an `EventArgs` property. It maps to `M
 #end
 
 
+#conditional-style-row-and-cell-render
+````CSHTML
+@* Conditional styling/formatting for a cell and row *@
+
+<style>
+    .highlightCellBackGroud {
+        background-color: lightyellow;
+    }
+
+    .negativeValuesRowFormatting {
+        color: red;
+    }
+
+    .positiveValuesRowFormatting {
+        color: green;
+    }
+</style>
+
+<TelerikGrid Data="@GridData"
+             Height="400px"
+             Pageable="true"
+             Sortable="true"
+             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
+             Resizable="true"
+             Reorderable="true"
+             OnRowRender="@OnRowRenderHandler">
+    <GridColumns>
+        <GridColumn Field="@(nameof(AccountingData.ClientId))" Width="120px" />
+        <GridColumn Field="@(nameof(AccountingData.ClientName))" Title="Client Name" Groupable="false" />
+        <GridColumn Field="@(nameof(AccountingData.DateOfLastReport))" Title="Date Of Last Report" />
+        <GridColumn Field="@(nameof(AccountingData.NetBalance))"
+                    Title="Net Balance"
+                    OnCellRender="@OnCellRenderHandler" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    void OnCellRenderHandler(GridCellRenderEventArgs args)
+    {
+        args.Class = "highlightCellBackGroud";
+    }
+    
+    void OnRowRenderHandler(GridRowRenderEventArgs args)
+    {
+        AccountingData item = args.Item as AccountingData;
+
+        args.Class = item.NetBalance > 0 ? "positiveValuesRowFormatting" : "negativeValuesRowFormatting";
+    }
+
+    public List<AccountingData> GridData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<AccountingData>();
+        GenerateAccountingData();
+        base.OnInitialized();
+    }
+
+    public void GenerateAccountingData()
+    {
+        Random rand = new Random();
+        for (int i = 0; i < 50; i++)
+        {
+            GridData.Add(new AccountingData()
+            {
+                ClientId = i,
+                ClientName = $"Client {i}",
+                DateOfLastReport = DateTime.Today.AddDays(-i),
+                NetBalance = rand.Next(-15000, 25000)
+            });
+        }
+    }
+
+    public class AccountingData
+    {
+        public int ClientId { get; set; }
+        public string ClientName { get; set; }
+        public DateTime DateOfLastReport { get; set; }
+        public int NetBalance { get; set; }
+    }
+}
+````
+
+#end
 #display-format-basics
 You can set a C# format string to the column so that it renders the values with the corresponding styling according to the current culture of the thread.
 

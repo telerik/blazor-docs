@@ -201,7 +201,25 @@ You can define your own content for column cells or even the entire row through 
 
 You can also set the [`Height` of the grid]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
 
-For example, you can benefit from the elastic design the components expose to change their font size so they change dimensions.
+Below, you can see examples on how to [format the cells and the rows of the Grid based on certain conditions](#conditional-formatting) and how to take advantage of the [elastic design](#elastic-design).
+
+### Conditional Formatting
+
+You can format the cells and rows of the Grid based on certain condition in the logic of the application. 
+
+To do so, use the [OnCellRender]({%slug grid-column-events%}#oncellrender) and [OnRowRender]({%slug grid-events%}#onrowrender) events and set the desired CSS class through the event handlers arguments.
+
+>caption Use the OnCellRender and OnRowRender events to customize the formatting of the Grid rows and cells based on conditions.
+
+@[template](/_contentTemplates/grid/common-link.md#conditional-style-row-and-cell-render)
+
+>caption The result from the code snippet above
+
+![conditional formatting of the grid](images/grid-styling-conditional-formatting-example.png)
+
+### Elastic Design
+
+You can benefit from the elastic design the components expose to change their font size so they change dimensions.
 
 >caption Change font size and dimensions of a grid
 

@@ -430,9 +430,136 @@ The TreeList lets you freeze one or more columns. You can read more about this f
 
 You can define your own content for column cells or even the entire row through [Templates]({%slug treelist-templates-overview%}).
 
-You can also set the [`Height` of the treelist]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
+You can also set the [`Height` of the TreeList]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
 
-For example, you can benefit from the elastic design the components expose to change their font size so they change dimensions.
+Below, you can see examples on how to [format the cells and the rows of the Grid based on certain conditions](#conditional-formatting) and how to take advantage of the [elastic design](#elastic-design).
+
+### Conditional Formatting
+
+You can format the cells and rows of the TreeList based on certain condition in the logic of the application. 
+
+To do so, use the [OnCellRender]({%slug treelist-column-events%}#oncellrender) and [OnRowRender]({%slug treelist-events%}#onrowrender) events and set the desired CSS class through the event handlers arguments.
+
+>caption Use the OnCellRender and OnRowRender events to customize the formatting of the TreeList rows and cells based on conditions.
+
+````CSHTML
+@* Conditional styling/formatting for a cell and row *@
+
+<style>
+    .highlightCellBackground {
+        background-color: lightyellow;
+    }
+
+    .formatTreeListRows {
+        color: green;
+        font-size: 10px;
+        font-weight: bolder;
+    }
+</style>
+
+<TelerikTreeList Data="@Data"
+                 ItemsField="@(nameof(Employee.DirectReports))"
+                 Pageable="true" Width="750px" OnRowRender="@OnRowRenderHandler">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" OnCellRender="@OnCellRenderHandler" />
+        <TreeListColumn Field="Id" Width="120px" Visible="false" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    void OnRowRenderHandler(TreeListRowRenderEventArgs args)
+    {
+        var item = args.Item as Employee;
+
+        if (item.EmailAddress.Contains("2"))
+        {
+            args.Class = "formatTreeListRows";
+        }
+    }
+
+    void OnCellRenderHandler(TreeListCellRenderEventArgs args)
+    {
+        args.Class = "highlightCellBackground";
+    }
+
+    public List<Employee> Data { get; set; }
+
+    public class Employee
+    {
+        public List<Employee> DirectReports { get; set; }
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    public int LastId { get; set; } = 1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            Employee root = new Employee
+            {
+                Id = LastId,
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i),
+                DirectReports = new List<Employee>()
+            };
+            data.Add(root);
+            LastId++;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = LastId;
+                Employee firstLevelChild = new Employee
+                {
+                    Id = currId,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId),
+                    DirectReports = new List<Employee>(),
+                };
+                root.DirectReports.Add(firstLevelChild);
+                LastId++;
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = LastId;
+                    // populate the parent's collection
+                    firstLevelChild.DirectReports.Add(new Employee
+                    {
+                        Id = LastId,
+                        Name = $"second level child {k} of {j} and {i}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                    LastId++;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
+````
+
+![](images/treelist-styling-conditional-formatting-example.png)
+
+### Elastic Design
+
+You can benefit from the elastic design the components expose to change their font size so they change dimensions.
 
 >caption Change font size and dimensions of a treelist
 
