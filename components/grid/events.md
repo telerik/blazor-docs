@@ -473,13 +473,14 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
     }
 </style>
 
-<TelerikGrid Data="@MyData" Height="400px"
-             Pageable="true" Sortable="true" Groupable="true"
-             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-             Resizable="true" Reorderable="true" OnRowRender="@OnRowRenderHandler">
+<TelerikGrid Data="@MyData" 
+             Height="400px"
+             Pageable="true"
+             Width="750px"
+             OnRowRender="@OnRowRenderHandler">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
         <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
         <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
     </GridColumns>
@@ -513,6 +514,8 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
     }
 }
 ````
+
+![](images/grid-onrowrender-event-example.png)
 
 ### PageChanged
 
