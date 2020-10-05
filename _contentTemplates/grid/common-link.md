@@ -107,6 +107,8 @@ The `GridRowClickEventArgs` class exposes an `EventArgs` property. It maps to `M
 ````
 
 #end
+
+
 #display-format-basics
 You can set a C# format string to the column so that it renders the values with the corresponding styling according to the current culture of the thread.
 
