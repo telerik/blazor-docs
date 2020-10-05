@@ -1,8 +1,8 @@
 ---
 title: Individual (conditional) cell back color
-description: How to apply Individual (conditional) cell back color in the Telerik Blazor grid.
+description: How to apply Individual (conditional) cell back color in the Telerik Blazor grid and treelist.
 type: how-to
-page_title: Individual (conditional) cell back color
+page_title: Individual (conditional) cell color
 slug: grid-conditional-cell-background
 position: 
 tags: 
@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Grid for Blazor</td>
+			<td>Grid for Blazor, TreeList for Blazor</td>
 		</tr>
 	</tbody>
 </table>
@@ -25,14 +25,18 @@ res_type: kb
 
 I want to set the backcolor of the cells on a cell by cell basis. In some cases, setting the color for the entire row can also work.
 
+I want to apply conditional formatting and styling to the cells and rows, or to change rendering and colors.
+
 ## Solution
 
 There are several approaches you can take depending on the goals and situation that you have:
 
-* [OnCellRender and OnRowRender Events](#oncellrender-and-onrowrender-events)
-* [Cell Template](#cell-template)
-* [Row Template](#row-template)
-* [CSS Only Approach](#css-only-approach)
+* [OnCellRender and OnRowRender Events](#oncellrender-and-onrowrender-events) - fine grained control over the styling of a particular cell or row
+* [Cell Template](#cell-template) - control over the contents of the cells
+* [Row Template](#row-template) - change the entire contents of the row
+* [CSS Only Approach](#css-only-approach) - override built-in CSS rules with your own without conditions or custom themes
+
+>note These approaches, including the [OnCellRender]({%slug treelist-column-events%}) and [OnRowRender]({%slug treelist-events%}) events, are applicable for the TreeList as well.
 
 ### OnCellRender and OnRowRender Events
 
@@ -40,7 +44,11 @@ To customize the formatting of the cells you can use the [OnCellRender]({%slug g
 
 To customize the formatting of the entire row, use the [OnRowRender]({%slug grid-events%}#onrowrender) event for the Grid.
 
->note The [OnCellRender]({%slug treelist-column-events%}) and [OnRowRender]({%slug treelist-events%}) events are exposed for the TreeList as well.
+These events provide you with the data item and cell value, and let you set a custom class to the corresponding element, so you can cascade the needed CSS rules through it.
+
+>caption Conditional styling through CSS rules per cell and row
+
+@[template](/_contentTemplates/grid/common-link.md#conditional-style-row-and-cell-render)
 
 ### Cell Template
 
