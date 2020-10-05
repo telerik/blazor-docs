@@ -201,6 +201,7 @@ You can define your own content for column cells or even the entire row through 
 
 You can also set the [`Height` of the grid]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
 
+In this article, below, you can see examples on how to format the cells and the rows of the Grid based on certain conditions and how to take advantage of the elastic design.
 
 ### Conditional Formatting
 
@@ -244,11 +245,11 @@ To do so, use the [OnCellRender]({%slug grid-column-events%}#oncellrender) and [
 </TelerikGrid>
 
 @code {
-
     void OnCellRenderHandler(GridCellRenderEventArgs args)
     {
         args.Class = "highlightCellBackGroud";
     }
+    
     void OnRowRenderHandler(GridRowRenderEventArgs args)
     {
         AccountingData item = args.Item as AccountingData;
