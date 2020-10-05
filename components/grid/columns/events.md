@@ -33,10 +33,10 @@ This event fires upon the rendering of the Grids columns. It receives an argumen
     }
 </style>
 
-<TelerikGrid Data="@MyData" Height="400px"
-             Pageable="true" Sortable="true" Groupable="true"
-             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-             Resizable="true" Reorderable="true">
+<TelerikGrid Data="@MyData" 
+             Height="400px"
+             Pageable="true" 
+             Width="750px">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
         <GridColumn Field="@(nameof(SampleData.Name))"
@@ -76,6 +76,8 @@ This event fires upon the rendering of the Grids columns. It receives an argumen
     }
 }
 ````
+
+![](images/events-oncellrender-example.png)
 
 ## See Also
 
