@@ -456,10 +456,10 @@ The event handler receives a `GridRowCollapseEventArgs` object which provides th
 
 ### OnRowRender
 
-This event fires upon the rendering of the Grid. It receives an argument of type `GridRowRenderEventArgs` which exposes the following fields:
+This event fires upon the rendering of the Grid rows. It receives an argument of type `GridRowRenderEventArgs` which exposes the following fields:
 
 * `Item` - an object you can cast to your model class to obtain the current data item.
-* `Class` - the CSS class that will be applied to the cells. The CSS rules that are set for that class will be visibly rendered on the Grid cells.
+* `Class` - the CSS class that will be applied to the cells. The CSS rules that are set for that class will be visibly rendered on the Grid row.
 
 >caption Use the OnRowRender event to apply custom format to Grid rows based on certain condition
 
