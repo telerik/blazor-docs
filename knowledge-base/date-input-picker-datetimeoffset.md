@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>DatePicker for Blazor, DateInput for Blazor, DateTimePicker for Blazor, TimePicker for Blazor</td>
+			<td>DateInput for Blazor, DateTimePicker for Blazor, TimePicker for Blazor, DatePicker for Blazor</td>
 		</tr>
 	</tbody>
 </table>
@@ -31,7 +31,9 @@ The Telerik date and time inputs and pickers can work with a `DateTimeOffset` ty
 
 When the `Value` is of type `DateTimeOffset` the Telerik components will use its `.DateTime` field, which matches to the local time, just like with a "simple" `DateTime` object.
 
->caption Sample of how the Telerik Date and Time inputs work with a DateTimeOffset
+For the DatePicker component, see the [Notes](#notes) below
+
+>caption Sample of how the Telerik Date-Time inputs work with a DateTimeOffset
 
 ````CSHTML
 @if(TheValue != null)
@@ -74,3 +76,43 @@ You can find some examples of working with `DateTime` and `DateTimeOffset` objec
 
 * [DateTimeOffset Struct](https://docs.microsoft.com/en-us/dotnet/api/system.datetimeoffset?view=netcore-3.1)
 
+### TelerikDatePicker
+
+The TelerikDatePicker component has no time portion and thus using time offsets is not relevant to such UI. Thus, it requires a `DateTime` field. It sets the time to `00:00` hours when choosing a date from it, and you must take that into account when calculating the offset and `DateTimeOffset` object, even when usung the `.Date` or `.DateTime` field of the `DateTimeOffset` object.
+
+The example below shows how you can use the ValueChanged event of the TelerikDatePicker to apply the time portion so that the offset does not alter the dates. While this prevents you from using two-way binding (`@bind-Value`), it will still update the view-model at the same time. You can, of course, use any other suitable logic for your scenario (including creating a separate `DateTime` field in the view-model).
+
+>caption DatePicker with DateTimeOffset - one way to account for the time difference
+
+````
+@if (DateEffective != null)
+{
+    <p>UTC: @DateEffective.UtcDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+    <p>Local: @DateEffective.LocalDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+    <p>DateTime (used by Telerik components): @DateEffective.DateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+    <p>Offset (hours): @DateEffective.Offset.Hours</p>
+}
+
+<TelerikDatePicker Value="@DateEffective.Date" ValueChanged="@((DateTime d) => UpdateDateTimeOffsetField(d))" Format="d" />
+
+@code{
+    DateTimeOffset DateEffective { get; set; }
+
+    void UpdateDateTimeOffsetField(DateTime currDate)
+    {
+        // Take the current (existing) time portion to add it to the 00:00 hours the date picker will provide
+        DateTime currDateWithTime = currDate
+            .AddHours(DateEffective.DateTime.Hour)
+            .AddMinutes(DateEffective.DateTime.Minute)
+            .AddSeconds(DateEffective.DateTime.Second);
+        // re-instantiate the DateTimeOffset with the proper time so the offset does not change the date
+        DateEffective = new DateTimeOffset(currDateWithTime);
+    }
+
+    protected override void OnInitialized()
+    {
+        DateEffective = new DateTimeOffset(DateTime.Now, new TimeSpan(3, 0, 0));
+        base.OnInitialized();
+    }
+}
+````
