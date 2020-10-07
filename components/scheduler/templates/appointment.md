@@ -24,7 +24,7 @@ You can set a template for the entire scheduler, or you can also set templates p
 
 The `context` of the template is the item that it will display. You can cast it to the model type you use.
 
-You can also style the entire appointments by adding a class to their wrapping element by using the [ItemRender event]().
+You can also style the entire appointments by adding a class to their wrapping element by using the [ItemRender event]({%slug scheduler-events%}#itemrender).
 
 >caption Example of using appointment templates and all-day appointment templates in the scheduler. The Month view uses a different template than the other views
 

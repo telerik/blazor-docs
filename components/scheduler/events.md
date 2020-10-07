@@ -13,12 +13,117 @@ position: 50
 This article explains the events available in the Telerik Scheduler for Blazor:
 
 * [CUD Events](#cud-events)
+* [ItemRender](#itemrender)
 * [DateChanged](#datechanged)
 * [ViewChanged](#viewchanged)
 
 ## CUD Events
 
 To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelete` and `OnUpdate` events. They let you propagate the changes the user makes in the UI to the view model and to the data storage. You can read mode in the [Appointment Editing]({%slug scheduler-appointments-edit%}) article.
+
+## ItemRender
+
+The `OnItemRender` event fires when an appointment is going to be rendered in the scheduler. It fires one for every appointment, including all-day appointments that span several days/slots.
+
+Through its event arguments you can get the `Item` to cast it to your model type and to set the `Class` that will render on the appointment wrapping element. This lets you customize the appearance of the entire appointment, not just the contents of its [template]({%slug scheduler-templates-appointment%}).
+
+>caption Customize the appearance of the scheduler appointments by adding custom CSS classes to them conditionally
+
+````CSHTML
+@* The sample styles are at the end of the snippet, and you can also add more than one per appointment, depending on the necessary logic *@
+
+<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px" Width="800px"
+                  OnItemRender="@OnItemRenderHandler">
+    <SchedulerViews>
+        <SchedulerDayView StartTime="@DayStart" />
+        <SchedulerWeekView StartTime="@DayStart" />
+        <SchedulerMonthView />
+    </SchedulerViews>
+</TelerikScheduler>
+
+@code {
+    void OnItemRenderHandler(SchedulerItemRenderEventArgs e)
+    {
+        SchedulerAppointment appt = e.Item as SchedulerAppointment;
+        if (appt.Important)
+        {
+            e.Class = "important-appointment";
+        }
+        if (appt.IsAllDay)
+        {
+            e.Class += " all-day-style";
+        }
+    }
+
+    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
+    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
+    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
+    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
+    {
+            new SchedulerAppointment
+            {
+                Title = "Vet visit",
+                Description = "The cat needs vaccinations and her teeth checked.",
+                Start = new DateTime(2019, 11, 26, 11, 30, 0),
+                End = new DateTime(2019, 11, 26, 12, 0, 0),
+                Important = true
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Planning meeting",
+                Description = "Kick off the new project.",
+                Start = new DateTime(2019, 11, 25, 9, 30, 0),
+                End = new DateTime(2019, 11, 25, 12, 45, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Trip to Hawaii",
+                Description = "An unforgettable holiday!",
+                IsAllDay = true,
+                Start = new DateTime(2019, 11, 29),
+                End = new DateTime(2019, 12, 07),
+                Important = true
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Online conference",
+                IsAllDay = true,
+                Start = new DateTime(2019, 11, 25),
+                End = new DateTime(2019, 11, 26)
+            }
+    };
+
+    public class SchedulerAppointment
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
+
+        public bool Important { get; set; }
+    }
+}
+
+<style>
+    .important-appointment {
+        background-color: red;
+        color: yellow;
+        font-weight: 900;
+    }
+
+    .all-day-style {
+        color: blue;
+    }
+</style>
+````
+
+>caption The result from the code snippet above
+
+![Custom appointment appearance through conditional CSS classes](images/item-render-customization.png)
 
 ## DateChanged
 
