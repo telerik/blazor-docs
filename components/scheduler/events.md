@@ -5,7 +5,7 @@ description: Events in the Scheduler for Blazor.
 slug: scheduler-events
 tags: telerik,blazor,scheduler,events
 published: true
-position: 20
+position: 50
 ---
 
 # Scheduler Events
