@@ -110,7 +110,10 @@ The Scheduler is a generic component and its type is determined by the type of t
 >caption The Scheduler provides the following key features:
 
 * [Extensive Navigation]({%slug scheduler-navigation%}) - both programmatic, and for the end user - includes the ability to change the currently shown time range, several views to choose from, and toggling business hours only display.
+
 * [Appointment Editing]({%slug scheduler-appointments-edit%}) - the user can edit, delete and create new appointments in their calendar, and the scheduler provides you with that information so you can store it.
+
+* [Appointment Templates]({%slug scheduler-templates-appointment%}) - you can customize what content the appointment renders and also style its element through the [ItemRender event]({%slug scheduler-events%}#itemrender).
 
 
 ## See Also

@@ -5,7 +5,7 @@ description: Events in the Scheduler for Blazor.
 slug: scheduler-events
 tags: telerik,blazor,scheduler,events
 published: true
-position: 50
+position: 100
 ---
 
 # Scheduler Events
@@ -23,7 +23,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
 
 ## ItemRender
 
-The `OnItemRender` event fires when an appointment is going to be rendered in the scheduler. It fires one for every appointment, including all-day appointments that span several days/slots.
+The `OnItemRender` event fires when an appointment is going to be rendered in the scheduler. It fires one for every appointment, including all-day appointments that span several days/slots, and the class is rendered on all elements.
 
 Through its event arguments you can get the `Item` to cast it to your model type and to set the `Class` that will render on the appointment wrapping element. This lets you customize the appearance of the entire appointment, not just the contents of its [template]({%slug scheduler-templates-appointment%}).
 

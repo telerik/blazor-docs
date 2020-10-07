@@ -5,7 +5,7 @@ description: Resources in the Scheduler for Blazor.
 slug: scheduler-resources
 tags: telerik,blazor,scheduler,resources
 published: true
-position: 6
+position: 30
 ---
 
 # Scheduler Resources
