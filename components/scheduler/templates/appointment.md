@@ -8,7 +8,7 @@ published: True
 position: 5
 ---
 
-# Appointment Template
+# Appointment Templates
 
 You can change the contents that render in the appointment of the scheduler through its appointment template. This lets you change the default display of the title of the event and add more information for your users such as icons, buttons, start and end time, and custom fields.
 
