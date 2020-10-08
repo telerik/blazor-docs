@@ -32,15 +32,19 @@ To use the Telerik TextArea in your Blazor application:
 }
 ````
 
-
->caption Customized textbox with input attributes
+>caption Component namespace and reference
 
 ````CSHTML
-<label for="email">Email</label>
-<TelerikTextBox PlaceHolder="john@smith.com" Title="write your email here"
-                TabIndex="3" Width="180px"
-                InputMode="email" Id="email" AutoComplete="email" Name="email">
-</TelerikTextBox>
+<TelerikTextArea @bind-Value="@TextAreaValue" Label="Enter Information" @ref="@TextAreaRef"></TelerikTextArea>
+
+<br />
+
+@TextAreaValue
+
+@code {
+    public Telerik.Blazor.Components.TelerikTextArea TextAreaRef { get; set; }
+    public string TextAreaValue { get; set; }
+}
 ````
 
 ## Features
