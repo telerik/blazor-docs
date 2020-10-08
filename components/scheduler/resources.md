@@ -5,7 +5,7 @@ description: Resources in the Scheduler for Blazor.
 slug: scheduler-resources
 tags: telerik,blazor,scheduler,resources
 published: true
-position: 6
+position: 30
 ---
 
 # Scheduler Resources
@@ -44,6 +44,7 @@ To use resources:
 1. Populate the appointment field that matches the resource name with the corresponding `Value` of the resource that you want associated with it.
     * If you don't want any resource in the appointment, define a resource with empty strings in its `Value` and `Color` fields, and a suitable `Text`.
 
+>tip To style the appointments, you can also use their [template]({%slug scheduler-templates-appointment%}) and the [ItemRender event]({%slug scheduler-events%}#itemrender).
 
 ## Examples
 

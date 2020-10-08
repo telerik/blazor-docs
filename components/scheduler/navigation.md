@@ -5,7 +5,7 @@ description: Navigating the Scheduler for Blazor.
 slug: scheduler-navigation
 tags: telerik,blazor,scheduler,navigation
 published: true
-position: 5
+position: 20
 ---
 
 # Scheduler Navigation

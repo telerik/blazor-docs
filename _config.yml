@@ -137,6 +137,9 @@ navigation:
      "*components/scheduler/views":
         title: "Views"
         position: 5
+     "*components/scheduler/templates":
+        title: "Templates"
+        position: 10
      "*components/editor/edit-modes":
         title: "Edit Modes"
         position: 80
