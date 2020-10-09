@@ -10,76 +10,58 @@ position: 0
 
 # MaskedTextbox Overview
 
-The Blazor Masked Textbox component allows the user to enter a generic plain text message. You can also add an animated floating Label, a custom CSS class or control various attributes of the `input` element such as making it a password box, the `name`, `placeholder`, `tabindex`, `inputmode`, `autocomplete` and [more](#features) and also respond to [events]({%slug components/textbox/events%}).
+The Blazor Masked Textbox component provides a mask and prompts the user to enter the data in the required format, and it prevents input that does not match the mask. You can use it to show the user the format the need to write things like phone numbers, credit card numbers, ZIP codes, IP addresses, percentage values and so on.
 
-To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
+You can also add an animated floating Label, a custom CSS class or control various attributes of the `input` element such as the `name`, `placeholder`, `tabindex`, and [more](#features) and also respond to [events]({%slug maskedtextbox-events%}).
 
->caption Basic textbox with two-way value binding
+To use a Telerik MaskedTextbox for Blazor:
+
+1. Add the `<TelerikMaskedTextBox>` tag
+1. Set its `Value` to the `string` you want to get out of it
+1. Provide the desired `Mask` to prompt the user
+
+>caption Basic masked textbox with two-way value binding and a credit card mask
 
 ````CSHTML
-@theTbValue
+@TheValue
 <br />
 
-<TelerikTextBox @bind-Value="theTbValue" Label="Enter Information"></TelerikTextBox>
+<TelerikMaskedTextBox Mask="0000-0000-0000-0000"
+                      @bind-Value="@TheValue"
+                      Label="Credit Card Number:">
+</TelerikMaskedTextBox>
 
-@code {
-    string theTbValue { get; set; } = "lorem ipsum";
-}
-````
-
-
->caption Customized textbox with input attributes
-
-````CSHTML
-<label for="email">Email</label>
-<TelerikTextBox PlaceHolder="john@smith.com" Title="write your email here"
-                TabIndex="3" Width="180px"
-                InputMode="email" Id="email" AutoComplete="email" Name="email">
-</TelerikTextBox>
-````
-
-
->caption Password type textbox
-
-````CSHTML
-@* An example of enabling the Password mode of the textbox. Make sure to add a form and validation
-for example: https://demos.telerik.com/blazor-ui/textbox/password
-*@
-
-<TelerikTextBox Password="true"
-                Label="Enter Password"
-                @bind-Value="@ThePassword"
-                AutoComplete="current-password" Name="password" Id="password">
-</TelerikTextBox>
-@code {
-    // in a real case you should have a form, a model, and validation
-    // the form may also need autocomplete attribute and other corresponding inputs to enable autocompletion
-    string ThePassword { get; set; }
+@code{
+    string TheValue { get; set; }
 }
 ````
 
 
 ## Features
 
->caption The textbox provides the following features:
+>caption The Masked Textbox provides the following features:
 
-* `AutoComplete` - a `string` that maps to the [`autocomplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) attribute of the HTML element. You can use it to instruct the browser to turn `off` its autocompletion or to use specific settings for it (such as `new-password`). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates.
-
-* `Class` - the CSS class that will be rendered on the `input` element.
+* `Class` - the CSS class that will be rendered on the wrapping element of the component.
 
 * `Enabled` - whether the `input` is enabled.
 
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
 
-* `InputMode` - a `string` that maps to the [`inputmode`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) attribute of the HTML element. You can use it to instruct the rendering device to show a suitable virtual keyboard (for example, one optimized for entering an URL or an email). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates.
+* `IncludeLiterals` (defaults to `false`) - whether the literal characters from the mask are included in the `Value`. Read more in the [Mask, Prompt, Value]({%slug maskedtextbox-mask-prompt-value%}) article.
 
-* `Label` - the `label` element rendered next to the `input` to provide the user with information on its purpose. It covers the input in a fashion similar to a placeholder, and animates up on focus. If you don't want this effect or the height increase it causes, use the `Id` parameter to attach your own `<label>` tag.
+* `Label` - the `label` element rendered next to the `input` to provide the user with information on its purpose. It covers the input in a fashion similar to a placeholder, and animates up on focus. If you don't want this effect or the height increase it causes, use the `Id` parameter to attach your own `<label>` tag. See also the `MaskOnFocus` parameter.
+
+* `Mask` - the mask (pattern) that the user has to follow. Shown by default. Read more about its features in the [Mask, Prompt, Value]({%slug maskedtextbox-mask-prompt-value%}) article.
+
+* `MaskOnFocus` (defaults to `false`) - whether the mask will be shown to the user only while the input is focused. When set to `true`, the user will see the `Label` or `Placeholder` instead of the mask in case the textbox is empty. When there is some value in the input, the mask and input will be shown.
 
 * `Name` - the `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser.
 
-* `Password` - when set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Live Demo: Password Textbox](https://demos.telerik.com/blazor-ui/textbox/password)
+* `PlaceHolder` - a `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. See also the `MaskOnFocus` parameter.
 
-* `PlaceHolder` - a `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused.
+* `Prompt` - (`char`) - the prompt character the user will see in the mask where there is no user value already. Defaults to an underscore `_`. Read more in the [Mask, Prompt, Value]({%slug maskedtextbox-mask-prompt-value%}) article.
+
+* `PromptPlaceholder` (`char?`) - the character that is added to the raw `Value` for places where there is no user input yet. Defaults to an empty space ` ` so the string length matches the mask length. Read more in the [Mask, Prompt, Value]({%slug maskedtextbox-mask-prompt-value%}) article.
 
 * `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
 
@@ -94,7 +76,7 @@ for example: https://demos.telerik.com/blazor-ui/textbox/password
 
 ## See Also
 
-  * [Live Demo: Textbox](https://demos.telerik.com/blazor-ui/textbox/index)
-  * [Live Demo: Textbox Validation](https://demos.telerik.com/blazor-ui/textbox/validation)
+  * [Live Demo: MaskedTextbox](https://demos.telerik.com/blazor-ui/maskedtextbox/overview)
+  * [Live Demo: MaskedTextbox Validation](https://demos.telerik.com/blazor-ui/maskedtextbox/validation)
   * [Input Validation]({%slug common-features/input-validation%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMaskedTextBox)
