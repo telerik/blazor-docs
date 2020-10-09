@@ -5,7 +5,7 @@ description: Events in the Masked Textbox for Blazor.
 slug: maskedtextbox-events
 tags: telerik,blazor,masked,textbox,events
 published: true
-position: 20
+position: 50
 ---
 
 # Events
