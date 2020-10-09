@@ -15,11 +15,18 @@ This article explains the relationship and the configuration options that tie th
 This article contains the following sections:
 
 * [Mask](#mask)
+	* [Rules and Literals](#rules-and-literals)
+	* [Mask on Focus, Label and Placeholder](#mask-on-focus-label-and-placeholder)
 * [Prompt](#prompt)
 
 ## Mask
 
-The `Mask` is the main feature of the component. It defines what input is allowed from the user at what positions.
+The `Mask` is the main feature of the component. It defines what input is allowed from the user at what positions. By default, it is constantly shown, but you can change that to also show a label or placeholder. You can also specify the desired rules and literal characters for your user to obey.
+
+* [Rules and Literals](#rules-and-literals)
+* [Mask on Focus, Label and Placeholder](#mask-on-focus-label-and-placeholder)
+
+### Rules and Literals
 
 You can use special characters called `Rules` in it to define its behavior. The other characters that have no special meaning but are always shown and the user cannot change them are called `Literal` characters.
 
@@ -63,6 +70,30 @@ By default, the `Value` of the component only includes the rules from the mask. 
 }
 ````
 
+### Mask on Focus, Label and Placeholder
+
+The `MaskOnFocus` parameter lets you instruct the component to show the mask only when the user is about to type in the input - when it is focused. This lets you show the `Label` or `Placeholder` that you can set so you can provide an easier to read prompt first, before you show the actual format to your users.
+
+The `Label` will be rendered over the `Placeholder` and neither will be shown if there is a `Value` already. You sould use the `Placeholder` over the `Label` if you do not want the animated effect or the increased height it causes.
+
+>caption Showing the mask on focus only
+
+![Show mask only when the input is focused](images/show-mask-on-focus-only.gif)
+
+````CSHTML
+@* This is the non-default behavior where the user first sees the Label or Placeholder if there is no value *@
+
+@TheValue
+<br />
+<TelerikMaskedTextBox MaskOnFocus="true"
+                      Label="Credit Card Number:"
+                      Mask="0000-0000-0000-0000" @bind-Value="@TheValue">
+</TelerikMaskedTextBox>
+@code{
+    string TheValue { get; set; }
+}
+````
+
 
 ## Prompt
 
@@ -96,10 +127,14 @@ When the user has not filled in all the blank spaces in the mask, the Telerik Ma
 }
 ````
 
+>tip You can see the behavior of the prompt features in the [Customization Live Demo](https://demos.telerik.com/blazor-ui/maskedtextbox/customization).
+
 >important You should not set the `PromptPlaceholder` to a character that can be valid for the user input in the current mask. Doing so can result in those characters showing up in the user input without the user writing them.
 >
 >For example, if you have a mask `00-00` and `PromptPlaceholder` is `4`, when the user writes `1` in the input, the actual `Value` will become `14-44` even though the user sees `1_-__`, and when the component re-renders (for example, because an `EventCallback` fired), the user wil see `14-44` which is not what they entered or expected.
 
 ## See Also
 
-* [ValueChanged and Validation]({%slug value-changed-validation-model%})
+* [MaskedTextbox Overview]({%slug maskedtextbox-overview%})
+* [Live Demo: Masks](https://demos.telerik.com/blazor-ui/maskedtextbox/masks)
+* [Live Demo: Customization](https://demos.telerik.com/blazor-ui/maskedtextbox/customization)
