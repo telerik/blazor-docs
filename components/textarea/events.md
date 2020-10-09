@@ -10,14 +10,14 @@ position: 10
 
 # Events
 
-The events exposed for the Telerik TextArea for Blazor lets you react to user actions, input. This article explains the events available in the Telerik TextArea.
+The events exposed for the Telerik TextArea for Blazor let you react to user actions and input. This article explains the events available in the Telerik TextArea.
 
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
 
 ## OnChange
 
-The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus. The `OnChange` event does not prevent from using two-way data binding.
+The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus. The `OnChange` event does not prevent you from using two-way data binding.
 
 >caption Handle OnChange event
 

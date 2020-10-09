@@ -35,11 +35,8 @@ To use the Telerik TextArea in your Blazor application:
 >caption Component namespace and reference
 
 ````CSHTML
-<TelerikTextArea @bind-Value="@TextAreaValue" Label="Enter Information" @ref="@TextAreaRef"></TelerikTextArea>
+<TelerikTextArea @bind-Value="@TextAreaValue" @ref="@TextAreaRef"></TelerikTextArea>
 
-<br />
-
-@TextAreaValue
 
 @code {
     public Telerik.Blazor.Components.TelerikTextArea TextAreaRef { get; set; }
