@@ -59,15 +59,35 @@ By default, the `Value` of the component only includes the rules from the mask. 
 ````
 
 
+## Prompt
+
+The prompt characters are the hints that the user sees in the mask where they have not written values yet. By default, they are underscores `_`. You can change it by setting the `Prompt` parameter to the desired `char`.
+
+When the user has not filled in all the blank spaces in the mask, the Telerik Masked Textbox will replace them with the `PromptPlaceholder` in the `Value` that it will set in the view-model. By default, the `char` that is used is a simple space ` `. If you don't want such characters in the `Value`, set `PromptPlaceholder="null"`.
+
+>caption Prompt and PromptPlacehlolder behavior
+
+![Prompt and PromptPlaceholder behavior](images/custom-promt-and-promptplaceholder.gif)
 
 ````CSHTML
-<div style="white-space: pre;">@TheValue</div>
-<TelerikMaskedTextBox IncludeLiterals="true" MaskOnFocus="true" PromptPlaceholder="@( "a"[0] )"
-                      Prompt="@( "*"[0] )" Mask="0000-0000-0000-0000" @bind-Value="@TheValue"  
+@* Toggle the checkboxex and write a part of the card number to see the difference in the Value and input appearance *@
+
+<div style="white-space: pre; text-decoration: underline;font-family: 'Courier New';">@TheValue</div>
+<div>
+    <label><input type="checkbox" @bind="@CustomPrompt" />Use custom Prompt</label>
+    <br />
+    <label><input type="checkbox" @bind="@CustomPromptPlaceholder" />Use custom PromptPlaceholder</label>
+</div>
+<TelerikMaskedTextBox PromptPlaceholder="@( CustomPromptPlaceholder ? "a"[0] : ' ' )"
+                      Prompt="@( CustomPrompt ? "*"[0] : '_' )"
+                      Mask="0000-0000-0000-0000" @bind-Value="@TheValue"
                       Label="Credit Card Number:">
 </TelerikMaskedTextBox>
 @code{
-    string TheValue { get; set; }
+    string TheValue { get; set; } 
+
+    bool CustomPrompt { get; set; }
+    bool CustomPromptPlaceholder { get; set; }
 }
 ````
 
