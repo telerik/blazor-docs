@@ -74,6 +74,25 @@ To use a Telerik MaskedTextbox for Blazor:
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 
+## Some Sample Masks
+
+>caption Sample phone number mask
+
+````CSHTML
+<TelerikMaskedTextBox Mask="(+999) 000-0000"
+                      @bind-Value="@TheValue"
+                      Label="Phone Number:">
+</TelerikMaskedTextBox>
+
+<span style="white-space: pre;">
+    @TheValue
+</span>
+
+@code{
+    string TheValue { get; set; } = "44 5556666"; // the space accounts for three-digit codes
+}
+````
+
 ## See Also
 
   * [Live Demo: MaskedTextbox](https://demos.telerik.com/blazor-ui/maskedtextbox/overview)

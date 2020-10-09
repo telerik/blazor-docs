@@ -10,7 +10,54 @@ position: 10
 
 # Mask, Prompt, Value
 
-This article explains the relationship and the configuration options that tie the Mask, the prompts and the Value of the Telerik MaskedTextbox for Blazor. The settings and behaviors described below let you customize the behavior of the component and what data you will get out of it
+This article explains the relationship and the configuration options that tie the Mask, the prompts and the Value of the Telerik MaskedTextbox for Blazor. The settings and behaviors described below let you customize the behavior of the component and what data you will get out of it.
+
+## Mask
+
+The `Mask` is the main feature of the component. It defines what input is allowed from the user at what positions.
+
+You can use special characters called `Rules` in it to define its behavior. The other characters that have no special meaning but are always shown and the user cannot change them are called `Literal` characters.
+
+>caption List of Rules (special characters) that define a mask behavior
+
+- `0` - Digit (0-9)
+- `9` - Digit (0-9) or `space`
+- `#` - Digit (0-9), `space`, plus (`+`) and minus (`-`) signs
+- `L` - Letter (a-Z)
+- `?` - Letter (a-Z) or `space`
+- `A` - Alphanumeric (0-9, a-Z)
+- `a` - Alphanumeric (0-9, a-Z) or `space`
+- `&` - Character (excluding `space`)
+- `C` - Character or `space`
+
+You can find some examples of different masks in the [Masks Live Demo](https://demos.telerik.com/blazor-ui/maskedtextbox/masks) and in the [Some Sample Masks]({%slug maskedtextbox-overview%}#some-sample-masks) section of the documentation.
+
+By default, the `Value` of the component only includes the rules from the mask. You can, however, also include the literal characters by setting the `IncludeLiterals` parameter to true.
+
+>caption Adding the literals to the value
+
+![Include Literals behavior](images/include-literals.gif)
+
+````CSHTML
+@* Toggle the checkbox to see the behavior *@
+
+<TelerikMaskedTextBox Mask="(+999) 000-0000"
+                      @bind-Value="@TheValue"
+                      Label="Phone Number:"
+                      IncludeLiterals="@ShouldAddLiterals">
+</TelerikMaskedTextBox>
+
+<span style="white-space: pre;">
+    @TheValue
+</span>
+<label><input type="checkbox" @bind="@ShouldAddLiterals" /> Include literals</label>
+
+@code{
+    string TheValue { get; set; } = "44 5556666"; // the space accounts for three-digit codes
+    bool ShouldAddLiterals { get; set; }
+}
+````
+
 
 
 ````CSHTML
