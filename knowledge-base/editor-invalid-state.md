@@ -25,10 +25,16 @@ res_type: kb
 I would like to set the Editor in invalid state when validation does not pass by adding a red border around the component. 
 
 
+>caption The goal (result) from the solution below
 
-## Solutions
+![the editor in invalid state](images/editor-invalid-state.png)
 
-The Editor is a composite component and as such, currently, does not support the `k-state-invalid` class. In order to add a red border when the validation set for its value does not pass you can make a custom CSS class that mimics k-state-invalid and add it to the `Class` parameter based on a `bool` expression. You can utilize the capabilities and information provided by the `EditContext` to determine if the validation did not pass for the exact field bound to the Editor and render anew the component to apply the custom CSS class. A step by step explanation and an example of those concepts can be found below.
+
+## Solution
+
+The Editor is a composite component and as such, currently, does not support the `k-state-invalid` class. In order to add a red border when the validation set for its value does not pass you can make a custom CSS class that mimics k-state-invalid and add it to the `Class` parameter based on a `bool` expression.
+
+You can utilize the capabilities and information provided by the `EditContext` to determine if the validation did not pass for the exact field bound to the Editor and render anew the component to apply the custom CSS class. A step by step explanation and an example of those concepts can be found below.
 
 #### Step by step explanation:
 
@@ -92,18 +98,9 @@ The Editor is a composite component and as such, currently, does not support the
 
     void HandleValidSubmit()
     {
+        Console.WriteLine("SUCCESS");
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![the editor in invalid state](images/editor-invalid-state.png)
-
-
-
-
-
-
 
 
