@@ -17,23 +17,26 @@ This article explains the events available in the Telerik MaskedTextbox for Blaz
 
 ## OnChange
 
-The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
+The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus. It does not prevent you from using two-way binding for the `Value`.
 
->caption Handle OnChange
+>caption Handle OnChange and use two-way binding for the Value
 
 ````CSHTML
-@result
+@TheValue
 <br />
 
-<TelerikTextBox OnChange="@MyOnChangeHandler"></TelerikTextBox>
+<TelerikMaskedTextBox Mask="0000-0000-0000-0000" @bind-Value="@TheValue"
+                      OnChange="@OnChangeHandler"
+                      Label="Credit Card Number:">
+</TelerikMaskedTextBox>
 
-@code {
-    string result;
-
-    private void MyOnChangeHandler(object theUserInput)
+@code{
+    string TheValue { get; set; }
+    async Task OnChangeHandler(object newVal)
     {
         // the handler receives an object that you may need to cast
-        result = string.Format("The user entered: {0}", theUserInput);
+        
+        Console.WriteLine($"The user confirmed {newVal as string}");
     }
 }
 ````
@@ -42,28 +45,6 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
 
->caption Handle OnChange and use two-way binding
-
-````CSHTML
-@result
-<br />
-model value: @theTbValue
-<br />
-
-<TelerikTextBox OnChange="@MyOnChangeHandler" @bind-Value="theTbValue"></TelerikTextBox>
-
-@code {
-    string result;
-
-    string theTbValue { get; set; } = "lorem ipsum";
-
-    private void MyOnChangeHandler(object theUserInput)
-    {
-        // the handler receives an object that you may need to cast
-        result = string.Format("The user entered: {0}", theUserInput);
-    }
-}
-````
 
 ## ValueChanged
 
@@ -72,17 +53,21 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 >caption Handle ValueChanged
 
 ````CSHTML
-@result
+@TheValue
 <br />
 
-<TelerikTextBox ValueChanged="@( (string s) => MyValueChangeHandler(s) )"></TelerikTextBox>
+<TelerikMaskedTextBox Mask="0000-0000-0000-0000" Value="@TheValue"
+                      ValueChanged="@( (string v) => ValueChangedHandler(v) )"
+                      Label="Credit Card Number:">
+</TelerikMaskedTextBox>
 
-@code {
-    string result;
-
-    private void MyValueChangeHandler(string theUserInput)
+@code{
+    string TheValue { get; set; }
+    void ValueChangedHandler(string newVal)
     {
-        result = string.Format("The user entered: {0}", theUserInput);
+        TheValue = newVal;
+
+        Console.WriteLine($"The user just entered {newVal}");
     }
 }
 ````
@@ -91,30 +76,6 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
->caption Handle ValueChanged and provide initial value
-
-````CSHTML
-from the handler: @result
-<br />
-from model: @theTbValue
-<br />
-
-<TelerikTextBox ValueChanged="@( (string s) => MyValueChangeHandler(s) )" Value="@theTbValue"></TelerikTextBox>
-
-@code {
-    string result;
-
-    public string theTbValue { get; set; } = "lorem ipsum";
-
-    private void MyValueChangeHandler(string theUserInput)
-    {
-        result = string.Format("The user entered: {0}", theUserInput);
-
-        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        theTbValue = theUserInput;
-    }
-}
-````
 
 ## See Also
 
