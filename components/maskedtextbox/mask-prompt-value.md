@@ -1,16 +1,21 @@
 ---
-title: Mask, Prompt, Value
-page_title: MaskedTextbox - Mask, Prompt, Value
+title: Mask and Prompt
+page_title: MaskedTextbox - Mask and Prompt
 description: The relationship and configuration options for the mask, prompt and value in the Masked Textbox for Blazor.
-slug: maskedtextbox-mask-prompt-value
+slug: maskedtextbox-mask-prompt
 tags: telerik,blazor,masked,textbox,mask,prompt,value
 published: true
 position: 10
 ---
 
-# Mask, Prompt, Value
+# Mask and Prompt
 
 This article explains the relationship and the configuration options that tie the Mask, the prompts and the Value of the Telerik MaskedTextbox for Blazor. The settings and behaviors described below let you customize the behavior of the component and what data you will get out of it.
+
+This article contains the following sections:
+
+* [Mask](#mask)
+* [Prompt](#prompt)
 
 ## Mask
 
@@ -30,7 +35,7 @@ You can use special characters called `Rules` in it to define its behavior. The 
 - `&` - Character (excluding `space`)
 - `C` - Character or `space`
 
-You can find some examples of different masks in the [Masks Live Demo](https://demos.telerik.com/blazor-ui/maskedtextbox/masks) and in the [Some Sample Masks]({%slug maskedtextbox-overview%}#some-sample-masks) section of the documentation.
+>tip You can find some examples of different masks in the [Masks Live Demo](https://demos.telerik.com/blazor-ui/maskedtextbox/masks) and in the [Some Sample Masks]({%slug maskedtextbox-overview%}#some-sample-masks) section of the documentation.
 
 By default, the `Value` of the component only includes the rules from the mask. You can, however, also include the literal characters by setting the `IncludeLiterals` parameter to true.
 
@@ -90,6 +95,10 @@ When the user has not filled in all the blank spaces in the mask, the Telerik Ma
     bool CustomPromptPlaceholder { get; set; }
 }
 ````
+
+>important You should not set the `PromptPlaceholder` to a character that can be valid for the user input in the current mask. Doing so can result in those characters showing up in the user input without the user writing them.
+>
+>For example, if you have a mask `00-00` and `PromptPlaceholder` is `4`, when the user writes `1` in the input, the actual `Value` will become `14-44` even though the user sees `1_-__`, and when the component re-renders (for example, because an `EventCallback` fired), the user wil see `14-44` which is not what they entered or expected.
 
 ## See Also
 
