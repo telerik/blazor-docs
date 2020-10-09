@@ -47,7 +47,7 @@ To use a Telerik MaskedTextbox for Blazor:
 
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
 
-* `IncludeLiterals` (defaults to `false`) - whether the literal characters from the mask are included in the `Value`. Read more in the [Mask, Prompt, Value]({%slug maskedtextbox-mask-prompt-value%}) article.
+* `IncludeLiterals` (defaults to `false`) - whether the literal characters from the mask (those characters that don't carry a special meaning such as brackets or dashes) are included in the `Value`. Read more in the [Mask, Prompt, Value]({%slug maskedtextbox-mask-prompt-value%}) article.
 
 * `Label` - the `label` element rendered next to the `input` to provide the user with information on its purpose. It covers the input in a fashion similar to a placeholder, and animates up on focus. If you don't want this effect or the height increase it causes, use the `Id` parameter to attach your own `<label>` tag. See also the `MaskOnFocus` parameter.
 
