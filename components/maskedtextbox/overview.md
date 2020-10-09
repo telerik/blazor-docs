@@ -36,6 +36,10 @@ To use a Telerik MaskedTextbox for Blazor:
 }
 ````
 
+>caption The result from the code snippet above before you start writing
+
+![Masked Textbox first look](images/masked-textbox-first-look.png)
+
 
 ## Features
 
