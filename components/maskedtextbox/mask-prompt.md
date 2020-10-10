@@ -15,20 +15,26 @@ This article explains the relationship and the configuration options that tie th
 This article contains the following sections:
 
 * [Mask](#mask)
-	* [Rules and Literals](#rules-and-literals)
+	* [Rules](#rules)
+	* [Literals](#literals)
+	* [Include Literals in the Value](#include-literals-in-the-value)
 	* [Mask on Focus, Label and Placeholder](#mask-on-focus-label-and-placeholder)
 * [Prompt](#prompt)
 
 ## Mask
 
-The `Mask` is the main feature of the component. It defines what input is allowed from the user at what positions. By default, it is constantly shown, but you can change that to also show a label or placeholder. You can also specify the desired rules and literal characters for your user to obey.
+The `Mask` is the main feature of the component. It defines what input is allowed from the user at what positions so they must obey those requirements. By default, the mask is constantly shown, but you can change that to also show a label or placeholder.
 
-* [Rules and Literals](#rules-and-literals)
+You can use special characters called `Rules` in the Mask to define its behavior. The other characters that have no special meaning but are always shown and the user cannot change them are called `Literal` characters.
+
+* [Rules](#rules)
+* [Literals](#literals)
+* [Include Literals in the Value](#include-literals-in-the-value)
 * [Mask on Focus, Label and Placeholder](#mask-on-focus-label-and-placeholder)
 
-### Rules and Literals
+### Rules
 
-You can use special characters called `Rules` in it to define its behavior. The other characters that have no special meaning but are always shown and the user cannot change them are called `Literal` characters.
+The Telerik MaskedTextbox provides a set of built-in rules that it recognizes as special characters when encountered in the `Mask` and they are the main feature of the component that determines how the user writes their input. The reference list below shows the rules and what they do.
 
 >caption List of Rules (special characters) that define a mask behavior
 
@@ -43,6 +49,28 @@ You can use special characters called `Rules` in it to define its behavior. The 
 - `C` - Character or `space`
 
 >tip You can find some examples of different masks in the [Masks Live Demo](https://demos.telerik.com/blazor-ui/maskedtextbox/masks) and in the [Some Sample Masks]({%slug maskedtextbox-overview%}#some-sample-masks) section of the documentation.
+
+### Literals
+
+Apart from the rules, you can also use static symbols in the mask pattern that are also known as literals. In the masked value, a literal is always rendered on the same position as the position where it is defined in the mask property and the user cannot change it. You can use them to show a more user-friendly format of the message, or to predefine some of the input for your user.
+
+In some cases, you may want to include a literal that matches a Rule, however. To do that, you need to escape the symbol with the slash (`\`) character. An escaped rule turns into a literal.
+
+>caption Literals and escaped rules as part of the mask
+
+````CSHTML
+@* The user will see "ABC---1209" in this example and only the part "12" is editable. The other symbols are escaped rules - "A", "C", "0" and "9" or literals - the "B" and the three dashes "-" *@
+
+@invoiceNumber
+
+<TelerikMaskedTextBox Mask="\AB\C---00\0\9" Label="Invoice Number" @bind-Value="@invoiceNumber"></TelerikMaskedTextBox>
+
+@code{
+    string invoiceNumber { get; set; } = "12";
+}
+````
+
+### Include Literals in the Value
 
 By default, the `Value` of the component only includes the rules from the mask. You can, however, also include the literal characters by setting the `IncludeLiterals` parameter to true.
 
@@ -99,7 +127,7 @@ The `Label` will be rendered over the `Placeholder` and neither will be shown if
 
 The prompt characters are the hints that the user sees in the mask where they have not written values yet. By default, they are underscores `_`. You can change it by setting the `Prompt` parameter to the desired `char`.
 
-When the user has not filled in all the blank spaces in the mask, the Telerik Masked Textbox will replace them with the `PromptPlaceholder` in the `Value` that it will set in the view-model. By default, the `char` that is used is a simple space ` `. If you don't want such characters in the `Value`, set `PromptPlaceholder="null"`.
+When the user has not filled in all the blank spaces in the mask, the Telerik Masked Textbox will replace them with the `PromptPlaceholder` in the `Value` that it will set in the view-model. By default, the `char` that is used is a simple space (` `). If you don't want such characters in the `Value`, set `PromptPlaceholder="null"`. Note that HTML rendering combines spaces into one by default.
 
 >caption Prompt and PromptPlacehlolder behavior
 
