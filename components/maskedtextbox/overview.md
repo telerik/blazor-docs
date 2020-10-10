@@ -14,6 +14,8 @@ The Blazor Masked Textbox component provides a mask and prompts the user to ente
 
 You can also add an animated floating Label, a custom CSS class or control various attributes of the `input` element such as the `name`, `placeholder`, `tabindex`, and [more](#features) and also respond to [events]({%slug maskedtextbox-events%}).
 
+## Basics
+
 To use a Telerik MaskedTextbox for Blazor:
 
 1. Add the `<TelerikMaskedTextBox>` tag.
@@ -80,6 +82,26 @@ To use a Telerik MaskedTextbox for Blazor:
 
 ## Some Sample Masks
 
+The examples below demonstrates how to create a few [masks]({%slug maskedtextbox-mask-prompt%}) for commonly used input types:
+
+* **phone** - Utilizes literals (the brackets and the plus sign for the country code; and dashes for readability) and rules for numbers.
+
+* **credit card** - Utilizes rules for the numbers and literals for the dashes.
+
+* **SSN** - Same as credit card.
+
+* **UK post code** - Uses rules for letters and numbers.
+
+* **ZIP code** - Uses rules for numbers.
+
+* **ZIP+4 code** - Riteral for the dash between the rules for numbers.
+
+* **percentage** - Rules for numbers with a literal for the decimal separator taken from the current culture and a literal for the percentage sign. The example also shows how you can parse that to a `double` value.
+
+* **customized mask** - An example of mixing literals and rules to require an invoice number that has a certain portion of symbols that are not up to the user. Also shows how to escape characters that are rules so they act like literals.
+
+>caption Phone, credit card, SSN, UK post code, ZIP code, ZIP+4 code masks
+
 ````CSHTML
 @* type in the inputs to see the result. Depending on what you want to get, you may want to set IncludeLiterals=tru like for the percentage example at the end *@
 
@@ -106,8 +128,12 @@ To use a Telerik MaskedTextbox for Blazor:
     string ZipCode { get; set; }
     string ZipPlus4Code { get; set; }
 }
+````
 
-<hr />
+>caption One way to get percentage input and values
+
+````CSHTML
+@* See the method that parses the string into the desired numerical value - you can customize that as needed by your app *@
 
 <div style="white-space:pre;">
     @RawPercentage
@@ -117,41 +143,49 @@ To use a Telerik MaskedTextbox for Blazor:
 <TelerikMaskedTextBox Mask="@PercentageMask"
                       IncludeLiterals="true"
                       PromptPlaceholder="null"
-                      Value="@RawPercentage"
-                      ValueChanged="@( (string v) => ParsePercentage(v) )"
+                      @bind-Value="@RawPercentage"
                       Label="Percentage:">
 </TelerikMaskedTextBox>
 
 @code{
     string PercentageMask { get; set; } = $"00{System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator}00%";
     string RawPercentage { get; set; }
-    double ActualPercentage { get; set; }
-    void ParsePercentage(string input)
+    double? ActualPercentage => ParsePercentage();
+
+    //note: this parses the value exactly and will result in numbers that can be between 0 and 100
+    //and not like .NET usually treats percents as a value between 0 and 1
+    //you can implement any preferred logic
+    double? ParsePercentage()
     {
-        RawPercentage = input;
-        //note: this parses the value exactly and will result in numbers that can be between 0 and 100
-        //and not like .NET usually treats percents as a value between 0 and 1
-        ActualPercentage = double.Parse(input.Replace("%", "").Replace(" ", ""));
+        if (string.IsNullOrEmpty(RawPercentage))
+        {
+            return null;
+        }
+        string trimmedValue = RawPercentage?.Replace("%", "").Replace(" ", "");
+        double result;
+        if(double.TryParse(trimmedValue, out result))
+        {
+            return result;
+        }
+        return null;
     }
 }
 ````
 
->caption Sample phone number mask
+>caption Custom mask that presets literals for the user
 
 ````CSHTML
-<TelerikMaskedTextBox Mask="(+999) 000-0000"
-                      @bind-Value="@TheValue"
-                      Label="Phone Number:">
-</TelerikMaskedTextBox>
+@* This example requires an invoice number that starts with a letter, has a second character that is a letter or a number, then a dash, then has the numbers "900" and four more numbers. For example A4-900123 *@
 
-<span style="white-space: pre;">
-    @TheValue
-</span>
+@invoiceNumber
+
+<TelerikMaskedTextBox Mask="LA-\9\0\00000" Label="Invoice Number" @bind-Value="@invoiceNumber" IncludeLiterals="true"></TelerikMaskedTextBox>
 
 @code{
-    string TheValue { get; set; } = "44 5556666"; // the space accounts for three-digit codes
+    string invoiceNumber { get; set; }
 }
 ````
+
 
 ## See Also
 
