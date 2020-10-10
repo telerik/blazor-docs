@@ -80,6 +80,62 @@ To use a Telerik MaskedTextbox for Blazor:
 
 ## Some Sample Masks
 
+````CSHTML
+@* type in the inputs to see the result. Depending on what you want to get, you may want to set IncludeLiterals=tru like for the percentage example at the end *@
+
+<div style="white-space:pre;">
+    @Phone
+    @CardNumber
+    @SSN
+    @ZipCode
+    @ZipPlus4Code
+</div>
+
+<TelerikMaskedTextBox Mask="(+999) 000-0000" Label="Phone Number:" @bind-Value="@Phone"></TelerikMaskedTextBox><br />
+<TelerikMaskedTextBox Mask="0000-0000-0000-0000" Label="Credit Card:" @bind-Value="@CardNumber"></TelerikMaskedTextBox><br />
+<TelerikMaskedTextBox Mask="000-00-0000" Label="SSN:" @bind-Value="@SSN"></TelerikMaskedTextBox><br />
+<TelerikMaskedTextBox Mask="L0L 0LL" Label="UK Post Code:" @bind-Value="@UkPostcode"></TelerikMaskedTextBox><br />
+<TelerikMaskedTextBox Mask="00000" Label="ZIP Code:" @bind-Value="@ZipCode"></TelerikMaskedTextBox><br />
+<TelerikMaskedTextBox Mask="00000-0000" Label="ZIP+4 Code:" @bind-Value="@ZipPlus4Code"></TelerikMaskedTextBox><br />
+
+@code{
+    string Phone { get; set; }
+    string CardNumber { get; set; }
+    string SSN { get; set; }
+    string UkPostcode { get; set; }
+    string ZipCode { get; set; }
+    string ZipPlus4Code { get; set; }
+}
+
+<hr />
+
+<div style="white-space:pre;">
+    @RawPercentage
+    @ActualPercentage
+</div>
+
+<TelerikMaskedTextBox Mask="@PercentageMask"
+                      IncludeLiterals="true"
+                      PromptPlaceholder="null"
+                      Value="@RawPercentage"
+                      ValueChanged="@( (string v) => ParsePercentage(v) )"
+                      Label="Percentage:">
+</TelerikMaskedTextBox>
+
+@code{
+    string PercentageMask { get; set; } = $"00{System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator}00%";
+    string RawPercentage { get; set; }
+    double ActualPercentage { get; set; }
+    void ParsePercentage(string input)
+    {
+        RawPercentage = input;
+        //note: this parses the value exactly and will result in numbers that can be between 0 and 100
+        //and not like .NET usually treats percents as a value between 0 and 1
+        ActualPercentage = double.Parse(input.Replace("%", "").Replace(" ", ""));
+    }
+}
+````
+
 >caption Sample phone number mask
 
 ````CSHTML
