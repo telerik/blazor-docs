@@ -27,7 +27,7 @@ This article provides examples of validating the Telerik Blazor components. The 
 * [MultiSelect](#multiselect)
 * [DateRangePicker](#daterangepicker)
 * [Editor](#editor)
-
+* [MaskedTextbox](#maskedtextbox)
 
 
 ## Simple Inputs
@@ -497,6 +497,65 @@ Unlike other components, the editor does not trigger form validation on every ke
 }
 ````
 
+
+## MaskedTextbox
+
+The Masked Textbox prompts the user for their input and restricts it according to its [Mask]({%slug maskedtextbox-mask-prompt%}). The Blazor validation is, however, controlled by data annotation attributes on the model and so the application must have the appropriate rules set that match the desired input and masks. The RegularExpression annotation is commonly used to require a specific input format and values, or you can implement custom data annotation attributes too.
+
+>caption Sample DataAnnotation rules that match masks to validate user input
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+
+<EditForm Model="@Payment" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <p>
+        <TelerikMaskedTextBox Mask="0000-0000-0000-0000" IncludeLiterals="true" Label="Credit Card:" @bind-Value="@Payment.CreditCard"></TelerikMaskedTextBox>
+        <ValidationMessage For="@(() => Payment.CreditCard)" />
+    </p>
+
+    <p>
+        <TelerikMaskedTextBox Mask="+1-000-000-0000" Label="Phone:" @bind-Value="@Payment.PhoneNumber" PromptPlaceholder="null"></TelerikMaskedTextBox>
+        <ValidationMessage For="@(() => Payment.PhoneNumber)" />
+    </p>
+
+    <p>
+        <TelerikMaskedTextBox Mask="00000-9999" Label="ZIP:" @bind-Value="@Payment.Zip" PromptPlaceholder="null"></TelerikMaskedTextBox>
+        <ValidationMessage For="@(() => Payment.Zip)" />
+    </p>
+
+    <TelerikButton ButtonType="@ButtonType.Submit" Primary="true">Submit</TelerikButton>
+</EditForm>
+
+
+@code{
+    PaymentDetails Payment { get; set; } = new PaymentDetails();
+
+    public class PaymentDetails
+    {
+        //NOTE: These are sample rules, make sure to use ones that are correct and suitable for your application needs
+
+        [Required]
+        [RegularExpression("^[1-9][0-9]{3}-[1-3]{4}-[0-9]{4}-[0-9]{4}$", ErrorMessage = "Please enter a valid credit card number")]
+        public string CreditCard { get; set; }
+
+        [MinLength(10)]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        [RegularExpression(@"^\d{5}(?:[-\s]\d{4})?$", ErrorMessage = "Please Enter valid ZIP code")]
+        public string Zip { get; set; }
+    }
+
+    void HandleValidSubmit()
+    {
+        Console.WriteLine("VALID SUBMIT");
+    }
+}
+````
 
 
 ## See Also
