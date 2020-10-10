@@ -500,7 +500,11 @@ Unlike other components, the editor does not trigger form validation on every ke
 
 ## MaskedTextbox
 
-The Masked Textbox prompts the user for their input and restricts it according to its [Mask]({%slug maskedtextbox-mask-prompt%}). The Blazor validation is, however, controlled by data annotation attributes on the model and so the application must have the appropriate rules set that match the desired input and masks. The RegularExpression annotation is commonly used to require a specific input format and values, or you can implement custom data annotation attributes too.
+The Masked Textbox prompts the user for their input and restricts it according to its [Mask]({%slug maskedtextbox-mask-prompt%}). 
+
+The Blazor validation is, however, controlled by data annotation attributes on the model and so the application must have the appropriate rules set that match the desired input and masks. The RegularExpression annotation is commonly used to require a specific input format and values, or you can implement custom data annotation attributes too.
+
+You may want to set the [`IncludeLiterals`]({%slug maskedtextbox-mask-prompt%}#include-literals-in-the-value) parameter to `true` and/or set the [`PromptPlaceholder`]({%slug maskedtextbox-mask-prompt%}#prompt) parameter accordingly to keep the prompt characters in the `Value` so you can validate the content more easily.
 
 >caption Sample DataAnnotation rules that match masks to validate user input
 
@@ -513,17 +517,29 @@ The Masked Textbox prompts the user for their input and restricts it according t
     <ValidationSummary />
 
     <p>
-        <TelerikMaskedTextBox Mask="0000-0000-0000-0000" IncludeLiterals="true" Label="Credit Card:" @bind-Value="@Payment.CreditCard"></TelerikMaskedTextBox>
+        <TelerikMaskedTextBox Mask="0000-0000-0000-0000"
+                              IncludeLiterals="true"
+                              Label="Credit Card:"
+                              @bind-Value="@Payment.CreditCard">
+        </TelerikMaskedTextBox>
         <ValidationMessage For="@(() => Payment.CreditCard)" />
     </p>
 
     <p>
-        <TelerikMaskedTextBox Mask="+1-000-000-0000" Label="Phone:" @bind-Value="@Payment.PhoneNumber" PromptPlaceholder="null"></TelerikMaskedTextBox>
+        <TelerikMaskedTextBox Mask="+1-000-000-0000"
+                              Label="Phone:"
+                              @bind-Value="@Payment.PhoneNumber"
+                              PromptPlaceholder="null">
+        </TelerikMaskedTextBox>
         <ValidationMessage For="@(() => Payment.PhoneNumber)" />
     </p>
 
     <p>
-        <TelerikMaskedTextBox Mask="00000-9999" Label="ZIP:" @bind-Value="@Payment.Zip" PromptPlaceholder="null"></TelerikMaskedTextBox>
+        <TelerikMaskedTextBox Mask="00000-9999"
+                              Label="ZIP:"
+                              @bind-Value="@Payment.Zip"
+                              PromptPlaceholder="null">
+        </TelerikMaskedTextBox>
         <ValidationMessage For="@(() => Payment.Zip)" />
     </p>
 
