@@ -1,16 +1,16 @@
 ---
 title: Events
 page_title: RadioGroup - Events
-description: Events in the RadioButtonGroup for Blazor.
+description: Events in the Radio Button Group for Blazor.
 slug: radiogroup-events
-tags: telerik,blazor,dropdown,list,dropdownlist,events
+tags: telerik,blazor,radio button group,list,dropdownlist,events
 published: true
 position: 20
 ---
 
 # Events
 
-This article explains the events available in the Telerik DropDownList for Blazor:
+This article explains the events available in the Telerik RadioGroup for Blazor:
 
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)

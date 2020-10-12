@@ -23,7 +23,7 @@ To use a Telerik RadioGroup for Blazor
 >caption Basic Radio Button Group with two-way value binding
 
 ````CSHTML
-Chosen gender: @( ChosenGender == null ? "no selection yet" : ChosenGender.ToString() )
+Chosen gender: @( ChosenGender == 0 ? "no selection yet" : ChosenGender.ToString() )
 <br />
 
 <TelerikRadioGroup Data="@GenderOptions"
@@ -33,7 +33,9 @@ Chosen gender: @( ChosenGender == null ? "no selection yet" : ChosenGender.ToStr
 </TelerikRadioGroup>
 
 @code{
-    int? ChosenGender { get; set; }
+    TelerikRadioGroup<GenderModel, int?> RadioGroupRef { get; set; }
+
+    int ChosenGender { get; set; }
 
     List<GenderModel> GenderOptions { get; set; } = new List<GenderModel>
     {
@@ -59,36 +61,6 @@ Chosen gender: @( ChosenGender == null ? "no selection yet" : ChosenGender.ToStr
 
 The RadioGroup component is a generic component whose type depends on the type of its `Data` model and its `Value` parameter.
 
-````CSHTML
-@* The types of the model and value determine its reference type *@
-
-<TelerikRadioGroup Data="@GenderOptions"
-                   @bind-Value="@ChosenGender"
-                   @ref="@RadioGroupRef"
-                   ValueField="@nameof(GenderModel.GenderId)"
-                   TextField="@nameof(GenderModel.GenderText)">
-</TelerikRadioGroup>
-
-@code{
-    TelerikRadioGroup<GenderModel, int> RadioGroupRef { get; set; }
-
-    int? ChosenGender { get; set; }
-
-    List<GenderModel> GenderOptions { get; set; } = new List<GenderModel>
-    {
-        new GenderModel { GenderId = 1, GenderText = "Female" },
-        new GenderModel { GenderId = 2, GenderText = "Male" },
-        new GenderModel { GenderId = 3, GenderText = "Other" },
-        new GenderModel { GenderId = 4, GenderText = "Prefer not to say" },
-    };
-
-    public class GenderModel
-    {
-        public int GenderId { get; set; }
-        public string GenderText { get; set; }
-    }
-}
-````
 
 ## Features
 
@@ -100,7 +72,7 @@ The RadioGroup provides the following features:
 
 * `Enabled` - whether the component is enabled.
 
-<!-- * `Id` - renders as the id attribute on the main wrapping `ul` element. -->
+* `Id` - renders as the id attribute on the main wrapping `ul` element.
 
 * `LabelPosition` - whether the labels render after or before the radio button itself.
 
