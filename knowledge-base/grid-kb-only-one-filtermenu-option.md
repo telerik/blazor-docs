@@ -29,9 +29,14 @@ I want simple filtering options in the filter menu - both for my uses and my bac
 ![](images/grid-kb-only-one-filtermenu-option-result.png)
 
 ## Solution
-You can use CSS to hide the elements that provide the and/or secondary conditions:
 
->caption Hide And/Or filter options in FilterMenu 
+There are two options:
+
+* A [custom filter template]({%slug grid-templates-filter%}) provides full flexibility, including on building the filter descriptor. This is the approach we recommend for such a scenario.
+
+* You can use CSS to hide the elements that provide the and/or secondary conditions. An example of this is provided below. Note that the CSS rules used by the grid rendering may change and that these rules will also target all the grids on the page.
+
+>caption Hide And/Or filter options in FilterMenu with CSS
 
 ````CSHTML
 @* These CSS rules hide the second component wrappers *@
@@ -39,7 +44,8 @@ You can use CSS to hide the elements that provide the and/or secondary condition
 <style>
     .k-filter-menu-container .k-widget.k-dropdown,
     .k-filter-menu-container .k-state-empty:nth-of-type(2n),
-    .k-filter-menu-container .k-datepicker:nth-of-type(2n),
+    .k-filter-menu-container .k-textbox:nth-of-type(2n),
+    .k-filter-menu-container .k-datepicker:nth-of-type(2n+1),
     .k-filter-menu-container .k-numerictextbox:nth-of-type(2n) {
         display: none;
     }
