@@ -277,6 +277,8 @@ navigation:
         title: "Pager"
      "*pivotgrid":
         title: "PivotGrid"
+     "*/radiogroup":
+        title: "RadioGroup"
      "*scheduler":
         title: "Scheduler"
      "*scrollview":
@@ -369,6 +371,7 @@ intro_columns:
       "MultiSelect": "multiselect-overview"
       "CheckBox": "checkbox-overview"
       "Switch": "switch-overview"
+      "RadioButton Group" : "radiogroup-overview"
       "HTML Editor": "editor-overview"
 
 -
