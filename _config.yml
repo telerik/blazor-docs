@@ -371,7 +371,7 @@ intro_columns:
       "MultiSelect": "multiselect-overview"
       "CheckBox": "checkbox-overview"
       "Switch": "switch-overview"
-      "RadioButton Group" : "radiogroup-overview"
+      "Radio Button Group" : "radiogroup-overview"
       "HTML Editor": "editor-overview"
 
 -
