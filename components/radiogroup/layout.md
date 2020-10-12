@@ -5,7 +5,7 @@ description: Layouts of the RadioButtonGroup for Blazor.
 slug: radiogroup-layout
 tags: telerik,blazor,radiobuttongroup,radio,list,layout
 published: True
-position: 0
+position: 10
 ---
 
 # RadioGroup Layout
@@ -15,8 +15,6 @@ The Blazor Radio Button Group component lets you render the list of options in a
 By default, the list is vertical, and you can change that through the `Layout` parameter that takes a member of the `Telerik.Blazor.RadioGroupLayout` enum.
 
 >caption Horizontal and Vertical layouts in the Telerik Blazor Button Group Component
-
-![Layouts in the ButtonGroup component](images/radio-group-layout.png)
 
 ````CSHTML
 @SelectedValue
@@ -30,11 +28,11 @@ By default, the list is vertical, and you can change that through the `Layout` p
 }
 ````
 
-
+![Layouts in the ButtonGroup component](images/radio-group-layout.png)
 
 ## See Also
 
   * [RadioGroup Overview]({%slug radiogroup-overview%})
   * [RadioGroup Data Binding]({%slug radiogroup-databind%})
-  * [Live Demo: RadioGropu Customization](https://demos.telerik.com/blazor-ui//radiogroup/customization)
+  * [Live Demo: RadioGroup Customization](https://demos.telerik.com/blazor-ui//radiogroup/customization)
 
