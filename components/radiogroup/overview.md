@@ -59,7 +59,7 @@ Chosen gender: @( ChosenGender == 0 ? "no selection yet" : ChosenGender.ToString
 
 >caption Component namespace and reference
 
-The RadioGroup component is a generic component whose type depends on the type of its `Data` model and its `Value` parameter.
+See the [Component Reference]({%slug radiogroup-databind%}#component-reference) section in the Data Binding article for details and examples.
 
 
 ## Features
