@@ -35,6 +35,28 @@ By default, the list is vertical, and you can change that through the `Layout` p
 
 ![Layouts in the ButtonGroup component](images/radio-group-layout.gif)
 
+In the `Horizontal` layout mode, the individual items do not create a layout and so they will flow with their container's dimensions.
+
+>caption Items can fall on several lines in Horizontal layout when their container cannot fit them all
+
+````CSHTML
+@* This code just creates 20 items and puts them in a container with small width *@
+
+<div style="width: 500px; border: 1px solid red;">
+    <TelerikRadioGroup Data="@RadioButtonsList"
+                      @bind-Value="@SelectedValue"
+                      Layout="@RadioGroupLayout.Horizontal">
+    </TelerikRadioGroup>
+</div>
+
+@code{
+    List<string> RadioButtonsList { get; set; } = Enumerable.Range(1, 20).Select(x => $"Item {x}").ToList();
+    string SelectedValue { get; set; }
+}
+````
+
+![Horizontal Layout items flow in lines](images/radio-group-horizontal-flow.png)
+
 ## See Also
 
   * [RadioGroup Overview]({%slug radiogroup-overview%})
