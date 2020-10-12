@@ -8,78 +8,117 @@ published: True
 position: 0
 ---
 
-# DropDownList Overview
+# RadioGroup Overview
 
-The <a href="https://www.telerik.com/blazor-ui/dropdownlist" target="_blank">Blazor DropDownList component</a> allows the user to choose an option from a predefined set of choices presented in a dropdown popup. The developer can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
+The Blazor Radio Button Group component allows the user to choose an option from a predefined set of choices presented in a list of radio buttons styled according to the Telerik [Theme]({%slug general-information/themes%}).
 
-To use a Telerik DropDownList for Blazor
+## Basics
 
-1. add the `TelerikDropDownList` tag
-1. populate its `Data` property with the collection of items you want in the dropdown
-1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
-1. (optional) set the `Value` property to the initial value of the model.
+To use a Telerik RadioGroup for Blazor
 
->caption Basic dropdownlist [data binding](data-bind) and two-way value binding
+1. Add the `<TelerikRadioGroup>` tag.
+1. Populate its `Data` property with the collection of items you want in the list.
+1. Set the `TextField` and `ValueField` properties to point to the corresponding names of the model.
+
+>caption Basic Radio Button Group with two-way value binding
 
 ````CSHTML
-Selected value: @selectedValue
+Chosen gender: @( ChosenGender == null ? "no selection yet" : ChosenGender.ToString() )
 <br />
 
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue">
-</TelerikDropDownList>
+<TelerikRadioGroup Data="@GenderOptions"
+                   @bind-Value="@ChosenGender"
+                   ValueField="@nameof(GenderModel.GenderId)"
+                   TextField="@nameof(GenderModel.GenderText)">
+</TelerikRadioGroup>
 
-@code {
-	//in a real case, the model is usually in a separate file
-	//the model type and value field type must be provided to the dropdpownlist
-	public class MyDdlModel
-	{
-		public int MyValueField { get; set; }
-		public string MyTextField { get; set; }
-	}
+@code{
+    int? ChosenGender { get; set; }
 
-	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+    List<GenderModel> GenderOptions { get; set; } = new List<GenderModel>
+    {
+        new GenderModel { GenderId = 1, GenderText = "Female" },
+        new GenderModel { GenderId = 2, GenderText = "Male" },
+        new GenderModel { GenderId = 3, GenderText = "Other" },
+        new GenderModel { GenderId = 4, GenderText = "Prefer not to say" },
+    };
 
-	int selectedValue { get; set; } = 3; //usually the current value should come from the model data
+    public class GenderModel
+    {
+        public int GenderId { get; set; }
+        public string GenderText { get; set; }
+    }
 }
 ````
 
 >caption The result from the code snippet above
 
-![](images/dropdownlist-basic-screenshot.jpg)
+![Radio Group First Look](images/radiogroup-overview.gif)
 
 >caption Component namespace and reference
 
-See the [Component Reference]({%slug components/dropdownlist/databind%}#component-reference) section in the Data Binding article for details and examples.
+The RadioGroup component is a generic component whose type depends on the type of its `Data` model and its `Value` parameter.
+
+````CSHTML
+@* The types of the model and value determine its reference type *@
+
+<TelerikRadioGroup Data="@GenderOptions"
+                   @bind-Value="@ChosenGender"
+                   @ref="@RadioGroupRef"
+                   ValueField="@nameof(GenderModel.GenderId)"
+                   TextField="@nameof(GenderModel.GenderText)">
+</TelerikRadioGroup>
+
+@code{
+    TelerikRadioGroup<GenderModel, int> RadioGroupRef { get; set; }
+
+    int? ChosenGender { get; set; }
+
+    List<GenderModel> GenderOptions { get; set; } = new List<GenderModel>
+    {
+        new GenderModel { GenderId = 1, GenderText = "Female" },
+        new GenderModel { GenderId = 2, GenderText = "Male" },
+        new GenderModel { GenderId = 3, GenderText = "Other" },
+        new GenderModel { GenderId = 4, GenderText = "Prefer not to say" },
+    };
+
+    public class GenderModel
+    {
+        public int GenderId { get; set; }
+        public string GenderText { get; set; }
+    }
+}
+````
 
 ## Features
 
-The DropDownList provides the following features:
+The RadioGroup provides the following features:
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the dropdownlist.
+* `Class` - the CSS class that will be rendered on the main wrapping element of the component.
 
 * `Data` - allows you to provide the data source. Required.
 
-* `DefaultText` - sets the hint that is shown if the `Value` has the `default` value for the type of the `ValueField`. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. You can find examples in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article.
-
 * `Enabled` - whether the component is enabled.
 
-* `Id` - renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it.
+<!-- * `Id` - renders as the id attribute on the main wrapping `ul` element. -->
 
-* `PopupHeight` - the height of the expanded dropdown list element.
+* `LabelPosition` - whether the labels render after or before the radio button itself.
 
-* `PopupWidth` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
+* `Layout` - whether the buttons are rendered vertically or horizontally.
+
+* `Name` - lets you choose your own `name` attribute for the underying `<input type=radio>` elements.
 
 * `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
 
 * `TValue` - the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
 
-* `TabIndex` - the `tabindex` attribute rendered on the dropdown.
+<!-- * `TabIndex` - the `tabindex` attribute rendered on the dropdown. -->
 
 * `TextField` - the name of the field from the model that will be shown to the user. Defaults to `Text`.
 
-* `ValueField` - the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
+* `ValueField` - the name of the field from the model that will populate the underlying `Value`. Defaults to `Value`.
 
-* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
+* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `@bind-Value` syntax for two-way binding, for example, to a variable of your own.
 
     The `Value` and `ValueField` can be of types:
 
@@ -88,85 +127,7 @@ The DropDownList provides the following features:
     * `Guid`
     * `Enum`
 
-* `Width` - the width of the dropdown and the main element. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
-
-* Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug components/dropdownlist/templates%}) article for more details.
-
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
-
-
-## Examples
-
->caption Default text (hint) to show when no actual item is selected
-
-````CSHTML
-@MyStringItem
-<TelerikDropDownList Data="@MyStringList" @bind-Value="@MyStringItem" DefaultText="Select something">
-</TelerikDropDownList>
-
-<br />
-<br />
-
-@MyIntItem
-<TelerikDropDownList Data="@MyIntList" @bind-Value="@MyIntItem" DefaultText="Select another thing">
-</TelerikDropDownList>
-
-@code {
-    protected List<string> MyStringList = new List<string>() { "first", "second", "third" };
-
-    protected string MyStringItem { get; set; }
-
-    protected List<int> MyIntList = new List<int>() { 1, 2, 3 };
-
-    protected int MyIntItem { get; set; }
-}
-````
-
->caption Get selected item from external code
-
-````CSHTML
-@result
-<br />
-
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField"
-                     @bind-Value="@DdlValue" DefaultText="Select something">
-</TelerikDropDownList>
-
-<TelerikButton OnClick="@GetSelectedItem">Get Selected Item</TelerikButton>
-
-@code {
-    string result;
-    int DdlValue { get; set; } = 5;
-    void GetSelectedItem()
-    {
-        // extract the data item from the data source by using the value
-        MyDdlModel selectedItem = myDdlData.Where(d => d.MyValueField == DdlValue).FirstOrDefault();
-        if (selectedItem != null)
-        {
-            result = selectedItem.MyTextField;
-        }
-        else
-        {
-            result = "no item selected";
-        }
-
-        StateHasChanged();
-    }
-
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-}
-````
-
-
->tip If you are looking for more fields from the view-model that describes the dropdown items, not just the `Value`, see the [Get model from dropodwn]({%slug dropdowns-get-model%}) KB article and the [OnChange](events#onchange) event.
->
-> You may also want to review/join the discussion and Vote for this request: <a href="https://www.telerik.com/forums/binding-dropdownlist-value-to-complex-model" target="_blank">Binding DropDownList Value to complex model</a>
 
 
 
