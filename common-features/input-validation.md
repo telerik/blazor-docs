@@ -23,6 +23,7 @@ This article provides examples of validating the Telerik Blazor components. The 
 
 * [Simple Inputs](#simple-inputs)
 * [DropDownList](#dropdownlist)
+* [RadioGroup](#radiogroup)
 * [ComboBox](#combobox)
 * [MultiSelect](#multiselect)
 * [DateRangePicker](#daterangepicker)
@@ -221,8 +222,61 @@ This means that for required field validation to work, the current item must hav
 }
 ````
 
+## RadioGroup
 
-# ComboBox
+The radio group acts in a way similar to a dropdownlist - there is a collection of items that have values, and those values are used to populate a field in the model that is being validated. This lets you define the necessary data annottation attributes on the validated class. Note that required field validation needs nullable fields.
+
+>caption Sample required and range validation in the RadioGroup
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+
+<EditForm Model="@form" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    Choose 2FA method:<br />
+
+    <TelerikRadioGroup Data="@TFAMethods" @bind-Value="@form.TwoFaMethod"></TelerikRadioGroup>
+
+    <ValidationMessage For="@( () => form.TwoFaMethod )" />
+    <br />
+    <TelerikButton ButtonType="@ButtonType.Submit" Primary="true">SUBMIT</TelerikButton>
+</EditForm>
+
+@code{
+    RegistrationFormModel form { get; set; } = new RegistrationFormModel();
+    List<TwoFactorAuthMethod> TFAMethods { get; set; } = new List<TwoFactorAuthMethod>
+    {
+        new TwoFactorAuthMethod { MethodId = 1, MethodName = "None"},
+        new TwoFactorAuthMethod { MethodId = 2, MethodName = "SMS"},
+        new TwoFactorAuthMethod { MethodId = 3, MethodName = "Mobile App"},
+        new TwoFactorAuthMethod { MethodId = 4, MethodName = "Phone"},
+    };
+
+    public class RegistrationFormModel
+    {
+        [Required(ErrorMessage = "You must select a two-factor authentication method.")]
+        [Range(2, 3, ErrorMessage = "Phone authentication is not available at this time, and you must have an authentication method.")]
+        public int? TwoFaMethod { get; set; }
+    }
+
+
+    public class TwoFactorAuthMethod
+    {
+        public int? MethodId { get; set; }
+        public string MethodName { get; set; }
+    }
+
+    void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+}
+````
+
+
+## ComboBox
 
 The ComboBox works with the `Value` of the selected item (through its `ValueField`). This means that for required field validation to work, the current item must have a `null` value, or `AllowCustom` must be `true` and the input empty.
 
