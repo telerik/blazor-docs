@@ -17,18 +17,23 @@ By default, the list is vertical, and you can change that through the `Layout` p
 >caption Horizontal and Vertical layouts in the Telerik Blazor Button Group Component
 
 ````CSHTML
-@SelectedValue
-<hr />
-<TelerikRadioGroup Data="@Data" @bind-Value="@SelectedValue" Layout="@Telerik.Blazor.RadioGroupLayout.Horizontal"></TelerikRadioGroup>
-<hr />
-<TelerikRadioGroup Data="@Data" @bind-Value="@SelectedValue" Layout="@Telerik.Blazor.RadioGroupLayout.Vertical"></TelerikRadioGroup>
+@* If you want a horizontal list, you can set the value directly to the parameter *@
+
+<select @bind="@theLayout">
+   <option value="@RadioGroupLayout.Horizontal">Horizontal</option>
+   <option value="@RadioGroupLayout.Vertical">Vertical</option>
+</select>
+<br />
+<TelerikRadioGroup Data="@Data" @bind-Value="@SelectedValue" Layout="@theLayout"></TelerikRadioGroup>
 @code{
+    RadioGroupLayout theLayout { get; set; } = RadioGroupLayout.Horizontal;
+
     int SelectedValue { get; set; } = 2;
     IEnumerable<int> Data { get; set; } = Enumerable.Range(1, 5);
 }
 ````
 
-![Layouts in the ButtonGroup component](images/radio-group-layout.png)
+![Layouts in the ButtonGroup component](images/radio-group-layout.gif)
 
 ## See Also
 

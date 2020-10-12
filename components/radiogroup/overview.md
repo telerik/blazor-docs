@@ -10,7 +10,7 @@ position: 0
 
 # RadioGroup Overview
 
-The Blazor Radio Button Group component allows the user to choose an option from a predefined set of choices presented in a list of radio buttons styled according to the Telerik [Theme]({%slug general-information/themes%}).
+The Blazor Radio Button Group component allows the user to choose an option from a predefined set of choices presented in a list of radio buttons styled according to the Telerik [Theme]({%slug general-information/themes%}). You can also choose the [layout order]({%slug radiogroup-layout%}) and [label position]({%slug radiogroup-label-position%}).
 
 ## Basics
 
@@ -105,6 +105,6 @@ The RadioGroup provides the following features:
 
 ## See Also
 
-  * [Data Binding]({%slug components/dropdownlist/databind%})
-  * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/index)
-  * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor-ui/dropdownlist/validation)
+  * [Data Binding]({%slug radiogroup-databind%})
+  * [Live Demo: RadioGroup](https://demos.telerik.com/blazor-ui/radiogroup/overview)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikRadioGroup-2)
