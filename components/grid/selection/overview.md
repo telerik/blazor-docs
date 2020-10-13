@@ -144,6 +144,10 @@ When the grid `Data` collection changes, the `SelectedItems` collection has the 
     * The other CRUD operations (Create and Update), you should use the grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
     * When the data changes and the selected items are cleared, the `SelectedItemsChanged` event will fire with the empty collection. If you are using two-way binding, the collection will be cleared.
     
+### Selection in Grid with virtualized rows
+
+When the Grid has [virtualized rows]({%slug components/grid/virtual-scrolling%}) and the `SelectionMode` is set to [`Multiple`]({%slug components/grid/selection/multiple%}) the selectable items will be the one in the current viewport. If you select an item and scroll down to some of the ones that are not rendered yet (virtual) and you want to select that range the selection will start from the position of the first item to the last selected item.
+    
 
 
 
