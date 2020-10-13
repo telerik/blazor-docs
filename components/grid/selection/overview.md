@@ -22,7 +22,7 @@ In this article:
 	* [Asynchronous Operations](#asynchronous-operations)
 	* [SelectedItems Equals Comparison](#selecteditems-equals-comparison)
 	* [Handle Data Changes](#handle-data-changes)
-
+    * [Selection in Grid with virtualized rows](#selection-in-grid-with-virtualized-rows)
 
 
 ## Selection Basics
@@ -101,7 +101,7 @@ To see how to select the row that is being edited in InCell edit mode without us
 
 #### Inline and PopUp Edit Modes
 
-In [Inline EditMode]({%slug components/grid/editing/inline%}) and [PopUp EditMode]({%slug components/grid/editing/popup%}) selection can be done by clicking on the desired row or by using a `< GridCheckboxColumn />`.
+In [Inline EditMode]({%slug components/grid/editing/inline%}) and [PopUp EditMode]({%slug components/grid/editing/popup%}) selection can be done by clicking on the desired row or by using a `<GridCheckboxColumn />`.
 
 ### Selection in Template
 
@@ -144,6 +144,9 @@ When the grid `Data` collection changes, the `SelectedItems` collection has the 
     * The other CRUD operations (Create and Update), you should use the grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
     * When the data changes and the selected items are cleared, the `SelectedItemsChanged` event will fire with the empty collection. If you are using two-way binding, the collection will be cleared.
     
+### Selection in Grid with virtualized rows
+
+When the Grid has [virtualized rows]({%slug components/grid/virtual-scrolling%}) and the `SelectionMode` is set to [`Multiple`]({%slug components/grid/selection/multiple%}) the selectable items will be the one in the current set of items (page). If you select an item and scroll down to some of the ones that are not rendered yet (virtualiation kicks in) and you want to select that range with the `Shift` button, the selection will start from the position of the first item of the current set (page) to the last selected item.
 
 
 
