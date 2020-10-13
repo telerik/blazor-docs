@@ -237,7 +237,11 @@ The radio group acts in a way similar to a dropdownlist - there is a collection 
     <ValidationSummary />
     Choose 2FA method:<br />
 
-    <TelerikRadioGroup Data="@TFAMethods" @bind-Value="@form.TwoFaMethod"></TelerikRadioGroup>
+    <TelerikRadioGroup Data="@TFAMethods"
+                       @bind-Value="@form.TwoFaMethod"
+                       ValueField="@nameof(TwoFactorAuthMethod.MethodId)"
+                       TextField="@nameof(TwoFactorAuthMethod.MethodName)">
+    </TelerikRadioGroup>
 
     <ValidationMessage For="@( () => form.TwoFaMethod )" />
     <br />
