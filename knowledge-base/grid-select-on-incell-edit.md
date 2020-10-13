@@ -26,23 +26,34 @@ When using the [InCell]({%slug components/grid/editing/incell%}) Editing Mode, I
  By default, the click action opens a cell for editing and does not select a row to avoid an ambiguous action, and so rows can only be selected with the dedicated grid selection column.
 
 
+
 ## Solution
 
-Use the `OnEdit` and `OnUpdate` [Grid events]({%slug grid-events%}#cud-events):
+Use the [Grid events]({%slug grid-events%}#cud-events) to update the `SelectedItems` collection as required:
+
 * In the handler for the `OnEdit` event add the currently edited item, passed to the method through the object of type `GridCommandEventArgs`, into the `SelectedItems` collection.
+
     * The item added to the collection is with the old value, before the editing.
+
 * In the handler for the `OnUpdate` event, update the `SelectedItems` collection with the new value of the edited item to ensure data integrity.
+
 * For non-editable cells you can use the [OnRowClick]({%slug grid-events%}#onrowclick) event. 
+
     * Alternatively, add a [Column Template]({%slug grid-templates-column%}). Use a `<div>` block and add an `onclick` event with a method where the row data is added to the SelectedItems collection as shown in the second example.
 
-### Examples
+>caption Examples
+
 
 * [How to Select the row that is being edited in InCell edit mode using the OnRowClick event](#how-to-select-the-row-that-is-being-edited-in-incell-edit-mode-using-the-onrowclick-event)
-* [How to Select the row that is being edited in InCell edit mode using Cell Tempalte and the onclick event](#how-to-select-the-row-that-is-being-edited-in-incell-edit-mode-using-cell-template-and-onclick-event)
 
-#### How to Select the row that is being edited in InCell edit mode using the OnRowClick event
+* [How to Select the row that is being edited in InCell edit mode using Cell Tempalte and the onclick event](#how-to-select-the-row-that-is-being-edited-in-incell-edit-mode-using-cell-tempalte-and-the-onclick-event)
+
+
+### How to Select the row that is being edited in InCell edit mode using the OnRowClick event
 
 ````CSHTML
+@* This sample does not require a template for non-editable columns *@
+
 <TelerikGrid Data="@GridData"
              Height="400px"
              SelectionMode="GridSelectionMode.Multiple"
@@ -155,7 +166,7 @@ Use the `OnEdit` and `OnUpdate` [Grid events]({%slug grid-events%}#cud-events):
 }
 ````
 
-#### How to Select the row that is being edited in InCell edit mode using Cell Tempalte and the onclick event
+### How to Select the row that is being edited in InCell edit mode using Cell Tempalte and the onclick event
 
 
 ````CSHTML
