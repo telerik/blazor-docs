@@ -79,7 +79,7 @@ To use the Telerik TextArea in your Blazor application:
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
->caption TextArea with its most common features
+>caption TextArea with its most common features and symbols counter
 
 ````CSHTML
 <label for="myCustomTextAreaId">My Telerik TextArea</label>
@@ -92,12 +92,16 @@ To use the Telerik TextArea in your Blazor application:
                  AutoSize="true">
 </TelerikTextArea>
 
+<div class="k-counter-container">
+    <span>@TextAreaValue.Count()</span><span>/200</span>
+</div>
+
 <br />
 
 @TextAreaValue
 
 @code {
-    public string TextAreaValue { get; set; }
+    public string TextAreaValue { get; set; } = String.Empty;
 }
 ````
 
