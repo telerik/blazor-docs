@@ -61,7 +61,7 @@ To use a Telerik MaskedTextbox for Blazor:
 
 * `MaskOnFocus` (defaults to `false`) - whether the mask will be shown to the user only while the input is focused. When set to `true`, the user will see the `Label` or `Placeholder` instead of the mask in case the textbox is empty. When there is some value in the input, the mask and input will be shown.
 
-* `Name` - the `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser.
+* `Name` - the `name` attribute of the HTML element.
 
 * `PlaceHolder` - a `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. See also the `MaskOnFocus` parameter.
 
