@@ -62,6 +62,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 
     public void ValueChangedHandler(string input)
     {
+        TextAreaValue = input;
         Console.WriteLine($"The ValueChange event fired with {input}");
     }
 }
