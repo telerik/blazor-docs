@@ -21,7 +21,10 @@ To use the Telerik TextArea in your Blazor application:
 >caption Basic TextArea with two-way value binding
 
 ````CSHTML
-<TelerikTextArea @bind-Value="@TextAreaValue" Label="Enter Information"></TelerikTextArea>
+<TelerikTextArea @bind-Value="@TextAreaValue" 
+                 Label="Enter Information" 
+                 AutoSize="true">
+</TelerikTextArea>
 
 <br />
 
@@ -31,6 +34,8 @@ To use the Telerik TextArea in your Blazor application:
     public string TextAreaValue { get; set; }
 }
 ````
+
+![basic textarea example](images/textarea-basic-example.gif)
 
 >caption Component namespace and reference
 
