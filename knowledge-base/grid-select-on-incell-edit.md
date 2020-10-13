@@ -32,7 +32,8 @@ Use the `OnEdit` and `OnUpdate` [Grid events]({%slug grid-events%}#cud-events):
 * In the handler for the `OnEdit` event add the currently edited item, passed to the method through the object of type `GridCommandEventArgs`, into the `SelectedItems` collection.
     * The item added to the collection is with the old value, before the editing.
 * In the handler for the `OnUpdate` event, update the `SelectedItems` collection with the new value of the edited item to ensure data integrity.
-* For non-editable cells you can use the [OnRowClick]({%slug grid-events%}#onrowclick) event.
+* For non-editable cells you can use the [OnRowClick]({%slug grid-events%}#onrowclick) event. 
+    * Alternatively, add a [Column Template]({%slug grid-templates-column%}). Use a `<div>` block and add an `onclick` event with a method where the row data is added to the SelectedItems collection as shown in the second example.
 
 ### Examples
 
