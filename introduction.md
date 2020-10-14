@@ -12,9 +12,9 @@ Thank you for choosing Telerik® UI for Blazor!
 
 The [Blazor framework](https://blazor.net/) by Microsoft allows you to create web applications with .NET and C# to create front-end. The Telerik® UI for Blazor components facilitate the front-end development by providing you with ready made UI components.
 
-The UI for Blazor suite shares HTML rendering and web assets (like stylesheets) with the Kendo UI suites, so you can reuse existing knowledge and classes. The components in **UI for Blazor are native components** and not wrappers over jQuery widgets, however.
+>tip Telerik UI for Blazor supports both Client-side (WebAssembly) Blazor and Server-side Blazor apps.
 
-Telerik UI for Blazor supports both Client-side Blazor and Serve-side Blazor apps.
+The UI for Blazor suite has the same HTML rendering and Theme stylesheets like other Kendo UI suites, so previous experience with them can be helpful. The components in **UI for Blazor are native components** and not wrappers over jQuery widgets, however.
 
 To read more about the benefits of using Telerik UI for Blazor, please visit the <a href="https://www.telerik.com/blazor-ui" target="_blank">product overview page</a>.
 
@@ -22,7 +22,7 @@ To read more about the benefits of using Telerik UI for Blazor, please visit the
 
 ## Getting Started
 
-If you are new to Telerik UI for Blazor, we recommend that you **follow the First Steps articles** to add the Telerik components to your application:
+If you are new to Telerik UI for Blazor, we recommend that you **follow the Get Started articles** to add the Telerik components to your application:
 
 * [Get Started with Client-side Blazor]({%slug getting-started/client-side%})
 
@@ -45,15 +45,11 @@ If you are just getting started with Blazor and Web development, you may find th
 * [MSDN: First Steps with Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/get-started?view=aspnetcore-3.0&tabs=visual-studio)
 * [MSDN: Razor Syntax Reference](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-3.0)
 
-You can watch a YouTube playlist of getting started tutorials for Telerik UI for Blazor below:
+You can watch a YouTube playlist of getting started tutorials for Blazor (videos 1-4) and Telerik UI for Blazor (videos 5-8) below:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## List of Components
-
-Blazor is still a new technology and the component suite is young. We are constantly working on adding new features and components.
-
-At the moment, the following components are available:
 
 <!-- see the config file for the this declaration -->
 {% include intro-page-table.html %}
@@ -62,7 +58,7 @@ Tell us which components you want implemented and how you intend to use them, an
 
 ## Trial Version and Commercial License
 
-This UI for Blazor library is a commercial UI library. You are welcome to explore its full functionality and get technical support from the team when you register for a free 30-day trial. To use it commercially, you need to <a href="https://www.telerik.com/purchase/blazor-ui" target="_blank">purchase a license</a>. Feel free to review the Telerik UI for Blazor <a href="https://www.telerik.com/purchase/license-agreement/blazor-ui" target="_blank">License Agreement</a> to get acquainted with the full terms of use.
+UI for Blazor is a commercial UI library. You are welcome to explore its full functionality and get technical support from the team when you register for a free 30-day trial. To use it commercially, you need to <a href="https://www.telerik.com/purchase/blazor-ui" target="_blank">purchase a license</a>. Feel free to review the Telerik UI for Blazor <a href="https://www.telerik.com/purchase/license-agreement/blazor-ui" target="_blank">License Agreement</a> to get acquainted with the full terms of use.
 
 
 ## Support Options
@@ -85,7 +81,7 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 
 * <a href="https://docs.telerik.com/blazor-ui/knowledge-base" target="_blank">Knowledge Base</a> - contains answers to some common questions, problems and errors. Free-text search is also available.
 
-* <a href="https://github.com/telerik/blazor-ui" target="_blank">Samples Repo</a> - example projects that showcase popular scenarios so you can jump-start your project by copying from them.
+* <a href="https://github.com/telerik/blazor-ui" target="_blank">Blazor Samples Repo</a> - example projects that showcase popular scenarios so you can jump-start your project by copying from them.
 
 * <a href="https://www.telerik.com/support/blazor-ui" target="_blank">Blazor UI Support and Learning Resources</a> - a hub with links to all resources such as blogs, videos, repos, docs and so on.
 
