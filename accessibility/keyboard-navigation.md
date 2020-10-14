@@ -52,6 +52,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [Grid](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation) (set `Navigable="true"`)
 
+* MaskedTextbox - not applicable, it is a simple input with the standard behavior.
+
 * [Menu](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation)
 
 * ListView - not applicable, its entire rendering is up to the app. Its pager is a separate component that offers accessibility and keyboard navigation.

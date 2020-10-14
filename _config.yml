@@ -369,6 +369,7 @@ intro_columns:
       "DropDownList": "components/dropdownlist/overview"
       "ComboBox": "components/combobox/overview"
       "AutoComplete": "autocomplete-overview"
+      "Masked Textbox": "maskedtextbox-overview"
       "MultiSelect": "multiselect-overview"
       "CheckBox": "checkbox-overview"
       "Switch": "switch-overview"
