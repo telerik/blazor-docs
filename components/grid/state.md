@@ -16,6 +16,8 @@ You can see this feature in the [Live Demo: Grid State](https://demos.telerik.co
 
 This article contains the following sections:
 
+
+
 <!-- Start Document Outline -->
 
 * [Basics](#basics)
@@ -28,7 +30,7 @@ This article contains the following sections:
 	* [Set Default (Initial) State](#set-default-initial-state)
 	* [Get and Override User Action That Changes The Grid](#get-and-override-user-action-that-changes-the-grid)
 	* [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
-
+	* [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
 
 <!-- End Document Outline -->
 
@@ -101,7 +103,12 @@ The following information is present in the grid state:
 
 You can find the following examples in this section:
 
-
+* [Save and Load Grid State from Browser LocalStorage](#save-and-load-grid-state-from-browser-localstorage)
+* [Set Grid Options Through State](#set-grid-options-through-state)
+* [Set Default (Initial) State](#set-default-initial-state)
+* [Get and Override User Action That Changes The Grid](#get-and-override-user-action-that-changes-the-grid)
+* [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
+* [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
 
 ### Save and Load Grid State from Browser LocalStorage
 
