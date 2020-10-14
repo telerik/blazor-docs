@@ -41,6 +41,10 @@ Fields that pertain to model data (such as edited item, inserted item, selected 
 
 The grid offers two events and two methods to allow flexible operations over its state:
 
+* [Events](#events)
+
+* [Methods](#methods)
+
 ### Events
 
 The `OnStateInit` and `OnStateChanged` events are raised by the grid so you can have an easy to use hook for loading and saving state, respectively.
@@ -70,14 +74,26 @@ To reset the grid state, call `SetState(null)`.
 
 The following information is present in the grid state:
 
-* Columns - visibility, width, index (order) of the column. The grid matches the columns from its declaration with the columns list in the state object, in the same order, so the grid must initialize with the same collection of columns that were used to save the state.
-* Editing - whether the user was inserting or editing an item (opens the same item for editing with the current data from the built-in editors of the grid - the data is updated in the `OnChange` event, not on every keystroke for performance reasons). The `OriginalEditItem` carries the original model without the user modifications so you can compare.
-* Filtering - filter descriptors (fields by which the grid is filtered, the operator and value).
-* Grouping - group descriptors (fields by which the grid is grouped), collapsed group indexes.
-* Paging - page index, offset (skip) for virtual scrolling.
-* Rows - indexes of expanded detail templates.
-* Sorting - sort descriptors (fields by which the grid is sorted, and the direction).
-* Selection - list of selected items.
+* **Editing** - whether the user was inserting or editing an item (opens the same item for editing with the current data from the built-in editors of the grid - the data is updated in the `OnChange` event, not on every keystroke for performance reasons). The `OriginalEditItem` carries the original model without the user modifications so you can compare.
+
+* **Filtering** - filter descriptors (fields by which the grid is filtered, the operator and value).
+
+* **Grouping** - group descriptors (fields by which the grid is grouped), collapsed group indexes.
+
+* **Paging** - page index, offset (skip) for virtual scrolling.
+
+* **Rows** - indexes of expanded detail templates.
+
+* **Sorting** - sort descriptors (fields by which the grid is sorted, and the direction).
+
+* **Selection** - list of selected items.
+
+* **Columns** - visibility, width, index (order) of the column that the user sees.
+    * The grid matches the columns from its markup sequentially (in the same order) with the columns list in the state object, so the grid must initialize with the same collection of columns that were used to save the state.
+    
+        The `Index` in the state object is the columns place in the visible rendering of the grid that the user can choose through the `Reordable` feature, not its place in the grid markup. 
+    
+        If you want to change the visibility of columns, we recommend you use their `Visible` parameter rather than conditional markup - this parameter will be present in the state and will not change the columns collection count which makes it easier to reconcile changes.
 
 
 ## Examples
