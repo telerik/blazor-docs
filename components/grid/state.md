@@ -99,6 +99,10 @@ The following information is present in the grid state:
 
 ## Examples
 
+You can find the following examples in this section:
+
+
+
 ### Save and Load Grid State from Browser LocalStorage
 
 The following example shows one way you can store the grid state - through a custom service that calls the browser's LocalStorage. You can use your own database here, or a file, or Microsoft's ProtectedBrowserStorage package, or any other storage you prefer. This is just an example you can use as base and modify to suit your project.
@@ -605,6 +609,103 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
     }
 }
 ````
+
+
+### Get Current Columns Visibility, Order, Field
+
+The `ColumnStates` field of the state object provides you with information about the current grid. The `Index` field describes the position the user chose, and the `Visible` parameter indicates whether the column is hidden or not. By looping over that collection you can know what the user sees. You could, for example, sort by the index and filter by the visibility of the columns to approximate the view of the user.
+
+>caption Obtain the current columns visibility, rendering order, locked state and field name
+
+````CSHTML
+@* Click the button, reorder some columns, maybe lock one of them, hide another, and click the button again to see how the state changes but the order of the columns in the state collection remains the same. This example also shows a workaround for getting the Field of the column that will be availale in a future release as part of the column state - this is what the loop in the grid markup is for, and the ColumnFields collection. *@
+
+<TelerikButton OnClick="@GetCurrentColumns">Get Columns order and parameters</TelerikButton>
+
+<TelerikGrid Data="@GridData"
+             @ref="@Grid"
+             ShowColumnMenu="true"
+             Reorderable="true"
+             Pageable="true">
+    <GridColumns>
+        @* we use a loop to get the field name, you can simply declare the columns directly too *@
+        @foreach (var field in ColumnFields)
+        {
+            <GridColumn Field="@field"></GridColumn>
+        }
+    </GridColumns>
+</TelerikGrid>
+
+@( new MarkupString(ColumnsLog) )
+
+
+@code {
+    IEnumerable<Person> GridData { get; set; }
+    TelerikGrid<Person> Grid { get; set; }
+    string ColumnsLog { get; set; } = string.Empty;
+
+    //part of workaround for getting the field too
+    public List<string> ColumnFields => new List<string>
+    {
+        nameof(Person.Id),
+        nameof(Person.Name),
+        nameof(Person.Age)
+    };
+
+    protected override void OnInitialized()
+    {
+        GridData = GetGridData();
+
+        base.OnInitialized();
+    }
+
+    public void GetCurrentColumns()
+    {
+        ColumnsLog = string.Empty;
+
+        var columnsState = Grid.GetState().ColumnStates;
+
+        var index = 0;
+
+        foreach (var columnState in columnsState)
+        {
+            // final part of the workaround for getting the field
+            var columnField = ColumnFields[index];
+
+            // human readable info for visibility information
+            var visible = columnState.Visible != false;
+
+            string log = $"<p>Column: <strong>{columnField}</strong> | Index in Grid: {columnState.Index} | Index in state: {index} | Visible: {visible} | Locked: {columnState.Locked}</p>";
+
+            ColumnsLog += log;
+
+            index++;
+        }
+    }
+
+    public class Person
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+
+    public IEnumerable<Person> GetGridData()
+    {
+        var data = new List<Person>();
+        for (int i = 0; i < 30; i++)
+        {
+            data.Add(new Person { Id = i, Name = $"Name {i}", Age = i + 20 });
+        }
+
+        return data;
+    }
+}
+
+````
+
+
+
 
 ## See Also
 
