@@ -17,7 +17,9 @@ This page provides solutions for common issues you may encounter while working w
 * [Unable to find package Telerik.Documents.SpreadsheetStreaming](#unable-to-find-package-telerikdocumentsspreadsheetstreaming)
 * [Cannot provide a value for property 'Localizer'](#cannot-provide-a-value-for-property-localizer)
 * [Slow Performance](#slow-performance)
-
+* [JavaScript Errors]({%slug troubleshooting-js-errors%})
+* [Issues After Deployment]({%slug troubleshooting-deployment%})
+* [Content Security Policy]({%slug troubleshooting-csp%})
 
 
 ## Popups Do Not Work
