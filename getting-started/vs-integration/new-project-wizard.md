@@ -47,7 +47,7 @@ You will have the standard options to select a location and name for your app, a
 
 
 
-To get a better understanding of what the wizard does for you, see either of the following articles:
+The wizard automates several steps for you, that you can also perform manually. To get a better understanding of what the wizard does for you, see either of the following articles (they provide the same information in different formats):
 
 * [Getting Started with Client-side apps]({%slug getting-started/client-side%})
 * [Getting Started with Server-side apps]({%slug getting-started/server-side%})
