@@ -68,6 +68,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * ProgressBar - not applicable, it is merely a visualization component the user cannot interact with.
 
+* [RadioGroup](https://demos.telerik.com/blazor-ui/radiogroup/keyboard-navigation) - has the standard behavior of radio buttons with the same `name`.
+
 * Scheduler - will have keyboard navigation in an upcoming release.
 
 * [Switch](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation)
