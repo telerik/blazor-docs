@@ -13,7 +13,10 @@ position: 2
 This article explains how to get the Telerik UI for Blazor components in your **Server-side** Blazor project and start using them quickly. The process consists of the following steps:
 
 1. [Set Up a Blazor Project](#step-1---set-up-a-blazor-project)
-1. [Enable the Telerik Components in the Project](#step-2---enable-the-telerik-components-in-an-existing-project)
+    * [Create a Project with the Telerik VS Extensions](#create-a-project-with-the-telerik-vs-extensions)
+    * [Create a Project with the CLI](#create-a-project-with-the-cli)
+    * [Create a Project with Visual Studio](#create-a-project-with-visual-studio)
+1. [Add the Telerik Blazor Components to an Existing Project](#step-2---add-the-telerik-blazor-components-to-an-existing-project)
     1. [Add the Telerik NuGet Feed to Visual Studio](#add-the-telerik-nuget-feed-to-visual-studio)
     1. [Enable the Components in the Project](#enable-the-components-in-the-project)
 1. [Add a Telerik Component to a View](#step-3---add-a-telerik-component-to-a-view)
@@ -22,7 +25,7 @@ This article explains how to get the Telerik UI for Blazor components in your **
 @[template](/_contentTemplates/common/get-started.md#download-intro-para-for-get-started)
 
 
-@[template](/_contentTemplates/common/get-started.md#add-latest-ms-bits-server-side-link)
+@[template](/_contentTemplates/common/get-started.md#blazor-tutorial-intro)
 
 
 
@@ -35,7 +38,7 @@ To use Blazor server-side, you need to use the `Blazor App` type of project with
 
 
 
-## Step 2 - Enable the Telerik Components in an Existing Project
+## Step 2 - Add the Telerik Blazor Components to an Existing Project
 
 @[template](/_contentTemplates/common/get-started.md#add-nuget-feed)
 
