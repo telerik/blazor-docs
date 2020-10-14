@@ -120,6 +120,11 @@ To have the project use the Telerik UI for Blazor components, follow these steps
 
 Now you have the Telerik components running in your Blazor app.
 
+@[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
+
+#end
+
+#next-steps-after-getting-started
 ## Next Steps
 
 Next, you can explore the [live demos](https://demos.telerik.com/blazor-ui/) and the rest of the documentation. You can also find the entire demos project in the `demos` folder of your local installation - it is fully runnable and you can inspect, modify and copy the code from it.
@@ -127,7 +132,6 @@ Next, you can explore the [live demos](https://demos.telerik.com/blazor-ui/) and
 Many applications have a data grid component, and you can get started with the fully featured Telerik Grid in the [Grid Overview]({%slug components/grid/overview%}) article.
 
 You can also explore the [List of Components]({%slug blazor-overview%}#list-of-components) and pick the ones you are interested in.
-
 #end
 
 
@@ -164,7 +168,7 @@ To setup a local NuGet package source, so you can install the Telerik components
 
 
 #telerik-main-container-text
-Open the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project) and add a `<TelerikRootComponent>` element as its root element - the rest of the content should be inside this new tag. The layout file should look similar to this (there may be additional elements in your app):
+Open the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project) and add a `<TelerikRootComponent>` element as its root element - the rest of the content should be inside this new tag. The layout file should look similar to this (there may be additional elements in it in your case to create your own app design):
 #end
 
 
@@ -225,6 +229,8 @@ Open the main layout file (by default, the `~/Shared/MainLayout.razor` file in t
 
 
 #download-intro-para-for-get-started
+If you are familiar with the Telerik NuGet Feed and Blazor in general, you may want to follow the shorter, more technical article with the same information: [What You Need]({%slug getting-started/what-you-need%}). The current article is designed as a step-by-step tutorial from the basics for new users.
+
 ## Step 0 - Download the Components
 
 A pre-requisite is having access to the Telerik UI for Blazor components. The easiest way to get them to your development machine is to use the <a href="https://www.telerik.com/download-trial-file/v2/control-panel" target="_blank">Progress Control Panel</a> or to download the [automated installer]({%slug installation/msi%}) from <a href="https://www.telerik.com/account/product-download?product=BLAZOR" target="_blank">your telerik.com account</a>.

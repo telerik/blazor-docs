@@ -13,16 +13,21 @@ position: 3
 
 This article explains the packages you need to use the Telerik UI for Blazor components, how to get them, and how to configure your project to include the Telerik Blazor components.
 
-To use the Telerik UI for Blazor, you need to:
+This article is a shorter, more focused version of the Getting Started articles and targets people who are familiar with the Telerik NuGet Feed and Blazor in general. If you are looking for step-by-step tutorials, see the [Client-side Blazor - Tutorial]({%slug getting-started/client-side%}) and [Server-side Blazor - Tutorial]({%slug getting-started/server-side%}) articles.
+
+If you want to add the Telerik components to an existing Blazor project, our [Convert Project Wizard for VS]({%slug getting-started-vs-integration-convert-project%}) can do this for you. If you will be starting a new project, our [New Project Wizard for VS]({%slug getting-started-vs-integration-new-project%}) or [VS Code Wizard]({%slug getting-started-vs-code-integration-overview%}) can create one for you.
+
+You can review the rest of this article for information on how things work and what is required to get the Telerik components in a project manually.
+
+
+>caption To use the Telerik UI for Blazor, you need to:
 
 1. get the [Telerik Blazor packages](#telerik-specific-packages) in your project
+
 1. add the [client assets](#client-assets)
+
 1. [set up the project](#project-configuration) to recognize the Telerik components
 
-
-If you want to add the Telerik components to an existing project, our [Convert Project Wizard for VS]({%slug getting-started-vs-integration-convert-project%}) can do this for you. If you will be starting a new project, our [New Project Wizard for VS]({%slug getting-started-vs-integration-new-project%}) or [VS Code Wizard]({%slug getting-started-vs-code-integration-overview%}) can create one for you.
-
-You can review the rest of this article for information on how things work and what is required to get the Telerik components in a project.
 
 ## Telerik Specific Packages
 
@@ -52,11 +57,11 @@ There are four ways to get these packages:
 
 ## Client Assets
 
-To have the Telerik Blazor components look and behave as expected in the browser, you need the some assets. 
+To have the Telerik Blazor components look and behave as expected in the browser, you need some assets. 
 @[template](/_contentTemplates/common/js-interop-file.md#app-paths)
 
 
-* Our component's stylesheet. You can read more about it in the [Themes]({%slug general-information/themes%}) article. Here is a short example:
+* Our stylesheet. You can read more about it in the [Themes]({%slug general-information/themes%}) article. Here is a short example:
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
@@ -70,10 +75,10 @@ To have the Telerik Blazor components look and behave as expected in the browser
 
 You can add the JS Interop file as a [static asset](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-3.1&tabs=visual-studio#consume-content-from-a-referenced-rcl) from our package. Static assets (the `_content` folder) are automatically included in the solution from the NuGet package during build, so all that's needed is then to reference the asset as shown below. The `_content` folder is expanded by the framework into the local nuget cache, and the project copies it from there.
 
+To enable the use of static assets in your project, make sure you have the following line to your **Server** project `Startup.cs` file:
 
 
-Note that
-@[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets)
+@[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
 
 
 ### CDN
@@ -161,6 +166,9 @@ namespace MyBlazorAppName
     }
 }
 ````
+
+
+@[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
 
 
 ## See Also

@@ -51,6 +51,7 @@
 #enable-static-assets
     To enable the use of static assets in your project, make sure you have the following line to your **Server** project `Startup.cs` file:
 
+
     **C#**
     
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)

@@ -20,9 +20,10 @@ You can reference the built-in Telerik assets from a cloud CDN instead of a loca
 <html>
 <head>
     . . .
+    <!-- Choose only one of the themes -->
+    
     <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
     
-    <!-- Choose only one of the themes -->
     <!-- 
         <link href="https://unpkg.com/@progress/kendo-theme-bootstrap@latest/dist/all.css" rel="stylesheet" />
         <link href="https://unpkg.com/@progress/kendo-theme-material@latest/dist/all.css" rel="stylesheet" />
@@ -43,9 +44,10 @@ You can reference the built-in Telerik assets from a cloud CDN instead of a loca
 <html>
 <head>
     . . .
+    <!-- Choose only one of the themes -->
+    
     <link rel="stylesheet" href="https://unpkg.com/@@progress/kendo-theme-default@@latest/dist/all.css" />
     
-    <!-- Choose only one of the themes -->
     <!-- 
         <link href="https://unpkg.com/@@progress/kendo-theme-bootstrap@@latest/dist/all.css" rel="stylesheet" />
         <link href="https://unpkg.com/@@progress/kendo-theme-material@@latest/dist/all.css" rel="stylesheet" />
@@ -59,7 +61,7 @@ You can reference the built-in Telerik assets from a cloud CDN instead of a loca
 </html>
 ````
 
->note Make sure that the version in the JS file URL matches the version of the Telerik UI for Blazor package.
+>important Make sure that the version in the JS file URL matches the version of the Telerik UI for Blazor package.
 
 >tip If you decide to use a CDN over static assets, you may want to implement a [fallback]({%slug common-kb-cdn-fallback%}) in case it is unavailable to your users.
 

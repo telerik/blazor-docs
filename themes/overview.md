@@ -41,9 +41,10 @@ Static assets are part of the NuGet package that the framework will copy to the 
 <html>
 <head>
     . . .
+    <!-- Choose only one of the themes -->
+    
     <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
     
-    <!-- Choose only one of the themes -->
     <!-- 
         <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-bootstrap/all.css" rel="stylesheet" />
         <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-material/all.css" rel="stylesheet" />
