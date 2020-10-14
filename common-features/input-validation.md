@@ -81,6 +81,11 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         <TelerikDateTimePicker Format="G" @bind-Value="@person.StartTime" Width="250px" Id="dayStartDateTimePicker"></TelerikDateTimePicker>
         <ValidationMessage For="@(() => person.StartTime)"></ValidationMessage>
     </p>
+    <p class="personal-notes">
+        <label for="personalNotes">Personal Notes:</label>
+        <TelerikTextArea @bind-Value="@person.PersonalNotes" Id="personalNotes"></TelerikTextArea>
+        <ValidationMessage For="@(() => person.PersonalNotes)"></ValidationMessage>
+    </p>
     <p class="accepts-terms">
         <label class="k-checkbox-label" for="acceptTermsCheckbox">Accepts terms</label>
         <TelerikCheckBox @bind-Value="@person.AcceptsTerms" Id="acceptTermsCheckbox"></TelerikCheckBox>
@@ -141,6 +146,10 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         [Required]
         [Range(typeof(bool), "true", "true", ErrorMessage = "Must subscribe to the newsletter")]
         public bool SubscribeToNewsletter { get; set; }
+
+        [Required(ErrorMessage="You should add a note.")]
+        [MaxLength(300, ErrorMessage ="Your notes are too long.")]
+        public string PersonalNotes { get; set; }
     }
 
     Person person = new Person()

@@ -295,6 +295,8 @@ navigation:
         title: "TabStrip"
      "*textbox":
         title: "TextBox"
+     "*textarea":
+        title: "TextArea"
      "*tilelayout":
         title: "TileLayout"
      "*timepicker":
@@ -357,6 +359,7 @@ intro_columns:
     title: "Editors"
     items:
       "Textbox": "components/textbox/overview"
+      "TextArea": "textarea-overview"
       "Numeric Textbox": "components/numerictextbox/overview"
       "Date Input": "components/dateinput/overview"
       "Date Picker": "components/datepicker/overview"

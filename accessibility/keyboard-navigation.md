@@ -72,6 +72,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation)
 
+* TextArea - not applicable, it is a simple input with the standard behavior.
+
 * Textbox - not applicable, it is a simple input with the standard behavior.
 
 * TileLayout - not applicable, the resize and drag actions apply to mouse/touch gestures only.
