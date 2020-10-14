@@ -16,6 +16,8 @@ You can see this feature in the [Live Demo: Grid State](https://demos.telerik.co
 
 This article contains the following sections:
 
+
+
 <!-- Start Document Outline -->
 
 * [Basics](#basics)
@@ -28,7 +30,7 @@ This article contains the following sections:
 	* [Set Default (Initial) State](#set-default-initial-state)
 	* [Get and Override User Action That Changes The Grid](#get-and-override-user-action-that-changes-the-grid)
 	* [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
-
+	* [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
 
 <!-- End Document Outline -->
 
@@ -40,6 +42,10 @@ The grid state is a generic class whose type is determined by the type of the mo
 Fields that pertain to model data (such as edited item, inserted item, selected items) are also typed according to the grid model. If you restore such data, make sure to implement appropriate comparison checks - by default the `.Equals `check for a class (model) is a reference check and the reference from the storage is unlikely to match the reference from the grid `Data`. Thus, you may want to override the `.Equals` method of the model you use so it compares by an ID, for example, or otherwise (in the app logic) re-populate the models in the state object with the new model references from the grid data source.
 
 The grid offers two events and two methods to allow flexible operations over its state:
+
+* [Events](#events)
+
+* [Methods](#methods)
 
 ### Events
 
@@ -70,17 +76,39 @@ To reset the grid state, call `SetState(null)`.
 
 The following information is present in the grid state:
 
-* Columns - visibility, width, index (order) of the column. The grid matches the columns from its declaration with the columns list in the state object, in the same order, so the grid must initialize with the same collection of columns that were used to save the state.
-* Editing - whether the user was inserting or editing an item (opens the same item for editing with the current data from the built-in editors of the grid - the data is updated in the `OnChange` event, not on every keystroke for performance reasons). The `OriginalEditItem` carries the original model without the user modifications so you can compare.
-* Filtering - filter descriptors (fields by which the grid is filtered, the operator and value).
-* Grouping - group descriptors (fields by which the grid is grouped), collapsed group indexes.
-* Paging - page index, offset (skip) for virtual scrolling.
-* Rows - indexes of expanded detail templates.
-* Sorting - sort descriptors (fields by which the grid is sorted, and the direction).
-* Selection - list of selected items.
+* **Editing** - whether the user was inserting or editing an item (opens the same item for editing with the current data from the built-in editors of the grid - the data is updated in the `OnChange` event, not on every keystroke for performance reasons). The `OriginalEditItem` carries the original model without the user modifications so you can compare.
+
+* **Filtering** - filter descriptors (fields by which the grid is filtered, the operator and value).
+
+* **Grouping** - group descriptors (fields by which the grid is grouped), collapsed group indexes.
+
+* **Paging** - page index, offset (skip) for virtual scrolling.
+
+* **Rows** - indexes of expanded detail templates.
+
+* **Sorting** - sort descriptors (fields by which the grid is sorted, and the direction).
+
+* **Selection** - list of selected items.
+
+* **Columns** - Visible, Width, Index (order) of the column that the user sees, Locked (pinned).
+
+    * The grid matches the columns from its markup sequentially (in the same order) with the columns list in the state object. So, when you restore/set the state, the grid must initialize with the same collection of columns that were used to save the state.
+    
+        The `Index` field in the column state object represents its place (order) that the user sees and can choose through the `Reordable` feature, not its place in the grid markup. You can find an example below.
+    
+        If you want to change the visibility of columns, we recommend you use their `Visible` parameter rather than conditional markup - this parameter will be present in the state and will not change the columns collection count which makes it easier to reconcile changes.
 
 
 ## Examples
+
+You can find the following examples in this section:
+
+* [Save and Load Grid State from Browser LocalStorage](#save-and-load-grid-state-from-browser-localstorage)
+* [Set Grid Options Through State](#set-grid-options-through-state)
+* [Set Default (Initial) State](#set-default-initial-state)
+* [Get and Override User Action That Changes The Grid](#get-and-override-user-action-that-changes-the-grid)
+* [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
+* [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
 
 ### Save and Load Grid State from Browser LocalStorage
 
@@ -588,6 +616,103 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
     }
 }
 ````
+
+
+### Get Current Columns Visibility, Order, Field
+
+The `ColumnStates` field of the state object provides you with information about the current grid. The `Index` field describes the position the user chose, and the `Visible` parameter indicates whether the column is hidden or not. By looping over that collection you can know what the user sees. You could, for example, sort by the index and filter by the visibility of the columns to approximate the view of the user.
+
+>caption Obtain the current columns visibility, rendering order, locked state and field name
+
+````CSHTML
+@* Click the button, reorder some columns, maybe lock one of them, hide another, and click the button again to see how the state changes but the order of the columns in the state collection remains the same. This example also shows a workaround for getting the Field of the column that will be availale in a future release as part of the column state - this is what the loop in the grid markup is for, and the ColumnFields collection. *@
+
+<TelerikButton OnClick="@GetCurrentColumns">Get Columns order and parameters</TelerikButton>
+
+<TelerikGrid Data="@GridData"
+             @ref="@Grid"
+             ShowColumnMenu="true"
+             Reorderable="true"
+             Pageable="true">
+    <GridColumns>
+        @* we use a loop to get the field name, you can simply declare the columns directly too *@
+        @foreach (var field in ColumnFields)
+        {
+            <GridColumn Field="@field"></GridColumn>
+        }
+    </GridColumns>
+</TelerikGrid>
+
+@( new MarkupString(ColumnsLog) )
+
+
+@code {
+    IEnumerable<Person> GridData { get; set; }
+    TelerikGrid<Person> Grid { get; set; }
+    string ColumnsLog { get; set; } = string.Empty;
+
+    //part of workaround for getting the field too
+    public List<string> ColumnFields => new List<string>
+    {
+        nameof(Person.Id),
+        nameof(Person.Name),
+        nameof(Person.Age)
+    };
+
+    protected override void OnInitialized()
+    {
+        GridData = GetGridData();
+
+        base.OnInitialized();
+    }
+
+    public void GetCurrentColumns()
+    {
+        ColumnsLog = string.Empty;
+
+        var columnsState = Grid.GetState().ColumnStates;
+
+        var index = 0;
+
+        foreach (var columnState in columnsState)
+        {
+            // final part of the workaround for getting the field
+            var columnField = ColumnFields[index];
+
+            // human readable info for visibility information
+            var visible = columnState.Visible != false;
+
+            string log = $"<p>Column: <strong>{columnField}</strong> | Index in Grid: {columnState.Index} | Index in state: {index} | Visible: {visible} | Locked: {columnState.Locked}</p>";
+
+            ColumnsLog += log;
+
+            index++;
+        }
+    }
+
+    public class Person
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+
+    public IEnumerable<Person> GetGridData()
+    {
+        var data = new List<Person>();
+        for (int i = 0; i < 30; i++)
+        {
+            data.Add(new Person { Id = i, Name = $"Name {i}", Age = i + 20 });
+        }
+
+        return data;
+    }
+}
+
+````
+
+
+
 
 ## See Also
 
