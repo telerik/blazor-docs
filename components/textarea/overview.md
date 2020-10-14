@@ -93,12 +93,8 @@ To use the Telerik TextArea in your Blazor application:
 </TelerikTextArea>
 
 <div class="k-counter-container">
-    <span>@TextAreaValue.Count()</span><span>/200</span>
+    <span>@TextAreaValue.Length</span><span>/200</span>
 </div>
-
-<br />
-
-@TextAreaValue
 
 @code {
     public string TextAreaValue { get; set; } = String.Empty;
