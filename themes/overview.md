@@ -17,7 +17,7 @@ The UI for Blazor suite comes with a set of built-in themes that you can choose 
 * **Bootstrap** - a theme that matches the Bootstrap styling. Read more in the [Bootstrap Notes](#bootstrap-notes) section.
 * **Material** - implements the [Material Design Guidelines](https://material.io/design/).
 
-These themes are shared with the Kendo UI suites with which the UI for Blazor suite shares HTML rendering, classes and appearance (even though UI for Blazor are native Blazor components).
+The UI for Blazor suite has the same HTML rendering and Theme stylesheets like other Kendo UI suites, so previous experience with them can be helpful. The components in **UI for Blazor are native components** and not wrappers over jQuery widgets, however.
 
 To use a theme, you must reference its stylesheet in the `<head>` of your main index file. For a [client-side Blazor app]({%slug getting-started/client-side%}), this is `wwwroot/index.html` and for a [server-side Blazor app]({%slug getting-started/server-side%}), it is `~/Pages/_Host.cshtml`. The Razor syntax for a server application differs and you need to escape the `@` symbols as `@@`.
 
@@ -32,7 +32,11 @@ This article contains the following sections:
 
 ## Static Assets
 
-Static assets are part of the NuGet package that the framework will copy to the output folder during build. They allow you to rely only on local resources for the app and do not need to be changed in the future.
+Static assets are part of the NuGet package and the framework will copy them to the output folder during build automatically. They provide the following benefits:
+
+* The necessary resources for the package are always available to you from the framework.
+* The application can rely only on local resources and not on third parties (such as CDN providers).
+* You do not have to change their paths after updating the package version (a common requirement when using CDNs).
 
 >caption Reference the Telerik theme from the static assets
 
