@@ -22,13 +22,11 @@ The `OnChange` event represents a user action - confirmation of the current valu
 >caption Handle OnChange event
 
 ````CSHTML
+@TextAreaValue
+<br />
 <TelerikTextArea @bind-Value="@TextAreaValue"
                  OnChange="@OnChangeHandler">
 </TelerikTextArea>
-
-<br />
-
-@TextAreaValue
 
 @code {
     public string TextAreaValue { get; set; }
@@ -49,19 +47,18 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 >caption Handle ValueChanged event
 
 ````CSHTML
+@TextAreaValue
+<br />
 <TelerikTextArea Value="@TextAreaValue"
                  ValueChanged="@((string input) => ValueChangedHandler(input))">
 </TelerikTextArea>
-
-<br />
-
-@TextAreaValue
 
 @code {
     public string TextAreaValue { get; set; }
 
     public void ValueChangedHandler(string input)
     {
+        // you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
         TextAreaValue = input;
         Console.WriteLine($"The ValueChange event fired with {input}");
     }
