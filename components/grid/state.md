@@ -88,10 +88,11 @@ The following information is present in the grid state:
 
 * **Selection** - list of selected items.
 
-* **Columns** - visibility, width, index (order) of the column that the user sees.
-    * The grid matches the columns from its markup sequentially (in the same order) with the columns list in the state object, so the grid must initialize with the same collection of columns that were used to save the state.
+* **Columns** - Visible, Width, Index (order) of the column that the user sees, Locked (pinned).
+
+    * The grid matches the columns from its markup sequentially (in the same order) with the columns list in the state object. So, when you restore/set the state, the grid must initialize with the same collection of columns that were used to save the state.
     
-        The `Index` in the state object is the columns place in the visible rendering of the grid that the user can choose through the `Reordable` feature, not its place in the grid markup. 
+        The `Index` field in the column state object represents its place (order) that the user sees and can choose through the `Reordable` feature, not its place in the grid markup. You can find an example below.
     
         If you want to change the visibility of columns, we recommend you use their `Visible` parameter rather than conditional markup - this parameter will be present in the state and will not change the columns collection count which makes it easier to reconcile changes.
 
