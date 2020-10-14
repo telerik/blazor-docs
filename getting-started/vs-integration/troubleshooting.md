@@ -37,8 +37,16 @@ If after you apply the described approaches the issue persists, contact the Supp
 
 1. Under **Administrative rights**, open the [**Developer Command** prompt](https://docs.microsoft.com/en-us/dotnet/framework/tools/developer-command-prompt-for-vs) for Visual Studio.
 1. Execute the `devenv /log %userprofile%\desktop\ActivityLog.xml` command to start Visual Studio and create logs on your Desktop.
-1. Reproduce the issue.
+1. Reproduce the issue you were having again so that the log is created.
 1. Attach the `Activitylog` files when you contact our support.
+
+
+
+## Convert Project Wizard Issues
+
+If you are using the "Convert Project" wizard and are having problems with it, see its [dedicated troubleshooting section]({%slug getting-started-vs-integration-convert-project%}#troubleshooting).
+
+
 
 ## See Also
 
