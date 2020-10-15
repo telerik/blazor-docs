@@ -28,11 +28,11 @@ Should you decide to use jQuery widgets from the Kendo UI suite, here are the th
     * Try using versions of Kendo UI and UI for Blazor that are close together, so that there are as little differences in their theming as possible. The latest versions are advisable.
 * Be familiar with the DOM changes the Kendo widgets make and how to [dispose them](https://docs.telerik.com/kendo-ui/intro/widget-basics/destroy). You may need to clean up the DOM yourself if Blazor does not clean everything.
 
-A sample project that showcases these is available here: [jquery-kendo-in-blazor.zip](jquery-kendo-in-blazor.zip). Comments in the code provide some more explanations and details. 
+>tip A sample project that showcases these is available here: [jQuery Kendo Widgets in Blazor](https://github.com/telerik/blazor-ui/tree/master/common/kendo-in-blazor).
 
 The project references a commercial version of UI for Blazor. If you only have a trial license, replace the reference to the NuGet package and to the JS Interop file [accordingly]({%slug getting-started/what-you-need%}).
 
->note The sample project was made at the time of UI for Blazor 1.4.1 and .NET Core 3 Preview 7 - therefore, as the Blazor framework evolves, changes may be required. Such an integration is not supported by Telerik.
+>note Such an integration is not supported by Telerik.
 
 
 
