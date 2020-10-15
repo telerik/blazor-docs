@@ -23,7 +23,7 @@ This article contains the following sections:
 * [Examples](#examples)
 	* [Set TreeList Options Through State](#set-treelist-options-through-state)
 	* [Set Default (Initial) State](#set-default-initial-state)
-	* [Get and Override User Action That Changes The TreeList](#get-and-override-user-action-that-changes-the-treelist)
+	* [Get The User Action That Changes The TreeList](#get-the-user-action-that-changes-the-treelist)
 	* [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
 
 
@@ -93,7 +93,7 @@ You can find the following examples in this section:
 
 * [Set TreeList Options Through State](#set-treelist-options-through-state)
 * [Set Default (Initial) State](#set-default-initial-state)
-* [Get and Override User Action That Changes The TreeList](#get-and-override-user-action-that-changes-the-treelist)
+* [Get The User Action That Changes The TreeList](#get-the-user-action-that-changes-the-treelist)
 * [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
 
 
@@ -252,7 +252,7 @@ If you want the TreeList to start with certain settings for your end users, you 
 }
 ````
 
-### Get User Action That Changes The TreeList
+### Get The User Action That Changes The TreeList
 
 Sometimes you may want to know what the user changed in the TreeList (e.g., when they filter, sort and so on).
 
@@ -395,7 +395,256 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 >caption Put and item in Edit mode or start Inserting a new item
 
 ````CSHTML
+@using Telerik.DataSource;
 
+<TelerikButton OnClick="@EnterEditMode">Edit item 3</TelerikButton>
+<TelerikButton OnClick="@InsertItem">Insert Item</TelerikButton>
+
+
+<TelerikTreeList Data="@Data"
+                 EditMode="@TreeListEditMode.Popup"
+                 OnUpdate="@UpdateItem"
+                 OnDelete="@DeleteItem"
+                 OnCreate="@CreateItem"
+                 Pageable="true"
+                 ItemsField="@(nameof(Employee.DirectReports))"
+                 Width="850px"
+                 @ref="@TreeListRef">
+    <TreeListToolBar>
+        <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
+    </TreeListToolBar>
+    <TreeListColumns>
+        <TreeListCommandColumn Width="280px">
+            <TreeListCommandButton Command="Add" Icon="@IconName.Plus">Add Child</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon="@IconName.Edit">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Delete" Icon="@IconName.Delete">Delete</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="@IconName.Save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="@IconName.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+        </TreeListCommandColumn>
+
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    TelerikTreeList<Employee> TreeListRef { get; set; } = new TelerikTreeList<Employee>();
+
+    async Task EnterEditMode()
+    {
+        var state = TreeListRef.GetState();
+
+        Employee employeeToEdit = Employee.GetClonedInstance(FindItemRecursive(Data, 3));
+        state.OriginalEditItem = employeeToEdit;
+        await TreeListRef.SetState(state);
+    }
+
+    async Task InsertItem()
+    {
+        var state = TreeListRef.GetState();
+        state.InsertedItem = new Employee() { Name = "added from code" };
+        await TreeListRef.SetState(state);
+    }
+
+    public List<Employee> Data { get; set; }
+
+    // used in this example for data generation and retrieval for CUD operations on the current view-model data
+    public int LastId { get; set; } = 1;
+
+    // Sample CUD operations for the local data
+    async Task UpdateItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+
+        var foundItem = FindItemRecursive(Data, item.Id);
+        if (foundItem != null)
+        {
+            foundItem.Name = item.Name;
+            foundItem.HireDate = item.HireDate;
+            foundItem.EmailAddress = item.EmailAddress;
+        }
+    }
+
+    async Task CreateItem(TreeListCommandEventArgs args)
+    {
+        var argsItem = args.Item as Employee;
+
+        argsItem.Id = LastId++;
+
+        if (args.ParentItem != null)
+        {
+            var parent = (Employee)args.ParentItem;
+
+            parent.HasChildren = true;
+            if (parent.DirectReports == null)
+            {
+                parent.DirectReports = new List<Employee>();
+            }
+
+            parent.DirectReports.Insert(0, argsItem);
+        }
+        else
+        {
+            Data.Insert(0, argsItem);
+        }
+    }
+
+    async Task DeleteItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+
+        RemoveChildRecursive(Data, item);
+    }
+
+    // sample helper methods for handling the view-model data hierarchy
+
+    private Employee FindItemRecursive(List<Employee> items, int id)
+    {
+        foreach (var item in items)
+        {
+            if (item.Id.Equals(id))
+            {
+                return item;
+            }
+
+            if (item.DirectReports?.Count > 0)
+            {
+                var childItem = FindItemRecursive(item.DirectReports, id);
+
+                if (childItem != null)
+                {
+                    return childItem;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private void RemoveChildRecursive(List<Employee> items, Employee item)
+    {
+        for (int i = 0; i < items.Count(); i++)
+        {
+            if (item.Equals(items[i]))
+            {
+                items.Remove(item);
+
+                return;
+            }
+            else if (items[i].DirectReports?.Count > 0)
+            {
+                RemoveChildRecursive(items[i].DirectReports, item);
+
+                if (items[i].DirectReports.Count == 0)
+                {
+                    items[i].HasChildren = false;
+                }
+            }
+        }
+    }
+
+
+    // sample model
+
+    public class Employee
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+
+        public List<Employee> DirectReports { get; set; }
+        public bool HasChildren { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Employee)
+            {
+                return this.Id == (obj as Employee).Id;
+            }
+            return false;
+        }
+
+        public Employee()
+        {
+
+        }
+
+        public Employee(Employee itmToClone)
+        {
+            this.Id = itmToClone.Id;
+            this.Name = itmToClone.Name;
+        }
+
+        public static Employee GetClonedInstance(Employee itmToClone)
+        {
+            return new Employee(itmToClone);
+        }
+    }
+
+    // data generation
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            Employee root = new Employee
+            {
+                Id = LastId,
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i),
+                DirectReports = new List<Employee>(),
+                HasChildren = true
+            };
+            data.Add(root);
+            LastId++;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = LastId;
+                Employee firstLevelChild = new Employee
+                {
+                    Id = currId,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId),
+                    DirectReports = new List<Employee>(),
+                    HasChildren = true
+                };
+                root.DirectReports.Add(firstLevelChild);
+                LastId++;
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = LastId;
+                    firstLevelChild.DirectReports.Add(new Employee
+                    {
+                        Id = LastId,
+                        Name = $"second level child {k} of {j} and {i}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                    LastId++;
+                }
+            }
+        }
+
+        data[0].Name += " (non-editable, see OnEdit)";
+
+        return await Task.FromResult(data);
+    }
+}
 ````
 
 
