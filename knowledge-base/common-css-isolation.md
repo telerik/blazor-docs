@@ -70,4 +70,40 @@ The problem is that this applies only to plain HTML elements, but it does not ap
 
 ## Solution
 
-Use CSS rules that are global to the application and not scoped to a particular component through the CSS Isolation feature. You can also use the `Class` parameter of the Telerik components to cascade through it if you want to target particular instances only.
+There are two ways to go around this:
+
+* Use CSS rules that are global to the application and not scoped to a particular component through the CSS Isolation feature. You can also use the `Class` parameter of the Telerik components to cascade through it if you want to target particular instances only.
+
+* Use the `::deep` pseudoselector that the framework translates to the random identifier attribute it adds to the DOM in the scoped selectors, and wrap nested components in HTML elements such as `<span>` or `<div>`
+
+>caption Sample CSS selector that uses `::deep` to cascade for nested components
+
+````CSS
+.my-component-button-class,
+::deep .my-component-button-class {
+    font-size: 20px !important;
+}
+````
+
+>caption Sample way to wrap nested components in HTML elements from the current component so `::deep` rules can affect them
+
+````CSHTML
+<p>This button's class is defined in the component's scoped css file. It's applied to the wrapping element from this component (a span in this case, make sure to use an appropriate one to have valid HTML) and the ::deep pseudoselector applies it to the button.</p>
+<span>
+    <TelerikButton Class="my-component-button-class"
+                   Primary="true">
+        The font size should be larger but the scoped class is not applied properly.
+    </TelerikButton>
+</span>
+
+<p>Custom component nesting has the same behavior - elements from child components do not get the CSS isolation attribute but you can also cascade through some HTML element</p>
+<div>
+    <MyCustomComponent Class="my-component-button-class" />
+</div>
+
+<p>This html successfully takes the class defined in the scoped css file because it is plain HTML on the component that defines the custom CSS rule.</p>
+<button class="my-component-button-class">
+    The font size is larger thanks to the scoped css file.
+</button>
+````
+
