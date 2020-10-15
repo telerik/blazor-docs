@@ -21,7 +21,6 @@ This article contains the following sections:
 	* [Methods](#methods)
 * [Information in the TreeList State](#information-in-the-treelist-state)
 * [Examples](#examples)
-	* [Save and Load TreeList State from Browser LocalStorage](#save-and-load-treelist-state-from-browser-localstorage)
 	* [Set TreeList Options Through State](#set-treelist-options-through-state)
 	* [Set Default (Initial) State](#set-default-initial-state)
 	* [Get and Override User Action That Changes The TreeList](#get-and-override-user-action-that-changes-the-treelist)
@@ -92,212 +91,11 @@ The following information is present in the TreeList state:
 
 You can find the following examples in this section:
 
-* [Save and Load TreeList State from Browser LocalStorage](#save-and-load-treelist-state-from-browser-localstorage)
 * [Set TreeList Options Through State](#set-treelist-options-through-state)
 * [Set Default (Initial) State](#set-default-initial-state)
 * [Get and Override User Action That Changes The TreeList](#get-and-override-user-action-that-changes-the-treelist)
 * [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
 
-### Save and Load TreeList State from Browser LocalStorage
-
-The following example shows one way you can store the TreeList state - through a custom service that calls the browser's LocalStorage. You can use your own database here, or a file, or Microsoft's ProtectedBrowserStorage package, or any other storage you prefer. This is just an example you can use as base and modify to suit your project.
-
->caption Save, Load, Reset the state of the TreeList on every state change. Uses a sample LocalStorage in the browser.
-
-````Component
-@inject LocalStorage LocalStorage
-@inject IJSRuntime JsInterop
-@using Telerik.DataSource;
-
-Change something in the grid (like sort, filter, select, page, resize columns, etc.), then reload the page to see the grid state fetched from the browser local storage.
-<br />
-
-<TelerikButton OnClick="@ReloadPage">Reload the page to see the current grid state preserved</TelerikButton>
-<TelerikButton OnClick="@ResetState">Reset the state</TelerikButton>
-
-<TelerikGrid Data="@GridData" Height="500px" @ref="@Grid"
-             Groupable="true"
-             Pageable="true"
-             Sortable="true"
-             FilterMode="@GridFilterMode.FilterRow"
-             Reorderable="true"
-             Resizable="true"
-             SelectionMode="GridSelectionMode.Multiple" @bind-SelectedItems="@SelectedItems"
-             OnUpdate=@UpdateItem OnDelete=@DeleteItem OnCreate=@CreateItem EditMode="@GridEditMode.Inline"
-             OnStateInit="@((GridStateEventArgs<SampleData> args) => OnStateInitHandler(args))"
-             OnStateChanged="@((GridStateEventArgs<SampleData> args) => OnStateChangedHandler(args))">
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Editable="false" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridCommandColumn>
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
-        </GridCommandColumn>
-    </GridColumns>
-    <GridToolBar>
-        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
-</TelerikGrid>
-
-@if (SelectedItems != null)
-{
-    <ul>
-        @foreach (SampleData employee in SelectedItems)
-        {
-            <li>
-                @employee.Id
-            </li>
-        }
-    </ul>
-}
-
-@code {
-    // Load and Save the state through the grid events
-
-    string UniqueStorageKey = "SampleGridStateStorageThatShouldBeUnique";
-
-    async Task OnStateInitHandler(GridStateEventArgs<SampleData> args)
-    {
-        try
-        {
-            var state = await LocalStorage.GetItem<GridState<SampleData>>(UniqueStorageKey);
-            if (state != null)
-            {
-                args.GridState = state;
-            }
-
-        }
-        catch (InvalidOperationException e)
-        {
-            // the JS Interop for the local storage cannot be used during pre-rendering
-            // so the code above will throw. Once the app initializes, it will work fine
-        }
-    }
-
-    async void OnStateChangedHandler(GridStateEventArgs<SampleData> args)
-    {
-        await LocalStorage.SetItem(UniqueStorageKey, args.GridState);
-    }
-
-    TelerikGrid<SampleData> Grid { get; set; }
-    async Task ResetState()
-    {
-        // clean up the storage
-        await LocalStorage.RemoveItem(UniqueStorageKey);
-
-        await Grid.SetState(null); // pass null to reset the state
-    }
-
-    void ReloadPage()
-    {
-        JsInterop.InvokeVoidAsync("window.location.reload");
-    }
-
-    // Sample CRUD operations
-
-    private void CreateItem(GridCommandEventArgs args)
-    {
-        var argsItem = args.Item as SampleData;
-
-        argsItem.Id = GridData.Count + 1;
-
-        GridData.Insert(0, argsItem);
-    }
-
-    private void DeleteItem(GridCommandEventArgs args)
-    {
-        var argsItem = args.Item as SampleData;
-
-        GridData.Remove(argsItem);
-    }
-
-    private void UpdateItem(GridCommandEventArgs args)
-    {
-        var argsItem = args.Item as SampleData;
-        var index = GridData.FindIndex(i => i.Id == argsItem.Id);
-        if (index != -1)
-        {
-            GridData[index] = argsItem;
-        }
-    }
-
-    // Sample data follows below
-
-    public IEnumerable<SampleData> SelectedItems { get; set; } = Enumerable.Empty<SampleData>();
-
-    public List<SampleData> GridData { get; set; } = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-
-        // example of comparing stored items (from editing or selection)
-        // with items from the current data source - IDs are used instead of the default references
-        public override bool Equals(object obj)
-        {
-            if (obj is SampleData)
-            {
-                return this.Id == (obj as SampleData).Id;
-            }
-            return false;
-        }
-    }
-}
-````
-````Service
-using Microsoft.JSInterop;
-using System;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using Telerik.DataSource;
-
-public class LocalStorage
-{
-    protected IJSRuntime JSRuntimeInstance { get; set; }
-
-    public LocalStorage(IJSRuntime jsRuntime)
-    {
-        JSRuntimeInstance = jsRuntime;
-    }
-
-    public ValueTask SetItem(string key, object data)
-    {
-        return JSRuntimeInstance.InvokeVoidAsync(
-            "localStorage.setItem",
-            new object[] {
-                key,
-                JsonSerializer.Serialize(data)
-            });
-    }
-
-    public async Task<T> GetItem<T>(string key)
-    {
-        var data = await JSRuntimeInstance.InvokeAsync<string>("localStorage.getItem", key);
-        if (!string.IsNullOrEmpty(data))
-        {
-            return JsonSerializer.Deserialize<T>(data);
-        }
-
-        return default;
-    }
-
-    public ValueTask RemoveItem(string key)
-    {
-        return JSRuntimeInstance.InvokeVoidAsync("localStorage.removeItem", key);
-    }
-}
-````
 
 ### Set TreeList Options Through State
 
@@ -454,16 +252,138 @@ If you want the TreeList to start with certain settings for your end users, you 
 }
 ````
 
-### Get and Override User Action That Changes The TreeList
+### Get User Action That Changes The TreeList
 
-Sometimes you may want to know what the user changed in the TreeList (e.g., when they filter, sort and so on) and even override those operations.
+Sometimes you may want to know what the user changed in the TreeList (e.g., when they filter, sort and so on).
 
-The example below shows how to achieve it by using the`OnStateChanged` event. Review the code comments to see how it works and to make sure you don't get issues.
+The example below shows how to achieve it by using the`OnStateChanged` event.
 
->caption Know when the TreeList state changes, which parameter changes, and amend the change
+>caption Know when the TreeList state changes and which parameter changed
 
 ````CSHTML
+@using Telerik.DataSource;
 
+<TelerikTreeList Data="@Data"
+                 ItemsField="@(nameof(Employee.DirectReports))"
+                 Reorderable="true"
+                 Resizable="true"
+                 Sortable="true"
+                 FilterMode="@TreeListFilterMode.FilterRow"
+                 Pageable="true"
+                 Width="850px"
+                 OnStateChanged="@((TreeListStateEventArgs<Employee> args) => OnStateChangedHandler(args))"
+                 @ref="@TreeListRef">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@Result
+
+@code {
+    TelerikTreeList<Employee> TreeListRef { get; set; } = new TelerikTreeList<Employee>();
+
+    public string Result { get; set; }
+
+    async Task OnStateChangedHandler(TreeListStateEventArgs<Employee> args)
+    {
+        string changedSetting = args.PropertyName;
+
+        if(changedSetting == "SortDescriptors")
+        {
+            foreach (var item in args.TreeListState.SortDescriptors)
+            {
+                Result = $"The {item.Member} field was sorted";
+            }
+        }
+        else if(changedSetting == "FilterDescriptors")
+        {
+            foreach (FilterDescriptor item in args.TreeListState.FilterDescriptors)
+            {
+                Result = $"The {item.Member} field was filtered";
+            }
+        }
+    }
+
+    public List<Employee> Data { get; set; }
+
+    // sample model
+
+    public class Employee
+    {
+        // hierarchical data collections
+        public List<Employee> DirectReports { get; set; }
+
+        // data fields for display
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    // data generation
+
+    // used in this example for data generation and retrieval for CUD operations on the current view-model data
+    public int LastId { get; set; } = 1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            Employee root = new Employee
+            {
+                Id = LastId,
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i),
+                DirectReports = new List<Employee>(), // prepare a collection for the child items, will be populated later in the code
+            };
+            data.Add(root);
+            LastId++;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = LastId;
+                Employee firstLevelChild = new Employee
+                {
+                    Id = currId,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId),
+                    DirectReports = new List<Employee>(), // collection for child nodes
+                };
+                root.DirectReports.Add(firstLevelChild); // populate the parent's collection
+                LastId++;
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = LastId;
+                    // populate the parent's collection
+                    firstLevelChild.DirectReports.Add(new Employee
+                    {
+                        Id = LastId,
+                        Name = $"second level child {k} of {j} and {i}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                    LastId++;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
 ````
 
 ### Initiate Editing or Inserting of an Item
@@ -481,5 +401,5 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 
 ## See Also
 
-  * [Live Demo: Grid State](https://demos.telerik.com/blazor-ui/grid/persist-state)
+  * [Live Demo: TreeList State](https://demos.telerik.com/blazor-ui/treelist/persist-state)
    
