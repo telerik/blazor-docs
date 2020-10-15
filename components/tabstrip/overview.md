@@ -83,6 +83,8 @@ Active Tab Index: @ActiveTabIndex
 
 >caption Extract information for the currently selected tab from your model. Alter the model to affect the tab strip. Create tabs dynamically based on external data.
 
+You can find another example with some more details in the following sample project: [Dynamic Tabs](https://github.com/telerik/blazor-ui/tree/master/tabstrip/DynamicTabs).
+
 ````CSHTML
 @result
 
