@@ -35,7 +35,15 @@ To start the wizard, use either of the following approaches:
     
 ![Start the New Project Wizard](images/vs-ext-create-new-project-entry.png)
 
-You will have the standard options to select a location and name for your app, and then you will receive a list of predefined **Telerik templates** and the **Telerik Blazor versions** list to choose from:
+**First**, You will have the standard options to select a location and name for your app through the standard VS prompt
+
+On the **second** screen, you will choose:
+
+* between a WebAssembly and server-side Blazor app
+* one of the predefined **Telerik templates** 
+* the **Telerik Blazor version**
+
+>caption The available project templates:
 
 * Blank Template - This is a blank solution based on the Microsoft template, but with the Telerik components added (NuGet package reference, assets, service, the TelerikRootComponent).
 
