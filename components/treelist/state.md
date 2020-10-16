@@ -71,7 +71,7 @@ The following information is present in the TreeList state:
 
 * **Editing** - whether the user was inserting or editing an item (opens the same item for editing with the current data from the built-in editors of the TreeList - the data is updated in the `OnChange` event, not on every keystroke for performance reasons). The `OriginalEditItem` carries the original model without the user modifications so you can compare.
 
-* **Filtering** - filter descriptors (fields by which the grid is filtered, the operator and value).
+* **Filtering** - filter descriptors (fields by which the Treelist is filtered, the operator and value).
 
 * **Paging** - page index
 
@@ -323,11 +323,11 @@ public class LocalStorage
 
 ### Set TreeList Options Through State
 
-The TreeList state allows you to control the behavior of the grid programmatically - you can, for example, set sorts, filteres and expand items.
+The TreeList state allows you to control the behavior of the TreeList programmatically - you can, for example, set sorts, filteres and expand items.
 
 >tip The individual tabs below show how you can use the state to programmatically set the TreeList filtering, sorting and other features.
 
-@[template](/_contentTemplates/grid/state.md#initial-state)
+@[template](/_contentTemplates/treelist/state.md#initial-state)
 
 ````ExpandedItems
 @[template](/_contentTemplates/treelist/state.md#expand-items-from-code)
@@ -612,9 +612,9 @@ The example below shows how to achieve it by using the`OnStateChanged` event.
 
 ### Initiate Editing or Inserting of an Item
 
-The TreeList state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the grid state. If you want to save on every keystroke instead of on `OnChange` - use a custom editor template and update the `EditItem` or `InsertedItem` of the state object as required, then save the state into your service.
+The TreeList state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the TreeList state. If you want to save on every keystroke instead of on `OnChange` - use a custom editor template and update the `EditItem` or `InsertedItem` of the state object as required, then save the state into your service.
 
-In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `InsertItem` fields of the state object to put the grid in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug treelist-columns-command%}).
+In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `InsertItem` fields of the state object to put the TreeList in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug treelist-columns-command%}).
 
 >caption Put and item in Edit mode or start Inserting a new item
 
