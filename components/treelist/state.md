@@ -21,7 +21,7 @@ This article contains the following sections:
 	* [Methods](#methods)
 * [Information in the TreeList State](#information-in-the-treelist-state)
 * [Examples](#examples)
-    * * [Save and Load TreeList State from Browser LocalStorage](#save-and-load-treelist-state-from-browser-localstorage)
+    * [Save and Load TreeList State from Browser LocalStorage](#save-and-load-treelist-state-from-browser-localstorage)
 	* [Set TreeList Options Through State](#set-treelist-options-through-state)
 	* [Set Default (Initial) State](#set-default-initial-state)
 	* [Get The User Action That Changes The TreeList](#get-the-user-action-that-changes-the-treelist)
