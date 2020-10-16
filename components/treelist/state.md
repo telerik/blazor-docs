@@ -21,6 +21,7 @@ This article contains the following sections:
 	* [Methods](#methods)
 * [Information in the TreeList State](#information-in-the-treelist-state)
 * [Examples](#examples)
+    * * [Save and Load TreeList State from Browser LocalStorage](#save-and-load-treelist-state-from-browser-localstorage)
 	* [Set TreeList Options Through State](#set-treelist-options-through-state)
 	* [Set Default (Initial) State](#set-default-initial-state)
 	* [Get The User Action That Changes The TreeList](#get-the-user-action-that-changes-the-treelist)
@@ -91,11 +92,234 @@ The following information is present in the TreeList state:
 
 You can find the following examples in this section:
 
+* [Save and Load TreeList State from Browser LocalStorage](#save-and-load-treelist-state-from-browser-localstorage)
 * [Set TreeList Options Through State](#set-treelist-options-through-state)
 * [Set Default (Initial) State](#set-default-initial-state)
 * [Get The User Action That Changes The TreeList](#get-the-user-action-that-changes-the-treelist)
 * [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
 
+### Save and Load TreeList State from Browser LocalStorage
+
+The following example shows one way you can store the TreeList state - through a custom service that calls the browser's LocalStorage. You can use your own database here, or a file, or Microsoft's ProtectedBrowserStorage package, or any other storage you prefer. This is just an example you can use as base and modify to suit your project.
+  
+>note If you use Hierarchical data for the TreeList you need to serialize the current item only and not the entire collection in order not to exceed the size of the LocalStorage.
+
+>caption Save, Load, Reset TreeList state on every state change. Uses a sample LocalStorage in the browser.
+
+````Component
+@inject IJSRuntime JsInterop
+@using Telerik.DataSource;
+
+@inject LocalStorage LocalStorage
+
+<TelerikButton OnClick="@ReloadPage">Reload the page to see the current TreeList state preserved</TelerikButton>
+<TelerikButton OnClick="@ResetState">Reset the state</TelerikButton>
+<TelerikButton OnClick="@SetState">Set the state</TelerikButton>
+
+<TelerikTreeList Data="@Data"
+                 Pageable="true"
+                 Width="850px"
+                 IdField="@nameof(Employee.Id)" 
+                 ParentIdField="@nameof(Employee.ParentId)"
+                 OnStateChanged="@((TreeListStateEventArgs<Employee> args) => OnStateChangedHandler(args))"
+                 OnStateInit="@((TreeListStateEventArgs<Employee> args) => OnStateInitHandler(args))"
+                 @ref="@TreeListRef">
+    <TreeListColumns>
+        <TreeListColumn Field="@nameof(Employee.Name)" Expandable="true" Width="320px" />
+        <TreeListColumn Field="@nameof(Employee.Id)" Width="120px" />
+        <TreeListColumn Field="@nameof(Employee.ParentId)" Width="120px" />
+        <TreeListColumn Field="@nameof(Employee.EmailAddress)" Width="120px" />
+        <TreeListColumn Field="@nameof(Employee.HireDate)" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+
+@code {
+    string UniqueStorageKey = "SampleTreeListStateStorageKey";
+
+    async Task OnStateInitHandler(TreeListStateEventArgs<Employee> args)
+    {
+        args.TreeListState = await LocalStorage.GetItem<TreeListState<Employee>>(UniqueStorageKey);
+    }
+
+    async Task OnStateChangedHandler(TreeListStateEventArgs<Employee> args)
+    {
+        var state = args.TreeListState;
+        state.ExpandedItems = null;
+        await LocalStorage.SetItem(UniqueStorageKey, state);
+    }
+
+    async Task ResetState()
+    {
+        // clean up the storage
+        await LocalStorage.RemoveItem(UniqueStorageKey);
+
+        await TreeListRef.SetState(null); // pass null to reset the state
+    }
+
+    void ReloadPage()
+    {
+        JsInterop.InvokeVoidAsync("window.location.reload");
+    }
+
+    private void SetState()
+    {
+        TreeListState<Employee> state = new TreeListState<Employee>()
+        {
+            FilterDescriptors = new List<FilterDescriptorBase>()
+        {
+                new FilterDescriptor() { Member="StringProp", MemberType=typeof(string), Value = "2", Operator = FilterOperator.Contains }
+            },
+            SortDescriptors = new List<SortDescriptor>()
+        {
+                new SortDescriptor() { Member = "StringProp", SortDirection = ListSortDirection.Descending }
+            },
+            Page = 2,
+            ColumnStates = new List<TreeListColumnState>()
+        {
+                new TreeListColumnState()
+                {
+                    Index = 3,
+                    Width = "150px"
+                },
+                new TreeListColumnState()
+                {
+                    Index = 1,
+                    Width = "120px"
+                },
+                new TreeListColumnState()
+                {
+                    Index = 2,
+                    Width = "60px"
+                },
+                new TreeListColumnState()
+                {
+                    Index = 4,
+                    Width = "150px"
+                },
+                new TreeListColumnState()
+                {
+                    Index = 0,
+                    Width = "120px"
+                }
+            }
+        };
+
+        TreeListRef?.SetState(state);
+    }
+
+    TelerikTreeList<Employee> TreeListRef { get; set; }
+
+    public List<Employee> Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    // sample model
+
+    public class Employee
+    {
+        // denote the parent-child relationship between items
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+
+        // custom data fields for display
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    // data generation
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            data.Add(new Employee
+            {
+                Id = i,
+                ParentId = null, // indicates a root-level item
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i)
+            }); ;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                {
+                    Id = currId,
+                    ParentId = i,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId)
+                });
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = currId * 1000 + k;
+                    data.Add(new Employee
+                    {
+                        Id = nestedId,
+                        ParentId = currId,
+                        Name = $"second level child {k} of {i} and {currId}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
+````
+````Service
+using System.Threading.Tasks;
+using Microsoft.JSInterop;
+using System.Text.Json;
+
+public class LocalStorage
+{
+    protected IJSRuntime JSRuntimeInstance { get; set; }
+
+    public LocalStorage(IJSRuntime jsRuntime)
+    {
+        JSRuntimeInstance = jsRuntime;
+    }
+
+    public ValueTask SetItem(string key, object data)
+    {
+        return JSRuntimeInstance.InvokeVoidAsync(
+            "localStorage.setItem",
+            new object[] {
+                key,
+                JsonSerializer.Serialize(data)
+            });
+    }
+
+    public async Task<T> GetItem<T>(string key)
+    {
+        var data = await JSRuntimeInstance.InvokeAsync<string>("localStorage.getItem", key);
+        if (!string.IsNullOrEmpty(data))
+        {
+            return JsonSerializer.Deserialize<T>(data);
+        }
+
+        return default;
+    }
+
+    public ValueTask RemoveItem(string key)
+    {
+        return JSRuntimeInstance.InvokeVoidAsync("localStorage.removeItem", key);
+    }
+}
+````
 
 ### Set TreeList Options Through State
 
