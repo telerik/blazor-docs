@@ -346,6 +346,8 @@ The TreeList state allows you to control the behavior of the TreeList programmat
 
 If you want the TreeList to start with certain settings for your end users, you can pre-define them in the `OnStateInit event`.
 
+>tip The `ExpandedItems` sample in the [Set TreeList Options Through State](#set-treelist-options-through-state) section shows how to collapse all items in the OnStateInit event handler.
+
 >caption Choose a default state of the TreeList for your users
 
 ````CSHTML

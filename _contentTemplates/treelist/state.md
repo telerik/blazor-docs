@@ -388,11 +388,24 @@
 
 
 #expand-items-from-code
-@*Collapse all items but the first one*@
+@*Expand a root level item on a button click*@
 
 @using Telerik.DataSource;
 
-<TelerikButton OnClick="@SetTreeListExpandedItems">Expand the first item only</TelerikButton>
+<div>
+    <span>
+        <label for="telerikNumerikTextbox">Select the index a root level item</label>
+        <TelerikNumericTextBox Min="0" 
+                               Max="@Data.Count" 
+                               @bind-Value="@ExpandedItemIndex" 
+                               Id="telerikNumerikTextbox"/>
+    </span>
+    <span>
+        <TelerikButton OnClick="@SetTreeListExpandedItems">Expand the selected root level item</TelerikButton>
+    </span>
+</div>
+
+<br />
 
 <TelerikTreeList Data="@Data"
                  ItemsField="@(nameof(Employee.DirectReports))"
@@ -400,8 +413,9 @@
                  Resizable="true"
                  Sortable="true"
                  FilterMode="@TreeListFilterMode.FilterRow"
-                 Pageable="true" 
-                 Width="850px" 
+                 Pageable="true"
+                 Width="850px"
+                 OnStateInit="((TreeListStateEventArgs<Employee> args) => OnStateInitHandler(args))"
                  @ref="TreeListRef">
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
@@ -413,6 +427,17 @@
 
 @code {
     public TelerikTreeList<Employee> TreeListRef { get; set; } = new TelerikTreeList<Employee>();
+    public int ExpandedItemIndex { get; set; }
+
+    async Task OnStateInitHandler(TreeListStateEventArgs<Employee> args)
+    {
+        var collapsedItemsState = new TreeListState<Employee>()
+        {
+            ExpandedItems = new List<Employee>()
+        };
+
+        args.TreeListState = collapsedItemsState;
+    }
 
     async Task SetTreeListExpandedItems()
     {
@@ -420,7 +445,7 @@
         {
             ExpandedItems = new List<Employee>()
             {
-                Data[0]
+                Data[ExpandedItemIndex]
             }
         };
 
