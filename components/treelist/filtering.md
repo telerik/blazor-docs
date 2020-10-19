@@ -410,6 +410,21 @@ The `TreeListSearchBox` component offers the following settings to customize its
 }
 ````
 
+### Filtering From Code
+
+You can set the TreeList filters from your code through the grid [state]({%slug treelist-state%}).
+
+@[template](/_contentTemplates/treelist/state.md#initial-state)
+
+>caption Set sorting programmatically
+
+````FilterRow
+@[template](/_contentTemplates/treelist/state.md#filter-row-from-code)
+````
+````FilterMenu
+@[template](/_contentTemplates/treelist/state.md#filter-menu-from-code)
+````
+
 
 ## See Also
 

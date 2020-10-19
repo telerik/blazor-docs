@@ -98,6 +98,16 @@ Click a column header to sort by its data
 
 ![](images/basic-sorting.png)
 
+You can sort the TreeList from your own code through its [state]({%slug treelist-state%}).
+
+@[template](/_contentTemplates/treelist/state.md#initial-state)
+
+>caption Set sorting programmatically
+
+````CSHTML
+@[template](/_contentTemplates/treelist/state.md#set-sort-from-code)
+````
+
 
 
 ## See Also
