@@ -166,16 +166,16 @@ The following example shows one way you can store the TreeList state - through a
         TreeListState<Employee> state = new TreeListState<Employee>()
         {
             FilterDescriptors = new List<FilterDescriptorBase>()
-    {
+            {
                 new FilterDescriptor() { Member="StringProp", MemberType=typeof(string), Value = "2", Operator = FilterOperator.Contains }
             },
             SortDescriptors = new List<SortDescriptor>()
-    {
+            {
                 new SortDescriptor() { Member = "StringProp", SortDirection = ListSortDirection.Descending }
             },
             Page = 2,
             ColumnStates = new List<TreeListColumnState>()
-    {
+            {
                 new TreeListColumnState()
                 {
                     Index = 3,
