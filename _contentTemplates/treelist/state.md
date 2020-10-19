@@ -433,6 +433,7 @@
     {
         var collapsedItemsState = new TreeListState<Employee>()
         {
+            //collapse all items in the TreeList upon initialization of the state
             ExpandedItems = new List<Employee>()
         };
 
