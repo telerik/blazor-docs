@@ -16,6 +16,8 @@ You can have the chart render more than one axis for a given dimension. This let
 
 ![](images/multiple-y-axes.png)
 
+>tip The [Examples](#examples) section offer several common use-cases.
+
 This article contains the following sections:
 
 * [Define Multiple Axes](#define-multiple-axes)
@@ -28,6 +30,7 @@ This article contains the following sections:
 		* [Behavior with Bar and Column Charts](#behavior-with-bar-and-column-charts)
 	* [Numerical Chart Examples](#numerical-chart-examples)
 	* [Move X-Axis Labels to the Bottom](#move-x-axis-labels-to-the-bottom)
+	* [Move Value Axis to the Right](#move-value-axis-to-the-right)
 
 >tip When using multiple axes, you would often set the color of the axis to match the `Color` of the series that uses it.
 
@@ -72,6 +75,7 @@ In this section you can find code examples, explanations on the behavior and scr
 	* [Behavior with Bar and Column Charts](#behavior-with-bar-and-column-charts)
 * [Numerical Chart Examples](#numerical-chart-examples)
 * [Move X-Axis Labels to the Bottom](#move-x-axis-labels-to-the-bottom)
+* [Move Value Axis to the Right](#move-value-axis-to-the-right)
 
 
 ### Categorical Chart - Value Axes Examples
@@ -501,6 +505,78 @@ The general approach is to set an axis crossing point that has a very large valu
 
 ![](images/x-axis-labels-at-bottom.png)
 
+
+### Move Value Axis to the Right
+
+To ensure that an axis is always to the desired side of the chart, you could set its corresponding `AxisCrossingValue` to a very large value such as `int.MaxValue` or `int.MinValue`.
+
+This approach can work for both numerical and categorical axes. The example below uses a categorical axis.
+
+>caption Example of setting a crossing point that is very large so the value axis appears on the right hand side of the chart
+
+````CSHTML
+@* See the AxisCrossingValue parameter on the x-axis and its value - it uses int.MaxValue to push the second value axis all the way to the right *@
+
+<TelerikChart>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis AxisCrossingValue="@crossingValues" BaseUnit="ChartCategoryAxisBaseUnit.Days" Type="ChartCategoryAxisType.Date">
+        </ChartCategoryAxis>
+    </ChartCategoryAxes>
+    
+    <ChartValueAxes>
+        <ChartValueAxis Type="@ChartValueAxisType.Numeric" Name="FirstYAxis" Visible="true">
+            <ChartValueAxisLabels Template="#=value# kWh" Visible="true"></ChartValueAxisLabels>
+        </ChartValueAxis>
+
+        <ChartValueAxis Type="@ChartValueAxisType.Numeric" Name="SecondYAxis" Visible="true">
+            <ChartValueAxisLabels Template="#=value# kWh" Visible="true"></ChartValueAxisLabels>
+        </ChartValueAxis>
+    </ChartValueAxes>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1 (SUM)" Data="@chartData" Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.MySharedCategories)" Aggregate="ChartSeriesAggregate.Sum" Axis="FirstYAxis">
+            <ChartSeriesLabels Visible="false"></ChartSeriesLabels>
+            <ChartSeriesTooltip Visible="true"></ChartSeriesTooltip>
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2 (SUM)" Data="@chartData" Field="@nameof(MyDataModel.Product2)" CategoryField="@nameof(MyDataModel.MySharedCategories)" Aggregate="ChartSeriesAggregate.Sum" Axis="SecondYAxis">
+            <ChartSeriesLabels Visible="false"></ChartSeriesLabels>
+            <ChartSeriesTooltip Visible="true"></ChartSeriesTooltip>
+        </ChartSeries>
+    </ChartSeriesItems>
+
+</TelerikChart>
+
+@code {
+    public object[] crossingValues = new object[] { 0, int.MaxValue };
+
+    public class MyDataModel
+    {
+        public DateTime MySharedCategories { get; set; }
+        public decimal Product1 { get; set; }
+        public decimal Product2 { get; set; }
+    }
+
+    public List<MyDataModel> chartData = new List<MyDataModel>();
+
+    protected override void OnInitialized()
+    {
+        var random = new Random();
+
+        for (var i = 0; i < 10; i++)
+        {
+            var dateTime = new DateTime(2019, 1, 1);
+            var value1 = Convert.ToDecimal(random.NextDouble() * 10);
+            var value2 = Convert.ToDecimal(random.NextDouble() * 10);
+            this.chartData.Add(new MyDataModel { MySharedCategories = dateTime.AddDays(i), Product1 = value1, Product2 = value2 });
+        }
+    }
+}
+````
+
+>caption The result from the code snippet above
+
+![Move the second value axis to the right](images/chart-crossing-value-axis-to-the-right.png)
 
 
 ## See Also
