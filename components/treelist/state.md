@@ -322,7 +322,7 @@ public class LocalStorage
 
 ### Set TreeList Options Through State
 
-The TreeList state allows you to control the behavior of the TreeList programmatically - you can, for example, set sorts, filteres and expand items.
+The TreeList state allows you to control the behavior of the TreeList programmatically - you can, for example, set sorts, filters and expand items.
 
 >tip The individual tabs below show how you can use the state to programmatically set the TreeList filtering, sorting and other features.
 
