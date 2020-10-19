@@ -532,6 +532,9 @@
 #end
 
 #get-column-state-from-code
+
+@* Click the button, reorder some columns, maybe lock one of them, hide another, and click the button again to see how the state changes but the order of the columns in the state collection remains the same. This example also shows a workaround for getting the Field of the column that will be availale in a future release as part of the column state. *@
+
 @using Telerik.DataSource;
 
 <TelerikButton OnClick="@GetColumnsFromState">Get the state of the Columns</TelerikButton>
@@ -557,6 +560,8 @@
 
 @code {
     public TelerikTreeList<Employee> TreeListRef { get; set; } = new TelerikTreeList<Employee>();
+    
+    //part of workaround for getting the field too
     public List<string> ColumnFields => new List<string>
     {
         nameof(Employee.Name),
@@ -568,6 +573,7 @@
 
     public async Task GetColumnsFromState()
     {
+        // final part of the workaround for getting the field
         var columnsState = TreeListRef.GetState().ColumnStates;
 
         int index = 0;
