@@ -26,6 +26,7 @@ This article contains the following sections:
 	* [Set Default (Initial) State](#set-default-initial-state)
 	* [Get The User Action That Changes The TreeList](#get-the-user-action-that-changes-the-treelist)
 	* [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
+	* [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
 
 
 ## Basics
@@ -97,6 +98,7 @@ You can find the following examples in this section:
 * [Set Default (Initial) State](#set-default-initial-state)
 * [Get The User Action That Changes The TreeList](#get-the-user-action-that-changes-the-treelist)
 * [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
+* [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
 
 ### Save and Load TreeList State from Browser LocalStorage
 
