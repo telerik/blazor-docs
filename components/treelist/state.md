@@ -107,10 +107,10 @@ The following example shows one way you can store the TreeList state - through a
 >caption Save, Load, Reset TreeList state on every state change. Uses a sample LocalStorage in the browser.
 
 ````Component
-@inject IJSRuntime JsInterop
 @using Telerik.DataSource;
 
 @inject LocalStorage LocalStorage
+@inject IJSRuntime JsInterop
 
 <TelerikButton OnClick="@ReloadPage">Reload the page to see the current TreeList state preserved</TelerikButton>
 <TelerikButton OnClick="@ResetState">Reset the state</TelerikButton>
@@ -119,7 +119,7 @@ The following example shows one way you can store the TreeList state - through a
 <TelerikTreeList Data="@Data"
                  Pageable="true"
                  Width="850px"
-                 IdField="@nameof(Employee.Id)" 
+                 IdField="@nameof(Employee.Id)"
                  ParentIdField="@nameof(Employee.ParentId)"
                  OnStateChanged="@((TreeListStateEventArgs<Employee> args) => OnStateChangedHandler(args))"
                  OnStateInit="@((TreeListStateEventArgs<Employee> args) => OnStateInitHandler(args))"
@@ -134,8 +134,7 @@ The following example shows one way you can store the TreeList state - through a
 </TelerikTreeList>
 
 
-@code {
-    string UniqueStorageKey = "SampleTreeListStateStorageKey";
+@code { string UniqueStorageKey = "SampleTreeListStateStorageKey";
 
     async Task OnStateInitHandler(TreeListStateEventArgs<Employee> args)
     {
@@ -167,16 +166,16 @@ The following example shows one way you can store the TreeList state - through a
         TreeListState<Employee> state = new TreeListState<Employee>()
         {
             FilterDescriptors = new List<FilterDescriptorBase>()
-        {
+    {
                 new FilterDescriptor() { Member="StringProp", MemberType=typeof(string), Value = "2", Operator = FilterOperator.Contains }
             },
             SortDescriptors = new List<SortDescriptor>()
-        {
+    {
                 new SortDescriptor() { Member = "StringProp", SortDirection = ListSortDirection.Descending }
             },
             Page = 2,
             ColumnStates = new List<TreeListColumnState>()
-        {
+    {
                 new TreeListColumnState()
                 {
                     Index = 3,
