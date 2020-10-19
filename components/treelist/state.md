@@ -102,7 +102,7 @@ You can find the following examples in this section:
 
 The following example shows one way you can store the TreeList state - through a custom service that calls the browser's LocalStorage. You can use your own database here, or a file, or Microsoft's ProtectedBrowserStorage package, or any other storage you prefer. This is just an example you can use as base and modify to suit your project.
   
->note If you use Hierarchical data for the TreeList you need to serialize the current item only and not the entire collection in order not to exceed the size of the LocalStorage.
+>note If you use [Hierarchical data]({%slug treelist-data-binding-hierarchical-data%}) for the TreeList you need to serialize the current item only and not the entire collection of child items in order not to exceed the size of the LocalStorage.
 
 >caption Save, Load, Reset TreeList state on every state change. Uses a sample LocalStorage in the browser.
 
