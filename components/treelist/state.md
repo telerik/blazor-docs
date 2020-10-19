@@ -872,6 +872,14 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 }
 ````
 
+### Get Current Columns Visibility, Order, Field
+
+The `ColumnStates` field of the state object provides you with information about the current columns in the TreeList. The `Index` field describes the position the user chose, and the `Visible` parameter indicates whether the column is hidden or not. By looping over that collection you can know what the user sees. You could, for example, sort by the index and filter by the visibility of the columns to approximate the view of the user.
+
+````CSHTML
+@[template](/_contentTemplates/treelist/state.md#get-column-state-from-code)
+````
+
 
 ## See Also
 
