@@ -109,6 +109,8 @@ You can use the `VisibleChanged` event to get notifications when the user tries 
 }
 ````
 
+>note The `VisibleChanged` event will fire when the window is being disposed. At this stage of the framework lifecycle, it cannot know if it is open or not, and so we explicitly close it and free-up the resources it uses.
+
 ## StateChanged
 
 You can use the `StateChanged` event to get notifications when the user tries to minimize, maximize or restore the window. You can effectively cancel the event by *not* propagating the new state to the variable the `State` property is bound to.
