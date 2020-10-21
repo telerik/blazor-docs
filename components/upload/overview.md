@@ -21,8 +21,10 @@ To use a Telerik Upload for Blazor
         @inject NavigationManager NavigationManager
         
         <TelerikUpload SaveUrl="@SaveUrl" RemoveUrl="@RemoveUrl"
+                       SaveField="file" RemoveField="fileToRemove"
                        AllowedExtensions="@( new List<string>() { ".jpg", ".png", ".jpeg" } )"
-                       MaxFileSize="2048000" MinFileSize="1024" />
+                       MaxFileSize="2048000" MinFileSize="1024">
+        </TelerikUpload>
         
         @code {
             // one way to define relative paths, put the desired URL here
@@ -41,7 +43,6 @@ To use a Telerik Upload for Blazor
     **C#**
     
         using Microsoft.AspNetCore.Mvc;
-        using System.Collections.Generic;
         using System.IO;
         using Microsoft.AspNetCore.Http;
         using Microsoft.AspNetCore.Hosting;
@@ -61,29 +62,26 @@ To use a Telerik Upload for Blazor
                 }
         
                 [HttpPost]
-                public async Task<IActionResult> Save(IEnumerable<IFormFile> files) // the default field name. See SaveField
+                public async Task<IActionResult> Save(IFormFile file) // must match SaveField which defaults to "files"
                 {
-                    if (files != null)
+                    if (file != null)
                     {
                         try
                         {
-                            foreach (var file in files)
-                            {
-                                var fileContent = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
-            
-                                // Some browsers send file names with full path.
-                                // We are only interested in the file name.
-                                var fileName = Path.GetFileName(fileContent.FileName.ToString().Trim('"'));
-                                var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+                            var fileContent = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
         
-                                // Implement security mechanisms here - prevent path traversals,
-                                // check for allowed extensions, types, size, content, viruses, etc.
-                                // this sample always saves the file to the root and is not sufficient for a real application
-                                
-                                using (var fileStream = new FileStream(physicalPath, FileMode.Create))
-                                {
-                                    await file.CopyToAsync(fileStream);
-                                }
+                            // Some browsers send file names with full path.
+                            // We are only interested in the file name.
+                            var fileName = Path.GetFileName(fileContent.FileName.ToString().Trim('"'));
+                            var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+        
+                            // Implement security mechanisms here - prevent path traversals,
+                            // check for allowed extensions, types, size, content, viruses, etc.
+                            // this sample always saves the file to the root and is not sufficient for a real application
+        
+                            using (var fileStream = new FileStream(physicalPath, FileMode.Create))
+                            {
+                                await file.CopyToAsync(fileStream);
                             }
                         }
                         catch
@@ -100,25 +98,22 @@ To use a Telerik Upload for Blazor
         
         
                 [HttpPost]
-                public ActionResult Remove(string[] files) // the default field name. See RemoveField
+                public ActionResult Remove(string fileToRemove) // must match RemoveField which defaults to "files"
                 {
-                    if (files != null)
+                    if (fileToRemove != null)
                     {
                         try
                         {
-                            foreach (var fullName in files)
+                            var fileName = Path.GetFileName(fileToRemove);
+                            var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+        
+                            if (System.IO.File.Exists(physicalPath))
                             {
-                                var fileName = Path.GetFileName(fullName);
-                                var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+                                // Implement security mechanisms here - prevent path traversals,
+                                // check for allowed extensions, types, permissions, etc.
+                                // this sample always deletes the file from the root and is not sufficient for a real application
         
-                                if (System.IO.File.Exists(physicalPath))
-                                {
-                                    // Implement security mechanisms here - prevent path traversals,
-                                    // check for allowed extensions, types, permissions, etc.
-                                    // this sample always deletes the file from the root and is not sufficient for a real application
-        
-                                    System.IO.File.Delete(physicalPath);
-                                }
+                                System.IO.File.Delete(physicalPath);
                             }
                         }
                         catch
@@ -140,6 +135,8 @@ To use a Telerik Upload for Blazor
 
 ![Valid and Invalid files uploaded](images/upload-overview-validation.png)
 
+>note The sample controller above takes only one field with the given name. If you already have existing controllers that handle files, it is possible that they accept `IEnumerable<IFormFile>` and `string[]` respectively. This will work with the Telerik Upload too - it simply allows for more fields with that name to be present in the request, while the Telerik component will add only one file (field).
+
 >caption Component namespace and reference
 
 ````CSHTML
@@ -153,13 +150,21 @@ To use a Telerik Upload for Blazor
 >caption The Upload provides the following key features:
 
 * `AutoUpload` - Specifies whether the upload of a file should start immediately upon its selection, or the user must click the "Upload" button. Defaults to `true`.
+
 * `Enabled` - Whether the component is enabled for the end user.
+
 * `Multiple` - Enables the selection of multiple files. If set to `false` (defaults to `true`), only one file can be selected at a time.
+
 * `RemoveField` - Sets the `FormData` key which contains the file names submitted to the `RemoveUrl` endpoint when the user clicks the individual [x] button on the chosen files. Defaults to `files`.
-* `RemoveUrl`- Sets the URL of the endpoint for the remove request. The `FormData` request key is named after the `RemoveField` parameter. It contains the list of file names which should be removed from the server. The handler must accept POST requests which contain one or more fields with the same name as the `RemoveField`.
+
+* `RemoveUrl`- Sets the URL of the endpoint for the remove request. The `FormData` request key is named after the `RemoveField` parameter. It contains the list of file names which should be removed from the server. The handler must accept POST requests which contain one or more fields with the same name as the `RemoveField`. The handler is hit once for each file.
+
 * `SaveField` - Sets the `FormData` key which contains the files submitted to the `SaveUrl` endpoint. Defaults to `files`.
-* `SaveUrl`- The URL of the handler (endpoint, controller) that will receive the uploaded files. The handler must accept POST requests which contain one or more fields with the same name as the `SaveField`.
+
+* `SaveUrl`- The URL of the handler (endpoint, controller) that will receive the uploaded files. The handler must accept POST requests which contain one or more fields with the same name as the `SaveField`. The handler is hit once for each file.
+
 * `WithCredentials` - Controls whether to send credentials (cookies, headers) for cross-site requests (see the [XMLHttpRequest.withCredentials property](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials)). You can also add extra information to the request (such as authentication tokens and other metadata) through the `OnUpload` and `OnRemove` [events]({%slug upload-events%}).
+
 * [Validation]({%slug upload-validation%})
 
 
