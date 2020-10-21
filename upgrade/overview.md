@@ -57,7 +57,7 @@ If you have just purchased a license and you need to migrate from the trial pack
 
 1. Replace the reference to the `Telerik.UI.for.Blazor.Trial` package in your project with a reference to the `Telerik.UI.for.Blazor` package.
 
-1. If you are using static assets for our JS Interop file, update its path to match the package name:
+1. If you are using static assets for our JS Interop file and/or Theme, update their path to match the package name (remove the `.Trial` part):
 
     **HTML**
     
@@ -67,6 +67,16 @@ If you have just purchased a license and you need to migrate from the trial pack
         TO
         -->
         <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
+        
+        
+        <!-- FROM
+        <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" />
+        
+        TO
+        -->
+        <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
+        
+        
 
 The Trial version of our assembly has the `Telerik.Blazor Trial version` Title. You can see it by Right clicking the assembly > Properties > File Description. You can find the assembly by extracting the `.nupgk` file like a `.zip` archive, or in the publish location.
 
