@@ -72,8 +72,6 @@ To use the Telerik TextArea in your Blazor application:
 
 * `Value` - get/set the value of the input, can be used for binding.
 
-* `Width` - the width of the `<textarea>`. You can find more information in the [Dimensions]({%slug common-features/dimensions%}) article.
-
 * Events - see the [Events]({%slug textarea-events%}) article for more information.
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
