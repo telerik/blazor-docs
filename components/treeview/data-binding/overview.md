@@ -85,7 +85,7 @@ The following **Example** shows how to define simple binding to match item field
 
 ### Multiple Level Bindings
 
-You can define different binding settings for the different levels of nodes in a treeview. With this, the children of a node can consume a different field than their parent, and this may make your application more flexible. If you use [hierarchical data binding]({%slug components/treeview/data-binding/hierarchical-data%}), the children can even use a different model from their parent.
+You can define different binding settings for the different levels of nodes in a treeview. With this, the children of a node can consume a different field than their parent, and this may make your application more flexible. If you use [hierarchical data binding]({%slug components/treeview/data-binding/hierarchical-data%}), the children can even use a different field or model from their parent.
 
 This also allows you to define a different [`ItemTemplate`]({%slug components/treeview/templates%}) for different levels.
 
@@ -170,6 +170,7 @@ The third level will use the main data bindings settings that do not have a leve
 
 ![](images/treeview-multiple-databindings-result.png)
 
+>note For performance reasons, when using [flat data binding]({%slug components/treeview/data-binding/flat-data%}), all the bindings for all the levels must use the same `IdField` and `ParentIdField`.
 
 ## See Also
 
