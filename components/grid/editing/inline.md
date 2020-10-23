@@ -119,7 +119,7 @@ Use the command buttons to control the CUD operations.
     async Task<SampleData> ServiceMimicInsert(SampleData itemToInsert)
     {
         // in this example, we just populate the fields, you project may use
-        // something else or generate/return the updated item differently
+        // something else or generate the inserted item differently
         SampleData updatedItem = new SampleData()
         {
             // the service assigns an ID, in this sample we use only the view-model data for simplicity,
@@ -133,7 +133,7 @@ Use the command buttons to control the CUD operations.
     async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
     {
         // in this example, we just populate the fields, you project may use
-        // something else or generate/return the updated item differently
+        // something else or generate the updated item differently
         SampleData updatedItem = new SampleData()
         {
             ID = itemToUpdate.ID,

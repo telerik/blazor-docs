@@ -25,14 +25,15 @@ You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the C
 To enable InCell editing mode, set the `EditMode` property of the grid to `Telerik.Blazor.GridEditMode.Incell`, then handle the CRUD events as shown in the example below.
 
 
->caption Values are set in the model as soon as the user finishes editing a field, and you can receive them through the grid events
+>caption Values are set in the model as soon as the user finishes editing a field, and you can receive them through the grid events (see the code comments for details)
 
 ````CSHTML
-Click a cell, edit it and click outside of the cell to see the change.<br />
+Click a cell, edit it and click outside of the cell to see the change.
+<br />
 <strong>Editing is prevented for the first two items.</strong>
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Incell" Pageable="true" Height="500px"
-        OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler">
+             OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler">
     <GridToolBar>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
     </GridToolBar>
@@ -62,35 +63,19 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
 
     async Task UpdateHandler(GridCommandEventArgs args)
     {
-        string fieldName = args.Field;
-        object newVal = args.Value; // you can cast this, if necessary, according to your model
-
-        SampleData item = (SampleData)args.Item; // you can also use the entire model
-
-        // perform actual data source operation here through your service
-
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        var index = MyData.FindIndex(i => i.ID == item.ID);
-        if (index != -1)
-        {
-            MyData[index] = item;
-            // this copies the entire item, consider altering only the needed field
-        }
-
-        Console.WriteLine("Update event is fired for " + args.Field + " with value " + args.Value);
-    }
-
-    async Task CreateHandler(GridCommandEventArgs args)
-    {
         SampleData item = (SampleData)args.Item;
 
-        // perform actual data source operation here through your service
+        // perform actual data source operations here through your service
+        SampleData updatedItem = await ServiceMimicUpdate(item);
 
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        item.ID = MyData.Count + 1;
-        MyData.Insert(0, item);
+        // update the local view-model data
+        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
+        if (index != -1)
+        {
+            MyData[index] = updatedItem;
+        }
 
-        Console.WriteLine("Create event is fired.");
+        Console.WriteLine("Update event is fired.");
     }
 
     async Task DeleteHandler(GridCommandEventArgs args)
@@ -98,12 +83,66 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operation here through your service
+        bool isDeleted = await ServiceMimicDelete(item);
 
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        MyData.Remove(item);
+        if (isDeleted)
+        {
+            // update the local view-model data
+            MyData.Remove(item);
+        }
 
         Console.WriteLine("Delete event is fired.");
     }
+
+    async Task CreateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        // perform actual data source operation here through your service
+        SampleData insertedItem = await ServiceMimicInsert(item);
+
+        // update the local view-model data
+        MyData.Insert(0, insertedItem);
+
+        Console.WriteLine("Create event is fired.");
+    }
+
+
+    // the following three methods mimic an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
+
+    async Task<SampleData> ServiceMimicInsert(SampleData itemToInsert)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
+            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
+            ID = MyData.Count + 1,
+            Name = itemToInsert.Name
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            ID = itemToUpdate.ID,
+            Name = itemToUpdate.Name
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<bool> ServiceMimicDelete(SampleData itemToDelete)
+    {
+        return await Task.FromResult(true);//always successful
+    }
+
 
     // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
     public class SampleData
@@ -118,7 +157,7 @@ Click a cell, edit it and click outside of the cell to see the change.<br />
     {
         MyData = new List<SampleData>();
 
-        for (int i = 0; i < 50; i++)
+        for (int i = 1; i < 50; i++)
         {
             MyData.Add(new SampleData()
             {
