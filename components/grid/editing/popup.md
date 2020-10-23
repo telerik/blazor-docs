@@ -21,7 +21,7 @@ To enable PopUp editing in the grid, set its `EditMode` property to `Telerik.Bla
 The PopUp editing mode supports [validation]({%slug common-features/input-validation%}). To use it, all you need to do is decorate your model with the desired annotations. Validation errors will be shown in the popup and will prevent the Update operation.
 
 
->caption The Command buttons and the grid events let you handle data operations in PopUp edit mode
+>caption The Command buttons and the grid events let you handle data operations in PopUp edit mode (see the code comments for details)
 
 ````CSHTML
 @using System.ComponentModel.DataAnnotations
@@ -30,111 +30,151 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 <strong>Editing is cancelled for the first two records.</strong>
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Popup" Pageable="true" Height="500px"
-        OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
-	<GridToolBar>
-		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-	</GridToolBar>
-	<GridColumns>
-		<GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-		<GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-		<GridCommandColumn>
-			<GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-			<GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-			<GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
-			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
-		</GridCommandColumn>
-	</GridColumns>
+             OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
 </TelerikGrid>
 
 @code {
-	void EditHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+    void EditHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-		// prevent opening for edit based on condition
-		if (item.ID < 2)
-		{
-			args.IsCancelled = true;// the general approach for cancelling an event
-		}
-		
-		Console.WriteLine("Edit event is fired.");
-	}
+        // prevent opening for edit based on condition
+        if (item.ID < 3)
+        {
+            args.IsCancelled = true;// the general approach for cancelling an event
+        }
 
-	async Task UpdateHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+        Console.WriteLine("Edit event is fired.");
+    }
 
-		// perform actual data source operations here through your service
+    async Task UpdateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        var index = MyData.FindIndex(i => i.ID == item.ID);
+        // perform actual data source operations here through your service
+        SampleData updatedItem = await ServiceMimicUpdate(item);
+
+        // update the local view-model data
+        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
         if (index != -1)
         {
-               MyData[index] = item;
+            MyData[index] = updatedItem;
         }
-		
-		Console.WriteLine("Update event is fired.");
-	}
 
-	async Task DeleteHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+        Console.WriteLine("Update event is fired.");
+    }
 
-		// perform actual data source operation here through your service
+    async Task DeleteHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-		MyData.Remove(item);
-		
-		Console.WriteLine("Delete event is fired.");
-	}
+        // perform actual data source operation here through your service
+        bool isDeleted = await ServiceMimicDelete(item);
 
-	async Task CreateHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+        if (isDeleted)
+        {
+            // update the local view-model data
+            MyData.Remove(item);
+        }
 
-		// perform actual data source operation here through your service
+        Console.WriteLine("Delete event is fired.");
+    }
 
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-		item.ID = MyData.Count + 1;
-		MyData.Insert(0, item);
-		
-		Console.WriteLine("Create event is fired.");
-	}
+    async Task CreateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-	async Task CancelHandler(GridCommandEventArgs args)
-	{
-		SampleData item = (SampleData)args.Item;
+        // perform actual data source operation here through your service
+        SampleData insertedItem = await ServiceMimicInsert(item);
 
-		// if necessary, perform actual data source operation here through your service
+        // update the local view-model data
+        MyData.Insert(0, insertedItem);
 
-		Console.WriteLine("Cancel event is fired.");
-	}
-	
+        Console.WriteLine("Create event is fired.");
+    }
 
-	// in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		
-		[Required(ErrorMessage = "The employee must have a name")]
-		public string Name { get; set; }
-	}
+    async Task CancelHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
 
-	public List<SampleData> MyData { get; set; }
+        // if necessary, perform actual data source operation here through your service
 
-	protected override void OnInitialized()
-	{
-		MyData = new List<SampleData>();
+        Console.WriteLine("Cancel event is fired.");
+    }
 
-		for (int i = 0; i < 50; i++)
-		{
-			MyData.Add(new SampleData()
-			{
-				ID = i,
-				Name = "Name " + i.ToString()
-			});
-		}
-	}
+    // the following three methods mimic an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
+
+    async Task<SampleData> ServiceMimicInsert(SampleData itemToInsert)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate/return the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
+            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
+            ID = MyData.Count + 1,
+            Name = itemToInsert.Name
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate/return the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            ID = itemToUpdate.ID,
+            Name = itemToUpdate.Name
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<bool> ServiceMimicDelete(SampleData itemToDelete)
+    {
+        return await Task.FromResult(true);//always successful
+    }
+
+
+    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+    public class SampleData
+    {
+        public int ID { get; set; }
+
+        [Required(ErrorMessage = "The employee must have a name")]
+        public string Name { get; set; }
+    }
+
+    public List<SampleData> MyData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        MyData = new List<SampleData>();
+
+        for (int i = 1; i < 50; i++)
+        {
+            MyData.Add(new SampleData()
+            {
+                ID = i,
+                Name = "Name " + i.ToString()
+            });
+        }
+    }
 }
 ````
 

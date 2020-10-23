@@ -19,7 +19,7 @@ You can also cancel the events by setting the `IsCancelled` property of the even
 To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Blazor.GridEditMode.Inline`, then handle the CRUD events as shown in the example below.
 
 
->caption The Command buttons and the grid events let you handle data operations in Inline edit mode
+>caption The Command buttons and the grid events let you handle data operations in Inline edit mode (see the code comments for details)
 
 ````CSHTML
 Use the command buttons to control the CUD operations.
@@ -141,7 +141,6 @@ Use the command buttons to control the CUD operations.
         };
         return await Task.FromResult(updatedItem);
     }
-
 
     async Task<bool> ServiceMimicDelete(SampleData itemToDelete)
     {

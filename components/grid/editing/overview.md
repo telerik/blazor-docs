@@ -174,7 +174,6 @@ Editing is cancelled for the first two records.
         return await Task.FromResult(updatedItem);
     }
 
-
     async Task<bool> ServiceMimicDelete(SampleData itemToDelete)
     {
         await Task.Delay(2000); // simulate actual long running async operation
