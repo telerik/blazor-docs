@@ -170,7 +170,7 @@ The third level will use the main data bindings settings that do not have a leve
 
 ![](images/treeview-multiple-databindings-result.png)
 
->note For performance reasons, when using [flat data binding]({%slug components/treeview/data-binding/flat-data%}), all the bindings for all the levels must use the same `IdField` and `ParentIdField`.
+>note For performance reasons, when using [flat data binding]({%slug components/treeview/data-binding/flat-data%}), all the bindings for all the levels must use the same `ParentIdField`.
 
 ## See Also
 
