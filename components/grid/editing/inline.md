@@ -22,11 +22,12 @@ To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Bl
 >caption The Command buttons and the grid events let you handle data operations in Inline edit mode
 
 ````CSHTML
-Use the command buttons to control the CUD operations. <br />
-<strong>Editing is cancelled for the first two records</strong>. 
+Use the command buttons to control the CUD operations.
+<br />
+<strong>Editing is cancelled for the first two records</strong>.
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px"
-        OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
+             OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
     <GridToolBar>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
     </GridToolBar>
@@ -61,12 +62,13 @@ Use the command buttons to control the CUD operations. <br />
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operations here through your service
+        SampleData updatedItem = await ServiceMimicUpdate(item);
 
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        var index = MyData.FindIndex(i => i.ID == item.ID);
+        // update the local view-model data
+        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
         if (index != -1)
         {
-            MyData[index] = item;
+            MyData[index] = updatedItem;
         }
 
         Console.WriteLine("Update event is fired.");
@@ -77,9 +79,13 @@ Use the command buttons to control the CUD operations. <br />
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operation here through your service
+        bool isDeleted = await ServiceMimicDelete(item);
 
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        MyData.Remove(item);
+        if (isDeleted)
+        {
+            // update the local view-model data
+            MyData.Remove(item);
+        }
 
         Console.WriteLine("Delete event is fired.");
     }
@@ -89,10 +95,10 @@ Use the command buttons to control the CUD operations. <br />
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operation here through your service
+        SampleData insertedItem = await ServiceMimicInsert(item);
 
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        item.ID = MyData.Count + 1;
-        MyData.Insert(0, item);
+        // update the local view-model data
+        MyData.Insert(0, insertedItem);
 
         Console.WriteLine("Create event is fired.");
     }
@@ -104,6 +110,42 @@ Use the command buttons to control the CUD operations. <br />
         // if necessary, perform actual data source operation here through your service
 
         Console.WriteLine("Cancel event is fired.");
+    }
+
+    // the following three methods mimic an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
+
+    async Task<SampleData> ServiceMimicInsert(SampleData itemToInsert)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate/return the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
+            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
+            ID = MyData.Count + 1,
+            Name = itemToInsert.Name
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate/return the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            ID = itemToUpdate.ID,
+            Name = itemToUpdate.Name
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+
+    async Task<bool> ServiceMimicDelete(SampleData itemToDelete)
+    {
+        return await Task.FromResult(true);//always successful
     }
 
 
@@ -120,7 +162,7 @@ Use the command buttons to control the CUD operations. <br />
     {
         MyData = new List<SampleData>();
 
-        for (int i = 0; i < 50; i++)
+        for (int i = 1; i < 50; i++)
         {
             MyData.Add(new SampleData()
             {
