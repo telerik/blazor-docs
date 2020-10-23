@@ -24,6 +24,8 @@ When the `OnRead` event is used, the internal operations are disabled and you mu
 
 If you are using an `ObservableCollection`, make sure to create a `new` one, because using `.Add()`, `.Remove()` or `.Clear()` on it will cause an infinite loop - the [grid monitors the ObservableCollection events]({%slug common-features-observable-data%}) and updates its data, which will fire `OnRead`.
 
+The event arguments to `OnRead` will receive the `Page` that comes from the application. For example, if you load the grid [state]({%slug grid-state%}), or you set the parameter value yourself, that value will be passed to the event handler. If it is out of the range of the available data, it will be up to the application to handle that discrepancy.
+
 ## Examples
 
 Below you can find a few examples of using the `OnRead` event to perform custom data source operations. They may not implement all operations for brevity. They showcase the basics only, and it is up to the application's data access layer to implement them. You can read more about implementing the CUD operations in the [CRUD Operations Overview](editing/overview) article.
