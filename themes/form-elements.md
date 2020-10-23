@@ -12,7 +12,15 @@ position: 5
 
 The [UI for Blazor Themes]({%slug general-information/themes%}) provide classes that you can use to style elements on the page so they can match the used Telerik Theme.
 
-The Themes are shared with the Kendo library and you can reuse any existing knowledge about the classes that are available. This article will provide several examples of how you can style generic elements through the Telerik Themes so they match the colors and styling of the Telerik components, and so they look the same across browsers.
+>tip The UI for Blazor Themes are shared with the Kendo library - you can apply any previous knowledge about Kendo UI products.
+
+This article provides several examples of how you can use the Telerik Themes to style generic elements. These styled generic elements will:
+
+* match the colors and styling of the Telerik components
+
+* look the same across browsers
+
+Select one of the following links to see the example:
 
 * [Checkboxes](#checkboxes)
 * [Radio Buttons](#radio-buttons)
@@ -20,11 +28,11 @@ The Themes are shared with the Kendo library and you can reuse any existing know
 * [Buttons](#buttons)
 * [Cards](#cards)
 
->note CSS rules from the project may interfere. A common reason is styling from libraries like Bootstrap or rules with low specificity in the site stylesheet. [This blog post](https://www.telerik.com/blogs/improve-your-debugging-skills-with-chrome-devtools) can help you examine the rendering and applied styles so you can troubleshoot any issues.
+>note Existing CSS rules in the project may interfere with the applied styles. A common reason is styling from libraries like Bootstrap or rules with low specificity in the site stylesheet. [This blog post](https://www.telerik.com/blogs/improve-your-debugging-skills-with-chrome-devtools) can help you examine the rendering and applied styles so you can troubleshoot any issues.
 
 ## Checkboxes
 
-A specific class on a `label` element can give you a checkbox that looks the same in all browsers. You will still need the actual `input` element, but it will have another class that will hide it visually.
+A specific CSS class applied to a `label` element can give you a checkbox that looks the same in all browsers. You still need to provide the actual `input` element, but it will have another CSS class that will hide it visually.
 
 >tip You can use the [TelerikCheckBox]({%slug checkbox-overview%}) component instead. It offers a few extra features and events.
 
@@ -45,7 +53,7 @@ A specific class on a `label` element can give you a checkbox that looks the sam
 
 ## Radio Buttons
 
-A specific class on a `label` element can give you a radio buttons that looks the same in all browsers. You will still need the actual `input` element, but it will have another class that will hide it visually.
+A specific CSS class applied to a `label` element can give you a radio buttons that look the same in all browsers. You still need to provide the actual `input` element, but it will have another CSS class that will hide it visually.
 
 >note Blazor cannot yet handle binding radio buttons. You can find more details in [this issue](https://github.com/aspnet/AspNetCore/issues/5579).
 
