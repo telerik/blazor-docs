@@ -31,9 +31,9 @@ The CUD operations are implemented through dedicated events that let you alter t
 
 >caption How to edit data in the ListView
 
-````
+````CSHTML
 @* The actual data source operations depend on the app and must be implemented in the events the listview provides.
-Implementing beautiful rendering is up to the application, this example shows the basics of the available events and commands.
+    Implementing beautiful rendering is up to the application, this example shows the basics of the available events and commands.
 *@
 
 <TelerikListView Data="@ListViewData" Pageable="true"
@@ -62,35 +62,44 @@ Implementing beautiful rendering is up to the application, this example shows th
 </TelerikListView>
 
 @code{
-    async Task CreateHandler(ListViewCommandEventArgs e)
+    async Task UpdateHandler(ListViewCommandEventArgs args)
     {
-        Employee insertedItem = e.Item as Employee;
-        insertedItem.Id = ListViewData.Count + 1;
-        ListViewData.Insert(0, insertedItem);
+        Employee item = (Employee)args.Item;
 
-        // save to the actual data source here as well
-    }
+        // perform actual data source operations here through your service
+        Employee updatedItem = await ServiceMimicUpdate(item);
 
-    async Task DeleteHandler(ListViewCommandEventArgs e)
-    {
-        Employee deletedItem = e.Item as Employee;
-
-        ListViewData.Remove(deletedItem);
-
-        // save to the actual data source here as well
-    }
-
-    async Task UpdateHandler(ListViewCommandEventArgs e)
-    {
-        Employee updatedItem = e.Item as Employee;
-
-        int index = ListViewData.FindIndex(itm => itm.Id == updatedItem.Id);
-        if (index > -1)
+        // update the local view-model data with the service data
+        var index = ListViewData.FindIndex(i => i.Id == updatedItem.Id);
+        if (index != -1)
         {
             ListViewData[index] = updatedItem;
         }
+    }
 
-        // save to the actual data source here as well
+    async Task DeleteHandler(ListViewCommandEventArgs args)
+    {
+        Employee item = (Employee)args.Item;
+
+        // perform actual data source operation here through your service
+        bool isDeleted = await ServiceMimicDelete(item);
+
+        if (isDeleted)
+        {
+            // update the local view-model data
+            ListViewData.Remove(item);
+        }
+    }
+
+    async Task CreateHandler(ListViewCommandEventArgs args)
+    {
+        Employee item = (Employee)args.Item;
+
+        // perform actual data source operation here through your service
+        Employee insertedItem = await ServiceMimicInsert(item);
+
+        // update the local view-model data with the service data
+        ListViewData.Insert(0, insertedItem);
     }
 
     async Task EditHandler(ListViewCommandEventArgs e)
@@ -109,6 +118,43 @@ Implementing beautiful rendering is up to the application, this example shows th
         Employee changedItem = e.Item as Employee;
         // this is the item as the user edited it, but chose to cancel editing/inserting
         Console.WriteLine($"user changed item {changedItem.Id} to have Name: {changedItem.Name} and Team: {changedItem.Team}");
+    }
+
+    // the following three methods mimic an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
+
+    async Task<Employee> ServiceMimicInsert(Employee itemToInsert)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently, we use "new" here
+        Employee updatedItem = new Employee()
+        {
+            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
+            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
+            Id = ListViewData.Count + 1,
+            Name = itemToInsert.Name,
+            Team = itemToInsert.Team
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<Employee> ServiceMimicUpdate(Employee itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        Employee updatedItem = new Employee()
+        {
+            Id = itemToUpdate.Id,
+            Name = itemToUpdate.Name,
+            Team = itemToUpdate.Team
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<bool> ServiceMimicDelete(Employee itemToDelete)
+    {
+        return await Task.FromResult(true);//always successful
     }
 
     // data and models follow
