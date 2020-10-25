@@ -59,7 +59,26 @@ The Progress Bar provides the following features:
 * `Indeterminate` - `bool`, defaults to `false` - see the [Indeterminate]({%slug progressbar-indeterminate-state%}) article for more information.
 * `Label` - see the [Label]({%slug progressbar-label%}) article for more information. Shows the `Value` with a `%` sign by default
 
-## Use a Timer to simulate the completion of a task
+## Examples
+
+### Responsive ProgressBar
+
+>caption The progress bar will resize with the parent element dimensions when you set its width to 100%
+
+````CSHTML
+<div style="width: 50%; border: 1px solid red;">
+
+    <style>
+        .width-100 {
+            width: 100%;
+        }
+    </style>
+
+    <TelerikProgressBar Class="width-100" Value="44" />
+</div>
+````
+
+### Use a Timer to simulate the completion of a task
 
 ![progress bar with timer example](images/progress-bar-timer-example.gif)
 

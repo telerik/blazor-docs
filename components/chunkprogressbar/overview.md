@@ -99,6 +99,25 @@ In the example below each chunk is "worth" `10 / 4 = 2.5`. The `Value` is `3` so
 
 ![non-matching values example screenshot](images/non-matching-value-example.png)
 
+## Examples
+
+### Responsive ProgressBar
+
+>caption The progress bar will resize with the parent element dimensions when you set its width to 100%
+
+````CSHTML
+<div style="width: 50%; border: 1px solid red;">
+
+    <style>
+        .width-100 {
+            width: 100%;
+        }
+    </style>
+
+    <TelerikChunkProgressBar Class="width-100" Value="44" />
+</div>
+````
+
 ## See Also
 
   * [Live Demo: ChunkProgressBar](https://demos.telerik.com/blazor-ui/TODO)
