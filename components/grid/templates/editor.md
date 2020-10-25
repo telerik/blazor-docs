@@ -49,19 +49,36 @@ If you need to perform logic more complex than simple data binding, use the chan
 @code {
     public SampleData CurrentlyEditedEmployee { get; set; }
 
-    public void UpdateHandler(GridCommandEventArgs args)
+    public async Task UpdateHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
 
-        //perform actual data source operations here
-        //if you have a context added through an @inject statement, you could call its SaveChanges() method
-        //myContext.SaveChanges();
+        // perform actual data source operations here through your service
+        SampleData updatedItem = await ServiceMimicUpdate(item);
 
-        var index = MyData.FindIndex(i => i.ID == item.ID);
+        // update the local view-model data
+        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
         if (index != -1)
         {
-            MyData[index] = item;
+            MyData[index] = updatedItem;
         }
+    }
+
+    // the following method mimics an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
+
+    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            ID = itemToUpdate.ID,
+            Name = itemToUpdate.Name,
+            Role = itemToUpdate.Role
+        };
+        return await Task.FromResult(updatedItem);
     }
 
     protected override void OnInitialized()
@@ -137,19 +154,38 @@ If you need to perform logic more complex than simple data binding, use the chan
 @code {
     List<Employee> MyData { get; set; }
     List<Role> Roles { get; set; }
-    public Employee CurrentlyEditedEmployee { get; set; }
+    Employee CurrentlyEditedEmployee { get; set; }
 
-    public void UpdateHandler(GridCommandEventArgs args)
+    async Task UpdateHandler(GridCommandEventArgs args)
     {
         Employee item = (Employee)args.Item;
 
-        //perform actual data source operations here
+        // perform actual data source operations here through your service
+        Employee updatedItem = await ServiceMimicUpdate(item);
 
-        var index = MyData.FindIndex(i => i.ID == item.ID);
+        // update the local view-model data
+        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
         if (index != -1)
         {
-            MyData[index] = item;
+            MyData[index] = updatedItem;
         }
+    }
+
+    // the following method mimics an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
+
+    async Task<Employee> ServiceMimicUpdate(Employee itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        Employee updatedItem = new Employee()
+        {
+            ID = itemToUpdate.ID,
+            Name = itemToUpdate.Name,
+            RoleId = itemToUpdate.RoleId
+        };
+        return await Task.FromResult(updatedItem);
     }
 
     protected override async Task OnInitializedAsync()
@@ -180,9 +216,9 @@ If you need to perform logic more complex than simple data binding, use the chan
                 ID = i,
                 Name = "name " + i,
                 RoleId = i % 4 // every one in four is an unknown one that will not be present in the roles list
-                // and will have an ID of 0 to match the DefaultText of the dropdownlist
-                // you can perform more complicated checks as necessary in your app and/or in the templates
-                // and/or in the view-model data to present it with suitable values and avoid exceptions
+                               // and will have an ID of 0 to match the DefaultText of the dropdownlist
+                               // you can perform more complicated checks as necessary in your app and/or in the templates
+                               // and/or in the view-model data to present it with suitable values and avoid exceptions
             });
         }
 

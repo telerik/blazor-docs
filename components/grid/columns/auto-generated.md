@@ -262,10 +262,11 @@ This example shows how to:
         [Display(Name = "User Id")]
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="Username is mandatory field")]
+        [Required(ErrorMessage = "Username is mandatory field")]
         public string Username { get; set; }
 
         [Required(ErrorMessage = "Email address is mandatory field")]
+        [EmailAddress(ErrorMessage = "Please provide a valid email address.")]
         [Display(Name = "Email Address")]
         public string EmailAddress { get; set; }
 
@@ -284,32 +285,90 @@ This example shows how to:
     #endregion
 
     #region CUD operations
-    private void UpdateItem(GridCommandEventArgs args)
+    async Task UpdateItem(GridCommandEventArgs args)
     {
+        GridDataModel item = (GridDataModel)args.Item;
+
         // perform actual data source operations here through your service
-        var item = args.Item as GridDataModel;
-        var index = GridData.FindIndex(x => x.Id == item.Id);
+        GridDataModel updatedItem = await ServiceMimicUpdate(item);
+
+        // update the local view-model data
+        var index = GridData.FindIndex(i => i.Id == updatedItem.Id);
         if (index != -1)
         {
-            GridData[index] = item;
+            GridData[index] = updatedItem;
         }
     }
 
-    private void CreateItem(GridCommandEventArgs args)
+    async Task DeleteItem(GridCommandEventArgs args)
     {
-        // perform actual data source operations here through your service
+        GridDataModel item = (GridDataModel)args.Item;
 
-        var item = args.Item as GridDataModel;
-        item.Id = GridData.Count + 1;
-        GridData.Insert(0, item);
+        // perform actual data source operation here through your service
+        bool isDeleted = await ServiceMimicDelete(item);
+
+        if (isDeleted)
+        {
+            // update the local view-model data
+            GridData.Remove(item);
+        }
     }
 
-    private void DeleteItem(GridCommandEventArgs args)
+    async Task CreateItem(GridCommandEventArgs args)
     {
-        // perform actual data source operations here through your service
-        var item = args.Item as GridDataModel;
-        GridData.Remove(item);
+        GridDataModel item = (GridDataModel)args.Item;
+
+        // perform actual data source operation here through your service
+        GridDataModel insertedItem = await ServiceMimicInsert(item);
+
+        // update the local view-model data
+        GridData.Insert(0, insertedItem);
     }
+
+
+    // the following three methods mimic an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
+
+    async Task<GridDataModel> ServiceMimicInsert(GridDataModel itemToInsert)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        GridDataModel updatedItem = new GridDataModel()
+        {
+            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
+            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
+            Id = GridData.Count + 1,
+            Username = itemToInsert.Username,
+            EmailAddress = itemToInsert.EmailAddress,
+            RegistrationDate = itemToInsert.RegistrationDate,
+            LocalTime = itemToInsert.LocalTime,
+            BoughtBooks = itemToInsert.BoughtBooks
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<GridDataModel> ServiceMimicUpdate(GridDataModel itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        GridDataModel updatedItem = new GridDataModel()
+        {
+            Id = itemToUpdate.Id,
+            Username = itemToUpdate.Username,
+            EmailAddress = itemToUpdate.EmailAddress,
+            RegistrationDate = itemToUpdate.RegistrationDate,
+            LocalTime = itemToUpdate.LocalTime,
+            BoughtBooks = itemToUpdate.BoughtBooks
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<bool> ServiceMimicDelete(GridDataModel itemToDelete)
+    {
+        return await Task.FromResult(true);//always successful
+    }
+
     #endregion
 
     #region data generation

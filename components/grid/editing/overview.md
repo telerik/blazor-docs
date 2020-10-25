@@ -165,7 +165,7 @@ Editing is cancelled for the first two records.
     {
         await Task.Delay(2000); // simulate actual long running async operation
         // in this example, we just populate the fields, you project may use
-        // something else or generate/return the updated item differently
+        // something else or generate the updated item differently
         SampleData updatedItem = new SampleData()
         {
             ID = itemToUpdate.ID,
