@@ -53,20 +53,19 @@ The example below shows how you can handle the events the treelist exposes, so y
 >caption Handling the CRUD events of the treelist to save data to the actual data source
 
 ````CSHTML
-Editing is cancelled for the first record. <br />
+Editing is cancelled for the first record.
+<br />
 
 <TelerikTreeList Data="@Data"
-
                  EditMode="@TreeListEditMode.Inline"
                  OnUpdate="@UpdateItem"
                  OnDelete="@DeleteItem"
                  OnCreate="@CreateItem"
                  OnEdit="@OnEditHandler"
                  OnCancel="@OnCancelHandler"
-                 
                  Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
                  Width="850px">
-                 
+
     <TreeListToolBar>
         <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
     </TreeListToolBar>
@@ -100,14 +99,13 @@ Editing is cancelled for the first record. <br />
         var item = args.Item as Employee;
 
         // perform actual data source operations here through your service
+        Employee updatedItem = await ServiceMimicUpdate(item);
 
-        // if the treelist Data is not tied to the service, you may need to update the local view data too
-        var foundItem = FindItemRecursive(Data, item.Id);
-        if (foundItem != null)
+        // update the local view-model data with the service data
+        Employee localItem = FindItemRecursive(Data, updatedItem.Id);
+        if (localItem != null)
         {
-            foundItem.Name = item.Name;
-            foundItem.HireDate = item.HireDate;
-            foundItem.EmailAddress = item.EmailAddress;
+            localItem = updatedItem;
         }
 
         AppendToLog("Update", args);
@@ -117,11 +115,10 @@ Editing is cancelled for the first record. <br />
     {
         var argsItem = args.Item as Employee;
 
-        // perform actual data source operations here through your service
+        // perform actual data source operation here through your service
+        Employee insertedItem = await ServiceMimicInsert(argsItem);
 
-        // if the treelist Data is not tied to the service, you may need to update the local view data too
-        argsItem.Id = LastId++;
-
+        // update the local view-model data with the service data
         if (args.ParentItem != null)
         {
             var parent = (Employee)args.ParentItem;
@@ -132,11 +129,11 @@ Editing is cancelled for the first record. <br />
                 parent.DirectReports = new List<Employee>();
             }
 
-            parent.DirectReports.Insert(0, argsItem);
+            parent.DirectReports.Insert(0, insertedItem);
         }
         else
         {
-            Data.Insert(0, argsItem);
+            Data.Insert(0, insertedItem);
         }
 
         AppendToLog("Create", args);
@@ -147,9 +144,13 @@ Editing is cancelled for the first record. <br />
         var item = args.Item as Employee;
 
         // perform actual data source operations here through your service
+        bool isDeleted = await ServiceMimicDelete(item);
 
-        // if the treelist Data is not tied to the service, you may need to update the local view data too
-        RemoveChildRecursive(Data, item);
+        if (isDeleted)
+        {
+            // update the local view-model data
+            RemoveChildRecursive(Data, item);
+        }
 
         AppendToLog("Delete", args);
     }
@@ -224,6 +225,48 @@ Editing is cancelled for the first record. <br />
         // if necessary, perform actual data source operation here through your service
 
         AppendToLog("Cancel", args);
+    }
+
+    // the following three methods mimic an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+
+    async Task<Employee> ServiceMimicInsert(Employee itemToInsert)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently, we use "new" here
+        Employee insertedItem = new Employee()
+        {
+            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
+            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
+            Id = Data.Count + 1,
+            Name = itemToInsert.Name,
+            EmailAddress = itemToInsert.EmailAddress,
+            HireDate = itemToInsert.HireDate,
+            HasChildren = itemToInsert.HasChildren,
+            DirectReports = itemToInsert.DirectReports
+        };
+        return await Task.FromResult(insertedItem);
+    }
+
+    async Task<Employee> ServiceMimicUpdate(Employee itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        Employee updatedItem = new Employee()
+        {
+            Id = itemToUpdate.Id,
+            Name = itemToUpdate.Name,
+            EmailAddress = itemToUpdate.EmailAddress,
+            HireDate = itemToUpdate.HireDate,
+            HasChildren = itemToUpdate.HasChildren,
+            DirectReports = itemToUpdate.DirectReports
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<bool> ServiceMimicDelete(Employee itemToDelete)
+    {
+        return await Task.FromResult(true);//always successful
     }
 
     // sample visualization of the results
