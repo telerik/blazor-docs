@@ -122,5 +122,5 @@ In the example below each chunk is "worth" `10 / 4 = 2.5`. The `Value` is `3` so
 
   * [Live Demo: ChunkProgressBar](https://demos.telerik.com/blazor-ui/TODO)
   * [Indeterminate state]({%slug chunkprogressbar-indeterminate-state%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChunkTelerikProgressBar)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikChunkProgressBar)
    

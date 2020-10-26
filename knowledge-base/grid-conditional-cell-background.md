@@ -40,7 +40,7 @@ There are several approaches you can take depending on the goals and situation t
 
 ### OnCellRender and OnRowRender Events
 
-To customize the formatting of the cells you can use the [OnCellRender]({%slug grid-column-events%}oncellrender) event, exposed for the Grid Column.
+To customize the formatting of the cells you can use the [OnCellRender]({%slug grid-column-events%#oncellrender) event, exposed for the Grid Column.
 
 To customize the formatting of the entire row, use the [OnRowRender]({%slug grid-events%}#onrowrender) event for the Grid.
 
