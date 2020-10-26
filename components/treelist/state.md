@@ -622,8 +622,6 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
 >caption Put and item in Edit mode or start Inserting a new item
 
 ````CSHTML
-@page "/"
-
 @* This example shows how to make the grid edit a certain item or start insert operation
     through your own code, without requiring the user to click the Command buttons.
     The buttons that initiate these operations can be anywhere on the page, including inside the grid.
