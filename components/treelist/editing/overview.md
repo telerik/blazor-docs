@@ -40,9 +40,9 @@ The CUD event handlers receive an argument of type `TreeListCommandEventArgs` th
 * `Field` - specific to [InCell editing]({%slug treelist-editing-incell%}) - indicates which is the model field the user changed when updating data.
 * `Value` - specific to [InCell editing]({%slug treelist-editing-incell%}) - indicates what is the new value the user changed when updating data.
 
-<!--
-You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the treelist, or components in a column template) through the [treelist state]({                      %slug treelist-state%}#initiate-editing-or-inserting-of-an-item).
--->
+
+You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the treelist, or components in a column template) through the [treelist state]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item).
+
 
 ## Example
 
@@ -90,9 +90,6 @@ Editing is cancelled for the first record.
 @code {
     public List<Employee> Data { get; set; }
 
-    // used in this example for data generation and retrieval for CUD operations on the current view-model data
-    public int LastId { get; set; } = 1;
-
     // Sample CUD operations for the local data
     async Task UpdateItem(TreeListCommandEventArgs args)
     {
@@ -102,11 +99,7 @@ Editing is cancelled for the first record.
         Employee updatedItem = await ServiceMimicUpdate(item);
 
         // update the local view-model data with the service data
-        Employee localItem = FindItemRecursive(Data, updatedItem.Id);
-        if (localItem != null)
-        {
-            localItem = updatedItem;
-        }
+        UpdateItemRecursive(Data, updatedItem);
 
         AppendToLog("Update", args);
     }
@@ -119,22 +112,7 @@ Editing is cancelled for the first record.
         Employee insertedItem = await ServiceMimicInsert(argsItem);
 
         // update the local view-model data with the service data
-        if (args.ParentItem != null)
-        {
-            var parent = (Employee)args.ParentItem;
-
-            parent.HasChildren = true;
-            if (parent.DirectReports == null)
-            {
-                parent.DirectReports = new List<Employee>();
-            }
-
-            parent.DirectReports.Insert(0, insertedItem);
-        }
-        else
-        {
-            Data.Insert(0, insertedItem);
-        }
+        InsertItemRecursive(Data, insertedItem, args);
 
         AppendToLog("Create", args);
     }
@@ -155,32 +133,46 @@ Editing is cancelled for the first record.
         AppendToLog("Delete", args);
     }
 
+
     // sample helper methods for handling the view-model data hierarchy
-
-    private Employee FindItemRecursive(List<Employee> items, int id)
+    void InsertItemRecursive(List<Employee> Data, Employee insertedItem, TreeListCommandEventArgs args)
     {
-        foreach (var item in items)
+        if (args.ParentItem != null)
         {
-            if (item.Id.Equals(id))
+            var parent = (Employee)args.ParentItem;
+
+            parent.HasChildren = true;
+            if (parent.DirectReports == null)
             {
-                return item;
+                parent.DirectReports = new List<Employee>();
             }
 
-            if (item.DirectReports?.Count > 0)
-            {
-                var childItem = FindItemRecursive(item.DirectReports, id);
-
-                if (childItem != null)
-                {
-                    return childItem;
-                }
-            }
+            parent.DirectReports.Insert(0, insertedItem);
         }
-
-        return null;
+        else
+        {
+            Data.Insert(0, insertedItem);
+        }
     }
 
-    private void RemoveChildRecursive(List<Employee> items, Employee item)
+    void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].Id.Equals(itemToUpdate.Id))
+            {
+                items[i] = itemToUpdate;
+                return;
+            }
+
+            if (items[i].DirectReports?.Count > 0)
+            {
+                UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
+            }
+        }
+    }
+
+    void RemoveChildRecursive(List<Employee> items, Employee item)
     {
         for (int i = 0; i < items.Count(); i++)
         {
@@ -238,7 +230,7 @@ Editing is cancelled for the first record.
         {
             // the service assigns an ID, in this sample we use only the view-model data for simplicity,
             // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
-            Id = Data.Count + 1,
+            Id = LastId++,
             Name = itemToInsert.Name,
             EmailAddress = itemToInsert.EmailAddress,
             HireDate = itemToInsert.HireDate,
@@ -269,6 +261,7 @@ Editing is cancelled for the first record.
         return await Task.FromResult(true);//always successful
     }
 
+
     // sample visualization of the results
     MarkupString logger;
     void AppendToLog(string commandName, TreeListCommandEventArgs args)
@@ -293,9 +286,23 @@ Editing is cancelled for the first record.
 
         public List<Employee> DirectReports { get; set; }
         public bool HasChildren { get; set; }
+
+        // Used for the editing so replacing the object in the view-model data
+        // will treat it as the same object and keep its state - otherwise it will
+        // collapse after editing is done, which is not what the user would expect
+        public override bool Equals(object obj)
+        {
+            if (obj is Employee)
+            {
+                return this.Id == (obj as Employee).Id;
+            }
+            return false;
+        }
     }
 
     // data generation
+    // used in this example for data generation and assigning an ID to newly inserted items
+    public int LastId { get; set; } = 1;
 
     protected override async Task OnInitializedAsync()
     {
