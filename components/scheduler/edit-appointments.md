@@ -96,6 +96,8 @@ The example below shows the signature of the event handlers so you can copy the 
 @* This sample implements only updates to the view model. Your app must also update the database in the CUD events.
     This example uses the default field names for data binding *@
 
+There is a deliberate delay in the CUD operations in this sample to showcase their async nature
+
 <TelerikScheduler Data="@Appointments"
                   OnUpdate="@UpdateAppointment"
                   OnCreate="@AddAppointment"
@@ -111,54 +113,51 @@ The example below shows the signature of the event handlers so you can copy the 
 </TelerikScheduler>
 
 @code {
-    // Sample CUD operations over the local data
-    // In a real case, carry the information over to the actual data source
-    void UpdateAppointment(SchedulerUpdateEventArgs args)
+    async Task UpdateAppointment(SchedulerUpdateEventArgs args)
     {
         SchedulerAppointment item = (SchedulerAppointment)args.Item;
-        var matchingItem = Appointments.FirstOrDefault(a => a.Id == item.Id);
-        if (matchingItem != null)
-        {
-            matchingItem.Title = item.Title;
-            matchingItem.Description = item.Description;
-            matchingItem.Start = item.Start;
-            matchingItem.End = item.End;
-            matchingItem.IsAllDay = item.IsAllDay;
-            matchingItem.RecurrenceExceptions = item.RecurrenceExceptions;
-            matchingItem.RecurrenceRule = item.RecurrenceRule;
-        }
 
-        // save to the actual data source here
+        // perform actual data source operations here through your service
+        SchedulerAppointment updatedItem = await ServiceMimicUpdate(item);
+
+        // update the local view-model data with the service data
+        var index = Appointments.FindIndex(i => i.Id == updatedItem.Id);
+        if (index != -1)
+        {
+            Appointments[index] = updatedItem;
+        }
     }
 
-    void AddAppointment(SchedulerCreateEventArgs args)
+    async Task AddAppointment(SchedulerCreateEventArgs args)
     {
         SchedulerAppointment item = args.Item as SchedulerAppointment;
-        Appointments.Add(item);
 
-        // save to the actual data source here
+        // perform actual data source operation here through your service
+        SchedulerAppointment insertedItem = await ServiceMimicInsert(item);
+
+        // update the local view-model data with the service data
+        Appointments.Add(insertedItem);
     }
 
-    void DeleteAppointment(SchedulerDeleteEventArgs args)
+    async Task DeleteAppointment(SchedulerDeleteEventArgs args)
     {
         SchedulerAppointment item = (SchedulerAppointment)args.Item;
-        Appointments.Remove(item);
 
-        if(item.RecurrenceId != null)
+        // perform actual data source operation here through your service
+        bool isDeleted = await ServiceMimicDelete(item);
+
+        if (isDeleted)
         {
-            // a recurrence exception was deleted, you may want to update
-            // the actual data source - an item where theItem.Id == item.RecurrenceId
-            // and remove the current exception date from the list of its RecurrenceExceptions
+            // update the local view-model data
+            Appointments.Remove(item);
         }
 
-        if (!string.IsNullOrEmpty(item.RecurrenceRule) && item.RecurrenceExceptions?.Count > 0)
-        {
-            // a recurring appointment was deleted that had exceptions, you may want to
-            // delete or update any exceptions from the data source - look for
-            // items where theItem.RecurrenceId == item.Id
-        }
-
-        // save to the actual data source here
+        // see the comments in the service mimic method below.
+        // if you do perform additional data source updates, you may want to
+        // also fetch the entire scheduler data anew to ensure correct and fresh data
+        // this also applies to the other CUD methods above
+        // something like the following can refresh the data
+        // Appointments = await AppointmentService.GetData();
     }
 
     //Handlers for application logic flexibility
@@ -188,6 +187,74 @@ The example below shows the signature of the event handlers so you can copy the 
         // the model you get contains the new data from the edit form so you can see what they did
         SchedulerAppointment item = args.Item as SchedulerAppointment;
     }
+
+
+    // the following three methods mimic an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+
+    async Task<SchedulerAppointment> ServiceMimicInsert(SchedulerAppointment itemToInsert)
+    {
+        await Task.Delay(1000); // simulate actual long running async operation
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently, we use "new" here
+        SchedulerAppointment updatedItem = new SchedulerAppointment()
+        {
+            Id  = Guid.NewGuid(),
+            Title = itemToInsert.Title,
+            Description = itemToInsert.Description,
+            Start = itemToInsert.Start,
+            End = itemToInsert.End,
+            IsAllDay = itemToInsert.IsAllDay,
+            RecurrenceExceptions = itemToInsert.RecurrenceExceptions,
+            RecurrenceRule = itemToInsert.RecurrenceRule,
+            RecurrenceId = itemToInsert.RecurrenceId
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<SchedulerAppointment> ServiceMimicUpdate(SchedulerAppointment itemToUpdate)
+    {
+        await Task.Delay(1000); // simulate actual long running async operation
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        SchedulerAppointment updatedItem = new SchedulerAppointment()
+        {
+            Id = itemToUpdate.Id,
+            Title = itemToUpdate.Title,
+            Description = itemToUpdate.Description,
+            Start = itemToUpdate.Start,
+            End = itemToUpdate.End,
+            IsAllDay = itemToUpdate.IsAllDay,
+            RecurrenceExceptions = itemToUpdate.RecurrenceExceptions,
+            RecurrenceRule = itemToUpdate.RecurrenceRule,
+            RecurrenceId = itemToUpdate.RecurrenceId
+        };
+
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<bool> ServiceMimicDelete(SchedulerAppointment itemToDelete)
+    {
+        await Task.Delay(1000); // simulate actual long running async operation
+
+
+        if (itemToDelete.RecurrenceId != null)
+        {
+            // a recurrence exception was deleted, you may want to update
+            // the actual data source - an item where theItem.Id == item.RecurrenceId
+            // and remove the current exception date from the list of its RecurrenceExceptions
+        }
+
+        if (!string.IsNullOrEmpty(itemToDelete.RecurrenceRule) && itemToDelete.RecurrenceExceptions?.Count > 0)
+        {
+            // a recurring appointment was deleted that had exceptions, you may want to
+            // delete or update any exceptions from the data source - look for
+            // items where theItem.RecurrenceId == item.Id
+        }
+
+        return await Task.FromResult(true);//always successful
+    }
+
 
     // sample data and scheduler settings
     public SchedulerView CurrView { get; set; } = SchedulerView.Week;

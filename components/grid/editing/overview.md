@@ -45,9 +45,7 @@ You can initiate editing or inserting of an item from anywhere on the page (butt
 
 The example below shows how you can handle the events the grid exposes, so you can Create, Update or Delete records in your data source and the view model.
 
->tip The grid events use `EventCallback` and can be synchronous or asynchronous. The example below shows async versions, and the signature for synchronous events is `void <MethodName>(GridCommandEventArgs args)`.
-
->caption Handling the CRUD events of the grid to save data to the actual data source
+>caption Handling the CRUD events of the grid to save data to the actual data source (mocked with local methods in this example, see the code comments for details)
 
 ````CSHTML
 Editing is cancelled for the first two records.
@@ -94,14 +92,13 @@ Editing is cancelled for the first two records.
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operations here through your service
-
-        await Task.Delay(2000); // simulate actual long running async operation
-
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        var index = MyData.FindIndex(i => i.ID == item.ID);
+        SampleData updatedItem = await ServiceMimicUpdate(item);
+        
+        // update the local view-model data with the service data
+        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
         if (index != -1)
         {
-            MyData[index] = item;
+            MyData[index] = updatedItem;
         }
     }
 
@@ -112,11 +109,13 @@ Editing is cancelled for the first two records.
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operation here through your service
-
-        await Task.Delay(2000); // simulate actual long running async operation
-
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        MyData.Remove(item);
+        bool isDeleted = await ServiceMimicDelete(item);
+        
+        if (isDeleted)
+        {
+            // update the local view-model data
+            MyData.Remove(item);
+        }
     }
 
     async Task CreateHandler(GridCommandEventArgs args)
@@ -126,12 +125,10 @@ Editing is cancelled for the first two records.
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operation here through your service
-
-        await Task.Delay(2000); // simulate actual long running async operation
-
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        item.ID = MyData.Count + 1;
-        MyData.Insert(0, item);
+        SampleData insertedItem = await ServiceMimicInsert(item);
+        
+        // update the local view-model data with the service data
+        MyData.Insert(0, insertedItem);
     }
 
     async Task CancelHandler(GridCommandEventArgs args)
@@ -144,6 +141,46 @@ Editing is cancelled for the first two records.
 
         await Task.Delay(1000); //simulate actual long running async operation
     }
+
+    // the following three methods mimic an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
+
+    async Task<SampleData> ServiceMimicInsert(SampleData itemToInsert)
+    {
+        await Task.Delay(2000); // simulate actual long running async operation
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently, we use "new" here
+        SampleData updatedItem = new SampleData()
+        {
+            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
+            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
+            ID = MyData.Count + 1,
+            Name = itemToInsert.Name
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
+    {
+        await Task.Delay(2000); // simulate actual long running async operation
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            ID = itemToUpdate.ID,
+            Name = itemToUpdate.Name
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<bool> ServiceMimicDelete(SampleData itemToDelete)
+    {
+        await Task.Delay(2000); // simulate actual long running async operation
+        return await Task.FromResult(true);//always successful
+    }
+
+    // this method and field just display what happened for visual cues in this example
 
     MarkupString logger;
     void AppendToLog(string commandName, GridCommandEventArgs args)
@@ -182,6 +219,8 @@ Editing is cancelled for the first two records.
     }
 }
 ````
+
+>tip The grid events use `EventCallback` and can be synchronous or asynchronous. The example above shows async versions, and the signature for synchronous events is `void <MethodName>(GridCommandEventArgs args)`.
 
 ## Notes
 

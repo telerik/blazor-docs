@@ -20,7 +20,7 @@ If you need to perform logic more complex than simple data binding, use the chan
 
 ````CSHTML
 @* This example shows how to use a dropdownlist to edit strings. You can implement any desired logic instead.
-If you have an enum, the treelist can edit and filter it out-of-the-box without the need for an edit template *@
+    If you have an enum, the treelist can edit and filter it out-of-the-box without the need for an edit template *@
 @* For brevity, only Editing is implemented in this sample *@
 
 <TelerikTreeList Data="@Data"
@@ -57,52 +57,56 @@ If you have an enum, the treelist can edit and filter it out-of-the-box without 
     public static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
     public Employee CurrentlyEditedEmployee { get; set; }
 
-    // used in this example for data generation and retrieval for CUD operations on the current view-model data
-    public int LastId { get; set; } = 1;
-
     // Sample CUD operations for the local data
     async Task UpdateItem(TreeListCommandEventArgs args)
     {
         var item = args.Item as Employee; // you can also use the entire model
 
         // perform actual data source operations here through your service
+        Employee updatedItem = await ServiceMimicUpdate(item);
 
-        // if the treelist Data is not tied to the service, you may need to update the local view data too
-        var foundItem = FindItemRecursive(Data, item.Id);
-        if (foundItem != null)
-        {
-            foundItem.Name = item.Name;
-            foundItem.Role = item.Role;
-            foundItem.HireDate = item.HireDate;
-            foundItem.EmailAddress = item.EmailAddress;
-        }
+        // update the local view-model data with the service data
+        UpdateItemRecursive(Data, updatedItem);
     }
 
 
-    // sample helper methods for handling the view-model data hierarchy
-
-    private Employee FindItemRecursive(List<Employee> items, int id)
+    // sample helper method for handling the view-model data hierarchy
+    void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
     {
-        foreach (var item in items)
+        for (int i = 0; i < items.Count; i++)
         {
-            if (item.Id.Equals(id))
+            if (items[i].Id.Equals(itemToUpdate.Id))
             {
-                return item;
+                items[i] = itemToUpdate;
+                return;
             }
 
-            if (item.DirectReports?.Count > 0)
+            if (items[i].DirectReports?.Count > 0)
             {
-                var childItem = FindItemRecursive(item.DirectReports, id);
-
-                if (childItem != null)
-                {
-                    return childItem;
-                }
+                UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
             }
         }
-
-        return null;
     }
+
+    // the following method mimics an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+    async Task<Employee> ServiceMimicUpdate(Employee itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        Employee updatedItem = new Employee()
+        {
+            Id = itemToUpdate.Id,
+            Name = itemToUpdate.Name,
+            Role = itemToUpdate.Role,
+            EmailAddress = itemToUpdate.EmailAddress,
+            HireDate = itemToUpdate.HireDate,
+            HasChildren = itemToUpdate.HasChildren,
+            DirectReports = itemToUpdate.DirectReports
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
 
     // sample model
 
@@ -116,6 +120,18 @@ If you have an enum, the treelist can edit and filter it out-of-the-box without 
 
         public List<Employee> DirectReports { get; set; }
         public bool HasChildren { get; set; }
+
+        // Used for the editing so replacing the object in the view-model data
+        // will treat it as the same object and keep its state - otherwise it will
+        // collapse after editing is done, which is not what the user would expect
+        public override bool Equals(object obj)
+        {
+            if (obj is Employee)
+            {
+                return this.Id == (obj as Employee).Id;
+            }
+            return false;
+        }
     }
 
     // data generation
@@ -128,6 +144,7 @@ If you have an enum, the treelist can edit and filter it out-of-the-box without 
     async Task<List<Employee>> GetTreeListData()
     {
         List<Employee> data = new List<Employee>();
+        int LastId = 1;
 
         for (int i = 1; i < 15; i++)
         {

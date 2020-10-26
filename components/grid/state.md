@@ -119,7 +119,6 @@ The following example shows one way you can store the grid state - through a cus
 ````Component
 @inject LocalStorage LocalStorage
 @inject IJSRuntime JsInterop
-@using Telerik.DataSource;
 
 Change something in the grid (like sort, filter, select, page, resize columns, etc.), then reload the page to see the grid state fetched from the browser local storage.
 <br />
@@ -210,30 +209,82 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
 
     // Sample CRUD operations
 
-    private void CreateItem(GridCommandEventArgs args)
+    async Task UpdateItem(GridCommandEventArgs args)
     {
-        var argsItem = args.Item as SampleData;
+        SampleData item = (SampleData)args.Item;
 
-        argsItem.Id = GridData.Count + 1;
+        // perform actual data source operations here through your service
+        SampleData updatedItem = await ServiceMimicUpdate(item);
 
-        GridData.Insert(0, argsItem);
-    }
-
-    private void DeleteItem(GridCommandEventArgs args)
-    {
-        var argsItem = args.Item as SampleData;
-
-        GridData.Remove(argsItem);
-    }
-
-    private void UpdateItem(GridCommandEventArgs args)
-    {
-        var argsItem = args.Item as SampleData;
-        var index = GridData.FindIndex(i => i.Id == argsItem.Id);
+        // update the local view-model data
+        var index = GridData.FindIndex(i => i.Id == updatedItem.Id);
         if (index != -1)
         {
-            GridData[index] = argsItem;
+            GridData[index] = updatedItem;
         }
+    }
+
+    async Task DeleteItem(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        // perform actual data source operation here through your service
+        bool isDeleted = await ServiceMimicDelete(item);
+
+        if (isDeleted)
+        {
+            // update the local view-model data
+            GridData.Remove(item);
+        }
+    }
+
+    async Task CreateItem(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        // perform actual data source operation here through your service
+        SampleData insertedItem = await ServiceMimicInsert(item);
+
+        // update the local view-model data
+        GridData.Insert(0, insertedItem);
+    }
+
+
+    // the following three methods mimic an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
+
+    async Task<SampleData> ServiceMimicInsert(SampleData itemToInsert)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
+            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
+            Id = GridData.Count + 1,
+            Name = itemToInsert.Name,
+            Team = itemToInsert.Team
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            Id = itemToUpdate.Id,
+            Name = itemToUpdate.Name,
+            Team = itemToUpdate.Team
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<bool> ServiceMimicDelete(SampleData itemToDelete)
+    {
+        return await Task.FromResult(true);//always successful
     }
 
     // Sample data follows below
@@ -482,8 +533,8 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 @* This example shows how to make the grid edit a certain item or start insert operation
     through your own code, without requiring the user to click the Command buttons.
     The buttons that initiate these operations can be anywhere on the page, inlcuding inside the grid.
-    Note the model constructors and static method that show how to get a new instance for the edit item 
-    *@
+    Note the model constructors and static method that show how to get a new instance for the edit item
+*@
 
 <TelerikButton OnClick="@StartInsert">Start Insert operation</TelerikButton>
 <TelerikButton OnClick="@EditItemFour">Put item 4 in Edit mode</TelerikButton>
@@ -539,26 +590,80 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
     async Task UpdateHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
-        var index = MyData.FindIndex(i => i.ID == item.ID);
+
+        // perform actual data source operations here through your service
+        SampleData updatedItem = await ServiceMimicUpdate(item);
+
+        // update the local view-model data
+        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
         if (index != -1)
         {
-            MyData[index] = item;
+            MyData[index] = updatedItem;
         }
     }
 
     async Task DeleteHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
-        MyData.Remove(item);
+
+        // perform actual data source operation here through your service
+        bool isDeleted = await ServiceMimicDelete(item);
+
+        if (isDeleted)
+        {
+            // update the local view-model data
+            MyData.Remove(item);
+        }
     }
 
     async Task CreateHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
-        item.ID = MyData.Count + 1;
-        MyData.Insert(0, item);
 
+        // perform actual data source operation here through your service
+        SampleData insertedItem = await ServiceMimicInsert(item);
+
+        // update the local view-model data
+        MyData.Insert(0, insertedItem);
     }
+
+
+    // the following three methods mimic an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
+
+    async Task<SampleData> ServiceMimicInsert(SampleData itemToInsert)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
+            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
+            ID = MyData.Count + 1,
+            Name = itemToInsert.Name
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            ID = itemToUpdate.ID,
+            Name = itemToUpdate.Name
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<bool> ServiceMimicDelete(SampleData itemToDelete)
+    {
+        return await Task.FromResult(true);//always successful
+    }
+
+    // Sample class definition - note the constructors, overrides and comments
 
     public class SampleData
     {

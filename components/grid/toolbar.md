@@ -35,56 +35,100 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
 @result
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="@GridEditMode.Inline" Height="500px"
-            OnUpdate="@UpdateHandler" OnCreate="@CreateHandler">
-	<GridToolBar>
-		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-	</GridToolBar>
-	<GridColumns>
-		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-		<GridCommandColumn>
-			<GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-			<GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
-		</GridCommandColumn>
-	</GridColumns>
+             OnUpdate="@UpdateHandler" OnCreate="@CreateHandler">
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
+        <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
 </TelerikGrid>
 
 @code {
-	string result;
+    string result;
 
-	private void UpdateHandler(GridCommandEventArgs args)
-	{
-		SampleData alteredItem = args.Item as SampleData;
-		
-		result = string.Format("Employee with ID {0} now has name {1} and hire date {2}", alteredItem.ID, alteredItem.Name, alteredItem.HireDate);
-		
-		StateHasChanged();
-	}
-	
-	private void CreateHandler(GridCommandEventArgs args)
-	{
-		SampleData alteredItem = args.Item as SampleData;
-	    
-	    result = string.Format("On {2} you added the employee {0} who was hired on {1}.", alteredItem.Name, alteredItem.HireDate, DateTime.Now);
-	    
-		StateHasChanged();
-	}
+    private async Task UpdateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = args.Item as SampleData;
 
-	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-		public DateTime HireDate { get; set; }
-	}
+        // perform actual data source operations here through your service
+        SampleData updatedItem = await ServiceMimicUpdate(item);
 
-	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		ID = x,
-		Name = "name " + x,
-		HireDate = DateTime.Now.AddDays(-x)
-	});
+        // update the local view-model data
+        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
+        if (index != -1)
+        {
+            MyData[index] = updatedItem;
+        }
+
+        result = string.Format("Employee with ID {0} now has name {1} and hire date {2}", updatedItem.ID, updatedItem.Name, updatedItem.HireDate);
+    }
+
+    private async Task CreateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = args.Item as SampleData;
+
+        // perform actual data source operation here through your service
+        SampleData insertedItem = await ServiceMimicInsert(item);
+
+        // update the local view-model data
+        MyData.Insert(0, insertedItem);
+
+        result = string.Format("On {2} you added the employee {0} who was hired on {1}.", insertedItem.Name, insertedItem.HireDate, DateTime.Now);
+    }
+
+    // the following two methods mimic an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
+
+    async Task<SampleData> ServiceMimicInsert(SampleData itemToInsert)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
+            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
+            ID = MyData.Count + 1,
+            Name = itemToInsert.Name,
+            HireDate = itemToInsert.HireDate
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            ID = itemToUpdate.ID,
+            Name = itemToUpdate.Name,
+            HireDate = itemToUpdate.HireDate
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+    public class SampleData
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    public List<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
+    {
+        ID = x,
+        Name = "name " + x,
+        HireDate = DateTime.Now.AddDays(-x)
+    }).ToList();
 }
 ````
 

@@ -617,15 +617,20 @@ The example below shows how to achieve it by using the`OnStateChanged` event.
 
 The TreeList state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the TreeList state. If you want to save on every keystroke instead of on `OnChange` - use a custom editor template and update the `EditItem` or `InsertedItem` of the state object as required, then save the state into your service.
 
-In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `InsertItem` fields of the state object to put the TreeList in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug treelist-columns-command%}).
+In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `InsertItem` and `ParentItem` fields of the state object to put the TreeList in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug treelist-columns-command%}).
 
 >caption Put and item in Edit mode or start Inserting a new item
 
 ````CSHTML
-@using Telerik.DataSource;
+@* This example shows how to make the grid edit a certain item or start insert operation
+    through your own code, without requiring the user to click the Command buttons.
+    The buttons that initiate these operations can be anywhere on the page, including inside the grid.
+    Note the model constructors and static method that show how to get a new instance for the edit item
+*@
 
-<TelerikButton OnClick="@EnterEditMode">Edit item 3</TelerikButton>
+<TelerikButton OnClick="@EnterEditMode">Edit item 2</TelerikButton>
 <TelerikButton OnClick="@InsertItem">Insert Item</TelerikButton>
+<TelerikButton OnClick="@InsertItemAsSpecificChild">Insert Item as child of Item 3</TelerikButton>
 
 
 <TelerikTreeList Data="@Data"
@@ -663,7 +668,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
     {
         var state = TreeListRef.GetState();
 
-        Employee employeeToEdit = Employee.GetClonedInstance(FindItemRecursive(Data, 3));
+        Employee employeeToEdit = Employee.GetClonedInstance(FindItemRecursive(Data, 2));
         state.OriginalEditItem = employeeToEdit;
         await TreeListRef.SetState(state);
     }
@@ -675,58 +680,55 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         await TreeListRef.SetState(state);
     }
 
-    public List<Employee> Data { get; set; }
+    async Task InsertItemAsSpecificChild()
+    {
+        var state = TreeListRef.GetState();
+        state.InsertedItem = new Employee();
+        state.ParentItem = FindItemRecursive(Data, 3);
+        await TreeListRef.SetState(state);
+    }
 
-    // used in this example for data generation and retrieval for CUD operations on the current view-model data
-    public int LastId { get; set; } = 1;
+    public List<Employee> Data { get; set; }
 
     // Sample CUD operations for the local data
     async Task UpdateItem(TreeListCommandEventArgs args)
     {
         var item = args.Item as Employee;
 
-        var foundItem = FindItemRecursive(Data, item.Id);
-        if (foundItem != null)
-        {
-            foundItem.Name = item.Name;
-            foundItem.HireDate = item.HireDate;
-            foundItem.EmailAddress = item.EmailAddress;
-        }
+        // perform actual data source operations here through your service
+        Employee updatedItem = await ServiceMimicUpdate(item);
+
+        // update the local view-model data with the service data
+        UpdateItemRecursive(Data, updatedItem);
     }
 
     async Task CreateItem(TreeListCommandEventArgs args)
     {
         var argsItem = args.Item as Employee;
 
-        argsItem.Id = LastId++;
+        // perform actual data source operation here through your service
+        Employee insertedItem = await ServiceMimicInsert(argsItem);
 
-        if (args.ParentItem != null)
-        {
-            var parent = (Employee)args.ParentItem;
-
-            parent.HasChildren = true;
-            if (parent.DirectReports == null)
-            {
-                parent.DirectReports = new List<Employee>();
-            }
-
-            parent.DirectReports.Insert(0, argsItem);
-        }
-        else
-        {
-            Data.Insert(0, argsItem);
-        }
+        // update the local view-model data with the service data
+        InsertItemRecursive(Data, insertedItem, args);
     }
 
     async Task DeleteItem(TreeListCommandEventArgs args)
     {
         var item = args.Item as Employee;
 
-        RemoveChildRecursive(Data, item);
+        // perform actual data source operations here through your service
+        bool isDeleted = await ServiceMimicDelete(item);
+
+        if (isDeleted)
+        {
+            // update the local view-model data
+            RemoveChildRecursive(Data, item);
+        }
     }
 
-    // sample helper methods for handling the view-model data hierarchy
 
+    // sample helper methods for handling the view-model data hierarchy
     private Employee FindItemRecursive(List<Employee> items, int id)
     {
         foreach (var item in items)
@@ -750,7 +752,44 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         return null;
     }
 
-    private void RemoveChildRecursive(List<Employee> items, Employee item)
+    void InsertItemRecursive(List<Employee> Data, Employee insertedItem, TreeListCommandEventArgs args)
+    {
+        if (args.ParentItem != null)
+        {
+            var parent = (Employee)args.ParentItem;
+
+            parent.HasChildren = true;
+            if (parent.DirectReports == null)
+            {
+                parent.DirectReports = new List<Employee>();
+            }
+
+            parent.DirectReports.Insert(0, insertedItem);
+        }
+        else
+        {
+            Data.Insert(0, insertedItem);
+        }
+    }
+
+    void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].Id.Equals(itemToUpdate.Id))
+            {
+                items[i] = itemToUpdate;
+                return;
+            }
+
+            if (items[i].DirectReports?.Count > 0)
+            {
+                UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
+            }
+        }
+    }
+
+    void RemoveChildRecursive(List<Employee> items, Employee item)
     {
         for (int i = 0; i < items.Count(); i++)
         {
@@ -773,6 +812,48 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
     }
 
 
+    // the following three methods mimic an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+
+    async Task<Employee> ServiceMimicInsert(Employee itemToInsert)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently, we use "new" here
+        Employee insertedItem = new Employee()
+        {
+            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
+            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
+            Id = LastId++,
+            Name = itemToInsert.Name,
+            EmailAddress = itemToInsert.EmailAddress,
+            HireDate = itemToInsert.HireDate,
+            HasChildren = itemToInsert.HasChildren,
+            DirectReports = itemToInsert.DirectReports
+        };
+        return await Task.FromResult(insertedItem);
+    }
+
+    async Task<Employee> ServiceMimicUpdate(Employee itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        Employee updatedItem = new Employee()
+        {
+            Id = itemToUpdate.Id,
+            Name = itemToUpdate.Name,
+            EmailAddress = itemToUpdate.EmailAddress,
+            HireDate = itemToUpdate.HireDate,
+            HasChildren = itemToUpdate.HasChildren,
+            DirectReports = itemToUpdate.DirectReports
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<bool> ServiceMimicDelete(Employee itemToDelete)
+    {
+        return await Task.FromResult(true);//always successful
+    }
+
     // sample model
 
     public class Employee
@@ -786,6 +867,11 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         public List<Employee> DirectReports { get; set; }
         public bool HasChildren { get; set; }
 
+        // example of comparing stored items (from editing or selection)
+        // with items from the current data source - IDs are used instead of the default references
+        // Also used for the editing so replacing the object in the view-model data
+        // will treat it as the same object and keep its state - otherwise it will
+        // collapse after editing is done, which is not what the user would expect
         public override bool Equals(object obj)
         {
             if (obj is Employee)
@@ -795,6 +881,11 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
             return false;
         }
 
+        // define constructors and a static method so we can deep clone instances
+        // we use that to define the edited item - otherwise the references will point
+        // to the item in the grid data sources and all changes will happen immediately on
+        // the Data collection, and we don't want that - so we need a deep clone with its own reference
+        // this is just one way to implement this, you can do it in a different way
         public Employee()
         {
 
@@ -804,6 +895,10 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         {
             this.Id = itmToClone.Id;
             this.Name = itmToClone.Name;
+            this.EmailAddress = itmToClone.EmailAddress;
+            this.HireDate = itmToClone.HireDate;
+            this.DirectReports = itmToClone.DirectReports != null ? new List<Employee>(itmToClone.DirectReports) : new List<Employee>();
+            this.HasChildren = itmToClone.HasChildren;
         }
 
         public static Employee GetClonedInstance(Employee itmToClone)
@@ -813,6 +908,8 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
     }
 
     // data generation
+    // used in this example for data generation and assigning an ID to newly inserted items
+    public int LastId { get; set; } = 1;
 
     protected override async Task OnInitializedAsync()
     {
@@ -866,8 +963,6 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
                 }
             }
         }
-
-        data[0].Name += " (non-editable, see OnEdit)";
 
         return await Task.FromResult(data);
     }

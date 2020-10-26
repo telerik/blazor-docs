@@ -45,10 +45,10 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 
 ````CSHTML
 @* This sample showcases custom command handling for:
-    - the built-in Save command that prevents it based on some condition
+    - the built-in Save command that prevents it based on some condition (Name contains "3")
     - a custom command for a row
-    *@
-    
+*@
+
 @CustomCommandResult
 
 <TelerikGrid Data=@GridData EditMode="@GridEditMode.Inline" OnUpdate="@MyUpdateHandler"
@@ -110,12 +110,31 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
     private async Task MyUpdateHandler(GridCommandEventArgs args)
     {
         SampleData theUpdatedItem = args.Item as SampleData;
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        var index = GridData.FindIndex(i => i.ID == theUpdatedItem.ID);
+        SampleData updatedItem = await ServiceMimicUpdate(theUpdatedItem);
+
+        // update the local view-model data
+        var index = GridData.FindIndex(i => i.ID == updatedItem.ID);
         if (index != -1)
         {
-            GridData[index] = theUpdatedItem;
+            GridData[index] = updatedItem;
         }
+    }
+
+    // the following method mimics an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
+
+    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        SampleData updatedItem = new SampleData()
+        {
+            ID = itemToUpdate.ID,
+            HireDate = itemToUpdate.HireDate,
+            Name = itemToUpdate.Name
+        };
+        return await Task.FromResult(updatedItem);
     }
 }
 ````
