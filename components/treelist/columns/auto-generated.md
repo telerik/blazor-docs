@@ -359,6 +359,18 @@ This example shows how to:
 
         [Display(Name = "Hire Date")]
         public DateTime HireDate { get; set; }
+
+        // Used for the editing so replacing the object in the view-model data
+        // will treat it as the same object and keep its state - otherwise it will
+        // collapse after editing is done, which is not what the user would expect
+        public override bool Equals(object obj)
+        {
+            if (obj is Employee)
+            {
+                return this.Id == (obj as Employee).Id;
+            }
+            return false;
+        }
     }
 
     // basic Update operation, the rest is not implemented for brevity
@@ -374,6 +386,8 @@ This example shows how to:
         var index = Data.FindIndex(x => x.Id == updatedItem.Id);
         if (index != -1)
         {
+            // see the Equals override in the model - it ensures this is the same
+            // object from the treelist point of view and its state
             Data[index] = updatedItem;
         }
     }
