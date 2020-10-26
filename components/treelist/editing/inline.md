@@ -22,7 +22,8 @@ To enable Inline editing in the treelist, set its `EditMode` property to `Teleri
 >caption The Command buttons and the treelist events let you handle data operations in Inline edit mode
 
 ````CSHTML
-Editing is cancelled for the first record. <br />
+Editing is cancelled for the first record.
+<br />
 
 <TelerikTreeList Data="@Data"
                  EditMode="@TreeListEditMode.Inline"
@@ -55,35 +56,46 @@ Editing is cancelled for the first record. <br />
 @code {
     public List<Employee> Data { get; set; }
 
-    // used in this example for data generation and retrieval for CUD operations on the current view-model data
-    public int LastId { get; set; } = 1;
-
     // Sample CUD operations for the local data
     async Task UpdateItem(TreeListCommandEventArgs args)
     {
         var item = args.Item as Employee;
 
         // perform actual data source operations here through your service
+        Employee updatedItem = await ServiceMimicUpdate(item);
 
-        // if the treelist Data is not tied to the service, you may need to update the local view data too
-        var foundItem = FindItemRecursive(Data, item.Id);
-        if (foundItem != null)
-        {
-            foundItem.Name = item.Name;
-            foundItem.HireDate = item.HireDate;
-            foundItem.EmailAddress = item.EmailAddress;
-        }
+        // update the local view-model data with the service data
+        UpdateItemRecursive(Data, updatedItem);
     }
 
     async Task CreateItem(TreeListCommandEventArgs args)
     {
         var argsItem = args.Item as Employee;
 
+        // perform actual data source operation here through your service
+        Employee insertedItem = await ServiceMimicInsert(argsItem);
+
+        // update the local view-model data with the service data
+        InsertItemRecursive(Data, insertedItem, args);
+    }
+
+    async Task DeleteItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+
         // perform actual data source operations here through your service
+        bool isDeleted = await ServiceMimicDelete(item);
 
-        // if the treelist Data is not tied to the service, you may need to update the local view data too
-        argsItem.Id = LastId++;
+        if (isDeleted)
+        {
+            // update the local view-model data
+            RemoveChildRecursive(Data, item);
+        }
+    }
 
+    // sample helper methods for handling the view-model data hierarchy
+    void InsertItemRecursive(List<Employee> Data, Employee insertedItem, TreeListCommandEventArgs args)
+    {
         if (args.ParentItem != null)
         {
             var parent = (Employee)args.ParentItem;
@@ -94,50 +106,32 @@ Editing is cancelled for the first record. <br />
                 parent.DirectReports = new List<Employee>();
             }
 
-            parent.DirectReports.Insert(0, argsItem);
+            parent.DirectReports.Insert(0, insertedItem);
         }
         else
         {
-            Data.Insert(0, argsItem);
+            Data.Insert(0, insertedItem);
         }
     }
 
-    async Task DeleteItem(TreeListCommandEventArgs args)
+    void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
     {
-        var item = args.Item as Employee;
-
-        // perform actual data source operations here through your service
-
-        // if the treelist Data is not tied to the service, you may need to update the local view data too
-        RemoveChildRecursive(Data, item);
-    }
-
-    // sample helper methods for handling the view-model data hierarchy
-
-    private Employee FindItemRecursive(List<Employee> items, int id)
-    {
-        foreach (var item in items)
+        for (int i = 0; i < items.Count; i++)
         {
-            if (item.Id.Equals(id))
+            if (items[i].Id.Equals(itemToUpdate.Id))
             {
-                return item;
+                items[i] = itemToUpdate;
+                return;
             }
 
-            if (item.DirectReports?.Count > 0)
+            if (items[i].DirectReports?.Count > 0)
             {
-                var childItem = FindItemRecursive(item.DirectReports, id);
-
-                if (childItem != null)
-                {
-                    return childItem;
-                }
+                UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
             }
         }
-
-        return null;
     }
 
-    private void RemoveChildRecursive(List<Employee> items, Employee item)
+    void RemoveChildRecursive(List<Employee> items, Employee item)
     {
         for (int i = 0; i < items.Count(); i++)
         {
@@ -180,6 +174,49 @@ Editing is cancelled for the first record. <br />
         // if necessary, perform actual data source operation here through your service
     }
 
+    // the following three methods mimic an actual data service that handles the actual data source
+    // you can see about implement error and exception handling, determining suitable return types as per your needs
+
+    async Task<Employee> ServiceMimicInsert(Employee itemToInsert)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently, we use "new" here
+        Employee insertedItem = new Employee()
+        {
+            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
+            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
+            Id = LastId++,
+            Name = itemToInsert.Name,
+            EmailAddress = itemToInsert.EmailAddress,
+            HireDate = itemToInsert.HireDate,
+            HasChildren = itemToInsert.HasChildren,
+            DirectReports = itemToInsert.DirectReports
+        };
+        return await Task.FromResult(insertedItem);
+    }
+
+    async Task<Employee> ServiceMimicUpdate(Employee itemToUpdate)
+    {
+        // in this example, we just populate the fields, you project may use
+        // something else or generate the updated item differently
+        Employee updatedItem = new Employee()
+        {
+            Id = itemToUpdate.Id,
+            Name = itemToUpdate.Name,
+            EmailAddress = itemToUpdate.EmailAddress,
+            HireDate = itemToUpdate.HireDate,
+            HasChildren = itemToUpdate.HasChildren,
+            DirectReports = itemToUpdate.DirectReports
+        };
+        return await Task.FromResult(updatedItem);
+    }
+
+    async Task<bool> ServiceMimicDelete(Employee itemToDelete)
+    {
+        return await Task.FromResult(true);//always successful
+    }
+
+
     // sample model
 
     public class Employee
@@ -191,9 +228,23 @@ Editing is cancelled for the first record. <br />
 
         public List<Employee> DirectReports { get; set; }
         public bool HasChildren { get; set; }
+
+        // Used for the editing so replacing the object in the view-model data
+        // will treat it as the same object and keep its state - otherwise it will
+        // collapse after editing is done, which is not what the user would expect
+        public override bool Equals(object obj)
+        {
+            if (obj is Employee)
+            {
+                return this.Id == (obj as Employee).Id;
+            }
+            return false;
+        }
     }
 
     // data generation
+    // used in this example for data generation and assigning an ID to newly inserted items
+    public int LastId { get; set; } = 1;
 
     protected override async Task OnInitializedAsync()
     {
