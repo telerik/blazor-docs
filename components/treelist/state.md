@@ -617,11 +617,13 @@ The example below shows how to achieve it by using the`OnStateChanged` event.
 
 The TreeList state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the TreeList state. If you want to save on every keystroke instead of on `OnChange` - use a custom editor template and update the `EditItem` or `InsertedItem` of the state object as required, then save the state into your service.
 
-In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `InsertItem` fields of the state object to put the TreeList in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug treelist-columns-command%}).
+In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `InsertItem` and `ParentItem` fields of the state object to put the TreeList in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug treelist-columns-command%}).
 
 >caption Put and item in Edit mode or start Inserting a new item
 
 ````CSHTML
+@page "/"
+
 @* This example shows how to make the grid edit a certain item or start insert operation
     through your own code, without requiring the user to click the Command buttons.
     The buttons that initiate these operations can be anywhere on the page, including inside the grid.
@@ -630,6 +632,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 
 <TelerikButton OnClick="@EnterEditMode">Edit item 2</TelerikButton>
 <TelerikButton OnClick="@InsertItem">Insert Item</TelerikButton>
+<TelerikButton OnClick="@InsertItemAsSpecificChild">Insert Item as child of Item 3</TelerikButton>
 
 
 <TelerikTreeList Data="@Data"
@@ -676,6 +679,14 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
     {
         var state = TreeListRef.GetState();
         state.InsertedItem = new Employee() { Name = "added from code" };
+        await TreeListRef.SetState(state);
+    }
+
+    async Task InsertItemAsSpecificChild()
+    {
+        var state = TreeListRef.GetState();
+        state.InsertedItem = new Employee();
+        state.ParentItem = FindItemRecursive(Data, 3);
         await TreeListRef.SetState(state);
     }
 
