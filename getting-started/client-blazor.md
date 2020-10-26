@@ -99,12 +99,7 @@ For a client-side `Blazor App`, we recommend the usage of **`Blazor (ASP.NET Hos
         @using Telerik.Blazor
         @using Telerik.Blazor.Components
 
-1. @[template](/_contentTemplates/common/get-started.md#telerik-main-container-text)
-
-    **MainLayout.razor**
-    
-        @[template](/_contentTemplates/common/get-started.md#telerik-main-container-snippet)
-
+@[template](/_contentTemplates/common/get-started.md#root-component-steps)
 
 
 

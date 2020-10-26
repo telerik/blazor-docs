@@ -107,12 +107,9 @@ You can have the project recognize all our components without explicit `@using` 
 @using Telerik.Blazor.Components
 ````
 
-To allow working with detached popups (for example, dropdown lists, menus, grid filters, etc.), a Telerik-specific Blazor component is needed at the root level of the DOM.
-@[template](/_contentTemplates/common/get-started.md#telerik-main-container-text)
+>caption To allow working with detached popups (for example, dropdown lists, menus, grid filters, etc.), a Telerik-specific Blazor component is needed at the root level of the DOM.
 
-````CSHTML
-@[template](/_contentTemplates/common/get-started.md#telerik-main-container-snippet)
-````
+@[template](/_contentTemplates/common/get-started.md#root-component-steps)
 
 ### Client-side Project Specifics
 

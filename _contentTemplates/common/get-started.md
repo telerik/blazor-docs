@@ -167,38 +167,25 @@ To setup a local NuGet package source, so you can install the Telerik components
 #end
 
 
-#telerik-main-container-text
-Open the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project) and add a `<TelerikRootComponent>` element as its root element - the rest of the content should be inside this new tag. The layout file should look similar to this (there may be additional elements in it in your case to create your own app design):
-#end
+#root-component-steps
+1. Next to your main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), **add a razor component** called `TelerikLayout.razor` with the following content:
 
-
-#telerik-main-container-snippet
-
+    **TelerikLayout.razor**
+    
         @inherits LayoutComponentBase
         
         <TelerikRootComponent>
-        
-            <div class="page"> 
-            @* remove this element if you are using the default Microsoft template and running .NET Core 3.1 and not .NET 5 *@
-            @* Your layout may differ, the key thing is to wrap it all in the TelerikRootComponent *@
-        
-                <div class="sidebar">
-                    <NavMenu />
-                </div>
-            
-                <div class="main">
-                    <div class="top-row px-4">
-                        <a href="https://docs.microsoft.com/en-us/aspnet/" target="_blank">About</a>
-                    </div>
-            
-                    <div class="content px-4">
-                        @Body
-                    </div>
-                </div>
-        
-            </div>
-            
+        	@Body
         </TelerikRootComponent>
+        
+
+1. Open the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project) and add the following line at its **first line**:
+
+    **MainLayout.razor**
+  
+        @layout TelerikLayout
+        
+        @* more code will be present here depending on your project *@
 #end
 
 

@@ -87,11 +87,7 @@ To use Blazor server-side, you need to use the `Blazor App` type of project with
         @using Telerik.Blazor
         @using Telerik.Blazor.Components
 
-1. @[template](/_contentTemplates/common/get-started.md#telerik-main-container-text)
-
-    **MainLayout.razor**
-    
-        @[template](/_contentTemplates/common/get-started.md#telerik-main-container-snippet)
+@[template](/_contentTemplates/common/get-started.md#root-component-steps)
 
 
     
