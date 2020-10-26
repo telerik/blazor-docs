@@ -103,4 +103,4 @@ To use the Telerik TextArea in your Blazor application:
   * [Live Demo: TextArea](https://demos.telerik.com/blazor-ui/textarea/index)
   * [Live Demo: TextArea Validation](https://demos.telerik.com/blazor-ui/textarea/validation)
   * [Input Validation]({%slug common-features/input-validation%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TextArea)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextArea)
