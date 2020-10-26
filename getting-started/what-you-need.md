@@ -131,7 +131,7 @@ namespace ClientBlazorProject.Client // make sure this matches your actual WASM 
         {
             // sample host builder for a WASM app, yours may differ
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.Services.AddBaseAddressHttpClient();
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.RootComponents.Add<App>("app");
             // there may be more code here
             

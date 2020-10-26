@@ -178,20 +178,26 @@ Open the main layout file (by default, the `~/Shared/MainLayout.razor` file in t
         
         <TelerikRootComponent>
         
-            <div class="sidebar">
-                <NavMenu />
-            </div>
+            <div class="page"> 
+            @* remove this element if you are using the default Microsoft template and running .NET Core 3.1 and not .NET 5 *@
+            @* Your layout may differ, the key thing is to wrap it all in the TelerikRootComponent *@
         
-            <div class="main">
-                <div class="top-row px-4">
-                    <a href="https://docs.microsoft.com/en-us/aspnet/" target="_blank">About</a>
+                <div class="sidebar">
+                    <NavMenu />
+                </div>
+            
+                <div class="main">
+                    <div class="top-row px-4">
+                        <a href="https://docs.microsoft.com/en-us/aspnet/" target="_blank">About</a>
+                    </div>
+            
+                    <div class="content px-4">
+                        @Body
+                    </div>
                 </div>
         
-                <div class="content px-4">
-                    @Body
-                </div>
             </div>
-        
+            
         </TelerikRootComponent>
 #end
 
