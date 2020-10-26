@@ -27,25 +27,25 @@ In this article:
 
 To use **multiple** row selection, set the `SelectionMode` property to `Telerik.Blazor.GridSelectionMode.Multiple`.
 
-In Multiple SelectionMode, selection could be made using the following approaches:
+In Multiple SelectionMode, you can select rows through the following approaches:
 
 * Click on a row to select only that row (and deselect any others)
 * Press and hold `Ctrl` and click the desired rows to select or deselect them.
-* Click on the starting row of a range of rows you want selected, press and hold `Shift`, and click on the last row of the range. The last selected item is the start point of the range and the current target row is the end of the selection.
+* Click on the starting row in a range of rows that you want to select, press and hold `Shift`, and click on the last row in the range. The first selected item is the start point of the range and the last selected target row is the end of the selection.
 * Select the checkbox of each desired row.
 
 >tip The [Examples](#examples) section showcases how you can use the grid features together.
 
 ## Checkbox Selection
 
-To add checkboxes in each row that the user can use for selection, add a `GridCheckboxColumn` in the `GridColumns` collection of the grid.
+To add checkboxes in each row, add a `GridCheckboxColumn` in the `GridColumns` collection of the grid. The user can select the desired rows through the checkboxes.
 
 The Grid allows selection and deselection via the `SelectAll` property. Setting this property to `true` (its default value) will render a checkbox in the grid header.
 
 You can add a `SelectAllMode` parameter, which supports the following options:
 * `Current` - selects all rows on the current page. This also applies to filtered, sorted, etc. This is the default value of the `SelectAllMode`.
 * `All` - selects all the data in the Grid.
-  * If IQueriable collections are used, using the header checkbox with in this mode will immediately execute the query over all the data which may be a performance hit.
+>note  If IQueriable collections are used, using the header checkbox with an `All` option will immediately execute the query over all the data. This may be a performance hit.
 
 `SelectAllMode` behavior with [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}):
 * No `OnRead` configured (the default state):
