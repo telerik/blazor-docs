@@ -21,12 +21,15 @@ In this article:
 
 ## Standalone Icon Component
 
-Telerik UI for Blazor provides a component that you can use to render icons - the `TelerikIcon` component. It works with the following types of images (examples of their usage follow):
+Telerik UI for Blazor comes with the `TelerikIcon` component that you can use to render icons. It works with the following image types:
 
-* **Telerik font icon** - the `Icon` parameter takes a Telerik icon from the set we provide out-of-the-box through the `Telerik.Blazor.IconName` static class.
-    * The Visual Studio intellisense should provide you with the available options and you can also see them in the [online API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.IconName).
+* **Telerik font icon** - the `Telerik.Blazor.IconName` static class allows you to supply an `Icon` parameter that takes a **Telerik icon** from our built-in collection. To find the available **Telerik icons**, you can:
 
-    * You can find the full list of available icons in the [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web) article. The names of the icons match the classes you see in the article, but without the `k-i-` prefix. You can use them as hardcoded strings as well. Their corresponding class members are in `CamelCase`.
+    * Use Visual Studio's IntelliSense.
+    
+    * Refer to the [online API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.IconName) article.
+
+>tip Telerik UI for Blazor uses the same icons as the Kendo UI suite. You can find the rendered icons in the [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web) article. When you use the icon names in this article, remove the `k-i-` prefix, and you will get the correct icon name for Blazor UI. You can use them as hardcoded strings as well. Their corresponding class members are in `CamelCase`.
 
 * **Third party font-icon** - the `IconClass` parameter lets you set a CSS class that provides the required font name, font size and content for the `::before` pseudoelement.
 
@@ -52,7 +55,7 @@ Telerik UI for Blazor provides a component that you can use to render icons - th
 
 ### Icon Parameters - Order of Precedence
 
-The priority order of the Icon properties, if more than one is defined, is
+The priority order of the Icon properties, if more than one is defined, is:
 
 1. `ImageUrl`
 2. `Icon`
