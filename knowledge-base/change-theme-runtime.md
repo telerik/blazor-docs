@@ -39,7 +39,7 @@ Here is a basic implementation:
     
     <!-- Theme switching start -->
     <link id="TelerikThemeLink" rel="stylesheet" href="https://unpkg.com/@@progress/kendo-theme-default@@latest/dist/all.css" />
-    <script src="~/ThemChanger.js"></script>
+    <script src="~/ThemeChanger.js"></script>
     <!-- Theme switching end -->
     
     <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
