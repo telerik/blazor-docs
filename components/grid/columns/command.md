@@ -14,7 +14,23 @@ The command column of a grid allows you to initiate [inline]({%slug components/g
 
 To define it, add a `GridCommandColumn` in the `GridColumns` collection of a grid. The command column takes a collection of `GridCommandButton` instances that invoke the commands. It also offers the `Title` property so you can set its header text.
 
->tip The lists below showcase the available features and their use. After them you can find a code example that shows declarations and handling.
+In this article:
+
+* [Grid Command Column Features](#features)
+ 
+   * [GridCommandButton](#the-gridcommandbutton-tag)
+   
+   * [Built-in Commands](#built-in-commands)
+   
+   * [OnClick Handler](#the-onclick-handler)
+   
+* [Code Example](#example)
+
+## Features
+
+The section describes the available features and their use.
+
+### The GridCommandButton tag
 
 The `GridCommandButton` tag offers the following features:
 
@@ -24,12 +40,16 @@ The `GridCommandButton` tag offers the following features:
 * `ChildContent` - the text the button will render. You can also place it between the command button's opening and closing tags.
 * Appearance properties like `Icon`, `Class`, `Enabled` that are come from the underlying [Button Component features]({%slug components/button/overview%}).
 
+### Built-in Commands
+
 There are four built-in commands:
 
 * `Add` - initiates the creation of a new item.
 * `Edit` - initiates the inline or popup editing (depending on the GridEditMode configuration of the grid).
 * `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was created or edited.
 * `Cancel` - aborts the current operation (edit or insert).
+
+### The OnClick handler
 
 The `OnClick` handler of the commands receives an argument of type `GridCommandEventArgs` that exposes the following properties:
 
@@ -38,6 +58,10 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 * `IsNew` - a boolean field indicating whether the item was just added through the grid interface.
 
 >tip For handling CRUD operations we recommend that you use the grid events (`OnEdit`, `OnUpdate`, `OnCancel`, `OnCreate`). The `OnClick` handler is available for the built-in commands to provide consistency of the API.
+
+## Example
+
+The following code example demonstrates declarations and handling.
 
 >tip The event handlers use `EventCallback` and can be synchronous or async. This example shows async versions, and the signature for the synchronous handlers is `void MyHandlerName(GridCommandEventArgs args)`.
 
