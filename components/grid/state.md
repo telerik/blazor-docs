@@ -567,6 +567,8 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         // you can predefine values here as well (not mandatory)
         currState.InsertedItem = new SampleData() { Name = "some predefined value" };
         await GridRef.SetState(currState);
+        
+         // note: possible only for Inline and Popup edit modes, with InCell there is never an inserted item, only edited items
     }
 
     async Task EditItemFour()
