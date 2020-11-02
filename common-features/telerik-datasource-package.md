@@ -14,6 +14,15 @@ The Telerik DataSource NuGet package is a set of classes and extension methods t
 
 In this article:
 
+<!-- Start Document Outline -->
+
+* [Basics](#basics)
+	* [Key Classes and Extensions Methods](#key-classes-and-extensions-methods)
+* [Examples](#examples)
+* [Differences with Kendo DataSource](#differences-with-kendo-datasource)
+
+<!-- End Document Outline -->
+
 ## Basics
 
 The `Telerik.DataSource` package is distributed through the [Telerik Private NuGet Feed]({%slug installation/nuget%}) and is available to both trial and commercial licenses. It is also available as a resource in the [offline installer]({%slug installation/msi%}) and [resources archive]({%slug installation/zip%}) of Telerik UI for Blazor and some other Telerik suites, such as UI for ASP.NET Core.
