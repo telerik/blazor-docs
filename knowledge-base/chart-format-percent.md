@@ -107,3 +107,7 @@ function round(value, decimals) {
 </head>
 ````
 
+## See Also
+
+  * [Knowledge Base article: How to localize numeric labels in the Chart]({%slug chart-kb-localized-numeric-labels%})
+
