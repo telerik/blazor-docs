@@ -29,7 +29,7 @@ The `Telerik.DataSource` package is distributed through the [Telerik Private NuG
 
 The `Telerik.DataSource` package targets `netstandard2.1` and is compatible with .NET backends that can compile it (such as .NET Core 3.1, .NET 5 and so on).
 
-This package lets you get or generate a request to the data source that describes various settings such as filters, paging, sorting, grouping, and, through an extension methods, provides you with a resulting data set according to those settings.
+This package lets you get or generate a request to the data source that describes various settings such as filters, paging, sorting, grouping, and, through extension methods, provides you with a resulting data set according to those settings.
 
 ### Key Classes and Extensions Methods
 
