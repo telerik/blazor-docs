@@ -44,7 +44,7 @@ If you want to expose more information beyond a number, for example, some text, 
 
 1. Use a custom [template]({%slug components/chart/label-template-format%}#templates)
 
-2. Implement the desired number formatting function in a JavaScript file (in the example below, we will call it `template-helpers.js` and it resides in the `wwwroot` folder).
+2. Implement the desired number formatting function in a JavaScript file (in the example below, we will call it `template-helpers.js` and it resides in the `wwwroot` folder). This can be achieved by using the [toLocaleString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) method.
 
 3. Reference that file in your root component (`_Host.cshtml` for a server-side app, or `index.html` for a client-side app).
 
