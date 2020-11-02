@@ -71,7 +71,7 @@ If you want to expose more information beyond a number, for example, some text, 
                      StartAngle="270">
             <ChartSeriesLabels Position="ChartSeriesLabelsPosition.OutsideEnd"
                                Visible="true"
-                               Template="@(Data.LocalizedTemplateString)">
+                               Template="@LocalizedTemplateString">
             </ChartSeriesLabels>
         </ChartSeries>
     </ChartSeriesItems>
@@ -79,6 +79,8 @@ If you want to expose more information beyond a number, for example, some text, 
 </TelerikChart>
 
 @code {
+    public string LocalizedTemplateString => GetFormattedNumericValue();
+
     protected static string GetFormattedNumericValue()
     {
         var cultureInfo = Thread.CurrentThread.CurrentUICulture; //get the current culture
@@ -90,7 +92,6 @@ If you want to expose more information beyond a number, for example, some text, 
         public string XValue { get; set; }
         public decimal Value { get; set; }
         public string BackgroundColor { get; set; }
-        public static string LocalizedTemplateString => GetFormattedNumericValue();
     }
 
     public List<Data> ChartData = new List<Data>()
