@@ -71,7 +71,7 @@ If you want to expose more information beyond a number, for example, some text, 
                      StartAngle="270">
             <ChartSeriesLabels Position="ChartSeriesLabelsPosition.OutsideEnd"
                                Visible="true"
-                               Template="@GetFormattedNumericValue()">
+                               Template="@(Data.LocalizedTemplateString)">
             </ChartSeriesLabels>
         </ChartSeries>
     </ChartSeriesItems>
@@ -79,23 +79,22 @@ If you want to expose more information beyond a number, for example, some text, 
 </TelerikChart>
 
 @code {
-    public class Data
-    {
-        public string XValue { get; set; }
-
-        public decimal Value { get; set; }
-
-        public string BackgroundColor { get; set; }
-    }
-
-    protected string GetFormattedNumericValue()
+    protected static string GetFormattedNumericValue()
     {
         var cultureInfo = Thread.CurrentThread.CurrentUICulture; //get the current culture
         return $"value of the label: #= formatNumberLocale(value, '{cultureInfo.Name}', 2)#";
     }
 
+    public class Data
+    {
+        public string XValue { get; set; }
+        public decimal Value { get; set; }
+        public string BackgroundColor { get; set; }
+        public static string LocalizedTemplateString => GetFormattedNumericValue();
+    }
+
     public List<Data> ChartData = new List<Data>()
-{
+    {
         new Data { XValue = "Item", Value = 1.1223523525m, BackgroundColor = "red" },
         new Data { XValue = "Item 2", Value = 2.542342424m, BackgroundColor = "green" },
         new Data {XValue = "Item 3", Value = 3.141592653589793238m, BackgroundColor = "blue" }
