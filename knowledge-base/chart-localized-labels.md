@@ -34,11 +34,11 @@ There are two different approaches:
 
 ### Using the Format Parameter
 
-If you require your label to be a number only, you can use the [`Format`]({%slug components/chart/label-template-format%}#format-strings) parameter of the `<ChartSeriesLabels>` tag. It takes a [standard numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) and is localization aware.
+If you need to use only the value of the series item, and a single line of text, you can use the [`Format`]({%slug components/chart/label-template-format%}#format-strings) parameter of the `<ChartSeriesLabels>` tag. It takes a [standard numeric format strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) and is localization aware.
 
 ### Using the Template Parameter
 
-If you want to expose more information beyond a number, for example, some text, you can utilize the [`Template`]({%slug components/chart/label-template-format%}#templates) parameter, which is exposed from the `<ChartSeriesLabels>` tag. In a JavaScript file implement the desired number formatting by using the `toLocaleString` JavaScript method. An exemplary implementation can be seen in the example below:
+If you want to expose more information, for example, some multi line text, HTML elements, etc., you can utilize the [`Template`]({%slug components/chart/label-template-format%}#templates) parameter, which is exposed from the `<ChartSeriesLabels>` tag. In a JavaScript file implement the desired number formatting by using the `toLocaleString` JavaScript method. A sample implementation can be seen in the example below.
 
 #### Step by step explanation
 
