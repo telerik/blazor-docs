@@ -111,7 +111,7 @@ function formatNumberLocale(number, locale, decimals){
 <head>
     <!-- there may be other content here -->
     
-	<script src="~/template-helpers.js"></script>
+	<script src="template-helpers.js"></script>
 	
 	<!-- there may be other content here -->
 </head>
