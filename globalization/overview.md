@@ -25,7 +25,7 @@ The Telerik Components use the current thread culture to render the appropriate 
 
 * [Calendar](https://demos.telerik.com/blazor-ui/calendar/globalization) - the names of the months and days of the week are taken from the current culture, and the `FirstDayOfWeek` of the culture is honored when ordering the days of the week. The Calendar uses the  `ShortestDayNames` array to get the short names for the days of the week and it expects them in the default order coming from the framework - Sunday to Saturday.
 
-* [Chart](https://demos.telerik.com/blazor-ui/chart/globalization) - the [Label Format Strings]({%slug components/chart/label-template-format%}) and [Tooltip]({%slug chart-tooltip-overview%}) are culture aware (e.g., currency, dates). To see how to localize numeric labels and pass additional information see the [How to localize numeric labels in the Chart]({%slug chart-kb-localized-numeric-labels%}) knowledge base article.
+* [Chart](https://demos.telerik.com/blazor-ui/chart/globalization) - the [Label Format Strings]({%slug components/chart/label-template-format%}) and [Tooltip]({%slug chart-tooltip-overview%}) are culture aware (e.g., currency, dates). Examples are available in the [How to localize numeric labels in the Chart]({%slug chart-kb-localized-numeric-labels%}) knowledge base article.
 
 * [DateInput](https://demos.telerik.com/blazor-ui/dateinput/globalization) - @[template](/_contentTemplates/common/general-info.md#date-format-per-culture)
 
