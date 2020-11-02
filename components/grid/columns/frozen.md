@@ -168,6 +168,8 @@ This article you can observe Freezing different columns. The examples are separa
 
 The frozen columns pose some requirements:
 
+* The `Width` of the Grid **must** be set in `px` units.
+
 * When a column is frozen (it has `Locked="true"`), its `Width` **must** be in `px` units.
 
 
