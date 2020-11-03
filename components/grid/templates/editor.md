@@ -16,7 +16,14 @@ You can data bind components in it to the current context, which is an instance 
 
 If you need to perform logic more complex than simple data binding, use the change event of the custom editor component to perform it. You can also consider using a [custom edit form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form).
 
->caption Sample editor template for a field - limit the string input options through a select element
+You can find the following examples below:
+
+* [Sample editor template for a field - limit the string input options through a select element](#sample-editor-template-for-a-field---limit-the-string-input-options-through-a-select-element)
+
+* [Sample editor template that uses a foreign key](#sample-editor-template-that-uses-a-foreign-key)
+
+
+### Sample editor template for a field - limit the string input options through a select element
 
 ````CSHTML
 @* This example shows how to use a simple <select> to edit strings. You can implement any desired logic instead.
@@ -114,7 +121,7 @@ If you need to perform logic more complex than simple data binding, use the chan
 
 ![editor template for simple strings with a select element](images/edit-template-simple-string-select.png)
 
->caption Sample editor template that uses a foreign key
+### Sample editor template that uses a foreign key
 
 ````CSHTML
 @* This example shows one way to use a dropdownlist to edit values with a foreign key. *@
