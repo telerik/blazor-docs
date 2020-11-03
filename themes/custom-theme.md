@@ -14,6 +14,7 @@ By customizing themes you can alter the default appearance of the Telerik compon
 
 This article contains the following sections:
 
+
 * [Using the Sass Theme Builder](#using-the-sass-theme-builder)
 	* [Create New Theme](#create-new-theme)
 	* [Modifying Themes](#modifying-themes)
@@ -23,7 +24,10 @@ This article contains the following sections:
 	* [Using the Build Process of the Application](#using-the-build-process-of-the-application)
 	* [Using the Build Process of the Themes](#using-the-build-process-of-the-themes)
 	* [Using Variables](#using-variables)
+* [How to Use a Custom Theme I Have](#how-to-use-a-custom-theme-i-have)
 * [Contribution](#contribution)
+
+
 
 >tip To get theme updates and fixes, re-generate the custom themes from the latest built-in base theme when we release a new version of the suite, or when you upgrade the Telerik components in your project.
 
@@ -247,6 +251,28 @@ The following list describes the theme variables available for adjustment in the
 
 @[template](/_contentTemplates/common/theme-variables.md#variables-usage)
 
+
+## How to Use a Custom Theme I Have
+
+You have your custom theme - either generated through the Telerik Theme Builder tool, or one that you built yourself, or something that your organization provides.
+
+To use that, instead of one of the built-in themes, you need to:
+
+1. Add the customized `.css` file to your application, usually in the `wwwroot` folder. For example, it can be in a folder called `myCustomTelerikThemes` and the file itself could be called `SomeCustomTheme.css`.
+
+1. Include the custom stylesheet file in the `head` tag of your index document (by default `wwwroot/index.html` for WebAssembly apps and `~/Pages/_Host.cshtml` for server-side Blazor apps). This could looks something like this:
+
+    **Index file**
+    
+        <head>
+            <!-- More content can be present here -->
+             
+            <link rel="stylesheet" href="myCustomTelerikThemes/SomeCustomTheme.css" />
+            
+            <!-- More content can be present here -->
+        </head>
+
+1. Make sure that this is the only Telerik Theme that is referenced in the application. If you are using a built-in theme, you must remove its `<link>` element.
 
 ## Contribution
 
