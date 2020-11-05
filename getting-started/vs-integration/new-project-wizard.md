@@ -40,8 +40,9 @@ To start the wizard, use either of the following approaches:
 On the **second** screen, you will choose:
 
 * between a WebAssembly and server-side Blazor app
-* one of the predefined **Telerik templates** 
+* the .NET version you want to use
 * the **Telerik Blazor version**
+* one of the predefined **Telerik templates** 
 
 >caption The available project templates:
 
