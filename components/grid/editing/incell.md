@@ -207,8 +207,7 @@ Click a cell, edit it and click outside of the cell to see the change.
                      EditMode="@GridEditMode.Incell"
                      Pageable="true"
                      Height="500px"
-                     OnUpdate="@UpdateHandler" OnCreate="@CreateHandler"
-                     Navigable="true">
+                     OnUpdate="@UpdateHandler" OnCreate="@CreateHandler">
             <GridColumns>
                 <GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="ID" />
                 <GridColumn Field=@nameof(SampleData.Name) Title="Name">
