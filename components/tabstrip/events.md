@@ -44,6 +44,38 @@ The `ActiveTabIndexChanged` event fires when the user changes the tab that is cu
 }
 ````
 
+>caption Cancel the event
+
+````CSHTML
+@* If the tab strip is bound to a field in the view model, when you do not update that field in the event handler, you will effectively cancel the event *@
+
+<TelerikTabStrip ActiveTabIndex="@ActiveTabIndex" ActiveTabIndexChanged="@TabChangedHandler">
+    <TabStripTab Title="First">
+        First tab content. Click through the tabs.
+    </TabStripTab>
+    <TabStripTab Title="Second">
+        Second tab content.
+    </TabStripTab>
+    <TabStripTab Title="Third">
+        Third tab content.
+    </TabStripTab>
+</TelerikTabStrip>
+
+@code {
+    int ActiveTabIndex { get; set; }
+    
+    void TabChangedHandler(int newIndex)
+    {
+        // this will update the view-model for all items but the third, 
+        // effectively cancelling the event for the third tab
+        if (newIndex != 2)
+        {
+            ActiveTabIndex = newIndex;
+        }
+    }
+}
+````
+
 ## See Also
 
   * [TabStrip Overview]({%slug components/tabstrip/overview%})
