@@ -10,7 +10,7 @@ position: 0
 
 # Upload Overview
 
-The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Upload component</a> lets the user upload files to a server handler asynchronously. They can select one or multiple files, and you can control whether the upload starts immediately or upon a button click, and also let users delete their uploaded files. The component offers [client-side validation]({%slug upload-validation%}) for the selected files' extensions and size.
+The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Upload component</a> lets the users upload files to a server handler asynchronously. They can select one or multiple files, and you can control whether the upload starts immediately or upon a button click, and also let users delete their uploaded files. The component offers [client-side validation]({%slug upload-validation%}) for the selected files' extensions and size.
 
 To use a Telerik Upload for Blazor
 
@@ -27,8 +27,8 @@ To use a Telerik Upload for Blazor
         </TelerikUpload>
         
         @code {
-            // one way to define relative paths, put the desired URL here
-            // can be a full URL such as https://mydomain/myendpoint/save
+            // One way to define relative paths is to put the desired URL here.
+            // This can be a full URL such as https://mydomain/myendpoint/save
             public string SaveUrl => ToAbsoluteUrl("api/upload/save");
             public string RemoveUrl => ToAbsoluteUrl("api/upload/remove");
         
@@ -77,7 +77,7 @@ To use a Telerik Upload for Blazor
         
                             // Implement security mechanisms here - prevent path traversals,
                             // check for allowed extensions, types, size, content, viruses, etc.
-                            // this sample always saves the file to the root and is not sufficient for a real application
+                            // This sample always saves the file to the root and is not sufficient for a real application.
         
                             using (var fileStream = new FileStream(physicalPath, FileMode.Create))
                             {
@@ -86,7 +86,7 @@ To use a Telerik Upload for Blazor
                         }
                         catch
                         {
-                            // implement error handling here, this merely indicates a failure to the upload
+                            // Implement error handling here, this example merely indicates an upload failure.
                             Response.StatusCode = 500;
                             await Response.WriteAsync("some error message"); // custom error message
                         }
@@ -111,14 +111,14 @@ To use a Telerik Upload for Blazor
                             {
                                 // Implement security mechanisms here - prevent path traversals,
                                 // check for allowed extensions, types, permissions, etc.
-                                // this sample always deletes the file from the root and is not sufficient for a real application
+                                // this sample always deletes the file from the root and is not sufficient for a real application.
         
                                 System.IO.File.Delete(physicalPath);
                             }
                         }
                         catch
                         {
-                            // implement error handling here, this merely indicates a failure to the upload
+                            // Implement error handling here, this example merely indicates an upload failure.
                             Response.StatusCode = 500;
                             Response.WriteAsync("some error message"); // custom error message
                         }
@@ -171,14 +171,19 @@ To use a Telerik Upload for Blazor
 
 ## Notes
 
-The Telerik Upload component facilitates sending a file to an endpoint. There are a few considerations to keep in mind with regards to handling the files on the server.
+The Telerik Upload component facilitates sending a file to an endpoint. There are a few considerations to keep in mind with regards to handling the files on the server:
 
 @[template](/_contentTemplates/upload/notes.md#server-security-note)
 
+* File Size
+
 The `MaxFileSize` parameter of the component is used for [client-side validation]({% slug upload-validation %}), and the server needs a separate configuration. At this stage, the files are uploaded in one piece and so the server may block large requests - server settings such as the IIS `MaxRequestLength` will always be taken into account by the endpoint. You can find some examples of configuring this in the following StackOverflow thread: [IIS7 - The request filtering module is configured to deny a request that exceeds the request content length](https://stackoverflow.com/questions/10871881/iis7-the-request-filtering-module-is-configured-to-deny-a-request-that-exceeds).
+
+* Application Logic
 
 Authentication, authorization and routing of the requests is up to the application logic. The Telerik Upload component makes an XHR request from the browser to the designated endpoint and further application logic is up to the server. You can use the [OnUpload and OnRemove events]({% slug upload-events %}) to add headers and data to the request so you can handle the requests accordingly on the server.
 
+* Cross-Origin Requests
 Cross-origin requests depend on the application and endpoint setup. The `WidthCredentials` parameter sets the corresponding parameter of the XHR request. Handling the cookies, headers and other parameters of the Blazor app and [CORS](https://www.w3.org/TR/cors/) endpoint are to be implemented by the respective applications (for example, including the `Access-Control-Allow-Origin` header with an appropriate value and the `Access-Control-Allow-Credentials` header with a `true` value). You can read more on the subject in the following article: [https://www.html5rocks.com/en/tutorials/cors/](https://www.html5rocks.com/en/tutorials/cors/). You can also find one example setup from a customer of ours in [this thread](https://www.telerik.com/forums/upload-component-reports-'file-failed-to-upload'#-6QPJn3obkm3D1kR1ysukA) which shows one way to setup the CORS requests, headers and responses on the receiving server.
 
 
