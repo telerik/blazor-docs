@@ -45,7 +45,7 @@ The Grid allows selection and deselection via the `SelectAll` property. Setting 
 You can add a `SelectAllMode` parameter, which supports the following options:
 * `Current` - selects all rows on the current page. This also applies to filtered, sorted, etc. This is the default value of the `SelectAllMode`.
 * `All` - selects all the data in the Grid.
->note  If IQueriable collections are used, using the header checkbox with an `All` option will immediately execute the query over all the data. This may be a performance hit.
+    >note  If IQueriable collections are used, using the header checkbox with an `All` option will immediately execute the query over all the data. This may be a performance hit.
 
 `SelectAllMode` behavior with [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}):
 * No `OnRead` configured (the default state):
