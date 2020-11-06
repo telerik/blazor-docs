@@ -121,9 +121,8 @@ namespace ConsoleApp1
 
 If you have used other Telerik products before, such as the Telerik UI for ASP.NET Core or Telerik UI for ASP.NET MVC, you may be familiar with or you may already be using the `DataSourceResult`, `ToDataSourceResult` and `DataSourceResult` features. They are available as part of those respective packages (assemblies), and the `Telerik.DataSource` package is those features extracted into a smaller, more lightweight package that is platform agnostic. This means that it has a few differences from the Kendo methods:
 
-* The `Telerik.DataSource` package does not have model binding features, because it is not coupled to the MVC framework.
-
 * The `Telerik.DataSource` packages uses the `System.Text.Json` serializer, and if you use custom serializers such as `Newtonsoft.Json`, you may need to tweak their settings so they ignore casinng, and so they can serialize the Telerik objects. You can read more about this and find example in the <a href="https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server/CustomSerializer" target="_blank">Use DataSourceRequest and DataSourceResult and WebAPI in a WebAssembly Blazor app with custom serialization</a> sample project.
 
-* The `Telerik.DataSource` package may evolve at a different rate from the Kendo packages and code. This means that not all fixes and features may be ported, or available at the same time.
+* The `Telerik.DataSource` package does not have model binding features, because it is not coupled to the MVC framework.
 
+    * Other MVC-specific features that may exist in the Kendo version may not be present in the `Telerik.DataSource` package.
