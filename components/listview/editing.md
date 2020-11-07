@@ -62,19 +62,18 @@ The CUD operations are implemented through dedicated events that let you alter t
 </TelerikListView>
 
 @code{
+    List<Employee> ListViewData { get; set; }
+    List<string> Teams { get; set; }
+
     async Task UpdateHandler(ListViewCommandEventArgs args)
     {
         Employee item = (Employee)args.Item;
 
-        // perform actual data source operations here through your service
-        Employee updatedItem = await ServiceMimicUpdate(item);
+        // perform actual data source operation here through your service
+        await MyService.Update(item);
 
         // update the local view-model data with the service data
-        var index = ListViewData.FindIndex(i => i.Id == updatedItem.Id);
-        if (index != -1)
-        {
-            ListViewData[index] = updatedItem;
-        }
+        await GetListViewData();
     }
 
     async Task DeleteHandler(ListViewCommandEventArgs args)
@@ -82,13 +81,10 @@ The CUD operations are implemented through dedicated events that let you alter t
         Employee item = (Employee)args.Item;
 
         // perform actual data source operation here through your service
-        bool isDeleted = await ServiceMimicDelete(item);
+        await MyService.Delete(item);
 
-        if (isDeleted)
-        {
-            // update the local view-model data
-            ListViewData.Remove(item);
-        }
+        // update the local view-model data with the service data
+        await GetListViewData();
     }
 
     async Task CreateHandler(ListViewCommandEventArgs args)
@@ -96,10 +92,10 @@ The CUD operations are implemented through dedicated events that let you alter t
         Employee item = (Employee)args.Item;
 
         // perform actual data source operation here through your service
-        Employee insertedItem = await ServiceMimicInsert(item);
+        await MyService.Create(item);
 
         // update the local view-model data with the service data
-        ListViewData.Insert(0, insertedItem);
+        await GetListViewData();
     }
 
     async Task EditHandler(ListViewCommandEventArgs e)
@@ -120,64 +116,75 @@ The CUD operations are implemented through dedicated events that let you alter t
         Console.WriteLine($"user changed item {changedItem.Id} to have Name: {changedItem.Name} and Team: {changedItem.Team}");
     }
 
-    // the following three methods mimic an actual data service that handles the actual data source
-    // you can see about implement error and exception handling, determining suitable return types as per your needs
-    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
-
-    async Task<Employee> ServiceMimicInsert(Employee itemToInsert)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently, we use "new" here
-        Employee updatedItem = new Employee()
-        {
-            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
-            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
-            Id = ListViewData.Count + 1,
-            Name = itemToInsert.Name,
-            Team = itemToInsert.Team
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    async Task<Employee> ServiceMimicUpdate(Employee itemToUpdate)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        Employee updatedItem = new Employee()
-        {
-            Id = itemToUpdate.Id,
-            Name = itemToUpdate.Name,
-            Team = itemToUpdate.Team
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    async Task<bool> ServiceMimicDelete(Employee itemToDelete)
-    {
-        return await Task.FromResult(true);//always successful
-    }
-
     // data and models follow
 
-    List<Employee> ListViewData { get; set; }
-
-    protected override void OnInitialized()
+    async Task GetListViewData()
     {
-        ListViewData = Enumerable.Range(1, 250).Select(x => new Employee
-        {
-            Id = x,
-            Name = $"Name {x}",
-            Team = Teams[x % Teams.Count]
-        }).ToList();
+        ListViewData = await MyService.Read();
+        Teams = await MyService.GetTeams();
     }
 
-    List<string> Teams = new List<string> { "Sales", "Dev", "Support" };
+    protected override async Task OnInitializedAsync()
+    {
+        await GetListViewData();
+    }
 
     public class Employee
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Team { get; set; }
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<Employee> _data { get; set; } = new List<Employee>();
+        private static List<string> _teams = new List<string> { "Sales", "Dev", "Support" };
+
+        public static async Task Create(Employee itemToInsert)
+        {
+            itemToInsert.Id = _data.Count + 1;
+            _data.Insert(0, itemToInsert);
+        }
+
+        public static async Task<List<Employee>> Read()
+        {
+            if (_data.Count < 1)
+            {
+                for (int i = 1; i < 50; i++)
+                {
+                    _data.Add(new Employee()
+                    {
+                        Id = i,
+                        Name = $"Name {i}",
+                        Team = _teams[i % _teams.Count]
+                    });
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task<List<string>> GetTeams()
+        {
+            return await Task.FromResult(_teams);
+        }
+
+        public static async Task Update(Employee itemToUpdate)
+        {
+            var index = _data.FindIndex(i => i.Id == itemToUpdate.Id);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
+
+        public static async Task Delete(Employee itemToDelete)
+        {
+            _data.Remove(itemToDelete);
+        }
     }
 }
 ````
