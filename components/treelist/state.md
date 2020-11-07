@@ -662,6 +662,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
 </TelerikTreeList>
 
 @code {
+    public List<Employee> Data { get; set; }
     TelerikTreeList<Employee> TreeListRef { get; set; } = new TelerikTreeList<Employee>();
 
     async Task EnterEditMode()
@@ -688,48 +689,8 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
         await TreeListRef.SetState(state);
     }
 
-    public List<Employee> Data { get; set; }
-
-    // Sample CUD operations for the local data
-    async Task UpdateItem(TreeListCommandEventArgs args)
-    {
-        var item = args.Item as Employee;
-
-        // perform actual data source operations here through your service
-        Employee updatedItem = await ServiceMimicUpdate(item);
-
-        // update the local view-model data with the service data
-        UpdateItemRecursive(Data, updatedItem);
-    }
-
-    async Task CreateItem(TreeListCommandEventArgs args)
-    {
-        var argsItem = args.Item as Employee;
-
-        // perform actual data source operation here through your service
-        Employee insertedItem = await ServiceMimicInsert(argsItem);
-
-        // update the local view-model data with the service data
-        InsertItemRecursive(Data, insertedItem, args);
-    }
-
-    async Task DeleteItem(TreeListCommandEventArgs args)
-    {
-        var item = args.Item as Employee;
-
-        // perform actual data source operations here through your service
-        bool isDeleted = await ServiceMimicDelete(item);
-
-        if (isDeleted)
-        {
-            // update the local view-model data
-            RemoveChildRecursive(Data, item);
-        }
-    }
-
-
-    // sample helper methods for handling the view-model data hierarchy
-    private Employee FindItemRecursive(List<Employee> items, int id)
+    // sample helper method for handling the view-model data hierarchy
+    Employee FindItemRecursive(List<Employee> items, int id)
     {
         foreach (var item in items)
         {
@@ -752,107 +713,41 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
         return null;
     }
 
-    void InsertItemRecursive(List<Employee> Data, Employee insertedItem, TreeListCommandEventArgs args)
+    // Sample CUD operations for the local data
+    async Task UpdateItem(TreeListCommandEventArgs args)
     {
-        if (args.ParentItem != null)
-        {
-            var parent = (Employee)args.ParentItem;
+        var item = args.Item as Employee;
 
-            parent.HasChildren = true;
-            if (parent.DirectReports == null)
-            {
-                parent.DirectReports = new List<Employee>();
-            }
+        // perform actual data source operations here through your service
+        await MyService.Update(item);
 
-            parent.DirectReports.Insert(0, insertedItem);
-        }
-        else
-        {
-            Data.Insert(0, insertedItem);
-        }
+        // update the local view-model data with the service data
+        await GetTreeListData();
     }
 
-    void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
+    async Task CreateItem(TreeListCommandEventArgs args)
     {
-        for (int i = 0; i < items.Count; i++)
-        {
-            if (items[i].Id.Equals(itemToUpdate.Id))
-            {
-                items[i] = itemToUpdate;
-                return;
-            }
+        var item = args.Item as Employee;
+        var parentItem = args.ParentItem as Employee;
 
-            if (items[i].DirectReports?.Count > 0)
-            {
-                UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
-            }
-        }
+        // perform actual data source operations here through your service
+        await MyService.Create(item, parentItem);
+
+        // update the local view-model data with the service data
+        await GetTreeListData();
     }
 
-    void RemoveChildRecursive(List<Employee> items, Employee item)
+    async Task DeleteItem(TreeListCommandEventArgs args)
     {
-        for (int i = 0; i < items.Count(); i++)
-        {
-            if (item.Equals(items[i]))
-            {
-                items.Remove(item);
+        var item = args.Item as Employee;
 
-                return;
-            }
-            else if (items[i].DirectReports?.Count > 0)
-            {
-                RemoveChildRecursive(items[i].DirectReports, item);
+        // perform actual data source operations here through your service
+        await MyService.Delete(item);
 
-                if (items[i].DirectReports.Count == 0)
-                {
-                    items[i].HasChildren = false;
-                }
-            }
-        }
+        // update the local view-model data with the service data
+        await GetTreeListData();
     }
 
-
-    // the following three methods mimic an actual data service that handles the actual data source
-    // you can see about implement error and exception handling, determining suitable return types as per your needs
-
-    async Task<Employee> ServiceMimicInsert(Employee itemToInsert)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently, we use "new" here
-        Employee insertedItem = new Employee()
-        {
-            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
-            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
-            Id = LastId++,
-            Name = itemToInsert.Name,
-            EmailAddress = itemToInsert.EmailAddress,
-            HireDate = itemToInsert.HireDate,
-            HasChildren = itemToInsert.HasChildren,
-            DirectReports = itemToInsert.DirectReports
-        };
-        return await Task.FromResult(insertedItem);
-    }
-
-    async Task<Employee> ServiceMimicUpdate(Employee itemToUpdate)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        Employee updatedItem = new Employee()
-        {
-            Id = itemToUpdate.Id,
-            Name = itemToUpdate.Name,
-            EmailAddress = itemToUpdate.EmailAddress,
-            HireDate = itemToUpdate.HireDate,
-            HasChildren = itemToUpdate.HasChildren,
-            DirectReports = itemToUpdate.DirectReports
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    async Task<bool> ServiceMimicDelete(Employee itemToDelete)
-    {
-        return await Task.FromResult(true);//always successful
-    }
 
     // sample model
 
@@ -908,63 +803,150 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
     }
 
     // data generation
-    // used in this example for data generation and assigning an ID to newly inserted items
-    public int LastId { get; set; } = 1;
+
+    async Task GetTreeListData()
+    {
+        Data = await MyService.Read();
+    }
 
     protected override async Task OnInitializedAsync()
     {
-        Data = await GetTreeListData();
+        await GetTreeListData();
     }
 
-    async Task<List<Employee>> GetTreeListData()
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
     {
-        List<Employee> data = new List<Employee>();
+        private static List<Employee> _data { get; set; } = new List<Employee>();
+        // used in this example for data generation and retrieval for CUD operations on the current view-model data
+        private static int LastId { get; set; } = 1;
 
-        for (int i = 1; i < 15; i++)
+        public static async Task Create(Employee itemToInsert, Employee parentItem)
         {
-            Employee root = new Employee
-            {
-                Id = LastId,
-                Name = $"root: {i}",
-                EmailAddress = $"{i}@example.com",
-                HireDate = DateTime.Now.AddYears(-i),
-                DirectReports = new List<Employee>(),
-                HasChildren = true
-            };
-            data.Add(root);
-            LastId++;
+            InsertItemRecursive(_data, itemToInsert, parentItem);
+        }
 
-            for (int j = 1; j < 4; j++)
+        public static async Task<List<Employee>> Read()
+        {
+            if (_data.Count < 1)
             {
-                int currId = LastId;
-                Employee firstLevelChild = new Employee
+                for (int i = 1; i < 15; i++)
                 {
-                    Id = currId,
-                    Name = $"first level child {j} of {i}",
-                    EmailAddress = $"{currId}@example.com",
-                    HireDate = DateTime.Now.AddDays(-currId),
-                    DirectReports = new List<Employee>(),
-                    HasChildren = true
-                };
-                root.DirectReports.Add(firstLevelChild);
-                LastId++;
-
-                for (int k = 1; k < 3; k++)
-                {
-                    int nestedId = LastId;
-                    firstLevelChild.DirectReports.Add(new Employee
+                    Employee root = new Employee
                     {
                         Id = LastId,
-                        Name = $"second level child {k} of {j} and {i}",
-                        EmailAddress = $"{nestedId}@example.com",
-                        HireDate = DateTime.Now.AddMinutes(-nestedId)
-                    }); ;
+                        Name = $"root: {i}",
+                        EmailAddress = $"{i}@example.com",
+                        HireDate = DateTime.Now.AddYears(-i),
+                        DirectReports = new List<Employee>(),
+                        HasChildren = true
+                    };
+                    _data.Add(root);
                     LastId++;
+
+                    for (int j = 1; j < 4; j++)
+                    {
+                        int currId = LastId;
+                        Employee firstLevelChild = new Employee
+                        {
+                            Id = currId,
+                            Name = $"first level child {j} of {i}",
+                            EmailAddress = $"{currId}@example.com",
+                            HireDate = DateTime.Now.AddDays(-currId),
+                            DirectReports = new List<Employee>(),
+                            HasChildren = true
+                        };
+                        root.DirectReports.Add(firstLevelChild);
+                        LastId++;
+
+                        for (int k = 1; k < 3; k++)
+                        {
+                            int nestedId = LastId;
+                            firstLevelChild.DirectReports.Add(new Employee
+                            {
+                                Id = LastId,
+                                Name = $"second level child {k} of {j} and {i}",
+                                EmailAddress = $"{nestedId}@example.com",
+                                HireDate = DateTime.Now.AddMinutes(-nestedId)
+                            }); ;
+                            LastId++;
+                        }
+                    }
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(Employee itemToUpdate)
+        {
+            UpdateItemRecursive(_data, itemToUpdate);
+        }
+
+        public static async Task Delete(Employee itemToDelete)
+        {
+            RemoveChildRecursive(_data, itemToDelete);
+        }
+
+        // sample helper methods for handling the view-model data hierarchy
+        static void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].Id.Equals(itemToUpdate.Id))
+                {
+                    items[i] = itemToUpdate;
+                    return;
+                }
+
+                if (items[i].DirectReports?.Count > 0)
+                {
+                    UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
                 }
             }
         }
 
-        return await Task.FromResult(data);
+        static void RemoveChildRecursive(List<Employee> items, Employee item)
+        {
+            for (int i = 0; i < items.Count(); i++)
+            {
+                if (item.Equals(items[i]))
+                {
+                    items.Remove(item);
+
+                    return;
+                }
+                else if (items[i].DirectReports?.Count > 0)
+                {
+                    RemoveChildRecursive(items[i].DirectReports, item);
+
+                    if (items[i].DirectReports.Count == 0)
+                    {
+                        items[i].HasChildren = false;
+                    }
+                }
+            }
+        }
+
+        static void InsertItemRecursive(List<Employee> Data, Employee insertedItem, Employee parentItem)
+        {
+            insertedItem.Id = LastId++;
+            if (parentItem != null)
+            {
+                parentItem.HasChildren = true;
+                if (parentItem.DirectReports == null)
+                {
+                    parentItem.DirectReports = new List<Employee>();
+                }
+
+                parentItem.DirectReports.Insert(0, insertedItem);
+            }
+            else
+            {
+                Data.Insert(0, insertedItem);
+            }
+        }
     }
 }
 ````
