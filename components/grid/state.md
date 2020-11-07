@@ -119,7 +119,6 @@ The following example shows one way you can store the grid state - through a cus
 ````Component
 @inject LocalStorage LocalStorage
 @inject IJSRuntime JsInterop
-
 Change something in the grid (like sort, filter, select, page, resize columns, etc.), then reload the page to see the grid state fetched from the browser local storage.
 <br />
 
@@ -169,6 +168,9 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
     // Load and Save the state through the grid events
 
     string UniqueStorageKey = "SampleGridStateStorageThatShouldBeUnique";
+    TelerikGrid<SampleData> Grid { get; set; }
+    IEnumerable<SampleData> SelectedItems { get; set; } = Enumerable.Empty<SampleData>();
+    List<SampleData> GridData { get; set; }
 
     async Task OnStateInitHandler(GridStateEventArgs<SampleData> args)
     {
@@ -193,7 +195,6 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
         await LocalStorage.SetItem(UniqueStorageKey, args.GridState);
     }
 
-    TelerikGrid<SampleData> Grid { get; set; }
     async Task ResetState()
     {
         // clean up the storage
@@ -214,14 +215,12 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operations here through your service
-        SampleData updatedItem = await ServiceMimicUpdate(item);
+        await MyService.Update(item);
 
-        // update the local view-model data
-        var index = GridData.FindIndex(i => i.Id == updatedItem.Id);
-        if (index != -1)
-        {
-            GridData[index] = updatedItem;
-        }
+        // update the local view-model data with the service data
+        await GetGridData();
+
+        Console.WriteLine("Update event is fired.");
     }
 
     async Task DeleteItem(GridCommandEventArgs args)
@@ -229,13 +228,12 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operation here through your service
-        bool isDeleted = await ServiceMimicDelete(item);
+        await MyService.Delete(item);
 
-        if (isDeleted)
-        {
-            // update the local view-model data
-            GridData.Remove(item);
-        }
+        // update the local view-model data with the service data
+        await GetGridData();
+
+        Console.WriteLine("Delete event is fired.");
     }
 
     async Task CreateItem(GridCommandEventArgs args)
@@ -243,60 +241,15 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operation here through your service
-        SampleData insertedItem = await ServiceMimicInsert(item);
+        await MyService.Create(item);
 
-        // update the local view-model data
-        GridData.Insert(0, insertedItem);
+        // update the local view-model data with the service data
+        await GetGridData();
+
+        Console.WriteLine("Create event is fired.");
     }
 
-
-    // the following three methods mimic an actual data service that handles the actual data source
-    // you can see about implement error and exception handling, determining suitable return types as per your needs
-    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
-
-    async Task<SampleData> ServiceMimicInsert(SampleData itemToInsert)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        SampleData updatedItem = new SampleData()
-        {
-            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
-            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
-            Id = GridData.Count + 1,
-            Name = itemToInsert.Name,
-            Team = itemToInsert.Team
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        SampleData updatedItem = new SampleData()
-        {
-            Id = itemToUpdate.Id,
-            Name = itemToUpdate.Name,
-            Team = itemToUpdate.Team
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    async Task<bool> ServiceMimicDelete(SampleData itemToDelete)
-    {
-        return await Task.FromResult(true);//always successful
-    }
-
-    // Sample data follows below
-
-    public IEnumerable<SampleData> SelectedItems { get; set; } = Enumerable.Empty<SampleData>();
-
-    public List<SampleData> GridData { get; set; } = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5
-    }).ToList();
+    // Note the Equals override for restoring selection and editing
 
     public class SampleData
     {
@@ -315,7 +268,62 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
             return false;
         }
     }
-}
+
+    async Task GetGridData()
+    {
+        GridData = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetGridData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<SampleData> _data { get; set; } = new List<SampleData>();
+
+        public static async Task Create(SampleData itemToInsert)
+        {
+            itemToInsert.Id = _data.Count + 1;
+            _data.Insert(0, itemToInsert);
+        }
+
+        public static async Task<List<SampleData>> Read()
+        {
+            if (_data.Count < 1)
+            {
+                for (int i = 1; i < 50; i++)
+                {
+                    _data.Add(new SampleData()
+                    {
+                        Id = i,
+                        Name = "name " + i,
+                        Team = "team " + i % 5
+                    });
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(SampleData itemToUpdate)
+        {
+            var index = _data.FindIndex(i => i.Id == itemToUpdate.Id);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
+
+        public static async Task Delete(SampleData itemToDelete)
+        {
+            _data.Remove(itemToDelete);
+        }
+    }
+}****
 ````
 ````Service
 using Microsoft.JSInterop;
@@ -532,7 +540,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 ````CSHTML
 @* This example shows how to make the grid edit a certain item or start insert operation
     through your own code, without requiring the user to click the Command buttons.
-    The buttons that initiate these operations can be anywhere on the page, inlcuding inside the grid.
+    The buttons that initiate these operations can be anywhere on the page, including inside the grid.
     Note the model constructors and static method that show how to get a new instance for the edit item
 *@
 
@@ -567,8 +575,8 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         // you can predefine values here as well (not mandatory)
         currState.InsertedItem = new SampleData() { Name = "some predefined value" };
         await GridRef.SetState(currState);
-        
-         // note: possible only for Inline and Popup edit modes, with InCell there is never an inserted item, only edited items
+
+        // note: possible only for Inline and Popup edit modes, with InCell there is never an inserted item, only edited items
     }
 
     async Task EditItemFour()
@@ -594,14 +602,10 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operations here through your service
-        SampleData updatedItem = await ServiceMimicUpdate(item);
+        await MyService.Update(item);
 
-        // update the local view-model data
-        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
-        if (index != -1)
-        {
-            MyData[index] = updatedItem;
-        }
+        // update the local view-model data with the service data
+        await GetGridData();
     }
 
     async Task DeleteHandler(GridCommandEventArgs args)
@@ -609,13 +613,10 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operation here through your service
-        bool isDeleted = await ServiceMimicDelete(item);
+        await MyService.Delete(item);
 
-        if (isDeleted)
-        {
-            // update the local view-model data
-            MyData.Remove(item);
-        }
+        // update the local view-model data with the service data
+        await GetGridData();
     }
 
     async Task CreateHandler(GridCommandEventArgs args)
@@ -623,46 +624,10 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operation here through your service
-        SampleData insertedItem = await ServiceMimicInsert(item);
+        await MyService.Create(item);
 
-        // update the local view-model data
-        MyData.Insert(0, insertedItem);
-    }
-
-
-    // the following three methods mimic an actual data service that handles the actual data source
-    // you can see about implement error and exception handling, determining suitable return types as per your needs
-    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
-
-    async Task<SampleData> ServiceMimicInsert(SampleData itemToInsert)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        SampleData updatedItem = new SampleData()
-        {
-            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
-            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
-            ID = MyData.Count + 1,
-            Name = itemToInsert.Name
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        SampleData updatedItem = new SampleData()
-        {
-            ID = itemToUpdate.ID,
-            Name = itemToUpdate.Name
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    async Task<bool> ServiceMimicDelete(SampleData itemToDelete)
-    {
-        return await Task.FromResult(true);//always successful
+        // update the local view-model data with the service data
+        await GetGridData();
     }
 
     // Sample class definition - note the constructors, overrides and comments
@@ -708,17 +673,57 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 
     public List<SampleData> MyData { get; set; }
 
-    protected override void OnInitialized()
+    async Task GetGridData()
     {
-        MyData = new List<SampleData>();
+        MyData = await MyService.Read();
+    }
 
-        for (int i = 0; i < 50; i++)
+    protected override async Task OnInitializedAsync()
+    {
+        await GetGridData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<SampleData> _data { get; set; } = new List<SampleData>();
+
+        public static async Task Create(SampleData itemToInsert)
         {
-            MyData.Add(new SampleData()
+            itemToInsert.ID = _data.Count + 1;
+            _data.Insert(0, itemToInsert);
+        }
+
+        public static async Task<List<SampleData>> Read()
+        {
+            if (_data.Count < 1)
             {
-                ID = i,
-                Name = "Name " + i.ToString()
-            });
+                for (int i = 1; i < 50; i++)
+                {
+                    _data.Add(new SampleData()
+                    {
+                        ID = i,
+                        Name = "Name " + i.ToString()
+                    });
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(SampleData itemToUpdate)
+        {
+            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
+
+        public static async Task Delete(SampleData itemToDelete)
+        {
+            _data.Remove(itemToDelete);
         }
     }
 }
