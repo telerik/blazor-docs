@@ -54,53 +54,19 @@ You can find the following examples below:
 </TelerikGrid>
 
 @code {
-    public SampleData CurrentlyEditedEmployee { get; set; }
+    List<SampleData> MyData { get; set; }
+    List<string> Roles { get; set; }
+    SampleData CurrentlyEditedEmployee { get; set; }
 
     public async Task UpdateHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operations here through your service
-        SampleData updatedItem = await ServiceMimicUpdate(item);
+        await MyService.Update(item);
 
-        // update the local view-model data
-        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
-        if (index != -1)
-        {
-            MyData[index] = updatedItem;
-        }
-    }
-
-    // the following method mimics an actual data service that handles the actual data source
-    // you can see about implement error and exception handling, determining suitable return types as per your needs
-    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
-
-    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        SampleData updatedItem = new SampleData()
-        {
-            ID = itemToUpdate.ID,
-            Name = itemToUpdate.Name,
-            Role = itemToUpdate.Role
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    protected override void OnInitialized()
-    {
-        MyData = new List<SampleData>();
-
-        for (int i = 0; i < 50; i++)
-        {
-            MyData.Add(new SampleData()
-            {
-                ID = i,
-                Name = "name " + i,
-                Role = Roles[i % Roles.Count]
-            });
-        }
+        // update the local view-model data with the service data
+        await GetGridData();
     }
 
     //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
@@ -111,9 +77,56 @@ You can find the following examples below:
         public string Role { get; set; }
     }
 
-    public List<SampleData> MyData { get; set; }
+    async Task GetGridData()
+    {
+        MyData = await MyService.Read();
+        Roles = await MyService.GetRoles();
+    }
 
-    public static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
+    protected override async Task OnInitializedAsync()
+    {
+        await GetGridData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<SampleData> _data { get; set; } = new List<SampleData>();
+        private static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
+
+        public static async Task<List<SampleData>> Read()
+        {
+            if (_data.Count < 1)
+            {
+                for (int i = 1; i < 50; i++)
+                {
+                    _data.Add(new SampleData()
+                    {
+                        ID = i,
+                        Name = "Name " + i.ToString(),
+                        Role = Roles[i % Roles.Count]
+                    });
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task<List<string>> GetRoles()
+        {
+            return await Task.FromResult(Roles);
+        }
+
+        public static async Task Update(SampleData itemToUpdate)
+        {
+            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
+    }
 }
 ````
 
@@ -168,68 +181,10 @@ You can find the following examples below:
         Employee item = (Employee)args.Item;
 
         // perform actual data source operations here through your service
-        Employee updatedItem = await ServiceMimicUpdate(item);
+        await MyService.Update(item);
 
-        // update the local view-model data
-        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
-        if (index != -1)
-        {
-            MyData[index] = updatedItem;
-        }
-    }
-
-    // the following method mimics an actual data service that handles the actual data source
-    // you can see about implement error and exception handling, determining suitable return types as per your needs
-    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
-
-    async Task<Employee> ServiceMimicUpdate(Employee itemToUpdate)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        Employee updatedItem = new Employee()
-        {
-            ID = itemToUpdate.ID,
-            Name = itemToUpdate.Name,
-            RoleId = itemToUpdate.RoleId
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        Roles = await GetRoles();
-        MyData = await GetGridData();
-    }
-
-    async Task<List<Role>> GetRoles()
-    {
-        var data = new List<Role>
-        {
-            new Role { RoleId = 1, RoleName = "Manager" },
-            new Role { RoleId = 2, RoleName = "Employee" },
-            new Role { RoleId = 3, RoleName = "Contractor" },
-        };
-
-        return await Task.FromResult(data);
-    }
-
-    async Task<List<Employee>> GetGridData()
-    {
-        var data = new List<Employee>();
-        for (int i = 0; i < 50; i++)
-        {
-            data.Add(new Employee()
-            {
-                ID = i,
-                Name = "name " + i,
-                RoleId = i % 4 // every one in four is an unknown one that will not be present in the roles list
-                               // and will have an ID of 0 to match the DefaultText of the dropdownlist
-                               // you can perform more complicated checks as necessary in your app and/or in the templates
-                               // and/or in the view-model data to present it with suitable values and avoid exceptions
-            });
-        }
-
-        return await Task.FromResult(data);
+        // update the local view-model data with the service data
+        await GetGridData();
     }
 
     public class Employee
@@ -243,6 +198,67 @@ You can find the following examples below:
     {
         public int RoleId { get; set; }
         public string RoleName { get; set; }
+    }
+
+    async Task GetGridData()
+    {
+        MyData = await MyService.Read();
+        Roles = await MyService.GetRoles();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetGridData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<Employee> _data { get; set; } = new List<Employee>();
+        private static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
+
+        public static async Task<List<Employee>> Read()
+        {
+            if (_data.Count < 1)
+            {
+                for (int i = 0; i < 50; i++)
+                {
+                    _data.Add(new Employee()
+                    {
+                        ID = i,
+                        Name = "name " + i,
+                        RoleId = i % 4 // every one in four is an unknown one that will not be present in the roles list
+                                       // and will have an ID of 0 to match the DefaultText of the dropdownlist
+                                       // you can perform more complicated checks as necessary in your app and/or in the templates
+                                       // and/or in the view-model data to present it with suitable values and avoid exceptions
+                    });
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task<List<Role>> GetRoles()
+        {
+            var data = new List<Role>
+            {
+                new Role { RoleId = 1, RoleName = "Manager" },
+                new Role { RoleId = 2, RoleName = "Employee" },
+                new Role { RoleId = 3, RoleName = "Contractor" },
+            };
+
+            return await Task.FromResult(data);
+        }
+
+        public static async Task Update(Employee itemToUpdate)
+        {
+            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
     }
 }
 ````
