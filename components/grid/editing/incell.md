@@ -128,6 +128,7 @@ Click a cell, edit it and click outside of the cell to see the change.
 
         public static async Task Create(SampleData itemToInsert)
         {
+            itemToInsert.Id = _data.Count + 1;
             _data.Insert(0, itemToInsert);
         }
 

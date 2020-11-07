@@ -137,6 +137,7 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 
         public static async Task Create(SampleData itemToInsert)
         {
+            itemToInsert.Id = _data.Count + 1;
             _data.Insert(0, itemToInsert);
         }
 
