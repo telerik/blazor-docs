@@ -99,12 +99,7 @@ The following code example demonstrates declarations and handling.
         public DateTime HireDate { get; set; }
     }
 
-    List<SampleData> GridData = Enumerable.Range(1, 50).Select(x => new SampleData
-    {
-        ID = x,
-        Name = "name " + x,
-        HireDate = DateTime.Now.AddDays(-x)
-    }).ToList();
+    List<SampleData> GridData { get; set; }
 
     // sample custom commands handling
 
@@ -129,36 +124,61 @@ The following code example demonstrates declarations and handling.
 
     }
 
-    // sample CUD operations
+    // sample CRUD operations
 
     private async Task MyUpdateHandler(GridCommandEventArgs args)
     {
         SampleData theUpdatedItem = args.Item as SampleData;
-        SampleData updatedItem = await ServiceMimicUpdate(theUpdatedItem);
 
-        // update the local view-model data
-        var index = GridData.FindIndex(i => i.ID == updatedItem.ID);
-        if (index != -1)
-        {
-            GridData[index] = updatedItem;
-        }
+        // perform actual data source operations here through your service
+        await MyService.Update(theUpdatedItem);
+
+        // update the local view-model data with the service data
+        await GetGridData();
     }
 
-    // the following method mimics an actual data service that handles the actual data source
-    // you can see about implement error and exception handling, determining suitable return types as per your needs
-    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
-
-    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
+    async Task GetGridData()
     {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        SampleData updatedItem = new SampleData()
+        GridData = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetGridData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<SampleData> _data { get; set; } = new List<SampleData>();
+
+        public static async Task<List<SampleData>> Read()
         {
-            ID = itemToUpdate.ID,
-            HireDate = itemToUpdate.HireDate,
-            Name = itemToUpdate.Name
-        };
-        return await Task.FromResult(updatedItem);
+            if (_data.Count < 1)
+            {
+                for (int i = 1; i < 50; i++)
+                {
+                    _data.Add(new SampleData()
+                    {
+                        ID = i,
+                        Name = "name " + i,
+                        HireDate = DateTime.Now.AddDays(-i)
+                    });
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(SampleData itemToUpdate)
+        {
+            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
     }
 }
 ````
