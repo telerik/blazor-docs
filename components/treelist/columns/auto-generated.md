@@ -333,11 +333,6 @@ This example shows how to:
 @code {
     public List<Employee> Data { get; set; }
 
-    protected override async Task OnInitializedAsync()
-    {
-        Data = await GetTreeListData();
-    }
-
     // sample models with annotations
 
     public class Employee
@@ -380,78 +375,81 @@ This example shows how to:
         var item = e.Item as Employee;
 
         // perform actual data source operations here through your service
-        Employee updatedItem = await ServiceMimicUpdate(item);
+        await MyService.Update(item);
 
         // update the local view-model data with the service data
-        var index = Data.FindIndex(x => x.Id == updatedItem.Id);
-        if (index != -1)
-        {
-            // see the Equals override in the model - it ensures this is the same
-            // object from the treelist point of view and its state
-            Data[index] = updatedItem;
-        }
-    }
-
-    // the following method mimics an actual data service that handles the actual data source
-    // you can see about implement error and exception handling, determining suitable return types as per your needs
-
-    async Task<Employee> ServiceMimicUpdate(Employee itemToUpdate)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        Employee updatedItem = new Employee()
-        {
-            Id = itemToUpdate.Id,
-            ParentId = itemToUpdate.ParentId,
-            Name = itemToUpdate.Name,
-            EmailAddress = itemToUpdate.EmailAddress,
-            HireDate = itemToUpdate.HireDate
-        };
-        return await Task.FromResult(updatedItem);
+        await GetTreeListData();
     }
 
     // data generation
 
-    async Task<List<Employee>> GetTreeListData()
+    async Task GetTreeListData()
     {
-        List<Employee> data = new List<Employee>();
+        Data = await MyService.Read();
+    }
 
-        for (int i = 1; i < 15; i++)
+    protected override async Task OnInitializedAsync()
+    {
+        await GetTreeListData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<Employee> _data { get; set; } = new List<Employee>();
+
+        public static async Task<List<Employee>> Read()
         {
-            data.Add(new Employee
+            if (_data.Count < 1)
             {
-                Id = i,
-                ParentId = null,
-                Name = $"root: {i}",
-                HireDate = DateTime.Now.AddYears(-i)
-            }); ;
-
-            for (int j = 1; j < 4; j++)
-            {
-                int currId = i * 100 + j;
-                data.Add(new Employee
+                for (int i = 1; i < 15; i++)
                 {
-                    Id = currId,
-                    ParentId = i,
-                    Name = $"first level child {j} of {i}",
-                    HireDate = DateTime.Now.AddDays(-currId)
-                });
-
-                for (int k = 1; k < 3; k++)
-                {
-                    int nestedId = currId * 1000 + k;
-                    data.Add(new Employee
+                    _data.Add(new Employee
                     {
-                        Id = nestedId,
-                        ParentId = currId,
-                        Name = $"second level child {k} of {i} and {currId}",
-                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                        Id = i,
+                        ParentId = null,
+                        Name = $"root: {i}",
+                        HireDate = DateTime.Now.AddYears(-i)
                     }); ;
+
+                    for (int j = 1; j < 4; j++)
+                    {
+                        int currId = i * 100 + j;
+                        _data.Add(new Employee
+                        {
+                            Id = currId,
+                            ParentId = i,
+                            Name = $"first level child {j} of {i}",
+                            HireDate = DateTime.Now.AddDays(-currId)
+                        });
+
+                        for (int k = 1; k < 3; k++)
+                        {
+                            int nestedId = currId * 1000 + k;
+                            _data.Add(new Employee
+                            {
+                                Id = nestedId,
+                                ParentId = currId,
+                                Name = $"second level child {k} of {i} and {currId}",
+                                HireDate = DateTime.Now.AddMinutes(-nestedId)
+                            }); ;
+                        }
+                    }
                 }
             }
+
+            return await Task.FromResult(_data);
         }
 
-        return await Task.FromResult(data);
+        public static async Task Update(Employee itemToUpdate)
+        {
+            var index = _data.FindIndex(i => i.Id == itemToUpdate.Id);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
     }
 }
 ````
