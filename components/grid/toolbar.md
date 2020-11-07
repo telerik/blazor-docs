@@ -40,6 +40,7 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
     </GridToolBar>
     <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
         <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
         <GridCommandColumn>
@@ -52,20 +53,17 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
 
 @code {
     string result;
+    public List<SampleData> MyData { get; set; }
 
     private async Task UpdateHandler(GridCommandEventArgs args)
     {
         SampleData item = args.Item as SampleData;
 
         // perform actual data source operations here through your service
-        SampleData updatedItem = await ServiceMimicUpdate(item);
+        SampleData updatedItem = await MyService.Update(item);
 
-        // update the local view-model data
-        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
-        if (index != -1)
-        {
-            MyData[index] = updatedItem;
-        }
+        // update the local view-model data with the service data
+        await GetGridData();
 
         result = string.Format("Employee with ID {0} now has name {1} and hire date {2}", updatedItem.ID, updatedItem.Name, updatedItem.HireDate);
     }
@@ -74,45 +72,13 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
     {
         SampleData item = args.Item as SampleData;
 
-        // perform actual data source operation here through your service
-        SampleData insertedItem = await ServiceMimicInsert(item);
+        // perform actual data source operations here through your service
+        SampleData insertedItem = await MyService.Create(item);
 
-        // update the local view-model data
-        MyData.Insert(0, insertedItem);
+        // update the local view-model data with the service data
+        await GetGridData();
 
         result = string.Format("On {2} you added the employee {0} who was hired on {1}.", insertedItem.Name, insertedItem.HireDate, DateTime.Now);
-    }
-
-    // the following two methods mimic an actual data service that handles the actual data source
-    // you can see about implement error and exception handling, determining suitable return types as per your needs
-    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
-
-    async Task<SampleData> ServiceMimicInsert(SampleData itemToInsert)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        SampleData updatedItem = new SampleData()
-        {
-            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
-            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
-            ID = MyData.Count + 1,
-            Name = itemToInsert.Name,
-            HireDate = itemToInsert.HireDate
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        SampleData updatedItem = new SampleData()
-        {
-            ID = itemToUpdate.ID,
-            Name = itemToUpdate.Name,
-            HireDate = itemToUpdate.HireDate
-        };
-        return await Task.FromResult(updatedItem);
     }
 
     //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
@@ -123,18 +89,66 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
         public DateTime HireDate { get; set; }
     }
 
-    public List<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
+    async Task GetGridData()
     {
-        ID = x,
-        Name = "name " + x,
-        HireDate = DateTime.Now.AddDays(-x)
-    }).ToList();
+        MyData = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetGridData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<SampleData> _data { get; set; } = new List<SampleData>();
+
+        public static async Task<SampleData> Create(SampleData itemToInsert)
+        {
+            itemToInsert.ID = _data.Count + 1;
+            _data.Insert(0, itemToInsert);
+
+            return await Task.FromResult(itemToInsert);
+        }
+
+        public static async Task<List<SampleData>> Read()
+        {
+            if (_data.Count < 1)
+            {
+                for (int i = 1; i < 50; i++)
+                {
+                    _data.Add(new SampleData()
+                    {
+                        ID = i,
+                        Name = "Name " + i.ToString(),
+                        HireDate = DateTime.Now.AddDays(-i)
+                    });
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task<SampleData> Update(SampleData itemToUpdate)
+        {
+            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+                return await Task.FromResult(_data[index]);
+            }
+
+            throw new Exception("no item to update");
+        }
+    }
 }
 ````
 
->caption The result from the code snippet above, after built-in Create button in the toolbar was clicked
+>caption The result from the code snippet above, after the built-in Create button in the toolbar was clicked
 
-![](images/create-toolbar-button.jpg)
+![](images/create-toolbar-button.png)
 
 ## Custom Commands
 
