@@ -65,14 +65,10 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operations here through your service
-        SampleData updatedItem = await ServiceMimicUpdate(item);
+        await MyService.Update(item);
 
-        // update the local view-model data
-        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
-        if (index != -1)
-        {
-            MyData[index] = updatedItem;
-        }
+        // update the local view-model data with the service data
+        await GetGridData();
 
         Console.WriteLine("Update event is fired.");
     }
@@ -82,13 +78,10 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operation here through your service
-        bool isDeleted = await ServiceMimicDelete(item);
+        await MyService.Delete(item);
 
-        if (isDeleted)
-        {
-            // update the local view-model data
-            MyData.Remove(item);
-        }
+        // update the local view-model data with the service data
+        await GetGridData();
 
         Console.WriteLine("Delete event is fired.");
     }
@@ -98,10 +91,10 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operation here through your service
-        SampleData insertedItem = await ServiceMimicInsert(item);
+        await MyService.Create(item);
 
-        // update the local view-model data
-        MyData.Insert(0, insertedItem);
+        // update the local view-model data with the service data
+        await GetGridData();
 
         Console.WriteLine("Create event is fired.");
     }
@@ -115,42 +108,6 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
         Console.WriteLine("Cancel event is fired.");
     }
 
-    // the following three methods mimic an actual data service that handles the actual data source
-    // you can see about implement error and exception handling, determining suitable return types as per your needs
-    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
-
-    async Task<SampleData> ServiceMimicInsert(SampleData itemToInsert)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the inserted item differently
-        SampleData updatedItem = new SampleData()
-        {
-            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
-            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
-            ID = MyData.Count + 1,
-            Name = itemToInsert.Name
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        SampleData updatedItem = new SampleData()
-        {
-            ID = itemToUpdate.ID,
-            Name = itemToUpdate.Name
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    async Task<bool> ServiceMimicDelete(SampleData itemToDelete)
-    {
-        return await Task.FromResult(true);//always successful
-    }
-
-
     // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
     public class SampleData
     {
@@ -162,17 +119,56 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 
     public List<SampleData> MyData { get; set; }
 
-    protected override void OnInitialized()
+    async Task GetGridData()
     {
-        MyData = new List<SampleData>();
+        MyData = await MyService.Read();
+    }
 
-        for (int i = 1; i < 50; i++)
+    protected override async Task OnInitializedAsync()
+    {
+        await GetGridData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<SampleData> _data { get; set; } = new List<SampleData>();
+
+        public static async Task Create(SampleData itemToInsert)
         {
-            MyData.Add(new SampleData()
+            _data.Insert(0, itemToInsert);
+        }
+
+        public static async Task<List<SampleData>> Read()
+        {
+            if (_data.Count < 1)
             {
-                ID = i,
-                Name = "Name " + i.ToString()
-            });
+                for (int i = 1; i < 50; i++)
+                {
+                    _data.Add(new SampleData()
+                    {
+                        ID = i,
+                        Name = "Name " + i.ToString()
+                    });
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(SampleData itemToUpdate)
+        {
+            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
+
+        public static async Task Delete(SampleData itemToDelete)
+        {
+            _data.Remove(itemToDelete);
         }
     }
 }
