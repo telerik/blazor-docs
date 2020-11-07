@@ -76,8 +76,6 @@ The `OnClick` handler of the commands receives an argument of type `TreeListComm
 
 @code {
     public List<Employee> Data { get; set; }
-    public static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
-    public Employee CurrentlyEditedEmployee { get; set; }
 
     // Sample CUD operations for the local data
     async Task UpdateItem(TreeListCommandEventArgs args)
@@ -85,10 +83,10 @@ The `OnClick` handler of the commands receives an argument of type `TreeListComm
         var item = args.Item as Employee; // you can also use the entire model
 
         // perform actual data source operations here through your service
-        Employee updatedItem = await ServiceMimicUpdate(item);
+        await MyService.Update(item);
 
         // update the local view-model data with the service data
-        UpdateItemRecursive(Data, updatedItem);
+        await GetTreeListData();
     }
 
     // sample custom command handling
@@ -114,45 +112,6 @@ The `OnClick` handler of the commands receives an argument of type `TreeListComm
 
         await Task.Delay(2000); //simulate actual long running async operation
     }
-
-    // sample helper methods for handling the view-model data hierarchy
-    void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
-    {
-        for (int i = 0; i < items.Count; i++)
-        {
-            if (items[i].Id.Equals(itemToUpdate.Id))
-            {
-                items[i] = itemToUpdate;
-                return;
-            }
-
-            if (items[i].DirectReports?.Count > 0)
-            {
-                UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
-            }
-        }
-    }
-
-
-    // the following method mimics an actual data service that handles the actual data source
-    // you can see about implement error and exception handling, determining suitable return types as per your needs
-
-    async Task<Employee> ServiceMimicUpdate(Employee itemToUpdate)
-    {
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        Employee updatedItem = new Employee()
-        {
-            Id = itemToUpdate.Id,
-            Name = itemToUpdate.Name,
-            EmailAddress = itemToUpdate.EmailAddress,
-            HireDate = itemToUpdate.HireDate,
-            HasChildren = itemToUpdate.HasChildren,
-            DirectReports = itemToUpdate.DirectReports
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
 
     // sample model
 
@@ -180,69 +139,104 @@ The `OnClick` handler of the commands receives an argument of type `TreeListComm
         }
     }
 
-
     // data generation
 
-    // used in this example for data generation and retrieval for CUD operations on the current view-model data
-    public int LastId { get; set; } = 1;
+    async Task GetTreeListData()
+    {
+        Data = await MyService.Read();
+    }
 
     protected override async Task OnInitializedAsync()
     {
-        Data = await GetTreeListData();
+        await GetTreeListData();
     }
 
-    async Task<List<Employee>> GetTreeListData()
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
     {
-        List<Employee> data = new List<Employee>();
+        private static List<Employee> _data { get; set; } = new List<Employee>();
+        // used in this example for data generation and retrieval for CUD operations on the current view-model data
+        private static int LastId { get; set; } = 1;
+        private static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
 
-        for (int i = 1; i < 15; i++)
+        public static async Task<List<Employee>> Read()
         {
-            Employee root = new Employee
+            if (_data.Count < 1)
             {
-                Id = LastId,
-                Name = $"root: {i}",
-                Role = Roles[i % Roles.Count],
-                EmailAddress = $"{i}@example.com",
-                HireDate = DateTime.Now.AddYears(-i),
-                DirectReports = new List<Employee>(),
-                HasChildren = true
-            };
-            data.Add(root);
-            LastId++;
-
-            for (int j = 1; j < 4; j++)
-            {
-                int currId = LastId;
-                Employee firstLevelChild = new Employee
+                for (int i = 1; i < 15; i++)
                 {
-                    Id = currId,
-                    Name = $"first level child {j} of {i}",
-                    Role = Roles[j % Roles.Count],
-                    EmailAddress = $"{currId}@example.com",
-                    HireDate = DateTime.Now.AddDays(-currId),
-                    DirectReports = new List<Employee>(),
-                    HasChildren = true
-                };
-                root.DirectReports.Add(firstLevelChild);
-                LastId++;
-
-                for (int k = 1; k < 3; k++)
-                {
-                    int nestedId = LastId;
-                    firstLevelChild.DirectReports.Add(new Employee
+                    Employee root = new Employee
                     {
                         Id = LastId,
-                        Name = $"second level child {k} of {j} and {i}",
-                        Role = Roles[k % Roles.Count],
-                        EmailAddress = $"{nestedId}@example.com",
-                        HireDate = DateTime.Now.AddMinutes(-nestedId)
-                    }); ;
+                        Name = $"root: {i}",
+                        Role = Roles[i % Roles.Count],
+                        EmailAddress = $"{i}@example.com",
+                        HireDate = DateTime.Now.AddYears(-i),
+                        DirectReports = new List<Employee>(),
+                        HasChildren = true
+                    };
+                    _data.Add(root);
                     LastId++;
+
+                    for (int j = 1; j < 4; j++)
+                    {
+                        int currId = LastId;
+                        Employee firstLevelChild = new Employee
+                        {
+                            Id = currId,
+                            Name = $"first level child {j} of {i}",
+                            Role = Roles[j % Roles.Count],
+                            EmailAddress = $"{currId}@example.com",
+                            HireDate = DateTime.Now.AddDays(-currId),
+                            DirectReports = new List<Employee>(),
+                            HasChildren = true
+                        };
+                        root.DirectReports.Add(firstLevelChild);
+                        LastId++;
+
+                        for (int k = 1; k < 3; k++)
+                        {
+                            int nestedId = LastId;
+                            firstLevelChild.DirectReports.Add(new Employee
+                            {
+                                Id = LastId,
+                                Name = $"second level child {k} of {j} and {i}",
+                                Role = Roles[k % Roles.Count],
+                                EmailAddress = $"{nestedId}@example.com",
+                                HireDate = DateTime.Now.AddMinutes(-nestedId)
+                            }); ;
+                            LastId++;
+                        }
+                    }
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(Employee itemToUpdate)
+        {
+            UpdateItemRecursive(_data, itemToUpdate);
+        }
+
+        // sample helper methods for handling the view-model data hierarchy
+        private static void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].Id.Equals(itemToUpdate.Id))
+                {
+                    items[i] = itemToUpdate;
+                    return;
+                }
+
+                if (items[i].DirectReports?.Count > 0)
+                {
+                    UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
                 }
             }
         }
-
-        return await Task.FromResult(data);
     }
 }
 ````
