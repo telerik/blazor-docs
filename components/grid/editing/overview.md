@@ -74,8 +74,6 @@ Editing is cancelled for the first two records.
 @code {
     async Task EditHandler(GridCommandEventArgs args)
     {
-        AppendToLog("Edit", args);
-
         SampleData item = (SampleData)args.Item;
 
         //prevent opening for edit based on condition
@@ -83,6 +81,8 @@ Editing is cancelled for the first two records.
         {
             args.IsCancelled = true;//the general approach for cancelling an event
         }
+
+        AppendToLog("Edit", args);
     }
 
     async Task UpdateHandler(GridCommandEventArgs args)
@@ -92,14 +92,10 @@ Editing is cancelled for the first two records.
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operations here through your service
-        SampleData updatedItem = await ServiceMimicUpdate(item);
-        
+        await MyService.Update(item);
+
         // update the local view-model data with the service data
-        var index = MyData.FindIndex(i => i.ID == updatedItem.ID);
-        if (index != -1)
-        {
-            MyData[index] = updatedItem;
-        }
+        await GetGridData();
     }
 
     async Task DeleteHandler(GridCommandEventArgs args)
@@ -109,13 +105,11 @@ Editing is cancelled for the first two records.
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operation here through your service
-        bool isDeleted = await ServiceMimicDelete(item);
-        
-        if (isDeleted)
-        {
-            // update the local view-model data
-            MyData.Remove(item);
-        }
+        await MyService.Delete(item);
+
+        // update the local view-model data with the service data
+        await GetGridData();
+
     }
 
     async Task CreateHandler(GridCommandEventArgs args)
@@ -125,10 +119,10 @@ Editing is cancelled for the first two records.
         SampleData item = (SampleData)args.Item;
 
         // perform actual data source operation here through your service
-        SampleData insertedItem = await ServiceMimicInsert(item);
-        
+        await MyService.Create(item);
+
         // update the local view-model data with the service data
-        MyData.Insert(0, insertedItem);
+        await GetGridData();
     }
 
     async Task CancelHandler(GridCommandEventArgs args)
@@ -140,44 +134,6 @@ Editing is cancelled for the first two records.
         // if necessary, perform actual data source operation here through your service
 
         await Task.Delay(1000); //simulate actual long running async operation
-    }
-
-    // the following three methods mimic an actual data service that handles the actual data source
-    // you can see about implement error and exception handling, determining suitable return types as per your needs
-    // an example is available here: https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation
-
-    async Task<SampleData> ServiceMimicInsert(SampleData itemToInsert)
-    {
-        await Task.Delay(2000); // simulate actual long running async operation
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently, we use "new" here
-        SampleData updatedItem = new SampleData()
-        {
-            // the service assigns an ID, in this sample we use only the view-model data for simplicity,
-            // you should use the actual data and set the properties as necessary (e.g., generate nested fields data and so on)
-            ID = MyData.Count + 1,
-            Name = itemToInsert.Name
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    async Task<SampleData> ServiceMimicUpdate(SampleData itemToUpdate)
-    {
-        await Task.Delay(2000); // simulate actual long running async operation
-        // in this example, we just populate the fields, you project may use
-        // something else or generate the updated item differently
-        SampleData updatedItem = new SampleData()
-        {
-            ID = itemToUpdate.ID,
-            Name = itemToUpdate.Name
-        };
-        return await Task.FromResult(updatedItem);
-    }
-
-    async Task<bool> ServiceMimicDelete(SampleData itemToDelete)
-    {
-        await Task.Delay(2000); // simulate actual long running async operation
-        return await Task.FromResult(true);//always successful
     }
 
     // this method and field just display what happened for visual cues in this example
@@ -204,17 +160,66 @@ Editing is cancelled for the first two records.
 
     List<SampleData> MyData { get; set; }
 
-    protected override void OnInitialized()
+    async Task GetGridData()
     {
-        MyData = new List<SampleData>();
+        MyData = await MyService.Read();
+    }
 
-        for (int i = 0; i < 50; i++)
+    protected override async Task OnInitializedAsync()
+    {
+        await GetGridData();
+    }
+
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API will look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<SampleData> _data { get; set; } = new List<SampleData>();
+
+        public static async Task Create(SampleData itemToInsert)
         {
-            MyData.Add(new SampleData()
+            await Task.Delay(1000); // simulate actual long running async operation
+
+            itemToInsert.Id = _data.Count + 1;
+            _data.Insert(0, itemToInsert);
+        }
+
+        public static async Task<List<SampleData>> Read()
+        {
+            await Task.Delay(1000); // simulate actual long running async operation
+
+            if (_data.Count < 1)
             {
-                ID = i,
-                Name = "Name " + i.ToString()
-            });
+                for (int i = 1; i < 50; i++)
+                {
+                    _data.Add(new SampleData()
+                    {
+                        ID = i,
+                        Name = "Name " + i.ToString()
+                    });
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(SampleData itemToUpdate)
+        {
+            await Task.Delay(1000); // simulate actual long running async operation
+
+            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
+
+        public static async Task Delete(SampleData itemToDelete)
+        {
+            await Task.Delay(1000); // simulate actual long running async operation
+
+            _data.Remove(itemToDelete);
         }
     }
 }
@@ -230,7 +235,9 @@ There are a few considerations to keep in mind with the CUD operations of the gr
     
     * For example, you may want to update the view-model only on success of the data service with the model returned from the server. Another thing you may want to do is to inform the user for server (async, remote) validation errors such as duplicates. You can find examples of both in the [Remote Validation sample project](https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation).
 
-* The CRUD event handlers must be `async Task` and **not** `async void`. A Task can be properly awaited and allows working with services and contexts. When the method returns `void`, the execution of the context operations is not actually awaited, and you may get errors from the context (such as "Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application" or "A second operation started on this context before a previous operation completed. This is usually caused by different threads using the same instance of DbContext").
+* The CRUD event handlers must be `async Task` and **not** `async void`. A Task can be properly awaited and allows working with services and contexts, and lets the grid update after the actual data source operations complete.
+
+    * When the method returns `void`, the execution of the context operations is not actually awaited, and you may get errors from the context (such as "Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application" or "A second operation started on this context before a previous operation completed. This is usually caused by different threads using the same instance of DbContext"). The grid may also re-render before the actual data update happens and you may not see the result.
 
 * The Grid uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert action is invoked, so the Model should have a Parameterless constructor defined. A workaround might be [invoking Insert through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
 
