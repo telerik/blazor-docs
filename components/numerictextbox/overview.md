@@ -53,7 +53,6 @@ The numeric textbox provides the following features:
 * `Max` - the maximum decimal value the input can take. Must be of the same type as the `Value`.
 * `Min` - the minimum decimal value the input can take. Must be of the same type as the `Value`.
 * `Step` - the decimal value of the step with which the value changes when the arrows are used. Must be of the same type as the `Value`.
-* `Text` - getter for the original user input.
 * `Value` - to get/set the value of the input.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
