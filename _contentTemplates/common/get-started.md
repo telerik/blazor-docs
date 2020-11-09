@@ -2,7 +2,7 @@
 ## Step 1 - Set Up a Blazor Project
 
 
-Make sure that you have [{{site.supportedFrameworkVersion}}](https://dotnet.microsoft.com/download/dotnet-core/3.1) and [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) installed.
+Make sure that you have [.NET Core 3.1.x](https://dotnet.microsoft.com/download/dotnet-core/3.1) or [.NET 5](https://dotnet.microsoft.com/download/dotnet/5.0), and [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) installed.
 
 The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}` and it supports `{{site.supportedFrameworkVersion}}`.
 

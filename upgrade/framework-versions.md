@@ -14,9 +14,24 @@ This article lists the .NET Core versions supported by the UI for Blazor suite, 
 
 >note Telerik supports only the latest available version of UI for Blazor (**{{site.uiForBlazorLatestVersion}}**).
 
-Telerik UI for Blazor targets `netstandard2.1` in order to be compatible with the WASM flavor. Thus, apps/libraries that reference our package must target `netstandard2.1` or `netcoreapp3.1`. These are the standard target frameworks for, respectively, WASM and Server Blazor projects, but Razor class libraries target `netstandard2.0` by default so you would need to update it.
+Telerik UI for Blazor targets `netstandard2.1`. Thus, apps/libraries that reference our package must target `netstandard2.1`, `netcoreapp3.1` or `net5.0`. Razor Class Libraries may target `netstandard2.0` by default so you would need to update that.
 
-## Serve-side Blazor
+
+
+## .NET 5
+
+Telerik UI for Blazor supports .NET 5 since its `2.19.0` release.
+
+| .NET 5     | Telerik UI for Blazor version                          |
+|------------|--------------------------------------------------------|
+| .NET 5 RTM | {{site.uiForBlazorLatestVersion}}                      |
+
+
+
+
+## .NET Core 3.1
+
+### Serve-side Blazor
 
 >caption Telerik UI for Blazor versions per framework version for the server-side flavor
 
@@ -30,7 +45,7 @@ Telerik UI for Blazor targets `netstandard2.1` in order to be compatible with th
 | .NET Core 3.0 RTM         | 2.1.0, 2.1.1                  |
 
 
-## Client-side Blazor
+### Client-side Blazor
 
 The client-side (WebAssembly) flavor of Blazor is a set of separate NuGet packages whose version may not match the .NET Core version they run on.
 
@@ -56,17 +71,6 @@ The client-side (WebAssembly) flavor of Blazor is a set of separate NuGet packag
 | preview 2 (3.1.0-preview2.19528.8)   | 2.3.0                         |
 | preview 1 (3.1.0-preview1.19506.1)   | 2.2.0, 2.2.1                  |
 
-
-
-## .NET 5
-
-The future of .NET Core will eventually be through .NET 5. Its [Second Release Candidate](https://devblogs.microsoft.com/aspnet/asp-net-core-updates-in-net-5-release-candidate-2/) is already available.
-
-The Telerik UI for Blazor suite is committed to the WebAssembly flavor of Blazor and we need to make sure we are compatible with its own main line of releases (at the moment - .NET Core 3.2.1).
-
-We cannot guarantee compatibility with the .NET 5 previews.
-
-The situation may be revised at a later time.
 
 
 ## See Also
