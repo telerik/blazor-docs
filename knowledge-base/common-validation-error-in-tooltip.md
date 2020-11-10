@@ -18,6 +18,14 @@ Can you please advise me on how to display validation message as tooltip?
 
 ## Solution
 
+This article contains two different approaches for implementing validation notifications with popups:
+
+* [Validation Summary in a Popup](#validation-summary-in-a-popup)
+
+* [Per-Input Validation Popups](#per-input-validation-popups)
+
+### Validation Summary in a Popup
+
 There are several key aspects in implementing this:
 
 * A tooltip component. See this page for a Telerik one: https://feedback.telerik.com/blazor/1406095-tooltip-support. When it gets implemented, this code will become simpler. The current mockup stores the button coordinates when the mouse enters it. See the code comments for more details.
@@ -110,6 +118,78 @@ There are several key aspects in implementing this:
     }
 }
 ````
+
+### Per-Input Validation Popups
+
+This sample uses a tooltip component and mimics clicks on its targets to make it show up. Comments in the code provide more details on the implementation approach and ideas for next steps in the implementation.
+
+>caption Tooltips for validated inputs
+
+````CSHTML
+@* This sample shows one way programatically show tooltips and display the validation summary in it. *@
+
+@inject IJSRuntime JS
+
+<script suppress-error="BL9992">
+    // the scripts should be extracted in a separate js file
+    window.triggerClick = (id) => {
+        document.getElementById(id).click();
+    }
+</script>
+
+@using System.ComponentModel.DataAnnotations
+@* this is for the validation model only *@
+
+<style>
+    /* implement desired styling, here we just add white background so the default red text pops out */
+    .ValidationTooltip .k-tooltip-content {
+        background: white;
+    }
+</style>
+
+<EditForm Model="@validationModel" OnInvalidSubmit="@ShowTooltip">
+    <DataAnnotationsValidator />
+
+    <TelerikTooltip TargetSelector="#required-field" ShowOn="@TooltipShowEvent.Click">
+        <Template Context="RequiredContext">The field is required</Template>
+    </TelerikTooltip>
+    <TelerikTooltip TargetSelector="#length-field" ShowOn="@TooltipShowEvent.Click">        
+        <Template Context="Length">That text is too long</Template>
+    </TelerikTooltip>
+
+    <TelerikTextBox @bind-Value="@validationModel.RequiredField" Id="required-field"></TelerikTextBox>
+    <br /><br />
+    <TelerikTextBox @bind-Value="@validationModel.LengthField" Id="length-field"></TelerikTextBox>
+    <br /><br />
+    <span @onmouseover="@(() => ShowTooltip())">
+        <TelerikButton Primary="true">Submit</TelerikButton>
+    </span>
+</EditForm>
+
+@code {
+    //model and validation
+    class TextValidationModel
+    {
+        [Required]
+        public string RequiredField { get; set; }
+
+        [StringLength(10, ErrorMessage = "That text is too long")]
+        public string LengthField { get; set; }
+    }
+
+    TextValidationModel validationModel = new TextValidationModel() { LengthField = "Too long text" };
+
+    async Task ShowTooltip()
+    {
+        // this will trigger manual click to the element with the passed id
+        // you can filter and show the tooltips only for the fields that failed validation check
+        await JS.InvokeVoidAsync("triggerClick", "required-field");
+        await JS.InvokeVoidAsync("triggerClick", "length-field");
+    }
+}
+
+````
+
 
 ## Notes
 
