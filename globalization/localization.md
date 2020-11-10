@@ -26,6 +26,8 @@ You can find the list of keys in the following places:
 
 Telerik provides and supports the default English texts. The offline demos carry a few resource files with translations in several languages that are provided as-is, and you can use them as base for implementing your own.
 
+>tip You can find translations provided by the community, or contribute your own, in the following repository: <a href="https://github.com/telerik/blazor-ui-messages" target="_blank">UI for Blazor: Translation of Messages</a>
+
 
 ## How to Enable Localization in Your App
 
