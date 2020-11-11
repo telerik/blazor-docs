@@ -232,54 +232,62 @@ The grid offers elastic design capabilities
         font-size: 10px;
     }
 
-    div.smallerFont .k-dropdown.k-header.k-dropdown-operator {
-        width: calc(8px + 2em) !important;
-    }
+        div.smallerFont .k-dropdown.k-header.k-dropdown-operator {
+            width: calc(8px + 2em) !important;
+        }
+
+        /* One example for altering content inside the cells - the inputs in InCell editing mode here 
+        You can create similar rules as needed by inspecting the rendered HTML. This blog can help you do that
+        https://www.telerik.com/blogs/improve-your-debugging-skills-with-chrome-devtools
+        */
+        div.smallerFont .k-grid-edit-cell input{
+            font-size: 10px;
+        }
 </style>
 
 <TelerikGrid Data="@MyData" Class="smallerFont"
-			  Pageable="true" FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-			  Sortable="true" Height="200px">
-	<GridColumns>
-		<GridColumn Field="@(nameof(SampleData.ID))">
-		</GridColumn>
-		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-		</GridColumn>
-		<GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
-		</GridColumn>
-	</GridColumns>
+             Pageable="true" FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
+             Sortable="true" Height="200px">
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.ID))">
+        </GridColumn>
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
+        </GridColumn>
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
+        </GridColumn>
+    </GridColumns>
 </TelerikGrid>
 
 original:
 
 <TelerikGrid Data="@MyData"
-			  Pageable="true" FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-			  Sortable="true" Height="200px">
-	<GridColumns>
-		<GridColumn Field="@(nameof(SampleData.ID))">
-		</GridColumn>
-		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-		</GridColumn>
-		<GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
-		</GridColumn>
-	</GridColumns>
+             Pageable="true" FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
+             Sortable="true" Height="200px">
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.ID))">
+        </GridColumn>
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
+        </GridColumn>
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
+        </GridColumn>
+    </GridColumns>
 </TelerikGrid>
 
 @code {
-	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-		public DateTime HireDate { get; set; }
-	}
+    //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+    public class SampleData
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public DateTime HireDate { get; set; }
+    }
 
-	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		ID = x,
-		Name = "name " + x,
-		HireDate = DateTime.Now.AddDays(-x)
-	});
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
+    {
+        ID = x,
+        Name = "name " + x,
+        HireDate = DateTime.Now.AddDays(-x)
+    });
 }
 ````
 
