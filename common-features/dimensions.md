@@ -22,6 +22,8 @@ When setting **percentage values** (such as `100%` or `50%`), keep in mind the f
 
 When setting **percentage dimensions** to elements with **special positioning** (such as `Width` of a Window or the `PopupWidth` of a dropdown), their parent element in the DOM determines the rendered size.
 
+>tip You can use dimensions in percent (such as `Width="100%"`) to make the components responsive - so they will fit in your layout and let the layout adjust with viewport sizes or other application logic.
+
 ## Examples
 
 The examples here showcase different units and examples of using them to set dimensions and positions. The results you get may vary from the screenshots here because of different CSS rules in your project and different browser/screen sizes. Review the explanations in the code for more details on what to expect.
