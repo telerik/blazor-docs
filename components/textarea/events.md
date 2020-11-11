@@ -50,7 +50,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 @TextAreaValue
 <br />
 <TelerikTextArea Value="@TextAreaValue"
-                 ValueChanged="@((string input) => ValueChangedHandler(input))">
+                 ValueChanged="@ValueChangedHandler">
 </TelerikTextArea>
 
 @code {
@@ -66,8 +66,6 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
 ## See Also
 

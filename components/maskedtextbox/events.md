@@ -57,7 +57,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 <br />
 
 <TelerikMaskedTextBox Mask="0000-0000-0000-0000" Value="@TheValue"
-                      ValueChanged="@( (string v) => ValueChangedHandler(v) )"
+                      ValueChanged="@ValueChangedHandler"
                       Label="Credit Card Number:">
 </TelerikMaskedTextBox>
 
@@ -73,8 +73,6 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
 
 ## See Also
