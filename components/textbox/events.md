@@ -12,8 +12,10 @@ position: 20
 
 This article explains the events available in the Telerik Textbox for Blazor:
 
-* [OnChange](#onchange)
-* [ValueChanged](#valuechanged)
+- [Events](#events)
+  - [OnChange](#onchange)
+  - [ValueChanged](#valuechanged)
+  - [See Also](#see-also)
 
 ## OnChange
 
@@ -75,7 +77,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 @result
 <br />
 
-<TelerikTextBox ValueChanged="@( (string s) => MyValueChangeHandler(s) )"></TelerikTextBox>
+<TelerikTextBox ValueChanged="@MyValueChangeHandler"></TelerikTextBox>
 
 @code {
     string result;
@@ -89,8 +91,6 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
-@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
-
 >caption Handle ValueChanged and provide initial value
 
 ````CSHTML
@@ -99,7 +99,7 @@ from the handler: @result
 from model: @theTbValue
 <br />
 
-<TelerikTextBox ValueChanged="@( (string s) => MyValueChangeHandler(s) )" Value="@theTbValue"></TelerikTextBox>
+<TelerikTextBox ValueChanged="@MyValueChangeHandler" Value="@theTbValue"></TelerikTextBox>
 
 @code {
     string result;

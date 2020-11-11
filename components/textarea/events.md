@@ -12,8 +12,10 @@ position: 10
 
 The events exposed for the Telerik TextArea for Blazor let you react to user actions and input. This article explains the events available in the Telerik TextArea.
 
-* [OnChange](#onchange)
-* [ValueChanged](#valuechanged)
+- [Events](#events)
+  - [OnChange](#onchange)
+  - [ValueChanged](#valuechanged)
+  - [See Also](#see-also)
 
 ## OnChange
 
@@ -50,7 +52,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 @TextAreaValue
 <br />
 <TelerikTextArea Value="@TextAreaValue"
-                 ValueChanged="@((string input) => ValueChangedHandler(input))">
+                 ValueChanged="@ValueChangedHandler">
 </TelerikTextArea>
 
 @code {
@@ -66,8 +68,6 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
 ## See Also
 
