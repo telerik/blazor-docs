@@ -12,10 +12,8 @@ position: 10
 
 The events exposed for the Telerik TextArea for Blazor let you react to user actions and input. This article explains the events available in the Telerik TextArea.
 
-- [Events](#events)
-  - [OnChange](#onchange)
-  - [ValueChanged](#valuechanged)
-  - [See Also](#see-also)
+* [OnChange](#onchange)
+* [ValueChanged](#valuechanged)
 
 ## OnChange
 

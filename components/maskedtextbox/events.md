@@ -12,10 +12,8 @@ position: 50
 
 This article explains the events available in the Telerik MaskedTextbox for Blazor:
 
-- [Events](#events)
-  - [OnChange](#onchange)
-  - [ValueChanged](#valuechanged)
-  - [See Also](#see-also)
+* [OnChange](#onchange)
+* [ValueChanged](#valuechanged)
 
 ## OnChange
 

@@ -12,10 +12,8 @@ position: 20
 
 This article explains the events available in the Telerik Textbox for Blazor:
 
-- [Events](#events)
-  - [OnChange](#onchange)
-  - [ValueChanged](#valuechanged)
-  - [See Also](#see-also)
+* [OnChange](#onchange)
+* [ValueChanged](#valuechanged)
 
 ## OnChange
 
