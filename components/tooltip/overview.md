@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/tooltip" target="_blank">Blazor Tooltip component</a> replaces the default browser tooltip to show the `title` or `alt` attribute of its target in a beautiful, cross-browser popup. You can specify a CSS selector to attach it to multiple targets, the tooltip size, and [customize its content]({%slug tooltip-template%}) according to the current target through a template, which lets you also load content on demand. You can also choose a [position]({%slug tooltip-position%}) relative to the target and the [event on which it shows]({%slug tooltip-show-event%}).
 
-To use a Telerik Tooltip for Blazor
+#### To use a Telerik Tooltip for Blazor
 
 1. Add the `TelerikTooltip` tag and set its `TargetSelector` parameter to a CSS selector that will match the element(s) you want to attach the tooltip to.
 1. Add elements to act as targets and set their `title` attribute.

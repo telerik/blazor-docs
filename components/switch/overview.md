@@ -12,7 +12,7 @@ position: 0
 
 The Switch allows the user to toggle between checked and unchecked states.
 
-To use a Telerik Switch for Blazor
+#### To use a Telerik Switch for Blazor
 
 1. add the `TelerikSwitch` tag
 1. provide `Value` (one-way data binding) or `bind-Value` (two-way data binding) property

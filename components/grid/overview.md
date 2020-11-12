@@ -16,10 +16,7 @@ The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use featur
 
 The Telerik Blazor grid is built on native Blazor from the ground up, by a company with a long history of making enterprise-ready Grids. This results in a Blazor data grid that delivers lighting fast performance and is highly customizable.
 
-@[template](/_contentTemplates/common/get-started.md#start-trial-button)
-
-
->caption To create a basic Telerik Grid:
+#### To create a basic Telerik Grid:
 
 1. use the `TelerikGrid` tag
 1. set its `Data` attribute to the variable that will hold your collection of data

@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/scheduler" target="_blank">Blazor Scheduler component</a> lets the user see, edit and add appointments so they can plan their agenda. It offers different views, control over the workday start and end, appointment editing and various other features and settings.
 
-To use a Telerik Scheduler for Blazor
+#### To use a Telerik Scheduler for Blazor
 
 1. Add the `TelerikScheduler` tag.
 1. Populate its `Data` property with the collection of appointments/events the user needs to see. See the [Data Binding]({%slug scheduler-appointments-databinding%}) article for details on the fields.

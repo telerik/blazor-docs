@@ -12,7 +12,7 @@ position: 0
 
 The Blazor HTML Editor component enables your users to create rich textual content through a What-You-See-Is-What-You-Get (WYSIWYG) interface and delivers a set of tools for creating, editing, and formatting text, paragraphs, lists, and other HTML elements.
 
-To use the Telerik Editor for Blazor:
+#### To use the Telerik Editor for Blazor:
 
 1. Add the `<TelerikEditor>` tag.
 1. Bind its `Value` to the `string` field you want to get the HTML content in.
