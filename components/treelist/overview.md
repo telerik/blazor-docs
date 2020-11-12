@@ -13,7 +13,7 @@ position: 0
 The TreeList displays hierarchical data in a tabular format and allows [sorting]({%slug treelist-sorting%}), [filtering]({%slug treelist-filtering%}), [data editing]({%slug treelist-editing-overview%}); provides item [selection]({%slug treelist-selection-overview%}), [templates]({%slug treelist-templates-overview%}) and [load on demand]({%slug treelist-data-binding-load-on-demand%}).
 
 
->caption To create a basic Telerik TreeList:
+#### To create a basic Telerik TreeList:
 
 1. use the `TelerikTreeList` tag
 1. set its `Data` attribute to the variable that will hold your collection of data.

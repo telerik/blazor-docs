@@ -445,6 +445,10 @@ mvcCoreVersion: "2019.1.115"
 product: "Telerik UI for Blazor"
 platform: blazor
 
+## CTA panels on every page for trials
+has_cta_panels: true
+
+
 ## Color Scheme
 main_theme: blazor
 

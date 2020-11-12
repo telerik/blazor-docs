@@ -14,7 +14,7 @@ This article provides information about the <a href="https://www.telerik.com/bla
 
 The ToggleButton component provides two-state styling according to the [chosen theme]({%slug general-information/themes%}), [events]({%slug togglebutton-events%}) and [icons]({%slug togglebutton-icons%}).
 
-In this article:
+#### In this article:
 
 * [Basic Button](#basic-button)
 * [Disabled State](#disabled-state)

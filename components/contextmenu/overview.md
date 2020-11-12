@@ -14,7 +14,7 @@ The Blazor Context Menu component displays a contextual popup with data (flat or
 
 In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%}), you can browse through the items and their children, define [templates]({%slug contextmenu-templates-overview%}) for the individual nodes, render text and icons/images, and respond to [events]({%slug contextmenu-events%}).
 
-To use a Telerik Context Menu for Blazor:
+#### To use a Telerik Context Menu for Blazor:
 
 1. add the `TelerikContextMenu` tag and set its `Selector` parameter to a CSS selector that will match the element(s) you want to attach the context menu to.
 1. provide a collection of models to its `Data` property (read more in the [Data Binding article]({%slug contextmenu-data-binding-overview%}))

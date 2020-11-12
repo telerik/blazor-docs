@@ -12,7 +12,7 @@ position: 0
 
 This article provides basic information about the <a href="https://www.telerik.com/blazor-ui/window" target="_blank">Blazor Window component</a>.
 
-In this article:
+#### In this article:
 
 * [Create a Window](#create-a-window)
 * [Show and Close](#show-and-close)

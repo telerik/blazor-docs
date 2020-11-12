@@ -14,7 +14,7 @@ This article provides information about the <a href="https://www.telerik.com/bla
 
 The Button component provides styling according to the [chosen theme]({%slug general-information/themes%}), click [event]({%slug button-events%}) and [icons]({%slug button-icons%}). You can also disable the button and set its [type]({%slug button-type%}).
 
-In this article:
+#### In this article:
 
 * [Basic Button](#basic-button)
 * [Primary Button](#primary-button)

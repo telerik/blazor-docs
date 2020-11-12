@@ -18,7 +18,11 @@ The UI for Blazor suite has the same HTML rendering and Theme stylesheets like o
 
 To read more about the benefits of using Telerik UI for Blazor, please visit the <a href="https://www.telerik.com/blazor-ui" target="_blank">product overview page</a>.
 
-@[template](/_contentTemplates/common/get-started.md#start-trial-button)
+
+{% if site.has_cta_panels == true %}
+{% include cta-panel-introduction.html %}
+{% endif %}
+
 
 ## Getting Started
 

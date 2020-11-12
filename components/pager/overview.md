@@ -14,7 +14,7 @@ The <a href="https://www.telerik.com/blazor-ui/pager" target="_blank">Blazor Pag
 
 The Pager provides the UI for the user to change the page. To the developer, it provides the page index so you can render only the relevant data portion and an [event]({%slug pager-events%}) that you can use to implement [load on demand](#load-on-demand).
 
-To use Telerik Pager component for Blazor:
+#### To use Telerik Pager component for Blazor:
 
 1. Add the `TelerikPager` tag
 1. Set its `Total` parameter to the number of items in the data source.

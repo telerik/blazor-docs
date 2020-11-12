@@ -12,6 +12,8 @@ position: 0
 
 This article provides information about the Tab Strip component and its core features.
 
+#### Basics
+
 The Tab Strip is defined through the `<TelerikTabStrip>` tag that accepts children of type `<TabStripTab>`. Inside the tabs you can add content like in any other container, including other components.
 
 The tab exposes a `Title` attribute that is the text rendered in the heading. It also offers the `Disabled` attribute that allows you to disable its selection.

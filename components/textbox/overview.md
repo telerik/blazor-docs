@@ -18,7 +18,7 @@ The <a href="https://www.telerik.com/blazor-ui/textbox" target="_blank">Blazor T
 
 Furthermore, you can control [various attributes](#features) of the `input` element and turn the Textbox into a password box, for example. You can also configure this component to respond to [events]({%slug components/textbox/events%}).
 
-To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
+#### To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
 
 >caption Basic textbox with two-way value binding
 

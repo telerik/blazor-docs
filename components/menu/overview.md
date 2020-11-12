@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/menu" target="_blank">Blazor Menu component</a> displays data (flat or hierarchical) in a traditional menu-like structure. In addition to built-in navigation capabilities, you can browse through the items and their children, define [templates]({%slug components/menu/templates%}) for the individual nodes, render text and icons/images, and respond to [events]({%slug components/menu/events%}).
 
-To use a Telerik Menu for Blazor:
+#### To use a Telerik Menu for Blazor:
 
 1. add the `TelerikMenu` tag
 1. provide a collection of models to its `Data` property (read more in the [Data Binding article]({%slug components/menu/data-binding/overview%}))

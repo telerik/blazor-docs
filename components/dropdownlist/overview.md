@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/dropdownlist" target="_blank">Blazor DropDownList component</a> allows the user to choose an option from a predefined set of choices presented in a dropdown popup. The developer can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
 
-To use a Telerik DropDownList for Blazor
+#### To use a Telerik DropDownList for Blazor
 
 1. add the `TelerikDropDownList` tag
 1. populate its `Data` property with the collection of items you want in the dropdown

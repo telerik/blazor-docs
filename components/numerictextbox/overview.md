@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/numeric-textbox" target="_blank">Blazor Numeric Textbox component</a> allows the user to enter decimal values and no text. The developer can control minimum, maximum values, steps and other elements of the UX.
 
-To use a Telerik Numeric Textbox for Blazor, add the `TelerikNumericTextBox` tag.
+#### To use a Telerik Numeric Textbox for Blazor, add the `TelerikNumericTextBox` tag.
 
 >caption Basic numeric textbox with its key features
 

@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor Treeview component</a> displays data (flat or hierarchical) in a traditional tree-like structure. In addition to built-in navigation capabilities, you can navigate through the items and their children, define [templates]({%slug components/treeview/templates%}) for the individual nodes, render text and icons/images, and respond to events.
 
-To use a Telerik TreeView for Blazor:
+#### To use a Telerik TreeView for Blazor:
 
 1. add the `TelerikTreeView` tag
 1. provide a collection of models to its `Data` property (read more in the [Data Binding article]({%slug components/treeview/data-binding/overview%}))
