@@ -20,7 +20,7 @@ A Bubble chart is useful for visualizing different scientific relationships (e.g
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a bubble chart:
+#### To create a bubble chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Bubble`

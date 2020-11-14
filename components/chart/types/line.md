@@ -18,7 +18,7 @@ The <a href="https://www.telerik.com/blazor-ui/line-chart" target="_blank">Blazo
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a line chart:
+#### To create a line chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Line`

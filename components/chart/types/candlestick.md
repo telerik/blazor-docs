@@ -18,7 +18,7 @@ The **Candlestick** chart shows data for the movement of the price of a financia
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a candlestick chart:
+#### To create a candlestick chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Candlestick`

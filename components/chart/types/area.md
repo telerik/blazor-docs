@@ -21,7 +21,7 @@ An Area chart emphasizes the volume of money, data or any other unit that the gi
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create an area chart:
+#### To create an area chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Area`

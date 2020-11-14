@@ -20,7 +20,7 @@ You would usually use ScatterLine charts for showing the relation between differ
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a scatter chart:
+#### To create a scatter chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.ScatterLine`

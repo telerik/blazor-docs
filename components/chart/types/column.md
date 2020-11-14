@@ -18,7 +18,7 @@ The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Bla
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a column chart:
+#### To create a column chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Column`

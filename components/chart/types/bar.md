@@ -18,7 +18,7 @@ The <a href="https://www.telerik.com/blazor-ui/bar-chart" target="_blank">Blazor
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a bar chart:
+#### To create a bar chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Bar`
