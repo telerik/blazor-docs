@@ -59,20 +59,20 @@ Column series
 
 ## Column Chart Specific Appearance Settings
 
-### Markers
+### Labels
 
-Each data item is denoted with a marker (label). You can control and customize them through the `< ChartCategoryAxisLabels />` and its children tags.
+Each data item is decorated with a text label. You can control and customize them through the `<ChartCategoryAxisLabels />` and its children tags.
 
-* `Visible` - hide all markers by setting this parameter to `false`.
-* `Step` - renders every n-th marker, where n is the value(double number) passed to the parameter.
-* `Skip` - skips the first n markers, where n is the value(double number) passed to the parameter.
-* `Angle` - rotates the markers with the desired angle by n degrees, where n is the value passed to the parameter. It can take positive and negative numbers. To set this parameter use the `< ChartCategoryAxisLabelsRotation />` child tag.
+* `Visible` - hide all labels by setting this parameter to `false`.
+* `Step` - renders every n-th labels, where n is the value(double number) passed to the parameter.
+* `Skip` - skips the first n labels, where n is the value (double number) passed to the parameter.
+* `Angle` - rotates the labels with the desired angle by n degrees, where n is the value passed to the parameter. It can take positive and negative numbers. To set this parameter use the `< ChartCategoryAxisLabelsRotation />` child tag.
 
 To rotate the markers use the `ChartCategoryAxisLabelsRotation` child tag and set its `Angle` parameter. It can take positive and negative numbers as value.
 
 ### Color
 
-The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`). The color control the fill color of the area.
+The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
 @[template](/_contentTemplates/chart/link-to-basics.md#color-field-bar-column)
 

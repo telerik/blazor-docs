@@ -60,7 +60,7 @@ To create an area chart:
 ````
 
 
-## Area Chart Specific Appearance Settings
+## Radar Area Chart Specific Appearance Settings
 
 ### Color
 
