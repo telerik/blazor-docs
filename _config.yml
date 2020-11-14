@@ -398,6 +398,7 @@ intro_columns:
       "OHLC Charts": "chart-types-ohlc"
       "Radar Area Charts": "chart-types-radararea"
       "Radar Column Charts": "chart-types-radarcolumn"
+      "Radar Line Charts": "chart-types-radarline"
       "Stock Chart": "stockchart-overview"
 
   -

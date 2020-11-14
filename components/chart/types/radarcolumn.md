@@ -10,7 +10,7 @@ position: 0
 
 # Radar Column Chart
 
-A Blazor Radar Column chart shows the data points on radial lines starting from a common center and act as value axis. The closer the data point to the center, the lower its value. The Radar Column chart creates triangles for the values instead of rectangular bars like regular columns charts do.
+The Blazor Radar Column chart shows the data points on radial lines starting from a common center and act as value axis. The closer the data point to the center, the lower its value. The Radar Column chart creates triangles for the values instead of rectangular bars like regular columns charts do.
 
 Radar column charts are often used to make comparisons between several units that depend on a multitude of quantitative factors, with the compared units being the individual series, and the factors being the categories. The lack of overlap between the series makes it easy to compare individual values as opposed to overall coverage.
 
@@ -21,7 +21,7 @@ Radar column charts are often used to make comparisons between several units tha
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create an area chart:
+#### To create a radar column chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.RadarColumn`
@@ -32,7 +32,7 @@ To create an area chart:
 >caption A radar column chart that shows comparison between the nutritional composition of two foods
 
 ````CSHTML
-@* Radar Area series*@
+@* Radar Column series*@
 
 <TelerikChart>
     <ChartSeriesItems>
@@ -87,4 +87,4 @@ Column charts can take the color of the series item from the `ColorField` of the
 
 ## See Also
 
-  * [Live Demo: Area Chart](https://demos.telerik.com/blazor-ui/chart/area-chart)
+  * [Live Demo: Radar Column Chart](https://demos.telerik.com/blazor-ui/chart/radar-column-chart)

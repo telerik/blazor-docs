@@ -10,7 +10,7 @@ position: 0
 
 # Line Chart
 
-A <a href="https://www.telerik.com/blazor-ui/line-chart" target="_blank">Blazor Line chart</a> displays data as continuous lines that pass through points defined by the values of their items. It is useful for rendering a trend over time and comparing several sets of similar data.
+The <a href="https://www.telerik.com/blazor-ui/line-chart" target="_blank">Blazor Line chart</a> displays data as continuous lines that pass through points defined by the values of their items. It is useful for rendering a trend over time and comparing several sets of similar data.
 
 >caption Line chart.  Results from the first code snippet below
 
@@ -71,7 +71,7 @@ If some values are missing from the series data (they are `null`), you can have 
 
 * `Zero` - the default behavior. The line goes to the 0 value mark.
 * `Interpolate` - the line will go through the interpolated value of the missing data points and connect to the next data point with a value.
-* `Gap` - behaves the same way as `Zero` because a line chart cannot have a gap in its filled area.
+* `Gap` - there will be no line for the category that misses a value.
 
 
 @[template](/_contentTemplates/chart/link-to-basics.md#line-style-line)
