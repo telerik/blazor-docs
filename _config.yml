@@ -396,6 +396,7 @@ intro_columns:
       "ScatterLine Charts": "components/chart/types/scatterline"
       "Candlestick Charts": "chart-types-candlestick"
       "OHLC Charts": "chart-types-ohlc"
+      "Radar Area Charts": "chart-types-radararea"
       "Stock Chart": "stockchart-overview"
 
   -

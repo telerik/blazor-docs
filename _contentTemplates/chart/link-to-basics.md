@@ -131,7 +131,7 @@ You can control how transparent the series fill is through the `Opacity` propert
 
 
 #tip-look-for-nested-tags
->tip To customize the chart, look for nested tags and heir properties - the inner tags will contain their parent tag name and add specifics to its end. For example, the `ChartSeries` tag has a `ChartSeriesLabels` tag that exposes configuration otions and more child tags.
+>tip To customize the chart, look for nested tags and their properties - the inner tags will contain their parent tag name and add specifics to its end. For example, the `ChartSeries` tag has a `ChartSeriesLabels` tag that exposes configuration options and more child tags.
 #end
 
 
