@@ -94,7 +94,7 @@ If some values are missing from the series data (they are `null`), you can have 
 
 ### Line Style
 
-You can render the lines between the points with different styles. The supported styles can be set via the `Style` property of the child `ChartSeriesLine` tag - it takes a member of `Telerik.Blazor.ChartSeriesLineStyle` enum:
+You can render the lines between the points with different styles. The supported styles can be set via the `Style` property that takes a member of `Telerik.Blazor.ChartSeriesStyle` enum:
 
 * `Normal`—This is the default style. It produces a straight line between data points.
 * `Step`—Behaves in the same way as `Normal` for a Radar Line chart.
