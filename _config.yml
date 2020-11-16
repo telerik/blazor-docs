@@ -393,9 +393,12 @@ intro_columns:
       "Donut Charts": "components/chart/types/donut"
       "Bubble Charts": "components/chart/types/bubble"
       "Scatter Charts": "components/chart/types/scatter"
-      "ScatterLine Charts": "components/chart/types/scatterline"
+      "Scatter Line Charts": "components/chart/types/scatterline"
       "Candlestick Charts": "chart-types-candlestick"
       "OHLC Charts": "chart-types-ohlc"
+      "Radar Area Charts": "chart-types-radararea"
+      "Radar Column Charts": "chart-types-radarcolumn"
+      "Radar Line Charts": "chart-types-radarline"
       "Stock Chart": "stockchart-overview"
 
   -

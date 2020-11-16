@@ -10,7 +10,7 @@ position: 0
 
 # Column Chart
 
-A <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Blazor Column chart</a> displays data as vertical bars whose heights vary according to their value. You can use a Column chart to show a comparison between several sets of data (for example, summaries of sales data for different time periods). Each series is automatically colored differently for easier reading.
+The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Blazor Column chart</a> displays data as vertical bars whose heights vary according to their value. You can use a Column chart to show a comparison between several sets of data (for example, summaries of sales data for different time periods). Each series is automatically colored differently for easier reading.
 
 >caption Column chart.  Results from the first code snippet below
 
@@ -18,7 +18,7 @@ A <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Blazo
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a column chart:
+#### To create a column chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Column`
@@ -59,20 +59,20 @@ Column series
 
 ## Column Chart Specific Appearance Settings
 
-### Markers
+### Labels
 
-Each data item is denoted with a marker (label). You can control and customize them through the `< ChartCategoryAxisLabels />` and its children tags.
+Each data item is decorated with a text label. You can control and customize them through the `<ChartCategoryAxisLabels />` and its children tags.
 
-* `Visible` - hide all markers by setting this parameter to `false`.
-* `Step` - renders every n-th marker, where n is the value(double number) passed to the parameter.
-* `Skip` - skips the first n markers, where n is the value(double number) passed to the parameter.
-* `Angle` - rotates the markers with the desired angle by n degrees, where n is the value passed to the parameter. It can take positive and negative numbers. To set this parameter use the `< ChartCategoryAxisLabelsRotation />` child tag.
+* `Visible` - hide all labels by setting this parameter to `false`.
+* `Step` - renders every n-th labels, where n is the value(double number) passed to the parameter.
+* `Skip` - skips the first n labels, where n is the value (double number) passed to the parameter.
+* `Angle` - rotates the labels with the desired angle by n degrees, where n is the value passed to the parameter. It can take positive and negative numbers. To set this parameter use the `< ChartCategoryAxisLabelsRotation />` child tag.
 
 To rotate the markers use the `ChartCategoryAxisLabelsRotation` child tag and set its `Angle` parameter. It can take positive and negative numbers as value.
 
 ### Color
 
-The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`). The color control the fill color of the area.
+The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
 @[template](/_contentTemplates/chart/link-to-basics.md#color-field-bar-column)
 

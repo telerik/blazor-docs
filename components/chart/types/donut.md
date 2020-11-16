@@ -18,7 +18,7 @@ The <a href="https://www.telerik.com/blazor-ui/donut-chart" target="_blank">Blaz
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a donut chart:
+#### To create a donut chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Donut`

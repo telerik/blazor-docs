@@ -18,7 +18,7 @@ The **OHLC** (open-high-low-close) chart is typically used to illustrate movemen
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create an OHLC chart:
+#### To create an OHLC chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.OHLC`

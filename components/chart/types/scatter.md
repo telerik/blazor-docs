@@ -10,7 +10,7 @@ position: 0
 
 # Scatter Chart
 
-A <a href="https://www.telerik.com/blazor-ui/scatter-chart" target="_blank">Blazor Scatter chart</a> shows data as points defined by their items' values. Its x-axis is also numerical and does not require categorical items, but numerical values.
+The <a href="https://www.telerik.com/blazor-ui/scatter-chart" target="_blank">Blazor Scatter chart</a> shows data as points defined by their items' values. Its x-axis is also numerical and does not require categorical items, but numerical values.
 
 Scatter charts are useful for showing the relation between different sets of data, for example scientific (experimental) results.
 
@@ -20,7 +20,7 @@ Scatter charts are useful for showing the relation between different sets of dat
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a scatter chart:
+#### To create a scatter chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Scatter`

@@ -10,7 +10,7 @@ position: 0
 
 # Candlestick Chart
 
-A **Candlestick** chart shows data for the movement of the price of a financial unit. It consists of a bar (the candle), representing the open and close values, and vertical lines, the candlesticks, which illustrate the highest and lowest values.
+The **Candlestick** chart shows data for the movement of the price of a financial unit. It consists of a bar (the candle), representing the open and close values, and vertical lines, the candlesticks, which illustrate the highest and lowest values.
 
 >caption Candlestick chart. Results from the first code snippet below
 
@@ -18,7 +18,7 @@ A **Candlestick** chart shows data for the movement of the price of a financial 
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-To create a candlestick chart:
+#### To create a candlestick chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Candlestick`
