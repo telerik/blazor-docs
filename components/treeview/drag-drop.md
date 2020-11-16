@@ -26,7 +26,7 @@ This article will be divided in the following sections:
 To enable the Drag and Drop functionality:
 
 1. Set the `Draggable` parameter of the `<TelerikTreeView>` to `true`
-1. Use the `OnDrop` event to handle the drag and drop. For more information read the [Events]({%slug treeview-drag-drop-events%}#ondrop) article.
+1. Use the `OnDrop` event to handle the drag and drop operations.
 
 
 ## OnDrop Event
@@ -260,7 +260,7 @@ using TelerikBlazorAppSource.Models;
 using System.Collections.Generic;
 using Telerik.Blazor;
 
-public class TreeViewHierarchicalDataService
+    public class TreeViewHierarchicalDataService
     {
         private string ItemText { get; set; }
 
@@ -379,7 +379,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-public static class BaseHierarchicalItemExtensions
+    public static class BaseHierarchicalItemExtensions
     {
         public static BaseHierarchicalItem FindRecursive(this List<BaseHierarchicalItem> storageItems, Func<BaseHierarchicalItem, bool> condition)
         {
