@@ -1,11 +1,11 @@
 ---
-title: Overview
+title: Drag and Drop
 page_title: Treeview Drag and Drop - Overview
 description: Overview of the Drag and Drop functionality for Treeview for Blazor.
 slug: treeview-drag-drop-overview
 tags: telerik,blazor,treeview,drap,drop,dragdrop,overview
 published: True
-position: 0
+position: 11
 ---
 
 # Drag and Drop
