@@ -10,7 +10,7 @@ position: 11
 
 # Drag and Drop
 
-The Drag and Drop functionality for the TreeView allows you to move a node or multitude of nodes between themselves or between different instances of the Telerik TreeView. 
+The Drag and Drop functionality for the TreeView allows you to move a node or multitude of nodes between different parents in the same treeview or between different Telerik TreeView instances.
 
 This article will be divided in the following sections:
 
@@ -26,7 +26,8 @@ This article will be divided in the following sections:
 To enable the Drag and Drop functionality:
 
 1. Set the `Draggable` parameter of the `<TelerikTreeView>` to `true`
-1. Use the `OnDrop` event to handle the drag and drop operations.
+
+1. Use the `OnDrop` event to handle the drag and drop operations and modify the data source as per your business logic.
 
 
 ## OnDrop Event
