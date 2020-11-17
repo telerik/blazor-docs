@@ -133,7 +133,7 @@ Use the command buttons to control the CUD operations.
 
         public static async Task Create(SampleData itemToInsert)
         {
-            itemToInsert.Id = _data.Count + 1;
+            itemToInsert.ID = _data.Count + 1;
             _data.Insert(0, itemToInsert);
         }
 
