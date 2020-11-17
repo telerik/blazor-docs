@@ -60,7 +60,6 @@ The `OnDrop` event provides an object of type `TreeViewDropEventArgs` to its eve
 ````Component
 @inject TreeViewFlatDataService TreeViewFlatDataService
 
-    <TelerikButton OnClick="@(() => Draggable = !Draggable)">Toggle Draggable</TelerikButton>
     <TelerikTreeView Data="@FlatData"
                      Draggable="@Draggable"
                      OnDrop="@OnDrop">
