@@ -244,12 +244,16 @@ There are a few considerations to keep in mind with the CUD operations of the gr
 
 * If you want to pre-populate values to the user, see the [Setting default values in new row]({%slug grid-kb-default-value-for-new-row%}) KnowledgeBase article.
 
-* While editing, the Grid creates a **copy of your original object** which has a **different reference**. You receive that copy in the `OnEdit` and `OnUpdate` event handlers. This results in the following specifics:
+* While editing, the Grid creates a **copy of your original object** which has a **different reference**. You receive that copy in the `OnEdit` and `OnUpdate` event handlers. 
 
-    * When you are using your Entity Framework models directly in the Grid (especially in a server-side Blazor scenario) and you use the `Item` property of `GridCommandEventArgs` directly in your DataBase update method, you can get the following exception: `The instance of entity type 'YourModel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached...` To fix it you can change the update using this approach: 
-        1.  Find the object in your database by Id (you can use `dbContext.Find()` or similar method depending on your infrastructure).
-        1. Apply all the changes you need to it one by one - assign the values of all of its properties - `dbObject.Property1 = argsItem.Property1...`
-        1. Call `dbContext.SaveChanges()`
+    When you are using your Entity Framework models directly in the Grid (especially in a server-side Blazor scenario) and you use the `Item` property of `GridCommandEventArgs` directly in your DataBase update method, you can get one of the following exceptions: `The instance of entity type 'YourModel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached...` or `This is a DynamicProxy2 error: The interceptor attempted to 'Proceed' for method 'Microsoft.EntityFrameworkCore.Infrastructure.ILazyLoader get_LazyLoader()' which has no target. When calling method without target there is no implementation to 'proceed' to and it is the responsibility of the interceptor to mimic the implementation (set return value, out arguments etc)`.
+    
+    To fix it you can change the update using this approach:
+    
+    1.  Find the object in your database by Id (you can use `dbContext.Find()` or similar method depending on your infrastructure).
+    1. Apply all the changes you need to it one by one - assign the values of all of its properties - `dbObject.Property1 = argsItem.Property1...`
+    1. Call `dbContext.SaveChanges()`
+
 
 
 ## See Also
