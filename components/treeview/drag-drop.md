@@ -42,7 +42,7 @@ The `OnDrop` event provides an object of type `TreeViewDropEventArgs` to its eve
 
 * `DestinationItem` - an `object` that represents the node over which the `Item` is dropped to. You can cast this object to your model class.
 
-* `DropPosition` - an `enum` with the following members:
+* `DropPosition` - an `enum` - its members allow you to determine the exact position of the dropped item relative to the position of the `DestinationItem`:
     * `After`
     * `Below`
     * `Over`
