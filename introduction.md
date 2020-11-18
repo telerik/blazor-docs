@@ -81,7 +81,7 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 
 ## Learning Resources
 
-* <a href="https://demos.telerik.com/blazor-ui" target="_blank">Online Demos</a> - also available as a project you can inspect and run locally. You can find them in the `demos` folder of your [installation]({%slug installation/msi%}).
+* <a href="https://demos.telerik.com/blazor-ui/" target="_blank">Online Demos</a> - also available as a project you can inspect and run locally. You can find them in the `demos` folder of your [installation]({%slug installation/msi%}).
 
 * <a href="https://docs.telerik.com/blazor-ui/knowledge-base" target="_blank">Knowledge Base</a> - contains answers to some common questions, problems and errors. Free-text search is also available.
 
