@@ -27,7 +27,7 @@ I would like to get the content of the Editor selected (highlighted) by the user
 
 ## Solution
 
-In order to receive the selected (highlighted) content of the Editor you should use JavaScript. Since the Editor has two different edit modes - [Div]({%slug editor-edit-modes-div%}) and [Iframe]({%slug editor-edit-modes-iframe%}).  Alternatively, for the `Iframe mode` you
+In order to receive the selected (highlighted) content of the Editor, you should use JavaScript. Since the Editor has two different edit modes - [Div]({%slug editor-edit-modes-div%}) and [Iframe]({%slug editor-edit-modes-iframe%}). 
 
 ## Examples
 
