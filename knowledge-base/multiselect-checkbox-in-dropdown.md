@@ -32,7 +32,7 @@ Like https://demos.telerik.com/aspnet-ajax/combobox/examples/functionality/check
 
 We have the MultiSelect component for this in Blazor: https://demos.telerik.com/blazor-ui/multiselect/overview
 
-There is already a feature request for enabling it to stay open so the user can select many things at once, so you may want to Vote for it and Follow it: https://feedback.telerik.com/blazor/1452680-allow-selection-of-multiple-items-from-multiselect-dropdown-at-once-autoclose-parameter.
+The AutoClose feature allows the MultiSelect to stay open while the user selects the input.
 
 The MultiSelect offers a highlighted state for the selected items already, yet if you want to add checkboxes, you can do that through the ItemTemplate (https://docs.telerik.com/blazor-ui/components/multiselect/templates) and you can get their `checked` attribute by comparing the current item against the selected items.
 
@@ -42,7 +42,7 @@ The MultiSelect offers a highlighted state for the selected items already, yet i
 @* Note: If you use complex models, the GetChecked() method will be more complex and 
     you would need to implement another convention for the id attribute, and you would need to cast the context *@
 
-<TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues" Placeholder="Write the roles you need">
+<TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues" AutoClose="false" Placeholder="Write the roles you need">
     <ItemTemplate>
         <input type="checkbox" id="@( "cb" + context.Replace(" ", "") )" class="k-checkbox" checked="@GetChecked(context)">
         <label class="k-checkbox-label" for="@( "cb" + context.Replace(" ", "") )">@context</label>
