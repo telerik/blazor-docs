@@ -111,7 +111,22 @@ You can style the button through its `Class` attribute to define your own CSS ru
 ![](images/red-button.png)
 
 
+>caption Change the button size
 
+````
+<style>
+    .large-button {
+        width: 200px;
+        height: 50px;
+    }
+</style>
+
+<TelerikButton Class="large-button">Large button</TelerikButton>
+````
+
+>caption The result from the code snippet above
+
+![use css to change the button size](images/button-size-change.png)
 
 ## See Also
 
