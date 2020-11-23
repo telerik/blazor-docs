@@ -46,7 +46,7 @@ You can see them in action in the [Notification Animation](https://demos.telerik
 ````CSHTML
 <TelerikButton OnClick="@AddNotification">Add a basic notification</TelerikButton>
 
-<TelerikNotification @ref="@NotificationReference"              AnimationType="@AnimationType.ZoomOut"></TelerikNotification>
+<TelerikNotification @ref="@NotificationReference" AnimationType="@AnimationType.ZoomOut"></TelerikNotification>
 
 @code {
     public TelerikNotification NotificationReference { get; set; }
