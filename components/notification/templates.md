@@ -58,7 +58,7 @@ This section gives examples on:
 
 ### Use Different Templates
 
-When you are using different references in order to provide multiple templates the Notifications will not [stack]({%slug notification-stacked-notifications}).
+When you are using different references in order to provide multiple templates the Notifications will not [stack]({%slug notification-stacked-notifications%}).
 
 ````CSHTML
 <TelerikButton OnClick="@AddNotifications">Add notifications</TelerikButton>
