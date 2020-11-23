@@ -147,7 +147,7 @@ These predefined options match the main [Telerik Theme]({%slug general-informati
 }
 ````
 
-The `ThemeColor` parameter renders as the `k-notification-<ThemeColor>` CSS class on the wrapping element and you can set it to a custom value to cascade through and set the color to a setting of your own without customizing the entire theme.
+The `ThemeColor` parameter renders as the `k-notification-<ThemeColor>` CSS class on the specific notification HTML element and you can set it to a custom value to cascade through and set the color to a setting of your own without customizing the entire theme.
 
 >caption Custom Notification color without customizing the Telerik Theme
 
