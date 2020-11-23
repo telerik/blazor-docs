@@ -44,6 +44,8 @@ You can see them in action in the [Notification Animation](https://demos.telerik
 ![notification animation types gif](images/notification-animationtype-gif.gif)
 
 ````CSHTML
+@* This sample uses the ZoomOut animation, you can change it *@
+
 <TelerikButton OnClick="@AddNotification">Add a basic notification</TelerikButton>
 
 <TelerikNotification @ref="@NotificationReference" AnimationType="@AnimationType.ZoomOut"></TelerikNotification>
@@ -64,11 +66,13 @@ You can see them in action in the [Notification Animation](https://demos.telerik
 
 ## Size
 
-You can control the Size of the Notification by using CSS. To make the cascading of the styles easier and target a single instance of the component you should use the [`Class`]({%slug notification-overview%}#features) parameter exposed for the <TelerikNotification>.
+You can control the Size of the Notification by using CSS. To make the cascading of the styles easier and target a single instance of the component you should use the `Class` parameter exposed in the the `<TelerikNotification>` tag.
 
 >caption Control the size of the Notiication component
 
 ````CSHTML
+@* Use CSS to set the size of the notification *@
+
 <style>
     .MyTelerikNotification .k-notification-container .k-notification-wrap {
         width: 300px;
@@ -98,7 +102,7 @@ You can control the Size of the Notification by using CSS. To make the cascading
 
 ## ThemeColor
 
-The color of the animated loading icon is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeColor` class:
+The color of the notification popup is easily controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeColor` class:
 
 * `Primary`
 * `Secondary`
@@ -118,6 +122,8 @@ These predefined options match the main [Telerik Theme]({%slug general-informati
 ![Notification Theme Colors](images/notification-themecolor-screenshot.png)
 
 ````CSHTML
+@* This sample adds a notification with each possible theme color *@
+
 <TelerikButton OnClick="@AddColoredNotifications">Add colored notifications</TelerikButton>
 
 <TelerikNotification @ref="@NotificationReference" AnimationType="@AnimationType.ZoomOut"></TelerikNotification>
@@ -147,11 +153,13 @@ These predefined options match the main [Telerik Theme]({%slug general-informati
 }
 ````
 
-The `ThemeColor` parameter renders as the `k-notification-<ThemeColor>` CSS class on the specific notification HTML element and you can set it to a custom value to cascade through and set the color to a setting of your own without customizing the entire theme.
+The `ThemeColor` parameter renders as the `k-notification-<ThemeColor>` CSS class on the specific notification HTML element and you can set it to a custom value to cascade through, and set the color to a setting of your own without customizing the entire theme.
 
 >caption Custom Notification color without customizing the Telerik Theme
 
 ````CSHTML
+@* Sample of using a custom notification theme color from your own styles *@
+
 <style>
     .k-notification-custom-color {
         background-color: cyan;
