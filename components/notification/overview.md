@@ -86,9 +86,9 @@ The `NotificationModel` class is used to add new notifications to the page. You 
 
 * `CloseAfter` - `int`, defaults to `5000` ms - allows you to configure after how much time the Notification component will close automatically. Set it to `0` to prevent it from closing automatically.
 
-* `ShowIcon` - `bool`, defaults to `true` - allows you to specify whether an icon should appear for the component.
+* `Icon` - `bool`, defaults to `true` - allows you to specify whether an icon should appear for the component.
 
-* `Icon` - `string` - specifies the icon that will render in the component if the `ShowIcon` parameter is set to `true`. You can find more information on adding an icon to a Telerik Component in [Telerik Font Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component).
+* `IconName` - `string` - specifies the icon that will render in the component if the `ShowIcon` parameter is set to `true`. You can find more information on adding an icon to a Telerik Component in [Telerik Font Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component).
 
 * `Text` - `string` - the text that will be rendered in the Notification component.
 
