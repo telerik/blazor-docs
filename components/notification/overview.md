@@ -23,9 +23,10 @@ This article will be separated into the following sections:
 ## Basics
 
 To add a Telerik Notification component to your page:
+
 1. add the `<TelerikNotification>` tag to the markup section of the page
 1. use the components reference (`@ref=`)
-1. use the `Show()` method of the reference
+1. use the `Show()` method of the component reference
 1. setup an instance of the `NotificationModel`
 
 ````CSHTML
