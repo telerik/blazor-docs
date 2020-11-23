@@ -79,6 +79,11 @@ To use the Menu for navigating between pages:
 }
 ````
 
+## Notes
+
+@[template](/_contentTemplates/common/navigation-components.md#navman-used)
+@[template](/_contentTemplates/common/navigation-components.md#double-navigation)
+
 ## See Also
 
 * [Menu Overview]({%slug components/menu/overview%})

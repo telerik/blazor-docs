@@ -121,6 +121,13 @@ To use the TreeView for navigating between pages:
 }
 ````
 
+
+## Notes
+
+@[template](/_contentTemplates/common/navigation-components.md#navman-used)
+@[template](/_contentTemplates/common/navigation-components.md#double-navigation)
+
+
 ## See Also
 
 * [TreeView Overview]({%slug components/treeview/overview%})

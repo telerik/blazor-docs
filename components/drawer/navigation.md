@@ -59,6 +59,12 @@ To use the Drawer for navigating between pages:
 ````
 
 
+## Notes
+
+@[template](/_contentTemplates/common/navigation-components.md#navman-used)
+@[template](/_contentTemplates/common/navigation-components.md#double-navigation)
+
+
 ## See Also
 
 * [Drawer Overview]({% slug drawer-overview%})
