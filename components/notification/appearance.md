@@ -98,7 +98,7 @@ You can control the Size of the Notification by using CSS. To make the cascading
 
 ## ThemeColor
 
-The color of the animated loading icon is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeColor` enum:
+The color of the animated loading icon is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeColor` class:
 
 * `Primary`
 * `Secondary`
@@ -111,7 +111,7 @@ The color of the animated loading icon is controlled through the `ThemeColor` pa
 * `Light`
 * `Inverse`
 
-These predefined options match the main [Telerik Theme]({%slug general-information/themes%}) and you can see that in action in the [Notification Animation](https://demos.telerik.com/blazor-ui//notification/appearance) Live Demo.
+These predefined options match the main [Telerik Theme]({%slug general-information/themes%}) and you can see that in action in the [Notification Appearance](https://demos.telerik.com/blazor-ui//notification/appearance) Live Demo.
 
 >caption Built-in Theme Colors
 
@@ -147,7 +147,7 @@ These predefined options match the main [Telerik Theme]({%slug general-informati
 }
 ````
 
-The `ThemeColor` parameter renders as the `k-loader-<ThemeColor>` CSS class on the wrapping element and you can set it to a custom value to cascade through and set the color to a setting of your own without customizing the entire theme.
+The `ThemeColor` parameter renders as the `k-notification-<ThemeColor>` CSS class on the wrapping element and you can set it to a custom value to cascade through and set the color to a setting of your own without customizing the entire theme.
 
 >caption Custom Notification color without customizing the Telerik Theme
 
