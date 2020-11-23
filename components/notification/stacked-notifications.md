@@ -10,13 +10,15 @@ position: 15
 
 # Stacked Notifications
 
-When you declare multiple notifications from the same component reference they will be stacked on the screen. Notification which derive from different references will be rendered on top of one another.
+When you invoke multiple notifications from the same component reference they will be stacked on the screen. Notifications which derive from different references will be rendered on top of one another.
 
 >caption Stacked Notifications in Telerik UI for Blazor
 
 ![stacked notifications](images/notification-stacked-notifications.png)
 
 ````CSHTML
+@* Calling Show() before the previous notifications hide will stack the new messages above the old ones *@
+
 <TelerikButton OnClick="@AddStackedNotifications">Add stacked notifications</TelerikButton>
 
 <TelerikNotification @ref="@NotificationReference" />
