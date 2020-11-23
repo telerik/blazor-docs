@@ -17,9 +17,9 @@ The Notification allows you to customize its rendering by using Templates. This 
 
 ## Template
 
-The Template allows you to control the rendering of all Notifications which originate from the same reference. It provides a context - object of type `NotificationModel`. To apply different templates to different notifications you should provide different references too. 
+The Template allows you to control the rendering of all Notifications which originate from the same reference. It provides a context - object of type `NotificationModel` (the model you pass to the `Show()` method). To apply different templates to different notifications you should provide different references too. 
 
-This section gives examples on:
+This section gives examples that show how to:
 
 * [Customize All Notifications From The Same Reference](#customize-all-notifications-from-the-same-reference)
 * [Use Different Templates](#use-different-templates)
@@ -28,6 +28,8 @@ This section gives examples on:
 ### Customize All Notifications From The Same Reference
 
 ````CSHTML
+@* Customize the notification template *@
+
 <TelerikButton OnClick="@AddNotification">Add a notification</TelerikButton>
 
 <TelerikNotification @ref="@NotificationReference">
@@ -61,6 +63,8 @@ This section gives examples on:
 When you are using different references in order to provide multiple templates the Notifications will not [stack]({%slug notification-stacked-notifications%}).
 
 ````CSHTML
+@* Use different templates for different content and notifications *@
+
 <TelerikButton OnClick="@AddNotifications">Add notifications</TelerikButton>
 
 <TelerikNotification @ref="@NotificationReference1">

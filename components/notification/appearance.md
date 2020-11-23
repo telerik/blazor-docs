@@ -122,7 +122,7 @@ These predefined options match the main [Telerik Theme]({%slug general-informati
 ![Notification Theme Colors](images/notification-themecolor-screenshot.png)
 
 ````CSHTML
-@* This sample adds a notification with each possible theme color *@
+@* This sample adds a notification with each built-in theme color *@
 
 <TelerikButton OnClick="@AddColoredNotifications">Add colored notifications</TelerikButton>
 
