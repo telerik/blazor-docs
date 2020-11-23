@@ -127,11 +127,15 @@ Now you have the Telerik components running in your Blazor app.
 #next-steps-after-getting-started
 ## Next Steps
 
-Next, you can explore the [live demos](https://demos.telerik.com/blazor-ui/) and the rest of the documentation. You can also find the entire demos project in the `demos` folder of your local installation - it is fully runnable and you can inspect, modify and copy the code from it.
+Next, you can explore the [live demos](https://demos.telerik.com/blazor-ui/) and the rest of the documentation. You can also find the entire demos project in the `demos` folder of your local installation - it is fully runnable and you can inspect, modify and copy the code from it. @[template](/_contentTemplates/common/get-started.md#demos-project-net-version)
 
 Many applications have a data grid component, and you can get started with the fully featured Telerik Grid in the [Grid Overview]({%slug components/grid/overview%}) article.
 
 You can also explore the [List of Components]({%slug blazor-overview%}#list-of-components) and pick the ones you are interested in.
+#end
+
+#demos-project-net-version
+ The project targets the latest official .NET version, and its readme file provides more details on running the project and using older versions of the framework.
 #end
 
 
