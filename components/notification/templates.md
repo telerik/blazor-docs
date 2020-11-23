@@ -1,128 +1,102 @@
 ---
-title: Appearance
-page_title: Loader Appearance
-description: Appearance settings of the Loading indicator for Blazor.
-slug: loader-appearance
-tags: telerik,blazor,loader,appearance
+title: Templates
+page_title: Notification - Templates
+description: Templates in the Notification for Blazor.
+slug: notification-templates
+tags: telerik,blazor,notification,template,templates
 published: True
-position: 5
+position: 10
 ---
 
-# Appearance Settings
+# Notification Templates
 
-The loader component provides the following parameters that control its appearance:
+The Notification allows you to customize its rendering by using Templates. This article explains the available layout templates for the component.
 
-* [Type](#type)
-* [Size](#size)
-* [ThemeColor](#themecolor)
+* [Template](#template)
 
-You can use all three together to get the desired appearance. This article will explain their effect one by one.
 
-## Type
+## Template
 
-The `Type` parameter controls the general shape of the animation. It takes a member of the `Telerik.Blazor.Components.LoaderType` enum:
+The Template allows you to control the rendering of all Notifications which originate from the same reference. It provides a context - object of type `NotificationModel`. To apply different templates to different notifications you should provide different references too. 
 
-* `Pulsing`
-* `InfiniteSpinner`
-* `ConvergingSpinner`
+This section gives examples on:
 
-You can see them in action in the [Loader Overview](https://demos.telerik.com/blazor-ui/loader/overview) Live Demo.
+* [Customize All Notifications From The Same Reference](#customize-all-notifications-from-the-same-reference)
+* [Use Different Templates](#use-different-templates)
 
->caption Loader Types
 
-![loader types](images/loader-types.gif)
+### Customize All Notifications From The Same Reference
 
 ````CSHTML
-@foreach (LoaderType type in Enum.GetValues(typeof(Telerik.Blazor.Components.LoaderType)))
-{
-    <div style="float: left; margin: 20px;">
-        @type
-        <br /><br />
-        <TelerikLoader Type="@type"></TelerikLoader>
-    </div>
-}
-````
+<TelerikButton OnClick="@AddNotification">Add a notification</TelerikButton>
 
-## Size
+<TelerikNotification @ref="@NotificationReference">
+    <Template>
+        The current text is: @context.Text
+    </Template>
+</TelerikNotification>
 
-There are three predefined sizes for the loader that you can set through its `Size` parameter that takes a member of the `Telerik.Blazor.Components.LoaderSize` enum:
+@code {
+    public TelerikNotification NotificationReference { get; set; }
 
-* `Small`
-* `Medium`
-* `Large`
-
-You can see them in action in the [Loader Overview](https://demos.telerik.com/blazor-ui/loader/overview) Live Demo.
-
->caption Loader Size
-
-![loader size](images/loader-size.png)
-
-````CSHTML
-@foreach (LoaderSize size in Enum.GetValues(typeof(Telerik.Blazor.Components.LoaderSize)))
-{
-    <div style="float: left; margin: 20px;">
-        @size
-        <br /><br />
-        <TelerikLoader Size="@size"></TelerikLoader>
-    </div>
-}
-````
-
-## ThemeColor
-
-The color of the animated loading icon is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeColor` enum:
-
-* `Primary`
-* `Secondary`
-* `Tertiary`
-* `Success`
-* `Info`
-* `Warning`
-* `Error`
-* `Dark`
-* `Light`
-* `Inverse`
-
-These predefined options match the main [Telerik Theme]({%slug general-information/themes%}) and you can see that in action in the [Appearance](https://demos.telerik.com/blazor-ui/loader/appearance) Live Demo.
-
->caption Built-in Theme Colors
-
-![Loader Theme Colors](images/loader-built-in-theme-colors.png)
-
-````CSHTML
-@{
-    var fields = typeof(Telerik.Blazor.ThemeColors)
-                    .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static |
-                       System.Reflection.BindingFlags.FlattenHierarchy)
-                    .Where(fi => fi.IsLiteral && !fi.IsInitOnly).ToList();
-    foreach (var f in fields)
+    public void AddNotification()
     {
-        string color = f.GetValue(null).ToString();
-        <div style="float: left; margin: 20px;">
-            @color
-            <br /><br />
-            <TelerikLoader ThemeColor="@color"></TelerikLoader>
-        </div>
+        NotificationReference.Show(new NotificationModel()
+        {
+            Text = "Primary notification",
+            ThemeColor = "primary"
+        });
+
+        NotificationReference.Show(new NotificationModel()
+        {
+            Text = "Secondary Notification",
+            ThemeColor = "secondary"
+        });
     }
 }
 ````
 
-The `ThemeColor` parameter renders as the `k-loader-<ThemeColor>` CSS class on the wrapping element and you can set it to a custom value to cascade through and set the color to a setting of your own without customizing the entire theme.
+### Use Different Templates
 
->caption Custom loader color without customizing the Telerik Theme
-
-![Custom loader color](images/loader-custom-color.png)
+When you are using different references in order to provide multiple templates the Notifications will not [stack]({%slug notification-stacked-notifications}).
 
 ````CSHTML
-<style>
-    .k-loader-custom-color .k-loader-segment::after {
-        background-color: cyan;
+<TelerikButton OnClick="@AddNotifications">Add notifications</TelerikButton>
+
+<TelerikNotification @ref="@NotificationReference1">
+    <Template>
+        The current text is: @context.Text
+    </Template>
+</TelerikNotification>
+
+<TelerikNotification @ref="@NotificationReference2">
+    <Template>
+        Different templated text: @context.Text
+    </Template>
+</TelerikNotification>
+
+@code {
+    public TelerikNotification NotificationReference1 { get; set; }
+    public TelerikNotification NotificationReference2 { get; set; }
+
+    public void AddNotifications()
+    {
+        NotificationReference1.Show(new NotificationModel()
+        {
+            Text = "Primary notification",
+            ThemeColor = "primary"
+        });
+
+        NotificationReference2.Show(new NotificationModel()
+        {
+            Text = "Secondary Notification",
+            ThemeColor = "secondary"
+        });
     }
-</style>
-<TelerikLoader ThemeColor="custom-color"></TelerikLoader>
+}
 ````
 
 ## See Also
 
-  * [Live Demo: Loader Overview](https://demos.telerik.com/blazor-ui/loader/overview)
-  * [Live Demo: Loader Appearance](https://demos.telerik.com/blazor-ui/loader/appearance)
+  * [Live Demo: Notification Overview](https://demos.telerik.com/blazor-ui/notification/overview)
+  * [Live Demo: Notification Template](https://demos.telerik.com/blazor-ui/notification/template)

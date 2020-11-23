@@ -1,128 +1,141 @@
 ---
-title: Appearance
-page_title: Loader Appearance
-description: Appearance settings of the Loading indicator for Blazor.
-slug: loader-appearance
-tags: telerik,blazor,loader,appearance
+title: Open, Close and Hide
+page_title: Notification - Open, Close and Hide
+description: Open, Close and Hide the Notification component
+slug: notification-open-close-hide
+tags: telerik,blazor,notification,open,close,hide
 published: True
-position: 5
+position: 20
 ---
 
-# Appearance Settings
+# Open, Close and Hide Notifications
 
-The loader component provides the following parameters that control its appearance:
 
-* [Type](#type)
-* [Size](#size)
-* [ThemeColor](#themecolor)
+This article explains how to open, close and hide the Notification component. For brevity, it will be divided in the following sections:
 
-You can use all three together to get the desired appearance. This article will explain their effect one by one.
+* [Open](#open)
+    * [Use Only the Text and ThemeColor Properties](#use-only-the-text-and-themecolor-properties)
+    * [Pass a NotificationModel to the Method](#pass-a-notificationmodel-to-the-method)
+* [Close and Hide](#close-and-hide)
+    * [Automatically Closing Notification](#automatically-closing-notification)
+    * [Manually Closing Notification](#manually-closing-notification)
 
-## Type
+## Open
 
-The `Type` parameter controls the general shape of the animation. It takes a member of the `Telerik.Blazor.Components.LoaderType` enum:
+You can open (show) the Notification component by using the [`Show`]({%slug notification-overview%}#show-method) method of its reference.
 
-* `Pulsing`
-* `InfiniteSpinner`
-* `ConvergingSpinner`
+* [Use Only the Text and ThemeColor Properties](#use-only-the-text-and-themecolor-properties)
+* [Pass a NotificationModel to the Method](#pass-a-notificationmodel-to-the-method)
 
-You can see them in action in the [Loader Overview](https://demos.telerik.com/blazor-ui/loader/overview) Live Demo.
 
->caption Loader Types
+### Use Only the Text and ThemeColor Properties
 
-![loader types](images/loader-types.gif)
-
-````CSHTML
-@foreach (LoaderType type in Enum.GetValues(typeof(Telerik.Blazor.Components.LoaderType)))
-{
-    <div style="float: left; margin: 20px;">
-        @type
-        <br /><br />
-        <TelerikLoader Type="@type"></TelerikLoader>
-    </div>
-}
-````
-
-## Size
-
-There are three predefined sizes for the loader that you can set through its `Size` parameter that takes a member of the `Telerik.Blazor.Components.LoaderSize` enum:
-
-* `Small`
-* `Medium`
-* `Large`
-
-You can see them in action in the [Loader Overview](https://demos.telerik.com/blazor-ui/loader/overview) Live Demo.
-
->caption Loader Size
-
-![loader size](images/loader-size.png)
+If you do not need to customize the [closing](#close-and-hide) or the icon of the component you can quickly create them by passing only what text and [theme color]({%slug notification-appearance%}#themecolor) should the Notification have.
 
 ````CSHTML
-@foreach (LoaderSize size in Enum.GetValues(typeof(Telerik.Blazor.Components.LoaderSize)))
-{
-    <div style="float: left; margin: 20px;">
-        @size
-        <br /><br />
-        <TelerikLoader Size="@size"></TelerikLoader>
-    </div>
-}
-````
+<TelerikButton OnClick="@OpenNotification">Open a notification</TelerikButton>
 
-## ThemeColor
+<TelerikNotification @ref="@NotificationReference" />
 
-The color of the animated loading icon is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeColor` enum:
+@code {
+    public TelerikNotification NotificationReference { get; set; }
 
-* `Primary`
-* `Secondary`
-* `Tertiary`
-* `Success`
-* `Info`
-* `Warning`
-* `Error`
-* `Dark`
-* `Light`
-* `Inverse`
-
-These predefined options match the main [Telerik Theme]({%slug general-information/themes%}) and you can see that in action in the [Appearance](https://demos.telerik.com/blazor-ui/loader/appearance) Live Demo.
-
->caption Built-in Theme Colors
-
-![Loader Theme Colors](images/loader-built-in-theme-colors.png)
-
-````CSHTML
-@{
-    var fields = typeof(Telerik.Blazor.ThemeColors)
-                    .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static |
-                       System.Reflection.BindingFlags.FlattenHierarchy)
-                    .Where(fi => fi.IsLiteral && !fi.IsInitOnly).ToList();
-    foreach (var f in fields)
+    public void OpenNotification()
     {
-        string color = f.GetValue(null).ToString();
-        <div style="float: left; margin: 20px;">
-            @color
-            <br /><br />
-            <TelerikLoader ThemeColor="@color"></TelerikLoader>
-        </div>
+        NotificationReference.Show("My notification", "success");
     }
 }
 ````
 
-The `ThemeColor` parameter renders as the `k-loader-<ThemeColor>` CSS class on the wrapping element and you can set it to a custom value to cascade through and set the color to a setting of your own without customizing the entire theme.
+### Pass a NotificationModel to the Method
 
->caption Custom loader color without customizing the Telerik Theme
-
-![Custom loader color](images/loader-custom-color.png)
+You can pass the entire [NotificationModel]({%slug notification-overview%}#notificationmodel-class) to provide detailed information for the component - whether it should be closable or specify the icon. 
 
 ````CSHTML
-<style>
-    .k-loader-custom-color .k-loader-segment::after {
-        background-color: cyan;
+<TelerikButton OnClick="@OpenNotification">Open a notification</TelerikButton>
+
+<TelerikNotification @ref="@NotificationReference" />
+
+@code {
+    public TelerikNotification NotificationReference { get; set; }
+
+    public void OpenNotification()
+    {
+        NotificationReference.Show(new NotificationModel()
+        {
+            Text = "My Notification",
+            ThemeColor = "success",
+            Icon = IconName.Star
+        });
     }
-</style>
-<TelerikLoader ThemeColor="custom-color"></TelerikLoader>
+}
 ````
+
+## Close and Hide
+
+There are two separate ways to close a notification:
+
+* [Automatically Closing Notification](#automatically-closing-notification)
+* [Manually Closing Notification](#manually-closing-notification)
+
+### Automatically Closing Notification
+
+By default each notification is an automatically closing one. You can define the time it stays visible by adjusting the `CloseAfter` parameter of the [NotificationModel]({%slug notification-overview%}#notificationmodel-class). You could also provide the user with a closing button by setting the `Closable` parameter to `true`.
+
+>caption Automatically Closing Notification
+
+
+````CSHTML
+<TelerikButton OnClick="@AddAutoClosingNotification">Add Auto closing notification</TelerikButton>
+
+<TelerikNotification @ref="@NotificationReference" />
+
+@code {
+    public TelerikNotification NotificationReference { get; set; }
+
+    public void AddAutoClosingNotification()
+    {
+        NotificationReference.Show(new NotificationModel()
+        {
+            Text = "My Notification",
+            ThemeColor = "success",
+            Closable = false,
+            CloseAfter = 5000,
+            Icon = IconName.Star
+        });
+    }
+}
+````
+
+### Manually Closing Notification
+
+You can prevent the notification from closing automatically and let the user close it wil the close button. In order to do so, you should set the `Closable` parameter to `true` and the `CloseAfter` parameter to `0`.
+
+>caption Manually Closing Notification
+
+````CSHTML
+<TelerikButton OnClick="@AddManuallyClosingNotification">Add manually closing notification</TelerikButton>
+
+<TelerikNotification @ref="@NotificationReference" />
+
+@code {
+    public TelerikNotification NotificationReference { get; set; }
+
+    public void AddManuallyClosingNotification()
+    {
+        NotificationReference.Show(new NotificationModel()
+        {
+            Text = "My Notification",
+            ThemeColor = "success",
+            Closable = true,
+            CloseAfter = 0,
+            Icon = IconName.Star
+        });
+    }
+}
+````
+
 
 ## See Also
 
-  * [Live Demo: Loader Overview](https://demos.telerik.com/blazor-ui/loader/overview)
-  * [Live Demo: Loader Appearance](https://demos.telerik.com/blazor-ui/loader/appearance)
+  * [Notification Overview]({%slug notification-overview%})

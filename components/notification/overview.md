@@ -77,7 +77,7 @@ The `NotificationModel` class is used to add new notifications to the page. It c
 
 * `Closable` - `bool`, defaults to `true` - if this property is set to `true` a close button will appear which will enable the user to close it. If you want the Notification to not close automatically you should set the `Closable` paramter to `true` and the `CloseAfter` to `0`.
 
-* `CloseAfter` - `int`, defaults to `5000` ms - if the `Closable` property is set to `false`, which means that the notification will automatically close, the `CloseAfter` property allows you to configure after how much time in `ms` this would happen.
+* `CloseAfter` - `int`, defaults to `5000` ms - allows you to configure after how much time the Notification component will close automatically.
 
 * `ShowIcon` - `bool`, defaults to `true` - allows you to specify whether an icon should appear for the component.
 
@@ -88,7 +88,8 @@ The `NotificationModel` class is used to add new notifications to the page. It c
 
 ## Show Method
 
-The `Show()` method is accessible through it's reference. This method allows you to add the Notification to the page. You can find more information on opening, closing and hiding the Notification in the [Open, Close and Hide]({%slug notification-open-close-hide%}) article.
+The `Show()` method is accessible through it's reference. This method allows you to add the Notification to the page. 
+You can find more information on opening, closing and hiding the Notification in the [Open, Close and Hide]({%slug notification-open-close-hide%}) article.
 
 >caption Get a reference to the Notification and use the Show method
 

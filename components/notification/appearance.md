@@ -180,4 +180,4 @@ The `ThemeColor` parameter renders as the `k-loader-<ThemeColor>` CSS class on t
 
   * [Live Demo: Notification Overview](https://demos.telerik.com/blazor-ui/notification/overview)
   * [Live Demo: Notification Appearance](https://demos.telerik.com/blazor-ui/notification/appearance)
-  * [Live Demo: Notification Appearance](https://demos.telerik.com/blazor-ui/notification/animation)
+  * [Live Demo: Notification Animation](https://demos.telerik.com/blazor-ui/notification/animation)
