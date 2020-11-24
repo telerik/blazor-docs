@@ -423,6 +423,7 @@ intro_columns:
       "Tooltip": "tooltip-overview"
       "Drawer": "drawer-overview"
       "Tile Layout": "tilelayout-overview"
+      "Notification": "notification-overview"
   -
     title: "Scheduling"
     items:

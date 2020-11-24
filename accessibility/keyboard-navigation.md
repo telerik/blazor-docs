@@ -62,6 +62,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation)
 
+* Notification - not applicable, it is a visualization component. 
+
 * [NumericTextBox](https://demos.telerik.com/blazor-ui/numerictextbox/keyboard-navigation)
 
 * [Pager](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation)
