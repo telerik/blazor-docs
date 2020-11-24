@@ -38,6 +38,36 @@ You can add multiple buttons to the Telerik Toolbar. To do that you should add t
 
 * `IconClass` - `string` - allows you to set a CSS class that provides the required font name, font size and content for the ::before pseudo-element.
 
+>caption A ToolBar with ToolBarButtons
+
+
+````CSHTML
+@*This example shows the TelerikToolBar with ToolBarButtons and their features*@
+
+<TelerikToolBar>
+    <ToolBarButton Icon="@IconName.Bold" Class="myBoldButton" Enabled="@true" Visible="true" Title="Bold Button" OnClick="@OnBold">Bold</ToolBarButton>
+    <ToolBarButton Icon="@IconName.Italic" Class="myItalicButton" Enabled="@false" Visible="true" Title="Italic Button" OnClick="@OnItalic">Italic</ToolBarButton>
+    <ToolBarButton Icon="@IconName.Underline" Class="myUnderlineButton" Enabled="@true" Visible="true" Title="Underline Button" OnClick="@OnUnderline">Underline</ToolBarButton>
+</TelerikToolBar>
+
+@code {
+    public void OnBold()
+    {
+        Console.WriteLine("The user clicked on the bold button");
+    }
+
+    public void OnItalic()
+    {
+        Console.WriteLine("The user clicked on the italic button");
+    }
+
+    public void OnUnderline()
+    {
+        Console.WriteLine("The user clicked on the underline button");
+    }
+}
+````
+
 ## ToolBarToggleButton
 
 You can add multiple toggle  buttons to the Telerik Toolbar. To do that you should add the `<ToolBarToggleButton>` to the `<TelerikToolBar>`. You can customize the buttons using the following features:
