@@ -68,6 +68,25 @@ To use the Telerik Toolbar component:
 }
 ````
 
+
+>caption Components namespace and reference
+
+````CSHTML
+@*Component namespace and reference*@
+
+<TelerikToolBar @ref="@ToolbarReference">
+    <ToolBarToggleButton @bind-Selected="@Selected">Toggle Button</ToolBarToggleButton>
+
+    <ToolBarButton Icon="@IconName.Undo">Undo</ToolBarButton>
+</TelerikToolBar>
+
+@code {
+    public Telerik.Blazor.Components.TelerikToolBar ToolbarReference { get; set; }
+
+    public bool Selected { get; set; } = true;
+}
+````
+
 ## Features
 
 >caption The ToolBar provides the following features:
