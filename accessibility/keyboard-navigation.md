@@ -86,6 +86,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [TimePicker](https://demos.telerik.com/blazor-ui/timepicker/keyboard-navigation)
 
+* [ToolBar](https://demos.telerik.com/blazor-ui/toolbar/keyboard-navigation)
+
 * [ToggleButton](https://demos.telerik.com/blazor-ui/togglebutton/keyboard-navigation)
 
 * TreeList - will have keyboard navigation in an upcoming release.
