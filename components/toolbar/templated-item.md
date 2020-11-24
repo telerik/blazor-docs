@@ -17,7 +17,7 @@ The Telerik ToolBar for Blazor allows you to add a custom element. To use it add
 ![templated item for the ToolBar](images/toolbar-templated-item.png)
 
 ````CSHTML
-@*use the templated item to add a Telerik DropDownList to the ToolBar*@
+@*Use the templated item to add a Telerik DropDownList to the ToolBar*@
 
 <TelerikToolBar>
     <ToolBarButtonGroup>

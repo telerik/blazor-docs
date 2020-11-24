@@ -5,7 +5,7 @@ description: Separate items in the Telerik ToolBar for Blazor
 slug: toolbar-separator
 tags: telerik,blazor,toolbar,separator,spacer,tools
 published: True
-position: 5
+position: 20
 ---
 
 # Separators
