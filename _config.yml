@@ -347,6 +347,7 @@ intro_columns:
       "Tab Strip": "components/tabstrip/overview"
       "TreeView": "components/treeview/overview"
       "Pager": "pager-overview"
+      "ToolBar": "toolbar-overview"
 
   -
     title: "Interactivity and UX"
