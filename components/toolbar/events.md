@@ -39,7 +39,7 @@ The `OnClick` event fires when the user clicks on a button in the ToolBar.
 
 ## SelectedChanged
 
-The `SelectedChanged` event will fire when the user changes the state of the [`ToolBarToggleButton`]({%slug toolbar-built-in-tools%}#toolbartogglebutton). It is used for one-way data binding of the `Selected` paramter and will prevent you from using two-way data binding (`@bind-Selected`)
+The `SelectedChanged` event will fire when the user changes the state of the [`ToolBarToggleButton`]({%slug toolbar-built-in-tools%}#toolbartogglebutton). It is used for one-way data binding of the `Selected` parameter and will prevent you from using two-way data binding (`@bind-Selected`)
 
 >caption The SelectedChanged event for the ToolBarToggleButton
 
