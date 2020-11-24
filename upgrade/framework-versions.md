@@ -24,7 +24,7 @@ Telerik UI for Blazor supports .NET 5 since its `2.19.0` release.
 
 | .NET 5     | Telerik UI for Blazor version                          |
 |------------|--------------------------------------------------------|
-| .NET 5 RTM | {{site.uiForBlazorLatestVersion}}                      |
+| .NET 5 RTM | 2.19.0 - {{site.uiForBlazorLatestVersion}}             |
 
 
 
