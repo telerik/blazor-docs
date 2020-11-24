@@ -72,8 +72,8 @@ You can pass the entire [NotificationModel]({%slug notification-overview%}#notif
         {
             Text = "My Notification",
             ThemeColor = "success",
-            Icon = true,
-            IconName = IconName.Star,
+            ShowIcon = true,
+            Icon = IconName.Star,
             Closable = false
         });
     }
@@ -118,7 +118,7 @@ You can also let the user dismiss a notification message before that timer elaps
             ThemeColor = "success",
             Closable = false,
             CloseAfter = 2000,
-            IconName = IconName.Star
+            Icon = IconName.Star
         });
     }
 }
@@ -148,7 +148,7 @@ You can prevent the notification from closing automatically and let the user clo
             ThemeColor = "success",
             Closable = true,
             CloseAfter = 0,
-            IconName = IconName.Star
+            Icon = IconName.Star
         });
     }
 }
