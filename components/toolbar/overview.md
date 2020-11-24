@@ -10,7 +10,7 @@ position: 0
 
 # ToolBar Overview
 
-The ToolBar component is a container for button. This article explains the available features.
+The ToolBar component is a container for buttons or other application-specifc tools. This article explains the available features.
 
 #### In This Article
 
@@ -22,13 +22,15 @@ The ToolBar component is a container for button. This article explains the avail
 To use the Telerik Toolbar component:
 
 1. Add the `<TelerikToolBar>` tag to your page.
+1. Populate it with [Built-In Tools]({%slug toolbar-built-in-tools%}) or [Custom Tools]({%slug toolbar-templated-item%}).
+1. Handle their respective events so your application can respond to the user actions.
 
 >caption Basic Telerik Toolbar
 
 ![basic toolbar screenshot](images/basic-toolbar-screenshot.png)
 
 ````CSHTML
-@*Add a basic Telerik ToolBar to your page with its most common features.*@
+@*Add a basic Telerik ToolBar to your page with a few built-in buttons.*@
 
 <TelerikToolBar>
     <ToolBarButtonGroup>
@@ -91,7 +93,7 @@ To use the Telerik Toolbar component:
 
 >caption The ToolBar provides the following features:
 
-* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the ToolBar component. You could use that class to control the size of the component.
+* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the ToolBar component. You could use that class to control the size of the component through CSS.
 
 * `ToolBarButton` - renders a button in the ToolBar. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbarbutton) article.
 
@@ -101,9 +103,9 @@ To use the Telerik Toolbar component:
 
 * `ToolBarTemplateItem` - allows you to create a custom item for the ToolBar. You can read more about this in the [Templated Item]({%slug toolbar-templated-item%}) article.
 
-* `ToolBarSeparator` - adds a line that separates the item in the ToolBar. You can find information in the [Separators]({%slug toolbar-separators%}) article.
+* `ToolBarSeparator` - adds a line that separates items in the ToolBar. You can find more information in the [Separators]({%slug toolbar-separators%}) article.
 
-* `ToolBarSpacer` - adds empty space that separates the items into different groups. You can find information in the [Separators]({%slug toolbar-separators%}) article.
+* `ToolBarSpacer` - adds empty space that separates the items into different groups. You can find more information in the [Separators]({%slug toolbar-separators%}) article.
 
 
 
