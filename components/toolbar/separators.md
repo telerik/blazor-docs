@@ -10,10 +10,10 @@ position: 5
 
 # Separators
 
-You can visually separate the items in the Telerik ToolBar for Blazor. Depending on the needs of your application you can use of the following, or a combination between them:
+You can visually separate the items in the Telerik ToolBar for Blazor. Depending on the needs of your application you can use of the following, or a combination of them:
 
 * `ToolBarSeparator` - to separate two items with a solid line you should add the `<ToolBarSeparator>` tag between them. 
-* `ToolBarSpacer` - defines empty space in the toolbar which separates the items. The space between the items is automatically calculated to fit the width of the toolbar.
+* `ToolBarSpacer` - defines empty space in the toolbar which separates the items. The space between the items is automatically calculated to fit the width of the ToolBar.
 
 >caption Use The ToolBarSeparator and ToolBarSpace to separate items in the ToolBar
 
