@@ -122,6 +122,8 @@ You can find more information on opening, closing and hiding the Notification in
 } 
 ````
 
+>tip @[template](/_contentTemplates/notification/templates.md#one-instance-per-app-link)
+
 ## See Also
 
   * [Live Demo: Notification](https://demos.telerik.com/blazor-ui/notification/overview/)
@@ -129,4 +131,5 @@ You can find more information on opening, closing and hiding the Notification in
   * [Open, Close and Hide]({%slug notification-open-close-hide%})
   * [Templates]({%slug notification-templates%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikNotification)
+  * [One Notification Instance for All Components Sample Project](https://github.com/telerik/blazor-ui/tree/master/notification/single-instance-per-app)
    

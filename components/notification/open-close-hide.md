@@ -29,6 +29,7 @@ You can use it in two ways:
 * [Use Only the Text and ThemeColor Properties](#use-only-the-text-and-themecolor-properties)
 * [Pass a NotificationModel to the Method](#pass-a-notificationmodel-to-the-method)
 
+You can also [show all notifications for your app from a single instance](#show-from-anywhere) so they all [stack together]({%slug notification-stacked-notifications%}) and also stay between page navigations.
 
 ### Use Only the Text and ThemeColor Properties
 
@@ -78,6 +79,10 @@ You can pass the entire [NotificationModel]({%slug notification-overview%}#notif
     }
 }
 ````
+
+### Show From Anywhere
+
+@[template](/_contentTemplates/notification/templates.md#one-instance-per-app-link)
 
 ## Close and Hide
 
