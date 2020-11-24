@@ -70,6 +70,8 @@ You can control the Size of the Notification by using CSS. To make the cascading
 
 >caption Control the size of the Notiication component
 
+![resized notification](images/notification-size-changed-screenshot.png)
+
 ````CSHTML
 @* Use CSS to set the size of the notification *@
 
@@ -156,6 +158,8 @@ These predefined options match the main [Telerik Theme]({%slug general-informati
 The `ThemeColor` parameter renders as the `k-notification-<ThemeColor>` CSS class on the specific notification HTML element and you can set it to a custom value to cascade through, and set the color to a setting of your own without customizing the entire theme.
 
 >caption Custom Notification color without customizing the Telerik Theme
+
+![custom themecolor screenshot](images/notification-custom-themecolor-screenshot.png)
 
 ````CSHTML
 @* Sample of using a custom notification theme color from your own styles *@
