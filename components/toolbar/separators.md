@@ -2,7 +2,7 @@
 title: Separators
 page_title: ToolBar - Separators
 description: Separate items in the Telerik ToolBar for Blazor
-slug: toolbar-separator
+slug: toolbar-separators
 tags: telerik,blazor,toolbar,separator,spacer,tools
 published: True
 position: 5
