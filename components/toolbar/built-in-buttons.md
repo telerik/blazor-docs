@@ -28,7 +28,7 @@ You can add multiple buttons to the Telerik Toolbar. To do that you should add t
 
 * `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the ToolbarButton. You could use that class to cascade styles.
 
-* `OnClick` - `EventCallback` - allows you to execute an method upon the click of the button.
+* `OnClick` - `EventCallback` - allows you to execute an method upon the click of the button. For more information read the [Events]({%slug toolbar-events%}) article.
 
 * `Icon` - `string` - adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component).
 
@@ -38,8 +38,9 @@ You can add multiple buttons to the Telerik Toolbar. To do that you should add t
 
 * `IconClass` - `string` - allows you to set a CSS class that provides the required font name, font size and content for the ::before pseudo-element.
 
->caption A ToolBar with ToolBarButtons
+>caption The Telerik ToolBar with ToolBarButtons
 
+![](images/toolbar-toolbarbutton-example.png)
 
 ````CSHTML
 @*This example shows the TelerikToolBar with ToolBarButtons and their features*@
@@ -72,7 +73,7 @@ You can add multiple buttons to the Telerik Toolbar. To do that you should add t
 
 You can add multiple toggle  buttons to the Telerik Toolbar. To do that you should add the `<ToolBarToggleButton>` to the `<TelerikToolBar>`. You can customize the buttons using the following features:
 
-* `Selected` - `bool` - specifies whether the button is in selected state. You can use it with one and two-way data binding with the `SelectedChanged` event.
+* `Selected` - `bool` - specifies whether the button is in selected state. You can use it with one and two-way data binding with the `SelectedChanged` event. For more information on how to handle the `SelectedChanged` event read the [Events]({%slug toolbar-events%}) article.
 
 * `Enabled` - `bool`, defaults to `true` - specifies if the button is clickable.
 
@@ -82,7 +83,7 @@ You can add multiple toggle  buttons to the Telerik Toolbar. To do that you shou
 
 * `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the ToolbarButton. You could use that class to cascade styles.
 
-* `OnClick` - `EventCallback` - allows you to execute an method upon the click of the button.
+* `OnClick` - `EventCallback` - allows you to execute an method upon the click of the button. For more information read the [Events]({%slug toolbar-events%}) article.
 
 * `Icon` - `string` - adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component).
 
@@ -91,6 +92,38 @@ You can add multiple toggle  buttons to the Telerik Toolbar. To do that you shou
 * `SpriteClass` - `string` - add a sprite class image to the button. Set this attribute to `k-icon MySpriteClass` where `MySpriteClass` defines the CSS rules for the sprite.
 
 * `IconClass` - `string` - allows you to set a CSS class that provides the required font name, font size and content for the ::before pseudo-element.
+
+>caption The Telerik ToolBar with ToolBarToggleButtons
+
+![](images/toolbar-togglebutton-example.png)
+
+````CSHTML
+@*This example shows the TelerikToolBar with ToolBarToggleButton and its available features*@
+
+<TelerikToolBar>
+    <ToolBarToggleButton @bind-Selected="@Selected" 
+                         Enabled="true" 
+                         Class="myToggleFullScreenButton" 
+                         Icon="@IconName.ToggleFullScreenMode" 
+                         OnClick="@ToggleFullScreen">Toggle Fullscreen</ToolBarToggleButton>
+</TelerikToolBar>
+
+@code {
+    public bool Selected { get; set; } = true;
+
+    public void ToggleFullScreen()
+    {
+        if (Selected)
+        {
+            Console.WriteLine("The user is in full screen");
+        }
+        else
+        {
+            Console.WriteLine("The user exited full screen");
+        }
+    }
+}
+````
 
 ## ToolBarButtonGroup
 
@@ -108,6 +141,25 @@ You can add one or more group of buttons to the Toolbar. To do that you should a
 * `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the ToolBarButtonGroup. You could use that class to cascade styles.
 
 * `Width` - `string` - allows you to control the width of the group.
+
+>caption The Telerik ToolBar with grouped buttons
+
+![](images/toolbar-grouped-buttons.png)
+
+````CSHTML
+@*This example shows the TelerikToolBar with grouped ToolBarButtons*@
+
+<TelerikToolBar>
+    <ToolBarButtonGroup Visible="true" 
+                        SelectionMode="@ButtonGroupSelectionMode.Multiple" 
+                        Class="formattingButtons" 
+                        Enabled="true">
+        <ToolBarButton Icon="@IconName.Bold">Bold</ToolBarButton>
+        <ToolBarButton Icon="@IconName.Italic">Italic</ToolBarButton>
+        <ToolBarButton Icon="@IconName.Underline">Underline</ToolBarButton>
+    </ToolBarButtonGroup>
+</TelerikToolBar>
+````
 
 ## See Also
 
