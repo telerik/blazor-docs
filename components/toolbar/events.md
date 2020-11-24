@@ -10,7 +10,59 @@ position: 25
 
 # Events
 
+The ToolBar exposes events for its buttons which allow you to react when the user perform actions on them. Such actions would be a click event or changing the selected state for the toggle button. The available events are:
 
+* [OnClick](#onclick)
+* [SelectedChanged](#selectedchanged)
+
+## OnClick
+
+The `OnClick` event fires when the user clicks on a button in the ToolBar.
+
+>caption The OnClick event for the ToolBar buttons
+
+````CSHTML
+@*When clicking on the button a message will be printed in your console*@
+
+<TelerikToolBar>
+    <ToolBarButton Icon="@IconName.HyperlinkEmail" OnClick="@OnHyperlinkClick">Hyperlink</ToolBarButton>
+</TelerikToolBar>
+
+
+@code {
+    public void OnHyperlinkClick()
+    {
+        Console.WriteLine("The user clicked on the hyperlink button");
+    }
+}
+````
+
+## SelectedChanged
+
+The `SelectedChanged` event will fire when the user changes the state of the [`ToolBarToggleButton`]({%slug toolbar-built-in-tools%}#toolbartogglebutton). It is used for one-way data binding of the `Selected` paramter and will prevent you from using two-way data binding (`@bind-Selected`)
+
+>caption The SelectedChanged event for the ToolBarToggleButton
+
+````CSHTML
+@*Handle the SelectedChangedEvent*@
+
+<TelerikToolBar>
+    <TelerikToggleButton Selected="@Selected" SelectedChanged="@SelectedChangedHandler"></TelerikToggleButton>
+
+</TelerikToolBar>
+
+
+@code {
+    public bool Selected { get; set; }
+
+    public void SelectedChangedHandler(bool value)
+    {
+        Selected = value;
+
+        //your application logic regarding the change of the value
+    }
+}
+````
 
 ## See Also
 
