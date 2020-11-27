@@ -54,6 +54,7 @@ The numeric textbox provides the following features:
 * `Min` - the minimum decimal value the input can take. Must be of the same type as the `Value`.
 * `Step` - the decimal value of the step with which the value changes when the arrows are used. Must be of the same type as the `Value`.
 * `Value` - to get/set the value of the input.
+* `Width` - the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 >caption Example of using a custom format string
@@ -73,6 +74,6 @@ The numeric textbox provides the following features:
 
   * [Live Demo: Numeric Textbox](https://demos.telerik.com/blazor-ui/numerictextbox/index)
   * [Live Demo: Numeric Textbox Validation](https://demos.telerik.com/blazor-ui/numerictextbox/validation)
-  [Live Demo: Numeric Textbox Formats](https://demos.telerik.com/blazor-ui/numerictextbox/formats)
+  * [Live Demo: Numeric Textbox Formats](https://demos.telerik.com/blazor-ui/numerictextbox/formats)
   * [Input Validation]({%slug common-features/input-validation%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikNumericTextBox-1)
