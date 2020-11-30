@@ -110,6 +110,158 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
 This example shows how you can combine the virtual row scrolling feature with loading group data on demand through a remote service (mocked by a static class in this example so you can run it easily), and how to set the initial state of the grid to have grouping by default.
 
 ````CSHTML
+Scroll through the groups or expand them to load their data on demand
+
+<TelerikGrid Data=@GridData
+             GroupsLoadOnDemand="true"
+             Groupable="true"
+             OnStateInit="@((GridStateEventArgs<Employee> args) => OnStateInitHandler(args))"
+             OnRead="@ReadItems"
+             TotalCount="@Total"
+             ScrollMode="@GridScrollMode.Virtual" PageSize="20" RowHeight="30"
+             Navigable="true" Sortable="true" FilterMode="GridFilterMode.FilterRow" Height="500px">
+    <GridAggregates>
+        <GridAggregate Field="@nameof(Employee.Team)" Aggregate="@GridAggregateType.Count" />
+        <GridAggregate Field="@nameof(Employee.Salary)" Aggregate="@GridAggregateType.Min" />
+        <GridAggregate Field="@nameof(Employee.Salary)" Aggregate="@GridAggregateType.Sum" />
+        <GridAggregate Field="@nameof(Employee.IsOnLeave)" Aggregate="@GridAggregateType.Count" />
+    </GridAggregates>
+    <GridColumns>
+        <GridColumn Field="@nameof(Employee.Name)" Groupable="false" />
+        <GridColumn Field="@nameof(Employee.Team)" Title="Team">
+            <GroupHeaderTemplate>
+                Employees in this group: @context.Count
+            </GroupHeaderTemplate>
+        </GridColumn>
+        <GridColumn Field="@nameof(Employee.Salary)" Groupable="false">
+            <GroupFooterTemplate>
+                Lowest salary in this group: @context.Min
+            </GroupFooterTemplate>
+            <FooterTemplate>
+                Total salary expenses @context.Sum
+            </FooterTemplate>
+        </GridColumn>
+        <GridColumn Field="@nameof(Employee.IsOnLeave)" Title="On Vacation">
+            <GroupHeaderTemplate>
+                Employees with "OnLeave" @context.Value : @context.Count
+            </GroupHeaderTemplate>
+        </GridColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    List<object> GridData { get; set; }
+    int Total { get; set; } = 0;
+
+    protected async Task ReadItems(GridReadEventArgs args)
+    {
+        // sample data retrieval, see comments in the service mimic class below
+        DataEnvelope<Employee> result = await MyService.GetData(args.Request);
+
+        if (args.Request.Groups.Count > 0)
+        {
+            GridData = result.GroupedData.Cast<object>().ToList();
+        }
+        else
+        {
+            GridData = result.CurrentPageData.Cast<object>().ToList();
+        }
+
+        Total = result.TotalItemCount;
+
+        StateHasChanged();
+    }
+
+    void OnStateInitHandler(GridStateEventArgs<Employee> args)
+    {
+        // set initial grouping
+        GridState<Employee> desiredState = new GridState<Employee>()
+        {
+            GroupDescriptors = new List<GroupDescriptor>()
+            {
+                new GroupDescriptor()
+                {
+                    Member = "Team",
+                    MemberType = typeof(string)
+                },
+                new GroupDescriptor()
+                {
+                    Member = "IsOnLeave",
+                    MemberType = typeof(bool)
+                }
+            }
+        };
+
+        args.GridState = desiredState;
+    }
+
+    public class Employee
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public bool IsOnLeave { get; set; }
+        public decimal Salary { get; set; }
+    }
+
+    public class DataEnvelope<T>
+    {
+        public List<AggregateFunctionsGroup> GroupedData { get; set; }
+        public List<T> CurrentPageData { get; set; }
+        public int TotalItemCount { get; set; }
+    }
+
+    public static class MyService
+    {
+        private static List<Employee> SourceData { get; set; }
+        public static async Task<DataEnvelope<Employee>> GetData(DataSourceRequest request)
+        {
+            if (SourceData == null)
+            {
+                SourceData = new List<Employee>();
+                var rand = new Random();
+                for (int i = 0; i < 2500; i++)
+                {
+                    SourceData.Add(new Employee()
+                    {
+                        EmployeeId = i,
+                        Name = "Employee " + i.ToString(),
+                        Team = "Team " + i % 3,
+                        IsOnLeave = i % 2 == 0,
+                        Salary = rand.Next(1000, 5000)
+                    });
+                }
+            }
+
+            await Task.Delay(500);// deliberate delay to showcase async operations, remove in a real app
+
+            // retrieve data as needed, you can find more examples and runnable projects here
+            // https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server
+            var datasourceResult = SourceData.ToDataSourceResult(request);
+
+            DataEnvelope<Employee> dataToReturn;
+
+            if (request.Groups.Count > 0)
+            {
+                dataToReturn = new DataEnvelope<Employee>
+                {
+                    GroupedData = datasourceResult.Data.Cast<AggregateFunctionsGroup>().ToList(),
+                    TotalItemCount = datasourceResult.Total
+                };
+            }
+            else
+            {
+                dataToReturn = new DataEnvelope<Employee>
+                {
+                    CurrentPageData = datasourceResult.Data.Cast<Employee>().ToList(),
+                    TotalItemCount = datasourceResult.Total
+                };
+            }
+
+            return await Task.FromResult(dataToReturn);
+        }
+    }
+}
 ````
 
 
