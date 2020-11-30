@@ -5,7 +5,8 @@ description: Enable and configure field aggregates in Grid for Blazor.
 slug: grid-aggregates
 tags: telerik,blazor,grid,aggreagates,aggregate
 published: True
-position: 23
+previous_url: /components/grid/aggregates
+position: 5
 ---
 
 # Grid Aggregates

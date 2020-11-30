@@ -1,11 +1,12 @@
 ---
-title: Grouping
+title: Overview
 page_title: Grid - Grouping
 description: Enable and configure grouping in Grid for Blazor.
 slug: components/grid/features/grouping
 tags: telerik,blazor,grid,grouping
 published: True
-position: 22
+previous_url: /components/grid/grouping
+position: 0
 ---
 
 # Grid Grouping
