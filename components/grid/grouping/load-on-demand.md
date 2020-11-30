@@ -38,13 +38,18 @@ This section contains the following examples:
 This example shows the basics of enabling the group load on demand - setting `GroupsLoadOnDemand="true"`. Group the grid by the Team and/or Vacation columns to see the effect.
 
 ````CSHTML
-Drag the column header of the "Team" and/or "On Vacation" column to the group panel at the top to see the effect
+Drag the column header of the "Team" and/or "On Vacation" column to the group panel at the top
 
 <TelerikGrid Data=@GridData
              GroupsLoadOnDemand="true"
              Groupable="true"
-
-             Navigable="true" Pageable="true" PageSize="15" Sortable="true" FilterMode="GridFilterMode.FilterRow">
+             Navigable="true" Pageable="true" Sortable="true" FilterMode="GridFilterMode.FilterRow" Height="400px">
+    <GridAggregates>
+        <GridAggregate Field="@nameof(Employee.Team)" Aggregate="@GridAggregateType.Count" />
+        <GridAggregate Field="@nameof(Employee.Salary)" Aggregate="@GridAggregateType.Min" />
+        <GridAggregate Field="@nameof(Employee.Salary)" Aggregate="@GridAggregateType.Sum" />
+        <GridAggregate Field="@nameof(Employee.IsOnLeave)" Aggregate="@GridAggregateType.Count" />
+    </GridAggregates>
     <GridColumns>
         <GridColumn Field="@nameof(Employee.Name)" Groupable="false" />
         <GridColumn Field="@nameof(Employee.Team)" Title="Team">
@@ -52,7 +57,6 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
                 Employees in this group: @context.Count
             </GroupHeaderTemplate>
         </GridColumn>
-        <GridColumn Field="@nameof(Employee.IsOnLeave)" Title="On Vacation" />
         <GridColumn Field="@nameof(Employee.Salary)" Groupable="false">
             <GroupFooterTemplate>
                 Lowest salary in this group: @context.Min
@@ -61,12 +65,12 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
                 Total salary expenses @context.Sum
             </FooterTemplate>
         </GridColumn>
+        <GridColumn Field="@nameof(Employee.IsOnLeave)" Title="On Vacation">
+            <GroupHeaderTemplate>
+                Employees with "OnLeave" @context.Value : @context.Count
+            </GroupHeaderTemplate>
+        </GridColumn>
     </GridColumns>
-    <GridAggregates>
-        <GridAggregate Field="@nameof(Employee.Name)" Aggregate="@GridAggregateType.Count" />
-        <GridAggregate Field="@nameof(Employee.Salary)" Aggregate="@GridAggregateType.Max" />
-        <GridAggregate Field="@nameof(Employee.Salary)" Aggregate="@GridAggregateType.Sum" />
-    </GridAggregates>
 </TelerikGrid>
 
 @code {
@@ -76,14 +80,15 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
     {
         GridData = new List<Employee>();
         var rand = new Random();
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 25; i++)
         {
             GridData.Add(new Employee()
             {
                 EmployeeId = i,
                 Name = "Employee " + i.ToString(),
                 Team = "Team " + i % 3,
-                IsOnLeave = i % 2 == 0
+                IsOnLeave = i % 2 == 0,
+                Salary = rand.Next(1000, 5000)
             });
         }
     }
