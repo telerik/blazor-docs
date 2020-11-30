@@ -15,15 +15,33 @@ The grid component lets you load the data for each individual [group]({%slug com
 In this article:
 
 * [Basics](#basics)
+    * [Server Operations](#server-operations)
 * [Examples](#examples)
 	* [Regular Paging and Group Load On Demand](#regular-paging-and-group-load-on-demand)
-	* [Virtual Scrolling, Group Load On Demand and Server Data Operations](#virtual-scrolling-group-load-on-demand-and-server-data-operations)
+	* [Virtual Scrolling, Group Load On Demand and Server Data Operations](#virtual-scrolling-group-load-on-demand-and-server-side-data-operations)
+* [Limitations](#limitations)
 
 ## Basics
 
 To enable load-on-demand for the groups, set the `GroupsLoadOnDemand` parameter of the grid to `true`. In this mode, the grid behaves as usual while there is no grouping, and you can use this together with [Virtual Scrolling for the rows]({%slug components/grid/virtual-scrolling%}).
 
-Once grouping is applied (either manually by the user, or through the grid [state]({%slug grid-state%}#set-grid-options-through-state)), the groups will now show up collapsed by default. When a group is expanded by the user its data is requested from the data source - the [OnRead event]({%slug components/grid/manual-operations%}) will fire if you are using it, and the `GroupPaging` parameter of its `DataSourceRequest` will be set to `true`. If you are not using that event, but are providing all the data to the grid, the grid will automatically handle the operation for you. Each group header and each group footer will also count as rows in the grid for the purposes of paging.
+Once grouping is applied (either manually by the user, or through the grid [state]({%slug grid-state%}#set-grid-options-through-state)), the groups will now show up collapsed by default. When a group is expanded by the user its data is requested from the data source - if you provide all the `Data` to the grid, the grid will perform the operations for you, for details about server operations, see below.
+
+Each group header, each group footer and the grid footer will count as rows in the grid for the purposes of paging. Until you expand a group, its child items are not counted and shown in the `Total` count for the purposes of paging.
+
+
+### Server Operations
+
+When loading data on demand through the [OnRead event]({%slug components/grid/manual-operations%}), there can be three different kinds of requests, depending on the data that is needed:
+
+* If there is no grouping, the request is as usual - no additional parameters or settings are added to it by the grid.
+
+* If there is grouping and the grid needs a list of groups, the `GroupPaging` parameter of its `DataSourceRequest` will be set to `true`.
+
+    * If the currently expanded group row has subgroups, a request is sent with the `GroupPaging` parameter set to `true`, prompting that the response must include the total of items in the sub group and return a collection of groups once again, instead of a collection of models.
+
+* If the currently expanded group row does not have subgroups, the `Filter` parameter of the `DataSourceRequest` will contain the group value (and the values of any subgroups) for which the items are requested.
+
 
 
 ## Examples
@@ -31,7 +49,7 @@ Once grouping is applied (either manually by the user, or through the grid [stat
 This section contains the following examples:
 
 * [Regular Paging and Group Load On Demand](#regular-paging-and-group-load-on-demand) - a basic example how to enable the feature
-* [Virtual Scrolling, Group Load On Demand and Server Data Operations](#virtual-scrolling-group-load-on-demand-and-server-data-operations) - mimics an actual data service to implement load on demand for the data when the user expands a group or when they scroll to need a new set of available groups. Also showcases how to set the initial grid state to include grouping.
+* [Virtual Scrolling, Group Load On Demand and Server Data Operations](#virtual-scrolling-group-load-on-demand-and-server-side-data-operations) - mimics an actual data service to implement load on demand for the data when the user expands a group or when they scroll to need a new set of available groups. Also showcases how to set the initial grid state to include grouping.
 
 ### Regular Paging and Group Load On Demand
 
@@ -265,8 +283,19 @@ Scroll through the groups or expand them to load their data on demand
 ````
 
 
+## Limitations
+
+* The expanded state of the groups is preserved during paging only, but not if sorting or filtering is applied.
+
+* If the group load on demand is used in combination with [virtual scrolling]({%slug components/grid/virtual-scrolling%}):
+
+    * All requirements and limitations of the virtual scrolling functionality apply.
+    
+    * The expanded state of the groups is not preserved if a new set of items is fetched.
+
+
 ## See Also
 
-  * [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
+  * [Live Demo: Grid Group Load On Demand](https://demos.telerik.com/blazor-ui/grid/group-load-on-demand)
    
   
