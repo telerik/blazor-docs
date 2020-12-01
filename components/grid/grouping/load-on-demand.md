@@ -287,6 +287,8 @@ Scroll through the groups or expand them to load their data on demand
 
 * The expanded state of the groups is preserved during paging only, but not if sorting or filtering is applied.
 
+* Since group headers and footers are treated like rows in the grid, the group headers may remain on a previous page from the data when you page the grid.
+
 * If the group load on demand is used in combination with [virtual scrolling]({%slug components/grid/virtual-scrolling%}):
 
     * All requirements and limitations of the virtual scrolling functionality apply.
