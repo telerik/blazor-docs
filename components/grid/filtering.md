@@ -218,7 +218,7 @@ The `GridSearchBox` component offers the following settings to customize its beh
 
 * `DebounceDelay` - the time in `ms` with which the typing is debounced. This provides a performance optimization when using the `OnRead` event - filtering does not happen on every keystroke anymore. The default value is `300`.
 
-* `Fields` - a list of `string` that denotes the fields names that the gris should search in. By default, the grid looks in all string fields in its currently visible columns, and you can define a subset of that.
+* `Fields` - a list of `string` that denotes the fields names that the grid should search in. By default, the grid looks in all string fields in its currently visible columns, and you can define a subset of that.
 
 * `Class` - a CSS class rendered on the wrapper of the searchbox so you can customize its appearance.
 
