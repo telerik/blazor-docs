@@ -126,7 +126,7 @@ You can find more information on opening, closing and hiding the Notification in
 
 ## See Also
 
-  * [Live Demo: Notification](https://demos.telerik.com/blazor-ui/notification/overview/)
+  * [Live Demo: Notification](https://demos.telerik.com/blazor-ui/notification/overview)
   * [Appearance Settings]({%slug notification-appearance%})
   * [Open, Close and Hide]({%slug notification-open-close-hide%})
   * [Templates]({%slug notification-templates%})
