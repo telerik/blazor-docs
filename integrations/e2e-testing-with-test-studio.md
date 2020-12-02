@@ -1,7 +1,7 @@
 ---
 title: Testing With Test Studio
 page_title: Testing Blazor Apps With Test Studio
-description: Test your Blazor apps with Test Studio Translators. You can use them to record UI tests out of the box without the need to code.
+description: "Test your Blazor apps with Test Studio Translators. You can use them to record UI tests out of the box without the need to code."
 slug: testing-with-test-studio
 previous_url: /testing-with-test-studio
 position: 2
@@ -9,41 +9,41 @@ position: 2
 
 # Testing With Test Studio
 
-[Telerik Test Studio](https://docs.telerik.com/teststudio/) provides [Translators](https://docs.telerik.com/teststudio/general-information/test-recording/translators) for most of the components in the Telerik UI for Blazor suite. You can use them to record UI tests out of the box for your Blazor applications without the need to code.
+The <a href="https://www.telerik.com/teststudio" target="_blank">__Telerik Test Studio__</a> testing tool provides <a href="https://docs.telerik.com/teststudio/features/recorder/translators" target="_blank">__Translators__</a> for most of the components in the __Telerik UI for Blazor__ suite. You can use them to record automated UI functional tests for your Blazor applications out-of-the-box and without the need of complex coded scripts.
 
-Translators are extensions that expose internal elements and properties of Telerik controls for automation and verification by Test Studio. First, the translator displays the different elements of the control using Test Studio Hover-Over Highlighting. Selecting one of these elements allows automating against that element from the Elements Menu and Elements Explorer. These tools will expose special properties and actions of these elements of the control, so that tests can take full advantage of the power of Telerik controls.
+The Translators in Test Studio are extensions, which expose internal elements and properties of the supported Telerik controls for automating actions and verification steps in the tests. The tools, which will help you to take full advantage of the power of Telerik controls, are built-in in the <a href="https://docs.telerik.com/teststudio/features/recorder/compact-recording-toolbar" target="_blank">__Test Studio compact recording toolbar__</a>.
 
-Test Studio includes translators for the following Telerik UI Blazor components: TreeView, TimePicker, Pager, NumericTextBox, List, Grid, DropdownList, DatePicker, DateInput, Button. The same can be switched on/off from the Project Setting [menu](https://docs.telerik.com/teststudio/features/project-settings/translators):
+Test Studio supports translators for the following Telerik UI Blazor components:
 
-![test studio blazor translators list](images/test-studio-translators-list.png)
+```
+TreeView, TimePicker, TextBox, TabStrip, Pager, NumericTextBox, Menu, List, ListView, Grid, DropdownList, DatePicker, DateTimePicker, DateInput, Drawer, Button, ComboBox, AnimationContainer, Window
+```
 
-Test Studio translators would always be up-to-date as Telerik is committed to maintaining them in parallel with Telerik controls changes
+Any of these can be switched on/off from the <a href="https://docs.telerik.com/teststudio/features/project-settings/translators" target="_blank">test Project Setting</a> menu:
 
-Test Studio was built with extensibility in mind, so new translators can be easily plugged in for more UI controls.
+![test studio blazor translators list](images/ts-blazor-translator-list.png)
 
+>note Test Studio was built with extensibility in mind, so new translators can be easily plugged in for more UI controls.
+> 
+> The translators will __always be up-to-date__ as Telerik is committed to maintaining them in parallel with Telerik controls changes.
 
-## Using Telerik Blazor UI Translators
+## Using the Telerik Blazor UI Translators
 
-You need to click `Highlight Element` while in the Test Studio recorder and upon mouse hover on the a given control, first a specific purple color highlight border will appear and then the recording toolbar will show up to indicate more specific translator in progressive order.
-The translators for a Grid cell are shown as per the example below, the menu items are:
+<a href="https://docs.telerik.com/teststudio/getting-started/first-test#start-a-recording-session" target="_blank">Start a recording session</a> against the Blazor application you need to automate. <a href="https://docs.telerik.com/teststudio/features/recorder/compact-recording-toolbar#hover-over-highlighting" target="_blank">Enable the highlighting</a> from the Compact recording tool and hover over the mouse on a given Blazor control in the page - a specific purple highlighting border appears around the element, along with a context menu indicating more specific translator in progressive order. You can see the translators for a Grid cell shown below, the menu items are:
 
-* TelerikBlazorGridDataCell
-* TelerikBlazorGridDataItem
-* HTMLTable
-* TelerikBlazorGrid
+- TelerikBlazorGridDataCell
+- TelerikBlazorGridDataItem
+- HTMLTable
+- TelerikBlazorGrid
 
-![test-studio-grid-translator-options](images/test-studio-grid-translator.png)
+![test-studio-grid-translator-options](images/test-studio-grid-translator-options.png)
 
+As you mouse over the items in the highlighting menu, you will see different step options for the corresponding element. In the example below, you can see the <a href="https://docs.telerik.com/teststudio/features/recorder/advanced-recording-tools/element-steps/verifications/quick-verification" target="_blank">Quick Step</a> tasks available for a Blazor DropdownList control - verification, wait and extract tasks for the highlighted element.
 
-As you mouse over the items in the menu, you can highlight a corresponding element. If you click [Quick Steps](https://docs.telerik.com/teststudio/features/verifications/quick-verification) option to get common tasks being displayed for this element. In the example below, you can see verification, wait and extract tasks for the highlighted Telerik UI for Blazor DropdownList:
+![test-studio-dropdownlist-translator](images/dropdownlist-translator-quick-steps.png)
 
-![test-studio-dropdownlist-translator](images/test-studio-dropdownlist-translator.png)
+## The Advantage of the Built-In Translators
 
-
-## The Translators Advantage
-
-Thanks to the Translators specific variables and tasks for a given UI component, you would save significant amount of time when automating complex scenarios and building the respective verifications.
-An example is performing against properties like if the Telerik UI for Blazor Grid is grouped by a given criterion or not:
+With the help of the Test Studio translators' specific variables and tasks for a given UI component, you will save significant amount of time when automating complex scenarios and building the respective verifications. An example for a more specific test scenario is to verify if a grid is grouped by a given criterion or not - __Test Studio recorder provides such verification__ for the Telerik UI for Blazor Grid as a quick step in the highlighting menu.
 
 ![test-studio-sample-grid-verification](images/test-studio-sample-grid-verification.png)
-
