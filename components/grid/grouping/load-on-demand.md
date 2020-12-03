@@ -23,7 +23,7 @@ In this article:
 
 ## Basics
 
-To enable load-on-demand for the groups, set the `GroupsLoadOnDemand` parameter of the grid to `true`. In this mode, the grid behaves as usual while there is no grouping, and you can use this together with [Virtual Scrolling for the rows]({%slug components/grid/virtual-scrolling%}).
+To enable load-on-demand for the groups, set the `LoadGroupsOnDemand` parameter of the grid to `true`. In this mode, the grid behaves as usual while there is no grouping, and you can use this together with [Virtual Scrolling for the rows]({%slug components/grid/virtual-scrolling%}).
 
 Once grouping is applied (either manually by the user, or through the grid [state]({%slug grid-state%}#set-grid-options-through-state)), the groups will now show up collapsed by default. When a group is expanded by the user its data is requested from the data source - if you provide all the `Data` to the grid, the grid will perform the operations for you, for details about server operations, see below.
 
@@ -53,13 +53,13 @@ This section contains the following examples:
 
 ### Regular Paging and Group Load On Demand
 
-This example shows the basics of enabling the group load on demand - setting `GroupsLoadOnDemand="true"`. Group the grid by the Team and/or Vacation columns to see the effect.
+This example shows the basics of enabling the group load on demand - setting `LoadGroupsOnDemand="true"`. Group the grid by the Team and/or Vacation columns to see the effect.
 
 ````CSHTML
 Drag the column header of the "Team" and/or "On Vacation" column to the group panel at the top
 
 <TelerikGrid Data=@GridData
-             GroupsLoadOnDemand="true"
+             LoadGroupsOnDemand="true"
              Groupable="true"
              Navigable="true" Pageable="true" Sortable="true" FilterMode="GridFilterMode.FilterRow" Height="400px">
     <GridAggregates>
@@ -131,7 +131,7 @@ This example shows how you can combine the virtual row scrolling feature with lo
 Scroll through the groups or expand them to load their data on demand
 
 <TelerikGrid Data=@GridData
-             GroupsLoadOnDemand="true"
+             LoadGroupsOnDemand="true"
              Groupable="true"
              OnStateInit="@((GridStateEventArgs<Employee> args) => OnStateInitHandler(args))"
              OnRead="@ReadItems"
