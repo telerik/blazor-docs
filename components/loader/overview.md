@@ -10,7 +10,7 @@ position: 0
 
 # Loader Overview
 
-This article provides information about the Blazor Loader component and its core features.
+This article provides information about the <a href = "https://www.telerik.com/blazor-ui/loader" target="_blank">Blazor Loader component </a> and its core features.
 
 The Loader component provides an animated indicator that you can use to show your users that the app is working on something and they should wait.
 

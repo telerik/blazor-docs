@@ -10,7 +10,7 @@ position: 0
 
 # MaskedTextbox Overview
 
-The Blazor Masked Textbox component provides a mask and prompts the user to enter the data in the required format, and it prevents input that does not match the mask. You can use it to show the user the format the need to write things like phone numbers, credit card numbers, ZIP codes, IP addresses, percentage values and so on.
+The <a href = "https://www.telerik.com/blazor-ui/maskedtextbox" target="_blank">Blazor Masked Textbox component </a> provides a mask and prompts the user to enter the data in the required format, and it prevents input that does not match the mask. You can use it to show the user the format the need to write things like phone numbers, credit card numbers, ZIP codes, IP addresses, percentage values and so on.
 
 You can also add an animated floating Label, a custom CSS class or control various attributes of the `input` element such as the `name`, `placeholder`, `tabindex`, and [more](#features) and also respond to [events]({%slug maskedtextbox-events%}).
 

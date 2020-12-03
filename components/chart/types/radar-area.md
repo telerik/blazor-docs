@@ -10,7 +10,7 @@ position: 0
 
 # Radar Area Chart
 
-The Blazor Radar Area chart shows the data points on radial lines starting from a common center and act as value axis. The closer the data point to the center, the lower its value. The Radar Area chart connects the data points on each category with lines, and fills up the enclosed space to the center to provide a visual representation of the total enclosed volume.
+The <a href="https://www.telerik.com/blazor-ui/radar-area-chart" target="_blank">Blazor Radar Area chart </a>shows the data points on radial lines starting from a common center and act as value axis. The closer the data point to the center, the lower its value. The Radar Area chart connects the data points on each category with lines, and fills up the enclosed space to the center to provide a visual representation of the total enclosed volume.
 
 Radar area charts are often used to make comparisons between several units that depend on a multitude of quantitative factors, with the compared units being the individual series, and the factors being the categories. When backgrounds are semi-transparent, it lets the user clearly see where different sets of data overlap.
 

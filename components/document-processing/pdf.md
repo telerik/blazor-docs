@@ -11,9 +11,9 @@ position: 1
 # Telerik PdfProcessing
 
 
->note **RadPdfProcessing** is part of the **Telerik Document Processing** libraries. The full documentation for this component is available at [https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/overview).
+>note <a href = "https://www.telerik.com/blazor-ui/pdfprocessing" target="_blank">RadPdfProcessing</a> is part of the **Telerik Document Processing** libraries. The full documentation for this component is available at [https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/overview).
             
-__RadPdfProcessing__ is a processing library that allows to create, import and export PDF documents.
+<a href = "https://www.telerik.com/blazor-ui/pdfprocessing" target="_blank">RadPdfProcessing</a> is a processing library that allows to create, import and export PDF documents.
 
 ![RadPdfProcessing Overview image](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/images/RadPdfProcessing_Overview_WPF_01.PNG)
 

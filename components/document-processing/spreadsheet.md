@@ -11,7 +11,7 @@ position: 1
 # Telerik SpreadProcessing
 
 
->note **RadSpreadProcessing** is part of the **Telerik Document Processing** libraries. The full documentation for this component is available at [https://docs.telerik.com/devtools/document-processing/libraries/radspreadsprocessing](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview).
+>note <a href = "https://www.telerik.com/blazor-ui/spreadprocessing" target="_blank">RadSpreadProcessing</a> is part of the **Telerik Document Processing** libraries. The full documentation for this component is available at [https://docs.telerik.com/devtools/document-processing/libraries/radspreadsprocessing](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview).
 
 This library enables you to work with spreadsheet documents – create ones from scratch, modify existing documents or convert between the most common spreadsheet formats. You can save the generated workbook to a local file, stream, or stream it to the client browser.
 
