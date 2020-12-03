@@ -10,7 +10,7 @@ position: 0
 
 # Radar Column Chart
 
-The Blazor <a href="https://www.telerik.com/blazor-ui/radar-column-chart" target="_blank"> Radar Column chart </a> shows the data points on radial lines starting from a common center and act as value axis. The closer the data point to the center, the lower its value. The Radar Column chart creates triangles for the values instead of rectangular bars like regular columns charts do.
+The <a href="https://www.telerik.com/blazor-ui/radar-column-chart" target="_blank">Blazor Radar Column chart </a> shows the data points on radial lines starting from a common center and act as value axis. The closer the data point to the center, the lower its value. The Radar Column chart creates triangles for the values instead of rectangular bars like regular columns charts do.
 
 Radar column charts are often used to make comparisons between several units that depend on a multitude of quantitative factors, with the compared units being the individual series, and the factors being the categories. The lack of overlap between the series makes it easy to compare individual values as opposed to overall coverage.
 

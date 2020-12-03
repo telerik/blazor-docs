@@ -10,7 +10,7 @@ position: 0
 
 # ToolBar Overview
 
-The ToolBar component is a container for buttons or other application-specifc tools. This article explains the available features.
+The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">ToolBar component</a> is a container for buttons or other application-specifc tools. This article explains the available features.
 
 #### In This Article
 
