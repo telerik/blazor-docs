@@ -57,10 +57,34 @@ The numeric textbox provides the following features:
 * `Width` - the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article.
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
->caption Example of using a custom format string
+>caption Example of using a custom format strings
 
 ````CSHTML
-<TelerikNumericTextBox Format="#.00 kg" Max="5m" Min="-5m" Step="0.33m" Value="3.456789m"></TelerikNumericTextBox>
+@Weight
+<br />
+<TelerikNumericTextBox Format="#.00 kg" Max="5m" Min="-5m" Step="0.33m" @bind-Value="@Weight"></TelerikNumericTextBox>
+<br />
+@code{
+    decimal Weight { get; set; } = 3.456789m;
+}
+
+@Rent
+<br />
+<TelerikNumericTextBox Decimals="2" Format="@RentFormat" @bind-Value="@Rent"></TelerikNumericTextBox>
+<br />
+@code{
+    decimal Rent { get; set; } = 4567.89m;
+    string RentFormat { get; set; } = System.Globalization.NumberFormatInfo.CurrentInfo.CurrencySymbol + "#.00 a year";
+}
+
+@Units
+<br />
+<TelerikNumericTextBox Decimals="0" Format="@UnitsFormat" @bind-Value="@Units"></TelerikNumericTextBox>
+
+@code{
+    int Units { get; set; } = 12;
+    string UnitsFormat { get; set; } = "# unit(s)";
+}
 ````
 
 
