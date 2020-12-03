@@ -11,10 +11,10 @@ position: 1
 # Telerik ZipLibrary
 
 
->note **RadZipLibrary** is part of the **Telerik Document Processing** libraries. The full documentation for this component is available at [https://docs.telerik.com/devtools/document-processing/libraries/radziplibrary](https://docs.telerik.com/devtools/document-processing/libraries/radziplibrary/overview).
+>note <a href = "https://www.telerik.com/blazor-ui/ziplibrary" target="_blank">RadZipLibrary</a> is part of the **Telerik Document Processing** libraries. The full documentation for this component is available at [https://docs.telerik.com/devtools/document-processing/libraries/radziplibrary](https://docs.telerik.com/devtools/document-processing/libraries/radziplibrary/overview).
 
 
-Have you ever wondered how to increase the responsiveness of your applications by compressing the data that you send over the internet? With the new __Zip Library__ you can compress data like images, docx or pdf files and send them over the wire. Thus, you will achieve fast and secure transactions. 
+Have you ever wondered how to increase the responsiveness of your applications by compressing the data that you send over the internet? With the new <a href = "https://www.telerik.com/blazor-ui/ziplibrary" target="_blank">Zip Library</a> you can compress data like images, docx or pdf files and send them over the wire. Thus, you will achieve fast and secure transactions. 
 
 ![Zip Library Overview image](images/ZipLibrary_Overview_01.png)
 

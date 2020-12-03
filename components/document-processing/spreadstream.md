@@ -10,9 +10,9 @@ position: 1
 
 # Telerik SpreadStreamProcessing
 
-This article briefly explains the specifics of **RadSpreadStreamProcessing** - what is spread streaming, how it works compared to the RadSpreadProcessing library and when to use it.
+This article briefly explains the specifics of <a href = "https://www.telerik.com/blazor-ui/spreadstreamprocessing" target="_blank">RadSpreadStreamProcessing</a> - what is spread streaming, how it works compared to the RadSpreadProcessing library and when to use it.
 
->note **RadSpreadStreamProcessing** is part of the **Telerik Document Processing** libraries. The full documentation for this component is available at [https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamsprocessing](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview).
+>note <a href = "https://www.telerik.com/blazor-ui/spreadstreamprocessing" target="_blank">RadSpreadStreamProcessing</a> is part of the **Telerik Document Processing** libraries. The full documentation for this component is available at [https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamsprocessing](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview).
 
 
 ![SpreadStreamProcessing Fast Export image](images/SpreadStreamProcessing-Overview_01.png)

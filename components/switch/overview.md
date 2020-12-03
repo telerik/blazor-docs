@@ -10,7 +10,7 @@ position: 0
 
 # Switch Overview
 
-The Switch allows the user to toggle between checked and unchecked states.
+The <a href = "https://www.telerik.com/blazor-ui/switch" target="_blank">Switch</a> allows the user to toggle between checked and unchecked states.
 
 #### To use a Telerik Switch for Blazor
 
