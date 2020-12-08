@@ -61,7 +61,7 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
 <TelerikGrid Data=@GridData
              LoadGroupsOnDemand="true"
              Groupable="true"
-             Navigable="true" Pageable="true" Sortable="true" FilterMode="GridFilterMode.FilterRow" Height="400px">
+             Navigable="true" Pageable="true" Sortable="true" FilterMode="@GridFilterMode.FilterRow">
     <GridAggregates>
         <GridAggregate Field="@nameof(Employee.Team)" Aggregate="@GridAggregateType.Count" />
         <GridAggregate Field="@nameof(Employee.Salary)" Aggregate="@GridAggregateType.Min" />
@@ -125,9 +125,13 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
 
 ### Virtual Scrolling, Group Load On Demand and Server-side Data Operations
 
-This example shows how you can combine the virtual row scrolling feature with loading group data on demand through a remote service (mocked by a static class in this example so you can run it easily), and how to set the initial state of the grid to have grouping by default.
+This example shows how you can combine the virtual row scrolling feature with loading group data on demand through a remote service (mocked by a static class in this example so you can run it easily), and how to set the initial state of the grid to have grouping by default. Review the [FooterTemplate Notes]({%slug grid-templates-column-footer%}#notes) on aggregates with OnRead.
 
 ````CSHTML
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+
 Scroll through the groups or expand them to load their data on demand
 
 <TelerikGrid Data=@GridData
@@ -145,13 +149,13 @@ Scroll through the groups or expand them to load their data on demand
         <GridAggregate Field="@nameof(Employee.IsOnLeave)" Aggregate="@GridAggregateType.Count" />
     </GridAggregates>
     <GridColumns>
-        <GridColumn Field="@nameof(Employee.Name)" Groupable="false" />
-        <GridColumn Field="@nameof(Employee.Team)" Title="Team">
+        <GridColumn Field="@nameof(Employee.Name)" FieldType="@typeof(string)" Groupable="false" />
+        <GridColumn Field="@nameof(Employee.Team)" FieldType="@typeof(string)" Title="Team">
             <GroupHeaderTemplate>
                 Employees in this group: @context.Count
             </GroupHeaderTemplate>
         </GridColumn>
-        <GridColumn Field="@nameof(Employee.Salary)" Groupable="false">
+        <GridColumn Field="@nameof(Employee.Salary)" FieldType="@typeof(decimal)" Groupable="false">
             <GroupFooterTemplate>
                 Lowest salary in this group: @context.Min
             </GroupFooterTemplate>
@@ -159,7 +163,7 @@ Scroll through the groups or expand them to load their data on demand
                 Total salary expenses @context.Sum
             </FooterTemplate>
         </GridColumn>
-        <GridColumn Field="@nameof(Employee.IsOnLeave)" Title="On Vacation">
+        <GridColumn Field="@nameof(Employee.IsOnLeave)" FieldType="@typeof(bool)" Title="On Vacation">
             <GroupHeaderTemplate>
                 Employees with "OnLeave" @context.Value : @context.Count
             </GroupHeaderTemplate>
