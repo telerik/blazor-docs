@@ -299,6 +299,7 @@ Scroll through the groups or expand them to load their data on demand
     
     * The expanded state of the groups is not preserved if a new set of items is fetched.
 
+* When Exporting only the current page of data from the grid (`AllPages=false`), the exported file will not contain child data for collapsed groups.
 
 ## See Also
 
