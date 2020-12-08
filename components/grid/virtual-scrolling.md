@@ -103,7 +103,9 @@ Virtualization is mainly a technique for improving client-side performance and t
 List of the known limitations of the virtual scrolling feature:
 
 * [Hierarchy]({%slug components/grid/features/hierarchy%}) is not supported.
-* [Grouping]({%slug components/grid/features/grouping%}) is not supported.
+
+* [Grouping]({%slug components/grid/features/grouping%}) is not supported. [Loading Group Data On Demand]({%slug grid-group-lod%}) is supported, however.
+
 * The `Data` of the grid must contain more items than the `PageSize` in order for the virtual scrolling feature to work. You can work around this with something similar to `ScrollMode="@(DataCollection.Count() > 30 ? GridScrollMode.Virtual : GridScrollMode.Scrollable)"`
 
 
