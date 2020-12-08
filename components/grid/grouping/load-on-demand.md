@@ -125,49 +125,27 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
 
 ### Virtual Scrolling, Group Load On Demand and Server-side Data Operations
 
-This example shows how you can combine the virtual row scrolling feature with loading group data on demand through a remote service (mocked by a static class in this example so you can run it easily), and how to set the initial state of the grid to have grouping by default. Review the [FooterTemplate Notes]({%slug grid-templates-column-footer%}#notes) on aggregates with OnRead.
+This example shows how you can combine the virtual row scrolling feature with loading group data on demand through a remote service (mocked by a static class in this example so you can run it easily), and how to set the initial state of the grid to have grouping by default.
 
 ````CSHTML
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
-
 
 Scroll through the groups or expand them to load their data on demand
 
 <TelerikGrid Data=@GridData
              LoadGroupsOnDemand="true"
              Groupable="true"
-             OnStateInit="@((GridStateEventArgs<Employee> args) => OnStateInitHandler(args))"
+             OnStateInit="@((GridStateEventArgs<object> args) => OnStateInitHandler(args))"
              OnRead="@ReadItems"
              TotalCount="@Total"
-             ScrollMode="@GridScrollMode.Virtual" PageSize="20" RowHeight="30"
-             Navigable="true" Sortable="true" FilterMode="GridFilterMode.FilterRow" Height="500px">
-    <GridAggregates>
-        <GridAggregate Field="@nameof(Employee.Team)" Aggregate="@GridAggregateType.Count" />
-        <GridAggregate Field="@nameof(Employee.Salary)" Aggregate="@GridAggregateType.Min" />
-        <GridAggregate Field="@nameof(Employee.Salary)" Aggregate="@GridAggregateType.Sum" />
-        <GridAggregate Field="@nameof(Employee.IsOnLeave)" Aggregate="@GridAggregateType.Count" />
-    </GridAggregates>
+             ScrollMode="@GridScrollMode.Virtual" PageSize="20" RowHeight="60"
+             Navigable="true" Sortable="true" FilterMode="@GridFilterMode.FilterRow" Height="600px">
     <GridColumns>
         <GridColumn Field="@nameof(Employee.Name)" FieldType="@typeof(string)" Groupable="false" />
-        <GridColumn Field="@nameof(Employee.Team)" FieldType="@typeof(string)" Title="Team">
-            <GroupHeaderTemplate>
-                Employees in this group: @context.Count
-            </GroupHeaderTemplate>
-        </GridColumn>
-        <GridColumn Field="@nameof(Employee.Salary)" FieldType="@typeof(decimal)" Groupable="false">
-            <GroupFooterTemplate>
-                Lowest salary in this group: @context.Min
-            </GroupFooterTemplate>
-            <FooterTemplate>
-                Total salary expenses @context.Sum
-            </FooterTemplate>
-        </GridColumn>
-        <GridColumn Field="@nameof(Employee.IsOnLeave)" FieldType="@typeof(bool)" Title="On Vacation">
-            <GroupHeaderTemplate>
-                Employees with "OnLeave" @context.Value : @context.Count
-            </GroupHeaderTemplate>
-        </GridColumn>
+        <GridColumn Field="@nameof(Employee.Team)" FieldType="@typeof(string)" Title="Team" />
+        <GridColumn Field="@nameof(Employee.Salary)" FieldType="@typeof(decimal)" Groupable="false" />
+        <GridColumn Field="@nameof(Employee.IsOnLeave)" FieldType="@typeof(bool)" Title="On Vacation" />
     </GridColumns>
 </TelerikGrid>
 
@@ -194,10 +172,10 @@ Scroll through the groups or expand them to load their data on demand
         StateHasChanged();
     }
 
-    void OnStateInitHandler(GridStateEventArgs<Employee> args)
+    void OnStateInitHandler(GridStateEventArgs<object> args)
     {
         // set initial grouping
-        GridState<Employee> desiredState = new GridState<Employee>()
+        GridState<object> desiredState = new GridState<object>()
         {
             GroupDescriptors = new List<GroupDescriptor>()
             {
@@ -248,8 +226,8 @@ Scroll through the groups or expand them to load their data on demand
                     {
                         EmployeeId = i,
                         Name = "Employee " + i.ToString(),
-                        Team = "Team " + i % 3,
-                        IsOnLeave = i % 2 == 0,
+                        Team = "Team " + i % 100,
+                        IsOnLeave = i % 3 == 0,
                         Salary = rand.Next(1000, 5000)
                     });
                 }
@@ -284,6 +262,7 @@ Scroll through the groups or expand them to load their data on demand
         }
     }
 }
+
 ````
 
 
@@ -297,7 +276,7 @@ Scroll through the groups or expand them to load their data on demand
 
     * All requirements and limitations of the virtual scrolling functionality apply.
     
-    * The expanded state of the groups is not preserved if a new set of items is fetched.
+    * [Aggregates]({%slug grid-aggregates%}) are not supported.
 
 * When Exporting only the current page of data from the grid (`AllPages=false`), the exported file will not contain child data for collapsed groups.
 
