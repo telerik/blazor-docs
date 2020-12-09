@@ -12,6 +12,15 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor Splitter component</a> lets you divide a portion of the page into several pieces that the user can resize and collapse. This provides real estate management for the app and the end user so they can focus on the content that is important in their current task.
 
+#### In This Article
+
+* [Basics](#basics)
+* [Features](#features)
+	* [Splitter](#splitter)
+	* [Pane](#pane)
+* [Splitter Size](#splitter-size)
+* [Nested Splitters](#nested-splitters)
+
 ## Basics
 
 #### To use a Telerik Splitter for Blazor
@@ -81,6 +90,8 @@ This example shows how the splitter can fill up the entire container (marked wit
 
 ## Features
 
+The main container is the Splitter component and its tag defines the size and layout direction of the individual sections. Each Pane (section) controls its own behaviors such as the ability to change its size and collapse.
+
 ### Splitter
 
 The main tag of the splitter offers the following core features of the component:
@@ -113,9 +124,9 @@ Each individual splitter pane (section) offers the following features:
 
 * `Resizable` - whether the user can resize the pane by dragging the resize handle (splitbar) between two panes. Resizing means that the adjacent pane will take up the difference in size. Defaults to `true`.
 
-* `Size` - a CSS unit that determins the size of the pane. Must be between `Min` and `Max`.
+* `Size` - a CSS unit that determines the size of the pane. Must be between `Min` and `Max`.
 
-## Splitter Size
+## Splitter and Pane Size
 
 The splitter respects the dimensions you set to its `Width` and `Height` parameters, and distributes the available space according to the `Size` set to individual panes inside.
 
