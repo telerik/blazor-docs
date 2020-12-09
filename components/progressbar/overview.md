@@ -8,14 +8,14 @@ published: True
 position: 0
 ---
 
-# Progress Bar Overview
+# ProgressBar Overview
 
-The Progress Bar tracks the execution of operations and displays what portion of it is completed. For very long tasks, you can also make it [indeterminate]({%slug progressbar-indeterminate-state%}).
+The <a href = "https://www.telerik.com/blazor-ui/progressbar" target = "_blank">ProgressBar</a> tracks the execution of operations and displays what portion of it is completed. For very long tasks, you can also make it [indeterminate]({%slug progressbar-indeterminate-state%}).
 
 
-## Basic Progress Bar
+## Basic ProgressBar
 
-To use the Telerik Progress Bar in your Blazor application:
+To use the Telerik ProgressBar in your Blazor application:
 * add the `<TelerikProgressBar>` tag.
 * set its `Value` parameter to denote how much is completed.
 
@@ -48,12 +48,12 @@ To use the Telerik Progress Bar in your Blazor application:
 
 ## Features
 
-The Progress Bar provides the following features:
+The ProgressBar provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element. You can use it to cascade styles more easily.
-* `Max` - `double`, defaults to `100` - the maximum value of the Progress Bar. It must be greater than `0`.
-* `Value` - `double` - the value of the Progress bar. This value indicates the progress of the tracked process. It is a fraction of the `Max`.
-* `Orientation` - you can control the orientation of the Progress Bar, through the `ProgressBarOrientation` enum, with members:
+* `Max` - `double`, defaults to `100` - the maximum value of the ProgressBar. It must be greater than `0`.
+* `Value` - `double` - the value of the ProgressBar. This value indicates the progress of the tracked process. It is a fraction of the `Max`.
+* `Orientation` - you can control the orientation of the ProgressBar, through the `ProgressBarOrientation` enum, with members:
     * `Horizontal` - this is the default value
     * `Vertical`
 * `Indeterminate` - `bool`, defaults to `false` - see the [Indeterminate]({%slug progressbar-indeterminate-state%}) article for more information.
@@ -63,7 +63,7 @@ The Progress Bar provides the following features:
 
 ### Responsive ProgressBar
 
->caption The progress bar will resize with the parent element dimensions when you set its width to 100%
+>caption The ProgressBar will resize with the parent element dimensions when you set its width to 100%
 
 ````CSHTML
 <div style="width: 50%; border: 1px solid red;">
@@ -147,7 +147,7 @@ The Progress Bar provides the following features:
 
 ## See Also
 
-  * [Live Demo: Progress Bar](https://demos.telerik.com/blazor-ui/TODO)
+  * [Live Demo: ProgressBar](https://demos.telerik.com/blazor-ui/TODO)
   * [Label]({%slug progressbar-label%})
   * [Indeterminate state]({%slug progressbar-indeterminate-state%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikProgressBar)

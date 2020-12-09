@@ -1,33 +1,33 @@
 ---
 title: Overview
-page_title: Tab Strip Overview
-description: Overview of the Tab Strip for Blazor.
+page_title: TabStrip Overview
+description: Overview of the TabStrip for Blazor.
 slug: components/tabstrip/overview
-tags: telerik,blazor,tab strip,overview
+tags: telerik,blazor,tab,strip,tabstrip,overview
 published: True
 position: 0
 ---
 
-# Tab Strip Overview
+# TabStrip Overview
 
-This article provides information about the Tab Strip component and its core features.
+This article provides information about the <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">TabStrip component</a> and its core features.
 
 #### Basics
 
-The Tab Strip is defined through the `<TelerikTabStrip>` tag that accepts children of type `<TabStripTab>`. Inside the tabs you can add content like in any other container, including other components.
+The TabStrip is defined through the `<TelerikTabStrip>` tag that accepts children of type `<TabStripTab>`. Inside the tabs you can add content like in any other container, including other components.
 
 The tab exposes a `Title` attribute that is the text rendered in the heading. It also offers the `Disabled` attribute that allows you to disable its selection.
 
 The `ActiveTabIndex` parameter lets you get and set the currently shown tab index through two-way binding, and also provides an event for the tab change. To deactivate all tabs, set it to `-1`.
 
-To control the position of the tab titles, the main tab strip tag exposes the optional `TabPosition` attribute that takes a member of the `Telerik.Blazor.TabPosition` enumeration:
+To control the position of the tab titles, the main TabStrip tag exposes the optional `TabPosition` attribute that takes a member of the `Telerik.Blazor.TabPosition` enumeration:
 
 * `Top` (default)
 * `Left`
 * `Right`
 * `Bottom`
 
->caption A Telerik Tab Strip with example reference, tab position and disabled tab
+>caption A Telerik TabStrip with example reference, tab position and disabled tab
 
 ````CSHTML
 @using Telerik.Blazor.Components
@@ -83,7 +83,7 @@ Active Tab Index: @ActiveTabIndex
 ````
 
 
->caption Extract information for the currently selected tab from your model. Alter the model to affect the tab strip. Create tabs dynamically based on external data.
+>caption Extract information for the currently selected tab from your model. Alter the model to affect the TabStrip. Create tabs dynamically based on external data.
 
 You can find another example with some more details in the following sample project: [Dynamic Tabs](https://github.com/telerik/blazor-ui/tree/master/tabstrip/DynamicTabs).
 

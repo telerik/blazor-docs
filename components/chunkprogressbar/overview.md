@@ -8,9 +8,9 @@ published: True
 position: 0
 ---
 
-# Chunk Progress Bar Overview
+# ChunkProgressBar Overview
 
-The Progress Bar tracks the execution of operations and displays what portion of it is completed in predefined number of sections (chunks). For very long tasks, you can also make it [indeterminate]({%slug chunkprogressbar-indeterminate-state%}) while waiting for an update.
+The <a href = "https://www.telerik.com/blazor-ui/chunkprogressbar" target = "_blank">ChunkProgressBar</a> tracks the execution of operations and displays what portion of it is completed in predefined number of sections (chunks). For very long tasks, you can also make it [indeterminate]({%slug chunkprogressbar-indeterminate-state%}) while waiting for an update.
 
 
 ## Basic Chunk Progress Bar
@@ -64,8 +64,15 @@ The Progress Bar provides the following features:
 
 The following examples explain how the three parameters of the component tie together to determine how many chunks are filled in.
 
-* [Matching Values for the Max and ChunkCount Parameters](#matching-values-for-the-max-and-chunkcount-parameters)
-* [Non-matching Value for the Max and ChunkCount Parameters](#non--matching-values-for-the-max-and-chunkcount-paramters)
+- [ChunkProgressBar Overview](#chunkprogressbar-overview)
+  - [Basic Chunk Progress Bar](#basic-chunk-progress-bar)
+  - [Features](#features)
+  - [Chunk Count, Value and MaxValue](#chunk-count-value-and-maxvalue)
+    - [Matching Values for the Max and ChunkCount Parameters](#matching-values-for-the-max-and-chunkcount-parameters)
+    - [Non-matching Value for the Max and ChunkCount Parameters](#non-matching-value-for-the-max-and-chunkcount-parameters)
+  - [Examples](#examples)
+    - [Responsive ProgressBar](#responsive-progressbar)
+  - [See Also](#see-also)
 
 ### Matching Values for the Max and ChunkCount Parameters
 
