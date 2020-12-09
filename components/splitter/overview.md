@@ -12,6 +12,8 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor Splitter component</a> lets you divide a portion of the page into several pieces that the user can resize and collapse. This provides real estate management for the app and the end user so they can focus on the content that is important in their current task.
 
+## Basics
+
 #### To use a Telerik Splitter for Blazor
 
 1. Declare the `<TelerikSplitter>` tag and set its `Width` and `Height` parameters to the desired values.
@@ -55,6 +57,26 @@ This example shows how the splitter can fill up the entire container (marked wit
 >caption Splitter functionality in action
 
 ![overview of the splitter functionality](images/splitter-overview.gif)
+
+
+>caption Component namespace and reference
+
+````CSHTML
+<TelerikSplitter Width="400px" Height="200px" @ref="@SplitterRef">
+    <SplitterPanes>
+        <SplitterPane>
+            <div>left sidebar</div>
+        </SplitterPane>
+        <SplitterPane>
+            <div>right hand side pane - content.</div>
+        </SplitterPane>
+    </SplitterPanes>
+</TelerikSplitter>
+
+@code {
+    Telerik.Blazor.Components.TelerikSplitter SplitterRef { get; set; }
+}
+````
 
 ## See Also
 
