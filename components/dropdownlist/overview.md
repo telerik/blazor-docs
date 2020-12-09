@@ -122,6 +122,33 @@ The DropDownList provides the following features:
 }
 ````
 
+
+
+>caption Show default item only when there is no selection by toggling the DefaultText parameter value depending on your business logic
+
+````CSHTML
+Selected value: @selectedValue
+<br />
+
+<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue"
+                     DefaultText="@( selectedValue == 0 ? "Please Select" : null )">
+</TelerikDropDownList>
+
+@code {
+    int selectedValue { get; set; }
+    
+    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+    
+    public class MyDdlModel
+    {
+        public int MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
+}
+````
+
+
+
 >caption Get selected item from external code
 
 ````CSHTML
