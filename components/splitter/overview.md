@@ -78,6 +78,43 @@ This example shows how the splitter can fill up the entire container (marked wit
 }
 ````
 
+
+## Features
+
+### Splitter
+
+The main tag of the splitter offers the following core features of the component:
+
+* `Class` - the CSS class that renders on the main wrapping element of the component.
+
+* `Height` - takes a CSS unit that determines how tall the splitter is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
+
+* `Orientation` - whether the content will be split up (how the panes will stack) horizontally or vertically. Takes a member of the `SplitterOrientation` enum and defaults to `Horizontal`.
+
+* `Width`- takes a CSS unit that determines how wide the splitter is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
+
+* Several [events]({%slug splitter-events%}).
+
+### Pane
+
+Each individual splitter pane (section) offers the following features:
+
+* `ChildContent` - the standard `RenderFragment` for Blazor that lets you define your content directly between the opening and closing tags of the pane.
+
+* `Class` - the CSS class that renders on the top element of the pane. Lets you apply styling such as changing the `overflow` for the content.
+
+* `Collapsed` - whether the pane will be collapsed (not visible). Defaults to `false`.
+
+* `Collapsible` - whether the user can collapse (hide) the pane to provide more room for other panes. When enabled, the adjacent splitbar (the drag handle between the panes) will offer a collapse button for the pane. Defaults to `false`.
+
+* `Max` - a CSS unit with the maximum size the pane can have. When it is reached, the user cannot expand its size further.
+
+* `Min` -  CSS unit with the minimum size the pane can have. When it is reached, the user cannot reduce its size further.
+
+* `Resizable` - whether the user can resize the pane by dragging the resize handle (splitbar) between two panes. Resizing means that the adjacent pane will take up the difference in size. Defaults to `true`.
+
+* `Size` - a CSS unit that determins the size of the pane. Must be between `Min` and `Max`.
+
 ## See Also
 
   * [Data Binding a Menu]({%slug components/menu/data-binding/overview%})
