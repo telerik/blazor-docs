@@ -115,9 +115,59 @@ Each individual splitter pane (section) offers the following features:
 
 * `Size` - a CSS unit that determins the size of the pane. Must be between `Min` and `Max`.
 
+## Splitter Size
+
+The splitter respects the dimensions you set to its `Width` and `Height` parameters, and distributes the available space according to the `Size` set to individual panes inside.
+
+If you set the `Width` and `Height` in percent, make sure that the parent element provides the desires dimensions and layout first.
+
+The individual panes use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis" target="_blank">CSS flex-basis</a> to set their dimensions and by default they have `flex: 1 1 auto` so they distribute the space evenly if there are no other settings.
+
+>tip You must leave at least one `SplitterPane` *without* a set `Size`. This pane will absorb size changes from other panes when the user resizes them and provides you with some flexibility when defining strict sizes for the other panes so that you don't have to keep track of all the pane sizes, their sum and the container size.
+
+
+## Nested Splitters
+
+Sometimes you want to create a more complex layout that includes both horizontal and vertical panes. To do that, you can nest Telerik Splitter components inside the panes of other splitters. When you do that, set the `Class` parameter of the nested splitter to `k-pane-flex`.
+
+>caption Nested splitters that create a complex layout with both horizontal and vertical panes
+
+````CSHTML
+<div style="width: 500px; height: 300px; border: 2px solid red;">
+
+    <TelerikSplitter Width="100%" Height="100%">
+        <SplitterPanes>
+            <SplitterPane Size="100px">
+                <div>left sidebar</div>
+            </SplitterPane>
+            <SplitterPane>
+
+                <TelerikSplitter Class="k-pane-flex"
+                                 Width="100%" Height="100%"
+                                 Orientation="@SplitterOrientation.Vertical">
+                    <SplitterPanes>
+                        <SplitterPane Size="20%">
+                            <div>TOP content</div>
+                        </SplitterPane>
+                        <SplitterPane>
+                            <div>Bottom content</div>
+                        </SplitterPane>
+                    </SplitterPanes>
+                </TelerikSplitter>
+
+            </SplitterPane>
+        </SplitterPanes>
+    </TelerikSplitter>
+
+</div>
+````
+
+>caption The result from the code snippet above
+
+![Nested splitters can create complex layout](images/nested-splitter-result.png)
+
 ## See Also
 
-  * [Data Binding a Menu]({%slug components/menu/data-binding/overview%})
   * [Live Demo: Splitter](https://demos.telerik.com/blazor-ui/splitter/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitter)
-
+  * [Splitter API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitter)
+  * [SplitterPane API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitterPane)
