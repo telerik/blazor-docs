@@ -128,7 +128,7 @@ The individual panes use the <a href="https://developer.mozilla.org/en-US/docs/W
 
 ## Nested Splitters
 
-Sometimes you want to create a more complex layout that includes both horizontal and vertical panes. To do that, you can nest Telerik Splitter components inside the panes of other splitters. When you do that, set the `Class` parameter of the nested splitter to `k-pane-flex`.
+Sometimes you need to create a more complex layout that includes both horizontal and vertical panes. To do that, you can nest Telerik Splitter components inside the panes of other splitters. When you do that, set the `Class` parameter of the nested splitter to `k-pane-flex`.
 
 >caption Nested splitters that create a complex layout with both horizontal and vertical panes
 
