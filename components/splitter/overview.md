@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Splitter Overview
-description: Overview of the Splitter for Blazor.
+description: Overview of the Splitter for Blazor - size, orientation, collapsing, resizing of panes, state and events.
 slug: splitter-overview
 tags: telerik,blazor,splitter,overview
 published: True
