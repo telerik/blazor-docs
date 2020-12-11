@@ -19,17 +19,26 @@ The LoaderContainer component provides the following parameters that control its
     * [Size](#size)
     * [ThemeColor](#themecolor)
 
-You can use all three together to get the desired appearance. This article will explain their effect one by one.
+## LoaderContainer Specific
 
-## Type
+### OverlayThemeColor
+
+The `OverlayThemeColor` parameter controls the color of the overlay for the LoaderContainer. It takes a string from the options below. If you provide a `String.Empty`, `null` or invalid option (not listed below) the color of the overlay will be `transparent`.
+
+* `dark` - the default background color.
+* `light`
+
+## Shared with the Loader Indicator
+
+### Type
 
 @[template](/_contentTemplates/loaders/type.md#loaders-type)
 
-## Size
+### Size
 
 @[template](/_contentTemplates/loaders/size.md#loaders-size)
 
-## ThemeColor
+### ThemeColor
 
 @[template](/_contentTemplates/loaders/themeColor.md#loaders-theme-color)
 
