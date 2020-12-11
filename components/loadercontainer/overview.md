@@ -70,9 +70,9 @@ The LoaderContainer provides the following features:
 
 * `Visible` - `bool`, defaults to `true` - controls whether the LoaderContainer is visible. 
 
-* `Text` - `string` - the text that will appear next to the loading indicator. If this parameter is set to `null` or `String.Empty` the HTML element that hosts the string will not be rendered.
+* `Text` - `string`, defaults to `Loading...` - the text that will appear next to the loading indicator. If this parameter is set to `null` or `String.Empty` the HTML element that hosts the string will not be rendered.
 
-* `ThemeColor` - `string`, defaults to `Loading...` - controls the color of the loader indicator. See the [Appearance]({%slug loadercontainer-appearance%}) article for more information and examples.
+* `ThemeColor` - `string` - controls the color of the loader indicator. See the [Appearance]({%slug loadercontainer-appearance%}) article for more information and examples.
 
 * `OverlayThemeColor` - `string` - configures the color of the overlay. See the [Appearance]({%slug loadercontainer-appearance%}) article for more information and examples.
 
