@@ -183,4 +183,4 @@ Sometimes you need to create a more complex layout that includes both horizontal
 
   * [Live Demo: Splitter](https://demos.telerik.com/blazor-ui/splitter/overview)
   * [Splitter API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitter)
-  * [SplitterPane API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitterPane)
+  * [SplitterPane API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.SplitterPane)
