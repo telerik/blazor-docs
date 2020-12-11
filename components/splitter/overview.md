@@ -14,11 +14,12 @@ The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor 
 
 #### In This Article
 
+
 * [Basics](#basics)
 * [Features](#features)
 	* [Splitter](#splitter)
 	* [Pane](#pane)
-* [Splitter Size](#splitter-size)
+* [Splitter and Pane Size](#splitter-and-pane-size)
 * [Nested Splitters](#nested-splitters)
 
 ## Basics
@@ -136,6 +137,7 @@ The individual panes use the <a href="https://developer.mozilla.org/en-US/docs/W
 
 >tip You must leave at least one `SplitterPane` *without* a set `Size`. This pane will absorb size changes from other panes when the user resizes them and provides you with some flexibility when defining strict sizes for the other panes so that you don't have to keep track of all the pane sizes, their sum and the container size.
 
+If the `Size` of a pane is set to a value larger than the `Max`, the pane cannot be resized even if its `Resizable` parameter is set to `true`.
 
 ## Nested Splitters
 
