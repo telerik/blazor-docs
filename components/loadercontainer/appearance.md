@@ -18,6 +18,8 @@ The LoaderContainer component provides the following parameters that control its
     * [Type](#type)
     * [Size](#size)
     * [ThemeColor](#themecolor)
+    
+You can see the appearance settings in action in the [LoaderContainer Customization](https://demos.telerik.com/blazor-ui/loadercontainer/customization) Live Demo.
 
 ## LoaderContainer Specific
 
@@ -27,6 +29,53 @@ The `OverlayThemeColor` parameter controls the color of the overlay for the Load
 
 * `dark` - the default background color.
 * `light`
+
+>caption Change the OverlayThemeColor
+
+![](images/loadercontainer-overlaythemecolor-light-screenshot.png)
+
+````CSHTML
+@*Change the overlay theme color for the LoaderContainer to light*@
+
+<TelerikLoaderContainer OverlayThemeColor="light">
+</TelerikLoaderContainer>
+
+<TelerikGrid Data="@GridData" AutoGenerateColumns="true"
+             Pageable="true" PageSize="4" Width="700px">
+</TelerikGrid>
+
+@code {
+    public List<GridDataModel> GridData { get; set; }
+    public class GridDataModel
+    {
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime? RegistrationDate { get; set; }
+        public DateTime? LocalTime { get; set; }
+    }
+
+    public List<GridDataModel> GenerateGridData()
+    {
+        var data = Enumerable.Range(1, 15).Select(i => new GridDataModel()
+        {
+            Id = i,
+            Username = $"Username {i}",
+            EmailAddress = $"user{i}@mail.com",
+            RegistrationDate = DateTime.Now.AddDays(-2),
+            LocalTime = DateTime.Now
+        }).ToList();
+
+        return data;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(6000);
+        GridData = GenerateGridData();
+    }
+}
+````
 
 ## Shared with the Loader Indicator
 
@@ -44,5 +93,5 @@ The `OverlayThemeColor` parameter controls the color of the overlay for the Load
 
 ## See Also
 
-  * [Live Demo: Loader Overview](https://demos.telerik.com/blazor-ui/loader/overview)
-  * [Live Demo: Loader Appearance](https://demos.telerik.com/blazor-ui/loader/appearance)
+  * [Live Demo: LoaderContainer](https://demos.telerik.com/blazor-ui/loadercontainer/overview)
+  * [Live Demo: LoaderContainer Customization](https://demos.telerik.com/blazor-ui/loadercontainer/customization)

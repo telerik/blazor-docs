@@ -99,7 +99,7 @@ The LoaderContainer provides the following features:
 
 The panel is the white rectangular area that surrounds the loader indicator and the `Text` parameter of the component. By default, it is rendered to increase the contrast between the overlay and the rest of the component. In order to remove it, you can use some CSS rules as shown in the example below.
 
->note The panel will be rendered by default if you are using the [Template]({%slug loadercontainer-tempalte%}).
+>note The panel will be rendered by default if you are using the [Template]({%slug loadercontainer-templates%}).
 
 ````CSHTML
 @*LoaderContainer with its most common features and removed panel with CSS.*@
@@ -157,7 +157,7 @@ The panel is the white rectangular area that surrounds the loader indicator and 
 
 ## See Also
 
-  * [Live Demo: Loader](https://demos.telerik.com/blazor-ui/loader/overview)
-  * [Appearance Settings]({%slug loader-appearance%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikLoader)
+  * [Live Demo: LoaderContainer](https://demos.telerik.com/blazor-ui/loadercontainer/overview)
+  * [Appearance Settings]({%slug loadercontainer-appearance%})
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikLoaderContainer)
    
