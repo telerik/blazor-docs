@@ -243,6 +243,8 @@ navigation:
         title: "ListBox"
      "*loader":
         title: "Loader"
+     "*loadercontainer":
+        title: "LoaderContainer"
      "*map":
         title: "Map"
      "*maskedtextbox":
@@ -353,6 +355,7 @@ intro_columns:
     title: "Interactivity and UX"
     items:
       "Loader": "loader-overview"
+      "LoaderContainer": "loadercontainer-overview"
       "Progress Bar": "progressbar-overview"
       "Chunk Progress Bar": "chunkprogressbar-overview"
 
