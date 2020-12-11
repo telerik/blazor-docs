@@ -10,7 +10,7 @@ position: 0
 
 # TabStrip Overview
 
-This article provides information about the <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">TabStrip component</a> and its core features.
+This article provides information about the <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Blazor TabStrip component</a> and its core features.
 
 #### Basics
 
