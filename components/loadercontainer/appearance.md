@@ -79,6 +79,8 @@ The `OverlayThemeColor` parameter controls the color of the overlay for the Load
 
 ## Shared with the Loader Indicator
 
+The LoaderContainer utilizes the [Loader]({%slug loader-overview%}) component internally. Because of that the LoaderContainer and the Loader share appearance settings which you can use to style the loading indicator. 
+
 ### Type
 
 @[template](/_contentTemplates/loaders/type.md#loaders-type)
