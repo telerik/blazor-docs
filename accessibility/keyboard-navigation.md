@@ -60,6 +60,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * Loader - not applicable, it is merely a visualization component the user cannot interact with.
 
+* LoaderContainer - not applicable, it is merely a visualization component the user cannot interact with.
+
 * [MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation)
 
 * Notification - not applicable, it is a visualization component. 
