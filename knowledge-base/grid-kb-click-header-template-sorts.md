@@ -1,8 +1,8 @@
 ---
-title: Prevent click in Grid Header template component to triger sorting
+title: Prevent click in Grid Header template component to trigger sorting
 description: how to stop click propagation in Grid Header template
 type: troubleshooting
-page_title: Prevent click in Grid Header template component to triger sorting
+page_title: Prevent click in Grid Header template component to trigger sorting
 slug: grid-kb-click-header-template-sorts
 position: 
 tags: grid, column, header, template
