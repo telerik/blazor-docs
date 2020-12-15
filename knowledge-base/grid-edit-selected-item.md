@@ -33,7 +33,7 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
 
 1. Create a new instance of the class you bound the Grid to in order to contain the information for the selected item.
 
-1. Use one-way data binding for the SelectedItems parameter and in the handler for the SelectedItemsChanged populate the instance of the class created in the previous point.
+1. Use one-way data binding for the [SelectedItems]({%slug components/grid/selection/single%}) parameter and in the handler for the [SelectedItemsChanged]({%slug grid-events%}#selecteditemschanged) populate the instance of the class created in the previous point.
 
 1. Enable the `Edit` and `Delete` buttons when the selected item is not `null` by using the `Enabled` parameter for the `TelerikButton`.
 
