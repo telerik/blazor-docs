@@ -1,11 +1,12 @@
 ---
-title: Grouping
+title: Overview
 page_title: Grid - Grouping
 description: Enable and configure grouping in Grid for Blazor.
 slug: components/grid/features/grouping
 tags: telerik,blazor,grid,grouping
 published: True
-position: 22
+previous_url: /components/grid/grouping
+position: 0
 ---
 
 # Grid Grouping
@@ -13,6 +14,8 @@ position: 22
 The Grid component offers support for grouping.
 
 * [Basics](#basics)
+* [Aggregates](#aggregates)
+* [Load On Demand](#load-on-demand)
 * [Group From Code](#group-from-code)
 * [More Examples](#more-examples)
 
@@ -75,6 +78,14 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
 >caption How grouping works in the Telerik grid
 
 ![](images/grouping-overview.gif)
+
+## Aggregates
+
+The grid lets you define and use aggregates that it can calculate for you. You can read more about using them in the [Aggregates]({%slug grid-aggregates%}) article.
+
+## Load On Demand
+
+The grid can load the grouped data on demand only. This can be useful if you have many groups and you want the user to first scroll through them without having to load all their data at once. Instead, the child items for a group can be loaded only when the user expands the group. This mode can also be used with Virtual Scrolling. You can read more about this feature in the [Grid - Load Group Data On Demand]({%slug grid-group-lod%}) article.
 
 
 ## Group From Code
