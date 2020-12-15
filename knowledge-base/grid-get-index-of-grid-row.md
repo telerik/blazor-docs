@@ -156,6 +156,18 @@ The Grid does not directly alter the collection of items passed to its `Data` pa
         var clickedRow = args.Item as MainModel;
 
         currentItem = clickedRow;
+
+        PrintTheRowIndex(clickedRow);
+    }
+
+    void PrintTheRowIndex(MainModel item)
+    {
+        int currentIndexOfItem = currentSalesTeamMembers.IndexOf(item);
+
+        if (currentIndexOfItem > -1) // this check is not mandatory
+        {
+            Result = $"The index of the clicked row is: {currentIndexOfItem}";
+        }
     }
 
     async Task OnReadHandler(GridReadEventArgs args)
@@ -164,14 +176,9 @@ The Grid does not directly alter the collection of items passed to its `Data` pa
 
         currentSalesTeamMembers = dataSourceResult.Data.Cast<MainModel>().ToList(); // this is the collection with the sorted items
 
-        int currentIndexOfItem = currentSalesTeamMembers.IndexOf(currentItem);
-
-        if(currentIndexOfItem > -1) // this check is not mandatory
-        {
-            Result = $"The index of the selected item is: {currentIndexOfItem}";
-        }
-
         Total = dataSourceResult.Total;
+
+        PrintTheRowIndex(currentItem);
 
         StateHasChanged();
     }
