@@ -1,8 +1,8 @@
 ---
-title: Edit the Selected Item
-description: How to edit the Selected Item.
+title: Edit the Selected Item From the ToolBar
+description: How to edit the Selected Item from the toolbar.
 type: how-to
-page_title: Edit the Selected Item
+page_title: Edit the Selected Item From the ToolBar
 slug: grid-edit-selected-item
 position: 
 tags: 
