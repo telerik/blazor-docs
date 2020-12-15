@@ -162,6 +162,9 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
         public int EmployeeId { get; set; }
         public string Name { get; set; }
         public string Team { get; set; }
+        
+        // example of comparing stored items (from editing or selection)
+        // with items from the current data source - IDs are used instead of the default references
 
         public override bool Equals(object obj)
         {
@@ -172,6 +175,13 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
             return false;
         }
 
+
+        // define constructors and a static method so we can deep clone instances
+        // we use that to define the edited item - otherwise the references will point
+        // to the item in the grid data sources and all changes will happen immediately on
+        // the Data collection, and we don't want that - so we need a deep clone with its own reference
+        // this is just one way to implement this, you can do it in a different way
+        
         public Employee()
         {
 
