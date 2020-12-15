@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Any Blazor component with a `RenderFragment` template, Grid for Blazor</td>
+			<td>Any Blazor component with a RenderFragment template, example with Telerik Grid for Blazor</td>
 		</tr>
 	</tbody>
 </table>
@@ -33,7 +33,7 @@ I have dynamic objects with many fields and I want to pass the object and field 
 
 While all of this is possible with templates in the markup, some code may get repetitive (especially casting the `context`) and/or may be harder to debug. You can extract templates to the C# portion of your component by defining the `RenderFragment` object yourself.
 
-Another option is, to create a child component that receives the `context` and provides the required casting and rendering on its own. This is a well documented approach in the framework so this article will focus on the specific way of writing a `RenderFragment`.
+Another option is, of course, to create a child component that receives the `context` and provides the required casting and rendering on its own. This is a well documented approach in the Blazor framework so this article will focus on the specific way of writing a `RenderFragment`.
 
 >caption Using a `RenderFragment` in the C# code to create a template by passing a field name to it so you can extract particular information based on that field with Reflection.
 
@@ -83,6 +83,8 @@ Another option is, to create a child component that receives the `context` and p
         // Define the RenderFragment in your code
         // Its type matches the type of the Grid context - an object
         // The same as if you were defining it in the markup
+        
+        // The syntax for writing a RenderFragment is rather specific, note the lambda expressions
         
         RenderFragment<object> ColumnTemplate = context => __builder =>
         {
