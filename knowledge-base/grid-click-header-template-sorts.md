@@ -41,7 +41,7 @@ Invoking an event from the child element (`TelerikCheckBox` in the example below
 
 The way to reduce the bubbling is to use the `stopPropagation` feature in the child element. That will result in the click event triggering only the desired event from child.
 
-### Example
+>caption How to stop the grid sort when clicking an element in the header template
 
 ````CSHTML
 @* Stopping the Click event from propagating on the clickable elements in your template prevents the grid column from receiving the event and sorting *@
