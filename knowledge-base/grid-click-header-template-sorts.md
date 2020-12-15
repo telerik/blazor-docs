@@ -1,8 +1,8 @@
 ---
-title: Prevent click in Grid Header template component to trigger sorting
-description: how to stop click propagation in Grid Header template
+title: Prevent clicking in the Grid Header Template from triggering sorting
+description: Clicking in the header template sorts the column - how to stop that
 type: troubleshooting
-page_title: Prevent click in Grid Header template component to trigger sorting
+page_title: Prevent clicking in the Grid Header Template from triggering sorting
 slug: grid-kb-click-header-template-sorts
 position: 
 tags: grid, column, header, template
@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Grid Header Template</td>
+			<td>Grid for Blazor</td>
 		</tr>
 	</tbody>
 </table>
@@ -33,15 +33,17 @@ How to prevent sorting when clicking a specific component in a column header?
 
 The reason behind this behavior is called Event Bubbling, also known as one of the event Propagation phases.
 
-Invoking an event from the child element (`TelerikCheckBox` in the example below) bubbles up to its parent element (in this case the column header) and also triggers any event called in the parent (sorting, filtering etc.).
+Invoking an event from the child element (`TelerikCheckBox` in the example below) bubbles up to its parent element (in this case the column header) and also triggers any event called in the parent (sorting, filtering, etc.).
 
 ## Solution
 
-The way to reduce the bubbling is to use the `stopPropagation` feature in the child element. That will result in triggering only the desired event from child.
+The way to reduce the bubbling is to use the `stopPropagation` feature in the child element. That will result in the click event triggering only the desired event from child.
 
 ### Example
 
 ````CSHTML
+@* Stopping the Click event from propagating on the clickable elements in your template prevents the grid column from receiving the event and sorting *@
+
 <TelerikGrid Data="@MyData" Height="400px"
              Pageable="true" Sortable="true" 
              FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
@@ -52,7 +54,9 @@ The way to reduce the bubbling is to use the `stopPropagation` feature in the ch
             <HeaderTemplate>
                 <div class="row">
                     <div class="col d-flex align-items-center">
-                        <div style="padding-right: 1rem; cursor: pointer" data-toggle="tooltip" data-placement="bottom" title="Show all elements" @onclick:stopPropagation="true">
+                        <div @onclick:stopPropagation="true"
+                            
+                            style="padding-right: 1rem; cursor: pointer" data-toggle="tooltip" data-placement="bottom" title="Show all elements">
                             <TelerikCheckBox Value="@isChecked" />
                         </div>
                         <span>Elements</span>
