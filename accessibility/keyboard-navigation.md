@@ -74,6 +74,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * Scheduler - will have keyboard navigation in an upcoming release.
 
+* [Splitter](https://demos.telerik.com/blazor-ui/splitter/keyboard-navigation)
+
 * [Switch](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation)
 
 * [TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation)

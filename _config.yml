@@ -425,6 +425,7 @@ intro_columns:
       "Drawer": "drawer-overview"
       "Tile Layout": "tilelayout-overview"
       "Notification": "notification-overview"
+      "Splitter": "splitter-overview"
   -
     title: "Scheduling"
     items:
