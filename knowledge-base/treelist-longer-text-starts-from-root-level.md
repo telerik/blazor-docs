@@ -14,10 +14,6 @@ res_type: kb
 <table>
 	<tbody>
 		<tr>
-			<td>Product Version</td>
-			<td>2.20.0</td>
-		</tr>
-		<tr>
 			<td>Product</td>
 			<td>TreeList for Blazor</td>
 		</tr>
@@ -33,13 +29,13 @@ When a text is longer than the column width, it does a line break but the next l
 
 ## Solution
 
-The following example showcases a CSS workaroud for the decribed behavior.
+The following example showcases a CSS way to change the described behavior.
 
-To achieve the proper aligning when dealing with longer text in the child level do the following:
+To align all lines of text to the same level do the following:
 
-1. Use the `Class` parameter to set a CSS class to the TreeList and cascade its elements
-1. Create a CSS class setting a defeult height and add it to the row OnCellRender
-1. Child hierarchy levels padding is achieved through hidden spans with classes `k-icon` and `k-i-none`. Use those classes along with the TreeList class to casecade the spans and expand their height to 100% and float to left.
+1. Use the `Class` parameter to set a CSS class to the TreeList and cascade so you affect only its elements, not all instances on the page/app.
+1. Create a CSS class setting a default height for the cell and add it to the row through the [`OnCellRender` event]({%slug treelist-column-events%}#oncellrender).
+1. The treelist component implements child hierarchy levels padding through hidden spans with classes `k-icon` and `k-i-none`. Use those classes along with the TreeList class to cascade the spans and expand their `height` to `100%` and `float` to `left` so that they take up the height of the cell and text remains only to their right.
 
 ![treelist-long-text-aligned](images/treelist-long-text-aligned.png)
 
@@ -52,14 +48,13 @@ To achieve the proper aligning when dealing with longer text in the child level 
         height: 50px;
     }
 
-    .MyTreeList .k-icon.k-i-none {
+    .MyTreeList .defaultHeight .k-icon.k-i-none {
         float: left;
         height: 100%;
     }
 </style>
 
 <TelerikTreeList Data="@Data"
-                 @ref="@TreeListRef"
                  IdField="EmployeeId"
                  ParentIdField="ReportsTo"
                  Pageable="true"
@@ -73,7 +68,6 @@ To achieve the proper aligning when dealing with longer text in the child level 
 </TelerikTreeList>
 
 @code {
-    TelerikTreeList<Employee> TreeListRef { get; set; }
     public List<Employee> Data { get; set; }
 
     public class Employee
