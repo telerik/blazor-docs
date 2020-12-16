@@ -12,6 +12,14 @@ position: 0
 
 The Blazor LoaderContainer provides an animated indicator, a panel, and an overlay that can be used when the application is performing a time-consuming operation, for example, loading data.
 
+This article is separated in the following sections:
+
+* [Basic LoaderContainer](#basic-loadercontainer)
+* [Feature](#features)
+* [Examples](#examples)
+    * [Remove the Panel from the LoaderContainer](#remove-the-panel-from-the-loadercontainer)
+    * [Fill a Parent Container](#fill-a-parent-container)
+
 ## Basic LoaderContainer
 
 To add a Telerik LoaderContainer to your Blazor application, use the `<TelerikLoaderContainer>` tag and show it when needed by your app by using its `Visible` parameter. You can also control its [visual appearance]({%slug loadercontainer-appearance%}) through parameters and customize it by using the [Template]({%slug loadercontainer-template%}).
@@ -60,7 +68,7 @@ To add a Telerik LoaderContainer to your Blazor application, use the `<TelerikLo
 }
 ````
 
-### Features
+## Features
 
 The LoaderContainer provides the following features:
 
@@ -93,7 +101,12 @@ The LoaderContainer provides the following features:
 }
 ````
 
-## Example: Remove the Panel from the LoaderContainer
+## Examples
+
+* [Remove the Panel from the LoaderContainer](#remove-the-panel-from-the-loadercontainer)
+* [Fill a Parent Container](#fill-a-parent-container)
+
+### Remove the Panel from the LoaderContainer
 
 The panel is the white rectangular area that surrounds the loader indicator and the `Text` parameter of the component. By default, it is rendered to increase the contrast between the overlay and the rest of the component. In order to remove it, you can use some CSS rules as shown in the example below.
 
@@ -152,6 +165,24 @@ The panel is the white rectangular area that surrounds the loader indicator and 
     }
 }
 ````
+
+### Fill a Parent Container
+
+The LoaderContainer for Blazor can fill a parent container, for example a `div` or another wrapping HTML element. In order to signify to the component that it should fill its parent container you have to add the `position: relative` to the wrapping element.
+
+````CSHTML
+@*Wrap the LoaderContainer inside a div with fixed height and width*@
+
+<div style="height: 300px; width: 300px; position: relative">
+    <TelerikLoaderContainer></TelerikLoaderContainer>
+
+    The LoaderContainer will fill the parent div container
+</div>
+````
+
+>caption The result from the code snippet above
+
+![](images/loadercontainer-fill-parent.png)
 
 ## See Also
 
