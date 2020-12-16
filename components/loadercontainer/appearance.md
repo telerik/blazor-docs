@@ -88,6 +88,19 @@ The `LoaderPosition` parameter controls the position of the loading indicator ag
 
 The LoaderContainer utilizes the [Loader]({%slug loader-overview%}) component internally. Because of that the LoaderContainer and the Loader share appearance settings which you can use to style the loading indicator. 
 
+
+>caption Setup the appearance settings for the LoaderContainer
+
+````CSHTML
+@*Customize the appearance of the LoaderContainer using the exposed parameters*@
+
+<TelerikLoaderContainer LoaderType="@LoaderType.InfiniteSpinner"
+                        LoaderPosition="@LoaderPosition.Start"
+                        Size="@LoaderSize.Small"
+                        ThemeColor="info">
+</TelerikLoaderContainer>
+````
+
 ### Type
 
 @[template](/_contentTemplates/loaders/type.md#loaders-type)
