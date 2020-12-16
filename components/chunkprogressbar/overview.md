@@ -10,7 +10,7 @@ position: 0
 
 # ChunkProgressBar Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/chunkprogressbar" target = "_blank">Blazor ChunkProgressBar</a> tracks the execution of operations and displays what portion of it is completed in predefined number of sections (chunks). For very long tasks, you can also make it [indeterminate]({%slug chunkprogressbar-indeterminate-state%}) while waiting for an update.
+The <a href = "https://www.telerik.com/blazor-ui/chunkprogressbar" target = "_blank">Blazor ChunkProgressBar component</a> tracks the execution of operations and displays what portion of it is completed in predefined number of sections (chunks). For very long tasks, you can also make it [indeterminate]({%slug chunkprogressbar-indeterminate-state%}) while waiting for an update.
 
 
 ## Basic ChunkProgressBar

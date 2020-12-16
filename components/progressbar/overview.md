@@ -10,7 +10,7 @@ position: 0
 
 # ProgressBar Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/progressbar" target = "_blank">Blazor ProgressBar</a> tracks the execution of operations and displays what portion of it is completed. For very long tasks, you can also make it [indeterminate]({%slug progressbar-indeterminate-state%}).
+The <a href = "https://www.telerik.com/blazor-ui/progressbar" target = "_blank">Blazor ProgressBar component</a> tracks the execution of operations and displays what portion of it is completed. For very long tasks, you can also make it [indeterminate]({%slug progressbar-indeterminate-state%}).
 
 
 ## Basic ProgressBar
