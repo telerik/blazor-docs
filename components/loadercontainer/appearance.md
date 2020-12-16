@@ -36,46 +36,24 @@ The `OverlayThemeColor` parameter controls the color of the overlay for the Load
 ![](images/loadercontainer-overlaythemecolor-light-screenshot.png)
 
 ````CSHTML
-@*Change the overlay theme color for the LoaderContainer to light*@
+@*This example shows the difference between the light and dark overlay theme colors*@
 
-<TelerikLoaderContainer OverlayThemeColor="light">
-</TelerikLoaderContainer>
+<div class="row">
+    <div class="col-4" style="position: relative; height: 200px">
+        <TelerikLoaderContainer OverlayThemeColor="dark"></TelerikLoaderContainer>
 
-<TelerikGrid Data="@GridData" AutoGenerateColumns="true"
-             Pageable="true" PageSize="4" Width="700px">
-</TelerikGrid>
+        <div>
+            This is some text to showcase the dark overlay theme color
+        </div>
+    </div>
+    <div class="col-4" style="position: relative">
+        <TelerikLoaderContainer OverlayThemeColor="light"></TelerikLoaderContainer>
 
-@code {
-    public List<GridDataModel> GridData { get; set; }
-    public class GridDataModel
-    {
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string EmailAddress { get; set; }
-        public DateTime? RegistrationDate { get; set; }
-        public DateTime? LocalTime { get; set; }
-    }
-
-    public List<GridDataModel> GenerateGridData()
-    {
-        var data = Enumerable.Range(1, 15).Select(i => new GridDataModel()
-        {
-            Id = i,
-            Username = $"Username {i}",
-            EmailAddress = $"user{i}@mail.com",
-            RegistrationDate = DateTime.Now.AddDays(-2),
-            LocalTime = DateTime.Now
-        }).ToList();
-
-        return data;
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await Task.Delay(6000);
-        GridData = GenerateGridData();
-    }
-}
+        <div>
+            This is some text to showcase the light overlay theme color
+        </div>
+    </div>
+</div>
 ````
 
 ### LoaderPosition
