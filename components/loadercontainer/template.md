@@ -2,7 +2,7 @@
 title: Templates
 page_title: LoaderContainer Templates
 description: Templates in the LoaderContainerfor Blazor.
-slug: loadercontainer-templates
+slug: loadercontainer-template
 tags: telerik,blazor,loader,container,loadercontainer,templates
 published: True
 position: 10
@@ -77,6 +77,10 @@ This section gives examples that show how to:
 }
 ````
 
+>caption The result from the code snippet above
+
+![](images/loadercontainer-template-basic.png)
+
 ### Implement a Custom Panel
 
 ````CSHTML
@@ -135,6 +139,10 @@ This section gives examples that show how to:
     }
 }
 ````
+
+>caption The result from the code snippet above
+
+![](images/loadercontainer-template-custom-panel.png)
 
 ## See Also
 
