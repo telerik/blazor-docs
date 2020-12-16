@@ -10,13 +10,11 @@ position: 0
 
 # LoaderContainer Overview
 
-This article provides information about the LoaderContainer for Blazor and its core features.
-
-The LoaderContainer provides an animated indicator, a panel, and an overlay that can be used when the application is performing a time-consuming operation, for example, loading data.
+The Blazor LoaderContainer provides an animated indicator, a panel, and an overlay that can be used when the application is performing a time-consuming operation, for example, loading data.
 
 ## Basic LoaderContainer
 
-To add a Telerik LoaderContainer to your Blazor application, use the `<TelerikLoaderContainer>` tag and show it when needed by your app by using its `Visible` paramter. You can also control its [visual appearance]({%slug loadercontainer-appearance%}) through parameters.
+To add a Telerik LoaderContainer to your Blazor application, use the `<TelerikLoaderContainer>` tag and show it when needed by your app by using its `Visible` parameter. You can also control its [visual appearance]({%slug loadercontainer-appearance%}) through parameters and customize it by using the [Template]({%slug loadercontainer-template%}).
 
 ![](images/loadercontainer-overview-example.gif)
 

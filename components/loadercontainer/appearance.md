@@ -14,6 +14,7 @@ The LoaderContainer component provides the following parameters that control its
 
 * [LoaderContainer Specific](#loadercontainer-specific)
     * [OverlayThemeColor](#overlaythemecolor)
+    * [LoaderPosition](#loaderposition)
 * [Shared with the Loader Indicator](#shared-with-the-loader-indicator)
     * [Type](#type)
     * [Size](#size)
@@ -76,6 +77,34 @@ The `OverlayThemeColor` parameter controls the color of the overlay for the Load
     }
 }
 ````
+
+### LoaderPosition
+
+The `LoaderPosition` parameter controls the position of the loading indicator against the `Text` parameter. There are three predefined options which are members of the `LoaderPosition` enum:
+
+* `Top` - the default position
+* `Start`
+* `End`
+
+>capture The position of the Loader indicator
+
+````CSHTML
+@*The different positions of the loader indicator based on the predefault values.*@
+
+<div class="row">
+    <div class="col-4" style="position: relative; height: 200px">
+        <TelerikLoaderContainer LoaderPosition="@LoaderPosition.Top"></TelerikLoaderContainer>
+    </div>
+    <div class="col-4" style="position: relative">
+        <TelerikLoaderContainer LoaderPosition="@LoaderPosition.Start"></TelerikLoaderContainer>
+    </div>
+    <div class="col-4" style="position: relative"> 
+        <TelerikLoaderContainer LoaderPosition="@LoaderPosition.End"></TelerikLoaderContainer>
+    </div>
+</div>
+````
+
+![](images/loadercontainer-loader-position.png)
 
 ## Shared with the Loader Indicator
 
