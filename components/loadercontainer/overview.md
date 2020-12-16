@@ -16,7 +16,7 @@ The Blazor LoaderContainer provides an animated indicator, a panel, and an overl
 
 To add a Telerik LoaderContainer to your Blazor application, use the `<TelerikLoaderContainer>` tag and show it when needed by your app by using its `Visible` parameter. You can also control its [visual appearance]({%slug loadercontainer-appearance%}) through parameters and customize it by using the [Template]({%slug loadercontainer-template%}).
 
-![](images/loadercontainer-overview-example.gif)
+![](images/loadercontainer-overview-basic-example.gif)
 
 ````CSHTML
 @*Show the LoaderContainer until the data for the Grid is loaded.*@
