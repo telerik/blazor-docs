@@ -1,8 +1,8 @@
 ---
-title: Prevent the Grid from wrapping text in multiline
-description: How to prevent the Grid from wrapping text in multiline
+title: Prevent the Grid from wrapping text in multiple lines
+description: How to prevent the Grid from wrapping text in multiple lines
 type: how-to
-page_title: Prevent the Grid from wrapping text in multiline
+page_title: Prevent the Grid from wrapping text in multiple lines
 slug: grid-kb-rows-text-ellipsis
 position: 
 tags: 
