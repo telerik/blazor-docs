@@ -29,6 +29,8 @@ I am using the TelerikGrid component for Blazor. One of my columns contains a lo
 
 In order to prevent the Grid from wrapping the text in multiple lines you can use CSS and target the `<td>` HTML tags, which contain the data. In order to make that easier you can take advantage of the [OnCellRender event]({%slug grid-column-events%}#oncellrender) that the component exposes. The solution below showcases a sample implementation.
 
+>note You can achieve the same behavior if you use the [Template]({%slug grid-templates-column%}) instead of the OnCellRender event. If you choose to go for the `Template` approach you should wrap the `(context as <YourModel>).FieldName` into a HTML element and add the CSS class to the `class` attribute of that element.
+
 
 ````CSHTML
 @*Use the OnCellRender event to pass a custom CSS class to the Grid column and prevent it from wrapping the text in multiple lines for the Notes column*@
