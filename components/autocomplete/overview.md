@@ -53,7 +53,7 @@ The AutoComplete is a generic component and its type is determined by the type o
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the AutoComplete.
 
-* `PopupClass` - additional custom CSS class to cascade the dropdown of the AutoComplete
+* `PopupClass` - additional CSS class to customize the appearance of the AutoComplete's dropdown.
 
 * `ClearButton` - whether the user will have the option to clear the selected value with a button on the input. When it is clicked, the `Value` will be updated to `string.Empty`.
 

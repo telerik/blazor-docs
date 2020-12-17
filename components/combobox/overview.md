@@ -61,7 +61,7 @@ The ComboBox is a generic component and its type is determined by the type of th
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the combobox.
 
-* `PopupClass` - additional custom CSS class to cascade the dropdown of the ComboBox
+* `PopupClass` - additional CSS class to customize the appearance of the ComboBox's dropdown.
 
 * `ClearButton` - whether the user will have the option to clear the selected value. When it is clicked, the `Value` will be updated to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, clearing the value will lead to a `0` `Value`, so if there is an Item with `0` in its `ValueField` - issues may arise with its selection. This feature can often go together with `AllowCustom`.
 

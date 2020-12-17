@@ -57,7 +57,7 @@ The DropDownList provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the dropdownlist.
 
-* `PopupClass` - additional custom CSS class to cascade the dropdown of the DropDownList
+* `PopupClass` - additional CSS class to customize the appearance of the DropDownList's dropdown.
 
 * `Data` - allows you to provide the data source. Required.
 
