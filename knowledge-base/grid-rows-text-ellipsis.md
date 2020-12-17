@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Grid for Blazor</td>
+			<td>Grid for Blazor, TreeList for Blazor</td>
 		</tr>
 	</tbody>
 </table>
@@ -84,5 +84,9 @@ In order to prevent the Grid from wrapping the text in multiple lines you can us
 >caption The result from the code snippet above
 
 ![](images/grid-rows-ellipsis-text-example.png)
+
+## See also
+
+* [Knowledge-Base article: Long text in TreeList does not align with the corresponding level]({%slug treelist-longer-text-starts-from-root-level%})
 
 
