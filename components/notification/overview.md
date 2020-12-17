@@ -10,7 +10,7 @@ position: 0
 
 # Notification Overview
 
-This article provides information about the Telerik UI for Blazor <a href = "https://www.telerik.com/blazor-ui/notification" target="_blank"> Notification component </a> and its main features.
+This article provides information about the <a href = "https://www.telerik.com/blazor-ui/notification" target="_blank">Blazor Notification component</a> and its main features.
 
 The Notification component renders a brief message to the user which holds information regarding the status of a process in the application. Using its settings you can customize its position, animation options and rendering. 
 

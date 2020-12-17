@@ -10,7 +10,7 @@ position: 0
 
 # Stock Chart Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/stock-chart" target="_blank">Blazor Stock Chart</a> allows you to visualize the deviation of a financial unit over a period of time to the user in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins, tooltips and templates.
+The <a href = "https://www.telerik.com/blazor-ui/stock-chart" target="_blank">Blazor Stock Chart component</a> allows you to visualize the deviation of a financial unit over a period of time to the user in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins, tooltips and templates.
 
 The Telerik Stock Chart provides a [Navigator]({%slug stockchart-navigator%}) to widen or shorten the defined period of time and zoom on particular part of the chart; and a [crosshair]({%slug stockchart-crosshairs%}) to see precise values in data-dense charts.
 
