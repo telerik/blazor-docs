@@ -58,6 +58,10 @@ The Blazor Date Range Picker component exposes the following features:
 
 * `View` - Specifies the current view that will be displayed in the popup calendar.
 
+* `Class` - The CSS class that will be rendered on the main wrapping element of the Date Range Picker
+
+* `PopupClass` - Additional custom CSS class to cascade the dropdown of the Date Range Picker
+
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article. 
     * To restrict the user from writing dates in the input so that the end is after the start, you must implement a custom data annotation attribute (you can find an example in the article linked above). The DateRangePicker component does not do this out-of-the-box in order to provide smooth user experience - the code cannot know what the user intent is and they might fix the range if they are given the chance, so correcting the input immediately may prevent them from using it comfortably. The component can fully control the user experience in the popup calendar and it ensures there that the range values are valid (start is before the end). If the user chooses an end date before the start, this date becomes the new start and they can choose the end again.
 

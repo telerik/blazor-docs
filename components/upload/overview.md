@@ -165,6 +165,8 @@ The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Up
 
 * `WithCredentials` - Controls whether to send credentials (cookies, headers) for cross-site requests (see the [XMLHttpRequest.withCredentials property](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials)). You can also add extra information to the request (such as authentication tokens and other metadata) through the `OnUpload` and `OnRemove` [events]({%slug upload-events%}).
 
+* `Class` - the CSS class that will be rendered on the main wrapping element of the Upload component
+
 * [Validation]({%slug upload-validation%})
 
 

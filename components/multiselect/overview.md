@@ -77,6 +77,8 @@ The MultiSelect is a generic component and its type is determined by the type of
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the multiselect.
 
+* `PopupClass` - additional custom CSS class to cascade the dropdown of the MultiSelect
+
 * `ClearButton` - whether the user will have the option to clear the selected items with a button on the input. When it is clicked, the `Value` will be updated to an empty list.
 
 * `Data` - allows you to provide the data source. Required.

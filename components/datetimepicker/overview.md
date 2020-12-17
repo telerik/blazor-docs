@@ -51,6 +51,7 @@ Selected time: @selectedTime
 The DateTimePicker component exposes the following features:
 
 * `Class` - the custom CSS class rendered on the wrapping element.
+* `PopupClass` - additional custom CSS class to cascade the dropdown of the DateTimePicker
 * `Enabled` - Specifies whether typing in the input and opening the dropdown are allowed.
 * `Format` - Specifies the format of the DateInput of the DateTimePicker. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
