@@ -8,14 +8,14 @@ published: True
 position: 0
 ---
 
-# Chunk Progress Bar Overview
+# ChunkProgressBar Overview
 
-The Progress Bar tracks the execution of operations and displays what portion of it is completed in predefined number of sections (chunks). For very long tasks, you can also make it [indeterminate]({%slug chunkprogressbar-indeterminate-state%}) while waiting for an update.
+The <a href = "https://www.telerik.com/blazor-ui/chunkprogressbar" target = "_blank">Blazor ChunkProgressBar component</a> tracks the execution of operations and displays what portion of it is completed in predefined number of sections (chunks). For very long tasks, you can also make it [indeterminate]({%slug chunkprogressbar-indeterminate-state%}) while waiting for an update.
 
 
-## Basic Chunk Progress Bar
+## Basic ChunkProgressBar
 
-To use the Telerik Progress Bar in your Blazor application:
+To use the Telerik ChunkProgressBar in your Blazor application:
 * add the `<TelerikChunkProgressBar>` tag.
 * set its `Value` and `Max` parameters to denote how much is completed.
     * You can read more about the relationship between them in the [Chunk Count, Value and MaxValue](#chunk-count-value-and-maxvalue) section.
@@ -49,7 +49,7 @@ To use the Telerik Progress Bar in your Blazor application:
 
 ## Features
 
-The Progress Bar provides the following features:
+The ChunkProgressBar provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element. You can use it to cascade styles more easily.
 * `Max` - `double`, defaults to `100` - the maximum value of the ChunkProgressBar. It must be greater than `0`.
@@ -64,8 +64,15 @@ The Progress Bar provides the following features:
 
 The following examples explain how the three parameters of the component tie together to determine how many chunks are filled in.
 
-* [Matching Values for the Max and ChunkCount Parameters](#matching-values-for-the-max-and-chunkcount-parameters)
-* [Non-matching Value for the Max and ChunkCount Parameters](#non--matching-values-for-the-max-and-chunkcount-paramters)
+- [ChunkProgressBar Overview](#chunkprogressbar-overview)
+  - [Basic ChunkProgressBar](#basic-chunkprogressbar)
+  - [Features](#features)
+  - [Chunk Count, Value and MaxValue](#chunk-count-value-and-maxvalue)
+    - [Matching Values for the Max and ChunkCount Parameters](#matching-values-for-the-max-and-chunkcount-parameters)
+    - [Non-matching Value for the Max and ChunkCount Parameters](#non-matching-value-for-the-max-and-chunkcount-parameters)
+  - [Examples](#examples)
+    - [Responsive ProgressBar](#responsive-progressbar)
+  - [See Also](#see-also)
 
 ### Matching Values for the Max and ChunkCount Parameters
 

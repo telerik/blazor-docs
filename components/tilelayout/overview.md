@@ -10,7 +10,7 @@ position: 0
 
 # TileLayout Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/tilelayout" target="_blank">Blazor TileLayout</a> is based on the two-dimensional <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS grid</a> and is able to display content in tiles. They can be dragged around and [rearranged]({%slug tilelayout-reorder%}) as desired by the user. The tiles can be [resized]({%slug tilelayout-resize%}) to change the way they span across the rows and columns too. This allows you to build customizable dashboards for your end users whose [state]({%slug tilelayout-state%}) they can save.
+The <a href = "https://www.telerik.com/blazor-ui/tilelayout" target="_blank">Blazor TileLayout component</a> is based on the two-dimensional <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS grid</a> and is able to display content in tiles. They can be dragged around and [rearranged]({%slug tilelayout-reorder%}) as desired by the user. The tiles can be [resized]({%slug tilelayout-resize%}) to change the way they span across the rows and columns too. This allows you to build customizable dashboards for your end users whose [state]({%slug tilelayout-state%}) they can save.
 
 #### This article contains the following sections:
 
