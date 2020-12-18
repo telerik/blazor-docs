@@ -73,7 +73,8 @@ The animation container exposes the following properties and methods:
 	* ZoomIn,
 	* ZoomOut
 * `ShowDelay` and `HideDelay` - defines the delay between showing/hiding the component and the respective animation start. Both values are in milliseconds and default to `20`.
-* `Class` - a CSS class rendered on the container DOM element.
+* `ParentClass` - a CSS class rendered on the main wrapping element of the Animation container.
+* `Class` - a CSS class rendered on the inner element of the Animation container. 
 
 >caption Explore the animation options
 
