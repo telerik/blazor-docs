@@ -10,12 +10,12 @@ position: 5
 
 # Appearance Settings
 
-The LoaderContainer component provides the following parameters that control its appearance:
+The LoaderContainer component provides the several parameters that control various aspects of its appearance - indicator size, color and position, overlay color:
 
 * [LoaderContainer Specific](#loadercontainer-specific)
     * [OverlayThemeColor](#overlaythemecolor)
     * [LoaderPosition](#loaderposition)
-* [Shared with the Loader Indicator](#shared-with-the-loader-indicator)
+* [Shared with the Loader Component](#shared-with-the-loader-component)
     * [Type](#type)
     * [Size](#size)
     * [ThemeColor](#themecolor)
@@ -28,8 +28,8 @@ You can see the appearance settings in action in the [LoaderContainer Customizat
 
 The `OverlayThemeColor` parameter controls the color of the overlay for the LoaderContainer. It takes a string from the options below. If you provide a `String.Empty`, `null` or invalid option (not listed below) the color of the overlay will be `transparent`.
 
-* `dark` - the default background color.
-* `light`
+* `dark` - the default background color - black with opacity.
+* `light` - white background color with opacity
 
 >caption Change the OverlayThemeColor
 
@@ -60,11 +60,11 @@ The `OverlayThemeColor` parameter controls the color of the overlay for the Load
 
 The `LoaderPosition` parameter controls the position of the loading indicator against the `Text` parameter. There are three predefined options which are members of the `LoaderPosition` enum:
 
-* `Top` - the default position
-* `Start`
-* `End`
+* `Top` - the default position - the loading animation is above the text
+* `Start` - the loading animation is to the left of the text
+* `End` - the loading animation is to the right of the text
 
->capture The position of the Loader indicator
+>caption The position of the Loader indicator
 
 ````CSHTML
 @*The different positions of the loader indicator based on the predefault values.*@
@@ -84,12 +84,12 @@ The `LoaderPosition` parameter controls the position of the loading indicator ag
 
 ![](images/loadercontainer-loader-position.png)
 
-## Shared with the Loader Indicator
+## Shared with the Loader Component
 
-The LoaderContainer utilizes the [Loader]({%slug loader-overview%}) component internally. Because of that the LoaderContainer and the Loader share appearance settings which you can use to style the loading indicator. 
+The `LoaderContainer` utilizes the [Loader]({%slug loader-overview%}) component internally to provide the animated indicator. Because of that, the `LoaderContainer` and the `Loader` share appearance settings which you can use to style the loading indicator. 
 
 
->caption Setup the appearance settings for the LoaderContainer
+>caption Setup the appearance settings for the LoaderContainer related to the loader animation
 
 ````CSHTML
 @*Customize the appearance of the LoaderContainer using the exposed parameters*@
@@ -100,6 +100,13 @@ The LoaderContainer utilizes the [Loader]({%slug loader-overview%}) component in
                         ThemeColor="info">
 </TelerikLoaderContainer>
 ````
+
+The following parameters are shared with the Loader component and the examples below showcase their behavior in isolation:
+
+* [Type](#type)
+* [Size](#size)
+* [ThemeColor](#themecolor)
+
 
 ### Type
 

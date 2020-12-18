@@ -12,10 +12,10 @@ position: 0
 
 The Blazor LoaderContainer provides an animated indicator, a panel, and an overlay that can be used when the application is performing a time-consuming operation, for example, loading data.
 
-This article is separated in the following sections:
+#### In This Article
 
-* [Basic LoaderContainer](#basic-loadercontainer)
-* [Feature](#features)
+* [Basic Loader Container](#basic-loadercontainer)
+* [Features](#features)
 * [Examples](#examples)
     * [Remove the Panel from the LoaderContainer](#remove-the-panel-from-the-loadercontainer)
     * [Fill a Parent Container](#fill-a-parent-container)
@@ -27,7 +27,7 @@ To add a Telerik LoaderContainer to your Blazor application, use the `<TelerikLo
 ![](images/loadercontainer-overview-basic-example.gif)
 
 ````CSHTML
-@*Show the LoaderContainer until the data for the Grid is loaded.*@
+@*Show the LoaderContainer until the initial data for the Grid is loaded. The grid has its own loading animation for subsequent slow data operations*@
 
 <TelerikLoaderContainer Visible="@(GridData == null ? true: false)"></TelerikLoaderContainer>
 
@@ -62,7 +62,7 @@ To add a Telerik LoaderContainer to your Blazor application, use the `<TelerikLo
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(3000);
+        await Task.Delay(3000); // simulate slow loading of the initial data
         GridData = GenerateGridData();
     }
 }
