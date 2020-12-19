@@ -96,11 +96,13 @@ The following list of resources provides examples for data binding a grid in var
 
 ### Loading Animation
 
-When the user performs CRUD operations in the grid (such as paging, filtering, sorting, grouping; editing, inserting and deleting records), the grid will display a loading sign over itself when it detects a long-running operation (over 100ms). This improves the user experience so they know they have to wait for the action to complete, and also prevents repeated actions.
+When the user performs data operations in the grid, the grid will display a loading sign over itself when it detects a long-running operation (over 100ms). This improves the user experience so they know they have to wait for the action to complete, and also prevents repeated actions.
 
-When using the [`OnRead` event]({%slug components/grid/manual-operations%}), the loading sign will display every time it is called.
+The operations include paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records.
 
 The grid will not, however, display a loading animation during its initial rendering. It cannot know when or even if data will be provided to it, and having an automatic loading sign appear can either make it show up indefinitely, or it could prevent the user from altering any saved grid state (such as changing filters). If you want a loading animation on the initial load, you can add a [LoaderContainer component]({%slug loadercontainer-overview%}#basic-loadercontainer) with the desired `Visible` logic.
+
+When using the [`OnRead` event]({%slug components/grid/manual-operations%}), the loading sign will display every time its event handler is called, which will include the initial load of data - the grid will raise that request every time.
 
 You can see both scenarios in action in the [Live Demo: Grid Loading Animation](https://demos.telerik.com/blazor-ui/grid/loading-animation).
 
