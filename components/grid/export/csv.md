@@ -41,7 +41,7 @@ Optionally, you can also set the `GridCsvExport` tag settings under the `GridExp
 
     <GridToolBar>
         <GridCommandButton Command="CsvExport" Icon="@IconName.FileCsv">Export to CSV</GridCommandButton>
-        <label><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
+        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBar>
 
     <GridExport>

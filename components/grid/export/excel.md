@@ -41,7 +41,7 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 
     <GridToolBar>
         <GridCommandButton Command="ExcelExport" Icon="@IconName.FileExcel">Export to Excel</GridCommandButton>
-        <label><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
+        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBar>
 
     <GridExport>
