@@ -89,7 +89,7 @@ Bound columns render the name of the field or their `Title` in their header. Thr
 
 >note If you need to use block elements in the header templates, keep in mind that they will push the sort indicator out of its expected position. If you cannot avoid block elements (such as in the `ID` column in the example above), add a CSS rule like the ones below to adjust the sort indicator.
 
->caption Sort indicator adjustments when block elements are in the header template
+>caption Sort indicator adjustments when block elements are in the header template - you may need it for theme versions prior to the year 2021
 
 ````CSS
 .k-grid th.k-header .k-icon.k-i-sort-asc-sm,
