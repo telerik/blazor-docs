@@ -82,3 +82,8 @@ from model: @person.theTbValue
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
 >tip Telerik inputs also offer an `OnChange` event that does not interfere with two-way binding. It fires on blur or on `Enter`.
+
+
+## See also
+
+* [Knowledge Base article: Validate a Telerik component as child control and apply invalid border ]({%slug inputs-kb-validate-child-component%})

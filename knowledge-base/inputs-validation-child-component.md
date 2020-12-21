@@ -2,8 +2,8 @@
 title: Validate a Telerik component as child control and apply invalid border
 description: How to Validate a Telerik component as child control and apply invalid border
 type: how-to
-page_title: Capture input keyboard events
-slug: inputs-kb-handle-keyboard-events
+page_title: Validate a Telerik component as child control and apply invalid border
+slug: inputs-kb-validate-child-component
 position: 
 tags: 
 ticketid: 1499665
@@ -125,3 +125,7 @@ The example below shows how to wrap the ComboBox (adding two-way data binding) i
     }
 }
 ````
+
+## See also
+
+* [Knowledge Base article: How to handle the ValueChanged event and use forms and validation. ]({%slug value-changed-validation-model%})
