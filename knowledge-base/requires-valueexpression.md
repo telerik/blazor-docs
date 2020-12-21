@@ -44,3 +44,8 @@ There are three common ways to resolve such an error:
 * Move the `EditForm` inside the component that hosts all the input. This will make it throw the exception immediately, not only when used in a particular case. This will let you evaluate how to solve the situation according to the previous points, and can let you expose only relevant events/logic/parameters to its parents, instead of expecting them to provide a form and validator.
 * If you do not define a `Value` at all, consider whether such an input needs to be in the form in the first place (for example, putting an `<InputText />` in an `EditForm` without defining the value and binding settings will throw the same error.
 
+
+## See also
+
+* [Knowledge Base article: Validate a Telerik component as child control and apply invalid border ]({%slug inputs-kb-validate-child-component%})
+
