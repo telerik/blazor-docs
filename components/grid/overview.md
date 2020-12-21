@@ -93,6 +93,21 @@ The following list of resources provides examples for data binding a grid in var
 
 * **Foreign Keys** - using foreign tables and keys is usually done through the grid templates. You can read more and find examples in the [Grid - Foreign Key]({%slug grids-foreign-key%}) KnowledgeBase article.
 
+
+### Loading Animation
+
+When the user performs data operations in the grid, the grid will display a loading sign over itself when it detects a long-running operation (over 100ms). This improves the user experience so they know they have to wait for the action to complete, and also prevents repeated actions.
+
+The operations include paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records.
+
+The grid will not, however, display a loading animation during its initial rendering. It cannot know when or even if data will be provided to it, and having an automatic loading sign appear can either make it show up indefinitely, or it could prevent the user from altering any saved grid state (such as changing filters). If you want a loading animation on the initial load, you can add a [LoaderContainer component]({%slug loadercontainer-overview%}#basic-loadercontainer) with the desired `Visible` logic.
+
+When using the [`OnRead` event]({%slug components/grid/manual-operations%}), the loading sign will display every time its event handler is called, which will include the initial load of data - the grid will raise that request every time.
+
+You can see both scenarios in action in the [Live Demo: Grid Loading Animation](https://demos.telerik.com/blazor-ui/grid/loading-animation).
+
+
+
 ## Blazor Grid Reference
 
 The grid is a generic component, and to store a reference, you must use the model type that you pass to its `Data` when declaring the variable.
