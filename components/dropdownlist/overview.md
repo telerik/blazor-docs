@@ -57,6 +57,8 @@ The DropDownList provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the dropdownlist.
 
+* `PopupClass` - additional CSS class to customize the appearance of the DropDownList's dropdown.
+
 * `Data` - allows you to provide the data source. Required.
 
 * `DefaultText` - sets the hint that is shown if the `Value` has the `default` value for the type of the `ValueField`. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. You can find examples in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article.
