@@ -56,6 +56,8 @@ You can define the `HeaderTemplate` with the following configuration in the `Tab
 </TelerikTabStrip>
 ````
 
+>tip If you only need to add some styling to the TabStripTab header, you can use the `Class` parameter of the `TabStripTab` to define your custom CSS class instead of the Header template.
+
 ## See Also
 
   * [Live Demo: TabStrip Header Template](https://demos.telerik.com/blazor-ui/tabstrip/header-template)
