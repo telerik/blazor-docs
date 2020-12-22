@@ -28,20 +28,22 @@ I am wrapping a Telerik component inside a custom control for my application. Wh
 
 ## Solution
 
-Internally, our components use the `EditContext` to determine if the validation is passing. When you abstract them in a custom component you should specify the `ValueExpression` - this is the field that notifies the framework (`EditForm`) what value should pass certain criteria.
+Internally, the Telerik Blazor components use the cascading `EditContext` parameter that the `EditForm` provides to determine if validation passes or fails. If it fails, we add a class that shows a red border around the component. 
 
-The example below shows how to wrap the ComboBox (adding two-way data binding) in a different `.razor` file and get the invalid red border when the validation does not pass.
+When you abstract the component in a custom component you should specify the `ValueExpression` - this is the field that notifies the framework (`EditForm`) what value should pass certain criteria. It is generated automatically by the framework when using `@bind-Value` when directly in the edit form, but not when there is another component in the hierarchy.
+
+The example below shows how to wrap a ComboBox (adding two-way data binding) in a different `.razor` file and get the invalid red border when the validation does not pass.
 
 >caption Validate the ComboBox wrapped in a custom component
 
-````CustomComponent
+````MyCustomComponent
 @* Validate the value for the combobox. In this example the invalid value is the CEO *@
 
 @typeparam T
 
 @using System.Linq.Expressions
 
-<TelerikComboBox Value="@CBValue" ValueChanged="@( (int? v) => RaiseValueChanged(v) )" ValueExpression="@CustomValueExpression"
+<TelerikComboBox Value="@CBValue" ValueChanged="@( async (int? v) => await RaiseValueChanged(v) )" ValueExpression="@CustomValueExpression"
                  Data="@MyData" TextField="@TextFiedCustom" ValueField="@ValueFiedCustom" Id="@MyId">
 </TelerikComboBox>
 
@@ -61,17 +63,20 @@ The example below shows how to wrap the ComboBox (adding two-way data binding) i
     [Parameter]
     public string MyId { get; set; }
 
-    void RaiseValueChanged(int? v)
+    async Task RaiseValueChanged(int? v)
     {
+        // two-way binding for the current component, and raising an event that provides
+        // two-way binding for the parent component. We can't use @bind-Value here because
+        // we want to explicitly set the ValueExpression for the validation
         CBValue = v;
         if (CBValueChanged.HasDelegate)
         {
-            CBValueChanged.InvokeAsync(CBValue);
+            await CBValueChanged.InvokeAsync(CBValue);
         }
     }
 }
 ````
-````Usage
+````MainComponent
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
@@ -81,11 +86,12 @@ The example below shows how to wrap the ComboBox (adding two-way data binding) i
         <label for="teamCombobox">Team:</label>
 
         <MyCustomComponent @bind-CBValue="@person.Team"
+                           CustomValueExpression="@( () => person.Team )"
+                           
                            MyData="@teams"
                            MyId="teamCombobox"
                            TextFiedCustom="MyTextField"
-                           ValueFiedCustom="MyValueField"
-                           CustomValueExpression="@( () => person.Team )">
+                           ValueFiedCustom="MyValueField">
         </MyCustomComponent>
 
         <ValidationMessage For="@(() => person.Team)"></ValidationMessage>
@@ -95,7 +101,6 @@ The example below shows how to wrap the ComboBox (adding two-way data binding) i
 </EditForm>
 
 @code {
-
     public class Person
     {
         [Required(ErrorMessage = "Team is mandatory.")]//the value field in the combobox model must be null for this to have effect
