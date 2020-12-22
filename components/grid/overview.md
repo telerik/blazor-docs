@@ -377,7 +377,7 @@ You can find additional examples on how to implement different scenarios with th
 
 * [Filter and Edit Enum in Grid]({%slug grid-kb-filter-edit-enum%})
 
-* [Force a Grid to Refresh]({%slug grid-force-refresh})
+* [Force a Grid to Refresh]({%slug grid-force-refresh%})
 
 * [Get Filtered Data from Grid]({%slug grid-kb-get-filtered-data%})
 
