@@ -47,6 +47,8 @@ Reordering a tile fires the [OnReorder event]({%slug tilelayout-events%}#onreord
 </TelerikTileLayout>
 ````
 
+>note When the tile layout has reordering enabled, it captures mouse events in its header. Thus, if you put components in the `HeaderTemplate` of `TileLayoutItem` instances, they may not function as expected. For example, you may not be able to focus inputs with the mouse. The header is designed for presentation purposes and to allow dragging, and we recommend you consider putting editors or complex content in the `Content` of the tiles.
+
 ## See Also
 
   * [Overview]({%slug tilelayout-overview%})
