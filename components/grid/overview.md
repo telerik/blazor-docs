@@ -20,7 +20,7 @@ The Telerik Blazor grid is built on native Blazor from the ground up, by a compa
 
 1. use the `TelerikGrid` tag
 1. set its `Data` attribute to the variable that will hold your collection of data
-1. under its `GridColumns` tag, set the desired [`GridColumn`]({%slug components/grid/columns/bound%}) instances whose `Field` property points to the name of the model field
+1. under its `GridColumns` tag, set the desired [`GridColumn`]({%slug components/grid/columns/bound%}) instances whose `Field` property points to the name of the model field or allow the Grid to [automatically generate]({%slug grid-columns-automatically-generated%}) its columns
 
 >caption Get started with the grid by providing it with a data collection and enabling its key features
 
