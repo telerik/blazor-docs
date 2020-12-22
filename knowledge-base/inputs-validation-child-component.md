@@ -1,8 +1,8 @@
 ---
-title: Validate a Telerik component as child control and apply invalid border
-description: How to Validate a Telerik component as child control and apply invalid border
+title: Validate a Telerik component as child component and apply invalid border
+description: How to Validate a Telerik component as child component and apply invalid border
 type: how-to
-page_title: Validate a Telerik component as child control and apply invalid border
+page_title: Validate a Telerik component as child component and apply invalid border
 slug: inputs-kb-validate-child-component
 position: 
 tags: 
@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I am wrapping a Telerik component inside a custom control for my application. When I try to validate it the red invalid border does not appear.
+I am wrapping a Telerik component inside a custom component for my application. When I try to validate it the red invalid border does not appear.
 
 
 ## Solution
