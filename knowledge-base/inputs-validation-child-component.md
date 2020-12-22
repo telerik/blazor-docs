@@ -42,6 +42,7 @@ This component is generic to showcase the concept, it does not have to be if you
 *@
 
 @typeparam T
+@typeparam TItem
 
 @using System.Linq.Expressions
 
@@ -57,7 +58,7 @@ This component is generic to showcase the concept, it does not have to be if you
     [Parameter]
     public Expression<System.Func<T>> CustomValueExpression { get; set; }
     [Parameter]
-    public IEnumerable<MyDdlModel> MyData { get; set; }
+    public IEnumerable<TItem> MyData { get; set; }
     [Parameter]
     public string TextFiedCustom { get; set; }
     [Parameter]
@@ -97,6 +98,7 @@ This component is generic to showcase the concept, it does not have to be if you
         </MyCustomComponent>
 
         <ValidationMessage For="@(() => person.Team)"></ValidationMessage>
+        <div>Current value: @person.Team</div>
     </p>
 
     <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
