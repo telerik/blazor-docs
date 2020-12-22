@@ -38,7 +38,7 @@ The example below shows how to wrap a ComboBox (adding two-way data binding) in 
 
 ````MyCustomComponent
 @* Validate the value for the combobox. In this example the invalid value is the CEO or no selection.
-This component is generic to showcase the concept, it does not have to be if you know the data type of the field or you do not itend to use it for several field types. It receives its Data from the parent to showcase this is possible too. We use a nullable integer in this example.
+This component is generic to showcase the concept, it does not have to be if you know the data type of the field or you do not itend to use it for several field types. It receives its Data from the parent to showcase this is possible too. We use a nullable integer and a string   in this example.
 *@
 
 @typeparam T
@@ -47,7 +47,7 @@ This component is generic to showcase the concept, it does not have to be if you
 @using System.Linq.Expressions
 
 <TelerikComboBox Value="@CBValue" ValueChanged="@( async (T v) => await RaiseValueChanged(v) )" ValueExpression="@CustomValueExpression"
-                 Data="@MyData" TextField="@TextFiedCustom" ValueField="@ValueFiedCustom" Id="@MyId">
+                 Data="@MyData" TextField="@TextFiedCustom" ValueField="@ValueFiedCustom" Id="@MyId" AllowCustom="@AllowCustom">
 </TelerikComboBox>
 
 @code {
@@ -65,6 +65,8 @@ This component is generic to showcase the concept, it does not have to be if you
     public string ValueFiedCustom { get; set; }
     [Parameter]
     public string MyId { get; set; }
+    [Parameter]
+    public bool AllowCustom { get; set; }
 
     async Task RaiseValueChanged(T v)
     {
@@ -90,15 +92,27 @@ This component is generic to showcase the concept, it does not have to be if you
 
         <MyCustomComponent @bind-CBValue="@person.Team"
                            CustomValueExpression="@( () => person.Team )"
-
                            MyData="@teams"
                            MyId="teamCombobox"
                            TextFiedCustom="MyTextField"
                            ValueFiedCustom="MyValueField">
         </MyCustomComponent>
-
-        <ValidationMessage For="@(() => person.Team)"></ValidationMessage>
         <div>Current value: @person.Team</div>
+        <ValidationMessage For="@(() => person.Team)"></ValidationMessage>
+    </p>
+    <p>
+        <label for="rolesCombobox">Team:</label>
+        <MyCustomComponent @bind-CBValue="@person.Role"
+                           CustomValueExpression="@( () => person.Role )"
+                           MyData="@roles"
+                           MyId="rolesCombobox"
+                           TextFiedCustom="Text"
+                           ValueFiedCustom="Value"
+                           AllowCustom="true">
+        </MyCustomComponent>
+
+        <ValidationMessage For="@(() => person.Role)"></ValidationMessage>
+        <div>Current value: @person.Role</div>
     </p>
 
     <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
@@ -115,6 +129,13 @@ This component is generic to showcase the concept, it does not have to be if you
         new MyDdlModel {MyTextField = "CEO", MyValueField = 4}
     };
 
+    IEnumerable<MyDdlModelString> roles = new List<MyDdlModelString>
+    {
+        new MyDdlModelString { Text = "Developer", Value = "Dev" },
+        new MyDdlModelString { Text = "QA", Value = "QA" },
+        new MyDdlModelString { Text = "Support", Value = "Support" }
+    };
+
     void HandleValidSubmit()
     {
         Console.WriteLine("OnValidSubmit");
@@ -129,6 +150,10 @@ public class Person
     [Required(ErrorMessage = "Team is mandatory.")]//the value field in the combobox model must be null for this to have effect
     [Range(1, 3, ErrorMessage = "Please select an actual team.")] //limits the fourth option just to showcase this is honored
     public int? Team { get; set; }
+
+    [Required]
+    [StringLength(10, ErrorMessage = "Enter less than 10 symbols")]
+    public string Role { get; set; }
 }
 ````
 ````MyDdlModel
@@ -136,6 +161,13 @@ public class MyDdlModel
 {
     public int? MyValueField { get; set; }
     public string MyTextField { get; set; }
+}
+````
+````MyDdlModelString
+public class MyDdlModelString
+{
+    public string Value { get; set; }
+    public string Text { get; set; }
 }
 ````
 
