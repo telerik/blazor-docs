@@ -68,7 +68,7 @@ The Slider provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the slider.
 
-* `Decimals` - a setting that helps avoid <a href="https://en.wikipedia.org/wiki/Round-off_error" target="_blank">round-off errors</a> (see more <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems" target="_blank">here</a>).
+* `Decimals` - a setting that helps avoid <a href="https://en.wikipedia.org/wiki/Round-off_error" target="_blank">round-off errors</a> (see more <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems" target="_blank">here</a>). The slider uses that to determine how many decimals to take and set to the value when calculating the differences between the min and max, and the steps.
 
 * `Enabled` - whether the component is enabled.
 
@@ -111,10 +111,47 @@ The Slider provides the following features:
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
 
+## Examples
+
+
+### Matching Ticks Steps, Min, Max
+
+You can use a multiplier over the small step to set the large step, and to ensure that this can divide the difference between the min and max. This will provide the best possible appearance where ticks will be distributed evently and you will be able to use the full range of the slider.
+
+![matching ticks](images/slider-matching-ticks.png)
+
+````CSHTML
+@TheValue
+<br />
+<TelerikSlider @bind-Value="@TheValue" SmallStep="5m" LargeStep="15m" Min="5m" Max="50m">
+</TelerikSlider>
+
+@code{
+    decimal TheValue { get; set; } = 20m;
+}
+````
+
+### Not Matching Ticks Steps, Min, Max
+
+In this example, the max value does not match the large step, small step and the min, so the max value is not rendered and the user can only go up to `90` instead of `100`. The small and large steps match in this example, however, the only "issue" is the `Max` value.
+
+![non-matching values](images/slider-non-matching-ticks.png)
+
+````CSHTML
+@TheValue
+<br />
+<TelerikSlider @bind-Value="@TheValue" SmallStep="15m" LargeStep="30m" Min="0m" Max="100m">
+</TelerikSlider>
+
+@code{
+    decimal TheValue { get; set; } = 12.3m;
+}
+````
 
 
 ## See Also
 
 * [Live Demo: Slider](https://demos.telerik.com/blazor-ui/slider/overview)
+* [Live Demo: Slider Settings](https://demos.telerik.com/blazor-ui/slider/customization)
 * [Slider Events]({%slug slider-events%})
 
