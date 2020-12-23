@@ -94,9 +94,9 @@ The Slider provides the following features:
 
 * `SmallStep` - defines the step through which the slider `Value` is changed when the user drags the handle. Also defines where small ticks appear on the track to indicate a value that can be selected. Required.
 
-    * We recommend matching `SmallStep` with the `LargeStep` for imroved visual appearance (e.g., multiply the `SmallStep` by the desired whole number and set that to the `LargeStep`). 
+    * We recommend matching the `SmallStep` with the `LargeStep` for imroved visual appearance (e.g., multiply the `SmallStep` by the desired whole number and set that to the `LargeStep`). 
 
-    * The slider starts rendering ticks from the `Min` value and so if the `Max` does not match a tick, it will not be rendered. For example, if `Min=0` and `Max=100` but `SmallStep=15` the final value that will render will be `90` (four times the small step) and not `100`.
+    * The slider starts rendering ticks from the `Min` value and so if the `Max` does not match a tick, it will not be rendered. For example, if `Min=0` and `Max=100` but `SmallStep=15` the final value that will render will be `90` (four times the small step) and not `100`. See an [example](#not-matching-ticks-steps-min-max) below.
 
 * `TickPosition` - lets you choose where the ticks render. Takes a member of the `Telerik.Blazor.SliderTickPosition` enum. Defaults to `Both`. Can be `Before`, `After`, `Both`, `None`. For example, with the default horizontal slider, these values will render ticks above, below, both above and below, and no ticks.
 
@@ -113,10 +113,15 @@ The Slider provides the following features:
 
 ## Examples
 
+This section provides the following examples to showcase some of the slider features and their behavior:
+
+* [Matching Ticks Steps, Min, Max](#matching-ticks-steps-min-max)
+* [Not Matching Ticks Steps, Min, Max](#not-matching-ticks-steps-min-max)
+* [Vertical Slider Without Buttons](#vertical-slider-without-buttons)
 
 ### Matching Ticks Steps, Min, Max
 
-You can use a multiplier over the small step to set the large step, and to ensure that this can divide the difference between the min and max. This will provide the best possible appearance where ticks will be distributed evently and you will be able to use the full range of the slider.
+You can use a multiplier over the small step to set the large step, and to ensure that this can divide the difference between the min and max. This will provide the best possible appearance where ticks will be distributed evenly and you will be able to use the full range of the slider.
 
 ![matching ticks](images/slider-matching-ticks.png)
 
@@ -148,6 +153,23 @@ In this example, the max value does not match the large step, small step and the
 }
 ````
 
+### Vertical Slider Without Buttons
+
+This example shows how to make the slider vertical and how to remove the increase/decrease buttons. You can use these settings separately, of course.
+
+````CSHTML
+@TheValue
+<br /><br />
+<TelerikSlider Orientation="@SliderOrientation.Vertical" ShowButtons="false"
+               @bind-Value="@TheValue" SmallStep="10" LargeStep="20" Min="0" Max="100">
+</TelerikSlider>
+
+@code{
+    int TheValue { get; set; } = 30;
+}
+````
+
+![vertical slider without buttons](images/vertical-slider-without-buttons.png)
 
 ## See Also
 
