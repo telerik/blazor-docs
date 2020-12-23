@@ -12,8 +12,10 @@ position: 1
 
 Localization (L10N) is the process of customizing an app for a given language and region. The Telerik UI for Blazor suite lets you translate its UI elements into the desired language. This includes texts of buttons, filter operators, WAI-ARIA attributes and so on. This article will show you how to use this feature in your application:
 
+
 1. [How Localization Works in the Telerik Components](#how-localization-works-in-the-telerik-components)
 1. [How to Enable Localization in Your App](#how-to-enable-localization-in-your-app)
+	* [Sample Projects](#sample-projects)
 
 ## How Localization Works in the Telerik Components
 
@@ -33,23 +35,32 @@ Telerik provides and supports the default English texts. The offline demos carry
 
 When localizing a Blazor app, make sure you are familiar with the way localization works in the framework. You can start from the following resources:
 
-* [Globalization and Localization in Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/globalization-localization?view=aspnetcore-3.1)
-* [Localization in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-3.0)
+* [Globalization and Localization in Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/globalization-localization)
+* [Localization in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization)
 
->tip You can find sample runnable projects for both server-side Blazor and for WebAssembly in the [Telerik Blazor UI Samples Repo](https://github.com/telerik/blazor-ui/tree/master/common/localization/).
->
->You can also find an example server-side implementation in our offline demos project that are available your Telerik UI for Blazor installation (both [automated](../installation/automated) and [zip](../installation/zip)).
+### Sample Projects
+
+You can find sample runnable projects for both server-side Blazor and for WebAssembly in the [Telerik Blazor UI Samples Repo](https://github.com/telerik/blazor-ui/tree/master/common/localization/):
+
+* <a href="https://github.com/telerik/blazor-ui/tree/master/common/localization/ServerLocalizationResx" target="_blank"><strong>Server-side Blazor App Localization Sample Project</strong></a>
+
+* <a href="https://github.com/telerik/blazor-ui/tree/master/common/localization/ClientLocalizationResx" target="_blank"><strong>WebAssembly (Client-side Blazor) App Localization Sample Project</strong></a>
+
+You can also find an example server-side implementation in our offline demos project that are available your Telerik UI for Blazor installation (both [automated](../installation/automated) and [zip](../installation/zip)).
 
 
 ### Walkthrough - How to Add Globalization and Localization to a Server-side Blazor App
 
-This section will show a tutorial on how to add globalization and localization to a server-side Blazor app. For a WebAssemly app, chek out the [ClientLocalizationResx sample project](https://github.com/telerik/blazor-ui/tree/master/common/localization/ClientLocalizationResx).
+>note This section will show a tutorial on how to add globalization and localization to a server-side Blazor app. For a WebAssemly app, chek out the [ClientLocalizationResx sample project](https://github.com/telerik/blazor-ui/tree/master/common/localization/ClientLocalizationResx). The majority of the code is to enable localization in the app itself, the Telerik-specific portion is the same in both WebAssembly and server-side Blazor apps - implementing a service to return the translated strings.
 
 The necessary steps are to:
 
 1. Enable the .NET Core localization services.
+
 1. Implement the UI culture storage (for example, a cookie).
+
 1. Optionally, add UI that will let the user change the culture so you can test how this works (for example, a dropdownlist that will redirect to the appropriate controller). Alternatively, you can hardcode the `options.DefaultRequestCulture` in the `ConfigureServices` method inside `Startup.cs` when generating the options for the framework localization service.
+
 1. Implement a service for localizing the Telerik components - it must return the desired string based on the current culture and the requested key (see the explanations above).
 
 
