@@ -385,6 +385,8 @@ intro_columns:
       "Switch": "switch-overview"
       "Radio Button Group" : "radiogroup-overview"
       "HTML Editor": "editor-overview"
+      "Slider": "slider-overview"
+      "RangeSlider": "rangeslider-overview"
 
 -
   categories:
