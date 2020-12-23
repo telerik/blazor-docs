@@ -68,7 +68,7 @@ The Slider provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the slider.
 
-* `Decimals` - a setting that helps avoid <a href="https://en.wikipedia.org/wiki/Round-off_error" target="_blank">round-off errors</a> (see more <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems" target="_blank">here</a>). The slider uses that to determine how many decimals to take and set to the value when calculating the differences between the min and max, and the steps.
+* `Decimals` - a setting that helps avoid <a href="https://en.wikipedia.org/wiki/Round-off_error" target="_blank">round-off errors</a> (see more <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems" target="_blank">here</a>). The slider uses that to determine how many decimals to take and set to the value when calculating the differences between the min and max, and the steps. You can see an [example](#decimals-and-rounding-errors) below.
 
 * `Enabled` - whether the component is enabled.
 
@@ -118,6 +118,7 @@ This section provides the following examples to showcase some of the slider feat
 * [Matching Ticks Steps, Min, Max](#matching-ticks-steps-min-max)
 * [Not Matching Ticks Steps, Min, Max](#not-matching-ticks-steps-min-max)
 * [Vertical Slider Without Buttons](#vertical-slider-without-buttons)
+* [Decimals and Rounding Errors](#decimals-and-rounding-errors)
 
 ### Matching Ticks Steps, Min, Max
 
@@ -169,7 +170,42 @@ This example shows how to make the slider vertical and how to remove the increas
 }
 ````
 
+
 ![vertical slider without buttons](images/vertical-slider-without-buttons.png)
+
+
+### Decimals and Rounding Errors
+
+The first slider in this example has a sufficient precision (`Decimals`) to properly handle the values that it will have to render in its labels and set in its `Value`. The second slider does not have sufficient precision - the `Decimals` value is too low and thus the rounding in the labels texts and of the `Value` will be off a little.
+
+To see the difference in how rounding can have issues with insufficient precision, try changing the values from each slider - you will see that the second slider does not respond "correctly" and as expected.
+
+````CSHTML
+@TheValue
+<br /><br />
+
+@* Sufficient precision for the selected values and steps *@
+
+<TelerikSlider @bind-Value="@TheValue" Decimals="3"
+               SmallStep="0.005m" LargeStep="0.02m" Min="0m" Max="0.1m" Width="500px">
+</TelerikSlider>
+
+<br /><br />
+
+@* Insufficient precision for the current values and steps
+    the labels texts will be off and the value will not change every time you move the handle
+    only when it reaches the threshold of the decimals which default to 2 for invariant and most cultures*@
+
+<TelerikSlider @bind-Value="@TheValue" Decimals="2"
+               SmallStep="0.005m" LargeStep="0.02m" Min="0m" Max="0.1m" Width="500px">
+</TelerikSlider>
+
+@code{
+    decimal TheValue { get; set; } = 0.015m;
+}
+````
+
+
 
 ## See Also
 
