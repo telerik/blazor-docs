@@ -29,7 +29,7 @@ This article provides examples of validating the Telerik Blazor components. The 
 * [DateRangePicker](#daterangepicker)
 * [Editor](#editor)
 * [MaskedTextbox](#maskedtextbox)
-
+* [Sliders](#sliders)
 
 ## Simple Inputs
 
@@ -639,6 +639,54 @@ You may want to set the [`IncludeLiterals`]({%slug maskedtextbox-mask-prompt%}#i
     }
 }
 ````
+
+
+## Sliders
+
+The sliders are, effectively, numeric inputs in terms of behavior and what data they provide. Thus, you can apply the standard validation rules to them.
+
+>caption How to validate Sliders
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+
+<EditForm Model="@TheModel" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <p class="temperature">
+        Enter your temperature:
+        <TelerikSlider @bind-Value="@TheModel.BodyTemperature"
+                       Min="32.0"
+                       Max="45.0"
+                       Decimals="1"
+                       SmallStep="0.1"
+                       LargeStep="1.0"
+                       Width="100%">
+        </TelerikSlider>
+        <ValidationMessage For="@(() => TheModel.BodyTemperature)"></ValidationMessage>
+    </p>
+
+    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
+</EditForm>
+
+@code{
+    MyModel TheModel { get; set; } = new MyModel();
+
+    void HandleValidSubmit()
+    {
+        Console.WriteLine("Valid Submit");
+    }
+
+    public class MyModel
+    {
+        [Required(ErrorMessage = "Enter body temperature")]
+        [Range(35.0, 42.0, ErrorMessage = "Body temperature should be between 35 and 42. Please verify.")]
+        public double? BodyTemperature { get; set; }
+    }
+}
+````
+
 
 
 ## See Also
