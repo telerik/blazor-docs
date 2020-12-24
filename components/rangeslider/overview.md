@@ -12,7 +12,13 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/rangeslider" target="_blank">Blazor Range Slider component</a> allows the user to select a value range by dragging its handles along the track. It provides templates, various configuration options, validation and keyboard navigation.
 
-#### To use a Telerik RangeSlider for Blazor
+#### In This Article
+
+* [To use a Telerik RangeSlider for Blazor](#to-use-a-telerik-rangeslider-for-blazor)
+* [Features](#features)
+* [Examples](#examples)
+
+## To use a Telerik RangeSlider for Blazor
 
 1. Add the `TelerikRangeSlider` tag.
 1. Provide the `StartValue` and `EndValue` (one-way data binding) or `bind-StartValue` `bind-EndValue` (two-way data binding).
@@ -84,7 +90,7 @@ The Range Slider provides the following features:
 @[template](/_contentTemplates/slider/common.md#base-slider-features)
 
 
-* `StartValue` and `bind-StartValue`; and `EndValue` and `bind-EndValue`- the lower and higher value s of the slider that mark the range. Can be a numerical type (such as `int`, `decimal`, `double` and so on). 
+* `StartValue` and `EndValue`; and `bind-StartValue` and `bind-EndValue`- the lower and higher value s of the slider that mark the range. Can be a numerical type (such as `int`, `decimal`, `double` and so on). 
     
     * When the user moves the drag handle of the slider, it changes with the `SmallStep`, but you can set a value programmatically that will land the handle between the ticks and between those steps.
 
