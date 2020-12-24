@@ -10,75 +10,208 @@ position: 0
 
 # RangeSlider Overview
 
-The <a href="https://www.telerik.com/blazor-ui/rangeslider" target="_blank">Blazor RangeSlider component</a> allows you to add more customizable checkboxes to your application. It maintains the behavior of the standard HTML checkbox and provides checked, unchecked and [indeterminate]({%slug checkbox-indeterminate-state%}) states.
+The <a href="https://www.telerik.com/blazor-ui/slider" target="_blank">Blazor Slider component</a> allows the user to select a value by dragging its handle along the track, or by clicking the side arrow buttons. It provides templates, various configuration options, validation and keyboard navigation.
 
-#### To use a Telerik Checkbox for Blazor
+#### To use a Telerik RangeSlider for Blazor
 
-1. add the `TelerikCheckBox` tag
-1. provide `Value` (one-way data binding) or `bind-Value` (two-way data binding) property
+1. Add the `TelerikRangeSlider` tag.
+1. Provide the `Value` (one-way data binding) or `bind-Value` (two-way data binding) property.
+1. Choose the `Min`, `Max`, `SmallStep` and `LargeStep` settings to define the appearance and behavior of the slider.
 
 
->caption Basic setup of the Telerik CheckBox using two-way data binding
+>caption Basic setup of the Telerik Slider using two-way data binding
 
 ````CSHTML
-@*Basic setup of the Telerik CheckBox Component*@
+@* The user can choose integers with a step of 1 and every 20 there will be a major tick *@
 
-<TelerikCheckBox Id="myCheckBox" @bind-Value="@isSelected" />
-<label for="myCheckBox">@( isSelected ? "Selected" : "Not selected" )</label>
+@Volume
+<br />
+<TelerikSlider @bind-Value="@Volume"
+               Min="0"
+               Max="100"
+               SmallStep="1"
+               LargeStep="20"
+               Width="400px">
+</TelerikSlider>
 
-@code {
-    private bool isSelected { get; set; }
+@code{
+    int Volume { get; set; } = 33;
 }
 ````
+
+>caption The result from the code snippet above
+
+![slider first look](images/slider-overview.png)
+
+
+>caption Component namespace and reference
+
+The Slider is a generic component that takes the type of the `Value` which can be e numerical type.
+
+````CSHTML
+@TheValue
+<br />
+<TelerikSlider @bind-Value="@TheValue" SmallStep="0.5m" LargeStep="5m" Min="0m" Max="20m" @ref="@TheSlider">
+</TelerikSlider>
+
+@code{
+    Telerik.Blazor.Components.TelerikSlider<decimal> TheSlider { get; set; }
+
+    decimal TheValue { get; set; } = 12.3m;
+}
+````
+
 
 ## Features
 
-The CheckBox provides the following features:
+The Slider provides the following features:
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the CheckBox.
+* `Class` - the CSS class that will be rendered on the main wrapping element of the slider.
+
+* `Decimals` - a setting that helps avoid <a href="https://en.wikipedia.org/wiki/Round-off_error" target="_blank">round-off errors</a> (see more <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems" target="_blank">here</a>). The slider uses that to determine how many decimals to take and set to the value when calculating the differences between the min and max, and the steps. You can see an [example](#decimals-and-rounding-errors) below.
+
 * `Enabled` - whether the component is enabled.
-* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to it.
-* `TabIndex` - the `tabindex` attribute rendered on the CheckBox.
-* `Value` and `bind-Value`- mapped to the `Checked` property of the normal HTML checkbox
-  * The `Value` and `bind-Value` accept `bool` and `bool?` types
-* `Indeterminate` and `bind-Indeterminate` - see the [Indeterminate state]({%slug checkbox-indeterminate-state%}) article for more information and examples
-* Events - see the [CheckBox events]({%slug checkbox-events%}) article for more information and examples.
+
+* `Id` - renders as the `id` attribute on the main wrapping element.
+
+* `LabelTemplate` - lets you render your own custom labels for the major ticks.
+
+* `LargeStep` - defines where the larger (longer) ticks lie - they are rendere on every n-th occurence of the `LargeStep`. Required. 
+
+    * At least one large tick will be rendered in the beginning of the track, even if `LargeStep` is larger than the difference between the `Min` and `Max`. 
+    
+    * This is purely a presentational setting and we recommend setting it to a value that matches the range of the slider and the `SmallStep` for best appearance.
+    
+    * To disable the rendering of the large ticks, set the parameter to `0`.
+
+* `Max` - the maximum value on the slider. Required.
+
+* `Min` - the minimum value on the slider. Required. Must be lower than the `Max`.
+
+* `Orientation` - whether the slider will be horizontal (the default) or vertical. Takes a member of the `Telerik.Blazor.SliderOrientation` enum.
+
+* `ShowButtons` - whether there will be increase and decrase buttons at the ends of the slider. Defaults to `true`.
+
+* `SmallStep` - defines the step through which the slider `Value` is changed when the user drags the handle. Also defines where small ticks appear on the track to indicate a value that can be selected. Required.
+
+    * We recommend matching the `SmallStep` with the `LargeStep` for imroved visual appearance (e.g., multiply the `SmallStep` by the desired whole number and set that to the `LargeStep`). 
+
+    * The slider starts rendering ticks from the `Min` value and so if the `Max` does not match a tick, it will not be rendered. For example, if `Min=0` and `Max=100` but `SmallStep=15` the final value that will render will be `90` (four times the small step) and not `100`. See an [example](#not-matching-ticks-steps-min-max) below.
+
+* `TickPosition` - lets you choose where the ticks render. Takes a member of the `Telerik.Blazor.SliderTickPosition` enum. Defaults to `Both`. Can be `Before`, `After`, `Both`, `None`. For example, with the default horizontal slider, these values will render ticks above, below, both above and below, and no ticks.
+
+* `Value` and `bind-Value`- the value of the slider. Can be a numerical type (such as `int`, `decimal`, `double` and so on). 
+    
+    * When the user moves the drag handle of the slider, it changes with the `SmallStep`, but you can set a value programmatically that will land the handle between the ticks and between those steps.
+
+* `Width` - the width of the main element. In case you would like it to fit to a container you could set it to `100%` or other percent value depending on the application needs. You can read more in the [Dimensions]({%slug common-features/dimensions%}) article.
+
+* Events - see the [Slider events]({%slug slider-events%}) article for more information and examples.
+
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
+
 
 ## Examples
 
->caption Example that showcases the "I agree to the terms and conditions" basic scenario
+This section provides the following examples to showcase some of the slider features and their behavior:
+
+* [Matching Ticks Steps, Min, Max](#matching-ticks-steps-min-max)
+* [Not Matching Ticks Steps, Min, Max](#not-matching-ticks-steps-min-max)
+* [Vertical Slider Without Buttons](#vertical-slider-without-buttons)
+* [Decimals and Rounding Errors](#decimals-and-rounding-errors)
+
+### Matching Ticks Steps, Min, Max
+
+You can use a multiplier over the small step to set the large step, and to ensure that this can divide the difference between the min and max. This will provide the best possible appearance where ticks will be distributed evenly and you will be able to use the full range of the slider.
+
+![matching ticks](images/slider-matching-ticks.png)
 
 ````CSHTML
-@if (hasAgreed)
-{
-    <div class="alert alert-success w-50">
-        Thank you for agreeing to our terms and conditions!
-    </div>
-}
-else
-{
-    <p class="w-50 text-justify">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi lectus, ultrices sed libero et, tempor rutrum mauris. Praesent sit amet suscipit leo, ut hendrerit lacus. Mauris posuere, mi in elementum pretium, sem elit maximus mauris, ac tempus turpis nunc sed orci. Nunc velit lacus, rutrum et dui mattis, condimentum fermentum velit. Pellentesque et elit rhoncus, sodales nibh ac, faucibus tellus. Vestibulum vitae tempor tellus. Sed maximus sem quis est posuere, efficitur porttitor augue tincidunt. Sed viverra dapibus ullamcorper. Vestibulum ex arcu, molestie sed quam vulputate, aliquet cursus lectus. Aenean sollicitudin condimentum fringilla. Integer arcu justo, sollicitudin ut libero ut, posuere finibus sapien. Suspendisse hendrerit convallis urna.
-        Donec eu sodales dui, et consequat massa. Integer vitae euismod dui, id rhoncus tellus. Ut luctus leo eget sapien eleifend facilisis. Duis sed maximus tortor. Ut nunc nibh, pulvinar a enim eget, mattis sagittis sem. Mauris odio nibh, aliquet a erat sit amet.
-    </p>
-}
+@TheValue
+<br />
+<TelerikSlider @bind-Value="@TheValue" SmallStep="5m" LargeStep="15m" Min="5m" Max="50m">
+</TelerikSlider>
 
-<TelerikCheckBox Id="myCheckBox" @bind-Value="@hasAgreed" />
-<label for="myCheckBox">I agree to the terms and conditions</label>
-
-
-@code {
-    private bool hasAgreed { get; set; }
+@code{
+    decimal TheValue { get; set; } = 20m;
 }
 ````
->caption The result from the code snippet above
 
-![screenshot to showcase checkbox with bind-Indeterminate](images/checkbox-two-way-data-bind.gif)
+### Not Matching Ticks Steps, Min, Max
+
+In this example, the max value does not match the large step, small step and the min, so the max value is not rendered and the user can only go up to `90` instead of `100`. The small and large steps match in this example, however, the only "issue" is the `Max` value.
+
+![non-matching values](images/slider-non-matching-ticks.png)
+
+````CSHTML
+@TheValue
+<br />
+<TelerikSlider @bind-Value="@TheValue" SmallStep="15m" LargeStep="30m" Min="0m" Max="100m">
+</TelerikSlider>
+
+@code{
+    decimal TheValue { get; set; } = 12.3m;
+}
+````
+
+### Vertical Slider Without Buttons
+
+This example shows how to make the slider vertical and how to remove the increase/decrease buttons. You can use these settings separately, of course.
+
+````CSHTML
+@TheValue
+<br /><br />
+<TelerikSlider Orientation="@SliderOrientation.Vertical" ShowButtons="false"
+               @bind-Value="@TheValue" SmallStep="10" LargeStep="20" Min="0" Max="100">
+</TelerikSlider>
+
+@code{
+    int TheValue { get; set; } = 30;
+}
+````
+
+
+![vertical slider without buttons](images/vertical-slider-without-buttons.png)
+
+
+### Decimals and Rounding Errors
+
+The first slider in this example has a sufficient precision (`Decimals`) to properly handle the values that it will have to render in its labels and set in its `Value`. The second slider does not have sufficient precision - the `Decimals` value is too low and thus the rounding in the labels texts and of the `Value` will be off a little.
+
+To see the difference in how rounding can have issues with insufficient precision, try changing the values from each slider - you will see that the second slider does not respond "correctly" and as expected.
+
+![precision issues with wrong Decimals setting](images/slider-precision-issue.gif)
+
+````CSHTML
+@TheValue
+<br /><br />
+
+@* Sufficient precision for the selected values and steps *@
+
+<TelerikSlider @bind-Value="@TheValue" Decimals="3"
+               SmallStep="0.005m" LargeStep="0.02m" Min="0m" Max="0.1m" Width="500px">
+</TelerikSlider>
+
+<br /><br />
+
+@* Insufficient precision for the current values and steps
+    the labels texts will be off and the value will not change every time you move the handle
+    only when it reaches the threshold of the decimals which default to 2 for invariant and most cultures*@
+
+<TelerikSlider @bind-Value="@TheValue" Decimals="2"
+               SmallStep="0.005m" LargeStep="0.02m" Min="0m" Max="0.1m" Width="500px">
+</TelerikSlider>
+
+@code{
+    decimal TheValue { get; set; } = 0.015m;
+}
+````
+
 
 
 ## See Also
 
-* [Live Demo: CheckBox](https://demos.telerik.com/blazor-ui/checkbox/overview)
-* [CheckBox Events]({%slug checkbox-events%})
-* [Indeterminate State]({%slug checkbox-indeterminate-state%})
+* [Live Demo: Slider](https://demos.telerik.com/blazor-ui/slider/overview)
+* [Live Demo: Slider Settings](https://demos.telerik.com/blazor-ui/slider/customization)
+* [Slider Events]({%slug slider-events%})
+
