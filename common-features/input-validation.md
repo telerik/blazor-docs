@@ -667,6 +667,20 @@ The sliders are, effectively, numeric inputs in terms of behavior and what data 
         <ValidationMessage For="@(() => TheModel.BodyTemperature)"></ValidationMessage>
     </p>
 
+    <p class="price-range">
+        Enter your preferred price range:
+        <TelerikRangeSlider @bind-StartValue="@TheModel.StartPrice"
+                            @bind-EndValue="@TheModel.EndPrice"
+                            Min="5.0"
+                            Max="25.0"
+                            Decimals="1"
+                            SmallStep="0.5"
+                            LargeStep="1.0"
+                            Width="100%">
+        </TelerikRangeSlider>
+        <ValidationMessage For="@(() => TheModel.EndPrice)"></ValidationMessage>
+    </p>
+
     <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
 </EditForm>
 
@@ -683,6 +697,14 @@ The sliders are, effectively, numeric inputs in terms of behavior and what data 
         [Required(ErrorMessage = "Enter body temperature")]
         [Range(35.0, 42.0, ErrorMessage = "Body temperature should be between 35 and 42. Please verify.")]
         public double? BodyTemperature { get; set; }
+
+        [Required(ErrorMessage = "Enter price range start")]
+        [Range(10.0, 16.0, ErrorMessage = "Start Price Range should be between 10.0 and 16.0")]
+        public double? StartPrice { get; set; }
+
+        [Required(ErrorMessage = "Enter price range end")]
+        [Range(12.0, 20.0, ErrorMessage = "End Price Range should be between 12.0 and 20.0")]
+        public double? EndPrice { get; set; }
     }
 }
 ````
