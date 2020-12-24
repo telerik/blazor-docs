@@ -27,27 +27,29 @@ The labels are shown on each major tick (`LargeStep`) and by default they render
 
 This example shows how to use the current label value and to add styling and a currency symbol.
 
-![basic template with currency symbol and styling](images/slider-basic-template-currency.png)
+![basic template with currency symbol and styling](images/rangeslider-basic-template-currency.png)
 
 ````CSHTML
-@TheValue
+@TheStartValue.ToString("C2") to @TheEndValue.ToString("C2")
 <br /><br />
 
-<TelerikSlider @bind-Value="@TheValue"
-               Min="50.0m"
-               Max="170.0m"
-               SmallStep="5m"
-               LargeStep="20m"
-               Width="500px">
+<TelerikRangeSlider @bind-StartValue="@TheStartValue"
+                    @bind-EndValue="@TheEndValue"
+                    Min="50.0m"
+                    Max="170.0m"
+                    SmallStep="5m"
+                    LargeStep="20m"
+                    Width="500px">
     <LabelTemplate>
         <span style="font-weight:bold; font-style: italic;">
             @context.ToString("C2")
         </span>
     </LabelTemplate>
-</TelerikSlider>
+</TelerikRangeSlider>
 
 @code{
-    decimal TheValue { get; set; } = 70m;
+    decimal TheStartValue { get; set; } = 70m;
+    decimal TheEndValue { get; set; } = 80m;
 }
 ````
 
@@ -55,28 +57,30 @@ This example shows how to use the current label value and to add styling and a c
 
 This example shows how you can render text only for the min and max values of the slider.
 
-![labels for the min and max only](images/slider-labels-for-min-and-max-only.png)
+![labels for the min and max only](images/rangeslider-labels-for-min-and-max-only.png)
 
 ````CSHTML
-@TheValue
+@TheStartValue to @TheEndValue
 <br /><br />
 
-<TelerikSlider @bind-Value="@TheValue"
-               Min="@Min"
-               Max="@Max"
-               SmallStep="5m"
-               LargeStep="20m"
-               Width="500px">
+<TelerikRangeSlider @bind-StartValue="@TheStartValue"
+                    @bind-EndValue="@TheEndValue"
+                    Min="@Min"
+                    Max="@Max"
+                    SmallStep="5m"
+                    LargeStep="20m"
+                    Width="500px">
     <LabelTemplate>
         @if (context == Min || context == Max)
         {
             @context
         }
     </LabelTemplate>
-</TelerikSlider>
+</TelerikRangeSlider>
 
 @code{
-    decimal TheValue { get; set; } = 70m;
+    decimal TheStartValue { get; set; } = 70m;
+    decimal TheEndValue { get; set; } = 80m;
     decimal Min { get; set; } = 50.0m;
     decimal Max { get; set; } = 170m;
 }
@@ -86,16 +90,44 @@ This example shows how you can render text only for the min and max values of th
 
 While the slider is a numeric input, you can use its values to match against indexes of a collection - with this you can extract a full model and also display complex content for the items. You can set the `SmallStep` and `LargeStep` to `1` so there are only major ticks that act as items for the user and so that they are integer indexes.
 
-![model items in the slider](images/slider-items.png)
+![model items in the slider](images/rangeslider-items.png)
 
 ````CSHTML
-actual slider value: @TheIndex
-<br />slider item text: @SliderItems[TheIndex].Text
-<br />selected item value: @SliderItems[TheIndex].Value
-<br />more data from the selected item: @SliderItems[TheIndex].Text
-<br /><br />
+@* scroll after the table to see the slider code *@
 
-<TelerikSlider @bind-Value="@TheIndex"
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Start</th>
+            <th>End</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>actual slider value</td>
+        <td>@TheStartIndex</td>
+        <td>@TheEndIndex</td>
+    </tr>
+    <tr>
+        <td>slider item text</td>
+        <td>@SliderItems[TheStartIndex].Text</td>
+        <td>@SliderItems[TheEndIndex].Text</td>
+    </tr>
+    <tr>
+        <td>selected item value</td>
+        <td>@SliderItems[TheStartIndex].Value</td>
+        <td>@SliderItems[TheEndIndex].Value</td>
+    </tr>
+    <tr>
+        <td>more data from the selected item</td>
+        <td>@SliderItems[TheStartIndex].Text</td>
+        <td>@SliderItems[TheEndIndex].Text</td>
+    </tr>
+</table>
+
+
+<TelerikRangeSlider @bind-StartValue="@TheStartIndex"
+                    @bind-EndValue="@TheEndIndex"
                Min="@Min"
                Max="@Max"
                SmallStep="@Step"
@@ -104,10 +136,11 @@ actual slider value: @TheIndex
     <LabelTemplate>
         <span class="rotatedText">@SliderItems[context].Text</span>
     </LabelTemplate>
-</TelerikSlider>
+</TelerikRangeSlider>
 
 @code{
-    int TheIndex { get; set; }
+    int TheStartIndex { get; set; }
+    int TheEndIndex { get; set; }
     int Min { get; set; } = 0;
     int Step { get; set; } = 1;
     int Max { get; set; }
@@ -125,7 +158,8 @@ actual slider value: @TheIndex
 
         Max = SliderItems.Count - 1;
 
-        TheIndex = 2;
+        TheStartIndex = 2;
+        TheEndIndex = 3;
     }
 
     public class MySliderItem
@@ -135,17 +169,9 @@ actual slider value: @TheIndex
         public string MoreData { get; set; }
     }
 }
-
-<style>
-    .rotatedText {
-        transform: rotate(90deg);
-        display: inline-block;
-        padding-left: 2em;
-    }
-</style>
 ````
 
 ## See Also
 
-* [Slider Overview]({%slug slider-overview%})
-* [Live Demo: Slider Label Template](https://demos.telerik.com/blazor-ui/slider/label-template)
+* [RangeSlider Overview]({%slug rangeslider-overview%})
+* [Live Demo: RangeSlider Label Template](https://demos.telerik.com/blazor-ui/rangeslider/label-template)
