@@ -16,7 +16,9 @@ This article showcases the available events in the Telerik Slider component:
 
 ## ValueChanged
 
-The `ValueChanged` event fires every time the `Value` parameter changes. This happens when the user clicks or taps the increase/decrease buttons; and after the user stops dragging the handle. The event does not fire continuously while the user is dragging the handle because that would re-render the component and cause both poor performance, and the user to stop dragging because the element they are dragging will disappear.
+The `ValueChanged` event fires every time the `Value` parameter changes. This happens when the user clicks or taps the increase/decrease buttons; and after the user stops dragging the handle; and when the user clicks on the track.
+
+The event does not fire continuously while the user is dragging the handle because that would re-render the component and cause both poor performance, and the user to stop dragging because the element they are dragging will disappear.
 
 >caption Handle ValueChanged
 

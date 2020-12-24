@@ -12,33 +12,106 @@ position: 20
 
 This article showcases the available events in the Telerik RangeSlider component:
 
-* [ValueChanged](#valuechanged)
 
-## ValueChanged
+* [StartValueChanged and EndValueChanged](#startvaluechanged-and-endvaluechanged)
 
-The `ValueChanged` event fires every time the `Value` parameter changes. This happens when the user clicks or taps the increase/decrease buttons; and after the user stops dragging the handle. The event does not fire continuously while the user is dragging the handle because that would re-render the component and cause both poor performance, and the user to stop dragging because the element they are dragging will disappear.
+## StartValueChanged and EndValueChanged
 
->caption Handle ValueChanged
+`StartValueChanged` fires when the user moves the lower range of the slider, and `EndValueChanged` fires when the user changes the higher range of the slider.
+
+The `ValueChanged` events fire every time the corresponding `Value` parameter changes. This happens after the user stops dragging the handle or when they click on the track.
+
+The events do not fire continuously while the user is dragging the handle because that would re-render the component and cause both poor performance, and the user to stop dragging because the element they are dragging will disappear.
+
+>caption Handle StartValueChanged and EndValueChanged to filter products
 
 ````CSHTML
-@*This example showcases one-way data binding by using Value and ValueChanged*@
+@* This example showcases one-way data binding by using Value and ValueChanged
+    It also shows how you could filter data based on the user selection in the slider *@
 
-@TheValue
+from @StartValue to @EndValue
 <br /><br />
-<TelerikSlider Value="@TheValue" ValueChanged="@( (int v) => ValueChangedHandler(v))"
-               SmallStep="10" LargeStep="20" Min="0" Max="100" Width="500px">
-</TelerikSlider>
+
+<TelerikRangeSlider StartValue="@StartValue" StartValueChanged="@( async (decimal v) => await StartValueChangedHandler(v) )"
+                    EndValue="@EndValue" EndValueChanged="@( async (decimal v) => await EndValueChangedHandler(v) )"
+                    SmallStep="10m" LargeStep="20m" Min="0m" Max="170m" Width="500px">
+</TelerikRangeSlider>
+
+<ul>
+    @foreach (Product item in Products)
+    {
+        <li>Product @item.Name costs <strong>@item.Price.ToString("C2")</strong></li>
+    }
+</ul>
 
 @code{
-    int TheValue { get; set; } = 30;
+    decimal StartValue { get; set; } = 30m;
+    decimal EndValue { get; set; } = 40m;
 
-    async Task ValueChangedHandler(int v)
+    List<Product> Products { get; set; } = new List<Product>();
+
+    async Task StartValueChangedHandler(decimal v)
     {
         // update the view-model to let the change render
         // if you avoid that, you wil effectively cancel the event
-        TheValue = v;
+        StartValue = v;
 
-        Console.WriteLine($"The user has now chosen {v}");
+        Console.WriteLine($"The user has now chosen {v} for the LOWER range");
+
+        await FilterProducts();
+    }
+
+    async Task EndValueChangedHandler(decimal v)
+    {
+        // update the view-model to let the change render
+        // if you avoid that, you wil effectively cancel the event
+        EndValue = v;
+
+        Console.WriteLine($"The user has now chosen {v} for the HIGHER range");
+
+        await FilterProducts();
+    }
+
+    //sample business logic follows below
+
+    async Task FilterProducts()
+    {
+        Products = await MyService.GetProducts(StartValue, EndValue);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await FilterProducts();
+    }
+
+    // this mimics an actual service
+    public static class MyService
+    {
+        private static List<Product> _data { get; set; }
+        public static async Task<List<Product>> GetProducts(decimal low, decimal high)
+        {
+            EnsureData();
+            var filteredProducts = _data.Where(p => p.Price >= low && p.Price <= high);
+            return await Task.FromResult(filteredProducts.ToList());
+        }
+
+        private static void EnsureData()
+        {
+            if(_data == null || _data.Count < 1)
+            {
+                _data = new List<Product>();
+                for (int i = 1; i < 30; i++)
+                {
+                    _data.Add(new Product { Name = $" Name {i}", Price = 3.14m * i * 2 });
+                }
+            }
+        }
+    }
+
+    public class Product
+    {
+        public decimal Price { get; set; }
+        public string Name { get; set; }
     }
 }
 ````
@@ -50,4 +123,4 @@ The `ValueChanged` event fires every time the `Value` parameter changes. This ha
 
 ## See Also
 
-* [Slider Overview]({%slug slider-overview%})
+* [RangeSlider Overview]({%slug rangeslider-overview%})
