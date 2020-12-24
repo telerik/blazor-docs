@@ -30,4 +30,8 @@
     * The slider starts rendering ticks from the `Min` value and so if the `Max` does not match a tick, it will not be rendered. For example, if `Min=0` and `Max=100` but `SmallStep=15` the final value that will render will be `90` (four times the small step) and not `100`. See an [example](#not-matching-ticks-steps-min-max) below.
 
 * `TickPosition` - lets you choose where the ticks render. Takes a member of the `Telerik.Blazor.SliderTickPosition` enum. Defaults to `Both`. Can be `Before`, `After`, `Both`, `None`. For example, with the default horizontal slider, these values will render ticks above, below, both above and below, and no ticks.
+
+* `Width` - the width of the main element. In case you would like it to fit to a container you could set it to `100%` or other percent value depending on the application needs. You can read more in the [Dimensions]({%slug common-features/dimensions%}) article.
+
+* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 #end

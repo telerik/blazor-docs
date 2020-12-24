@@ -83,18 +83,12 @@ The Range Slider provides the following features:
 
 @[template](/_contentTemplates/slider/common.md#base-slider-features)
 
-* `ShowButtons` - whether there will be increase and decrase buttons at the ends of the slider. Defaults to `true`.
 
-* `Value` and `bind-Value`- the value of the slider. Can be a numerical type (such as `int`, `decimal`, `double` and so on). 
+* `StartValue` and `bind-StartValue`; and `EndValue` and `bind-EndValue`- the lower and higher value s of the slider that mark the range. Can be a numerical type (such as `int`, `decimal`, `double` and so on). 
     
     * When the user moves the drag handle of the slider, it changes with the `SmallStep`, but you can set a value programmatically that will land the handle between the ticks and between those steps.
 
-* `Width` - the width of the main element. In case you would like it to fit to a container you could set it to `100%` or other percent value depending on the application needs. You can read more in the [Dimensions]({%slug common-features/dimensions%}) article.
-
-* Events - see the [Slider events]({%slug slider-events%}) article for more information and examples.
-
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
-
+* Events - see the [Slider events]({%slug rangeslider-events%}) article for more information and examples.
 
 ## Examples
 
