@@ -323,7 +323,7 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
             _data.Remove(itemToDelete);
         }
     }
-}****
+}
 ````
 ````Service
 using Microsoft.JSInterop;
