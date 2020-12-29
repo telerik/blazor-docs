@@ -12,7 +12,22 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Chart component</a> allows you to visualize data to your users in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins and templates.
 
-#### To use a Telerik chart for Blazor, add the `TelerikChart` tag.
+#### The information in this article is separated in the following sections:
+
+* [Basics](#basics)
+
+* [Configurable Nested Chart Settings](#configurable-nested-chart-settings)
+
+* [Chart Size](#chart-size)
+
+* [Additional Resources](#additional-resources)
+    
+    * [Additional Chart Examples](#additional-chart-examples)
+    * [Knowledge Base articles](#knowledge-base-articles)
+
+## Basics
+
+>caption To use a Telerik chart for Blazor, add the `TelerikChart` tag.
 
 >caption Basic chart with series and category axis [data binding](data-bind), and a few commonly used appearance settings
 
@@ -139,6 +154,40 @@ You can make a responsive chart
     public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
+
+## Additional Resources
+
+### Additional Chart Examples
+
+You can find additional examples on how to implement different scenarios with the Chart in our [public GitHub repository](https://github.com/telerik/blazor-ui/tree/master/chart).
+
+An offline instance of our demos can be found under the installation folder of our product on your computer. 
+
+### Knowledge Base articles
+
+* [Move the X-Axis labes to the bottom of the Chart]({%slug chart-kb-crossing-values%})
+
+* [Prevent crowded grid lines in the Chart]({%slug chart-kb-crowded-grid-lines%})
+
+* [Prevent crowded labels in the Chart]({%slug chart-kb-crowded-labels%})
+
+* [How to add dynamic series in a chart]({%slug chart-dynamic-series%})
+
+* [How to format the percent in a label for a pie or donut chart]({%slug chart-format-percent%})
+
+* [Localize numeric labels in the Chart]({%slug chart-kb-localized-numeric-labels%})
+
+* [Mark a Chart Series on Click]({%slug chart-mark-series-on-click%})
+
+* [Chart not working with Newtonsoft.Json properties]({%slug chart-kb-newtonsoft-seialization-settings%})
+
+* [Chart Performance Optimization]({%slug chart-performance-optimization%})
+
+* [Responsive Chart]({%slug chart-kb-responsive%})
+
+* [How to Style the Series Labels for a Chart]({%slug chart-kb-style-the-series-labels%})
+
+* [Transparent Filled Series Markers]({%slug chart-kb-transparent-marker%})
 
 ## See Also
 
