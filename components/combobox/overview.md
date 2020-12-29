@@ -12,7 +12,23 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/combobox" target="_blank">Blazor ComboBox component</a> allows the user to choose an option from a predefined set of choices presented in a dropdown popup. You can also allow them to enter [custom values]({%slug components/combobox/custom-value%}) and to [filter]({%slug components/combobox/filter%}) the available items. You can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/combobox/templates%}).
 
-#### To use a Telerik ComboBox for Blazor
+#### The information in this article is separated in the following sections:
+
+* [Basics](#basics)
+
+* [Features](#features)
+
+* [Selected Item](#selected-item)
+
+* [Additional Resources](#additional-resources)
+    
+    * [Knowledge Base articles](#knowledge-base-articles)
+
+
+
+## Basics
+
+>caption To use a Telerik ComboBox for Blazor
 
 1. add the `TelerikComboBox` tag
 1. populate its `Data` property with the collection of items you want in the dropdown
@@ -132,6 +148,17 @@ Missing selection is most common when the initial value is `null` as data source
 >tip If you are looking for more fields from the view-model that describes the dropdown items, not just the `Value`, see the [Get model from dropodwn]({%slug dropdowns-get-model%}) KB article and the [OnChange](events#onchange) event.
 >
 > You may also want to review/join the discussion and Vote for this request: <a href="https://www.telerik.com/forums/binding-dropdownlist-value-to-complex-model" target="_blank">Binding DropDownList Value to complex model</a>
+
+
+## Additional Resources
+
+An offline instance of our demos can be found under the installation folder of our product on your computer. 
+
+### Knowledge Base articles
+
+* [Case Insensitive Matching with Custom Values]({%slug combobox-kb-case-insensitive-matching%})
+
+* [Debounce custom filter calls, implement min filter length]({%slug combo-kb-debounce-onread%})
 
 
 ## See Also
