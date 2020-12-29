@@ -12,7 +12,19 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazor Date Input component</a> allows the user to enter a date. The developer can control the format of the date. If the user input does not match the desired pattern, the value is not accepted. If the input can be parsed, it will be corrected automatically.
 
-#### To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
+#### The information in this article is separated in the following sections:
+
+* [Basics](#basics)
+
+* [Features](#features)
+
+* [Additional Resources](#additional-resources)
+
+    * [Knowledge Base articles](#knowledge-base-articles)
+
+## Basics
+
+>caption To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
 
 >caption Basic date input with namespace and reference
 
@@ -35,6 +47,8 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 >caption The result from the code snippet above
 
 ![](images/date-input-first-look.png)
+
+## Features
 
 >caption The date input provides the following features:
 
@@ -97,6 +111,14 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
     Person person = new Person();
 }
 ````
+
+## Additional Resources
+
+An offline instance of our demos can be found under the installation folder of our product on your computer. 
+
+### Knowledge Base articles
+
+@[template](/_contentTemplates/common-kb/date-input-pickers/kb-articles.md#common-kb-articles)
 
 ## See Also
 

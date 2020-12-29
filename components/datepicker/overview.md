@@ -12,7 +12,19 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/datepicker" target="_blank">Blazor Date Picker component</a> allows the user to choose a date from a visual list ([calendar]({%slug components/calendar/overview%})) or to type it into a [date input]({%slug components/dateinput/overview%}) that can accept only dates. You can control the format shown in the input, how the user navigates through the calendar, and dates the user cannot select.
 
-#### To use a Telerik Date Picker for Blazor, add the `TelerikDatePicker` tag.
+#### The information in this article is separated in the following sections:
+
+* [Basics](#basics)
+
+* [Features](#features)
+
+* [Additional Resources](#additional-resources)
+
+    * [Knowledge Base articles](#knowledge-base-articles)
+
+## Basics
+
+>caption To use a Telerik Date Picker for Blazor, add the `TelerikDatePicker` tag.
 
 >caption Basic date picker with namespace and reference
 
@@ -54,6 +66,16 @@ The Blazor Date Picker component exposes the following features:
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 The date picker is, essentially, a [date input]({%slug components/dateinput/overview%}) and a [calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
+
+## Additional Resources
+
+An offline instance of our demos can be found under the installation folder of our product on your computer. 
+
+### Knowledge Base articles
+
+* [Increase the size of the DatePicker's popup to fit the content]({%slug datepicker-kb-resize-popup%})
+
+@[template](/_contentTemplates/common-kb/date-input-pickers/kb-articles.md#common-kb-articles)
 
 
 

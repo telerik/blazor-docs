@@ -12,6 +12,18 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/datetimepicker" target="_blank">Blazor DateTime Picker component</a> allows the user to choose both a date and a time from a visual list in a dropdown, or to type it into a [date input]({%slug components/dateinput/overview%}) that can accept only DateTime values. You can control the format shown in the input and respond to [events]({%slug components/datetimepicker/events %}).
 
+#### The information in this article is separated in the following sections:
+
+* [Basics](#basics)
+
+* [Features](#features)
+
+* [Additional Resources](#additional-resources)
+
+    * [Knowledge Base articles](#knowledge-base-articles)
+
+## Basics
+
 #### To use a Telerik DateTime Picker for Blazor, add the `TelerikDateTimePicker` tag.
 
 >caption Basic datetime picker with custom format, min and max
@@ -48,6 +60,8 @@ Selected time: @selectedTime
 }
 ````
 
+## Features
+
 The DateTimePicker component exposes the following features:
 
 * `Class` - the custom CSS class rendered on the wrapping element.
@@ -66,6 +80,14 @@ The DateTimePicker component exposes the following features:
 When using the dropdown to edit dates, you must click the "Set" button to commit the date. It is located in the Time portion of the dropdown (you will be navigated to it automatically upon selecting a date). Clicking "Cancel", or outside of the dropdown without clicking "Set", will revert the time to the original value. You can also commit a date by clicking the "NOW" button which will choose the current time.
 
 The time format specifiers in the `Format` control the tumblers available in the dropdown. For example, the `HH` specifier will result in a hour selector in a 24 hour format. If you also add the `tt` specifier, you will also get the AM/PM tumbler, but the 24 hour format will still be used. This means that you can also add several tumblers for the same time portion if the format string repeats them.
+
+## Additional Resources
+
+An offline instance of our demos can be found under the installation folder of our product on your computer. 
+
+### Knowledge Base articles
+
+@[template](/_contentTemplates/common-kb/date-input-pickers/kb-articles.md#common-kb-articles)
 
 
 ## See Also

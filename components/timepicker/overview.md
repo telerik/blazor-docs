@@ -12,6 +12,18 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/timepicker" target="_blank">Blazor Time Picker component</a> allows the user to choose a time from a visual list in a dropdown, or to type it into a [date input]({%slug components/dateinput/overview%}) that can accept only DateTime values. You can control the format shown in the input and respond to [events]({%slug components/timepicker/events %}).
 
+#### The information in this article is separated in the following sections:
+
+* [Basics](#basics)
+
+* [Features](#features)
+
+* [Additional Resources](#additional-resources)
+
+    * [Knowledge Base articles](#knowledge-base-articles)
+
+## Basics
+
 #### To use a Telerik Time Picker for Blazor, add the `TelerikTimePicker` tag.
 
 >caption Basic time picker with custom format, min and max
@@ -49,6 +61,8 @@ Selected time: @selectedTime?.ToLongTimeString()
 }
 ````
 
+## Features
+
 The Time Picker component exposes the following features:
 
 * `Class` - The custom CSS class rendered on the wrapping element.
@@ -69,6 +83,14 @@ When using the dropdown to edit dates, you must click the "Set" button to commit
 The time format specifiers in the `Format` control the tumblers available in the dropdown. For example, the `HH` specifier will result in a hour selector in a 24 hour format. If you also add the `tt` specifier, you will also get the AM/PM tumbler, but the 24 hour format will still be used. This means that you can also add several tumblers for the same time portion if the format string repeats them.
 
 The Time Picker component supports `DateTime`, `DateTime?`, `DateTimeOffset` and `DateTimeOffset?` types.
+
+## Additional Resources
+
+An offline instance of our demos can be found under the installation folder of our product on your computer. 
+
+### Knowledge Base articles
+
+@[template](/_contentTemplates/common-kb/date-input-pickers/kb-articles.md#common-kb-articles)
 
 
 ## See Also
