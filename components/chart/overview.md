@@ -16,7 +16,7 @@ The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Cha
 
 * [Basics](#basics)
 
-* [Configurable Nested Chart Settings](#configurable-nested-chart-settings)
+* [Configurable Nested Chart Settings](#customize-chart-elements---nested-tags-settings)
 
 * [Chart Size](#chart-size)
 
