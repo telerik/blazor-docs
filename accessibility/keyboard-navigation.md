@@ -74,7 +74,11 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [RadioGroup](https://demos.telerik.com/blazor-ui/radiogroup/keyboard-navigation) - has the standard behavior of radio buttons with the same `name`.
 
+* [RangeSlider](https://demos.telerik.com/blazor-ui/rangeslider/keyboard-navigation)
+
 * Scheduler - will have keyboard navigation in an upcoming release.
+
+* [Slider](https://demos.telerik.com/blazor-ui/slider/keyboard-navigation)
 
 * [Splitter](https://demos.telerik.com/blazor-ui/splitter/keyboard-navigation)
 
