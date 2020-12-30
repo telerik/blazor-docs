@@ -181,6 +181,7 @@ You can store a reference to each column's context in a field in the view-model,
 The example below shows a custom filter that:
 
 * Implements a multi checkbox filter that lets the user choose several values from the data source.
+    * Shows how you can handle `null` filters now that the user cannot choose a filter operator on their own.
 * Shows how you can store a reference to the context or use it inline in the template.
 * Showcases building multiple filter descriptors for each value the user chooses.
 
@@ -218,7 +219,14 @@ This custom filter menu lets you choose more than one option to match against th
                                          Id="@($"size_{size}")">
                         </TelerikCheckBox>
                         <label for="@($"size_{size}")">
-                            @size
+                            @if (size == null) // part of handling nulls - show meaningful text for the end user
+                            {
+                                <text>Empty</text>
+                            }
+                            else 
+                            {
+                                @size
+                            }
                         </label>
                     </div>
                 }
@@ -236,6 +244,19 @@ This custom filter menu lets you choose more than one option to match against th
     public bool IsCheckboxInCurrentFilter(CompositeFilterDescriptor filterDescriptor, string size)
     {
         // get all current filter descriptors and evaluate whether to select the current checkbox
+        // the default value for string filter descriptors is null so it would select the null checkbox always
+        // so we will add a check to ensure it matches the desired operator - IsNull (see the UpdateCheckedSizes method below)
+        if (size == null)
+        {
+            foreach (FilterDescriptor item in filterDescriptor.FilterDescriptors)
+            {
+                if(item.Operator == FilterOperator.IsNull)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         return filterDescriptor.FilterDescriptors.Select(f => (f as FilterDescriptor).Value?.ToString()).ToList().Contains(size);
     }
 
@@ -259,10 +280,20 @@ This custom filter menu lets you choose more than one option to match against th
         filterDescriptor.FilterDescriptors.Clear();
         // use the OR logical operator so we include all possible values
         filterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.Or;
-        CheckedSizes.ForEach(s =>
+        CheckedSizes.ForEach(s => {
             // instantiate a filter descriptor for the desired field, and with the desired operator and value
-            filterDescriptor.FilterDescriptors.Add(new FilterDescriptor("Size", FilterOperator.IsEqualTo, s))
-        );
+            FilterDescriptor fd = new FilterDescriptor("Size", FilterOperator.IsEqualTo, s);
+            // set its type to the field type you filter (the Size field in this example)
+            fd.MemberType = typeof(string);
+            // handle null values - use a specific filter operator that the user cannot select on their own
+            // in this custom filter template (the grid has it in a dropdown by default)
+            if(s == null)
+            {
+                fd.Operator = FilterOperator.IsNull;
+            }
+
+            filterDescriptor.FilterDescriptors.Add(fd);
+        });
 
         //ensure there is at least one blank filter to avoid null reference exceptions
         if (!filterDescriptor.FilterDescriptors.Any())
@@ -293,7 +324,7 @@ This custom filter menu lets you choose more than one option to match against th
         public string ProductName { get; set; }
     }
 
-    public string[] Sizes = new string[] { "XS", "S", "M", "L", "XL" };
+    public string[] Sizes = new string[] { "XS", "S", "M", "L", "XL", null };
 }
 ````
 
