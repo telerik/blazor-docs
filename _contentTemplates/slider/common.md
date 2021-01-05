@@ -5,8 +5,6 @@
 
 * `Enabled` - whether the component is enabled.
 
-* `Id` - renders as the `id` attribute on the main wrapping element.
-
 * `LabelTemplate` - lets you render your own custom labels for the major ticks.
 
 * `LargeStep` - defines where the larger (longer) ticks lie - they are rendere on every n-th occurence of the `LargeStep`. Required. 
