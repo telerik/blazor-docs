@@ -1,7 +1,13 @@
 #base-slider-features
 * `Class` - the CSS class that will be rendered on the main wrapping element of the slider.
 
-* `Decimals` - a setting that helps avoid <a href="https://en.wikipedia.org/wiki/Round-off_error" target="_blank">round-off errors</a> (see more <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems" target="_blank">here</a>). The slider uses that to determine how many decimals to take and set to the value when calculating the differences between the min and max, and the steps. You can see an [example](#decimals-and-rounding-errors) below.
+* `Decimals` - a setting that helps avoid <a href="https://en.wikipedia.org/wiki/Round-off_error" target="_blank">round-off errors</a> when calculating steps (see more about this type of errors <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems" target="_blank">here</a>). The slider uses that to determine how many decimals to take and set to the value when calculating the differences between the min and max, and the steps. You can see an [example of wrong setup and the issue it can cause](#decimals-and-rounding-errors) below. Here is a simple example of the mathematical operation and how you can see unexpected floating numbers that could, at least to an extent, be avoided if you use high-precision number types such as `decimal`:
+    
+        Math equation: 0.6 / 0.2 
+        Output: 2.9999999999999996
+        
+        Math equation: 0.6 / 0.3
+        Output: 2
 
 * `Enabled` - whether the component is enabled.
 
@@ -11,7 +17,7 @@
 
     * At least one large tick will be rendered in the beginning of the track, even if `LargeStep` is larger than the difference between the `Min` and `Max`. 
     
-    * This is purely a presentational setting and we recommend setting it to a value that matches the range of the slider and the `SmallStep` for best appearance.
+    * This is purely a presentation setting and we recommend setting it to a value that matches the range of the slider and the `SmallStep` for best appearance.
     
     * To disable the rendering of the large ticks, set the parameter to `0`.
 
