@@ -13,7 +13,7 @@
 
 * `LabelTemplate` - lets you render your own custom labels for the major ticks.
 
-* `LargeStep` - defines where the larger (longer) ticks lie - they are rendere on every n-th occurence of the `LargeStep`. Required. 
+* `LargeStep` - defines where the larger (longer) ticks lie - they are rendered on every n-th occurrence of the `LargeStep`. Required. 
 
     * At least one large tick will be rendered in the beginning of the track, even if `LargeStep` is larger than the difference between the `Min` and `Max`. 
     
@@ -29,7 +29,7 @@
 
 * `SmallStep` - defines the step through which the slider `Value` is changed when the user drags the handle. Also defines where small ticks appear on the track to indicate a value that can be selected. Required.
 
-    * We recommend matching the `SmallStep` with the `LargeStep` for imroved visual appearance (e.g., multiply the `SmallStep` by the desired whole number and set that to the `LargeStep`). 
+    * We recommend matching the `SmallStep` with the `LargeStep` for improved visual appearance (e.g., multiply the `SmallStep` by the desired whole number and set that to the `LargeStep`). 
 
     * The slider starts rendering ticks from the `Min` value and so if the `Max` does not match a tick, it will not be rendered. For example, if `Min=0` and `Max=100` but `SmallStep=15` the final value that will render will be `90` (four times the small step) and not `100`. See an [example](#not-matching-ticks-steps-min-max) below.
 
