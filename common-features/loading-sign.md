@@ -240,6 +240,77 @@ This sample shows only an indicator for the initial data load, only the DELETE o
     }
 }
 ````
+````TreeView
+<div style="position: relative; width:100%; min-height: 400px;">
+    <TelerikLoaderContainer Visible="@( !InitialDataLoadComplete )">
+    </TelerikLoaderContainer>
+
+    <TelerikTreeView Data="@TreeViewData" OnExpand="@LoadChildren">
+    </TelerikTreeView>
+</div>
+
+@code {
+    List<TreeViewItem> TreeViewData { get; set; }
+
+    // Initial data load flag
+    bool InitialDataLoadComplete { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadInitialData();
+        InitialDataLoadComplete = true;
+    }
+
+    async Task LoadInitialData()
+    {
+        await Task.Delay(2000); // artificial delay to showcase the concept
+
+        List<TreeViewItem> roots = new List<TreeViewItem>();
+
+        roots.Add(new TreeViewItem
+        {
+            Text = "Category 1",
+            HasChildren = true
+        });
+
+        roots.Add(new TreeViewItem
+        {
+            Text = "Category 2",
+            HasChildren = true
+        });
+
+        TreeViewData = roots;
+    }
+
+    async Task LoadChildren(TreeViewExpandEventArgs args)
+    {
+        TreeViewItem currItem = args.Item as TreeViewItem;
+        if (args.Expanded && currItem.Items == null)
+        {
+            await Task.Delay(1000); // artificial delay to showcase the concept
+
+            currItem.Items = new List<TreeViewItem>();
+
+            if (currItem.Text.Length > 15)
+            {
+                currItem.HasChildren = false;
+                await InvokeAsync(StateHasChanged);
+                return;
+            }
+
+            currItem.Items = Enumerable.Range(1, 3).Select(x => new TreeViewItem { Text = $"{currItem.Text} - {x}", HasChildren = true }).ToList();
+        }
+    }
+
+    public class TreeViewItem
+    {
+        public string Text { get; set; }
+        public List<TreeViewItem> Items { get; set; }
+        public bool Expanded { get; set; }
+        public bool HasChildren { get; set; }
+    }
+}
+````
 
 
 
