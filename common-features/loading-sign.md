@@ -42,7 +42,9 @@ The components add the busy indicator when they detect a slow-running `async` ev
 
 This section explains a few points that you need to keep in mind when using and relying on busy indicators.
 
-OUTLINE------------------------------
+* [Initial Data](#initial-data)
+* [WebAssembly](#webassembly)
+
 
 ### Initial Data
 
@@ -251,7 +253,6 @@ This sample shows only an indicator for the initial data load, only the DELETE o
         }
     }
 }
-
 ````
 
 
@@ -262,7 +263,9 @@ The loading indicator can be shown only during an `async` operation that takes a
 
 A prime example of a synchronous operation is the actual component rendering under WebAssembly - the framework still uses a single thread only, and it can be rather slow, and that blocks the UI rendering thread of the browser. For example, if you have a grid with a large page size and too many columns, paging that grid could take some time to render. A loading animation cannot be shown during this time because the page is actually rendering already. To combat such performance issues, see the [Slow Performance]({%slug troubleshooting-general-issues%}#slow-performance) section of the documentation.
 
-At the time of writing, there are no actual `async` operations and events in WebAssembly, including event handlers - all the code runs in one thread (see <a href="https://github.com/dotnet/aspnetcore/issues/17730" target="_blank">here</a> and <a href="https://github.com/dotnet/runtime/issues/40619" target="_blank">here</a>). This means that the built-in loading indicators in the Telerik components are not available in WebAssembly Blazor apps.
+>important At the time of writing, there are no actual `async` operations and events in WebAssembly, including event handlers - all the code runs in one thread (see <a href="https://github.com/dotnet/aspnetcore/issues/17730" target="_blank">here</a> and <a href="https://github.com/dotnet/runtime/issues/40619" target="_blank">here</a>). 
+>
+>This means that the built-in loading indicators in the Telerik components are not available in WebAssembly Blazor apps.
 
 
 
