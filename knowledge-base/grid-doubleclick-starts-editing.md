@@ -14,10 +14,6 @@ res_type: kb
 <table>
 	<tbody>
 		<tr>
-			<td>Product Version</td>
-			<td>2.20.0</td>
-		</tr>
-		<tr>
 			<td>Product</td>
 			<td>Grid for Blazor</td>
 		</tr>
@@ -29,7 +25,7 @@ res_type: kb
 Is there a way to start the edit command with a double click on a specific cell or row?
 
 ## Solution
-The Grid currently supports an OnRowDoubleClick  event which can be used to programmatically set a row in edit mode through the Grid state. 
+The Grid currently supports an [OnRowDoubleClick event]({%slug grid-events%}#onrowdoubleclick) which can be used to programmatically set a row in edit mode through the Grid [state]({%slug grid-state%}). 
 
 See the following example for reference:
 
@@ -57,19 +53,8 @@ See the following example for reference:
 </TelerikGrid>
 
 
-@code {  
-
+@code {
     public TelerikGrid<SampleData> GridRef { get; set; }
-
-    void UpdateHandler(GridCommandEventArgs args)
-    {
-        SampleData itemToUpdate = args.Item as SampleData;
-        int itemIndex = MyData.IndexOf(itemToUpdate);
-        if (itemIndex > -1)
-        {
-            MyData[itemIndex] = itemToUpdate;
-        }
-    }
 
     void OnRowDoubleClickHandler(GridRowClickEventArgs args)
     {
@@ -89,6 +74,16 @@ See the following example for reference:
         currState.OriginalEditItem = itemToEdit;
         GridRef.SetState(currState);
     }
+    
+    async Task UpdateHandler(GridCommandEventArgs args)
+    {
+        SampleData itemToUpdate = args.Item as SampleData;
+        int itemIndex = MyData.IndexOf(itemToUpdate);
+        if (itemIndex > -1)
+        {
+            MyData[itemIndex] = itemToUpdate;
+        }
+    }
 
     public List<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
@@ -103,6 +98,7 @@ See the following example for reference:
         public string Name { get; set; }
         public string Team { get; set; }
 
+        // The new object we create for the state must be able to match an object from the current data
         public override bool Equals(object obj)
         {
             if (obj is SampleData)
@@ -134,6 +130,4 @@ See the following example for reference:
 
 
 ## Notes
-When you are using the Grid state to set a row in edit mode, you should perform all the tasks synchronously.
-
-At this stage the asynchronous calls in Grid events prevent you from updating the Grid state. It is a known behavior, we have it logged in the public portal at the following [link](https://feedback.telerik.com/blazor/1486285-async-calls-in-grid-events-prevent-you-from-updating-the-grid-state).
+When changing the grid state in its row click event, you need the event handler to be synchronous. At the time of writing, asynchronous calls in Grid events prevent you from updating the Grid state. It is a known issue, and we have it logged for improvement at the following [link](https://feedback.telerik.com/blazor/1486285-async-calls-in-grid-events-prevent-you-from-updating-the-grid-state) so you can Follow and Vote for it.
