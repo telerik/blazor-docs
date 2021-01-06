@@ -24,7 +24,7 @@ The components add the busy indicator when they detect a slow-running `async` ev
 
 * DropDownList
 
-* Grid
+* [Grid]({%slug components/grid/overview%}#loading-animation) - <a href="https://demos.telerik.com/blazor-ui/grid/loading-animation" target="_blank">Live Demo</a>
 
 * ListView
 
