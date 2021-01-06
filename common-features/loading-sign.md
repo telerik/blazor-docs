@@ -52,9 +52,206 @@ In other cases it could even prevent them from interacting with the component so
 
 Thus, to show a loading indicator during the initial data load, you can use the standard Blazor approach of adding an if-block and a busy indicator in your own code.
 
->caption Loading Sign for the initial data load
+>caption Loading Sign for the initial data load - a few examples
 
-````CSHTML
+````Grid
+This sample shows only an indicator for the initial data load, only the DELETE operation is slowed down so you can see a loading sign.
+
+<div style="position: relative; width:100%; min-height: 400px;">
+    <TelerikLoaderContainer OverlayThemeColor="light" Visible="@( !InitialDataLoadComplete )"
+                            Text="@null" Class="initial-data-loader">
+        <Template>
+            <TelerikLoader Type="@LoaderType.InfiniteSpinner" Size="@LoaderSize.Large"></TelerikLoader>
+        </Template>
+    </TelerikLoaderContainer>
+
+    <style>
+        .initial-data-loader .k-loader-container-overlay.k-overlay-light {
+            background-color: white;
+        }
+    </style>
+
+    @*The loader container and styles above mimic the appearance of the built-in loading sign*@
+
+    <TelerikGrid Data="@GridData" Height="400px"
+                 Pageable="true" AutoGenerateColumns="true"
+                 Sortable="true" Groupable="true"
+                 FilterMode="@GridFilterMode.FilterRow"
+                 OnDelete="@DeleteHandlerWithDelay">
+        <GridColumns>
+            <GridCommandColumn>
+                <GridCommandButton Command="delete" Icon="delete">Delete</GridCommandButton>
+            </GridCommandColumn>
+        </GridColumns>
+    </TelerikGrid>
+</div>
+
+@code {
+    List<SampleData> GridData { get; set; }
+    
+    // Initial data load flag
+    bool InitialDataLoadComplete { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadGridData();
+        InitialDataLoadComplete = true;
+    }
+
+    async Task LoadGridData()
+    {
+        await Task.Delay(2000); // artificial delay to showcase the concept
+
+        GridData = Enumerable.Range(1, 30).Select(x => new SampleData
+        {
+            Id = x,
+            Name = "name " + x,
+            Team = "team " + x % 5,
+            HireDate = DateTime.Now.AddDays(-x).Date
+        }).ToList();
+    }
+
+    async Task DeleteHandlerWithDelay(GridCommandEventArgs e)
+    {
+        await Task.Delay(2000); // artificial delay to showcase the concept
+
+        GridData.Remove(e.Item as SampleData);
+    }
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
+````Scheduler
+This sample shows only an indicator for the initial data load, only the DELETE operation is slowed down so you can see a loading sign.
+
+<div style="position: relative; width:100%; min-height: 600px;">
+    <TelerikLoaderContainer OverlayThemeColor="light" Visible="@( !InitialDataLoadComplete )"
+                            Text="@null" Class="initial-data-loader">
+        <Template>
+            <TelerikLoader Type="@LoaderType.InfiniteSpinner" Size="@LoaderSize.Large"></TelerikLoader>
+        </Template>
+    </TelerikLoaderContainer>
+
+    <style>
+        .initial-data-loader .k-loader-container-overlay.k-overlay-light {
+            background-color: white;
+        }
+    </style>
+
+    @*The loader container and styles above mimic the appearance of the built-in loading sign*@
+
+    <TelerikScheduler Data="@Appointments"
+                      OnDelete="@DeleteAppointment"
+                      AllowDelete="true"
+                      @bind-Date="@StartDate" Height="600px" @bind-View="@CurrView">
+        <SchedulerViews>
+            <SchedulerDayView StartTime="@DayStart" />
+            <SchedulerWeekView StartTime="@DayStart" />
+            <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
+        </SchedulerViews>
+    </TelerikScheduler>
+
+</div>
+
+@code {
+    // sample data and scheduler settings
+    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
+    public DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
+    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0); //the time portion is important
+
+    List<SchedulerAppointment> Appointments { get; set; }
+
+    // Initial data load flag
+    bool InitialDataLoadComplete { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetAppointments();
+        InitialDataLoadComplete = true;
+    }
+
+    async Task GetAppointments()
+    {
+        await Task.Delay(2000); // artificial delay to showcase the concept
+
+        Appointments = new List<SchedulerAppointment>()
+        {
+            new SchedulerAppointment
+            {
+                Title = "Board meeting",
+                Description = "Q4 is coming to a close, review the details.",
+                Start = new DateTime(2019, 12, 5, 10, 00, 0),
+                End = new DateTime(2019, 12, 5, 11, 30, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Vet visit",
+                Description = "The cat needs vaccinations and her teeth checked.",
+                Start = new DateTime(2019, 12, 2, 11, 30, 0),
+                End = new DateTime(2019, 12, 2, 12, 0, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Planning meeting",
+                Description = "Kick off the new project.",
+                Start = new DateTime(2019, 12, 6, 9, 30, 0),
+                End = new DateTime(2019, 12, 6, 12, 45, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Trip to Hawaii",
+                Description = "An unforgettable holiday!",
+                IsAllDay = true,
+                Start = new DateTime(2019, 11, 27),
+                End = new DateTime(2019, 12, 05)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Morning run",
+                Description = "Some time to clear the head and exercise.",
+                Start = new DateTime(2019, 11, 27, 9, 0, 0),
+                End = new DateTime(2019, 11, 27, 9, 30, 0),
+                RecurrenceRule = "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR"
+            }
+        };
+    }
+
+    async Task DeleteAppointment(SchedulerDeleteEventArgs args)
+    {
+        await Task.Delay(2000); // artificial delay to showcase the concept
+
+        Appointments.Remove(args.Item as SchedulerAppointment);
+    }
+
+    public class SchedulerAppointment
+    {
+        public Guid Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
+        public string RecurrenceRule { get; set; }
+        public List<DateTime> RecurrenceExceptions { get; set; }
+        public Guid? RecurrenceId { get; set; }
+
+        public SchedulerAppointment()
+        {
+            Id = Guid.NewGuid();
+        }
+    }
+}
+
 ````
 
 
