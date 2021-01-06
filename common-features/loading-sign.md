@@ -241,6 +241,8 @@ This sample shows only an indicator for the initial data load, only the DELETE o
 }
 ````
 ````TreeView
+This sample shows a loading panel over the treeview container (tweak as required by your layout and design) in addition to the loading indicators the treeview provides while loading data on demand.
+
 <div style="position: relative; width:100%; min-height: 400px;">
     <TelerikLoaderContainer Visible="@( !InitialDataLoadComplete )">
     </TelerikLoaderContainer>
