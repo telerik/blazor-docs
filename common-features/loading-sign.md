@@ -14,15 +14,13 @@ Many times a component loads or saves data and that can take some time. To show 
 
 The Telerik components use the Telerik [Loader]({%slug loader-overview%}) and [LoaderContainer]({%slug loadercontainer-overview%}) components internally to match the theme and design.
 
-The components add the busy indicator when they detect a slow-running `async` event handler (when it takes more than 120ms). For example, when the user inserts a record in the grid and the data service operation takes longer, there will be a loading indicator over the grid.
+The components add the busy indicator when they detect a slow-running `async` **data operation** (when it takes more than 120ms). For example, when the user inserts a record in the grid and the data service operation takes longer, there will be a loading indicator over the grid.
 
 ## List of Components That Have Loading Indicators
 
 * AutoComplete
 
 * ComboBox
-
-* DropDownList
 
 * [Grid]({%slug components/grid/overview%}#loading-animation) - <a href="https://demos.telerik.com/blazor-ui/grid/loading-animation" target="_blank">Live Demo</a>
 
@@ -43,7 +41,7 @@ The components add the busy indicator when they detect a slow-running `async` ev
 This section explains a few points that you need to keep in mind when using and relying on busy indicators.
 
 * [Initial Data](#initial-data)
-* [WebAssembly](#webassembly)
+* [Slow Rendering](#slow-rendering)
 
 
 ### Initial Data
@@ -67,12 +65,6 @@ This sample shows only an indicator for the initial data load, only the DELETE o
         </Template>
     </TelerikLoaderContainer>
 
-    <style>
-        .initial-data-loader .k-loader-container-overlay.k-overlay-light {
-            background-color: white;
-        }
-    </style>
-
     @*The loader container and styles above mimic the appearance of the built-in loading sign*@
 
     <TelerikGrid Data="@GridData" Height="400px"
@@ -82,7 +74,7 @@ This sample shows only an indicator for the initial data load, only the DELETE o
                  OnDelete="@DeleteHandlerWithDelay">
         <GridColumns>
             <GridCommandColumn>
-                <GridCommandButton Command="delete" Icon="delete">Delete</GridCommandButton>
+                <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
             </GridCommandColumn>
         </GridColumns>
     </TelerikGrid>
@@ -139,12 +131,6 @@ This sample shows only an indicator for the initial data load, only the DELETE o
             <TelerikLoader Type="@LoaderType.InfiniteSpinner" Size="@LoaderSize.Large"></TelerikLoader>
         </Template>
     </TelerikLoaderContainer>
-
-    <style>
-        .initial-data-loader .k-loader-container-overlay.k-overlay-light {
-            background-color: white;
-        }
-    </style>
 
     @*The loader container and styles above mimic the appearance of the built-in loading sign*@
 
@@ -257,15 +243,21 @@ This sample shows only an indicator for the initial data load, only the DELETE o
 
 
 
-### WebAssembly
+### Slow Rendering
 
-The loading indicator can be shown only during an `async` operation that takes a while. Synchronous operations do not render the components anew while they are running, only after they complete, so an indicator cannot be shown during them.
+The loading indicator can be shown only during an `async` data operation that takes a while. Synchronous operations do not render the components anew while they are running, only after they complete, so an indicator cannot be shown during them.
 
-A prime example of a synchronous operation is the actual component rendering under WebAssembly - the framework still uses a single thread only, and it can be rather slow, and that blocks the UI rendering thread of the browser. For example, if you have a grid with a large page size and too many columns, paging that grid could take some time to render. A loading animation cannot be shown during this time because the page is actually rendering already. To combat such performance issues, see the [Slow Performance]({%slug troubleshooting-general-issues%}#slow-performance) section of the documentation.
+Rendering the UI is a synchronous operation that runs on the UI thread and blocks it. If that operation is slow, there will be no loading indicator.
 
->important At the time of writing, there are no actual `async` operations and events in WebAssembly, including event handlers - all the code runs in one thread (see <a href="https://github.com/dotnet/aspnetcore/issues/17730" target="_blank">here</a> and <a href="https://github.com/dotnet/runtime/issues/40619" target="_blank">here</a>). 
->
->This means that the built-in loading indicators in the Telerik components are not available in WebAssembly Blazor apps.
+A prime example of a slow synchronous operation is the actual component rendering under WebAssembly - the framework still uses a single thread only, and it can be rather slow in general, and that blocks the UI rendering thread of the browser. 
 
+For a second example, lets's say that you have a grid with a large page size and too many columns - paging that grid could take some time to render even when all the data is in the view-model and there are no data requests simply because there are many DOM elements to re-render.
 
+Another example could be a slow calculation (for example, grouping a large amount of data). A loading animation cannot be shown during this time because the page is actually rendering already.
+
+A fourth example could be a dropdown that has far too many items in it - expanding the dropdown will take some time to render because the DOM operation itself takes time. This would affect server-side Blazor apps too.
+
+To combat such performance issues, see the [Slow Performance]({%slug troubleshooting-general-issues%}#slow-performance) section of the documentation.
+
+Truly asynchronous operations will still allow for a loading sign - such as the grid's `OnRead` event that is really `async` (for example, calls some WebAPI) will let the framework release the UI thread and re-render the component with a loading sign until the data response comes back.
 
