@@ -22,7 +22,7 @@ The components add the busy indicator when they detect a slow-running `async` **
 
 * ComboBox
 
-* [Grid]({%slug components/grid/overview%}#loading-animation) - <a href="https://demos.telerik.com/blazor-ui/grid/loading-animation" target="_blank">Live Demo</a>
+* [Grid](https://demos.telerik.com/blazor-ui/grid/loading-animation)
 
 * ListView
 
