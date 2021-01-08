@@ -71,6 +71,9 @@ navigation:
      "*components/grid/editing":
         title: "Editing"
         position: 10
+     "*components/grid/filter":
+        title: "Filtering"
+        position: 22
      "*components/grid/grouping":
         title: "Grouping"
         position: 24

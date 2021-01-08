@@ -1,5 +1,5 @@
 ---
-title: Searchbox
+title: Toolbar Searchbox
 page_title: Grid - Filtering Searchbox
 description: Enable and configure filtering Searchbox in Grid for Blazor.
 slug: grid-searchbox
