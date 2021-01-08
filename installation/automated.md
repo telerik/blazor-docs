@@ -30,7 +30,8 @@ The automated installer provides the following:
 * An offline version of our [demos](https://demos.telerik.com/blazor-ui/) that you can run and inspect in your IDE. You can find them in the `demos` folder in the installation. @[template](/_contentTemplates/common/get-started.md#demos-project-net-version)
 * The [document processing]({%slug common-features-dpl%}) `.nupkg` files (in the `dpl` folder).
 * A shortcut to our [online demos](https://demos.telerik.com/blazor-ui/).
-* Our [Visual Studio Extensions]({%slug getting-started-vs-integration-overview%})
+* Our [Visual Studio Extensions]({%slug getting-started-vs-integration-overview%}).
+    * We also have [extensions for VS Code]({%slug getting-started-vs-code-integration-overview%}) and you can install them from its own marketplace (<a href="https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard" target="_blank">direct link</a>).
 
 
 
