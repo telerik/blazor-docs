@@ -70,17 +70,17 @@ You can also change the filter menu behavior for a particular column - its own `
 
 ## Custom Data
 
-By default, the grid takes the `Distinct` values from its `Data` to populate the chekcbox list filter.
+By default, the grid takes the `Distinct` values from its `Data` to populate the chekcbox list filter for each field.
 
-When using the [`OnRead` event]({%slug components/grid/manual-operations%}) to optimize the data operations and perform them on the server/service, the grid will only have the current page of data. This will limit the options the user will see so you may want to provide the full list.
+When using the [`OnRead` event]({%slug components/grid/manual-operations%}) to customize the data operations and/or perform them on the server/service, the grid will only have the current page of data. This will limit the options the user will see so you may want to provide the full list.
 
-To customize the checkbox list behavior, you should use the [filter menu template]({%slug grid-templates-filter%}#filter-menu-template). To help with that, you can use the `TelerikCheckBoxListFilter` component inside the `FilterMenuTemplate`. It provides the following settings:
+To customize the checkbox list behavior, you should use the [filter menu template]({%slug grid-templates-filter%}#filter-menu-template). To help you with that, we have exposed the `TelerikCheckBoxListFilter` component that you can place inside the `FilterMenuTemplate` to get the default grid UI. It provides the following settings:
 
-* `FilterDescriptor` - the filter descriptor where filters will be populated when checkboxes are selected. The component creates the necessary descriptors for you and reads existing ones. This makes it easy to plug into the grid.
+* `FilterDescriptor` - the filter descriptor where filters will be populated when checkboxes are selected. The component creates the necessary descriptors for you and reads existing ones. This makes it easy to plug into the grid without any additional code.
 
 * `Data` - the data that will be rendered in the checkbox list. This is where you can supply the desired options to change what the grid displays.
 
-* `Field` - the field from the data that will be used to take the `Distinct` options. It must match the name and type of the column field for which this filter is defined. This lets you use the same models that the grid uses, or to define smaller models to reduce the data you fetch for the filter descriptors.
+* `Field` - the field from the data that will be used to take the `Distinct` options. It must match the name and type of the column field for which this filter is defined. This lets you use the same models that the grid uses, or to define smaller models to reduce the data you fetch for the filter lists.
 
 >caption Provide all filtering options when using OnRead
 
@@ -88,10 +88,10 @@ To customize the checkbox list behavior, you should use the [filter menu templat
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-Filter by selecting a few names. Then filter by the Teams field.<br/>
+Filter by selecting a few names. Then filter by the Teams field (the fields that use application-provided data).<br />
 You will see you have all the options for the teams and all the options for the names.<br />
 Now try to filter by the On Vacation column - it will use only the current grid data and you may have only a single option,
-    depending on how you filter the data so you may never be able to get back all values.
+depending on how you filter the data so you may never be able to get back all values.
 
 
 <TelerikGrid Data=@CurrentGridData Pageable="true" Height="400px"
@@ -130,7 +130,7 @@ Now try to filter by the On Vacation column - it will use only the current grid 
     List<NameFilterOption> NameOptions { get; set; }
 
     //obtain filter lists data from the data source to show all options
-    async void GetTeamOptions()
+    async Task GetTeamOptions()
     {
         if (TeamsList == null) // sample of caching since we always want all distinct options
         {
@@ -154,7 +154,7 @@ Now try to filter by the On Vacation column - it will use only the current grid 
         return await Task.FromResult(data);
     }
 
-    async void GetNameOptions()
+    async Task GetNameOptions()
     {
         if (NameOptions == null)
         {
@@ -184,11 +184,8 @@ Now try to filter by the On Vacation column - it will use only the current grid 
 
     protected override async Task OnInitializedAsync()
     {
-        // get custom filters data
-        GetTeamOptions();
-        GetNameOptions();
-
-        // generate data that simulates the database
+        // generate data that simulates the database for this example
+        // the actual grid data is retrieve in its OnRead handler
         AllGridData = new List<Employee>();
         var rand = new Random();
         for (int i = 0; i < 15; i++)
@@ -201,6 +198,10 @@ Now try to filter by the On Vacation column - it will use only the current grid 
                 IsOnLeave = i % 2 == 0
             });
         }
+
+        // get custom filters data
+        await GetTeamOptions();
+        await GetNameOptions();
     }
 
     public class Employee
@@ -210,6 +211,9 @@ Now try to filter by the On Vacation column - it will use only the current grid 
         public string Team { get; set; }
         public bool IsOnLeave { get; set; }
     }
+
+    // in this sample we use simplified models to fetch less data from the service
+    // instead of using the full Employee model that has many fields we do not need for the filters
 
     public class TeamNameFilterOption
     {
