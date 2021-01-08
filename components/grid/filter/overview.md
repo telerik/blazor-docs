@@ -35,6 +35,14 @@ In addition to the two main filtering modes, the grid offers two more features t
 
 * The filter menu can show a [list of checkboxes]({%slug grid-checklist-filter%}) with the distinct values from the data to make filtering resemble Excel.
 
+## Custom Filtering
+
+There are two approaches to customize the grid filtering behavior, and you can use them together:
+
+* Perform the data operations yourself (e.g., by outsourcing them to some API backend or other service) - to do that, use the [`OnRead` event]({%slug components/grid/manual-operations%}). This will let you fetch only the current page of data for the grid, instead of pulling the entire data set and storing it in-memory in the view-model.
+
+* Customize the appearance and behavior of the filters - for that, use the [Filter Templates]({%slug grid-templates-filter%}) the grid provides.
+
 ## Advanced Examples
 
 The following articles and sample projects can be helpful when implementing filtering:

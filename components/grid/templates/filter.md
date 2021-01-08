@@ -187,8 +187,11 @@ The example below shows a custom filter that:
 
 You can find more examples in the [Live Demo: Custom Filter Menu](https://demos.telerik.com/blazor-ui/grid/custom-filter-menu) that is available in your local installation under the `demos` folder.
 
+For an example with the CheckboxList Filter, see the [Custom Data]({%slug grid-checklist-filter%}#custom-data) section in its article.
 
 >caption Custom Filter Menu Template - Multiple Checkboxes
+
+>tip The grid can create a checkbox filter for you, see the [CheckBoxList Filtering]({%slug grid-checklist-filter%}) article.
 
 ````CSHTML
 @using Telerik.DataSource

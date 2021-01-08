@@ -128,5 +128,5 @@ The `GridSearchBox` component offers the following settings to customize its beh
 ## See Also
 
   * [Grid Filtering Overview]({%slug components/grid/filtering%})
-  * [Live Demo: Grid Filter Searchbox](https://demos.telerik.com/blazor-ui/grid/searchbox)\
+  * [Live Demo: Grid Filter Searchbox](https://demos.telerik.com/blazor-ui/grid/searchbox)
 

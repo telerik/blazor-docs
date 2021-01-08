@@ -10,7 +10,7 @@ position: 15
 
 # Grid CheckBoxList Filtering
 
-You can change the [filter menu]({%slug grid-filter-menu%}) to show a list of checkboxes with the distinct values from the data source. This lets your users filter records by a commonly found value quickly, and select multiple values with east. The behavior is similar to Excel filtering.
+You can change the [filter menu]({%slug grid-filter-menu%}) to show a list of checkboxes with the distinct values from the data source. This lets your users filter records by a commonly found value quickly, and select multiple values with ease. The behavior is similar to Excel filtering.
 
 To enable the checkbox list filtering in the grid:
 
@@ -231,5 +231,6 @@ depending on how you filter the data so you may never be able to get back all va
 
 ## See Also
 
-  * [Live Demo: Grid Filter Row](https://demos.telerik.com/blazor-ui/grid/filter-row)
-  * [Live Demo: Grid Filter Menu](https://demos.telerik.com/blazor-ui/grid/filter-menu)
+  * [Grid Filtering Overview]({%slug components/grid/filtering%})
+  * [Live Demo: Grid CheckBox List Filter](https://demos.telerik.com/blazor-ui/grid/filter-checkboxlist)
+  
