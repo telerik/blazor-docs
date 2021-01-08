@@ -8,7 +8,7 @@ published: True
 position: 20
 ---
 
-# Grid Filtering Searchbox
+# Grid Toolbar Searchbox
 
 In addition to the [main filtering options]({%slug components/grid/filtering%}), you can add a search box in the grid toolbar that lets the user type their query and the grid will look up all visible string columns with a case-insensitive `Contains` operator, and filter them accordingly. You can change the filter delay, and the fields the grid will use - see the [Customize the SearchBox](#customize-the-searchbox) section below.
 

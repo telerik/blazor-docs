@@ -14,7 +14,7 @@ One of the [filter modes of the grid]({%slug components/grid/filtering%}) is a r
 
 To enable the filter row set the `FilterMode` property of the grid to `Telerik.Blazor.GridFilterMode.FilterRow`.
 
-The grid will render a row below the column headers with UI that you can use to fill in the filter criteria. You can type in the input to execute the default operator as you type, or click a button to choose a different filter operator (like "contains", "greater than" and so on).
+The grid will render a row below the column headers with UI that you can use to fill in the filter criteria. You can type in the input to execute the default operator as you type, or click a button to choose a different filter operator (like "contains", "greater than" and so on). Filters are applied as the user types in the inputs.
 
 Once a filter is a applied to a column, a button will appear that lets you clear that filter.
 
