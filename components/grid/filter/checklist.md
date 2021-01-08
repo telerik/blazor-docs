@@ -1,28 +1,18 @@
 ---
-title: Filtering
-page_title: Grid - Filtering
+title: Overview
+page_title: Grid - Filtering Overview
 description: Enable and configure filtering in Grid for Blazor.
 slug: components/grid/filtering
 tags: telerik,blazor,grid,filtering,filter
 published: True
-position: 22
+previous_url: /components/grid/filtering
+position: 0
 ---
 
-# Grid Filtering
+# Grid Filtering Overview
 
 The Grid component offers built-in support for filtering.
 
-In this article:
-
-* [Basics](#basics)
-* [Filter Row](#filter-row)
-* [Filter Menu](#filter-menu)
-* [Toolbar Search Box](#toolbar-search-box)
-* [Filter From Code](#filter-from-code)
-* [More Examples](#more-examples)
-
-
-## Basics
 
 To enable filtering, set the grid's `FilterMode` property to one of the following values:
 
