@@ -76,7 +76,7 @@ When using the [`OnRead` event]({%slug components/grid/manual-operations%}) to c
 
 To customize the checkbox list behavior, you should use the [filter menu template]({%slug grid-templates-filter%}#filter-menu-template). To help you with that, we have exposed the `TelerikCheckBoxListFilter` component that you can place inside the `FilterMenuTemplate` to get the default grid UI. It provides the following settings:
 
-* `FilterDescriptor` - the filter descriptor where filters will be populated when checkboxes are selected. The component creates the necessary descriptors for you and reads existing ones. This makes it easy to plug into the grid without any additional code.
+* `FilterDescriptor` - the filter descriptor where filters will be populated when checkboxes are selected. The component creates the necessary descriptors for you and reads existing ones. This makes it easy to plug into the grid without any additional code through two-way binding (`@bind-FilterDescriptor="@context.FilterDescriptor"`)..
 
 * `Data` - the data that will be rendered in the checkbox list. This is where you can supply the desired options to change what the grid displays.
 
