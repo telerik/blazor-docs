@@ -219,6 +219,8 @@ The example below shows a custom filter that:
 
 >caption Custom Filter Menu Template - Multiple Checkboxes
 
+>tip The treelist can create a checkbox filter for you, see the [CheckBoxList Filtering]({%slug treelist-checklist-filter%}) article.
+
 ````CSHTML
 @using Telerik.DataSource
 
