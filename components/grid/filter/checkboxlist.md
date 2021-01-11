@@ -132,12 +132,10 @@ depending on how you filter the data so you may never be able to get back all va
     //obtain filter lists data from the data source to show all options
     async Task GetTeamOptions()
     {
-        if (TeamsList == null) // sample of caching since we always want all distinct options
+        if (TeamsList == null) // sample of caching since we always want all distinct options,
+                               //but we don't want to make unnecessary requests
         {
-            // so it is not null in case this gets called again before data returns - we want to call the service only as necessary
-            TeamsList = new List<TeamNameFilterOption>();
-            // new up the collection so the parameter gets updated
-            TeamsList = new List<TeamNameFilterOption>(await GetNamesFromService());
+            TeamsList = await GetNamesFromService();
         }
     }
 
@@ -158,8 +156,7 @@ depending on how you filter the data so you may never be able to get back all va
     {
         if (NameOptions == null)
         {
-            NameOptions = new List<NameFilterOption>();
-            NameOptions = new List<NameFilterOption>(await GetNameOptionsFromService());
+            NameOptions = await GetNameOptionsFromService();
         }
     }
 
@@ -199,7 +196,9 @@ depending on how you filter the data so you may never be able to get back all va
             });
         }
 
-        // get custom filters data
+        // get custom filters data. In a future version you will be able to call these methods
+        // from the template initialization instead of here (or in OnRead) so that they fetch data
+        // only when the user actually needs filter values, instead of always - that could improve server performance
         await GetTeamOptions();
         await GetNameOptions();
     }
