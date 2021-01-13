@@ -30,13 +30,13 @@ The following list shows the components that have a built-in loading sign for da
 
 * MultiSelect - 
 
-* Scheduler -  loading sign covers the entire component for slow data operations such as editing, inserting and deleting appointments.
+* Scheduler - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting appointments.
 
 * TreeList - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting records. Expanding items with load-on-demand shows a loading indicator next to the item while the `OnExpand` event is running.
 
 * TreeView - for expanding nodes with load-on-demand, a loading indicator is shown next to the item while the `OnExpand` event is running.
 
-* Upload - 
+* Upload - in addition to the progress bar for each individual file in the file list, the entire component shows a loading sign and message in its header while a file is uploading.
 
 ## Notes
 
