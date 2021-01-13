@@ -33,7 +33,9 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
 >caption Stop the Drawer from collapsing on item click
 
 ````CSHTML
-@* Toggle the expanded or collapsed state only by a button click *@
+@* Toggle the expanded or collapsed state only by a button click. Clicking on a Drawer item will navigate you to the value of the Text property of the DrawerItem class. See the SelectAndNavigate method for reference *@
+
+@inject NavigationManager navManager
 
 <TelerikDrawer @bind-Expanded="@DrawerExpanded"
                Data="@Data"
@@ -48,14 +50,14 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
                 {
                     @* stop the propagation of the onclick event to prevent the drawer from collapsing *@
                     @* Use onclick to handle manual item selection and toggle the selected class *@
-                    <li @onclick:stopPropagation 
-                        @onclick="@(() => SelectedItem = item)"
+                    <li @onclick:stopPropagation
+                        @onclick="@(() => SelectAndNavigate(item))"
                         class="k-drawer-item @GetSelectedItemClass(item)"
                         style="white-space:nowrap">
                         <span class="k-icon k-i-@item.Icon" style="margin-right: 8px;"></span>
                         @if (DrawerExpanded)
                         {
-                           <span class="k-item-text">@item.Text</span>
+                            <span class="k-item-text">@item.Text</span>
                         }
                     </li>
                 }
@@ -79,6 +81,13 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
         new DrawerItem {Text = "Notifications", Icon = IconName.Notification, Description = "My profile notifications"},
         new DrawerItem {Text = "Calendar", Icon = IconName.Calendar, Description = "My events"},
     };
+
+    private void SelectAndNavigate(DrawerItem item)
+    {
+        SelectedItem = item;
+
+        navManager.NavigateTo(SelectedItem.Text);
+    }
 
     public string GetSelectedItemClass(DrawerItem item)
     {
