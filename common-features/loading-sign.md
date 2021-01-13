@@ -18,23 +18,25 @@ The components add the busy indicator when they detect a slow-running `async` **
 
 ## List of Components That Have Loading Indicators
 
-* AutoComplete
+The following list shows the components that have a built-in loading sign for data operations:
 
-* ComboBox
+* AutoComplete - 
 
-* [Grid](https://demos.telerik.com/blazor-ui/grid/loading-animation)
+* ComboBox - 
 
-* ListView
+* [Grid](https://demos.telerik.com/blazor-ui/grid/loading-animation) - a loading sign covers the entire component for slow data operations such as paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records. It is shown when the `OnRead` event is called.
 
-* MultiSelect
+* ListView - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting records. It is also shown when the `OnRead` event is called.
 
-* Scheduler
+* MultiSelect - 
 
-* TreeList
+* Scheduler -  loading sign covers the entire component for slow data operations such as editing, inserting and deleting appointments.
 
-* TreeView
+* TreeList - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting records. Expanding items with load-on-demand shows a loading indicator next to the item while the `OnExpand` event is running.
 
-* Upload
+* TreeView - for expanding nodes with load-on-demand, a loading indicator is shown next to the item while the `OnExpand` event is running.
+
+* Upload - 
 
 ## Notes
 
