@@ -14,29 +14,37 @@ Many times a component loads or saves data and that can take some time. To show 
 
 The Telerik components use the Telerik [Loader]({%slug loader-overview%}) and [LoaderContainer]({%slug loadercontainer-overview%}) components internally to match the theme and design.
 
-The components add the busy indicator when they detect a slow-running `async` **data operation** (when it takes more than 120ms). For example, when the user inserts a record in the grid and the data service operation takes longer, there will be a loading indicator over the grid.
+The components add the busy indicator when they detect a slow-running `async` **data operation** (when it takes more than 120ms). For example, when the user inserts a record in the grid and the data service operation takes longer than that, there will be a loading indicator over the grid.
+
+In this article:
+
+* [List of Components That Have Loading Indicators](#list-of-components-that-have-loading-indicators)
+* [Notes](#notes)
+	* [Initial Data](#initial-data)
+	* [Slow Rendering](#slow-rendering)
+
 
 ## List of Components That Have Loading Indicators
 
 The following list shows the components that have a built-in loading sign for data operations:
 
-* AutoComplete - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives.
+* **AutoComplete** - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives.
 
-* ComboBox - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives. The dropdown arrow becomes a loading icon.
+* **ComboBox** - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives. The dropdown arrow becomes a loading icon.
 
-* [Grid](https://demos.telerik.com/blazor-ui/grid/loading-animation) - a loading sign covers the entire component for slow data operations such as paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records. It is shown when the `OnRead` event is called.
+* [**Grid**](https://demos.telerik.com/blazor-ui/grid/loading-animation) - a loading sign covers the entire component for slow data operations such as paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records. It is shown when the `OnRead` event is called.
 
-* ListView - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting records. It is also shown when the `OnRead` event is called.
+* **ListView** - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting records. It is also shown when the `OnRead` event is called.
 
-* MultiSelect - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives.
+* **MultiSelect** - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives.
 
-* Scheduler - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting appointments.
+* **Scheduler** - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting appointments.
 
-* TreeList - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting records. Expanding items with load-on-demand shows a loading indicator next to the item while the `OnExpand` event is running.
+* **TreeList** - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting records. Expanding items with load-on-demand shows a loading indicator next to the item while the `OnExpand` event is running.
 
-* TreeView - for expanding nodes with load-on-demand, a loading indicator is shown next to the item while the `OnExpand` event is running.
+* **TreeView** - for expanding nodes with load-on-demand, a loading indicator is shown next to the item while the `OnExpand` event is running.
 
-* Upload - in addition to the progress bar for each individual file in the file list, the entire component shows a loading sign and message in its header while a file is uploading.
+* **Upload** - in addition to the progress bar for each individual file in the file list, the entire component shows a loading sign and message in its header while a file is uploading.
 
 ## Notes
 
@@ -61,7 +69,7 @@ This sample shows only an indicator for the initial data load, only the DELETE o
 
 <div style="position: relative; width:100%; min-height: 400px;">
     <TelerikLoaderContainer OverlayThemeColor="light" Visible="@( !InitialDataLoadComplete )"
-                            Text="@null" Class="initial-data-loader">
+                            Text="@null">
         <Template>
             <TelerikLoader Type="@LoaderType.InfiniteSpinner" Size="@LoaderSize.Large"></TelerikLoader>
         </Template>
@@ -128,7 +136,7 @@ This sample shows only an indicator for the initial data load, only the DELETE o
 
 <div style="position: relative; width:100%; min-height: 600px;">
     <TelerikLoaderContainer OverlayThemeColor="light" Visible="@( !InitialDataLoadComplete )"
-                            Text="@null" Class="initial-data-loader">
+                            Text="@null">
         <Template>
             <TelerikLoader Type="@LoaderType.InfiniteSpinner" Size="@LoaderSize.Large"></TelerikLoader>
         </Template>
@@ -203,15 +211,6 @@ This sample shows only an indicator for the initial data load, only the DELETE o
                 IsAllDay = true,
                 Start = new DateTime(2019, 11, 27),
                 End = new DateTime(2019, 12, 05)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Morning run",
-                Description = "Some time to clear the head and exercise.",
-                Start = new DateTime(2019, 11, 27, 9, 0, 0),
-                End = new DateTime(2019, 11, 27, 9, 30, 0),
-                RecurrenceRule = "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR"
             }
         };
     }
@@ -231,9 +230,6 @@ This sample shows only an indicator for the initial data load, only the DELETE o
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public bool IsAllDay { get; set; }
-        public string RecurrenceRule { get; set; }
-        public List<DateTime> RecurrenceExceptions { get; set; }
-        public Guid? RecurrenceId { get; set; }
 
         public SchedulerAppointment()
         {
