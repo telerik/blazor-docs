@@ -16,7 +16,7 @@ The Telerik components use the Telerik [Loader]({%slug loader-overview%}) and [L
 
 The components add the busy indicator when they detect a slow-running `async` **data operation** (when it takes more than 120ms). For example, when the user inserts a record in the grid and the data service operation takes longer than that, there will be a loading indicator over the grid.
 
-In this article:
+#### In this article:
 
 * [List of Components That Have Loading Indicators](#list-of-components-that-have-loading-indicators)
 * [Notes](#notes)
