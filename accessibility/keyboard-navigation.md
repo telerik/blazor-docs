@@ -76,7 +76,7 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [RangeSlider](https://demos.telerik.com/blazor-ui/rangeslider/keyboard-navigation)
 
-* Scheduler - will have keyboard navigation in an upcoming release.
+* [Scheduler](https://demos.telerik.com/blazor-ui/scheduler/keyboard-navigation)
 
 * [Slider](https://demos.telerik.com/blazor-ui/slider/keyboard-navigation)
 
@@ -98,7 +98,7 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [ToggleButton](https://demos.telerik.com/blazor-ui/togglebutton/keyboard-navigation)
 
-* TreeList - will have keyboard navigation in an upcoming release.
+* [TreeList](https://demos.telerik.com/blazor-ui/treelist/keyboard-navigation) (set `Navigable="true"`)
 
 * [TreeView](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation)
 
