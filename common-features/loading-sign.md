@@ -318,7 +318,7 @@ This sample shows a loading panel over the treeview container (tweak as required
 
 ### Slow Rendering
 
-The loading indicator can be shown only during an `async` data operation that takes a while. Synchronous operations do not render the components anew while they are running, only after they complete, so an indicator cannot be shown during them.
+The loading indicator can be shown only during an `async` data operation that takes a while (the event handler for the operations must be `async Task` and *not* `void`). Synchronous operations do not render the components anew while they are running, only after they complete, so an indicator cannot be shown during them.
 
 Rendering the UI is a synchronous operation that runs on the UI thread and blocks it. If that operation is slow, there will be no loading indicator.
 
