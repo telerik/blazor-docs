@@ -46,6 +46,8 @@ The following list shows the components that have a built-in loading sign for da
 
 * **Upload** - in addition to the progress bar for each individual file in the file list, the entire component shows a loading sign and message in its header while a file is uploading.
 
+If the components are bound to `IQueriable` data which takes a long time to return, the loading signs will also be shown (e.g., as if the `OnRead` or `OnExpand` events are used). Note that this can only work in a server-side Blazor app where the query will be resolved against the real database.
+
 ## Notes
 
 This section explains a few points that you need to keep in mind when using and relying on busy indicators.
