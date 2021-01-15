@@ -15,6 +15,7 @@ This article explains the events available in the Telerik TreeView for Blazor:
 * [OnExpand](#onexpand)
 * [OnItemClick](#onitemclick)
 * [SelectedItemsChanged](#selecteditemschanged)
+* [CheckedItemsChanged](#checkeditemschanged)
 
 ## OnExpand
 
@@ -409,7 +410,140 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
 
 ![selection single example](selection/images/treeview-selection-single.png)
 
+## CheckedItemsChanged
+
+The `CheckedItemsChanged` event fires every time the user uses a [checkbox]({%slug treeview-checkboxes-overview%}) to select a new item.
+
+````CSHTML
+@* Use the CheckedItemsChanged event to respond to the user action of clicking on a checkbox and update the view-model *@
+
+<TelerikTreeView Data="@FlatData" 
+                 CheckBoxMode="@TreeViewCheckBoxMode.Single" 
+                 CheckedItems="@checkedItems"
+                 CheckedItemsChanged="@((IEnumerable<object> items) => CheckedItemsChangedHandler(items) )">
+    <TreeViewBindings >
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+    </TreeViewBindings>
+</TelerikTreeView>
+
+<div>
+    Selected item: 
+    <span>
+        @if (checkedItems.Any())
+        {
+            @((checkedItems.FirstOrDefault() as TreeItem).Text)
+        }
+    </span>
+</div>
+
+@code {
+    private void CheckedItemsChangedHandler(IEnumerable<object> items)
+    {
+        checkedItems = items;
+    }
+
+    public IEnumerable<object> checkedItems { get; set; } = new List<object>();
+
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public int? ParentIdValue { get; set; }
+        public bool HasChildren { get; set; }
+        public string Icon { get; set; }
+        public bool Expanded { get; set; }
+    }
+
+    public IEnumerable<TreeItem> FlatData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        LoadFlatData();
+
+        var precheckedItem = FlatData.Where(x => x.Id == 3); // provide initial checked item when the page is loaded
+
+        checkedItems = new List<object>(precheckedItem);
+    }
+
+    private void LoadFlatData()
+    {
+        List<TreeItem> items = new List<TreeItem>();
+
+        items.Add(new TreeItem()
+        {
+            Id = 1,
+            Text = "Project",
+            ParentIdValue = null,
+            HasChildren = true,
+            Icon = "folder",
+            Expanded = true
+        });
+
+        items.Add(new TreeItem()
+        {
+            Id = 2,
+            Text = "Design",
+            ParentIdValue = 1,
+            HasChildren = true,
+            Icon = "brush",
+            Expanded = true
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 3,
+            Text = "Implementation",
+            ParentIdValue = 1,
+            HasChildren = true,
+            Icon = "folder",
+            Expanded = true
+        });
+
+        items.Add(new TreeItem()
+        {
+            Id = 4,
+            Text = "site.psd",
+            ParentIdValue = 2,
+            HasChildren = false,
+            Icon = "psd",
+            Expanded = true
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 5,
+            Text = "index.js",
+            ParentIdValue = 3,
+            HasChildren = false,
+            Icon = "js"
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 6,
+            Text = "index.html",
+            ParentIdValue = 3,
+            HasChildren = false,
+            Icon = "html"
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 7,
+            Text = "styles.css",
+            ParentIdValue = 3,
+            HasChildren = false,
+            Icon = "css"
+        });
+
+        FlatData = items;
+    }
+}
+````
+
+>caption The result of the code snippet above
+
+![checking single node example](images/single-node-checking-one-way-binding-example.png)
+
+
 ## See Also
 
   * [TreeView Overview]({%slug components/treeview/overview%})
   * [TreeView Selection]({%slug treeview-selection-overview%})
+  * [TreeView CheckBoxes]({%slug treeview-checkboxes-overview%})
