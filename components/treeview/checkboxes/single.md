@@ -23,7 +23,7 @@ This article is separated in the following sections:
 
 ## Basics
 
-To check a **single** node in the TreeView, set the `TreeViewCheckBoxMode` parameter to `Telerik.Blazor.Components.TreeViewCheckBoxMode.Single`.
+To check a **single** node in the TreeView, set the `CheckBoxMode` parameter to `Telerik.Blazor.Components.TreeViewCheckBoxMode.Single`.
 
 
 ## Examples
