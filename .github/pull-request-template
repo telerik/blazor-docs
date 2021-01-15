@@ -1,3 +1,8 @@
+## General tasks for a new feature (delete if not applicable)
+
+- [ ] Check links to and from demos, demos descriptions and metadata
+
+
 ## New Component Checklist (delete for other types of PRs)
 
 - [ ] - Overview article
@@ -36,4 +41,3 @@ Examples of such events could be:
 
 - [ ] Link from the Overview components list
 
-- [ ] Check links to and from demos, demos descriptions and metadata
