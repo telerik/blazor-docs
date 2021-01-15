@@ -10,7 +10,7 @@ position: 5
 
 # Check a Single Node in TreeView
 
-The TreeView lets the user check a single node at a time.
+The TreeView lets the user check a single node at a time based on the value of its `CheckBoxMode` parameter.
 
 This article is separated in the following sections:
 
@@ -23,7 +23,7 @@ This article is separated in the following sections:
 
 ## Basics
 
-To check a **single** node in the TreeView, set the `CheckBoxMode` parameter to `Telerik.Blazor.Components.TreeViewCheckBoxMode.Single`.
+To let the user check only a **single** node in the TreeView, set the `CheckBoxMode` parameter to `Telerik.Blazor.Components.TreeViewCheckBoxMode.Single`.
 
 
 ## Examples
@@ -168,7 +168,7 @@ You can use one-way binding to provide an initial checked node, and respond to t
 
 ### Selection of a single node using two-way data binding
 
-You can use two-way binding to get the node the user has checked. This can be useful if the node model already contains all the information you need to use.
+You can use two-way binding to get the node the user has checked. This can be useful if the node model already contains all the information you need to use. It also reduces the amount of code you need to write.
 
 ````CSHTML
 @* Check a single node using the @bind-CheckedItems syntax for two-way data binding. *@

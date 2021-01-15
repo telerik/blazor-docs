@@ -10,7 +10,7 @@ position: 10
 
 # Check Multiple Nodes in TreeView
 
-The TreeView lets the user select multiple nodes with checkboxes.
+The TreeView lets the user select multiple nodes with checkboxes based on the value of its `CheckBoxMode` parameter.
 
 In this article:
 
@@ -23,7 +23,7 @@ In this article:
 
 ## Basics
 
-To use **multiple** node selection, set the `CheckBoxMode` parameter to `Telerik.Blazor.TreeViewCheckBoxMode.Multiple`.
+To let the user use **multiple** node selection, set the `CheckBoxMode` parameter to `Telerik.Blazor.TreeViewCheckBoxMode.Multiple`.
 
 
 ## Examples
@@ -177,7 +177,7 @@ You can use one-way binding to provide an initial node selection, and respond to
 
 ### Multiple selection using two-way data binding
 
-You can use two-way binding to get the node the user has selected. This can be useful if the node model already contains all the information you need to show based on the selection.
+You can use two-way binding to get the node the user has selected. This can be useful if the node model already contains all the information you need to show based on the selection. It also reduces the amount of code you need to write.
 
 ````CSHTML
 @* Handle multiple node selection with two-way data binding *@
