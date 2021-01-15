@@ -23,6 +23,7 @@ To enable the search box, add the `<GridSearchBox>` tag in the `<GridToolBar>`.
 
 <TelerikGrid Data=@GridData Pageable="true" Height="400px">
     <GridToolBar>
+        <span class="k-toolbar-spacer"></span> @* add this spacer to keep the searchbox on the right *@
         <GridSearchBox />
     </GridToolBar>
     <GridColumns>

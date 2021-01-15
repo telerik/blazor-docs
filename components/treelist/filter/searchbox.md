@@ -25,6 +25,7 @@ To enable the search box, add the `<TreeListSearchBox>` tag in the `<TreeListToo
                  ItemsField="@(nameof(Employee.DirectReports))"
                  Pageable="true">
     <TreeListToolBar>
+        <span class="k-toolbar-spacer"></span> @* add this spacer to keep the searchbox on the right *@
         <TreeListSearchBox />
     </TreeListToolBar>
     <TreeListColumns>
