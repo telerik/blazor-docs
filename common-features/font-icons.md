@@ -23,13 +23,7 @@ In this article:
 
 Telerik UI for Blazor comes with the `TelerikIcon` component that you can use to render icons. It works with the following image types:
 
-* **Telerik font icon** - the `Telerik.Blazor.IconName` static class allows you to supply an `Icon` parameter that takes a **Telerik icon** from our built-in collection. To find the available **Telerik icons**, you can:
-
-    * Use Visual Studio's IntelliSense.
-    
-    * Refer to the [online API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.IconName) article.
-
-    >tip Telerik UI for Blazor uses the same icons as the Kendo UI suite. You can find the rendered icons in the [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web) article. When you use the icon names in this article, remove the `k-i-` prefix, and you will get the correct icon name for Blazor UI. You can use them as hardcoded strings as well. Their corresponding class members are in `CamelCase`.
+* **Telerik font icon** - Telerik UI for Blazor uses the same icons as the Kendo UI suite. You can find the rendered icons in the [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web) article. When you use the icon names in this article, remove the `k-i-` prefix, and you will get the correct icon name for Blazor UI.
 
 * **Third party font-icon** - the `IconClass` parameter lets you set a CSS class that provides the required font name, font size and content for the `::before` pseudoelement.
 
