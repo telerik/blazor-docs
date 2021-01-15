@@ -18,10 +18,12 @@ The components add the busy indicator when they detect a slow-running `async` **
 
 #### In this article:
 
+
 * [List of Components That Have Loading Indicators](#list-of-components-that-have-loading-indicators)
 * [Notes](#notes)
 	* [Initial Data](#initial-data)
 	* [Slow Rendering](#slow-rendering)
+* [Disable The Loading Indicator](#disable-the-loading-indicator)
 
 
 ## List of Components That Have Loading Indicators
@@ -333,4 +335,100 @@ A fourth example could be a dropdown that has far too many items in it - expandi
 To combat such performance issues, see the [Slow Performance]({%slug troubleshooting-general-issues%}#slow-performance) section of the documentation.
 
 Truly asynchronous operations will still allow for a loading sign - such as the grid's `OnRead` event that is really `async` (for example, calls some WebAPI) will let the framework release the UI thread and re-render the component with a loading sign until the data response comes back.
+
+
+## Disable The Loading Indicator
+
+We believe that having a loading sign that tells the user something is happening improves the user experience. This is why this feature is enabled by default on all data bound components that perform data operations.
+
+We understand, however, that you might want to disable this feature in some cases. At the moment, you can use CSS to hide the loading indicator HTML. If you would like another implementation (such as a dedicated setting or more settings for the loader panel in general, let us know on our <a href="https://feedback.telerik.com/blazor" target="_blank">feedback portal</a>).
+
+>caption Remove the loading animation from the grid with CSS
+
+````CSHTML
+@* The CSS rule hides the loading sign. If you want to disable it for all grids, remove the custom Class from the grid declaration and the CSS rule.
+In a similar fashion you can inspect the rendered HTML and target the element you want to hide for other components.
+Make sure to have the proper cascade so that you do not break other components on the page you do not intend to affect. *@
+
+<style>
+    .no-loader.k-grid .k-loader-container {
+        display: none !important;
+    }
+</style>
+
+<TelerikGrid Class="no-loader"
+             Data=@GridData TotalCount=@Total OnRead=@ReadItems
+             FilterMode=@GridFilterMode.FilterRow Sortable=true Pageable=true EditMode="@GridEditMode.Inline">
+    <GridColumns>
+        <GridColumn Field=@nameof(Employee.ID) />
+        <GridColumn Field=@nameof(Employee.Name) Title="Name" />
+        <GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+    </GridToolBar>
+</TelerikGrid>
+
+@* Everything else here is sample data binding *@
+
+@using Telerik.DataSource.Extensions
+
+@code {
+    public List<Employee> SourceData { get; set; }
+    public List<Employee> GridData { get; set; }
+    public int Total { get; set; } = 0;
+
+    protected override void OnInitialized()
+    {
+        SourceData = GenerateData();
+    }
+
+    protected async Task ReadItems(GridReadEventArgs args)
+    {
+        await Task.Delay(2000); //simulate delay from a real async call
+
+        var datasourceResult = SourceData.ToDataSourceResult(args.Request);
+
+        GridData = (datasourceResult.Data as IEnumerable<Employee>).ToList();
+        Total = datasourceResult.Total;
+
+        StateHasChanged();
+    }
+
+    //This sample implements only reading of the data. To add the rest of the CRUD operations see
+    //https://docs.telerik.com/blazor-ui/components/grid/editing/overview
+
+    private List<Employee> GenerateData()
+    {
+        var result = new List<Employee>();
+        var rand = new Random();
+        for (int i = 0; i < 100; i++)
+        {
+            result.Add(new Employee()
+            {
+                ID = i,
+                Name = "Name " + i,
+                HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20))
+            });
+        }
+
+        return result;
+    }
+
+    public class Employee
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
+
+
 
