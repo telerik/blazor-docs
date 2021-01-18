@@ -45,10 +45,10 @@ Editing is cancelled for the first record.
     </TreeListToolBar>
     <TreeListColumns>
         <TreeListCommandColumn Width="200px">
-            <TreeListCommandButton Command="Add" Icon="@IconName.Plus">Add Child</TreeListCommandButton>
-            <TreeListCommandButton Command="Delete" Icon="@IconName.Delete">Delete</TreeListCommandButton>
+            <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
+            <TreeListCommandButton Command="Delete" Icon="delete">Delete</TreeListCommandButton>
             <TreeListCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TreeListCommandButton>
-            <TreeListCommandButton Command="Cancel" Icon="@IconName.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
         </TreeListCommandColumn>
 
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />

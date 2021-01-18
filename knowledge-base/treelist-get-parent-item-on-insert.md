@@ -61,12 +61,12 @@ The approaches to handle this would depend of the type of data the component is 
         <TreeListCommandColumn Width="100px">
             <TreeListCommandButton Command="MyAdd" 
                                    OnClick="@( (TreeListCommandEventArgs args) => AddItem(args) )"
-                                   Icon="@IconName.Plus">
+                                   Icon="plus">
                                     Add Child
             </TreeListCommandButton>
-            <TreeListCommandButton Command="Edit" Icon="@IconName.Edit">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon="edit">Edit</TreeListCommandButton>
             <TreeListCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TreeListCommandButton>
-            <TreeListCommandButton Command="Cancel" Icon="@IconName.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
         </TreeListCommandColumn>
 
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
@@ -193,12 +193,12 @@ The approaches to handle this would depend of the type of data the component is 
         <TreeListCommandColumn Width="100px">
             <TreeListCommandButton Command="MyAdd"
                                    OnClick="@( (TreeListCommandEventArgs args) => AddItem(args) )"
-                                   Icon="@IconName.Plus">
+                                   Icon="plus">
                                     Add Child
             </TreeListCommandButton>
-            <TreeListCommandButton Command="Edit" Icon="@IconName.Edit">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon="edit">Edit</TreeListCommandButton>
             <TreeListCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TreeListCommandButton>
-            <TreeListCommandButton Command="Cancel" Icon="@IconName.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
         </TreeListCommandColumn>
 
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />

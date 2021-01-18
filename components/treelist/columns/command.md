@@ -60,9 +60,9 @@ The `OnClick` handler of the commands receives an argument of type `TreeListComm
     <TreeListColumns>
 
         <TreeListCommandColumn Width="250px">
-            <TreeListCommandButton Command="Edit" Icon="@IconName.Edit">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon="edit">Edit</TreeListCommandButton>
             <TreeListCommandButton Command="Save" Icon="save" ShowInEdit="true" OnClick="@CustomSaveClick">Update</TreeListCommandButton>
-            <TreeListCommandButton Command="Cancel" Icon="@IconName.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
             <TreeListCommandButton Command="MyCustomCommand" Icon="@IconName.Gear" OnClick="@MyCustomCommandHandler">Custom Command</TreeListCommandButton>
         </TreeListCommandColumn>
 
