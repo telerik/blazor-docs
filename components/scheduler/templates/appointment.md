@@ -105,7 +105,7 @@ You can also style the entire appointments by adding a class to their wrapping e
                 Description = "Kick off the new project.",
                 Start = new DateTime(2019, 11, 25, 9, 30, 0),
                 End = new DateTime(2019, 11, 25, 12, 45, 0),
-                Icon = IconName.Warning
+                Icon = "warning"
             },
 
             new SchedulerAppointment

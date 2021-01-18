@@ -26,11 +26,14 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
 @* This example shows how to add icons or images to context menu items
 Make sure that you also refernce the OpenIconic font that comes with the Blazor App template to see the custom font icon *@
 
-<TelerikMenu Data="@MenuData"
-             IconField="@nameof(MenuModel.TelerikIcon)"
-             ImageUrlField="@nameof(MenuModel.MyImage)"
-             IconClassField="@nameof(MenuModel.MyIconClass)">
-</TelerikMenu>
+<div id="context-menu-target" style="background:yellow;">right click for context menu</div>
+
+<TelerikContextMenu Data="@MenuData"
+                    Selector="#context-menu-target"
+                    IconField="@nameof(MenuModel.TelerikIcon)"
+                    ImageUrlField="@nameof(MenuModel.MyImage)"
+                    IconClassField="@nameof(MenuModel.MyIconClass)">
+</TelerikContextMenu>
 
 @code {
     public List<MenuModel> MenuData { get; set; }
@@ -47,7 +50,7 @@ Make sure that you also refernce the OpenIconic font that comes with the Blazor 
             new MenuModel()
             {
                 Text = "IconField",
-                TelerikIcon = IconName.Email
+                TelerikIcon = "email"
             },
             new MenuModel()
             {

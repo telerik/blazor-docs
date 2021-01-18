@@ -192,7 +192,7 @@ Each `Point` contains the following data:
                 foreach (var point in points)
                 {
                     <div>
-                        <TelerikIcon Icon="@IconName.Information" />
+                        <TelerikIcon Icon="information" />
                         <strong>Product name: @point.SeriesName</strong> has
                         High value: @(((point.DataItem as StockDataPoint).High).ToString("C2"))
                     </div>

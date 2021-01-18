@@ -55,8 +55,8 @@ The `SelectedItemChanged` event fires every time the user clicks on a new item f
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Text = "Counter", Icon = IconName.Plus},
-            new DrawerItem { Text = "FetchData", Icon = IconName.GridLayout},
+            new DrawerItem { Text = "Counter", Icon = "plus"},
+            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
                 };
 
     public class DrawerItem
@@ -81,7 +81,7 @@ The `ExpandedChanged` event fires every time the component's state is changed - 
 
 @if (!Expanded)
 {
-    <TelerikButton OnClick="@(() => DrawerRef.ExpandAsync())" Icon="@IconName.Menu">Expand Drawer</TelerikButton>
+    <TelerikButton OnClick="@(() => DrawerRef.ExpandAsync())" Icon="menu">Expand Drawer</TelerikButton>
 }
 
 <TelerikDrawer Expanded="@Expanded"
@@ -113,8 +113,8 @@ The `ExpandedChanged` event fires every time the component's state is changed - 
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Text = "Counter", Icon = IconName.Plus},
-            new DrawerItem { Text = "FetchData", Icon = IconName.GridLayout},
+            new DrawerItem { Text = "Counter", Icon = "plus"},
+            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
          };
 
     public class DrawerItem

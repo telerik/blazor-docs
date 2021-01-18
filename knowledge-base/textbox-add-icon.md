@@ -64,7 +64,7 @@ The example below showcases both approaches and here is the outcome from it:
         @* Use the desired icons and styling here, 
             if you use a little more complex markup you could even 
             add event handlers to make this into a button *@
-        <TelerikIcon Icon="@IconName.Zoom" />
+        <TelerikIcon Icon="zoom" />
         <TelerikTextBox @bind-Value="@TheText" />
     </span>
 </label>
@@ -72,7 +72,7 @@ The example below showcases both approaches and here is the outcome from it:
 <br />
 <br />
 <span class="tb-icon-container with-label">
-    <TelerikIcon Icon="@IconName.Zoom" />
+    <TelerikIcon Icon="zoom" />
     <TelerikTextBox @bind-Value="@TheText" Label="some label" />
 </span>
 <style>

@@ -27,7 +27,7 @@ The following example shows how to use an image from a URL, a sprite image, and 
 
 ````CSHTML
 <TelerikButton SpriteClass="k-icon netherlandsFlag">Sprite</TelerikButton>
-<TelerikButton Icon="@IconName.Filter">Font Icon</TelerikButton>
+<TelerikButton Icon="filter">Font Icon</TelerikButton>
 <TelerikButton ImageUrl="https://docs.telerik.com/blazor-ui/images/snowboarding.png">Image URL</TelerikButton>
 
 <style>

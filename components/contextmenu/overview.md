@@ -55,7 +55,7 @@ In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%
             new ContextMenuItem
             {
                 Text = "More Info",
-                Icon = IconName.Information,
+                Icon = "information",
                 CommandName = "info"
             },
             new ContextMenuItem
@@ -70,13 +70,13 @@ In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%
                     new ContextMenuItem
                     {
                         Text = "Delete",
-                        Icon = IconName.Delete,
+                        Icon = "delete",
                         CommandName = "delete"
                     },
                     new ContextMenuItem
                     {
                         Text = "Report",
-                        Icon = IconName.Cancel,
+                        Icon = "cancel",
                         CommandName = "report"
                     }
                 }

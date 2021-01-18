@@ -43,20 +43,20 @@ The CUD operations are implemented through dedicated events that let you alter t
         <div style="border: 1px solid green; margin: 10px; padding: 10px; display: inline-block;">
             <TelerikTextBox @bind-Value="@context.Name" Label="Name" /><br />
             <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" />
-            <ListViewCommandButton Command="Save" Icon="@IconName.Save">Save</ListViewCommandButton>
-            <ListViewCommandButton Command="Cancel" Icon="@IconName.Cancel">Cancel</ListViewCommandButton>
+            <ListViewCommandButton Command="Save" Icon="save">Save</ListViewCommandButton>
+            <ListViewCommandButton Command="Cancel" Icon="cancel">Cancel</ListViewCommandButton>
         </div>
     </EditTemplate>
     <Template>
         <div style="border: 1px solid black; margin: 10px; padding: 10px; display: inline-block;">
             Employee: @context.Id <br />
             Name: @context.Name in team: @context.Team
-            <ListViewCommandButton Command="Edit" Icon="@IconName.Edit">Edit</ListViewCommandButton>
-            <ListViewCommandButton Command="Delete" Icon="@IconName.Delete">Delete</ListViewCommandButton>
+            <ListViewCommandButton Command="Edit" Icon="edit">Edit</ListViewCommandButton>
+            <ListViewCommandButton Command="Delete" Icon="delete">Delete</ListViewCommandButton>
         </div>
     </Template>
     <HeaderTemplate>
-        <ListViewCommandButton Command="Add" Icon="@IconName.Plus">Add Employee</ListViewCommandButton>
+        <ListViewCommandButton Command="Add" Icon="plus">Add Employee</ListViewCommandButton>
         <p>In this sample, the first item will not open for editing because of the code in the OnEdit handler</p>
     </HeaderTemplate>
 </TelerikListView>

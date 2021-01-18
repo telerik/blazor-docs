@@ -21,7 +21,7 @@ To enable the grid CSV Export, add a [command button]({%slug components/grid/col
 
 ````
 <GridToolBar>
-    <GridCommandButton Command="CsvExport" Icon="@IconName.FileCsv">Export to CSV</GridCommandButton>
+    <GridCommandButton Command="CsvExport" Icon="file-csv">Export to CSV</GridCommandButton>
 </GridToolBar>
 ````
 
@@ -40,7 +40,7 @@ Optionally, you can also set the `GridCsvExport` tag settings under the `GridExp
              FilterMode="@GridFilterMode.FilterRow" Groupable="true">
 
     <GridToolBar>
-        <GridCommandButton Command="CsvExport" Icon="@IconName.FileCsv">Export to CSV</GridCommandButton>
+        <GridCommandButton Command="CsvExport" Icon="file-csv">Export to CSV</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBar>
 

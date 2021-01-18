@@ -112,7 +112,7 @@ Each `Point` contains the following data:
                 foreach (var point in points)
                 {
                     <div>
-                        <TelerikIcon Icon="@IconName.Information" />
+                        <TelerikIcon Icon="information" />
                         @*this example shows how to parse the FormattedValue to a int,*@
                         @*but you can also parse it to any other type your data uses / has*@
                         Point value: @(int.Parse(point.FormattedValue).ToString("C"))

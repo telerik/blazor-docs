@@ -93,7 +93,7 @@ In this section you can find the following examples:
 <TelerikEditor @ref="@EditorRef" Tools="@Tools" @bind-Value="@TheEditorContent">
     <EditorCustomTools>
         <EditorCustomTool Name="ImportantFragment">
-            <TelerikButton OnClick="@MarkImportant" Icon="@IconName.Star"></TelerikButton>
+            <TelerikButton OnClick="@MarkImportant" Icon="star"></TelerikButton>
         </EditorCustomTool>
     </EditorCustomTools>
 </TelerikEditor>

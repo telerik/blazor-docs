@@ -86,7 +86,7 @@ own data source and return it from a service to render in the corresponding head
                 </TelerikMultiSelect>
                 <TelerikButton ButtonType="ButtonType.Button"
                                Class="k-clear-button-visible ml-2"
-                               Icon="@IconName.Filter"
+                               Icon="filter"
                                Enabled="@( FilteredRoles.Any() )"
                                OnClick="@(async () =>
                                           {
@@ -96,7 +96,7 @@ own data source and return it from a service to render in the corresponding head
                 </TelerikButton>
                 <TelerikButton ButtonType="ButtonType.Button"
                                Class="k-clear-button-visible ml-2"
-                               Icon="@IconName.FilterClear"
+                               Icon="filter-clear"
                                Enabled="@( FilteredRoles.Any() )"
                                OnClick="@(async () =>
                                           {

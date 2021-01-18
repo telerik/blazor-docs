@@ -39,7 +39,7 @@ If using a [TelerikTooltip](https://demos.telerik.com/blazor-ui/tooltip/overview
 <TelerikTooltip TargetSelector=".k-drawer-items span.k-icon[title]" />
 
 <p>
-    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
+    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
 </p>
 
 <TelerikDrawer Data="@Data"
@@ -59,8 +59,8 @@ If using a [TelerikTooltip](https://demos.telerik.com/blazor-ui/tooltip/overview
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Title="Counter Title", Text = "Counter", Icon = IconName.Plus, Url = "counter" },
-            new DrawerItem { Title="FetchData Title", Text = "FetchData", Icon = IconName.GridLayout, Url = "fetchdata" },
+            new DrawerItem { Title="Counter Title", Text = "Counter", Icon = "plus", Url = "counter" },
+            new DrawerItem { Title="FetchData Title", Text = "FetchData", Icon = "grid-layout", Url = "fetchdata" },
          };
 
     public class DrawerItem

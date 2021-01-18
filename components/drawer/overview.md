@@ -30,7 +30,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
                @ref="@DrawerRef"
                @bind-SelectedItem="@SelectedItem">
     <Content>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
 
         @* Place your contents here - it can be as simple as text, it can be conditional components or components that
             take the selected item as a parameter, or even the @Body tag for navigation if you place the
@@ -47,8 +47,8 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
     IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Text = "Counter", Icon = IconName.Plus},
-            new DrawerItem { Text = "FetchData", Icon = IconName.GridLayout},
+            new DrawerItem { Text = "Counter", Icon = "plus"},
+            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
         };
 
     public class DrawerItem
@@ -111,7 +111,7 @@ The Drawer methods are accessible through it's reference. The reference exposes 
 @* The drawer is a generic components and its reference type depends on the type of the model it is bound to. *@
 
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
-               Icon="@IconName.Menu">
+               Icon="menu">
     Toggle drawer
 </TelerikButton>
 
@@ -126,8 +126,8 @@ The Drawer methods are accessible through it's reference. The reference exposes 
     IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Text = "Counter", Icon = IconName.Plus},
-            new DrawerItem { Text = "FetchData", Icon = IconName.GridLayout},
+            new DrawerItem { Text = "Counter", Icon = "plus"},
+            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
         };
 
     public class DrawerItem

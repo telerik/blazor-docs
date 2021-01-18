@@ -29,7 +29,7 @@ If you use the drawer for [page navigation]({%slug drawer-navigation%}), the sel
                @bind-SelectedItem="@selectedItem"
                @ref="@DrawerRef">
     <Content>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
         <div class="text-info">
             Content for the @selectedItem?.Text item
         </div>
@@ -42,8 +42,8 @@ If you use the drawer for [page navigation]({%slug drawer-navigation%}), the sel
     public List<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Text = "Counter", Icon = IconName.Plus},
-            new DrawerItem { Text = "FetchData", Icon = IconName.GridLayout},
+            new DrawerItem { Text = "Counter", Icon = "plus"},
+            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
          };
 
     protected override void OnInitialized()

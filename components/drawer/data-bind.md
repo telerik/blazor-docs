@@ -76,8 +76,8 @@ https://docs.telerik.com/blazor-ui/components/drawer/navigation
     IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { ItemText = "Counter", ItemIcon = IconName.Plus, ItemUrl = "counter" },
-            new DrawerItem { ItemText = "FetchData", ItemIcon = IconName.GridLayout, ItemUrl = "fetchdata" },
+            new DrawerItem { ItemText = "Counter", ItemIcon = "plus", ItemUrl = "counter" },
+            new DrawerItem { ItemText = "FetchData", ItemIcon = "grid-layout", ItemUrl = "fetchdata" },
         };
 
     public class DrawerItem

@@ -26,7 +26,7 @@ This template receives a `context` argument that is of the data model type and r
 ````CSHTML
 @* This example shows how to control the rendering of the items in the Drawer menu *@
 
-<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu" />
+<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu" />
 
 <TelerikDrawer @bind-Expanded="@Expanded"
                Data="@Data"
@@ -55,10 +55,10 @@ This template receives a `context` argument that is of the data model type and r
     public bool Expanded { get; set; } = true;
     public IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>
     {
-        new DrawerItem {Text = "Shopping Cart", Icon = IconName.Cart, Description = "Items in shopping cart"},
-        new DrawerItem {Text = "Notifications", Icon = IconName.Notification, Description = "My profile notifications"},
-        new DrawerItem {Text = "Calendar", Icon = IconName.Calendar, Description = "My events"},
-        new DrawerItem {Text = "Settings", Icon = IconName.Gear, Description = "My profile settings"},
+        new DrawerItem {Text = "Shopping Cart", Icon = "cart", Description = "Items in shopping cart"},
+        new DrawerItem {Text = "Notifications", Icon = "notification", Description = "My profile notifications"},
+        new DrawerItem {Text = "Calendar", Icon = "calendar", Description = "My events"},
+        new DrawerItem {Text = "Settings", Icon = "gear", Description = "My profile settings"},
     };
 
     public class DrawerItem
@@ -104,7 +104,7 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
     <Template>
         @* the header *@
         <div>
-            <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu" />
+            <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu" />
             @if (DrawerExpanded)
             {
                 <div class="text-info" style="border-bottom:solid; font-weight: bold; margin-bottom: 3em; white-space:nowrap">
@@ -156,7 +156,7 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
             <div style="text-align: center; margin-top: 3em; padding-top: 2em; border-top: 2px solid black; white-space:nowrap">
                 <img src="user-avatar.png" alt="my avatar" style="border-radius: 50%; width: 50px; height: 50px;" />
                 <br /><br />
-                <TelerikButton Icon="@IconName.Logout" Primary="true">Log Out</TelerikButton>
+                <TelerikButton Icon="logout" Primary="true">Log Out</TelerikButton>
             </div>
         }
     </Template>
@@ -171,10 +171,10 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
     public bool DrawerExpanded { get; set; } = true;
     public IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>
 {
-        new DrawerItem {Text = "Shopping Cart", Icon = IconName.Cart, Description = "Items in shopping cart"},
-        new DrawerItem {Text = "Settings", Icon = IconName.Gear, Description = "My profile settings"},
-        new DrawerItem {Text = "Notifications", Icon = IconName.Notification, Description = "My profile notifications"},
-        new DrawerItem {Text = "Calendar", Icon = IconName.Calendar, Description = "My events"},
+        new DrawerItem {Text = "Shopping Cart", Icon = "cart", Description = "Items in shopping cart"},
+        new DrawerItem {Text = "Settings", Icon = "gear", Description = "My profile settings"},
+        new DrawerItem {Text = "Notifications", Icon = "notification", Description = "My profile notifications"},
+        new DrawerItem {Text = "Calendar", Icon = "calendar", Description = "My events"},
     };
 
     public string GetSelectedItemClass(DrawerItem item)
