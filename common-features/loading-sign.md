@@ -31,15 +31,22 @@ The components add the busy indicator when they detect a slow-running `async` **
 
 The following list shows the components that have a built-in loading sign for data operations:
 
+<!-- 
+
 * **AutoComplete** - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives.
 
 * **ComboBox** - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives. The dropdown arrow becomes a loading icon.
+
+-->
 
 * [**Grid**](https://demos.telerik.com/blazor-ui/grid/loading-animation) - a loading sign covers the entire component for slow data operations such as paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records. It is shown when the `OnRead` event is called.
 
 * **ListView** - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting records. It is also shown when the `OnRead` event is called.
 
+<!--
+
 * **MultiSelect** - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives.
+-->
 
 * **Scheduler** - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting appointments.
 
