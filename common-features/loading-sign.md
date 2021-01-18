@@ -426,6 +426,84 @@ We understand, however, that you might want to disable this feature in some case
 }
 ````
 
+There are some components that show small (inline) loading indicators, and you can hide those with CSS if you wish to remove them.
+
+>caption How to hide inline loading signs with CSS (example with TreeView)
+
+````CSHTML
+@* The CSS rule hides the loading sign. If you want to disable it for all treeviews, remove the custom Class from the treeview declaration and the CSS rule.
+In a similar fashion you can inspect the rendered HTML and target the element you want to hide for other components.
+Make sure to have the proper cascade so that you do not break other components on the page you do not intend to affect. *@
+
+<style>
+    .no-loading-indicator .k-treeview-item .k-loader {
+        display:none;
+    }
+</style>
+
+<TelerikTreeView Class="no-loading-indicator"
+                    Data="@TreeViewData" OnExpand="@LoadChildren">
+</TelerikTreeView>
+
+
+@code {
+    List<TreeViewItem> TreeViewData { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadInitialData();
+    }
+
+    async Task LoadInitialData()
+    {
+        List<TreeViewItem> roots = new List<TreeViewItem>();
+
+        roots.Add(new TreeViewItem
+        {
+            Text = "Category 1",
+            HasChildren = true
+        });
+
+        roots.Add(new TreeViewItem
+        {
+            Text = "Category 2",
+            HasChildren = true
+        });
+
+        TreeViewData = roots;
+    }
+
+    async Task LoadChildren(TreeViewExpandEventArgs args)
+    {
+        TreeViewItem currItem = args.Item as TreeViewItem;
+        if (args.Expanded && currItem.Items == null)
+        {
+            await Task.Delay(2000); // artificial delay to showcase the concept - no loading signs now
+
+            currItem.Items = new List<TreeViewItem>();
+
+            if (currItem.Text.Length > 15)
+            {
+                currItem.HasChildren = false;
+                await InvokeAsync(StateHasChanged);
+                return;
+            }
+
+            currItem.Items = Enumerable.Range(1, 3).Select(x => new TreeViewItem { Text = $"{currItem.Text} - {x}", HasChildren = true }).ToList();
+        }
+    }
+
+    public class TreeViewItem
+    {
+        public string Text { get; set; }
+        public List<TreeViewItem> Items { get; set; }
+        public bool Expanded { get; set; }
+        public bool HasChildren { get; set; }
+    }
+}
+````
+
+
 
 ## Troubleshooting
 
