@@ -21,7 +21,7 @@ This article is separated into the following segments:
 * [CheckChildren](#checkchildren)
 * [CheckParents](#checkparents)
 * [CheckOnClick](#checkonclick)
-* [Checking and Selecting a single node](#checking-and-selecting-a-single-node)
+* [Checking and Selecting nodes](#checking-and-selecting-nodes)
 
 ## Basics
 
@@ -580,7 +580,7 @@ You can allow the user to click on the node itself and the TreeView will automat
 }
 ````
 
-### Checking and Selecting a single node
+### Checking and Selecting nodes
 
 You can combine both selection and checking nodes. To keep both collections in sync you can assign the same collection to both `SelectedItems` and `CheckedItems` as demonstrated in the example below.
 
