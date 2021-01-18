@@ -72,7 +72,9 @@ The initial load of `Data` is not covered by the built-in busy indicator. The co
 
 In other cases it could even prevent them from interacting with the component so they can see data. For example, when a grid's State is loaded there may be no data due to specific filters, so the user may want to remove filters, but would be unable to do so because the busy indicator is blocking the grid.
 
-Thus, to show a loading indicator during the initial data load, you can use the standard Blazor approach of adding an if-block and a busy indicator in your own code.
+Thus, to show a loading indicator during the initial data load, you can do either of the following:
+* Use the standard Blazor approach of adding an if-block and a busy indicator in your own code.
+* Use a busy indicator and set its `Visible` parameter value depending on the initial data load status (as shown in the examples below).
 
 >caption Loading Sign for the initial data load - a few examples
 
