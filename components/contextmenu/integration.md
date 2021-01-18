@@ -293,7 +293,7 @@ In this example, the context menu is used to select/deselect items, put an item 
         MenuItems = new List<MenuItem>()
         {
             new MenuItem(){ Text = "Select", Icon="checkbox-checked", CommandName="ToggleSelect" },
-            new MenuItem(){ Text = "Edit", Icon=IconName.Edit, CommandName="BeginEdit" },
+            new MenuItem(){ Text = "Edit", Icon="edit", CommandName="BeginEdit" },
             new MenuItem(){ Text = "Delete", Icon="delete", Action = DeleteItem }
         };
 

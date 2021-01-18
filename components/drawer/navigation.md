@@ -45,7 +45,7 @@ To use the Drawer for navigating between pages:
             new DrawerItem { Text = "Home", Url = "/", Icon = "home" },
             new DrawerItem { IsSeparator = true },
             new DrawerItem { Text = "Counter", Url = "counter", Icon = "plus-outline" },
-            new DrawerItem { Text = "FetchData", Url = "fetchdata", Icon = IconName.Grid }
+            new DrawerItem { Text = "FetchData", Url = "fetchdata", Icon = "grid" }
         };
 
     public class DrawerItem
