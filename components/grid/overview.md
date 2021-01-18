@@ -96,7 +96,7 @@ The following list of resources provides examples for data binding a grid in var
 
 ### Loading Animation
 
-When the user performs data operations in the grid, the grid will display a loading sign over itself when it detects a long-running operation (over 100ms). This improves the user experience so they know they have to wait for the action to complete, and also prevents repeated actions.
+When the user performs data operations in the grid, the grid will display a loading sign over itself when it detects a long-running operation (over 120ms). This improves the user experience so they know they have to wait for the action to complete, and also prevents repeated actions.
 
 The operations include paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records.
 
