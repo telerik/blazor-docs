@@ -131,6 +131,9 @@ navigation:
      "*components/treeview/selection":
         title: "Selection"
         position: 3
+     "*components/treeview/checkboxes":
+        title: "CheckBoxes"
+        position: 4
      "*components/contextmenu/data-binding":
         title: "Data Binding"
         position: 2
