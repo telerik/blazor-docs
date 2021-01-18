@@ -34,9 +34,7 @@ Telerik UI for Blazor comes with the `TelerikIcon` component that you can use to
 >caption Render a standalone icon through the TelerikIcon component
 
 ````CSHTML
-<TelerikIcon Icon="@IconName.Audio" /> @* will render the audio note icon *@
-
-@* <TelerikIcon Icon="audio" /> *@ @* This would also render the same audio icon *@
+<TelerikIcon Icon="audio" /> @* will render the audio note icon *@
 
 <TelerikIcon IconClass="oi oi-home" /> @* home icon from OpenIconic, assuming you have loaded the font on the page, you can use your own CSS classes and font icon fonts *@
 
@@ -65,9 +63,7 @@ Some Telerik components expose icon features out-of-the box. These parameters ma
 >caption How to use a built-in font icon class on a component's Icon property
 
 ````CSHTML
-<TelerikButton Icon="@IconName.Filter">I show the Filter icon</TelerikButton>
-<br />
-<TelerikButton Icon="filter">I also show the Filter icon through a hardcoded class name</TelerikButton>
+<TelerikButton Icon="filter">I show the Filter icon</TelerikButton>
 ````
 
 >caption The result from the code snippet above
