@@ -39,7 +39,7 @@ If using a [TelerikTooltip](https://demos.telerik.com/blazor-ui/tooltip/overview
 <TelerikTooltip TargetSelector=".k-drawer-items span.k-icon[title]" />
 
 <p>
-    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
+    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
 </p>
 
 <TelerikDrawer Data="@Data"

@@ -47,7 +47,7 @@ Bound columns render the name of the field or their `Title` in their header. Thr
         <TreeListColumn>
             <HeaderTemplate>
                 <span class="k-display-flex k-align-items-center">
-                    <TelerikIcon Icon="@IconName.Image" />
+                    <TelerikIcon Icon="image" />
                     With Icon
                 </span>
             </HeaderTemplate>

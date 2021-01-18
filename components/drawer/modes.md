@@ -36,7 +36,7 @@ The drawer's height is dynamic based on the height of the content (you can chang
 @* This example shows how the drawer behaves in Push mode. It uses item selection to toggle the content for brevity. *@
 
 <div>
-    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
+    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
     <TelerikDrawer @bind-Expanded="@Expanded"
                    Data="@Data"
                    MiniMode="true"
@@ -86,7 +86,7 @@ When `Mode` is set to `Overlay`, the Drawer's navigation is on top of the conten
 You may want to add padding to the left of the content so that it is not overlapped by the Drawer in its MiniMode. *@
 
 <div class="pl-4">
-    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
+    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
 </div>
 <TelerikDrawer @bind-Expanded="@Expanded"
                Data="@Data"

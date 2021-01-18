@@ -21,7 +21,7 @@ To enable the grid Excel Export, add a [command button]({%slug components/grid/c
 
 ````
 <GridToolBar>
-    <GridCommandButton Command="ExcelExport" Icon="@IconName.FileExcel">Export to Excel</GridCommandButton>
+    <GridCommandButton Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
 </GridToolBar>
 ````
 
@@ -40,7 +40,7 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
              FilterMode="@GridFilterMode.FilterRow" Groupable="true" >
 
     <GridToolBar>
-        <GridCommandButton Command="ExcelExport" Icon="@IconName.FileExcel">Export to Excel</GridCommandButton>
+        <GridCommandButton Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBar>
 

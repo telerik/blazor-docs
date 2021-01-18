@@ -446,7 +446,7 @@ The available series data point information in the `context` is:
                           LowField="@nameof(StockDataPoint.Low)">
             <StockChartSeriesTooltip Visible="true">
                 <Template>
-                    <TelerikIcon Icon="@IconName.Information" />
+                    <TelerikIcon Icon="information" />
                     The high value for @context.SeriesName is @(((context.DataItem as StockDataPoint).High).ToString("C2"))
                 </Template>
             </StockChartSeriesTooltip>

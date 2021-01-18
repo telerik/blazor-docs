@@ -33,7 +33,7 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
                @ref="@DrawerRef"
                @bind-SelectedItem="@SelectedItem">
     <Content>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu">Toggle drawer</TelerikButton>
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
         <div class="m-5">
             Selected Item: @SelectedItem?.Text
         </div>

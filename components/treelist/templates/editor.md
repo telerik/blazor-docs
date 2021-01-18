@@ -31,7 +31,7 @@ If you need to perform logic more complex than simple data binding, use the chan
     <TreeListColumns>
         <TreeListCommandColumn Width="100px">
             <TreeListCommandButton Command="Edit" Icon="@IconName.Edit">Edit</TreeListCommandButton>
-            <TreeListCommandButton Command="Save" Icon="@IconName.Save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TreeListCommandButton>
             <TreeListCommandButton Command="Cancel" Icon="@IconName.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
         </TreeListCommandColumn>
 

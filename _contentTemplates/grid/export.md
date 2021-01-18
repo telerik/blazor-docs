@@ -26,8 +26,8 @@
         
         <TelerikGrid Data="@GridData" AutoGenerateColumns="true" Pageable="true">
             <GridToolBar>
-                <GridCommandButton OnClick="@ShowLoadingSign" Command="ExcelExport" Icon="@IconName.FileExcel">Export to Excel</GridCommandButton>
-                <GridCommandButton OnClick="@ShowLoadingSign" Command="CsvExport" Icon="@IconName.FileCsv">Export to CSV</GridCommandButton>
+                <GridCommandButton OnClick="@ShowLoadingSign" Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
+                <GridCommandButton OnClick="@ShowLoadingSign" Command="CsvExport" Icon="file-csv">Export to CSV</GridCommandButton>
             </GridToolBar>
             <GridExport>
                 <GridExcelExport AllPages="true" FileName="telerik-grid-export" />

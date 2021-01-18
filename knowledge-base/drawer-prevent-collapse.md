@@ -65,7 +65,7 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
         </div>
     </Template>
     <Content>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@IconName.Menu" />
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu" />
         <div class="m-5">Content for @SelectedItem?.Text - @SelectedItem?.Description</div>
     </Content>
 </TelerikDrawer>

@@ -96,7 +96,7 @@ You can mix custom actions with built-in actions, and you do not have to define 
 <TelerikWindow Visible="true">
     <WindowActions>
         <WindowAction Name="Minimize" />
-        <WindowAction Name="MyAction" Icon="@IconName.Information" OnClick="@MyCustomActionHandler" />
+        <WindowAction Name="MyAction" Icon="information" OnClick="@MyCustomActionHandler" />
         <WindowAction Name="Maximize" />
         <WindowAction Hidden="@( string.IsNullOrEmpty(result) )"
                       Icon="@IconName.ClearCss"

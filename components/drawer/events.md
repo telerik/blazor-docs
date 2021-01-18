@@ -81,7 +81,7 @@ The `ExpandedChanged` event fires every time the component's state is changed - 
 
 @if (!Expanded)
 {
-    <TelerikButton OnClick="@(() => DrawerRef.ExpandAsync())" Icon="@IconName.Menu">Expand Drawer</TelerikButton>
+    <TelerikButton OnClick="@(() => DrawerRef.ExpandAsync())" Icon="menu">Expand Drawer</TelerikButton>
 }
 
 <TelerikDrawer Expanded="@Expanded"
