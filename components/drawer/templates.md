@@ -58,7 +58,7 @@ This template receives a `context` argument that is of the data model type and r
         new DrawerItem {Text = "Shopping Cart", Icon = IconName.Cart, Description = "Items in shopping cart"},
         new DrawerItem {Text = "Notifications", Icon = IconName.Notification, Description = "My profile notifications"},
         new DrawerItem {Text = "Calendar", Icon = IconName.Calendar, Description = "My events"},
-        new DrawerItem {Text = "Settings", Icon = IconName.Gear, Description = "My profile settings"},
+        new DrawerItem {Text = "Settings", Icon = "gear", Description = "My profile settings"},
     };
 
     public class DrawerItem
@@ -172,7 +172,7 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
     public IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>
 {
         new DrawerItem {Text = "Shopping Cart", Icon = IconName.Cart, Description = "Items in shopping cart"},
-        new DrawerItem {Text = "Settings", Icon = IconName.Gear, Description = "My profile settings"},
+        new DrawerItem {Text = "Settings", Icon = "gear", Description = "My profile settings"},
         new DrawerItem {Text = "Notifications", Icon = IconName.Notification, Description = "My profile notifications"},
         new DrawerItem {Text = "Calendar", Icon = IconName.Calendar, Description = "My events"},
     };

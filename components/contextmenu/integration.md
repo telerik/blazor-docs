@@ -94,7 +94,7 @@ Hooking to your own HTML elements' events lets you determine what to do with the
             new ContextMenuItem
             {
                 Text = "More Info",
-                Icon = IconName.Information,
+                Icon = "information",
                 CommandName = "info"
             },
             new ContextMenuItem
@@ -109,13 +109,13 @@ Hooking to your own HTML elements' events lets you determine what to do with the
                     new ContextMenuItem
                     {
                         Text = "Delete",
-                        Icon = IconName.Delete,
+                        Icon = "delete",
                         CommandName = "delete"
                     },
                     new ContextMenuItem
                     {
                         Text = "Report",
-                        Icon = IconName.Cancel,
+                        Icon = "cancel",
                         CommandName = "report"
                     }
                 }
@@ -292,9 +292,9 @@ In this example, the context menu is used to select/deselect items, put an item 
         // context menu items
         MenuItems = new List<MenuItem>()
         {
-            new MenuItem(){ Text = "Select", Icon=IconName.CheckboxChecked, CommandName="ToggleSelect" },
+            new MenuItem(){ Text = "Select", Icon="checkbox-checked", CommandName="ToggleSelect" },
             new MenuItem(){ Text = "Edit", Icon=IconName.Edit, CommandName="BeginEdit" },
-            new MenuItem(){ Text = "Delete", Icon=IconName.Delete, Action = DeleteItem }
+            new MenuItem(){ Text = "Delete", Icon="delete", Action = DeleteItem }
         };
 
         // generate data for the grid

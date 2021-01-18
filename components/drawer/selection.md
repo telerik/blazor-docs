@@ -42,8 +42,8 @@ If you use the drawer for [page navigation]({%slug drawer-navigation%}), the sel
     public List<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Text = "Counter", Icon = IconName.Plus},
-            new DrawerItem { Text = "FetchData", Icon = IconName.GridLayout},
+            new DrawerItem { Text = "Counter", Icon = "plus"},
+            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
          };
 
     protected override void OnInitialized()

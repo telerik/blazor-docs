@@ -46,9 +46,9 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
     DrawerItem SelectedItem { get; set; }
     IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>()
         {
-                new DrawerItem { Text = "Current Location", TelerikIcon = IconName.Pin},
-                new DrawerItem { Text = "Navigation", TelerikIcon = IconName.Globe},
-                new DrawerItem { Text = "Favourite Locations", TelerikIcon = IconName.Star},
+                new DrawerItem { Text = "Current Location", TelerikIcon = "pin"},
+                new DrawerItem { Text = "Navigation", TelerikIcon = "globe"},
+                new DrawerItem { Text = "Favourite Locations", TelerikIcon = "star"},
         };
 
     public class DrawerItem

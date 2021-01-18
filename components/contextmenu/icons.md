@@ -47,7 +47,7 @@ Make sure that you also refernce the OpenIconic font that comes with the Blazor 
             new MenuModel()
             {
                 Text = "IconField",
-                TelerikIcon = IconName.Email
+                TelerikIcon = "email"
             },
             new MenuModel()
             {

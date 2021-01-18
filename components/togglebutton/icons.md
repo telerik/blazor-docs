@@ -32,7 +32,7 @@ It also shows how to use telerik icons, raster icons and sprite images*@
 
 <TelerikToggleButton SpriteClass="@( FlagSelected ? "flag netherlands" : "flag brazil")" @bind-Selected="@FlagSelected">Sprite</TelerikToggleButton>
 
-<TelerikToggleButton Icon="@( FontSelected ? IconName.VolumeOff : IconName.VolumeUp )" @bind-Selected="@FontSelected">Font Icon</TelerikToggleButton>
+<TelerikToggleButton Icon="@( FontSelected ? "volume-off" : "volume-up" )" @bind-Selected="@FontSelected">Font Icon</TelerikToggleButton>
 
 <TelerikToggleButton ImageUrl="@RasterIconUrl" @bind-Selected="@RasterSelected">Image URL</TelerikToggleButton>
 

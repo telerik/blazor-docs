@@ -47,26 +47,26 @@ To use the Context Menu for navigating between pages:
             {
                 Text = "Contact us",
                 Url = "/contacts",
-                Icon = IconName.Email
+                Icon = "email"
             },
             new MenuModel()
             {
                 Text = "Settings",
                 Url = "/settings",
-                Icon = IconName.Gear,
+                Icon = "gear",
                 Items = new List<MenuModel>()
-            {
+                {
                     new MenuModel()
                     {
                         Text = "Profile Settings",
                         Url = "/profile",
-                        Icon = IconName.User
+                        Icon = "user"
                     },
                     new MenuModel()
                     {
                         Text = "Language Settings",
                         Url = "/language",
-                        Icon = IconName.Table
+                        Icon = "globe"
                     }
                 }
             }

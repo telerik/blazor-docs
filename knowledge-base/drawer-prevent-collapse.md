@@ -77,7 +77,7 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
     public IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>
     {
         new DrawerItem {Text = "Shopping Cart", Icon = IconName.Cart, Description = "Items in shopping cart"},
-        new DrawerItem {Text = "Settings", Icon = IconName.Gear, Description = "My profile settings"},
+        new DrawerItem {Text = "Settings", Icon = "gear", Description = "My profile settings"},
         new DrawerItem {Text = "Notifications", Icon = IconName.Notification, Description = "My profile notifications"},
         new DrawerItem {Text = "Calendar", Icon = IconName.Calendar, Description = "My events"},
     };

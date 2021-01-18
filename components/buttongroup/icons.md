@@ -33,7 +33,7 @@ It also shows how to use telerik icons, raster icons and sprite images*@
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Multiple">
     <ButtonGroupToggleButton SpriteClass="@( FlagSelected ? "flag netherlands" : "flag brazil")" @bind-Selected="@FlagSelected">Sprite</ButtonGroupToggleButton>
 
-    <ButtonGroupToggleButton Icon="@( FontSelected ? IconName.VolumeOff : IconName.VolumeUp )" @bind-Selected="@FontSelected">Font Icon</ButtonGroupToggleButton>
+    <ButtonGroupToggleButton Icon="@( FontSelected ? "volume-off" : "volume-up" )" @bind-Selected="@FontSelected">Font Icon</ButtonGroupToggleButton>
 
     <ButtonGroupToggleButton ImageUrl="@RasterIconUrl" @bind-Selected="@RasterSelected">Image URL</ButtonGroupToggleButton>
 </TelerikButtonGroup>

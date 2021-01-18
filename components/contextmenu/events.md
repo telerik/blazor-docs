@@ -54,30 +54,30 @@ Last clicked item: @ClickedItem?.Text
             new MenuItem()
             {
                 Text = "Share",
-                Icon = IconName.Share,
+                Icon = "share",
                 Items = new List<MenuItem>()
                 {
                     new MenuItem()
                     {
                         Text = "FaceBook",
-                        Icon = IconName.Facebook
+                        Icon = "facebook"
                     },
                     new MenuItem()
                     {
                         Text = "LinkedIn",
-                        Icon = IconName.Linkedin
+                        Icon = "linkedin"
                     },
                     new MenuItem()
                     {
                         Text = "Twitter",
-                        Icon = IconName.Twitter
+                        Icon = "twitter"
                     },
                 }
             },
             new MenuItem()
             {
                 Text = "Map Location",
-                Icon = IconName.MarkerPin
+                Icon = "marker-pin"
             }
         };
 
