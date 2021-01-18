@@ -438,13 +438,13 @@ Make sure to have the proper cascade so that you do not break other components o
 
 In some situations, peforming a certain action will show a loading indicator that will appear to never hide. There are two common reasons for such behavior:
 
-* The operation is actually very slow, it may take minutes to return the data in some complex scenarios. 
+* **Reason**: The operation is actually very slow, it may take minutes to return the data in some complex scenarios. 
 
-    * To solve this, make sure that the data queries are as efficient as possible and return data as quickly as possible.
+    * **Solution**: To solve this, make sure that the data queries are as efficient as possible and return data as quickly as possible.
 
-* There has been an error during the operation. For example, a certain filter value could not be parsed (e.g., it was only a part of a GUID, not a full one) and the backend threw an exception.
+* **Reason**: There has been an error during the operation. For example, a certain filter value could not be parsed (e.g., it was only a part of a GUID, not a full one) and the backend threw an exception.
 
-    * To solve this, monitor the console/logs and look for errors thrown during the problematic operation. Enabling the detailed Blazor errors may help you <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/fundamentals/handle-errors" target="_blank">troubleshoot</a> application errors:
+    * **Solution**: To solve this, monitor the console/logs and look for errors thrown during the problematic operation. Enabling the detailed Blazor errors may help you <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/fundamentals/handle-errors" target="_blank">troubleshoot</a> application errors:
     
         **Enable Detailed Errors in Server-side Blazor**
         
