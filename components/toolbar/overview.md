@@ -34,14 +34,14 @@ To use the Telerik Toolbar component:
 
 <TelerikToolBar>
     <ToolBarButtonGroup>
-        <ToolBarButton Icon="@IconName.Bold" OnClick="@OnBold">Bold</ToolBarButton>
-        <ToolBarButton Icon="@IconName.Italic" OnClick="@OnItalic">Italic</ToolBarButton>
-        <ToolBarButton Icon="@IconName.Underline" OnClick="@OnUnderline">Underline</ToolBarButton>
+        <ToolBarButton Icon="bold" OnClick="@OnBold">Bold</ToolBarButton>
+        <ToolBarButton Icon="italic" OnClick="@OnItalic">Italic</ToolBarButton>
+        <ToolBarButton Icon="underline" OnClick="@OnUnderline">Underline</ToolBarButton>
     </ToolBarButtonGroup>
 
     <ToolBarToggleButton @bind-Selected="@Selected">Toggle Button</ToolBarToggleButton>
 
-    <ToolBarButton Icon="@IconName.Undo">Undo</ToolBarButton>
+    <ToolBarButton Icon="undo">Undo</ToolBarButton>
 </TelerikToolBar>
 
 <br />
@@ -79,7 +79,7 @@ To use the Telerik Toolbar component:
 <TelerikToolBar @ref="@ToolbarReference">
     <ToolBarToggleButton @bind-Selected="@Selected">Toggle Button</ToolBarToggleButton>
 
-    <ToolBarButton Icon="@IconName.Undo">Undo</ToolBarButton>
+    <ToolBarButton Icon="undo">Undo</ToolBarButton>
 </TelerikToolBar>
 
 @code {

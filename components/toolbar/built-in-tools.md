@@ -50,9 +50,9 @@ You can customize the buttons using the following features:
 @*This example shows the TelerikToolBar with ToolBarButtons and their features*@
 
 <TelerikToolBar>
-    <ToolBarButton Icon="@IconName.Bold" Class="myBoldButton" Enabled="@true" Visible="true" Title="Bold Button" OnClick="@OnBold">Bold</ToolBarButton>
-    <ToolBarButton Icon="@IconName.Italic" Class="myItalicButton" Enabled="@false" Visible="true" Title="Italic Button" OnClick="@OnItalic">Italic</ToolBarButton>
-    <ToolBarButton Icon="@IconName.Underline" Class="myUnderlineButton" Enabled="@true" Visible="true" Title="Underline Button" OnClick="@OnUnderline">Underline</ToolBarButton>
+    <ToolBarButton Icon="bold" Class="myBoldButton" Enabled="@true" Visible="true" Title="Bold Button" OnClick="@OnBold">Bold</ToolBarButton>
+    <ToolBarButton Icon="italic" Class="myItalicButton" Enabled="@false" Visible="true" Title="Italic Button" OnClick="@OnItalic">Italic</ToolBarButton>
+    <ToolBarButton Icon="underline" Class="myUnderlineButton" Enabled="@true" Visible="true" Title="Underline Button" OnClick="@OnUnderline">Underline</ToolBarButton>
 </TelerikToolBar>
 
 @code {
@@ -112,7 +112,7 @@ You can customize the toggle buttons using the following features:
     <ToolBarToggleButton @bind-Selected="@Selected" 
                          Enabled="true" 
                          Class="myToggleFullScreenButton" 
-                         Icon="@IconName.ToggleFullScreenMode" 
+                         Icon="toggle-full-screen-mode" 
                          OnClick="@ToggleFullScreen">
                             Toggle Fullscreen
     </ToolBarToggleButton>
@@ -168,9 +168,9 @@ You can customize the groups using the following features:
                         SelectionMode="@ButtonGroupSelectionMode.Multiple" 
                         Class="formattingButtons" 
                         Enabled="true">
-        <ToolBarButton Icon="@IconName.Bold">Bold</ToolBarButton>
-        <ToolBarButton Icon="@IconName.Italic">Italic</ToolBarButton>
-        <ToolBarButton Icon="@IconName.Underline">Underline</ToolBarButton>
+        <ToolBarButton Icon="bold">Bold</ToolBarButton>
+        <ToolBarButton Icon="italic">Italic</ToolBarButton>
+        <ToolBarButton Icon="underline">Underline</ToolBarButton>
     </ToolBarButtonGroup>
 </TelerikToolBar>
 ````

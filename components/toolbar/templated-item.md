@@ -25,9 +25,9 @@ You cannot add those Templated items to a `ToolBarButtonGroup`.
 
 <TelerikToolBar>
     <ToolBarButtonGroup>
-        <ToolBarButton Icon="@IconName.Bold">Bold</ToolBarButton>
-        <ToolBarButton Icon="@IconName.Italic">Italic</ToolBarButton>
-        <ToolBarButton Icon="@IconName.Underline">Underline</ToolBarButton>
+        <ToolBarButton Icon="bold">Bold</ToolBarButton>
+        <ToolBarButton Icon="italic">Italic</ToolBarButton>
+        <ToolBarButton Icon="underline">Underline</ToolBarButton>
     </ToolBarButtonGroup>
     <ToolBarSeparator />
 

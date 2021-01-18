@@ -36,9 +36,9 @@ You can consider saving the current state of the component in events that it exp
 @inject IJSRuntime JsInterop
 
 <TelerikButton OnClick="@SaveState" Icon="save" Class="mr-sm">Save State</TelerikButton>
-<TelerikButton OnClick="@ReloadPage" Icon="@IconName.Reload" Class="mr-sm">Reload the page</TelerikButton>
-<TelerikButton OnClick="@LoadState" Icon="@IconName.Download" Class="mr-sm">Load last State</TelerikButton>
-<TelerikButton OnClick="@SetExplicitState" Icon="@IconName.Gear" Class="mr-sm">Configure State</TelerikButton>
+<TelerikButton OnClick="@ReloadPage" Icon="reload" Class="mr-sm">Reload the page</TelerikButton>
+<TelerikButton OnClick="@LoadState" Icon="download" Class="mr-sm">Load last State</TelerikButton>
+<TelerikButton OnClick="@SetExplicitState" Icon="gear" Class="mr-sm">Configure State</TelerikButton>
 
 <TelerikTileLayout @ref="@TileLayoutInstance"
                    Columns="3"
