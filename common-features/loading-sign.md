@@ -74,7 +74,7 @@ In other cases it could even prevent them from interacting with the component so
 
 Thus, to show a loading indicator during the initial data load, you can do either of the following:
 * Use the standard Blazor approach of adding an if-block and a busy indicator in your own code.
-* Use a busy indicator and set its `Visible` parameter value depending on the initial data load status (as shown in the examples below).
+* Use a Telerik busy indicator and set its `Visible` parameter value depending on the initial data load status (as shown in the examples below).
 
 >caption Loading Sign for the initial data load - a few examples
 
