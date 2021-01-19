@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-md-12 col-lg-10 col-lg-offset-1">
           <div class="row">
-            <div class="col-sm-4 mb-20">
+            <div class="col-sm-3 mb-20">
                 <h6 class="mt-0 mb-10">Getting Started</h6>
                 <ul class="list-unstyled">
                   
@@ -19,7 +19,7 @@
                 </ul>
             </div>
           
-            <div class="col-sm-4 mb-20">
+            <div class="col-sm-3 mb-20">
                 <h6 class="mt-0 mb-10">Community</h6>
                 <ul class="list-unstyled">
                   
@@ -32,7 +32,7 @@
                 </ul>
             </div>
 			
-			<div class="col-sm-4 mb-20">
+			<div class="col-sm-3 mb-20">
                 <h6 class="mt-0 mb-10">Support Resources</h6>
                 <ul class="list-unstyled">
                   
@@ -47,7 +47,7 @@
                 </ul>
             </div>
           
-            <div class="col-sm-4 mb-20">
+            <div class="col-sm-3 mb-20">
                 <h6 class="mt-0 mb-10">Sample Applications</h6>
                 <ul class="list-unstyled">
                   
