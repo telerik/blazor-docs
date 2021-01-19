@@ -31,7 +31,7 @@ Telerik UI for Blazor supports .NET 5 since its `2.19.0` release.
 
 ## .NET Core 3.1
 
-### Serve-side Blazor
+### Server-side Blazor
 
 >caption Telerik UI for Blazor versions per framework version for the server-side flavor
 
