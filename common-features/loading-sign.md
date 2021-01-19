@@ -351,7 +351,7 @@ Truly asynchronous operations will still allow for a loading sign - such as the 
 
 We believe that having a loading sign that tells the user something is happening improves the user experience. This is why this feature is enabled by default on all data bound components that perform data operations.
 
-We understand, however, that you might want to disable this feature in some cases. You can disable the large loading container that overlays the data portion of the components by setting thei `EnableLoaderContainer` parameter to `false`.
+We understand, however, that you might want to disable this feature in some cases. You can disable the large loading container that overlays the data portion of the components by setting their `EnableLoaderContainer` parameter to `false`.
 
 >caption Remove the main loading animation from the grid with a parameter
 
