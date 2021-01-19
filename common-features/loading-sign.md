@@ -14,7 +14,7 @@ Many times a component loads or saves data and that can take some time. To show 
 
 The Telerik components use the Telerik [Loader]({%slug loader-overview%}) and [LoaderContainer]({%slug loadercontainer-overview%}) components internally to match the theme and design.
 
-The components add the busy indicator when they detect a slow-running `async` **data operation** (when it takes more than 120ms). For example, when the user inserts a record in the grid and the data service operation takes longer than that, there will be a loading indicator over the grid.
+The components add the busy indicator when they detect a slow-running `async` **data operation** (when it takes more than 600ms). For example, when the user inserts a record in the grid and the data service operation takes longer than that, there will be a loading indicator over the grid.
 
 #### In this article:
 
@@ -39,18 +39,18 @@ The following list shows the components that have a built-in loading sign for da
 
 -->
 
-* [**Grid**](https://demos.telerik.com/blazor-ui/grid/loading-animation) - a loading sign covers the entire component for slow data operations such as paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records. It is shown when the `OnRead` event is called.
+* [**Grid**](https://demos.telerik.com/blazor-ui/grid/loading-animation) - a loading sign covers the data portion of the component for slow data operations such as paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records. It is shown when the `OnRead` event is called.
 
-* **ListView** - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting records. It is also shown when the `OnRead` event is called.
+* **ListView** - a loading sign covers the data portion of the component for slow data operations such as editing, inserting and deleting records. It is also shown when the `OnRead` event is called.
 
 <!--
 
 * **MultiSelect** - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives.
 -->
 
-* **Scheduler** - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting appointments.
+* **Scheduler** - a loading sign covers the data portion of the component for slow data operations such as editing, inserting and deleting appointments.
 
-* **TreeList** - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting records. Expanding items with load-on-demand shows a loading indicator next to the item while the `OnExpand` event is running.
+* **TreeList** - a loading sign covers the data portion of the component for slow data operations such as editing, inserting and deleting records. Expanding items with load-on-demand shows a loading indicator next to the item while the `OnExpand` event is running.
 
 * **TreeView** - for expanding nodes with load-on-demand, a loading indicator is shown next to the item while the `OnExpand` event is running.
 
@@ -351,34 +351,20 @@ Truly asynchronous operations will still allow for a loading sign - such as the 
 
 We believe that having a loading sign that tells the user something is happening improves the user experience. This is why this feature is enabled by default on all data bound components that perform data operations.
 
-We understand, however, that you might want to disable this feature in some cases. At the moment, you can use CSS to hide the loading indicator HTML. If you would like another implementation (such as a dedicated setting or more settings for the loader panel in general, let us know on our <a href="https://feedback.telerik.com/blazor" target="_blank">feedback portal</a>).
+We understand, however, that you might want to disable this feature in some cases. You can disable the large loading container that overlays the data portion of the components by setting their `EnableLoaderContainer` parameter to `false`.
 
->caption Remove the loading animation from the grid with CSS
+>caption Remove the main loading animation from the grid with a parameter
 
 ````CSHTML
-@* The CSS rule hides the loading sign. If you want to disable it for all grids, remove the custom Class from the grid declaration and the CSS rule.
-In a similar fashion you can inspect the rendered HTML and target the element you want to hide for other components.
-Make sure to have the proper cascade so that you do not break other components on the page you do not intend to affect. *@
+@* The data operations (such as filtering, sorting, paging) are slow in this example, but there is no loading sign *@
 
-<style>
-    .no-loader.k-grid .k-loader-container {
-        display: none !important;
-    }
-</style>
-
-<TelerikGrid Class="no-loader"
+<TelerikGrid EnableLoaderContainer="false"
              Data=@GridData TotalCount=@Total OnRead=@ReadItems
              FilterMode=@GridFilterMode.FilterRow Sortable=true Pageable=true EditMode="@GridEditMode.Inline">
     <GridColumns>
         <GridColumn Field=@nameof(Employee.ID) />
         <GridColumn Field=@nameof(Employee.Name) Title="Name" />
         <GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
-        <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
-        </GridCommandColumn>
     </GridColumns>
     <GridToolBar>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
@@ -439,6 +425,84 @@ Make sure to have the proper cascade so that you do not break other components o
     }
 }
 ````
+
+There are some components that show small (inline) loading indicators, and you can hide those with CSS if you wish to remove them.
+
+>caption How to hide inline loading signs with CSS (example with TreeView)
+
+````CSHTML
+@* The CSS rule hides the loading sign. If you want to disable it for all treeviews, remove the custom Class from the treeview declaration and the CSS rule.
+In a similar fashion you can inspect the rendered HTML and target the element you want to hide for other components.
+Make sure to have the proper cascade so that you do not break other components on the page you do not intend to affect. *@
+
+<style>
+    .no-loading-indicator .k-treeview-item .k-loader {
+        display:none;
+    }
+</style>
+
+<TelerikTreeView Class="no-loading-indicator"
+                    Data="@TreeViewData" OnExpand="@LoadChildren">
+</TelerikTreeView>
+
+
+@code {
+    List<TreeViewItem> TreeViewData { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadInitialData();
+    }
+
+    async Task LoadInitialData()
+    {
+        List<TreeViewItem> roots = new List<TreeViewItem>();
+
+        roots.Add(new TreeViewItem
+        {
+            Text = "Category 1",
+            HasChildren = true
+        });
+
+        roots.Add(new TreeViewItem
+        {
+            Text = "Category 2",
+            HasChildren = true
+        });
+
+        TreeViewData = roots;
+    }
+
+    async Task LoadChildren(TreeViewExpandEventArgs args)
+    {
+        TreeViewItem currItem = args.Item as TreeViewItem;
+        if (args.Expanded && currItem.Items == null)
+        {
+            await Task.Delay(2000); // artificial delay to showcase the concept - no loading signs now
+
+            currItem.Items = new List<TreeViewItem>();
+
+            if (currItem.Text.Length > 15)
+            {
+                currItem.HasChildren = false;
+                await InvokeAsync(StateHasChanged);
+                return;
+            }
+
+            currItem.Items = Enumerable.Range(1, 3).Select(x => new TreeViewItem { Text = $"{currItem.Text} - {x}", HasChildren = true }).ToList();
+        }
+    }
+
+    public class TreeViewItem
+    {
+        public string Text { get; set; }
+        public List<TreeViewItem> Items { get; set; }
+        public bool Expanded { get; set; }
+        public bool HasChildren { get; set; }
+    }
+}
+````
+
 
 
 ## Troubleshooting
