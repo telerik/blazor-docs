@@ -607,7 +607,8 @@ footer:
   title: "Sample Applications"
   links:
     "Dashboard": https://demos.telerik.com/blazor-dashboard-app/
-    "PWA - Stocks": https://demos.telerik.com/blazor-financial-portfolio
+    "PWA - Stocks": https://demos.telerik.com/blazor-financial-portfolio/
+    "PWA - Blazing Coffee Roasters": https://demos.telerik.com/blazor-coffee/
 
 
 footer_social:

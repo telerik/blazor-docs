@@ -31,12 +31,29 @@
                   
                 </ul>
             </div>
+			
+			<div class="col-sm-4 mb-20">
+                <h6 class="mt-0 mb-10">Support Resources</h6>
+                <ul class="list-unstyled">
+                  
+                    <li><a href="https://demos.telerik.com/blazor-ui" target="_blank">Demos</a></li>
+                  
+                    <li><a href="https://docs.telerik.com/blazor-ui/knowledge-base" target="_blank">Knowledge Base</a></li>
+                  
+                    <li><a href="https://github.com/telerik/blazor-ui" target="_blank">Samples Repo</a></li>
+					
+					<li><a href="https://github.com/telerik/blazor-ui-messages" target="_blank">Localizations Repo</a></li>
+                  
+                </ul>
+            </div>
           
             <div class="col-sm-4 mb-20">
                 <h6 class="mt-0 mb-10">Sample Applications</h6>
                 <ul class="list-unstyled">
                   
                     <li><a href="https://demos.telerik.com/blazor-dashboard-app/" target="_blank">Dashboard</a></li>
+					<li><a href="https://demos.telerik.com/blazor-financial-portfolio/" target="_blank">PWA - Stocks</a></li>
+					<li><a href="https://demos.telerik.com/blazor-coffee/" target="_blank">PWA - Blazing Coffee Roasters</a></li>
                   
                 </ul>
             </div>
