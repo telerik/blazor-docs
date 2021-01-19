@@ -497,7 +497,7 @@ There is no built-in provision in the framework for validating a field value bas
             var currentValue = (DateTime?)value;
             var compareToValue = (DateTime?)propertyInfo?.GetValue(validationObject);
 
-            return currentValue < compareToValue ? ValidationResult.Success : new ValidationResult(ErrorMessage);
+            return currentValue < compareToValue ? ValidationResult.Success : new ValidationResult(ErrorMessage, new[] { validationContext.MemberName });
         }
     }
 
