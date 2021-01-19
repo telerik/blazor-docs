@@ -39,18 +39,18 @@ The following list shows the components that have a built-in loading sign for da
 
 -->
 
-* [**Grid**](https://demos.telerik.com/blazor-ui/grid/loading-animation) - a loading sign covers the entire component for slow data operations such as paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records. It is shown when the `OnRead` event is called.
+* [**Grid**](https://demos.telerik.com/blazor-ui/grid/loading-animation) - a loading sign covers the data portion of the component for slow data operations such as paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records. It is shown when the `OnRead` event is called.
 
-* **ListView** - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting records. It is also shown when the `OnRead` event is called.
+* **ListView** - a loading sign covers the data portion of the component for slow data operations such as editing, inserting and deleting records. It is also shown when the `OnRead` event is called.
 
 <!--
 
 * **MultiSelect** - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives.
 -->
 
-* **Scheduler** - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting appointments.
+* **Scheduler** - a loading sign covers the data portion of the component for slow data operations such as editing, inserting and deleting appointments.
 
-* **TreeList** - a loading sign covers the entire component for slow data operations such as editing, inserting and deleting records. Expanding items with load-on-demand shows a loading indicator next to the item while the `OnExpand` event is running.
+* **TreeList** - a loading sign covers the data portion of the component for slow data operations such as editing, inserting and deleting records. Expanding items with load-on-demand shows a loading indicator next to the item while the `OnExpand` event is running.
 
 * **TreeView** - for expanding nodes with load-on-demand, a loading indicator is shown next to the item while the `OnExpand` event is running.
 
