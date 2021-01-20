@@ -28,8 +28,17 @@ I cannot see all records in the grid with virtual scrolling when there are many 
 
 I cannot scroll to the end of the records when I have many records.
 
+Other symptoms can include the grid content overflowing its parent and hiding content after the grid, or you could see a border from the grid near the end of the scrollable container.
+
+In this article:
+
+* [Steps to Reproduce](#steps-to-reproduce)
+* [Cause\Possible Cause(s)](#causepossible-causes)
+* [Solution](#solution)
+
 ## Steps to Reproduce
-Sample reproducible - try dragging the scrollbar to the end - you won't see record number 1 000 000
+
+>caption Sample reproducible - try dragging the scrollbar to the end - you won't see record number 1 000 000
 
 ````CSHTML
 Total items: @GridData.Count
@@ -75,6 +84,31 @@ Total items: @GridData.Count
 }
 ````
 
+The issue with the content overflow is the same - when the element size limit is reached, the browser does not render the element correctly and it overflows its parent.
+
+>caption Overflowing content due to browser element size limit (see additional code below)\
+
+![the content can overflow and hide adjacent elements when the element size limit is reached](images/virtualization-max-browser-height-overflow-issue.png)
+
+>caption Add this code just after the grid closing tag to color the element borders like in the image above to see the issue
+
+````CSHTML
+</TelerikGrid>
+
+something after the grid that I can't see because of the grid issue
+
+<style>
+    .k-grid {
+        border: 2px solid red !important;
+    }
+
+    .k-grid-container {
+        border: 1px solid blue !important;
+    }
+</style>
+````
+
+
 ## Cause\Possible Cause(s)
 Browsers have a limitation on how large (tall or wide) an element can be. This limits how much data you can fit and how far the user can scroll.
 
@@ -87,6 +121,8 @@ Thus, the scrollbar can only get so small, and you can only scroll to a certain 
 >caption Screenshot explaining the browser limitation that does not allow the user to scroll far enough
 
 ![browser limitation of element height limits the number of records the grid can show with virtualization](images/virtualization-max-browser-height.png)
+
+
 
 ## Solution
 The only possible solution if you have so many records is to use the standard [paging]({%slug components/grid/features/paging%}).
