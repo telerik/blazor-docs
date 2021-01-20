@@ -66,7 +66,7 @@ The `GetState` and `SetState` instance methods provide flexibility for your busi
 
 * `SetState` takes an instance of a grid state so you can use your own code to alter the grid layout and state. For example, you can have a button that puts the grid in a certain configuration that helps your users review data (like certain filters, sorts, groups, expanded detail templates, initiate item editing or inserting, etc.).
 
-If you want to make changes on the current grid state, first get it from the grid through the `GetState` method, then apply the modifications on the object you got, and pass it to `SaveState`.
+If you want to make changes on the current grid state, first get it from the grid through the `GetState` method, then apply the modifications on the object you got and pass it to `SetState`.
 
 If you want to put the grid in a certain configuration without preserving the old one, create a `new GridState<T>()` and apply the settings there, then pass it to `SetState`.
 
