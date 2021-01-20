@@ -22,6 +22,8 @@ Series stacking is available for  "bar", "column", "line", "area" types of serie
 
 Stack settings of the first series are inherited as a default value by the rest of the series, in case they are not overridden.
 
+Named stacks are supported for "bar" and "column" charts. All line-type charts ("line" and "area") always stack together because there is no visual way to denote separate groups.
+
 ## Simple Stack
 
 To stack all series together, set the `Enabled` property to `true` in the `ChartSeriesStack` tag of the first series in your chart.
