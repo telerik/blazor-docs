@@ -131,6 +131,8 @@ The AutoComplete component is generic and its type depends on the type of the mo
 }
 ````
 
+@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
+
 ### Missing Data
 
 The AutoComplete is, essentially, a textbox. This means that its `Value` is always a string and it is up to you to bind and/or use it. The `Data` parameter, however, is required for the functionality of the component, and it must never be `null`. If there are no suggestions that you wish to provide to the user, consider using a regular TextBox, or creating an empty collection.
