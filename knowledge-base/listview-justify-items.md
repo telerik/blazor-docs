@@ -26,7 +26,7 @@ I would like to justify the items of the ListView to the center of the content a
 
 ## Solution
 
-The ListView is not aware of the shape and geometric sizes of the items it has in the content area thus adjusting its layout should be done by the application and handled tenet by tenet depending on the business needs.
+The ListView is not aware of the shape and geometric sizes of the items it has in the content area thus adjusting its layout should be done by the application and handled case by case depending on the business needs.
 
 To justify the items of the ListView to the center of the content area you can use some CSS. In order to cascade the rules to a single instance of the ListView, you can use the `Class` parameter that the component exposes. It will add a custom CSS class to the topmost HTML element. 
 
