@@ -35,7 +35,7 @@ Selected value: @selectedValue
 
     int selectedValue { get; set; }
 
-    //Define a preselected value when the component initializes
+    //Define a preselected value when the component initializes. Placeholder will not be shown as the selected value is defined.
     protected override void OnInitialized()
     {
         selectedValue = 3;

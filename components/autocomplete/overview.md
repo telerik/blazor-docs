@@ -29,6 +29,7 @@ User input: @TheValue
     Placeholder="Enter your role (can be free text)" ClearButton="true" />
 
 @code{
+    //Current value is null (no item is sellected) which allows the Placeholder to be displayed.
     string TheValue { get; set; }
 
     List<string> Suggestions { get; set; } = new List<string> {
