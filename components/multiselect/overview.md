@@ -94,7 +94,7 @@ The MultiSelect is a generic component and its type is determined by the type of
 
 * `MinLength` - how many characters the text has to be before the suggestions list appears. Cannot be `0`. Often works together with [filtering]({%slug multiselect-filter%}).
 
-* `Placeholder` - the text the user sees as a hint when there is no selection. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source.
+* `Placeholder` - the text the user sees as a hint when there is no selection.
 
 * `PopupHeight` - the height of the expanded dropdown list element.
 

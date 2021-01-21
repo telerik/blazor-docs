@@ -95,6 +95,8 @@ Bind to a collection of models
 }
 ````
 
+@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
+
 ## Considerations
 
 The DropDownList component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](#component-reference) and what happens [if you can't provide data or a value](#missing-value-or-data). Providing a [value that is not in the data source](#value-out-of-range) needs to be taken into account be the app, because the component will not change it.
@@ -176,7 +178,6 @@ How to declare the dropdown if no Value or Data are provided
 }
 ````
 
-@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
 ## See Also
 

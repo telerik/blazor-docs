@@ -109,7 +109,7 @@ By default, if no `Value` is provided and no `DefaultText` is defined, the DropD
 
 * To display `DefaultText` - `Value` should be `0` or `null` depending on the data type you are using in the `ValueField` and the `DefaultText` should be defined.
 
-* To display a selected item when the component renders - provide the `Value` of the desired element in `OnInitialized()`.
+* To display a selected item when the component renders - provide the `Value` of the desired element. Note that it must match an item of the component's data source. 
 
 
 ## Examples
