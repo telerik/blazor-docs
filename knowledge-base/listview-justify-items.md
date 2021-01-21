@@ -36,15 +36,15 @@ To justify the items of the ListView to the center of the content area you can u
 @* Use the Class parameter and some CSS to justify the ListView items to the center of the content area. *@
 
 <style>
-    .my-listview .k-listview-content {
+    .my-listview .k-listview-content { /* justifies the items in the ListView */
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
     }
 
     .listview-item { /*those styles are to create the layout of the listview item.*/
-        height: 150px;
-        width: 150px;
+        height: 100px;
+        width: 100px;
         display: inline-block;
         margin: 10px;
         border: 1px solid black;
@@ -53,20 +53,44 @@ To justify the items of the ListView to the center of the content area you can u
     }
 </style>
 
-<TelerikListView Data="@ListViewData" Width="700px" Pageable="true" Class="my-listview">
-    <HeaderTemplate>
-        <h2>Employee List</h2>
-    </HeaderTemplate>
-    <Template>
-        <div class="listview-item">
-            <h4>@context.Name</h4>
-            <div>@context.Team</div>
-        </div>
-    </Template>
-</TelerikListView>
+
+<div class="row">
+    <div class="col-6">
+        <TelerikListView Data="@ListViewData" 
+                         Pageable="true"
+                         PageSize="4"
+                         Class="my-listview">
+            <HeaderTemplate>
+                <h2>Employee List</h2>
+            </HeaderTemplate>
+            <Template>
+                <div class="listview-item">
+                    <h5>@context.Name</h5>
+                    <div>@context.Team</div>
+                </div>
+            </Template>
+        </TelerikListView>
+    </div>
+    <div class="col-6">
+        <TelerikListView Data="@ListViewData" 
+                         Pageable="true"
+                         PageSize="4">
+            <HeaderTemplate>
+                <h2>Employee List</h2>
+            </HeaderTemplate>
+            <Template>
+                <div class="listview-item">
+                    <h5>@context.Name</h5>
+                    <div>@context.Team</div>
+                </div>
+            </Template>
+        </TelerikListView>
+    </div>
+</div>
+
 
 @code{
-    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 25).Select(x => new SampleData
+    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 8).Select(x => new SampleData
     {
         Id = x,
         Name = $"Name {x}",
