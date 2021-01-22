@@ -33,7 +33,13 @@ Selected value: @selectedValue
 @code {
     IEnumerable<MyDdlModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 
-    int selectedValue { get; set; } = 3; //usually the current value should come from the model data
+    int selectedValue { get; set; }
+
+    //Define a preselected value when the component initializes. Placeholder will not be shown as the selected value is defined.
+    protected override void OnInitialized()
+    {
+        selectedValue = 3;
+    }
 
     //in a real case, the model is usually in a separate file
     //the model type and value field type must be provided to the dropdpownlist
@@ -75,7 +81,7 @@ The ComboBox is a generic component and its type is determined by the type of th
 
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
 
-* `Placeholder` - the text the user sees as a hint when no item is selected (the `Value` is `null` or an empty string).
+* `Placeholder` - the text the user sees as a hint when no item is selected. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source.
 
 * `PopupHeight` - the height of the expanded dropdown list element.
 
@@ -129,10 +135,7 @@ Missing selection is most common when the initial value is `null` as data source
 | No match | No item is selected. `Value` is updated to the custom one. | No item is selected. `Value` is updated to `default(typeof(Value))`. The `OnChange` event does not fire for the value clearing. |
 
 
->tip If you are looking for more fields from the view-model that describes the dropdown items, not just the `Value`, see the [Get model from dropodwn]({%slug dropdowns-get-model%}) KB article and the [OnChange](events#onchange) event.
->
-> You may also want to review/join the discussion and Vote for this request: <a href="https://www.telerik.com/forums/binding-dropdownlist-value-to-complex-model" target="_blank">Binding DropDownList Value to complex model</a>
-
+@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
 ## See Also
 

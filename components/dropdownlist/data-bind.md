@@ -21,10 +21,10 @@ There are two key ways to bind data:
 
 and some considerations you may find useful, such as showing the `DefaultText` when the value is out of the data source range:
 
-* [Considerations](#considerations)
-	* [Value Out of Range](#value-out-of-range)
-	* [Component Reference](#component-reference)
-	* [Missing Value or Data](#missing-value-or-data)
+  * [Considerations](#considerations)
+    * [Value Out of Range](#value-out-of-range)
+    * [Component Reference](#component-reference)
+    * [Missing Value or Data](#missing-value-or-data)
 
 ## Primitive Types
 
@@ -44,9 +44,15 @@ Bind to a List of a primitive type (stirng, int,...)
 </TelerikDropDownList>
 
 @code {
-	protected List<string> MyList = new List<string>() { "first", "second", "third" };
+    protected List<string> MyList = new List<string>() { "first", "second", "third" };
 
-	protected string MyItem { get; set; } = "second";
+    protected string MyItem { get; set; }
+
+    //Define a preselected value when the component initializes
+    protected override void OnInitialized()
+    {
+        MyItem = "second";
+    }
 }
 ````
 
@@ -69,19 +75,27 @@ Bind to a collection of models
 </TelerikDropDownList>
 
 @code {
-	//in a real case, the model is usually in a separate file
-	//the model type and value field type must be provided to the dropdpownlist
-	public class MyDdlModel
-	{
-		public int MyValueField { get; set; }
-		public string MyTextField { get; set; }
-	}
+    //in a real case, the model is usually in a separate file
+    //the model type and value field type must be provided to the dropdpownlist
+    public class MyDdlModel
+    {
+        public int MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
 
-	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+    int selectedValue { get; set; }
 
-	int selectedValue { get; set; } = 3; //usually the current value should come from the view model data
+    //Define a preselected value when the component initializes
+    protected override void OnInitialized()
+    {
+        selectedValue = 3;
+    }
+
+    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 }
 ````
+
+@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
 ## Considerations
 
@@ -109,9 +123,15 @@ Reference type when binding to primitive values
     //the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
     Telerik.Blazor.Components.TelerikDropDownList<string, string> myDdlRef;
 
-	protected List<string> MyList = new List<string>() { "first", "second", "third" };
+    protected List<string> MyList = new List<string>() { "first", "second", "third" };
 
-    string initialValue {get;set;} = "third";
+    string initialValue { get; set; }
+
+    //Define a preselected value when the component initializes
+    protected override void OnInitialized()
+    {
+        initialValue = "third";
+    }
 }
 ````
 ````Model

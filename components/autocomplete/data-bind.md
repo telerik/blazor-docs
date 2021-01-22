@@ -21,6 +21,8 @@ There are two key ways to bind data:
 
 There are also some [considerations](#considerations) to keep in mind.
 
+@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
+
 ## Primitive Types
 
 You can data bind the AutoComplete to a simple collection of `string` data. When you have a concrete list of options for the user to choose from, their string representation is often suitable for display and you do not need special models.
@@ -130,6 +132,7 @@ The AutoComplete component is generic and its type depends on the type of the mo
     }
 }
 ````
+
 
 ### Missing Data
 

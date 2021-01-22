@@ -46,7 +46,13 @@ To bind the combobox to a primitive type (like `int`, `string`, `double`), you n
 @code {
     protected List<string> MyList = new List<string>() { "first", "second", "third" };
 
-    protected string MyItem { get; set; } = "second";
+    protected string MyItem { get; set; }
+
+    //Define a preselected value when the component initializes
+    protected override void OnInitialized()
+    {
+        MyItem = "second";
+    }
 }
 ````
 
@@ -77,11 +83,19 @@ To bind the ComboBox to a model:
         public string MyTextField { get; set; }
     }
 
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+    int selectedValue { get; set; }
 
-    int selectedValue { get; set; } = 3; //usually the current value should come from the view model data
+    //Define a preselected value when the component initializes
+    protected override void OnInitialized()
+    {
+        selectedValue = 3;
+    }
+
+    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 }
 ````
+
+@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
 ## Considerations
 
@@ -115,7 +129,13 @@ The ComboBox is a generic component and its type comes from the model it is boun
 
     protected List<string> MyList = new List<string>() { "first", "second", "third" };
 
-    string initialValue { get; set; } = "third";
+    string initialValue { get; set; }
+
+    //Define a preselected value when the component initializes
+    protected override void OnInitialized()
+    {
+        initialValue = "third";
+    }
 }
 ````
 ````Model
