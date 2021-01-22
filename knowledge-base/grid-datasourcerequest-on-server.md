@@ -14,6 +14,10 @@ res_type: kb
 
 How to send the Grid state to the server and retrieve data? How to use Telerik `DataSourceRequest` and `DataSourceResult` on the server?
 
+How to call the server and recieve only the desired information for paging, sorting, filtering?
+
+How to optimize the amount of loaded data?
+
 
 ## Solution
 
