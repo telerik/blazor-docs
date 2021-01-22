@@ -18,6 +18,8 @@ How can add the Blazor tools I purchased from Telerik to the Toolbox?
 
 I have created a new Telerik Blazor project in Visual Studio.  I can't see any of the components that I can add to a page in the VS Toolbox.  How do I add the Telerik tools?
 
+![no components in the toolbox for blazor components](images/no-toolbox-components-in-blazor.png)
+
 ## Cause\Possible Cause(s)
 Generally speaking, ASP.NET MVC/Core doesn't have the same kind of toolbox & designer integration that you're used to with platforms like WPF and ASP.NET AJAX.
 
