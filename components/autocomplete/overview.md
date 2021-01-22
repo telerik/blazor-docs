@@ -29,6 +29,7 @@ User input: @TheValue
     Placeholder="Enter your role (can be free text)" ClearButton="true" />
 
 @code{
+    //Current value is null (no item is sellected) which allows the Placeholder to be displayed.
     string TheValue { get; set; }
 
     List<string> Suggestions { get; set; } = new List<string> {
@@ -69,7 +70,7 @@ The AutoComplete is a generic component and its type is determined by the type o
 
 * `MinLength` - how many characters the text has to be before the suggestions list appears. Cannot be `0`. Often works together with [filtering]({%slug autocomplete-filter%}).
 
-* `Placeholder` - the text the user sees as a hint when there is no text in the input.
+* `Placeholder` - the text the user sees as a hint when there is no text in the input. In order for it to be shown, the `Value` parameter should be set to the default value for string (`null`).
 
 * `PopupHeight` - the height of the expanded dropdown list element.
 
@@ -87,6 +88,7 @@ The AutoComplete is a generic component and its type is determined by the type o
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
+@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
 ## See Also
 

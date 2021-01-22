@@ -29,17 +29,23 @@ Selected value: @selectedValue
 </TelerikDropDownList>
 
 @code {
-	//in a real case, the model is usually in a separate file
-	//the model type and value field type must be provided to the dropdpownlist
-	public class MyDdlModel
-	{
-		public int MyValueField { get; set; }
-		public string MyTextField { get; set; }
-	}
+    //in a real case, the model is usually in a separate file
+    //the model type and value field type must be provided to the dropdpownlist
+    public class MyDdlModel
+    {
+        public int MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
 
-	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+    int selectedValue { get; set; }
 
-	int selectedValue { get; set; } = 3; //usually the current value should come from the model data
+    //Define a preselected value when the component initializes
+    protected override void OnInitialized()
+    {
+        selectedValue = 3;
+    }
+
+    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 }
 ````
 
@@ -61,7 +67,7 @@ The DropDownList provides the following features:
 
 * `Data` - allows you to provide the data source. Required.
 
-* `DefaultText` - sets the hint that is shown if the `Value` has the `default` value for the type of the `ValueField`. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. You can find examples in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article.
+* `DefaultText` -  simple hint to be displayed when no item is selected yet. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. See the first example in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article.
 
 * `Enabled` - whether the component is enabled.
 
@@ -97,6 +103,15 @@ The DropDownList provides the following features:
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
 
+## Selected Item and DefaultText
+
+By default, if no `Value` is provided and no `DefaultText` is defined, the DropDownList will appear empty.
+
+* To display `DefaultText` - `Value` should be `0` or `null` depending on the data type you are using in the `ValueField` and the `DefaultText` should be defined.
+
+* To display a selected item when the component renders - provide the `Value` of the desired element. Note that it must match an item of the component's data source. 
+
+
 ## Examples
 
 >caption Default text (hint) to show when no actual item is selected
@@ -116,39 +131,15 @@ The DropDownList provides the following features:
 @code {
     protected List<string> MyStringList = new List<string>() { "first", "second", "third" };
 
+    //Current value is null (no item is sellected) which allows the DefaultText to be displayed.
     protected string MyStringItem { get; set; }
 
     protected List<int> MyIntList = new List<int>() { 1, 2, 3 };
 
+    //Current value is 0 (no item is sellected) which allows the DefaultText to be displayed.
     protected int MyIntItem { get; set; }
 }
 ````
-
-
-
->caption Show default item only when there is no selection by toggling the DefaultText parameter value depending on your business logic
-
-````CSHTML
-Selected value: @selectedValue
-<br />
-
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue"
-                     DefaultText="@( selectedValue == 0 ? "Please Select" : null )">
-</TelerikDropDownList>
-
-@code {
-    int selectedValue { get; set; }
-    
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-    
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-}
-````
-
 
 
 >caption Get selected item from external code
@@ -193,10 +184,7 @@ Selected value: @selectedValue
 ````
 
 
->tip If you are looking for more fields from the view-model that describes the dropdown items, not just the `Value`, see the [Get model from dropodwn]({%slug dropdowns-get-model%}) KB article and the [OnChange](events#onchange) event.
->
-> You may also want to review/join the discussion and Vote for this request: <a href="https://www.telerik.com/forums/binding-dropdownlist-value-to-complex-model" target="_blank">Binding DropDownList Value to complex model</a>
-
+@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
 
 ## See Also

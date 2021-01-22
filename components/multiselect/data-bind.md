@@ -124,6 +124,8 @@ To bind the MultiSelect to a model:
 }
 ````
 
+@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
+
 ## Considerations
 
 The MultiSelect component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](#reference) and what happens [if you can't provide data or a value](#missing-value-or-data).

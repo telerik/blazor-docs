@@ -190,6 +190,8 @@ The MultiSelect is a generic component and its type is determined by the type of
 }
 ````
 
+@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
+
 ## See Also
 
   * [Data Binding]({%slug multiselect-databind%})
