@@ -70,7 +70,7 @@ You can also change the filter menu behavior for a particular column - its own `
 
 ## Custom Data
 
-By default, the grid takes the `Distinct` values from its `Data` to populate the chekcbox list filter for each field.
+By default, the grid takes the `Distinct` values from its `Data` to populate the checkbox list filter for each field.
 
 When using the [`OnRead` event]({%slug components/grid/manual-operations%}) to customize the data operations and/or perform them on the server/service, the grid will only have the current page of data. This will limit the options the user will see so you may want to provide the full list.
 
