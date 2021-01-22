@@ -68,6 +68,8 @@ To add a Telerik LoaderContainer to your Blazor application, use the `<TelerikLo
 }
 ````
 
+>note By default the loader container will fill up the browser viewport. If you want to hide only a specific element, see the [Fill a Parent Container](#fill-a-parent-container) section below.
+
 ## Features
 
 The LoaderContainer provides the following features:
