@@ -55,6 +55,9 @@ Try collapsing any of the panes by clicking the corresponding arrow on the adjac
 }
 ````
 
+@[template](/_contentTemplates/common/issues-and-warnings.md#component-does-not-re-render)
+
+
 ## OnExpand
 
 The `OnExpand` event fires when a pane is expanded. It receives the index of the pane that was expanded in its event arguments.
@@ -94,6 +97,9 @@ Try collapsing and expanding any of the panes by clicking the corresponding arro
 }
 ````
 
+@[template](/_contentTemplates/common/issues-and-warnings.md#component-does-not-re-render)
+
+
 ## OnResize
 
 The `OnResize` event fires after the user has finished resizing a pane (after the mouse button is released). It fires for each resized pane and receives the index and new size in its event arguments.
@@ -132,6 +138,10 @@ Try resizing any of the panes by dragging the splitbars
     }
 }
 ````
+
+@[template](/_contentTemplates/common/issues-and-warnings.md#component-does-not-re-render)
+
+
 
 ## See Also
 

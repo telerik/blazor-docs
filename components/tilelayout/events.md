@@ -77,7 +77,7 @@ The `OnResize` event is fired when any tile is resized. It lets you respond to t
 }
 ````
 
->note For performance reasons, the component does not re-render after this event, even though it is an EventCallback. This means that you cannot change its settings such as [state]({%slug tilelayout-state%}), or settings/parameters of child components in it.
+@[template](/_contentTemplates/common/issues-and-warnings.md#component-does-not-re-render)
 
 ## OnReorder
 
@@ -115,7 +115,7 @@ The `OnReorder` event fires when tiles have been reordered. You can use it to, f
 }
 ````
 
->note For performance reasons, the component does not re-render after this event, even though it is an EventCallback. This means that you cannot change its settings such as [state]({%slug tilelayout-state%}), or settings/parameters of child components in it.
+@[template](/_contentTemplates/common/issues-and-warnings.md#component-does-not-re-render)
 
 ## See Also
 
