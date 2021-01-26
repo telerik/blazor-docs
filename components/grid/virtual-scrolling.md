@@ -98,7 +98,7 @@ There are several things to keep in mind when using virtual scrolling:
 
 ## Limitations
 
-Virtualization is mainly a technique for improving client-side performance and the user experience. Its cost is that some features of the grid do not work with it. An alternative to that is to use [regular paging]({%slug components/grid/features/paging%}) with [mantual data source operations]({%slug components/grid/manual-operations%}) to implement the desired performance of the data retrieval.
+Virtualization is mainly a technique for improving client-side performance and the user experience. Its cost is that some features of the grid do not work with it. An alternative to that is to use [regular paging]({%slug components/grid/features/paging%}) with [manual data source operations]({%slug components/grid/manual-operations%}) to implement the desired performance of the data retrieval.
 
 List of the known limitations of the virtual scrolling feature:
 
