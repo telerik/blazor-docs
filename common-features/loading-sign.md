@@ -39,9 +39,9 @@ The following list shows the components that have a built-in loading sign for da
 
 -->
 
-* [**Grid**](https://demos.telerik.com/blazor-ui/grid/loading-animation) - a loading sign covers the data portion of the component for slow data operations such as paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records. It is shown when the `OnRead` event is called.
+* [**Grid**](https://demos.telerik.com/blazor-ui/grid/loading-animation) - a loading sign covers the data portion of the component for slow data operations such as paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records. It is shown when the `OnRead` event is called (except on the [initial load](#initial-data)).
 
-* **ListView** - a loading sign covers the data portion of the component for slow data operations such as editing, inserting and deleting records. It is also shown when the `OnRead` event is called.
+* **ListView** - a loading sign covers the data portion of the component for slow data operations such as editing, inserting and deleting records. It is also shown when the `OnRead` event is called (except on the [initial load](#initial-data)).
 
 <!--
 
