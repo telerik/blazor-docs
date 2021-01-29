@@ -37,8 +37,10 @@ The Blazor framework is relatively new and there may be unexpected complications
 
 At the time of writing, sometimes the following issues have been reported that pertain to the Telerik UI for Blazor suite:
 
-* `404 not found for telerik-blazor.js` - this indicates that the framework did not copy our static assets to the publish location. 
+* `404 not found for telerik-blazor.js` - this indicates that the framework did not copy our static assets to the publish location.
+
     * Some solutions are available in the [JS Errors - Missing File]({%slug troubleshooting-js-errors%}#missing-file) article.
+
     * When using `dotnet run` or `dotnet build` to publish an app, the static assets may not work when the `ASPNETCORE_ENVIRONMENT` is _not_ set to `Development`. This may be due to a missing server configuration for allowing static assets ([MSDN link](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-3.1&tabs=visual-studio#consume-content-from-a-referenced-rcl)). 
     
         Usually, the following in `Program.cs` of the server project solves the problem, or using `dotnet publish`, or publishing from Visual Studio:
@@ -78,6 +80,8 @@ At the time of writing, sometimes the following issues have been reported that p
     * On Linux (and often Docker), paths are case-sensitive, so make sure you have the correct casing when registering the styles and scripts (see the [Client Assets]({%slug getting-started/what-you-need%}#client-assets) section of the documentation).
     
         * Some reports indicate that deploying to a Docker container never copies over the static assets and you may have to either copy the file manually, or use it from [our CDN]({%slug general-information/themes%}#cdn). This may be related to the static asset configurations from the previous points, however.
+
+    * We have had reports that indicate missing project references do not copy the static assets. For example, in an ASP.NET Core hosted WebAssembly project the server project usually has a project reference to the Blazor project. If that reference is missing, the static assets might not be present in the output.
 
 * `Trial Message` - if the machine that performs the build has access to a trial version of our NuGet package, the framework may get confused and copy a trial assembly to the publish location and you may see the trial messages live. Solutions are available in the [Upgrade Troubleshooting - I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-message) article.
 
