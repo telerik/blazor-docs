@@ -18,7 +18,7 @@ Sections in this article:
 
 ## Basics
 
-You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below. To add a new item, you must also add a [command column]({%slug components/grid/columns/command%}) with a `Save` command and a [toolbar]({%slug components/grid/features/toolbar%}) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button, see the [Notes](#notes) below.
+You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below. To add a new item, you must add a [toolbar]({%slug components/grid/features/toolbar%}) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button, see the [Notes](#notes) below.
 
 
 
@@ -41,7 +41,6 @@ Click a cell, edit it and click outside of the cell to see the change.
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
             <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
@@ -166,9 +165,9 @@ Click a cell, edit it and click outside of the cell to see the change.
 }
 ````
 
->caption The result from the code snippet above, after the user clicks in the Name column of the fifth row
+>caption InCell editing behavior
 
-![](images/incell-editing.png)
+![](images/incell-editing.gif)
 
 
 
