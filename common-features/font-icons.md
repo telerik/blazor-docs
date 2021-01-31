@@ -268,5 +268,5 @@ Each icon is accompanied by its name that you can use in the Telerik Blazor comp
 
 ## See Also
 
+  * [Blazor Live Demos](https://demos.telerik.com/blazor-ui/)
   * [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web)
-  * [Live Demos](https://demos.telerik.com/blazor-ui/)
