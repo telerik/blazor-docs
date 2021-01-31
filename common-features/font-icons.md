@@ -15,7 +15,7 @@ The UI for Blazor suite comes with a set of font icons that you can use in vario
 In this article:
 
 * [Standalone Icon Component](#standalone-icon-component)
-	* [Icon Parameters - Order of Precedence](#icon-parameters---order-of-precedence)
+* [Icon Parameters - Order of Precedence](#icon-parameters---order-of-precedence)
 * [Icon in Telerik Component](#icon-in-telerik-component)
 * [Icon Adjustments](#icon-adjustments)
 	* [Size](#size)
@@ -51,7 +51,7 @@ Telerik UI for Blazor comes with the `TelerikIcon` component that you can use to
 
 ![](images/standalone-font-icons.png)
 
-### Icon Parameters - Order of Precedence
+## Icon Parameters - Order of Precedence
 
 The priority order of the Icon properties, if more than one is defined, is:
 
