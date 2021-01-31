@@ -186,6 +186,8 @@ Each icon is accompanied by its name that you can use in the Telerik Blazor comp
             line-height: 15px;
             list-style-type: none;
             line-height: 15px;
+            font-size: 16px;
+            font-weight: 400;
         }
         
         ul.WebComponentsIcons .k-icon {
