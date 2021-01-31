@@ -15,8 +15,14 @@ The UI for Blazor suite comes with a set of font icons that you can use in vario
 In this article:
 
 * [Standalone Icon Component](#standalone-icon-component)
+	* [Icon Parameters - Order of Precedence](#icon-parameters---order-of-precedence)
 * [Icon in Telerik Component](#icon-in-telerik-component)
+* [Icon Adjustments](#icon-adjustments)
+	* [Size](#size)
+	* [Color](#color)
+	* [Kendo Icons](#kendo-icons)
 * [Icons List](#icons-list)
+	
 
 
 ## Standalone Icon Component
@@ -69,6 +75,93 @@ Some Telerik components expose icon features out-of-the box. These parameters ma
 >caption The result from the code snippet above
 
 ![](images/telerik-button-with-icon.png)
+
+
+
+## Icon Adjustments
+
+This section shows a few examples of adjusting the font icons:
+
+* [Size](#size)
+* [Color](#color)
+* [Kendo Icons](#kendo-icons)
+
+### Size
+
+You can change the `font-size` of the icon element in your own CSS rules to change the size of the icons.
+
+Our font icons are designed on a 16px grid base. To achieve a pixel-perfect icon display, scale up by maintaining the 16-unit measure (32, 48, 64, and so on).
+
+>caption Enlarging icons with CSS
+
+![change icon size](images/larger-icons-with-css.png)
+
+````CSHTML
+@*The first icon is made larger through CSS, the second has the default size*@
+
+<style>
+    .large-icons .k-icon {
+        font-size: 32px;
+    }
+</style>
+
+<div class="large-icons">
+    <TelerikIcon Icon="filter"></TelerikIcon> Larger icon
+</div>
+<TelerikIcon Icon="filter"></TelerikIcon> Normal icon
+````
+
+### Color
+
+You can change the `color` CSS rule of the icon element to change its color from the default black.
+
+>caption Change icon color
+
+![change icon color](images/colored-icon.png)
+
+````CSHTML
+@*The first icon is made red through CSS, the second has the default color*@
+
+<style>
+    .colored-icons .k-icon {
+        color: red;
+    }
+</style>
+
+<div class="colored-icons">
+    <TelerikIcon Icon="filter"></TelerikIcon> Red icon
+</div>
+<TelerikIcon Icon="filter"></TelerikIcon> Normal icon
+````
+
+
+### Kendo Icons
+
+The Telerik UI for Blazor suite shares the same [themes]({%slug general-information/themes%}) with several other component suites made by Progress (such as Kendo UI and UI for ASP.NET Core). This means that the same font icons are available across all these suites and come as features in our stylesheets, and so you can use the icons directly with the rules and HTML rendering that they are designed for without a helper component such as the `<TelerikIcon>`.
+
+Using such direct HTML may make it easier for you to customize and style icons that you use in your own layouts - it lets you add additional CSS classes directly to their rendering without cascading through a parent element.
+
+To use the icons directly, review the [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web) article. It shows all the information you need. The `<TelerikIcon>` component and other built-in icons in UI for Blazor simply drop the `k-i-` prefix to make it easier for you.
+
+>caption Use Kendo font icons directly
+
+![use Kendo font icons directly in HTML markup](images/direct-kendo-icon.png)
+
+````CSHTML
+@*Direct usage of the Kendo UI font icon*@
+<span class="k-icon k-i-check"></span>
+
+@*Direct usage of the Kendo icons so you can add more classes directly to them*@
+<span class="k-icon k-i-check k-flip-h k-flip-v"></span> 
+
+@* The same icon can be rendered through the Blazor component but styling needs a parent to cascade through *@
+<TelerikIcon Icon="check"></TelerikIcon>
+````
+
+
+
+
+
 
 ## Icons List
 
@@ -167,6 +260,9 @@ Each icon is accompanied by its name that you can use in the Telerik Blazor comp
         }, 1500); 
     });
 </script>
+
+
+
 
 
 
