@@ -74,7 +74,7 @@ Some Telerik components expose icon features out-of-the box. These parameters ma
 
 <div id="iconListContainer">
 
-    <script src="https://localhost:44372/scoped-plugin.js"></script>
+    <script src="scripts/scoped-plugin.js"></script>
     
     <style scoped>
         
