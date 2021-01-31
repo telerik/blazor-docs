@@ -72,23 +72,49 @@ Some Telerik components expose icon features out-of-the box. These parameters ma
 
 ## Icons List
 
+<div id="iconListContainer">
 
-
-<ul id="IconsList" class="WebComponentsIcons">
-    <li>Please wait, the list of icons is loading and rendering...</li>
-</ul>
+    <script src="https://localhost:44372/scoped-plugin.js"></script>
+    
+    <style scoped>
+        
+    </style>
+    
+    <style scoped>
+        article:not(.api-reference) ul:not(.docs-tabstrip):not(.k-reset):not(.k-pager-numbers) > li:before {
+            content: none;
+        }
+    
+        article > ul.WebComponentsIcons > li{
+            line-height: 15px;
+        }
+    </style>
+        
+    <ul id="IconsList" class="WebComponentsIcons">
+        <li>Please wait, the list of icons is loading and rendering...</li>
+    </ul>
+</div>
 
 <script>
-    function ensureLatestTheme() {
-        var linkElem = document.createElement("link");
-        linkElem.rel = "stylesheet";
-        linkElem.href = "https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css";
-        document.head.appendChild(linkElem);
+    function scopeLatestTheme() {
+        var latestThemeUrl = "https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css";
+        $.ajax({
+            url: latestThemeUrl,
+            dataType: "text/css",
+            success: function (data, extStatus, jqXHR) {
+                console.log("fetching the themes changed, the icons list needs to be fixed, please open an issue if you see this");
+            },
+            error: function (data, extStatus, jqXHR) {
+                if (extStatus == "parsererror") { // we expect parsing the styles to fail
+                    document.querySelector("#iconListContainer style").innerHTML = data.responseText;
+                }
+            },
+        });
     }
 
     function renderIconsList() {
 
-        ensureLatestTheme();
+        scopeLatestTheme();
 
         var iconsListJson = "https://raw.githubusercontent.com/telerik/kendo-icons/develop/src/icons/icons-list.json?token=ABL26UZCFI62VK2U3EVSJZLAEALVM";
        
@@ -112,15 +138,7 @@ Some Telerik components expose icon features out-of-the box. These parameters ma
     window.addEventListener("load", function () { renderIconsList(); });
 </script>
 
-<style>
-    article:not(.api-reference) ul:not(.docs-tabstrip):not(.k-reset):not(.k-pager-numbers) > li:before {
-        content: none;
-    }
 
-    article > ul.WebComponentsIcons > li{
-        line-height: 15px;
-    }
-</style>
 
 ## See Also
 
