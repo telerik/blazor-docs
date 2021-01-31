@@ -201,7 +201,7 @@ Each icon is accompanied by its name that you can use in the Telerik Blazor comp
         <li>Please wait, the list of icons is loading and rendering...</li>
     </ul>
     
-    <p id="iconsLoadFail" style="display:none;">The Icon list failed to load. You can see the available icons in the <a href="https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web#list-of-font-icons">Kendo UI Font Icons</a> article. To use them with UI for Blazor, remove the <code>k-i-</code> prefix.</p>
+    <p id="iconsLoadFail" style="display:none;">The Icon list failed to load. You can see the available icons in the <a href="https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web#list-of-font-icons">Kendo UI Font Icons</a> article. To use them with UI for Blazor, remove the <code>k-i-</code> prefix. If you are seeing this, <a href="https://github.com/telerik/blazor-docs/issues/new">open an issue</a> to let us know the icon list is broken.</p>
 
 </div>
 
