@@ -18,9 +18,6 @@ In this article:
 * [Icon Parameters - Order of Precedence](#icon-parameters---order-of-precedence)
 * [Icon in Telerik Component](#icon-in-telerik-component)
 * [Icon Adjustments](#icon-adjustments)
-	* [Size](#size)
-	* [Color](#color)
-	* [Kendo Icons](#kendo-icons)
 * [Icons List](#icons-list)
 	
 
