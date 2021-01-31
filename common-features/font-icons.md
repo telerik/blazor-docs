@@ -23,7 +23,7 @@ In this article:
 
 Telerik UI for Blazor comes with the `TelerikIcon` component that you can use to render icons. It works with the following image types:
 
-* **Telerik font icon** - Telerik UI for Blazor uses the same icons as the Kendo UI suite. You can find the rendered icons in the [Icons List](#icons-list) section below.
+* **Telerik font icon** - You can find the rendered icons and their names in the [Icons List](#icons-list) section below. Use those names as plain strings.
 
 * **Third party font-icon** - the `IconClass` parameter lets you set a CSS class that provides the required font name, font size and content for the `::before` pseudoelement.
 
@@ -72,12 +72,16 @@ Some Telerik components expose icon features out-of-the box. These parameters ma
 
 ## Icons List
 
+This section lists the avaialble font icons that come with the Telerik UI for Blazor themes. 
+
+Each icon is accompanied by its name that you can use in the Telerik Blazor components where a Telerik `Icon` parameter is available.
+
+
 <div id="iconListContainer">
 
     <script src="scripts/scoped-plugin.js"></script>
     
     <style scoped>
-        
     </style>
     
     <style scoped>
@@ -103,16 +107,21 @@ Some Telerik components expose icon features out-of-the box. These parameters ma
     <ul id="IconsList" class="WebComponentsIcons">
         <li>Please wait, the list of icons is loading and rendering...</li>
     </ul>
+    
+    <p id="iconsLoadFail" style="display:none;">The Icon list failed to load. You can see the available icons in the <a href="https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web#list-of-font-icons">Kendo UI Font Icons</a> article. To use them with UI for Blazor, remove the <code>k-i-</code> prefix.</p>
+
 </div>
 
 <script>
     function scopeLatestTheme() {
         var latestThemeUrl = "https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css";
+
         $.ajax({
             url: latestThemeUrl,
             dataType: "text/css",
             success: function (data, extStatus, jqXHR) {
                 console.log("fetching the themes changed, the icons list needs to be fixed, please open an issue if you see this");
+                showFallbackInfo();
             },
             error: function (data, extStatus, jqXHR) {
                 if (extStatus == "parsererror") { // we expect parsing the styles to fail
@@ -123,7 +132,6 @@ Some Telerik components expose icon features out-of-the box. These parameters ma
     }
 
     function renderIconsList() {
-
         scopeLatestTheme();
 
         var iconsListJson = "https://raw.githubusercontent.com/telerik/kendo-icons/develop/src/icons/icons-list.json?token=ABL26UZCFI62VK2U3EVSJZLAEALVM";
@@ -138,14 +146,26 @@ Some Telerik components expose icon features out-of-the box. These parameters ma
                     iconsToRender.push(`<li><span class="k-icon k-i-${iconName}"></span>${iconName}</li>`)
                 }
             });
-            
-            var iconsHtml = iconsToRender.join("");
 
-            $("#IconsList").html(iconsHtml);
-        });
+            $("#IconsList").html(iconsToRender.join(""));
+        })
+        .fail(showFallbackInfo);
+    }
+    
+    function showFallbackInfo(){
+        document.querySelector("#iconListContainer #iconsLoadFail").style.display = "";
+        document.querySelector("#iconListContainer #IconsList").style.display = "none";
     }
 
-    window.addEventListener("load", function () { renderIconsList(); });
+    window.addEventListener("load", function () {
+        setTimeout(function () {
+            try {
+                renderIconsList();
+            } catch (e) {
+                showFallbackInfo();
+            }
+        }, 1500); 
+    });
 </script>
 
 
