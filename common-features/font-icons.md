@@ -81,12 +81,22 @@ Some Telerik components expose icon features out-of-the box. These parameters ma
     </style>
     
     <style scoped>
-        article:not(.api-reference) ul:not(.docs-tabstrip):not(.k-reset):not(.k-pager-numbers) > li:before {
-            content: none;
+        ul.WebComponentsIcons > li:before {
+            content: none !important;
         }
     
-        article > ul.WebComponentsIcons > li{
+        ul.WebComponentsIcons > li {
             line-height: 15px;
+            list-style-type: none;
+            line-height: 15px;
+        }
+        
+        ul.WebComponentsIcons .k-icon {
+            display: block;
+            clear: both;
+            margin: 0 auto 10px;
+            color: #656565;
+            font-size: 32px;
         }
     </style>
         
