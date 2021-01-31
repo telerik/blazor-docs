@@ -70,7 +70,57 @@ Some Telerik components expose icon features out-of-the box. These parameters ma
 
 ![](images/telerik-button-with-icon.png)
 
+## Icons List
 
+
+
+<ul id="IconsList" class="WebComponentsIcons">
+    <li>Please wait, the list of icons is loading and rendering...</li>
+</ul>
+
+<script>
+    function ensureLatestTheme() {
+        var linkElem = document.createElement("link");
+        linkElem.rel = "stylesheet";
+        linkElem.href = "https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css";
+        document.head.appendChild(linkElem);
+    }
+
+    function renderIconsList() {
+
+        ensureLatestTheme();
+
+        var iconsListJson = "https://raw.githubusercontent.com/telerik/kendo-icons/develop/src/icons/icons-list.json?token=ABL26UZCFI62VK2U3EVSJZLAEALVM";
+       
+        $.getJSON(iconsListJson, function (data) {
+
+            var iconsList = data.list;
+            var iconsToRender = [];
+            
+            $.each(iconsList, function (index, iconName) {
+                if (iconName != null) {
+                    iconsToRender.push(`<li><span class="k-icon k-i-${iconName}"></span>${iconName}</li>`)
+                }
+            });
+            
+            var iconsHtml = iconsToRender.join("");
+
+            $("#IconsList").html(iconsHtml);
+        });
+    }
+
+    window.addEventListener("load", function () { renderIconsList(); });
+</script>
+
+<style>
+    article:not(.api-reference) ul:not(.docs-tabstrip):not(.k-reset):not(.k-pager-numbers) > li:before {
+        content: none;
+    }
+
+    article > ul.WebComponentsIcons > li{
+        line-height: 15px;
+    }
+</style>
 
 ## See Also
 
