@@ -24,13 +24,13 @@ res_type: kb
 ## Description
 Can I use the ContextMenu without a data source?
 
-That way we can use this control to provide a popup of items that we can control, and don't have to set it up with sometime of blank list of items that are never used.
+That way we can use this control to provide a popup of items that we can control, and don't want to set it up with a list of items that are never used.
 
 ## Solution
 
-If you don't want to define a data source, you can provide an empty list of object to the Data parameter of the Context menu. This way, you will meet the component's requirement of providing data and in the same time you will be able to actually create the content for it yourself using a [Content Template](https://docs.telerik.com/blazor-ui/components/contextmenu/templates/content).
+If you don't want to define a data source, you can provide an empty `List<object>` to the `Data` parameter of the Context menu. This way, you will meet the component's requirement of providing data and in the same time you will be able to actually create the content for it yourself using the [Content Template]({%slug contextmenu-content-template%}).
 
-An important point to take into consideration here is that, at the time of writing, when you are using a template you cannot trigger a close of the ContextMenu, you can only close it if you click outside of it (there is an opened feature request for that in our [public feedback portal](https://feedback.telerik.com/blazor/1497622-add-hide-and-or-hideasync-method-to-contextmenu)). 
+
 
 ````CSHTML
 <div class="menuTarget">
@@ -63,3 +63,6 @@ An important point to take into consideration here is that, at the time of writi
 </style>
 ````
 
+## Notes
+
+An important point to take into consideration here is that, at the time of writing, when you are using a template you cannot trigger a close of the ContextMenu, you can only close it if you click outside of it (there is an opened feature request for that in our [public feedback portal](https://feedback.telerik.com/blazor/1497622-add-hide-and-or-hideasync-method-to-contextmenu)).
