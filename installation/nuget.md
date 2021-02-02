@@ -45,26 +45,31 @@ To add the Telerik private NuGet feed, follow the steps below:
 
 The command from the example below stores the password in clear text in the `%AppData%\NuGet\NuGet.config` file. If you are unable to connect to the feed using encrypted credentials, use this alternative approach.
 
->caption Store Plain-text Credentials for the Telerik NuGet feed
+>caption Store Plain-text Credentials for the Telerik NuGet feed (make sure to *remove the new lines*, they are here for readability)
 
 ```
-NuGet Sources Add -Name "telerik.com" -Source "https://nuget.telerik.com/nuget" ^
-      -UserName "your login email" -Password "your password" ^
-      -StorePasswordInClearText
+dotnet nuget add source https://nuget.telerik.com/nuget 
+--name TelerikOnlineFeed 
+--username <YOUR TELERIK ACCOUNT EMAIL HERE> 
+--password <YOUR PASSWORD HERE> 
+--store-password-in-clear-text
 ```
 
 If you have already stored a token instead of storing the credentials as clear text, update the definition in the `%AppData%\NuGet\NuGet.config` file by using the command below.
 
->caption Update Plain-text Credentials for the Telerik NuGet feed
+>caption Update Plain-text Credentials for the Telerik NuGet feed (make sure to *remove the new lines*, they are here for readability)
 
 ```
-NuGet Sources Update -Name "telerik.com" -Source "https://nuget.telerik.com/nuget" ^
-      -UserName "your login email" -Password "your password" ^
-      -StorePasswordInClearText
+dotnet nuget update source "TelerikOnlineFeed" 
+--source "https://nuget.telerik.com/nuget" 
+--username <YOUR TELERIK ACCOUNT EMAIL HERE> 
+--password <YOUR PASSWORD HERE> 
+--store-password-in-clear-text
 ```
+
 ### Store Encrypted Credentials
 
-The ASP.NET Core tooling does not fully support encrypted credentials.
+The ASP.NET Core tooling does not fully support encrypted credentials. If you add the feed through the Visual Studio dialog (Tools > NuGet Package Manager > Package Manager Settings > Package Sources), the credentials will be stored in the Windows Credential Manager and will be encrypted there, instead of being stored in plain text in the `nuget.config` file.
 
 ## Nuget Config File
 
@@ -125,7 +130,9 @@ Here is a sample process of removing stored credentials from Windows so you can 
 
 1. Remove saved credentials in <a href="https://support.microsoft.com/en-us/help/4026814/windows-accessing-credential-manager" target="_blank">Windows Credential Manager</a>. They will appear as nuget.telerik.com and/or VSCredentials_nuget.telerik.com entries.
 2. Remove the Telerik Nuget package source from Visual Studio.
-3. If you have added the Telerik  package source by nuget CLI, then try to remove it from the CLI.
+3. If you have added the Telerik  package source by nuget CLI, then try to remove it from the CLI:
+    * <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-list-source" target="_blank">dotnet nuget list source</a> 
+    * <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-remove-source" target="_blank">dotnet nuget remove source</a>
 4. Check if there are any credentials stored in `%AppData%\NuGet\Nuget.Config` and if so you have to remove them.
 5. Try to reset Visual Studio user data. You can read how to do that <a href="https://stackoverflow.com/questions/43550797/how-to-force-nuget-to-ask-for-authentication-when-connecting-to-a-private-feed" target="_blank">here</a>.
 6. Restart Visual Studio.
