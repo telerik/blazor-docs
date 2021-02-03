@@ -230,3 +230,4 @@ You can also call remote data through async operations.
 ## See Also
 
 * [ValueChanged and Validation]({%slug value-changed-validation-model%})
+* [Fire OnChange Only Once]({%slug ddl-kb-onchange-fires-twice%})

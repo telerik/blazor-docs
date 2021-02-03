@@ -78,3 +78,4 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 ## See Also
 
 * [ValueChanged and Validation]({%slug value-changed-validation-model%})
+* [Fire OnChange Only Once]({%slug ddl-kb-onchange-fires-twice%})

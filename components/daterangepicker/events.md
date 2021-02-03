@@ -143,4 +143,5 @@ The `ViewChanged` event fires when the user changes the view they are seeing in 
 
 ## See Also
 
-  * [ValueChanged and Validation]({%slug value-changed-validation-model%})
+* [ValueChanged and Validation]({%slug value-changed-validation-model%})
+* [Fire OnChange Only Once]({%slug ddl-kb-onchange-fires-twice%})

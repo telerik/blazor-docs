@@ -20,7 +20,7 @@ The examples in this article use `string` values and simple data sources for bre
 
 ## OnChange
 
-The `OnChange` event represents a user action - confirmation of the current value. In inputs, it fires when the user presses `Enter` in the input, or when the input loses focus. In the DropDownList, it fires when the user selects an item as well. See [here]({%slug ddl-kb-onchange-fires-twices%}) for sample logic on executing it only once per value selection.
+The `OnChange` event represents a user action - confirmation of the current value. In inputs, it fires when the user presses `Enter` in the input, or when the input loses focus. In the DropDownList, it fires when the user selects an item as well. See [here]({%slug ddl-kb-onchange-fires-twice%}) for sample logic on executing it only once per value selection.
 
 >tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
 
@@ -114,3 +114,4 @@ from model: @MyItem
 ## See Also
 
 * [ValueChanged and Validation]({%slug value-changed-validation-model%})
+* [Fire OnChange Only Once]({%slug ddl-kb-onchange-fires-twice%})

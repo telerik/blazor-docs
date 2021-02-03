@@ -117,3 +117,4 @@ from model: @theTbValue
 ## See Also
 
 * [ValueChanged and Validation]({%slug value-changed-validation-model%})
+* [Fire OnChange Only Once]({%slug ddl-kb-onchange-fires-twice%})
