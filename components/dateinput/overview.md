@@ -53,7 +53,7 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 * When value is `null` - the `Format` is displayed as a placeholder.
 * When modifying a part, if some parts are not defined, the value remains `null`.
 * When all values are provided, the value changes.
-* Upon deleting any part, the whole value changes to `null`, and all input returns to the format placeholder.
+* Upon deleting any part, the whole value changes to `null`, and the entire input returns to the format placeholder. When one or more segments are deleted the value is no longer a valid data and thus defaults to `null`.
 * When inside an `EditForm`, if no attributes are present on the field, and the value is deleted, no validation error is shown.
 
 
@@ -63,7 +63,7 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 * When the value is undefined, it defaults to `0001-01-01`, so the component has it as a value.
 * When modifying a part, if some parts are not defined, the bound value does not change.
 * When all values are provided, the value changes.
-* Upon deleting any part, only that part switches to the format placeholder.
+* Upon deleting a focused segment of the input, only that part switches to the format placeholder and not the entire value.
 * When inside an `EditForm`, if no attributes are present on the field, and the value is deleted, a validation error is shown.
 
 
