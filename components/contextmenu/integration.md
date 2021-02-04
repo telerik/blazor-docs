@@ -16,7 +16,7 @@ Using the `Selector` parameter to attach the context menu to one or more targets
 
 To achieve such flexibility and granularity, you can:
 
-1. Use your own code to hook to an event such as `@oncontextmenu` to store the desired target and its metadata.
+1. Use your own code to hook to an event such as `@oncontextmenu` to store the desired target and its metadata. You can use other events such as `@onclick` too.
     * You can use other events to show the context menu, like click, mousedown and so on. Make sure to pass correct coordinates to the menu - they must be relative to the viewport.
     * If you use the `@oncontextmenu` event, also add `@oncontextmenu:preventDefault="true"` to avoid the browser context menu which will always show above HTML structures on the page, like the Telerik Context Menu.
 1. Optionally, alter the [data source]({%slug contextmenu-data-binding-overview%}) or [templates]({%slug contextmenu-templates-overview%}) of the menu based on the metadata for the target.
