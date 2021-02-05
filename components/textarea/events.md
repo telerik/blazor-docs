@@ -17,7 +17,9 @@ The events exposed for the Telerik TextArea for Blazor let you react to user act
 
 ## OnChange
 
-The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus. The `OnChange` event does not prevent you from using two-way data binding.
+The `OnChange` event represents a user action - confirmation of the current value. It fires when the input loses focus.
+
+The `OnChange` event does not prevent you from using two-way data binding.
 
 >caption Handle OnChange event
 
