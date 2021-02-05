@@ -33,18 +33,28 @@ You can review the rest of this article for information on how things work and w
 
 The Telerik UI for Blazor component suite requires the following Telerik-specific NuGet packages:
 
-* `Telerik.UI.for.Blazor` - *the only one you need to explicitly reference* - the UI components code
-* `Telerik.DataSource` - code for working with data, needed for data binding the components
-* `Telerik.Recurrence` - code for working with recurring appointments (e.g., in the scheduler)
+* `Telerik.UI.for.Blazor` - **the only one you need to explicitly reference** - the UI components code.
+
+* `Telerik.DataSource` - code for working with data, needed for data binding the components.
+
+* `Telerik.Recurrence` - code for working with recurring appointments (e.g., in the scheduler).
+
+* `Telerik.Documents.SpreadsheetStreaming` - code for working with spreadsheet documents (used for exporting).
+
+* `Telerik.Zip` - code for working with zip archives - Excel files are actually archives (used for exporting).
 
 
-Adding the `Telerik.UI.for.Blazor` package to your project will automatically add the `Telerik.DataSource` and `Telerik.Recurrence` packages as dependencies.
 
-For trial purposes, the package names have the `.Trial` suffix, for example `Telerik.UI.for.Blazor.Trial`, `Telerik.DataSource.Trial` and `Telerik.Recurrence.Trial`.
+>tip Adding the `Telerik.UI.for.Blazor` package to your project will automatically add the other necessary dependencies.
 
-Exporting features use the `Telerik.Documents.SpreadsheetStreaming` package as well, and it also comes in as a dependency automatically.
+>note For trial purposes, the package names have the `.Trial` suffix, for example `Telerik.UI.for.Blazor.Trial`, `Telerik.DataSource.Trial` and `Telerik.Recurrence.Trial`.
 
-There are four ways to get these packages:
+Exporting features use the `Telerik.Documents.SpreadsheetStreaming` and `Telerik.Zip` packages as well, and it also comes in as a dependency automatically.
+
+
+### Get the Telerik Packages
+
+There are four ways to get the Telerik packages:
 
 * The **[Telerik private NuGet feed]({%slug installation/nuget%})** that requires an Internet connection and credentials. It also provides information about updates and new versions.
 
