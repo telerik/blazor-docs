@@ -59,4 +59,13 @@ public void TestFetchData_PredefinedForecast()
 }
 ````
 
-To read more about this specific scenario visit the <a href="https://www.telerik.com/blogs/unit-testing-blazor-components-bunit-justmock" target="_blank">Unit Testing Blazor Components with bUnit and JustMock</a> blog post.
+## Additional Resources
+
+You can find a sample project about unit testing the UI of a Blazor app that contains Telerik UI for Blazor components in the following sample projects that also utilize bUnit:
+
+* <a href="https://github.com/telerik/blazor-ui/tree/master/testing" target="_blank">https://github.com/telerik/blazor-ui/tree/master/testing</a>.
+
+You can also visit the <a href="https://www.telerik.com/blogs/unit-testing-blazor-components-bunit-justmock" target="_blank">Unit Testing Blazor Components with bUnit and JustMock</a> blog post.
+
+
+
