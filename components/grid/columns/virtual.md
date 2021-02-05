@@ -131,7 +131,6 @@ The Virtualized Columns are a feature for improving the responsiveness and perfo
 
 List of known limitations of the Virtualized columns:
 
-* [Frozen]({%slug grid-columns-frozen%}) columns are not supported.
 * Keyboard Navigation is not supported because not all elements are rendered and so they are not traversable.
 
 ## More Examples
