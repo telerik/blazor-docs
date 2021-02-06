@@ -160,7 +160,7 @@ You can add your own HTML and components to create a more complex layout in the 
     <TreeListToolBar>
         <div style="display: block; flex-grow: 1;">
             @* the first level children in the toolbar get display: inline-flex and flex-shrink: 0 inherited from the grid,
-            we change it here to show we can, or you can work with the layout the grid defines if it suits your needs *@
+                we change it here to show we can, or you can work with the layout the grid defines if it suits your needs *@
 
             <div style="background:yellow">
                 <TreeListCommandButton Command="Add" Icon="add">Add Employee</TreeListCommandButton>
@@ -268,21 +268,7 @@ You can add your own HTML and components to create a more complex layout in the 
         }
 
         return await Task.FromResult(data);
-    }    //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
     }
-
-    public List<SampleData> MyData = Enumerable.Range(1, 50).Select(
-        x => new SampleData
-        {
-            ID = x,
-            Name = "name " + x,
-            HireDate = DateTime.Now.AddDays(-x)
-        }).ToList();
 }
 ````
 
