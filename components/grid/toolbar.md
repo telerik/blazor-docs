@@ -212,18 +212,29 @@ You can add your own HTML and components to create a more complex layout in the 
 @result
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="@GridEditMode.Inline" Height="500px" OnCreate="@CreateHandler">
+
     <GridToolBar>
-        <div style="background:yellow">
-            <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-        </div>
-        <div style="background: green;">
-            <TelerikDropDownList Data="@( new List<string>() { "first", "second", "third" } )" TValue="string" TItem="string" ValueChanged="@( (string itm) => result = itm )"></TelerikDropDownList>
-        </div>
-        <div style="border: 1px solid red;">
-            <div style="float:right;"><button @onclick="@( () => result = $"Custom button click on {DateTime.Now}"  )">Click me</button></div>
-            <div style="clear:both;"></div>
+        <div class="block-display" style="display: block; flex-grow: 1;">
+            @* the first level children in the toolbar get display: inline-flex and flex-shrink: 0 inherited from the grid,
+                we change it here to show we can, or you can work with the layout the grid defines if it suits your needs *@
+
+            <div style="background:yellow">
+                <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+            </div>
+            <div style="background: green;">
+                <TelerikDropDownList Data="@( new List<string>() { "first", "second", "third" } )" TValue="string" TItem="string" ValueChanged="@( (string itm) => result = itm )"></TelerikDropDownList>
+            </div>
+
+            @* one example of aligning content to the right with flex *@
+            <div style="border: 1px solid red; justify-content: end;">
+                <button style="display: flex; margin-left: auto;"
+                        @onclick="@( () => result = $"Custom button click on {DateTime.Now}"  )">
+                    Click me
+                </button>
+            </div>
         </div>
     </GridToolBar>
+
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
         <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
@@ -257,11 +268,11 @@ You can add your own HTML and components to create a more complex layout in the 
 
     public List<SampleData> MyData = Enumerable.Range(1, 50).Select(
         x => new SampleData
-            {
-                ID = x,
-                Name = "name " + x,
-                HireDate = DateTime.Now.AddDays(-x)
-            }).ToList();
+        {
+            ID = x,
+            Name = "name " + x,
+            HireDate = DateTime.Now.AddDays(-x)
+        }).ToList();
 }
 ````
 
