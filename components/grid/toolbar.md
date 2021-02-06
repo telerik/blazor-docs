@@ -214,7 +214,7 @@ You can add your own HTML and components to create a more complex layout in the 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="@GridEditMode.Inline" Height="500px" OnCreate="@CreateHandler">
 
     <GridToolBar>
-        <div class="block-display" style="display: block; flex-grow: 1;">
+        <div style="display: block; flex-grow: 1;">
             @* the first level children in the toolbar get display: inline-flex and flex-shrink: 0 inherited from the grid,
                 we change it here to show we can, or you can work with the layout the grid defines if it suits your needs *@
 
