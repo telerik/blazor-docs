@@ -182,7 +182,7 @@ Editing is cancelled for the first two records.
         {
             await Task.Delay(1000); // simulate actual long running async operation
 
-            itemToInsert.Id = _data.Count + 1;
+            itemToInsert.ID = _data.Count + 1;
             _data.Insert(0, itemToInsert);
         }
 
