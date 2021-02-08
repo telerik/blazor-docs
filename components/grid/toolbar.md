@@ -225,8 +225,8 @@ You can add your own HTML and components to create a more complex layout in the 
                 <TelerikDropDownList Data="@( new List<string>() { "first", "second", "third" } )" TValue="string" TItem="string" ValueChanged="@( (string itm) => result = itm )"></TelerikDropDownList>
             </div>
 
-            @* one example of aligning content to the right with flex *@
-            <div style="border: 1px solid red; justify-content: end;">
+            <div style="border: 1px solid red;">
+                @* one example of aligning content to the right with flex *@
                 <button style="display: flex; margin-left: auto;"
                         @onclick="@( () => result = $"Custom button click on {DateTime.Now}"  )">
                     Click me
