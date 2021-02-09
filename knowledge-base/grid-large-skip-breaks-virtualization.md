@@ -2,7 +2,7 @@
 title: Setting Large Skip Manually Shows VIirtualization Placeholders
 description: When I set Skip with Virtualization, I see a few placeholder rows and not all items shows properly
 type: troubleshooting
-page_title: Setting Large (Invalid) Skip Manually Twice  Shows VIirtualization Placeholders
+page_title: Setting Large (Invalid) Skip Manually Twice Shows VIirtualization Placeholders
 slug: grid-kb-large-skip-virtualization
 position: 
 tags: 
