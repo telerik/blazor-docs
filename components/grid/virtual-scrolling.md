@@ -108,6 +108,8 @@ List of the known limitations of the virtual scrolling feature:
 
 * The `Data` of the grid must contain more items than the `PageSize` in order for the virtual scrolling feature to work. You can work around this with something similar to `ScrollMode="@(DataCollection.Count() > 30 ? GridScrollMode.Virtual : GridScrollMode.Scrollable)"`
 
+    * If you set the `Skip` manually through the grid [state]({%slug grid-state%}), you must ensure the value is valid and does not result in items that cannot fill up the viewport. You can find more details in the [Setting Too Large Skip]({%slug grid-kb-large-skip-virtualization%}) Knowledge Base article.
+
 * When there are too many records, the browser may not let you scroll down to all of them, read more in the [Virtual Scroll does not show all items]({%slug grid-kb-virtualization-many-records%}) KB article.
 
 <!--
