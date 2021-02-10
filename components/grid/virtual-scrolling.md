@@ -12,7 +12,7 @@ position: 60
 
 Virtual scrolling is an alternative to paging. Instead of using a pager, the user scrolls vertically through all records in the data source.
 
-The same set of elements is reused to improve performance. While the next data is loading, a loading indicator is shown on the cells. If the user scrolls back up after scrolling down to a next page, the previous page will be loaded anew from the data source, like with regular paging.
+The same set of elements is reused to improve the rendering performance. While the next data is loading, a loading indicator is shown on the cells. If the user scrolls back up after scrolling down to a next set of rows, the previous data will be loaded anew from the data source, like with regular paging, but the scroll distance determines the data to be loaded.
 
 You can also Virtually Scroll the Grid Columns. More information can be found in the [Column Virtualization]({%slug grid-columns-virtual%}) article.
 
@@ -21,6 +21,7 @@ You can also Virtually Scroll the Grid Columns. More information can be found in
 To enable virtual scrolling:
 
 1. Set `ScrollMode="@GridScrollMode.Virtual"` - this enables the virtualization of items
+
 2. Provide  `Height`, `RowHeight`, and `PageSize` to the grid - this lets the grid calculate the position of the user in order to fetch the correct set of items from the data source.
 
 >caption Sample of virtual scrolling in the Telerik Grid for Blazor
@@ -83,22 +84,33 @@ To enable virtual scrolling:
 
 There are several things to keep in mind when using virtual scrolling:
 
-* The `RowHeight` is a decimal value that is always considered as pixel values. If you use [row template]({%slug components/grid/features/templates%}#row-template), make sure it matches the `RowHeight`. The `Height` does not have to be in pixels, but it may help you calculate the `PageSize` (see below).
+* The `RowHeight` is a decimal value that is always considered as pixel values. If you use [row template]({%slug components/grid/features/templates%}#row-template), make sure it matches the `RowHeight`. The grid `Height` does not have to be in pixels, but it may help you calculate the `PageSize` (see below).
+
     * If the row/cell height the browser would render is larger than the `RowHeight` value, the browser will ignore it. It can depend on the chosen Theme or other CSS rules, or on cell data that falls on more than one row. Inspect the rendered HTML to make sure the grid setting matches the rendering.
 
         The default grid rendering has padding in the cells, and the loading sign has a line height set in order to render. This may impose some minimum heights that can vary with the theme and/or custom styles on the page. You can remove both with the following rules: `.k-placeholder-line{display:none;} .k-grid td{margin:0;padding:0;}`.
+
     * The `RowHeight` must not change at runtime, because the new dimensions will cause issues with the scrolling logic.
+
     * Browser zoom or monitor DPI settings can cause the browser to render different dimensions than the expected and/or non-integer values, which can break the virtualization logic.
+
 * Do not mix virtualization with paging, as they are alternatives to the same feature.
+
 * Provide for a `PageSize` of the Grid that is large enough, so that the loaded table rows do not fit in the scrollable data area, otherwise the vertical virtual scrollbar will not be created and scrolling will not work. To do this, take into account the `Height` of the grid and the `RowHeight`.
-* You can control how many rows are rendered through the `PageSize`. If performance does not suit your needs, tweak mostly that property (for example, if latency is high - fetch larger chunks of data so that a remote service is called less often; or when the browser is responding slowly, decrease the page size to render fewer DOM elements).
+
+    * The `PageSize` controls how many rows are rendered at any given time, and how many items are requested from the data source when loading data on demand (see below). You should avoid setting large page sizes, you need to only fill up the grid data viewport.
+
 * To load data on demand, use the [`OnRead` event]({%slug components/grid/manual-operations%}), and in it, use the `PageSize` and `Skip` parameters to know what data to return, instead of `PageSize` and `Page` as with regular paging.
-* Horizontal scrolling is not virtualized, all columns are rendered.
+
+    * Data requests will be made when the user scrolls, but not necessarily when they scroll an entire page of data. Row virtualization is a user experience and UI optimization technique and not necessarily a data request optimization. The user may scroll a few rows, or they may keep scrolling and skip many pages. The grid cannot predict the user action, so it needs to request the data when the user changes what should be displayed.
+
+* Horizontal scrolling is not virtualized by default and all columns are rendered. You can enable [Column Virtualization]({%slug grid-columns-virtual%}) separately too.
+
 * Multiple Selection has some specifics when you use the `OnRead` event, you can read more about its behavior in the [Multiple Seletion]({%slug components/grid/selection/multiple%}#checkbox-selection) article.
 
 ## Limitations
 
-Virtualization is mainly a technique for improving client-side performance and the user experience. Its cost is that some features of the grid do not work with it. An alternative to that is to use [regular paging]({%slug components/grid/features/paging%}) with [manual data source operations]({%slug components/grid/manual-operations%}) to implement the desired performance of the data retrieval.
+Virtualization is mainly a technique for improving client-side (rendering) performance and the user experience. Its cost is that some features of the grid do not work with it. An alternative to that is to use [regular paging]({%slug components/grid/features/paging%}) with [manual data source operations]({%slug components/grid/manual-operations%}) to implement the desired performance of the data retrieval.
 
 List of the known limitations of the virtual scrolling feature:
 
