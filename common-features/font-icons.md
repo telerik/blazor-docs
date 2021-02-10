@@ -225,7 +225,7 @@ Each icon is accompanied by its name that you can use in the Telerik Blazor comp
     function renderIconsList() {
         scopeLatestTheme();
 
-        var iconsListJson = "https://raw.githubusercontent.com/telerik/kendo-icons/develop/src/icons/icons-list.json?token=ABL26UZCFI62VK2U3EVSJZLAEALVM";
+        var iconsListJson = "scripts/icons-list.json";
        
         $.getJSON(iconsListJson, function (data) {
 
@@ -253,6 +253,7 @@ Each icon is accompanied by its name that you can use in the Telerik Blazor comp
             try {
                 renderIconsList();
             } catch (e) {
+                console.log(e);
                 showFallbackInfo();
             }
         }, 1500); 

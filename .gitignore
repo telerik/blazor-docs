@@ -37,3 +37,16 @@ search.html
 start-docs.sh
 to_delete.md
 watch.sh
+obj/
+bin/
+**/.vs
+*.dll
+*.tmp
+*.gpState
+*.pdb
+*.suo
+*.swp
+*.user
+*.mdb
+node_modules
+*NuGet.Config
