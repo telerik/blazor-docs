@@ -116,9 +116,9 @@ When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and n
 
 * `Orientation` - `enum` - controls the orientation of the Form. Read the [Layout]({%slug form-layout%}) article for more information.
     
-* `Columns` - `int` - defines the number of columns in the Form. Read the [Layout]({%slug form-layout%}) article for more information.
+* `Columns` - `int` - defines the number of columns in the Form. Read the [Columns]({%slug form-columns%}) article for more information.
 
-* `ColumnSpacing` - `string` - defines the space between the FormItems. Read the [Layout]({%slug form-layout%}) article for more information.
+* `ColumnSpacing` - `string` - defines the space between the FormItems. Read the [Columns]({%slug form-columns%}) article for more information.
 
 * `Events` - Read the [Events]({%slug form-events%}) article for more information
 
@@ -160,12 +160,12 @@ The Form [reference](#component-reference) exposes the `Refresh` method which al
 ````
 
 ## See Also
-
-  * [Toolbar]({%slug editor-toolbars%})
-  * [Built-in Tools and Commands]({%slug editor-built-in-tools%})
-  * [Custom Tools]({%slug editor-custom-tool%})
-  * [Import and Export]({%slug editor-import-export%})
+  
+  * [FormItems]({%slug form-formitems%})
+  * [FormGroups]({%slug form-formgroups%})
+  * [Columns]({%slug form-columns%})
+  * [Orientation]({%slug form-orientation%})
   * [Events]({%slug form-events%})
   * [Live Demo: Form](https://demos.telerik.com/blazor-ui/form/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikEditor)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikForm)
    
