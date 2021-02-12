@@ -40,6 +40,8 @@ In Multiple SelectionMode, you can select rows through the following approaches:
 
 To add checkboxes in each row, add a `GridCheckboxColumn` in the `GridColumns` collection of the grid. The user can select the desired rows through the checkboxes.
 
+You can force selection to happen only through the checkboxes by setting the `CheckBoxOnlySelection` parameter of the `GridCheckboxColumn` to `true`.
+
 The Grid allows selection and deselection via the `SelectAll` property. Setting this property to `true` (its default value) will render a checkbox in the grid header.
 
 You can add a `SelectAllMode` parameter, which supports the following options:
