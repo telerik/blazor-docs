@@ -16,6 +16,7 @@ This article explains the events available in the Telerik Window for Blazor:
 * [VisibleChanged](#visiblechanged)
 * [StateChanged](#statechanged)
 * [Action Click](#action-click)
+* [LeftChanged and TopChanged](#leftchanged-and-topchanged)
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async) 
 
@@ -167,6 +168,62 @@ If you use the `OnClick` event on a built-in action, it will act as a custom act
 
 * Use the [VisibleChanged](#visiblechanged) and/or the [StateChanged](#statechanged) events to execute the custom logic on the user actions.
 * Or, use two-way binding for the corresponding Window parameter (e.g., `@bind-Visible`, or `@bind-State`) and toggle its variable from the custom `OnClick` handler.
+
+
+## LeftChanged and TopChanged
+
+These two events fire when the user finishes [moving the window]({%slug window-draggable%}). If you set the `Top` and `Left` parameters of the window, you must update their values in these events - either by handling them yourself, or through using two-way binding.
+
+The values will be in pixels, in a `string` format, and may have many decimal places as reported by the browser.
+
+These events will also fire when the user maximizes the window because then its top and left coordinates become `0`. You can capture this event through the [StateChanged](#statechanged) event that will fire afterwards.
+
+The `LeftChanged` event fires second, so if you intend to store locations in an application state, and you want to do this only once, you can do that in `LeftChanged`.
+
+>caption Handle LeftChanged and TopChanged
+
+````CSHTML
+@* If you need to reac to the user dragging the window you can handle the events. Otherwise you can simly use two-way binding *@
+
+<TelerikWindow Left="@TheLeft" Top="@TheTop" Draggable="true"
+               LeftChanged="@LeftChangedHandler" TopChanged="@TopChangedHandler"
+               Visible="true">
+    <WindowTitle>Drag me!</WindowTitle>
+    <WindowContent>When using Left and Top, make sure to update them in the view-model.</WindowContent>
+    <WindowActions>
+        <WindowAction Name="Minimize"></WindowAction>
+        <WindowAction Name="Maximize"></WindowAction>
+    </WindowActions>
+</TelerikWindow>
+
+@code{
+    string TheLeft { get; set; } = "50px";
+    string TheTop { get; set; } = "50px";
+
+    async Task LeftChangedHandler(string currLeft)
+    {
+        // if you don't do this, the event will be "cancelled" and the position will revert
+        TheLeft = currLeft;
+
+        Console.WriteLine("LEFT position changed to: " + TheLeft);
+
+        if(TheLeft == "0px" || TheTop == "0px")
+        {
+            Console.WriteLine("Maximized. You should use the StateChanged event to capture this");
+        }
+
+        // you could store left and top in the application state here if you wish to preserve it for the user
+    }
+
+    async Task TopChangedHandler(string currTop)
+    {
+        // if you don't do this, the event will be "cancelled" and the position will revert
+        TheTop = currTop;
+
+        Console.WriteLine("TOP position changed to: " + TheTop);
+    }
+}
+````
 
 ## See Also
 
