@@ -40,6 +40,8 @@ In Multiple SelectionMode, selection could be made using the following approache
 
 To add checkboxes in each row that the user can use for selection, add a `TreeListCheckboxColumn` in the `TreeListColumns` collection of the treelist.
 
+You can force selection to happen only through the checkboxes by setting the `CheckBoxOnlySelection` parameter of the `TreeListCheckboxColumn` to `true`.
+
 The treelist allows selection and deselection via the `SelectAll` property. Setting this property to `true` (its default value) will render a checkbox in the treelist header.
 
 You can add a `SelectAllMode` parameter, which supports the following options:
