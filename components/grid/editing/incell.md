@@ -12,9 +12,10 @@ position: 4
 
 In Cell editing allows the user to click the cell and type the new value. When they remove focus from the input, the `OnUpdate` event fires, where the data-access logic can move it to the actual data source. 
 
-You can aslo the `Tab`, `Shift+Tab` and `Enter` keys to move between edited cells quickly to perform fast data updates. In this case, the `OnUpdate` event fires for the last edited cell on the row (when you remove focus from the grid, or when you press `Enter` to go to the next row). This lets the user edit efficiently, with few actions, like in Excel, while avoiding delays and re-renders from data updates that will break up that flow.
+You can also the `Tab`, `Shift+Tab` and `Enter` keys to move between edited cells quickly to perform fast data updates. In this case, the `OnUpdate` event fires for the last edited cell on the row (when you remove focus from the grid, or when you press `Enter` to go to the next row). This lets the user edit efficiently, with few actions, like in Excel, while avoiding delays and re-renders from data updates that will break up that flow. Command columns and non-editable columns are not part from this keyboard navigation.
 
-Sections in this article:
+#### Sections in this article
+
 * [Basics](#basics)
 * [Notes](#notes)
 
