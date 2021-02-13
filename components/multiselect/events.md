@@ -15,7 +15,7 @@ This article explains the events available in the Telerik MultiSelect for Blazor
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
 * [OnRead](#onread)
-
+* [OnBlur](#onblur)
 
 ## ValueChanged
 
@@ -238,6 +238,32 @@ selected values
         public int Id { get; set; }
         public string Make { get; set; }
     }
+}
+````
+
+
+
+## OnBlur
+
+The `OnBlur` event fires when the component loses focus. Fires before the [OnChange](#onchange) event.
+
+>caption Handle the OnBlur event
+
+````CSHTML
+@* You do not have to use OnChange to react to loss of focus *@
+
+<TelerikMultiSelect @bind-Value="@TheValues" Data="@Options"
+                         OnBlur="@OnBlurHandler">
+</TelerikMultiSelect>
+
+@code{
+    async Task OnBlurHandler()
+    {
+        Console.WriteLine($"BLUR fired, current selections count is {TheValues.Count}.");
+    }
+
+    List<string> TheValues { get; set; } = new List<string>();
+    List<string> Options { get; set; } = new List<string> { "one", "two", "three" };
 }
 ````
 
