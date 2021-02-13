@@ -14,6 +14,7 @@ The events exposed for the Telerik TextArea for Blazor let you react to user act
 
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
+* [OnBlur](#onblur)
 
 ## OnChange
 
@@ -68,6 +69,32 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+
+
+## OnBlur
+
+The `OnBlur` event fires when the component loses focus. Fires before the [OnChange](#onchange) event.
+
+>caption Handle the OnBlur event
+
+````CSHTML
+@* You do not have to use OnChange to react to loss of focus *@
+
+<TelerikTextArea @bind-Value="@TheValue"
+                 OnBlur="OnBlurHandler">
+
+</TelerikTextArea>
+@code{
+    async Task OnBlurHandler()
+    {
+        Console.WriteLine($"BLUR fired, current value is {TheValue}.");
+    }
+
+    string TheValue { get; set; }
+}
+````
+
 
 ## See Also
 
