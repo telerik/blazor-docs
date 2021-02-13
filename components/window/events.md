@@ -176,7 +176,7 @@ These two events fire when the user finishes [moving the window]({%slug window-d
 
 The values will be in pixels, in a `string` format, and may have many decimal places as reported by the browser.
 
-These events will also fire when the user maximizes the window because then its top and left coordinates become `0`. You can capture this event through the [StateChanged](#statechanged) event that will fire afterwards.
+These events will also fire when the user maximizes the window because then its top and left coordinates become `0px`. You can capture this event through the [StateChanged](#statechanged) event that will fire afterwards.
 
 The `LeftChanged` event fires second, so if you intend to store locations in an application state, and you want to do this only once, you can do that in `LeftChanged`.
 
