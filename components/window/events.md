@@ -174,7 +174,7 @@ If you use the `OnClick` event on a built-in action, it will act as a custom act
 
 These two events fire when the user finishes [moving the window]({%slug window-draggable%}). If you set the `Top` and `Left` parameters of the window, you must update their values in these events - either by handling them yourself, or through using two-way binding.
 
-The values will be in pixels, in a `string` format, and may have many decimal places as reported by the browser.
+The values will be in pixels, in a `string` format, rounded to one decimal place.
 
 These events will also fire when the user maximizes the window because then its top and left coordinates become `0px`. You can capture this event through the [StateChanged](#statechanged) event that will fire afterwards.
 
