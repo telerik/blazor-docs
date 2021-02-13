@@ -1,163 +1,24 @@
 ---
-title: Overview
-page_title: Form Overview
-description: Overview of the Form for Blazor.
-slug: form-overview
-tags: telerik,blazor,form,edit,form
+title: Events
+page_title: Form Events
+description: Form for Blazor - Events.
+slug: form-events
+tags: telerik,blazor,form,edit,events
 published: True
-position: 0
+position: 15
 ---
 
-# Form Overview
+# Form Events
 
-The Form component for Blazor allows you to generate and manage forms. You can customize the form through various parameters, achieve the desired layout by using the default editor or add custom, set the orientation and display those editors in groups and columns. 
+The Form component for Blazor exposes events that allow you to respond to user actions and provide custom logic.
 
-#### To use the Telerik Form for Blazor:
+* [OnSubmit](#onsubmit)
+* [OnValidSubmit](#onvalidsubmit)
+* [OnInvalidSubmit](#oninvalidsubmit)
 
-1. Add the `<TelerikForm>` tag.
-1. Provide either an object to the `Model` parameter or an object of type `EditContext` to the `EditContext` parameter.
+## OnSubmit
 
-````Model
-@* Provide a model to the Telerik Form *@
-
-<TelerikForm Model="@person">
-</TelerikForm>
-
-@code {
-    public Person person = new Person();
-
-    public class Person
-    {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-    }
-}
-````
-````EditContext
-@* Provide an EditContext to the TelerikForm *@
-
-<TelerikForm EditContext="@MyEditContext">
-</TelerikForm>
-
-@code {
-    public EditContext MyEditContext { get; set; }
-
-    public Person person = new Person();
-
-    protected override void OnInitialized()
-    {
-        MyEditContext = new EditContext(person);
-    }
-
-    public class Person
-    {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![Form Basic Example](images/form-basic-example.png)
-
-
-## Component Reference
-
-You can use the component reference to call its [Methods](#methods).
-
-
-````CSHTML
-@* Get a reference to the Form component *@
-
-<TelerikForm Model="@person" @ref="@FormReference">
-</TelerikForm>
-
-@code {
-    public Telerik.Blazor.Components.TelerikForm FormReference { get; set; }
-
-    public Person person = new Person();
-
-    public class Person
-    {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-    }
-}
-````
-
-## Automatic Generation of fields
-
-When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and not editors are defined in the markup the component will render them automatically. For the different data types the editors vary:
-
-* `string` - [Telerik TextBox]({%slug components/textbox/overview%})
-
-* `int`, `double`, `float`, `decimal` - [Telerik NumericTextBox]({%slug components/numerictextbox/overview%})
-
-* `Enum` - [Telerik DropDownList]({%slug components/dropdownlist/overview%})
-
-* `DateTime`, `DateTimeOffset` - [Telerik DatePicker]({%slug components/datepicker/overview%})
-
-* `bool` - [Telerik CheckBox]({%slug checkbox-overview%})
-
-## Features
-
-* `ValidationType` - `enum` - define the validation type for the From. Read the [Validation]({%slug form-validation%}) article for more information.
-
-* `FormItems` - `RenderFragment` - read the [FormItems]({%slug form-formitems%}) article for more information.
-
-* `FormGroups` - Groups the FormItems. Read the [FormGroups]({%slug form-formgroups}) article for more information.
-
-* `Orientation` - `enum` - controls the orientation of the Form. Read the [Layout]({%slug form-layout%}) article for more information.
-    
-* `Columns` - `int` - defines the number of columns in the Form. Read the [Layout]({%slug form-layout%}) article for more information.
-
-* `ColumnSpacing` - `string` - defines the space between the FormItems. Read the [Layout]({%slug form-layout%}) article for more information.
-
-* `Events` - Read the [Events]({%slug form-events%}) article for more information
-
-## Methods
-
-The Form [reference](#component-reference) exposes the `Refresh` method which allows you to programatically re-render the form. 
-
-
->caption Alter a value in the bound model from outside the Form
-
-````CSHTML
-@* This snippet shows how to re-render the Form using the Refresh method when the model is updates from outside. *@
-
-<TelerikButton OnClick="@ChangeTheFirstName">Change the First Name</TelerikButton>
-
-<TelerikForm Model="@person" @ref="@FormReference">
-</TelerikForm>
-
-@code {
-    public Telerik.Blazor.Components.TelerikForm FormReference { get; set; }
-
-    public Person person = new Person();
-
-    private void ChangeTheFirstName()
-    {
-        person.FirstName = "My Name";
-
-        FormReference.Refresh();
-    }
-
-    public class Person
-    {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-    }
-}
-````
+The `OnSubmit` event fires when the user clicks on the Submit button in the Form. It takes as a parameter the `EditContext` object and is used to provide custom validation for the component. When this event is setup the `OnValidSubmit` and `OnInvalidSubmit` events will not be fired.
 
 ## See Also
 
