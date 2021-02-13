@@ -253,7 +253,7 @@ The `OnBlur` event fires when the component loses focus. Fires before the [OnCha
 @* You do not have to use OnChange to react to loss of focus *@
 
 <TelerikMultiSelect @bind-Value="@TheValues" Data="@Options"
-                         OnBlur="@OnBlurHandler">
+                    OnBlur="@OnBlurHandler">
 </TelerikMultiSelect>
 
 @code{
