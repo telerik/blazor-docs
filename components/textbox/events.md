@@ -14,6 +14,7 @@ This article explains the events available in the Telerik Textbox for Blazor:
 
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
+* [OnBlur](#onblur)
 
 ## OnChange
 
@@ -113,6 +114,32 @@ from model: @theTbValue
     }
 }
 ````
+
+
+
+## OnBlur
+
+The `OnBlur` event fires when the component loses focus. Fires before the [OnChange](#onchange) event.
+
+>caption Handle the OnBlur event
+
+````CSHTML
+@* You do not have to use OnChange to react to loss of focus *@
+
+<TelerikTextBox @bind-Value="@TheValue"
+                OnBlur="@OnBlurHandler">
+</TelerikTextBox>
+
+@code{
+    async Task OnBlurHandler()
+    {
+        Console.WriteLine($"BLUR fired, current value is {TheValue}.");
+    }
+
+    string TheValue { get; set; }
+}
+````
+
 
 ## See Also
 
