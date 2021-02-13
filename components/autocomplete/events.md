@@ -230,12 +230,12 @@ You can also call remote data through async operations.
 
 ## OnBlur
 
-The `OnBlur` event fires when the component loses focus.
+The `OnBlur` event fires when the component loses focus. Fires before the [OnChange](#onchange) event.
 
 >caption Handle the OnBlur event
 
 ````CSHTML
-@* You do not have to use OnChange to reach to loss of focus *@
+@* You do not have to use OnChange to react to loss of focus *@
 
 <TelerikAutoComplete @bind-Value="@TheValue" Data="@Suggestions"
                      OnBlur="@OnBlurHandler">
