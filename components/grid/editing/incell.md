@@ -10,9 +10,9 @@ position: 4
 
 # Grid InCell Editing
 
-In Cell editing allows the user to click the cell and type the new value. When they remove focus from the input, the `OnUpdate` event fires, where the data-access logic can move it to the actual data source. 
+In Cell editing allows the user to click the cell and type the new value. When they remove focus from the grid or current row, the `OnUpdate` event fires, where the data-access logic can move it to the actual data source. 
 
-You can also use the `Tab`, `Shift+Tab` and `Enter` keys to move between edited cells quickly to perform fast data updates. In this case, the `OnUpdate` event fires for the last edited cell on the row (when you remove focus from the grid, or when you press `Enter` to go to the next row). This lets the user edit efficiently, with few actions, like in Excel, while avoiding delays and re-renders from data updates that will break up that flow. Command columns and non-editable columns are not part from this keyboard navigation.
+You can also use the `Tab`, `Shift+Tab` and `Enter` keys to move between edited cells quickly to perform fast data updates. This lets the user edit efficiently, with few actions, like in Excel, while avoiding delays and re-renders from data updates that will break up that flow. Command columns and non-editable columns are not part from this keyboard navigation.
 
 #### Sections in this article
 
@@ -21,17 +21,17 @@ You can also use the `Tab`, `Shift+Tab` and `Enter` keys to move between edited 
 
 ## Basics
 
-You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below. To add a new item, you must add a [toolbar]({%slug components/grid/features/toolbar%}) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button, see the [Notes](#notes) below.
+To enable InCell editing mode, set the `EditMode` property of the grid to `Telerik.Blazor.GridEditMode.Incell`. You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below. 
+
+To add a new item, you must add a [toolbar]({%slug components/grid/features/toolbar%}) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button, see the [Notes](#notes) below.
+
+The `OnUpdate` event always fires for the last edited cell on the row - when you remove focus from the grid, or when you press `Enter` to go to the next row.
 
 
-
-To enable InCell editing mode, set the `EditMode` property of the grid to `Telerik.Blazor.GridEditMode.Incell`, then handle the CRUD events as shown in the example below.
-
-
->caption Values are set in the model as soon as the user finishes editing a field, and you can receive them through the grid events (see the code comments for details)
+>caption Reduced need for command buttons and user actions. The grid events let you handle data operations in InCell edit mode (see the code comments for details)
 
 ````CSHTML
-Click a cell, edit it and click outside of the cell to see the change.
+Click a cell, edit it and click outside of the grid to see the change. You can also use Tab, Shift+Tab and Enter to navigate between the cells.
 <br />
 <strong>Editing is prevented for the first two items.</strong>
 
@@ -61,7 +61,7 @@ Click a cell, edit it and click outside of the cell to see the change.
             args.IsCancelled = true;// the general approach for cancelling an event
         }
 
-        Console.WriteLine("Edit event is fired for column " + args.Field);
+        Console.WriteLine("Edit event is fired.");
     }
 
     async Task UpdateHandler(GridCommandEventArgs args)
@@ -193,7 +193,7 @@ Click a cell, edit it and click outside of the cell to see the change.
 
     * If there is a cell that is being edited at the moment, clicking on another cell will first close the current cell and fire `OnUpdate`. To start editing the new cell in such a case you will need a second click.
     
-    * If you use the keyboard to navigate between open cells, `OnUpdate` will fire only when the entire row loses focus, not for each cell, so you will not need additional actions to open a new cell. The `Field` in the event arguments will be `null` in such case.
+    * If you use the keyboard to navigate between open cells, `OnUpdate` will fire only when the entire row loses focus, not for each cell, so you will not need additional actions to open a new cell.
 
 * When using an [editor template]({%slug components/grid/features/templates%}#edit-template), the grid cannot always know what the custom editor needs to do, and when it needs to close the cell and update the data, because this is up to the editor. Thus, you can use the grid [state]({%slug grid-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`.
     * When keyboard navigation is enabled in the grid (`Navigable=true`), the grid will capture `Enter` keypresses when the cell is focused, and will close the cell with the corresponding update. You can either use that (e.g., a simple input will let the keypress event propagate to the grid cell), or you can prevent the event propagation and use only your business logic.
