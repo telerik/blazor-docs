@@ -79,8 +79,6 @@ The `FormItem` tag exposes the following parameters which you can use to customi
 
 ### Add a Clear button
 
-The `FormButtons`
-
 You can provide a standard [TelerikButton]({%slug components/button/overview%}) to allow the user to clear the contents of the editors in the Telerik Form.
 
 ````CSHTML

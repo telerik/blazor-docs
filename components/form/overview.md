@@ -118,7 +118,7 @@ When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and n
 
 * `FormItems` - `RenderFragment` - read the [FormItems]({%slug form-formitems%}) article for more information.
 
-* `FormButtons` - `RenderFragment` - add custom buttons to the Form. You can use the `FormButtons` tag to [add a Clear button to the Form]({%slug form-formitems%}#add-a-clear-button).
+* `FormButtons` - `RenderFragment` - add custom buttons to the Form. You can use the `FormButtons` tag to [add a Clear button to the Form]({%slug form-formitems%}#add-a-clear-button). When the `FormButtons` tag is defined there will be no default buttons in the Form. 
 
 * `FormGroups` - Groups the FormItems. Read the [FormGroups]({%slug form-formgroups}) article for more information.
 
