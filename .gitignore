@@ -1,4 +1,14 @@
 
+**/.vs
+*.dll
+*.gpState
+*.mdb
+*.pdb
+*.suo
+*.swp
+*.tmp
+*.user
+*NuGet.Config
 .DS_Store
 .asset-cache/
 .dockerignore
@@ -25,6 +35,7 @@ Dockerfile
 Gemfile
 Gemfile.lock
 _tempconfig.yml
+bin/
 bs-config.js
 build-docs.sh
 copy_content.sh
@@ -32,21 +43,10 @@ copy_local.sh
 install-npm.sh
 knowledge-base.html
 modify-config.sh
+node_modules
+obj/
 robots.txt
 search.html
 start-docs.sh
 to_delete.md
 watch.sh
-obj/
-bin/
-**/.vs
-*.dll
-*.tmp
-*.gpState
-*.pdb
-*.suo
-*.swp
-*.user
-*.mdb
-node_modules
-*NuGet.Config

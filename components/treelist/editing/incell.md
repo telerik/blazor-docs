@@ -1,4 +1,4 @@
-    ---
+---
 title: InCell Editing
 page_title: TreeList - InCell Editing
 description: In-cell editing of data in treelist for Blazor.
