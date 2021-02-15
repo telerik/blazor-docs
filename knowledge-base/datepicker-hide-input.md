@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>DatePicker for Blazor</td>
+			<td>DatePicker for Blazor, DateTimePicker for Blazor, TimePicker for Blazor</td>
 		</tr>
 	</tbody>
 </table>
