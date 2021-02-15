@@ -108,6 +108,10 @@ When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and n
 
 ## Features
 
+* `Model` - `object` - the object bound to the form. It will automatically create the `EditContext` and using the two together is not supported.
+
+* `EditContext` - `EditContext` - the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> of the form.
+
 * `ValidationType` - `enum` - define the validation type for the From. Read the [Validation]({%slug form-validation%}) article for more information.
 
 * `FormItems` - `RenderFragment` - read the [FormItems]({%slug form-formitems%}) article for more information.
