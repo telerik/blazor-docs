@@ -14,7 +14,11 @@ Many times a component loads or saves data and that can take some time. To show 
 
 The Telerik components use the Telerik [Loader]({%slug loader-overview%}) and [LoaderContainer]({%slug loadercontainer-overview%}) components internally to match the theme and design.
 
-The components add the busy indicator when they detect a slow-running `async` **data operation** (when it takes more than 600ms). For example, when the user inserts a record in the grid and the data service operation takes longer than that, there will be a loading indicator over the grid.
+There are two patterns for showing a loading indicator:
+
+* Some components add the busy indicator when they detect a slow-running `async` **data operation** (when it takes more than 600ms). For example, when the user inserts a record in the grid and the data service operation takes longer than that, there will be a loading indicator over the grid. Usually a loading panel covers the entire data portion of the component during Create, Read, Update, Delete operations that take a long time.
+
+* Some components and scenarios show placeholder items until the actual items are fetched/rendered. For example, virtualized rows in a grid or dropdowns while being filtered.
 
 #### In this article:
 
@@ -31,22 +35,15 @@ The components add the busy indicator when they detect a slow-running `async` **
 
 The following list shows the components that have a built-in loading sign for data operations:
 
-<!-- 
-
 * **AutoComplete** - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives.
 
-* **ComboBox** - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives. The dropdown arrow becomes a loading icon.
-
--->
+* **ComboBox** - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives.
 
 * [**Grid**](https://demos.telerik.com/blazor-ui/grid/loading-animation) - a loading sign covers the data portion of the component for slow data operations such as paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records. It is shown when the `OnRead` event is called (except on the [initial load](#initial-data)).
 
 * **ListView** - a loading sign covers the data portion of the component for slow data operations such as editing, inserting and deleting records. It is also shown when the `OnRead` event is called (except on the [initial load](#initial-data)).
 
-<!--
-
 * **MultiSelect** - while data is loading through the `OnRead` event, the dropdown is visible and new items are placeholders that are replaced with actual data when it arrives.
--->
 
 * **Scheduler** - a loading sign covers the data portion of the component for slow data operations such as editing, inserting and deleting appointments.
 
