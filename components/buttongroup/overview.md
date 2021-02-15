@@ -29,7 +29,7 @@ To add a Telerik ButtonGroup to your Blazor app:
 1. Inside it, add `ButtonGroupToggleButton` or `ButtonGroupButton` tags that denote each button.
     * The `ButtonGroupToggleButton` becomes primary when clicked and de-selects when another one is clicked. Read more in the [Selection]({%slug buttongroup-selection%}) article.
     * The `ButtonGroupButton` does not change its visual state when clicked.
-1. Use the `OnClick` event of these buttons to handle the user actions.
+1. Use the `OnClick` event of these buttons to handle the user actions. It receives argument of type `MouseEventArgs`, read more in the [Events]({%slug buttongroup-events%}) article.
 
 >caption TelerikButtonGroup with regular buttons and toggle buttons, and their respective OnClick handlers
 
@@ -42,14 +42,14 @@ To add a Telerik ButtonGroup to your Blazor app:
 </TelerikButtonGroup>
 
 @code{
-    async Task FirstClick()
+    async Task FirstClick(MouseEventArgs args)
     {
-        Console.WriteLine("the first button was clicked.");
+        Console.WriteLine("the first button was clicked. Ctrl was pressed: " + args.CtrlKey);
     }
 
-    async Task SecondClick()
+    async Task SecondClick(MouseEventArgs args)
     {
-        Console.WriteLine("the second button was clicked. It becomes selected when clicked.");
+        Console.WriteLine("the second button was clicked. It becomes selected when clicked. Alt was pressed: " + args.AltKey);
     }
 }
 ````
