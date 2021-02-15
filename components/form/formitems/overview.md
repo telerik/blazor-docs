@@ -21,9 +21,11 @@ In this article:
 
 ## Features
 
-The `FormItem` tag exposes the following parameters which you can use to customize the appearance of the editors:
+The `FormItem` tag exposes the following parameters which you can use to customize the editors:
 
 * `LabelText` - `string` - defines the label for the associated editor. This parameter provides more compact syntax for the `<label for="myEditorId">` HTML tag. 
+
+* `Id` - `string` - maps to the `id` HTML attribute of the `<input>` tag.
 
 * `Hint` - `string` - defines a hint for the user on the place of the validation message. If a validation error occurs the hint will be replaced by the according validation message. 
 
