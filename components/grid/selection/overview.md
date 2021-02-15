@@ -16,6 +16,7 @@ In this article:
 
 * [Selection Basics](#selection-basics)
 	* [Example - Enable Row Selection](#example---enable-row-selection)
+	* [Example - Select rows with checkboxes only](#example---select-rows-with-checkboxes-only)
 * [Notes](#notes)
 	* [Editing Modes](#editing-modes)
 	* [Selection in Template](#selection-in-template)
@@ -36,6 +37,8 @@ You can configure the selection behavior by setting `SelectionMode` to a member 
 To select a row, click on it. To select multiple rows, hold down the `Ctrl` or `Shift` key to extend the selection.
 
 You can also use a checkbox column to select rows. To use it, add a `GridCheckboxColumn` in the `GridColumns` collection of the grid. It works with both selection modes.  With multiple selection mode, the checkbox column offers [additional functionality]({%slug components/grid/selection/multiple%}#checkbox-selection).
+
+By default, clicking anywhere on the row will select it, but you can require the user to activate the checkbox in the select column to select the row by setting its `CheckBoxOnlySelection` parameter to `true`.
 
 You can get or set the selected items through the `SelectedItems` property. It is a collection of items from the Grid's `Data`.
 
@@ -88,6 +91,49 @@ See how the row selection modes work
     }
 }
 ````
+
+### Example - Select rows with checkboxes only
+
+````CSHTML
+@* Require clicks on the checkboxes for row selection*@
+
+<TelerikGrid Data=@GridData Navigable="true"
+             SelectionMode="GridSelectionMode.Multiple"
+             Pageable="true"
+             Height="400px">
+    <GridColumns>
+        <GridCheckboxColumn CheckBoxOnlySelection="true" />
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    public List<Employee> GridData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<Employee>();
+        for (int i = 0; i < 15; i++)
+        {
+            GridData.Add(new Employee()
+            {
+                EmployeeId = i,
+                Name = "Employee " + i.ToString(),
+                Team = "Team " + i % 3
+            });
+        }
+    }
+
+    public class Employee
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+    }
+}
+````
+
 
 ## Notes
 

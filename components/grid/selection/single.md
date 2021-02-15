@@ -38,6 +38,8 @@ In Single SelectionMode, selection is applied with a click on a row, or by click
 
 Only one row can be selected at a time, even with checkboxes enabled, so the last one that is clicked will be selected.
 
+You can force selection to happen only through the checkboxes by setting the `CheckBoxOnlySelection` parameter of the `GridCheckboxColumn` to `true`.
+
 If you add a checkbox column, you should set its `SelectAll` parameter to `false` to disable the header checkbox that will select all rows.
 
 ## Selected Items

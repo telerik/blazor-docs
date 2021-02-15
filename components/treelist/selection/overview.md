@@ -16,6 +16,7 @@ In this article:
 
 * [Selection Basics](#selection-basics)
 	* [Example - Enable Row Selection](#example---enable-row-selection-multiple)
+	* [Example - Select rows with checkboxes only](#example---select-rows-with-checkboxes-only)
 * [Notes](#notes)
 	* [Editing Modes](#editing-modes)
 	* [Selection in Template](#selection-in-template)
@@ -35,6 +36,8 @@ You can configure the selection behavior by setting `SelectionMode` to a member 
 To select a row, click on it. To select multiple rows, hold down the `Ctrl` or `Shift` key to extend the selection.
 
 You can also use a checkbox column to select rows. To use it, add a `TreeListCheckboxColumn` in the `TreeListColumns` collection of the treelist. It works with both selection modes. With multiple selection mode, the checkbox column offers [additional functionality]({%slug treelist-selection-multiple%}#checkbox-selection).
+
+By default, clicking anywhere on the row will select it, but you can require the user to activate the checkbox in the select column to select the row by setting its `CheckBoxOnlySelection` parameter to `true`.
 
 You can get or set the selected items through the `SelectedItems` property. It is a collection of items from the treelist's `Data`.
 
@@ -74,6 +77,99 @@ The [single selection]({%slug treelist-selection-single%}) and [multiple selecti
 @code {
     public List<Employee> Data { get; set; }
     public IEnumerable<Employee> SelectedItems { get; set; } = Enumerable.Empty<Employee>();
+
+    // sample model
+
+    public class Employee
+    {
+        public int Id { get; set; }
+        public List<Employee> DirectReports { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    // data generation
+
+    // used in this example for data generation and retrieval for CUD operations on the current view-model data
+    public int LastId { get; set; } = 1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            Employee root = new Employee
+            {
+                Id = LastId,
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i),
+                DirectReports = new List<Employee>(),
+            };
+            data.Add(root);
+            LastId++;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = LastId;
+                Employee firstLevelChild = new Employee
+                {
+                    Id = currId,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId),
+                    DirectReports = new List<Employee>(),
+                };
+                root.DirectReports.Add(firstLevelChild);
+                LastId++;
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = LastId;
+                    firstLevelChild.DirectReports.Add(new Employee
+                    {
+                        Id = LastId,
+                        Name = $"second level child {k} of {j} and {i}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                    LastId++;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
+````
+
+### Example - Select rows with checkboxes only
+
+````CSHTML
+@* Require clicks on the checkboxes for row selection*@
+
+<TelerikTreeList Data="@Data"
+                 SelectionMode="@TreeListSelectionMode.Multiple"
+                 ItemsField="@(nameof(Employee.DirectReports))"
+                 Pageable="true" Width="850px">
+    <TreeListColumns>
+        <TreeListCheckboxColumn CheckBoxOnlySelection="true" />
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="200px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    public List<Employee> Data { get; set; }
 
     // sample model
 
