@@ -32,19 +32,14 @@ To add a Telerik Button to your Blazor app, use the `<TelerikButton>` tag:
 ````CSHTML
 @result
 <br />
-@moreInfo
-
-<br />
-<TelerikButton OnClick="@OnClickHandler">Click me!</TelerikButton>
+<TelerikButton OnClick="@OnClickHandler">Hello!</TelerikButton>
 
 @code {
     string result;
-    string moreInfo;
 
-    async Task OnClickHandler(MouseEventArgs args)
+    async Task OnClickHandler()
     {
-        result = "Button was clicked at: " + DateTime.Now.ToString();
-        moreInfo = "Ctrl was pressed when clicked: " + args.CtrlKey;
+        result = DateTime.Now.ToString();
     }
 }
 ````
