@@ -1,23 +1,17 @@
 ---
-title: FormItems Overview
-page_title: Overview - FromItems
-description: Overview of the FormItems.
-slug: form-formitems
-tags: telerik,blazor,form,edit,formitems
+title: FormItem - Template
+page_title: FormItem - Template
+description: Template for the FormItem.
+slug: form-formitems-template
+tags: telerik,blazor,form,edit,formitems,template
 published: True
-position: 0
+position: 5
 ---
 
-# FormItems Overview
+# FormItem Template
 
-You can customize the [default editors]({%slug form-overview%}#automatic-generation-of-fields) by using instances of the `FormItem` tag. Those instances should be in the `FormItems` collection.
+You can provide different editors to the [default]({%slug form-overview%}#automatic-generation-of-fields) by using the `Template`. 
 
-In this article:
-
-* [Features](#features)
-* [Examples](#examples)
-    * [Customize the appearance of the editors in the Form](#customize-the-appearance-of-the-editors-in-the-form)
-    * [Add a Clear button](#add-a-clear-button)
 
 ## Features
 
@@ -77,9 +71,7 @@ The `FormItem` tag exposes the following parameters which you can use to customi
 ![FormItem example](images/formitem-example.png)
 
 
-### Add a Clear button
-
-The `FormButtons`
+### Create a Clear button
 
 You can provide a standard [TelerikButton]({%slug components/button/overview%}) to allow the user to clear the contents of the editors in the Telerik Form.
 
@@ -97,12 +89,9 @@ You can provide a standard [TelerikButton]({%slug components/button/overview%}) 
         <FormItem Field="@nameof(Person.FirstName)" LabelText="First name" Hint="Enter your first name"></FormItem>
         <FormItem Field="@nameof(Person.LastName)" LabelText="Last name" Hint="Enter your last name" ColSpan="2"></FormItem>
         <FormItem Field="@nameof(Person.DOB)" LabelText="Date of birth" Hint="Enter your Date of Birth"></FormItem>
-    </FormItems>
 
-    <FormButtons>
-        <TelerikButton ButtonType="@ButtonType.Submit" Primary="true">Submit</TelerikButton>
-        <TelerikButton ButtonType="ButtonType.Button" OnClick="@ClearButton">Clear</TelerikButton>
-    </FormButtons>
+        <TelerikButton OnClick="@ClearButton">Clear</TelerikButton>
+    </FormItems>
 </TelerikForm>
 
 @code {

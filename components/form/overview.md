@@ -118,6 +118,8 @@ When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and n
 
 * `FormItems` - `RenderFragment` - read the [FormItems]({%slug form-formitems%}) article for more information.
 
+* `FormButtons` - `RenderFragment` - add custom buttons to the Form. You can use the `FormButtons` tag to [add a Clear button to the Form]({%slug form-formitems%}#add-a-clear-button).
+
 * `FormGroups` - Groups the FormItems. Read the [FormGroups]({%slug form-formgroups}) article for more information.
 
 * `Orientation` - `enum` - controls the orientation of the Form. Read the [Layout]({%slug form-layout%}) article for more information.
