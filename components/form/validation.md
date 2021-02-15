@@ -1,171 +1,180 @@
 ---
-title: Overview
-page_title: Form Overview
-description: Overview of the Form for Blazor.
-slug: form-overview
-tags: telerik,blazor,form,edit,form
+title: Validation
+page_title: Form for Blazor - Validation
+description: Form for Blazor - Validation.
+slug: form-validation
+tags: telerik,blazor,form,edit,form,validation
 published: True
-position: 0
+position: 10
 ---
 
-# Form Overview
+# Form Validation
 
-The Form component for Blazor allows you to generate and manage forms. You can customize the form through various parameters, achieve the desired layout by using the default editor or add custom, set the orientation and display those editors in groups and columns. 
+To enable validation in the Form for Blazor you can use the `<FormValidation>` nested tag. The component works with the Microsoft `DataAnnotationsValidator` as well as any validator that is compatible with the `EditForm` provided from the Browser.
 
-#### To use the Telerik Form for Blazor:
+In this article:
 
-1. Add the `<TelerikForm>` tag.
-1. Provide either an object to the `Model` parameter or an object of type `EditContext` to the `EditContext` parameter.
+* [Validate a Model](#validate-a-model)
+* [Validate a Complex Model](#validate-a-complex-model)
+* [Fluent Validation](#fluent-validation)
 
-````Model
-@* Provide a model to the Telerik Form *@
+## Validate a Model
+
+````CSHTML
+@* Use the Telerik Edit Form for Blazor to Validate a model *@
+
+@using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@person">
+    <FormValidation>
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+    </FormValidation>
 </TelerikForm>
 
+
 @code {
-    public Person person = new Person();
+    public Person person { get; set; } = new Person();
 
     public class Person
     {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
+        [Required(ErrorMessage = "The First name is required")]
+        public string FirstName { get; set; }
+        [Required(ErrorMessage = "The Last name is required")]
+        public string LastName { get; set; }
+        [Required(ErrorMessage ="Enter the name of the company you work for")]
+        public string CompanyName { get; set; }
+        [Required(ErrorMessage ="Enter your position")]
+        [MaxLength(25, ErrorMessage ="The position can be maximum 25 characters long")]
+        public string Position { get; set; }
     }
 }
 ````
-````EditContext
-@* Provide an EditContext to the TelerikForm *@
 
-<TelerikForm EditContext="@MyEditContext">
-</TelerikForm>
+## Validate a Complex Model
+
+You can use the `ObjectGraphDataAnnotationsValidator` inside the Telerik Form for Blazor to validate a complex model.
+
+````CSHTML
+@* Validate a complex model *@
+
+@using System.Dynamic
+@using System.ComponentModel.DataAnnotations
+
+<div class="mt-4" style="margin: 0 auto;">
+    <TelerikForm Model="@MyModel">
+        <FormValidation>
+            <ObjectGraphDataAnnotationsValidator></ObjectGraphDataAnnotationsValidator>
+        </FormValidation>
+        <FormItems>
+            <FormItem Field="StringProperty"></FormItem>
+            <FormItem Field="Child.StringProperty" />
+            <FormItem Field="Child.Child.StringProperty" />
+            <FormItem Field="Child.Child.IntProperty" />
+            <FormItem Field="Child.Child.BoolProperty" />
+            <FormItem Field="Child.Child.DateTimeProperty" />
+        </FormItems>
+    </TelerikForm>
+</div>
+@code {
+    TestModel MyModel { get; set; } = new TestModel();
+
+    abstract class TestBaseClass
+    {
+        [Required(ErrorMessage = "String prop is required")]
+        public string StringProperty { get; set; }
+
+        [Required(ErrorMessage = "Int prop is required")]
+        public int? IntProperty { get; set; }
+
+        [Range(typeof(bool), "true", "true", ErrorMessage = "You must accept.")]
+        public bool BoolProperty { get; set; }
+
+        [Required]
+        public DateTime? DateTimeProperty { get; set; }
+
+        [Required]
+        public ExpandoObject ExpandoProperty { get; set; }
+
+        public TestBaseClass()
+        {
+            ExpandoProperty = new ExpandoObject();
+            ExpandoProperty.TryAdd("Test", 1);
+        }
+    }
+
+    class TestGrandChildModel : TestBaseClass
+    {
+    }
+
+    class TestChildModel : TestBaseClass
+    {
+        [ValidateComplexType]
+        public TestGrandChildModel Child { get; set; }
+
+        public TestChildModel()
+        {
+            Child = new TestGrandChildModel();
+        }
+    }
+
+    class TestModel : TestBaseClass
+    {
+        public int Id { get; set; }
+
+        [ValidateComplexType]
+        public TestChildModel Child { get; set; }
+
+        public TestModel()
+        {
+            Child = new TestChildModel();
+        }
+    }
+}
+
+````
+
+## Fluent Validation
+
+You can use third-party validation libraries such as <a href="https://fluentvalidation.net/" target="_blank">FluentValidation</a> together with the Telerik Form for Blazor. 
+
+````CSHTML
+@* Use FluentValidation to validate a model *@ 
+
+@using Microsoft.AspNetCore.Components.Forms
+@using FluentValidation
+
+<div class="mt-4" style="margin: 0 auto;">
+    <TelerikForm EditContext="@EditContext">
+        <FormValidation>
+            <FluentValidationValidator Validator="@Validator"></FluentValidationValidator>
+        </FormValidation>
+    </TelerikForm>
+</div>
 
 @code {
-    public EditContext MyEditContext { get; set; }
-
-    public Person person = new Person();
+    public EditContext EditContext {get; set; }
+    public Customer MyModel { get; set; } = new Customer();
+    public CustomerValidator Validator { get; set; } = new CustomerValidator();
 
     protected override void OnInitialized()
     {
-        MyEditContext = new EditContext(person);
+        EditContext = new EditContext(MyModel);
+        base.OnInitialized();
     }
 
-    public class Person
+    public class Customer
     {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+    }
+
+    public class CustomerValidator : AbstractValidator<Customer>
+    {
+        public CustomerValidator()
+        {
+            RuleFor(customer => customer.FirstName).NotEmpty().MaximumLength(50);
+            RuleFor(customer => customer.LastName).NotEmpty().MaximumLength(50);
+        }
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![Form Basic Example](images/form-basic-example.png)
-
-
-## Component Reference
-
-You can use the component reference to call its [Methods](#methods).
-
-
-````CSHTML
-@* Get a reference to the Form component *@
-
-<TelerikForm Model="@person" @ref="@FormReference">
-</TelerikForm>
-
-@code {
-    public Telerik.Blazor.Components.TelerikForm FormReference { get; set; }
-
-    public Person person = new Person();
-
-    public class Person
-    {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-    }
-}
-````
-
-## Automatic Generation of fields
-
-When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and not editors are defined in the markup the component will render them automatically. For the different data types the editors vary:
-
-* `string` - [Telerik TextBox]({%slug components/textbox/overview%})
-
-* `int`, `double`, `float`, `decimal` - [Telerik NumericTextBox]({%slug components/numerictextbox/overview%})
-
-* `Enum` - [Telerik DropDownList]({%slug components/dropdownlist/overview%})
-
-* `DateTime`, `DateTimeOffset` - [Telerik DatePicker]({%slug components/datepicker/overview%})
-
-* `bool` - [Telerik CheckBox]({%slug checkbox-overview%})
-
-## Features
-
-* `ValidationType` - `enum` - define the validation type for the From. Read the [Validation]({%slug form-validation%}) article for more information.
-
-* `FormItems` - `RenderFragment` - read the [FormItems]({%slug form-formitems%}) article for more information.
-
-* `FormGroups` - Groups the FormItems. Read the [FormGroups]({%slug form-formgroups}) article for more information.
-
-* `Orientation` - `enum` - controls the orientation of the Form. Read the [Layout]({%slug form-layout%}) article for more information.
-    
-* `Columns` - `int` - defines the number of columns in the Form. Read the [Layout]({%slug form-layout%}) article for more information.
-
-* `ColumnSpacing` - `string` - defines the space between the FormItems. Read the [Layout]({%slug form-layout%}) article for more information.
-
-* `Events` - Read the [Events]({%slug form-events%}) article for more information
-
-## Methods
-
-The Form [reference](#component-reference) exposes the `Refresh` method which allows you to programatically re-render the form. 
-
-
->caption Alter a value in the bound model from outside the Form
-
-````CSHTML
-@* This snippet shows how to re-render the Form using the Refresh method when the model is updates from outside. *@
-
-<TelerikButton OnClick="@ChangeTheFirstName">Change the First Name</TelerikButton>
-
-<TelerikForm Model="@person" @ref="@FormReference">
-</TelerikForm>
-
-@code {
-    public Telerik.Blazor.Components.TelerikForm FormReference { get; set; }
-
-    public Person person = new Person();
-
-    private void ChangeTheFirstName()
-    {
-        person.FirstName = "My Name";
-
-        FormReference.Refresh();
-    }
-
-    public class Person
-    {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-    }
-}
-````
-
-## See Also
-
-  * [Toolbar]({%slug editor-toolbars%})
-  * [Built-in Tools and Commands]({%slug editor-built-in-tools%})
-  * [Custom Tools]({%slug editor-custom-tool%})
-  * [Import and Export]({%slug editor-import-export%})
-  * [Events]({%slug form-events%})
-  * [Live Demo: Form](https://demos.telerik.com/blazor-ui/form/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikEditor)
-   
