@@ -183,7 +183,7 @@ The `LeftChanged` event fires second, so if you intend to store locations in an 
 >caption Handle LeftChanged and TopChanged
 
 ````CSHTML
-@* If you need to reac to the user dragging the window you can handle the events. Otherwise you can simly use two-way binding *@
+@* If you need to react to the user dragging the window you can handle the events. Otherwise you can simply use two-way binding *@
 
 <TelerikWindow Left="@TheLeft" Top="@TheTop" Draggable="true"
                LeftChanged="@LeftChangedHandler" TopChanged="@TopChangedHandler"
