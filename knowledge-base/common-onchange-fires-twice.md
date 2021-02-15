@@ -33,6 +33,9 @@ The OnChange event is a user confirmation event - it fires when the user chooses
 For example, pressing Enter in an input will fire the event, but will not remove the focus from the input. Thus, the next click on the page (on a button, another component) will fire the event again.
 
 ## Solution
+
+>tip As of `2.22.0`, you can use the `OnBlur` event of the components to capture the `focusout` event, so you may not need to use `OnChange`.
+
 If you want to execute some business logic (such as fetching data) only once per value change, but you want to keep using the `@bind-Value` to populate your models, you can keep the last value with which `OnChange` fired and compare against it.
 
 >caption Execute OnChange once per value selection
