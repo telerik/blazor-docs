@@ -8,11 +8,20 @@ published: True
 position: 0
 ---
 
-# Form Overview
+# FormItems Overview
 
 You can customize the [default editors]({%slug form-overview%}#automatic-generation-of-fields) by using instances of the `FormItem` tag. Those instances should be in the `FormItems` collection.
 
-The `FormItem` tag exposes the following parameters which you can use to achieve the desired UI:
+In this article:
+
+* [Features](#features)
+* [Examples](#examples)
+    * [Customize the appearance of the editors in the Form](#customize-the-appearance-of-the-editors-in-the-form)
+    * [Create a Clear button](#create-a-clear-button)
+
+## Features
+
+The `FormItem` tag exposes the following parameters which you can use to customize the appearance of the editors:
 
 * `LabelText` - `string` - defines the label for the associated editor. This parameter provides more compact syntax for the `<label for="myEditorId">` HTML tag. 
 
@@ -24,15 +33,29 @@ The `FormItem` tag exposes the following parameters which you can use to achieve
 
 * `ColSpan` - `int` - defines the `colspan` attribute. 
 
-#### To use the Telerik Form for Blazor:
+* `Class` - `string` - adds a custom CSS class to the `k-form-field` div tag.
 
-1. Add the `<TelerikForm>` tag.
-1. Provide either an object to the `Model` parameter or an object of type `EditContext` to the `EditContext` parameter.
+* `Template` - `RenderFragment` - allows you to change the [default editor]({%slug form-overview%}#automatic-generation-of-fields) altogether. For more information read the [Template]({%slug form-formitems-template%}) article.
 
-````Model
-@* Provide a model to the Telerik Form *@
+## Examples
+
+### Customize the appearance of the editors in the Form
+
+````CSHTML
+@* Provide a hint and change the Label of the editors *@
+
+@using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@person">
+    <FormValidation>
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+    </FormValidation>
+    <FormItems>
+        <FormItem Field="@nameof(Person.Id)" LabelText="Id" Hint="The Id is automatically generated, you can not edit it"></FormItem>
+        <FormItem Field="@nameof(Person.FirstName)" LabelText="First name" Hint="Enter your first name"></FormItem>
+        <FormItem Field="@nameof(Person.LastName)" LabelText="Last name" Hint="Enter your last name" ColSpan="2"></FormItem>
+        <FormItem Field="@nameof(Person.DOB)" LabelText="Date of birth" Hint="Enter your Date of Birth"></FormItem>
+    </FormItems>
 </TelerikForm>
 
 @code {
@@ -40,31 +63,7 @@ The `FormItem` tag exposes the following parameters which you can use to achieve
 
     public class Person
     {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-    }
-}
-````
-````EditContext
-@* Provide an EditContext to the TelerikForm *@
-
-<TelerikForm EditContext="@MyEditContext">
-</TelerikForm>
-
-@code {
-    public EditContext MyEditContext { get; set; }
-
-    public Person person = new Person();
-
-    protected override void OnInitialized()
-    {
-        MyEditContext = new EditContext(person);
-    }
-
-    public class Person
-    {
+        [Editable(false)]
         public int Id { get; set; } = 10;
         public string FirstName { get; set; } = "John";
         public string LastName { get; set; } = "Doe";
@@ -75,94 +74,43 @@ The `FormItem` tag exposes the following parameters which you can use to achieve
 
 >caption The result from the code snippet above
 
-![Form Basic Example](images/form-basic-example.png)
+![FormItem example](images/formitem-example.png)
 
 
-## Component Reference
+### Create a Clear button
 
-You can use the component reference to call its [Methods](#methods).
-
+You can provide a standard [TelerikButton]({%slug components/button/overview%}) to allow the user to clear the contents of the editors in the Telerik Form.
 
 ````CSHTML
-@* Get a reference to the Form component *@
+@* Add a Clear Button to the Telerik Form *@
 
-<TelerikForm Model="@person" @ref="@FormReference">
+@using System.ComponentModel.DataAnnotations
+
+<TelerikForm Model="@person">
+    <FormValidation>
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+    </FormValidation>
+    <FormItems>
+        <FormItem Field="@nameof(Person.Id)" LabelText="Id" Hint="The Id is automatically generated, you can not edit it"></FormItem>
+        <FormItem Field="@nameof(Person.FirstName)" LabelText="First name" Hint="Enter your first name"></FormItem>
+        <FormItem Field="@nameof(Person.LastName)" LabelText="Last name" Hint="Enter your last name" ColSpan="2"></FormItem>
+        <FormItem Field="@nameof(Person.DOB)" LabelText="Date of birth" Hint="Enter your Date of Birth"></FormItem>
+
+        <TelerikButton OnClick="@ClearButton">Clear</TelerikButton>
+    </FormItems>
 </TelerikForm>
 
 @code {
-    public Telerik.Blazor.Components.TelerikForm FormReference { get; set; }
+    private void ClearButton()
+    {
+        person = new Person();
+    }
 
     public Person person = new Person();
 
     public class Person
     {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-    }
-}
-````
-
-## Automatic Generation of fields
-
-When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and not editors are defined in the markup the component will render them automatically. For the different data types the editors vary:
-
-* `string` - [Telerik TextBox]({%slug components/textbox/overview%})
-
-* `int`, `double`, `float`, `decimal` - [Telerik NumericTextBox]({%slug components/numerictextbox/overview%})
-
-* `Enum` - [Telerik DropDownList]({%slug components/dropdownlist/overview%})
-
-* `DateTime`, `DateTimeOffset` - [Telerik DatePicker]({%slug components/datepicker/overview%})
-
-* `bool` - [Telerik CheckBox]({%slug checkbox-overview%})
-
-## Features
-
-* `ValidationType` - `enum` - define the validation type for the From. Read the [Validation]({%slug form-validation%}) article for more information.
-
-* `FormItems` - `RenderFragment` - read the [FormItems]({%slug form-formitems%}) article for more information.
-
-* `FormGroups` - Groups the FormItems. Read the [FormGroups]({%slug form-formgroups}) article for more information.
-
-* `Orientation` - `enum` - controls the orientation of the Form. Read the [Layout]({%slug form-layout%}) article for more information.
-    
-* `Columns` - `int` - defines the number of columns in the Form. Read the [Layout]({%slug form-layout%}) article for more information.
-
-* `ColumnSpacing` - `string` - defines the space between the FormItems. Read the [Layout]({%slug form-layout%}) article for more information.
-
-* `Events` - Read the [Events]({%slug form-events%}) article for more information
-
-## Methods
-
-The Form [reference](#component-reference) exposes the `Refresh` method which allows you to programatically re-render the form. 
-
-
->caption Alter a value in the bound model from outside the Form
-
-````CSHTML
-@* This snippet shows how to re-render the Form using the Refresh method when the model is updates from outside. *@
-
-<TelerikButton OnClick="@ChangeTheFirstName">Change the First Name</TelerikButton>
-
-<TelerikForm Model="@person" @ref="@FormReference">
-</TelerikForm>
-
-@code {
-    public Telerik.Blazor.Components.TelerikForm FormReference { get; set; }
-
-    public Person person = new Person();
-
-    private void ChangeTheFirstName()
-    {
-        person.FirstName = "My Name";
-
-        FormReference.Refresh();
-    }
-
-    public class Person
-    {
+        [Editable(false)]
         public int Id { get; set; } = 10;
         public string FirstName { get; set; } = "John";
         public string LastName { get; set; } = "Doe";
@@ -173,11 +121,9 @@ The Form [reference](#component-reference) exposes the `Refresh` method which al
 
 ## See Also
 
-  * [Toolbar]({%slug editor-toolbars%})
-  * [Built-in Tools and Commands]({%slug editor-built-in-tools%})
-  * [Custom Tools]({%slug editor-custom-tool%})
-  * [Import and Export]({%slug editor-import-export%})
+  * [Overview]({%slug form-overview%})
+  * [Template]({%slug form-formitems-template%})
+  * [FormGroups]({%slug form-formgroups%})
+  * [Orientation]({%slug form-orientation%})
   * [Events]({%slug form-events%})
-  * [Live Demo: Form](https://demos.telerik.com/blazor-ui/form/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikEditor)
    
