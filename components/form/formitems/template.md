@@ -130,7 +130,7 @@ When the Template is used the built-in validation of the Telerik Form is disable
 ## See Also
 
   * [Overview]({%slug form-overview%})
-  * [Template]({%slug form-formitems-template%})
+  * [FormItems]({%slug form-formitems%})
   * [FormGroups]({%slug form-formgroups%})
   * [Orientation]({%slug form-orientation%})
   * [Events]({%slug form-events%})
