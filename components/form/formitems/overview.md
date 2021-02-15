@@ -1,18 +1,28 @@
 ---
-title: Overview
-page_title: Form Overview
-description: Overview of the Form for Blazor.
-slug: form-overview
-tags: telerik,blazor,form,edit,form
+title: FormItems Overview
+page_title: Overview - FromItems
+description: Overview of the FormItems.
+slug: form-formitems
+tags: telerik,blazor,form,edit,formitems
 published: True
 position: 0
 ---
 
 # Form Overview
 
-The Form component for Blazor allows you to generate and manage forms. You can customize the form through various parameters, achieve the desired layout by using the default editor or add custom, set the orientation and display those editors in groups and columns. 
+You can customize the [default editors]({%slug form-overview%}#automatic-generation-of-fields) by using instances of the `FormItem` tag. Those instances should be in the `FormItems` collection.
 
->note The Form component is based on the underlying implementation and core properties of the <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS Grid Layout</a> so we recommend that you get familiar with the concept first.
+The `FormItem` tag exposes the following parameters which you can use to achieve the desired UI:
+
+* `LabelText` - `string` - defines the label for the associated editor. This parameter provides more compact syntax for the `<label for="myEditorId">` HTML tag. 
+
+* `Hint` - `string` - defines a hint for the user on the place of the validation message. If a validation error occurs the hint will be replaced by the according validation message. 
+
+* `Field` - `string` - the name of the field in the model that the editor will render for as a string (case-sensitive). You can set its as a plain string (Field="SomeField") or to have .NET extract the field name from the model for flat models (Field=@nameof(MyModelClass.SomeFIeld)).
+
+* `FieldType` - `string` - the data type of the `Field`. This parameter should be provided if the type of the property in the model can not be extracted using reflection. 
+
+* `ColSpan` - `int` - defines the `colspan` attribute. 
 
 #### To use the Telerik Form for Blazor:
 
@@ -96,7 +106,7 @@ You can use the component reference to call its [Methods](#methods).
 
 ## Automatic Generation of fields
 
-When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and no editors are defined in the markup the component will render them automatically. For the different data types the editors vary:
+When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and not editors are defined in the markup the component will render them automatically. For the different data types the editors vary:
 
 * `string` - [Telerik TextBox]({%slug components/textbox/overview%})
 
@@ -110,10 +120,6 @@ When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and n
 
 ## Features
 
-* `Model` - `object` - the object bound to the form. It will automatically create the `EditContext` and using the two together is not supported.
-
-* `EditContext` - `EditContext` - the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> of the form.
-
 * `ValidationType` - `enum` - define the validation type for the From. Read the [Validation]({%slug form-validation%}) article for more information.
 
 * `FormItems` - `RenderFragment` - read the [FormItems]({%slug form-formitems%}) article for more information.
@@ -122,9 +128,9 @@ When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and n
 
 * `Orientation` - `enum` - controls the orientation of the Form. Read the [Layout]({%slug form-layout%}) article for more information.
     
-* `Columns` - `int` - defines the number of columns in the Form. Read the [Columns]({%slug form-columns%}) article for more information.
+* `Columns` - `int` - defines the number of columns in the Form. Read the [Layout]({%slug form-layout%}) article for more information.
 
-* `ColumnSpacing` - `string` - defines the space between the FormItems. Read the [Columns]({%slug form-columns%}) article for more information.
+* `ColumnSpacing` - `string` - defines the space between the FormItems. Read the [Layout]({%slug form-layout%}) article for more information.
 
 * `Events` - Read the [Events]({%slug form-events%}) article for more information
 
@@ -166,12 +172,12 @@ The Form [reference](#component-reference) exposes the `Refresh` method which al
 ````
 
 ## See Also
-  
-  * [FormItems]({%slug form-formitems%})
-  * [FormGroups]({%slug form-formgroups%})
-  * [Columns]({%slug form-columns%})
-  * [Orientation]({%slug form-orientation%})
+
+  * [Toolbar]({%slug editor-toolbars%})
+  * [Built-in Tools and Commands]({%slug editor-built-in-tools%})
+  * [Custom Tools]({%slug editor-custom-tool%})
+  * [Import and Export]({%slug editor-import-export%})
   * [Events]({%slug form-events%})
   * [Live Demo: Form](https://demos.telerik.com/blazor-ui/form/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikForm)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikEditor)
    
