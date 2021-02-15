@@ -30,6 +30,8 @@ To add a Telerik ToggleButton to your Blazor app, use the `<TelerikToggleButton>
 ````CSHTML
 @result
 <br />
+@moreInfo
+<br />
 
 <TelerikToggleButton @bind-Selected="@IsSelected" OnClick="@ToggleButtonClickHandler">
     Selected: &nbsp; <strong>@IsSelected</strong>
@@ -40,10 +42,13 @@ To add a Telerik ToggleButton to your Blazor app, use the `<TelerikToggleButton>
 
     string result { get; set; }
 
-    async Task ToggleButtonClickHandler()
+    string moreInfo { get; set; }
+
+    async Task ToggleButtonClickHandler(MouseEventArgs args)
     {
         string currState = IsSelected ? "ON" : "OFF";
         result = $"The user clicked the {currState} state.";
+        moreInfo = "The user pressed Ctrl:" + args.CtrlKey;
     }
 }
 ````
