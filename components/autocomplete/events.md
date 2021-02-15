@@ -230,7 +230,7 @@ You can also call remote data through async operations.
 
 ## OnBlur
 
-The `OnBlur` event fires when the component loses focus. Fires before the [OnChange](#onchange) event.
+The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
