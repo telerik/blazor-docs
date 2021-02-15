@@ -11,9 +11,11 @@ position: 20
 # Events
 
 This article showcases the available events in the Telerik CheckBox component:
+
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
 * [IndeterminateChanged](#indeterminatechanged)
+* [OnBlur](#onblur)
 
 ## ValueChanged
 
@@ -186,6 +188,32 @@ The `IndeterminateChanged` event fires every time the `Indeterminate` parameter 
     }
 }
 ````
+
+
+
+## OnBlur
+
+The `OnBlur` event fires when the component loses focus.
+
+>caption Handle the OnBlur event
+
+````CSHTML
+@* You do not have to use OnChange to react to loss of focus *@
+
+<TelerikCheckBox @bind-Value="@TheValue"
+                 OnBlur="@OnBlurHandler">
+</TelerikCheckBox>
+
+@code{
+    async Task OnBlurHandler()
+    {
+        Console.WriteLine($"BLUR fired, current value is {TheValue}.");
+    }
+
+    bool TheValue { get; set; }
+}
+````
+
 
 ## See Also
 
