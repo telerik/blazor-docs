@@ -15,7 +15,7 @@ You can group some associated [FormItems]({%slug form-formitems%}).
 In this article:
 
 * [Features](#features)
-* [Example - Organize FormItems into Groups](#example---organize-formitems-into-groups)1
+* [Example - Organize FormItems into Groups](#example---organize-formitems-into-groups)
 
 ## Features
 
