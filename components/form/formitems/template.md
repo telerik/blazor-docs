@@ -21,14 +21,12 @@ When the Template is used the built-in validation of the Telerik Form is disable
 
 @using System.ComponentModel.DataAnnotations
 
-@using System.ComponentModel.DataAnnotations
-
 <TelerikForm EditContext="@EditContext">
     <FormValidation>
         <DataAnnotationsValidator></DataAnnotationsValidator>
     </FormValidation>
     <FormItems>
-        <FormItem Field="">
+        <FormItem>
             <Template>
                 <label for="country">Destination country:</label>
                 <TelerikDropDownList @bind-Value="@MyModel.Country"
@@ -39,7 +37,7 @@ When the Template is used the built-in validation of the Telerik Form is disable
                 </TelerikDropDownList>
             </Template>
         </FormItem>
-        <FormItem Field="">
+        <FormItem>
             <Template>
                 <label for="city">Destination city:</label>
                 <TelerikComboBox @bind-Value="@MyModel.City"
@@ -49,7 +47,7 @@ When the Template is used the built-in validation of the Telerik Form is disable
                 </TelerikComboBox>
             </Template>
         </FormItem>
-        <FormItem Field="">
+        <FormItem>
             <Template>
                 <label for="visited">First time to visit:</label>
                 <TelerikSwitch @bind-Value="@MyModel.FirstTime"></TelerikSwitch>
