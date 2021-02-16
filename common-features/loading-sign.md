@@ -14,11 +14,13 @@ Many times a component loads or saves data and that can take some time. To show 
 
 The Telerik components use the Telerik [Loader]({%slug loader-overview%}) and [LoaderContainer]({%slug loadercontainer-overview%}) components internally to match the theme and design.
 
-There are two patterns for showing a loading indicator:
+There are three patterns for showing a loading indicator:
 
-* Some components add the busy indicator when they detect a slow-running `async` **data operation** (when it takes more than 600ms). For example, when the user inserts a record in the grid and the data service operation takes longer than that, there will be a loading indicator over the grid. Usually a loading panel covers the entire data portion of the component during Create, Read, Update, Delete operations that take a long time.
+* Some components add a large busy indicator that covers the entire data portion of the comopnent when they detect a slow-running `async` **data operation** (when it takes more than 600ms). For example, when the user inserts a record in the grid and the data service operation takes longer than that, there will be a loading indicator over the grid.
 
-* Some components and scenarios show placeholder items until the actual items are fetched/rendered. For example, virtualized rows in a grid or dropdowns while being filtered.
+* Some components and scenarios show placeholder items until the actual items are fetched/rendered. For example, virtualized rows in a grid, or dropdowns while being filtered. At the moment, these placeholders do not have any delay and show up immediately.
+
+* Expanding child items such as treeview or treelist with load-on-demand, or grid groups with load on demand, show an inline loading indicator while the data is loading. At the moment, these placeholders do not have any delay.
 
 #### In this article:
 
