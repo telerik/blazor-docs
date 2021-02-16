@@ -10,7 +10,7 @@ position: 0
 
 # Form Overview
 
-The Form component for Blazor allows you to generate and manage forms. You can customize the form through various parameters, achieve the desired layout by using the default editor or add custom, set the orientation and display those editors in groups and columns. 
+The Form for Blazor allows you to generate and manage forms. You can customize the component through various parameters, achieve the desired layout by using the default editor or add custom ones, set the orientation and organize those editors in groups and columns. 
 
 >note The Form component is based on the underlying implementation and core properties of the <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS Grid Layout</a> so we recommend that you get familiar with the concept first.
 
