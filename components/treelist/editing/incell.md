@@ -25,7 +25,7 @@ To enable InCell editing mode, set the `EditMode` property of the treelist to `T
 
 To add a new item, you must also add a [toolbar]({%slug treelist-toolbar%}) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button, see the [Notes](#notes) below.
 
-The `OnUpdate` event always fires for the last edited cell on the row - when you remove focus from the grid, or when you press `Enter` to go to the next row.
+The `OnUpdate` event always fires for the last edited cell on the row - when you remove focus from the treelist, or when you press `Enter` to go to the next row.
 
 >caption Reduced need for command buttons and user actions. The treelist events let you handle data operations in InCell edit mode (see the code comments for details)
 
@@ -316,7 +316,7 @@ Editing is cancelled for the first record.
 
 * It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
 
-* The `OnCancel` event and the `Cancel` command button are not supported in InCell editing mode. Clicking outside the currently edited cell will trigger the `OnUpdate` event and thus, clicking on the `Cancel` command button will not fire the `OnCancel` event.
+* The `OnCancel` event and the `Cancel` command button are not supported in InCell editing mode. When using keyboard navigation, the `OnUpdate` fires for the last edited cell on the row. However, clicking outside the currently edited cell will also trigger the `OnUpdate` event. Thus, clicking on the `Cancel` command button will not fire the `OnCancel` event.
 
     * If there is a cell that is being edited at the moment, clicking on another cell will first close the current cell and fire `OnUpdate`. To start editing the new cell in such a case you will need a second click.
     
