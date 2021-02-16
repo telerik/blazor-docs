@@ -22,7 +22,12 @@ The Form for Blazor allows you to generate and manage forms. You can customize t
 ````Model
 @* Provide a model to the Telerik Form *@
 
+@using System.ComponentModel.DataAnnotations
+
 <TelerikForm Model="@person">
+    <FormValidation>
+        <DataAnnotationsValidator />
+    </FormValidation>
 </TelerikForm>
 
 @code {
@@ -30,17 +35,26 @@ The Form for Blazor allows you to generate and manage forms. You can customize t
 
     public class Person
     {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
+        [Editable(false)]
+        public int Id { get; set; }
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        [Required]
+        public DateTime? DOB { get; set; }
     }
 }
 ````
 ````EditContext
 @* Provide an EditContext to the TelerikForm *@
 
+@using System.ComponentModel.DataAnnotations
+
 <TelerikForm EditContext="@MyEditContext">
+    <FormValidation>
+        <DataAnnotationsValidator />
+    </FormValidation>
 </TelerikForm>
 
 @code {
@@ -55,10 +69,14 @@ The Form for Blazor allows you to generate and manage forms. You can customize t
 
     public class Person
     {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
+        [Editable(false)]
+        public int Id { get; set; }
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        [Required]
+        public DateTime? DOB { get; set; }
     }
 }
 ````
@@ -96,7 +114,7 @@ You can use the component reference to call its [Methods](#methods).
 
 ## Automatic Generation of fields
 
-When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and no editors are defined in the markup the component will render them automatically. For the different data types the editors vary:
+When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and no editors are defined in the markup the component will render them automatically. For the different data types the default editors would be:
 
 * `string` - [Telerik TextBox]({%slug components/textbox/overview%})
 
@@ -138,11 +156,16 @@ The Form [reference](#component-reference) exposes the `Refresh` method which al
 >caption Alter a value in the bound model from outside the Form
 
 ````CSHTML
-@* This snippet shows how to re-render the Form using the Refresh method when the model is updates from outside. *@
+@* This example shows how to re-render the Form using the Refresh method when the model is updated from outside. *@
+
+@using System.ComponentModel.DataAnnotations
 
 <TelerikButton OnClick="@ChangeTheFirstName">Change the First Name</TelerikButton>
 
 <TelerikForm Model="@person" @ref="@FormReference">
+    <FormValidation>
+        <DataAnnotationsValidator />
+    </FormValidation>
 </TelerikForm>
 
 @code {
@@ -159,10 +182,14 @@ The Form [reference](#component-reference) exposes the `Refresh` method which al
 
     public class Person
     {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
+        [Editable(false)]
+        public int Id { get; set; }
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        [Required]
+        public DateTime? DOB { get; set; }
     }
 }
 ````
