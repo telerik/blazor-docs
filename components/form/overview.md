@@ -140,7 +140,7 @@ When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and n
 
 * `FormGroups` - Groups the FormItems. Read the [FormGroups]({%slug form-formgroups%}) article for more information.
 
-* `Orientation` - `enum` - controls the orientation of the Form. Read the [Layout]({%slug form-layout%}) article for more information.
+* `Orientation` - `enum` - controls the orientation of the Form. Read the [Orientation]({%slug form-orientation%}) article for more information.
     
 * `Columns` - `int` - defines the number of columns in the Form. Read the [Columns]({%slug form-columns%}) article for more information.
 
