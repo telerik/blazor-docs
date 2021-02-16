@@ -225,7 +225,7 @@ Each icon is accompanied by its name that you can use in the Telerik Blazor comp
     function renderIconsList() {
         scopeLatestTheme();
 
-        var iconsListJson = "scripts/icons-list.json";
+        var iconsListJson = "https://unpkg.com/@progress/kendo-font-icons@latest/dist/icon-list.json";
        
         $.getJSON(iconsListJson, function (data) {
 
