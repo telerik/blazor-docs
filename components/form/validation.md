@@ -14,11 +14,61 @@ To enable validation in the Form for Blazor you can use the `<FormValidation>` n
 
 In this article:
 
+* [Validation Message Type](#validation-message-type)
+* [Examples](#examples)
+    * [Validate a Model](#validate-a-model)
+    * [Validate a Complex Model](#validate-a-complex-model)
+    * [Fluent Validation](#fluent-validation)
+
+## Validation Message Type
+
+With the `ValidationMessageType` parameter of the Telerik Form for Blazor you can customize the way the validation messages are presented to the user. This setting accepts a member of the `FormValidationMessageType` enum:
+
+* `Tooltip`
+* `Inline` - by default the `ValidationMessageType` is set to this member of the enum
+* `None`
+
+>capture Change the type of the validation message to tooltip
+
+````CSHTML
+@* Set the FormValidationMessageType to Tooltip *@ 
+
+@using System.ComponentModel.DataAnnotations
+
+<TelerikForm Model="@person" ValidationMessageType="@FormValidationMessageType.Tooltip">
+    <FormValidation>
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+    </FormValidation>
+</TelerikForm>
+
+@code {
+    public Person person = new Person();
+
+    public class Person
+    {
+        [Editable(false)]
+        public int Id { get; set; }
+        [Required(ErrorMessage ="Enter your first name")]
+        public string FirstName { get; set; }
+        [Required(ErrorMessage ="Enter your last name")]
+        public string LastName { get; set; }
+        [Required(ErrorMessage ="Enter your date of birth")]
+        public DateTime? DOB { get; set; }
+    }
+}
+````
+
+![Validation Tooltip Message](images/validation-tooltip-example.png)
+
+## Examples
+
+This article provides the following examples:
+
 * [Validate a Model](#validate-a-model)
 * [Validate a Complex Model](#validate-a-complex-model)
 * [Fluent Validation](#fluent-validation)
 
-## Validate a Model
+### Validate a Model
 
 ````CSHTML
 @* Use the Telerik Edit Form for Blazor to Validate a model *@
@@ -50,7 +100,7 @@ In this article:
 }
 ````
 
-## Validate a Complex Model
+### Validate a Complex Model
 
 You can use the `ObjectGraphDataAnnotationsValidator` inside the Telerik Form for Blazor to validate a complex model.
 
@@ -133,7 +183,7 @@ You can use the `ObjectGraphDataAnnotationsValidator` inside the Telerik Form fo
 
 ````
 
-## Fluent Validation
+### Fluent Validation
 
 You can use third-party validation libraries such as <a href="https://fluentvalidation.net/" target="_blank">FluentValidation</a> together with the Telerik Form for Blazor. 
 

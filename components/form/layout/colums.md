@@ -41,9 +41,7 @@ You can set the `Columns` parameter when the Form component automatically genera
 
 >caption The result from the code snippet above
 
-![Form Basic Example](TODO: Feature is not implemented)
-
-````
+![Form Columns Example](images/form-columns-example.png)
 
 ## See Also
 
