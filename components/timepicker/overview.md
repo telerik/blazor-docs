@@ -52,14 +52,25 @@ Selected time: @selectedTime?.ToLongTimeString()
 The Time Picker component exposes the following features:
 
 * `Class` - The custom CSS class rendered on the wrapping element.
+
 * `PopupClass` - additional CSS class to customize the appearance of the Time Picker's dropdown.
+
 * `Enabled` - Specifies whether typing in the input and opening the dropdown are allowed.
+
 * `Format` - Specifies the format of the DateInput of the TimePicker. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. Note that format specifiers for non-time portions will only be editable in the input and will not have a representation in the time picker dropdown.
+
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+
 * `Min` - The earliest time that the user can select.
+
 * `Max` - The latest time that the user can select.
+
 * `Value` - The current value of the input. Can be used for binding.
+
 * `Width` - Defines the width of the TimePicker.
+
+* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
+
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 The `Min` and `Max` properties require a `DateTime` object, but will only use the time portion from it. Thus, the date itself is not important. The hours, minutes, seconds and AM/PM portions control the range of the tumblers in the time picker dropdown. They do not impose validation/limitations on the input editing.
