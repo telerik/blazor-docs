@@ -1,7 +1,7 @@
 ## General tasks for a new feature (delete if not applicable)
 
 - [ ] Check links to and from demos, demos descriptions and metadata
-
+- [ ] Update relevant KB articles or sample projects that may now be easier or cover the scenario that is not built-in
 
 ## New Component Checklist (delete for other types of PRs)
 
