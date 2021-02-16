@@ -1,5 +1,5 @@
 ---
-title: FormItem - Template
+title: Template
 page_title: FormItem - Template
 description: Template for the FormItem.
 slug: form-formitems-template
