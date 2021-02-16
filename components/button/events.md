@@ -18,20 +18,27 @@ This article explains the events available in the Telerik Button for Blazor:
 
 The `OnClick` event fires when the user clicks or taps the button.
 
+It receives argument of type [MouseEventArgs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs?view=aspnetcore-5.0).
+
 >caption Handle the button click
 
 ````CSHTML
-@someVariable
+@result
+<br />
+@moreInfo
 
-<TelerikButton OnClick="@myHandler">Click me!</TelerikButton>
+<br />
+<TelerikButton OnClick="@OnClickHandler">Click me!</TelerikButton>
 
 @code {
-	MarkupString someVariable;
+    string result;
+    string moreInfo;
 
-	void myHandler()
-	{
-		someVariable = new MarkupString(DateTime.Now.ToString());
-	}
+    async Task OnClickHandler(MouseEventArgs args)
+    {
+        result = "Button was clicked at: " + DateTime.Now.ToString();
+        moreInfo = "Ctrl was pressed when clicked: " + args.CtrlKey;
+    }
 }
 ````
 

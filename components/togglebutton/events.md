@@ -47,10 +47,14 @@ The `SelectedChanged` fires when the user changes the state of the button by cli
 
 The `OnClick` event fires when the user clicks or taps the button. You can use it to invoke async logic such as fetching data or calling a service.
 
+It receives argument of type [MouseEventArgs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs?view=aspnetcore-5.0).
+
 >caption Handle the Toggle Button OnClick event
 
 ````CSHTML
 @result
+<br />
+@moreInfo
 <br />
 
 <TelerikToggleButton @bind-Selected="@IsSelected" OnClick="@ToggleButtonClickHandler">
@@ -62,11 +66,14 @@ The `OnClick` event fires when the user clicks or taps the button. You can use i
 
     string result { get; set; }
 
-    async Task ToggleButtonClickHandler()
+    string moreInfo { get; set; }
+
+    async Task ToggleButtonClickHandler(MouseEventArgs args)
     {
         await Task.Delay(500); // simulate a service call
         string currState = IsSelected ? "ON" : "OFF";
         result = $"The user clicked the {currState} state.";
+        moreInfo = "The user pressed Ctrl: " + args.CtrlKey;
     }
 }
 ````

@@ -61,10 +61,12 @@ This event is available only for `ButtonGroupToggleButton` instances, as they ar
 
 The `OnClick` event fires when the user clicks or taps the button. You can use it to invoke async logic such as fetching data or calling a service.
 
+The `OnClick` event receives argument of type [MouseEventArgs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs?view=aspnetcore-5.0).
+
 >caption Handle the Button OnClick event in a ButtonGroup
 
 ````CSHTML
-@* This example shows how to handle each click individually, and also a way to use the same async handler from several instances, and pass arguments to it *@ 
+@* This example shows how to handle each click individually, and also a way to use the same async handler from several instances, and pass arguments to it *@
 
 @result
 
@@ -80,18 +82,18 @@ The `OnClick` event fires when the user clicks or taps the button. You can use i
 @code{
     string result { get; set; }
 
-    async Task FirstClickHandler()
+    async Task FirstClickHandler(MouseEventArgs args)
     {
         await Task.Delay(500);//simulate network delay from real data retrieval. Remove from a real app
 
-        result = "First button: " + DateTime.Now.Millisecond;
+        result = "First button: " + DateTime.Now.Millisecond + ". Ctrl pressed: " + args.CtrlKey;
     }
 
-    async Task ToggleButtonClickHandler()
+    async Task ToggleButtonClickHandler(MouseEventArgs args)
     {
         await Task.Delay(500);//simulate network delay from real data retrieval. Remove from a real app
 
-        result = "Standalone Toggle Button: " + DateTime.Now.Millisecond;
+        result = "Standalone Toggle Button: " + DateTime.Now.Millisecond + ". Alt pressed: " + args.AltKey;
     }
 
     async Task SharedClickHandler(string sender)
@@ -101,6 +103,7 @@ The `OnClick` event fires when the user clicks or taps the button. You can use i
         result = sender + DateTime.Now.Millisecond;
     }
 }
+
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
