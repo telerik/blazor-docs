@@ -119,6 +119,8 @@ The MultiSelect is a generic component and its type is determined by the type of
 
 * `Width` - the width of the main element. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
 
+* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
+
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug multiselect-templates%}) article for more details.
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.

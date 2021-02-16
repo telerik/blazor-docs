@@ -47,14 +47,25 @@ The numeric textbox component is generic, meaning that it takes the type of its 
 The numeric textbox provides the following features:
 
 * `Arrows` - whether the up/down spinner arrows (buttons) will be shown. Defaults to `true`.
+
 * `Decimals` - how many decimal places will be allowed while the user is typing a new value. Takes effect only while the input is focused.
+
 * `Format` - the format with which the number is presented when the input is not focused. Read more in the [Standard Numeric Format Strings in .NET](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) article.
+
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+
 * `Max` - the maximum decimal value the input can take. Must be of the same type as the `Value`.
+
 * `Min` - the minimum decimal value the input can take. Must be of the same type as the `Value`.
+
 * `Step` - the decimal value of the step with which the value changes when the arrows are used. Must be of the same type as the `Value`.
+
 * `Value` - to get/set the value of the input.
+
 * `Width` - the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article.
+
+* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
+
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 >caption Example of using a custom format strings

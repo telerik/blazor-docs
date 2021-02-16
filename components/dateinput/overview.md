@@ -39,11 +39,19 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 >caption The date input provides the following features:
 
 * `Class` - the CSS class that will be rendered on the `input` element.
+
 * `Enabled` - whether the `input` is enabled.
+
 * `Format` - the date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.
+
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+
 * `Value` - get/set the value of the input, can be used for binding.
+
 * `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
+
+* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
+
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 >caption The behavior of the component will depend on the type of field it is bound to, and this can result in different user experience and values that it will output:
