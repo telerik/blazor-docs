@@ -38,19 +38,35 @@ The selected date is: @datePickerValue.ToShortDateString()
 The Blazor Date Picker component exposes the following features:
 
 *  `BottomView` - Defines the bottommost view in the popup calendar to which the user can navigate to. Defaults to `CalendarView.Month`.
+
 * `DisabledDates` - Specifies a list of dates that can not be selected.
+
 * `Class` - The custom CSS class rendered on the wrapping element.
+
 * `PopupClass` - additional CSS class to customize the appearance of the Date Picker's dropdown.
+
 * `Enabled` - Specifies whether typing in the input is allowed.
+
 * `Format` - Specifies the format of the DateInput of the DatePicker. [Read more about supported data formats in Telerik DateInput for Blazor UI]({%slug components/dateinput/supported-formats%}) article.
+
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+
 * `Min` - The earliest date that the user can select.
+
 * `Max` - The latest date that the user can select.
+
 * `PopupHeight` - Defines the height of the DatePicker's Popup. Defaults to `auto`.
+
 * `PopupWidth` - Defines the width of the DatePicker's Popup. Defaults to `auto`.
+
 * `Value` - The current value of the input. Can be used for binding.
+
 * `View` - Specifies the current view that will be displayed in the popup calendar.
+
 * `Width` - Defines the width of the DatePicker. Defaults to `280px`.
+
+* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
+
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 The date picker is, essentially, a [date input]({%slug components/dateinput/overview%}) and a [calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
