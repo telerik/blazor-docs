@@ -102,6 +102,7 @@ The `OnClick` event receives argument of type [MouseEventArgs](https://docs.micr
 
         result = sender + DateTime.Now.Millisecond;
     }
+}
 
 ````
 
