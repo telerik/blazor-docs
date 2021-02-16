@@ -10,23 +10,27 @@ position: 4
 
 # TreeList InCell Editing
 
-In Cell editing allows the user to click the cell and type the new value. When they remove focus from the input, the `OnUpdate` event fires, where the data-access logic can move it to the actual data source.
+In Cell editing allows the user to click the cell and type the new value. When they remove focus from the treelist or current row, the `OnUpdate` event fires, where the data-access logic can move it to the actual data source.
 
-Sections in this article:
+You can also use the `Tab`, `Shift+Tab` and `Enter` keys to move between edited cells quickly to perform fast data updates. This lets the user edit efficiently, with few actions, like in Excel, while avoiding delays and re-renders from data updates that will break up that flow. Command columns and non-editable columns are not part of this keyboard navigation.
+
+#### Sections in this article:
+
 * [Basics](#basics)
 * [Notes](#notes)
 
 ## Basics
 
-You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below. To add a new item, you must also add a [command column]({%slug treelist-columns-command%}) with a `Save` command and a [toolbar]({%slug treelist-toolbar%}) with an `Add` command. Cancellation of changes is not supported at the moment, you can prevent them by not calling the data access layer.
+To enable InCell editing mode, set the `EditMode` property of the treelist to `Telerik.Blazor.TreeListEditMode.Incell`. You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below.
 
-To enable InCell editing mode, set the `EditMode` property of the treelist to `Telerik.Blazor.TreeListEditMode.Incell`, then handle the CRUD events as shown in the example below.
+To add a new item, you must also add a [toolbar]({%slug treelist-toolbar%}) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button, see the [Notes](#notes) below.
 
+The `OnUpdate` event always fires for the last edited cell on the row - when you remove focus from the treelist, or when you press `Enter` to go to the next row.
 
->caption Values are set in the model as soon as the user finishes editing a field, and you can receive them through the treelist events
+>caption Reduced need for command buttons and user actions. The treelist events let you handle data operations in InCell edit mode (see the code comments for details)
 
 ````CSHTML
-Click a cell, edit it and click outside of the cell to see the change.
+Click a cell, edit it and click outside of the treelist to see the change. You can also use Tab, Shift+Tab and Enter to navigate between the cells.
 <br />
 Editing is cancelled for the first record.
 <br />
@@ -64,10 +68,7 @@ Editing is cancelled for the first record.
     // Sample CUD operations for the local data
     async Task UpdateItem(TreeListCommandEventArgs args)
     {
-        string fieldName = args.Field;
-        object newVal = args.Value; // you can cast this, if necessary, according to your model
-
-        var item = args.Item as Employee; // you can also use the entire model
+        var item = args.Item as Employee;
 
         // perform actual data source operations here through your service
         await MyService.Update(item);
@@ -305,182 +306,25 @@ Editing is cancelled for the first record.
 
 ## Notes
 
+* The `OnCreate` event will fire as soon as you click the `Add` button so you can add the new row to the treelist `Data` - this will let it show up in the treelist, and then enter edit mode for the first editable column (to fire `OnEdit` and let the user alter the column). This means you should have [default values]({%slug grid-kb-default-value-for-new-row%}) that satisfy any initial validation and requirements your models may have.
+
+    * This means that there is no actual inserted item, an item in InCell editing is always in Edit mode, never in Insert mode. Thus, you cannot use the `InsertedItem` field of the treelist [State]({%slug treelist-state%}). If you want to insert items programmatically in the treelist, alter the `Data` collection, and use the `OriginalEditItem` feature of the state (see the [Initiate Editing or Inserting of an Item]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item) example - it can put the InLine and PopUp edit modes in Insert mode, but this cannot work for InCell editing).
+
 * When the InCell Edit Mode is enabled and you want to enable item selection a `<TreeListCheckboxColumn />` must be added to the `<Columns>` collection. More information on that can be read in the [Selection]({%slug treelist-selection-overview%}#notes) article.
 
    <!-- * To see how to select the row that is being edited in InCell edit mode without using a `<TreeListCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode]({%slug grid-kb-row-select-incell-edit%}) Knowledge Base article. -->
 
 * It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
 
-* When using an [editor template]({%slug treelist-templates-editor%}), the treelist cannot always know what the custom editor needs to do, and when it needs to close the cell and update the data, because this is up to the editor. Thus, to save changes when a custom editor is used, a click on the Save command button is necessary.
+* The `OnCancel` event and the `Cancel` command button are not supported in InCell editing mode. When using keyboard navigation, the `OnUpdate` fires for the last edited cell on the row. However, clicking outside the currently edited cell will also trigger the `OnUpdate` event. Thus, clicking on the `Cancel` command button will not fire the `OnCancel` event.
 
+    * If there is a cell that is being edited at the moment, clicking on another cell will first close the current cell and fire `OnUpdate`. To start editing the new cell in such a case you will need a second click.
+    
+    * If you use the keyboard to navigate between open cells, `OnUpdate` will fire only when the entire row loses focus, not for each cell, so you will not need additional actions to open a new cell.
 
-<!-- Thus, you can use the treelist [state]({                   %slug treelist-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`.
+* When using an [editor template]({%slug treelist-templates-editor%}), the treelist cannot always know what the custom editor needs to do, and when it needs to close the cell and update the data, because this is up to the editor. Thus, you can use the treelist [state]({%slug treelist-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`.
     * When keyboard navigation is enabled in the treelist (`Navigable=true`), the treelist will capture `Enter` keypresses when the cell is focused, and will close the cell with the corresponding update. You can either use that (e.g., a simple input will let the keypress event propagate to the treelist cell), or you can prevent the event propagation and use only your business logic.
-    
-    The example below shows how you can use both a navigable treelist and events on the custom editor templates to close the cells when Enter is pressed or when they lose focus, much like an Excel spreadsheet behaves.
-    
-    **.razor**
-    
-        @* The Telerik-specific OnChange event is used to achieve this in this example.
-        You can implement a similar event in your components/editors, or use a completely different event and logic to instruct the treelist to update a cell. In this example, the two-way binding
-        provides the editor value to the model immediately, so it becomes avaialable in the OnChange
-        handler. In your case you might need to handle this differently, depending on the logic you need.
-        *@
-        
-        <Teleriktreelist @ref="@treelist"
-                     Data=@MyData
-                     EditMode="@treelistEditMode.Incell"
-                     Pageable="true"
-                     Height="500px"
-                     OnUpdate="@UpdateHandler" OnCreate="@CreateHandler"
-                     Navigable="true">
-            <treelistColumns>
-                <treelistColumn Field=@nameof(SampleData.ID) Editable="false" Title="ID" />
-                <treelistColumn Field=@nameof(SampleData.Name) Title="Name">
-                    <EditorTemplate>
-                        @{
-                            currentItem = context as SampleData;
-                            <TelerikTextBox @bind-Value=@currentItem.Name OnChange="@CloseEditor" Width="100%" />
-                        }
-                    </EditorTemplate>
-                </treelistColumn>
-                <treelistColumn Field=@nameof(SampleData.Ranking) Title="Ranking" Width="120px">
-                    <EditorTemplate>
-                        @{
-                            currentItem = context as SampleData;
-                            <TelerikNumericTextBox @bind-Value=@currentItem.Ranking OnChange="@CloseEditor"
-                                                   Width="100%" Max="10" Min="0" Step="1">
-                            </TelerikNumericTextBox>
-                        }
-                    </EditorTemplate>
-                </treelistColumn>
-                <treelistColumn Field=@nameof(SampleData.Role) Title="Position" Width="200px">
-                    <EditorTemplate>
-                        @{
-                            currentItem = context as SampleData;
-                            <TelerikDropDownList Data="@Roles" @bind-Value="@currentItem.Role" OnChange="@CloseEditor"
-                                                 Width="120px" PopupHeight="auto">
-                            </TelerikDropDownList>
-                        }
-                    </EditorTemplate>
-                </treelistColumn>
-                <treelistCommandColumn>
-                    <treelistCommandButton Command="Save" Icon="save" ShowInEdit="true">Save</treelistCommandButton>
-                </treelistCommandColumn>
-            </treelistColumns>
-            <treelistToolBar>
-                <treelistCommandButton Command="Add" Icon="add">Add Employee</treelistCommandButton>
-            </treelistToolBar>
-        </Teleriktreelist>
-        
-        @code {
-            // handling the custom editor template for InCell editing
-            public Teleriktreelist<SampleData> treelist { get; set; }
-            public SampleData currentItem { get; set; }
-        
-            async Task CloseEditor()
-            {
-                var state = treelist?.GetState();
-        
-                if (currentItem.ID == 0 && state.InsertedItem != null)
-                {
-                    // insert operation - the item is new
-                    await CreateHandler(new treelistCommandEventArgs()
-                    {
-                        Item = state.InsertedItem
-                    });
-                }
-                else
-                if (currentItem.ID > 0 && state.EditItem != null)
-                {
-                    // edit operation on an existing item
-                    await UpdateHandler(new treelistCommandEventArgs()
-                    {
-                        Item = state.EditItem,
-                        Field = state.EditField
-                    });
-                }
-        
-                state.InsertedItem = state.OriginalEditItem = state.EditItem = default;
-        
-                await Task.Delay(20); // let the treelist re-render and close the cell if keyboard navigation is enabled
-        
-                await treelist?.SetState(state);
-            }
-        
-            //Create and Update operations
-        
-            async Task UpdateHandler(treelistCommandEventArgs args)
-            {
-                SampleData item = (SampleData)args.Item;
-        
-                var index = MyData.FindIndex(i => i.ID == item.ID);
-                if (index != -1)
-                {
-                    // with keyboard navigation and Enter key press in the component
-                    // both the treelist, and the OnChange handler will raise the update event
-                    // you may want to add an equality comparison for the item to only call the database once
-                    // when the item has changed, not both times
-                    if (!MyData[index].Equals(item))
-                    {
-                        MyData[index] = item;
-                        Console.WriteLine("update");
-                        //perform actual data source operations here
-                    }
-                }
-            }
-        
-            async Task CreateHandler(treelistCommandEventArgs args)
-            {
-                SampleData item = (SampleData)args.Item;
-        
-                item.ID = MyData.Count + 1;
-                MyData.Insert(0, item);
-        
-                Console.WriteLine("create");
-                // perform actual data source operation here through your service
-            }
-        
-            // data sources
-        
-            protected override void OnInitialized()
-            {
-                MyData = new List<SampleData>();
-        
-                for (int i = 1; i < 50; i++)
-                {
-                    MyData.Add(new SampleData()
-                    {
-                        ID = i,
-                        Name = "name " + i,
-                        Ranking = i % 10
-                    });
-                }
-            }
-        
-            public class SampleData
-            {
-                public int ID { get; set; }
-                public string Name { get; set; }
-                public string Role { get; set; }
-                public int Ranking { get; set; }
-        
-                public override bool Equals(object obj)
-                {
-                    if (obj != null && obj is SampleData)
-                    {
-                        SampleData curr = obj as SampleData;
-                        return (ID == curr.ID) && (Name == curr.Name) && (Role == curr.Role) && (Ranking == curr.Ranking);
-                    }
-                    return false;
-                }
-            }
-        
-            List<SampleData> MyData { get; set; }
-            static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
-        }
 
--->
 
 ## See Also
 

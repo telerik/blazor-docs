@@ -50,7 +50,7 @@ You can add a `SelectAllMode` parameter, which supports the following options:
   * If IQueriable collections are used, using the header checkbox with in this mode will immediately execute the query over all the data which may be a performance hit.
 
 
-The selection column also exposes the `SelectChildren` parameter. It controls whether selecting a row will also select its child items. It defaults to `false`
+The selection column also exposes the `SelectChildren` parameter. It controls whether selecting a row with the checkbox will also select its child items. It defaults to `false`
 
 **Usage:**
 
