@@ -5,7 +5,7 @@ description: Form for Blazor - FormGroups.
 slug: form-formgroups
 tags: telerik,blazor,form,edit,formgroups,groups
 published: True
-position: 5
+position: 10
 ---
 
 # FormGroups

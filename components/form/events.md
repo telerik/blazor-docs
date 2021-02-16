@@ -5,7 +5,7 @@ description: Form for Blazor - Events.
 slug: form-events
 tags: telerik,blazor,form,edit,events
 published: True
-position: 15
+position: 25
 ---
 
 # Form Events

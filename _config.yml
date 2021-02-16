@@ -64,7 +64,12 @@ navigation:
         position: 20
 
 ## List custom TOC order for folders here
-
+     "*components/form/formitems":
+        title: "Form Items"
+        position: 5
+     "*components/form/layout":
+        title: "Form Layout"
+        position: 20
      "*components/grid/columns":
         title: "Columns"
         position: 5
@@ -245,6 +250,8 @@ navigation:
         title: "DropDownTree"
      "*editor":
         title: "Editor"
+     "*form":
+        title: "Form"
      "*flatcolorpicker":
         title: "FlatColorPicker"
      "*gantt":
@@ -443,6 +450,7 @@ intro_columns:
       "Tile Layout": "tilelayout-overview"
       "Notification": "notification-overview"
       "Splitter": "splitter-overview"
+      "Form": "form-overview"
   -
     title: "Scheduling"
     items:
