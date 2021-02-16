@@ -81,13 +81,116 @@ The `OnSubmit` event is mapped to the `OnSubmit` event of the <a target="_blank"
 }
 ````
 
+## OnValidSubmit
+
+The `OnValidSubmit` event fires when there are no validation erros in the Form. It is mapped to `OnValidEvent` event of the <a target="_blank" href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#built-in-forms-components">Microsoft EditForm</a>
+
+>caption Use the OnValidSubmit event
+
+````CSHTML
+@* You can use the OnValidSubmit event to provide custom logic when the form is valid *@
+
+@using System.ComponentModel.DataAnnotations
+
+<TelerikForm EditContext="@myEditContext"
+             OnValidSubmit="@OnValidSubmitHandler">
+    <FormValidation>
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+    </FormValidation>
+</TelerikForm>
+
+
+@code {
+    public Person person = new Person();
+
+    EditContext myEditContext { get; set; }
+
+
+    public void OnValidSubmitHandler()
+    {
+        //some logic when the form is valid.
+    }
+
+    protected override void OnInitialized()
+    {
+        myEditContext = new EditContext(person);
+        base.OnInitialized();
+    }
+
+    public class Person
+    {
+        [Editable(false)]
+        public int Id { get; set; }
+        [Required(ErrorMessage = "Add your first name")]
+        public string FirstName { get; set; }
+        [Required(ErrorMessage = "Add your last name")]
+        public string LastName { get; set; }
+        [Range(typeof(DateTime), "1/1/1900", "1/15/2020", ErrorMessage = "The Date of Birth must be between 1/1/1900 and 1/15/2021")]
+        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
+        public string CompanyName { get; set; }
+        public DateTime HireDate { get; set; }
+        public bool IsOnVacation { get; set; } = true;
+    }
+}
+````
+
+## OnInvalidSubmit
+
+The `OnInvalidSubmit` event fires when there are validation erros in the Form. It is mapped to `OnInvalidSubmit` event of the <a target="_blank" href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#built-in-forms-components">Microsoft EditForm</a>
+
+>caption Use the OnInvalidSubmit event
+
+````CSHTML
+@* You can use the OnInvalidSubmit event to provide custom logic when the form is not valid *@
+
+@using System.ComponentModel.DataAnnotations
+
+<TelerikForm EditContext="@myEditContext"
+             OnInvalidSubmit="@OnInvalidSubmitHandler">
+    <FormValidation>
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+    </FormValidation>
+</TelerikForm>
+
+
+@code {
+    public Person person = new Person();
+
+    EditContext myEditContext { get; set; }
+
+    public void OnInvalidSubmitHandler()
+    {
+        //some logic when the form is not valid.
+    }
+
+    protected override void OnInitialized()
+    {
+        myEditContext = new EditContext(person);
+        base.OnInitialized();
+    }
+
+    public class Person
+    {
+        [Editable(false)]
+        public int Id { get; set; }
+        [Required(ErrorMessage = "Add your first name")]
+        public string FirstName { get; set; }
+        [Required(ErrorMessage = "Add your last name")]
+        public string LastName { get; set; }
+        [Range(typeof(DateTime), "1/1/1900", "1/15/2020", ErrorMessage = "The Date of Birth must be between 1/1/1900 and 1/15/2021")]
+        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
+        public string CompanyName { get; set; }
+        public DateTime HireDate { get; set; }
+        public bool IsOnVacation { get; set; } = true;
+    }
+}
+````
+
 ## See Also
 
-  * [Toolbar]({%slug editor-toolbars%})
-  * [Built-in Tools and Commands]({%slug editor-built-in-tools%})
-  * [Custom Tools]({%slug editor-custom-tool%})
-  * [Import and Export]({%slug editor-import-export%})
+  * [Overview]({%slug form-overview%})
+  * [FormItems]({%slug form-formitems%})
+  * [Template]({%slug form-formitems-template%})
+  * [Orientation]({%slug form-orientation%})
   * [Events]({%slug form-events%})
-  * [Live Demo: Form](https://demos.telerik.com/blazor-ui/form/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikEditor)
    
