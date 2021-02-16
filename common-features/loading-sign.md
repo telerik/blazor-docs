@@ -20,7 +20,7 @@ There are three patterns for showing a loading indicator:
 
 * Some components and scenarios show placeholder items until the actual items are fetched/rendered. For example, virtualized rows in a grid, or dropdowns while being filtered. At the moment, these placeholders do not have any delay and show up immediately.
 
-* Expanding child items such as treeview or treelist with load-on-demand, or grid groups with load on demand, show an inline loading indicator while the data is loading. At the moment, these placeholders do not have any delay.
+* Expanding child items such as treeview or treelist with load-on-demand, or grid groups with load on demand, show an inline loading indicator while the data is loading. At the moment, these placeholders do not have any delay and show up immediately.
 
 #### In this article:
 
