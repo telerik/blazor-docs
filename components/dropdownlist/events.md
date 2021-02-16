@@ -14,6 +14,7 @@ This article explains the events available in the Telerik DropDownList for Blazo
 
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
+* [OnBlur](#onblur)
 
 The examples in this article use `string` values and simple data sources for brevity. You can use full models, see the [data binding]({%slug components/dropdownlist/databind%}) article for more details.
 
@@ -110,6 +111,31 @@ from model: @MyItem
 }
 ````
 
+
+
+## OnBlur
+
+The `OnBlur` event fires when the component loses focus.
+
+>caption Handle the OnBlur event
+
+````CSHTML
+@* You do not have to use OnChange to react to loss of focus *@
+
+<TelerikDropDownList @bind-Value="@TheValue" Data="@Suggestions"
+                     OnBlur="@OnBlurHandler">
+</TelerikDropDownList>
+
+@code{
+    async Task OnBlurHandler()
+    {
+        Console.WriteLine($"BLUR fired, current value is {TheValue}.");
+    }
+
+    string TheValue { get; set; }
+    List<string> Suggestions { get; set; } = new List<string> { "one", "two", "three" };
+}
+````
 
 ## See Also
 

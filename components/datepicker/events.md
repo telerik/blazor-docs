@@ -14,6 +14,7 @@ This article explains the events available in the Telerik DatePicker for Blazor:
 
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
+* [OnBlur](#onblur)
 
 ## OnChange
 
@@ -117,6 +118,31 @@ model value: @thePickerValue
         //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
         thePickerValue = theUserInput;
     }
+}
+````
+
+
+
+## OnBlur
+
+The `OnBlur` event fires when the component loses focus.
+
+>caption Handle the OnBlur event
+
+````CSHTML
+@* You do not have to use OnChange to react to loss of focus *@
+
+<TelerikDatePicker @bind-Value="@TheDate"
+                   OnBlur="@OnBlurHandler">
+</TelerikDatePicker>
+
+@code{
+    async Task OnBlurHandler()
+    {
+        Console.WriteLine($"BLUR fired, current value is {TheDate}.");
+    }
+
+    DateTime? TheDate { get; set; } = DateTime.Now;
 }
 ````
 

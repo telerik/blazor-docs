@@ -14,6 +14,7 @@ This article explains the events available in the Telerik NumericTextbox for Bla
 
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
+* [OnBlur](#onblur)
 
 ## OnChange
 
@@ -119,6 +120,32 @@ from model: @theTbValue
     }
 }
 ````
+
+
+
+## OnBlur
+
+The `OnBlur` event fires when the component loses focus.
+
+>caption Handle the OnBlur event
+
+````CSHTML
+@* You do not have to use OnChange to react to loss of focus *@
+
+<TelerikNumericTextBox @bind-Value="@TheValue"
+                       OnBlur="@OnBlurHandler">
+</TelerikNumericTextBox>
+
+@code{
+    async Task OnBlurHandler()
+    {
+        Console.WriteLine($"BLUR fired, current value is {TheValue}.");
+    }
+
+    decimal TheValue { get; set; } = 12.34m;
+}
+````
+
 
 ## See Also
 

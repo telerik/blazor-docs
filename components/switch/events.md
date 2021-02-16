@@ -11,8 +11,10 @@ position: 20
 # Events
 
 This article showcases the available events in the Telerik Switch component:
+
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
+* [OnBlur](#onblur)
 
 ## ValueChanged
 
@@ -84,4 +86,29 @@ The `OnChange` event fires every time the `Value` parameter changes. The key dif
 >caption The result from the code snippet above
 
 ![onchange event example](images/switch-onchange-event-example.gif)
+
+
+
+## OnBlur
+
+The `OnBlur` event fires when the component loses focus.
+
+>caption Handle the OnBlur event
+
+````CSHTML
+@* You do not have to use OnChange to react to loss of focus *@
+
+<TelerikSwitch @bind-Value="@TheValue"
+                 OnBlur="@OnBlurHandler">
+</TelerikSwitch>
+
+@code{
+    async Task OnBlurHandler()
+    {
+        Console.WriteLine($"BLUR fired, current value is {TheValue}.");
+    }
+
+    bool TheValue { get; set; }
+}
+````
 

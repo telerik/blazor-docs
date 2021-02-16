@@ -14,6 +14,7 @@ This article explains the events available in the Telerik RadioGroup for Blazor:
 
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
+* [OnBlur](#onblur)
 
 The examples in this article use `string` values and simple data sources for brevity. You can use full models, see the [data binding]({%slug radiogroup-databind%}) article for more details.
 
@@ -74,6 +75,34 @@ The example below uses [binding]({%slug radiogroup-databind%}) to primitive type
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
+
+
+
+## OnBlur
+
+The `OnBlur` event fires when an element inside the component loses focus (radio button or the entire component).
+
+>caption Handle the OnBlur event
+
+````CSHTML
+@* You may not have to use OnChange to react to loss of focus *@
+
+<TelerikRadioGroup Data="@Data" @bind-Value="@SelectedValue"
+                   OnBlur="@OnBlurHandler">
+</TelerikRadioGroup>
+
+@code{
+    async Task OnBlurHandler()
+    {
+        Console.WriteLine($"BLUR fired, the last value WAS {SelectedValue}.");
+    }
+
+    string SelectedValue { get; set; }
+    IEnumerable<string> Data { get; set; } = new List<string> { "first", "second", "third" };
+}
+````
+
+
 
 
 ## See Also

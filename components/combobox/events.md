@@ -15,6 +15,7 @@ This article explains the events available in the Telerik ComboBox for Blazor:
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
 * [OnRead](#onread)
+* [OnBlur](#onblur)
 
 ## ValueChanged
 
@@ -327,6 +328,31 @@ You can also call remote data through `async` operations.
         public int Id { get; set; }
         public string Make { get; set; }
     }
+}
+````
+
+
+## OnBlur
+
+The `OnBlur` event fires when the component loses focus.
+
+>caption Handle the OnBlur event
+
+````CSHTML
+@* You do not have to use OnChange to react to loss of focus *@
+
+<TelerikComboBox @bind-Value="@TheValue" Data="@Suggestions"
+                     OnBlur="@OnBlurHandler">
+</TelerikComboBox>
+
+@code{
+    async Task OnBlurHandler()
+    {
+        Console.WriteLine($"BLUR fired, current value is {TheValue}.");
+    }
+
+    string TheValue { get; set; }
+    List<string> Suggestions { get; set; } = new List<string> { "one", "two", "three" };
 }
 ````
 
