@@ -26,7 +26,7 @@ With the `ValidationMessageType` parameter of the Telerik Form for Blazor you ca
 
 * `Tooltip`
 * `Inline` - by default the `ValidationMessageType` is set to this member of the enum
-* `None`
+* `None` - no validation messages will be rendered. The user will be notified that certain field is incorrect by a red border around the associated editor. 
 
 >capture Change the type of the validation message to tooltip
 
