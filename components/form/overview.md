@@ -12,14 +12,21 @@ position: 0
 
 The Form for Blazor allows you to generate a form based on your model and to manage customized forms. You can control the component through various parameters, achieve the desired layout by using the default editor or add custom ones, set the orientation and organize those editors in groups and columns. 
 
->note The Form component is based on the underlying implementation and core properties of the <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS Grid Layout</a> so we recommend that you get familiar with the concept first.
+#### This article is separated in the following sections:
 
-#### To use the Telerik Form for Blazor:
+* [Use the Telerik Form for Blazor with a model](#use-the-telerik-form-for-blazor-with-a-model)
+* [Use the Telerik Form for Blazor with an EditContext](#use-the-telerik-form-for-blazor-with-an-editcontext)
+
+
+## Use the Telerik Form for Blazor with a model
+
+To use the Form component with a model: 
 
 1. Add the `<TelerikForm>` tag.
-1. Provide either an object to the `Model` parameter or an object of type `EditContext` to the `EditContext` parameter.
+1. Provide an object to the `Model` parameter of the component. 
+1. Use the `<FormValidation>` tag and it, provide a validator - like the `DataAnnotationsValidator` that comes with the framework, to enable form validation. 
 
-````Model
+````CSHTML
 @* Provide a model to the Telerik Form *@
 
 @using System.ComponentModel.DataAnnotations
@@ -46,7 +53,19 @@ The Form for Blazor allows you to generate a form based on your model and to man
     }
 }
 ````
-````EditContext
+
+## Use the Telerik Form for Blazor with an EditContext
+
+The Telerik Form for Blazor can utilize the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0">EditContext class</a>. 
+
+To use the Form component with an EditContext: 
+
+1. Add the `<TelerikForm>` tag.
+1. Provide an object of type `EditContext` to the `EditContext` parameter of the Form. 
+1. Use the `<FormValidation>` tag and it and provide a validator - like the `DataAnnotationsValidator` that comes with the framework, to enable form validation. 
+
+
+````CSHTML
 @* Provide an EditContext to the TelerikForm *@
 
 @using System.ComponentModel.DataAnnotations
