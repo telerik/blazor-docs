@@ -88,8 +88,7 @@ The Form for Blazor allows you to generate and manage forms. You can customize t
 
 ## Component Reference
 
-You can use the component reference to call its [Methods](#methods).
-
+>caption Get a reference to the Telerik Form for Blazor 
 
 ````CSHTML
 @* Get a reference to the Form component *@
@@ -148,51 +147,6 @@ When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and n
 
 * `Events` - Read the [Events]({%slug form-events%}) article for more information
 
-## Methods
-
-The Form [reference](#component-reference) exposes the `Refresh` method which allows you to programatically re-render the form. 
-
-
->caption Alter a value in the bound model from outside the Form
-
-````CSHTML
-@* This example shows how to re-render the Form using the Refresh method when the model is updated from outside. *@
-
-@using System.ComponentModel.DataAnnotations
-
-<TelerikButton OnClick="@ChangeTheFirstName">Change the First Name</TelerikButton>
-
-<TelerikForm Model="@person" @ref="@FormReference">
-    <FormValidation>
-        <DataAnnotationsValidator />
-    </FormValidation>
-</TelerikForm>
-
-@code {
-    public Telerik.Blazor.Components.TelerikForm FormReference { get; set; }
-
-    public Person person = new Person();
-
-    private void ChangeTheFirstName()
-    {
-        person.FirstName = "My Name";
-
-        FormReference.Refresh();
-    }
-
-    public class Person
-    {
-        [Editable(false)]
-        public int Id { get; set; }
-        [Required]
-        public string FirstName { get; set; }
-        [Required]
-        public string LastName { get; set; }
-        [Required]
-        public DateTime? DOB { get; set; }
-    }
-}
-````
 
 ## See Also
   
