@@ -14,7 +14,7 @@ The Form component for Blazor allows you to add multiple columns by using the `C
 
 >caption Add columns to a Form with Automatically generated fields
 
-You can set the `Columns` parameter when the Form component automatically generates the editors. The form will evenly spread the editors evenly across the columns. It will calculate it using this formula: `propertiesInModelCount / Columns`.
+You can set the `Columns` parameter when the Form component automatically generates the editors. The form will spread the editors evenly across the columns. It will calculate it using this formula: `propertiesInModelCount / Columns`.
 
 ````CSHTML
 @* Add colums to the Form component *@
