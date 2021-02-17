@@ -31,6 +31,8 @@ This article provides examples of validating the Telerik Blazor components. The 
 * [MaskedTextbox](#maskedtextbox)
 * [Sliders](#sliders)
 
+>tip Telerik offers the [Form Component]({%slug form-overview%}) that lets you generate and manage forms with predefined layouts and less code.
+
 ## Simple Inputs
 
 Simple textbox-like inputs do not have any special behavior. You need to bind them to a model field that has the desired data annotation attributes set. Such inputs are the textbox, numeric textbox and date input.
@@ -715,6 +717,7 @@ The sliders are, effectively, numeric inputs in terms of behavior and what data 
 
   * [Data Annotation attributes](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation)
   * [Live Demos](https://demos.telerik.com/blazor-ui/)
+  * [Form Component]({%slug form-overview%})
   * [ValueChanged and Validation]({%slug value-changed-validation-model%})
   * [Validate on Blur/Change, not on input]({%slug textbox-validate-on-change%})
   * [Error: Requires a value for ValueExpression]({%slug common-kb-requires-valueexpression%})
