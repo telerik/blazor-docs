@@ -10,7 +10,7 @@ position: 10
 
 # FormGroups
 
-You can group some associated [FormItems]({%slug form-formitems%}). 
+You can group some associated fields in your form (model) by using the [FormItems]({%slug form-formitems%}). and putting them inside `FormGroup` tags.
 
 In this article:
 

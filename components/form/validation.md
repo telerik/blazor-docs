@@ -10,7 +10,7 @@ position: 10
 
 # Form Validation
 
-To enable validation in the Form for Blazor you can use the `<FormValidation>` nested tag. The component works with the Microsoft `DataAnnotationsValidator` as well as any validator that is compatible with the `EditForm` provided from the Browser.
+To enable validation in the Form for Blazor you can use the `<FormValidation>` nested tag. The component works with the Microsoft `DataAnnotationsValidator` as well as any validator that is compatible with the `EditForm` and `EditContext` provided by the framework.
 
 In this article:
 
@@ -24,8 +24,8 @@ In this article:
 
 With the `ValidationMessageType` parameter of the Telerik Form for Blazor you can customize the way the validation messages are presented to the user. This setting accepts a member of the `FormValidationMessageType` enum:
 
-* `Tooltip`
-* `Inline` - by default the `ValidationMessageType` is set to this member of the enum
+* `Tooltip` - validation messages will show up in a tooltip pointing to the invalid input.
+* `Inline` - the standard display of messages in text after the input. This is the default value.
 * `None` - no validation messages will be rendered. The user will be notified that certain field is incorrect by a red border around the associated editor. 
 
 >caption Change the type of the validation message to tooltip
@@ -62,7 +62,7 @@ With the `ValidationMessageType` parameter of the Telerik Form for Blazor you ca
 
 ## Examples
 
-This article provides the following examples:
+This section provides the following examples:
 
 * [Validate a Model](#validate-a-model)
 * [Validate a Complex Model](#validate-a-complex-model)
@@ -102,7 +102,9 @@ This article provides the following examples:
 
 ### Validate a Complex Model
 
-You can use the `ObjectGraphDataAnnotationsValidator` inside the Telerik Form for Blazor to validate a complex model.
+You can use the `ObjectGraphDataAnnotationsValidator` inside the Telerik Form for Blazor to validate a nested model.
+
+When using a model with nested objects and fields, specify their `Field` setings as a dot-separate string, do *not* use the `nameof` operator, it does not return the full name of the model.
 
 ````CSHTML
 @* Validate a complex model *@
