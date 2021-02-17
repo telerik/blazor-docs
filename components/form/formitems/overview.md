@@ -14,12 +14,14 @@ You can customize the [default editors]({%slug form-overview%}#automatic-generat
 
 In this article:
 
-* [Features](#features)
+* [Basic](#basics)
 * [Examples](#examples)
     * [Customize the appearance of the editors in the Form](#customize-the-appearance-of-the-editors-in-the-form)
     * [Add a Clear button](#add-a-clear-button)
 
-## Features
+## Basics
+
+Each custom editor is expressed through the `FormItem` tag. You can define a collection of those editors in the `FormItems` tag that is a child of the `TelerikForm` tag. You can find some [code examples](#examples) below.
 
 The `FormItem` tag exposes the following parameters which you can use to customize the editors:
 
@@ -27,9 +29,9 @@ The `FormItem` tag exposes the following parameters which you can use to customi
 
 * `Id` - `string` - maps to the `id` HTML attribute of the `<input>` tag.
 
-* `Hint` - `string` - defines a hint for the user on the place of the validation message. If a validation error occurs the hint will be replaced by the according validation message. 
+* `Hint` - `string` - defines a hint for the user on the place of the validation message. If a validation error occurs the hint will be replaced by the corresponding validation message. 
 
-* `Field` - `string` - the name of the field in the model that the editor will render for as a string (case-sensitive). You can set its as a plain string (Field="SomeField") or to have .NET extract the field name from the model for flat models (Field=@nameof(MyModelClass.SomeFIeld)).
+* `Field` - `string` - the name of the field in the model that the editor will render for as a string (case-sensitive). You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeFIeld)`).
 
 * `FieldType` - `string` - the data type of the `Field`. This parameter should be provided if the type of the property in the model can not be extracted using reflection. 
 
@@ -37,9 +39,14 @@ The `FormItem` tag exposes the following parameters which you can use to customi
 
 * `Class` - `string` - adds a custom CSS class to the `k-form-field` div tag.
 
-* `Template` - `RenderFragment` - allows you to change the [default editor]({%slug form-overview%}#automatic-generation-of-fields) altogether. For more information read the [Template]({%slug form-formitems-template%}) article.
+* `Template` - `RenderFragment` - allows you to change the [default editor]({%slug form-overview%}#automatic-generation-of-fields) altogether. For more information see the [Template]({%slug form-formitems-template%}) article.
 
 ## Examples
+
+This section contains the following samples to illustrate the customization of editors:
+
+* [Customize the appearance of the editors in the Form](#customize-the-appearance-of-the-editors-in-the-form)
+* [Add a Clear button](#add-a-clear-button)
 
 ### Customize the appearance of the editors in the Form
 

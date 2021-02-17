@@ -10,9 +10,9 @@ position: 5
 
 # FormItem Template
 
-You can provide different editors to the [default]({%slug form-overview%}#automatic-generation-of-fields) by using the `Template`. 
+You can provide your own custom editors instead of the [default editors the form can generate]({%slug form-overview%}#automatic-generation-of-fields). To do that, use the the `Template` of the [FormItem]({%slug form-formitems%}).
 
-When the Template is used the built-in validation of the Telerik Form is disabled and it is up to the application to validate the user choice. 
+When the Template, is used the built-in validation of the Telerik Form is disabled and it is up to the application to validate the user input.
 
 >caption Use the Template to provide custom editors
 
