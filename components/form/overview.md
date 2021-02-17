@@ -121,7 +121,7 @@ When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and n
 
 * `Enum` - [Telerik DropDownList]({%slug components/dropdownlist/overview%})
 
-* `DateTime`, `DateTimeOffset` - [Telerik DatePicker]({%slug components/datepicker/overview%})
+* `DateTime` - [Telerik DatePicker]({%slug components/datepicker/overview%})
 
 * `bool` - [Telerik CheckBox]({%slug checkbox-overview%})
 
