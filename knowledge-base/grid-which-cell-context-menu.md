@@ -160,3 +160,10 @@ This example uses a simple boolean flag for brevity, you can extend the logic to
 }
 ````
 
+## Notes
+
+If you need to do this for many columns, you can consider using the [row template]({%slug grid-templates-row%}), and/or extracting the desired logic into its own component so you can repeat it more easily in the grid.
+
+While it might be a performance hit, an event that could make this easier may become available through <a href="https://feedback.telerik.com/blazor/1507338-oncellcontextmenu-event" target="_blank">this request</a>. You can Follow its status there.
+
+
