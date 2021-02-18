@@ -12,9 +12,13 @@ position: 0
 
 The Telerik UI for Blazor provides different ways to customize the validation messages. They can be used together with the [Telerik Form]({%slug form-overview%}) or with any form that provides an <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> like the EditForm provided from the framework. 
 
-## TelerikValidationSummary
 
-The `TelerikValidationSummary` extends the `ValidationSummary` class provided by the framework. It exposes a [Template]({%slug validation-helpers-summary-template%}) and []({%slug validation-helpers-summary-appearance%}).
+* [TelerikValidationSummary](#telerikvalidationsummary)
+* [Validation Helpers](#validation-helpers)
+* [Integration](#integration)
+	* [Integration with the TelerikForm](#integration-with-the-telerikform)
+	* [Integration with the Microsoft EditForm](#integration-with-the-microsoft-editform)
+
 
 ## Validation Helpers
 
@@ -22,7 +26,11 @@ The `TelerikValidationSummary` extends the `ValidationSummary` class provided by
 * [TelerikValidationMessage]({%slug validation-helpers-message%})
 * [TelerikValidationTooltip]({%slug validation-helpers-tooltip%})
 
+These components extend the standard validation tools the frameworks provides - `ValidationSummary` and `ValidationMessage`
+
 ## Integration
+
+Here are two examples of integrating the Telerik validation extenders with forms:
 
 * [Integration with the TelerikForm](#integration-with-the-telerikform)
 * [Integration with the Microsoft EditForm](#integration-with-the-microsoft-editform)
