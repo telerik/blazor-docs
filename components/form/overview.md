@@ -10,7 +10,7 @@ position: 0
 
 # Form Overview
 
-The Form for Blazor allows you to generate a form based on your model and to manage customized forms. You can control the component through various parameters, achieve the desired layout by using the default editor or add custom ones, set the orientation and organize those editors in groups and columns. 
+The Form for Blazor allows you to generate a form based on your model and to manage customized forms. You can control the component through various parameters, achieve the desired layout by using the [default editor](#automatic-generation-of-fields) or add [custom ones]({%slug form-formitems%}), set the [orientation]({%slug form-orientation%}) and organize those editors in [groups]({%slug form-formgroups%}) and [columns]({%slug form-columns%}). 
 
 #### This article is separated in the following sections:
 
