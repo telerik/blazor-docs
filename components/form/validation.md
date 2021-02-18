@@ -14,11 +14,49 @@ To enable validation in the Form for Blazor you can use the `<FormValidation>` n
 
 In this article:
 
+* [Basics](#basics)
 * [Validation Message Type](#validation-message-type)
 * [Examples](#examples)
     * [Validate a Model](#validate-a-model)
     * [Validate a Complex Model](#validate-a-complex-model)
     * [Fluent Validation](#fluent-validation)
+
+
+## Basics
+
+To enable validation in the Telerik Form for Blazor add the `<FormValidation>` tag inside the `<TelerikForm>`. The `<FormValidation>` is used to provide validation configuration such as a validator (for example the `<DataAnnotationsValidator>`) and other validation settings like `ValidationSummary`.
+
+>caption Enable validation in the Telerik Form for Blazor
+
+````CSHTML
+@* Basic validation in the Form component *@
+
+@using System.ComponentModel.DataAnnotations
+
+<TelerikForm Model="@person">
+    <FormValidation>
+        <DataAnnotationsValidator />
+    </FormValidation>
+</TelerikForm>
+
+@code {
+    public Person person = new Person();
+
+    public class Person
+    {
+        [Range(100, 1000, ErrorMessage ="The Id must be between 100 and 1000")]
+        public int Id { get; set; }
+        [Required]
+        [MaxLength(20, ErrorMessage ="The first name should be maximum 20 characters long")]
+        public string FirstName { get; set; }
+        [Required]
+        [MaxLength(25, ErrorMessage = "The last name should be maximum 25 characters long")]
+        public string LastName { get; set; }
+        [Required]
+        public DateTime? DOB { get; set; }
+    }
+}
+````
 
 ## Validation Message Type
 
@@ -46,13 +84,13 @@ With the `ValidationMessageType` parameter of the Telerik Form for Blazor you ca
 
     public class Person
     {
-        [Editable(false)]
-        public int Id { get; set; }
-        [Required(ErrorMessage ="Enter your first name")]
+        [Required]
+        public int? Id { get; set; }
+        [Required(ErrorMessage = "Enter your first name")]
         public string FirstName { get; set; }
-        [Required(ErrorMessage ="Enter your last name")]
+        [Required(ErrorMessage = "Enter your last name")]
         public string LastName { get; set; }
-        [Required(ErrorMessage ="Enter your date of birth")]
+        [Required(ErrorMessage = "Enter your date of birth")]
         public DateTime? DOB { get; set; }
     }
 }
@@ -102,7 +140,7 @@ This section provides the following examples:
 
 ### Validate a Complex Model
 
-You can use the `ObjectGraphDataAnnotationsValidator` inside the Telerik Form for Blazor to validate a nested model.
+You can use the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#nested-models-collection-types-and-complex-types" target="_blank">ObjectGraphDataAnnotationsValidator</a>  inside the Telerik Form for Blazor to validate a nested model.
 
 When using a model with nested objects and fields, specify their `Field` setings as a dot-separate string, do *not* use the `nameof` operator, it does not return the full name of the model.
 
@@ -182,7 +220,6 @@ When using a model with nested objects and fields, specify their `Field` setings
         }
     }
 }
-
 ````
 
 ### Fluent Validation
