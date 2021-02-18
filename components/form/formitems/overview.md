@@ -35,7 +35,7 @@ The `FormItem` tag exposes the following parameters which you can use to customi
 
 * `FieldType` - `string` - the data type of the `Field`. This parameter should be provided if the type of the property in the model can not be extracted using reflection, for example it is an `object` and you would like to render a `NumericTextBox`. 
 
-* `ColSpan` - `int` - defines the `colspan` attribute. 
+* `ColSpan` - `int` - defines the `colspan` attribute. This parameter is applicable when the FormItems are divided in multiple columns in a single group. See the [FormGroups]({%slug form-formgroups%}) article for an example.
 
 * `Class` - `string` - adds a custom CSS class to the `k-form-field` div tag.
 

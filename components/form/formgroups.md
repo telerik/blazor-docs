@@ -48,8 +48,8 @@ You can organize some FormItems into logical groups. You can configure the label
         <FormGroup LabelText="Personal Information" Columns="2" ColumnSpacing="15px">
             <FormItem LabelText="First Name" Field="@nameof(Person.FirstName)"></FormItem>
             <FormItem LabelText="Last Name" Field="@nameof(Person.LastName)"></FormItem>
-            <FormItem LabelText="Age" Field="@nameof(Person.Age)"></FormItem>
-            <FormItem LabelText="Email" Field="@nameof(Person.Email)"></FormItem>
+            <FormItem LabelText="Age" Field="@nameof(Person.Age)" ColSpan="2"></FormItem>
+            <FormItem LabelText="Email" Field="@nameof(Person.Email)" ColSpan="2"></FormItem>
         </FormGroup>
         <FormGroup LabelText="Employee Information" ColumnSpacing="25px">
             <FormItem LabelText="Company Name" Field="@nameof(Person.CompanyName)"></FormItem>
@@ -79,8 +79,6 @@ You can organize some FormItems into logical groups. You can configure the label
     }
 }
 ````
-
-
 
 ## See Also
 
