@@ -1,9 +1,9 @@
 ---
-title: How to wrap and center the Grid column text
-description: How to wrap and center the Grid column text
+title: How to wrap and center the Grid column header text
+description: How to wrap and center the Grid column header text
 type: how-to
-page_title: How to wrap and center the Grid column text
-slug: grid-kb-wrap-and-center-column-text
+page_title: How to wrap and center the Grid column header text
+slug: grid-kb-wrap-and-center-column-header-text
 position: 
 tags: 
 ticketid: 1507250
@@ -24,13 +24,13 @@ res_type: kb
 ## Description
 Could you please tell me how I can have the GridColumn title text wrap around and be centered?
 
-Can I also wrap and center the rest of the column text? 
-
 ## Solution
 
 You can use some custom CSS that aligns text in the center and enables text wrapping as per the example below:
 
 ````CSHTML
+@* You can also use the Class parameter of the grid to cascade these rules through a selector so it only affects certain grid instances and not all grids on your app *@
+
 <style>
     .k-grid .k-grid-header th .k-cell-inner,
     .k-grid .k-grid-header th .k-cell-inner > .k-link {
@@ -77,5 +77,5 @@ You can use some custom CSS that aligns text in the center and enables text wrap
 
 ## Notes
 
-* If you want full control over the header text contents and rendering, you can use the [column header template]({%slug components/grid/templates/column-header%}).
+* If you want full control over the header text contents and rendering, you can use the [column header template]({%slug grid-templates-column-header%}).
 
