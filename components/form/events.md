@@ -16,13 +16,15 @@ The Form component for Blazor exposes events that allow you to respond to user a
 * [OnValidSubmit](#onvalidsubmit)
 * [OnInvalidSubmit](#oninvalidsubmit)
 
+>note The examples in this article use the `EditContext`, but you can use a model instead. 
+
 ## OnSubmit
 
-The `OnSubmit` event fires when the user clicks on the Submit button in the Form. It takes as a parameter the `EditContext` object and is used to trigger some custom logic based on the validity of the form. 
+The `OnSubmit` event fires when the user clicks on the Submit button in the Form. It takes as an argument the `EditContext` object and is used to trigger some custom logic based on the validity of the form. 
 
 When there is a handler for the `OnSubmit` event, the [`OnValidSubmit`](#onvalidsubmit) and [`OnInvalidSubmit`](#oninvalidsubmit) events will not be fired.
   
-The `OnSubmit` event is mapped to the `OnSubmit` event of the <a target="_blank" href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#built-in-forms-components">Microsoft EditForm</a>
+The `OnSubmit` event is mapped to the `OnSubmit` event of the <a target="_blank" href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0">Microsoft EditForm</a>
 
 
 >caption Handle the OnSubmit event
@@ -85,7 +87,7 @@ The `OnSubmit` event is mapped to the `OnSubmit` event of the <a target="_blank"
 
 ## OnValidSubmit
 
-The `OnValidSubmit` event fires when the form is submitted and there are no validation erros. It is mapped to `OnValidSubmit ` event of the <a target="_blank" href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#built-in-forms-components">Microsoft EditForm</a>
+The `OnValidSubmit` event fires when the form is submitted and there are no validation erros. It is mapped to `OnValidSubmit ` event of the <a target="_blank" href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0">Microsoft EditForm</a>. It takes the EditContext as an argument.
 
 >caption Use the OnValidSubmit event
 
@@ -108,7 +110,7 @@ The `OnValidSubmit` event fires when the form is submitted and there are no vali
     EditContext myEditContext { get; set; }
 
 
-    public void OnValidSubmitHandler()
+    public void OnValidSubmitHandler(EditContext editContext)
     {
         //some logic when the form is valid.
         Console.WriteLine("valid submission, you can save the model");
@@ -139,7 +141,7 @@ The `OnValidSubmit` event fires when the form is submitted and there are no vali
 
 ## OnInvalidSubmit
 
-The `OnInvalidSubmit` event fires when there are validation erros in the Form upon its submission. It is mapped to `OnInvalidSubmit` event of the <a target="_blank" href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#built-in-forms-components">Microsoft EditForm</a>
+The `OnInvalidSubmit` event fires when there are validation erros in the Form upon its submission. It is mapped to `OnInvalidSubmit` event of the <a target="_blank" href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0">Microsoft EditForm</a>. It takes the EditContext as an argument.
 
 >caption Use the OnInvalidSubmit event
 
@@ -161,7 +163,7 @@ The `OnInvalidSubmit` event fires when there are validation erros in the Form up
 
     EditContext myEditContext { get; set; }
 
-    public void OnInvalidSubmitHandler()
+    public void OnInvalidSubmitHandler(EditContext editContext)
     {
         //some logic when the form is not valid.
         Console.WriteLine("INVALID submission attempt");

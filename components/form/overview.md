@@ -155,7 +155,7 @@ The following data types are supported out-of-the box and they use the following
 
 ## Data Annotation Attributes
 
-The Telerik Form for Blazor supports validation throught the `<DataAnnotationsValidator />`. This allows you to take advantage of the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0" target="_blank">data annotation attributes</a> provided by .NET.
+The Telerik Form for Blazor supports validation throught the `<DataAnnotationsValidator />`. This allows you to take advantage of all validation attributes <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0" target="_blank">data annotation attributes</a> provided by .NET.
 
 ## Features
 
