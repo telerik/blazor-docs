@@ -395,6 +395,9 @@ The grid state allows you to control the behavior of the grid programmatically -
 @[template](/_contentTemplates/grid/state.md#expand-hierarchy-from-code)
 ````
 
+@[template](/_contentTemplates/grid/state.md#filter-menu-default-filters)
+
+
 ### Set Default (Initial) State
 
 If you want the grid to start with certain settings for your end users, you can pre-define them in the `OnStateInit event`.

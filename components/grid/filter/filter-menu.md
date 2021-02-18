@@ -81,6 +81,7 @@ You can set the grid filters from your code through the grid [state]({%slug grid
 @[template](/_contentTemplates/grid/state.md#filter-menu-from-code)
 ````
 
+@[template](/_contentTemplates/grid/state.md#filter-menu-default-filters)
 
 
 ## See Also
