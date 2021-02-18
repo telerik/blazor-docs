@@ -107,3 +107,4 @@ There are two ways to go around this:
 </button>
 ````
 
+>important Some components/elements of components (such as Window and the Popup containers of all dropdowns) are not rendered in the place of declaration. Therefore, since they are not actually part of the parent, the above solution will not be applicable for them. You can try using the Class parameter for the components and the PopupClass parameter of the Popup containers to set the desired styling.
