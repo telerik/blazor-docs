@@ -167,7 +167,6 @@ The Telerik Form for Blazor supports validation throught the `<DataAnnotationsVa
 
 * `FormButtons` - `RenderFragment` - allows you to add custom buttons to the Form. You can use the `FormButtons` tag to [add a Clear button to the Form]({%slug form-formitems%}#add-a-clear-button). If the `FormButtons` tag is defined there will be no default buttons in the Form. 
 
-
 * `FormGroups` - lets you define Groups for the FormItems. See the [FormGroups]({%slug form-formgroups%}) article for more information.
 
 * `Orientation` - `enum` - controls the orientation of the Form. See the [Orientation]({%slug form-orientation%}) article for more information.
