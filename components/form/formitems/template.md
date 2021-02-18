@@ -12,7 +12,7 @@ position: 5
 
 You can provide your own custom editors instead of the [default editors the form can generate]({%slug form-overview%}#automatic-generation-of-fields). To do that, use the the `Template` of the [FormItem]({%slug form-formitems%}).
 
-When the Template, is used the built-in validation of the Telerik Form is disabled and it is up to the application to validate the user input.
+When the Template, is used the built-in validation messages from the Form will not be rendered. Instead you can use the [Telerik Validation tools]({%slug validation-helpers-overview%}) to provide validation messages.
 
 >caption Use the Template to provide custom editors
 
