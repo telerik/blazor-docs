@@ -33,7 +33,7 @@ The `FormItem` tag exposes the following parameters which you can use to customi
 
 * `Field` - `string` - the name of the field in the model that the editor will render for as a string (case-sensitive). You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeFIeld)`).
 
-* `FieldType` - `string` - the data type of the `Field`. This parameter should be provided if the type of the property in the model can not be extracted using reflection. 
+* `FieldType` - `string` - the data type of the `Field`. This parameter should be provided if the type of the property in the model can not be extracted using reflection, for example it is an `object` and you would like to render a `NumericTextBox`. 
 
 * `ColSpan` - `int` - defines the `colspan` attribute. 
 
