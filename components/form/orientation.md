@@ -17,7 +17,7 @@ The Form component for Blazor allows you control its orientation through the `Or
 
 * `Vertical` - by default the Form will be vertical.
 
-Setting the orientation to `Horizonal` will place the labels to the right hand-side of the editors and thus reduce the vertical space taken by the Form.
+Setting the orientation to `Horizonal` will place the labels to the left hand-side of the editors and thus reduce the vertical space taken by the Form.
 
 >caption Change the orientation of the Form. The result of the code snippet below
 
