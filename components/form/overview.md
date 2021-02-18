@@ -16,6 +16,9 @@ The Form for Blazor allows you to generate a form based on your model and to man
 
 * [Use the Telerik Form for Blazor with a model](#use-the-telerik-form-for-blazor-with-a-model)
 * [Use the Telerik Form for Blazor with an EditContext](#use-the-telerik-form-for-blazor-with-an-editcontext)
+* [Automatic Generation of fields](#automatic-generation-of-fields)
+* [Data Annotation Attributes](#data-annotation-attributes)
+* [Features](#features)
 
 
 ## Use the Telerik Form for Blazor with a model
@@ -105,7 +108,7 @@ To use the Form component with an EditContext:
 ![Form Basic Example](images/form-basic-example.png)
 
 
-## Component Reference
+#### Component Reference
 
 >caption Get a reference to the Telerik Form for Blazor 
 
@@ -132,9 +135,9 @@ To use the Form component with an EditContext:
 
 ## Automatic Generation of fields
 
-When the Telerik Form for Blazor is bound to a `model` or an `EditContext` and no editors are defined in the markup the component will render them automatically. 
+The Telerik Form can generate [editors]({%slug form-formitems%}) for you based on the model fields. It can take them from both a `Model`, or the `EditContext`, whichever you provide to it. You can use the [data annotation attributes](#data-annotation-attributes) to validate the value of the fields.
 
-The following data types are supported out-of-thebox and they use the following default editors:
+The following data types are supported out-of-the box and they use the following default editors:
 
 * `string` - [Telerik TextBox]({%slug components/textbox/overview%})
 
@@ -146,9 +149,15 @@ The following data types are supported out-of-thebox and they use the following 
 
 * `bool` - [Telerik CheckBox]({%slug checkbox-overview%})
 
+## Data Annotation Attributes
+
+The Telerik Form for Blazor supports validation throught the `<DataAnnotationsValidator />`. This allows you to take advantage of the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0" target="_blank">data annotation attributes</a> provided by .NET.
+
 ## Features
 
 * `Model` - `object` - the object bound to the form. It will automatically create the `EditContext` and using the two together is not supported.
+
+* `FormValidation` - a nested tag for the Form. You should use it to enable validation and provide validation configuration - add a validation (for example `DataAnnotationsValidator`) and provide a `ValidationSummary`.
 
 * `EditContext` - `EditContext` - the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> of the form.
 
@@ -157,6 +166,7 @@ The following data types are supported out-of-thebox and they use the following 
 * `FormItems` - `RenderFragment` - allows you to use custom editors. See the [FormItems]({%slug form-formitems%}) article for more information. When a custom editor is used, no built-in editors will be generated.
 
 * `FormButtons` - `RenderFragment` - allows you to add custom buttons to the Form. You can use the `FormButtons` tag to [add a Clear button to the Form]({%slug form-formitems%}#add-a-clear-button). If the `FormButtons` tag is defined there will be no default buttons in the Form. 
+
 
 * `FormGroups` - lets you define Groups for the FormItems. See the [FormGroups]({%slug form-formgroups%}) article for more information.
 
