@@ -1,5 +1,5 @@
 ---
-title: FormGroups
+title: Form Groups
 page_title: Form for Blazor - FormGroups
 description: Form for Blazor - FormGroups.
 slug: form-formgroups
@@ -8,7 +8,7 @@ published: True
 position: 25
 ---
 
-# FormGroups
+# Form Groups
 
 You can group some associated fields in your form (model) by using the [FormItems]({%slug form-formitems%}). and putting them inside `FormGroup` tags.
 

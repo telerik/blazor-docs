@@ -26,8 +26,11 @@ The Form for Blazor allows you to generate a form based on your model and to man
 To use the Form component with a model: 
 
 1. Add the `<TelerikForm>` tag.
+
 1. Provide an object to the `Model` parameter of the component. 
-1. Use the `<FormValidation>` tag and it, provide a validator - like the `DataAnnotationsValidator` that comes with the framework, to enable form validation. 
+
+1. Use the `<FormValidation>` tag and in it, provide a validator - like the `DataAnnotationsValidator` that comes with the framework, to enable form validation. 
+
 
 ````CSHTML
 @* Provide a model to the Telerik Form *@
@@ -66,8 +69,10 @@ The Telerik Form for Blazor can utilize the <a href="https://docs.microsoft.com/
 To use the Form component with an EditContext: 
 
 1. Add the `<TelerikForm>` tag.
+
 1. Provide an object of type `EditContext` to the `EditContext` parameter of the Form. 
-1. Use the `<FormValidation>` tag and it and provide a validator - like the `DataAnnotationsValidator` that comes with the framework, to enable form validation. 
+
+1. Use the `<FormValidation>` tag and provide a validator in it - like the `DataAnnotationsValidator` that comes with the framework, to enable form validation. 
 
 
 ````CSHTML

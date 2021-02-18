@@ -20,7 +20,7 @@ The Form component for Blazor exposes events that allow you to respond to user a
 
 ## OnSubmit
 
-The `OnSubmit` event fires when the user clicks on the Submit button in the Form. It takes as an argument the `EditContext` object and is used to trigger some custom logic based on the validity of the form. 
+The `OnSubmit` event fires when the user clicks on the Submit button in the Form. Its handler takes as an argument the `EditContext` object and is used to trigger some custom logic based on the validity of the form. 
 
 When there is a handler for the `OnSubmit` event, the [`OnValidSubmit`](#onvalidsubmit) and [`OnInvalidSubmit`](#oninvalidsubmit) events will not be fired.
   
@@ -87,7 +87,7 @@ The `OnSubmit` event is mapped to the `OnSubmit` event of the <a target="_blank"
 
 ## OnValidSubmit
 
-The `OnValidSubmit` event fires when the form is submitted and there are no validation erros. It is mapped to `OnValidSubmit ` event of the <a target="_blank" href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0">Microsoft EditForm</a>. It takes the EditContext as an argument.
+The `OnValidSubmit` event fires when the form is submitted and there are no validation erros. It is mapped to `OnValidSubmit ` event of the <a target="_blank" href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0">Microsoft EditForm</a>. Its handler takes the `EditContext` as an argument.
 
 >caption Use the OnValidSubmit event
 
@@ -141,7 +141,7 @@ The `OnValidSubmit` event fires when the form is submitted and there are no vali
 
 ## OnInvalidSubmit
 
-The `OnInvalidSubmit` event fires when there are validation erros in the Form upon its submission. It is mapped to `OnInvalidSubmit` event of the <a target="_blank" href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0">Microsoft EditForm</a>. It takes the EditContext as an argument.
+The `OnInvalidSubmit` event fires when there are validation erros in the Form upon its submission. It is mapped to `OnInvalidSubmit` event of the <a target="_blank" href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0">Microsoft EditForm</a>. Its handler takes the `EditContext` as an argument.
 
 >caption Use the OnInvalidSubmit event
 
