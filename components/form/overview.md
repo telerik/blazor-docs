@@ -45,11 +45,13 @@ To use the Form component with a model:
 
     public class Person
     {
-        [Editable(false)]
+        [Range(100, 1000, ErrorMessage ="The Id must be between 100 and 1000")]
         public int Id { get; set; }
         [Required]
+        [MaxLength(20, ErrorMessage ="The first name should be maximum 20 characters long")]
         public string FirstName { get; set; }
         [Required]
+        [MaxLength(25, ErrorMessage = "The last name should be maximum 25 characters long")]
         public string LastName { get; set; }
         [Required]
         public DateTime? DOB { get; set; }
@@ -91,11 +93,13 @@ To use the Form component with an EditContext:
 
     public class Person
     {
-        [Editable(false)]
+        [Range(100, 1000, ErrorMessage ="The Id must be between 100 and 1000")]
         public int Id { get; set; }
         [Required]
+        [MaxLength(20, ErrorMessage ="The first name should be maximum 20 characters long")]
         public string FirstName { get; set; }
         [Required]
+        [MaxLength(25, ErrorMessage = "The last name should be maximum 25 characters long")]
         public string LastName { get; set; }
         [Required]
         public DateTime? DOB { get; set; }
