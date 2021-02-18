@@ -29,7 +29,15 @@ The `FormGroup` tag exposes the following parameters:
 
 ## Example - Organize FormItems into Groups
 
+You can organize some FormItems into logical groups. You can configure the label of the group, the number of columns and the spacing between the items.
+
+>caption The result from the code snippet below
+
+![FormItem example](images/formgroups-example.png)
+
 ````CSHTML
+@* Organize items into groups *@
+
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@person" Columns="2" ColumnSpacing="25px">
@@ -37,17 +45,18 @@ The `FormGroup` tag exposes the following parameters:
         <DataAnnotationsValidator></DataAnnotationsValidator>
     </FormValidation>
     <FormItems>
-        <FormGroup LabelText="Personal Information">
+        <FormGroup LabelText="Personal Information" Columns="2" ColumnSpacing="15px">
             <FormItem LabelText="First Name" Field="@nameof(Person.FirstName)"></FormItem>
             <FormItem LabelText="Last Name" Field="@nameof(Person.LastName)"></FormItem>
+            <FormItem LabelText="Age" Field="@nameof(Person.Age)"></FormItem>
+            <FormItem LabelText="Email" Field="@nameof(Person.Email)"></FormItem>
         </FormGroup>
-        <FormGroup LabelText="Employee Information">
+        <FormGroup LabelText="Employee Information" ColumnSpacing="25px">
             <FormItem LabelText="Company Name" Field="@nameof(Person.CompanyName)"></FormItem>
             <FormItem LabelText="Position" Field="@nameof(Person.Position)"></FormItem>
         </FormGroup>
     </FormItems>
 </TelerikForm>
-
 
 @code {
     public Person person { get; set; } = new Person();
@@ -58,18 +67,20 @@ The `FormGroup` tag exposes the following parameters:
         public string FirstName { get; set; }
         [Required(ErrorMessage = "The Last name is required")]
         public string LastName { get; set; }
+        [Range(18, 120, ErrorMessage = "The age should be between 18 and 120")]
+        public int Age { get; set; }
+        [Required]
+        [EmailAddress(ErrorMessage = "Enter a valid email")]
+        public string Email { get; set; }
         [Required]
         public string CompanyName { get; set; }
-        [MaxLength(25, ErrorMessage ="The position can be maximum 25 characters long")]
+        [MaxLength(25, ErrorMessage = "The position can be maximum 25 characters long")]
         public string Position { get; set; }
     }
-} 
 }
 ````
 
->caption The result from the code snippet above
 
-![FormItem example](images/formgroups-example.png)
 
 ## See Also
 
