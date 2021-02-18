@@ -5,7 +5,7 @@ description: Form for Blazor - Columns.
 slug: form-columns
 tags: telerik,blazor,form,edit,form,columns,spacing,column
 published: True
-position: 5
+position: 15
 ---
 
 # Form Columns

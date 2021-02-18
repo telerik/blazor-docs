@@ -5,7 +5,7 @@ description: Form for Blazor - Orientation.
 slug: form-orientation
 tags: telerik,blazor,form,edit,form,orientation
 published: True
-position: 0
+position: 10
 ---
 
 # Form Orientation

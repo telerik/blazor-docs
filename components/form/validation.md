@@ -5,7 +5,7 @@ description: Form for Blazor - Validation.
 slug: form-validation
 tags: telerik,blazor,form,edit,form,validation
 published: True
-position: 10
+position: 5
 ---
 
 # Form Validation

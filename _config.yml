@@ -66,9 +66,6 @@ navigation:
 ## List custom TOC order for folders here
      "*components/form/formitems":
         title: "Form Items"
-        position: 5
-     "*components/form/layout":
-        title: "Form Layout"
         position: 20
      "*components/grid/columns":
         title: "Columns"
