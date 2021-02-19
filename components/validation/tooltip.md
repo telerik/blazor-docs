@@ -10,7 +10,7 @@ position: 20
 
 # Telerik Validation Tooltip for Blazor
 
-The Telerik Validation Tooltip for Blazor can render the validation errors as tooltips
+The Telerik Validation Tooltip for Blazor can render the validation errors as tooltips pointing to the problematic input when you hover it. It acts like the ValidationMessage, but is a popup and not an inline element, so it takes up less space.
 
 This article is separated in the following sections:
 
@@ -22,10 +22,13 @@ This article is separated in the following sections:
 ## Basics
 
 To enable Telerik Validation Tooltip for a field in the form you should:
-1. Provide a lambda expression in the `For` parameter that notifies the component for which property of the model the validation messages should render.
-1. Populate the `TargetSelector` with a CSS selector that controls which elements the Tooltip will associate itself
 
->caption Enable Telerik Validation Tooltip in a Form
+1. Provide a lambda expression in the `For` parameter that notifies the component for which property of the model the validation messages should render, just like the standard `ValidationMessage`.
+1. Populate the `TargetSelector` with a CSS selector that controls which element(s) the Tooltip will associate itself with.
+
+>caption Enable Telerik Validation Tooltip in a Telerik Form
+
+>tip The Telerik Form can provide tooltips out-of-the-box with a single setting - see the [Form Validation - Validation Message Type]({%slug form-validation%}#validation-message-type) section. The example below shows more advanced customizations.
 
 ````CSHTML
 @* Use the TelerikValidationTooltip component to render validation messages and disable the built-in validation messages from the Telerik Form*@
@@ -72,6 +75,51 @@ To enable Telerik Validation Tooltip for a field in the form you should:
 >caption The result from the code snippet above
 
 ![Tooltip Basic Example](images/tooltip-example.png)
+
+
+>caption Enable Telerik Validation Tooltip in an EditForm
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations
+
+<EditForm Model="@customer" width="600px">
+    <DataAnnotationsValidator />
+
+    <InputText @bind-Value="@customer.CustomerName" id="name"></InputText>
+    <TelerikValidationTooltip For="@(() => customer.CustomerName)" TargetSelector="#name" />
+    <br />
+    <InputNumber @bind-Value="@customer.CustomerAge" id="age"></InputNumber>
+    <TelerikValidationTooltip For="@(() => customer.CustomerAge)" TargetSelector="#age" />
+    <br />
+    <InputText @bind-Value="@customer.EmailAddress" id="email"></InputText>
+    <TelerikValidationTooltip For="@(() => customer.EmailAddress)" TargetSelector="#email" />
+    <br />
+    <input type="submit" value="Submit" />
+</EditForm>
+
+@code {
+    private Customer customer = new Customer();
+
+    public class Customer
+    {
+        [Required(ErrorMessage = "Please enter your name")]
+        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
+        public string CustomerName { get; set; }
+
+        [Required(ErrorMessage = "Please enter your age")]
+        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
+        public int CustomerAge { get; set; }
+
+        [Required(ErrorMessage = "Please enter your email")]
+        [EmailAddress(ErrorMessage = "Enter a valid email address")]
+        public string EmailAddress { get; set; }
+    }
+}
+````
+
+>caption The result from the code snippet above
+
+![Tooltip Basic Example](images/tooltip-example-editform.png)
 
 ## Position
 
