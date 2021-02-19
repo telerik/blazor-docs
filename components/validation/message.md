@@ -10,123 +10,193 @@ position: 10
 
 # Telerik Validation Message for Blazor
 
-The Telerik UI for Blazor provides different ways to customize the validation messages. They can be used together with the [Telerik Form]({%slug form-overview%}) or with any form that provides an <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> like the EditForm provided from the framework. 
+The Telerik Validation Message for Blazor adds customization options on top of the standard <a href="https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.html.validationextensions.validationmessage?view=aspnet-mvc-5.2" target="_blank">ValidationMessage</a> provided by the framework such as a [Template](#template) or cascading CSS rules from the custom CSS class in the [Class](#class) parameter.
 
-## TelerikValidationSummary
+This article is separated in the following sections:
 
-The `TelerikValidationSummary` extends the `ValidationSummary` class provided by the framework. It exposes a [Template]({%slug validation-helpers-summary-template%}) and []({%slug validation-helpers-summary-appearance%}).
+* [Basics](#basics)
+* [Template](#template)
+* [Class](#class)
 
-## Validation Helpers
+## Basics
 
-* [TelerikValidationSummary]({%slug validation-helpers-summary%})
-* [TelerikValidationMessage]({%slug validation-helpers-message%})
-* [TelerikValidationTooltip]({%slug validation-helpers-tooltip%})
+To enable Telerik Validation Messages for a field in the form you should provide a lambda expression in the `For` parameter that notifies the component for which property of the model the validation messages should render.
 
-## Integration
-
-* [Integration with the TelerikForm](#integration-with-the-telerikform)
-* [Integration with the Microsoft EditForm](#integration-with-the-microsoft-editform)
-
-### Integration with the TelerikForm
-
-You can seamlessly integrate the validation helpers with the [Form Component]({%slug form-overview%}). In order to avoid doubling of validation message you should set the [ValidationMessageType]({%slug form-overview%}#features) parameter to `FormValidationMessageType.None`.
+>caption Enable Telerik Validation Message in a Form
 
 ````CSHTML
-@* Disable the default validation messages from the Telerik Form and use the validation helpers instead *@
+@* Use the TelerikValidationMessage component to render validation messages and disable the built-in validation messages from the Telerik Form*@
 
 @using System.ComponentModel.DataAnnotations
 
-<TelerikForm Model="@person" ValidationMessageType="@FormValidationMessageType.None">
+<TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
     <FormValidation>
         <DataAnnotationsValidator />
     </FormValidation>
 
     <FormItems>
-        <FormItem LabelText="Name" Field="@nameof(Person.Name)" Hint="This editor uses TelerikValidationTooltip" Id="NameFieldVsalidationTooltip" />
-        <TelerikValidationTooltip For="@( () => person.Name)" TargetSelector="#NameFieldVsalidationTooltip" />
+        <FormItem Field="@nameof(Customer.CustomerName)" LabelText="Name" />
+        <TelerikValidationMessage For="@(() => customer.CustomerName)" />
 
-        <FormItem LabelText="Age" Field="@nameof(Person.Age)" Hint="This editor uses TelerikValidationMessage" />
-        <TelerikValidationMessage For="@( () => person.Age)" />
+        <FormItem Field="@nameof(Customer.CustomerAge)" LabelText="Age" />
+        <TelerikValidationMessage For="@(() => customer.CustomerAge)" />
 
-        <FormItem LabelText="Name" Field="@nameof(Person.IsMarried)" Hint="This editor uses TelerikValidationTooltip" Id="IsMarriedFieldValidationTooltip" />
-        <TelerikValidationTooltip For="@( () => person.IsMarried)" TargetSelector="#IsMarriedFieldValidationTooltip" />
+        <FormItem Field="@nameof(Customer.EmailAddress)" LabelText="Email Address" />
+        <TelerikValidationMessage For="@(() => customer.EmailAddress)" />
     </FormItems>
 </TelerikForm>
 
 @code {
-    Person person = new Person();
+    private Customer customer = new Customer();
 
-    public class Person
+    public class Customer
     {
-        [Required]
-        public string Name { get; set; }
+        [Required(ErrorMessage = "Please enter your name")]
+        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
+        public string CustomerName { get; set; }
 
-        [Required]
-        [Range(10,150, ErrorMessage ="The age should be between 10 and 150")]
-        public int? Age { get; set; }
+        [Required(ErrorMessage = "Please enter your age")]
+        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
+        public int CustomerAge { get; set; }
 
-        [Required]
-        public bool IsMarried { get; set; }
+        [Required(ErrorMessage = "Please enter your email")]
+        [EmailAddress(ErrorMessage = "Enter a valid email address")]
+        public string EmailAddress { get; set; }
     }
 }
 ````
 
-### Integration with the Microsoft EditForm
+![Messages Basic Example](images/messages-example.png)
+
+## Template
+
+Allows you to control the rendering of the validation messages. The `context` represents an `IEnumerable<string>` collection of all messages for the property.
 
 ````CSHTML
-@* Use the Telerik Validation Helpers inside an EditForm *@
+@* Use the Template to customize the rendering of the validation message *@
+
+<style>
+    .custom-validation-message {
+        color: blue;
+        font-weight: bold;
+    }
+</style>
 
 @using System.ComponentModel.DataAnnotations
 
-<EditForm Model="@person">
-    <DataAnnotationsValidator />
+<TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
+    <FormValidation>
+        <DataAnnotationsValidator />
+    </FormValidation>
 
-    <TelerikValidationSummary />
+    <FormItems>
+        <FormItem Field="@nameof(Customer.CustomerName)" LabelText="Name" />
+        <TelerikValidationMessage For="@(() => customer.CustomerName)" />
 
-    <p>
-        <label for="NameFieldId">Name</label>
-        <TelerikTextBox @bind-Value="@person.Name" Id="NameFieldId"></TelerikTextBox>
-        <TelerikValidationTooltip For="@( () => person.Name)" TargetSelector="#NameFieldId" />
-    </p>
+        <FormItem Field="@nameof(Customer.CustomerAge)" LabelText="Age" />
+        <TelerikValidationMessage For="@(() => customer.CustomerAge)">
+            <Template>
+                @{
+                    IEnumerable<string> validationMessages = context;
 
-    <p>
-        <label for="AgeFieldId">Age</label>
-        <TelerikNumericTextBox @bind-Value="@person.Age" Id="AgeFieldId"></TelerikNumericTextBox>
-        <TelerikValidationMessage For="@( () => person.Age)" />
-    </p>
+                    @foreach (string message in validationMessages)
+                    {
+                        <div>
+                            <TelerikIcon Icon="x-outline"></TelerikIcon>
+                            <span class="custom-validation-message">@message</span>
+                        </div>
+                    }
+                }
+            </Template>
+        </TelerikValidationMessage>
 
-    <p>
-        <label for="IsMarriedFieldId">Is Married</label>
-        <TelerikCheckBox @bind-Value="@person.IsMarried" Id="IsMarriedFieldId"></TelerikCheckBox>
-        <TelerikValidationTooltip For="@( () => person.IsMarried)" TargetSelector="#IsMarriedFieldId" />
-    </p>
-
-    <TelerikButton ButtonType="ButtonType.Submit">Submit</TelerikButton>
-</EditForm>
+        <FormItem Field="@nameof(Customer.EmailAddress)" LabelText="Email Address" />
+        <TelerikValidationMessage For="@(() => customer.EmailAddress)" />
+    </FormItems>
+</TelerikForm>
 
 @code {
-    Person person = new Person();
+    private Customer customer = new Customer();
 
-    public class Person
+    public class Customer
     {
-        [Required]
-        public string Name { get; set; }
+        [Required(ErrorMessage = "Please enter your name")]
+        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
+        public string CustomerName { get; set; }
 
-        [Required]
-        [Range(10, 150, ErrorMessage = "The age should be between 10 and 150")]
-        public int? Age { get; set; }
+        [Required(ErrorMessage = "Please enter your age")]
+        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
+        public int CustomerAge { get; set; }
 
-        [Required]
-        public bool IsMarried { get; set; }
+        [Required(ErrorMessage = "Please enter your email")]
+        [EmailAddress(ErrorMessage = "Enter a valid email address")]
+        public string EmailAddress { get; set; }
     }
 }
 ````
+
+![Messages Template example](images/messages-template-example.png)
+
+## Class
+
+You can use the `Class` parameter to add a custom CSS class to the `k-form-error` span, that wraps the validation message.
+
+````CSHTML
+@* Use the Class parameter to change the font of the validation message *@
+
+<style>
+    .my-email-message {
+        color: blue;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+</style>
+
+@using System.ComponentModel.DataAnnotations
+
+<TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
+    <FormValidation>
+        <DataAnnotationsValidator />
+    </FormValidation>
+
+    <FormItems>
+        <FormItem Field="@nameof(Customer.CustomerName)" LabelText="Name" />
+        <TelerikValidationMessage For="@(() => customer.CustomerName)" />
+
+        <FormItem Field="@nameof(Customer.CustomerAge)" LabelText="Age" />
+        <TelerikValidationMessage For="@(() => customer.CustomerAge)" />
+
+        <FormItem Field="@nameof(Customer.EmailAddress)" LabelText="Email Address" />
+        <TelerikValidationMessage For="@(() => customer.EmailAddress)" Class="my-email-message" />
+    </FormItems>
+</TelerikForm>
+
+@code {
+    private Customer customer = new Customer();
+
+    public class Customer
+    {
+        [Required(ErrorMessage = "Please enter your name")]
+        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
+        public string CustomerName { get; set; }
+
+        [Required(ErrorMessage = "Please enter your age")]
+        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
+        public int CustomerAge { get; set; }
+
+        [Required(ErrorMessage = "Please enter your email")]
+        [EmailAddress(ErrorMessage = "Enter a valid email address")]
+        public string EmailAddress { get; set; }
+    }
+}
+````
+
+![Messages Class example](images/messages-class-example.png)
 
 ## See Also
 
 * [Live Demo: Validation](https://demos.telerik.com/blazor-ui/validation/overview)
 * [TelerikValidationSummary]({%slug validation-helpers-summary%})
-* [TelerikValidationMessage]({%slug validation-helpers-message%})
 * [TelerikValidationTooltip]({%slug validation-helpers-tooltip%})
 * [Form Component]({%slug form-overview%})
 
