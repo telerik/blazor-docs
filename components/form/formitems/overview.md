@@ -53,7 +53,7 @@ The `FormItem` tag exposes the following parameters which you can use to customi
         <DataAnnotationsValidator></DataAnnotationsValidator>
     </FormValidation>
     <FormItems>
-        <FormItem Field="@nameof(Person.Id)" LabelText="Id" Hint="The Id is automatically generated, you can not edit it"></FormItem>
+        <FormItem Field="@nameof(Person.Id)" LabelText="Id" Hint="Make sure you know what you are doing when editing an ID"></FormItem>
         <FormItem Field="@nameof(Person.FirstName)" LabelText="First name" Hint="Enter your first name"></FormItem>
         <FormItem Field="@nameof(Person.LastName)" LabelText="Last name" Hint="Enter your last name" ColSpan="2"></FormItem>
         <FormItem Field="@nameof(Person.DOB)" LabelText="Date of birth" Hint="Enter your Date of Birth"></FormItem>
@@ -65,7 +65,6 @@ The `FormItem` tag exposes the following parameters which you can use to customi
 
     public class Person
     {
-        [Editable(false)]
         public int Id { get; set; } = 10;
         public string FirstName { get; set; } = "John";
         public string LastName { get; set; } = "Doe";

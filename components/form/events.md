@@ -70,7 +70,6 @@ The `OnSubmit` event is mapped to the `OnSubmit` event of the <a target="_blank"
 
     public class Person
     {
-        [Editable(false)]
         public int Id { get; set; }
         [Required(ErrorMessage ="Add your first name")]
         public string FirstName { get; set; }
@@ -124,7 +123,6 @@ The `OnValidSubmit` event fires when the form is submitted and there are no vali
 
     public class Person
     {
-        [Editable(false)]
         public int Id { get; set; }
         [Required(ErrorMessage = "Add your first name")]
         public string FirstName { get; set; }
@@ -177,7 +175,6 @@ The `OnInvalidSubmit` event fires when there are validation erros in the Form up
 
     public class Person
     {
-        [Editable(false)]
         public int Id { get; set; }
         [Required(ErrorMessage = "Add your first name")]
         public string FirstName { get; set; }
