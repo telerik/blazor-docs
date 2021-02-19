@@ -18,11 +18,18 @@ Can you please advise me on how to display validation message as tooltip?
 
 ## Solution
 
-This article contains two different approaches for implementing validation notifications with popups:
+This article contains several different approaches for implementing validation notifications with popups:
+
+* [TelerikValidationTooltip](#telerikvalidationpopup)
 
 * [Validation Summary in a Popup](#validation-summary-in-a-popup)
 
 * [Per-Input Validation Popups](#per-input-validation-popups)
+
+
+### TelerikValidationTooltip
+
+You can use the [TelerikValidationTooltip]({%slug validation-tools-tooltip%}) to enable tooltip validation messages either in the [Telerik Form]({%slug form-overview%}) or in the Microsoft EditForm.
 
 ### Validation Summary in a Popup
 
