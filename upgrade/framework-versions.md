@@ -49,6 +49,8 @@ Telerik UI for Blazor supports .NET 5 since its `2.19.0` release.
 
 The client-side (WebAssembly) flavor of Blazor is a set of separate NuGet packages whose version may not match the .NET Core version they run on.
 
+>important WebAssembly 3.2.x is not part of .NET Core 3.1 and its official support by Microsoft ends with <a href="https://devblogs.microsoft.com/aspnet/asp-net-core-updates-in-net-6-preview-1/" target="_blank">.NET 6 Preview 1 which is available as of 17 February 2021</a>. You can read more about this <a href="https://github.com/dotnet/aspnetcore/issues/26838#issuecomment-718763457" target="_blank">here</a> and in the <a href="https://dotnet.microsoft.com/platform/support/policy/dotnet-core" target="_blank">.NET Core and .NET 5 Support Policy</a>. You should upgrade WebAssembly applications running on 3.2.x to .NET 5.
+
 >caption Telerik UI for Blazor versions per WebAssembly packages version
 
 | WebAssembly version                  | Telerik UI for Blazor version      |
@@ -72,7 +74,11 @@ The client-side (WebAssembly) flavor of Blazor is a set of separate NuGet packag
 | preview 1 (3.1.0-preview1.19506.1)   | 2.2.0, 2.2.1                  |
 
 
+## .NET 6
+
+The preview versions of .NET 6 have started. The Telerik UI for Blazor suite is commited to the currently supported official versions of the framework (currently .NET Core 3.1 and .NET 5). Support for .NET 6 will be evaluated and provided when the official release of the .NET 6 framework becomes available.
 
 ## See Also
 
-  * [Old Versions Support Policy]({%slug old_versions_support_policy%})
+  * [Telerik UI for Blazor: Old Versions Support Policy]({%slug old_versions_support_policy%})
+  * <a href="https://dotnet.microsoft.com/platform/support/policy/dotnet-core" target="_blank">Microsoft .NET Core and .NET 5 Support Policy</a>
