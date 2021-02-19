@@ -18,17 +18,30 @@ Can you please advise me on how to display validation message as tooltip?
 
 ## Solution
 
-This article contains two different approaches for implementing validation notifications with popups:
+This article contains several different approaches for implementing validation notifications with popups:
+
+* [Telerik Validation Tooltip Component](#telerikvalidationpopup)
+
+* [Telerik Form Component](#telerikform)
 
 * [Validation Summary in a Popup](#validation-summary-in-a-popup)
 
-* [Per-Input Validation Popups](#per-input-validation-popups)
+* [Per-Input Validation Popups](#per-input-validation-popups) - it is much easier to use the Telerik components listed above to get this functionality
+
+
+### TelerikValidationTooltip
+
+You can use the [TelerikValidationTooltip]({%slug validation-tools-tooltip%}) to enable tooltip validation messages either in the [Telerik Form]({%slug form-overview%}) or in the Microsoft EditForm.
+
+### TelerikForm
+
+The [Telerik Form]({%slug form-overview%}) component comes with a [popup validation mode]({%slug form-validation%}#validation-message-type) out-of-the-box.
 
 ### Validation Summary in a Popup
 
 There are several key aspects in implementing this:
 
-* A tooltip component. See this page for a Telerik one: https://feedback.telerik.com/blazor/1406095-tooltip-support. When it gets implemented, this code will become simpler. The current mockup stores the button coordinates when the mouse enters it. See the code comments for more details.
+* A tooltip component that can be shown programmatically. See this page for a Telerik one: https://feedback.telerik.com/blazor/1494644-show-tooltip-programatically. When it gets implemented, this code will become simpler. The current mockup stores the button coordinates when the mouse enters it. See the code comments for more details.
 * An event that will show and hide the tooltip. In this sample, the `OnValidSubmit` and `OnInvalidSubmit` of the `EditForm` are used.
 * You need to place the validation summary component in the tooltip, which means the tooltip must be inside the form.
 
@@ -190,8 +203,4 @@ This sample uses a tooltip component and mimics clicks on its targets to make it
 
 ````
 
-
-## Notes
-
-Showing individual `ValidationMessage` components for separate components and pointing the tooltip to them is beyond the scope of this article. While an `EditContext` will provide you with some events when validation and fields change, knowing whether a certain field is valid or not is not available out-of-the-box, and connecting this mockup to a particular location (that is, the `Top` and `Left` parameters) in the DOM will require JS Interop code that is highly dependent on the project, form and layout.
 

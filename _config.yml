@@ -333,6 +333,8 @@ navigation:
         title: "TreeMap"
      "*upload":
         title: "Upload"
+     "*validation":
+        title: "Validation Tools"
      "*validator":
         title: "Validator"
      "*window":
@@ -448,6 +450,7 @@ intro_columns:
       "Notification": "notification-overview"
       "Splitter": "splitter-overview"
       "Form": "form-overview"
+      "Validation Tools": "validation-tools-overview"
   -
     title: "Scheduling"
     items:
