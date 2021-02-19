@@ -145,8 +145,6 @@ You can use the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/for
 When using a model with nested objects and fields, specify their `Field` setings as a dot-separate string, do *not* use the `nameof` operator, it does not return the full name of the model.
 
 ````CSHTML
-@* Validate a complex model *@
-
 @using System.Dynamic
 @using System.ComponentModel.DataAnnotations
 
@@ -181,15 +179,6 @@ When using a model with nested objects and fields, specify their `Field` setings
 
         [Required]
         public DateTime? DateTimeProperty { get; set; }
-
-        [Required]
-        public ExpandoObject ExpandoProperty { get; set; }
-
-        public TestBaseClass()
-        {
-            ExpandoProperty = new ExpandoObject();
-            ExpandoProperty.TryAdd("Test", 1);
-        }
     }
 
     class TestGrandChildModel : TestBaseClass
