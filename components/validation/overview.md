@@ -26,7 +26,7 @@ The Telerik UI for Blazor provides different ways to customize the validation me
 * [TelerikValidationMessage]({%slug validation-tools-message%})
 * [TelerikValidationTooltip]({%slug validation-tools-tooltip%})
 
-These components extend the standard validation tools the frameworks provides - `ValidationSummary` and `ValidationMessage`
+These components adds customization options on top of the standard validation tools the frameworks provides - `ValidationSummary` and `ValidationMessage`
 
 ## Integration
 
