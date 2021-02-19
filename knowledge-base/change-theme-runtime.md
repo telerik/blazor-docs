@@ -38,7 +38,7 @@ Here is a basic implementation:
     <link href="css/site.css" rel="stylesheet" />
     
     <!-- Theme switching start -->
-    <link id="TelerikThemeLink" rel="stylesheet" href="https://unpkg.com/@@progress/kendo-theme-default@@latest/dist/all.css" />
+    <link id="TelerikThemeLink" rel="stylesheet" href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/all.css" />
     <script src="~/ThemeChanger.js"></script>
     <!-- Theme switching end -->
     
@@ -84,7 +84,7 @@ var themeChanger = {
     async Task ChangeTheme()
     {
         // use the new URL you will use - it can be relative and/or point to a custom theme
-        string newThemeUrl = "https://unpkg.com/@progress/kendo-theme-material@latest/dist/all.css";
+        string newThemeUrl = "https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/all.css";
         // call the JS interop that will switch out the <link> element
         await JsInterop.InvokeVoidAsync("themeChanger.changeCss", new[] { newThemeUrl });
     }
