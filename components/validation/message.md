@@ -20,7 +20,7 @@ This article is separated in the following sections:
 
 ## Basics
 
-To enable Telerik Validation Messages for a field in the form you should provide a lambda expression in the `For` parameter that notifies the component for which property of the model the validation messages should render.
+To enable Telerik Validation Messages for a field in the form you should provide a lambda expression in the `For` parameter that notifies the component for which property of the model the validation messages should render, just like with the standard `ValidationMessage` component.
 
 >caption Enable Telerik Validation Message in a Form
 
@@ -69,6 +69,54 @@ To enable Telerik Validation Messages for a field in the form you should provide
 >caption The result from the code snippet above
 
 ![Messages Basic Example](images/messages-example.png)
+
+>caption Enable Telerik Validation Message in an EditForm
+
+````CSHTML
+@* Enable the Telerik Validation Message in the standard EditForm *@
+
+@using System.ComponentModel.DataAnnotations
+
+<EditForm Model="@customer" width="600px">
+    <DataAnnotationsValidator />
+
+    <InputText @bind-Value="@customer.CustomerName"></InputText>
+    <TelerikValidationMessage For="@(() => customer.CustomerName)" />
+    <br />
+    <InputNumber @bind-Value="@customer.CustomerAge"></InputNumber>
+    <TelerikValidationMessage For="@(() => customer.CustomerAge)" />
+    <br />
+    <InputText @bind-Value="@customer.EmailAddress"></InputText>
+    <TelerikValidationMessage For="@(() => customer.EmailAddress)" />
+    <br />
+    <input type="submit" value="Submit" />
+</EditForm>
+
+@code {
+    private Customer customer = new Customer();
+
+    public class Customer
+    {
+        [Required(ErrorMessage = "Please enter your name")]
+        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
+        public string CustomerName { get; set; }
+
+        [Required(ErrorMessage = "Please enter your age")]
+        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
+        public int CustomerAge { get; set; }
+
+        [Required(ErrorMessage = "Please enter your email")]
+        [EmailAddress(ErrorMessage = "Enter a valid email address")]
+        public string EmailAddress { get; set; }
+    }
+}
+
+````
+
+>caption The result from the code snippet above
+
+![Summary Basic Example](images/validation-message-in-editform.png)
+
 
 ## Template
 
@@ -143,6 +191,8 @@ Allows you to control the rendering of the validation messages. The `context` re
 ## Class
 
 You can use the `Class` parameter to add a custom CSS class to the `k-form-error` span, that wraps the validation message.
+
+This example adds a custom class and styling to the third message - for the Email Address.
 
 ````CSHTML
 @* Use the Class parameter to change the font of the validation message *@
