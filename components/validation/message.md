@@ -196,7 +196,7 @@ You can use the `Class` parameter to add a custom CSS class to the `k-form-error
 ## See Also
 
 * [Live Demo: Validation](https://demos.telerik.com/blazor-ui/validation/overview)
-* [TelerikValidationSummary]({%slug validation-helpers-summary%})
-* [TelerikValidationTooltip]({%slug validation-helpers-tooltip%})
+* [TelerikValidationSummary]({%slug validation-tools-summary%})
+* [TelerikValidationTooltip]({%slug validation-tools-tooltip%})
 * [Form Component]({%slug form-overview%})
 
