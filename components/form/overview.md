@@ -14,14 +14,16 @@ The Form for Blazor allows you to generate a form based on your model and to man
 
 #### This article is separated in the following sections:
 
+
 * [Use the Telerik Form for Blazor with a model](#use-the-telerik-form-for-blazor-with-a-model)
 * [Use the Telerik Form for Blazor with an EditContext](#use-the-telerik-form-for-blazor-with-an-editcontext)
+* [Component Reference](#component-reference)
 * [Automatic Generation of fields](#automatic-generation-of-fields)
 * [Data Annotation Attributes](#data-annotation-attributes)
 * [Features](#features)
 
 
-## Use the Telerik Form for Blazor with a model
+## Use the Telerik Form for Blazor With a Model
 
 To use the Form component with a model: 
 
@@ -66,7 +68,7 @@ To use the Form component with a model:
 
 ![Form Basic Example](images/form-basic-example.png)
 
-## Use the Telerik Form for Blazor with an EditContext
+## Use the Telerik Form for Blazor With an EditContext
 
 The Telerik Form for Blazor can utilize the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0">EditContext class</a>. You can use the events and methods provided by the EditContext to provide custom business logic. 
 
@@ -121,7 +123,9 @@ To use the Form component with an EditContext:
 ![Form Basic Example](images/form-basic-example.png)
 
 
-#### Component Reference
+## Component Reference
+
+The component reference provides you with access to the `EditContext` object that the form will generate when you pass a `Model` to it. It could be useful to, for example, re-attach validation when you change the model - `FormReference.EditContext.AddDataAnnotationsValidation()`.
 
 >caption Get a reference to the Telerik Form for Blazor 
 
