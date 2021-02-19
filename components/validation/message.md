@@ -5,7 +5,7 @@ description: Validation Tools - Message.
 slug: validation-tools-message
 tags: telerik,blazor,validation,tools,message
 published: True
-position: 10
+position: 15
 ---
 
 # Telerik Validation Message for Blazor
@@ -65,6 +65,8 @@ To enable Telerik Validation Messages for a field in the form you should provide
     }
 }
 ````
+
+>caption The result from the code snippet above
 
 ![Messages Basic Example](images/messages-example.png)
 
@@ -134,6 +136,7 @@ Allows you to control the rendering of the validation messages. The `context` re
     }
 }
 ````
+>caption The result from the code snippet above
 
 ![Messages Template example](images/messages-template-example.png)
 
@@ -190,6 +193,8 @@ You can use the `Class` parameter to add a custom CSS class to the `k-form-error
     }
 }
 ````
+
+>caption The result from the code snippet above
 
 ![Messages Class example](images/messages-class-example.png)
 

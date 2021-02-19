@@ -56,6 +56,8 @@ To enable Telerik Validation Summary in the form you should add the `<TelerikVal
 }
 ````
 
+>caption The result from the code snippet above
+
 ![Summary Basic Example](images/summary-example.png)
 
 ## Template
@@ -108,6 +110,8 @@ Allows you to control the rendering of the validation summary. The `context` rep
 }
 ````
 
+>caption The result from the code snippet above
+
 ![Summary Template example](images/summary-template-example.png)
 
 ## Class
@@ -151,6 +155,8 @@ You can use the `Class` parameter to add a custom CSS class to the `k-validation
     }
 }
 ````
+
+>caption The result from the code snippet above
 
 ![Summary Class example](images/summary-class-example.png)
 
