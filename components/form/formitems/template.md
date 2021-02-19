@@ -133,7 +133,7 @@ In this article you can find the following examples:
 
 ## Add validation messages to templated Form Items
 
-You can render validation messages for templated Form items by using the [TelerikValidationMessage](INCLUDE SLUG HERE).
+You can render validation messages for templated Form items by using the [TelerikValidationMessage]({%slug validation-tools-message%}).
 
 ````CSHTML
 @* Use the TelerikValidationMessage to render validation messages *@
