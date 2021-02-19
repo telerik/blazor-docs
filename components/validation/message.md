@@ -1,14 +1,14 @@
 ---
-title: Overview
-page_title: Validation Helpers - Overview
-description: Overview of the Validation Helpers for Blazor.
-slug: validation-helpers-overview
-tags: telerik,blazor,validation,helpers,overview
+title: Message
+page_title: Validation Tools - Message
+description: Validation Tools - Message.
+slug: validation-tools-message
+tags: telerik,blazor,validation,tools,message
 published: True
-position: 0
+position: 10
 ---
 
-# Validation Helpers Overview
+# Telerik Validation Message for Blazor
 
 The Telerik UI for Blazor provides different ways to customize the validation messages. They can be used together with the [Telerik Form]({%slug form-overview%}) or with any form that provides an <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> like the EditForm provided from the framework. 
 

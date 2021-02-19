@@ -1,30 +1,30 @@
 ---
 title: Overview
-page_title: Validation Helpers - Overview
-description: Overview of the Validation Helpers for Blazor.
-slug: validation-helpers-overview
-tags: telerik,blazor,validation,helpers,overview
+page_title: Validation Tools - Overview
+description: Overview of the Validation Tools for Blazor.
+slug: validation-tools-overview
+tags: telerik,blazor,validation,tools,overview
 published: True
 position: 0
 ---
 
-# Validation Helpers Overview
+# Validation Tools Overview
 
 The Telerik UI for Blazor provides different ways to customize the validation messages. They can be used together with the [Telerik Form]({%slug form-overview%}) or with any form that provides an <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> like the EditForm provided from the framework. 
 
 
 * [TelerikValidationSummary](#telerikvalidationsummary)
-* [Validation Helpers](#validation-helpers)
+* [Validation Tools](#validation-tools)
 * [Integration](#integration)
 	* [Integration with the TelerikForm](#integration-with-the-telerikform)
 	* [Integration with the Microsoft EditForm](#integration-with-the-microsoft-editform)
 
 
-## Validation Helpers
+## Validation Tools
 
-* [TelerikValidationSummary]({%slug validation-helpers-summary%})
-* [TelerikValidationMessage]({%slug validation-helpers-message%})
-* [TelerikValidationTooltip]({%slug validation-helpers-tooltip%})
+* [TelerikValidationSummary]({%slug validation-tools-summary%})
+* [TelerikValidationMessage]({%slug validation-tools-message%})
+* [TelerikValidationTooltip]({%slug validation-tools-tooltip%})
 
 These components extend the standard validation tools the frameworks provides - `ValidationSummary` and `ValidationMessage`
 
@@ -37,10 +37,10 @@ Here are two examples of integrating the Telerik validation extenders with forms
 
 ### Integration with the TelerikForm
 
-You can seamlessly integrate the validation helpers with the [Form Component]({%slug form-overview%}). In order to avoid doubling of validation message you should set the [ValidationMessageType]({%slug form-overview%}#features) parameter to `FormValidationMessageType.None`.
+You can seamlessly integrate the validation tools with the [Form Component]({%slug form-overview%}). In order to avoid doubling of validation message you should set the [ValidationMessageType]({%slug form-overview%}#features) parameter to `FormValidationMessageType.None`.
 
 ````CSHTML
-@* Disable the default validation messages from the Telerik Form and use the validation helpers instead *@
+@* Disable the default validation messages from the Telerik Form and use the validation tools instead *@
 
 @using System.ComponentModel.DataAnnotations
 
@@ -82,7 +82,7 @@ You can seamlessly integrate the validation helpers with the [Form Component]({%
 ### Integration with the Microsoft EditForm
 
 ````CSHTML
-@* Use the Telerik Validation Helpers inside an EditForm *@
+@* Use the Telerik Validation tools inside an EditForm *@
 
 @using System.ComponentModel.DataAnnotations
 
@@ -133,8 +133,8 @@ You can seamlessly integrate the validation helpers with the [Form Component]({%
 ## See Also
 
 * [Live Demo: Validation](https://demos.telerik.com/blazor-ui/validation/overview)
-* [TelerikValidationSummary]({%slug validation-helpers-summary%})
-* [TelerikValidationMessage]({%slug validation-helpers-message%})
-* [TelerikValidationTooltip]({%slug validation-helpers-tooltip%})
+* [TelerikValidationSummary]({%slug validation-tools-summary%})
+* [TelerikValidationMessage]({%slug validation-tools-message%})
+* [TelerikValidationTooltip]({%slug validation-tools-tooltip%})
 * [Form Component]({%slug form-overview%})
 
