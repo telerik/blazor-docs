@@ -37,17 +37,21 @@ To upgrade the Telerik UI for Blazor components used in your project, perform th
 
 1. Update the version of the `Telerik.UI.for.Blazor` package your project references. If you are using a trial version, the package name is `Telerik.UI.for.Blazor.Trial`.
 
-1. If you are using our CDN for the JS Interop file, update the version in its URL. It must match the version of the package itself. For example, if you are upgrading to the `{{site.uiForBlazorLatestVersion}}` version, the CDN link must be:
+1. If you are using our CDN, update the version in the URLs. It must match the version of the package itself. For example, if you are upgrading to the `{{site.uiForBlazorLatestVersion}}` version, the CDN links must look like:
 
     **HTML**
     
-        <script src="https://kendo.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/telerik-blazor.min.js" defer></script>
+        <link rel="stylesheet" href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/all.css" />
         
-    Generally, the URL has the following format:
+        <script src="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/telerik-blazor.min.js" defer></script>
+        
+    Generally, the URLs have the following format:
     
     **HTML**
     
-        <script src="https://kendo.cdn.telerik.com/blazor/<VERSION NUMBER>/telerik-blazor.min.js" defer></script>
+        <link rel="stylesheet" href="https://blazor.cdn.telerik.com/blazor/<VERSION NUMBER>/kendo-theme-<BUILT-IN-THEME>/all.css" />
+        
+        <script src="https://blazor.cdn.telerik.com/blazor/<VERSION NUMBER>/telerik-blazor.min.js" defer></script>
 
 ## Upgrade from Trial to Commercial
 
@@ -56,6 +60,8 @@ If you have just purchased a license and you need to migrate from the trial pack
 1. @[template](/_contentTemplates/common/general-info.md#ensure-nuget-packge-for-upgrade)
 
 1. Replace the reference to the `Telerik.UI.for.Blazor.Trial` package in your project with a reference to the `Telerik.UI.for.Blazor` package.
+
+    * If you are referencing other Telerik trial packages that you now have a license for, remove the `.Trial` from their names too.
 
 1. If you are using static assets for our JS Interop file and/or Theme, update their path to match the package name (remove the `.Trial` part):
 

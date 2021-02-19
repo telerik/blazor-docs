@@ -13,7 +13,7 @@ the `Format` is culture-specific and the same format may produce different resul
 #cdn
 You can reference the built-in Telerik assets from a cloud CDN instead of a local resource on your server.
 
->caption Reference the Telerik assets from the cloud in a `WebAssembly` app
+>caption Reference the Telerik assets from the cloud CDN
 
 ````CSHTML
 <!DOCTYPE html>
@@ -22,14 +22,14 @@ You can reference the built-in Telerik assets from a cloud CDN instead of a loca
     . . .
     <!-- Choose only one of the themes -->
     
-    <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
+    <link rel="stylesheet" href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/all.css" />
     
     <!-- 
-        <link href="https://unpkg.com/@progress/kendo-theme-bootstrap@latest/dist/all.css" rel="stylesheet" />
-        <link href="https://unpkg.com/@progress/kendo-theme-material@latest/dist/all.css" rel="stylesheet" />
+        <link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/all.css" rel="stylesheet" />
+        <link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/all.css" rel="stylesheet" />
     -->
     
-    <script src="https://kendo.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/telerik-blazor.min.js" defer></script>
+    <script src="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/telerik-blazor.min.js" defer></script>
 </head>
 
  . . .
@@ -37,37 +37,11 @@ You can reference the built-in Telerik assets from a cloud CDN instead of a loca
 </html>
 ````
 
->caption Reference the Telerik assets from the cloud in a `Server-side` app
 
-````CSHTML
-<!DOCTYPE html>
-<html>
-<head>
-    . . .
-    <!-- Choose only one of the themes -->
-    
-    <link rel="stylesheet" href="https://unpkg.com/@@progress/kendo-theme-default@@latest/dist/all.css" />
-    
-    <!-- 
-        <link href="https://unpkg.com/@@progress/kendo-theme-bootstrap@@latest/dist/all.css" rel="stylesheet" />
-        <link href="https://unpkg.com/@@progress/kendo-theme-material@@latest/dist/all.css" rel="stylesheet" />
-    -->
-    
-    <script src="https://kendo.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/telerik-blazor.min.js" defer></script>
-</head>
-
- . . .
- 
-</html>
-````
-
->important Make sure that the version in the JS file URL matches the version of the Telerik UI for Blazor package.
-
->note You may want to monitor the [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) to see when a release uses newer Themes. This will let you point the CDN to a particular version of the themes that is tested and supported with this release, instead of `@latest`. If you don't upgrade for longer periods of time, cumulative changes in the themes may cause the `@latest` to have issues with old rendering from old versions. You can also find the Themes releases and their dates in the [Themes Repo Releases section](https://github.com/telerik/kendo-themes/releases) to match them against the Telerik UI for Blazor releases.
+>important Make sure that the version in the URLs matches the version of the Telerik UI for Blazor package.
 
 >tip If you decide to use a CDN over static assets, you may want to implement a [fallback]({%slug common-kb-cdn-fallback%}) in case it is unavailable to your users.
 
->note We are considering a better CDN option for the themes. Until then, you can use the unpkg workaround above, or local dependency management as described below.
 
 #end
 

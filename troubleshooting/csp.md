@@ -26,8 +26,8 @@ These limitations can adversely affect the Telerik UI for Blazor components, bec
 
 ````HTML
 <meta http-equiv="Content-Security-Policy" content="
-      script-src 'self' 'unsafe-eval' https://kendo.cdn.telerik.com;
-      style-src 'self' 'unsafe-inline' https://unpkg.com;
+      script-src 'self' 'unsafe-eval' https://blazor.cdn.telerik.com;
+      style-src 'self' 'unsafe-inline' https://blazor.cdn.telerik.com;
       font-src 'self' data:;
       img-src 'self' data:" />
 ````
