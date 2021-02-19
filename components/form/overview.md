@@ -62,6 +62,10 @@ To use the Form component with a model:
 }
 ````
 
+>caption The result from the code snippet above
+
+![Form Basic Example](images/form-basic-example.png)
+
 ## Use the Telerik Form for Blazor with an EditContext
 
 The Telerik Form for Blazor can utilize the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0">EditContext class</a>. You can use the events and methods provided by the EditContext to provide custom business logic. 
