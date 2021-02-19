@@ -10,10 +10,10 @@ position: 0
 
 # Validation Tools Overview
 
-The Telerik UI for Blazor provides different ways to customize the validation messages. They can be used together with the [Telerik Form]({%slug form-overview%}) or with any form that provides an <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> like the EditForm provided from the framework. 
+The Telerik UI for Blazor provides different ways to customize the validation messages. They can be used together with the [Telerik Form]({%slug form-overview%}) or with any form that provides an <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> like the `EditForm` provided by the framework. 
 
+#### This article contains the following sections
 
-* [TelerikValidationSummary](#telerikvalidationsummary)
 * [Validation Tools](#validation-tools)
 * [Integration](#integration)
 	* [Integration with the TelerikForm](#integration-with-the-telerikform)
@@ -22,11 +22,13 @@ The Telerik UI for Blazor provides different ways to customize the validation me
 
 ## Validation Tools
 
-* [TelerikValidationSummary]({%slug validation-tools-summary%})
-* [TelerikValidationMessage]({%slug validation-tools-message%})
-* [TelerikValidationTooltip]({%slug validation-tools-tooltip%})
+Telerik provides the following validation tools to help you style your form validation:
 
-These components adds customization options on top of the standard validation tools the frameworks provides - `ValidationSummary` and `ValidationMessage`
+* [Validation Summary]({%slug validation-tools-summary%})
+* [Validation Message]({%slug validation-tools-message%})
+* [Validation Tooltip]({%slug validation-tools-tooltip%})
+
+These components add customization options on top of the standard validation tools the frameworks provides - `ValidationSummary` and `ValidationMessage`
 
 ## Integration
 
@@ -37,7 +39,7 @@ Here are two examples of integrating the Telerik validation extenders with forms
 
 ### Integration with the TelerikForm
 
-You can seamlessly integrate the validation tools with the [Form Component]({%slug form-overview%}). In order to avoid doubling of validation message you should set the [ValidationMessageType]({%slug form-overview%}#features) parameter to `FormValidationMessageType.None`.
+You can seamlessly integrate the validation tools with the [Form Component]({%slug form-overview%}). In order to avoid doubling of validation message you should set the [ValidationMessageType]({%slug form-overview%}#features) parameter of the form to `FormValidationMessageType.None`. You can also use them in the [templates with custom editors]({%slug form-formitems-template%}) that you can define with your own code.
 
 ````CSHTML
 @* Disable the default validation messages from the Telerik Form and use the validation tools instead *@
@@ -47,6 +49,7 @@ You can seamlessly integrate the validation tools with the [Form Component]({%sl
 <TelerikForm Model="@person" ValidationMessageType="@FormValidationMessageType.None">
     <FormValidation>
         <DataAnnotationsValidator />
+        <TelerikValidationSummary />
     </FormValidation>
 
     <FormItems>

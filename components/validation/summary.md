@@ -20,9 +20,9 @@ This article is separated in the following sections:
 
 ## Basics
 
-To enable Telerik Validation Summary in the form you should add the `<TelerikValidationSummary>` to the validation configuration part.
+To enable Telerik Validation Summary in the form you should add the `<TelerikValidationSummary>` to the validation configuration part. You can also add it directly to the standard `EditForm` component instead of the built-in `<ValidationSummary>` component.
 
->caption Enable Telerik Validation Summary in a Form
+>caption Enable Telerik Validation Summary in a Telerik Form
 
 ````CSHTML
 @* Enable the Telerik Validation Summary in the Telerik Form *@
@@ -62,7 +62,7 @@ To enable Telerik Validation Summary in the form you should add the `<TelerikVal
 
 ## Template
 
-Allows you to control the rendering of the validation summary. The `context` represents an `IEnumerable<string>` collection of all messages for the form.
+Allows you to control the rendering of the validation summary. The `context` represents an `IEnumerable<string>` collection of all error messages for the form.
 
 ````CSHTML
 @* Use the Template to customize the rendering of the validation summary *@
