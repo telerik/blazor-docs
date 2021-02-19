@@ -16,17 +16,14 @@ When you add that template, the form will no longer render the built-in submit b
 
 ### How to add a Reset (Clear) button to the form
 
-You can provide a standard [TelerikButton]({%slug components/button/overview%}) to allow the user to clear the contents of the editors in the Telerik Form.
+You can provide a standard [TelerikButton]({%slug components/button/overview%}) to allow the user to clear the contents of the editors in the Telerik Form. See the code and its comments for some more details.
 
 ````CSHTML
 @* Add a Clear Button to the Telerik Form. We also add a Submit button *@
 
 @using System.ComponentModel.DataAnnotations
 
-<TelerikForm Model="@person" OnValidSubmit="@OnValidSubmitHandler">
-    <FormValidation>
-        <DataAnnotationsValidator />
-    </FormValidation>
+<TelerikForm EditContext="@theEditContext" OnValidSubmit="@OnValidSubmitHandler" Width="200px">
 
     <FormButtons>
         <TelerikButton ButtonType="@ButtonType.Submit" Primary="true">Submit</TelerikButton>
@@ -39,9 +36,21 @@ You can provide a standard [TelerikButton]({%slug components/button/overview%}) 
     private void ClearButton()
     {
         person = new Person();
+        CreatedEditContext(person);
     }
 
-    public Person person { get; set; } = new Person();
+    void CreatedEditContext(Person model)
+    {
+        theEditContext = new EditContext(model);
+
+        // we add the validation like this instead of in the markup
+        // because changing the model and context does not otherwise attach the validator
+        // and using the Clear button to new-up the model will leave you without validation
+        theEditContext.AddDataAnnotationsValidation();
+    }
+
+    Person person { get; set; } = new Person();
+    EditContext theEditContext { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -50,6 +59,8 @@ You can provide a standard [TelerikButton]({%slug components/button/overview%}) 
             FirstName = "John",
             DOB = DateTime.Now.AddYears(-37)
         };
+
+        CreatedEditContext(person);
     }
 
     async Task OnValidSubmitHandler()
