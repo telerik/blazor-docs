@@ -60,6 +60,50 @@ To enable Telerik Validation Summary in the form you should add the `<TelerikVal
 
 ![Summary Basic Example](images/summary-example.png)
 
+>caption Enable Telerik Validation Summary in an EditForm
+
+````CSHTML
+@* Enable the Telerik Validation Summary in the standard EditForm *@
+
+@using System.ComponentModel.DataAnnotations
+
+<EditForm Model="@customer" width="600px">
+    <DataAnnotationsValidator />
+    <TelerikValidationSummary />
+    <InputText @bind-Value="@customer.CustomerName"></InputText>
+    <br />
+    <InputNumber @bind-Value="@customer.CustomerAge"></InputNumber>
+    <br />
+    <InputText @bind-Value="@customer.EmailAddress"></InputText>
+    <br />
+    <input type="submit" value="Submit" />
+</EditForm>
+
+@code {
+    private Customer customer = new Customer();
+
+    public class Customer
+    {
+        [Required(ErrorMessage = "Please enter your name")]
+        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
+        public string CustomerName { get; set; }
+
+        [Required(ErrorMessage = "Please enter your age")]
+        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
+        public int CustomerAge { get; set; }
+
+        [Required(ErrorMessage = "Please enter your email")]
+        [EmailAddress(ErrorMessage = "Enter a valid email address")]
+        public string EmailAddress { get; set; }
+    }
+}
+````
+
+>caption The result from the code snippet above
+
+![Summary Basic Example](images/summary-example-editform.png)
+
+
 ## Template
 
 Allows you to control the rendering of the validation summary. The `context` represents an `IEnumerable<string>` collection of all error messages for the form.
