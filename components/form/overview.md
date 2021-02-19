@@ -192,11 +192,12 @@ The Telerik Form for Blazor supports validation throught the `<DataAnnotationsVa
 
 * `Events` - See the [Events]({%slug form-events%}) article for more information
 
+* `Width` - the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article.
 
 ## See Also
   
-  * [FormItems]({%slug form-formitems%})
-  * [FormGroups]({%slug form-formgroups%})
+  * [Form Items]({%slug form-formitems%})
+  * [Form Groups]({%slug form-formgroups%})
   * [Columns]({%slug form-columns%})
   * [Orientation]({%slug form-orientation%})
   * [Events]({%slug form-events%})
