@@ -23,6 +23,7 @@ In this article:
     * [Filtering](#filtering)
     * [Frozen Columns](#frozen-columns)
     * [Column Chooser](#column-chooser)
+    * [Sections](#sections)
 * [Notes](#notes)
 
 ## Basics
@@ -79,6 +80,7 @@ To control the common features of the `Column Menu` use the `<GridColumnMenuSett
 * [Filtering](#filtering)
 * [Frozen Columns](#frozen-columns)
 * [Column Chooser](#column-chooser)
+* [Sections](#sections)
 
 ### Sorting
 
@@ -104,9 +106,83 @@ The Column Chooser in the Column Menu and allows you to toggle the visiblity of 
 
 ![column chooser screenshot](images/column-menu-chooser-in-action.gif)
 
-To disable the column chooser, set the `ShowColumnChooser` paramter of the `<GridColumnMenuSettings>` to `false`.
+To disable the column chooser, set the `ShowColumnChooser` parameter of the `<GridColumnMenuSettings>` to `false`.
 
 To hide a column from the Column Chooser set the `VisibleInColumnChooser` property of the column to `false`.
+
+### Sections
+
+You can organize the columns in the [Column Chooser](#column-chooser) in different sections. In order to achieve the desired user interface:
+1. Use the `GridColumnMenuChooser` tag (child to the `GridColumnMenuSettings`)
+1. Add the [Template]({%slug grid-templates-columnmenu%}) tag
+1. Provide `GridColumnMenuChooserGroup` which is a collection of the columns that should be in the section
+1. Use the `GridColumnMenuChooserItem` to denote the columns that should be in the group
+    * You must use set the `ColumnId` parameter of the `GridColumnMenuChooserItem` to the value of the [`Id`]({%slug components/grid/columns/bound%}#grid-bound-column-parameters) parameter of the corresponding Grid Column.
+
+![columns organized in groups](images/column-menu-sections-example.png)
+
+>caption Organize the columns in the Column Chooser in sections
+
+````CSHTML
+@* Organize the columns in the Column Chooser in some sections. Use the Id and ColumnId parameters of the Grid Column and GridColumnMenuChooserItem respectively to relate them. *@
+
+<TelerikGrid Data="@MyData"
+             Pageable="true"
+             PageSize="5"
+             Width="700px"
+             FilterMode="@GridFilterMode.FilterMenu"
+             Sortable="true"
+             ShowColumnMenu="true">
+    <GridSettings>
+        <GridColumnMenuSettings>
+            <GridColumnMenuChooser>
+                <Template>
+                    <GridColumnMenuChooserGroup Title="Personal Information">
+                        <GridColumnMenuChooserItem ColumnId="id-column-id" />
+                        <GridColumnMenuChooserItem ColumnId="firstname-column-id" />
+                        <GridColumnMenuChooserItem ColumnId="lastname-column-id" />
+                    </GridColumnMenuChooserGroup>
+                    <GridColumnMenuChooserGroup Title="Employee Information">
+                        <GridColumnMenuChooserItem ColumnId="companyname-column-id" />
+                        <GridColumnMenuChooserItem ColumnId="team-column-id" />
+                        <GridColumnMenuChooserItem ColumnId="hiredate-column-id" />
+                    </GridColumnMenuChooserGroup>
+                </Template>
+            </GridColumnMenuChooser>
+        </GridColumnMenuSettings>
+    </GridSettings>
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" Id="id-column-id" />
+        <GridColumn Field="@(nameof(SampleData.FirstName))" Title="First Name" Id="firstname-column-id" />
+        <GridColumn Field="@(nameof(SampleData.LastName))" Title="Last Name" Id="lastname-column-id" />
+        <GridColumn Field="@(nameof(SampleData.CompanyName))" Title="Company" Id="companyname-column-id" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" Id="team-column-id" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" Id="hiredate-column-id" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x,
+        FirstName = $"FirstName {x}",
+        LastName = $"LastName {x}",
+        CompanyName = $"Company {x}",
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string CompanyName { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
 
 ### Example of Column Menu Features Settings
 
