@@ -123,7 +123,7 @@ To enable Telerik Validation Tooltip for a field in the form you should:
 
 ## Position
 
-You can control the position of the validation tooltip through the `Position` paramter. It takes a member of the `TooltipPosition` enum:
+You can control the position of the validation tooltip through the `Position` parameter. It takes a member of the `TooltipPosition` enum:
 
 * `Top` - by default the validation tooltip will render on top of the editor
 * `Bottom`
