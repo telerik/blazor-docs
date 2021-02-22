@@ -248,7 +248,7 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
 
 * If the Grid has a [frozen]({%slug grid-columns-frozen%}) column (`Locked="true"`), that column cannot be unfrozen from the column menu.
 
-* If you are using the [Column Chooser Template]({%slug grid-templates-column-chooser%}) or you are grouping the columns into [sections](#sections), it is recommended to add the `Title` parameter to all Grid Columns 
+* If you are using the [Column Chooser Template]({%slug grid-templates-column-chooser%}) or you are grouping the columns into [sections](#sections), it is recommended to add the `Title` parameter to all Grid Columns.
 
 ## See Also
 
