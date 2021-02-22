@@ -252,4 +252,4 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
 
 ## See Also
 
-  * [Live Demo: Visible Columns](https://demos.telerik.com/blazor-ui/grid/columns)
+  * [Live Demo: Grid Custom Column Menu](https://demos.telerik.com/blazor-ui/grid/custom-column-menu)
