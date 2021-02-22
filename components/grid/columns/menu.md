@@ -119,6 +119,8 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
 1. Add the [Template]({%slug grid-templates-column-chooser%}) tag
 
 1. Provide `GridColumnMenuChooserGroup` which is a collection of the columns that should be in the section
+    
+    * You can use the `Title` parameter to render a Title for the section
 
 1. Use the `GridColumnMenuChooserItem` to denote the columns that should be in the group
 

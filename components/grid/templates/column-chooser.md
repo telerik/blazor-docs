@@ -29,7 +29,7 @@ The `Column Chooser Template` lets you control the rendering of the [ColumnChoos
             <GridColumnMenuChooser>
                 <Template>
                     @{
-                        <TelerikTextBox ValueChanged="@( async (string v) => await ValueChangedHandler(v)  )" Value="@TextboxValue" Label="Search a column"></TelerikTextBox>
+                        <TelerikTextBox @bind-Value="@TextboxValue" Label="Search a column"></TelerikTextBox>
                         foreach (var column in context.Columns.Where(c => c.DisplayTitle.ToLowerInvariant().Contains(TextboxValue.ToLowerInvariant())).ToList())
                         {
                             <GridColumnMenuChooserItem Title="@column.DisplayTitle" ColumnId="@column.Id" />
@@ -41,7 +41,7 @@ The `Column Chooser Template` lets you control the rendering of the [ColumnChoos
         </GridColumnMenuSettings>
     </GridSettings>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" Id="id-column-id" />
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" Title="Id" Id="id-column-id" />
         <GridColumn Field="@(nameof(SampleData.FirstName))" Title="First Name" Id="firstname-column-id" />
         <GridColumn Field="@(nameof(SampleData.LastName))" Title="Last Name" Id="lastname-column-id" />
         <GridColumn Field="@(nameof(SampleData.CompanyName))" Title="Company" Id="companyname-column-id" />
@@ -52,14 +52,6 @@ The `Column Chooser Template` lets you control the rendering of the [ColumnChoos
 
 @code {
     public string TextboxValue { get; set; } = string.Empty;
-    public bool CheckBoxValue { get; set; }
-
-    private async Task ValueChangedHandler(string v)
-    {
-        TextboxValue = v;
-        await Task.Delay(30);
-        await InvokeAsync(StateHasChanged);
-    }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
