@@ -81,6 +81,8 @@ You can use the following properties on the bound columns:
 
 * `DisplayFormat` - the C# format string that is used to render the field value in the cell when the grid is in display mode. Read more in the [Column Display Format]({%slug grid-columns-displayformat%}) article.
 
+* `Id` - a unique identifier of the Grid Column. Use to associate the column to the respective item in the column chooser when the columns are organized in [sections]({%slug grid-column-menu%}#sections).  
+
 * `Editable` - (defaults to `true`) - you can set this property to `true` or `false` to allow or prevent [editing]({%slug components/grid/overview%}#editing) of this field. Defaults to `true`. To edit data, you also need a [CommandColumn]({%slug components/grid/columns/command%}).
 
 * `Filterable` - (defaults to `true`) - you can set this to `false` so a [filterable]({%slug components/grid/filtering%}) grid will not let the user filter that particular column.
