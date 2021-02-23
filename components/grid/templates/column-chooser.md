@@ -12,7 +12,7 @@ position: 40
 
 The `Column Chooser Template` lets you control the rendering of the [ColumnChooser]({%slug grid-column-menu%}#column-chooser). It exposes a `context` object that contains a List of all columns in the Grid. 
 
->note When the Template is setup the list of columns, rendered by default, would not be present.
+When the Template is setup the list of columns, rendered by default, would not be present.
 
 >caption Use the Template to provide custom rendering
 
