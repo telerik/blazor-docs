@@ -29,6 +29,7 @@ The Grid component can use templates for:
 
 * [filter]({%slug grid-templates-filter%})  - the content of the filter cell or filter menu where you can implement custom rendering and logic for the filters.
 
+* [column chooser]({%slug grid-templates-column-chooser%})  - the contents of the column chooser in the column menu. You can use this template to provide custom rendering.
 
 
 Like other Blazor content, most of them can receive a `context` argument that is the type of the model. To use templates, you must bind the grid to a named model. The filter and header templates are the exception as they are not related to rows and models.
