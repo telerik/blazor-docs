@@ -10,12 +10,12 @@ position: 40
 
 # Column Chooser Template
 
-The `Column Chooser Template` lets you control the rendering of the [ColumnChooser]({%slug grid-column-menu%}#column-chooser). It exposes a `context` object that contains a List of all columns in the Grid. 
+The `Column Chooser Template` lets you control the rendering of the [ColumnChooser]({%slug grid-column-menu%}#column-chooser). It exposes a `context` object that contains a List of all columns in the Grid. When the Template is setup the list of columns, rendered by default, would not be present.
 
->caption Use the Template to implement a searchbox that filters the list of columns
+>caption Use the Template to provide custom rendering
 
 ````CSHTML
-@* Type in the Telerik TextBox to filter the list of columns in the Column Chooser *@ 
+@* Use the Template to render the list of columns and add some custom styles *@ 
 
 <TelerikGrid Data="@MyData"
              Pageable="true"
@@ -29,10 +29,12 @@ The `Column Chooser Template` lets you control the rendering of the [ColumnChoos
             <GridColumnMenuChooser>
                 <Template>
                     @{
-                        <TelerikTextBox @bind-Value="@TextboxValue" Label="Search a column"></TelerikTextBox>
-                        foreach (var column in context.Columns.Where(c => c.DisplayTitle.ToLowerInvariant().Contains(TextboxValue.ToLowerInvariant())).ToList())
+                        var columns = context.Columns;
+                        foreach (var column in columns)
                         {
-                            <GridColumnMenuChooserItem Title="@column.DisplayTitle" ColumnId="@column.Id" />
+                            <div style="border: solid 1px red">
+                                <GridColumnMenuChooserItem Title="@column.DisplayTitle" ColumnId="@column.Id" />
+                            </div>
                         }
                     }
 
@@ -74,6 +76,10 @@ The `Column Chooser Template` lets you control the rendering of the [ColumnChoos
     }
 }
 ````
+
+>caption The result from the code snippet above
+
+![templated column chooser example](images/templates-column-chooser-example.png)
 
 ## See Also
 

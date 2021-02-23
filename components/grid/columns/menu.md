@@ -112,7 +112,7 @@ To hide a column from the Column Chooser set the `VisibleInColumnChooser` proper
 
 ### Sections
 
-You can organize the columns in the [Column Chooser](#column-chooser) in different sections. In order to achieve the desired user interface:
+You can organize the columns in the [Column Chooser](#column-chooser) in different sections. To group the columns in different sections:
 
 1. Use the `GridColumnMenuChooser` tag (child to the `GridColumnMenuSettings`)
 
@@ -125,6 +125,8 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
 1. Use the `GridColumnMenuChooserItem` to denote the columns that should be in the group
 
     * You must use set the `ColumnId` parameter of the `GridColumnMenuChooserItem` to the value of the [`Id`]({%slug components/grid/columns/bound%}#grid-bound-column-parameters) parameter of the corresponding Grid Column.
+    
+    * If you set the `Title` parameter of the `GridColumnMenuChooserItem` it will override the value of the `Title` parameter of the corresponding Grid Column. 
 
 ![columns organized in groups](images/column-menu-sections-example.png)
 
