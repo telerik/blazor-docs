@@ -86,5 +86,6 @@ The `Column Chooser Template` lets you control the rendering of the [ColumnChoos
 ## See Also
 
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
+ * [Live Demo: Grid Custom Column Menu](https://demos.telerik.com/blazor-ui/grid/custom-column-menu)
  * [Columns Menu]({%slug grid-column-menu%})
 
