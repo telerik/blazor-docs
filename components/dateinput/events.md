@@ -84,7 +84,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
                   ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )" />
 
 @code {
-    private DateTime DateInputValue { get; set; } = DateTime.Today;
+    private DateTime DateInputValue { get; set; }
 
     string result;
 
