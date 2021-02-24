@@ -25,16 +25,23 @@ The examples below use binding to primitive types for brevity, you can use [full
 >caption Handle ValueChanged
 
 ````CSHTML
+@* Update the model value in the ValueChanged handler *@
+
 @result
 <br />
-<TelerikComboBox Data="@MyList" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
+<TelerikComboBox Data="@MyList" 
+                 Value="@ComboboxValue"
+                 ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
 </TelerikComboBox>
 
 @code {
+    private string ComboboxValue { get; set; }
+
     string result;
 
     private void MyValueChangeHandler(string theUserChoice)
     {
+        ComboboxValue = theUserChoice;
         result = string.Format("The user chose: {0}", theUserChoice);
     }
 
@@ -45,16 +52,24 @@ The examples below use binding to primitive types for brevity, you can use [full
 >caption Handle ValueChanged with custom values - the event fires on every keystroke
 
 ````CSHTML
+@* Update the model value in the ValueChanged handler *@
+
 @result
 <br />
-<TelerikComboBox Data="@MyList" AllowCustom="true" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
+<TelerikComboBox Data="@MyList"
+                 Value="@ComboboxValue"
+                 AllowCustom="true"
+                 ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
 </TelerikComboBox>
 
 @code {
+    private string ComboboxValue { get; set; }
+
     string result;
 
     private void MyValueChangeHandler(string theUserChoice)
     {
+        ComboboxValue = theUserChoice;
         result = string.Format("The user chose: {0}", theUserChoice);
     }
 
