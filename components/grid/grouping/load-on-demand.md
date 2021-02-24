@@ -40,7 +40,10 @@ When loading data on demand through the [OnRead event]({%slug components/grid/ma
 
     * If the currently expanded group row has subgroups, a request is sent with the `GroupPaging` parameter set to `true`, prompting that the response must include the total of items in the sub group and return a collection of groups once again, instead of a collection of models.
 
-* If the currently expanded group row does not have subgroups, the `Filter` parameter of the `DataSourceRequest` will contain the group value (and the values of any subgroups) for which the items are requested.
+    * If the grid starts with grouping set, it will make one request for the list of all the groups, and will keep them in memory for paging, so a paging operation will not call `OnRead` again.
+
+* If the currently expanded group row does not have subgroups, the `Filter` parameter of the `DataSourceRequest` will contain the group value (and the values of any subgroups) for which the items are requested. The `PageSize` of that request is set to `0` so the grid gets all items for that group. The `OnRead` event will fire every time you expand a group to get the items for that group.
+
 
 
 
