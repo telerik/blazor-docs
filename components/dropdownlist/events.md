@@ -61,16 +61,23 @@ The examples below use [binding]({%slug components/dropdownlist/databind%}) to p
 >caption Handle ValueChanged
 
 ````CSHTML
+@* Update the model value in the ValueChanged handler *@
+
 @result
 <br />
-<TelerikDropDownList Data="@MyList" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
+<TelerikDropDownList Data="@MyList" 
+                     Value="@DropDownValue"
+                     ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
 </TelerikDropDownList>
 
 @code {
+    private string DropDownValue { get; set; }
+
     string result;
 
     private void MyValueChangeHandler(string theUserChoice)
     {
+        DropDownValue = theUserChoice;
         result = string.Format("The user chose: {0}", theUserChoice);
     }
 

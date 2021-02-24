@@ -76,16 +76,24 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 >caption Handle ValueChanged
 
 ````CSHTML
+@* Update the model value in the ValueChanged handler *@
+
+<TelerikButton Class="btn-warning">Button</TelerikButton>
+
 @result
 <br />
 
-<TelerikNumericTextBox ValueChanged="@( (double v) => MyValueChangeHandler(v) )"></TelerikNumericTextBox>
+<TelerikNumericTextBox Value="@NumericValue"
+                       ValueChanged="@( (double v) => MyValueChangeHandler(v) )"></TelerikNumericTextBox>
 
 @code {
+    public double NumericValue { get; set; }
+
     string result;
 
     private void MyValueChangeHandler(double theUserInput)
     {
+        NumericValue = theUserInput;
         result = string.Format("The user entered: {0}", theUserInput);
     }
 }
