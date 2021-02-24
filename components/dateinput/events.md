@@ -76,16 +76,21 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 >caption Handle ValueChanged
 
 ````CSHTML
+@* Update the model value in the ValueChanged handler *@
+
 @result
 <br />
-
-<TelerikDateInput ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDateInput>
+<TelerikDateInput Value="@DateInputValue"
+                  ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )" />
 
 @code {
+    private DateTime DateInputValue { get; set; } = DateTime.Today;
+
     string result;
 
     private void MyValueChangeHandler(DateTime theUserInput)
     {
+        DateInputValue = theUserInput;
         result = string.Format("The user entered: {0}", theUserInput);
     }
 }
