@@ -42,6 +42,7 @@ When loading data on demand through the [OnRead event]({%slug components/grid/ma
 
 * If the currently expanded group row does not have subgroups, the `Filter` parameter of the `DataSourceRequest` will contain the group value (and the values of any subgroups) for which the items are requested.
 
+* If the grid starts with grouping set, it will make one request for the list of all the groups, and will keep them in memory for paging, so a paging operation will not call `OnRead` again.
 
 
 ## Examples
