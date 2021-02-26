@@ -149,10 +149,14 @@ To use the icons directly, review the [Kendo UI Web Font Icons Library](https://
 <span class="k-icon k-i-check"></span>
 
 @*Direct usage of the Kendo icons so you can add more classes directly to them*@
-<span class="k-icon k-i-check k-flip-h k-flip-v"></span> 
+<span class="k-icon k-i-check k-flip-h k-flip-v"></span>
 
 @* The same icon can be rendered through the Blazor component but styling needs a parent to cascade through *@
 <TelerikIcon Icon="check"></TelerikIcon>
+
+@* You can add more classes to use the Kendo icons directly through the IconClass parameter
+    Consider whether instantiating a component is necessary over using a simple span element*@
+<TelerikIcon IconClass="k-icon k-i-check k-flip-h k-flip-v"></TelerikIcon>
 ````
 
 
