@@ -170,6 +170,17 @@ This section lists the avaialble font icons that come with the Telerik UI for Bl
 
 Each icon is accompanied by its name that you can use in the Telerik Blazor components where a Telerik `Icon` parameter is available.
 
+For example, the `TelerikIcon` component and the `TelerikButton` component can take the built-in icon names:
+
+````CSHTML
+<TelerikIcon Icon="caret-tr" />
+<br />
+<TelerikButton Icon="caret-tr">caret-tr</TelerikButton>
+````
+
+![Icon Name used in Telerik Components](images/icon-names-in-components.png)
+
+>caption List of icon names to use in Telerik components Icon parameters
 
 <div id="iconListContainer">
 
