@@ -18,6 +18,8 @@ This article explains the events available in the Telerik TabStrip for Blazor:
 
 The `ActiveTabIndexChanged` event fires when the user changes the tab that is currently shown. The event handler receives the new index as an argument.
 
+If you remove programmatically the currently active tab, when it disposes, the event will fire with index `-1` as there will be no selected tab anymore.
+
 >caption Handle the tab selection changed event
 
 ````CSHTL
