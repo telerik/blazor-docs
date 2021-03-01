@@ -34,7 +34,38 @@ The ContextMenu exposes an API to associate the component to any DOM element thr
 ````CSHTML
 @* Use the oncontextmenu event of the HTML element to show the ContextMenu for the TreeView items *@
 
-LastClickedItem = item;
+<TelerikContextMenu Data="@ContextMenuData"
+                    @ref="ContextMenu"
+                    SeparatorField="Separator"
+                    TextField="Text"
+                    IconField="Icon"
+                    OnClick="@((ContextMenuItem item) => ClickHandler(item))">
+</TelerikContextMenu>
+
+<TelerikTreeView Data="@TreeData">
+    <TreeViewBindings>
+        <TreeViewBinding>
+            <ItemTemplate>
+                @{
+                    TreeItem itm = context as TreeItem;
+                    <div @oncontextmenu:preventDefault="true"
+                          @oncontextmenu="@((MouseEventArgs e) => ShowContextMenu(e, itm))">
+                        Node:
+                        <strong>@itm.Text</strong>
+                    </div>
+                }
+            </ItemTemplate>
+        </TreeViewBinding>
+    </TreeViewBindings>
+</TelerikTreeView>
+
+@code {
+    private TelerikContextMenu<ContextMenuItem> ContextMenu { get; set; }
+    TreeItem LastClickedItem { get; set; }
+
+    private async Task ShowContextMenu(MouseEventArgs e, TreeItem item)
+    {
+        LastClickedItem = item;
 
         await ContextMenu.ShowAsync(e.ClientX, e.ClientY);
     }
