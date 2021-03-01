@@ -28,7 +28,7 @@ I would like to add the ContextMenu component to every item (node) in the TreeVi
 
 ## Solution
 
-The ContextMenu exposes an API to associate the component to any DOM element through the [Show]({%slug contextmenu-integration%}) method. You can use [oncontextmenu](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/oncontextmenu) event of the HTML element to show the context menu by using the `MouseEventArgs`. 
+The ContextMenu exposes an API to associate the component to any DOM element through the [Show]({%slug contextmenu-integration%}) method. You can use the [oncontextmenu](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/oncontextmenu) event of the HTML element to show the context menu by using the `MouseEventArgs`. 
 
 
 
