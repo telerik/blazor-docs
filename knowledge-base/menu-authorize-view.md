@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Menu for Blazor</td>
+			<td>Menu for Blazor, Drawer for Blazor, TreeView for Blazor, ContextMenu for Blazor</td>
 		</tr>
 	</tbody>
 </table>
@@ -46,6 +46,10 @@ This would be the same approach as handling any other data that needs to be behi
 
 
 ## Notes
+
+
+This article is also applicable to other navigation components such as the treeview and the drawer - the situation and concepts are the same. Some components (like the drawer and context menu) offer a full template where you can render HTML and components declaratively so you can avoid managing the Data collection (create an empty `List<object>` for it so there is a non-null object).
+
 
 A common question is whether it is possible to hide only items or their text with CSS based on authorization info used in the item template. Doing so would not be a good practice because:
 
