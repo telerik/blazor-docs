@@ -28,6 +28,8 @@ This article provides the following two examples:
 * [Know The Target And Adjust Items](#know-the-target-and-adjust-items)
 * [Context Menu for a Grid Row](#context-menu-for-a-grid-row)
 
+You can apply the approach of hooking to your own events to show the context menu in other scenarios as well. For example, you can [add a context menu for your treeview nodes]({%slug contextmenu-kb-treeview-item%}).
+
 ## Know The Target And Adjust Items
 
 Hooking to your own HTML elements' events lets you determine what to do with the context menu before showing it (for example, altering its data source).
