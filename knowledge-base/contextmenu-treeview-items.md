@@ -15,8 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>ContextMenu for Blazor</td>
-            <td>TreeView for Blazor</td>
+			<td>ContextMenu for Blazor, TreeView for Blazor</td>
 		</tr>
 	</tbody>
 </table>
@@ -28,7 +27,7 @@ I would like to add the ContextMenu component to every item (node) in the TreeVi
 
 ## Solution
 
-The ContextMenu exposes an API to associate the component to any DOM element through the [Show]({%slug contextmenu-integration%}) method. You can use the [oncontextmenu](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/oncontextmenu) event of the HTML element to show the context menu by using the `MouseEventArgs`. 
+The ContextMenu exposes an API to associate the component to any DOM element through the [ShowAsync]({%slug contextmenu-integration%}) method. You can use the [oncontextmenu](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/oncontextmenu) event of an HTML element in the [treeview item template]({%slug components/treeview/templates%}) to show the context menu by using the `MouseEventArgs`. 
 
 
 
@@ -145,4 +144,4 @@ LastClickedItem = item;
 
 ## Notes
 
-An important point to take into consideration here is that, at the time of writing, when you are using a template you cannot trigger a close of the ContextMenu, you can only close it if you click outside of it (there is an opened feature request for that in our [public feedback portal](https://feedback.telerik.com/blazor/1497622-add-hide-and-or-hideasync-method-to-contextmenu)).
+At the time of writing, when you are using a template you cannot trigger a close of the ContextMenu, you can only close it if you click outside of it (there is an opened feature request for that in our [public feedback portal](https://feedback.telerik.com/blazor/1497622-add-hide-and-or-hideasync-method-to-contextmenu)) that contains a workaround.
