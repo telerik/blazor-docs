@@ -106,6 +106,8 @@ The following example shows one way you can store the TreeList state - through a
   
 >note If you use [Hierarchical data]({%slug treelist-data-binding-hierarchical-data%}) for the TreeList you need to serialize the current item only and not the entire collection of child items in order not to exceed the size of the LocalStorage.
 
+>note We support the `System.Text.Json` serialization that is built-in in Blazor.
+
 >caption Save, Load, Reset TreeList state on every state change. Uses a sample LocalStorage in the browser.
 
 ````Component
