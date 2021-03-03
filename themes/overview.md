@@ -15,7 +15,7 @@ The UI for Blazor suite comes with a set of built-in themes that you can choose 
 
 * **Default** - our own neutral styling that suits most cases.
 * **Bootstrap** - a theme that matches the Bootstrap styling. Read more in the [Bootstrap Notes](#bootstrap-notes) section.
-* **Material** - implements the [Material Design Guidelines](https://material.io/design/).
+* **Material** - implements the [Material Design Guidelines](https://material.io/design/). Read more in the [Material Notes](#material-notes) section.
 
 The UI for Blazor suite has the same HTML rendering and SASS Theme stylesheets like other Kendo UI suites, so previous experience with them can be helpful. The components in **UI for Blazor are native components** and not wrappers over jQuery widgets, however.
 
@@ -147,6 +147,23 @@ The Kendo UI Sass-based themes are located on the Progress NPM registry:
 * **Kendo UI Material Theme**&mdash;Available as @progress/kendo-theme-material.
 
 You can read more about using this approach in the [Custom Theme - Manual Process]({%slug themes-custom%}#manual-alternative) article.
+
+
+## Material Notes
+
+For the Telerik Material theme to closely implement the <a href="https://material.io/guidelines/" target="_blank">Material Design Guidelines</a>, you should provide the `Roboto` font family.
+
+By default, the Material theme uses the Roboto font family but the font itself is not included in the Telerik theme - it is not our property and it will also add bloat to our package.
+
+You can add the font to the page from Google Fonts in the following way:
+
+````HTML
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+
+<style>
+  body { font-family: Roboto, sans-serif; }
+</style>
+````
 
 ## Bootstrap Notes
 
