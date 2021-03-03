@@ -29,7 +29,7 @@ There are a couple of common ways people implement CI/CD automated builds.
 
 * Creating a local folder (for example, on a shared network drive or other suitable location accessible only by your builds and team) that holds the `.nupkg` files we provide (you can download them from your telerik.com account, or from your local installation - both [automated]({%slug installation/msi%}) and from the [zip archive]({%slug installation/zip%})).
 
-You must protect your credentials and/or the Telerik packages and ensure they are used only by you and not by other developers, according to the [license-per-developer policy](https://www.telerik.com/purchase/license-agreement/blazor-ui). They can by such colleagues (like other developers, QAs, designers, front-end devs, DBAs and so on) for building and running a solution, provided they do not use the Telerik components to create functionality. Of course, you must ensure that such credentials or package sources are not available to the general public (for example, in public repositories). 
+You must protect your credentials and/or the Telerik packages and ensure they are used only by you and not by other developers, according to the [license-per-developer policy](https://www.telerik.com/purchase/license-agreement/blazor-ui). As long as your credentials are obfuscated/masked, they can be used by your colleagues (e.g. developers, QAs, designers, front-end devs, DBAs, etc.) for building and running a solution, provided they do not use the Telerik components to create functionality. Most importantly, you must ensure that such credentials or package sources are not available to the general public (for example, in public repositories). 
 
 
 ## Azure DevOps Pipelines
@@ -102,5 +102,6 @@ Finally, you need a `nuget.config` file that lists the Telerik server in the `pa
 
 ## See Also
 
-* [I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-message)
-* [Missing JS Interop File]({%slug troubleshooting-js-errors%}#missing-file) 
+* [Blog Post: Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)
+* [DevOpsExamples repo by Lance McCarthy](https://github.com/LanceMcCarthy/DevOpsExamples)
+
