@@ -12,20 +12,21 @@ position: 1
 
 This article explains how to add the private Telerik NuGet feed to your system. You can use it to obtain the Telerik UI for Blazor components.
 
-There are several approaches:
+#### There are several approaches to set up the Telerik NuGet feed
 
 * [Video Tutorial - Visual Studio](#video-tutorial---visual-studio)
+
 * [Manual Steps - CLI](#manual-steps---cli)
+
 * [Nuget Config File](#nuget-config-file)
 
 This article also offers some troubleshooting information in case you encounter problems:
 
 * [Troubleshooting](#troubleshooting)
     * [I do not see the Telerik Packages](#i-do-not-see-the-telerik-packages)
-    * [CI and CD Automated Builds](#ci-and-cd-automated-builds)
-        * Azure DevOps Pipelines
-        * GitHub Secrets
     * [Error 401 Logon failed.](#error-401-login-failed)
+
+For issues with automated builds, CI and CD, see the [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%}) article.
 
 ## Video Tutorial - Visual Studio
 
@@ -107,12 +108,9 @@ To use a `nuget.config` file for the Telerik feed, you need to:
 
 ## Troubleshooting
 
-This section lists problems related to the Telerik NuGet feed and their solutions
+This section lists problems related to the Telerik NuGet feed and their solutions:
 
 * [I do not see the Telerik Packages](#i-do-not-see-the-telerik-packages)
-* [CI and CD Automated Builds](#ci-and-cd-automated-builds)
-  * Azure DevOps Pipelines
-  * GitHub Secrets
 * [Error 401 Logon failed.](#error-401-login-failed)
 
 ### I do not see the Telerik Packages
@@ -139,81 +137,6 @@ Here is a sample process of removing stored credentials from Windows so you can 
 7. Enter the Telerik nuget package source again through Visual Studio or CLI. If you are using the feed in .NET Core application, [store your credentials as plain text](#store-credentials-in-clear-text-for-the-telerik-nuget-feed).
 
 
-### CI and CD Automated Builds
-
-Often enough, you would want to set up Continuous Integration and/or Continuous Delivery (CI/CD) pipelines or builds for your project that uses the Telerik components. This is a valid scenario and the "one license per developer" license does not prevent you from doing so. The Telerik components are commercial software and as such can only be distributed through channels that are private and/or behind authentication.
-
-There are a couple of common ways people implement CI/CD automated builds:
-
-* You can put your own credentials (or the credentials of the license holder, depending on how your licenses are set up) in the nuget.config of the build machine/pipeline. In many cases, when doing so, they will even be encrypted when you add the Telerik feed source through the CLI. Alternatively, you can copy an encrypted version from your own local config if you have one and if plain text is an issue.
-
-* Creating a local folder (for example, on a shared network drive or other suitable location accessible by your builds and team) that holds the `.nupkg` files we provide (you can download them from your telerik.com account).
-
-You must protect your credentials and/or the Telerik packages and ensure they are used only by you and not by other developers, according to the [license-per-developer policy](https://www.telerik.com/purchase/license-agreement/blazor-ui). They can by such colleagues (like other developers, QAs, designers, front-end devs, DBAs and so on) for building and running a solution, provided they do not use the Telerik components to create functionality. Of course, you must ensure that such credentials or package sources are not available to the general public (for example, in public repositories). 
-
-#### Azure DevOps Pipelines
-
-When using Azure pipelines, we encourage you to review the following resources on setting things up:
-
-* Blog post: [Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)
-* Sample Repo and Video Tutorial: [Telerik DevOpsExamples by LanceMcCarthy](https://github.com/LanceMcCarthy/DevOpsExamples)
-
-There are a couple of common questions and issues:
-
-* Obtaining credentials - see the points above for either using your own credentials, or using a shared package source.
-
-* Telerik feed not being found - the most common reason for a problem is that the path to the `nuget.config` file is wrong (it should, by default, be at the root level).
-
-* An `index.json not found` error can occur from many root causes. If you have successfully authenticated, this error usually means that the feed wasn't able to be searched or connected to. A common reason is an incorrect feed URL, such as including a trailing slash - Correct: `https://nuget.telerik.com/nuget` and Incorrect: `https://nuget.telerik.com/nuget/`.
-
-A few things to double check to ensure correct setup:
-
-* The Service connection is using Basic Authentication and the URL is correct (`https://nuget.telerik.com/nuget` exactly, no trailing slash).
-* That Service Connection is selected as the credentials source.
-* The credentials being used have a UI for Blazor license.
-* Make sure that you use `dotnet restore` and not `nuget restore` in your pipeline step.
-
-
-#### GitHub Secrets
-
-In some cases, [GitHub Secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) are used to store credentials that you would later have to consume from the `nuget.config` file in order to connect to the Telerik feed in your GitHub Actions workflows.
-
-A way to pass them along is to mark them as environment variables. You can find an example in the [DevOpsExamples repo by Lance McCarthy](https://github.com/LanceMcCarthy/DevOpsExamples). Here follow the two relevant extracts.
-
->caption Example of setting GitHub Secrets into Environment Variables for Telerik Login
-
-````YAML
-jobs:
-  build:
-    runs-on: windows-latest
-
-    env:
-      TELERIK_USERNAME: ${ { secrets.MyTelerikAccountUsername } }  # remove the space between the brackets
-      TELERIK_PASSWORD: ${ { secrets.MyTelerikAccountPassword } }  # remove the space between the brackets
-
-````
->tip Even though you are copying secrets into Environment Variables on the runner, Github Actions will continue to treat the values as protected string and mask the values in all output.
-
-Finally, you need a `nuget.config` file that lists the Telerik server in the `packageSources`, as well as an accompanying `packageSourceCredentials` that uses those named environment variables for the `Username` and `ClearTextPassword` keys.
-
->caption Example of Using Environment Variables in NuGet.config
-
-````XML
-<packageSources>
-  <clear />
-  <add key="NuGet" value="https://api.nuget.org/v3/index.json" />
-  <add key="TelerikFeed" value="https://nuget.telerik.com/nuget" />
-</packageSources>
-<packageSourceCredentials>
-  <TelerikFeed>
-    <add key="Username" value="%TELERIK_USERNAME%" />
-    <add key="ClearTextPassword" value="%TELERIK_PASSWORD%" />
-  </TelerikFeed>
-</packageSourceCredentials>
-````
-
->warning GitHub does not allow secrets to be used in workflows that have been [triggered by a pull request event](https://docs.github.com/en/actions/reference/events-that-trigger-workflows). In such a case, the runner will not be able to authenticate with the Telerik NuGet server and the job will expectedly fail.
-
 ### Error 401 login failed
 
 If your password contains a special character, those characters need to be escaped or it may fail authentication resulting in *Error 401 login failure* from the NuGet server. A common character that needs to be escaped is the ampersand `&`, but it can be as unique as the section character `§`.
@@ -239,4 +162,5 @@ Add-Type -AssemblyName System.Web
 * [Get Started with Client-side Blazor]({%slug getting-started/client-side%})
 * [Get Started with Server-side Blazor]({%slug getting-started/server-side%})
 * [Blog Post: Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)
+* [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%})
 
