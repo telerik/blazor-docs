@@ -5,7 +5,7 @@ description: CI, CD, Build Server setup involving the UI for Blazor suite.
 slug: deployment-ci-cd-build-pc
 tags: deploy,deployment,ci,cd,build,pc,machine
 published: True
-position: 3
+position: 5
 ---
 
 # CI, CD, Build Server Setup

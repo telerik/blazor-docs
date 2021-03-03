@@ -5,7 +5,7 @@ description: Troubleshooting deployment issues involving the UI for Blazor suite
 slug: deployment-troubleshooting
 tags: deploy,deployment,issues,troubleshoot,fix
 published: True
-position: 3
+position: 10
 ---
 
 # Deployment Troubleshooting
@@ -24,7 +24,7 @@ At the time of writing, sometimes the following issues have been reported that p
 * [404 not found for telerik-blazor.js](#404-not-found-for-telerik-blazorjs)
 * [Trial Message](#trial-message)
 * [Could not load file or assembly 'System.Text.Json, ...](#could-not-load-file-or-assembly-systemtextjson-)
-* [SignalR Off in the Cloud](#signalr-off-in-the-cloud)
+* [Blazor Server Slow or Breaks Up in the Cloud](#blazor-server-slow-or-breaks-up-in-the-cloud)
 
 ### 404 not found for telerik-blazor.js
 
@@ -83,11 +83,18 @@ At the time of writing, sometimes the following issues have been reported that p
 
 `Could not load file or assembly 'System.Text.Json, ...` - Sometimes this exception is thrown in production (when you deploy the app to another server) when you use things like charts, tooltips or other code that relies on serialization. The usual problem is that the server is missing the corresponding .NET Core version the app was built with. Some reports also indicate that adding explicitly the `System.Text.Json` package to the Blazor project solves problem.
 
-### SignalR Off in the Cloud
+### Blazor Server Slow or Breaks Up in the Cloud
 
-We have also had reports that hosting a Server-side Blazor app on a cloud service, or even on a server that is relatively remote to the client, causes issues. The network latency may interrupt, break or re-arrange the SignalR packets and this can cause a variety of usability issues - from sluggish responses to wrong UI elements responding, or errors. If your users will have a large latency to the server, you may want to consider the Client-side (WASM) model or at least test what the experience is before rolling out to production.
+We have had reports that hosting a Server-side Blazor app on a cloud service, or even on a server that is relatively remote to the client, causes issues. 
 
-* In Azure, for example, WebSockets are disabled by default, and this is detrimental to the performance of the SignalR connection. Enabling WebSockets may help you get the needed speed and responsiveness from the server.
+The network latency may interrupt, break or re-arrange the SignalR packets and this can cause a variety of usability issues - from sluggish responses to wrong UI elements responding, or errors. 
+
+If your users will have a large latency to the server, you may want to consider the Client-side (WebAssembly) model or at least test what the experience is before rolling out to production.
+
+You can use the following Microsoft guidance to check the latency: <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/server?view=aspnetcore-5.0#measure-network-latency" target="_blank">MSDN: Measure network latency</a>. The cited 250ms could be acceptable for "slow" actions like clicks, but fast interactions like mouseover for menus and tooltips will require a significantly faster response to work nicely for the user. We've had reports that latency above 70-80ms starts to make such fast interractions feel laggy to the user.
+
+>note In Azure, for example, WebSockets are disabled by default, and this is highly detrimental to the performance of the SignalR connection. Enabling WebSockets may help you get the needed speed and responsiveness from the server.
+
 
 ## See Also
 
