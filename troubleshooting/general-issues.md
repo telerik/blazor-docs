@@ -64,6 +64,8 @@ There are several common cases when such a mismatch occurs:
 
 * There is more than one `<TelerikRootComponent>` in the app (for example, a certain Razor Component has its own) - there should be only one instance in the main layout.
 
+* The default `margin` of the `body` element is not removed with a rule like `body { margin:0; }` such as the one that Bootstrap brings in. With this margin in play the `<body>` and the browser viewport do not match exactly and Telerik popups may e displaced with the value of the margin.
+
 You can check the application for such issues and ensure that the `<app>` element size and position matches the `<body>` and the browser viewport, and that the `<TelerikRootComponent>` is a direct child of the `<app>` element and encompasses the `@Body` in the main layout.
 
 
