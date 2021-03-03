@@ -50,15 +50,21 @@ To use the Form component with a model:
 
     public class Person
     {
-        [Range(100, 1000, ErrorMessage ="The Id must be between 100 and 1000")]
+        [Editable(false)]
         public int Id { get; set; }
+
         [Required]
-        [MaxLength(20, ErrorMessage ="The first name should be maximum 20 characters long")]
+        [MaxLength(20, ErrorMessage = "The first name should be maximum 20 characters long")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
+
         [Required]
         [MaxLength(25, ErrorMessage = "The last name should be maximum 25 characters long")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
         [Required]
+        [Display(Name = "Date of Birth")]
         public DateTime? DOB { get; set; }
     }
 }
@@ -104,15 +110,21 @@ To use the Form component with an EditContext:
 
     public class Person
     {
-        [Range(100, 1000, ErrorMessage ="The Id must be between 100 and 1000")]
+        [Editable(false)]
         public int Id { get; set; }
+
         [Required]
-        [MaxLength(20, ErrorMessage ="The first name should be maximum 20 characters long")]
+        [MaxLength(20, ErrorMessage = "The first name should be maximum 20 characters long")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
+
         [Required]
         [MaxLength(25, ErrorMessage = "The last name should be maximum 25 characters long")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
         [Required]
+        [Display(Name = "Date of Birth")]
         public DateTime? DOB { get; set; }
     }
 }
@@ -176,7 +188,7 @@ The Form also uses the the following attributes from the model:
 
 * `[Enabled(false)]` - to render the built-in editor as disabled so the user cannot change its value.
 
-You can customize the editors further through the [form items]({%slug form-formitems%}).
+You can customize the editors further through the [form items]({%slug form-formitems%}). Explicit settings you provide through the parameters will take precedence over data annotation attributes.
 
 ## Features
 
