@@ -173,6 +173,7 @@ The Telerik Form for Blazor supports validation through the `<DataAnnotationsVal
 The Form also uses the the following attributes from the model:
 
 * `[Display(Name="Field Caption")]` - to get the title (caption) of the field name to render out as its label. 
+
 * `[Enabled(false)]` - to render the built-in editor as disabled so the user cannot change its value.
 
 You can customize the editors further through the [form items]({%slug form-formitems%}).
