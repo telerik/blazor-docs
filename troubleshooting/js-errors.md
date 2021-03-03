@@ -44,7 +44,7 @@ You can check if this is the case by inspecting the Network tab of your browser 
 * Static assets are not enabled on the server project, or the hosting environment does not work well with them. You need to ensure that the static assets are available after the build and on the deployment server - they are in the local NuGet cache, under a path similar to `C:\Users\<theUser>\.nuget\packages\telerik.ui.for.blazor\<theVersion>\staticwebassets`. It is also possible that the hosting server does not support static assets or has issues with them and you may need to confirm this with the hosting provider or by testing with a simple package having a static asset to see whether it gets returned.
     * [Clearing the NuGet cache](https://docs.microsoft.com/en-us/nuget/consume-packages/managing-the-global-packages-and-cache-folders#clearing-local-folders), then running a `Clean` and `Rebuild` on the solution may fix the problem in case something went wrong with fetching the NuGet package. In case `Clean` does not clean up the `bin` and `obj` folders, you can also delete them manually before `Rebuild`.
 
-* A problem occurs during the deployment. See the [Deployment Troubleshooting]({%slug troubleshooting-deployment%}) article for more details.
+* A problem occurs during the deployment. See the [Deployment Troubleshooting]({%slug deployment-troubleshooting%}) article for more details.
 
 ### Defer Attribute
 
