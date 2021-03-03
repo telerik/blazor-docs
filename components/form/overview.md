@@ -170,7 +170,12 @@ The following data types are supported out-of-the box and they use the following
 
 The Telerik Form for Blazor supports validation through the `<DataAnnotationsValidator />`. This allows you to take advantage of all validation attributes from the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0" target="_blank">data annotation attributes</a> list provided by .NET.
 
-The Form also uses the `[Display(Name="Field Caption")]` attribute to get the title (caption) of the field name to render out as its label. You can customize that further through the [form items]({%slug form-formitems%}).
+The Form also uses the the following attributes from the model:
+
+* `[Display(Name="Field Caption")]` - to get the title (caption) of the field name to render out as its label. 
+* `[Enabled(false)]` - to render the built-in editor as disabled so the user cannot change its value.
+
+You can customize the editors further through the [form items]({%slug form-formitems%}).
 
 ## Features
 
