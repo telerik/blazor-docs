@@ -17,6 +17,7 @@ The Blazor LoaderContainer provides an animated indicator, a panel, and an overl
 * [Basic Loader Container](#basic-loadercontainer)
 * [Features](#features)
 * [Examples](#examples)
+    * [Block All Content](#block-all-content)
     * [Remove the Panel from the LoaderContainer](#remove-the-panel-from-the-loadercontainer)
     * [Fill a Parent Container](#fill-a-parent-container)
 
@@ -105,8 +106,19 @@ The LoaderContainer provides the following features:
 
 ## Examples
 
+* [Block All Content](#block-all-content)
 * [Remove the Panel from the LoaderContainer](#remove-the-panel-from-the-loadercontainer)
 * [Fill a Parent Container](#fill-a-parent-container)
+
+### Block All Content
+
+By default, the Loader Container fills up the browser viewport, because this is the only certain size it can use - the application layout can change dimensions and where the scrollbars appear and there isn't a way for the component to know that and cater for all possible layouts.
+
+So, if you want to make the loader container block all content on the app while it is shown, you must ensure the total app size fits the viewport and scrollbars appear inside it on an element that you can define.
+
+>note Since the exact CSS rules and elements will vary depending on the layout, you need to examine the rendering in order to define them.
+>
+> You can find one example in the following **sample project**: <a href="https://github.com/telerik/blazor-ui/tree/master/loader/block-all-content" target="_blank">Disable All Content with Telerik Loader</a>
 
 ### Remove the Panel from the LoaderContainer
 
@@ -185,6 +197,12 @@ The LoaderContainer for Blazor can fill a parent container, for example a `div` 
 >caption The result from the code snippet above
 
 ![](images/loadercontainer-fill-parent.png)
+
+
+
+
+
+
 
 ## See Also
 
