@@ -115,8 +115,12 @@ You can use the following properties on the bound columns:
 
 * `ref` - the standard Blazor reference name.
 
+* `FieldType` - when binding the grid to an `object` rather than a real model, set this to the `typeof` the field the column will be displaying. Such a case would be <a href="https://github.com/telerik/blazor-ui/tree/master/grid/binding-to-expando-object" target="_blank">binding to expando objects</a>, using [OnRead with grouping]({%slug components/grid/manual-operations%}#grouping-with-onread) or <a href="https://demos.telerik.com/blazor-ui/grid/data-table" target="_blank">binding to a DataTable</a>.
+
 * `EditorTemplate` - this property can also be used as an inner tag and it lets you define the [column edit content]({%slug components/grid/features/templates%}#edit-template). It can also point to a component name.
+
 * `FilterCellTemplate` - this property can also be used as an inner tag and it lets you customize [the Grid Filter Row]({%slug grid-templates-filter%}#filter-row-template). It can also point to a component name.
+
 * `FilterMenuTemplate` - this property can also be used as an inner tag and it lets you customize [the Grid Filter Menu]({%slug grid-templates-filter%}#filter-menu-template). It can also point to a component name.
 
 >tip You can find more examples in the rest of the grid documentation and in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview).
