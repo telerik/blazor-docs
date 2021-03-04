@@ -14,18 +14,31 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Form for Blazor</td>
+			<td>Form for Blazor, all inputs (textboxes)</td>
 		</tr>
 	</tbody>
 </table>
 
 ## Description
 
-I am using the Telerik Form for Blazor. When the application is rendered in Chrome the browser automatically completes the fields of the Form. The floating labels are not moved and the autofilled values are overlapped by the text from the label.
+I am using the Telerik Form for Blazor. When the application is rendered in Chrome, the browser automatically completes the fields of the Form. The floating labels are not moved and the autofilled values are overlapped by the text from the label.
 
-#### Problematic configuration
+#### Problematic display
 
 ![](images/problematic-example-chrome-form-autofill.png)
+
+## Cause of the Problem
+
+When Chrome autofills the values in the fields in the form the `oninput` and `onfocus` events are not fired. This means that the browser does not notify the fields that their values have changed and thus the floating label remains inside the TelerikTextbox. 
+
+The application is not given the chance to respond to the autofill action of the browser because no events are fired.
+
+## To Reproduce
+
+1. Run this snippet in the browser
+2. Fill in the form and click Submit
+3. In the browser popup asking you to save the data for the future, confirm and let Chrome save it
+4. Reload the page - the browser will autofill the saved data
 
 ````CSHTML
 @* This example showcases the problematic configuration *@ 
@@ -73,14 +86,12 @@ I am using the Telerik Form for Blazor. When the application is rendered in Chro
 }
 ````
 
-
 ## Solution
 
-When Chrome autofills the values in the fields in the form the `oninput` and `onfocus` events are not fired. This means that the browser does not notify the fields that their values have changed and thus the floating label remains inside the TelerikTextbox. To solve this you can either [Use the standard HTML label](#use-the-standard-html-label) or disable it altogether. 
 
-### Use the standard HTML label
+To solve this appearance glitch, disable the floating label of the Telerik Textbox by removing its `Label` parameter.
 
-You can use the standard HTML `<label>` tag instead of the floating label that the TelerikTextbox provides.
+You can also add a standard HTML `<label>` element to have a label for your input.
 
 ````CSHTML
 @* Provide labels for the Textboxes *@
