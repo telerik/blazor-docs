@@ -45,7 +45,7 @@ If you try to use an aggregate that is not defined, or an aggregate over an unsu
 >caption Use Aggregates in the Telerik Blazor Grid
 
 ````CSHTML
-@* Enable and use aggregates. To see the full effect, group by a column - "Team" and then "Active Projects" *@
+Enable and use aggregates. To see the full effect, group by a column - "Team" and then "Active Projects".
 
 <TelerikGrid Data=@GridData Groupable="true" Pageable="true" Height="700px">
     <GridAggregates>

@@ -24,7 +24,7 @@ Select one of the following links to see the example:
 
 * [Checkboxes](#checkboxes)
 * [Radio Buttons](#radio-buttons)
-* [Inputs](#inputs)
+* [Inputs (Textboxes)](#inputs-(textboxes))
 * [Buttons](#buttons)
 * [Cards](#cards)
 
@@ -72,11 +72,11 @@ A specific CSS class applied to a `label` element can give you a radio buttons t
 <label class="k-radio-label" for="opt1">Disabled option</label>
 ````
 
-## Inputs
+## Inputs (Textboxes)
 
-You can match standard `input` elements with the styling of a Telerik component like a numeric textbox.
+You can match standard `input`(`textbox`) elements with the styling of a Telerik component like a numeric textbox.
 
->tip Telerik provides the majority of necessary inputs - [numeric](../components/numerictextbox/overview) textbox, [date](../components/datepicker/overview) and [time](../components/timepicker/overview) pickers, [password](../components/textbox/overview) input, various [dropdowns](../components/combobox/overview).
+>tip Telerik provides the majority of necessary inputs - [textbox](../components/textbox/overview), [numeric](../components/numerictextbox/overview) textbox, [date](../components/datepicker/overview) and [time](../components/timepicker/overview) pickers, [password](../components/textbox/overview) input, various [dropdowns](../components/combobox/overview).
 
 ![](images/style-input.png)
 
