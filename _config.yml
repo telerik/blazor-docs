@@ -39,9 +39,12 @@ navigation:
      "accessibility":
         title: "Accessibility"
         position: 17
+     "*deployment":
+        title: "Deployment"
+        position: 18
      "upgrade":
         title: "Upgrade"
-        position: 18
+        position: 19
      "upgrade/breaking-changes":
         title: "Breaking Changes"
      "how-to":

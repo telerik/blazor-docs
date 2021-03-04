@@ -18,8 +18,9 @@ This page provides solutions for common issues you may encounter while working w
 * [Cannot provide a value for property 'Localizer'](#cannot-provide-a-value-for-property-localizer)
 * [Slow Performance](#slow-performance)
 * [JavaScript Errors]({%slug troubleshooting-js-errors%})
-* [Issues After Deployment]({%slug troubleshooting-deployment%})
+* [Issues After Deployment]({%slug deployment-troubleshooting%})
 * [Content Security Policy]({%slug troubleshooting-csp%})
+* [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%})
 
 
 ## Popups Do Not Work
