@@ -52,7 +52,9 @@ The following articles provide information on the most common issues and questio
 
 * [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%}) - guidance on setting up continuous integration, continuous delivery and automated builds. Mostly related to using the Telerik NuGet packages as this is the only specific thing that we require.
 
-* [Telerik Private NuGet Feed]({%slug installation/nuget%}) - general guidance on setting up our private NuGet feed for local use, and troubleshooting basic issues.
+* [Telerik Private NuGet Feed]({%slug installation/nuget%}) - general guidance on setting up our private NuGet feed for local use
+
+* [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%}) - troubleshooting the most common issues with our nuget feed.
 
 
 ## See Also
