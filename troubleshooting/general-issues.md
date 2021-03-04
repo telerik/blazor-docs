@@ -20,6 +20,7 @@ This page provides solutions for common issues you may encounter while working w
 * [JavaScript Errors]({%slug troubleshooting-js-errors%})
 * [Issues After Deployment]({%slug deployment-troubleshooting%})
 * [Content Security Policy]({%slug troubleshooting-csp%})
+* [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%})
 
 
 ## Popups Do Not Work
