@@ -28,6 +28,7 @@ The `FormItem` tag exposes the following parameters which you can use to customi
 * `Id` - `string` - maps to the `id` HTML attribute of the `<input>` tag.
 
 * `Hint` - `string` - defines a hint for the user on the place of the validation message. If a validation error occurs the hint will be replaced by the corresponding validation message. 
+* `Enabled` - `bool` - whether the editor is disabled. Defaults to `true` and the Form takes its value from the `[Enabled]` data annotation attribute.
 
 * `Field` - `string` - the name of the field in the model that the editor will render for as a string (case-sensitive). You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeFIeld)`).
 
@@ -53,7 +54,7 @@ The `FormItem` tag exposes the following parameters which you can use to customi
         <DataAnnotationsValidator></DataAnnotationsValidator>
     </FormValidation>
     <FormItems>
-        <FormItem Field="@nameof(Person.Id)" LabelText="Id" Hint="Make sure you know what you are doing when editing an ID"></FormItem>
+        <FormItem Field="@nameof(Person.Id)" Enabled="false" LabelText="Id"></FormItem>
         <FormItem Field="@nameof(Person.FirstName)" LabelText="First name" Hint="Enter your first name"></FormItem>
         <FormItem Field="@nameof(Person.LastName)" LabelText="Last name" Hint="Enter your last name" ColSpan="2"></FormItem>
         <FormItem Field="@nameof(Person.DOB)" LabelText="Date of birth" Hint="Enter your Date of Birth"></FormItem>

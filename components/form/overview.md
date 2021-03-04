@@ -50,15 +50,21 @@ To use the Form component with a model:
 
     public class Person
     {
-        [Range(100, 1000, ErrorMessage ="The Id must be between 100 and 1000")]
+        [Editable(false)]
         public int Id { get; set; }
+
         [Required]
-        [MaxLength(20, ErrorMessage ="The first name should be maximum 20 characters long")]
+        [MaxLength(20, ErrorMessage = "The first name should be maximum 20 characters long")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
+
         [Required]
         [MaxLength(25, ErrorMessage = "The last name should be maximum 25 characters long")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
         [Required]
+        [Display(Name = "Date of Birth")]
         public DateTime? DOB { get; set; }
     }
 }
@@ -104,15 +110,21 @@ To use the Form component with an EditContext:
 
     public class Person
     {
-        [Range(100, 1000, ErrorMessage ="The Id must be between 100 and 1000")]
+        [Editable(false)]
         public int Id { get; set; }
+
         [Required]
-        [MaxLength(20, ErrorMessage ="The first name should be maximum 20 characters long")]
+        [MaxLength(20, ErrorMessage = "The first name should be maximum 20 characters long")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
+
         [Required]
         [MaxLength(25, ErrorMessage = "The last name should be maximum 25 characters long")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
         [Required]
+        [Display(Name = "Date of Birth")]
         public DateTime? DOB { get; set; }
     }
 }
@@ -170,7 +182,13 @@ The following data types are supported out-of-the box and they use the following
 
 The Telerik Form for Blazor supports validation through the `<DataAnnotationsValidator />`. This allows you to take advantage of all validation attributes from the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0" target="_blank">data annotation attributes</a> list provided by .NET.
 
-The Form also uses the `[Display(Name="Field Caption")]` attribute to get the title (caption) of the field name to render out as its label. You can customize that further through the [form items]({%slug form-formitems%}).
+The Form also uses the the following attributes from the model:
+
+* `[Display(Name="Field Caption")]` - to get the title (caption) of the field name to render out as its label. 
+
+* `[Enabled(false)]` - to render the built-in editor as disabled so the user cannot change its value.
+
+You can customize the editors further through the [form items]({%slug form-formitems%}). Explicit settings you provide through the parameters will take precedence over data annotation attributes.
 
 ## Features
 
