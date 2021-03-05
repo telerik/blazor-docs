@@ -26,6 +26,8 @@ With regard to the widths of its columns, the scrollable (default) Grid typicall
 
 * When no column widths are set, the available width is distributed evenly between all Grid columns.
 
+* To allow the users to auto-fit the column widths to the content, enable [column resizing]({%slug components/grid/columns/resize%}) - a double click on the border between the headers will have the grid adjust the column width according to the size of the data, headers and footers content.
+
 # See Also
 
 * [Column Resizing]({%slug components/grid/columns/resize%})

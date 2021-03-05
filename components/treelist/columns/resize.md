@@ -16,6 +16,8 @@ To enable the column resizing, set the `Resizable` parameter of the treelist to 
 
 To prevent the user from resizing a certain column, set its own parameter `Resizable="false"`. Note that the user can still resize other columns around it.
 
+When column resizing is enabled, a double click on the resize handle between the header cells will automatically fit the column width to the content of the header and data.
+
 >caption Enable column resizing in Telerik treelist
 
 ````CSHTML
