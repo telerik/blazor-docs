@@ -43,6 +43,10 @@ In addition to the two main filtering modes, the treelist offers two more featur
 * You can customize the appearance and behavior of the filters through the [filter templates]({%slug treelist-templates-filter%}).
 
 
+## Notes
+
+* The treelist uses `Activator.CreateInstance<TItem>();` to get the type of the item it is bound to in order to generate proper filters and filter operators for them. Thus, the Model should have a Parameterless constructor defined.
+
 ## See Also
 
   * [Live Demo: TreeList Filter Row](https://demos.telerik.com/blazor-ui/treelist/filter-row)

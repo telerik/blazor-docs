@@ -56,6 +56,10 @@ The following articles and sample projects can be helpful when implementing filt
 * [Leave only one option in the Filter Menu]({%slug grid-kb-only-one-filtermenu-option%}) - this is a CSS approach, or you can implement a [custom filter template]({%slug grid-templates-filter%}).
 
 
+## Notes
+
+* The grid uses `Activator.CreateInstance<TItem>();` to get the type of the item it is bound to in order to generate proper filteres and filter operators for them. Thus, the Model should have a Parameterless constructor defined.
+
 ## See Also
 
   * [Live Demo: Grid Filter Row](https://demos.telerik.com/blazor-ui/grid/filter-row)
