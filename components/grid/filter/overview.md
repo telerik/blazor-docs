@@ -58,7 +58,7 @@ The following articles and sample projects can be helpful when implementing filt
 
 ## Notes
 
-* The grid uses `Activator.CreateInstance<TItem>();` to get the type of the item it is bound to in order to generate proper filteres and filter operators for them. Thus, the Model should have a Parameterless constructor defined.
+* The grid uses `Activator.CreateInstance<TItem>();` to get the type of the item it is bound to in order to generate proper filters and filter operators for them. Thus, the Model should have a Parameterless constructor defined.
 
 ## See Also
 
