@@ -22,7 +22,7 @@ To set the steps for the time picker, use its nested `<TimePickerSteps>` tag and
 
 All values default to `1` to provide every possible option. If you set a value larger than the available options in the time portion (such as Minute=70) the tumblers in the dropdown will show the `0` option and the component will increment the date with the designated value (1 hour and 10 minutes in this example).
 
->caption Chang the steps (intervals) in the time picker
+>caption Change the steps (intervals) in the time picker
 
 ````CSHTML
 @* Show every 4th hour, every 10th minute, every 15th second *@
