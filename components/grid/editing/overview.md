@@ -240,7 +240,7 @@ There are a few considerations to keep in mind with the CUD operations of the gr
 
     * When the method returns `void`, the execution of the context operations is not actually awaited, and you may get errors from the context (such as "Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application" or "A second operation started on this context before a previous operation completed. This is usually caused by different threads using the same instance of DbContext"). The grid may also re-render before the actual data update happens and you may not see the result.
 
-* The Grid uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert or Edit action is invoked, so the Model should have a Parameterless constructor defined. If you cannot have such a contructor, a workaround might be [invoking Edit/Insert through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
+* The Grid uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert action is invoked, so the Model should have a Parameterless constructor defined. A workaround might be [invoking Insert through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
 
 * If you want to pre-populate values to the user, see the [Setting default values in new row]({%slug grid-kb-default-value-for-new-row%}) KnowledgeBase article.
 
