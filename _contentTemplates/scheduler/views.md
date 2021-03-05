@@ -9,7 +9,7 @@ Generally, the views are designed around the timeframe that they show and the da
 
 * `EndTime` - the counterpart to `StartTime` - defines when the full day ends. Defaults to midnight. If you have the day end earlier you can reduce the amount of elements that render, but the user may not see some late appointments.
 
-* `WorkDayStart` - the counterpart to `WorkDayStart` - defines when the working day ends.
+* `WorkDayEnd` - the counterpart to `WorkDayStart` - defines when the working day ends.
 
 * `SlotDuration` - the time span of each major time slot in minutes.
 
