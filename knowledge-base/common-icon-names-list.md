@@ -1,9 +1,9 @@
 ---
-title: Icon names list
-description: Valid list of Icon names 
+title: Migration from the obsolete `IconName` class
+description: Icon names list to migrate from the obsolete `IconName` class.
 type: how-to
-page_title: Icon names list
-slug: common-kb-icon-names
+page_title: 
+slug: common-kb-migration-from-iconname
 position: 
 tags: 
 ticketid: 
@@ -12,7 +12,7 @@ res_type: kb
 
 ## Description
 
-Since the `IconName` class is marked as obsolete and will soon be removed, below you will find a valid list of icon names to be hardcoded.
+If you have used the obsolete `IconName` class, here is a list of icon names in its stead.
 
 * IconName.Undo -> `undo`;
 * IconName.Redo -> `redo`;
