@@ -23,6 +23,7 @@ This section gives examples that show how to:
 
 * [Customize All Notifications From The Same Reference](#customize-all-notifications-from-the-same-reference)
 * [Use Different Templates](#use-different-templates)
+* [Get a Click Event for Notification Body](#get-a-click-event-for-notification-body)
 
 
 ### Customize All Notifications From The Same Reference
@@ -99,6 +100,61 @@ When you are using different references in order to provide multiple templates t
     }
 }
 ````
+
+
+### Get a Click Event for Notification Body
+
+You can handle events in the template of the notification like with any other Blazor template. This lets you achieve interactivity in the templates. For example, you can know when the user clicks the notification text.
+
+````CSHTML
+@* Get click event for the notifications *@
+
+<TelerikNotification @ref="@NotificationReference">
+    <Template>
+        <div @onclick="@( (MouseEventArgs e) => MyNotificationClick(context, e) )">
+            The current text is: @context.Text
+        </div>
+    </Template>
+</TelerikNotification>
+
+@code {
+    async Task MyNotificationClick(NotificationModel notificationMetadata, MouseEventArgs e)
+    {
+        Console.WriteLine(
+            $"The user clicked in notification: {notificationMetadata.Text}, " +
+            $"is color is: {notificationMetadata.ThemeColor}"
+        );
+    }
+
+    public TelerikNotification NotificationReference { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            AddNotification();
+        }
+    }
+
+    void AddNotification()
+    {
+        NotificationReference.Show(new NotificationModel()
+        {
+            Text = "Primary notification",
+            ThemeColor = "primary"
+        });
+
+        NotificationReference.Show(new NotificationModel()
+        {
+            Text = "Secondary Notification",
+            ThemeColor = "secondary"
+        });
+
+        NotificationReference.Show("Plain text notification, tertiary color", "tertiary");
+    }
+}
+````
+
 
 ## See Also
 
