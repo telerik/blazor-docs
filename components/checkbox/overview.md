@@ -12,7 +12,23 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/checkbox" target="_blank">Blazor Checkbox component</a> allows you to add more customizable checkboxes to your application. It maintains the behavior of the standard HTML checkbox and provides checked, unchecked and [indeterminate]({%slug checkbox-indeterminate-state%}) states.
 
-#### To use a Telerik Checkbox for Blazor
+#### The information in this article is separated in the following sections:
+
+* [Basics](#basics)
+
+* [Features](#features)
+
+* [Examples](#examples)
+
+* [Additional Resources](#additional-resources)
+    
+    * [Knowledge Base articles](#knowledge-base-articles)
+
+
+
+## Basics
+
+>caption To use a Telerik Checkbox for Blazor
 
 1. add the `TelerikCheckBox` tag
 1. provide `Value` (one-way data binding) or `bind-Value` (two-way data binding) property
@@ -75,6 +91,15 @@ else
 >caption The result from the code snippet above
 
 ![screenshot to showcase checkbox with bind-Indeterminate](images/checkbox-two-way-data-bind.gif)
+
+
+## Additional Resources
+
+An offline instance of our demos can be found under the installation folder of our product on your computer. 
+
+### Knowledge Base articles
+
+* [Change Checkbox Icon]({%slug checkbox-kb-custom-icon%})
 
 
 ## See Also

@@ -26,14 +26,18 @@ The `ValueChanged` event fires upon every keystroke the user input.
 ````CSHTML
 @result
 <br />
-<TelerikAutoComplete Data="@Suggestions" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
-</TelerikAutoComplete>
+<TelerikAutoComplete Data="@Suggestions" 
+                     Value="@AutoCompleteValue" 
+                     ValueChanged="@( (string v) => MyValueChangeHandler(v) )" />
 
 @code{
+    private string AutoCompleteValue { get; set; }
+    
     string result;
 
     private void MyValueChangeHandler(string theUserChoice)
     {
+        AutoCompleteValue = theUserChoice;
         result = string.Format("The user wrote: {0}", theUserChoice);
     }
 
