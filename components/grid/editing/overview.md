@@ -10,7 +10,7 @@ position: 0
 
 # Grid CRUD Operations Overview
 
-CRUD operations with the Grid for Blazor are done through the dedicated CRUD events it exposes for data editing. You can use them to transfer the changes to the actual data source (for example, call a service that will actually work with the database, and not only with the view data).
+CRUD operations with the Grid for Blazor support validation and are done through the dedicated CRUD events it exposes for data editing. You can use them to transfer the changes to the actual data source (for example, call a service that will actually work with the database, and not only with the view data).
 
 Sections in this article:
 
@@ -49,6 +49,8 @@ The example below shows how you can handle the events the grid exposes, so you c
 >caption Handling the CRUD events of the grid to save data to the actual data source (mocked with local methods in this example, see the code comments for details)
 
 ````CSHTML
+@using System.ComponentModel.DataAnnotations @* for the validation attributes *@ 
+
 Editing is cancelled for the first two records.
 <br />
 <strong>There is a deliberate delay</strong> in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
@@ -156,6 +158,7 @@ Editing is cancelled for the first two records.
     public class SampleData
     {
         public int ID { get; set; }
+        [Required]
         public string Name { get; set; }
     }
 
@@ -254,7 +257,9 @@ There are a few considerations to keep in mind with the CUD operations of the gr
     1. Apply all the changes you need to it one by one - assign the values of all of its properties - `dbObject.Property1 = argsItem.Property1...`
     1. Call `dbContext.SaveChanges()`
 
+* The validation the grid provides is based on the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#validator-components" target="_blank">`DataAnnotationValidator`</a> and creates its own `EditContext` for a row that is in edit/insert mode. When the row is not in edit/insert mode, the `EditContext` is `null`. The `EditContext` is a cascading parameter and overrides any cascading parameters from parent components (such as an `<EditForm>` that may wrap the grid).
 
+    * The validation will not be enabled for Grids bound to Expando objects or Dictionaries (such as DataTable).
 
 ## See Also
 

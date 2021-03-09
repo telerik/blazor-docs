@@ -10,7 +10,7 @@ position: 1
 
 # Grid Inline Editing
 
-Inline editing lets the user click an [Edit command button]({%slug components/grid/columns/command%}) on the row, and all its editable columns open up for changes. They can then click an `Save` command button to submit the changes to the data access layer. This fires the `OnUpdate` event of the grid where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
+Inline editing lets the user click an [Edit command button]({%slug components/grid/columns/command%}) on the row, and all its editable columns open up for changes. They can then click an `Save` command button to submit the changes to the data access layer. This fires the `OnUpdate` event of the grid where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service). When validation is not satisfied, clicking the Save button will not have effect, but you can still navigate between all fields in the row.
 
 In a similar fashion, the `Cancel` and `Delete` command buttons fire events on the grid to let you handle the data source operations.
 
@@ -22,6 +22,8 @@ To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Bl
 >caption The Command buttons and the grid events let you handle data operations in Inline edit mode (see the code comments for details)
 
 ````CSHTML
+@using System.ComponentModel.DataAnnotations @* for the validation attributes *@
+
 Use the command buttons to control the CUD operations.
 <br />
 <strong>Editing is cancelled for the first two records</strong>.
@@ -110,6 +112,7 @@ Use the command buttons to control the CUD operations.
     public class SampleData
     {
         public int ID { get; set; }
+        [Required]
         public string Name { get; set; }
     }
 
