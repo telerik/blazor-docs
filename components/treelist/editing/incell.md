@@ -14,6 +14,9 @@ In Cell editing allows the user to click the cell and type the new value. When t
 
 You can also use the `Tab`, `Shift+Tab` and `Enter` keys to move between edited cells quickly to perform fast data updates. This lets the user edit efficiently, with few actions, like in Excel, while avoiding delays and re-renders from data updates that will break up that flow. Command columns and non-editable columns are not part of this keyboard navigation.
 
+When validation is not satisfied, you cannot close the cell (exit its edit mode) by opening another cell for editing, but you can cancel changes by pressing `Esc`.
+
+
 #### Sections in this article:
 
 * [Basics](#basics)
@@ -30,6 +33,8 @@ The `OnUpdate` event always fires for the last edited cell on the row - when you
 >caption Reduced need for command buttons and user actions. The treelist events let you handle data operations in InCell edit mode (see the code comments for details)
 
 ````CSHTML
+@using System.ComponentModel.DataAnnotations @* for the validation attributes *@
+
 Click a cell, edit it and click outside of the treelist to see the change. You can also use Tab, Shift+Tab and Enter to navigate between the cells.
 <br />
 Editing is cancelled for the first record.
@@ -127,6 +132,7 @@ Editing is cancelled for the first record.
     public class Employee
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public string EmailAddress { get; set; }
         public DateTime HireDate { get; set; }
@@ -316,14 +322,20 @@ Editing is cancelled for the first record.
 
 * It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
 
-* The `OnCancel` event and the `Cancel` command button are not supported in InCell editing mode. When using keyboard navigation, the `OnUpdate` fires for the last edited cell on the row. However, clicking outside the currently edited cell will also trigger the `OnUpdate` event. Thus, clicking on the `Cancel` command button will not fire the `OnCancel` event.
+* The `OnCancel` event can work only with the keyboard (when you press `Esc`). The `Cancel` command button is not supported. Clicking outside the currently edited cell will trigger the `OnUpdate` event and thus, clicking on the `Cancel` command button will not fire the `OnCancel` event because an update has already occured.
 
-    * If there is a cell that is being edited at the moment, clicking on another cell will first close the current cell and fire `OnUpdate`. To start editing the new cell in such a case you will need a second click.
+
+    * If there is a cell that is being edited at the moment, clicking on a cell will first close the current cell and fire `OnUpdate`. To start editing the new cell in such a case you will need a second click.
     
     * If you use the keyboard to navigate between open cells, `OnUpdate` will fire only when the entire row loses focus, not for each cell, so you will not need additional actions to open a new cell.
 
+    * If validation is not satisfied, you cannot open another cell for editing, and you need to either satisfy the validation, or press `Esc` to revert its value to the original one that should, ideally, satisfy validation.
+
+
 * When using an [editor template]({%slug treelist-templates-editor%}), the treelist cannot always know what the custom editor needs to do, and when it needs to close the cell and update the data, because this is up to the editor. Thus, you can use the treelist [state]({%slug treelist-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`.
-    * When keyboard navigation is enabled in the treelist (`Navigable=true`), the treelist will capture `Enter` keypresses when the cell is focused, and will close the cell with the corresponding update. You can either use that (e.g., a simple input will let the keypress event propagate to the treelist cell), or you can prevent the event propagation and use only your business logic.
+    
+    When keyboard navigation is enabled in the treelist (`Navigable=true`), the treelist will capture `Enter` and `Tab` keypresses when the cell is focused, and will close the cell with the corresponding update. You can either use that (e.g., a simple input will let the keypress event propagate to the treelist cell), or you can prevent the event propagation and use only your business logic. The treelist will not, however, focus and select the contents of custom editors like it does for the built-in ones.
+
 
 
 ## See Also
