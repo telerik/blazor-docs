@@ -1,5 +1,5 @@
 ---
-title: Paritally Localized Components
+title: Paritally Localized Components, Missing Text, Not Translated Text
 description: What to do when not all texts in the Telerik components are translated based on the localization
 type: troubleshooting
 page_title: Not all texts are translated
@@ -13,7 +13,29 @@ res_type: kb
 
 
 ## Description
-I am using [localization]({%slug globalization-localization%}) for my components, but some strings (texts) are not translated. For example, the column menu stays in English, or is missing its texts altogether. Or, the filter option messages are not translated. Basically, localization is enabled but the messages for Grids (or other components) are not localized.
+I am using [localization]({%slug globalization-localization%}) for my components, but some strings (texts) are not translated. 
+
+For example, the column menu stays in English, or is missing its texts altogether. Or, the filter option messages are not translated. 
+
+
+
+Symptoms include:
+
+* Basically, localization is enabled but the messages for Grids (or other components) are not localized.
+
+* Some texts (like button texts, filter operator names and so on) are localized (translated) but others are not.
+
+* Texts are missing altogether (such as the text for one button), while others are present (like the text for the adjacent button).
+
+>caption In this article
+
+<!-- Start Document Outline -->
+
+* [Cause\Possible Cause(s)](#causepossible-causes)
+* [Solution](#solution)
+* [Notes](#notes)
+
+<!-- End Document Outline -->
 
 ## Cause\Possible Cause(s)
 The most common reason for such behavior is that the application uses old localization files that do not contain the necessary keys and their translations.
