@@ -206,10 +206,11 @@ Click a cell, edit it and click outside of the grid to see the change. You can a
     
     * If you use the keyboard to navigate between open cells, `OnUpdate` will fire only when the entire row loses focus, not for each cell, so you will not need additional actions to open a new cell.
     
-    * If validation is not satisfied, you cannot open another cell for editign, and you need to either satisfy the validation, or press `Esc` to revert its value to the original one that should, ideally, satisfy validation.
+    * If validation is not satisfied, you cannot open another cell for editing, and you need to either satisfy the validation, or press `Esc` to revert its value to the original one that should, ideally, satisfy validation.
 
 * When using an [editor template]({%slug components/grid/features/templates%}#edit-template), the grid cannot always know what the custom editor needs to do, and when it needs to close the cell and update the data, because this is up to the editor. Thus, you can use the grid [state]({%slug grid-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`.
-    * When keyboard navigation is enabled in the grid (`Navigable=true`), the grid will capture `Enter` and `Tab` keypresses when the cell is focused, and will close the cell with the corresponding update. You can either use that (e.g., a simple input will let the keypress event propagate to the grid cell), or you can prevent the event propagation and use only your business logic. The grid will not, however, focus and select the contents of custom editors like it does for the built-in ones.
+
+    When keyboard navigation is enabled in the grid (`Navigable=true`), the grid will capture `Enter` and `Tab` keypresses when the cell is focused, and will close the cell with the corresponding update. You can either use that (e.g., a simple input will let the keypress event propagate to the grid cell), or you can prevent the event propagation and use only your business logic. The grid will not, however, focus and select the contents of custom editors like it does for the built-in ones.
     
     The example below shows how you can use both a navigable grid and events on the custom editor templates to close the cells when Enter is pressed or when they lose focus, much like an Excel spreadsheet behaves.
     

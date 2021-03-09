@@ -10,7 +10,7 @@ position: 0
 
 # Grid CRUD Operations Overview
 
-CRUD operations with the Grid for Blazor support validation and are done through the dedicated CRUD events it exposes for data editing. You can use them to transfer the changes to the actual data source (for example, call a service that will actually work with the database, and not only with the view data).
+CRUD operations with the Grid for Blazor support validation and are done through the dedicated CRUD events it exposes for data editing. You can use them to transfer the changes to the underlying data source (for example, call a service that will actually work with the database, and not only with the view data).
 
 Sections in this article:
 
