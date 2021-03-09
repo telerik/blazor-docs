@@ -14,7 +14,7 @@ In Cell editing allows the user to click the cell and type the new value. When t
 
 You can also use the `Tab`, `Shift+Tab` and `Enter` keys to move between edited cells quickly to perform fast data updates. This lets the user edit efficiently, with few actions, like in Excel, while avoiding delays and re-renders from data updates that will break up that flow. Command columns and non-editable columns are not part from this keyboard navigation.
 
-When validation is not satisfied, you cannot close the cell (exit its edit mode) by opening another cell for editing, but you can cancel changes by pressing `Esc`.
+When validation is not satisfied, you cannot close the cell (exit its edit mode), but you can cancel changes by pressing `Esc`.
 
 #### Sections in this article
 
