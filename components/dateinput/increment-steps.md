@@ -41,5 +41,6 @@ All values default to `1` to provide every possible option. If you set a value l
 
 ## See Also
 
+* [Live Demo: Date Input Incremental Steps](https://demos.telerik.com/blazor-ui/dateinput/incremental-steps)
 * [DateInput Overview]({%slug components/dateinput/overview%})
 

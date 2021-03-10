@@ -46,5 +46,6 @@ All values default to `1` to provide every possible option. If you set a value l
 
 ## See Also
 
+* [Live Demo: Time Picker Incremental Steps](https://demos.telerik.com/blazor-ui/timepicker/incremental-steps)
 * [TimePicker Overview]({%slug components/timepicker/overview%})
 
