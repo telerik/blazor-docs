@@ -330,9 +330,30 @@ Editing is cancelled for the first record.
     * If validation is not satisfied, you cannot open another cell for editing, and you need to either satisfy the validation, or press `Esc` to revert its value to the original one that should, ideally, satisfy validation.
 
 
-* When using an [editor template]({%slug treelist-templates-editor%}), the treelist cannot always know what the custom editor needs to do, and when it needs to close the cell and update the data, because this is up to the editor. Thus, you can use the treelist [state]({%slug treelist-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`.
+* When using an [editor template]({%slug treelist-templates-editor%}), the treelist cannot know what the custom editor needs to do, what it contains, and when it needs to close the cell and update the data, because this is up to the editor. Thus, you can use the treelist [state]({%slug treelist-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`.
     
-    When keyboard navigation is enabled in the treelist (`Navigable=true`), the treelist will capture `Enter` and `Tab` keypresses when the cell is focused, and will close the cell with the corresponding update. You can either use that (e.g., a simple input will let the keypress event propagate to the treelist cell), or you can prevent the event propagation and use only your business logic. The treelist will not, however, focus and select the contents of custom editors like it does for the built-in ones.
+    Using an editor template requires that there is a focusable element in the editor template in order to maintain the tab order when using the keyboard. For exapmle, if you prevent editing based on a runtime condition (setting `Editable=false` for the entire column does not require this), you must provide a focusable element, here is one way to add such an element:
+    
+    **.razor**
+    
+        <EditorTemplate>
+        @{
+            if (myCurrentEditCondition)
+            {
+                <MyCustomEditor />
+            }
+            else
+            {
+                <div tabindex="0">editing not allowed</div>
+            }
+        }
+    </EditorTemplate>
+
+    The treelist will also not focus and select the contents of custom editors like it does for the built-in ones.
+    
+    When keyboard navigation is enabled in the treelist (`Navigable=true`), the grid will capture `Enter` and `Tab` keypresses when the cell is focused, and will close the cell with the corresponding update. You can either use that (e.g., a simple input will let the keypress event propagate to the grid cell), or you can prevent the event propagation and use only your business logic. 
+    
+
 
 
 
