@@ -136,6 +136,8 @@ You can find the following examples below:
 
 ### Sample editor template that uses a foreign key
 
+>tip This example uses the ID that represents the foreign for the grid column `Field`. You may want to use a text field that you can add to your model (or from a [nested model]({%slug grid-use-navigation-properties%})) instead - this will change what renders in the `Template` by default, and will change the rules and operators for filtering, sorting, and so using a field with human-readable information (like strings) might provide better UX.
+
 ````CSHTML
 @* This example shows one way to use a dropdownlist to edit values with a foreign key. *@
 

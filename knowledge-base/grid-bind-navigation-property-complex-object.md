@@ -1,8 +1,8 @@
 ---
-title: Bind to navigation properties in complex objects
-description: Bind grid columns to navigation properties in complex objects.
+title: Bind to nested (navigation) properties in complex objects
+description: Bind grid columns to nested (navigation) properties in complex objects.
 type: how-to
-page_title: Bind to navigation properties in complex objects
+page_title: Bind to nested (navigation) properties in complex objects
 slug: grid-use-navigation-properties
 position: 
 tags: 
@@ -14,7 +14,7 @@ res_type: kb
 
 Data that you bind to the grid may have complex objects in its model, not only primitive types.
 
-How do I use complex objects in my model and show navigation properties information in the grid?
+How do I use complex objects in my model and show nested (navigation) properties information in the grid?
 
 ## Solution
 
