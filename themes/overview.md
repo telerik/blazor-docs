@@ -11,7 +11,7 @@ position: 0
 
 # Built-in Themes
 
-The UI for Blazor suite comes with a set of built-in themes that you can choose from to alter the visual appearance of the Telerik components:
+The UI for Blazor suite comes with a set of built-in themes that you can choose from to alter the visual appearance of the Telerik components (you can test them in our [live demos](https://demos.telerik.com/blazor-ui/)):
 
 * **Default** - our own neutral styling that suits most cases.
 * **Bootstrap** - a theme that matches the Bootstrap styling. Read more in the [Bootstrap Notes](#bootstrap-notes) section.

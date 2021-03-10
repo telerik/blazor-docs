@@ -10,7 +10,7 @@ position: 2
 
 This article demonstrates how to enable the Progress&reg; Telerik&reg; UI for Blazor components in your existing Blazor app with a few mouse clicks. This can be helpful if you already have a substantial app, or you want to use the Microsoft templates to start with features like authentication, and add UI components later.
 
-To add the Telerik Components to you existing Blazor application, use the **Convert Project Wizard**. The wizard detects all installed versions of Telerik UI for Blazor and lists them in the **Version** combobox&mdash;this enables you to start your project with the desired version. You can also [get the latest version]({%slug getting-started-vs-integration-latest-version%}) to make sure you are up to date.
+To add the Telerik Components to your existing Blazor application, use the **Convert Project Wizard**. The wizard detects all installed versions of Telerik UI for Blazor and lists them in the **Version** combobox&mdash;this enables you to start your project with the desired version. You can also [get the latest version]({%slug getting-started-vs-integration-latest-version%}) to make sure you are up to date.
 
 ## Get the Wizard
 
