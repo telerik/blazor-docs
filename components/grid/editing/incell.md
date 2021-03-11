@@ -14,6 +14,8 @@ In Cell editing allows the user to click the cell and type the new value. When t
 
 You can also use the `Tab`, `Shift+Tab` and `Enter` keys to move between edited cells quickly to perform fast data updates. This lets the user edit efficiently, with few actions, like in Excel, while avoiding delays and re-renders from data updates that will break up that flow. Command columns and non-editable columns are not part from this keyboard navigation.
 
+When validation is not satisfied, you cannot close the cell (exit its edit mode), but you can cancel changes by pressing `Esc`.
+
 #### Sections in this article
 
 * [Basics](#basics)
@@ -31,12 +33,14 @@ The `OnUpdate` event always fires for the last edited cell on the row - when you
 >caption Reduced need for command buttons and user actions. The grid events let you handle data operations in InCell edit mode (see the code comments for details)
 
 ````CSHTML
+@using System.ComponentModel.DataAnnotations @* for the validation attributes *@
+
 Click a cell, edit it and click outside of the grid to see the change. You can also use Tab, Shift+Tab and Enter to navigate between the cells.
 <br />
 <strong>Editing is prevented for the first two items.</strong>
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Incell" Pageable="true" Height="500px"
-             OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler">
+             OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@OnCancelHandler">
     <GridToolBar>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
     </GridToolBar>
@@ -103,11 +107,18 @@ Click a cell, edit it and click outside of the grid to see the change. You can a
         Console.WriteLine("Create event is fired.");
     }
 
+    void OnCancelHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+        Console.WriteLine("Cancel event is fired. Can be useful when people decide to not satisfy validation");
+    }
+
 
     // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
     public class SampleData
     {
         public int ID { get; set; }
+        [Required]
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }
@@ -189,14 +200,36 @@ Click a cell, edit it and click outside of the grid to see the change. You can a
 
 * It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
 
-* The `OnCancel` event and the `Cancel` command button are not supported in InCell editing mode. Clicking outside the currently edited cell will trigger the `OnUpdate` event and thus, clicking on the `Cancel` command button will not fire the `OnCancel` event.
+* The `OnCancel` event can work only with the keyboard (when you press `Esc`). The `Cancel` command button is not supported. Clicking outside the currently edited cell will trigger the `OnUpdate` event and thus, clicking on the `Cancel` command button will not fire the `OnCancel` event because an update has already occured.
 
-    * If there is a cell that is being edited at the moment, clicking on another cell will first close the current cell and fire `OnUpdate`. To start editing the new cell in such a case you will need a second click.
+    * If there is a cell that is being edited at the moment, clicking on a cell will first close the current cell and fire `OnUpdate`. To start editing the new cell in such a case you will need a second click.
     
     * If you use the keyboard to navigate between open cells, `OnUpdate` will fire only when the entire row loses focus, not for each cell, so you will not need additional actions to open a new cell.
+    
+    * If validation is not satisfied, you cannot open another cell for editing, and you need to either satisfy the validation, or press `Esc` to revert its value to the original one that should, ideally, satisfy validation.
 
-* When using an [editor template]({%slug components/grid/features/templates%}#edit-template), the grid cannot always know what the custom editor needs to do, and when it needs to close the cell and update the data, because this is up to the editor. Thus, you can use the grid [state]({%slug grid-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`.
-    * When keyboard navigation is enabled in the grid (`Navigable=true`), the grid will capture `Enter` keypresses when the cell is focused, and will close the cell with the corresponding update. You can either use that (e.g., a simple input will let the keypress event propagate to the grid cell), or you can prevent the event propagation and use only your business logic.
+* When using an [editor template]({%slug components/grid/features/templates%}#edit-template), the grid cannot know what the custom editor needs to do, what it contains, and when it needs to close the cell and update the data, because this is up to the editor. Thus, you can use the grid [state]({%slug grid-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`. 
+
+    Using an editor template requires that there is a focusable element in the editor template in order to maintain the tab order when using the keyboard. For exapmle, if you prevent editing based on a runtime condition (setting `Editable=false` for the entire column does not require this), you must provide a focusable element, here is one way to add such an element:
+    
+    **.razor**
+    
+        <EditorTemplate>
+        @{
+            if (myCurrentEditCondition)
+            {
+                <MyCustomEditor />
+            }
+            else
+            {
+                <div tabindex="0">editing not allowed</div>
+            }
+        }
+    </EditorTemplate>
+
+    The grid will also not focus and select the contents of custom editors like it does for the built-in ones.
+    
+    When keyboard navigation is enabled in the grid (`Navigable=true`), the grid will capture `Enter` and `Tab` keypresses when the cell is focused, and will close the cell with the corresponding update. You can either use that (e.g., a simple input will let the keypress event propagate to the grid cell), or you can prevent the event propagation and use only your business logic. 
     
     The example below shows how you can use both a navigable grid and events on the custom editor templates to close the cells when Enter is pressed or when they lose focus, much like an Excel spreadsheet behaves.
     

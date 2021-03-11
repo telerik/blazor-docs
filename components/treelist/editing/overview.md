@@ -10,7 +10,8 @@ position: 0
 
 # TreeList CRUD Operations Overview
 
-CRUD operations with the TreeList for Blazor are done through the dedicated CRUD events it exposes for data editing. You can use them to transfer the changes to the actual data source (for example, call a service that will actually work with the database, and not only with the view data).
+CRUD operations with the TreeList for Blazor support validation and
+are done through the dedicated CRUD events it exposes for data editing. You can use them to transfer the changes to the underlying data source (for example, call a service that will actually work with the database, and not only with the view data).
 
 Sections in this article:
 
@@ -179,6 +180,7 @@ Editing is cancelled for the first record.
     {
         public int Id { get; set; }
 
+        [Required]
         public string Name { get; set; }
         public string EmailAddress { get; set; }
         public DateTime HireDate { get; set; }
@@ -361,6 +363,11 @@ There are a few considerations to keep in mind with the CUD operations of the tr
     * When the method returns `void`, the execution of the context operations is not actually awaited, and you may get errors from the context (such as "Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application" or "A second operation started on this context before a previous operation completed. This is usually caused by different threads using the same instance of DbContext"). The treelist may also re-render before the actual data update happens and you may not see the result.
 
 * The treelist uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert or Edit action is invoked, so the Model should have a Parameterless constructor defined. If you cannot have such a contructor, a workaround might be might be [invoking dit/Insert through the treelist state]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
+
+* The validation the treelist provides is based on the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#validator-components" target="_blank">`DataAnnotationValidator`</a> and creates its own `EditContext` for a row that is in edit/insert mode. When the row is not in edit/insert mode, the `EditContext` is `null`. The `EditContext` is a cascading parameter and overrides any cascading parameters from parent components (such as an `<EditForm>` that may wrap the treelist).
+
+    <!-- * The validation will not be enabled for tree bound to Expando objects or Dictionaries (such as DataTable). -->
+
 
 ## See Also
 

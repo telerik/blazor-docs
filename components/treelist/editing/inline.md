@@ -10,9 +10,12 @@ position: 1
 
 # TreeList Inline Editing
 
-Inline editing lets the user click an [Edit command button]({%slug treelist-columns-command%}) on the row, and all its editable columns open up for changes. They can then click a `Save` command button to submit the changes to the data access layer. This fires the `OnUpdate` event of the treelist where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
+Inline editing lets the user click an [Edit command button]({%slug treelist-columns-command%}) on the row, and all its editable columns open up for changes. They can then click a `Save` command button to submit the changes to the data access layer. This fires the `OnUpdate` event of the treelist where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service). 
+
 
 In a similar fashion, the `Cancel` and `Delete` command buttons fire events on the treelist to let you handle the data source operations.
+
+When validation is not satisfied, clicking the Save, Delete or Add buttons will not have effect, but you can still navigate between all fields in the row to complete editing.
 
 You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
 
@@ -22,6 +25,8 @@ To enable Inline editing in the treelist, set its `EditMode` property to `Teleri
 >caption The Command buttons and the treelist events let you handle data operations in Inline edit mode
 
 ````CSHTML
+@using System.ComponentModel.DataAnnotations @* for the validation attributes *@
+
 Editing is cancelled for the first record.
 <br />
 
@@ -119,6 +124,7 @@ Editing is cancelled for the first record.
     public class Employee
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public string EmailAddress { get; set; }
         public DateTime HireDate { get; set; }

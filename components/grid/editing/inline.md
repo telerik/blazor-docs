@@ -14,6 +14,8 @@ Inline editing lets the user click an [Edit command button]({%slug components/gr
 
 In a similar fashion, the `Cancel` and `Delete` command buttons fire events on the grid to let you handle the data source operations.
 
+When validation is not satisfied, clicking the Save, Delete or Add buttons will not have effect, but you can still navigate between all fields in the row to complete editing.
+
 You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
 
 To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Blazor.GridEditMode.Inline`, then handle the CRUD events as shown in the example below.
@@ -22,6 +24,8 @@ To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Bl
 >caption The Command buttons and the grid events let you handle data operations in Inline edit mode (see the code comments for details)
 
 ````CSHTML
+@using System.ComponentModel.DataAnnotations @* for the validation attributes *@
+
 Use the command buttons to control the CUD operations.
 <br />
 <strong>Editing is cancelled for the first two records</strong>.
@@ -110,6 +114,7 @@ Use the command buttons to control the CUD operations.
     public class SampleData
     {
         public int ID { get; set; }
+        [Required]
         public string Name { get; set; }
     }
 
