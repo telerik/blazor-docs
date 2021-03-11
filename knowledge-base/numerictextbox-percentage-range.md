@@ -107,3 +107,38 @@ Actual value: @thePercentage, formatted value @thePercentage.ToString("P2")
 }
 ````
 
+## Notes
+
+You can achieve similar behavior with a Masked Textbox - prepare a proper mask (the example below shows how to also use a culture-aware decimal separator) and parse the string to a double for later logic:
+
+````CSHTML
+as string: @TheStringValue
+<br />
+as double: @PercentageZeroToHundred
+<br />
+<TelerikMaskedTextBox Mask="@TheMask"
+                      IncludeLiterals="true"
+                      @bind-Value="@TheStringValue"
+                      Label="Percentage:">
+</TelerikMaskedTextBox>
+
+@code{
+    string TheMask { get; set; } = string.Format("00{0}00%", System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+    string TheStringValue { get; set; }
+    double PercentageZeroToHundred => ParseDouble(TheStringValue);
+    double ParseDouble(string stringVersion)
+    {
+        if (string.IsNullOrEmpty(stringVersion))
+        {
+            return 0d;
+        }
+        double val;
+        stringVersion = stringVersion.Replace("%", "");
+        if(Double.TryParse(stringVersion, out val))
+        {
+            return val;
+        }
+        return 0d;
+    }
+}
+````
