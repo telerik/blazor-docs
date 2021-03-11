@@ -10,9 +10,7 @@ position: 1
 
 # Observable Data
 
-Databound components can benefit from live data - when the data source collection changes, the components should update to reflect that change. Most data-bound components in the Telerik UI for Blazor suite implement such functionality.
-
-When the `Data` of the component is a collection that implements the `INotifyCollectionChanged` interface (such as `ObservableCollection`), the Telerik components subscribe to its `CollectionChanged` event to update. This means that adding items, removing items, or clearing the collection updates the components (its `.Add()`, `.Remove()` and `.Clear()` methods).
+@[template](/_contentTemplates/common/observable-data-intro.md#observable-data-intro)
 
 The following components support observable data for their `Data` parameter:
 
@@ -26,7 +24,7 @@ The following components support observable data for their `Data` parameter:
 
 * ListView
 
-* MultiSelect
+* [MultiSelect]({%slug multiselect-observable-data%})
 
 * TreeList
 
