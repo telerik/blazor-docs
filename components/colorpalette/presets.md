@@ -1,9 +1,9 @@
 ---
-title: Predefined Colors
-page_title: Color Palette - Predefined Colors
-description: Predefined Colors in the Color Palette for Blazor.
-slug: colorpalette-predefined
-tags: telerik,blazor,Color,Palette,Predefined,Colors
+title: Presets
+page_title: Color Palette - Presets
+description: Predefined Color Presets in the Color Palette for Blazor.
+slug: colorpalette-presets
+tags: telerik,blazor,Color,Palette,Predefined,Colors,Presets
 published: true
 position: 14
 ---
