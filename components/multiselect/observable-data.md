@@ -50,6 +50,7 @@ position: 25
         Options.Add(
             new OptionsModel { StringRepresentation = ValuetoAdd, MyValueField = Options.Count + 1 }
             );
+        ValuetoAdd = string.Empty;
     }
 
     void RemoveOption()
