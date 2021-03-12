@@ -10,7 +10,7 @@ position: 15
 
 # Steps
 
-The DateInput for Blazor can increment or decrement the values vary for each segment of the date with a different step when the Up or Down arrows are pressed.
+The DateInput for Blazor can increment or decrement the values for each segment of the date with a different step when the Up or Down arrows are pressed.
 
 To set the steps for the date input, use its nested `<DateInputSteps>` tag and its parameters:
 
