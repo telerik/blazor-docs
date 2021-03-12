@@ -14,7 +14,7 @@ position: 1
 
 The following components support observable data for their `Data` parameter:
 
-* AutoComplete
+* [AutoComplete]({%slug autocomplete-refresh-data%})
 
 * ComboBox
 
@@ -24,7 +24,7 @@ The following components support observable data for their `Data` parameter:
 
 * ListView
 
-* [MultiSelect]({%slug multiselect-observable-data%})
+* [MultiSelect]({%slug multiselect-refresh-data%})
 
 * TreeList
 
@@ -42,13 +42,7 @@ When you want to refresh the component data source like that, there are two impo
 
     They do not fire it when you change the value of a field of one of their elements.
 
-* In Blazor, the framework will fire the `OnParametersSet` event of a child component (which is how child components can react to outside changes) only when it can detect a change in the object it receives through the corresponding parameter (like `Data` for the data sources of Telerik components). This detection works as follows:
-
-    * For primitive types (such as numbers, strings), this happens when their value changes.
-    
-    * For complex types (such as data collections like `List`, or any `IEnumerable`, and application-specific models/objects), this happens when the object reference changes.
-    
-        Thus, you would usually need to create a `new` reference for the view-model field (such as `TreeViewData = new List<MyTreeViewItem>(theUpdatedDataCollection);`) when you want the component to update.
+* @[template](/_contentTemplates/common/new-collection-reference.md#new-collection-reference)
 
 You can find some more explanations and examples for the Grid component in the [Force a Grid to Refresh]({%slug grid-force-refresh%}) Knowledge Base article.
 
