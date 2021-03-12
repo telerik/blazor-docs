@@ -21,7 +21,7 @@ To set the steps for the date input, use its nested `<DatePickerSteps>` tag and 
 
 All values default to `1` to provide every possible option. If you set a value larger than the available options in the time portion (such as Minute=70) the component will increment the date with the designated value (1 hour and 10 minutes in this example).
 
->caption Change the steps (intervals) in the date input
+>caption Change the steps (intervals) in the date picker
 
 ````CSHTML
 @selectedDateTime.ToString("yyyy MMM dd, HH:mm:ss tt")
@@ -39,6 +39,6 @@ All values default to `1` to provide every possible option. If you set a value l
 
 ## See Also
 
-* [Live Demo: Date Input Incremental Steps](https://demos.telerik.com/blazor-ui/dateinput/incremental-steps)
-* [DateInput Overview]({%slug components/dateinput/overview%})
+* [Live Demo: Date Picker Incremental Steps](https://demos.telerik.com/blazor-ui/datepicker/incremental-steps)
+* [DatePicker Overview]({%slug components/datepicker/overview%})
 
