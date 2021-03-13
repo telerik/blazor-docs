@@ -26,7 +26,7 @@ The Telerik Blazor Color Palette component comes with a set of predefined color 
 
 ![Color Palette component Presets](images/colorpalette-presets.png)
 
->caption Explore the predefined color presets - generates the images above
+>caption Explore the predefined color presets - generates the image above
 
 ````CSHTML
 <div style="display:flex;flex-direction: row; flex-flow:wrap;">

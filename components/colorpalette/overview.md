@@ -18,7 +18,8 @@ To use a Telerik Color Palette for Blazor:
 
 1. Add the `<TelerikColorPalette>` tag.
 1. Bind its `Value` to the `string` you want to get out of it.
-1. Optionally, choose a set of colors to show the user (one of the [presets we provide]({%slug colorpalette-presets%}), or a set of [custom colors]({%slug colorpalette-custom-colors%})).
+1. Optionally, choose a list of `Colors` to show the user (one of the [presets we provide]({%slug colorpalette-presets%}), or a set of [custom colors]({%slug colorpalette-custom-colors%})).
+    * If you do not provide a value for the `Colors`, it will default to the `Office` [preset]({%slug colorpalette-presets%}).
 
 >caption Basic color palette with two-way value binding and a default predefined palette
 
@@ -34,11 +35,33 @@ To use a Telerik Color Palette for Blazor:
 }
 ````
 
->caption The result from the code snippet above before you start writing
+>caption The result from the code snippet above after selecting a color
 
 ![Color Palette first look](images/color-palette-first-look.png)
 
->caption Component reference
+## Appearance
+
+You can control the appearane of the component not only through the lists of `Colors` you provide to it, but also its size through the `Columns`, `TileWidth` and `TileHeight` parameters.
+
+>caption Make a large color palette with few columns
+
+````CSHTML
+@SelectedColor
+<TelerikColorPalette Colors="@ColorPalettePresets.Basic" @bind-Value="@SelectedColor"
+                     Columns="5" TileHeight="3em" TileWidth="3em">
+</TelerikColorPalette>
+@code{
+    string SelectedColor { get; set; }
+}
+````
+
+>caption Theresult from the code snippet above
+
+![color palette appearance and size customization](images/large-size-few-columns.png)
+
+
+
+## Component Reference
 
 ````CSHTML
 <TelerikColorPalette @ref="@TheColorPaletteRef"></TelerikColorPalette>
