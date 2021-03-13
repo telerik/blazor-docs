@@ -30,6 +30,7 @@ This article provides examples of validating the Telerik Blazor components. The 
 * [Editor](#editor)
 * [MaskedTextbox](#maskedtextbox)
 * [Sliders](#sliders)
+* [Color Palette](#color-palette)
 
 >tip Telerik offers the [Form Component]({%slug form-overview%}) that lets you generate and manage forms with predefined layouts and less code.
 
@@ -711,6 +712,41 @@ The sliders are, effectively, numeric inputs in terms of behavior and what data 
 }
 ````
 
+
+## Color Palette
+
+The Color Palette component, while not an input, can work with validation so you can, for example, require that the user picks a color. Since it is not an input, it does not have an invalid state, but you can add validation messages around it.
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations @* This Using is for the model class attributes only *@
+
+<EditForm Model="@validationModel" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <TelerikColorPalette @bind-Value="@validationModel.FavoriteColor" />
+
+    <ValidationMessage For="@(() => validationModel.FavoriteColor)" />
+
+    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
+
+</EditForm>
+
+@code {
+    ColorValidationModel validationModel { get; set; } = new ColorValidationModel();
+
+    class ColorValidationModel
+    {
+        [Required]
+        public string FavoriteColor { get; set; }
+    }
+
+    async void HandleValidSubmit()
+    {
+        Console.WriteLine("valid submit");
+    }
+}
+````
 
 
 ## See Also
