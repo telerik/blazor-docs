@@ -18,15 +18,15 @@ To use a Telerik Color Palette for Blazor:
 
 1. Add the `<TelerikColorPalette>` tag.
 1. Bind its `Value` to the `string` you want to get out of it.
-1. Choose a set of colors (the example below uses one of the predefined options).
+1. Optionally, choose a set of colors to show the user (one of the [presets we provide]({%slug colorpalette-presets%}), or a set of [custom colors]({%slug colorpalette-custom-colors%})).
 
->caption Basic color palette with two-way value binding and a predefined palette
+>caption Basic color palette with two-way value binding and a default predefined palette
 
 ````CSHTML
 @MyColor
 <br />
 
-<TelerikColorPalette Palette="@PalettePresets.Austin" @bind-Value="@MyColor">
+<TelerikColorPalette @bind-Value="@MyColor">
 </TelerikColorPalette>
 
 @code {
@@ -38,24 +38,39 @@ To use a Telerik Color Palette for Blazor:
 
 ![Color Palette first look](images/color-palette-first-look.png)
 
+>caption Component reference
+
+````CSHTML
+<TelerikColorPalette @ref="@TheColorPaletteRef"></TelerikColorPalette>
+
+@code{
+    Telerik.Blazor.Components.TelerikColorPalette TheColorPaletteRef { get; set; }
+}
+````
 
 ## Features
 
->caption The Masked Textbox provides the following features:
+>caption The Color Palette provides the following features:
 
 * `Class` - the CSS class that will be rendered on the wrapping element of the component.
 
-* `Enabled` - whether the `input` is enabled.
+* `Colors` - the collection of colors the user can choose from. Can be one of the [presets that come with the component]({%slug colorpalette-presets%}), or [a custom list]({%slug colorpalette-custom-colors%}).
 
-* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+* `Columns` - the number of columns to use when rendering the Colors list. Determines the size of the component together with the `TileHeight` and `TileWidth`.
 
-* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
+* `Enabled` - whether the component is enabled.
 
-* `Title` - maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}).
+* `Id` - renders as the `id` attribute on the wrapping element of the component.
 
-* `Value` - get/set the value of the input, can be used for binding.
+* `TabIndex` - maps to the `tabindex` attribute of the main HTML element. You can use it to customize the order in which the elements in your page focus with the `Tab` key.
 
-* `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
+* `TileHeight` - the height of each individual color item. Determines the size of the component together with the `Columns` and `TileWidth`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings 
+
+* `TileWidth`- the width of each individual color item. Determines the size of the component together with the `Columns` and `TileHeight`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings 
+
+* `Value` - get/set the value of the input, can be used for binding. Can take any string that can be a [CSS background-color string](https://css-tricks.com/almanac/properties/b/background-color/). The presets we provide use hex format (`#123abc`).
+
+* [Events]({%slug colorpalette-events%}) to let you react to the user actions.
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
@@ -66,6 +81,6 @@ To use a Telerik Color Palette for Blazor:
 ## See Also
 
   * [Live Demo: Color Palette](https://demos.telerik.com/blazor-ui/colorpalette/overview)
-  * [Live Demo: MaskedTextbox Validation](https://demos.telerik.com/blazor-ui/colorpalette/validation)
-  * [Input Validation]({%slug common-features/input-validation%})
+  * [Color Presets]({%slug colorpalette-presets%})
+  * [Custom Color Collections]({%slug colorpalette-custom-colors%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPalette)
