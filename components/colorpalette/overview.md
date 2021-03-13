@@ -24,7 +24,7 @@ To use a Telerik Color Palette for Blazor:
 >caption Basic color palette with two-way value binding and a default predefined palette
 
 ````CSHTML
-@MyColor
+<span style="color: @MyColor">@MyColor</span>
 <br />
 
 <TelerikColorPalette @bind-Value="@MyColor">
