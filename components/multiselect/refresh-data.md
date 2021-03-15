@@ -10,7 +10,7 @@ position: 15
 
 # Refresh Data
 
-In some scenarios you may need to programmatically change the data provided to the component. There are a couple of ways to make the component react to a change of its data.
+@[template](/_contentTemplates/common/observable-data.md#intro)
 
 Sections in this article:
 - [Observable Data](#observable-data)
@@ -19,7 +19,7 @@ Sections in this article:
 
 ## Observable Data
 
-@[template](/_contentTemplates/common/observable-data-intro.md#observable-data-intro)
+@[template](/_contentTemplates/common/observable-data.md#observable-data)
 
 
 >caption Bind the MultiSelect component to an ObservableCollection, so it can react to collection changes.
@@ -81,7 +81,7 @@ Sections in this article:
 
 ## New Collection Reference
 
-@[template](/_contentTemplates/common/observable-data-intro.md#new-collection-reference)
+@[template](/_contentTemplates/common/observable-data.md#refresh-data)
 
 >caption Create new collection reference to refresh the Multiselect data.
 
@@ -159,7 +159,7 @@ Sections in this article:
 
 The `Value` parameter also accepts a collection but it does not support observable data. If you want to change the Value, make sure you are providing a collection of items that are included in the data source (not random ones).
 
-> Set/change the selected values or clear the selection programatically.
+>caption Set/change the selected values or clear the selection programatically.
 
 ````CSHTML
 <h4>Set or change selected values</h4>

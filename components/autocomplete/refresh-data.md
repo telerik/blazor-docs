@@ -10,32 +10,136 @@ position: 15
 
 # Refresh Data
 
-In some scenarios you may need to programmatically change the data provided to the component. There are a couple of ways to make the component react to a change of its data.
 
-Sections in this article:
+@[template](/_contentTemplates/common/observable-data.md#intro)
+
+In this article:
 - [Observable Data](#observable-data)
 - [New Collection Reference](#new-collection-reference)
 
 ## Observable Data
 
-@[template](/_contentTemplates/common/observable-data-intro.md#observable-data-intro)
+@[template](/_contentTemplates/common/observable-data.md#observable-data)
 
 
 >caption Bind the Autocomplete component to an ObservableCollection, so it can react to collection changes.
 
 ````CSHTML
+@* Add/remove a suggestion to see how the Autocomplete reacts to the change. *@
 
+@using System.Collections.ObjectModel
 
+<h4>Add suggestion</h4>
+<TelerikTextBox @bind-Value="@ValuetoAdd"></TelerikTextBox>
+
+<TelerikButton OnClick="@AddSuggestion">Add suggestion</TelerikButton>
+<br />
+
+<h4>Remove the last suggestion</h4>
+<TelerikButton OnClick="@RemoveSuggestion">Remove the last suggestion</TelerikButton>
+<br />
+
+<h4>Autocomplete suggestions: @Suggestions.Count</h4>
+<br />
+
+<TelerikAutoComplete Data="@Suggestions" ValueField="@( nameof(SuggestionsModel.Suggestion) )" @bind-Value="@TheValue" />
+
+@code{
+    string TheValue { get; set; }
+
+    string ValuetoAdd { get; set; }
+
+    void AddSuggestion()
+    {
+        if (!string.IsNullOrWhiteSpace(ValuetoAdd))
+        {
+            Suggestions.Add(
+        new SuggestionsModel { Suggestion = ValuetoAdd, SomeOtherField = Suggestions.Count + 1 }
+        );
+            ValuetoAdd = string.Empty;
+        }
+    }
+
+    void RemoveSuggestion()
+    {
+        Suggestions.RemoveAt(Suggestions.Count - 1);
+    }
+
+    ObservableCollection<SuggestionsModel> Suggestions { get; set; } = new ObservableCollection<SuggestionsModel>
+    {
+        new SuggestionsModel { Suggestion = "first", SomeOtherField = 1 },
+        new SuggestionsModel { Suggestion = "second", SomeOtherField = 2 },
+        new SuggestionsModel { Suggestion = "third", SomeOtherField = 3 }
+    };
+
+    public class SuggestionsModel
+    {
+        public string Suggestion { get; set; }//the auto complete needs only the string field
+        public int SomeOtherField { get; set; }
+    }
+}
 ````
 
 ## New Collection Reference
 
-@[template](/_contentTemplates/common/observable-data-intro.md#new-collection-reference)
+@[template](/_contentTemplates/common/observable-data.md#refresh-data)
 
 >caption Create new collection reference to refresh the Autocomplete data.
 
 ````CSHTML
+@* Add/remove a suggestion to see how the Autocomplete reacts to the change. *@
 
+<h4>Add suggestion</h4>
+<TelerikTextBox @bind-Value="@ValuetoAdd"></TelerikTextBox>
+
+<TelerikButton OnClick="@AddSuggestion">Add suggestion</TelerikButton>
+<br />
+
+<h4>Remove the last suggestion</h4>
+<TelerikButton OnClick="@RemoveSuggestion">Remove the last suggestion</TelerikButton>
+<br />
+
+<h4>Autocomplete suggestions: @Suggestions.Count</h4>
+<br />
+
+<TelerikAutoComplete Data="@Suggestions" ValueField="@( nameof(SuggestionsModel.Suggestion) )" @bind-Value="@TheValue" />
+
+@code{
+    string TheValue { get; set; }
+
+    string ValuetoAdd { get; set; }
+
+    void AddSuggestion()
+    {
+        if (!string.IsNullOrWhiteSpace(ValuetoAdd))
+        {
+            Suggestions.Add(
+        new SuggestionsModel { Suggestion = ValuetoAdd, SomeOtherField = Suggestions.Count + 1 }
+        );
+            Suggestions = new List<SuggestionsModel>(Suggestions);
+            ValuetoAdd = string.Empty;
+        }
+    }
+
+    void RemoveSuggestion()
+    {
+        Suggestions.RemoveAt(Suggestions.Count - 1);
+        Suggestions = new List<SuggestionsModel>(Suggestions);
+    }
+
+    List<SuggestionsModel> Suggestions { get; set; } = new List<SuggestionsModel>
+    {
+        new SuggestionsModel { Suggestion = "first", SomeOtherField = 1 },
+        new SuggestionsModel { Suggestion = "second", SomeOtherField = 2 },
+        new SuggestionsModel { Suggestion = "third", SomeOtherField = 3 }
+    };
+
+    public class SuggestionsModel
+    {
+        public string Suggestion { get; set; }//the auto complete needs only the string field
+        public int SomeOtherField { get; set; }
+    }
+}
 ````
 
 
