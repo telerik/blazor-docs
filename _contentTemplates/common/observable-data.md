@@ -1,7 +1,7 @@
 #intro
 The most common reason you would use an ObservableCollection is to make a component (like a grid, treeview, treelist, dropdown) change or react when you change that collection.
 
-When you want to refresh the component data source like that, there are two important framework behaviors you need to be aware of.
+When you want to refresh the component data source like that, there are two important framework behaviors you need to be aware of - when ObservableCollection instances fire events, and how to refresh the data of a component when it is not an observable collection.
 #end
 
 #observable-data
@@ -20,6 +20,4 @@ In Blazor, the framework will fire the `OnParametersSet` event of a child compon
   * For complex types (such as data collections like `List`, or any `IEnumerable`, and application-specific models/objects), this happens when the object reference changes.
 
     Thus, you would usually need to create a `new` reference for the view-model field (such as `TreeViewData = new List<MyTreeViewItem>(theUpdatedDataCollection);`) when you want the component to update.
-
-You can find some more explanations and examples for the Grid component in the [Force a Grid to Refresh]({%slug grid-force-refresh%}) Knowledge Base article.
 #end

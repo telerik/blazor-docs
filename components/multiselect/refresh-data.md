@@ -1,6 +1,6 @@
 ---
 title: Refresh Data
-page_title: Refresh Data
+page_title: MultiSelect Refresh Data
 description: Refresh MultiSelect Data using Observable Data or creating a new Collection reference.
 slug: multiselect-refresh-data
 tags: telerik,blazor,multiselect,observable,data,new,collection
@@ -8,7 +8,7 @@ published: True
 position: 15
 ---
 
-# Refresh Data
+# MultiSelect Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)
 

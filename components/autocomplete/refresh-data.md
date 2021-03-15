@@ -1,6 +1,6 @@
 ---
 title: Refresh Data
-page_title: Refresh Data
+page_title: Autocomplete Refresh Data
 description: Refresh Autocomplete Data using Observable Data or creating a new Collection reference.
 slug: autocomplete-refresh-data
 tags: telerik,blazor,autocomplete,observable,data,new,collection
@@ -8,7 +8,7 @@ published: True
 position: 15
 ---
 
-# Refresh Data
+# Autocomplete Refresh Data
 
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

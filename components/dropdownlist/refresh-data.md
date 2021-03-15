@@ -1,6 +1,6 @@
 ---
 title: Refresh Data
-page_title: Refresh Data
+page_title: DropDownList Refresh Data
 description: Refresh DropDownList Data using Observable Data or creating a new Collection reference.
 slug: dropdownlist-refresh-data
 tags: telerik,blazor,dropdownlist,observable,data,new,collection
@@ -8,7 +8,7 @@ published: True
 position: 15
 ---
 
-# Refresh Data
+# DropDownList Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)
 

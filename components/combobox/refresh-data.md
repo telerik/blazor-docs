@@ -1,6 +1,6 @@
 ---
 title: Refresh Data
-page_title: Refresh Data
+page_title: ComboBox Refresh Data
 description: Refresh ComboBox Data using Observable Data or creating a new Collection reference.
 slug: combobox-refresh-data
 tags: telerik,blazor,combobox,observable,data,new,collection
@@ -8,7 +8,7 @@ published: True
 position: 15
 ---
 
-# Refresh Data
+# ComboBox Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)
 
