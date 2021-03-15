@@ -40,7 +40,7 @@ There are two approaches you can take - to keep using the Telerik components and
 
 The solution is to use the unique identifier you get from the component (the `Value`) and to get the entire model from its data source (the `Data` collection) by filtering it (e.g., by using the `Where()` operator).
 
-The examples below show one way to do this for the DropDownList, ComboBox and AutoComplete components. For the MultiSelect you would have to loop over the selected values collection, of course, and for the AutoComplete you may want to ensure unique Text values (the autocomplete is a free text input with suggestions, not a dropdown with mandatory choices).
+The examples below show one way to do this for the DropDownList, ComboBox and AutoComplete components. For the MultiSelect you would have to loop over the selected values collection, and for the AutoComplete you may want to ensure unique Text values (the autocomplete is a free text input with suggestions, not a dropdown with mandatory choices).
 
 >caption Get model from dropdown
 
@@ -318,3 +318,5 @@ The example below copies the Telerik DropDownList rendering and uses a grid to p
     }
 }
 ````
+
+>tip You may want to Vote for and Follow the implementation of a ready-made Telerik component that will let you pust custom content in the dropdown [here](https://feedback.telerik.com/blazor/1506370-dropdown-container-popup-component-tied-to-an-anchor-for-positioning).
