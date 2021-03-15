@@ -1,86 +1,158 @@
 ---
-title: Linear Gauge Overview
-page_title: Linear Gauge Overview
-description: Overview of the Linear Gauge for Blazor.
-slug: linear-gauge-overview
+title: Pointers
+page_title: Linear Gauge - Pointers
+description: Linear Gauge for Blazor - Pointers.
+slug: linear-gauge-pointers
 tags: telerik,blazor,linear,gauge,overview
 published: True
-position: 0
+position: 10
 ---
 
-# Linear Gauge Overview
+# Linear Gauge Pointers
 
+The pointers are the values that will be marked on the scale. You can customize them through the parameters they expose:
 
+* [Shape](#shape)
 
-This article is separated in the following sections: 
+* [Color](#color)
 
-* [Basics](#basics)
+* [Opacity](#opacity)
 
-* [Features](#features)
+* [Size](#size)
 
-* [Linear Gauge Scale](#linear-gauge-scale)
+* [Margin](#margin)
 
-* [Linear Gauge Pointer](#linear-gauce-pointer)
+* [Additional Customization](#additional-customization)
 
-* [Methods](#methods)
+>note The examples in this article are using the [Arrow shape](#shape) of the Pointers, but you can use BarIndicator too.
 
-## Basics
+## Shape
 
->caption To add a Telerik Linear Gauge for Blazor to your application:
+The `Shape` parameter controls the shape of the pointer and takes a member of the `LinearGaugePointerShape` enum:
 
-1. Add the `<TelerikLinearGauge>` tag.
-1. Add one or more instance of the `<LinearGaugePointer>` to the `<LinearGaugePointers>` collection.
-1. Provide a `Value` for each `<LinearGaugePointer>`.
+* `BarIndicator` - by default a bar indication will be rendered as the pointer shape
 
->caption Basic Telerik Linear Gauge for Blazor.
+* `Arrow`
 
-![Basic Linear Gauge](images/basic-linear-gauge.png)
+>caption Change the shape of the pointer. The result from the code snippet below.
+
+![Arrow Pointers](images/arrow-pointers.png)
 
 ````CSHTML
-@* Setup a basic linear gauge *@
+@* Use arrows as pointers in the Linear Gauge *@
 
 <TelerikLinearGauge>
     <LinearGaugePointers>
-        <LinearGaugePointer Value="10" />
+        <LinearGaugePointer Value="10" Shape="@LinearGaugePointerShape.Arrow">
+        </LinearGaugePointer>
 
-        <LinearGaugePointer Value="20" />
+        <LinearGaugePointer Value="20" Shape="@LinearGaugePointerShape.Arrow">
+        </LinearGaugePointer>
 
-        <LinearGaugePointer Value="30" />
+        <LinearGaugePointer Value="30" Shape="@LinearGaugePointerShape.Arrow">
+        </LinearGaugePointer>
+        
     </LinearGaugePointers>
 </TelerikLinearGauge>
 ````
 
-## Features
+## Color
 
-The Telerik Linear Gauge for Blazor exposes the following features:
+The `Color` (`string`) parameter controls the color of the pointers. It accepts **CSS**, **HEX** and **RGB** colors.
 
-* `Width` - `string` - controls the width of the component.
+>caption Change the color of the arrow pointers. The result from the code snippet below
 
-* `Height` - `string` - controls the height of the component.
+![color parameter example](images/color-parameter.png)
 
-* `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
+````CSHTML
+@* Change the color of the pointers *@
 
-* Customization - See the [Customization]({%slug linear-gauge-customization%}) article for more information.
+<TelerikLinearGauge>
+    <LinearGaugePointers>
+        <LinearGaugePointer Value="10" Color="green" Shape="@LinearGaugePointerShape.Arrow">
+        </LinearGaugePointer>
 
-## Linear Gauge Scale
+        <LinearGaugePointer Value="20" Color="yellow" Shape="@LinearGaugePointerShape.Arrow">
+        </LinearGaugePointer>
 
-You can customize the scale of the component by using the `<LinearGaugeScale>` child tag of the `<TelerikLinearGauge>` and the parameters it exposes:
+        <LinearGaugePointer Value="30" Color="red" Shape="@LinearGaugePointerShape.Arrow">
+        </LinearGaugePointer>
+        
+    </LinearGaugePointers>
+</TelerikLinearGauge>
+````
 
-* `Max` - `double` - the maximum value rendered in the gauge scale.
+## Opacity
 
-* `Min` - `double` - the minimum value rendered in the gauge scale.
+The `Opacity` (`double`) parameter controls the of the pointers. The value passed to it should be between **0** and **1**.
 
-* `MajorUnit` - `double` - the interval between the major unit divisions.
+````CSHML
+@* Change the opacity of a pointer *@
 
-* `MinorUnit` - `double` - the interval between the minor unit divisions.
+<TelerikLinearGauge>
+    <LinearGaugePointers>
+        <LinearGaugePointer Value="10" Opacity="0.4" Color="green" Shape="@LinearGaugePointerShape.Arrow">
+        </LinearGaugePointer>
 
-* `Mirror` - `bool` - renders the labels and the unit divisions to the right of the scale. By default the labels and unit divisions are rendered to the left side of the scale.
+        <LinearGaugePointer Value="20" Color="yellow" Shape="@LinearGaugePointerShape.Arrow">
+        </LinearGaugePointer>
 
-* `Reverse` - `bool` - renders the scale so that the values increase from top to bottom.
+        <LinearGaugePointer Value="30" Color="red" Shape="@LinearGaugePointerShape.Arrow">
+        </LinearGaugePointer>
+        
+    </LinearGaugePointers>
+</TelerikLinearGauge>
+````
 
+## Size
+
+The `Size` (`double`) parameter controls the size of the pointers. 
+
+````CSHTML
+@* Change the sizes of the pointers *@ 
+
+<TelerikLinearGauge>
+    <LinearGaugePointers>
+        <LinearGaugePointer Value="10" Color="green" Shape="@LinearGaugePointerShape.Arrow" Size="15">
+        </LinearGaugePointer>
+
+        <LinearGaugePointer Value="20" Color="yellow" Shape="@LinearGaugePointerShape.Arrow" Size="10">
+        </LinearGaugePointer>
+
+        <LinearGaugePointer Value="30" Color="red" Shape="@LinearGaugePointerShape.Arrow" Size="5">
+        </LinearGaugePointer>
+        
+    </LinearGaugePointers>
+</TelerikLinearGauge>
+````
+
+## Margin
+
+The `Margin` (`double`) parameter controls the margin between the [Scale]({%slug linear-gauge-scale%}) and the pointers.
+
+````CSHTML
+@* Change the margin between the scale and the pointers *@
+
+<TelerikLinearGauge>
+    <LinearGaugePointers>
+        <LinearGaugePointer Value="10" Margin="10" Shape="@LinearGaugePointerShape.Arrow" >
+        </LinearGaugePointer>
+
+        <LinearGaugePointer Value="20" Margin="8" Shape="@LinearGaugePointerShape.Arrow">
+        </LinearGaugePointer>
+
+        <LinearGaugePointer Value="30" Margin="6" Shape="@LinearGaugePointerShape.Arrow">
+        </LinearGaugePointer>
+        
+    </LinearGaugePointers>
+</TelerikLinearGauge>
+````
+
+## Additional Customization
+
+@[template](/_contentTemplates/gauges/additional-customization.md#linear-gauge-additional-customization)
 
 ## See Also
 
-  * [Data Binding]({%slug components/chart/databind%})
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikChart)
+* [Linear Gauge: Overview]({%slug linear-gauge-overview%})
+* [Linear Gauge: Scale]({%slug linear-gauge-scale%})

@@ -1,5 +1,5 @@
 ---
-title: Linear Gauge - Scale
+title: Scale
 page_title: Linear Gauge - Scale
 description: Linear Gauge for Blazor - Scale.
 slug: linear-gauge-scale
@@ -10,7 +10,7 @@ position: 5
 
 ## Linear Gauge Scale
 
-You can customize the scale of the component by using the `<LinearGaugeScale>` child tag of the `<TelerikLinearGauge>` and the parameters it exposes:
+You can customize the scale of the component by adding an instance of the `<LinearGaugeScale>` to the `<LinearGaugeScale>` collection, child tag of the `<TelerikLinearGauge>`. The `<LinearGaugeScale>` exposes the following parameters:
 
 * [Min and Max](#min-and-max)
 
@@ -41,7 +41,10 @@ You can customize the scale of the component by using the `<LinearGaugeScale>` c
 @* Use the Min and Max parameters to change the lowest and highest values for the scale *@
 
 <TelerikLinearGauge>
-    <LinearGaugeScale Min="10" Max="100" />
+    <LinearGaugeScales>
+        <LinearGaugeScale Min="10" Max="100" ></LinearGaugeScale>
+    </LinearGaugeScales>
+
     <LinearGaugePointers>
 
         <LinearGaugePointer Value="10">
@@ -67,6 +70,29 @@ You can customize the scale of the component by using the `<LinearGaugeScale>` c
 
 ![Minor and major units parameters](images/minor-and-major-units-linear-gauge.png)
 
+````CSHTML
+@* Update the rendering of the major and minor ticks *@
+
+<TelerikLinearGauge>
+    <LinearGaugeScales>
+        <LinearGaugeScale MajorUnit="10" MinorUnit="5"></LinearGaugeScale>
+    </LinearGaugeScales>
+
+    <LinearGaugePointers>
+
+        <LinearGaugePointer Value="10">
+        </LinearGaugePointer>
+
+        <LinearGaugePointer Value="20">
+        </LinearGaugePointer>
+
+        <LinearGaugePointer Value="80">
+        </LinearGaugePointer>
+
+    </LinearGaugePointers>
+</TelerikLinearGauge>
+````
+
 ## Mirror
 
 If you set the `Mirror` (`bool`) parameter to `true` the scale will render the labels and the unit divisions to the right of the scale. By default the labels and unit divisions are rendered to the left side of the scale.
@@ -79,7 +105,9 @@ If you set the `Mirror` (`bool`) parameter to `true` the scale will render the l
 @* Set the Mirror parameter to true *@
 
 <TelerikLinearGauge>
-    <LinearGaugeScale Mirror="true" />
+    <LinearGaugeScales>
+        <LinearGaugeScale Mirror="true"></LinearGaugeScale>
+    </LinearGaugeScales>
     <LinearGaugePointers>
 
         <LinearGaugePointer Value="10">
@@ -107,7 +135,9 @@ If you set the `Reverse` (`bool`) parameter to `true` the values of the scale wi
 @* Set the Reverse parameter to true *@
 
 <TelerikLinearGauge>
-    <LinearGaugeScale Reverse="true" />
+    <LinearGaugeScales>
+        <LinearGaugeScale Reverse="true"></LinearGaugeScale>
+    </LinearGaugeScales>
     <LinearGaugePointers>
 
         <LinearGaugePointer Value="10">
@@ -135,7 +165,9 @@ The `Vertical` (`bool`) parameter controls the orientation of the linear gauge. 
 @* Use the Vertical parameter to change the orientation of the scale *@
 
 <TelerikLinearGauge>
-    <LinearGaugeScale Vertical="false" />
+    <LinearGaugeScales>
+        <LinearGaugeScale Vertical="false"></LinearGaugeScale>
+    </LinearGaugeScales>
     <LinearGaugePointers>
 
         <LinearGaugePointer Value="10">
@@ -167,9 +199,12 @@ You can remove the MinorUnit ticks from the rendering of the scale by using the 
 @* Remove the MinorUnit ticks. *@
 
 <TelerikLinearGauge>
-    <LinearGaugeScale>
-        <LinearGaugeScaleMinorTicks Visible="false"></LinearGaugeScaleMinorTicks>
-    </LinearGaugeScale>
+    <LinearGaugeScales>
+        <LinearGaugeScale>
+            <LinearGaugeScaleMinorTicks Visible="false"></LinearGaugeScaleMinorTicks>
+        </LinearGaugeScale>
+    </LinearGaugeScales>
+
     <LinearGaugePointers>
 
         <LinearGaugePointer Value="10">
@@ -187,4 +222,5 @@ You can remove the MinorUnit ticks from the rendering of the scale by using the 
 
 ## See Also
 
-  * [Linear Gauge: Overview]({%slug linear-gauge-overview%})
+* [Linear Gauge: Overview]({%slug linear-gauge-overview%})
+* [Linear Gauge: Pointers]({%slug linear-gauge-pointers%})
