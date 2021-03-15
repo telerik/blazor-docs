@@ -256,8 +256,8 @@ navigation:
         title: "FlatColorPicker"
      "*gantt":
         title: "Gantt"
-     "*lineargauge":
-        title: "LinearGauge"
+     "*gauge-linear":
+        title: "Gauge - Linear"
      "*listbox":
         title: "ListBox"
      "*loader":
