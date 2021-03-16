@@ -37,15 +37,15 @@ The following components support observable data for their `Data` parameter:
 
 * [DropDownList]({%slug dropdownlist-refresh-data%})
 
-* Grid - [documentation]({%slug grid-refresh-data%}), [demo](https://demos.telerik.com/blazor-ui/grid/observable-data)
+* [Grid documentation]({%slug grid-refresh-data%}), [live demo](https://demos.telerik.com/blazor-ui/grid/observable-data)
 
-* ListView
+* [ListView]({%slug listview-refresh-data%})
 
 * [MultiSelect]({%slug multiselect-refresh-data%})
 
-* TreeList
+* [TreeList]({%slug treelist-refresh-data%})
 
-* TreeView
+* [TreeView]({%slug treeview-refresh-data%})
 
 The Scheduler, Menu, Drawer, ContextMenu will receive this feature in a future release.
 
