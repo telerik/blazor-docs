@@ -62,7 +62,10 @@ In this article:
 
     void RemoveSuggestion()
     {
+        if (Suggestions.Count > 0)
+        {
         Suggestions.RemoveAt(Suggestions.Count - 1);
+        }
     }
 
     ObservableCollection<SuggestionsModel> Suggestions { get; set; } = new ObservableCollection<SuggestionsModel>
@@ -79,6 +82,8 @@ In this article:
     }
 }
 ````
+
+@[template](/_contentTemplates/common/observable-data.md#tip-for-new-collection)
 
 ## New Collection Reference
 
@@ -97,6 +102,10 @@ In this article:
 
 <h4>Remove the last suggestion</h4>
 <TelerikButton OnClick="@RemoveSuggestion">Remove the last suggestion</TelerikButton>
+<br />
+
+<h4>Load new collection</h4>
+<TelerikButton OnClick="@LoadNewData">Load data</TelerikButton>
 <br />
 
 <h4>Autocomplete suggestions: @Suggestions.Count</h4>
@@ -123,8 +132,25 @@ In this article:
 
     void RemoveSuggestion()
     {
-        Suggestions.RemoveAt(Suggestions.Count - 1);
-        Suggestions = new List<SuggestionsModel>(Suggestions);
+        if (Suggestions.Count > 0)
+        {
+            Suggestions.RemoveAt(Suggestions.Count - 1);
+            Suggestions = new List<SuggestionsModel>(Suggestions);
+        }
+    }
+
+    void LoadNewData()
+    {
+        var newData = new List<SuggestionsModel>
+        {
+        new SuggestionsModel { Suggestion = "fourth", SomeOtherField = 4 },
+        new SuggestionsModel { Suggestion = "fifth", SomeOtherField = 5 },
+        new SuggestionsModel { Suggestion = "sixth", SomeOtherField = 6 }
+        };
+
+        Suggestions = new List<SuggestionsModel>(newData);
+
+        Console.WriteLine("New data collection loaded.");
     }
 
     List<SuggestionsModel> Suggestions { get; set; } = new List<SuggestionsModel>

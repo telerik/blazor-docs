@@ -21,3 +21,7 @@ In Blazor, the framework will fire the `OnParametersSet` event of a child compon
 
     Thus, you would usually need to create a `new` reference for the view-model field (such as `TreeViewData = new List<MyTreeViewItem>(theUpdatedDataCollection);`) when you want the component to update.
 #end
+
+#tip-for-new-collection
+>note If you need to add/remove many items to/from the collection, consider creating a new collection and provide its reference to the data parameter. Thus, the component will re-render only once (when the data collection reference is changed) instead of re-rendering multiple times in response to the Add/Remove events.
+#end

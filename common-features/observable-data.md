@@ -37,7 +37,7 @@ The following components support observable data for their `Data` parameter:
 
 * [DropDownList]({%slug dropdownlist-refresh-data%})
 
-* [Grid](https://demos.telerik.com/blazor-ui/grid/observable-data)
+* Grid - [documentation]({%slug grid-refresh-data%}), [demo](https://demos.telerik.com/blazor-ui/grid/observable-data)
 
 * ListView
 

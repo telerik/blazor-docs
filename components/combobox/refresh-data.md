@@ -63,7 +63,10 @@ In this article:
 
     void RemoveOption()
     {
+        if (myDdlData.Count > 0)
+        {
         myDdlData.RemoveAt(myDdlData.Count - 1);
+        }
     }
 
     public class MyDdlModel
@@ -73,6 +76,8 @@ In this article:
     }
 }
 ````
+
+@[template](/_contentTemplates/common/observable-data.md#tip-for-new-collection)
 
 ## New Collection Reference
 
@@ -91,6 +96,10 @@ In this article:
 
 <h4>Remove the last option</h4>
 <TelerikButton OnClick="@RemoveOption">Remove the last option</TelerikButton>
+<br />
+
+<h4>Load new collection</h4>
+<TelerikButton OnClick="@LoadNewData">Load data</TelerikButton>
 <br />
 
 <h4>ComboBox options: @myDdlData.Count</h4>
@@ -120,8 +129,20 @@ In this article:
 
     void RemoveOption()
     {
-        myDdlData.RemoveAt(myDdlData.Count - 1);
-        myDdlData = new List<MyDdlModel>(myDdlData);
+        if (myDdlData.Count > 0)
+        {
+            myDdlData.RemoveAt(myDdlData.Count - 1);
+            myDdlData = new List<MyDdlModel>(myDdlData);
+        }
+    }
+
+    void LoadNewData()
+    {
+        var newData = new List<MyDdlModel>(Enumerable.Range(6, 5).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x }));
+
+        myDdlData = new List<MyDdlModel>(newData);
+
+        Console.WriteLine("New data collection loaded.");
     }
 
     public class MyDdlModel

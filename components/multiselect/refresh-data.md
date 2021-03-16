@@ -68,7 +68,10 @@ Sections in this article:
 
     void RemoveOption()
     {
+        if (Options.Count > 0)
+        {
         Options.RemoveAt(Options.Count - 1);
+        }
     }
 
     public class OptionsModel
@@ -79,6 +82,8 @@ Sections in this article:
 }
 ````
 
+@[template](/_contentTemplates/common/observable-data.md#tip-for-new-collection)
+
 ## New Collection Reference
 
 @[template](/_contentTemplates/common/observable-data.md#refresh-data)
@@ -88,10 +93,6 @@ Sections in this article:
 ````CSHTML
 @* Add/remove an option or a collection of options to see how the MultiSelect reacts to the change. *@
 
-<h4>Add a collection of new options</h4>
-<TelerikButton OnClick="@LoadNewData">Load new options</TelerikButton>
-<br />
-
 <h4>Add a new option</h4>
 <TelerikTextBox @bind-Value="@ValuetoAdd"></TelerikTextBox>
 <TelerikButton OnClick="@AddItem">Add new option</TelerikButton>
@@ -99,6 +100,10 @@ Sections in this article:
 
 <h4>Remove the last option</h4>
 <TelerikButton OnClick="@RemoveItem">Remove last item</TelerikButton>
+<br />
+
+<h4>Load a collection of new options</h4>
+<TelerikButton OnClick="@LoadNewData">Load new options</TelerikButton>
 <br />
 
 <h4>Options: @Options.Count</h4>
@@ -129,14 +134,17 @@ Sections in this article:
 
     void RemoveItem()
     {
-        Options.RemoveAt(Options.Count - 1);
-        Options = new List<OptionsModel>(Options);
+        if (Options.Count > 0)
+        {
+            Options.RemoveAt(Options.Count - 1);
+            Options = new List<OptionsModel>(Options);
+        }
     }
 
     void LoadNewData()
     {
         var newData = new List<OptionsModel>
-    {
+{
         new OptionsModel { StringRepresentation = "fourth",  MyValueField = 4 },
         new OptionsModel { StringRepresentation = "fifth", MyValueField = 5 },
         new OptionsModel { StringRepresentation = "sixth",  MyValueField = 6 }
