@@ -19,7 +19,7 @@ This article explains the events available in the Telerik Color Palette for Blaz
 
 ## OnChange
 
-The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` to select a color, or when the component loses focus. It does not prevent you from using two-way binding for the `Value`.
+The `OnChange` event represents a user action - confirmation of the current value. It fires when the user clicks, taps or presses `Enter` to select a color, or when the component loses focus. It does not prevent you from using two-way binding for the `Value`.
 
 >caption Handle OnChange and use two-way binding for the Value
 
