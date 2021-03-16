@@ -99,6 +99,8 @@ You can use the following features to get or set the editor content:
 >important @[template](/_contentTemplates/editor/general.md#app-must-sanitize-content)
 
 
+@[template](/_contentTemplates/editor/general.md#content-size-signalr)
+
 ## Methods
 
 The editor [reference](#component-reference) exposes the `ExecuteAsync` method which lets you call programmatically the tools and commands of the editor (such as the Bold too, or a Back Color tool, or inserting HTML).

@@ -50,16 +50,16 @@ To control the behavior of the editor when content is pasted, you can set the de
 
 The following list describes the behaviors and functionality each parameter of the `EditorPasteSettings` provides:
 
-* `ConvertMsList` - `bool` - If set to `true`, MS Word lists will be converted into HTML lists. By default, Word's list are paragraphs with the respective styling which is not accurate in html.
+* `ConvertMsList` - `bool` - If set to `true` (defaults to `true`), MS Word lists will be converted into HTML lists. By default, Word's list are paragraphs with the respective styling which is not accurate in html.
 
 * `RemoveHtmlComments` - `bool` - If set to `true`, comments will be removed from the HTML.
 For example, `<!-- comment --> <p> content </p>` will result in `<p> content </p>`
 
 * `RemoveAllAttributes` - `bool` - Determines whether all DOM attributes should be stripped. Takes precedence over `RemoveMsClasses`, `removeMsStyles`, `RemoveAttributes`.
 
-* `RemoveMsClasses` - `bool` - If set to `true`, class attributes starting with `Mso` will be removed from the HTML. These are usually classes that come with content pasted from MS Word. For example,  `<p class="MsoNormal">pasted from MS Word</p>` will result in `<p>pasted from MS Word</p>`.
+* `RemoveMsClasses` - `bool` - If set to `true` (defaults to `true`), class attributes starting with `Mso` will be removed from the HTML. These are usually classes that come with content pasted from MS Word. For example,  `<p class="MsoNormal">pasted from MS Word</p>` will result in `<p>pasted from MS Word</p>`.
 
-* `RemoveMsStyles` - `bool`- If set to `true`, style attributes starting with `Mso` will be removed from the HTML. These are usually styles that come with content pasted from MS Word. For example, `<p><span style="color:#7C7C7C; mso-themecolor:accent3; mso-themeshade:191;">content</span></p>` will result in `<p><span style="color: #7C7C7C; background: silver;">content</span></p>`.
+* `RemoveMsStyles` - `bool`- If set to `true` (defaults to `true`), style attributes starting with `Mso` will be removed from the HTML. These are usually styles that come with content pasted from MS Word. For example, `<p><span style="color:#7C7C7C; mso-themecolor:accent3; mso-themeshade:191;">content</span></p>` will result in `<p><span style="color: #7C7C7C; background: silver;">content</span></p>`.
 
 * `StripTags` - `List<string>` - Specifies a list of tags to be removed from the HTML. Child nodes of removed tags will be kept in place. For example. when `StripTags` is `{ "span" }` , pasting `<p><span lang=EN-US>content</span></p>` will result in `<p>content</p>`.
 
@@ -68,6 +68,8 @@ For example, `<!-- comment --> <p> content </p>` will result in `<p> content </p
 
 
 ## Notes
+
+@[template](/_contentTemplates/editor/general.md#content-size-signalr)
 
 >caution The content cleaning the editor performs happens on paste only. The user can still alter the HTML and if you are sending or receiving data over the wire, there is a chance such requests can be interecepted and altered maliciously. Therefore, the paste cleanup functionality of the editor cannot and does not replace content sanitization according to the application's standards and logic.
 >
