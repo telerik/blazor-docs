@@ -25,7 +25,9 @@ This article is separated in the following sections:
 >caption To add a Telerik Linear Gauge for Blazor to your application:
 
 1. Add the `<TelerikLinearGauge>` tag.
+
 1. Add one or more instance of the `<LinearGaugePointer>` to the `<LinearGaugePointers>` collection.
+
 1. Provide a `Value` for each `<LinearGaugePointer>`.
 
 >caption Basic Telerik Linear Gauge for Blazor.
@@ -56,9 +58,13 @@ The Telerik Linear Gauge for Blazor exposes the following features:
 
 * `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
 
-* Scale - See the [Scale]({%slug linear-gauge-scale%}) for more information on how to customize the scale of the component.
+* Scale - See the [Scale]({%slug linear-gauge-scale%}) article for more information on how to customize the scale of the component.
 
-* Pointers - See the [Pointers]({%slug linear-gauge-pointers%}) for more information on how to customize the pointers of the component.
+* Ranges - See the [Ranges]({%slug linear-gauge-ranges%}) article for more information on how to provide ranges for the scale of the component.
+
+* Labels - See the [Labels]({%slug linear-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
+
+* Pointers - See the [Pointers]({%slug linear-gauge-pointers%}) article for more information on how to customize the pointers of the component.
 
 ## Methods
 
