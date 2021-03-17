@@ -118,3 +118,4 @@ If you paste more images at the same time, their `src` attributes will not be co
 ## See Also
 
   * [Editor Overview]({%slug editor-overview%})
+  * [Live Demo: Paste Cleanup](https://demos.telerik.com/blazor-ui/editor/paste-cleanup)
