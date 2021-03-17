@@ -88,14 +88,14 @@ This section provides information on a few key concepts and behaviors that you s
 
 ### Content Sanitization
 
->caution The content cleaning the editor performs happens on paste only. The user can still alter the HTML and if you are sending or receiving data over the wire, there is a chance such requests can be interecepted and altered maliciously if the application is not secured. Therefore, the paste cleanup functionality of the editor cannot and does not replace content sanitization according to the application's standards and logic.
+>caution The content cleaning the editor performs happens on paste only. The user can still alter the HTML and if you are sending or receiving data over the wire, there is a chance such requests can be intercepted and altered maliciously if the application is not secured. Therefore, the paste cleanup functionality of the editor cannot and does not replace content sanitization according to the application's standards and logic.
 >
 > @[template](/_contentTemplates/editor/general.md#app-must-sanitize-content)
 
 
 The editor clears `<script>` tags and removes DOM event handler attributes (e.g., `<img onerror="code();" onclick="otherCode();" alt="lorem ipsum" />` will become `<img  alt="lorem ipsum" />`). The user can still alter this and data can be modified during transmission as well, as explained above.
 
->tip To clean up content and ensure it is safe, before you store and reuse it, you can consider ready-made HTML sanitization libraries that are available on free package sourecs like nuget.org. While Telerik is not in a position to recommend particular packages, we recommend you consider such an approach.
+>tip To clean up content and ensure it is safe, before you store and reuse it, you can consider ready-made HTML sanitization libraries that are available on free package sources like nuget.org. While Telerik is not in a position to recommend particular packages, we recommend you consider such an approach.
 
 ### Paste Text and Image from MS Word
 
