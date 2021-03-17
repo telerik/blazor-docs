@@ -14,8 +14,9 @@ position: 1
 
 In this article:
 * [Observable data](#observable-data)
-* [Refresh Data](#refresh-data )
+* [Refresh Data](#refresh-data)
 * [Telerik components that support Observable Data](#telerik-components-that-support-observable-data)
+* [Telerik components that will support Observable Data in a future release](#telerik-components-that-will-support-observable-data-in-a-future-release)
 
 ## Observable Data
 
@@ -47,7 +48,19 @@ The following components support observable data for their `Data` parameter:
 
 * [TreeView]({%slug treeview-refresh-data%})
 
-The Scheduler, Menu, Drawer, ContextMenu will receive this feature in a future release.
+
+## Telerik components that will support Observable Data in a future release
+
+The following components will receive this feature in a future release. You can currently refresh their Data by creating a [New collection reference](#refresh-data).
+
+* Scheduler
+
+* [Menu]({%slug menu-refresh-data%})
+
+* [Drawer]({%slug drawer-refresh-data%})
+
+* ContextMenu
+
 
 ## See Also
 
