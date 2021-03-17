@@ -32,6 +32,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * ChunkProgressBar - not applicable, it is merely a visualization component the user cannot interact with.
 
+* [Color Palette](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation)
+
 * [Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/keyboard-navigation)
 
 * [ComboBox](https://demos.telerik.com/blazor-ui/combobox/keyboard-navigation)

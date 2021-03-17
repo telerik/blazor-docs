@@ -219,7 +219,8 @@ navigation:
      "*chunkprogressbar":
         title: "ChunkProgressBar"
      "*colorpalette":
-        title: "ColorPalette"
+        title: "Color Palette"
+        isNew: true
      "*colorpicker":
         title: "ColorPicker"
      "*/multicolumncombobox":
@@ -405,6 +406,7 @@ intro_columns:
       "HTML Editor": "editor-overview"
       "Slider": "slider-overview"
       "RangeSlider": "rangeslider-overview"
+      "Color Palette": "colorpalette-overview"
 
 -
   categories:
