@@ -26,7 +26,9 @@ To control the behavior of the editor when content is pasted, you can set the de
 >caption Set pasting behaviors in the Telerik Editor
 
 ````CSHTML
-@* Some sample paste cleanup settings to showcase their usage *@
+<p>Copy this paragraph that has some <font color="red" face="Courier New">inline font </font> and <span style="font-family:Impact, Charcoal, sans-serif;color:#ffffff;background-color:#3366ff;">inline styles</span> and <span data-id="some-metadata">paste it </span> in the Editor<!--I am a comment that will disappear-->.</p>
+
+@* Some sample paste cleanup settings to showcase their usage- the first three ones are commonly used for MS Word and these are their default values *@
 
 <TelerikEditor @bind-Value="@EditorValue">
     <EditorSettings>
@@ -39,10 +41,15 @@ To control the behavior of the editor when content is pasted, you can set the de
         </EditorPasteSettings>
     </EditorSettings>
 </TelerikEditor>
+
+The editor content as a string so you can see the differences with the original content above:
+<br />
+@EditorValue
+
 @code {
     public string EditorValue { get; set; }
-    public List<string> RemoveAttributes { get; set; } = new List<string>() { "onclick", "onerror" };
-    public List<string> StripTags { get; set; } = new List<string>() { "font" } ;
+    public List<string> RemoveAttributes { get; set; } = new List<string>() { "data-id" };
+    public List<string> StripTags { get; set; } = new List<string>() { "font" };
 }
 ````
 
@@ -69,11 +76,44 @@ For example, `<!-- comment --> <p> content </p>` will result in `<p> content </p
 
 ## Notes
 
+This section provides information on a few key concepts and behaviors that you should be aware of:
+
+* [Content Size](#content-size)
+* [Content Sanitization](#content-sanitization)
+* [Paste Text and Image from MS Word](#paste-text-and-image-from-ms-word)
+
+
+### Content Size
 @[template](/_contentTemplates/editor/general.md#content-size-signalr)
 
->caution The content cleaning the editor performs happens on paste only. The user can still alter the HTML and if you are sending or receiving data over the wire, there is a chance such requests can be interecepted and altered maliciously. Therefore, the paste cleanup functionality of the editor cannot and does not replace content sanitization according to the application's standards and logic.
+### Content Sanitization
+
+>caution The content cleaning the editor performs happens on paste only. The user can still alter the HTML and if you are sending or receiving data over the wire, there is a chance such requests can be interecepted and altered maliciously if the application is not secured. Therefore, the paste cleanup functionality of the editor cannot and does not replace content sanitization according to the application's standards and logic.
 >
 > @[template](/_contentTemplates/editor/general.md#app-must-sanitize-content)
+
+
+The editor clears `<script>` tags and removes DOM event handler attributes (e.g., `<img onerror="code();" onclick="otherCode();" alt="lorem ipsum" />` will become `<img  alt="lorem ipsum" />`). The user can still alter this and data can be modified during transmission as well, as explained above.
+
+>tip To clean up content and ensure it is safe, before you store and reuse it, you can consider ready-made HTML sanitization libraries that are available on free package sourecs like nuget.org. While Telerik is not in a position to recommend particular packages, we recommend you consider such an approach.
+
+### Paste Text and Image from MS Word
+
+If you copy both text and an image from MS Word and paste in the Editor, the image will not get pasted as expected. This behavior is due to the security policy of the browser.
+
+Instead of reading the image data and loading it as a base64 string to the `src` attribute of the `<img> `element, the browser generates an `<img>` tag which points to the clipboard location of the file on the client machine.
+
+A browser is not allowed to access such a resource, and so it throws an error and the image is not rendered which you can verify in the browser dev tools console, you will see an error such as: `"Not allowed to load local resource: <some image path>"`. 
+
+You can read more about this in <a href="https://stackoverflow.com/questions/39007243/cannot-open-local-file-chrome-not-allowed-to-load-local-resource" target="_blank">this StackOverflow thread</a>
+
+#### Work Around
+
+To work around this browser behavior, copy only the text or a single image from the MS Word document, and paste the image in the content area of the Editor separately. 
+
+By default, the browser allows you to copy and paste a single image from Word in the Editor by converting its `src` to a `base64` string. 
+
+If you paste more images at the same time, their `src` attributes will not be converted to `base64` strings and the browser will paste them with their `http` protocol and `URL` pointing to the physical folder which will result in the error described above.
 
 ## See Also
 
