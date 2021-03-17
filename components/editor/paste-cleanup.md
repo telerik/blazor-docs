@@ -105,7 +105,7 @@ Instead of reading the image data and loading it as a base64 string to the `src`
 
 A browser is not allowed to access such a resource, and so it throws an error and the image is not rendered which you can verify in the browser dev tools console, you will see an error such as: `"Not allowed to load local resource: <some image path>"`. 
 
-You can read more about this in <a href="https://stackoverflow.com/questions/39007243/cannot-open-local-file-chrome-not-allowed-to-load-local-resource" target="_blank">this StackOverflow thread</a>
+You can read more about this in <a href="https://stackoverflow.com/questions/39007243/cannot-open-local-file-chrome-not-allowed-to-load-local-resource" target="_blank">this StackOverflow thread</a>.
 
 #### Work Around
 
