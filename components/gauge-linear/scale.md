@@ -24,7 +24,7 @@ You can customize the scale of the component by adding an instance of the `<Line
 
 * [Additional Customization](#additional-customization)
 
-    * [Example: Remove the MinorUnit ticks](#example:-remove-the-minorunit-ticks)
+    * [Example: Remove the MinorUnit ticks](#example-remove-the-minorunit-ticks)
 
 
 ## Min and Max
