@@ -1,5 +1,5 @@
 ---
-title: Linear Gauge Overview
+title: Overview
 page_title: Linear Gauge Overview
 description: Overview of the Linear Gauge for Blazor.
 slug: linear-gauge-overview
