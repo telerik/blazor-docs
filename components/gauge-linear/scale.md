@@ -1,6 +1,6 @@
 ---
 title: Scale
-page_title: Linear Gauge - Scale
+page_title: Scale
 description: Linear Gauge for Blazor - Scale.
 slug: linear-gauge-scale
 tags: telerik,blazor,linear,gauge,scale
@@ -62,7 +62,7 @@ You can customize the scale of the component by adding an instance of the `<Line
 
 ## MinorUnit and MajorUnit
 
-* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component.
+* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The values provided to the `LinearGaugePointer` will render as a `MajorUnit` tick.
 
 * The `MinorUnit` (`double`) parameter controls the interval between the minor unit divisions of the component.
 
