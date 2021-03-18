@@ -53,13 +53,13 @@ The following components support observable data for their `Data` parameter:
 
 The following components will receive this feature in a future release. You can currently refresh their Data by creating a [New collection reference](#refresh-data).
 
-* Scheduler
+* [Scheduler]({%slug scheduler-refresh-data%})
 
 * [Menu]({%slug menu-refresh-data%})
 
 * [Drawer]({%slug drawer-refresh-data%})
 
-* ContextMenu
+* [ContextMenu]({%slug context-menu-refresh-data%})
 
 
 ## See Also

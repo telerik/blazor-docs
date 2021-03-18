@@ -29,7 +29,7 @@ In this article:
 >caption Create new collection reference to refresh the Drawer data.
 
 ````CSHTML
-@* Add/remove item or change the data collection to see how the Drawer reacts to that change. *@
+@* Add/remove an item or change the data collection to see how the Drawer reacts to that change. *@
 
 <TelerikButton OnClick="@AddItem">Add item</TelerikButton>
 
