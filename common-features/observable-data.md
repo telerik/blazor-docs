@@ -8,51 +8,59 @@ published: True
 position: 1
 ---
 
-# Observable Data
+# Observable Data and Refresh Data
 
-Databound components can benefit from live data - when the data source collection changes, the components should update to reflect that change. Most data-bound components in the Telerik UI for Blazor suite implement such functionality.
+@[template](/_contentTemplates/common/observable-data.md#intro)
 
-When the `Data` of the component is a collection that implements the `INotifyCollectionChanged` interface (such as `ObservableCollection`), the Telerik components subscribe to its `CollectionChanged` event to update. This means that adding items, removing items, or clearing the collection updates the components (its `.Add()`, `.Remove()` and `.Clear()` methods).
+In this article:
+* [Observable data](#observable-data)
+* [Refresh Data](#refresh-data)
+* [Telerik components that support Observable Data](#telerik-components-that-support-observable-data)
+* [Telerik components that will support Observable Data in a future release](#telerik-components-that-will-support-observable-data-in-a-future-release)
+
+## Observable Data
+
+@[template](/_contentTemplates/common/observable-data.md#observable-data)
+
+
+## Refresh Data 
+
+@[template](/_contentTemplates/common/observable-data.md#refresh-data)
+
+
+## Telerik components that support Observable Data
 
 The following components support observable data for their `Data` parameter:
 
-* AutoComplete
+* [AutoComplete]({%slug autocomplete-refresh-data%})
 
-* ComboBox
+* [ComboBox]({%slug combobox-refresh-data%})
 
-* DropDownList
+* [DropDownList]({%slug dropdownlist-refresh-data%})
 
-* [Grid](https://demos.telerik.com/blazor-ui/grid/observable-data)
+* [Grid documentation]({%slug grid-refresh-data%}), [live demo](https://demos.telerik.com/blazor-ui/grid/observable-data)
 
-* ListView
+* [ListView]({%slug listview-refresh-data%})
 
-* MultiSelect
+* [MultiSelect]({%slug multiselect-refresh-data%})
 
-* TreeList
+* [TreeList]({%slug treelist-refresh-data%})
 
-* TreeView
+* [TreeView]({%slug treeview-refresh-data%})
 
-The Scheduler, Menu, Drawer, ContextMenu will receive this feature in a future release.
 
-## Refresh Data
+## Telerik components that will support Observable Data in a future release
 
-The most common reason you would use an ObservableCollection is to make a component (like a grid, treeview, treelist, dropdown) change or react when you change that collection.
+The following components will receive this feature in a future release. You can currently refresh their Data by creating a [New collection reference](#refresh-data).
 
-When you want to refresh the component data source like that, there are two important framework behaviors you need to be aware of:
+* [Scheduler]({%slug scheduler-refresh-data%})
 
-* Observable collections fire the `CollectionChanged` event (which the Telerik components subscribe to) only when their `Add`, `Remove` and `Clear` methods are called. 
+* [Menu]({%slug menu-refresh-data%})
 
-    They do not fire it when you change the value of a field of one of their elements.
+* [Drawer]({%slug drawer-refresh-data%})
 
-* In Blazor, the framework will fire the `OnParametersSet` event of a child component (which is how child components can react to outside changes) only when it can detect a change in the object it receives through the corresponding parameter (like `Data` for the data sources of Telerik components). This detection works as follows:
+* [ContextMenu]({%slug context-menu-refresh-data%})
 
-    * For primitive types (such as numbers, strings), this happens when their value changes.
-    
-    * For complex types (such as data collections like `List`, or any `IEnumerable`, and application-specific models/objects), this happens when the object reference changes.
-    
-        Thus, you would usually need to create a `new` reference for the view-model field (such as `TreeViewData = new List<MyTreeViewItem>(theUpdatedDataCollection);`) when you want the component to update.
-
-You can find some more explanations and examples for the Grid component in the [Force a Grid to Refresh]({%slug grid-force-refresh%}) Knowledge Base article.
 
 ## See Also
 
