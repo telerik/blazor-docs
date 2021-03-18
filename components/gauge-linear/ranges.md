@@ -18,8 +18,6 @@ You can highlight specific value ranges by providing one or more instances of th
 
 * [Opacity](#opacity)
 
-* [Class](#class)
-
 ## From and To
 
 * The `From` (`double?`) parameter controls the lowest point in the range.
@@ -132,10 +130,6 @@ The `Opacity` (`double`) parameter controls the of the range. The value passed t
     </LinearGaugePointers>
 </TelerikLinearGauge>
 ````
-
-## Class
-
-The `Class` (`string`) parameter renders a custom CSS class on the range. You can use it to provide additional customizations. 
 
 ## See Also
 
