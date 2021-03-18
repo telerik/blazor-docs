@@ -8,7 +8,7 @@ published: True
 position: 17
 ---
 
-# TreeView Refresh Data
+# TreeView - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)
 

@@ -8,7 +8,7 @@ published: True
 position: 23
 ---
 
-# Drawer Refresh Data
+# Drawer - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)
 

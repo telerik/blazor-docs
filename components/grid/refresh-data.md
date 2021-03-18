@@ -8,7 +8,7 @@ published: True
 position: 53
 ---
 
-# Grid Refresh Data
+# Grid - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)
 

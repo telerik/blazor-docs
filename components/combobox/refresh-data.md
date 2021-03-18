@@ -8,7 +8,7 @@ published: True
 position: 15
 ---
 
-# ComboBox Refresh Data
+# ComboBox - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)
 

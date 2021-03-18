@@ -8,7 +8,7 @@ published: True
 position: 15
 ---
 
-# MultiSelect Refresh Data
+# MultiSelect - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)
 

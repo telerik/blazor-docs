@@ -8,7 +8,7 @@ published: True
 position: 15
 ---
 
-# Autocomplete Refresh Data
+# Autocomplete - Refresh Data
 
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

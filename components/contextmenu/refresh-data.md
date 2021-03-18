@@ -8,7 +8,7 @@ published: True
 position: 25
 ---
 
-# Context Menu Refresh Data
+# Context Menu - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)
 

@@ -8,7 +8,7 @@ published: True
 position: 40
 ---
 
-# Scheduler Refresh Data
+# Scheduler - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)
 

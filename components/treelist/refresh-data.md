@@ -8,7 +8,7 @@ published: True
 position: 60
 ---
 
-# TreeList Refresh Data
+# TreeList - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)
 

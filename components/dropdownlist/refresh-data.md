@@ -8,7 +8,7 @@ published: True
 position: 15
 ---
 
-# DropDownList Refresh Data
+# DropDownList - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)
 
