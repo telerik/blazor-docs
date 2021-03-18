@@ -68,7 +68,7 @@ If you do not define the `Color` parameter the range will not be visually render
 ![Color parameter screenshot](images/color-parameter-ranges.png)
 
 ````CSHTML
-@* Update the rendering of the major and minor ticks *@
+@* Change the color of the ranges *@
 
 <TelerikLinearGauge>
     <LinearGaugeScales>
