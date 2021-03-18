@@ -427,7 +427,7 @@ intro_columns:
       "Radar Column Charts": "chart-types-radarcolumn"
       "Radar Line Charts": "chart-types-radarline"
       "Stock Chart": "stockchart-overview"
-      "Linear Gauge": linear-gauge-overview"
+      "Linear Gauge": "linear-gauge-overview"
 
   -
 
