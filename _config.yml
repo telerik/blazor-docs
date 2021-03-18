@@ -192,8 +192,8 @@ navigation:
         title: "TreeList"
      "*spreadsheet":
         title: "Spreadsheet"
-     "*arcgauge":
-        title: "ArcGauge"
+     "*gauge-arc":
+        title: "Gauge - Arc"
      "*autocomplete":
         title: "AutoComplete"
      "*barcode":
@@ -258,6 +258,8 @@ navigation:
         title: "Gantt"
      "*gauge-linear":
         title: "Gauge - Linear"
+     "*gauge-circular":
+        title: "Gauge - Circular"
      "*listbox":
         title: "ListBox"
      "*loader":
@@ -286,8 +288,8 @@ navigation:
         title: "QRCode"
      "*/radiobutton":
         title: "RadioButton"
-     "*radialgauge":
-        title: "RadialGauge"
+     "*gauge-radial":
+        title: "Gauge - Radial"
      "*rangeslider":
         title: "RangeSlider"
      "*responsivepanel":
@@ -427,7 +429,10 @@ intro_columns:
       "Radar Column Charts": "chart-types-radarcolumn"
       "Radar Line Charts": "chart-types-radarline"
       "Stock Chart": "stockchart-overview"
-      "Linear Gauge": "linear-gauge-overview"
+      "Gauge - Linear": "linear-gauge-overview"
+      "Gauge - Radial": "radial-gauge-overview"
+      "Gauge - Arc": "arc-gauge-overview"
+      "Gauge - Circular": "circular-gauge-overview"
 
   -
 

@@ -2,7 +2,7 @@
 title: Overview
 page_title: Chart Overview
 description: Overview of the Chart for Blazor.
-slug: components/chart/overview
+slug: radial-gauge-overview
 tags: telerik,blazor,chart,overview
 published: True
 position: 0

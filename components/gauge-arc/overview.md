@@ -1,8 +1,8 @@
 ---
 title: Overview
-page_title: Chart Overview
-description: Overview of the Chart for Blazor.
-slug: components/chart/overview
+page_title: Arc Gauge Overview
+description: Overview of the Arc Gauge for Blazor.
+slug: arc-gauge-overview
 tags: telerik,blazor,chart,overview
 published: True
 position: 0
