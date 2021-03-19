@@ -39,10 +39,6 @@ This article is separated in the following sections:
 
 <TelerikLinearGauge>
     <LinearGaugePointers>
-        <LinearGaugePointer Value="10" />
-
-        <LinearGaugePointer Value="20" />
-
         <LinearGaugePointer Value="30" />
     </LinearGaugePointers>
 </TelerikLinearGauge>
