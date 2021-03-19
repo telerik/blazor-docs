@@ -18,6 +18,8 @@ You can customize the appearance of the labels rendered on the [scale]({%slug li
 
 * [Visible](#visible)
 
+* [Additional Customization](#additional-customization)
+
 ## Format
 
 The `Format` (`string`) parameter allows you to customize the rendering of the labels by using the <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings" target="_blank">standard numeric format strings</a>. You can set the values of the labels to showcase, for example, currency, percentage, and so on.
@@ -101,6 +103,41 @@ The `Visible` (`bool`) parameter controls wether the labels will be rendered.
     <LinearGaugeScales>
         <LinearGaugeScale>
             <LinearGaugeScaleLabels Visible="false">
+            </LinearGaugeScaleLabels>
+        </LinearGaugeScale>
+    </LinearGaugeScales>
+
+    <LinearGaugePointers>
+
+        <LinearGaugePointer Value="10">
+        </LinearGaugePointer>
+
+        <LinearGaugePointer Value="20">
+        </LinearGaugePointer>
+
+        <LinearGaugePointer Value="30">
+        </LinearGaugePointer>
+
+    </LinearGaugePointers>
+</TelerikLinearGauge>
+````
+
+## Additional Customization
+
+@[template](/_contentTemplates/gauges/additional-customization.md#linear-gauge-additional-customization)
+
+>caption Customize the borders of the Labels. The result from the code snippet below.
+
+![Custom Label borders](images/labels-custom-borders.png)
+
+````CSHTML
+@* Provide color, solid outline and custom width to the label borders *@
+
+<TelerikLinearGauge Width="25%">
+    <LinearGaugeScales>
+        <LinearGaugeScale Vertical="false">
+            <LinearGaugeScaleLabels>
+                <LinearGaugeScaleLabelsBorder Color="blue" DashType="@DashType.Solid" Width="1"></LinearGaugeScaleLabelsBorder>
             </LinearGaugeScaleLabels>
         </LinearGaugeScale>
     </LinearGaugeScales>
