@@ -429,10 +429,10 @@ intro_columns:
       "Radar Column Charts": "chart-types-radarcolumn"
       "Radar Line Charts": "chart-types-radarline"
       "Stock Chart": "stockchart-overview"
-      "Gauge - Linear": "linear-gauge-overview"
-      "Gauge - Radial": "radial-gauge-overview"
-      "Gauge - Arc": "arc-gauge-overview"
-      "Gauge - Circular": "circular-gauge-overview"
+      "Linear Gauge": "linear-gauge-overview"
+      "Radial Gauge": "radial-gauge-overview"
+      "Arc Gauge": "arc-gauge-overview"
+      "Circular Gauge": "circular-gauge-overview"
 
   -
 
