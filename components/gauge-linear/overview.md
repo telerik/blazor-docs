@@ -81,10 +81,7 @@ The Linear Gauge reference exposes the `Refresh` method which allows you to prog
 
 <TelerikLinearGauge @ref="@LinearGaugeRef" Height="@Height">
     <LinearGaugePointers>
-        <LinearGaugePointer Value="10"/>
-
-        <LinearGaugePointer Value="20" />
-
+    
         <LinearGaugePointer Value="30" />
         
     </LinearGaugePointers>
