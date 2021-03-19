@@ -80,12 +80,6 @@ The scale of the linear gauge renders the values, pointers and labels. You can c
 
     <LinearGaugePointers>
 
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
-
         <LinearGaugePointer Value="80">
         </LinearGaugePointer>
 
@@ -109,12 +103,6 @@ If you set the `Mirror` (`bool`) parameter to `true` the scale will render the l
         <LinearGaugeScale Mirror="true"></LinearGaugeScale>
     </LinearGaugeScales>
     <LinearGaugePointers>
-
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
 
         <LinearGaugePointer Value="30">
         </LinearGaugePointer>
@@ -140,12 +128,6 @@ If you set the `Reverse` (`bool`) parameter to `true` the values of the scale wi
     </LinearGaugeScales>
     <LinearGaugePointers>
 
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
-
         <LinearGaugePointer Value="30">
         </LinearGaugePointer>
 
@@ -169,12 +151,6 @@ The `Vertical` (`bool`) parameter controls the orientation of the linear gauge. 
         <LinearGaugeScale Vertical="false"></LinearGaugeScale>
     </LinearGaugeScales>
     <LinearGaugePointers>
-
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
 
         <LinearGaugePointer Value="30">
         </LinearGaugePointer>
@@ -206,12 +182,6 @@ You can remove the MinorUnit ticks from the rendering of the scale by using the 
     </LinearGaugeScales>
 
     <LinearGaugePointers>
-
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
 
         <LinearGaugePointer Value="30">
         </LinearGaugePointer>
