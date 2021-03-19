@@ -152,6 +152,27 @@ The `Margin` (`double`) parameter controls the margin between the [Scale]({%slug
 
 @[template](/_contentTemplates/gauges/additional-customization.md#linear-gauge-additional-customization)
 
+>caption Customize the Pointer Track. The result from the code snippet below.
+
+![custom pointer track](images/custom-pointer-track.png)
+
+````CSHTML
+@* Customize the pointer track *@
+
+<TelerikLinearGauge>
+    <LinearGaugeScales>
+        <LinearGaugeScale></LinearGaugeScale>
+    </LinearGaugeScales>
+    <LinearGaugePointers>
+
+        <LinearGaugePointer Value="30">
+            <LinearGaugePointerTrack Color="#a9a9a9" Visible="true"></LinearGaugePointerTrack>
+        </LinearGaugePointer>
+
+    </LinearGaugePointers>
+</TelerikLinearGauge>
+````
+
 ## See Also
 
 * [Linear Gauge: Overview]({%slug linear-gauge-overview%})
