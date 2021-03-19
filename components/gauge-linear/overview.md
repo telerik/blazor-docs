@@ -52,19 +52,25 @@ This article is separated in the following sections:
 
 The Telerik Linear Gauge for Blazor exposes the following features:
 
-* `Width` - `string` - controls the width of the component.
+#### Linear Gauge Size
 
-* `Height` - `string` - controls the height of the component.
+* `Width` - `string` - controls the width of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+
+* `Height` - `string` - controls the height of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+
+You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
+
+#### Other Feautres
 
 * `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
 
-* Scale - See the [Scale]({%slug linear-gauge-scale%}) article for more information on how to customize the scale of the component.
+* Scale - The scale of the linear gauge renders the values of the [pointers]({%slug linear-gauge-pointers%}), different [ranges]({%slug linear-gauge-ranges%}) and [labels]({%slug linear-gauge-ranges%}). See the [Scale]({%slug linear-gauge-scale%}) article for more information on how to customize the scale of the component.
 
-* Ranges - See the [Ranges]({%slug linear-gauge-ranges%}) article for more information on how to provide ranges for the scale of the component.
+* Ranges - The ranges are used to visually distinguish particular values on the scale. See the [Ranges]({%slug linear-gauge-ranges%}) article for more information on how to provide ranges for the scale of the component.
 
-* Labels - See the [Labels]({%slug linear-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
+* Labels - The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug linear-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
 
-* Pointers - See the [Pointers]({%slug linear-gauge-pointers%}) article for more information on how to customize the pointers of the component.
+* Pointers - The pointers indicate the values on the scale of the component. See the [Pointers]({%slug linear-gauge-pointers%}) article for more information on how to customize the pointers of the component.
 
 ## Methods
 

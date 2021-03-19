@@ -69,10 +69,10 @@ The `Color` (`string`) parameter controls the color of the pointers. It accepts 
 
 <TelerikLinearGauge>
     <LinearGaugePointers>
-        <LinearGaugePointer Value="10" Color="green" Shape="@LinearGaugePointerShape.Arrow">
+        <LinearGaugePointer Value="10" Color="#008000" Shape="@LinearGaugePointerShape.Arrow">
         </LinearGaugePointer>
 
-        <LinearGaugePointer Value="20" Color="yellow" Shape="@LinearGaugePointerShape.Arrow">
+        <LinearGaugePointer Value="20" Color="rgb(255,255,0)" Shape="@LinearGaugePointerShape.Arrow">
         </LinearGaugePointer>
 
         <LinearGaugePointer Value="30" Color="red" Shape="@LinearGaugePointerShape.Arrow">
@@ -84,7 +84,7 @@ The `Color` (`string`) parameter controls the color of the pointers. It accepts 
 
 ## Opacity
 
-The `Opacity` (`double`) parameter controls the of the pointers. The value passed to it should be between **0** and **1**.
+The `Opacity` (`double`) parameter controls the opacity of the pointers. The value passed to it should be between **0** and **1**.
 
 ````CSHML
 @* Change the opacity of a pointer *@

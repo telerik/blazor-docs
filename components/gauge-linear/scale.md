@@ -10,7 +10,7 @@ position: 5
 
 ## Linear Gauge Scale
 
-You can customize the scale of the component by adding an instance of the `<LinearGaugeScale>` to the `<LinearGaugeScale>` collection, child tag of the `<TelerikLinearGauge>`. The `<LinearGaugeScale>` exposes the following parameters:
+The scale of the linear gauge renders the values, pointers and labels. You can customize it by adding an instance of the `<LinearGaugeScale>` to the `<LinearGaugeScale>` collection, child tag of the `<TelerikLinearGauge>`. The `<LinearGaugeScale>` exposes the following parameters:
 
 * [Min and Max](#min-and-max)
 
@@ -62,7 +62,7 @@ You can customize the scale of the component by adding an instance of the `<Line
 
 ## MinorUnit and MajorUnit
 
-* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The values provided to the `LinearGaugePointer` will render as a `MajorUnit` tick.
+* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The values provided to the `LinearGaugePointer` will render as a `MajorUnit` tick. The [labels]({%slug linear-gauge-labels%}) will be rendered next to the `MajorUnit` ticks.
 
 * The `MinorUnit` (`double`) parameter controls the interval between the minor unit divisions of the component.
 
@@ -95,7 +95,7 @@ You can customize the scale of the component by adding an instance of the `<Line
 
 ## Mirror
 
-If you set the `Mirror` (`bool`) parameter to `true` the scale will render the labels and the unit divisions to the right of the scale. By default the labels and unit divisions are rendered to the left side of the scale.
+If you set the `Mirror` (`bool`) parameter to `true` the scale will render the labels and the unit divisions to the right of the scale. By default the labels and unit divisions are rendered to the left side of the scale for a verical gauge and to the botton if the gauge is [horizontal](#reverse).
 
 >caption Render the labels and the ticks of the scale to the right. The result from the code snippet below
 
