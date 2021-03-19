@@ -1,147 +1,108 @@
 ---
 title: Overview
-page_title: Chart Overview
-description: Overview of the Chart for Blazor.
+page_title: Radial Gauge Overview
+description: Overview of the Radial Gauge for Blazor.
 slug: radial-gauge-overview
-tags: telerik,blazor,chart,overview
+tags: telerik,blazor,radial,gauge,overview
 published: True
 position: 0
 ---
 
-# Chart Overview
+# Radial Gauge Overview
 
-The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Chart component</a> allows you to visualize data to your users in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins and templates.
+The Telerik Radial Gauge for Blazor represents [numerical values]({%slug radial-gauge-pointers%}) on a [scale]({%slug radial-gauge-scale%}) of ranges in a radial format.
 
-#### To use a Telerik chart for Blazor, add the `TelerikChart` tag.
+This article is separated in the following sections: 
 
->caption Basic chart with series and category axis [data binding](data-bind), and a few commonly used appearance settings
+* [Basics](#basics)
+
+* [Features](#features)
+
+* [Methods](#methods)
+
+## Basics
+
+>caption To add a Telerik Radial Gauge for Blazor to your application:
+
+1. Add the `<TelerikRadialGauge>` tag.
+
+1. Add one or more instance of the `<RadialGaugePointer>` to the `<RadialGaugePointers>` collection.
+
+1. Provide a `Value` for each `<RadialGaugePointer>`.
+
+>caption Basic Telerik Radial Gauge for Blazor.
+
+![Basic Radial Gauge](images/basic-radial-gauge.png)
 
 ````CSHTML
-Basic chart and common settings/elements
+@* Setup a basic radial gauge *@
 
-<TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Line" Name="Product 2 (bound to model)" Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
-			<ChartSeriesLabels Template="#=value# in #=dataItem.ExtraData# quarter" Visible="true"></ChartSeriesLabels>
-		</ChartSeries>
-	</ChartSeriesItems>
-
-	<ChartValueAxes>
-		<ChartValueAxis Color="red"></ChartValueAxis>
-	</ChartValueAxes>
-
-	<ChartCategoryAxes>
-		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-	</ChartCategoryAxes>
-
-	<ChartTitle Text="Quarterly sales trend"></ChartTitle>
-
-	<ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-	</ChartLegend>
-</TelerikChart>
-
-@code {
-	public class MyDataModel
-	{
-		public int SecondSeriesValue { get; set; }
-		public string ExtraData { get; set; }
-
-	}
-
-	public List<MyDataModel> modelData = new List<MyDataModel>()
-    {
-		new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
-		new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
-		new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
-		new MyDataModel() { SecondSeriesValue = 2, ExtraData = "fourth" },
-	};
-
-	public List<object> simpleData = new List<object>() { 10, 2, 7, 5 };
-
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
+<TelerikRadialGauge>
+    <RadialGaugePointers>
+        <RadialGaugePointer Value="20">            
+        </RadialGaugePointer>        
+    </RadialGaugePointers>    
+</TelerikRadialGauge>
 ````
 
->caption The result from the code snippet above
+## Features
 
-![](images/overview-chart.png)
+The Telerik Radial Gauge for Blazor exposes the following features:
 
+#### Radial Gauge Size
 
+* `Width` - `string` - controls the width of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
 
-@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+* `Height` - `string` - controls the height of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
 
->caption Component namespace and reference
+You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
+
+#### Other Feautres
+
+* `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
+
+* Scale - The scale of the radial gauge renders the values of the [pointers]({%slug radial-gauge-pointers%}), different [ranges]({%slug radial-gauge-ranges%}) and [labels]({%slug radial-gauge-ranges%}). See the [Scale]({%slug radial-gauge-scale%}) article for more information on how to customize the scale of the component.
+
+* Ranges - The ranges are used to visually distinguish particular values on the scale. See the [Ranges]({%slug radial-gauge-ranges%}) article for more information on how to provide ranges for the scale of the component.
+
+* Labels - The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug radial-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
+
+* Pointers - The pointers indicate the values on the scale of the component. See the [Pointers]({%slug radial-gauge-pointers%}) article for more information on how to customize the pointers of the component.
+
+## Methods
+
+The Radial Gauge reference exposes the `Refresh` method which allows you to programatically re-render the component. 
+
+>caption Get a component reference and use the Refresh method
 
 ````CSHTML
-@using Telerik.Blazor.Components
+@* Change the Height of the component *@
 
-<TelerikChart @ref="myChartRef">
-</TelerikChart>
+<TelerikButton OnClick="@ChangeHeight">Change the height</TelerikButton>
 
-@code {
-	Telerik.Blazor.Components.TelerikChart myChartRef;
-}
-````
+<TelerikRadialGauge @ref="@RadialGaugeRef" Height="@Height">
+    <RadialGaugePointers>
+        <RadialGaugePointer Value="20">
+        </RadialGaugePointer>
+    </RadialGaugePointers>
+</TelerikRadialGauge>
 
-## Chart Size
+@code{
+    Telerik.Blazor.Components.TelerikRadialGauge RadialGaugeRef { get; set; }
 
-To control the chart size, use its `Width` and `Height` properties. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+    public string Height { get; set; } = "200px";
 
-You can also set the chart size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the chart's `Refresh()` C# method after the DOM has been redrawn and the new container dimensions are rendered. You can do this when you explicitly change container sizes (like in the example below), or from code that gets called by events like `window.resize`. You can find an example of making charts redraw on `window.resize` in the [Responsive Chart](https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart) sample.
-
-
->caption Change the 100% chart size dynamically to have a responsive chart
-
-````CSHTML
-You can make a responsive chart
-
-<TelerikButton OnClick="@ResizeChart">Resize the container and redraw the chart</TelerikButton>
-
-<div style="border: 1px solid red;width:@ContainerWidth; height: @ContainerHeight">
-
-    <TelerikChart Width ="100%" Height="100%" @ref="theChart">
-
-        <ChartSeriesItems>
-            <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@someData">
-            </ChartSeries>
-        </ChartSeriesItems>
-        <ChartCategoryAxes>
-            <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-        </ChartCategoryAxes>
-        <ChartTitle Text="Quarterly sales trend"></ChartTitle>
-
-    </TelerikChart>
-
-</div>
-
-@code {
-    string ContainerWidth { get; set; } = "400px";
-    string ContainerHeight { get; set; } = "300px";
-    Telerik.Blazor.Components.TelerikChart theChart { get; set; }
-
-    async Task ResizeChart()
+    void ChangeHeight()
     {
-        //resize the container
-        ContainerHeight = "500px";
-        ContainerWidth = "800px";
+        Height = "400px";
 
-        //give time to the framework and browser to resize the actual DOM so the chart can use the expected size
-        await Task.Delay(20);
-
-        //redraw the chart
-        theChart.Refresh();
+        RadialGaugeRef.Refresh();
     }
-
-    public List<object> someData = new List<object>() { 10, 2, 7, 5 };
-
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
 
 ## See Also
 
-  * [Data Binding]({%slug components/chart/databind%})
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikChart)
+* [Radial Gauge: Live Demo](https://demos.telerik.com/blazor-ui/radial-gauge)
+* [Radial Gauge: Scale]({%slug radial-gauge-scale%})
+* [Radial Gauge: Pointers]({%slug radial-gauge-pointers%})
