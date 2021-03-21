@@ -91,7 +91,7 @@ The network latency may interrupt, break or re-arrange the SignalR packets and t
 
 If your users will have a large latency to the server, you may want to consider the Client-side (WebAssembly) model or at least test what the experience is before rolling out to production.
 
-You can use the following Microsoft guidance to check the latency: <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/server?view=aspnetcore-5.0#measure-network-latency" target="_blank">MSDN: Measure network latency</a>. The cited 250ms could be acceptable for "slow" actions like clicks, but fast interactions like mouseover for menus and tooltips will require a significantly faster response to work nicely for the user. We've had reports that latency above 70-80ms starts to make such fast interractions feel laggy to the user.
+You can use the following Microsoft guidance to check the latency: <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/server?view=aspnetcore-5.0#measure-network-latency" target="_blank">MSDN: Measure network latency</a>. The cited 250ms could be acceptable for "slow" actions like clicks, but fast interactions like double clicks, mouseover for menus and tooltips will require a significantly faster response to work nicely for the user. We've had reports that latency above 70-80ms starts to make such fast interractions feel laggy to the user.
 
 >note In Azure, for example, WebSockets are disabled by default, and this is highly detrimental to the performance of the SignalR connection. Enabling WebSockets may help you get the needed speed and responsiveness from the server.
 
