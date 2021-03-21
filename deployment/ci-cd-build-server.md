@@ -100,6 +100,13 @@ Finally, you need a `nuget.config` file that lists the Telerik server in the `pa
 
 >warning GitHub does not allow secrets to be used in workflows that have been [triggered by a pull request event](https://docs.github.com/en/actions/reference/events-that-trigger-workflows). In such a case, the runner will not be able to authenticate with the Telerik NuGet server and the job will expectedly fail.
 
+
+
+## Further Reading
+
+@[template](/_contentTemplates/common/issues-and-warnings.md#nuget-security-links)
+
+
 ## See Also
 
 * [Blog Post: Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)

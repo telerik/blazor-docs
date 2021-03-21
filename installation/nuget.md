@@ -103,7 +103,9 @@ To use a `nuget.config` file for the Telerik feed, you need to:
 @[template](/_contentTemplates/common/get-started.md#after-install)
 
 
+## Further Reading
 
+@[template](/_contentTemplates/common/issues-and-warnings.md#nuget-security-links)
 
 ## See Also
 
