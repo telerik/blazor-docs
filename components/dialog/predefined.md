@@ -57,6 +57,7 @@ The alert dialog usually shows the user that something went wrong, such as a maj
 }
 ````
 
+![Telerik Alert dialog first look](images/alert-first-look.gif)
 
 ## Confirm
 
@@ -96,6 +97,8 @@ The confirm dialog returns a `bool` value that indicates which button the user c
     }
 }
 ````
+
+![Telerik Confirm dialog first look](images/confirm-first-look.gif)
 
 
 ## Prompt
@@ -137,6 +140,7 @@ The prompt dialog returns a `string` that the user enters when they press `OK`, 
 }
 ````
 
+![Telerik Prompt dialog first look](images/prompt-first-look.gif)
 
 
 ## See Also
