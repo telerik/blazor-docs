@@ -31,7 +31,7 @@ The sections below list the tools that come with the editor and provide the foll
 
 * `Command Name` - the `commandName` of the tool for [executing it programmatically](#programmatic-execution).
 
-* `Tool Type` - the type of the tool - whether it is a button or a dropdown. Only buttons can be added to tool groups in the [toolbar]({%slug editor-toolbars%}).
+* `Tool Type` - the type of the tool - whether it is a button, a dropdown or a color tool. Only buttons can be added to tool groups in the [toolbar]({%slug editor-toolbars%}).
 
 * `Description` - more detailed information on what the tool does.
 
@@ -71,6 +71,22 @@ The `Inline` tools work with or add an inline HTML element. Example of these are
             <td>Applies bold formatting to the selected text</td>
             <td>new Bold()</td>
             <td>new ToolCommandArgs(string commandName)</td>
+        </tr>
+        <tr>
+            <td>BackColor</td>
+            <td>backColor</td>
+            <td>Color</td>
+            <td>Change the background color of the selected text</td>
+            <td>new BackgroundColor()</td>
+            <td>new FormatCommandArgs(string commandName, string Value)</td>
+        </tr>
+        <tr>
+            <td>ForeColor</td>
+            <td>foreColor</td>
+            <td>Color</td>
+            <td>Change the font color of a selected text</td>
+            <td>new ForeColor()</td>
+            <td>new FormatCommandArgs(string commandName, string Value)</td>
         </tr>
         <tr>
             <td>CreateLink</td>
@@ -407,22 +423,6 @@ There are commands without built-in tools, but can be [executed programmatically
             <td>Insert HTML to the Editor component content area at the cursor position. <br />NOTE: this is a block command, so if you pass an inline element to it, it will be wrapped in a block element such as <code>p</code> or <code>div</code>, depending on the context. There are specific commands for creating links and images (two common inline elements).</td>
             <td>N/A</td>
             <td>new HtmlCommandArgs(string commandName, string value)</td>
-        </tr>
-        <tr>
-            <td>Back Color</td>
-            <td>backColor</td>
-            <td>N/A</td>
-            <td>Change the background color of the selected text</td>
-            <td>N/A</td>
-            <td>new FormatCommandArgs(string commandName, string Value)</td>
-        </tr>
-        <tr>
-            <td>Fore Color</td>
-            <td>foreColor</td>
-            <td>N/A</td>
-            <td>Change the font color of a selected text</td>
-            <td>N/A</td>
-            <td>new FormatCommandArgs(string commandName, string Value)</td>
         </tr>
     </tbody>
 </table>
