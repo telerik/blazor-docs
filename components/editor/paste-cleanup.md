@@ -101,7 +101,7 @@ The editor clears `<script>` tags and removes DOM event handler attributes (e.g.
 
 If you copy both text and an image from MS Word and paste in the Editor, the image will not get pasted as expected. This behavior is due to the security policy of the browser.
 
-Instead of reading the image data and loading it as a base64 string to the `src` attribute of the `<img> `element, the browser generates an `<img>` tag which points to the clipboard location of the file on the client machine.
+Instead of reading the image data and loading it as a `base64` string to the `src` attribute of the `<img> `element, the browser generates an `<img>` tag which points to the clipboard location of the file on the client machine.
 
 A browser is not allowed to access such a resource, and so it throws an error and the image is not rendered which you can verify in the browser dev tools console, you will see an error such as: `"Not allowed to load local resource: <some image path>"`. 
 
