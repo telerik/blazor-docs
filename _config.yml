@@ -454,6 +454,7 @@ intro_columns:
     title: "Layout"
     items:
       "Window": "components/window/overview"
+      "Predefined Dialogs": "dialog-predefined"
       "Animation Container": "components/animationcontainer/overview"
       "Tooltip": "tooltip-overview"
       "Drawer": "drawer-overview"
