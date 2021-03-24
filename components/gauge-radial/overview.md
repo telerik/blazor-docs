@@ -10,7 +10,7 @@ position: 0
 
 # Radial Gauge Overview
 
-The Telerik Radial Gauge for Blazor represents [numerical values]({%slug radial-gauge-pointers%}) on a [scale]({%slug radial-gauge-scale%}) of ranges in a radial format.
+The Telerik Radial Gauge for Blazor represents numerical values on a [scale]({%slug radial-gauge-scale%}) of ranges in a radial format.
 
 This article is separated in the following sections: 
 
@@ -57,11 +57,11 @@ The Telerik Radial Gauge for Blazor exposes the following features:
 
 You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
 
-#### Other Feautres
+#### Other Features
 
 * `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
 
-* Scale - The scale of the radial gauge renders the values of the [pointers]({%slug radial-gauge-pointers%}), different [ranges]({%slug radial-gauge-ranges%}) and [labels]({%slug radial-gauge-ranges%}). See the [Scale]({%slug radial-gauge-scale%}) article for more information on how to customize the scale of the component.
+* Scale - The scale of the radial gauge renders the values of the [pointers]({%slug radial-gauge-pointers%}), different [ranges]({%slug radial-gauge-ranges%}) and [labels]({%slug radial-gauge-labels%}). See the [Scale]({%slug radial-gauge-scale%}) article for more information on how to customize the scale of the component.
 
 * Ranges - The ranges are used to visually distinguish particular values on the scale. See the [Ranges]({%slug radial-gauge-ranges%}) article for more information on how to provide ranges for the scale of the component.
 
@@ -106,3 +106,5 @@ The Radial Gauge reference exposes the `Refresh` method which allows you to prog
 * [Radial Gauge: Live Demo](https://demos.telerik.com/blazor-ui/radial-gauge)
 * [Radial Gauge: Scale]({%slug radial-gauge-scale%})
 * [Radial Gauge: Pointers]({%slug radial-gauge-pointers%})
+* [Radial Gauge: Ranges]({%slug radial-gauge-ranges%})
+* [Radial Gauge: Labels]({%slug radial-gauge-labels%})
