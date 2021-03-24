@@ -10,7 +10,7 @@ position: 5
 
 ## Radial Gauge Scale
 
-The scale of the radial gauge renders the values, pointers and labels. You can customize it by adding an instance of the `<RadialGaugeScale>` to the `<RadialGaugeScale>` collection, child tag of the `<TelerikRadialGauge>`. The `<RadialGaugeScale>` exposes the following parameters:
+The scale of the radial gauge renders the values, pointers and labels. You can customize it by adding an instance of the `<RadialGaugeScale>` to the `<RadialGaugeScales>` collection, child tag of the `<TelerikRadialGauge>`. The `<RadialGaugeScale>` exposes the following parameters:
 
 * [Min and Max](#min-and-max)
 
@@ -29,14 +29,14 @@ The scale of the radial gauge renders the values, pointers and labels. You can c
 
 * The `Max` (`double`) parameter controls the maximum value that the component can reach.
 
-* The `Min` (`double`) parameter controls the lowest value of the component.
+* The `Min` (`double`) parameter controls the minimum value of the component.
 
->caption Change the lowest and the highest values for the scale. The result from the code snippet below.
+>caption Change the minimum and the maximum values for the scale. The result from the code snippet below.
 
 ![Min and max parameters example](images/min-and-max-radial-gauge.png)
 
 ````CSHTML
-@* Use the Min and Max parameters to change the lowest and highest values for the scale *@
+@* Use the Min and Max parameters to change the minimum and the maximum values for the scale *@
 
 <TelerikRadialGauge>
     <RadialGaugeScales>
@@ -191,5 +191,9 @@ You can remove the MinorUnit ticks from the rendering of the scale by using the 
 
 ## See Also
 
+* [Radial Gauge: Live Demo](https://demos.telerik.com/blazor-ui/radial-gauge)
 * [Radial Gauge: Overview]({%slug radial-gauge-overview%})
 * [Radial Gauge: Pointers]({%slug radial-gauge-pointers%})
+* [Radial Gauge: Labels]({%slug radial-gauge-labels%})
+* [Radial Gauge: Ranges]({%slug radial-gauge-ranges%})
+

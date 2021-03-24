@@ -18,6 +18,8 @@ You can highlight specific value ranges by providing one or more instances of th
 
 * [Range Distance](#range-distance)
 
+* [Range Placeholder Color](#range-placeholder-color)
+
 * [Color](#color)
 
 * [Opacity](#opacity)
@@ -57,24 +59,96 @@ You can highlight specific value ranges by providing one or more instances of th
 
 The `RangeSize` (`double`) parameter controls the width of the range indicators.
 
->caption Use an RGB colors for the ranges in the radial gauge. The result from the code snippet below.
+>caption Use the RangeSize parameter to provide size for the range indicators The result from the code snippet below.
 
 ![Range Size](images/range-size.png)
 
 ````CSHTML
+@* Provide the desired width of the range. *@
 
+<TelerikRadialGauge>
+
+    <RadialGaugeScales>
+
+        <RadialGaugeScale RangeSize="2">            
+            <RadialGaugeScaleRanges>
+                <RadialGaugeScaleRange From="10" To="20" Color="red"></RadialGaugeScaleRange>
+            </RadialGaugeScaleRanges>
+        </RadialGaugeScale>
+
+    </RadialGaugeScales>
+
+    <RadialGaugePointers>
+
+        <RadialGaugePointer Value="20">
+        </RadialGaugePointer>
+
+    </RadialGaugePointers>
+</TelerikRadialGauge>
 ````
 
 ## Range Distance 
 
 The `RangeDistance` (`double`) parameter controls the distance from the range indicators to the ticks.
 
->caption Use an RGB colors for the ranges in the radial gauge. The result from the code snippet below.
+>caption Use the RangeDistance parameter to provide the from the range indicators to the ticks. The result from the code snippet below.
 
 ![Range Distance](images/range-distance.png)
 
 ````CSHTML
+@* Provide the desired distance from the range indicators to the ticks. *@
 
+<TelerikRadialGauge>
+
+    <RadialGaugeScales>
+
+        <RadialGaugeScale RangeDistance="15">            
+            <RadialGaugeScaleRanges>
+                <RadialGaugeScaleRange From="10" To="20" Color="red"></RadialGaugeScaleRange>
+            </RadialGaugeScaleRanges>
+        </RadialGaugeScale>
+
+    </RadialGaugeScales>
+
+    <RadialGaugePointers>
+
+        <RadialGaugePointer Value="20">
+        </RadialGaugePointer>
+
+    </RadialGaugePointers>
+</TelerikRadialGauge>
+````
+
+## Range Placeholder Color
+
+The `RangePlaceholderColor` (`string`) parameter controls the default color for the ranges. It accepts **CSS**, **HEX** and **RGB** colors.
+
+>caption Set the default color for the ranges in the radial gauge. The result from the code snippet below.
+
+![Default Ranges Color](images/default-ranges-color.png)
+
+````CSHTML
+@* Change the default color of the ranges *@
+
+<TelerikRadialGauge>
+
+    <RadialGaugeScales>
+
+        <RadialGaugeScale RangePlaceholderColor="#FF6358">            
+            <RadialGaugeScaleRanges>
+                <RadialGaugeScaleRange From="10" To="20" Color="yellow"></RadialGaugeScaleRange>
+            </RadialGaugeScaleRanges>
+        </RadialGaugeScale>
+
+    </RadialGaugeScales>
+
+    <RadialGaugePointers>
+
+        <RadialGaugePointer Value="20">
+        </RadialGaugePointer>
+
+    </RadialGaugePointers>
+</TelerikRadialGauge>
 ````
 
 ## Color
@@ -147,6 +221,9 @@ The `Opacity` (`double`) parameter controls the opacity of the range. The value 
 
 ## See Also
 
+* [Radial Gauge: Live Demo](https://demos.telerik.com/blazor-ui/radial-gauge)
 * [Radial Gauge: Overview]({%slug radial-gauge-overview%})
-* [Radial Gauge: Overview]({%slug radial-gauge-scale%})
+* [Radial Gauge: Scale]({%slug radial-gauge-scale%})
+* [Radial Gauge: Labels]({%slug radial-gauge-labels%})
 * [Radial Gauge: Pointers]({%slug radial-gauge-pointers%})
+
