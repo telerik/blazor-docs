@@ -3,145 +3,106 @@ title: Overview
 page_title: Arc Gauge Overview
 description: Overview of the Arc Gauge for Blazor.
 slug: arc-gauge-overview
-tags: telerik,blazor,chart,overview
+tags: telerik,blazor,arc,gauge,overview
 published: True
 position: 0
 ---
 
-# Chart Overview
+# Arc Gauge Overview
 
-The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Chart component</a> allows you to visualize data to your users in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins and templates.
+The Telerik Arc Gauge for Blazor represents [numerical values]({%slug arc-gauge-pointers%}) on an arc [scale]({%slug arc-gauge-scale%}).
 
-#### To use a Telerik chart for Blazor, add the `TelerikChart` tag.
+This article is separated in the following sections: 
 
->caption Basic chart with series and category axis [data binding](data-bind), and a few commonly used appearance settings
+* [Basics](#basics)
+
+* [Features](#features)
+
+* [Methods](#methods)
+
+## Basics
+
+>caption To add a Telerik Arc Gauge for Blazor to your application:
+
+1. Add the `<TelerikArcGauge>` tag.
+
+1. Add an instance of the `<ArcGaugePointer>` to the `<ArcGaugePointers>` collection.
+
+1. Provide a `Value` for the `<ArcGaugePointer>`.
+
+>caption Basic Telerik Arc Gauge for Blazor.
+
+![Basic Arc Gauge](images/basic-arc-gauge.png)
 
 ````CSHTML
-Basic chart and common settings/elements
+@* Setup a basic arc gauge *@
 
-<TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Line" Name="Product 2 (bound to model)" Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
-			<ChartSeriesLabels Template="#=value# in #=dataItem.ExtraData# quarter" Visible="true"></ChartSeriesLabels>
-		</ChartSeries>
-	</ChartSeriesItems>
-
-	<ChartValueAxes>
-		<ChartValueAxis Color="red"></ChartValueAxis>
-	</ChartValueAxes>
-
-	<ChartCategoryAxes>
-		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-	</ChartCategoryAxes>
-
-	<ChartTitle Text="Quarterly sales trend"></ChartTitle>
-
-	<ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-	</ChartLegend>
-</TelerikChart>
-
-@code {
-	public class MyDataModel
-	{
-		public int SecondSeriesValue { get; set; }
-		public string ExtraData { get; set; }
-
-	}
-
-	public List<MyDataModel> modelData = new List<MyDataModel>()
-    {
-		new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
-		new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
-		new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
-		new MyDataModel() { SecondSeriesValue = 2, ExtraData = "fourth" },
-	};
-
-	public List<object> simpleData = new List<object>() { 10, 2, 7, 5 };
-
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
+<TelerikArcGauge>
+    <ArcGaugePointers>
+        <ArcGaugePointer Value="40" />
+    </ArcGaugePointers>
+</TelerikArcGauge>
 ````
 
->caption The result from the code snippet above
+## Features
 
-![](images/overview-chart.png)
+The Telerik Arc Gauge for Blazor exposes the following features:
 
+#### Arc Gauge Size
 
+* `Width` - `string` - controls the width of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
 
-@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+* `Height` - `string` - controls the height of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
 
->caption Component namespace and reference
+You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
 
-````CSHTML
-@using Telerik.Blazor.Components
+#### Other Feautres
 
-<TelerikChart @ref="myChartRef">
-</TelerikChart>
+* `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
 
-@code {
-	Telerik.Blazor.Components.TelerikChart myChartRef;
-}
-````
+* Scale - The scale of the arc gauge renders the values of the [pointers]({%slug arc-gauge-pointers%}) and [labels]({%slug arc-gauge-labels%}). See the [Scale]({%slug arc-gauge-scale%}) article for more information on how to customize the scale of the component.
 
-## Chart Size
+* Labels - The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug arc-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
 
-To control the chart size, use its `Width` and `Height` properties. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+* Pointers - The pointers indicate the values on the scale of the component. See the [Pointers]({%slug arc-gauge-pointers%}) article for more information on how to customize the pointers of the component.
 
-You can also set the chart size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the chart's `Refresh()` C# method after the DOM has been redrawn and the new container dimensions are rendered. You can do this when you explicitly change container sizes (like in the example below), or from code that gets called by events like `window.resize`. You can find an example of making charts redraw on `window.resize` in the [Responsive Chart](https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart) sample.
+## Methods
 
+The Arc Gauge reference exposes the `Refresh` method which allows you to programatically re-render the component. 
 
->caption Change the 100% chart size dynamically to have a responsive chart
+>caption Get a component reference and use the Refresh method
 
 ````CSHTML
-You can make a responsive chart
+@* Change the Width of the component *@
 
-<TelerikButton OnClick="@ResizeChart">Resize the container and redraw the chart</TelerikButton>
+<TelerikButton OnClick="@ChangeTheHeight">Change the Height of the component</TelerikButton>
 
-<div style="border: 1px solid red;width:@ContainerWidth; height: @ContainerHeight">
+<TelerikButton OnClick="@ChangeTheHeight">Change the Width of the component</TelerikButton>
 
-    <TelerikChart Width ="100%" Height="100%" @ref="theChart">
+<TelerikArcGauge @ref="@ArcGaugeRef" Width="@Width">
+    <ArcGaugePointers>
 
-        <ChartSeriesItems>
-            <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@someData">
-            </ChartSeries>
-        </ChartSeriesItems>
-        <ChartCategoryAxes>
-            <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-        </ChartCategoryAxes>
-        <ChartTitle Text="Quarterly sales trend"></ChartTitle>
+        <ArcGaugePointer Value="30" />
 
-    </TelerikChart>
-
-</div>
+    </ArcGaugePointers>
+</TelerikArcGauge>
 
 @code {
-    string ContainerWidth { get; set; } = "400px";
-    string ContainerHeight { get; set; } = "300px";
-    Telerik.Blazor.Components.TelerikChart theChart { get; set; }
+    Telerik.Blazor.Components.TelerikArcGauge ArcGaugeRef { get; set; }
 
-    async Task ResizeChart()
+    public string Width { get; set; } = "300px";
+
+    private void ChangeTheHeight()
     {
-        //resize the container
-        ContainerHeight = "500px";
-        ContainerWidth = "800px";
+        Width = "450px";
 
-        //give time to the framework and browser to resize the actual DOM so the chart can use the expected size
-        await Task.Delay(20);
-
-        //redraw the chart
-        theChart.Refresh();
+        ArcGaugeRef.Refresh();
     }
-
-    public List<object> someData = new List<object>() { 10, 2, 7, 5 };
-
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
 
 ## See Also
 
-  * [Data Binding]({%slug components/chart/databind%})
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikChart)
+* [Arc Gauge: Live Demo](https://demos.telerik.com/blazor-ui/arc-gauge)
+* [Arc Gauge: Scale]({%slug arc-gauge-scale%})
+* [Arc Gauge: Pointers]({%slug arc-gauge-pointers%})
