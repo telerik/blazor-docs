@@ -1,22 +1,26 @@
 ---
 title: Labels
 page_title: Labels
-description: Linear Gauge for Blazor - Labels.
-slug: linear-gauge-labels
-tags: telerik,blazor,linear,gauge,labels
+description: Arc Gauge for Blazor - Labels.
+slug: arc-gauge-labels
+tags: telerik,blazor,arc,gauge,labels
 published: True
 position: 20
 ---
 
-## Linear Gauge Labels
+## Arc Gauge Labels
 
-You can customize the appearance of the labels rendered on the [scale]({%slug linear-gauge-scale%}) of the Linear Gauge by using the `<LinearGaugeScaleLabels>`, child tag of the `<LinearGaugeScale>`, and the parameters it exposes:
+You can customize the appearance of the labels rendered on the [scale]({%slug arc-gauge-scale%}) of the Arc Gauge by using the `<ArcGaugeScaleLabels>`, child tag of the `<ArcGaugeScale>`, and the parameters it exposes:
 
 * [Format](#format)
 
 * [Color](#color)
 
 * [Visible](#visible)
+
+* [Position](#position)
+
+* [Center Template](#center-template)
 
 * [Additional Customization](#additional-customization)
 
