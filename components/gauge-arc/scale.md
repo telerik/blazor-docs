@@ -143,7 +143,7 @@ If you set the `Reverse` (`bool`) parameter to `true` the values of the scale wi
 
 ## Additional Customization
 
-@[template](/_contentTemplates/gauges/additional-customization.md#linear-gauge-additional-customization)
+@[template](/_contentTemplates/gauges/additional-customization.md#arc-gauge-additional-customizationn)
 
 ### Example: Enable the MinorUnit ticks
 
