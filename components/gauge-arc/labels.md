@@ -14,13 +14,13 @@ You can customize the appearance of the labels rendered on the [scale]({%slug ar
 
 * [Format](#format)
 
+* [Center Template](#center-template)
+
 * [Color](#color)
 
 * [Visible](#visible)
 
 * [Position](#position)
-
-* [Center Template](#center-template)
 
 * [Additional Customization](#additional-customization)
 
@@ -33,29 +33,62 @@ The `Format` (`string`) parameter allows you to customize the rendering of the l
 ![Format parameter example](images/format-parameter-labels.png)
 
 ````CSHTML
-@* Use the {0:C0} format string to format the values of the labels as currency. *@
+@* Use the {0:P0} format string to format the values of the labels as percentage. *@
 
-<TelerikLinearGauge>
-    <LinearGaugeScales>
-        <LinearGaugeScale>
-            <LinearGaugeScaleLabels Format="{0:C0}">
-            </LinearGaugeScaleLabels>
-        </LinearGaugeScale>
-    </LinearGaugeScales>
+<TelerikArcGauge>
+    <ArcGaugeScales>
+        <ArcGaugeScale Min="0" Max="1">
+            <ArcGaugeScaleLabels Visible="true" Format="{0:P0}" />
+        </ArcGaugeScale>
+    </ArcGaugeScales>
 
-    <LinearGaugePointers>
+    <ArcGaugePointers>
 
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
+        <ArcGaugePointer Value="0.3">
+            
+        </ArcGaugePointer>
 
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
+    </ArcGaugePointers>
+</TelerikArcGauge>
+````
 
-        <LinearGaugePointer Value="30">
-        </LinearGaugePointer>
+## Center Template
 
-    </LinearGaugePointers>
-</TelerikLinearGauge>
+The center template allows you to take control of the rendering of the central section of the Arc Gauge. It provides a `context` object (`GaugeCenterLabelTemplateContext`) with exposes a list that holds the pointer in the component.
+
+>caption Use the Center Template to display the Value of the pointer. The result from the code snippet below.
+
+![center template](images/center-template-arc.png)
+
+````CSHTML
+@* Print the value of the pointer in the center of the component *@
+
+<TelerikArcGauge>
+    <ArcGaugeCenterLabel>
+        <Template>
+            @{
+                var item = context;
+
+                var pointer = context.Pointers.FirstOrDefault();
+
+                <div style="font-weight: bold">@pointer.Value</div>
+            }
+        </Template>
+    </ArcGaugeCenterLabel>
+    <ArcGaugeScales>
+        <ArcGaugeScale Min="0" Max="100">
+            <ArcGaugeScaleLabels Visible="true" />
+        </ArcGaugeScale>
+    </ArcGaugeScales>
+
+    <ArcGaugePointers>
+
+        <ArcGaugePointer Value="30" Color="blue">
+            
+        </ArcGaugePointer>
+
+    </ArcGaugePointers>
+</TelerikArcGauge>
 ````
 
 ## Color
@@ -67,63 +100,52 @@ The `Color` (`string`) parameter controls the color of the labels. It accepts **
 ![Color parameter screenshot](images/color-parameter-labels.png)
 
 ````CSHTML
-@* Change the color of the labels to blue *@
+@* Change the color of the labels to red *@
 
-<TelerikLinearGauge>
-    <LinearGaugeScales>
-        <LinearGaugeScale>
-            <LinearGaugeScaleLabels Color="blue">
-            </LinearGaugeScaleLabels>
-        </LinearGaugeScale>
-    </LinearGaugeScales>
+<TelerikArcGauge>
+    <ArcGaugeScales>
+        <ArcGaugeScale Min="0" Max="100">
+            <ArcGaugeScaleLabels Visible="true" Color="red" />
+        </ArcGaugeScale>
+    </ArcGaugeScales>
 
-    <LinearGaugePointers>
+    <ArcGaugePointers>
 
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
+        <ArcGaugePointer Value="30">
+            
+        </ArcGaugePointer>
 
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
+    </ArcGaugePointers>
+</TelerikArcGauge>
 
-        <LinearGaugePointer Value="30">
-        </LinearGaugePointer>
-
-    </LinearGaugePointers>
-</TelerikLinearGauge>
 ````
 
 ## Visible
 
-The `Visible` (`bool`) parameter controls wether the labels will be rendered.
+The `Visible` (`bool`) parameter controls wether the labels will be rendered. By default the labels would not be rendered.
 
->caption Hide the labels by using the Visible parameter. The result from the code snippet below
+>caption Show the labels by using the Visible parameter. The result from the code snippet below
 
 ![Hide the labels](images/visible-parameter-labels.png)
 
 ````CSHTML
-@* Set the Visible parameter to false to hide the labels *@
+@* Set the Visible parameter to true to show the labels *@
 
-<TelerikLinearGauge>
-    <LinearGaugeScales>
-        <LinearGaugeScale>
-            <LinearGaugeScaleLabels Visible="false">
-            </LinearGaugeScaleLabels>
-        </LinearGaugeScale>
-    </LinearGaugeScales>
+<TelerikArcGauge>
+    <ArcGaugeScales>
+        <ArcGaugeScale Min="0" Max="100">
+            <ArcGaugeScaleLabels Visible="true" />
+        </ArcGaugeScale>
+    </ArcGaugeScales>
 
-    <LinearGaugePointers>
+    <ArcGaugePointers>
 
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
+        <ArcGaugePointer Value="30">
+            
+        </ArcGaugePointer>
 
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30">
-        </LinearGaugePointer>
-
-    </LinearGaugePointers>
-</TelerikLinearGauge>
+    </ArcGaugePointers>
+</TelerikArcGauge>
 ````
 
 ## Additional Customization
@@ -137,33 +159,27 @@ The `Visible` (`bool`) parameter controls wether the labels will be rendered.
 ````CSHTML
 @* Provide color, solid outline and custom width to the label borders *@
 
-<TelerikLinearGauge Width="25%">
-    <LinearGaugeScales>
-        <LinearGaugeScale Vertical="false">
-            <LinearGaugeScaleLabels>
-                <LinearGaugeScaleLabelsBorder Color="blue" DashType="@DashType.Solid" Width="1"></LinearGaugeScaleLabelsBorder>
-            </LinearGaugeScaleLabels>
-        </LinearGaugeScale>
-    </LinearGaugeScales>
+<TelerikArcGauge>
+    <ArcGaugeScales>
+        <ArcGaugeScale Min="0" Max="100">
+            <ArcGaugeScaleLabels Visible="true">
+                <ArcGaugeScaleLabelsBorder Color="blue" DashType="@DashType.Solid" Width="1"></ArcGaugeScaleLabelsBorder>
+            </ArcGaugeScaleLabels>
+        </ArcGaugeScale>
+    </ArcGaugeScales>
 
-    <LinearGaugePointers>
+    <ArcGaugePointers>
 
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
+        <ArcGaugePointer Value="30">
+            
+        </ArcGaugePointer>
 
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30">
-        </LinearGaugePointer>
-
-    </LinearGaugePointers>
-</TelerikLinearGauge>
+    </ArcGaugePointers>
+</TelerikArcGauge>
 ````
 
 ## See Also
 
-* [Linear Gauge: Overview]({%slug linear-gauge-overview%})
-* [Linear Gauge: Scale]({%slug linear-gauge-scale%})
-* [Linear Gauge: Ranges]({%slug linear-gauge-ranges%})
-* [Linear Gauge: Pointers]({%slug linear-gauge-pointers%})
+* [Arc Gauge: Overview]({%slug arc-gauge-overview%})
+* [Arc Gauge: Scale]({%slug arc-gauge-scale%})
+* [Arc Gauge: Pointers]({%slug arc-gauge-pointers%})
