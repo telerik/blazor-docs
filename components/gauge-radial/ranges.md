@@ -59,12 +59,12 @@ You can highlight specific value ranges by providing one or more instances of th
 
 The `RangeSize` (`double`) parameter controls the width of the range indicators.
 
->caption Use the RangeSize parameter to provide size for the range indicators The result from the code snippet below.
+>caption Use the RangeSize parameter to provide size for the range indicators. The result from the code snippet below.
 
 ![Range Size](images/range-size.png)
 
 ````CSHTML
-@* Provide the desired width of the range. *@
+@* Provide the desired size of the range. *@
 
 <TelerikRadialGauge>
 
@@ -91,7 +91,7 @@ The `RangeSize` (`double`) parameter controls the width of the range indicators.
 
 The `RangeDistance` (`double`) parameter controls the distance from the range indicators to the ticks.
 
->caption Use the RangeDistance parameter to provide the from the range indicators to the ticks. The result from the code snippet below.
+>caption Use the RangeDistance parameter to provide the desired distance from the range indicators to the ticks. The result from the code snippet below.
 
 ![Range Distance](images/range-distance.png)
 
@@ -153,11 +153,9 @@ The `RangePlaceholderColor` (`string`) parameter controls the default color for 
 
 ## Color
 
-The `Color` (`string`) parameter controls the color of the range. It accepts **CSS**, **HEX** and **RGB** colors.
+The `Color` (`string`) parameter controls the color of the range. It accepts **CSS**, **HEX** and **RGB** colors. If you do not define the `Color` parameter the range will not be visually rendered.
 
-If you do not define the `Color` parameter the range will not be visually rendered.
-
->caption Use an RGB colors for the ranges in the radial gauge. The result from the code snippet below.
+>caption Set the desired colors for the ranges in the radial gauge. The result from the code snippet below.
 
 ![Ranges Color](images/ranges-color.png)
 

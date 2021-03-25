@@ -26,7 +26,7 @@ This article is separated in the following sections:
 
 1. Add the `<TelerikRadialGauge>` tag.
 
-1. Add one or more instance of the `<RadialGaugePointer>` to the `<RadialGaugePointers>` collection.
+1. Add one or more instances of the `<RadialGaugePointer>` to the `<RadialGaugePointers>` collection.
 
 1. Provide a `Value` for each `<RadialGaugePointer>`.
 
