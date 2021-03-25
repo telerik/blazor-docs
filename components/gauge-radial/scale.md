@@ -10,11 +10,13 @@ position: 5
 
 ## Radial Gauge Scale
 
-The scale of the radial gauge renders the values, pointers and labels. You can customize it by adding an instance of the `<RadialGaugeScale>` to the `<RadialGaugeScales>` collection, child tag of the `<TelerikRadialGauge>`. The `<RadialGaugeScale>` exposes the following parameters:
+The Scale of the Radial Gauge renders the values, pointers and labels. You can customize it by adding an instance of the `<RadialGaugeScale>` to the `<RadialGaugeScales>` collection, child tag of the `<TelerikRadialGauge>`. The `<RadialGaugeScale>` exposes the following parameters:
 
 * [Min and Max](#min-and-max)
 
 * [MinorUnit and MajorUnit](#minorunit-and-majorunit)
+
+* [MinorTicks and MajorTicks](#ninorticks-and-majorticks)
 
 * [StartAngle and EndAngle](#startangle-and-endangle)
 
@@ -57,12 +59,11 @@ The scale of the radial gauge renders the values, pointers and labels. You can c
     </RadialGaugePointers>
 </TelerikRadialGauge>
 
-
 ````
 
 ## MinorUnit and MajorUnit
 
-* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The values provided to the `RadialGaugePointer` will render as a `MajorUnit` tick. The [labels]({%slug radial-gauge-labels%}) will be rendered next to the `MajorUnit` ticks.
+* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The [labels]({%slug radial-gauge-labels%}) will be rendered next to the `MajorUnit` ticks.
 
 * The `MinorUnit` (`double`) parameter controls the interval between the minor unit divisions of the component.
 
@@ -71,7 +72,7 @@ The scale of the radial gauge renders the values, pointers and labels. You can c
 ![Minor and major units parameters](images/minor-and-major-units-radial-gauge.png)
 
 ````CSHTML
-@* Update the rendering of the major and minor ticks *@
+@* Update the rendering of the major and minor units *@
 
 <TelerikRadialGauge>
 
@@ -90,11 +91,11 @@ The scale of the radial gauge renders the values, pointers and labels. You can c
 
 ## StartAngle and EndAngle
 
-The gauge is rendered clockwise(0 degrees are the 180 degrees in the polar coordinate system).
+The gauge is rendered clockwise (0 degrees are the 180 degrees in the polar coordinate system).
 
 * `StartAngle` defines the start angle of the gauge, its default value is 0.
 
-* `EndAngle` - defines the send angle of the gauge, its default value is 180. 
+* `EndAngle` - defines the end angle of the gauge, its default value is 180. 
 
 >caption Change the StartAngle and EndAngle of the radial gauge. The result from the code snippet below
 
@@ -138,8 +139,6 @@ If you set the `Reverse` (`bool`) parameter to `true` the gauge will be rendered
 ````CSHTML
 @* Set the Reverse parameter to true *@
 
-@* Set the Reverse parameter to true *@
-
 <TelerikRadialGauge>
 
     <RadialGaugeScales>
@@ -169,8 +168,6 @@ You can remove the MinorUnit ticks from the rendering of the scale by using the 
 ![Remove the MinorUnit ticks](images/remove-minorunit-ticks-radial-gauge.png)
 
 ````CSHMTL
-@* Remove the MinorUnit ticks. *@
-
 @* Remove the MinorUnit ticks. *@
 
 <TelerikRadialGauge>
