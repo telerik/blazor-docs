@@ -61,13 +61,13 @@ You can also set the Gauge size in percentage values so it occupies its containe
 
 * `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
 
-* Scale - The scale of the radial gauge renders the values of the [pointers]({%slug radial-gauge-pointers%}), different [ranges]({%slug radial-gauge-ranges%}) and [labels]({%slug radial-gauge-labels%}). See the [Scale]({%slug radial-gauge-scale%}) article for more information on how to customize the scale of the component.
+* [Scale]({%slug radial-gauge-scale%}) - The scale of the radial gauge renders the values of the [pointers]({%slug radial-gauge-pointers%}), different [ranges]({%slug radial-gauge-ranges%}) and [labels]({%slug radial-gauge-labels%}). 
 
-* Ranges - The ranges are used to visually distinguish particular values on the scale. See the [Ranges]({%slug radial-gauge-ranges%}) article for more information on how to provide ranges for the scale of the component.
+* [Ranges]({%slug radial-gauge-ranges%}) - The ranges are used to visually distinguish particular values on the scale.
 
-* Labels - The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug radial-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
+* [Labels]({%slug radial-gauge-labels%}) - The labels are rendered on the scale of the component to give information to the users.
 
-* Pointers - The pointers indicate the values on the scale of the component. See the [Pointers]({%slug radial-gauge-pointers%}) article for more information on how to customize the pointers of the component.
+* [Pointers]({%slug radial-gauge-pointers%}) - The pointers indicate the values on the scale of the component. 
 
 ## Methods
 
@@ -92,9 +92,12 @@ The Radial Gauge reference exposes the `Refresh` method which allows you to prog
 
     public string Height { get; set; } = "200px";
 
-    void ChangeHeight()
+    async Task ChangeHeight()
     {
         Height = "400px";
+
+        //give time to the framework and browser to resize the actual DOM so the gauge can use the expected size
+        await Task.Delay(30);
 
         RadialGaugeRef.Refresh();
     }
