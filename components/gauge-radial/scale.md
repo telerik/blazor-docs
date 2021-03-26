@@ -105,18 +105,6 @@ The gauge is rendered clockwise (0 degrees are the 180 degrees in the polar coor
 @* Change the StartAngle and EndAngle of the radial gauge *@
 
 <TelerikRadialGauge>
-
-    <RadialGaugeScales>
-        <RadialGaugeScale></RadialGaugeScale>
-    </RadialGaugeScales>
-
-    <RadialGaugePointers>
-
-        <RadialGaugePointer Value="30">
-        </RadialGaugePointer>
-
-    </RadialGaugePointers>
-
     <RadialGaugeScales>
 
         <RadialGaugeScale StartAngle="30" EndAngle="150">
@@ -124,8 +112,13 @@ The gauge is rendered clockwise (0 degrees are the 180 degrees in the polar coor
 
     </RadialGaugeScales>
 
-</TelerikRadialGauge>
+    <RadialGaugePointers>
 
+        <RadialGaugePointer Value="30">
+        </RadialGaugePointer>
+
+    </RadialGaugePointers> 
+</TelerikRadialGauge>
 ````
 
 ## Reverse
