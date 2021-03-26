@@ -12,7 +12,7 @@ position: 0
 
 The Telerik Arc Gauge for Blazor represents [numerical values]({%slug arc-gauge-pointers%}) on an arc [scale]({%slug arc-gauge-scale%}).
 
-This article is separated in the following sections: 
+#### This article is separated in the following sections: 
 
 * [Basics](#basics)
 
