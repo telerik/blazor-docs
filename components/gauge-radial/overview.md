@@ -12,7 +12,7 @@ position: 0
 
 The Telerik Radial Gauge for Blazor represents numerical values on a [scale]({%slug radial-gauge-scale%}) of ranges in a radial format.
 
-This article is separated in the following sections: 
+#### This article is separated in the following sections: 
 
 * [Basics](#basics)
 

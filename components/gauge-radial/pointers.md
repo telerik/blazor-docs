@@ -10,7 +10,7 @@ position: 10
 
 # Radial Gauge Pointers
 
-The Pointers mark the values on the scale. They constist of poiter arrow (called just "pointer" for brevity) and a pointer cap - the circle that marks the pointer center. You can customize poiters and pointer caps through the parameters they expose:
+The Pointers mark the values on the scale. They consist of pointer arrow (called just "pointer" for brevity) and a pointer cap - the circle that marks the pointer center. You can customize pointers and pointer caps through the parameters they expose:
 
 * Pointer
 
@@ -124,7 +124,10 @@ The `Size` (`double`) parameter controls the size of the pointer cap in percenta
 
 ## Notes
 
-* The pointer caps are rendered as per the order they are declared in the markup (for example the last pointer cap will be rendered on top of the others regardless of its pointer value). Therefore, you should consider that when operating with the pointer cap parameters in order for their values to be visible (for example if the first pointer cap has the same size as the last pointer cap, it will not be visible.)
+
+### Pointer Order
+
+The pointer caps are rendered as per the order they are declared in the markup - the last pointer will be rendered on top of the others regardless of its value. Therefore, you should consider that when operating with the pointer cap parameters in order for their values to be visible (for example if the first pointer cap has the same size as the last pointer cap, it will not be visible.)
 
 >caption Change the sizes and colors of the pointer caps. The result from the code snippet below.
 
