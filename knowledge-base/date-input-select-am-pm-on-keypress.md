@@ -33,7 +33,7 @@ Any way to make the AM/PM change the way the hh mm ss does by directly entering 
 
 While A and P might be very common symbols, there are many other symbols that might be used in different countries and cultures. Thus, the component cannot track all such possible combinations, and it exposes the Up and Down Arrows as options to change the time segments, including the AM/PM indicator.
 
-In order to change AM/PM by pressing A or P on keyboard you can get the input events such as keydown. They are not built-in in the component, because exposing so many events like that will be a major performance hit for a small percentage of people who need them. However, you can capture them as they bubble up the DOM in a parent element, as described in this article - [Capture input keyboard events]({%slug inputs-kb-handle-keyboard-events%}).
+In order to change AM/PM by pressing A or P on keyboard you can get the input events (such as keydown) by capturing them as they bubble up the DOM in a parent element, as described in this article - [Capture input keyboard events]({%slug inputs-kb-handle-keyboard-events%}).
 
 If you detect an A or P key you could change the Value as desired (e.g., add or subtract 12 hours depending on the current hours).
 
