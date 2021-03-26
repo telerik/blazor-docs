@@ -10,7 +10,7 @@ position: 5
 
 ## Linear Gauge Scale
 
-The scale of the linear gauge renders the values, pointers and labels. You can customize it by adding an instance of the `<LinearGaugeScale>` to the `<LinearGaugeScale>` collection, child tag of the `<TelerikLinearGauge>`. The `<LinearGaugeScale>` exposes the following parameters:
+The scale of the linear gauge renders the values, pointers and labels. You can customize it by adding an instance of the `<LinearGaugeScale>` to the `<LinearGaugeScales>` collection, child tag of the `<TelerikLinearGauge>`. The `<LinearGaugeScale>` exposes the following parameters:
 
 * [Min and Max](#min-and-max)
 
