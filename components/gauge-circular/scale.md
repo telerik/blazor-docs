@@ -8,7 +8,7 @@ published: True
 position: 5
 ---
 
-## Circular Gauge Scale
+# Circular Gauge Scale
 
 The scale of the Circular Gauge renders the values, pointers and labels. You can customize it by adding an instance of the `<CircularGaugeScale>` to the `<CircularGaugeScales>` collection, child tag of the `<TelerikCircularGauge>`. The `<CircularGaugeScale>` exposes the following parameters:
 
@@ -194,6 +194,7 @@ If you set the `Reverse` (`bool`) parameter to `true` the scale direction will b
 
 ## See Also
 
+* [Circular Gauge: Live Demo](https://demos.telerik.com/blazor-ui/circular-gauge)
 * [Circular Gauge: Overview]({%slug circular-gauge-overview%})
 * [Circular Gauge: Pointers]({%slug circular-gauge-pointers%})
-
+* [Circular Gauge: Labels]({%slug circular-gauge-labels%})

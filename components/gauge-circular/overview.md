@@ -10,7 +10,7 @@ position: 0
 
 # Circular Gauge Overview
 
-The Telerik Circular Gauge for Blazor represents [numerical values]({%slug circular-gauge-pointers%}) on a [scale]({%slug circular-gauge-scale%}) of ranges in a circular format.
+The Telerik Circular Gauge for Blazor represents [numerical values]({%slug circular-gauge-pointers%}) on a circular [scale]({%slug circular-gauge-scale%}).
 
 This article is separated in the following sections: 
 
@@ -60,13 +60,11 @@ You can also set the Gauge size in percentage values so it occupies its containe
 
 * `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
 
-* Scale - The scale of the circular gauge renders the values of the [pointers]({%slug circular-gauge-pointers%}), different [ranges]({%slug circular-gauge-ranges%}) and [labels]({%slug circular-gauge-ranges%}). See the [Scale]({%slug circular-gauge-scale%}) article for more information on how to customize the scale of the component.
+* [Scale]({%slug circular-gauge-scale%}) - The scale of the circular gauge renders the values of the [pointers]({%slug circular-gauge-pointers%}) and [labels]({%slug circular-gauge-ranges%}).
 
-<!-- * Ranges - The ranges are used to visually distinguish particular values on the scale. See the [Ranges]({%slug circular-gauge-ranges%}) article for more information on how to provide ranges for the scale of the component. -->
+* [Labels]({%slug circular-gauge-labels%}) - The labels are rendered on the scale of the component to give information to the users.
 
-* Labels - The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug circular-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
-
-* Pointers - The pointers indicate the values on the scale of the component. See the [Pointers]({%slug circular-gauge-pointers%}) article for more information on how to customize the pointers of the component.
+* See the [Pointers]({%slug circular-gauge-pointers%}) - The pointers indicate the values on the scale of the component.
 
 ## Methods
 
@@ -92,9 +90,12 @@ The Circular Gauge reference exposes the `Refresh` method which allows you to pr
 
     public string Height { get; set; } = "300px";
 
-    private void ChangeTheHeight()
+    async Task ChangeTheHeight()
     {
         Height = "450px";
+
+        //give time to the framework and browser to resize the actual DOM so the gauge can use the expected size
+        await Task.Delay(30);
 
         CircularGaugeRef.Refresh();
     }
@@ -106,3 +107,4 @@ The Circular Gauge reference exposes the `Refresh` method which allows you to pr
 * [Circular Gauge: Live Demo](https://demos.telerik.com/blazor-ui/circular-gauge)
 * [Circular Gauge: Scale]({%slug circular-gauge-scale%})
 * [Circular Gauge: Pointers]({%slug circular-gauge-pointers%})
+* [Circular Gauge: Labels]({%slug circular-gauge-labels%})
