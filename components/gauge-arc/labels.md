@@ -54,7 +54,7 @@ The `Format` (`string`) parameter allows you to customize the rendering of the l
 
 ## Center Template
 
-The center template allows you to take control of the rendering of the central section of the Arc Gauge. It provides a `context` object (`GaugeCenterLabelTemplateContext`) with exposes a list that holds the pointer in the component.
+The center template allows you to take control of the rendering of the central section of the Arc Gauge. To use it, add the `<ArcGaugeCenterLabel>` a child of the `<TelerikArcGauge>` It provides a `context` object (`GaugeCenterLabelTemplateContext`) which exposes a list with the pointer in the component.
 
 >caption Use the Center Template to display the Value of the pointer. The result from the code snippet below.
 
@@ -150,7 +150,7 @@ The `Visible` (`bool`) parameter controls wether the labels will be rendered. By
 
 ## Additional Customization
 
-@[template](/_contentTemplates/gauges/additional-customization.md#linear-gauge-additional-customization)
+@[template](/_contentTemplates/gauges/additional-customization.md#arc-gauge-additional-customization)
 
 >caption Customize the borders of the Labels. The result from the code snippet below.
 

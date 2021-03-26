@@ -3,7 +3,7 @@ title: Pointers
 page_title: Arc Gauge - Pointers
 description: Arc Gauge for Blazor - Pointers.
 slug: arc-gauge-pointers
-tags: telerik,blazor,linear,arc,overview
+tags: telerik,blazor,gauge,arc,overview
 published: True
 position: 10
 ---
