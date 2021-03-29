@@ -328,7 +328,7 @@ The InCell edit mode provides a specific user experience that aims at fast effic
 
 * If validation is not satisfied, you cannot open another cell for editing, and you need to either satisfy the validation, or press `Esc` to revert its value to the original one that should, ideally, satisfy validation.
 
-* Editing (and inserting) items is a separate operation from expanding items. Therefore, if you click the "Add" button on a row that is not expanded, there will be an `OnCreate` call to insert a record as its child, but you will not see it in the UI opened for editing, because the treelist must not arbitrarily expand items - there can be other handlers, business logic or load-on-demand attached to that action, and that changes the users state - and the treelist should not invoke these changes arbitrarily. This also applies to items that currently have no child items - they will have a child item, but it will not expand and open for editing.
+* If you click the "Add" button on a row that is not expanded you will not see it in the UI opened for editing. There will be an `OnCreate` call to insert a record as its child, but editing (and inserting) items is a separate operation from expanding items and the treelist should not invoke these changes arbitrarily. There can be other handlers, business logic or load-on-demand attached to that action, and that changes the users state. This also applies to items that currently have no child items - they will now have a child item, but it will not expand and open for editing.
 
 ### Events Sequence
 
