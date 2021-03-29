@@ -12,7 +12,7 @@ position: 0
 
 The Telerik Circular Gauge for Blazor represents [numerical values]({%slug circular-gauge-pointers%}) on a circular [scale]({%slug circular-gauge-scale%}).
 
-This article is separated in the following sections: 
+#### This article is separated in the following sections: 
 
 * [Basics](#basics)
 

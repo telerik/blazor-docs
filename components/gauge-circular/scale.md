@@ -10,7 +10,9 @@ position: 5
 
 # Circular Gauge Scale
 
-The scale of the Circular Gauge renders the values, pointers and labels. You can customize it by adding an instance of the `<CircularGaugeScale>` to the `<CircularGaugeScales>` collection, child tag of the `<TelerikCircularGauge>`. The `<CircularGaugeScale>` exposes the following parameters:
+The scale of the Circular Gauge renders the values, pointers and labels. You can customize it by adding an instance of the `<CircularGaugeScale>` to the `<CircularGaugeScales>` collection, child tag of the `<TelerikCircularGauge>`.
+
+The `<CircularGaugeScale>` exposes the following parameters:
 
 * [MinorTicks and MajorTicks](#minorticks-and-majorticks)
 
