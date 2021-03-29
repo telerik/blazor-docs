@@ -30,6 +30,8 @@ The Telerik Arc Gauge for Blazor represents [numerical values]({%slug arc-gauge-
 
 1. Provide a `Value` for the `<ArcGaugePointer>`.
 
+1. Add a [Center Label Template]({%slug arc-gauge-labels%}#center-template) (optional)
+
 >caption Basic Telerik Arc Gauge for Blazor.
 
 ![Basic Arc Gauge](images/basic-arc-gauge.png)
