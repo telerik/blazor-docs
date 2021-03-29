@@ -310,9 +310,15 @@ Editing is cancelled for the first record.
 
 ## Notes
 
-* The `OnCreate` event will fire as soon as you click the `Add` button so you can add the new row to the treelist `Data` - this will let it show up in the treelist, and then enter edit mode for the first editable column (to fire `OnEdit` and let the user alter the column). This means you should have [default values]({%slug grid-kb-default-value-for-new-row%}) that satisfy any initial validation and requirements your models may have.
+The InCell edit mode provides a specific user experience that aims at fast efficient data entry. This requires that it behaves a differently than other edit modes. Please review the notes below to get a better understanding of these specifics:
 
-    * This means that there is no actual inserted item, an item in InCell editing is always in Edit mode, never in Insert mode. Thus, you cannot use the `InsertedItem` field of the treelist [State]({%slug treelist-state%}). If you want to insert items programmatically in the treelist, alter the `Data` collection, and use the `OriginalEditItem` feature of the state (see the [Initiate Editing or Inserting of an Item]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item) example - it can put the InLine and PopUp edit modes in Insert mode, but this cannot work for InCell editing).
+
+* [General](#general)
+* [Events Sequence](#events-sequence)
+* [Editor Template](#editor-template)
+
+
+### General
 
 * When the InCell Edit Mode is enabled and you want to enable item selection a `<TreeListCheckboxColumn />` must be added to the `<Columns>` collection. More information on that can be read in the [Selection]({%slug treelist-selection-overview%}#notes) article.
 
@@ -320,19 +326,72 @@ Editing is cancelled for the first record.
 
 * It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
 
+* If validation is not satisfied, you cannot open another cell for editing, and you need to either satisfy the validation, or press `Esc` to revert its value to the original one that should, ideally, satisfy validation.
+
+* Editing (and inserting) items is a separate operation from expanding items. Therefore, if you click the "Add" button on a row that is not expanded, there will be an `OnCreate` call to insert a record as its child, but you will not see it in the UI opened for editing, because the treelist must not arbitrarily expand items - there can be other handlers, business logic or load-on-demand attached to that action, and that changes the users state - and the treelist should not invoke these changes arbitrarily. This also applies to items that currently have no child items - they will have a child item, but it will not expand and open for editing.
+
+### Events Sequence
+
+* The `OnCreate` event will fire as soon as you click the `Add` button so you can add the new row to the treelist `Data` - this will let it show up in the treelist, and then enter edit mode for the first editable column (to fire `OnEdit` and let the user alter the column). This means you should have [default values]({%slug grid-kb-default-value-for-new-row%}) that satisfy any initial validation and requirements your models may have.
+
+    * This means that there is no actual inserted item, an item in InCell editing is always in Edit mode, never in Insert mode. Thus, you cannot use the `InsertedItem` field of the treelist [State]({%slug treelist-state%}). If you want to insert items programmatically in the treelist, alter the `Data` collection, and use the `OriginalEditItem` feature of the state (see the [Initiate Editing or Inserting of an Item]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item) example - it can put the InLine and PopUp edit modes in Insert mode, but this cannot work for InCell editing).
+
+* The `OnEdit` event fires once per row - when the first cell from a row is opened for editing. Moving with the keyboard (`Tab` or `Shift+Tab`) between its cells does not fire events so that the treelist does not re-render, and there is no lag for the user, especially from slow data operations such as `OnUpdate`. This caters to the user experience so they can input data quickly and efficiently.
+
+* If you use the keyboard to navigate between open cells, `OnUpdate` will fire only when the entire row loses focus, not for each cell, so you will not need additional actions to open a new cell.
+
+* If there is a cell that is being edited at the moment, clicking on a cell will first close the current cell and fire `OnUpdate`. To start editing the new cell in such a case you will need a second click.
+
 * The `OnCancel` event can work only with the keyboard (when you press `Esc`). The `Cancel` command button is not supported. Clicking outside the currently edited cell will trigger the `OnUpdate` event and thus, clicking on the `Cancel` command button will not fire the `OnCancel` event because an update has already occured.
 
 
-    * If there is a cell that is being edited at the moment, clicking on a cell will first close the current cell and fire `OnUpdate`. To start editing the new cell in such a case you will need a second click.
+### Editor Template
+
+When using an [editor template]({%slug treelist-templates-editor%}), the grid cannot know what the custom editor needs to do, what it contains, and when it needs to close the cell and update the data, because this is up to the editor. This has the following implications:
+
+* The treelist will still capture `Enter` and `Tab` keypresses when the cell is focused, and will close the cell with the corresponding `OnUpdate` call. You can either use that (e.g., a standard input will let the keypress event propagate to the treelist cell), or you can prevent the event propagation and use only your business logic. If you don't do anything, you will get the default treelist behavior for the keyboard navigation even with custom editors.
+
+* The treelist can no longer capture the `onblur` event in a custom editor like it does for built-in editors. It uses it to call `OnUpdate` when the user clicks away from the current row with the mouse. So, when an editor template is open, clicking away will not close it and save the row.
+
+    If you want to get this behavior, you can use the treelist [state]({%slug treelist-state%}) to close the cell and you can also invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnBlur`.
+
+    **.razor**
     
-    * If you use the keyboard to navigate between open cells, `OnUpdate` will fire only when the entire row loses focus, not for each cell, so you will not need additional actions to open a new cell.
+        <EditorTemplate>
+            @{
+                CurrentlyEditedLine = context as SampleData;
+                <TelerikTextBox OnBlur="@CloseEditorAndSave" 
+                    Width="100%" @bind-Value="@CurrentlyEditedLine.LastName">
+                </TelerikTextBox>
 
-    * If validation is not satisfied, you cannot open another cell for editing, and you need to either satisfy the validation, or press `Esc` to revert its value to the original one that should, ideally, satisfy validation.
+            }
+        </EditorTemplate>
 
 
-* When using an [editor template]({%slug treelist-templates-editor%}), the treelist cannot know what the custom editor needs to do, what it contains, and when it needs to close the cell and update the data, because this is up to the editor. Thus, you can use the treelist [state]({%slug treelist-state%}) to close the cell and invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnChange`.
+    **C#**
     
-    Using an editor template requires that there is a focusable element in the editor template in order to maintain the tab order when using the keyboard. For exapmle, if you prevent editing based on a runtime condition (setting `Editable=false` for the entire column does not require this), you must provide a focusable element, here is one way to add such an element:
+        SampleData CurrentlyEditedLine { get; set; }
+        TelerikTreeList<SampleData> TreeList { get; set; }
+    
+        async Task CloseEditorAndSave()
+        {
+            var state = TreeList?.GetState();
+            if (state.EditItem != null)
+            {
+                // we can reuse the code from the OnUpdate handler
+                await UpdateHandler(new TreeListCommandEventArgs()
+                {
+                    Item = state.EditItem
+                });
+                
+                // use the state to remove the edited item (close the editor)
+                state.EditItem = null;
+                state.OriginalEditItem = null;
+                await TreeList.SetState(state);
+            }
+        }
+
+* Using an editor template requires that there is a focusable element in the editor template in order to maintain the tab order when using the keyboard. For example, if you prevent editing based on a runtime condition (setting `Editable=false` for the entire column does not require this), you must provide a focusable element, here is one way to add such an element:
     
     **.razor**
     
@@ -349,9 +408,7 @@ Editing is cancelled for the first record.
         }
     </EditorTemplate>
 
-    The treelist will also not focus and select the contents of custom editors like it does for the built-in ones.
     
-    When keyboard navigation is enabled in the treelist (`Navigable=true`), the grid will capture `Enter` and `Tab` keypresses when the cell is focused, and will close the cell with the corresponding update. You can either use that (e.g., a simple input will let the keypress event propagate to the grid cell), or you can prevent the event propagation and use only your business logic. 
     
 
 

@@ -270,7 +270,7 @@ When using an [editor template]({%slug components/grid/features/templates%}#edit
             }
         }
 
-* Using an editor template requires that there is a focusable element in the editor template in order to maintain the tab order when using the keyboard. For exapmle, if you prevent editing based on a runtime condition (setting `Editable=false` for the entire column does not require this), you must provide a focusable element, here is one way to add such an element:
+* Using an editor template requires that there is a focusable element in the editor template in order to maintain the tab order when using the keyboard. For example, if you prevent editing based on a runtime condition (setting `Editable=false` for the entire column does not require this), you must provide a focusable element, here is one way to add such an element:
     
     **.razor**
     
