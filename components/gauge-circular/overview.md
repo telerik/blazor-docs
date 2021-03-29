@@ -70,7 +70,7 @@ The Telerik Circular Gauge for Blazor exposes the following features:
 
 You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
 
-#### Other Feautres
+#### Other Features
 
 * `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
 
@@ -78,11 +78,11 @@ You can also set the Gauge size in percentage values so it occupies its containe
 
 * [Labels]({%slug circular-gauge-labels%}) - The labels are rendered on the scale of the component to give information to the users.
 
-* See the [Pointers]({%slug circular-gauge-pointers%}) - The pointers indicate the values on the scale of the component.
+* [Pointers]({%slug circular-gauge-pointers%}) - The pointers indicate the values on the scale of the component.
 
 ## Methods
 
-The Circular Gauge reference exposes the `Refresh` method which allows you to programatically re-render the component. 
+The Circular Gauge reference exposes the `Refresh` method which allows you to programatically re-render the component.
 
 >caption Get a component reference and use the Refresh method
 
