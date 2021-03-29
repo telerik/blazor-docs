@@ -26,7 +26,7 @@ The `LineCap` parameter controls the shape of the scale ending and takes a membe
 
 * `Round` - by default the shape of the scale ending would be round
 
-* `Butt` 
+* `Butt` - flat scale ending shape
 
 >caption Change the shape of the scale. The result from the code snippet below.
 
@@ -46,7 +46,7 @@ The `LineCap` parameter controls the shape of the scale ending and takes a membe
 
     <CircularGaugePointers>
 
-        <CircularGaugePointer Value="40" LineCap="@CircularGaugePointerLineCap.Butt">
+        <CircularGaugePointer LineCap="@CircularGaugePointerLineCap.Butt" Value="40">
         </CircularGaugePointer>
 
     </CircularGaugePointers>
@@ -75,7 +75,7 @@ The `PlaceholderColor` (`string`) parameter controls the background color of the
 
     <CircularGaugePointers>
 
-        <CircularGaugePointer Value="40" PlaceholderColor="lightblue">
+        <CircularGaugePointer PlaceholderColor="lightblue" Value="40" >
         </CircularGaugePointer>
 
     </CircularGaugePointers>
@@ -104,7 +104,7 @@ The `Color` (`string`) parameter controls the color of the pointer. It accepts *
 
     <CircularGaugePointers>
 
-        <CircularGaugePointer Value="60" Color="purple">
+        <CircularGaugePointer Color="purple" Value="60">
         </CircularGaugePointer>
 
     </CircularGaugePointers>
@@ -118,7 +118,7 @@ The `Size` (`double`) parameter controls the size of the pointer.
 ![larger pointer size](images/pointer-size-circular.png)
 
 ````CSHTML
-@* Change the size of the pointer *@ 
+@* Change the size of the pointer *@
 
 <TelerikCircularGauge>
     <CircularGaugeScales>
@@ -131,7 +131,7 @@ The `Size` (`double`) parameter controls the size of the pointer.
 
     <CircularGaugePointers>
 
-        <CircularGaugePointer Value="40" Size="20">
+        <CircularGaugePointer Size="20" Value="40">
         </CircularGaugePointer>
 
     </CircularGaugePointers>

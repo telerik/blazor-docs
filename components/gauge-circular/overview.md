@@ -60,7 +60,7 @@ You can also set the Gauge size in percentage values so it occupies its containe
 
 * `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
 
-* [Scale]({%slug circular-gauge-scale%}) - The scale of the circular gauge renders the values of the [pointers]({%slug circular-gauge-pointers%}) and [labels]({%slug circular-gauge-ranges%}).
+* [Scale]({%slug circular-gauge-scale%}) - The scale of the circular gauge renders the values of the [pointers]({%slug circular-gauge-pointers%}) and [labels]({%slug circular-gauge-labels%}).
 
 * [Labels]({%slug circular-gauge-labels%}) - The labels are rendered on the scale of the component to give information to the users.
 
