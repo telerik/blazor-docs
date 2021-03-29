@@ -25,7 +25,7 @@ The MediaQuery component for Blazor allows you to react when the user changes th
 
 1. Add the `<TelerikMediaQuery>` tag.
 
-1. In the `Media` parameter provide a CSS media query to be matched. 
+1. In the `Media` parameter provide a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">CSS media query</a> to be matched. 
 
 1. Use the `OnChange` event to determine when the `Media` is matched. 
 

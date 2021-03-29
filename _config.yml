@@ -271,6 +271,8 @@ navigation:
         title: "MaskedTextBox"
      "*mediaplayer":
         title: "MediaPlayer"
+     "*mediaquery":
+        title: "MediaQuery"
      "*menu":
         title: "Menu"
      "*multiselect":
@@ -456,6 +458,7 @@ intro_columns:
       "Splitter": "splitter-overview"
       "Form": "form-overview"
       "Validation Tools": "validation-tools-overview"
+      "Media Query": "mediaquery-overview"
   -
     title: "Scheduling"
     items:
