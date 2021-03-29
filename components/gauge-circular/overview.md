@@ -1,147 +1,124 @@
 ---
 title: Overview
-page_title: Chart Overview
-description: Overview of the Chart for Blazor.
+page_title: Circular Gauge Overview
+description: Overview of the Circular Gauge for Blazor.
 slug: circular-gauge-overview
-tags: telerik,blazor,chart,overview
+tags: telerik,blazor,circular,gauge,overview
 published: True
 position: 0
 ---
 
-# Chart Overview
+# Circular Gauge Overview
 
-The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Chart component</a> allows you to visualize data to your users in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins and templates.
+The Telerik Circular Gauge for Blazor represents [numerical values]({%slug circular-gauge-pointers%}) on a circular [scale]({%slug circular-gauge-scale%}).
 
-#### To use a Telerik chart for Blazor, add the `TelerikChart` tag.
+#### This article is separated in the following sections: 
 
->caption Basic chart with series and category axis [data binding](data-bind), and a few commonly used appearance settings
+* [Basics](#basics)
+
+* [Features](#features)
+
+* [Methods](#methods)
+
+## Basics
+
+>caption To add a Telerik Circular Gauge for Blazor to your application:
+
+1. Add the `<TelerikCircularGauge>` tag.
+
+1. Add one or more instance of the `<CircularGaugePointer>` to the `<CircularGaugePointers>` collection.
+
+1. Provide a `Value` for each `<CircularGaugePointer>`.
+
+1. (Optional) You can use the [Center Label Template]({%slug circular-gauge-labels%}#center-template) to display the value of the pointer in the center of the component.
+
+>caption Basic Telerik Circular Gauge for Blazor.
+
+![Basic Circular Gauge](images/basic-circular-gauge.png)
 
 ````CSHTML
-Basic chart and common settings/elements
+@* Setup a basic circular gauge with center label template *@
 
-<TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Line" Name="Product 2 (bound to model)" Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
-			<ChartSeriesLabels Template="#=value# in #=dataItem.ExtraData# quarter" Visible="true"></ChartSeriesLabels>
-		</ChartSeries>
-	</ChartSeriesItems>
+<TelerikCircularGauge Width="100px" Height="100px">
+    <CircularGaugeCenterLabel>
+        <Template>
+            @{
+                GaugeCenterLabelTemplateContext item = context;
 
-	<ChartValueAxes>
-		<ChartValueAxis Color="red"></ChartValueAxis>
-	</ChartValueAxes>
+                var pointer = context.Pointers.FirstOrDefault();
 
-	<ChartCategoryAxes>
-		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-	</ChartCategoryAxes>
+                <div style="font-weight: bold; font-size:30px">@pointer.Value</div>
+            }
+        </Template>
+    </CircularGaugeCenterLabel>
 
-	<ChartTitle Text="Quarterly sales trend"></ChartTitle>
-
-	<ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-	</ChartLegend>
-</TelerikChart>
-
-@code {
-	public class MyDataModel
-	{
-		public int SecondSeriesValue { get; set; }
-		public string ExtraData { get; set; }
-
-	}
-
-	public List<MyDataModel> modelData = new List<MyDataModel>()
-    {
-		new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
-		new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
-		new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
-		new MyDataModel() { SecondSeriesValue = 2, ExtraData = "fourth" },
-	};
-
-	public List<object> simpleData = new List<object>() { 10, 2, 7, 5 };
-
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
+    <CircularGaugePointers>
+        <CircularGaugePointer Value="30" Size="10"/>
+    </CircularGaugePointers>
+</TelerikCircularGauge>
 ````
 
->caption The result from the code snippet above
+## Features
 
-![](images/overview-chart.png)
+The Telerik Circular Gauge for Blazor exposes the following features:
 
+#### Circular Gauge Size
 
+* `Width` - `string` - controls the width of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
 
-@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+* `Height` - `string` - controls the height of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
 
->caption Component namespace and reference
+You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
 
-````CSHTML
-@using Telerik.Blazor.Components
+#### Other Feautres
 
-<TelerikChart @ref="myChartRef">
-</TelerikChart>
+* `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
 
-@code {
-	Telerik.Blazor.Components.TelerikChart myChartRef;
-}
-````
+* [Scale]({%slug circular-gauge-scale%}) - The scale of the circular gauge renders the values of the [pointers]({%slug circular-gauge-pointers%}) and [labels]({%slug circular-gauge-labels%}).
 
-## Chart Size
+* [Labels]({%slug circular-gauge-labels%}) - The labels are rendered on the scale of the component to give information to the users.
 
-To control the chart size, use its `Width` and `Height` properties. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+* See the [Pointers]({%slug circular-gauge-pointers%}) - The pointers indicate the values on the scale of the component.
 
-You can also set the chart size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the chart's `Refresh()` C# method after the DOM has been redrawn and the new container dimensions are rendered. You can do this when you explicitly change container sizes (like in the example below), or from code that gets called by events like `window.resize`. You can find an example of making charts redraw on `window.resize` in the [Responsive Chart](https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart) sample.
+## Methods
 
+The Circular Gauge reference exposes the `Refresh` method which allows you to programatically re-render the component. 
 
->caption Change the 100% chart size dynamically to have a responsive chart
+>caption Get a component reference and use the Refresh method
 
 ````CSHTML
-You can make a responsive chart
+@* Change the Height of the component *@
 
-<TelerikButton OnClick="@ResizeChart">Resize the container and redraw the chart</TelerikButton>
+<TelerikButton OnClick="@ChangeTheHeight">Change the Height of the component</TelerikButton>
 
-<div style="border: 1px solid red;width:@ContainerWidth; height: @ContainerHeight">
+<TelerikCircularGauge @ref="@CircularGaugeRef" Height="@Height">
+    <CircularGaugePointers>
 
-    <TelerikChart Width ="100%" Height="100%" @ref="theChart">
+        <CircularGaugePointer Value="30" />
 
-        <ChartSeriesItems>
-            <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@someData">
-            </ChartSeries>
-        </ChartSeriesItems>
-        <ChartCategoryAxes>
-            <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-        </ChartCategoryAxes>
-        <ChartTitle Text="Quarterly sales trend"></ChartTitle>
-
-    </TelerikChart>
-
-</div>
+    </CircularGaugePointers>
+</TelerikCircularGauge>
 
 @code {
-    string ContainerWidth { get; set; } = "400px";
-    string ContainerHeight { get; set; } = "300px";
-    Telerik.Blazor.Components.TelerikChart theChart { get; set; }
+    Telerik.Blazor.Components.TelerikCircularGauge CircularGaugeRef { get; set; }
 
-    async Task ResizeChart()
+    public string Height { get; set; } = "300px";
+
+    async Task ChangeTheHeight()
     {
-        //resize the container
-        ContainerHeight = "500px";
-        ContainerWidth = "800px";
+        Height = "450px";
 
-        //give time to the framework and browser to resize the actual DOM so the chart can use the expected size
-        await Task.Delay(20);
+        //give time to the framework and browser to resize the actual DOM so the gauge can use the expected size
+        await Task.Delay(30);
 
-        //redraw the chart
-        theChart.Refresh();
+        CircularGaugeRef.Refresh();
     }
-
-    public List<object> someData = new List<object>() { 10, 2, 7, 5 };
-
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
 
 ## See Also
 
-  * [Data Binding]({%slug components/chart/databind%})
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikChart)
+* [Circular Gauge: Live Demo](https://demos.telerik.com/blazor-ui/circular-gauge)
+* [Circular Gauge: Scale]({%slug circular-gauge-scale%})
+* [Circular Gauge: Pointers]({%slug circular-gauge-pointers%})
+* [Circular Gauge: Labels]({%slug circular-gauge-labels%})
