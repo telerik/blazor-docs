@@ -30,6 +30,8 @@ The Telerik Arc Gauge for Blazor represents [numerical values]({%slug arc-gauge-
 
 1. Provide a `Value` for the `<ArcGaugePointer>`.
 
+1. Add a [Center Label Template]({%slug arc-gauge-labels%}#center-template) (optional)
+
 >caption Basic Telerik Arc Gauge for Blazor.
 
 ![Basic Arc Gauge](images/basic-arc-gauge.png)
@@ -74,8 +76,6 @@ The Arc Gauge reference exposes the `Refresh` method which allows you to program
 
 ````CSHTML
 @* Change the Width of the component *@
-
-<TelerikButton OnClick="@ChangeTheHeight">Change the Height of the component</TelerikButton>
 
 <TelerikButton OnClick="@ChangeTheHeight">Change the Width of the component</TelerikButton>
 

@@ -58,7 +58,7 @@ The scale of the arc gauge renders the values, pointers and labels. You can cust
 
 * The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The values provided to the `ArcGaugePointer` will render as a `MajorUnit` tick. The [labels]({%slug arc-gauge-labels%}) will be rendered next to the `MajorUnit` ticks.
 
-* The `MinorUnit` (`double`) parameter controls the interval between the minor unit divisions of the component.
+* The `MinorUnit` (`double`) parameter controls the interval between the minor unit divisions of the component. In order to use the `MinorUnit` ticks you must [enable them](#example-enable-the-minorunit-ticks) explicitly.
 
 >caption Change the rendering frequency of the major unit divisions. The result from the code snippet below.
 
