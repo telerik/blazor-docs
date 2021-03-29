@@ -16,7 +16,7 @@ The TelerikMediaQuery component for Blazor exposes events that allow you to resp
 
 ## OnChange
 
-The `OnChange` event fires when the media query string provided to the `Media` parameter is matched. 
+The `OnChange` event fires to notify you whether the media query string provided to the `Media` parameter is matched by the browser. It fires when it matches, and when it stops matching
 
 
 >caption Use the OnChange event to resize a parent container

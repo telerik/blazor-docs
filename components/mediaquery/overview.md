@@ -53,7 +53,7 @@ The TelerikMediaQuery provides the following features:
 
 * `Media` - `string` - the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">media query string</a> that will be matched. 
 
-* `OnChange` - `EventCallback<bool>` - This event fires when the browser size matches the media string provided to the `Media` parameter. See the [Events]({%slug mediaquery-events%}) article for more information. 
+* `OnChange` - `EventCallback<bool>` - This event indicates whether the media query string provided to the `Media` parameter matches the current browser size. It fires when it matches, and when it stops matching. See the [Events]({%slug mediaquery-events%}) article for more information. 
 
 * Integration - you can integrate the TelerikMediaQuery with our components. See the [Integration]({%slug mediaquery-integration%}) article for more information.
 
