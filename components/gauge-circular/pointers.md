@@ -36,6 +36,13 @@ The `LineCap` parameter controls the shape of the scale ending and takes a membe
 @* Use a flat shape for the end of the scale *@
 
 <TelerikCircularGauge>
+    <CircularGaugePointers>
+
+        <CircularGaugePointer LineCap="@CircularGaugePointerLineCap.Butt" Value="40">
+        </CircularGaugePointer>
+
+    </CircularGaugePointers>
+
     <CircularGaugeScales>
 
         <CircularGaugeScale>
@@ -43,13 +50,6 @@ The `LineCap` parameter controls the shape of the scale ending and takes a membe
         </CircularGaugeScale>
 
     </CircularGaugeScales>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer LineCap="@CircularGaugePointerLineCap.Butt" Value="40">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
 </TelerikCircularGauge>
 ````
 
@@ -65,6 +65,13 @@ The `PlaceholderColor` (`string`) parameter controls the background color of the
 @* Set the PlaceholderColor to light blue *@
 
 <TelerikCircularGauge>
+    <CircularGaugePointers>
+
+        <CircularGaugePointer PlaceholderColor="lightblue" Value="40">
+        </CircularGaugePointer>
+
+    </CircularGaugePointers>
+
     <CircularGaugeScales>
 
         <CircularGaugeScale>
@@ -72,13 +79,6 @@ The `PlaceholderColor` (`string`) parameter controls the background color of the
         </CircularGaugeScale>
 
     </CircularGaugeScales>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer PlaceholderColor="lightblue" Value="40" >
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
 </TelerikCircularGauge>
 ````
 
@@ -94,6 +94,13 @@ The `Color` (`string`) parameter controls the color of the pointer. It accepts *
 @* Change the color of the pointer to purple *@
 
 <TelerikCircularGauge>
+    <CircularGaugePointers>
+
+        <CircularGaugePointer Color="purple" Value="60">
+        </CircularGaugePointer>
+
+    </CircularGaugePointers>
+
     <CircularGaugeScales>
 
         <CircularGaugeScale>
@@ -101,13 +108,6 @@ The `Color` (`string`) parameter controls the color of the pointer. It accepts *
         </CircularGaugeScale>
 
     </CircularGaugeScales>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Color="purple" Value="60">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
 </TelerikCircularGauge>
 ````
 
@@ -118,9 +118,16 @@ The `Size` (`double`) parameter controls the size of the pointer.
 ![larger pointer size](images/pointer-size-circular.png)
 
 ````CSHTML
-@* Change the size of the pointer *@
+* Change the size of the pointer *@
 
 <TelerikCircularGauge>
+    <CircularGaugePointers>
+
+        <CircularGaugePointer Size="20" Value="40">
+        </CircularGaugePointer>
+
+    </CircularGaugePointers>
+
     <CircularGaugeScales>
 
         <CircularGaugeScale>
@@ -128,13 +135,6 @@ The `Size` (`double`) parameter controls the size of the pointer.
         </CircularGaugeScale>
 
     </CircularGaugeScales>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Size="20" Value="40">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
 </TelerikCircularGauge>
 ````
 

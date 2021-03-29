@@ -30,16 +30,30 @@ The Telerik Circular Gauge for Blazor represents [numerical values]({%slug circu
 
 1. Provide a `Value` for each `<CircularGaugePointer>`.
 
+1. (Optional) You can use the [Center Label Template]({%slug circular-gauge-labels%}#center-template) to display the value of the pointer in the center of the component.
+
 >caption Basic Telerik Circular Gauge for Blazor.
 
 ![Basic Circular Gauge](images/basic-circular-gauge.png)
 
 ````CSHTML
-@* Setup a basic circular gauge *@
+@* Setup a basic circular gauge with center label template *@
 
-<TelerikCircularGauge>
+<TelerikCircularGauge Width="100px" Height="100px">
+    <CircularGaugeCenterLabel>
+        <Template>
+            @{
+                GaugeCenterLabelTemplateContext item = context;
+
+                var pointer = context.Pointers.FirstOrDefault();
+
+                <div style="font-weight: bold; font-size:30px">@pointer.Value</div>
+            }
+        </Template>
+    </CircularGaugeCenterLabel>
+
     <CircularGaugePointers>
-        <CircularGaugePointer Value="30" />
+        <CircularGaugePointer Value="30" Size="10"/>
     </CircularGaugePointers>
 </TelerikCircularGauge>
 ````

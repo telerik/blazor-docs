@@ -14,6 +14,8 @@ You can customize the appearance of the labels rendered on the [scale]({%slug ci
 
 * [Format](#format)
 
+* [Center Template](#center-template)
+
 * [Color](#color)
 
 * [Visible](#visible)
@@ -47,6 +49,47 @@ The `Format` (`string`) parameter allows you to customize the rendering of the l
         </CircularGaugePointer>
 
     </CircularGaugePointers>
+</TelerikCircularGauge>
+````
+
+## Center Template
+
+The center template allows you to take control of the rendering of the central section of the Circular Gauge. To use it, add the `<CircularGaugeCenterLabel>` a child of the `<TelerikCircularGauge>` It provides a `context` object (`GaugeCenterLabelTemplateContext`) which exposes a list with the pointers in the component and their values.
+
+>caption Use the Center Template to display the Value of the pointer. The result from the code snippet below.
+
+![center template](images/center-template-circular.png)
+
+````CSHTML
+@* Print the value of the pointer in the center of the component *@
+
+<TelerikCircularGauge>
+    <CircularGaugeCenterLabel>
+        <Template>
+            @{
+                GaugeCenterLabelTemplateContext item = context;
+
+                var pointer = context.Pointers.FirstOrDefault();
+
+                <div style="font-weight: bold">@pointer.Value</div>
+            }
+        </Template>
+    </CircularGaugeCenterLabel>
+
+    <CircularGaugePointers>
+
+        <CircularGaugePointer Value="30" Color="blue">
+        </CircularGaugePointer>
+
+    </CircularGaugePointers>
+
+    <CircularGaugeScales>
+
+        <CircularGaugeScale Min="0" Max="100">
+            <CircularGaugeScaleLabels Visible="true" />
+        </CircularGaugeScale>
+
+    </CircularGaugeScales>
 </TelerikCircularGauge>
 ````
 
