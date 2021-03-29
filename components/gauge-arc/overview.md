@@ -75,8 +75,6 @@ The Arc Gauge reference exposes the `Refresh` method which allows you to program
 ````CSHTML
 @* Change the Width of the component *@
 
-<TelerikButton OnClick="@ChangeTheHeight">Change the Height of the component</TelerikButton>
-
 <TelerikButton OnClick="@ChangeTheHeight">Change the Width of the component</TelerikButton>
 
 <TelerikArcGauge @ref="@ArcGaugeRef" Width="@Width">

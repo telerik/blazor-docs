@@ -26,7 +26,7 @@ The `LineCap` parameter controls the shape of the scale ending and takes a membe
 
 * `Round` - by default the shape of the scale ending would be round
 
-* `Butt` 
+* `Butt` - setting the ArcGaugePointerLineCap to Butt would make the shape of the scale ending flat. 
 
 >caption Change the shape of the scale. The result from the code snippet below.
 

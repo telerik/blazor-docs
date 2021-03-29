@@ -28,7 +28,7 @@ You can customize the appearance of the labels rendered on the [scale]({%slug ar
 
 The `Format` (`string`) parameter allows you to customize the rendering of the labels by using the <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings" target="_blank">standard numeric format strings</a>. You can set the values of the labels to showcase, for example, currency, percentage, and so on.
 
->caption Use the Format parameter to showcase currency. The result from the code snippet below.
+>caption Use the Format parameter to showcase percentagee. The result from the code snippet below.
 
 ![Format parameter example](images/format-parameter-labels.png)
 
