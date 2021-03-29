@@ -40,11 +40,14 @@ The Telerik Circular Gauge for Blazor represents [numerical values]({%slug circu
 @* Setup a basic circular gauge with center label template *@
 
 <TelerikCircularGauge Width="100px" Height="100px">
+
+    <CircularGaugePointers>
+        <CircularGaugePointer Value="30" Size="10" />
+    </CircularGaugePointers>
+
     <CircularGaugeCenterLabel>
         <Template>
             @{
-                GaugeCenterLabelTemplateContext item = context;
-
                 var pointer = context.Pointers.FirstOrDefault();
 
                 <div style="font-weight: bold; font-size:30px">@pointer.Value</div>
@@ -52,9 +55,6 @@ The Telerik Circular Gauge for Blazor represents [numerical values]({%slug circu
         </Template>
     </CircularGaugeCenterLabel>
 
-    <CircularGaugePointers>
-        <CircularGaugePointer Value="30" Size="10"/>
-    </CircularGaugePointers>
 </TelerikCircularGauge>
 ````
 
