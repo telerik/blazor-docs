@@ -156,6 +156,12 @@ NOTE: this simple logic is best suited for plain CSS
 
 <div class="@GetClassFromWindowSize()">
     Resize your browser and look at the background of this element - red for large screens, yellow for medium, green for small devices.
+    <br />
+    @isExtraSmall <br />
+    @isSmall <br />
+    @isMedium <br />
+    @isLarge <br />
+    @isExtraLarge
 </div>
 
 @code{
