@@ -1,230 +1,200 @@
 ---
-title: Overview
-page_title: Form Overview
-description: Overview of the Form for Blazor.
-slug: form-overview
-tags: telerik,blazor,form,edit,form
+title: Integration
+page_title: MediaQuery Overview
+description: Integration of the MediaQuery for Blazor.
+slug: mediaquery-integration
+tags: telerik,blazor,mediaquery,integration,chart,grid,form
 published: True
-position: 0
+position: 1
 ---
 
-# Form Overview
+# Integration
 
-The Form for Blazor allows you to generate a form based on your model and to manage customized forms. You can control the component through various parameters, achieve the desired layout by using the [default editor](#automatic-generation-of-fields) or add [custom ones]({%slug form-formitems%}), set the [orientation]({%slug form-orientation%}) and organize those editors in [groups]({%slug form-formgroups%}) and [columns]({%slug form-columns%}). 
+You can integrate the TelerikMediaQuery component with our existing components. This article provides examples on the most common scenarios:
 
-#### This article is separated in the following sections:
+* [Grid Integration](#grid-integration)
 
+* [Chart Integration](#chart-integration)
 
-* [Use the Telerik Form for Blazor with a model](#use-the-telerik-form-for-blazor-with-a-model)
-* [Use the Telerik Form for Blazor with an EditContext](#use-the-telerik-form-for-blazor-with-an-editcontext)
-* [Component Reference](#component-reference)
-* [Automatic Generation of fields](#automatic-generation-of-fields)
-* [Data Annotation Attributes](#data-annotation-attributes)
-* [Features](#features)
+* [Form Integration](#form-integration)
 
+## Grid Integration
 
-## Use the Telerik Form for Blazor With a Model
+You can hide or more columns in the Grid based on the dimensions of the browser window by using the TelerikMediaQuery component and the [Visible parameter]({%slug components/grid/columns/bound%}#grid-bound-column-parameters) of the Grid.
 
-To use the Form component with a model: 
-
-1. Add the `<TelerikForm>` tag.
-
-1. Provide an object to the `Model` parameter of the component. 
-
-1. Use the `<FormValidation>` tag and in it, provide a validator - like the `DataAnnotationsValidator` that comes with the framework, to enable form validation. 
-
+>note You can use similar approach for the Telerik TreeList in order to hide some of the component columns on small devices.
 
 ````CSHTML
-@* Provide a model to the Telerik Form *@
+@* Hide Grid columns on smalled screens *@
 
-@using System.ComponentModel.DataAnnotations
+<TelerikMediaQuery Media="@WindowBreakPoints.Medium" OnChange="@( (doesMatch) => IsMedium = doesMatch )"></TelerikMediaQuery>
 
-<TelerikForm Model="@person">
-    <FormValidation>
-        <DataAnnotationsValidator />
-    </FormValidation>
-</TelerikForm>
+<TelerikGrid Data="@MyData"
+             Pageable="true" PageSize="10">
+    <GridColumns>
+        <GridCheckboxColumn Title="Select" Width="70px" />
+        <GridColumn Field="@(nameof(User.Id))" Width="100px" />
+        <GridColumn Field="@(nameof(User.FirstName))" Title="First Name" Width="200px" Visible="@( IsMedium ? false : true )" />
+        <GridColumn Field="@(nameof(User.LastName))" Title="Last Name" Width="200px" Visible="@( IsMedium ? false : true )" />
+        <GridColumn Field="@(nameof(User.FullName))" Title="Full Name" Width="200px" />
+        <GridColumn Field="@(nameof(User.DateOfBirth))" Title="Date of Birth" Width="200px" Visible="@( IsMedium ? false : true )" />
+        <GridColumn Field="@(nameof(User.Age))" Title="Age" Width="100px" Visible="@( IsMedium ? false : true )" />
+        <GridColumn Field="@(nameof(User.EmailAddress))" Title="Email Address" Width="200px" />
+        <GridColumn Field="@(nameof(User.RegistrationDate))" Title="Registration Date" Width="200px" Visible="@( IsMedium ? false : true )" />
+        <GridColumn Field="@(nameof(User.LocalTime))" Title="Local Time" Width="200px" Visible="@( IsMedium ? false : true )" />
+        <GridColumn Field="@(nameof(User.UserNumber))" Title="User Number" Width="300px" Visible="@( IsMedium ? false : true )" />
+        <GridColumn Field="@(nameof(User.Gender))" Title="Gender" Width="200px" Visible="@( IsMedium ? false : true )" />
+        <GridCommandColumn Width="250px" Title="Command Column">
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
 
 @code {
-    public Person person = new Person();
-
-    public class Person
+    public static class WindowBreakPoints
     {
-        [Editable(false)]
+        public static string ExtraSmall => "(max-width: 480px)";
+        public static string Small => "(max-width: 767px)";
+        public static string Medium => "(max-width: 1023px)";
+        public static string Large => "(max-width: 1199px)";
+        public static string ExtraLarge => "(min-width: 1200px)";
+    }
+
+    private bool IsMedium { get; set; }
+
+    public IEnumerable<User> MyData = Enumerable.Range(1, 30).Select(x => new User
+    {
+        Id = x,
+        FirstName = "App",
+        LastName = $"User {x}",
+        DateOfBirth = new DateTime(1970, 1, 1),
+        EmailAddress = $"app-user{x}@mail.com",
+        RegistrationDate = DateTime.Today.AddDays(-x),
+        LocalTime = DateTime.Now,
+        UserNumber = Guid.NewGuid(),
+        Gender = x % 2 == 0 ? "Male" : "Female"
+    });
+
+    public class User
+    {
         public int Id { get; set; }
-
-        [Required]
-        [MaxLength(20, ErrorMessage = "The first name should be maximum 20 characters long")]
-        [Display(Name = "First Name")]
         public string FirstName { get; set; }
-
-        [Required]
-        [MaxLength(25, ErrorMessage = "The last name should be maximum 25 characters long")]
-        [Display(Name = "Last Name")]
         public string LastName { get; set; }
-
-        [Required]
-        [Display(Name = "Date of Birth")]
-        public DateTime? DOB { get; set; }
+        public string FullName
+        {
+            get
+            {
+                string fullName = $"{FirstName} {LastName}";
+                return fullName;
+            }
+        }
+        public DateTime DateOfBirth { get; set; }
+        public int Age
+        {
+            get
+            {
+                var timeSpan = DateTime.Today - DateOfBirth;
+                var years = timeSpan.Days / 365;
+                return years;
+            }
+        }
+        public string EmailAddress { get; set; }
+        public Guid UserNumber { get; set; }
+        public DateTime RegistrationDate { get; set; }
+        public DateTime LocalTime { get; set; }
+        public string Gender { get; set; }
     }
 }
 ````
 
->caption The result from the code snippet above
+## Chart Integration
 
-![Form Basic Example](images/form-basic-example.png)
+You can resize the Chart based on the browser size and re-render with the new dimensions
 
-## Use the Telerik Form for Blazor With an EditContext
+>note You can also see the <a href="https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart" target="_blank">Responsive Chart demo application</a> for additional examples.
 
-The Telerik Form for Blazor can utilize the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0">EditContext class</a>. You can use the events and methods provided by the EditContext to provide custom business logic. 
+````CSHMTL
+@* Resize the chart based on the browser size *@
 
-To use the Form component with an EditContext: 
+<TelerikMediaQuery Media="@WindowBreakPoints.Small" OnChange="@OnChangeHandler"></TelerikMediaQuery>
 
-1. Add the `<TelerikForm>` tag.
+<div style="width: @Width; height: @Height">
+    <TelerikChart Width="100%" Height="100%" @ref="@ChartRef">
+        <ChartSeriesItems>
+            <ChartSeries Type="@ChartSeriesType.RadarColumn" Name="Soybean" Data="@series1Data">
+            </ChartSeries>
+            <ChartSeries Type="@ChartSeriesType.RadarColumn" Name="Lentils" Data="@series2Data">
+            </ChartSeries>
+        </ChartSeriesItems>
 
-1. Provide an object of type `EditContext` to the `EditContext` parameter of the Form. 
+        <ChartCategoryAxes>
+            <ChartCategoryAxis Categories="@xAxisItems">
+            </ChartCategoryAxis>
+        </ChartCategoryAxes>
 
-1. Use the `<FormValidation>` tag and provide a validator in it - like the `DataAnnotationsValidator` that comes with the framework, to enable form validation. 
+        <ChartValueAxes>
+            <ChartValueAxis Visible="false"></ChartValueAxis>
+        </ChartValueAxes>
 
+        <ChartTitle Text="Nutrients per 100g">
+        </ChartTitle>
 
-````CSHTML
-@* Provide an EditContext to the TelerikForm *@
+        <ChartLegend Position="@Telerik.Blazor.ChartLegendPosition.Right">
+        </ChartLegend>
 
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm EditContext="@MyEditContext">
-    <FormValidation>
-        <DataAnnotationsValidator />
-    </FormValidation>
-</TelerikForm>
+    </TelerikChart>
+</div>
 
 @code {
-    public EditContext MyEditContext { get; set; }
-
-    public Person person = new Person();
-
-    protected override void OnInitialized()
+    public static class WindowBreakPoints
     {
-        MyEditContext = new EditContext(person);
+        public static string ExtraSmall => "(max-width: 480px)";
+        public static string Small => "(max-width: 767px)";
+        public static string Medium => "(max-width: 1023px)";
+        public static string Large => "(max-width: 1199px)";
+        public static string ExtraLarge => "(min-width: 1200px)";
     }
 
-    public class Person
+    private bool IsSmall { get; set; }
+    private string Width { get; set; } = "600px";
+    private string Height { get; set; } = "600px";
+
+    private async Task OnChangeHandler(bool doesMatch)
     {
-        [Editable(false)]
-        public int Id { get; set; }
+        IsSmall = doesMatch;
 
-        [Required]
-        [MaxLength(20, ErrorMessage = "The first name should be maximum 20 characters long")]
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
+        if (IsSmall)
+        {
+            Width = "400px";
+            Height = "400px";
+        }
+        else
+        {
+            Width = "600px";
+            Height = "600px";
+        }
 
-        [Required]
-        [MaxLength(25, ErrorMessage = "The last name should be maximum 25 characters long")]
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
+        await Task.Delay(20);
 
-        [Required]
-        [Display(Name = "Date of Birth")]
-        public DateTime? DOB { get; set; }
+        ChartRef.Refresh();
     }
+
+    public TelerikChart ChartRef { get; set; }
+
+    public List<object> series1Data = new List<object>() { 36, 30, 20 };
+    public List<object> series2Data = new List<object>() { 9, 20, 0.4d };
+    public string[] xAxisItems = new string[] { "Protein", "Carbohydrates", "Fats" };
 }
 ````
 
->caption The result from the code snippet above
+## Form Integration
 
-![Form Basic Example](images/form-basic-example.png)
-
-
-## Component Reference
-
-The component reference provides you with access to the `EditContext` object that the form will generate when you pass a `Model` to it. It could be useful to, for example, re-attach validation when you change the model - `FormReference.EditContext.AddDataAnnotationsValidation()`.
-
->caption Get a reference to the Telerik Form for Blazor 
-
-````CSHTML
-@* Get a reference to the Form component *@
-
-<TelerikForm Model="@person" @ref="@FormReference">
-</TelerikForm>
-
-@code {
-    public Telerik.Blazor.Components.TelerikForm FormReference { get; set; }
-
-    public Person person = new Person();
-
-    public class Person
-    {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-    }
-}
-````
-
-## Automatic Generation of fields
-
-The Telerik Form can generate [editors]({%slug form-formitems%}) for you based on the model fields. It can take them from both a `Model`, or the `EditContext`, whichever you provide to it. You can use the [data annotation attributes](#data-annotation-attributes) to validate the value of the fields.
-
-The following data types are supported out-of-the box and they use the following default editors:
-
-* `string` - [Telerik TextBox]({%slug components/textbox/overview%})
-
-* `int`, `double`, `float`, `decimal` - [Telerik NumericTextBox]({%slug components/numerictextbox/overview%})
-
-* `Enum` - [Telerik DropDownList]({%slug components/dropdownlist/overview%})
-
-* `DateTime` - [Telerik DatePicker]({%slug components/datepicker/overview%})
-
-* `bool` - [Telerik CheckBox]({%slug checkbox-overview%})
-
-## Data Annotation Attributes
-
-The Telerik Form for Blazor supports validation through the `<DataAnnotationsValidator />`. This allows you to take advantage of all validation attributes from the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0" target="_blank">data annotation attributes</a> list provided by .NET.
-
-The Form also uses the the following attributes from the model:
-
-* `[Display(Name="Field Caption")]` - to get the title (caption) of the field name to render out as its label. 
-
-* `[Enabled(false)]` - to render the built-in editor as disabled so the user cannot change its value.
-
-You can customize the editors further through the [form items]({%slug form-formitems%}). Explicit settings you provide through the parameters will take precedence over data annotation attributes.
-
-## Features
-
-* `Model` - `object` - the object bound to the form. It will automatically create the `EditContext` and using the two together is not supported.
-
-* `FormValidation` - a nested tag for the Form. You should use it to enable validation and provide validation configuration - add a validation (for example `DataAnnotationsValidator`) and provide a `ValidationSummary`.
-
-* `EditContext` - `EditContext` - the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> of the form.
-
-* `ValidationMessageType` - `enum` - define the validation message type for the Form. See the [Validation]({%slug form-validation%}) article for more information.
-
-* `Width` - `string` - allows you to control the width of the Form.
-
-* `FormItems` - `RenderFragment` - allows you to use custom editors. See the [FormItems]({%slug form-formitems%}) article for more information. When a custom editor is used, no built-in editors will be generated.
-
-* `FormButtons` - `RenderFragment` - allows you to add custom buttons to the Form. You can use the `FormButtons` tag to [add a Clear button to the Form]({%slug form-formitems-buttons%}). If the `FormButtons` tag is defined there will be no default buttons in the Form. 
-
-* `FormGroups` - lets you define Groups for the FormItems. See the [FormGroups]({%slug form-formgroups%}) article for more information.
-
-* `Orientation` - `enum` - controls the orientation of the Form. See the [Orientation]({%slug form-orientation%}) article for more information.
-    
-* `Columns` - `int` - defines the number of columns in the Form. See the [Columns]({%slug form-columns%}) article for more information.
-
-* `ColumnSpacing` - `string` - defines the space between the FormItems. See the [Columns]({%slug form-columns%}) article for more information.
-
-* `Events` - See the [Events]({%slug form-events%}) article for more information
-
-* `Width` - the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article.
+You can utilize the Form Columns to fit the contents of the Telerik Form to a smaller browser window. You can find an example in the <a href="https://github.com/telerik/blazor-ui/tree/master/form/responsive-form" target="_blank">Responsive Form</a> demo application.
 
 ## See Also
   
-  * [Form Items]({%slug form-formitems%})
-  * [Form Groups]({%slug form-formgroups%})
-  * [Columns]({%slug form-columns%})
-  * [Orientation]({%slug form-orientation%})
-  * [Events]({%slug form-events%})
-  * [Live Demo: Form](https://demos.telerik.com/blazor-ui/form/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikForm)
+  * [Overview]({%slug mediaquery-overview%})
+  * [Events]({%slug mediaquery-events%})
+
    
