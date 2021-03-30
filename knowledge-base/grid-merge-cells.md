@@ -1,0 +1,74 @@
+---
+title: Merge Cells in the grid
+description: How to Merge Cells across rows in the grid.
+type: how-to
+page_title: Grid Custom Edit Form
+slug: grid-kb-merge-cells
+position: 
+tags: 
+res_type: kb
+---
+
+
+## Description
+
+How can I merge cells across rows in the Blazor Data Grid?
+
+
+## Solution
+
+To control the table cell and row rendering, you must use the [Row Template]({%slug grid-templates-row%}) of the grid.
+
+Then, you can set the `rowspan` and `colspan` attributes of the `<td>` elements as necessary to merge them.
+
+Make sure to provide valid HTML - if you make one cell larger, you must not render the appropriate number of adjacent cells. For example, if you set `rowspan=2`, the next row must not render that cell.
+
+>caption Example of merging rows in the grid
+
+````CSHTML
+@* See the rowspan attribute for the last cell. Replace that logic with your actual project logic. *@
+
+<TelerikGrid Data=@MyData Pageable="true">
+    <RowTemplate Context="product">
+        <td>@product.Id</td>
+        <td>@product.Name</td>
+        <td>@product.Quantity</td>
+
+        @* 
+            As required by your logic, set the rowspan attribute of a cell to merge it with other cells
+            NOTE: Subsequent rows must not render a cell there - their number must match the rowspan you set
+            This example renders every odd cell for the sake of brevity.
+        *@
+        @if (product.Id % 2 != 0)
+        {
+            <td rowspan="2">@product.Discontinued</td>
+        }
+
+    </RowTemplate>
+    <GridColumns>
+        <GridColumn Field=@nameof(Product.Id) Title="Id" />
+        <GridColumn Field=@nameof(Product.Name) Title="Product Name" />
+        <GridColumn Field=@nameof(Product.Quantity) Title="Units in Stock" />
+        <GridColumn Field=@nameof(Product.Discontinued) />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Quantity { get; set; }
+        public bool Discontinued { get; set; }
+    }
+
+    public IEnumerable<Product> MyData = Enumerable.Range(1, 50).Select(x => new Product
+    {
+        Id = x,
+        Name = "Product " + x,
+        Quantity = x ^ 2,
+        Discontinued = x % 3 == 0
+    });
+}
+````
+
