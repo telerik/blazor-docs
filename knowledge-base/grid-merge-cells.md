@@ -2,7 +2,7 @@
 title: Merge Cells in the grid
 description: How to Merge Cells across rows in the grid.
 type: how-to
-page_title: Grid Custom Edit Form
+page_title: Merge cells and rows in the grid
 slug: grid-kb-merge-cells
 position: 
 tags: 
