@@ -192,8 +192,8 @@ navigation:
         title: "TreeList"
      "*spreadsheet":
         title: "Spreadsheet"
-     "*gauge-arc":
-        title: "Gauge - Arc"
+     "*gauges/arc":
+        title: "Arc"
      "*autocomplete":
         title: "AutoComplete"
      "*barcode":
@@ -257,10 +257,12 @@ navigation:
         title: "FlatColorPicker"
      "*gantt":
         title: "Gantt"
-     "*gauge-linear":
-        title: "Gauge - Linear"
-     "*gauge-circular":
-        title: "Gauge - Circular"
+     "*gauges":
+        title: "Gauges"
+     "*gauges/linear":
+        title: "Linear"
+     "*gauges/circular":
+        title: "Circular"
      "*listbox":
         title: "ListBox"
      "*loader":
@@ -291,8 +293,8 @@ navigation:
         title: "QRCode"
      "*/radiobutton":
         title: "RadioButton"
-     "*gauge-radial":
-        title: "Gauge - Radial"
+     "*gauges/radial":
+        title: "Radial"
      "*rangeslider":
         title: "RangeSlider"
      "*responsivepanel":
