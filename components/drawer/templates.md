@@ -90,6 +90,8 @@ Make sure that the `<Content>` tag is outside of the `<Template>` - the `<Conten
 
 Using the `<Template>` and `<ItemTemplate>` together is not possible - the Template removes any built-in rendering from the Drawer.
 
+>important Using the template takes functionality away from the drawer because it no longer controls its own rendering. For example, appearance of the items, focused states, keyboard navigation, page navigation and clicks are no longer controlled by the Drawer component and need to be implemented by the application template.
+
 >caption Using a template with manual item selection, header and footer
 
 ````CSHTML
@@ -170,7 +172,7 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
     public DrawerItem SelectedItem { get; set; }
     public bool DrawerExpanded { get; set; } = true;
     public IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>
-{
+    {
         new DrawerItem {Text = "Shopping Cart", Icon = "cart", Description = "Items in shopping cart"},
         new DrawerItem {Text = "Settings", Icon = "gear", Description = "My profile settings"},
         new DrawerItem {Text = "Notifications", Icon = "notification", Description = "My profile notifications"},
