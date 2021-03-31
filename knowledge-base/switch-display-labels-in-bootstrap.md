@@ -1,8 +1,8 @@
 ---
 title: Display ON/OFF Labels of the Switch in Bootstrap and Material
-description: How to display ON/OFF Labels of the Switch in Bootstrap and Material
+description: How to display ON/OFF Labels of the Switch in Bootstrap and Material theme
 type: how-to
-page_title: Display ON/OFF Labels of the Switch in Bootstrap and Material
+page_title: Display ON/OFF Labels of the Switch in Bootstrap and Material Theme
 slug: switch-kb-display-labels-in-bootstrap
 position: 
 tags: 
@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 Telerik Switch control doesn't seem to display the ON/OFF Labels when used with Bootstrap.
-How can I customize it to show the ON/OFF labels when I'm using Bootstrap theme?
+How can I customize it to show the ON/OFF labels when I'm using Bootstrap or Material theme?
 
 ## Solution
 In Bootstrap and Material themes the Switch component does not render any labels by design. You can also test that in our [live demo](https://demos.telerik.com/blazor-ui/switch/labels).
