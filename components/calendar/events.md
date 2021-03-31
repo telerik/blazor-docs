@@ -16,6 +16,7 @@ This article explains the events available in the Telerik Calendar for Blazor:
 * [DateChanged](#datechanged)
 * [ViewChanged](#viewchanged)
 * [RangeStartChanged and RangeEndChanged](#rangestartchanged-and-rangeendchanged)
+* [CellRender](#cellrender)
 
 ## ValueChanged
 
@@ -153,6 +154,60 @@ When the user selects a range from the calendar, the first click always fires th
     }
 }
 ````
+
+
+## CellRender
+
+The `CellRender` event fires when each cell in each view is about to render. It allows you to see which view it is in, what its date, and you can set the `Class` for the `<td>` element based on your business logic.
+
+The event arguments are of type `CalendarCellRenderEventArgs` and provide the following fields:
+
+* `Date` - `DateTime` - the date of the cell
+* `View` - `CalendarView` - the currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on.
+* `Class` - `string` - lets you set a custom CSS class to the cell DOM element.
+
+You can also customize the cells through their [templates]({%slug calendar-templates-overview%}). You can use the event together with the templates.
+
+>caption Use the CellRender event to style cells based on conditions
+
+````CSHTML
+Move between the calendar views to see the different behaviors in the Month and Decade views.
+
+<TelerikCalendar OnCellRender="@OnCellRender">
+</TelerikCalendar>
+
+@code {
+    private void OnCellRender(CalendarCellRenderEventArgs args)
+    {
+        if (args.View == CalendarView.Month)
+        {
+            args.Class = args.Date.Day % 3 == 0 ? "special" : "";
+        }
+        else if (args.View == CalendarView.Decade)
+        {
+            args.Class = args.Date.Year == 2020 ? "special" : "";
+        }
+    }
+}
+
+<style>
+    .special {
+        color: red;
+        font-weight: bold;
+    }
+    td.special:hover .k-link {
+        background-color: purple;
+        color: yellow;
+    }
+    /* You can inspect the built-in rendering with the browser dev tools 
+    to see how to apply heavier selectors and to also use classes the 
+    calendar provides such as focus and selection states */
+</style>
+````
+
+>caption The result from the code snippet above
+
+![cell render appearance customization](images/calendar-cell-render-example.gif)
 
 ## See Also
 
