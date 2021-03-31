@@ -67,6 +67,9 @@ navigation:
         position: 20
 
 ## List custom TOC order for folders here
+     "*components/calendar/templates":
+        title: "Templates"
+        position: 20
      "*components/form/formitems":
         title: "Form Items"
         position: 20
