@@ -10,7 +10,7 @@ position: 10
 
 # Month Cell Template
 
-The Month Cell Template controls what the calendar will render in the `<td>` element for each day in the month view.
+The Month Cell Template controls what the calendar will render in the `<td>` element for each day in the Month view that lists the days.
 
 The template receives the `DateTime` corresponding to its cell.
 
@@ -33,6 +33,7 @@ The template receives the `DateTime` corresponding to its cell.
 
 @code{
     DateTime startDate { get; set; } = new DateTime(2021, 4, 1);
+    
     List<DateTime> birthdays { get; set; } = new List<DateTime>()
     {
         new DateTime(2021, 4, 2),
@@ -51,6 +52,7 @@ The template receives the `DateTime` corresponding to its cell.
 
 ## See Also
 
+ * [Calendar Templates Overview]({%slug calendar-templates-overview%})
  * [Live Demo: Calendar Templates](https://demos.telerik.com/blazor-ui/calendar/templates)
  
 
