@@ -5,7 +5,7 @@ description: Use custom month cell template in the Calendar for Blazor.
 slug: calendar-templates-month
 tags: telerik,blazor,calendar,templates,month
 published: True
-position: 10
+position: 2
 ---
 
 # Month Cell Template

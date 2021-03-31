@@ -5,7 +5,7 @@ description: Use custom Year cell template in the Calendar for Blazor.
 slug: calendar-templates-year
 tags: telerik,blazor,calendar,templates,Year
 published: True
-position: 10
+position: 3
 ---
 
 # Year Cell Template
