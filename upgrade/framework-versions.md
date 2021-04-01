@@ -55,7 +55,7 @@ The client-side (WebAssembly) flavor of Blazor is a set of separate NuGet packag
 
 | WebAssembly version                  | Telerik UI for Blazor version      |
 |--------------------------------------|-------------------------------     |
-| 3.2.x RTM                            | 2.14.0 - {{site.uiForBlazorLatestVersion}}  |
+| 3.2.x RTM                            | 2.14.0 - 2.22.0                    |
 
 
 
