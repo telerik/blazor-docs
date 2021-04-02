@@ -3,7 +3,7 @@ title: Century Cell
 page_title: Calendar - Century Cell Template
 description: Use custom Century cell template in the Calendar for Blazor.
 slug: calendar-templates-century
-tags: telerik,blazor,calendar,templates,Centur5
+tags: telerik,blazor,calendar,templates,century
 published: True
 position: 5
 ---
@@ -19,7 +19,7 @@ The template receives the `DateTime` corresponding to its cell start year.
 ![calendar century cell template](images/calendar-century-template.png)
 
 ````CSHTML
-@* This example adds an icon for certain decades *@
+@* This example highlights certain decades *@
 
 <TelerikCalendar Date="@startDate" @bind-View="@theView">
     <CenturyCellTemplate>
