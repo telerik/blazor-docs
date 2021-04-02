@@ -166,7 +166,7 @@ Use the [Grid events]({%slug grid-events%}#cud-events) to update the `SelectedIt
 }
 ````
 
-### How to Select the row that is being edited in InCell edit mode using Cell Tempalte and the onclick event
+### How to Select the row that is being edited in InCell edit mode using Cell Template and the onclick event
 
 
 ````CSHTML
