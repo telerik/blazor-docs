@@ -55,7 +55,7 @@ The <a href="https://www.telerik.com/blazor-ui/animation-container" target="_bla
 
 The animation container exposes the following properties and methods:
 
-* `Show()`, `Hide()` and `Toggle()`; `ShowAsync()`, `HideAsync()` and `ToggleAsync()` - to control whether the container is shown.
+* `ShowAsync()`, `HideAsync()` and `ToggleAsync()` - to control whether the container is shown.
     * To show an animation container immediately when the page loads, use the `OnAfterRenderAsync` event.
 * `Width` and `Height` - to control its [size]({%slug common-features/dimensions%}). The `Height` cannot be in percentage values, it is recommended to use pixels for it.
 * `Top` and `Left` - to control its offset from its parent with special positioning (`relative`, `absolute`, `fixed`).
