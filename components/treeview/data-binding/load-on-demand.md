@@ -14,11 +14,132 @@ This article explains how to load nodes on demand the TreeView for Blazor.
 @[template](/_contentTemplates/treeview/basic-example.md#data-binding-basics-link)
 
 
-You don't have to provide all the data the treeview will render at once - the root nodes are sufficient for an initial display. You can then use the `OnExpand` event of the treeview to provide [hierarchical data]({%slug components/treeview/data-binding/hierarchical-data%}) to the node that was just expanded. Loading nodes on demand can improve the performance of your application by requesting less data at any given time.
+You don't have to provide all the data the treeview will render at once - the root nodes are sufficient for an initial display. You can then use the `OnExpand` event of the treeview to provide [flat]({%slug components/treeview/data-binding/flat-data%}) or [hierarchical]({%slug components/treeview/data-binding/hierarchical-data%}) data to the node that was just expanded. Loading nodes on demand can improve the performance of your application by requesting less data at any given time.
 
-The **example** below shows how you can handle load on demand in detail. It uses two different models for the two different [levels of data bindings]({%slug components/treeview/data-binding/overview%}#multiple-level-bindings) it showcases. You do not have to use different models and/or different bindings.
+In this article:
 
->caption Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
+* [Flat Data Load on Demand](#flat-data-load-on-demand)
+
+* [Hierarchical Data Load on Demand](#hierarchical-data-load-on-demand)
+
+## Flat Data Load on Demand
+
+The **example** below shows how you can handle flat data load on demand in detail.
+
+>caption Flat Data Load on Demand in a TreeView. Review the code comments for details.
+
+````CSHTML
+@* Load child nodes on demand *@
+
+<TelerikTreeView Data="@FlatData" OnExpand="@LoadChildren">
+    <TreeViewBindings>
+        <TreeViewBinding ParentIdField="Parent" />
+    </TreeViewBindings>
+</TelerikTreeView>
+
+@code {
+    public List<TreeItem> FlatData { get; set; } = new List<TreeItem>();
+
+    async Task LoadChildren(TreeViewExpandEventArgs args)
+    {
+        TreeItem currItem = args.Item as TreeItem;
+
+        // check if the item is expanding, we don't need to do anything if it is collapsing
+        // check if the current node already has data in order not to load it again
+        if (args.Expanded && !FlatData.Any(x => x.Parent == currItem.Id))
+        {
+            if (currItem.Id == 1)
+            {
+                FlatData.Add(new TreeItem()
+                {
+                    Id = 4,
+                    Text = "Child 1 of Parent 1",
+                    Parent = 1, // the parent will be the first root item
+                    HasChildren = false
+                });
+
+                FlatData.Add(new TreeItem()
+                {
+                    Id = 5,
+                    Text = "Child 2 of Parent 1",
+                    Parent = 1, // the parent will be the first root item
+                    HasChildren = true
+                });
+            }
+            else if (currItem.Id == 5)
+            {
+                FlatData.Add(new TreeItem()
+                {
+                    Id = 6,
+                    Text = "Child 1 of Child 2",
+                    Parent = 5, // the parent will be the second child of the first root item
+                    HasChildren = false
+                });
+            }
+            else if (currItem.Id == 2)
+            {
+                FlatData.Add(new TreeItem()
+                {
+                    Id = 7,
+                    Text = "Child 1 of Parent 2",
+                    Parent = 2, // the parent will be the second root item
+                    HasChildren = false
+                });
+            }
+        }
+    }
+
+    public class TreeItem //most fields use the default names and will bind automatically in this example
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public int? Parent { get; set; } //this is a non-default field name
+        public bool HasChildren { get; set; }
+    }
+
+    //Root level items generation when the component initializes 
+
+    protected override void OnInitialized()
+    {
+        FlatData = LoadFlat();
+    }
+
+    private List<TreeItem> LoadFlat()
+    {
+        FlatData.Add(new TreeItem()
+        {
+            Id = 1,
+            Text = "Parent 1",
+            Parent = null, // indicates a root (zero-level) item
+            HasChildren = true // informs the treeview there are children so it renders the expand option
+        });
+
+        FlatData.Add(new TreeItem()
+        {
+            Id = 2,
+            Text = "Parent 2",
+            Parent = null, //  indicates a root item
+            HasChildren = true
+        });
+
+        FlatData.Add(new TreeItem()
+        {
+            Id = 3,
+            Text = "Parent 3",
+            Parent = null, // indicates a root item
+            HasChildren = false //there will be no children in this item
+        });
+
+        return FlatData;
+    }
+}
+````
+
+## Hierarchical Data Load on Demand
+
+The **example** below shows how you can handle hierarchical data load on demand in detail. It uses two different models for the two different [levels of data bindings]({%slug components/treeview/data-binding/overview%}#multiple-level-bindings) it showcases. You do not have to use different models and/or different bindings.
+
+>caption Hierarchical Data Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
 
 ````CSHTML
 @using Telerik.DataSource.Extensions
