@@ -44,9 +44,9 @@ You can initiate editing or inserting of an item from anywhere on the page (butt
 
 ## Example
 
->tip You can see the CRUD events in action in our live demos for [Inline](https://demos.telerik.com/blazor-ui/grid/editing-inline), [Popup](https://demos.telerik.com/blazor-ui/grid/editing-popup) and [InCell](https://demos.telerik.com/blazor-ui/grid/editing-incell) editing. You can also use the [Telerik Wizard]({%slug getting-started-vs-integration-new-project%}) project templates to easily create an application that showcases the Telerik Grid with CRUD events implemented.
-
 The example below shows how you can handle the events the grid exposes, so you can Create, Update or Delete records in your data source and the view model.
+
+>tip You can see the CRUD events in action in our live demos for [Inline](https://demos.telerik.com/blazor-ui/grid/editing-inline), [Popup](https://demos.telerik.com/blazor-ui/grid/editing-popup) and [InCell](https://demos.telerik.com/blazor-ui/grid/editing-incell) editing. You can also use the [Telerik Wizard]({%slug getting-started-vs-integration-new-project%}) project templates to easily create an application that showcases the Telerik Grid with CRUD events implemented.
 
 >caption Handling the CRUD events of the grid to save data to the actual data source (mocked with local methods in this example, see the code comments for details)
 
