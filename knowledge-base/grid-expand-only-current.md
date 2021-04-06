@@ -27,11 +27,11 @@ I have a Grid with hierarchy enabled. When I expand one row, I want to programma
 
 ## Solution
 
-The OnRowExpand event provides arguments of type GridRowExpandEventArgs. You can check the Item field of the arguments to get information which item is currently expanded. 
+The `OnRowExpand` event provides arguments of type `GridRowExpandEventArgs`. You can check the `Item` field of the arguments to get information which item is currently expanded.
 
-You can then use the Grid State to programmatically set its ExpandedRows field. In order to achieve the desired behavior, the ExpandedRows of the Grid state should only has information for the current expanded item. This will result in collapsing all previously expanded items and keep just the current one expanded.
+You can then use the [Grid State]({%slug grid-state%}) to programmatically set its `ExpandedRows` field. In order to achieve the desired behavior, the `ExpandedRows` of the Grid State should only has information for the current expanded item. This will result in collapsing all previously expanded items and keep just the current one expanded.
 
-The ExpandedRows accepts a list of item indexes. In order to get the correct index of the current expanded item in case of filtering, sorting, paging of the Grid, use the OnRead event to work with the current data.
+The `ExpandedRows` accepts a list of item indexes. In order to [get the correct index of the current expanded item]({%slug grid-kb-index-of-a-grid-row%}) in case of filtering, sorting, paging of the Grid, use the `OnRead` event to work with the current data.
 
 See code comments in the example below for more details on the spot.
 
@@ -76,7 +76,7 @@ Expanded item index: @currItemIndex
     {
         var dataSourceResult = salesTeamMembers.ToDataSourceResult(args.Request);
 
-        currentSalesTeamMembers = dataSourceResult.Data.Cast<MainModel>().ToList(); // this is the collection with the sorted items
+        currentSalesTeamMembers = dataSourceResult.Data.Cast<MainModel>().ToList(); // this is the collection with the current items
 
         Total = dataSourceResult.Total;
     }
