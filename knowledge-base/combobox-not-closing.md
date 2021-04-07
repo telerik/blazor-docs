@@ -62,6 +62,8 @@ Selected value: @selectedValue
 
 To avoid the above described behavior you need to bind the `Value` parameter to a field of the same type as the `ValueField` is bound to.
 
+@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
+
 ### Correct setup
 
 The example below demonstrates the correct setup of the ComboBox - `Value` and `ValueField` data types are matching.
