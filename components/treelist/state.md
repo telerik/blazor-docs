@@ -66,6 +66,8 @@ If you want to put the TreeList in a certain configuration without preserving th
 
 To reset the TreeList state, call `SetState(null)`.
 
+You should avoid calling `SetState` in the treelist [CRUD methods]({%slug treelist-editing-overview%}). Doing so may lead to unexpected results because the grid has more logic to execute after the event.
+
 ## Information in the TreeList State
 
 The following information is present in the TreeList state:

@@ -72,6 +72,8 @@ If you want to put the grid in a certain configuration without preserving the ol
 
 To reset the grid state, call `SetState(null)`.
 
+You should avoid calling `SetState` in the grid [CRUD methods]({%slug components/grid/editing/overview%}) (such as [OnRead]({%slug components/grid/manual-operations%}), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the grid has more logic to execute after the event.
+
 ## Information in the Grid State
 
 The following information is present in the grid state:

@@ -364,6 +364,8 @@ There are a few considerations to keep in mind with the CUD operations of the tr
 
 * The treelist uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert or Edit action is invoked, so the Model should have a Parameterless constructor defined. If you cannot have such a contructor, a workaround might be might be [invoking dit/Insert through the treelist state]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
 
+* While editing, the Treelist creates a **copy of your original object** which has a **different reference**. You receive that copy in the `OnUpdate` event handler. The `OnEdit` event receives the original item from the pristine `Data` collection, because it is a cancellable event and fires before the treelist logic creates the copy. The built-in editors and [editor templates]({%slug treelist-templates-editor%}) receive the copy for their `context` that the treelist will create after `OnEdit`.
+
 * The validation the treelist provides is based on the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#validator-components" target="_blank">`DataAnnotationValidator`</a> and creates its own `EditContext` for a row that is in edit/insert mode. When the row is not in edit/insert mode, the `EditContext` is `null`. The `EditContext` is a cascading parameter and overrides any cascading parameters from parent components (such as an `<EditForm>` that may wrap the treelist).
 
     <!-- * The validation will not be enabled for tree bound to Expando objects or Dictionaries (such as DataTable). -->
