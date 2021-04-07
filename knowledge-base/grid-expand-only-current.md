@@ -40,7 +40,8 @@ See code comments in the example below for more details on the spot.
 
 Expanded item index: @currItemIndex
 
-<TelerikGrid Data="@salesTeamMembers" OnRowExpand="@OnExpand" OnRead="@OnReadHandler" @ref="GridRef" >
+<TelerikGrid Data="@currentSalesTeamMembers" OnRowExpand="@OnExpand" OnRead="@OnReadHandler" TotalCount="@Total"
+             @ref="GridRef" Sortable="true" Pageable="true" FilterMode="GridFilterMode.FilterRow">
     <DetailTemplate>
         @{
             var employee = context as MainModel;
@@ -79,6 +80,8 @@ Expanded item index: @currItemIndex
         currentSalesTeamMembers = dataSourceResult.Data.Cast<MainModel>().ToList(); // this is the collection with the current items
 
         Total = dataSourceResult.Total;
+
+        StateHasChanged();
     }
 
     //in the OnRowExpand handler you can perform the desired logic to collapse the rest of the items and keep just the current one opened
@@ -86,11 +89,11 @@ Expanded item index: @currItemIndex
     {
         currentItem = args.Item as MainModel;
 
-        //get the new index of the current expanded item from the current data 
+        //get the new index of the current expanded item from the current data
         currItemIndex = currentSalesTeamMembers.IndexOf(currentItem);
 
         //use the Grid state and its ExpandedRows field to set the only expanded item to be the current one
-        GridState<MainModel> desiredState = new GridState<MainModel>();
+        GridState<MainModel> desiredState = GridRef.GetState();
 
         desiredState.ExpandedRows = new List<int> { currItemIndex };
 
