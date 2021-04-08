@@ -18,9 +18,107 @@ You don't have to provide all the data the treeview will render at once - the ro
 
 In this article:
 
+* [Hierarchical Data Load on Demand - One Model](#hierarchical-data-load-on-demand---one-model)
+
 * [Flat Data Load on Demand](#flat-data-load-on-demand)
 
-* [Hierarchical Data Load on Demand](#hierarchical-data-load-on-demand)
+* [Hierarchical Data Load on Demand - Different Models](#hierarchical-data-load-on-demand---different-models)
+
+## Hierarchical Data Load on Demand - One Model
+
+The **example** below shows how you can handle hierarchical data load on demand in detail. It uses the same model for the two different [levels of data bindings]({%slug components/treeview/data-binding/overview%}#multiple-level-bindings) it showcases.
+
+>caption One Model Hierarchical Data Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
+
+````CSHTML
+@* Load child nodes on demand *@
+
+<TelerikTreeView Data="@HierarchicalData" OnExpand="@LoadChildren">
+    <TreeViewBindings>
+        <TreeViewBinding TextField="ProductName" ItemsField="SubProducts" />
+    </TreeViewBindings>
+</TelerikTreeView>
+
+@code {
+    public List<ProductItem> HierarchicalData { get; set; }
+
+    int itemCounter;
+
+    public class ProductItem
+    {
+        public string ProductName { get; set; }
+        public int Id { get; set; } //will be used to identify the node, not for rendering in this example
+        public List<ProductItem> SubProducts { get; set; }
+        public bool Expanded { get; set; }
+        public bool HasChildren { get; set; } = true;
+    }
+
+    protected override void OnInitialized()
+    {
+        LoadRootHierarchical();
+    }
+
+    private void LoadRootHierarchical()
+    {
+        HierarchicalData = new List<ProductItem>();
+
+        HierarchicalData.Add(new ProductItem
+        {
+            ProductName = "Product 1",
+            Id = itemCounter++ // an identifier for use in the service call for child items
+        });
+
+        HierarchicalData.Add(new ProductItem
+        {
+            ProductName = "Product 2",
+            Id = itemCounter++
+        });
+    }
+
+    private async Task LoadChildren(TreeViewExpandEventArgs args)
+    {
+        // check if the item is expanding, we don't need to do anything if it is collapsing
+        if (args.Expanded)
+        {
+            ProductItem currProduct = args.Item as ProductItem;
+
+            if (currProduct.SubProducts?.Count > 0)
+            {
+                return; // item has been expanded before so it has data, don't load data again
+                        // alternatively, load it again but make sure to handle the child items correctly
+                        // either overwrite the entire collection, or use some other logic to append/merge
+            }
+
+            int itemIdentifier = currProduct.Id;
+            
+            // in a similar fashion, you can identify the item that was just expanded through its properties
+            // in this example, we will hardcode some data and logic for brevity
+            // in a real case, you would probably await a remote endpoint/service
+
+            if (itemIdentifier > 6) // simulate no data for certain nodes
+            {
+                currProduct.HasChildren = false; // remove the expand icon from the node
+
+                StateHasChanged(); // inform the UI that the data is changed
+
+                return;
+            }
+
+            // data requested and received for a certain node
+
+            await Task.Delay(1000); // imitates a call to a real service. In this example we just hardcode some data
+
+            //add child elements to the collection
+            currProduct.SubProducts = new List<ProductItem>() {
+                new ProductItem { ProductName= $"Product {itemCounter}", Id=itemCounter++ },
+                new ProductItem { ProductName= $"Product {itemCounter}", Id=itemCounter++ }
+            };
+
+            StateHasChanged(); // inform the UI that the data is changed
+        }
+    }
+}
+````
 
 ## Flat Data Load on Demand
 
@@ -135,11 +233,11 @@ The **example** below shows how you can handle flat data load on demand in detai
 }
 ````
 
-## Hierarchical Data Load on Demand
+## Hierarchical Data Load on Demand - Different Models
 
-The **example** below shows how you can handle hierarchical data load on demand in detail. It uses two different models for the two different [levels of data bindings]({%slug components/treeview/data-binding/overview%}#multiple-level-bindings) it showcases. You do not have to use different models and/or different bindings.
+The **example** below shows how you can handle hierarchical data load on demand in detail. It uses two different models for the two different [levels of data bindings]({%slug components/treeview/data-binding/overview%}#multiple-level-bindings) it showcases. You do not have to use different models and/or different bindings ( see [Hierarchical Data Load on Demand - One Model](#hierarchical-data-load-on-demand---one-model) ).
 
->caption Hierarchical Data Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
+>caption Different Models Hierarchical Data Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
 
 ````CSHTML
 @using Telerik.DataSource.Extensions
