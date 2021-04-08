@@ -31,8 +31,7 @@ The **example** below shows how you can handle hierarchical data load on demand 
 >caption One Model Hierarchical Data Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
 
 ````CSHTML
-@using Telerik.DataSource.Extensions
-@* used for the .AddRange() extension method *@
+@* Load child nodes on demand *@
 
 <TelerikTreeView Data="@HierarchicalData" OnExpand="@LoadChildren">
     <TreeViewBindings>
@@ -43,14 +42,16 @@ The **example** below shows how you can handle hierarchical data load on demand 
 @code {
     public List<ProductItem> HierarchicalData { get; set; }
 
+    int itemCounter;
+
     public class ProductItem
     {
         public string ProductName { get; set; }
         public int Id { get; set; } //will be used to identify the node, not for rendering in this example
         public List<ProductItem> SubProducts { get; set; }
         public bool Expanded { get; set; }
-        public bool HasChildren { get; set; }
-    }    
+        public bool HasChildren { get; set; } = true;
+    }
 
     protected override void OnInitialized()
     {
@@ -64,15 +65,13 @@ The **example** below shows how you can handle hierarchical data load on demand 
         HierarchicalData.Add(new ProductItem
         {
             ProductName = "Product 1",
-            HasChildren = true, // allow the user to expand the item and load children on demand
-            Id = 1 // an identifier for use in the service call for child items
+            Id = itemCounter++ // an identifier for use in the service call for child items
         });
 
         HierarchicalData.Add(new ProductItem
         {
             ProductName = "Product 2",
-            HasChildren = true,
-            Id = 2
+            Id = itemCounter++
         });
     }
 
@@ -91,11 +90,12 @@ The **example** below shows how you can handle hierarchical data load on demand 
             }
 
             int itemIdentifier = currProduct.Id;
+            
             // in a similar fashion, you can identify the item that was just expanded through its properties
             // in this example, we will hardcode some data and logic for brevity
             // in a real case, you would probably await a remote endpoint/service
 
-            if (itemIdentifier == 2) // simulate no data for a certain node - the second in our example
+            if (itemIdentifier > 6) // simulate no data for certain nodes
             {
                 currProduct.HasChildren = false; // remove the expand icon from the node
 
@@ -105,15 +105,14 @@ The **example** below shows how you can handle hierarchical data load on demand 
             }
 
             // data requested and received for a certain node
-            List<ProductItem> theSubProducts = new List<ProductItem>() {
-                new ProductItem { ProductName= $"Product {itemIdentifier} - SubProduct 1" },
-                new ProductItem { ProductName= $"Product {itemIdentifier} - SubProduct 2" }
-            };
 
-            // one way to add child elements to a collection
-            currProduct.SubProducts = new List<ProductItem>();
-            currProduct.SubProducts.AddRange<ProductItem>(theSubProducts);
-            // the AddRange() method comes from the Telerik.DataSource.Extensions
+            await Task.Delay(1000); // imitates a call to a real service. In this example we just hardcode some data
+
+            //add child elements to the collection
+            currProduct.SubProducts = new List<ProductItem>() {
+                new ProductItem { ProductName= $"Product {itemCounter}", Id=itemCounter++ },
+                new ProductItem { ProductName= $"Product {itemCounter}", Id=itemCounter++ }
+            };
 
             StateHasChanged(); // inform the UI that the data is changed
         }
