@@ -22,10 +22,12 @@ This event fires upon the rendering of the Grids columns. It receives an argumen
 * `Value` - an object that contains the value that is rendered in the Grid cell. You can cast it to its data type, for example to a `string`, `DateTime` or a number.
 * `Class` - the CSS class that will be applied to the cells. The CSS rules that are set for that class will be visibly rendered on the Grid cells.
 
->caption Use the OnCellRender event to apply custom format to Grid cells based on certain value
+>tip You can also pass lambda expressions to the OnCellRender parameter. Thus, you can provide additional meta data to the OnCellRender handler ( for example column title ) apart from the `GridCellRenderEventArgs` that it receives by default.
+
+>caption Use the OnCellRender event to apply custom format to Grid cells based on certain cell value and column name
 
 ````CSHTML
-@* Conditional styling/formatting for a cell *@
+@* Conditional styling/formatting for cells *@
 
 <style>
     .myCustomCellFormatting {
@@ -35,32 +37,33 @@ This event fires upon the rendering of the Grids columns. It receives an argumen
     }
 </style>
 
-<TelerikGrid Data="@MyData" 
+<TelerikGrid Data="@MyData"
              Height="400px"
-             Pageable="true" 
+             Pageable="true"
              Width="750px">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))"
-                    Title="Employee Name"
+        <GridColumn Field="@(nameof(SampleData.Name))" Title = "Employee Name"
                     Groupable="false"
-                    OnCellRender="@OnCellRenderHandler" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+                    OnCellRender="@((x) => OnCellRenderHandler(x, "Employee Name"))" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" OnCellRender="@((x) => OnCellRenderHandler(x, "Team"))" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire date" />
     </GridColumns>
 </TelerikGrid>
 
-@code {
+@code {   
 
-    void OnCellRenderHandler(GridCellRenderEventArgs args)
+    void OnCellRenderHandler(GridCellRenderEventArgs args, string columnName)
     {
         var item = args.Item as SampleData;
 
-        if (item.Name.Contains("5"))
+        if ((columnName == "Employee Name" && item.Name.Contains("3")) ||
+             (columnName == "Team" && item.Team.Contains("4")))
         {
             args.Class = "myCustomCellFormatting";
         }
     }
+
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
