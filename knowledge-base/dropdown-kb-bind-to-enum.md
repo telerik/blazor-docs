@@ -86,3 +86,46 @@ Here are examples of both.
     }
 }
 ````
+
+## Notes
+
+An enum is, effectively, an integer. Thus, its default value is `0` and that can conflict with the concept of a combobox and its placeholder - the placeholder shows when the `Value` matches the `default` for its type and indicate no selection. On the other hand, an enum always has a selection, so a DropDownList component might be more suitable.
+
+Nevertheless, if you want to use both an enum and a placehlder, you should use `nullable` types so that their `default` value is `null` and does not interfere with the options possible from the `enum` itself.
+
+>caption Show Placeholder in the combo box when binding to an enum - done through nullable fields
+
+````CSHTML
+You will see blank space above the combobox until you select something.
+<br />
+@selectedValue
+<br />
+@selectedValue?.GetType()
+<br />
+
+<TelerikComboBox Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="@selectedValue"
+                 ClearButton="false" AllowCustom="false" Filterable="true" Placeholder="Select an option">
+</TelerikComboBox>
+
+@code {
+    public class EnumDdlModel
+    {
+        public Telerik.Blazor.AnimationType? MyValueField { get; set; } // nullable to allow for a placeholder
+        public string MyTextField { get; set; }
+    }
+
+    Telerik.Blazor.AnimationType? selectedValue { get; set; } // nullable to allow for a placeholder
+    List<EnumDdlModel> myDdlData { get; set; } = new List<EnumDdlModel>();
+
+    protected override void OnInitialized()
+    {
+        foreach (Telerik.Blazor.AnimationType item in Enum.GetValues(typeof(Telerik.Blazor.AnimationType)))
+        {
+            myDdlData.Add(new EnumDdlModel { MyTextField = item.ToString(), MyValueField = item });
+        }
+
+        base.OnInitialized();
+    }
+}
+````
+
