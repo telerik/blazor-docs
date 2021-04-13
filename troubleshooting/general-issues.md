@@ -108,7 +108,7 @@ When building a Blazor app, especially on the WebAssembly flavor, it is likely t
 * Whether you build the WebAssembly app in `Debug` or `Release` mode makes a significant difference in its performance. To see what you users will see, build your app in `Release` mode. It defaults to `Debug` while you are developing it.
 
 * Follow <a href = "https://docs.microsoft.com/en-us/aspnet/core/blazor/webassembly-performance-best-practices?view=aspnetcore-5.0" target="_blank">Microsoft's best practices</a> to optimize the Blazor WebAssembly general performance. WebAssembly is still considerably slower than server-side Blazor, and Microsoft are working on that. 
-    * The first big improvement that should come from the framework is <a href="AoT " target="_blank">AOT Compilation (ahead-of-time compilation)</a>, and when it becomes available the grid should benefit from it immediately. Another feature that can improve performance is <a href="https://github.com/dotnet/aspnetcore/issues/17730" target="_blank">actual multithreading</a>.
+    * The first big improvement that should come from the framework is <a href="https://github.com/dotnet/aspnetcore/issues/5466" target="_blank">AOT Compilation (ahead-of-time compilation)</a>, and when it becomes available the grid should benefit from it immediately. Another feature that can improve performance is <a href="https://github.com/dotnet/aspnetcore/issues/17730" target="_blank">actual multithreading</a>.
     
 * The performance of the Telerik components is quite close to plain HTML elements rendering, especially considering all the additional features, events and beautiful rendering they add.
 
