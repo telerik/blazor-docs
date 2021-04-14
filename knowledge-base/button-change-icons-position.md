@@ -1,8 +1,8 @@
 ---
-title: Changе icons position and add more than one icon in a button
+title: Change icons position and add more than one icon in a button
 description: 
 type: how-to
-page_title: Changе icons position and add more than one icon in a button
+page_title: Change icons position and add more than one icon in a button
 slug: button-kb-changе-icons-position
 position: 
 tags: telerik,blazor,icon,button,position
