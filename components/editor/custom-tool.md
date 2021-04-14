@@ -19,7 +19,7 @@ In this article:
 * [Examples](#examples)
 	* [Change the Value](#change-the-value)
 	* [Use Editor Commands](#use-editor-commands)
-
+    * [Save Command](#save-command)
 
 ## Basics
 
@@ -41,7 +41,7 @@ In this section you can find the following examples:
 
 * [Change the Value](#change-the-value)
 * [Use Editor Commands](#use-editor-commands)
-
+* [Save Command](#save-command)
 
 ### Change the Value
 
@@ -123,6 +123,44 @@ In this section you can find the following examples:
     }
 }
 ````
+
+### Save Command
+
+You can call application code from the editor tools to, for example, save the current content.
+
+````CSHTML
+@using Telerik.Blazor.Components.Editor
+
+<TelerikEditor Tools="@Tools" @bind-Value="@TheEditorContent">
+    <EditorCustomTools>
+        <EditorCustomTool Name="Save">
+            <TelerikButton OnClick="@Save" Icon="save" />
+        </EditorCustomTool>
+    </EditorCustomTools>
+</TelerikEditor>
+
+@code {
+    string TheEditorContent { get; set; } = "<h1>Lorem ipsum</h1><p>Dolor sit amet.</p>";
+    List<IEditorTool> Tools { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        Tools = new List<IEditorTool>();
+
+        // register the custom tool for the toolbar - it uses the Name parameter from the markup
+        Tools.Add(new CustomTool("Save"));
+
+        return base.OnInitializedAsync();
+    }
+
+    async Task Save()
+    {
+        // call the necessary logic here, such as saving the content
+        Console.WriteLine("Saving content: " + TheEditorContent);
+    }
+}
+````
+
 
 <!--
 ### More Examples
