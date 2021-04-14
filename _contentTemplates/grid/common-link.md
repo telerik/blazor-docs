@@ -128,6 +128,7 @@ You can use the standard C# formatting options, because the grid uses a `string.
 * Numeric, DateTime and Enum types can use such formats. String and Boolean types are displayed without such a format, however.
 
 * The `CurrentInfo.CurrentCulture` is used when rendering the formats, so if you need specific formats for specific users, you must set the culture of the app accordingly.
+
+
+* The `DisplayFormat` parameter defines the format that is used to render Numeric or DateTime values when the component initializes. As it is not applied in edit mode, the editor will display the default format of the field depending on the culture. In order to customize the format when editing, together with setting the `DisplayFormat` parameter, you can use Editor Template for [Grid]({%slug grid-templates-editor%}) or [TreeList]({%slug treelist-templates-editor%}).
 #end
-
-
