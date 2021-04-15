@@ -368,7 +368,18 @@ There are a few considerations to keep in mind with the CUD operations of the tr
 
 * The validation the treelist provides is based on the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#validator-components" target="_blank">`DataAnnotationValidator`</a> and creates its own `EditContext` for a row that is in edit/insert mode. When the row is not in edit/insert mode, the `EditContext` is `null`. The `EditContext` is a cascading parameter and overrides any cascading parameters from parent components (such as an `<EditForm>` that may wrap the treelist).
 
-    <!-- * The validation will not be enabled for tree bound to Expando objects or Dictionaries (such as DataTable). -->
+* When an input receives `EditContext`, the framework also requires `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is deducted from there. However, if you use only `Value` property, you have to pass `ValueExpression` by yourself. This is a lambda function that tells the framework what field in the model to update. The following sample demonstrates how to achieve that.
+
+````CSHTML
+    <TelerikTextBox 
+    Value="@myModel.MyField"
+    ValueExpression="@( () => myModel.MyField )">
+    </TelerikTextBox>
+
+    @* Applies to the other input type components as well *@
+````
+
+<!-- * The validation will not be enabled for tree bound to Expando objects or Dictionaries (such as DataTable). -->
 
 
 ## See Also

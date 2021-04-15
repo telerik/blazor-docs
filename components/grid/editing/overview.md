@@ -266,6 +266,17 @@ There are a few considerations to keep in mind with the CUD operations of the gr
 
     * The validation will not be enabled for Grids bound to Expando objects or Dictionaries (such as DataTable).
 
+    * When an input receives `EditContext`, the framework also requires `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is deducted from there. However, if you use only `Value` property, you have to pass `ValueExpression` by yourself. This is a lambda function that tells the framework what field in the model to update. The following sample demonstrates how to achieve that.
+
+    ````CSHTML
+    <TelerikTextBox 
+    Value="@myModel.MyField"
+    ValueExpression="@( () => myModel.MyField )">
+    </TelerikTextBox>
+
+    @* Applies to the other input type components as well *@
+    ````
+
 ## See Also
 
   * [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor-ui/grid/editing-inline)
