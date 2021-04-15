@@ -61,7 +61,7 @@ To add a Telerik Notification component to your page:
 
 >caption The Notification provides the following features:
 
-* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the Notification component. You could use that class to to control the size of the component. You can find more infomation and examples in the [Appearance]({%slug notification-appearance%}) article.
+* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the Notification component. You could use that class to to control things like the size or the z-index of the component. You can find more infomation and examples in the [Appearance]({%slug notification-appearance%}) article.
 
 * `AnimationType` - an `enum` which allows you to customize the animation of the Notifications. You can find more infomation and examples in the [Appearance]({%slug notification-appearance%}) article.
 

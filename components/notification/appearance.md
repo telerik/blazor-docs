@@ -15,7 +15,7 @@ The Notification component provides parameters and properties that allows you to
 * [AnimationType](#animationtype)
 * [Size](#size)
 * [ThemeColor](#themecolor)
-
+* [Z-Index](#z-index)
 
 You can use all three together to get the desired appearance. This article will explain their effect one by one.
 
@@ -187,6 +187,65 @@ The `ThemeColor` parameter renders as the `k-notification-<ThemeColor>` CSS clas
     }
 }
 ````
+
+## Z-Index
+
+By default, the notification does not have a z-index and it shows above most elements because it has `position: fixed` in its CSS rules.
+
+In some layouts you may have elements with a certain z-index and they will hide the notification.
+
+You can use the `Class` of the notification to set a higher z-index for the notification according to your layout so it can show according to the desired stacking order - above some elements, perhaps behind others.
+
+>caption Set z-index to the notification so it is not shown behind other elements
+
+![notification z-index settings and behavior](images/notification-zindex.gif)
+
+````CSHTML
+@* Add a z-index to a notification so you can show them above layout elements with high z-index *@
+
+<style>
+    .high-zindex {
+        z-index: 654321;
+    }
+</style>
+
+<TelerikButton OnClick="@AddBasicNotification">Add a basic notification</TelerikButton>
+<TelerikButton OnClick="@AddZIndexNotification">Add a notification with a high z-index</TelerikButton>
+
+<TelerikNotification Class="high-zindex" @ref="@HighZIndexNotification"></TelerikNotification>
+
+<TelerikNotification @ref="@BasicNotification"></TelerikNotification>
+
+<div style="z-index: 1234; position: fixed; right: 0; bottom: 0; width: 200px; height: 200px; background: yellow">
+    imitate layout with a high z-index.
+</div>
+
+@code {
+    TelerikNotification HighZIndexNotification { get; set; }
+    TelerikNotification BasicNotification { get; set; }
+
+    void AddZIndexNotification()
+    {
+        HighZIndexNotification.Show(new NotificationModel()
+        {
+            Text = "High z-index shows it above other layout elements",
+            ThemeColor = "success",
+            CloseAfter = 0
+        });
+    }
+
+    void AddBasicNotification()
+    {
+        BasicNotification.Show(new NotificationModel()
+        {
+            Text = "Default behavior - will be hidden behind the \"layout\" element.",
+            ThemeColor = "dark",
+            CloseAfter = 0
+        });
+    }
+} 
+````
+
 
 ## See Also
 
