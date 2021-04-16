@@ -20,6 +20,7 @@ You can get the extention:
 
 * by opening the **Extensions** tab in Visual Studio Code, then searching for **Telerik UI for Blazor Template Wizard** and clicking **Install**
 
+>important Our VS Code extension is not working with VS Code versions 1.53 or later because of some breaking changes. Please use VS Code version 1.52 until we resolve these issues.
 
 ## Create a Telerik Project
 
