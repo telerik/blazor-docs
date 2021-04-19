@@ -16,6 +16,8 @@ You can data bind components in it to the current context, which is an instance 
 
 If you need to perform logic more complex than simple data binding, use the change event of the custom editor component to perform it. You can also consider using a custom edit form outside of the treelist.
 
+>note As of version 2.23.0 of Telerik UI for Blazor the TreeList row creates `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the notes section of [editing/overview](../editing/overview#notes) article).
+
 >caption Sample edit template
 
 ````CSHTML
