@@ -16,6 +16,7 @@ In this article:
 - [Observable Data](#observable-data)
 - [New Collection Reference](#new-collection-reference)
 - [Call OnRead](#call-onread)
+- [Entity Framework Data](#entity-framework-data)
 
 ## Observable Data
 
@@ -260,6 +261,32 @@ For cases when directly modifying the data collection with the new information a
 }
 ````
 
+## Entity Framework Data
+
+When you use EF contexts to update your data, you may update or insert an item through the entity, but you may not see it updated in the grid. Code similar to the following may cause such behavior:
+
+>caption Updating an entity alone may not update the data in the grid
+
+````CSHTML
+async Task UpdateHandler(GridCommandEventArgs args)
+{
+    using var dbContext = contextFactory.CreateDbContext();
+    MyModel item = (MyModel)args.Item;
+    var original = await dbContext.MyTable.FindAsync(item.Id);
+    dbContext.Entry(original).CurrentValues.SetValues(item);
+    await dbContext.SaveChangesAsync();
+}
+````
+
+The reason for such behavior is that the `Data` collection of the grid is a separate in-memory copy of the database data, and the context will update only the database, not all in-memory copies.
+
+This means that you need to ensure that the view-model will be updated as well, so that the `Data` parameter of the grid changes too. There are, generally, two ways to do this:
+
+* Use the [`OnRead` event to perform the grid data operations]({%slug components/grid/manual-operations%}) - the grid will call it after the [CUD events like `OnUpdate`, `OnDelete`, `OnCreate`]({%slug components/grid/editing/overview%}#notes) and it will let you query the database that was already update (which will also bring in other updates that other uses may have made).
+
+* Update the local view-model data yourself with the information the grid event gives you (e.g., insert the new item in it, or remove a deleted item, or update the fields of an edited item). You can find similar code used in the [Grid - Inline Editing Live Demo](https://demos.telerik.com/blazor-ui/grid/editing-inline).
+
+    * It is important to ensure the change happens on the object the grid uses. Methods like `.FirstOrDefault()` may return a new reference and thus changing them may not trigger are UI update.
 
 
 ## See Also
