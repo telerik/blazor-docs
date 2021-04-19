@@ -20,6 +20,8 @@ This article explains the events available in the Telerik Splitter for Blazor:
 
 The `OnCollapse` event fires when a pane is collapsed. It receives the index of the pane that was collapsed in its event arguments.
 
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+
 >caption Handling the OnCollapse event of the splitter
 
 ````CSHTML
@@ -55,12 +57,14 @@ Try collapsing any of the panes by clicking the corresponding arrow on the adjac
 }
 ````
 
-@[template](/_contentTemplates/common/issues-and-warnings.md#component-does-not-re-render)
+
 
 
 ## OnExpand
 
 The `OnExpand` event fires when a pane is expanded. It receives the index of the pane that was expanded in its event arguments.
+
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
 
 >caption Handling the OnExpand event of the splitter
 
@@ -97,12 +101,14 @@ Try collapsing and expanding any of the panes by clicking the corresponding arro
 }
 ````
 
-@[template](/_contentTemplates/common/issues-and-warnings.md#component-does-not-re-render)
+
 
 
 ## OnResize
 
 The `OnResize` event fires after the user has finished resizing a pane (after the mouse button is released). It fires for each resized pane and receives the index and new size in its event arguments.
+
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
 
 >caption Handle the OnResize event of the splitter
 
@@ -139,7 +145,7 @@ Try resizing any of the panes by dragging the splitbars
 }
 ````
 
-@[template](/_contentTemplates/common/issues-and-warnings.md#component-does-not-re-render)
+
 
 
 
