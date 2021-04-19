@@ -18,7 +18,7 @@ Open the Client `.csproj` file and ensure that the following switch is present. 
 #end
 
 
-#component-does-not-re-render
+#component-does-not-re-render-after-event-callback
 >note For performance reasons, the component does not re-render after this event, even though it is an `EventCallback`. This means that you cannot change its settings such as dimensions, or settings/parameters of child components in it.
 #end
 
