@@ -173,6 +173,8 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
 
 The `OnRowDoubleClick` event fires before selection happens.
 
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+
 >caption Use the OnRowDoubleClick event to receive information on the clicked row
 
 ````CSHTML
@@ -238,6 +240,8 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
 
 The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmenu-overview%}#context-menu-for-a-grid-row) to the Grid Row.
 
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+
 >caption Use the OnRowContextMenu event and get the data model
 
 ````CSHTML
@@ -295,7 +299,7 @@ The `OnRowExpand` event fires as a response to the user expanding the [`DetailTe
 
 The event handler receives a `GridRowExpandEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
-
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
 
 >caption Use the OnRowExpand event to load detailed data on demand. Another approach can be found on our [public github repository](https://github.com/telerik/blazor-ui/tree/master/grid/load-on-demand-hierarchy).
 
@@ -384,6 +388,8 @@ The event handler receives a `GridRowExpandEventArgs` object which provides the 
 The `OnRowCollapse` event fires as a response to the user collapsing the [`DetailTemplate`]({%slug components/grid/features/hierarchy%}) of the Grid.
 
 The event handler receives a `GridRowCollapseEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
 
 >caption Use the OnRowCollapse event to get the Id of the collapsed row from the data model
 
