@@ -69,6 +69,8 @@ The event handler receives a `GridRowClickEventArgs` object which provides the m
 
 The `OnRowClick` event fires before selection happens.
 
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+
 >caption Use the OnRowClick event to load data on demand based on the clicked row
 
 ````CSHTML

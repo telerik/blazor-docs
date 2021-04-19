@@ -61,3 +61,9 @@ You can get them from the:
 #valuebind-vs-databind-link
 For details on Value Binding and Data Binding, and the differences between them, see the [Value Binding vs Data Binding]({%slug get-started-value-vs-data-binding%}) article.
 #end
+
+
+
+#rerender-after-event
+If you set the `ShouldRender` field of the event arguments to `true`, the component will re-render after the event (it will call `StateHasChanged()`). This can be useful if you need to change its parameters or state during the event execution and especially if you need to execute `async` logic in the event handler.
+#end
