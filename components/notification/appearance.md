@@ -37,7 +37,7 @@ The `AnimationType` parameter controls the way the Notification will appear on t
 * `ZoomIn`
 * `ZoomOut`
 
-You can see them in action in the [Notification Animation](https://demos.telerik.com/blazor-ui//notification/animation) Live Demo.
+You can see them in action in the [Notification Animation](https://demos.telerik.com/blazor-ui/notification/animation) Live Demo.
 
 >caption Set an animation for the Notification component
 
@@ -117,7 +117,7 @@ The color of the notification popup is easily controlled through the `ThemeColor
 * `Light`
 * `Inverse`
 
-These predefined options match the main [Telerik Theme]({%slug general-information/themes%}) and you can see that in action in the [Notification Appearance](https://demos.telerik.com/blazor-ui//notification/appearance) Live Demo.
+These predefined options match the main [Telerik Theme]({%slug general-information/themes%}) and you can see that in action in the [Notification Appearance](https://demos.telerik.com/blazor-ui/notification/appearance) Live Demo.
 
 >caption Built-in Theme Colors
 
