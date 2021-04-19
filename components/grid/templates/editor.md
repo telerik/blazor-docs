@@ -22,7 +22,7 @@ You can find the following examples below:
 
 * [Sample editor template that uses a foreign key](#sample-editor-template-that-uses-a-foreign-key)
 
->note As of version 2.23.0 of Telerik UI for Blazor `EditorTemplate` uses `EditContext` which requires you to also pass `ValueExpression` in case you are <strong>not using</strong> two-way binding (see notes section of [editing/overview]({%slug components/grid/editing/overview%}) article).
+>note As of version 2.23.0 of Telerik UI for Blazor the Grid row creates `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the notes section of [editing/overview]({%slug components/grid/editing/overview%}) article.
 
 ### Sample editor template for a field - limit the string input options through a select element
 

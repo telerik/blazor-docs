@@ -368,15 +368,16 @@ There are a few considerations to keep in mind with the CUD operations of the tr
 
 * The validation the treelist provides is based on the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#validator-components" target="_blank">`DataAnnotationValidator`</a> and creates its own `EditContext` for a row that is in edit/insert mode. When the row is not in edit/insert mode, the `EditContext` is `null`. The `EditContext` is a cascading parameter and overrides any cascading parameters from parent components (such as an `<EditForm>` that may wrap the treelist).
 
-* When an input receives `EditContext`, the framework also requires `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is deducted from there. However, if you use only `Value` property, you have to pass `ValueExpression` by yourself. This is a lambda function that tells the framework what field in the model to update. The following sample demonstrates how to achieve that.
+* When an input receives an `EditContext` (usually comes down as a cascading parameter), the framework also requires a `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is deducted from there. However, if you use only the `Value` property, you have to pass the `ValueExpression` yourself. This is a lambda expression that tells the framework what field in the model to update. The following sample demonstrates how to achieve that. You can also check the [Requires a value for ValueExpression]({%slug common-kb-requires-valueexpression%}) knowledge base article for more details.
 
 ````CSHTML
-    <TelerikTextBox 
-    Value="@myModel.MyField"
-    ValueExpression="@( () => myModel.MyField )">
+<EditorTemplate>
+    <TelerikTextBox Value="@myModel.MyField"
+                    ValueExpression="@( () => myModel.MyField )">
     </TelerikTextBox>
+</EditorTemplate>
 
-    @* Applies to the other input type components as well *@
+@* Applies to the other input type components as well *@
 ````
 
 <!-- * The validation will not be enabled for tree bound to Expando objects or Dictionaries (such as DataTable). -->
