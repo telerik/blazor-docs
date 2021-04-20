@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>TextBox for Blazor, NumericTextBox for Blazor, other inputs/form elements</td>
+			<td>TextBox for Blazor, NumericTextBox for Blazor, other inputs/form elements such as the Editor</td>
 		</tr>
 	</tbody>
 </table>
@@ -71,3 +71,7 @@ If you are looking for an event when the user confirms an action, consider the b
     }
 }
 ````
+
+## Notes
+
+The same approach can work for capturing events from the Editor component when it is in its [Div mode]({%slug editor-edit-modes-div%}).
