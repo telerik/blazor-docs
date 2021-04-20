@@ -39,6 +39,8 @@ You can use `OnExpand` to know the user action and/or to [load data on demand]({
 
 The `OnCollapse` event fires when the user collapses an expanded row through the collapse arrow. It receives arguments of type `TreeListCollapseEventArgs<T>` where `T` is the model you bind the treelist to, and the `Item` field in the event arguments is the current model.
 
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+
 >caption Handle OnExpand and OnCollapse
 
 ````CSHTML

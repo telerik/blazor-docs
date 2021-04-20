@@ -21,6 +21,8 @@ This article explains the events available in the Telerik TreeView for Blazor:
 
 The `OnExpand` event fires when the user expands or collapses a node (either with the mouse, or with the keyboard). You can use it to know that the user performed that action, and/or to implement [load on demand]({%slug components/treeview/data-binding/load-on-demand%}).
 
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+
 >caption Handle the expand and collapse event to get the user's action
 
 ````CSHTML
@@ -138,6 +140,8 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
 ## OnItemClick
 
 The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an node (item) of the TreeView. You can use this event to react on user clicking on a node and load data on demand for another component, for example.
+
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
 
 >caption Handle OnItemClick to load data on demand for another component based on user click
 
