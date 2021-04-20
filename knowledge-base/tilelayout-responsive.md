@@ -1,8 +1,8 @@
 ---
 title: Responsive TileLayout
-description: How to adjust the size of the TileLayout container or the browser window size changes.
+description: How to adjust the size of the Tile Layout container or the browser window size changes.
 type: how-to
-page_title: How to make a responsive tilelayout
+page_title: How to make a responsive Tile Layout
 slug: tilelayout-kb-responsive
 position: 
 tags: 
@@ -22,7 +22,7 @@ res_type: kb
 
 ## Description
 
-I would like to change the dimensions of the TileLayout when the user changes the browser window size.
+I would like to change the dimensions of the Tile Layout when the user changes the browser window size.
 
 ## Solution
 
@@ -30,7 +30,7 @@ Generally, the `Width` and `Height` parameters of the component can take values 
 
 This works well for the initial rendering and the component will be "responsive" immediately according to your layout, regardless of the display (desktop, tablet, phone).
 
-When the layout changes dynamically at runtime, you can use the [TelerikMediaQuery]({%slug mediaquery-overview%}) component to respond to changes of the browser window size. 
+When the layout changes dynamically at runtime, you can use the [TelerikMediaQuery]({%slug mediaquery-overview%}) component to respond to changes of the browser window size. This would allow you to change one or more of the parameters of the component like `Columns`, `ColumnWidth`, and `RowHeight`.
 
 ````CSHTML
 @* Resize the browser to width to less than 767px to change the layout of the component.  *@
