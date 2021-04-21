@@ -224,6 +224,8 @@ When you drap and drop items from one instance of the Grid to another, the `OnRo
 
 You can drag and drop multiple rows in one or between multiple instances of the Grid. To enable it, you should set the `SelectionMode` parameter of the TelerikGrid to `GridSelectionMode.Multiple`.
 
+When you select multiple rows the row drag clue will be `N items selected` where `N` is the number of selected rows.
+
 ````CSHTML
 @* Select multiple rows and reorder them in the Grid. *@
 
