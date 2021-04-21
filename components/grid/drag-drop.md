@@ -15,431 +15,212 @@ The Drag and Drop functionality for the Grid allows you to move a row or a multi
 This article will be separated in the following sections:
 
 * [Basics](#basics)
-* [OnDrop Event](#ondrop-event)
+* [OnRowDrop Event](#onrowdrop-event)
+* [GridRowDraggableSettings](#gridrowdraggablesettings)
 * [Examples](#examples)
-    * [Flat Data](#flat-data)
-    * [Hierarchical Data](#hierarchical-data)
-    * [Between Different TreeViews](#between-different-treeviews)
+    * [Drag and Drop a Row in the same Grid](#drag-and-drop-a-row-in-the-same-grid)
+    * [Drag and Drop a Row between Grids](#drag-and-drop-a-row-between-grids)
+    * [Drag and Drop multiple Rows](#drag-and-drop-multiple-rows)
 
 ## Basics
 
 To enable the Drag and Drop functionality:
 
-1. Set the `Draggable` parameter of the `<TelerikTreeView>` to `true`
+1. Set the `RowDraggable` parameter of the `<TelerikGrid>` to `true`
 
-1. Use the `OnDrop` event to handle the drag and drop operations and modify the data source as per your business logic.
+1. Use the `OnRowDrop` event to handle the drag and drop operations and modify the data source as per your business logic.
 
 
-## OnDrop Event
+## OnRowDrop Event
 
-The `OnDrop` event fires when the user drops a node into a new location. It allows you to manipulate your data collection based on where the user dropped the element. 
+The `OnRowDrop` event fires when the user drops a row into a new location. It allows you to manipulate your data collection based on where the user dropped the element. 
 
 ### Event Arguments
 
-The `OnDrop` event provides an object of type `TreeViewDropEventArgs` to its event handler which exposes the following fields:
+The `OnRowDrop` event provides an object of type `GridRowDropEventArgs<T>` to its event handler which exposes the following fields:
 
-* `Item` - an `object` that represents the dragged node. You can cast this object to your model class.
+* `Item` - an `object` that represents the dragged row. You can cast this object to your model class.
 
-* `DestinationItem` - an `object` that represents the node over which the `Item` is dropped to. You can cast this object to your model class.
+* `DestinationItem` - an `object` that represents the row over which the `Item` is dropped to. You can cast this object to your model class.
+
+* `DestinationItems` - `IEnumerable<T>` that represents a collection of all dragged items. 
 
 * `DropPosition` - an `enum` - its members allow you to determine the exact position of the dropped item relative to the position of the `DestinationItem`:
     * `After`
     * `Below`
     * `Over`
     
-* `DestinationTreeView` - the reference of the TreeView in which the node is dropped. This is applicable when you drag and drop nodes between different instances of the component. 
+* `DestinationGrid` - the reference of the Grid in which the row is dropped. This is applicable when you drag and drop rows between different instances of the component. 
+
+## GridRowDraggableSettings
+
+The `GridRowDraggableSettings` is a child tag under the `<GridSettings>`. It exposes the following parameters:
+
+* `DragClueField` - `string` - defines which field will be used to render the drag clue text. By default, this parameter will take the value of the first bound column. 
 
 ## Examples
 
-* [Flat Data](#flat-data)
-* [Hierarchical Data](#hierarchical-data)
-* [Between Different TreeViews](#between-different-treeviews)
+* [Drag and Drop a Row in the same Grid](#drag-and-drop-a-row-in-the-same-grid)
+* [Drag and Drop a Row between Grids](#drag-and-drop-a-row-between-grids)
+* [Drag and Drop multiple Rows](#drag-and-drop-multiple-rows)
 
-### Flat Data
+### Drag and Drop a Row in the same Grid
 
-````Component
-@inject TreeViewFlatDataService TreeViewFlatDataService
+````CSHTML
+@* Drag a row and drop it in the Grid. *@
 
-    <TelerikTreeView Data="@FlatData"
-                     Draggable="@Draggable"
-                     OnDrop="@OnDrop">
-        <TreeViewBindings>
-            <TreeViewBinding TextField="Text" ParentIdField="ParentId" />
-        </TreeViewBindings>
-    </TelerikTreeView>
-
-@code {
-    public bool Draggable { get; set; } = true;
-    public List<BaseFlatItem> FlatData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        FlatData = TreeViewFlatDataService.GetFlatItems();
-    }
-
-    private void OnDrop(TreeViewDropEventArgs args)
-    {
-        var item = args.Item as BaseFlatItem;
-        var destinationItem = args.DestinationItem as BaseFlatItem;
-
-        FlatData = TreeViewFlatDataService.ReorderItems(args.DropPosition, item, destinationItem);
-    }
-}
-````
-````Service
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Telerik.Blazor;
-using TelerikBlazorAppSource.Models;
-
-    public class TreeViewFlatDataService
-    {
-        private string ItemText { get; set; }
-
-        private List<BaseFlatItem> _flatItems;
-
-        private List<BaseFlatItem> FlatItems
-        {
-            get
-            {
-                if (_flatItems == null)
-                {
-                    _flatItems = GenerateFlatItems(null, 0, ItemText);
-                }
-
-                return _flatItems;
-            }
-        }
-
-        public TreeViewFlatDataService()
-        {
-            ItemText = "Item";
-        }
-
-        public TreeViewFlatDataService(string text)
-        {
-            ItemText = text;
-        }
-
-        public List<BaseFlatItem> GetFlatItems()
-        {
-            return FlatItems;
-        }
-
-        private List<BaseFlatItem> GenerateFlatItems(Guid? parentId, int level, string parentName)
-        {
-            var items = new List<BaseFlatItem>();
-
-            for (var i = 1; i <= 4; i++)
-            {
-                var id = Guid.NewGuid();
-                var name = $"{parentName}{i}";
-
-                var item = new BaseFlatItem()
-                {
-                    Id = id,
-                    ParentId = parentId,
-                    HasChildren = level < 3,
-                    Text = name
-                };
-
-                items.Add(item);
-
-                if (level < 3)
-                {
-                    items.AddRange(GenerateFlatItems(id, level + 1, name + "."));
-                }
-            }
-
-            return items;
-        }
-
-        public List<BaseFlatItem> ReorderItems(TreeViewDropPosition position, BaseFlatItem sourceItem, BaseFlatItem destinationItem)
-        {
-            // remove the source item from the current position
-            Remove(sourceItem);
-
-            // insert in the right place according to the dropposition
-            ReorderCollection(position, sourceItem, destinationItem);
-
-            return new List<BaseFlatItem>(FlatItems);
-        }
-
-        public void SetExpanded(BaseFlatItem item, bool expanded)
-        {
-            item.Expanded = expanded;
-        }
-
-        private void Remove(BaseFlatItem sourceItem)
-        {
-            // update the hasChildren state of the parent item of the source flat item that is dragged
-
-            var parentFlatItem = FlatItems.FirstOrDefault(f => f.Id == sourceItem.ParentId);
-
-            if (parentFlatItem != null)
-            {
-                var childItemsCount = FlatItems.Count(child => child.ParentId == parentFlatItem.Id);
-
-                parentFlatItem.HasChildren = childItemsCount > 1;
-            }
-
-            FlatItems.Remove(sourceItem);
-        }
-
-        private void ReorderCollection(TreeViewDropPosition position, BaseFlatItem sourceItem, BaseFlatItem destinationItem)
-        {
-            if (position == TreeViewDropPosition.Over)
-            {
-                // simply change the parent id and add it in the collection, so that the item will be placed on last position
-                sourceItem.ParentId = destinationItem.Id;
-
-                FlatItems.Add(sourceItem);
-            }
-            else if (position == TreeViewDropPosition.Before)
-            {
-                // handle movement in other parent
-                sourceItem.ParentId = destinationItem.ParentId;
-
-                FlatItems.Insert(FlatItems.IndexOf(destinationItem), sourceItem);
-            }
-            else if (position == TreeViewDropPosition.After)
-            {
-                // handle movement in other parent
-                sourceItem.ParentId = destinationItem.ParentId;
-
-                FlatItems.Insert(FlatItems.IndexOf(destinationItem), sourceItem);
-            }
-        }
-    }
-````
-````Model
-    public class BaseFlatItem
-    {
-        public Guid Id { get; set; }
-        public Guid? ParentId { get; set; }
-        public string Text { get; set; }
-        public bool HasChildren { get; set; }
-        public bool Expanded { get; set; }
-    }
-````
-
-### Hierarchical Data
-
-````Component
-@inject TreeViewHierarchicalDataService TreeViewHierarchicalDataService
-
-<TelerikTreeView Data="@HierarchicalData"
-                 Draggable="@Draggable"
-                 OnDrop="@OnDrop">
-    <TreeViewBindings>
-        <TreeViewBinding ItemsField="Items" HasChildrenField="HasItems"></TreeViewBinding>
-    </TreeViewBindings>
-</TelerikTreeView>
-
+<TelerikGrid Data="@MyData" Height="400px"
+             Pageable="true" Sortable="true"
+             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
+             Resizable="true" Reorderable="true"
+             RowDraggable="true"
+             OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnRowDropHandler(args))">
+    <GridSettings>
+        <GridRowDraggableSettings DragClueField="@nameof(SampleData.Name)"></GridRowDraggableSettings>
+    </GridSettings>
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
 
 @code {
-    public bool Draggable { get; set; } = true;
-    public List<BaseHierarchicalItem> HierarchicalData { get; set; }
-
-    protected override void OnInitialized()
+    private void OnRowDropHandler(GridRowDropEventArgs<SampleData> args)
     {
-        HierarchicalData = TreeViewHierarchicalDataService.GetHierarchicalItems();
+        MyData.Remove(args.Item);
+
+        var destinationItemIndex = MyData.IndexOf(args.DestinationItem);
+
+        if(args.DropPosition == GridRowDropPosition.After)
+        {
+            destinationItemIndex++;
+        }
+
+        MyData.Insert(destinationItemIndex, args.Item);
     }
 
-    private void OnDrop(TreeViewDropEventArgs args)
+    public List<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
-        var item = args.Item as BaseHierarchicalItem;
-        var destinationItem = args.DestinationItem as BaseHierarchicalItem;
+        Id = x,
+        Name = "name " + x,
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    }).ToList();
 
-        HierarchicalData = TreeViewHierarchicalDataService.ReorderHierarchicalItems(args.DropPosition, item, destinationItem);
-    }
-}
-````
-````Service
-using System.Collections.Generic;
-using Telerik.Blazor;
-
-    public class TreeViewHierarchicalDataService
-    {
-        private string ItemText { get; set; }
-
-        private List<BaseHierarchicalItem> _hierarchicalItems;
-
-        private List<BaseHierarchicalItem> HierarchicalItems
-        {
-            get
-            {
-                if (_hierarchicalItems == null)
-                {
-                    _hierarchicalItems = GenerateHierarchicalItems(ItemText);
-                }
-
-                return _hierarchicalItems;
-            }
-        }
-
-        public TreeViewHierarchicalDataService()
-        {
-            ItemText = "Item";
-        }
-
-        public TreeViewHierarchicalDataService(string text)
-        {
-            ItemText = text;
-        }
-
-        public List<BaseHierarchicalItem> GetHierarchicalItems()
-        {
-            return HierarchicalItems;
-        }
-
-        private List<BaseHierarchicalItem> GenerateHierarchicalItems(string parentName, int level = 0)
-        {
-            var items = new List<BaseHierarchicalItem>();
-
-            for (var i = 1; i <= 4; i++)
-            {
-                var name = $"{parentName}{i}";
-
-                var item = new BaseHierarchicalItem()
-                {
-                    HasChildren = level < 2,
-                    Text = name
-                };
-
-                if (level < 2)
-                {
-                    item.Items = GenerateHierarchicalItems(name + ".", level + 1);
-                }
-
-                items.Add(item);
-            }
-
-            return items;
-        }
-
-        public List<BaseHierarchicalItem> ReorderHierarchicalItems(TreeViewDropPosition position, BaseHierarchicalItem sourceItem, BaseHierarchicalItem destinationItem)
-        {
-            // remove the item from its current place in the collection
-            RemoveItem(sourceItem);
-
-            // insert in the right place according to the dropposition
-            ReorderCollection(position, sourceItem, destinationItem);
-
-            return new List<BaseHierarchicalItem>(HierarchicalItems);
-        }
-
-        public void SetExpanded(BaseHierarchicalItem item, bool expanded)
-        {
-            item.Expanded = expanded;
-        }
-
-        private void RemoveItem(BaseHierarchicalItem item)
-        {
-            // locate the parent of the source item
-            var sourceParentItem = HierarchicalItems.FindRecursive(it => it.Items?.Contains(item) ?? false);
-            var sourceCollection = sourceParentItem?.Items ?? HierarchicalItems;
-
-            sourceCollection.Remove(item);
-        }
-
-        private void ReorderCollection(TreeViewDropPosition position, BaseHierarchicalItem sourceItem, BaseHierarchicalItem destinationItem)
-        {
-            var destinationParentItem = HierarchicalItems.FindRecursive(item => item.Items?.Contains(destinationItem) ?? false);
-
-            if (destinationParentItem != null)
-            {
-                destinationParentItem.Items = destinationParentItem.Items ?? new List<BaseHierarchicalItem>();
-            }
-
-            var itemsCollection = destinationParentItem?.Items ?? HierarchicalItems;
-            var destinationItemIndex = itemsCollection.IndexOf(destinationItem);
-
-            if (position == TreeViewDropPosition.Over)
-            {
-                destinationItem.Items = destinationItem.Items ?? new List<BaseHierarchicalItem>();
-
-                destinationItem.Items.Add(sourceItem);
-            }
-            else if (position == TreeViewDropPosition.Before)
-            {
-                itemsCollection.Insert(destinationItemIndex, sourceItem);
-            }
-            else if (position == TreeViewDropPosition.After)
-            {
-                itemsCollection.Insert(destinationItemIndex + 1, sourceItem);
-            }
-        }
-    }
-````
-````Extensions
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-    public static class BaseHierarchicalItemExtensions
-    {
-        public static BaseHierarchicalItem FindRecursive(this List<BaseHierarchicalItem> storageItems, Func<BaseHierarchicalItem, bool> condition)
-        {
-            for (int i = 0; i < storageItems?.Count; i++)
-            {
-                var storageItem = storageItems[i];
-                var matchedItem = storageItem.FindRecursive(condition);
-
-                if (matchedItem != null)
-                {
-                    return matchedItem;
-                }
-            }
-
-            return default;
-        }
-
-        public static BaseHierarchicalItem FindRecursive(this BaseHierarchicalItem storageItem, Func<BaseHierarchicalItem, bool> selector)
-        {
-            if (selector(storageItem) == true)
-            {
-                return storageItem;
-            }
-
-            for (int i = 0; i < storageItem.Items?.Count; i++)
-            {
-                var item = storageItem.Items[i];
-
-                if (selector(item))
-                {
-                    return item;
-                }
-                else
-                {
-                    var childItem = item.Items.FindRecursive(selector);
-
-                    if (childItem != null)
-                    {
-                        return childItem;
-                    }
-                }
-            }
-
-            return default;
-        }
-    }
-````
-````Model
-    public class BaseHierarchicalItem
+    public class SampleData
     {
         public int Id { get; set; }
-        public string Text { get; set; }
-        public List<BaseHierarchicalItem> Items { get; set; }
-        public bool HasChildren { get; set; }
-        public bool HasItems => Items?.Count > 0;
-        public bool Expanded { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
     }
+}
 ````
 
-### Between Different TreeViews
+### Drag and Drop a Row between Grids
+
+When you drap and drop items from one instance of the Grid to another, the `OnRowDrop` event fires for both instances of the Grid. All instances must be bound to the same model.  
+
+````CSHTML
+@* Drag a row from one Grid and Drop it in the other *@ 
+
+<TelerikGrid Data="@MyData" Height="400px"
+             Pageable="true" Sortable="true"
+             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
+             Resizable="true" Reorderable="true"
+             @ref="@FirstGrid"
+             RowDraggable="true"
+             OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnRowDropHandler(args))">
+    <GridSettings>
+        <GridRowDraggableSettings DragClueField="@nameof(SampleData.Name)"></GridRowDraggableSettings>
+    </GridSettings>
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+<TelerikGrid Data="@MySecondGridData" Height="400px"
+             Pageable="true" Sortable="true"
+             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
+             Resizable="true" Reorderable="true"
+             RowDraggable="true"
+             OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnSecondGridRowDropHandler(args))">
+    <GridSettings>
+        <GridRowDraggableSettings DragClueField="@nameof(SampleData.Name)"></GridRowDraggableSettings>
+    </GridSettings>
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    TelerikGrid<SampleData> FirstGrid { get; set; }
+
+    private void OnRowDropHandler(GridRowDropEventArgs<SampleData> args)
+    {
+        MyData.Remove(args.Item);
+        InsertItem(args);
+    }
+
+    private void OnSecondGridRowDropHandler(GridRowDropEventArgs<SampleData> args)
+    {
+        MySecondGridData.Remove(args.Item);
+        InsertItem(args);
+    }
+
+    private void InsertItem(GridRowDropEventArgs<SampleData> args)
+    {
+        var destinationData = args.DestinationGrid == FirstGrid ? MyData : MySecondGridData;
+
+        var destinationIndex = 0;
+
+        if (args.DestinationItem != null)
+        {
+            destinationIndex = destinationData.IndexOf(args.DestinationItem);
+            if (args.DropPosition == GridRowDropPosition.After)
+            {
+                destinationIndex += 1;
+            }
+        }
+
+        destinationData.InsertRange(destinationIndex, args.Items);
+    }
+
+    public List<SampleData> MySecondGridData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x + 2,
+        Name = "name  " + x + 2,
+        Team = "team " + x % 3,
+        HireDate = DateTime.Now.AddDays(-x*2).Date
+    }).ToList();
+
+    public List<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    }).ToList();
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
+
+### Drag and Drop multiple Rows
 
 When you drap and drop items from one instance of the TreeView to another, the `OnDrop` event fires for the TreeView where the item originally was.
 
@@ -477,7 +258,7 @@ When you drap and drop items from one instance of the TreeView to another, the `
     protected override Task OnInitializedAsync()
     {
         FirstTreeService = new TreeViewObservableFlatDataService("Item");
-        SecondTreeService = new TreeViewObservableFlatDataService("Node");
+        SecondTreeService = new TreeViewObservableFlatDataService("row");
 
         FirstFlatData = FirstTreeService.GetFlatItems();
         SecondFlatData = SecondTreeService.GetFlatItems();
@@ -649,19 +430,19 @@ using System.Collections.ObjectModel;
 
         public void AddPrevSibling(BaseFlatItem flatItem, BaseFlatItem siblingFlatItem)
         {
-            // remove node
+            // remove row
             Remove(flatItem);
 
-            // add the node at the position of the sibling node
+            // add the row at the position of the sibling row
             AddSibling(flatItem, siblingFlatItem, 0);
         }
 
         public void AddNextSibling(BaseFlatItem flatItem, BaseFlatItem siblingFlatItem)
         {
-            // remove node
+            // remove row
             Remove(flatItem);
 
-            // add the node at the next position of the sibling node
+            // add the row at the next position of the sibling row
             AddSibling(flatItem, siblingFlatItem, 1);
         }
 
@@ -670,13 +451,13 @@ using System.Collections.ObjectModel;
             BaseFlatItem siblingFlatItem,
             int direction)
         {
-            // get parent of the sibling node
+            // get parent of the sibling row
             var parentItem = ObservableFlatItems.FirstOrDefault(f => f.Id == siblingFlatItem.ParentId);
 
             // handle movement from another parent
             flatItem.ParentId = siblingFlatItem.ParentId;
 
-            // insert the node at the place of the sibling item
+            // insert the row at the place of the sibling item
             ObservableFlatItems.Insert(ObservableFlatItems.IndexOf(siblingFlatItem) + direction, flatItem);
         }
 
