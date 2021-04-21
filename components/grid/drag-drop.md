@@ -224,12 +224,71 @@ When you drap and drop items from one instance of the Grid to another, the `OnRo
 
 You can drag and drop multiple rows in one or between multiple instances of the Grid. To enable it, you should set the `SelectionMode` parameter of the TelerikGrid to `GridSelectionMode.Multiple`.
 
+````CSHTML
+@* Select multiple rows and reorder them in the Grid. *@
 
+<TelerikGrid Data="@MyData" Height="400px"
+             Pageable="true" Sortable="true"
+             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
+             Resizable="true" Reorderable="true"
+             SelectionMode="@GridSelectionMode.Multiple"
+             RowDraggable="true"
+             OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnRowDropHandler(args))">
+    <GridSettings>
+        <GridRowDraggableSettings DragClueField="@nameof(SampleData.Name)"></GridRowDraggableSettings>
+    </GridSettings>
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
 
+@code {
+    private void OnRowDropHandler(GridRowDropEventArgs<SampleData> args)
+    {
+        if (args.Items.Contains(args.DestinationItem))
+        {
+            return;
+        }
+
+        foreach(var item in args.Items)
+        {
+            MyData.Remove(item);
+        }
+
+        var destinationItemIndex = MyData.IndexOf(args.DestinationItem);
+
+        if(args.DropPosition == GridRowDropPosition.After)
+        {
+            destinationItemIndex++;
+        }
+
+        MyData.InsertRange(destinationItemIndex, args.Items);
+    }
+
+    public List<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        Team = "team " + x % 5,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    }).ToList();
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
 
 ## See Also
 
-  * [Data Binding a TreeView]({%slug components/treeview/data-binding/overview%})
-  * [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/treeview/drag-drop)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView)
+  * [Grid Overview]({%slug components/grid/overview%})
+  * [Live Demos: Grid](https://demos.telerik.com/blazor-ui/grid/index)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)
 
