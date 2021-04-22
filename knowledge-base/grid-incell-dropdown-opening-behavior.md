@@ -1,6 +1,6 @@
 ---
 title: In Grid InCell editing mode DropDownList does not open on double click
-description: 
+description: I cannot open a dropdown in a grid editor template through a double click in incell edit mode.
 type: troubleshooting
 page_title: In Grid InCell editing mode DropDownList does not open on double click
 slug: grid-kb-incell-dropdown-opening-behavior
@@ -28,8 +28,12 @@ When I quickly click on the dropdown twice, it doesn't open, or opens as blank, 
 
 ## Steps to Reproduce
 
-You can try runing the snippet below to reproduce the described behavior. It showcases a Grid with large portion of records to demonstrate how slow rendering performance can affect the behavior of a DropDownList in InCell edit mode.
+You can try running the snippet below to reproduce the described behavior. It showcases a Grid with large portion of records to demonstrate how slow rendering performance can affect the behavior of a DropDownList in InCell edit mode.
 
+To reproduce, double click quickly a row in the `Role` column.
+
+
+ 
 ````CSHTML
 @* Grid with slow rendering performance causing issue with the DropDownList opening *@
 
@@ -102,17 +106,17 @@ You can try runing the snippet below to reproduce the described behavior. It sho
 
 ## Cause\Possible Cause(s)
 
-Such behavior stems from the lifecycle of the Blazor framework and the time it takes for the Grid to be re-rendered. A race condition between the rendering of the Grid and initialization of the DropDownList in its Editor template.
+Such behavior stems from the lifecycle of the Blazor framework and the time it takes for the Grid to be re-rendered. The double click causes a race condition between the rendering of the Grid and initialization of the DropDownList in its Editor template.
 
 If you quickly click (double click) on the cell containing a DropDownList, the flow of the processes is as follows:
 
-* First click - as per the setup of the Grid InCell Edit mode, when you first click on a cell it is opened for edit - OnEdit fires.
+1. First click - as per the setup of the Grid InCell Edit mode, when you first click on a cell it is opened for edit - OnEdit fires.
 
-* When OnEdit fires the Grid is re-rendered - the time needed for re-rendering may vary due to the Grid data size and possible network latency ( for example, if you are dealing with large portion of data in the Grid, that slows down its rendering process as observed in the reproduction above).
+1. When OnEdit fires the Grid is re-rendered - the time needed for re-rendering may vary due to the Grid data size and possible network latency ( for example, if you are dealing with large portion of data in the Grid, that slows down its rendering process as observed in the reproduction above).
 
-* Second click is performed quickly after the first one - Grid re-rendering might not still be completed and the DropDownList in the Editor Template is not initialized correctly, its content is not loaded.
+1. Second click is performed quickly after the first one - Grid re-rendering might not still be completed and the DropDownList in the Editor Template is not initialized fully, its content is not loaded.
 
-* Grid re-rendering is completed, the DropDownList in the Editor Template is initialized, however the second click that should be responsible for opening its popup has already passed (a third click at this stage could open the popup as seen in the reproduction, however this is not the behavior we are seeking for).
+1. Grid re-rendering is completed, the DropDownList in the Editor Template is initialized, however the second click that should be responsible for opening its popup has already passed (a third click at this stage could open the popup as seen in the reproduction, however this is not the behavior we are seeking for).
 
 
 ## Solution
@@ -196,3 +200,10 @@ The sample below demonstrates how to achieve the desired behavior by using the `
 >caption Improve the performance of the Grid to achieve the desired behavior. The result from the above snippet.
 
 ![DropDownList in Grid InCell opening correctly](images/grid-incell-dropdown-open-example.gif)
+
+## Notes
+
+The InCell edit mode requires a single click to put the cell in edit mode, a double click is unnecessary. You can also use the keyboard alone to enter edit mode (through the Enter key).
+
+Ultimately, a race condition with a double click can still occur and the steps above can only mitigate the chances for that to an extent.
+
