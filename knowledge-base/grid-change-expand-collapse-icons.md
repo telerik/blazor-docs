@@ -111,4 +111,4 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
 ![Hierarchical Grid with changed expand/collapse icons](images/grid-change-expand-collapse-icons-example.png)
 
 ## Notes
-To get the desired icons, you can inspect the rendered icon you want to use and get its content. Also, you can use any custom icons that are not from the Telerik font (e.g., icons from bootstrap, openiconic, and so on) by specifying the desired font name in addition to the content. 
+To get the desired icons, you can use your dev tools to inspect the rendered icon you want and get its content. Also, you can use any custom icons that are not from the Telerik font (e.g., icons from Bootstrap, Open Iconic, and so on) by specifying the desired font name in addition to the content. 
