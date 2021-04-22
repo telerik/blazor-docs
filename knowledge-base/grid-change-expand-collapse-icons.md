@@ -30,6 +30,7 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
 
 ````CSHTML
 @*Change the icons in the Hierarchical Grid*@
+
 <style>
     .custom-icons .k-hierarchy-cell .k-icon.k-plus::before {
         content: "\e005";
@@ -108,3 +109,6 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
 >caption Change the built-in expand/collapse icons. The result of the code snippet above.
 
 ![Hierarchical Grid with changed expand/collapse icons](images/grid-change-expand-collapse-icons-example.png)
+
+## Notes
+To get the desired icons, you can inspect the rendered icon you want to use and get its content. Also, you can use any custom icons that are not from the Telerik font (e.g., icons from bootstrap, openiconic, and so on) by specifying the desired font name in addition to the content. 
