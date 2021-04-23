@@ -212,7 +212,7 @@ If you want to change that (for example, because you have certain content that r
 
 <style>
     .tile-with-overflow .k-card-body {
-        overflow: scroll; /* choose a value that fits your needs */
+        overflow: scroll !important; /* choose a value that fits your needs */
     }
 </style>
 ````
