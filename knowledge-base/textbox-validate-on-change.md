@@ -94,8 +94,10 @@ from model: @person.theTbValue
     {
         person.theTbValue = (string)theUserInput;
 
-        //you need to tell the edit context to re-validate the current data
-        //so you need to create your own edit context, not just a model
+        // We want to control when validation happens. To do that, we need to have
+	// the EditContext object, and to call its .Validate() method
+	// In this example, we use the OnChange event of the Telerik component
+	// to avoid the default behavior where validation happens on every ValueChanged event
         MyEditContext.Validate();
     }
 
