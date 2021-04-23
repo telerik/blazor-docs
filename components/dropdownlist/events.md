@@ -124,7 +124,7 @@ You can also call remote data through `async` operations.
 
 >caption Custom Data according to the user input in the DropDownList
 
->tip You can also [debounce the service calls and implement minimum filter length]({%slug combo-kb-debounce-onread%}).
+>tip You can also debounce the service calls and implement minimum filter length. An example of such approach is available in [this knowledge base article for the ComboBox]({%slug combo-kb-debounce-onread%}). The same approach is applicable for the DropDownList.
 
 >important You should **change** **only** the `Data` of the DropDownList in the `OnRead` handler. You should **not** change other parameters such as `Value`, because this can lead to issues with the asynchronous nature of the event - the DropDownList cannot know whether the change of those parameters comes from somewhere external, and race conditions can occur with the arrival of the new data. Moreover, such a change is likely to be unwanted and unexpected for the end user and cause bad UX.
 
