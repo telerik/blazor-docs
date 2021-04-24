@@ -21,6 +21,7 @@ This article will be separated in the following sections:
     * [Drag and Drop a Row in the same Grid](#drag-and-drop-a-row-in-the-same-grid)
     * [Drag and Drop a Row between Grids](#drag-and-drop-a-row-between-grids)
     * [Drag and Drop multiple Rows](#drag-and-drop-multiple-rows)
+* [Limitations](#limitations)
 
 ## Basics
 
@@ -66,7 +67,7 @@ The `GridRowDraggableSettings` is a child tag under the `<GridSettings>`. It exp
 
 ### Drag and Drop a Row in the same Grid
 
-````CSHTML
+````Component
 @* Drag a row and drop it in the Grid. *@
 
 <TelerikGrid Data="@MyData" Height="400px"
@@ -118,12 +119,84 @@ The `GridRowDraggableSettings` is a child tag under the `<GridSettings>`. It exp
     }
 }
 ````
+````Extensions
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace TelerikBlazorAppServer.Shared
+{
+    public static class EmployeeExtensions
+    {
+        public static Employee FindRecursive(this List<Employee> storageItems, Func<Employee, bool> condition)
+        {
+            for (int i = 0; i < storageItems?.Count; i++)
+            {
+                var storageItem = storageItems[i];
+                var matchedItem = storageItem.FindRecursive(condition);
+
+                Employee item = new Employee();
+
+                if (matchedItem != null)
+                {
+                    return matchedItem;
+                }
+            }
+
+            return default;
+        }
+
+        public static Employee FindRecursive(this Employee storageItem, Func<Employee, bool> selector)
+        {
+            if (selector(storageItem) == true)
+            {
+                return storageItem;
+            }
+
+            for (int i = 0; i < storageItem.DirectReports?.Count; i++)
+            {
+                var item = storageItem.DirectReports[i];
+
+                if (selector(item))
+                {
+                    return item;
+                }
+                else
+                {
+                    var childItem = item.DirectReports.FindRecursive(selector);
+
+                    if (childItem != null)
+                    {
+                        return childItem;
+                    }
+                }
+            }
+
+            return default;
+        }
+    }
+}
+````
+````Model
+public class Employee
+{
+    // hierarchical data collections
+    public List<Employee> DirectReports { get; set; }
+
+    // data fields for display
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string EmailAddress { get; set; }
+    public DateTime HireDate { get; set; }
+}
+````
 
 ### Drag and Drop a Row between Grids
 
 When you drap and drop items from one instance of the Grid to another, the `OnRowDrop` event fires for both instances of the Grid. All instances must be bound to the same model.  
 
-````CSHTML
+````Component
 @* Drag a row from one Grid and Drop it in the other *@ 
 
 <TelerikGrid Data="@MyData" Height="400px"
@@ -219,6 +292,78 @@ When you drap and drop items from one instance of the Grid to another, the `OnRo
     }
 }
 ````
+````Extensions
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace TelerikBlazorAppServer.Shared
+{
+    public static class EmployeeExtensions
+    {
+        public static Employee FindRecursive(this List<Employee> storageItems, Func<Employee, bool> condition)
+        {
+            for (int i = 0; i < storageItems?.Count; i++)
+            {
+                var storageItem = storageItems[i];
+                var matchedItem = storageItem.FindRecursive(condition);
+
+                Employee item = new Employee();
+
+                if (matchedItem != null)
+                {
+                    return matchedItem;
+                }
+            }
+
+            return default;
+        }
+
+        public static Employee FindRecursive(this Employee storageItem, Func<Employee, bool> selector)
+        {
+            if (selector(storageItem) == true)
+            {
+                return storageItem;
+            }
+
+            for (int i = 0; i < storageItem.DirectReports?.Count; i++)
+            {
+                var item = storageItem.DirectReports[i];
+
+                if (selector(item))
+                {
+                    return item;
+                }
+                else
+                {
+                    var childItem = item.DirectReports.FindRecursive(selector);
+
+                    if (childItem != null)
+                    {
+                        return childItem;
+                    }
+                }
+            }
+
+            return default;
+        }
+    }
+}
+````
+````Model
+public class Employee
+{
+    // hierarchical data collections
+    public List<Employee> DirectReports { get; set; }
+
+    // data fields for display
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string EmailAddress { get; set; }
+    public DateTime HireDate { get; set; }
+}
+````
 
 ### Drag and Drop multiple Rows
 
@@ -226,7 +371,7 @@ You can drag and drop multiple rows in one or between multiple instances of the 
 
 When you select multiple rows the row drag clue will be `N items selected` where `N` is the number of selected rows.
 
-````CSHTML
+````Component
 @* Select multiple rows and reorder them in the Grid. *@
 
 <TelerikGrid Data="@MyData" Height="400px"
@@ -287,6 +432,82 @@ When you select multiple rows the row drag clue will be `N items selected` where
     }
 }
 ````
+````Extensions
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace TelerikBlazorAppServer.Shared
+{
+    public static class EmployeeExtensions
+    {
+        public static Employee FindRecursive(this List<Employee> storageItems, Func<Employee, bool> condition)
+        {
+            for (int i = 0; i < storageItems?.Count; i++)
+            {
+                var storageItem = storageItems[i];
+                var matchedItem = storageItem.FindRecursive(condition);
+
+                Employee item = new Employee();
+
+                if (matchedItem != null)
+                {
+                    return matchedItem;
+                }
+            }
+
+            return default;
+        }
+
+        public static Employee FindRecursive(this Employee storageItem, Func<Employee, bool> selector)
+        {
+            if (selector(storageItem) == true)
+            {
+                return storageItem;
+            }
+
+            for (int i = 0; i < storageItem.DirectReports?.Count; i++)
+            {
+                var item = storageItem.DirectReports[i];
+
+                if (selector(item))
+                {
+                    return item;
+                }
+                else
+                {
+                    var childItem = item.DirectReports.FindRecursive(selector);
+
+                    if (childItem != null)
+                    {
+                        return childItem;
+                    }
+                }
+            }
+
+            return default;
+        }
+    }
+}
+````
+````Model
+public class Employee
+{
+    // hierarchical data collections
+    public List<Employee> DirectReports { get; set; }
+
+    // data fields for display
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string EmailAddress { get; set; }
+    public DateTime HireDate { get; set; }
+}
+````
+
+## Limitations
+
+* [Grouping]({%slug components/grid/features/grouping%}) is not supported.
 
 ## See Also
 
