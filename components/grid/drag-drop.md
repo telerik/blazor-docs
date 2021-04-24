@@ -5,7 +5,7 @@ description: Overview of the Drag and Drop functionality for Grid for Blazor.
 slug: grid-drag-drop-overview
 tags: telerik,blazor,grid,drap,drop,dragdrop,row,rows,overview
 published: True
-position: 11
+position: 41
 ---
 
 # Drag and Drop

@@ -5,7 +5,7 @@ description: Overview of the Drag and Drop functionality for TreeList for Blazor
 slug: treelist-drag-drop-overview
 tags: telerik,blazor,treelist,drap,drop,dragdrop,row,rows,overview
 published: True
-position: 11
+position: 40
 ---
 
 # Drag and Drop
