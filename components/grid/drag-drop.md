@@ -507,6 +507,8 @@ public class Employee
 
 ## Limitations
 
+List on known limitations for the Grid Drag and Drop features:
+
 * [Grouping]({%slug components/grid/features/grouping%}) is not supported.
 
 ## See Also
