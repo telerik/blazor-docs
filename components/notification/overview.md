@@ -46,7 +46,7 @@ To add a Telerik Notification component to your page:
         NotificationReference.Show(new NotificationModel()
         {
             Text = "Auto Closable Notification",
-            ThemeColor = "primary"
+            ThemeColor = ThemeColors.Primary
         });
     }
 }
@@ -64,7 +64,7 @@ To add a Telerik Notification component to your page:
 
 >caption Simple Notification
 
-![notification overview](images/notification-overview-example.gif)
+![notification overview](images/notification-overview-basic-example.gif)
 
 ## Success, Info, Warning, Error Notifications
 
@@ -91,28 +91,28 @@ There are built-in themes for the most common notifications such as Success, Inf
         // Success
         NotificationReference.Show(new NotificationModel()
         {
-            ThemeColor = "success",
+            ThemeColor = ThemeColors.Success,
             Text = "Success",
         });
 
         // Info
         NotificationReference.Show(new NotificationModel()
         {
-            ThemeColor = "info",
+            ThemeColor = ThemeColors.Info,
             Text = "Info",
         });
 
         // Warning
         NotificationReference.Show(new NotificationModel()
         {
-            ThemeColor = "warning",
+            ThemeColor = ThemeColors.Warning,
             Text = "Warning",
         });
 
         // Error
         NotificationReference.Show(new NotificationModel()
         {
-            ThemeColor = "error",
+            ThemeColor = ThemeColors.Error,
             Text = "Error",
         });
     }
