@@ -74,7 +74,7 @@ There are built-in themes for the most common notifications such as Success, Inf
 
 >caption Success, Info, Warning, Error notifications
 
-![success, info, warning, error notification themes](images/notification-overview-themes.gif)
+![success, info, warning, error notification themes](images/notification-success-error-info-warning.gif)
 
 ````CSHTML
 @* This sample shows a Success, Error, Warning and Info notifications *@
