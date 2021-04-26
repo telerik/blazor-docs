@@ -16,13 +16,12 @@ The Notification component renders a brief message to the user which holds infor
 
 #### In This Article
 
-- [Notification Overview](#notification-overview)
-      - [In This Article](#in-this-article)
-  - [Basics](#basics)
-    - [Features](#features)
-  - [NotificationModel Class](#notificationmodel-class)
-  - [Show Method](#show-method)
-  - [See Also](#see-also)
+
+- [Basics](#basics)
+- [Success, Info, Warning, Error Notifications](#success-info-warning-error-notifications)
+- [Features](#features)
+- [NotificationModel Class](#notificationmodel-class)
+- [Show Method](#show-method)
 
 ## Basics
 
@@ -37,7 +36,7 @@ To add a Telerik Notification component to your page:
 
 <TelerikButton OnClick="@AddNotification">Add a basic notification</TelerikButton>
 
-<TelerikNotification @ref="@NotificationReference"></TelerikNotification>
+<TelerikNotification @ref="@NotificationReference" Class="MyTelerikNotification"></TelerikNotification>
 
 @code {
     public TelerikNotification NotificationReference { get; set; }
@@ -47,17 +46,92 @@ To add a Telerik Notification component to your page:
         NotificationReference.Show(new NotificationModel()
         {
             Text = "Auto Closable Notification",
-            ThemeColor = "primary"
+            ThemeColor = ThemeColors.Primary
         });
     }
-} 
+}
+
+<style>
+    .MyTelerikNotification .k-notification-container .k-notification-wrap {
+        width: 300px;
+        height: 50px;
+        font-size: 1.5em;
+        text-align: center;
+        align-items: center;
+    }
+</style>
 ````
 
 >caption Simple Notification
 
-![notification overview](images/notification-overview.gif)
+![notification overview](images/notification-overview-basic-example.gif)
 
-### Features
+## Success, Info, Warning, Error Notifications
+
+Use the [`ThemeColor`]({%slug notification-appearance%}#themecolor) parameter to add a different themes to your Telerik Notification.
+
+There are built-in themes for the most common notifications such as Success, Info, Warning, Error, that also come with predefined icons, so you don't have to set them  explicitly.
+
+>caption Success, Info, Warning, Error notifications
+
+![success, info, warning, error notification themes](images/notification-overview-themes.gif)
+
+````CSHTML
+@* This sample shows a Success, Error, Warning and Info notifications *@
+
+<TelerikButton OnClick="@AddNotifications">Add success, info, warning, error notification</TelerikButton>
+
+<TelerikNotification @ref="@NotificationReference" Class="MyTelerikNotification"></TelerikNotification>
+
+@code {
+    public TelerikNotification NotificationReference { get; set; }
+
+    public void AddNotifications()
+    {
+        // Success
+        NotificationReference.Show(new NotificationModel()
+        {
+            ThemeColor = ThemeColors.Success,
+            Text = "Success",
+        });
+
+        // Info
+        NotificationReference.Show(new NotificationModel()
+        {
+            ThemeColor = ThemeColors.Info,
+            Text = "Info",
+        });
+
+        // Warning
+        NotificationReference.Show(new NotificationModel()
+        {
+            ThemeColor = ThemeColors.Warning,
+            Text = "Warning",
+        });
+
+        // Error
+        NotificationReference.Show(new NotificationModel()
+        {
+            ThemeColor = ThemeColors.Error,
+            Text = "Error",
+        });
+    }
+}
+
+<style>
+    .MyTelerikNotification .k-notification-container .k-notification-wrap {
+        width: 300px;
+        height: 50px;
+        font-size: 1.5em;
+        text-align: center;
+        align-items: center;
+    }
+</style>
+````
+
+
+
+## Features
 
 >caption The Notification provides the following features:
 
