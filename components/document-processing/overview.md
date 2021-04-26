@@ -17,7 +17,7 @@ Telerik Document Processing provides the RadPdfProcessing, RadSpreadStreamProces
 * [PdfProcessing](http://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/overview) library enables you to create, import, and export PDF documents.
 * [SpreadProcessing](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) library enables you to work with spreadsheet documents.
 * [SpreadStreamProcessing](http://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) library enables you to export large `XLSX` and `CSV` spreadsheet documents with low memory footprint and great performance.
-* [WordsProcessing](http://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/overview) library enables you to create, import, and export `DOCX`, `HTML`, `RTF`, and `TXT` documents, and export them to PDF.
+* [WordsProcessing](http://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/overview) library enables you to create, import, and export `DOCX`, `DOC` & `DOT` (import only), `HTML`, `RTF`, and `TXT` documents, and export them to PDF.
 * [ZipLibrary](http://docs.telerik.com/devtools/document-processing/libraries/radziplibrary/overview) library enables you to compress and decompress `ZIP` files.
 
 In this article:
@@ -32,6 +32,7 @@ In this article:
 The Telerik Document Processing libraries for .NET Core support the following file formats:
 
 * `CSV`
+* `DOC` & `DOT` (import only)
 * `DOCX`
 * `HTML`
 * `PDF`
@@ -55,7 +56,7 @@ The following list shows the [available Document Processing packages](https://do
 * **Telerik.Documents.CMapUtils**.nupkg&mdash;Provides a default implementation for getting the data of a predefined CMap table by a given name. The package is optional and you will need to include a reference to it only if you need to process documents with [CMap tables](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/concepts/cmaps).
 * **Telerik.Documents.Flow**.nupkg&mdash;The package is part of the Word (text) processing library. Required for processing `HTML`, `DOCX`, `RTF`, and `TXT` documents.
 * **Telerik.Documents.Flow.FormatProviders.Pdf**.nupkg&mdash;The package allows for exporting flow documents, such as `DOCX` and `RTF`, to `PDF`.
-* **Telerik.Documents.Flow.FormatProviders.Doc**.nupkg&mdash;The package allows importing `DOC` files.
+* **Telerik.Documents.Flow.FormatProviders.Doc**.nupkg&mdash;The package allows importing `DOC` or `DOT` files.
 * **Telerik.Documents.Spreadsheet**.nupkg&mdash;The package allows for working with spreadsheets.
 * **Telerik.Documents.Spreadsheet.FormatProviders.OpenXml**.nupkg&mdash;The package allows for exporting spreadsheet documents to various `OpenXML` formats.
 * **Telerik.Documents.Spreadsheet.FormatProviders.Pdf**.nupkg&mdash;The package allows for exporting spreadsheet documents to `PDF`.
@@ -90,7 +91,9 @@ You can find more information on working with the Telerik document processing li
 
 * Words (text) processing
 
-	* [DOCX format provider](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/docx/docxformatprovider)
+	* [DOC format provider](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/word-file-formats/doc/docformatprovider)
+
+	* [DOCX format provider](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/word-file-formats/docx/docxformatprovider)
 
 	* [HTML format provider](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/html/htmlformatprovider)
 
