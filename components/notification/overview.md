@@ -36,14 +36,6 @@ To add a Telerik Notification component to your page:
 ````CSHTML
 @* This shows a simple text message that hides automatically *@
 
-<style>
-    .MyTelerikNotification .k-notification-container .k-notification-wrap {
-        width: 200px;
-        height: 40px;
-        text-align: center;
-    }
-</style>
-
 <TelerikButton OnClick="@AddNotification">Add a basic notification</TelerikButton>
 
 <TelerikNotification @ref="@NotificationReference" Class="MyTelerikNotification"></TelerikNotification>
@@ -56,10 +48,21 @@ To add a Telerik Notification component to your page:
         NotificationReference.Show(new NotificationModel()
         {
             Text = "Auto Closable Notification",
-            ThemeColor = "primary"
+            ThemeColor = "primary",
+            CloseAfter = 0
         });
     }
 }
+
+<style>
+    .MyTelerikNotification .k-notification-container .k-notification-wrap {
+        width: 300px;
+        height: 50px;
+        font-size: 1.5em;
+        text-align: center;
+        align-items: center;
+    }
+</style>
 ````
 
 >caption Simple Notification
@@ -70,57 +73,70 @@ To add a Telerik Notification component to your page:
 
 Use the [`ThemeColor`]({%slug notification-appearance%}#themecolor) parameter to add a different themes to your Telerik Notification.
 
+There are built-in themes for the most common notifications such as Success, Info, Warning, Error, that also come with predefined icons, so you don't have to set them  explicitly.
+
+>caption Success, Info, Warning, Error notifications
+
+![success, info, warning, error notification themes](images/notification-overview-themes.gif)
+
 ````CSHTML
 @* This sample shows a Success, Error, Warning and Info notifications *@
 
-<style>
-    .MyTelerikNotification .k-notification-container .k-notification-wrap {
-        width: 200px;
-        height: 50px;
-        text-align: center;
-    }
-</style>
-
-<TelerikButton OnClick="@AddNotification">Add a basic notification</TelerikButton>
+<TelerikButton OnClick="@AddNotifications">Add success, info, warning, error notification</TelerikButton>
 
 <TelerikNotification @ref="@NotificationReference" Class="MyTelerikNotification"></TelerikNotification>
 
 @code {
     public TelerikNotification NotificationReference { get; set; }
 
-    public void AddNotification()
+    public void AddNotifications()
     {
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "Notification - Info",
-            ThemeColor = "info",
-            Icon = "info-circle",
-        });
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "Notification - Warning",
-            ThemeColor = "warning",
-            Icon = "exclamation-circle",
-        });
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "Notification - Error",
-            ThemeColor = "error",
-            Icon = "x-outline",
-        });
+        // Success
         NotificationReference.Show(new NotificationModel()
         {
             Text = "Notification - Success",
             ThemeColor = "success",
             Icon = "check-outline",
         });
+        
+        // Info
+        NotificationReference.Show(new NotificationModel()
+        {
+            Text = "Notification - Info",
+            ThemeColor = "info",
+            Icon = "info-circle",
+        });
+        
+        // Warning
+        NotificationReference.Show(new NotificationModel()
+        {
+            Text = "Notification - Warning",
+            ThemeColor = "warning",
+            Icon = "exclamation-circle",
+        });
+        
+        // Error
+        NotificationReference.Show(new NotificationModel()
+        {
+            Text = "Notification - Error",
+            ThemeColor = "error",
+            Icon = "x-outline",
+        });
     }
 }
+
+<style>
+    .MyTelerikNotification .k-notification-container .k-notification-wrap {
+        width: 300px;
+        height: 50px;
+        font-size: 1.5em;
+        text-align: center;
+        align-items: center;
+    }
+</style>
 ````
 
->caption Notification Themes
 
-![notification overview](images/notification-overview-themes.gif)
 
 ### Features
 
