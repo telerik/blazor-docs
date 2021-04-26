@@ -48,8 +48,7 @@ To add a Telerik Notification component to your page:
         NotificationReference.Show(new NotificationModel()
         {
             Text = "Auto Closable Notification",
-            ThemeColor = "primary",
-            CloseAfter = 0
+            ThemeColor = "primary"
         });
     }
 }
