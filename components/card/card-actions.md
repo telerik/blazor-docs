@@ -31,7 +31,7 @@ You can define the orientation of the buttons through the `Orientation` paramete
    * `Horizontal`
    * `Vertical`
 
->Change the orientation of the action buttons. The result from the snippet below.
+>caption Change the orientation of the action buttons. The result from the snippet below.
 
 ![Verical orientation of the action buttons](images/buttons-orientation-example.png)
 
