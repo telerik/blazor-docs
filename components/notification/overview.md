@@ -16,14 +16,12 @@ The Notification component renders a brief message to the user which holds infor
 
 #### In This Article
 
-- [Notification Overview](#notification-overview)
-      - [In This Article](#in-this-article)
-  - [Basics](#basics)
-    - [Features](#features)
-    - [Notification Themes](#notification-themes)
-  - [NotificationModel Class](#notificationmodel-class)
-  - [Show Method](#show-method)
-  - [See Also](#see-also)
+
+- [Basics](#basics)
+- [Success, Info, Warning, Error Notifications](#success-info-warning-error-notifications)
+- [Features](#features)
+- [NotificationModel Class](#notificationmodel-class)
+- [Show Method](#show-method)
 
 ## Basics
 
@@ -68,7 +66,7 @@ To add a Telerik Notification component to your page:
 
 ![notification overview](images/notification-overview-example.gif)
 
-### Notification Themes
+## Success, Info, Warning, Error Notifications
 
 Use the [`ThemeColor`]({%slug notification-appearance%}#themecolor) parameter to add a different themes to your Telerik Notification.
 
@@ -93,33 +91,29 @@ There are built-in themes for the most common notifications such as Success, Inf
         // Success
         NotificationReference.Show(new NotificationModel()
         {
-            Text = "Notification - Success",
             ThemeColor = "success",
-            Icon = "check-outline",
+            Text = "Success",
         });
-        
+
         // Info
         NotificationReference.Show(new NotificationModel()
         {
-            Text = "Notification - Info",
             ThemeColor = "info",
-            Icon = "info-circle",
+            Text = "Info",
         });
-        
+
         // Warning
         NotificationReference.Show(new NotificationModel()
         {
-            Text = "Notification - Warning",
             ThemeColor = "warning",
-            Icon = "exclamation-circle",
+            Text = "Warning",
         });
-        
+
         // Error
         NotificationReference.Show(new NotificationModel()
         {
-            Text = "Notification - Error",
             ThemeColor = "error",
-            Icon = "x-outline",
+            Text = "Error",
         });
     }
 }
@@ -137,7 +131,7 @@ There are built-in themes for the most common notifications such as Success, Inf
 
 
 
-### Features
+## Features
 
 >caption The Notification provides the following features:
 
