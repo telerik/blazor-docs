@@ -71,13 +71,13 @@ This section contains the following examples:
 
 ### Drag and Drop a Row in the same Grid
 
-````Component
+````CSHTML
 @* Drag a row and drop it in the Grid. *@
 
 <TelerikGrid Data="@MyData" Height="400px"
-             Pageable="true" Sortable="true"
-             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-             Resizable="true" Reorderable="true"
+             Pageable="true"
+             Resizable="true" 
+             Reorderable="true"
              RowDraggable="true"
              OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnRowDropHandler(args))">
     <GridSettings>
@@ -94,11 +94,14 @@ This section contains the following examples:
 @code {
     private void OnRowDropHandler(GridRowDropEventArgs<SampleData> args)
     {
+        //The data manipulations in this example are to showcase a basic scenario.
+        //In your application you should implement them as per the needs of the project.
+
         MyData.Remove(args.Item);
 
         var destinationItemIndex = MyData.IndexOf(args.DestinationItem);
 
-        if(args.DropPosition == GridRowDropPosition.After)
+        if (args.DropPosition == GridRowDropPosition.After)
         {
             destinationItemIndex++;
         }
@@ -129,7 +132,7 @@ This section contains the following examples:
 
 When you drap and drop items from one instance of the Grid to another, the `OnRowDrop` event fires for both instances of the Grid so you can update both their data sources. All instances must be bound to the same model.  
 
-````Component
+````CSHTML
 @* Drag a row from one Grid and Drop it in the other *@ 
 
 <TelerikGrid Data="@MyData" Height="400px"
@@ -151,9 +154,9 @@ When you drap and drop items from one instance of the Grid to another, the `OnRo
 </TelerikGrid>
 
 <TelerikGrid Data="@MySecondGridData" Height="400px"
-             Pageable="true" Sortable="true"
-             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-             Resizable="true" Reorderable="true"
+             Pageable="true"
+             Resizable="true" 
+             Reorderable="true"
              RowDraggable="true"
              OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnSecondGridRowDropHandler(args))">
     <GridSettings>
@@ -172,12 +175,18 @@ When you drap and drop items from one instance of the Grid to another, the `OnRo
 
     private void OnRowDropHandler(GridRowDropEventArgs<SampleData> args)
     {
+        //The data manipulations in this example are to showcase a basic scenario.
+        //In your application you should implement them as per the needs of the project.
+
         MyData.Remove(args.Item);
         InsertItem(args);
     }
 
     private void OnSecondGridRowDropHandler(GridRowDropEventArgs<SampleData> args)
     {
+        //The data manipulations in this example are to showcase a basic scenario.
+        //In your application you should implement them as per the needs of the project.
+
         MySecondGridData.Remove(args.Item);
         InsertItem(args);
     }
@@ -205,7 +214,7 @@ When you drap and drop items from one instance of the Grid to another, the `OnRo
         Id = x + 2,
         Name = "name  " + x + 2,
         Team = "team " + x % 3,
-        HireDate = DateTime.Now.AddDays(-x*2).Date
+        HireDate = DateTime.Now.AddDays(-x * 2).Date
     }).ToList();
 
     public List<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
@@ -233,13 +242,13 @@ You can drag and drop multiple rows in one or between multiple instances of the 
 
 When you select multiple rows, the row drag clue will be `N items selected` where `N` is the number of selected rows.
 
-````Component
+````CSHTML
 @* Select multiple rows and reorder them in the Grid. *@
 
 <TelerikGrid Data="@MyData" Height="400px"
-             Pageable="true" Sortable="true"
-             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-             Resizable="true" Reorderable="true"
+             Pageable="true"
+             Resizable="true" 
+             Reorderable="true"
              SelectionMode="@GridSelectionMode.Multiple"
              RowDraggable="true"
              OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnRowDropHandler(args))">
@@ -257,19 +266,22 @@ When you select multiple rows, the row drag clue will be `N items selected` wher
 @code {
     private void OnRowDropHandler(GridRowDropEventArgs<SampleData> args)
     {
+        //The data manipulations in this example are to showcase a basic scenario.
+        //In your application you should implement them as per the needs of the project.
+
         if (args.Items.Contains(args.DestinationItem))
         {
             return;
         }
 
-        foreach(var item in args.Items)
+        foreach (var item in args.Items)
         {
             MyData.Remove(item);
         }
 
         var destinationItemIndex = MyData.IndexOf(args.DestinationItem);
 
-        if(args.DropPosition == GridRowDropPosition.After)
+        if (args.DropPosition == GridRowDropPosition.After)
         {
             destinationItemIndex++;
         }
