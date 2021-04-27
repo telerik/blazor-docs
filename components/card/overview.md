@@ -13,50 +13,24 @@ position: 0
 
 The Card for Blazor is a component that combines text, visual content and actions about a single subject. It quickly grabs the user’s attention with its clean layout, consisting of a title, usually an image, some text as the body and perhaps a footer. You can use it to easily organize content when building catalogues, dashboards, blogs, e-shops, etc. It has dedicated areas for its building blocks and that provides various ways of commponent usage.
 
-#### To use a Telerik Card for Blazor
+In this article:
+   * [Basics](#basics) 
+   * [Example](#example)
+   * [Features](#features)
+
+## Basics
+
+To use a Telerik Card for Blazor:
 
 1. add the `TelerikCard` tag
 1. add the desired [Card Building Blocks](#card-building-blocks)
 
 
-## Card Building Blocks
+## Example 
 
-The Card component supports the following template-based components used as building blocks:
+The below snippet demontrates the setup of a Card component with all building blocks implemented.
 
-* `CardHeader` - renders header area, useful for title, subtitle, etc.
-
-* `CardImage` - renders card image to fill the size of the card. Read more in the [CardImage article]({%slug card-image%}).
-
-* `CardBody` - renders the body of the card with added paddings.
-
-* `CardFooter` -  renders footer area separated from the content through separator
-
-* `CardActions` - renders dedicated area for actions. You could place any action buttons inside and style them with the predefined orientation and layout of the buttons. Read more in the [Actions article]({%slug card-actions%}).
-
-* `CardSeparator` - renders a horizontal line. It could be used it as a standalone building block, or inside any of the above blocks. When used as nested component, it will be rendered in accordance to any margin applied to the content.
-
-* `CardTitle` - renders div title with default theme styling.
-
-* `CardSubTitle` - renders div title with default theme styling as sub title.
-
-
-## Features
-
-The Card provides the following features:
-
-* `Width` - `string` - defines width of the component
-
-* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the Card.
-
-* `Orientation` - `CardOrientation` - defines the orientation of the card. Takese a member of the `Telerik.Blazor.CardOrientation` enum:
-    * `Horizontal`
-    * `Vertical`
-
-* `ThemeColor` - `string` - defines the appearance of the component. We support predefined theme colors such as info, error, success (members of the `Telerik.Blazor.ThemeColors` class).
-
-* `ChildContent` - `RenderFragment` - defines the child content of the component.
-
->caption Setup of a Card component with all building blocks implemented. The resut from the snippet below.
+>caption The result from the snippet.
 
 ![Card component](images/overview-card-example.png)
 
@@ -65,9 +39,9 @@ The Card provides the following features:
 
 <TelerikCard Width="300px">
     <CardHeader>
-        <CardTitle>Tourism</CardTitle>        
+        <CardTitle>Tourism</CardTitle>
     </CardHeader>
-    <CardImage Src="https://demos.telerik.com/blazor-ui/images/cards/places/rome.jpg"></CardImage>
+    <CardImage Src="https://docs.telerik.com/blazor-ui/components/card/images/rome.jpg"></CardImage>
     <CardBody>
         <CardTitle>Rome</CardTitle>
         <CardSubTitle>Capital of Italy</CardSubTitle>
@@ -83,22 +57,28 @@ The Card provides the following features:
         <TelerikButton Class="k-flat" Icon="share">Share</TelerikButton>
         <TelerikButton Class="k-flat">Read More</TelerikButton>
     </CardActions>
-    <CardFooter Class="k-hbox justify-space-between">
-        <span>Created by @@john</span>
-        <span>March 05, 2021</span>
+    <CardFooter>
+        <span style="float:left">Created by @@john</span>
+        <span style="float:right">March 05, 2021</span>
     </CardFooter>
 </TelerikCard>
-
-<style>
-    .justify-space-between {
-        justify-content: space-between;
-    }
-</style>
 ````
+
+## Features
+
+The Card provides the following features:
+
+* `Width` - `string` - defines width of the component
+
+* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the Card.
+
+* `Orientation` - `CardOrientation` - defines the orientation of the card. Takes a member of the `Telerik.Blazor.CardOrientation` enum (`Horizontal` or `Vertical`). Read more in the [Card Orientation article]({%slug card-orientation%}).
+
+* `ThemeColor` - `string` - defines the appearance of the component. We support predefined theme colors such as info, error, success (members of the `Telerik.Blazor.ThemeColors` class). Test changing the Card theme colors in our [live demo](https://demos.telerik.com/blazor-ui/card/appearance).
+
+* `ChildContent` - `RenderFragment` - defines the child content of the component. All possible building blocks can be directly used as a `ChildContent` of the Card.
 
 
 ## See Also
 
   * [Live Demo: Card](https://demos.telerik.com/blazor-ui/card/overview)
-  * [Live Demo: Card Building Blocks](https://demos.telerik.com/blazor-ui/card/building-blocks)
-  * [Live Demo: Card Appearance](https://demos.telerik.com/blazor-ui/card/appearance)

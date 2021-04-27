@@ -70,4 +70,4 @@ The result from the snippet below.
 
 ## See Also
 
-  * [Live Demo: Card](https://demos.telerik.com/blazor-ui/card/orientation)
+  * [Live Demo: Card Orientation](https://demos.telerik.com/blazor-ui/card/orientation)
