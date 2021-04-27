@@ -92,6 +92,9 @@ This section contains the following examples:
 @code {
     private void OnRowDropHandler(TreeListRowDropEventArgs<Employee> args)
     {
+        //The data manipulations in this example are to showcase a basic scenario.
+        //In your application you should implement them as per the needs of the project.
+        
         RemoveChildRecursive(Data, args.Item);
 
         var destinationParentItem = Data.FindRecursive(x => x.DirectReports?.Contains(args.DestinationItem) == true);
@@ -360,11 +363,17 @@ When you drap and drop items from one instance of the TreeList to another, the `
 
     private void OnFirstRowDropHandler(TreeListRowDropEventArgs<Employee> args)
     {
+        //The data manipulations in this example are to showcase a basic scenario.
+        //In your application you should implement them as per the needs of the project.
+        
         OnRowDrop(Data, args);
     }
 
     private void OnSecondRowDropHandler(TreeListRowDropEventArgs<Employee> args)
     {
+        //The data manipulations in this example are to showcase a basic scenario.
+        //In your application you should implement them as per the needs of the project.
+        
         OnRowDrop(SecondData, args);
     }
 
@@ -605,6 +614,9 @@ When you select multiple rows, the row drag clue will be `N items selected` wher
 @code {
     private void OnRowDropHandler(TreeListRowDropEventArgs<Employee> args)
     {
+        //The data manipulations in this example are to showcase a basic scenario.
+        //In your application you should implement them as per the needs of the project.
+        
         foreach (var item in args.Items)
         {
             RemoveChildRecursive(Data, item);
