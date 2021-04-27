@@ -5,7 +5,7 @@ description: Actions supported by the Card for Blazor.
 slug: card-actions
 tags: telerik,blazor,card,actions
 published: True
-position: 0
+position: 7
 ---
 
 
@@ -17,11 +17,11 @@ Every Blazor Card has a dedicated area for action buttons related to the content
 
 >caption The Card provides the following features:
 
-* `Class` - string - the CSS class that will be rendered on the main wrapping container of action buttons.
+* `Class` - `string` - the CSS class that will be rendered on the main wrapping container of the action buttons.
 
 * `Orientation` - `CardOrientation` - defines the orientation of the Action buttons.
 
-* `Layout` - defines the layout of the Action buttons.
+* `Layout` - `CardActionsLayout` - defines the layout of the Action buttons.
 
 * `ChildContent` - `RenderFragment` - defines the child content of the component.
 
@@ -55,7 +55,7 @@ You can define the orientation of the buttons through the `Orientation` paramete
 
 ## Layout
 
-You can set the layout of the action buttons through the `Layout` parameter of the `CardActions`. We support 4 types of layout - to the start, center, end part of the actions container, or stretched buttons that will fill the whole container with equal size. The `start`, `center` and `end` values of the layout configuration are respected for horizontal orientation.
+You can set the layout of the action buttons through the `Layout` parameter of the `CardActions`. We support 4 types of layout - to the start, center, end part of the actions container, or stretched buttons that will fill the whole container with equal size.
 
 The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` enum:
 * `Center`
@@ -63,7 +63,7 @@ The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` 
 * `Start`
 * `Stretched`
 
->Set stretched layout for the action buttons. The result from the snippet below.
+>caption Set stretched layout for the action buttons. The result from the snippet below.
 
 ![Action buttons with stretched layout](images/buttons-layout-example.png)
 
@@ -87,8 +87,6 @@ The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` 
 ````
 
 ## See Also
-
-  * [Data Binding]({%slug autocomplete-databind%})
-  * [Live Demo: Card](https://demos.telerik.com/blazor-ui/..........)
-  * [Live Demo: AutoComplete Validation](https://demos.telerik.com/blazor-ui/autocomplete/validation)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikAutoComplete-1)
+  
+  * [Live Demo: Card](https://demos.telerik.com/blazor-ui/card/actions)
+  

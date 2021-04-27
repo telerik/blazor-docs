@@ -8,9 +8,9 @@ published: True
 position: 3
 ---
 
-# Card Orintation
+# Card Orientation
 
-You can define the Card orintation by setting its `Orientation` parameter to a member of the `Telerik.Blazor.CardOrientation` enum that provides the following options:
+You can define the Card orientation by setting its `Orientation` parameter to a member of the `Telerik.Blazor.CardOrientation` enum that provides the following options:
    * [`Horizontal`](#card-with-horizontal-orientation)
    * [`Vertical`](#card-with-vertical-orientation)
 
@@ -43,7 +43,7 @@ A simple Card with horizontal orientation. The result from the snippet below.
 
 ## Card with Vertical orientation
 
-Vertical orientation is also the default orientation of the Card, so you don't need to explicitly define it. The below snippet demonstrates how to specify it for example purposes.
+Vertical orientation is the default orientation of the Card, so you don't need to explicitly define it. The below snippet demonstrates how to specify it for example purposes.
 
 The result from the snippet below.
 

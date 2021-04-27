@@ -11,7 +11,7 @@ position: 0
 
 # Card Overview
 
-The Card for Blazor is a component that combines text, visual content and actions about a single subject. It quickly grabs the user’s attention with its clean layout, consisting of a title, usually an image, some text as the body and perhaps a footer. You can use it to easily organize content when building catalogues, dashboards, blogs, e-shops, etc. It has a dedicated areas for its building blocks and that provide various ways of commponent usage.
+The Card for Blazor is a component that combines text, visual content and actions about a single subject. It quickly grabs the user’s attention with its clean layout, consisting of a title, usually an image, some text as the body and perhaps a footer. You can use it to easily organize content when building catalogues, dashboards, blogs, e-shops, etc. It has dedicated areas for its building blocks and that provides various ways of commponent usage.
 
 #### To use a Telerik Card for Blazor
 
@@ -25,13 +25,13 @@ The Card component supports the following template-based components used as buil
 
 * `CardHeader` - renders header area, useful for title, subtitle, etc.
 
-* `CardImage` - renders card image to fill the size of the card.
+* `CardImage` - renders card image to fill the size of the card. Read more in the [CardImage article]({%slug card-image%}).
 
 * `CardBody` - renders the body of the card with added paddings.
 
 * `CardFooter` -  renders footer area separated from the content through separator
 
-* `CardActions` - renders dedicated area for actions. You could place any action buttons inside and style them with the predefined orientation and layout of the buttons. Read more in the [Actions article]({%slug card-actions%})
+* `CardActions` - renders dedicated area for actions. You could place any action buttons inside and style them with the predefined orientation and layout of the buttons. Read more in the [Actions article]({%slug card-actions%}).
 
 * `CardSeparator` - renders a horizontal line. It could be used it as a standalone building block, or inside any of the above blocks. When used as nested component, it will be rendered in accordance to any margin applied to the content.
 
@@ -42,17 +42,17 @@ The Card component supports the following template-based components used as buil
 
 ## Features
 
->caption The Card provides the following features:
+The Card provides the following features:
 
-* `Width` - string - defines width of the component
+* `Width` - `string` - defines width of the component
 
-* `Class` - string - the CSS class that will be rendered on the main wrapping element of the Card.
+* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the Card.
 
 * `Orientation` - `CardOrientation` - defines the orientation of the card. Takese a member of the `Telerik.Blazor.CardOrientation` enum:
     * `Horizontal`
     * `Vertical`
 
-* `ThemeColor` - string - defines the appearance of the component. We support predefined theme colors such as info, error, success (members of the `Telerik.Blazor.ThemeColors` class).
+* `ThemeColor` - `string` - defines the appearance of the component. We support predefined theme colors such as info, error, success (members of the `Telerik.Blazor.ThemeColors` class).
 
 * `ChildContent` - `RenderFragment` - defines the child content of the component.
 
@@ -100,3 +100,5 @@ The Card component supports the following template-based components used as buil
 ## See Also
 
   * [Live Demo: Card](https://demos.telerik.com/blazor-ui/card/overview)
+  * [Live Demo: Card Building Blocks](https://demos.telerik.com/blazor-ui/card/building-blocks)
+  * [Live Demo: Card Appearance](https://demos.telerik.com/blazor-ui/card/appearance)
