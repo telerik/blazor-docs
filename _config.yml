@@ -215,6 +215,8 @@ navigation:
         title: "MultiViewCalendar"
      "*calendar":
         title: "Calendar"
+     "*card":
+        title: "Card"
      "*components/chart":
         title: "Chart"
      "*checkbox":
