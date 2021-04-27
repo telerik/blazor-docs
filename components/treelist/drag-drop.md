@@ -1,7 +1,7 @@
 ---
-title: Drag and Drop
-page_title: TreeList Drag and Drop
-description: Overview of the Drag and Drop functionality for TreeList for Blazor.
+title: Row Drag and Drop
+page_title: TreeList Row Drag and Drop
+description: Overview of the Row Drag and Drop functionality for TreeList for Blazor.
 slug: treelist-drag-drop-overview
 tags: telerik,blazor,treelist,drap,drop,dragdrop,row,rows,overview
 published: True
@@ -10,9 +10,9 @@ position: 40
 
 # Drag and Drop
 
-The Drag and Drop functionality for the TreeList allows you to move a row or a multitude of rows between different parents in the same TreeList or between different Telerik TreeList instances.
+The Drag and Drop functionality for the TreeList rows allows you to move a row or a multitude of rows between different parents in the same TreeList or between different Telerik TreeList instances.
 
-This article will be separated in the following sections:
+This article contains the following sections:
 
 * [Basics](#basics)
 * [OnRowDrop Event](#onrowdrop-event)
@@ -41,7 +41,7 @@ The `OnRowDrop` event provides an object of type `TreeListRowDropEventArgs<T>` t
 
 * `Item` - an `object` that represents the dragged row. You can cast this object to your model class.
 
-* `DestinationItem` - an `object` that represents the row over which the `Item` is dropped to. You can cast this object to your model class.
+* `DestinationItem` - an `object` that represents the row over which the `Item` is dropped. You can cast this object to your model class.
 
 * `DestinationItems` - `IEnumerable<T>` that represents a collection of all dragged items. 
 
@@ -50,15 +50,19 @@ The `OnRowDrop` event provides an object of type `TreeListRowDropEventArgs<T>` t
     * `Below`
     * `Over`
     
-* `DestinationTreeList` - the reference of the TreeList in which the row is dropped. This is applicable when you drag and drop rows between different instances of the component. 
+* `DestinationTreeList` - the reference of the TreeList in which the row is dropped. This is applicable when you drag and drop rows between different TreeLists. 
 
 ## TreeListRowDraggableSettings
 
-The `TreeListRowDraggableSettings` is a child tag under the `<TreeListSettings>`. It exposes the following parameters:
+The `TreeListRowDraggableSettings` is a child tag under the `<TreeListSettings>`, which is a child tag of the `<TelerikTreeList>`. It exposes the following parameters:
 
-* `DragClueField` - `string` - defines which field will be used to render the drag clue text. By default, this parameter will take the value of the first bound column. 
+* `DragClueField` - `string` - defines which field will be used to render the drag clue text. By default, this parameter will take the value of the first bound column of the first dragged row. 
+
+You can find examples of its usage below.
 
 ## Examples
+
+This section contains the following examples:
 
 * [Drag and Drop a Row in the same TreeList](#drag-and-drop-a-row-in-the-same-treelist)
 * [Drag and Drop a Row between TreeLists](#drag-and-drop-a-row-between-treelists)
@@ -273,7 +277,7 @@ public class Employee
 
 ### Drag and Drop a Row between TreeLists
 
-When you drap and drop items from one instance of the TreeList to another, the `OnRowDrop` event fires for both instances of the component. All instances must be bound to the same model.  
+When you drap and drop items from one instance of the TreeList to another, the `OnRowDrop` event fires for both instances of the component so you can update both their data sources. All instances must be bound to the same model.
 
 ````Component
 <TelerikTreeList Data="@Data"
@@ -574,9 +578,9 @@ public class Employee
 
 ### Drag and Drop multiple Rows
 
-You can drag and drop multiple rows in one or between multiple instances of the TreeList. To enable it, you should set the `SelectionMode` parameter of the TelerikTreeList to `TreeListSelectionMode.Multiple`.
+You can drag and drop multiple rows in one or between multiple instances of the TreeList. To enable it, you should set the [`SelectionMode`]({%slug treelist-selection-overview%}) parameter of the TelerikTreeList to `TreeListSelectionMode.Multiple`. Then, if you drag a selected row, you will effectively drag all the selected rows.
 
-When you select multiple rows the row drag clue will be `N items selected` where `N` is the number of selected rows.
+When you select multiple rows, the row drag clue will be `N items selected` where `N` is the number of selected rows.
 
 ````Component
 @* Select multiple rows and reorder them in the TreeList. *@
