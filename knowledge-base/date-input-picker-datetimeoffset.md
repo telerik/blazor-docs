@@ -116,3 +116,57 @@ The example below shows how you can use the ValueChanged event of the TelerikDat
     }
 }
 ````
+
+
+>caption DatePicker with nullable DateTimeOffset - one way to avoid null reference errors
+
+````CSHTML
+@* if you try to directly use the MyDateTimeOffset.Value.Date for the date picker, you can get
+null reference exeptions when the struct is null
+such as "Nullable object must have a value." - you can reproduce this without Telerik components
+so you need to add a field to take care of the conversion. *@
+
+@if (DateTimeReturn != null)
+{
+    <p>UTC: @DateTimeReturn.Value.UtcDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+    <p>Local: @DateTimeReturn.Value.LocalDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+    <p>DateTime (used by Telerik components): @DateTimeReturn.Value.DateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+    <p>Offset (hours): @DateTimeReturn.Value.Offset.Hours</p>
+}
+
+<TelerikDatePicker Class="form-control" Value="@DatePickerField"
+                       ValueChanged="@((DateTime? d) => DateTimeReturnChanged(d))"></TelerikDatePicker>
+
+@code{
+    public System.DateTimeOffset? DateTimeReturn { get; set; }
+    DateTime? DatePickerField { get; set; }
+
+    void DateTimeReturnChanged(DateTime? d)
+    {
+        DatePickerField = d;
+        if(DateTimeReturn == null)
+        {
+            DateTimeReturn = new DateTimeOffset();
+        }
+        // Take the current (existing) time portion to add it to the 00:00 hours the date picker will provide
+        DateTime currDateWithTime = d.Value
+            .AddHours(DateTimeReturn.Value.DateTime.Hour)
+            .AddMinutes(DateTimeReturn.Value.DateTime.Minute)
+            .AddSeconds(DateTimeReturn.Value.DateTime.Second);
+        // re-instantiate the DateTimeOffset with the proper time so the offset does not change the date
+        DateTimeReturn = new DateTimeOffset(currDateWithTime);
+
+        DateTimeReturn = d;
+    }
+
+    protected override void OnInitialized()
+    {
+        if(DateTimeReturn != null)
+        {
+            DatePickerField = new DateTime(DateTimeReturn.Value.Date.Year, DateTimeReturn.Value.Date.Month, DateTimeReturn.Value.Date.Day);
+        }
+        base.OnInitialized();
+    }
+}
+````
+
