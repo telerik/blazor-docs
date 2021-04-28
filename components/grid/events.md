@@ -24,6 +24,7 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 	* [OnRowExpand](#onrowexpand)
 	* [OnRowCollapse](#onrowcollapse)
 	* [OnRowRender](#onrowrender)
+	* [OnRowDrop](#onrowdrop)
 	* [PageChanged](#pagechanged)
 
 ## CUD Events
@@ -526,6 +527,12 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
 ````
 
 ![](images/grid-onrowrender-event-example.png)
+
+
+### OnRowDrop
+
+The `OnRowDrop` event fires when the user drags and drops rows in the grid or between grids. You can read more on setting it up and using the grid row dragging feature in the [Row Drag and Drop]({%slug grid-drag-drop-overview%}) article.
+
 
 ### PageChanged
 

@@ -18,6 +18,7 @@ This article explains the events available in the Telerik TreeList for Blazor. T
 	* [Command Button Click](#command-button-click)
 	* [SelectedItemsChanged](#selecteditemschanged)
 	* [OnRowRender](#onrowrender)
+	* [OnRowDrop](#onrowdrop)
 	* [PageChanged](#pagechanged)
 
 ## CUD Events
@@ -282,6 +283,10 @@ This event fires upon the rendering of the TreeList rows. It receives an argumen
 >caption The result from the code snippet above
 
 ![](images/treelist-onrowrender-event-example.png)
+
+### OnRowDrop
+
+The `OnRowDrop` event fires when the user drags and drops rows in the TreeList or between TreeLists. You can read more on setting it up and using the TreeList row dragging feature in the [Row Drag and Drop]({%slug treelist-drag-drop-overview%}) article.
 
 ### PageChanged
 
