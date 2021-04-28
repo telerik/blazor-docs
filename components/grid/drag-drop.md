@@ -31,6 +31,8 @@ To enable the Drag and Drop functionality:
 
 1. Use the `OnRowDrop` event to handle the drag and drop operations and modify the data source as per your business logic.
 
+The row drag and drop functionality works with a dedicated column which is always rendered as the first column when the feature is enabled.  
+
 
 ## OnRowDrop Event
 
