@@ -209,7 +209,7 @@ You can also call remote data through `async` operations.
         if (AllOptions == null)
         {
             AllOptions = new List<Car>
-        {
+            {
                 new Car { Id = 1, Make = "Honda" },
                 new Car { Id = 2, Make = "Opel" },
                 new Car { Id = 3, Make = "Audi" },
@@ -256,7 +256,7 @@ The `OnBlur` event fires when the component loses focus.
                      OnBlur="@OnBlurHandler">
 </TelerikDropDownList>
 
-@code{
+@code {
     async Task OnBlurHandler()
     {
         Console.WriteLine($"BLUR fired, current value is {TheValue}.");

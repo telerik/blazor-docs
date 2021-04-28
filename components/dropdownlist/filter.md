@@ -10,29 +10,31 @@ position: 5
 
 # DropDownList Filter
 
-The Filter in the DropDownList component is an input shown at the top of the dropdown popup, used for filtering the underlying datasource.
+The Filter in the DropDownList component allows the user to filter the available items by their text, so they can find the one they need faster. It is an input shown at the top of the dropdown popup.
 
 To enable filtering, set the `Filterable` parameter to `true`.
 
-Filtering ignores casing and the default filter operator is `starts with`. Filtering looks in the `TextField`, and the filter is reset when the dropdown closes. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
+Filtering ignores casing and the default filter operator is `starts with`. Filtering looks in the `TextField`, and the filter is reset when the dropdown closes.
+
+You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
 
 You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug components/dropdownlist/events%}#onread).
 
 >caption Filtering in the DropDownList
 
+![dropdownlist filtering gif](images/dropdownlist-filtering-basic.gif)
+
 ````CSHTML
-@* Type something in the input to see items whose text contains only the typed string, for example "uct 2" *@
+@* Open the dropdown and type something in the input to search for that item in the dropdown list data, for example "Product 5" *@
 
 <TelerikDropDownList Data="@Data"
                      Filterable="true"
-                     FilterOperator="@filterOperator"
                      @bind-Value="@SelectedValue" TextField="ProductName" ValueField="ProductId">
 </TelerikDropDownList>
 
 @code {
     public List<Product> Data { get; set; }
     public int? SelectedValue { get; set; }
-    StringFilterOperator filterOperator { get; set; } = StringFilterOperator.Contains;
 
     protected override void OnInitialized()
     {
@@ -59,8 +61,10 @@ You can also implement custom (server) filtering and set a data source dynamical
 ````
 >caption Choose Filter Operator
 
+![dropdownlist choose filter operator gif](images/dropdownlist-choose-filter-operator.gif)
+
 ````CSHTML
-@* Type something in the input to see items filtered. Choose a new filter operator and repeat *@
+@* Choose a filter operator, open the dropdown and type something in the input to see the items filtered *@
 
 <label for="filterOperatorChoice">
     Choose filter operator:
@@ -77,15 +81,15 @@ You can also implement custom (server) filtering and set a data source dynamical
 <br />
 
 <TelerikDropDownList Data="@Data"
-                 Filterable="true" FilterOperator="@filterOperator"
-                 DefaultText="Find a car by typing part of its make"
-                 @bind-Value="@SelectedValue" TextField="Make" ValueField="Id">
+                     Filterable="true" FilterOperator="@filterOperator"
+                     DefaultText="Find a car by typing part of its make"
+                     @bind-Value="@SelectedValue" TextField="Make" ValueField="Id">
 </TelerikDropDownList>
 
 @code {
     StringFilterOperator filterOperator { get; set; } = StringFilterOperator.Contains;
     List<Car> Data { get; set; } = new List<Car>
-{
+    {
         new Car { Id = 1, Make = "Honda" },
         new Car { Id = 2, Make = "Opel" },
         new Car { Id = 3, Make = "Audi" },
