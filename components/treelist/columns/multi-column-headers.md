@@ -14,7 +14,7 @@ The treelist allows you to stack several columns under one header to visually gr
 
 To use multiple column headers:
 
-1. Define a `TreeListColumn` instance for each multi-column header you want. Set its `Title`.
+1. Define a `TreeListColumn` instance for each multi-column header you want. Set its `Title` or [`HeaderTemplate`]({%slug treelist-templates-column-header%}).
 1. Under its `<Columns>` nested tag, add the columns you want it to contain.
 
 You will find the following sections in this article:
