@@ -126,31 +126,33 @@ The `Class` property lets you define a CSS class that will be rendered on the po
 >caption Use a Class to change the appearance and style of the Window
 
 ````CSHTML
+@* Use CSS selectors with high specifity to customize the looks of the window *@
+
 <TelerikWindow Class="MyClass" Visible="true">
-	<WindowTitle>
-		<strong>The Title</strong>
-	</WindowTitle>
-	<WindowContent>
-		This is my window <strong>popup</strong> content.
-	</WindowContent>
+    <WindowTitle>
+        <strong>The Title</strong>
+    </WindowTitle>
+    <WindowContent>
+        This is my window <strong>popup</strong> content.
+    </WindowContent>
 </TelerikWindow>
 
 <style>
-	.MyClass { /* targets the entire popup element */
-		border: 5px solid red;
-	}
+    div.k-widget.k-window.MyClass { /* targets the entire popup element */
+        border: 5px solid red;
+    }
 
-	.MyClass .k-window-content { /* targets the content element */
-		background: yellow;
-	}
+        .MyClass .k-window-content.k-content.k-dialog-content { /* targets the content element */
+            background: yellow;
+        }
 
-	.MyClass .k-window-title { /* targets the title container */
-		color: blue;
-	}
+        .MyClass .k-window-title.k-dialog-title { /* targets the title container */
+            color: blue;
+        }
 
-	.MyClass .k-window-titlebar { /* targets the entire titlebar */
-		background: gold;
-	}
+    .MyClass .k-dialog-titlebar.k-header.k-window-titlebar { /* targets the entire titlebar */
+        background: gold;
+    }
 </style>
 ````
 
