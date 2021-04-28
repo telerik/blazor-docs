@@ -31,47 +31,49 @@ The following code snippet shows how you can group columns in the treelist in mu
 ![multi-column headers example](images/multi-column-headers-overview.png)
 
 ````CSHTML
-@* See the root-level GridColumn tags that have their own Columns collections *@
+@* See the root-level TreeListColumn tags that have their own Columns collections *@
 
-<TelerikGrid Data=@GridData
-             Pageable="true" Sortable="true" Resizable="true" Reorderable="true"
-             ShowColumnMenu="true" FilterMode="@GridFilterMode.FilterMenu"
-             Width="800px" Height="400px">
-    <GridColumns>
-        <GridColumn Title="Personal Information">
+<TelerikTreeList Data=@TreeListData
+                 Pageable="true" Sortable="true" Resizable="true" Reorderable="true"
+                 FilterMode="@TreeListFilterMode.FilterMenu"
+                 Width="900px" Height="400px"
+                 IdField="Id" ParentIdField="ParentId">
+    <TreeListColumns>
+        <TreeListColumn Title="Personal Information" Reorderable="false" Width="1500px">
             <Columns>
-                <GridColumn Field=@nameof(Customer.FirstName) Title="First Name" Width="100px" />
-                <GridColumn Field=@nameof(Customer.LastName) Title="Last Name" Width="100px" />
+                <TreeListColumn Expandable="true" Field=@nameof(Customer.FirstName) Title="First Name" Width="100px" />
+                <TreeListColumn Field=@nameof(Customer.LastName) Title="Last Name" Width="100px" />
             </Columns>
-        </GridColumn>
-        <GridColumn Title="Company">
+        </TreeListColumn>
+        <TreeListColumn Title="Company">
             <Columns>
-                <GridColumn Field=@nameof(Customer.CompanyName) Title="Name" />
-                <GridColumn Field=@nameof(Customer.HasCompanyContract) Title="Has Contract" Width="120px" />
+                <TreeListColumn Field=@nameof(Customer.CompanyName) Title="Name" />
+                <TreeListColumn Field=@nameof(Customer.HasCompanyContract) Title="Has Contract" Width="120px" />
             </Columns>
-        </GridColumn>
-        <GridColumn Title="Contact Details">
+        </TreeListColumn>
+        <TreeListColumn Title="Contact Details">
             <Columns>
-                <GridColumn Field="@nameof(Customer.Email)" Title="Email"></GridColumn>
-                <GridColumn Field="@nameof(Customer.Phone)" Title="Phone"></GridColumn>
-                <GridColumn Field="@nameof(Customer.City)" Title="City"></GridColumn>
+                <TreeListColumn Field="@nameof(Customer.Email)" Title="Email"></TreeListColumn>
+                <TreeListColumn Field="@nameof(Customer.Phone)" Title="Phone" Width="120px"></TreeListColumn>
+                <TreeListColumn Field="@nameof(Customer.City)" Title="City" Width="100px"></TreeListColumn>
             </Columns>
-        </GridColumn>
-        <GridColumn Title="Admin Settings">
+        </TreeListColumn>
+        <TreeListColumn Title="Admin Settings">
             <Columns>
-                <GridColumn Field=@nameof(Customer.Id) Title="UserID" />
-                <GridColumn Field=@nameof(Customer.PasswordHash) Title="Pass Hash" Width="100px" />
+                <TreeListColumn Field=@nameof(Customer.Id) Title="UserID" />
+                <TreeListColumn Field=@nameof(Customer.PasswordHash) Title="Pass Hash" Width="100px" />
             </Columns>
-        </GridColumn>
-    </GridColumns>
-</TelerikGrid>
+        </TreeListColumn>
+    </TreeListColumns>
+</TelerikTreeList>
 
 @code {
-    public List<Customer> GridData { get; set; }
+    public List<Customer> TreeListData { get; set; }
 
     public class Customer
     {
         public int Id { get; set; }
+        public int? ParentId { get; set; }
         public string PasswordHash { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -85,7 +87,7 @@ The following code snippet shows how you can group columns in the treelist in mu
     // generation of dummy data
     protected override void OnInitialized()
     {
-        GridData = GenerateData();
+        TreeListData = GenerateData();
     }
 
     List<Customer> GenerateData()
@@ -106,18 +108,25 @@ The following code snippet shows how you can group columns in the treelist in mu
             data.Add(new Customer
             {
                 Id = i,
+                ParentId = GetParentId(i),
                 PasswordHash = "not shown",
                 FirstName = fName,
                 LastName = lName,
                 CompanyName = cName,
                 HasCompanyContract = i % 3 == 0,
-                Email = $"{fName}.{lName}@{cName}.com",
+                Email = $"{fName}.{lName}@{cName}.com".ToLowerInvariant(),
                 Phone = $"{rnd.Next(100, 999)}-555-{rnd.Next(100, 999)}",
                 City = cities[rnd.Next(0, cities.Length)]
             });
         }
 
         return data;
+    }
+
+    int? GetParentId(int index)
+    {
+        if (index % 4 == 0) return null;
+        return Math.Abs(index - (index % 4));
     }
 }
 ````
