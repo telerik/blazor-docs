@@ -5,7 +5,7 @@ description: Stack multiple columns under a single header in the dat agrid for B
 slug: grid-columns-multiple-column-headers
 tags: telerik,blazor,grid,column,multi,multiple,headers
 published: True
-position: 15
+position: 25
 ---
 
 # Multi-Column Headers
@@ -20,11 +20,15 @@ To use multiple column headers:
 You will find the following sections in this article:
 
 * [Basic Example](#basic-example)
-* [Other Features Behavior](#other-features-behavior)
+* [Behavior With Other Features](#behavior-with-other-features)
 
 ## Basic Example
 
+The following code snippet shows how you can group columns in the grid in multi-column headers. You can also use "regular" columns at the root level, not all of them have to be column groups.
+
 >caption Multiple Column Headers in the Grid
+
+![multi-column headers example](images/multi-column-headers-overview.png)
 
 ````CSHTML
 @* See the root-level GridColumn tags that have their own Columns collections *@
@@ -118,18 +122,15 @@ You will find the following sections in this article:
 }
 ````
 
->caption The result from the code snippet above
-
-![multi-column headers example](images/multi-column-headers-overview.png)
 
 
 
 
-## Other Features Behavior
+## Behavior With Other Features
 
-This section explains how using multi column headers changes behaviors of other grid functionalities or how certain features behave with multi-column headers. If a feature is not listed, it is not affected.
+This section explains how using multi column headers changes behaviors of other component functionalities or how certain features behave with multi-column headers. If a feature is not listed, it is not affected.
 
-
+* [Width](#width)
 * [Sorting, Filtering, Grouping, Editing](#sorting-filtering-grouping-editing)
 * [Resizing](#resizing)
 * [Reordering](#reordering)
@@ -137,6 +138,11 @@ This section explains how using multi column headers changes behaviors of other 
 * [State Management](#state-management)
 * [Locked columns](#locked-columns)
 * [Keyboard navigation](#keyboard-navigation)
+
+
+### Width
+
+The `Width` paramter of a multi-column header is ignored, its width depends on the sum of the widths for its child columns.
 
 
 ### Sorting, Filtering, Grouping, Editing
