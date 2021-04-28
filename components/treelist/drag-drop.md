@@ -806,6 +806,6 @@ public class Employee
 
 ## See Also
 
-  * [TreeList Overview]({%slug components/treelist/overview%})
+  * [TreeList Overview]({%slug treelist-overview%})
   * [Live Demos: TreeList](https://demos.telerik.com/blazor-ui/treelist/index)
 
