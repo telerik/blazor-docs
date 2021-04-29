@@ -184,7 +184,7 @@ The `Reordable` parameter is honored for both individual columns and column grou
 
 ### Column Menu
 
-A multi-header column cannot have a column menu. It does not show up in the list of columns in the column chooser of individual columns from the last level. If you hide all child columns, the parent column will also hide.
+A multi-header column does not show up in the list of columns in the column chooser of individual columns from the last level. If you hide all child columns, the parent column will also hide.
 
 
 ### State Management
@@ -227,21 +227,6 @@ Therefore, we advise that you do not set `Locked=false` for child columns of loc
 
 ### Keyboard navigation
 
-The keyboard navigation follows the functionality of Excel. Notable specifics include the fact that Excel tries to "memorize" the level of previously navigated cells when moving.
-
-Let's take the following sample configuration as an examle:
-
-![Example configuration for keyboard navigation example](/components/grid/columns/images/kbd-nav-example.png)
-
-Sample scenario:
-
-1. Focus is on "content cell 4"
-2. ArrowUp moves the focus to "col 2"
-3. ArrowLeft moves the focus to "col 1.3" (and not "col 1" - it is assumed that the active row is the one with "col 1.1", "col 1.2", etc. columns)
-4. ArrowUp moves the focus to "col 1"
-5. ArrowRight moves the focus to "col 2"
-6. ArrowLeft moves the focus to "col 1" (and not to "col 1.3" - it is assumed that the active row is the one with "col 1", "col 2" and "col 3" columns)
-
-
+The keyboard navigation in the multi-column headers follows the functionality of Excel.
 
 #end
