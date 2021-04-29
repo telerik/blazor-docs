@@ -1,33 +1,33 @@
 ---
 title: Overview
-page_title: Treeview - Data Binding Overview
-description: Data Binding basics in the Treeview for Blazor.
-slug: components/treeview/data-binding/overview
-tags: telerik,blazor,treeview,data,bind,databind,databinding,basics
+page_title: PanelBar - Data Binding Overview
+description: Data Binding basics in the PanelBar for Blazor.
+slug: panelbar-data-binding-overview
+tags: telerik,blazor,panelbar,data,bind,databind,databinding,basics
 published: True
 position: 0
 ---
 
-# Treeview Data Binding Basics
+# PanelBar Data Binding Basics
 
-This article explains the different ways to provide data to a TreeView component, the properties related to data binding and their results.
+This article explains the different ways to provide data to a PanelBar component, the properties related to data binding and their results.
 
 @[template](/_contentTemplates/common/general-info.md#valuebind-vs-databind-link)
 
 First, review:
 
-* The available (bindable) [features of a treeview item](#treeview-item-features).
-* How to match fields in the model with the treeview item [data bindings](#data-bindings).
+* The available (bindable) [features of a PanelBar item](#panelbar-item-features).
+* How to match fields in the model with the PanelBar item [data bindings](#data-bindings).
 
-There are three modes of providing data to a treeview, and they all use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
+There are three modes of providing data to a PanelBar, and they all use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
 
-* [Flat data]({%slug components/treeview/data-binding/flat-data%}) - a single collection of items with defined parent-child relationships.
-* [Hierarchical data]({%slug components/treeview/data-binding/hierarchical-data%}) - separate collections of items and their child items.
-* [Load on demand]({%slug components/treeview/data-binding/load-on-demand%}) or lazy loading - providing children to a node when it expands through an event.
+* [Flat data]({%slug panelbar-data-binding-flat%}) - a single collection of items with defined parent-child relationships.
+* [Hierarchical data]({%slug cpanelbar-data-binding-hierarchical%}) - separate collections of items and their child items.
+* [Load on demand]({%slug panelbar-data-binding-load-on-demand%}) or lazy loading - providing children to a node when it expands through an event.
 
-## Treeview Item Features
+## PanelBar Item Features
 
-The treeview items provide the following features that you control through the corresponding fields in their data binding:
+The PanelBar items provide the following features that you control through the corresponding fields in their data binding:
 
 * `Id` - a unique identifier for the item. Required for binding to flat data.
 * `ParentId` - identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, this must be `null`.

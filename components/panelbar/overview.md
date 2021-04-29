@@ -18,8 +18,6 @@ This article is separated in the following sections:
 
 * [Navigation](#navigation)
 
-* [Icons](#icons)
-
 ## Basics
 
 To use a Telerik PanelBar for Blazor:
@@ -138,84 +136,107 @@ To use a Telerik PanelBar for Blazor:
 ````
 
 
-## Navigate Views
+## Navigation
 
-A PanelBar is often used to list pages, views or sections in an application so the user can navigate through them. To do that with the TelerikPanelBar, you have two options:
+A PanelBar is often used to navigate through different pages, views or sections in the application. To do that with the TelerikPanelBar.
 
-* Use the built-in `UrlField` in the [data bindings]({%slug components/treeview/data-binding/overview%}#data-bindings) to populate the URLs in the anchors the treeview will generate for you.
-* use a [Template]({%slug components/treeview/templates%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
+* Use the built-in `UrlField` in the [data bindings]({%slug panelbar-data-binding-overview%) to populate the URLs in the anchors the treeview will generate for you.
+* use a [Template]({%slug panelbar-templates%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
 
->caption Navigation with treeview through the UrlField
+>caption Navigation with PanelBar through the UrlField
 
 ````CSHTML
-Built-in navigation between views
+@* Built-in navigation between views *@
 
-<TelerikTreeView Data="@TreeData">
-	<TreeViewBindings>
-		<TreeViewBinding UrlField="Page" ParentIdField="ParentIdValue">
-		</TreeViewBinding>
-	</TreeViewBindings>
-</TelerikTreeView>
+<TelerikPanelBar Data="@Items" @bind-ExpandedItems="@ExpandedItems">
+    <PanelBarBindings>
+        <PanelBarBinding UrlField="NavigationUrl"></PanelBarBinding>
+    </PanelBarBindings>
+</TelerikPanelBar>
 
 @code {
-	public class TreeItem
-	{
-		public int Id { get; set; }
-		public string Text { get; set; }
-		public int? ParentIdValue { get; set; }
-		public bool HasChildren { get; set; }
-		public string Page { get; set; }
-		public bool Expanded { get; set; }
-	}
+    public List<PanelBarItem> Items { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
 
-	public IEnumerable<TreeItem> TreeData { get; set; }
+    public class PanelBarItem
+    {
+        public string Text { get; set; }
+        public bool Disabled { get; set; }
+        public string NavigationUrl { get; set; }
+        public List<PanelBarItem> Items { get; set; }
+    }
 
-	protected override void OnInitialized()
-	{
-		LoadTreeData();
-	}
+    protected override void OnInitialized()
+    {
+        Items = new List<PanelBarItem>()
+    {
+            new PanelBarItem()
+            {
+                Text = "Item 1",
+                Items = new List<PanelBarItem>()
+            {
+                    new PanelBarItem()
+                    {
+                        Text = "Item 1.1",
+                        NavigationUrl = "navigation-url.here"
 
-	private void LoadTreeData()
-	{
-		List<TreeItem> items = new List<TreeItem>();
+                    },
+                    new PanelBarItem()
+                    {
+                        Text = "Item 1.2",
+                        Items = new List<PanelBarItem>()
+                    {
+                            new PanelBarItem()
+                            {
+                                Text = "Item 1.2.1",
+                                NavigationUrl = "navigation-url.here"
+                            },
+                            new PanelBarItem()
+                            {
+                                Text = "Item 1.2.2",
+                                NavigationUrl = "navigation-url.here"
+                            }
+                        }
+                    }
+                }
+            },
+            new PanelBarItem()
+            {
+                Text = "Item 2",
+                Items = new List<PanelBarItem>()
+                {
+                    new PanelBarItem()
+                    {
+                        Text = "Item 2.1",
+                        Items = new List<PanelBarItem>()
+                        {
+                            new PanelBarItem()
+                            {
+                                Text = "Item 2.1.1"
+                            }
+                        }
+                    },
+                    new PanelBarItem()
+                    {
+                        Text = "Item 2.2",
+                        NavigationUrl = "navigation-url.here"
+                    }
+                }
+            },
+            new PanelBarItem()
+            {
+                Text = "Item 3"
+            }
+        };
 
-		items.Add(new TreeItem()
-		{
-			Id = 1,
-			Text = "Project",
-			ParentIdValue = null,
-			HasChildren = true,
-			Page = "one", //the URL to navigate to
-			Expanded = true
-		});
-
-		items.Add(new TreeItem()
-		{
-			Id = 2,
-			Text = "Design",
-			ParentIdValue = 1,
-			HasChildren = false,
-			Page = "two", //the URL to navigate to
-			Expanded = true
-		});
-		items.Add(new TreeItem()
-		{
-			Id = 3,
-			Text = "Implementation",
-			ParentIdValue = 1,
-			HasChildren = false,
-			Page = "three", //the URL to navigate to
-			Expanded = true
-		});
-
-		TreeData = items;
-	}
+        base.OnInitialized();
+    }
 }
 ````
 
 ## See Also
 
-  * [Data Binding a TreeView]({%slug components/treeview/data-binding/overview%})
-  * [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/treeview/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView)
+  * [Data Binding a PanelBar]({%slug panelbar-data-binding-overview%})
+  * [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/panelbar/index)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.PanelBar)
 
