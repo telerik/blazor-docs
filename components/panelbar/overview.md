@@ -10,39 +10,137 @@ position: 0
 
 # PanelBar Overview
 
-The <a href="https://www.telerik.com/blazor-ui/panelbar" target="_blank">Blazor PanelBar component</a> displays data (flat or hierarchical) in an accordion type structure. In addition to built-in navigation capabilities, you can navigate through the items and their children, define [templates]({%slug components/treeview/templates%}) for the individual nodes, render text and icons/images, and respond to events.
+The <a href="https://www.telerik.com/blazor-ui/panelbar" target="_blank">Blazor PanelBar component</a> displays data (flat or hierarchical) in an accordion type structure. In addition to built-in navigation capabilities, you can navigate through the items and their children, define [templates]({%slug panelbar-templates%}), render text and icons/images, and respond to events.
 
-#### To use a Telerik TreeView for Blazor:
+This article is separated in the following sections:
 
-1. add the `TelerikTreeView` tag
-1. provide a collection of models to its `Data` property (read more in the [Data Binding article]({%slug components/treeview/data-binding/overview%}))
-1. match the fields in the models with the binding schema for the nodes
+* [Basics](#basics)
 
->caption Basic treeview with flat data binding and built-in icons 
+* [Navigation](#navigation)
 
-@[template](/_contentTemplates/treeview/basic-example.md#basic-example)
+* [Icons](#icons)
+
+## Basics
+
+To use a Telerik PanelBar for Blazor:
+
+1. Add the `TelerikPanelBar` tag
+1. Provide a collection of models to its `Data` parameter (read more in the [Data Binding article]({%slug panelbar-data-binding-overview%}))
+1. Match the fields in the models with the binding schema for the nodes
+
+>caption Basic PanelBar with flat data binding and built-in icons 
+
+````CSHTML
+@* Provide a flat collection of models to the PanelBar *@
+
+<TelerikPanelBar Data="@Items">
+</TelerikPanelBar>
+
+
+@code {
+    public List<PanelBarItem> Items { get; set; }
+
+    public class PanelBarItem
+    {
+        public string Text { get; set; }
+        public bool Disabled { get; set; }
+        public string Url { get; set; }
+        public List<PanelBarItem> Items { get; set; }
+    }
+
+    protected override void OnInitialized()
+    {
+        Items = GenerateData();
+
+        base.OnInitialized();
+    }
+
+    private List<PanelBarItem> GenerateData()
+    {
+        List<PanelBarItem> collection = new List<PanelBarItem>()
+        {
+            new PanelBarItem()
+            {
+                Text = "Item 1",
+                Items = new List<PanelBarItem>()
+                {
+                    new PanelBarItem()
+                    {
+                        Text = "Item 1.1"
+                    },
+                    new PanelBarItem()
+                    {
+                        Text = "Item 1.2",
+                        Disabled = true,
+                        Items = new List<PanelBarItem>()
+                        {
+                            new PanelBarItem()
+                            {
+                                Text = "Item 1.2.1"
+                            },
+                            new PanelBarItem()
+                            {
+                                Text = "Item 1.2.2"
+                            }
+                        }
+                    }
+                }
+            },
+            new PanelBarItem()
+            {
+                Text = "Item 2",
+                Items = new List<PanelBarItem>()
+        {
+                    new PanelBarItem()
+                    {
+                        Text = "Item 2.1",
+                        Items = new List<PanelBarItem>()
+            {
+                            new PanelBarItem()
+                            {
+                                Text = "Item 2.1.1"
+                            }
+                        }
+                    },
+                    new PanelBarItem()
+                    {
+                        Text = "Item 2.2",
+                        Url = "https://google.com"
+                    }
+                }
+            },
+            new PanelBarItem()
+            {
+                Text = "Item 3"
+            }
+        };
+
+        return collection;
+    }
+}
+````
 
 >caption The result from the snippet above
 
-![](images/treeview-overview.png)
+![Basic example of panelbar](images/panelbar-basic-example.png)
 
 >caption Component namespace and reference
 
 ````CSHTML
-@using Telerik.Blazor.Components
+@* Get a reference to the PanelBar *@
 
-<TelerikTreeView @ref="theTreeView">
-</TelerikTreeView>
+<TelerikPanelBar @ref="@PanelBarReference">
+</TelerikPanelBar>
 
 @code {
-    Telerik.Blazor.Components.TelerikTreeView theTreeView;
+    private Telerik.Blazor.Components.TelerikPanelBar PanelBarReference { get; set; }
 }
 ````
 
 
 ## Navigate Views
 
-A treeview is often used to list pages, views or sections in an application so the user can navigate through them. To do that with a treeview, you have two options:
+A PanelBar is often used to list pages, views or sections in an application so the user can navigate through them. To do that with the TelerikPanelBar, you have two options:
 
 * Use the built-in `UrlField` in the [data bindings]({%slug components/treeview/data-binding/overview%}#data-bindings) to populate the URLs in the anchors the treeview will generate for you.
 * use a [Template]({%slug components/treeview/templates%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
