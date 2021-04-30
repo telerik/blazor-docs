@@ -124,3 +124,7 @@ The example below shows one way to do that, and to distinguish a particular grid
     }
 }
 ````
+
+## Notes
+
+If the detail template content is rather simple, you can consider dropping it in favor of tooltips for a particualr item in the grid - text, a button, an icon - and load the content there so you don't have to have an extra column in the grid. You can find an example of adding tooltips to the grid here: <a href="https://github.com/telerik/blazor-ui/tree/master/tooltip/in-gridhttps://github.com/telerik/blazor-ui/tree/master/tooltip/in-grid" target="_blank">https://github.com/telerik/blazor-ui/tree/master/tooltip/in-grid</a>
