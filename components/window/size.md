@@ -105,6 +105,7 @@ The developer can invoke those actions through binding the `State` parameter. It
 }
 ````
 
+>tip With a maximized window you may want to ensure all other content stays "behind" it. To do that, see the [Block all content with a Window]({%slug window-kb-block-all-content%}) article on ensuring that the CSS rules in the project can enable that.
 
 ## See Also
 

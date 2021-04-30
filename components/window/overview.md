@@ -169,6 +169,7 @@ In Blazor, however, the render tree structure may be important in some cases and
 * [Returning data from a window does not update the parent]({%slug window-does-not-update-parent%})
 * [CascadingParameter Value is null in Window]({%slug window-cascading-parameter-null%})
 * [Using an EditContext for a form holding a window requires updating the EditContext]({%slug window-in-form-edit-context%})
+* [Block all content with a Window]({%slug window-kb-block-all-content%})
 
 ## See Also
 
