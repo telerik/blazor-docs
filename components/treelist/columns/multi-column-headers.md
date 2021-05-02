@@ -41,14 +41,14 @@ The following code snippet shows how you can group columns in the treelist in mu
     <TreeListColumns>
         <TreeListColumn Title="Personal Information" Reorderable="false" Width="1500px">
             <Columns>
-                <TreeListColumn Expandable="true" Field=@nameof(Customer.FirstName) Title="First Name" Width="100px" />
-                <TreeListColumn Field=@nameof(Customer.LastName) Title="Last Name" Width="100px" />
+                <TreeListColumn Expandable="true" Field=@nameof(Customer.FirstName) Title="First Name" Width="115px" />
+                <TreeListColumn Field=@nameof(Customer.LastName) Title="Last Name" Width="105px" />
             </Columns>
         </TreeListColumn>
         <TreeListColumn Title="Company">
             <Columns>
                 <TreeListColumn Field=@nameof(Customer.CompanyName) Title="Name" />
-                <TreeListColumn Field=@nameof(Customer.HasCompanyContract) Title="Has Contract" Width="120px" />
+                <TreeListColumn Field=@nameof(Customer.HasCompanyContract) Title="Has Contract" Width="115px" />
             </Columns>
         </TreeListColumn>
         <TreeListColumn Title="Contact Details">
