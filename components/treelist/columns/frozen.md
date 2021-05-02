@@ -1,5 +1,5 @@
 ---
-title: Frozen
+title: Frozen (Locked)
 page_title: TreeList - Frozen Columns
 description: How to freeze treelist columns so they are always visible in a scrollable treelist.
 slug: treelist-columns-frozen

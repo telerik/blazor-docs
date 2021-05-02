@@ -1,5 +1,5 @@
 ---
-title: Frozen
+title: Frozen (Locked)
 page_title: Grid - Frozen Columns
 description: How to freeze grid columns so they are always visible in a scrollable grid.
 slug: grid-columns-frozen
