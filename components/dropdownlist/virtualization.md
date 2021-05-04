@@ -113,6 +113,7 @@ Run this and see how you can display, scroll and filter over 10k records in the 
 
     async Task<Person> GetModelFromValue(int selectedValue)
     {
+        // return a model that matches the selected value so the component can get its text
         return await MyService.GetItemFromValue(selectedValue);
     }
 
@@ -149,6 +150,7 @@ Run this and see how you can display, scroll and filter over 10k records in the 
         }
     }
 
+    // used to showcase how you could simplify the return of more than one value from the service
     public class DataEnvelope<T>
     {
         public int Total { get; set; }
