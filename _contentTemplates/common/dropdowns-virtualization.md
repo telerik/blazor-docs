@@ -55,5 +55,9 @@ This example showcases sample implementations of:
 
 * An `OnRead` event handler that calls that service.
 
+#end
+
+
+#value-mapper-in-remote-example
 * A `ValueMapper` that also calls the service.
 #end

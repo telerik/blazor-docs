@@ -23,8 +23,6 @@ The AutoComplete @[template](/_contentTemplates/common/dropdowns-virtualization.
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#basics-core)
 
 
-* `ValueMapper` - `Func<TValue, Task<TItem>>` - @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-mapper-text)
-
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#remote-data-specifics)
 
 ### Limitations

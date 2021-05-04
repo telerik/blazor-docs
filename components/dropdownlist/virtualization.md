@@ -76,6 +76,8 @@ The example below shows how you can display, scroll and filter over 10k records 
 
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#remote-data-sample-intro)
 
+@[template](/_contentTemplates/common/dropdowns-virtualization.md#value-mapper-in-remote-example)
+
 Run this and see how you can display, scroll and filter over 10k records in the dropdownlist without delays and performance issues from a remote endpoint. There is artificial delay in these operations for the sake of the demonstration.
 
 ````CSHTML
