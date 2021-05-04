@@ -119,13 +119,13 @@ Each individual splitter pane (section) offers the following features:
 
 * `Collapsible` - whether the user can collapse (hide) the pane to provide more room for other panes. When enabled, the adjacent splitbar (the drag handle between the panes) will offer a collapse button for the pane. Defaults to `false`.
 
-* `Max` - a CSS unit with the maximum size the pane can have. When it is reached, the user cannot expand its size further.
+* `Max` - the maximum size the pane can have in pixels or percentages. When it is reached, the user cannot expand its size further.
 
-* `Min` -  CSS unit with the minimum size the pane can have. When it is reached, the user cannot reduce its size further.
+* `Min` -  the minimum size the pane can have in pixels or percentages. When it is reached, the user cannot reduce its size further.
 
 * `Resizable` - whether the user can resize the pane by dragging the resize handle (splitbar) between two panes. Resizing means that the adjacent pane will take up the difference in size. Defaults to `true`.
 
-* `Size` - a CSS unit that determines the size of the pane. Must be between `Min` and `Max`.
+* `Size` - the size the pane in pixels or percentages. Must be between `Min` and `Max`.
 
 ## Splitter and Pane Size
 
