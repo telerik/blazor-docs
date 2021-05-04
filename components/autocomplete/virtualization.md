@@ -40,26 +40,23 @@ The example below shows how you can display, scroll and filter over 10k records 
 ````CSHTML
 @SelectedValue
 <br />
-<TelerikDropDownList Data="@Data"
-
+<TelerikAutoComplete Data="@Data"
                      ScrollMode="@DropDownScrollMode.Virtual"
                      PopupHeight="200px"
                      ItemHeight="30"
                      PageSize="20"
-                     
-                     TextField="@nameof(Person.Name)"
-                     ValueField="@nameof(Person.Id)"
+
                      @bind-Value="@SelectedValue"
                      Filterable="true" FilterOperator="@StringFilterOperator.Contains">
-</TelerikDropDownList>
+</TelerikAutoComplete>
 
 @code {
-    int SelectedValue { get; set; }
-    List<Person> Data { get; set; }
+    string SelectedValue { get; set; }
+    List<string> Data { get; set; }
 
     protected override void OnInitialized()
     {
-        Data = Enumerable.Range(1, 12345).Select(x => new Person { Id = x, Name = $"Name {x}" }).ToList();
+        Data = Enumerable.Range(1, 12345).Select(x => $"Name {x}").ToList();
 
         base.OnInitialized();
     }
@@ -83,70 +80,53 @@ Run this and see how you can display, scroll and filter over 10k records in the 
 
 @SelectedValue
 <br />
-<TelerikDropDownList Data="@CurentPageOfData"
+<TelerikAutoComplete Data="@CurentPageOfData"
                      ScrollMode="@DropDownScrollMode.Virtual"
                      OnRead="@GetRemoteData"
                      TotalCount="@TotalItems"
-                     ValueMapper="@GetModelFromValue"
                      PopupHeight="200px"
                      ItemHeight="30"
                      PageSize="20"
-    
-                     TextField="@nameof(Person.Name)"
-                     ValueField="@nameof(Person.Id)"
+
                      @bind-Value="@SelectedValue"
                      Filterable="true" FilterOperator="@StringFilterOperator.Contains">
-</TelerikDropDownList>
+</TelerikAutoComplete>
 
 @code{
-    int SelectedValue { get; set; } = 1234; // pre-select an item to showcase the value mapper
-    List<Person> CurentPageOfData { get; set; }
+    string SelectedValue { get; set; } = "Name 1234"; // pre-select an item to showcase it works like in a regular textbox
+    List<string> CurentPageOfData { get; set; }
     int TotalItems { get; set; }
 
-    async Task GetRemoteData(DropDownListReadEventArgs e)
+    async Task GetRemoteData(AutoCompleteReadEventArgs e)
     {
-        DataEnvelope<Person> result = await MyService.GetItems(e.Request);
+        DataEnvelope<string> result = await MyService.GetItems(e.Request);
 
         CurentPageOfData = result.Data;
         TotalItems = result.Total;
     }
 
-    async Task<Person> GetModelFromValue(int selectedValue)
-    {
-        // return a model that matches the selected value so the component can get its text
-        return await MyService.GetItemFromValue(selectedValue);
-    }
-
-
     // mimics a real service in terms of API appearance, refactor as necessary for your app
     public static class MyService
     {
-        static List<Person> AllData { get; set; }
+        static List<string> AllData { get; set; }
 
-        public static async Task<DataEnvelope<Person>> GetItems(DataSourceRequest request)
+        public static async Task<DataEnvelope<string>> GetItems(DataSourceRequest request)
         {
             if (AllData == null)
             {
-                AllData = Enumerable.Range(1, 12345).Select(x => new Person { Id = x, Name = $"Name {x}" }).ToList();
+                AllData = Enumerable.Range(1, 12345).Select(x => $"Name {x}").ToList();
             }
 
             await Task.Delay(400); // simulate real network and database delays. Remove in a real app
 
             var result = await AllData.ToDataSourceResultAsync(request);
-            DataEnvelope<Person> dataToReturn = new DataEnvelope<Person>
+            DataEnvelope<string> dataToReturn = new DataEnvelope<string>
             {
-                Data = result.Data.Cast<Person>().ToList(),
+                Data = result.Data.Cast<string>().ToList(),
                 Total = result.Total
             };
 
             return await Task.FromResult(dataToReturn);
-        }
-
-        public static async Task<Person> GetItemFromValue(int selectedValue)
-        {
-            await Task.Delay(400); // simulate real network and database delays. Remove in a real app
-
-            return await Task.FromResult(AllData.FirstOrDefault(x => selectedValue == x.Id));
         }
     }
 
@@ -155,12 +135,6 @@ Run this and see how you can display, scroll and filter over 10k records in the 
     {
         public int Total { get; set; }
         public List<T> Data { get; set; }
-    }
-
-    public class Person
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
     }
 }
 ````
