@@ -18,6 +18,12 @@ The MultiSelect @[template](/_contentTemplates/common/dropdowns-virtualization.m
 * [Local Data Example](#local-data-example)
 * [Remote Data Example](#remote-data-example)
 
+
+>caption Display, scroll and filter over 10k records in the MultiSelect without delays and performance issues.
+
+![Virtual Scrolling of large local data](images/multiselect-virtual-scrolling-local.gif)
+
+
 ## Basics
 
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#basics-core)
@@ -31,11 +37,10 @@ The MultiSelect @[template](/_contentTemplates/common/dropdowns-virtualization.m
 
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#limitations)
 
+
+
 ## Local Data Example
 
-The example below shows how you can display, scroll and filter over 10k records in the MultiSelect without delays and performance issues.
-
-![Virtual Scrolling of large local data](images/multiselect-virtual-scrolling-local.gif)
 
 ````CSHTML
 Number of selected items: @SelectedValues?.Count
@@ -72,6 +77,8 @@ Number of selected items: @SelectedValues?.Count
     }
 }
 ````
+
+
 
 ## Remote Data Example
 

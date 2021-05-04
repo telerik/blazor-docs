@@ -18,6 +18,10 @@ The ComboBox @[template](/_contentTemplates/common/dropdowns-virtualization.md#v
 * [Local Data Example](#local-data-example)
 * [Remote Data Example](#remote-data-example)
 
+>caption Display, scroll and filter over 10k records in the combobox without delays and performance issues
+
+![Virtual Scrolling of large local data](images/combobox-virtual-scrolling-local.gif)
+
 ## Basics
 
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#basics-core)
@@ -33,9 +37,7 @@ The ComboBox @[template](/_contentTemplates/common/dropdowns-virtualization.md#v
 
 ## Local Data Example
 
-The example below shows how you can display, scroll and filter over 10k records in the combobox without delays and performance issues.
 
-![Virtual Scrolling of large local data](images/combobox-virtual-scrolling-local.gif)
 
 ````CSHTML
 @SelectedValue
