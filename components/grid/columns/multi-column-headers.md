@@ -17,6 +17,8 @@ To use multiple column headers:
 1. Define a `GridColumn` instance for each multi-column header you want. Set its `Title` or [`HeaderTemplate`]({%slug grid-templates-column-header%}).
 1. Under its `<Columns>` nested tag, add the columns you want it to contain.
 
+While you can set all the parameters of such a multi-column header column, it only supports and works with the `Title`, and the nested `HeaderTemplate` and `Columns` tags (templates).
+
 You will find the following sections in this article:
 
 * [Basic Example](#basic-example)
