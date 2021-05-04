@@ -23,7 +23,7 @@ The MultiSelect @[template](/_contentTemplates/common/dropdowns-virtualization.m
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#basics-core)
 
 
-* `ValueMapper` - `Func<TValue, Task<TItem>>` - @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-mapper-text)
+* `ValueMapper` - `Func<List<TValue>, Task<List<TItem>>>` - @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-mapper-text)
 
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#remote-data-specifics)
 
@@ -35,26 +35,27 @@ The MultiSelect @[template](/_contentTemplates/common/dropdowns-virtualization.m
 
 The example below shows how you can display, scroll and filter over 10k records in the MultiSelect without delays and performance issues.
 
-![Virtual Scrolling of large local data](images/dropdownlist-virtual-scrolling-local.gif)
+![Virtual Scrolling of large local data](images/multiselect-virtual-scrolling-local.gif)
 
 ````CSHTML
-@SelectedValue
+Number of selected items: @SelectedValues?.Count
 <br />
-<TelerikDropDownList Data="@Data"
+<TelerikMultiSelect Data="@Data"
 
-                     ScrollMode="@DropDownScrollMode.Virtual"
-                     PopupHeight="200px"
-                     ItemHeight="30"
-                     PageSize="20"
-                     
-                     TextField="@nameof(Person.Name)"
-                     ValueField="@nameof(Person.Id)"
-                     @bind-Value="@SelectedValue"
-                     Filterable="true" FilterOperator="@StringFilterOperator.Contains">
-</TelerikDropDownList>
+                    ScrollMode="@DropDownScrollMode.Virtual"
+                    PopupHeight="200px"
+                    ItemHeight="30"
+                    PageSize="20"
+
+                    AutoClose="false"
+                    TextField="@nameof(Person.Name)"
+                    ValueField="@nameof(Person.Id)"
+                    @bind-Value="@SelectedValues"
+                    Filterable="true" FilterOperator="@StringFilterOperator.Contains">
+</TelerikMultiSelect>
 
 @code {
-    int SelectedValue { get; set; }
+    List<int> SelectedValues { get; set; }
     List<Person> Data { get; set; }
 
     protected override void OnInitialized()
