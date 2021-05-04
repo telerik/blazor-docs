@@ -45,3 +45,15 @@ the component will call this method to request the model that matches the `Value
 * When the initially selected item/items are on a page different than the first one, opening the dropdown list will NOT scroll the list to the selected item.
 
 #end
+
+
+
+#remote-data-sample-intro
+This example showcases sample implementations of:
+
+* An async remote service that returns the data. It is mocked by a static class for this example, you can refactor as needed, and you can find examples of serializing it over the wire in <a href="https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server" target="_blank">this collection of sample projects</a> for the grid component - the approach is identical.
+
+* An `OnRead` event handler that calls that service.
+
+* A `ValueMapper` that also calls the service.
+#end

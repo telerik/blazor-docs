@@ -74,13 +74,7 @@ The example below shows how you can display, scroll and filter over 10k records 
 
 ## Remote Data Example
 
-This example showcases sample implementations of:
-
-* A remote services that returns the data. It is mocked by a static class for this example, you can refactor as needed, and you can find examples of serializing it over the wire in <a href="https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server" target="_blank">this collection of sample projects</a> for the grid component - the approach is identical.
-
-* An `OnRead` event handler that calls that service.
-
-* A `ValueMapper` that also calls the service.
+@[template](/_contentTemplates/common/dropdowns-virtualization.md#remote-data-sample-intro)
 
 Run this and see how you can display, scroll and filter over 10k records in the combobox without delays and performance issues from a remote endpoint. There is artificial delay in these operations for the sake of the demonstration.
 
