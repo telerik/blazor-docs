@@ -38,7 +38,7 @@ You can find a basic example in the [Local Data](#local-data-example) section be
 
 >caption For working with [remote data](#remote-data-example), you also need:
 
-* `ValueMapper` - `Func<List<TValue, Task<TItem>>` - the component will call this method to request the model that matches the `Value` it has set. This is required because with remote data the `Value` may not be in the initial collection of `Data` that the component has, and so there would otherwise be no way to extract the `DataTextField` from it to render it. Usually, this method will be called on the initial render only to fetch the data item for the current selection.
+* `ValueMapper` - `Func<TValue, Task<TItem>>` - the component will call this method to request the model that matches the `Value` it has set. This is required because with remote data the `Value` may not be in the initial collection of `Data` that the component has, and so there would otherwise be no way to extract the `DataTextField` from it to render it. Usually, this method will be called on the initial render only to fetch the data item for the current selection.
 
 * `OnRead` - `EventCallback` - the component will call this event when the user scrolls with the corresponding offset (`Skip`), `PageSize` and any filters. This lets you optimize the data queries and return only what is needed at the moment, when it is needed.
 
