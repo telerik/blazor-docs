@@ -91,6 +91,7 @@ Number of selected items: @SelectedValues?.Count
                     ValueMapper="@GetModelFromValue"
                     PopupHeight="200px"
                     ItemHeight="30"
+                    
                     AutoClose="false"
                     PageSize="20"
                     TextField="@nameof(Person.Name)"
