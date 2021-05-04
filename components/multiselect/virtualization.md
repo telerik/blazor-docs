@@ -82,29 +82,29 @@ Run this and see how you can display, scroll and filter over 10k records in the 
 ````CSHTML
 @using Telerik.DataSource.Extensions
 
-@SelectedValue
+Number of selected items: @SelectedValues?.Count
 <br />
-<TelerikDropDownList Data="@CurentPageOfData"
-                     ScrollMode="@DropDownScrollMode.Virtual"
-                     OnRead="@GetRemoteData"
-                     TotalCount="@TotalItems"
-                     ValueMapper="@GetModelFromValue"
-                     PopupHeight="200px"
-                     ItemHeight="30"
-                     PageSize="20"
-    
-                     TextField="@nameof(Person.Name)"
-                     ValueField="@nameof(Person.Id)"
-                     @bind-Value="@SelectedValue"
-                     Filterable="true" FilterOperator="@StringFilterOperator.Contains">
-</TelerikDropDownList>
+<TelerikMultiSelect Data="@CurentPageOfData"
+                    ScrollMode="@DropDownScrollMode.Virtual"
+                    OnRead="@GetRemoteData"
+                    TotalCount="@TotalItems"
+                    ValueMapper="@GetModelFromValue"
+                    PopupHeight="200px"
+                    ItemHeight="30"
+                    AutoClose="false"
+                    PageSize="20"
+                    TextField="@nameof(Person.Name)"
+                    ValueField="@nameof(Person.Id)"
+                    @bind-Value="@SelectedValues"
+                    Filterable="true" FilterOperator="@StringFilterOperator.Contains">
+</TelerikMultiSelect>
 
 @code{
-    int SelectedValue { get; set; } = 1234; // pre-select an item to showcase the value mapper
+    List<int> SelectedValues { get; set; } = new List<int> { 4, 1234 }; // pre-select an item to showcase the value mapper
     List<Person> CurentPageOfData { get; set; }
     int TotalItems { get; set; }
 
-    async Task GetRemoteData(DropDownListReadEventArgs e)
+    async Task GetRemoteData(MultiSelectReadEventArgs e)
     {
         DataEnvelope<Person> result = await MyService.GetItems(e.Request);
 
@@ -112,10 +112,10 @@ Run this and see how you can display, scroll and filter over 10k records in the 
         TotalItems = result.Total;
     }
 
-    async Task<Person> GetModelFromValue(int selectedValue)
+    async Task<List<Person>> GetModelFromValue(List<int> selectedValues)
     {
         // return a model that matches the selected value so the component can get its text
-        return await MyService.GetItemFromValue(selectedValue);
+        return await MyService.GetItemsFromValue(selectedValues);
     }
 
 
@@ -143,11 +143,11 @@ Run this and see how you can display, scroll and filter over 10k records in the 
             return await Task.FromResult(dataToReturn);
         }
 
-        public static async Task<Person> GetItemFromValue(int selectedValue)
+        public static async Task<List<Person>> GetItemsFromValue(List<int> selectedValues)
         {
             await Task.Delay(400); // simulate real network and database delays. Remove in a real app
 
-            return await Task.FromResult(AllData.FirstOrDefault(x => selectedValue == x.Id));
+            return await Task.FromResult(AllData.Where(x => selectedValues.Contains(x.Id)).ToList());
         }
     }
 
