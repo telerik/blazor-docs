@@ -83,7 +83,7 @@ Run this and see how you can display, scroll and filter over 10k records in the 
 
 @SelectedValue
 <br />
-<TelerikComboBox Data="@CurentPageOfData"
+<TelerikDropDownList Data="@CurentPageOfData"
                  ScrollMode="@DropDownScrollMode.Virtual"
                  OnRead="@GetRemoteData"
                  TotalCount="@TotalItems"
@@ -96,25 +96,23 @@ Run this and see how you can display, scroll and filter over 10k records in the 
                  ValueField="@nameof(Person.Id)"
                  @bind-Value="@SelectedValue"
                  Filterable="true" FilterOperator="@StringFilterOperator.Contains">
-</TelerikComboBox>
+</TelerikDropDownList>
 
 @code{
     int SelectedValue { get; set; } = 1234; // pre-select an item to showcase the value mapper
     List<Person> CurentPageOfData { get; set; }
     int TotalItems { get; set; }
 
-    async Task GetRemoteData(ComboBoxReadEventArgs e)
+    async Task GetRemoteData(DropDownListReadEventArgs e)
     {
         DataEnvelope<Person> result = await MyService.GetItems(e.Request);
 
-        // set the Data and the TotalItems to the current page of data and total number of items
         CurentPageOfData = result.Data;
         TotalItems = result.Total;
     }
 
     async Task<Person> GetModelFromValue(int selectedValue)
     {
-        // return a model that matches the selected value so the component can get its text
         return await MyService.GetItemFromValue(selectedValue);
     }
 
@@ -151,7 +149,6 @@ Run this and see how you can display, scroll and filter over 10k records in the 
         }
     }
 
-    // used to showcase how you could simplify the return of more than one value from the service
     public class DataEnvelope<T>
     {
         public int Total { get; set; }
