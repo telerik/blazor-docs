@@ -54,6 +54,15 @@ A solution is to remove the `defer` attribute we have added in our documentation
 
 We have added it to improve performance of your app by not making the script a blocking resource.
 
+````HTML
+Use this
+ <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js"></script>
+
+Instead of this
+ <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
+
+````
+
 
 ### TypeScript
 
