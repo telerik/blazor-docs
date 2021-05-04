@@ -40,18 +40,18 @@ The example below shows how you can display, scroll and filter over 10k records 
 ````CSHTML
 @SelectedValue
 <br />
-<TelerikComboBox Data="@Data"
+<TelerikDropDownList Data="@Data"
 
-                 ScrollMode="@DropDownScrollMode.Virtual"
-                 PopupHeight="200px"
-                 ItemHeight="30"
-                 PageSize="20"
-
-                 TextField="@nameof(Person.Name)"
-                 ValueField="@nameof(Person.Id)"
-                 @bind-Value="@SelectedValue"
-                 Filterable="true" FilterOperator="@StringFilterOperator.Contains">
-</TelerikComboBox>
+                     ScrollMode="@DropDownScrollMode.Virtual"
+                     PopupHeight="200px"
+                     ItemHeight="30"
+                     PageSize="20"
+                     
+                     TextField="@nameof(Person.Name)"
+                     ValueField="@nameof(Person.Id)"
+                     @bind-Value="@SelectedValue"
+                     Filterable="true" FilterOperator="@StringFilterOperator.Contains">
+</TelerikDropDownList>
 
 @code {
     int SelectedValue { get; set; }
@@ -84,18 +84,18 @@ Run this and see how you can display, scroll and filter over 10k records in the 
 @SelectedValue
 <br />
 <TelerikDropDownList Data="@CurentPageOfData"
-                 ScrollMode="@DropDownScrollMode.Virtual"
-                 OnRead="@GetRemoteData"
-                 TotalCount="@TotalItems"
-                 ValueMapper="@GetModelFromValue"
-                 PopupHeight="200px"
-                 ItemHeight="30"
-                 PageSize="20"
-
-                 TextField="@nameof(Person.Name)"
-                 ValueField="@nameof(Person.Id)"
-                 @bind-Value="@SelectedValue"
-                 Filterable="true" FilterOperator="@StringFilterOperator.Contains">
+                     ScrollMode="@DropDownScrollMode.Virtual"
+                     OnRead="@GetRemoteData"
+                     TotalCount="@TotalItems"
+                     ValueMapper="@GetModelFromValue"
+                     PopupHeight="200px"
+                     ItemHeight="30"
+                     PageSize="20"
+    
+                     TextField="@nameof(Person.Name)"
+                     ValueField="@nameof(Person.Id)"
+                     @bind-Value="@SelectedValue"
+                     Filterable="true" FilterOperator="@StringFilterOperator.Contains">
 </TelerikDropDownList>
 
 @code{
