@@ -122,10 +122,11 @@ from the model:
 
 ## OnRead
 
-You can use the he `OnRead` event to provide data to the component according to some custom logic and according to the current user input. The event fires when:
+You can use the he `OnRead` event to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug multiselect-virtualization%})). The event fires when:
 
 * the component initializes
 * the user [filters]({%slug multiselect-filter%})
+* the user scrolls with [virtualization]({%slug dropdownlist-virtualization%}) enabled
 
 You can also call remote data through async operations.
 
