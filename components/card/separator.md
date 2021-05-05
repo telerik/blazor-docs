@@ -29,7 +29,7 @@ In the example below no separator is used after the `CardHeader`, the horizontal
 
 >caption  Use the `Card Separator` as a standalone building block. The result from the snippet below.
 
-![Stanalone CardSeparator](images/stanalone-card-separator-example.png)
+![Standalone CardSeparator](images/stanalone-card-separator-example.png)
 
 ````CSHTML
 @*CardSeparator as a standalone building block*@
@@ -41,9 +41,11 @@ In the example below no separator is used after the `CardHeader`, the horizontal
     <CardBody>
         <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
     </CardBody>
+    
    <CardSeparator></CardSeparator>
+   
     <CardActions Layout="CardActionsLayout.Center">
-        <TelerikButton Class="k-flat">Action 1</TelerikButton>        
+        <TelerikButton Class="k-flat">Action 1</TelerikButton>
         <TelerikButton Class="k-flat">Action 2</TelerikButton>
     </CardActions>
 </TelerikCard>
@@ -65,7 +67,9 @@ Use the `CardSeparator` to distinguish two separate sections in the `CardBody`. 
     </CardHeader>
     <CardBody>
         <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
+        
         <CardSeparator></CardSeparator>
+        
         <p>Some other text in the Card Body after the separator.</p>
     </CardBody>
 </TelerikCard>
@@ -91,7 +95,9 @@ You can change the `CardSeparator` orientation through its `Orientation` paramet
     </CardBody>
     <CardActions Layout="CardActionsLayout.Center">
         <TelerikButton Class="k-flat">Action 1</TelerikButton>
+        
         <CardSeparator Orientation="CardOrientation.Vertical"></CardSeparator>
+        
         <TelerikButton Class="k-flat">Action 2</TelerikButton>
     </CardActions>
 </TelerikCard>

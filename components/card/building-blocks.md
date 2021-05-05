@@ -13,11 +13,11 @@ position: 2
 The Card component supports a variety of template-based components used as building blocks. All building blocks can be rendered as root level elements of the Card and therefore can be used as desired with no restriction in their place of declaration or requirement for the Card structure. The elements can also be nested inside each other.
 
 
-* [`CardHeader`](#cardheader) - renders header area, useful for title, subtitle, etc.
+* [`CardHeader`](#cardheader) - renders header area, useful for title, subtitle, etc. Has a separator after itself.
 
 * [`CardBody`](#cardbody) - renders the body of the card with added paddings.
 
-* [`CardFooter`](#cardfooter) -  renders footer area separated from the content through separator.
+* [`CardFooter`](#cardfooter) -  renders footer area separated from the content through a separator.
 
 * [`CardImage`](#cardimage) - renders card image to fill the size of the card. Read more in the [Card Image article]({%slug card-image%}).
 
@@ -42,9 +42,11 @@ Use the `CardHeader` tag to render header area of the Card.
 @* Card Header *@
 
 <TelerikCard Width="200px">
+
     <CardHeader>
         <strong>This is the Card Header.</strong>
     </CardHeader>
+    
     <CardBody>
         <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
     </CardBody>
@@ -63,9 +65,11 @@ Use the `CardBody` tag to render the body of the Card.
 @* Card Body *@
 
 <TelerikCard Width="200px">
-    <CardBody>        
+
+    <CardBody>
         <p><strong>This is the Card Body.</strong> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </CardBody>       
+    </CardBody>
+    
 </TelerikCard>
 ````
 
@@ -81,12 +85,14 @@ Use the `CardFooter` tag to render the footer area of the Card.
 @* Card Footer *@
 
 <TelerikCard Width="200px">
-    <CardBody>        
-        <p> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </CardBody>  
+    <CardBody>
+        <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
+    </CardBody>
+    
     <CardFooter>
         <strong>This is the Card Footer.</strong>
     </CardFooter>
+    
 </TelerikCard>
 ````
 
@@ -106,7 +112,9 @@ Use the [`CardImage`]({%slug card-image%}) tag to render the image section of th
         <CardTitle>Rome</CardTitle>
         <CardSubTitle>Capital of Italy</CardSubTitle>
     </CardHeader>
+    
     <CardImage Src="https://docs.telerik.com/blazor-ui/components/card/images/rome.jpg"></CardImage>
+    
 </TelerikCard>
 ````
 
@@ -126,10 +134,12 @@ Use the [`CardActions`]({%slug card-actions%}) tag to render the actions area of
         <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
     </CardBody>  
     <CardSeparator></CardSeparator>
+    
     <CardActions Layout="CardActionsLayout.Center">
-        <TelerikButton Class="k-flat">Action 1</TelerikButton>        
-        <TelerikButton Class="k-flat">Action 2</TelerikButton>       
+        <TelerikButton Class="k-flat">Action 1</TelerikButton>
+        <TelerikButton Class="k-flat">Action 2</TelerikButton>
     </CardActions>
+    
 </TelerikCard>
 ````
 
@@ -147,14 +157,20 @@ Use the `CardActions` tag to render the actions area of the Card. An example of 
 <TelerikCard Width="200px">
     <CardBody>        
         <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
+        
         <CardSeparator></CardSeparator>
+        
         <p>Some other text in the Card Body after the separator.</p>
-    </CardBody>  
+    </CardBody>
+    
     <CardSeparator></CardSeparator>
+    
     <CardActions Layout="CardActionsLayout.Center">
         <TelerikButton Class="k-flat">Action 1</TelerikButton>
+        
         <CardSeparator Orientation="CardOrientation.Vertical"></CardSeparator>
-        <TelerikButton Class="k-flat">Action 2</TelerikButton>       
+        
+        <TelerikButton Class="k-flat">Action 2</TelerikButton>
     </CardActions>
 </TelerikCard>
 ````
@@ -171,14 +187,16 @@ Use the `CardTitle` tag to render a title (heading). Although the header area is
 @* Card Title *@
 
 <TelerikCard Width="200px">
-    <CardTitle>This is standalone Title </CardTitle>    
+
+    <CardTitle>This is standalone Title </CardTitle>
+
     <CardHeader>
         <CardTitle>This is Title in the Card Header</CardTitle>
     </CardHeader>
     <CardBody>
         <CardTitle>This is Title in the Card Body</CardTitle>
-        <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>        
-    </CardBody>  
+        <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
+    </CardBody>
 </TelerikCard>
 ````
 
@@ -194,13 +212,17 @@ Use the `CardSubTitle` tag to render sub title. Although the header area is suit
 ````CSHTML
 @* Card Subtitle *@
 
-<TelerikCard Width="200px">       
+<TelerikCard Width="200px">
     <CardHeader>
         <CardTitle>This is Title in the Card Header</CardTitle>
+        
         <CardSubTitle>This is Subtitle in the Card Header along with Title</CardSubTitle>
+    
     </CardHeader>
     <CardBody>
-        <CardSubTitle><strong>Just Subtitle in the Card Body</strong></CardSubTitle>        
+    
+        <CardSubTitle><strong>Just Subtitle in the Card Body</strong></CardSubTitle>
+    
         <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
     </CardBody>  
 </TelerikCard>

@@ -13,6 +13,8 @@ position: 9
 
 Every Blazor Card can have a dedicated area for action buttons related to the content. The content of these action items, as well as their overall layout and orientation, is completely customizable through the available configuration options.
 
+Telerik Button components with the `k-flat` class are designed to fit in the card design as actions, so you can use them as your first choice of action components. You can find examples with them below.
+
 #### In this article:
    * [Features](#features) 
    * [Orientation](#orientation)
@@ -50,10 +52,12 @@ You can define the orientation of the buttons through the `Orientation` paramete
         <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
     </CardBody>
     <CardSeparator></CardSeparator>
+    
     <CardActions Orientation="@CardOrientation.Vertical">
         <TelerikButton Class="k-flat">Action 1</TelerikButton>
         <TelerikButton Class="k-flat">Action 2</TelerikButton>
     </CardActions>
+    
 </TelerikCard>
 ````
 
@@ -83,11 +87,13 @@ The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` 
         <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
     </CardBody>
     <CardSeparator></CardSeparator>
+    
     <CardActions Layout="@CardActionsLayout.Stretched">
         <TelerikButton Class="k-flat">Action 1</TelerikButton>
         <TelerikButton Class="k-flat">Action 2</TelerikButton>
         <TelerikButton Class="k-flat">Action 3</TelerikButton>
-    </CardActions>    
+    </CardActions>
+    
 </TelerikCard>
 ````
 

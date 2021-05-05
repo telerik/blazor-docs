@@ -33,6 +33,7 @@ Add the `k-card-deck` class to the wrapping container of the Cards to organize t
 @*Cards with Deck Layout*@
 
 <div class="k-card-deck">
+
     <TelerikCard Width="200px">
         <CardHeader>
             <CardTitle>Card Title</CardTitle>
@@ -60,6 +61,7 @@ Add the `k-card-deck` class to the wrapping container of the Cards to organize t
             <TelerikButton Class="k-flat">Action 2</TelerikButton>
         </CardActions>
     </TelerikCard>
+    
 </div>
 ````
 
@@ -76,6 +78,7 @@ Add the `k-card-list` class to the wrapping container of the Cards to organize t
 @*Cards with List Layout*@
 
 <div class="k-card-list">
+
     <TelerikCard Width="200px">
         <CardHeader>
             <CardTitle>Card Title</CardTitle>
@@ -103,6 +106,7 @@ Add the `k-card-list` class to the wrapping container of the Cards to organize t
             <TelerikButton Class="k-flat">Action 2</TelerikButton>
         </CardActions>
     </TelerikCard>
+    
 </div>
 ````
 
@@ -119,6 +123,7 @@ Add the `k-card-group` class to the wrapping container of the Cards to organize 
 @*Cards with Group Layout*@
 
 <div class="k-card-group">
+
     <TelerikCard Width="200px">
         <CardHeader>
             <CardTitle>Card Title</CardTitle>
@@ -146,6 +151,7 @@ Add the `k-card-group` class to the wrapping container of the Cards to organize 
             <TelerikButton Class="k-flat">Action 2</TelerikButton>
         </CardActions>
     </TelerikCard>
+    
 </div>
 ````
 
