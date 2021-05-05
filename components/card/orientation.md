@@ -1,5 +1,5 @@
 ---
-title: Card Orientation
+title: Orientation
 page_title: Card Orientation
 description: Modify the orientation of the Card for Blazor.
 slug: card-orientation

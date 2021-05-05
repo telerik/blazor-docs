@@ -11,10 +11,11 @@ position: 0
 
 # Card Overview
 
-The Card for Blazor is a component that combines text, visual content and actions about a single subject. It quickly grabs the user’s attention with its clean layout, consisting of a title, usually an image, some text as the body and perhaps a footer. You can use it to easily organize content when building catalogues, dashboards, blogs, e-shops, etc. It has dedicated areas for its building blocks and that provides various ways of commponent usage.
+The Card for Blazor is a component that combines text, visual content and actions about a single subject. It quickly grabs the user’s attention with its clean layout, consisting of a title, usually an image, some text as the body and perhaps a footer. You can use it to easily organize content when building catalogues, dashboards, blogs, e-shops, etc. It has dedicated areas for its [building blocks]({%slug card-building-blocks%}) and that provides various ways of component usage.
+
 
 In this article:
-   * [Basics](#basics) 
+   * [Basics](#basics)
    * [Example](#example)
    * [Features](#features)
 
@@ -23,7 +24,7 @@ In this article:
 To use a Telerik Card for Blazor:
 
 1. add the `TelerikCard` tag
-1. add the desired [Card Building Blocks](#card-building-blocks)
+1. add the desired [Card Building Blocks]({%slug card-building-blocks%})
 
 
 ## Example 
@@ -68,7 +69,7 @@ The below snippet demontrates the setup of a Card component with all building bl
 
 The Card provides the following features:
 
-* `Width` - `string` - defines width of the component
+* `Width` - `string` - defines width of the component.
 
 * `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the Card.
 
@@ -81,4 +82,4 @@ The Card provides the following features:
 
 ## See Also
 
-  * [Live Demo: Card](https://demos.telerik.com/blazor-ui/card/overview)
+  * [Live Demo: Card Overview](https://demos.telerik.com/blazor-ui/card/overview)

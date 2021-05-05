@@ -8,21 +8,22 @@ published: True
 position: 2
 ---
 
+# Card Building Blocks
 
-The Card component supports a variety of template-based components used as building blocks
+The Card component supports a variety of template-based components used as building blocks. All building blocks are rendered as root level elements of the Card and therefore can be used as desired with no restriction in their place of declaration or requirement for the Card structure. The elements can also be nested inside each other.
 
 
 * [`CardHeader`](#cardheader) - renders header area, useful for title, subtitle, etc.
 
 * [`CardBody`](#cardbody) - renders the body of the card with added paddings.
 
-* [`CardFooter`](#cardfooter) -  renders footer area separated from the content through separator
+* [`CardFooter`](#cardfooter) -  renders footer area separated from the content through separator.
 
-* [`CardImage`](#cardimage) - renders card image to fill the size of the card. Read more in the [CardImage article]({%slug card-image%}).
+* [`CardImage`](#cardimage) - renders card image to fill the size of the card. Read more in the [Card Image article]({%slug card-image%}).
 
-* [`CardActions`](#cardactions) - renders dedicated area for actions. You could place any action buttons inside and style them with the predefined orientation and layout of the buttons. Read more in the [Actions article]({%slug card-actions%}).
+* [`CardActions`](#cardactions) - renders dedicated area for actions. Read more in the [Actions article]({%slug card-actions%}).
 
-* [`CardSeparator`](#cardseparator) - renders a horizontal line. It could be used it as a standalone building block, or inside any of the above blocks. When used as nested component, it will be rendered in accordance to any margin applied to the content.
+* [`CardSeparator`](#cardseparator) - renders a horizontal line. Read more in the [Card Separator]({%slug card-separator%}) article.
 
 * [`CardTitle`](#cardtitle) - renders div title with default theme styling.
 
@@ -30,6 +31,10 @@ The Card component supports a variety of template-based components used as build
 
 
 ## CardHeader
+
+Use the `CardHeader` tag to render header area of the Card.
+
+>caption Render `CardHeader` area. The result from the snippet below.
 
 ![Card Header](images/card-header-example.png)
 
@@ -46,9 +51,11 @@ The Card component supports a variety of template-based components used as build
 </TelerikCard>
 ````
 
-
-
 ## CardBody
+
+Use the `CardBody` tag to render the body of the Card.
+
+>caption Render `CardBody` area. The result from the snippet below.
 
 ![Card Body](images/card-body-example.png)
 
@@ -62,8 +69,11 @@ The Card component supports a variety of template-based components used as build
 </TelerikCard>
 ````
 
-
 ## CardFooter
+
+Use the `CardFooter` tag to render the footer area of the Card.
+
+>caption Render `CardFooter` area. The result from the snippet below.
 
 ![Card Footer](images/card-footer-example.png)
 
@@ -82,9 +92,29 @@ The Card component supports a variety of template-based components used as build
 
 ## CardImage
 
+Use the `CardImage` tag to render the image section of the Card. The image will fill the size of the card unless you set any other `Width` and `Height` values.
 
+>caption Use `CardImage` in the Card component. The result from the snippet below.
+
+![Card Image](images/image-example.png)
+
+````CSHTML
+@*Card Image*@
+
+<TelerikCard Width="200px">
+    <CardHeader>
+        <CardTitle>Rome</CardTitle>
+        <CardSubTitle>Capital of Italy</CardSubTitle>
+    </CardHeader>
+    <CardImage Src="https://docs.telerik.com/blazor-ui/components/card/images/rome.jpg"></CardImage>
+</TelerikCard>
+````
 
 ## CardActions
+
+Use the `CardActions` tag to render the actions area of the Card. You could place any action buttons inside and style them with the predefined orientation and layout of the buttons.
+
+>caption Use `CardActions` in the Card component. The result from the snippet below.
 
 ![Card Actions](images/card-actions-example.png)
 
@@ -105,7 +135,9 @@ The Card component supports a variety of template-based components used as build
 
 ## CardSeparator
 
-An example of `CardSeparator` used between Card elements or nested inside an element. Read more in the [CardSeparator article]({%slug %}). The result from the snippet below.
+Use the `CardActions` tag to render the actions area of the Card. An example of `CardSeparator` used between Card elements or nested inside an element.
+
+>caption Use `CardSeparator` in the Card component. The result from the snippet below.
 
 ![Card Separator](images/card-separator-example.png)
 
@@ -129,6 +161,10 @@ An example of `CardSeparator` used between Card elements or nested inside an ele
 
 ## CardTitle
 
+Use the `CardTitle` tag to render title. Although the header area is suitable for placing title, it is not required and you can use the `CardTitle` as desired. The below sample demonstrates implementation of a title in three different sections.
+
+>caption Use `CardTitle` in the Card component. The result from the snippet below.
+
 ![Card Footer](images/card-title-example.png)
 
 ````CSHTML
@@ -148,6 +184,10 @@ An example of `CardSeparator` used between Card elements or nested inside an ele
 
 
 ## CardSubTitle
+
+Use the `CardSubTitle` tag to render sub title. Although the header area is suitable for placing title and sub title, it is not required and you can use the `CardSubTitle` as desired. It can also be used along with the `CardTitle` or as a standalone element. The below sample demontstrates both approaches.
+
+>caption Use `CardSubTitle` in the Card component. The result from the snippet below.
 
 ![Card Footer](images/card-subtitle-example.png)
 

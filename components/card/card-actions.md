@@ -5,13 +5,18 @@ description: Actions supported by the Card for Blazor.
 slug: card-actions
 tags: telerik,blazor,card,actions
 published: True
-position: 7
+position: 9
 ---
 
 
 # Card Actions
 
 Every Blazor Card has a dedicated area for action buttons related to the content. The content of these action items, as well as their overall layout and orientation, is completely customizable through the available configuration options.
+
+In this article:
+   * [Features](#features) 
+   * [Orientation](#orientation)
+   * [Layout](#layout)
 
 ## Features
 
@@ -23,7 +28,6 @@ Every Blazor Card has a dedicated area for action buttons related to the content
 
 * `Layout` - `CardActionsLayout` - defines the layout of the Action buttons.
 
-* `ChildContent` - `RenderFragment` - defines the child content of the component.
 
 ## Orientation
 
@@ -52,6 +56,7 @@ You can define the orientation of the buttons through the `Orientation` paramete
     </CardActions>
 </TelerikCard>
 ````
+
 
 ## Layout
 
