@@ -11,9 +11,9 @@ position: 9
 
 # Card Actions
 
-Every Blazor Card has a dedicated area for action buttons related to the content. The content of these action items, as well as their overall layout and orientation, is completely customizable through the available configuration options.
+Every Blazor Card can have a dedicated area for action buttons related to the content. The content of these action items, as well as their overall layout and orientation, is completely customizable through the available configuration options.
 
-In this article:
+#### In this article:
    * [Features](#features) 
    * [Orientation](#orientation)
    * [Layout](#layout)
@@ -32,7 +32,7 @@ In this article:
 ## Orientation
 
 You can define the orientation of the buttons through the `Orientation` parameter of the `CardActions`. It takes a member of the `Telerik.Blazor.CardOrientation` enum:
-   * `Horizontal`
+   * `Horizontal` - the default
    * `Vertical`
 
 >caption Change the orientation of the action buttons. The result from the snippet below.
@@ -47,7 +47,7 @@ You can define the orientation of the buttons through the `Orientation` paramete
         <CardTitle>Card Title</CardTitle>
     </CardHeader>
     <CardBody>
-        <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
     </CardBody>
     <CardSeparator></CardSeparator>
     <CardActions Orientation="@CardOrientation.Vertical">
@@ -63,7 +63,7 @@ You can define the orientation of the buttons through the `Orientation` paramete
 You can set the layout of the action buttons through the `Layout` parameter of the `CardActions`. We support 4 types of layout - to the start, center, end part of the actions container, or stretched buttons that will fill the whole container with equal size.
 
 The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` enum:
-* `Center`
+* `Center` - the default
 * `End`
 * `Start`
 * `Stretched`
@@ -75,12 +75,12 @@ The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` 
 ````CSHTML
 @* Change the layout of the action buttons *@
 
-<TelerikCard Width="600px" >
+<TelerikCard Width="600px">
     <CardHeader>
         <CardTitle>Card Title</CardTitle>
     </CardHeader>
     <CardBody>
-        <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
     </CardBody>
     <CardSeparator></CardSeparator>
     <CardActions Layout="@CardActionsLayout.Stretched">

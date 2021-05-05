@@ -10,13 +10,20 @@ position: 11
 
 # Card Layouts
 
-When working with a collection of Cards, you can control the layout of their rendering by rapping all the Card instances in a container and apply the desired styles to position them.
+When working with a collection of Cards, you can control the layout of their rendering by wrapping all the Card instances in a container and apply the desired styles to position them.
 
-To easily customize the Cards layout you can also use one of the below listed k-classes that we provide to organize the Cards in [deck](#cards-in-deck-layout), [list](#cards-in-list-layout) or [group](#cards-in-group-layout).
+The Telerik Themes provide the following layouts through built-in classes:
+
+* [Deck](#cards-in-deck-layout)
+
+* [List](#cards-in-list-layout)
+
+* [Group](#cards-in-group-layout)
+
 
 ## Cards in Deck Layout
 
-Add the "k-card-deck" class to the wrapping container of the Cards to organize them in a Deck Layout.
+Add the `k-card-deck` class to the wrapping container of the Cards to organize them in a Deck Layout.
 
 >caption Cards in Deck Layout. The result from the snippet below.
 
@@ -31,7 +38,7 @@ Add the "k-card-deck" class to the wrapping container of the Cards to organize t
             <CardTitle>Card Title</CardTitle>
         </CardHeader>
         <CardBody>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
         </CardBody>
         <CardSeparator></CardSeparator>
         <CardActions Layout="CardActionsLayout.Center">
@@ -45,7 +52,7 @@ Add the "k-card-deck" class to the wrapping container of the Cards to organize t
             <CardTitle>Card Title</CardTitle>
         </CardHeader>
         <CardBody>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
         </CardBody>
         <CardSeparator></CardSeparator>
         <CardActions Layout="CardActionsLayout.Center">
@@ -56,9 +63,10 @@ Add the "k-card-deck" class to the wrapping container of the Cards to organize t
 </div>
 ````
 
+
 ## Cards in List Layout
 
-Add the "k-card-list" class to the wrapping container of the Cards to organize them in a List Layout.
+Add the `k-card-list` class to the wrapping container of the Cards to organize them in a List Layout.
 
 >caption Cards in List Layout. The result from the snippet below.
 
@@ -73,7 +81,7 @@ Add the "k-card-list" class to the wrapping container of the Cards to organize t
             <CardTitle>Card Title</CardTitle>
         </CardHeader>
         <CardBody>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
         </CardBody>
         <CardSeparator></CardSeparator>
         <CardActions Layout="CardActionsLayout.Center">
@@ -87,7 +95,7 @@ Add the "k-card-list" class to the wrapping container of the Cards to organize t
             <CardTitle>Card Title</CardTitle>
         </CardHeader>
         <CardBody>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
         </CardBody>
         <CardSeparator></CardSeparator>
         <CardActions Layout="CardActionsLayout.Center">
@@ -98,9 +106,10 @@ Add the "k-card-list" class to the wrapping container of the Cards to organize t
 </div>
 ````
 
+
 ## Cards in Group Layout
 
-Add the "k-card-group" class to the wrapping container of the Cards to organize them in a Group Layout.
+Add the `k-card-group` class to the wrapping container of the Cards to organize them in a Group Layout.
 
 >caption Cards in Group Layout. The result from the snippet below.
 
@@ -115,7 +124,7 @@ Add the "k-card-group" class to the wrapping container of the Cards to organize 
             <CardTitle>Card Title</CardTitle>
         </CardHeader>
         <CardBody>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
         </CardBody>
         <CardSeparator></CardSeparator>
         <CardActions Layout="CardActionsLayout.Center">
@@ -129,7 +138,7 @@ Add the "k-card-group" class to the wrapping container of the Cards to organize 
             <CardTitle>Card Title</CardTitle>
         </CardHeader>
         <CardBody>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
         </CardBody>
         <CardSeparator></CardSeparator>
         <CardActions Layout="CardActionsLayout.Center">
@@ -139,6 +148,7 @@ Add the "k-card-group" class to the wrapping container of the Cards to organize 
     </TelerikCard>
 </div>
 ````
+
 
 ## See Also
 

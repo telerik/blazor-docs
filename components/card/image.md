@@ -1,6 +1,6 @@
 ---
-title: CardImage
-page_title: CardImage
+title: Image
+page_title: Image
 description: CardImage building block of the Card for Blazor.
 slug: card-image
 tags: telerik,blazor,card,image
@@ -10,7 +10,7 @@ position: 7
 
 # CardImage
 
-Every Blazor Card has a dedicated area to render a card image that will fill the size of the card. The content of the CardImage as well as its size is completely customizable through the available configuration options.
+Every Blazor Card can have a dedicated area to render a card image that will fill the size of the card. The content of the CardImage as well as its size is completely customizable through the available configuration options.
 
 >caption Use the CardImage builing block to insert an image in the Card. The result from the snippet below.
 

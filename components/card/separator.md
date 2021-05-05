@@ -10,22 +10,24 @@ position: 5
 
 # Card Separator
 
-The `CardSeparator` element of the Card for Blazor is generally used to distiguish separate sections or content in the Card. It could be used as a standalone building block, or inside any of the other Card elements. When used as nested component, the `CardSeparator` will be rendered in accordance to any margin applied to the content.
+The `CardSeparator` element of the Card for Blazor distinguishes separate sections or content in the Card. You can use it as a standalone building block, or inside any of the other Card elements. When used as nested component, the `CardSeparator` will be rendered in accordance to any margin applied to the content.
 
 The `CardHeader` comes with a built-in separator at the bottom of the section and the `CardFooter` comes with a built-in separator at the top of the section. Therefore, you don't need to explicitly insert a `CardSeparator` after the `CardHeader` and before the `CardFooter` elements.
 
 
-In this article:
-   * [Stanalone Card Separator](#stanalone-card-separator) 
+#### In this article:
+   * [Standalone Card Separator](#standalone-card-separator) 
    * [Nested Card Separator](#nested-card-separator)
    * [Card Separator Orientation](#card-separator-orientation)
    * [Features](#features)
 
-## Stanalone Card Separator
+## Standalone Card Separator
 
-Use the `CardSeparator` to distinguish `CardBody` and `CardActions` sections. In the example below no separator is used after the `CardHeader`, the horizontal line is still present due to the built-in `CardHeader` feature.
+Use the `CardSeparator` to distinguish `CardBody` and `CardActions` sections.
 
-> caption  Use the `Card Separator` as a standalone building block. The result from the snippet below.
+In the example below no separator is used after the `CardHeader`, the horizontal line is still present due to the built-in `CardHeader` feature.
+
+>caption  Use the `Card Separator` as a standalone building block. The result from the snippet below.
 
 ![Stanalone CardSeparator](images/stanalone-card-separator-example.png)
 
@@ -37,7 +39,7 @@ Use the `CardSeparator` to distinguish `CardBody` and `CardActions` sections. In
         <strong>Card Header</strong>
     </CardHeader>
     <CardBody>
-        <p> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
     </CardBody>
    <CardSeparator></CardSeparator>
     <CardActions Layout="CardActionsLayout.Center">
@@ -62,7 +64,7 @@ Use the `CardSeparator` to distinguish two separate sections in the `CardBody`. 
         <strong>Card Header</strong>
     </CardHeader>
     <CardBody>
-        <p> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
         <CardSeparator></CardSeparator>
         <p>Some other text in the Card Body after the separator.</p>
     </CardBody>
@@ -85,7 +87,7 @@ You can change the `CardSeparator` orientation through its `Orientation` paramet
         <strong>Card Header</strong>
     </CardHeader>
     <CardBody>
-        <p> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
     </CardBody>
     <CardActions Layout="CardActionsLayout.Center">
         <TelerikButton Class="k-flat">Action 1</TelerikButton>

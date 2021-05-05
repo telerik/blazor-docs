@@ -11,13 +11,15 @@ position: 3
 # Card Orientation
 
 You can define the Card orientation by setting its `Orientation` parameter to a member of the `Telerik.Blazor.CardOrientation` enum that provides the following options:
+
    * [`Horizontal`](#card-with-horizontal-orientation)
-   * [`Vertical`](#card-with-vertical-orientation)
+
+   * [`Vertical`](#card-with-vertical-orientation) - the default
 
 
 ## Card with Horizontal orientation
 
-A simple Card with horizontal orientation. The result from the snippet below.
+A Card with horizontal orientation. The result from the snippet below.
 
 ![Card with horizontal orientation](images/horizontal-orientation-example.png)
 
@@ -30,7 +32,7 @@ A simple Card with horizontal orientation. The result from the snippet below.
         <CardSubTitle>Horizontal orientation</CardSubTitle>
     </CardHeader>
     <CardBody>
-        <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
     </CardBody>
     <CardSeparator></CardSeparator>
     <CardActions>
@@ -58,7 +60,7 @@ The result from the snippet below.
         <CardSubTitle>Vertical orientation</CardSubTitle>
     </CardHeader>
     <CardBody>
-        <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
     </CardBody>
     <CardSeparator></CardSeparator>
     <CardActions>
