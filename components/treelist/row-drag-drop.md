@@ -44,7 +44,7 @@ The `OnRowDrop` event provides an object of type `TreeListRowDropEventArgs<T>` t
 
 * `DestinationItem` - an `object` that represents the row over which the `Item` is dropped. You can cast this object to your model class.
 
-* `DestinationItems` - `IEnumerable<T>` that represents a collection of all dragged items. 
+* `Items` - `IEnumerable<T>` that represents a collection of all dragged items. 
 
 * `DropPosition` - an `enum` - its members allow you to determine the exact position of the dropped item relative to the position of the `DestinationItem`:
     * `After`
