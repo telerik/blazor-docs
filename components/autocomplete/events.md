@@ -113,10 +113,11 @@ from model: @Role
 
 ## OnRead
 
-You can use the he `OnRead` event to provide data to the component according to some custom logic and according to the current user input. The event fires when:
+You can use the he `OnRead` event to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug autocomplete-virtualization%})). The event fires when:
 
 * the component initializes
 * the user [filters]({%slug autocomplete-filter%})
+* the user scrolls with [virtualization]({%slug autocomplete-virtualization%}) enabled
 
 You can also call remote data through async operations.
 
