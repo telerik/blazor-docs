@@ -179,7 +179,8 @@ This event fires upon the rendering of the TreeList rows. It receives an argumen
 @* Conditional styling/formatting for a row *@
 
 <style>
-    .myCustomTreeListRowFormatting {
+    .k-treelist tr.myCustomTreeListRowFormatting,
+    .k-treelist tr.myCustomTreeListRowFormatting:hover {
         background-color: blue;
         color: white;
         font-size: 10px;

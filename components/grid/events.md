@@ -476,7 +476,8 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
 @* Conditional styling/formatting for a row *@
 
 <style>
-    .myCustomRowFormatting {
+    .k-grid tr.myCustomRowFormatting,
+    .k-grid tr.myCustomRowFormatting:hover {
         background-color: blue;
         color: white;
         font-size: 10px;
@@ -484,7 +485,7 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
     }
 </style>
 
-<TelerikGrid Data="@MyData" 
+<TelerikGrid Data="@MyData"
              Height="400px"
              Pageable="true"
              Width="750px"
