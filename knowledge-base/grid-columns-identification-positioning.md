@@ -98,4 +98,4 @@ After the grid initialized, it uses a loop to go through the columns.
 ## Solution
 There are two ways for specifying the position of the columns in the grid:
 * Avoid nesting components
-* Using the [Grid State]({%slug components/grid/state%}), its methods (GetState, SetState) and events (OnStateInit, OnStateChanged).
+* Using the [Grid State](https://docs.telerik.com/blazor-ui/components/grid/state), its methods (GetState, SetState) and events (OnStateInit, OnStateChanged).
