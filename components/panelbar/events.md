@@ -198,7 +198,7 @@ The `OnItemRender` event fires upon rendering the nodes of the PanelBar. It rece
 
 * `Item` - an object you can cast to your model class to obtain the current data item.
 
-* `Class` - the CSS class that will be applied to the cells. The CSS rules that are set for that class will be visibly rendered on the PanelBar node.
+* `Class` - the CSS class that will be applied to the item's main element. The CSS rules that are set for that class will be visibly rendered on the PanelBar node.
 
 If the item that is customized has children, they will also inherit the styles applied in the CSS class passed to the `Class` parameter.
 
