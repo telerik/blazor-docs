@@ -178,7 +178,7 @@ The `ExpandedItemsChanged` event fires when the user expands or collapses a node
         items.Add(new PanelBarItem()
         {
             Id = 5,
-            Text = "ѝ",
+            Text = "Products",
             ParentId = null,
             HasChildren = false
         });
