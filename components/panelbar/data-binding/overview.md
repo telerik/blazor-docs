@@ -303,7 +303,7 @@ If a certain level does not have an explicit data bindings tag, it will use the 
 }
 ````
 
->note For performance reasons, when using [flat data binding]({%slug panelbar-data-binding-flat%}), all the bindings for all the levels must use the same `ParentIdField`.
+>note To improve performance when using [flat data binding]({%slug panelbar-data-binding-flat%}), all the bindings for all the levels should use the same `ParentIdField`.
 
 ## See Also
 
