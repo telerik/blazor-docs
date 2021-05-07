@@ -10,7 +10,7 @@ position: 0
 
 # PanelBar Overview
 
-The <a href="https://www.telerik.com/blazor-ui/panelbar" target="_blank">Blazor PanelBar component</a> displays data (flat or hierarchical) in an accordion type structure. In addition to built-in navigation capabilities, you can navigate through the items and their children, define [templates]({%slug panelbar-templates%}), render text and icons/images, and respond to events.
+The <a href="https://www.telerik.com/blazor-ui/panelbar" target="_blank">Blazor PanelBar component</a> [displays data (flat or hierarchical)]({%slug panelbar-data-binding-overview%}) in an accordion type structure. In addition to built-in [navigation capabilities]({%slug panelbar-navigation%}), you can navigate through the items and their children, define [templates]({%slug panelbar-templates%}), render text and [icons/images]({%slug panelbar-icons%}), and respond to [events]({%slug panelbar-events%}).
 
 
 
@@ -20,7 +20,6 @@ The <a href="https://www.telerik.com/blazor-ui/panelbar" target="_blank">Blazor 
 
 * [Elements of a PanelBar Item](#elements-of-a-panelbar-item)
 
-* [Navigation](#navigation)
 
 ## Basics
 
@@ -145,103 +144,6 @@ Each item in the PanelBar consists of a `Header` and `Content`. The image below 
 
 ![panelbar parts](images/panelbar-parts-overview.png)
 
-## Navigation
-
-A PanelBar is often used to navigate through different pages, views or sections in the application. To do that with the TelerikPanelBar.
-
-* Use the built-in `UrlField` in the [data bindings]({%slug panelbar-data-binding-overview%}) to populate the URLs in the anchors the treeview will generate for you.
-* use a [Template]({%slug panelbar-templates%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
-
->caption Navigation with PanelBar through the UrlField
-
-````CSHTML
-@* Built-in navigation between views *@
-
-<TelerikPanelBar Data="@Items" @bind-ExpandedItems="@ExpandedItems">
-    <PanelBarBindings>
-        <PanelBarBinding UrlField="NavigationUrl"></PanelBarBinding>
-    </PanelBarBindings>
-</TelerikPanelBar>
-
-@code {
-    public List<PanelBarItem> Items { get; set; }
-    public IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
-
-    public class PanelBarItem
-    {
-        public string Text { get; set; }
-        public bool Disabled { get; set; }
-        public string NavigationUrl { get; set; }
-        public List<PanelBarItem> Items { get; set; }
-    }
-
-    protected override void OnInitialized()
-    {
-        Items = new List<PanelBarItem>()
-    {
-            new PanelBarItem()
-            {
-                Text = "Item 1",
-                Items = new List<PanelBarItem>()
-            {
-                    new PanelBarItem()
-                    {
-                        Text = "Item 1.1",
-                        NavigationUrl = "navigation-url.here"
-
-                    },
-                    new PanelBarItem()
-                    {
-                        Text = "Item 1.2",
-                        Items = new List<PanelBarItem>()
-                    {
-                            new PanelBarItem()
-                            {
-                                Text = "Item 1.2.1",
-                                NavigationUrl = "navigation-url.here"
-                            },
-                            new PanelBarItem()
-                            {
-                                Text = "Item 1.2.2",
-                                NavigationUrl = "navigation-url.here"
-                            }
-                        }
-                    }
-                }
-            },
-            new PanelBarItem()
-            {
-                Text = "Item 2",
-                Items = new List<PanelBarItem>()
-                {
-                    new PanelBarItem()
-                    {
-                        Text = "Item 2.1",
-                        Items = new List<PanelBarItem>()
-                        {
-                            new PanelBarItem()
-                            {
-                                Text = "Item 2.1.1"
-                            }
-                        }
-                    },
-                    new PanelBarItem()
-                    {
-                        Text = "Item 2.2",
-                        NavigationUrl = "navigation-url.here"
-                    }
-                }
-            },
-            new PanelBarItem()
-            {
-                Text = "Item 3"
-            }
-        };
-
-        base.OnInitialized();
-    }
-}
-````
 
 ## See Also
 
