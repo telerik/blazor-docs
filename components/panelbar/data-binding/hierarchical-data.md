@@ -41,12 +41,12 @@ This approach of providing nodes lets you gather separate collections of data an
     protected override void OnInitialized()
     {
         Items = new List<PanelBarItem>()
-    {
+        {
             new PanelBarItem()
             {
                 Text = "Item 1",
                 Items = new List<PanelBarItem>()
-            {
+                {
                     new PanelBarItem()
                     {
                         Text = "Item 1.1"
@@ -55,7 +55,7 @@ This approach of providing nodes lets you gather separate collections of data an
                     {
                         Text = "Item 1.2",
                         Items = new List<PanelBarItem>()
-                    {
+                        {   
                             new PanelBarItem()
                             {
                                 Text = "Item 1.2.1"
@@ -72,12 +72,12 @@ This approach of providing nodes lets you gather separate collections of data an
             {
                 Text = "Item 2",
                 Items = new List<PanelBarItem>()
-            {
+                {
                     new PanelBarItem()
                     {
                         Text = "Item 2.1",
                         Items = new List<PanelBarItem>()
-                    {
+                        {
                             new PanelBarItem()
                             {
                                 Text = "Item 2.1.1"
