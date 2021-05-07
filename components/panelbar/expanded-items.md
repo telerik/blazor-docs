@@ -39,7 +39,6 @@ You can use the ExpandMode to allow the user to expand one or more items at a ti
 
 @code { 
     public List<PanelBarItem> Items { get; set; }
-    public IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
 
     public class PanelBarItem
     {
@@ -99,8 +98,6 @@ You can use the ExpandMode to allow the user to expand one or more items at a ti
     protected override void OnInitialized()
     {
         Items = LoadFlatData();
-
-        ExpandedItems = new List<object>() { Items[1] };
 
         base.OnInitialized();
     }
