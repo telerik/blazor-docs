@@ -24,7 +24,7 @@ You can use the ExpandMode to allow the user to expand one or more items at a ti
 
 * `Single` - Expands only one item at a time. If you expand a new item the previously expanded item will be collapsed.
 
-* `Multiple` - the default value - Expands two or more items simultaneously. 
+* `Multiple` - the default value - Lets you expand more than one item simultaneously. To collapse an expanded item, click it again.
 
 >caption Change the Expand mode of the PanelBar
 
@@ -37,7 +37,8 @@ You can use the ExpandMode to allow the user to expand one or more items at a ti
     </TelerikPanelBar>
 </div>
 
-@code { public List<PanelBarItem> Items { get; set; }
+@code { 
+    public List<PanelBarItem> Items { get; set; }
     public IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
 
     public class PanelBarItem
