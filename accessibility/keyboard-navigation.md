@@ -72,6 +72,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [Pager](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation)
 
+* [PanelBar](https://demos.telerik.com/blazor-ui/panelbar/keyboard-navigation)
+
 * ProgressBar - not applicable, it is merely a visualization component the user cannot interact with.
 
 * [RadioGroup](https://demos.telerik.com/blazor-ui/radiogroup/keyboard-navigation) - has the standard behavior of radio buttons with the same `name`.
