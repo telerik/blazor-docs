@@ -406,7 +406,7 @@ The TreeList can filter data automatically. You can read more about this feature
 
 ## Column Features
 
-The columns of the treelist  are one of its main building blocks and they offer a rich set of functionality to enable immense flexibility for your application scenarios.
+The columns of the Treelist  are one of its main building blocks and they offer a rich set of functionality to enable immense flexibility for your application scenarios.
 
 >caption Column features include
 

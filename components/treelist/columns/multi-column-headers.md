@@ -10,7 +10,7 @@ position: 25
 
 # Multi-Column Headers
 
-The treelist allows you to stack several columns under one header to visually group relevant fields for your end users.
+The Treelist allows you to stack several columns under one header to visually group relevant fields for your end users.
 
 To use multiple column headers:
 
@@ -26,7 +26,7 @@ You will find the following sections in this article:
 
 ## Basic Example
 
-The following code snippet shows how you can group columns in the treelist in multi-column headers. You can also use "regular" columns at the root level, not all of them have to be column groups.
+The following code snippet shows how you can group columns in the Treelist in multi-column headers. You can also use "regular" columns at the root level, not all of them have to be column groups.
 
 >caption Multiple Column Headers in the Treelist
 
@@ -41,7 +41,7 @@ The following code snippet shows how you can group columns in the treelist in mu
                  Width="900px" Height="400px"
                  IdField="Id" ParentIdField="ParentId">
     <TreeListColumns>
-        <TreeListColumn Title="Personal Information" Reorderable="false" Width="1500px">
+        <TreeListColumn Title="Personal Information" Reorderable="false">
             <Columns>
                 <TreeListColumn Expandable="true" Field=@nameof(Customer.FirstName) Title="First Name" Width="115px" />
                 <TreeListColumn Field=@nameof(Customer.LastName) Title="Last Name" Width="105px" />

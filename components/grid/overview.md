@@ -181,7 +181,7 @@ The grid can group data automatically. You can read more about this feature in t
 
 ## Column Features
 
-The columns of the grid are one of its main building blocks and they offer a rich set of functionality to enable immense flexibility for your application scenarios.
+The columns of the Grid are one of its main building blocks and they offer a rich set of functionality to enable immense flexibility for your application scenarios.
 
 >caption Column features include
 
