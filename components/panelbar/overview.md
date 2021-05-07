@@ -142,6 +142,10 @@ To use a Telerik PanelBar for Blazor:
 
 Each item in the PanelBar consists of a `Header` and `Content`. The image below illustrates the concept.
 
+You can customize their rendering through the corresponding [Header Template]({%slug panelbar-templates-header%}) and [Content Template]({%slug panelbar-templates-content%}).
+
+By default, there is no Content in the items unless you provide a ContentTemplate. The header contains the Text of the correponding data item (model).
+
 ![panelbar parts](images/panelbar-parts-overview.png)
 
 
