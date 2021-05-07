@@ -17,7 +17,7 @@ Loading nodes on demand can improve the performance of your application by reque
 
 You don't have to provide all the data the treelist will render at once - the root nodes are sufficient for an initial display. You can then use the `OnExpand` event of the treelist to provide [hierarchical data]({%slug treelist-data-binding-hierarchical-data%}) to the node that was just expanded or amend [flat data]({%slug treelist-data-binding-flat-data%}) source with new nodes.
 
-In the `OnExpand` event, you will receive the current node that was just expanded so you can check whether you need to load items for it. You can then load those items from your data service and update the corresponding data collection. 
+In the `OnExpand` event, you will receive the current node that was just expanded so you can check whether you need to load items for it. You can then load those items from your data service and update the corresponding data collection.
 
 You can also use the `HasChildren` field as a flag to know whether you need data for the given node. It is up to the application to populate it - you may choose not to do so, but keep in mind that setting it to `false` will override the presence of child items and will prevent the expand icon from rendering so the user will never be able to expand a node. Thus, you may want to default this field to `true` and only reset it to `false` if the data request does not return child items.
 
@@ -36,7 +36,7 @@ Below you will find two examples - for [hierarchical](#load-hierarchical-data-on
 <TelerikTreeList Data="@Data"
                  ItemsField="@(nameof(Employee.DirectReports))"
                  HasChildrenField="@(nameof(Employee.HasChildren))"
-                 OnExpand="@((TreeListExpandEventArgs<Employee> args) => OnExpand(args))"
+                 OnExpand="@OnExpandHandler"
                  Pageable="true" Width="550px" Height="400px">
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="220px" />
@@ -48,35 +48,38 @@ Below you will find two examples - for [hierarchical](#load-hierarchical-data-on
     public List<Employee> Data { get; set; }
 
     // load on demand through the event
-    async Task OnExpand(TreeListExpandEventArgs<Employee> args)
+    async Task OnExpandHandler(TreeListExpandEventArgs args)
     {
-        if (args.Item.HasChildren && // it is marked as having children
-            (args.Item.DirectReports == null || args.Item.DirectReports.Count == 0) // there are no child items
+        Employee item = args.Item as Employee;
+        if (item.HasChildren && // it is marked as having children
+            (item.DirectReports == null || item.DirectReports.Count == 0) // there are no child items
             )
         {
             // request data
-            var children = await GetChildren(args.Item);
+            var children = await GetChildren(item);
 
             if (children.Count > 0)
             {
                 // child items exist - add them to the current item
-                args.Item.DirectReports = children;
+                item.DirectReports = children;
             }
             else
             {
                 // no nested data - hide the expand arrow
-                args.Item.HasChildren = false;
+                item.HasChildren = false;
             }
         }
     }
 
     async Task<List<Employee>> GetChildren(Employee itm)
     {
+        await Task.Delay(400); // simulate delay. Remove for a real app
+
         List<Employee> data = new List<Employee>();
 
         // to showcase an example of when no actual child items are returned
         // we will check for too long nesting chain with this simpe logic
-        if(itm.Name.LastIndexOf("Child of") < 15)
+        if (itm.Name.LastIndexOf("Child of") < 15)
         {
             data.Add(new Employee
             {
@@ -142,7 +145,7 @@ Below you will find two examples - for [hierarchical](#load-hierarchical-data-on
                  IdField="@(nameof(Employee.Id))"
                  ParentIdField="@(nameof(Employee.ReportsTo))"
                  HasChildrenField="@(nameof(Employee.HasChildren))"
-                 OnExpand="@((TreeListExpandEventArgs<Employee> args) => OnExpand(args))"
+                 OnExpand="@OnExpandHandler"
                  Pageable="true" Width="550px" Height="400px">
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="220px" />
@@ -154,15 +157,15 @@ Below you will find two examples - for [hierarchical](#load-hierarchical-data-on
     public List<Employee> Data { get; set; }
 
     // load on demand through the event
-    async Task OnExpand(TreeListExpandEventArgs<Employee> args)
+    async Task OnExpandHandler(TreeListExpandEventArgs args)
     {
-        if (args.Expanded && // the item got expanded
-            args.Item.HasChildren && // it is marked as having children
-            !Data.Any(x => x.ReportsTo == args.Item.Id) // there are no child items
+        Employee currItem = args.Item as Employee;
+        if (currItem.HasChildren && // it is marked as having children
+            !Data.Any(x => x.ReportsTo == currItem.Id) // there are no child items
             )
         {
             // request data
-            var children = await GetChildren(args.Item);
+            var children = await GetChildren(currItem);
 
             if (children.Count > 0)
             {
@@ -172,18 +175,20 @@ Below you will find two examples - for [hierarchical](#load-hierarchical-data-on
             else
             {
                 // no nested data - hide the expand arrow
-                args.Item.HasChildren = false;
+                currItem.HasChildren = false;
             }
         }
     }
 
     async Task<List<Employee>> GetChildren(Employee itm)
     {
+        await Task.Delay(400); // simulate delay. Remove for a real app
+
         List<Employee> data = new List<Employee>();
 
         // to showcase an example of when no actual child items are returned
         // we will check for too long nesting chain with this simpe logic
-        if(itm.Name.LastIndexOf("Child of") < 15)
+        if (itm.Name.LastIndexOf("Child of") < 15)
         {
             data.Add(new Employee
             {
