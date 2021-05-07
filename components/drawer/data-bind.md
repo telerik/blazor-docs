@@ -45,6 +45,8 @@ The properties of a drawer item match directly to a field of the model the drawe
 
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
 
+@[template](/_contentTemplates/common/navigation-components.md#default-fields-match-issues)
+
 >caption Default field names for drawer item bindings. If you use these, you don't have to specify them in the `TelerikDrawer` tag explicitly.
 
 ````CSHTML
