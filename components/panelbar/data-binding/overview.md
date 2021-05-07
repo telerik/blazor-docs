@@ -23,18 +23,25 @@ There are three modes of providing data to a PanelBar, and they all use the item
 
 * [Flat data]({%slug panelbar-data-binding-flat%}) - a single collection of items with defined parent-child relationships.
 * [Hierarchical data]({%slug panelbar-data-binding-hierarchical%}) - separate collections of items and their child items.
-* [Load on demand]({%slug panelbar-data-binding-load-on-demand%}) or lazy loading - providing children to a node when it expands through an event.
 
 ## PanelBar Item Features
 
 The PanelBar items provide the following features that you control through the corresponding fields in their data binding:
 
 * `Id` - `string` - a unique identifier for the item. Required for binding to flat data.
+
 * `ParentId` - `string` - identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, this must be `null`.
-* `HasChildren` - `string` - whether the item has children. Determines whether an expand arrow is rendered next to the item. Required for binding to flat data and for load-on-demand. With hierarchical data, the PanelBar will render the icon based on the existence of child items, but `HasChildren` will take precedence.
+
+* `HasChildren` - `string` - whether the item has children. Determines whether an expand arrow is rendered next to the item. Required for binding to flat data. With hierarchical data, the PanelBar will render the icon based on the existence of child items, but `HasChildren` will take precedence.
+
 * `Items` - `string` - the collection of child items that will be rendered under the current item. Required only when binding to hierarchical data.
+
 * `Text` - `string` - the text that will be shown on the item.
+
+* `DisabledField` - `string` - whether the item is disabled. If an item is disabled it will not be clickable and cannot be expanded by the user. The [`OnItemClick`]({%slug panelbar-events%}#onitemclick) will not be fired if the item is disabled.
+
 * `ImageUrl` / `Icon` / `IconClass` -the URL to a raster image, the [Telerik icon]({%slug general-information/font-icons%}), or a class for a custom font icon that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `ImageUrl` will have the highest importance).
+
 * `Url` - the view the item will navigate to by generating a link.
 
 ## Data Bindings
@@ -44,15 +51,27 @@ The properties of a panelbar item match directly to a field of the model the com
 Each `PanelBarBinding` tag exposes the following properties that refer to item properties:
 
 * IdField => Id
+
 * ParentIdField => ParentId
+
 * TextField => Text
+
+* DisabledField => Disabled
+
 * IconClassField => IconClass
+
 * IconField => Icon
+
 * ImageUrlField => ImageUrl
+
 * UrlField => Url
+
 * ExpandedField => Expanded
+
 * HasChildrenField => HasChildren
+
 * ItemsField => Items
+
 * Level - this is used for defining [different bindings for different levels](#multiple-level-bindings). If no level is set, the bindings are taken as default for any level that does not have explicit settings. You should have one `TelerikPanelBarBinding` without a level.
 
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
@@ -67,6 +86,7 @@ public class PanelBarItem
 	public int Id { get; set; }
 	public string Text { get; set; }
 	public int? ParentId { get; set; }
+	public bool Disabled { get; set; }
 	public bool HasChildren { get; set; }
 	public string Icon { get; set; }
 	public string Url { get; set; }
@@ -79,6 +99,7 @@ The following **Example** shows how to define simple binding to match item field
 
 ````CSHMTL
 @* Sample PanelBar bound to self-referencing flat data. Also uses the built-in icons from the Telerik suite. The Project item in the PanelBar redirects to a sample url. *@
+
 <div style="width: 30%;">
     <TelerikPanelBar Data="@Items" 
                      @bind-ExpandedItems="@ExpandedItems">
@@ -180,13 +201,23 @@ If a certain level does not have an explicit data bindings tag, it will use the 
 >caption How to use per-level data binding settings to change model fields
 
 ````CSHTML
-The third level will use the main data bindings settings that do not have a level specified
+@* Provide data to different levels of the PanelBar *@
 
 <div style="width: 30%;">
-    <TelerikPanelBar Data="@Items" 
+    <TelerikPanelBar Data="@Items"
                      @bind-ExpandedItems="@ExpandedItems">
         <PanelBarBindings>
-            <PanelBarBinding Level="1" TextField="SecondLevelText"></PanelBarBinding>
+            <PanelBarBinding Level="1" TextField="SecondLevelText">
+                <HeaderTemplate>
+                    @{ 
+                        var item = context as PanelBarItem;
+
+                        <div style="font-weight: bold; text-decoration: underline">
+                            @item.SecondLevelText
+                        </div>
+                    }
+                </HeaderTemplate>
+            </PanelBarBinding>
         </PanelBarBindings>
     </TelerikPanelBar>
 </div>
@@ -276,6 +307,5 @@ The third level will use the main data bindings settings that do not have a leve
 
   * [Binding to Flat Data]({%slug panelbar-data-binding-flat%})
   * [Binding to Hierarchical Data]({%slug panelbar-data-binding-hierarchical%})
-  * [Load on Demand]({%slug panelbar-data-binding-load-on-demand%})
   * [Live Demo: PanelBar Flat Data](https://demos.telerik.com/blazor-ui/panelbar/flat-data)
   * [Live Demo: PanelBar Hierarchical Data](https://demos.telerik.com/blazor-ui/panelbar/hierarchical-data)
