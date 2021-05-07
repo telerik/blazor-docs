@@ -14,7 +14,7 @@ The <a href="https://www.telerik.com/blazor-ui/panelbar" target="_blank">Blazor 
 
 
 
-This article is separated in the following sections:
+#### In this article:
 
 * [Basics](#basics)
 
