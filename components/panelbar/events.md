@@ -1,14 +1,14 @@
 ---
 title: Events
-page_title: TreeView - Events
-description: Events of the TreeView for Blazor.
-slug: treeview-events
-tags: telerik,blazor,treeview,events
+page_title: PanelBar - Events
+description: Events of the PanelBar for Blazor.
+slug: panelbar-events
+tags: telerik,blazor,panelbar,events
 published: True
 position: 20
 ---
 
-# TreeView Events
+# PanelBar Events
 
 This article explains the events available in the Telerik TreeView for Blazor:
 
