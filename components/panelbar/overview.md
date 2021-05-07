@@ -92,12 +92,12 @@ To use a Telerik PanelBar for Blazor:
             {
                 Text = "Item 2",
                 Items = new List<PanelBarItem>()
-        {
+                {
                     new PanelBarItem()
                     {
                         Text = "Item 2.1",
                         Items = new List<PanelBarItem>()
-            {
+                        {
                             new PanelBarItem()
                             {
                                 Text = "Item 2.1.1"
