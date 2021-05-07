@@ -14,9 +14,9 @@ The PanelBar component allows you to define custom templates for both the parent
 
 The PanelBar can use templates for:
 
-* [HeaderTemplate]({%slug panelbar-templates-header%}) - controls the rendering of the [Header items]({%slug panelbar-overview%}#elements-of-a-panelbar-item)
+* You can control the rendering of the [Header items]({%slug panelbar-overview%}#elements-of-a-panelbar-item) by using the [HeaderTemplate]({%slug panelbar-templates-header%})
 
-* [ContentTemplate]({%slug panelbar-templates-content%}) - controls the rendering of the [Content items]({%slug panelbar-overview%}#elements-of-a-panelbar-item)
+* You can control the rendering of the [Header items]({%slug panelbar-overview%}#elements-of-a-panelbar-item) by using the [ContentTemplate]({%slug panelbar-templates-content%})
 
 
 ## See Also
