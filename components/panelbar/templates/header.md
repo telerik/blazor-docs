@@ -11,7 +11,7 @@ position: 5
 # HeaderTemplate
 
 
-You can control and customize the rendering of the header items in the PanelBar by using the `HeaderTemplate`. It provides a `context` object that you can cast to the type that the PanelBar is bound it.
+You can control and customize the rendering of the header items in the PanelBar by using the `HeaderTemplate`. It provides a `context` object that you can cast to the type that the PanelBar is bound to.
 
 The `HeaderTemplate` of a level is defined under the `PanelBarBinding` tag.
 
