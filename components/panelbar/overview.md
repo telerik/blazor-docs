@@ -10,7 +10,7 @@ position: 0
 
 # PanelBar Overview
 
-The <a href="https://www.telerik.com/blazor-ui/panelbar" target="_blank">Blazor PanelBar component</a> [displays data (flat or hierarchical)]({%slug panelbar-data-binding-overview%}) in an accordion type structure. In addition to built-in [navigation capabilities]({%slug panelbar-navigation%}), you can navigate through the items and their children, define [templates]({%slug panelbar-templates%}), render text and [icons/images]({%slug panelbar-icons%}), and respond to [events]({%slug panelbar-events%}).
+The <a href="https://www.telerik.com/blazor-ui/panelbar" target="_blank">Blazor PanelBar component</a> displays [data]({%slug panelbar-data-binding-overview%}) ([flat]({%slug panelbar-data-binding-flat%}) or [hierarchical]({%slug panelbar-data-binding-hierarchical%})) in an accordion type structure. In addition to built-in [navigation capabilities]({%slug panelbar-navigation%}), you can navigate through the items and their children, define [templates]({%slug panelbar-templates%}), render text and [icons/images]({%slug panelbar-icons%}), and respond to [events]({%slug panelbar-events%}).
 
 
 
