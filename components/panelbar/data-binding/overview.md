@@ -19,7 +19,7 @@ First, review:
 * The available (bindable) [features of a PanelBar item](#panelbar-item-features).
 * How to match fields in the model with the PanelBar item [data bindings](#data-bindings).
 
-There are three modes of providing data to a PanelBar, and they all use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
+There are two modes of providing data to a PanelBar, and they all use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
 
 * [Flat data]({%slug panelbar-data-binding-flat%}) - a single collection of items with defined parent-child relationships.
 * [Hierarchical data]({%slug panelbar-data-binding-hierarchical%}) - separate collections of items and their child items.
