@@ -163,6 +163,9 @@ navigation:
      "*components/editor/edit-modes":
         title: "Edit Modes"
         position: 80
+     "*components/panelbar/data-binding":
+        title: "Data Binding"
+        position: 2
 
 ## List helpers directory names and order here, like this:
      "*appearance":
@@ -381,6 +384,7 @@ intro_columns:
       "TreeView": "components/treeview/overview"
       "Pager": "pager-overview"
       "ToolBar": "toolbar-overview"
+      "PanelBar": "panelbar-overview"
 
   -
     title: "Interactivity and UX"
