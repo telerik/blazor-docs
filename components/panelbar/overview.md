@@ -144,7 +144,7 @@ To use a Telerik PanelBar for Blazor:
 
 A PanelBar is often used to navigate through different pages, views or sections in the application. To do that with the TelerikPanelBar.
 
-* Use the built-in `UrlField` in the [data bindings]({%slug panelbar-data-binding-overview%) to populate the URLs in the anchors the treeview will generate for you.
+* Use the built-in `UrlField` in the [data bindings]({%slug panelbar-data-binding-overview%}) to populate the URLs in the anchors the treeview will generate for you.
 * use a [Template]({%slug panelbar-templates%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
 
 >caption Navigation with PanelBar through the UrlField
