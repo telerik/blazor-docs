@@ -10,9 +10,10 @@ position: 10
 
 ## ContentTemplate
 
-The `ContentTemplate` is defined under the `PanelBarBinding` tag.
 
 You can control and customize the rendering of the content items in the PanelBar. It provides a `context` object that you can cast to the type that the PanelBar is bound it.
+
+The `ContentTemplate` is defined under the `PanelBarBinding` tag.
 
 >caption Use the ContentTemplate to customize the content items
 

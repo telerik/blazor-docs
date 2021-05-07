@@ -10,9 +10,10 @@ position: 5
 
 # HeaderTemplate
 
-The `HeaderTemplate` of a level is defined under the `PanelBarBinding` tag.
 
 You can control and customize the rendering of the header items in the PanelBar by using the `HeaderTemplate`. It provides a `context` object that you can cast to the type that the PanelBar is bound it.
+
+The `HeaderTemplate` of a level is defined under the `PanelBarBinding` tag.
 
 If no levels are defined the `HeaderTemplate` will apply to the entire data.
 
