@@ -113,6 +113,8 @@ The `ExpandedItemsChanged` event fires when the user expands or collapses a node
 >caption Handle the ExpandedItemsChanged events
 
 ````CSHTML
+@* Use the ExpandedItemsChanged to respond to the user expanding or collapsing items in the PanelBar *@
+
 <div style="width: 30%;">
     <TelerikPanelBar Data="@Items" ExpandedItems="@ExpandedItems" ExpandedItemsChanged="@ExpandedItemsChanged">
     </TelerikPanelBar>
