@@ -12,13 +12,13 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/panelbar" target="_blank">Blazor PanelBar component</a> displays data (flat or hierarchical) in an accordion type structure. In addition to built-in navigation capabilities, you can navigate through the items and their children, define [templates]({%slug panelbar-templates%}), render text and icons/images, and respond to events.
 
-The PanelBar component consists of two separate parts: `Header` and `Content`
 
-![panelbar parts](images/panelbar-parts-overview.png)
 
 This article is separated in the following sections:
 
 * [Basics](#basics)
+
+* [Elements of a PanelBar Item](#elements-of-a-panelbar-item)
 
 * [Navigation](#navigation)
 
@@ -139,6 +139,11 @@ To use a Telerik PanelBar for Blazor:
 }
 ````
 
+## Elements of a PanelBar Item
+
+Each item in the PanelBar consists of a `Header` and `Content`. The image below illustrates the concept.
+
+![panelbar parts](images/panelbar-parts-overview.png)
 
 ## Navigation
 
