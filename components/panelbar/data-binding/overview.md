@@ -76,6 +76,8 @@ Each `PanelBarBinding` tag exposes the following properties that refer to item p
 
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
 
+@[template](/_contentTemplates/common/navigation-components.md#default-fields-match-issues)
+
 >important If you are using hierarchical data binding, your model must not contain a field called `ParentId` (or a field that matches the name given to the `ParentIdField` parameter of a `PanelBarBinding`). That would confuse the PanelBar that it is binding to flat data, and so there may be no roots and you may see no data.
 
 >caption Default field names for PanelBar item bindings. If you use these, you don't have to specify them in the `PanelBarBinding` tag explicitly.
