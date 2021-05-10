@@ -221,6 +221,8 @@ navigation:
         title: "MultiViewCalendar"
      "*calendar":
         title: "Calendar"
+     "*card":
+        title: "Card"
      "*components/chart":
         title: "Chart"
      "*checkbox":
@@ -478,6 +480,7 @@ intro_columns:
       "Form": "form-overview"
       "Validation Tools": "validation-tools-overview"
       "Media Query": "mediaquery-overview"
+      "Card": "card-overview"
   -
     title: "Scheduling"
     items:
