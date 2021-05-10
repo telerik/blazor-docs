@@ -128,7 +128,9 @@ The `ExpandedItemsChanged` event fires when the user expands or collapses a node
     private void ExpandedItemsChanged(IEnumerable<object> expandedItems)
     {
         ExpandedItems = expandedItems;
-        // If the value of the ExpandedItems is not set in the event handler, essentially the event will be cancelled. 
+        // If the value of the ExpandedItems is not set in the event handler, essentially the event will be cancelled.
+
+        Console.WriteLine($"The ExpandedItemsChanged event fired with {ExpandedItems.Count()} items.");
     }
 
     public class PanelBarItem
