@@ -11,9 +11,9 @@ position: 2
 
 This article demonstrates how to create a new application that has the Progress&reg; Telerik&reg; UI for Blazor components working.
 
-## Get the Wizard
+## Get the Extension
 
-To use the **Create New Project Wizard**, install the Telerik UI for Blazor Visual Studio Code Extension. @[template](/_contentTemplates/common/general-info.md#vs-code-x-download)
+To use the **Telerik UI for Blazor Template Wizard**, install the Telerik UI for Blazor Visual Studio Code Extension. @[template](/_contentTemplates/common/general-info.md#vs-code-x-download)
 
 ## Start the Wizard
 
