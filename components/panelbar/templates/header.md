@@ -28,7 +28,7 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
         <PanelBarBindings>
             <PanelBarBinding>
                 <HeaderTemplate>
-                    @{ 
+                    @{
                         var item = context as PanelBarItem;
 
                         <div style="font-weight: bold; text-decoration: underline">
@@ -51,6 +51,8 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
         public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
+        public string Icon { get; set; }
+        public string Url { get; set; }
     }
 
     private List<PanelBarItem> LoadFlatData()
@@ -60,41 +62,47 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
         items.Add(new PanelBarItem()
         {
             Id = 1,
-            Text = "Parent 1",
+            Text = "Project",
             ParentId = null,
-            HasChildren = true
+            HasChildren = false,
+            Icon = "folder",
+            Url = "projectURL.url"
         });
 
         items.Add(new PanelBarItem()
         {
             Id = 2,
-            Text = "Parent 2",
+            Text = "Implementation",
             ParentId = null,
             HasChildren = true,
+            Icon = "code"
         });
 
         items.Add(new PanelBarItem()
         {
             Id = 3,
-            Text = "Child 1 of Parent 2",
+            Text = "C#",
             ParentId = 2,
-            HasChildren = false
+            HasChildren = false,
+            Icon = "cs"
         });
 
         items.Add(new PanelBarItem()
         {
             Id = 4,
-            Text = "Child 2 of Parent 2",
+            Text = "HTML 5",
             ParentId = 2,
-            HasChildren = false
+            HasChildren = false,
+            Icon = "html5"
         });
 
         items.Add(new PanelBarItem()
         {
             Id = 5,
-            Text = "Child 1 of Parent 1",
-            ParentId = 1,
-            HasChildren = false
+            Text = "CSS",
+            ParentId = 2,
+            HasChildren = false,
+            Icon = "css"
         });
 
         return items;
