@@ -22,7 +22,7 @@ The Telerik UI for Blazor VS Code extension support Visual Studio Code 2019.
 
 ## Get the Extension
 
-@[template](/_contentTemplates/common/general-info.md#vsx-download)
+@[template](/_contentTemplates/common/general-info.md#vs-code-x-download)
 
 To access the VS Code extension press `Ctrl`+`Shift`+`P` in Windows/Linux or `Cmd`+`Shift`+`P` on Mac to open VSCode's extension launcher.
 

@@ -14,7 +14,7 @@ To add the Telerik Components to your existing Blazor application, use the **Con
 
 ## Get the Wizard
 
-To use the **Convert Project Wizard**, install the Telerik UI for Blazor Visual Studio Extensions. @[template](/_contentTemplates/common/general-info.md#vs-code-x-download)
+To use the **Convert Project Wizard**, install the Telerik UI for Blazor Visual Studio Code Extension. @[template](/_contentTemplates/common/general-info.md#vs-code-x-download)
 
 
 ## Start the Wizard

@@ -58,7 +58,7 @@ You can get them from the:
 
 
 #vs-code-x-download
-You can get the extention:
+You can get the extension:
 
 * from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard)
 

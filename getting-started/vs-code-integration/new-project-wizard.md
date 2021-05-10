@@ -13,7 +13,7 @@ This article demonstrates how to create a new application that has the Progress&
 
 ## Get the Wizard
 
-To use the **Create New Project Wizard**, install the Telerik UI for Blazor Visual Studio Extensions. @[template](/_contentTemplates/common/general-info.md#vs-code-x-download)
+To use the **Create New Project Wizard**, install the Telerik UI for Blazor Visual Studio Code Extension. @[template](/_contentTemplates/common/general-info.md#vs-code-x-download)
 
 ## Start the Wizard
 
