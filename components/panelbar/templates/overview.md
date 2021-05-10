@@ -16,7 +16,7 @@ The PanelBar can use templates for:
 
 * You can control the rendering of the [Header items]({%slug panelbar-overview%}#elements-of-a-panelbar-item) by using the [HeaderTemplate]({%slug panelbar-templates-header%})
 
-* You can control the rendering of the [Header items]({%slug panelbar-overview%}#elements-of-a-panelbar-item) by using the [ContentTemplate]({%slug panelbar-templates-content%})
+* You can control the rendering of the [Content items]({%slug panelbar-overview%}#elements-of-a-panelbar-item) by using the [ContentTemplate]({%slug panelbar-templates-content%})
 
 
 ## See Also
