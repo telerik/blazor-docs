@@ -582,6 +582,16 @@ defaults:
         editable: true
         description_suffix: "Read more in our Blazor Knowledgebase articles."
 
+- 
+    scope:
+        path: ""
+    values:
+        announcement: |
+             NEW: Telerik UI R2 2021 Release Webinar on May 18 | 11:00 AM ET. <a href="https://www.telerik.com/campaigns/wb-telerik-r2-2021-release-webinar-web-desktop-and-mobile-products" target="_blank">Save your seat</a>!
+
+
+
+
 #type_links:
 #    "kendo.Class": "/api/javascript/class"
 #    "kendo.data.DataSource": "/api/javascript/data/datasource"
