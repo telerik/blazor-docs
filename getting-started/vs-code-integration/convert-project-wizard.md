@@ -8,9 +8,21 @@ position: 3
 
 # Convert to Telerik Application
 
-This article demonstrates how to enable the Progress&reg; Telerik&reg; UI for Blazor components in your existing Blazor app with a few mouse clicks.
+This article demonstrates how to enable the Progress&reg; Telerik&reg; UI for Blazor components in your existing Blazor app with a single VS Code command.
 
-To add the Telerik Components to your existing Blazor application, use the **Convert Command** of the Telerik UI for Blazor Visual Studio Code Extension.
+To add the Telerik Components to your existing Blazor application, use the `Convert Command` of the Telerik UI for Blazor Visual Studio Code Extension.
+
+>caption In this article:
+* [Get the Extension](#get-the-extension)
+
+* [Convert your project](#convert-your-project)
+
+* [Troubleshooting](#troubleshooting)
+    * [`_Imports.razor` not found](#`Imports.razor`-not-found)
+    * [`MainLayout.razor` not found](#`MainLayout.razor`-not-found)
+    * [`_Host.cshtml` or `index.html` is malformed, don't exist or does not contain a `<head>` element](#`_Host.cshtml`-or-`index.html`-is-malformed,-don't-exist-or-does-not-contain-a-`<head>`-element)
+    * [Unable to locate services collection](#unable-to-locate-services-collection)
+    * [No suitable project to convert](#no-suitable-project-to-convert)
 
 ## Get the Extension
 
@@ -27,15 +39,18 @@ To add the Telerik Components to your existing Blazor application, use the **Con
 
 1. The conversion process will start
 
+
 1. The following notification will appear in the bottom right corner of the VS Code to indicate that the conversion has successfully passed.
 
 ![Success Notification](images/successfully-converted-example.png)
 
-  * If the Telerik components are already enabled in the project you will see the following notification:
+
+If the Telerik components are already enabled in the project you will see the following notification:
 
 ![Already converted project Notification](images/already-converted-example.png)
 
-1. You now have enabled the Progress&reg; Telerik&reg; UI for Blazor components in your Blazor app!
+
+>tip You now have enabled the Progress&reg; Telerik&reg; UI for Blazor components in your Blazor app!
 
 
 ## Troubleshooting
@@ -58,13 +73,13 @@ The Telerik extension searches for the default `MainLayout.razor` file in order 
 
 In order to fix this, double check to make sure you have the `MainLayout.razor` file with its default naming.
 
-### `_Host.cshtml` is malformed, don't exist or does not contain a `<head>` element
+### `_Host.cshtml` or `index.html` is malformed, don't exist or does not contain a `<head>` element
 
-The Telerik extension searches for the default `_Host.cshtml` file in order to add the Telerik UI for Blazor CSS and JavaScript files in its `<head>` tag. In case you have renamed the `_Host.cshtml` file, you have deleted it or removed its `<head>` tag you will get the following error when trying to convert the project:
+The Telerik extension searches for the default `_Host.cshtml` file in a Blazor Server-side app and `index.html` file in a Blazor WASM app in order to add the Telerik UI for Blazor CSS and JavaScript files in its `<head>` tag. In case you have renamed the `_Host.cshtml`/`index.html` file, you have deleted it or removed its `<head>` tag you will get the following error when trying to convert the project:
 
 ![Changed _Host.cshtml file](images/changed-host-example.png)
 
-In order to fix this, double check to make sure you have the `_Host.cshtml` file with its default naming and it contains a `<head>` tag.
+In order to fix this, double check to make sure you have the `_Host.cshtml`/`index.html` file with its default naming and it contains a `<head>` tag.
 
 
 ### Unable to locate services collection

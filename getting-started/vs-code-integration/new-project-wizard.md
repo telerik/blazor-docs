@@ -9,7 +9,7 @@ position: 2
 
 # Create New Projects
 
-This article demonstrates how to create a new application that has the Progress&reg; Telerik&reg; UI for Blazor components working.
+This article demonstrates how to use the Telerik Extension for Visual Studio Code to create a new application that has the Progress&reg; Telerik&reg; UI for Blazor components working.
 
 ## Get the Extension
 
@@ -48,5 +48,6 @@ To create a Telerik-enabled Blazor project:
 
     1. Execute `dotnet run` and navigate your browser to the link you see in the console output.
 
-1. You now have a Blazor SPA app running!
+
+>tip You now have a Blazor SPA app running!
 
