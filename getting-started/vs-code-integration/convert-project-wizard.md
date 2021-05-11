@@ -18,11 +18,7 @@ To add the Telerik Components to your existing Blazor application, use the `Conv
 * [Convert your project](#convert-your-project)
 
 * [Troubleshooting](#troubleshooting)
-    * [`_Imports.razor` not found](#`Imports.razor`-not-found)
-    * [`MainLayout.razor` not found](#`MainLayout.razor`-not-found)
-    * [`_Host.cshtml` or `index.html` is malformed, don't exist or does not contain a `<head>` element](#`_Host.cshtml`-or-`index.html`-is-malformed,-don't-exist-or-does-not-contain-a-`<head>`-element)
-    * [Unable to locate services collection](#unable-to-locate-services-collection)
-    * [No suitable project to convert](#no-suitable-project-to-convert)
+
 
 ## Get the Extension
 
@@ -57,7 +53,14 @@ If the Telerik components are already enabled in the project you will see the fo
 
 There are a few common problems that might occur when converting a project:
 
-### `_Imports.razor` not found
+
+* [_Imports.razor not found](#_importsrazor-not-found)
+* [MainLayout.razor not found](#mainlayoutrazor-not-found)
+* [_Host.cshtml or index.html is malformed, don't exist or does not contain a  head element](#_hostcshtml-or-indexhtml-is-malformed-dont-exist-or-does-not-contain-a-head-element)
+* [Unable to locate services collection](#unable-to-locate-services-collection)
+* [No suitable project to convert](#no-suitable-project-to-convert)
+
+### _Imports.razor not found
 
 The Telerik extension searches for the default `_Imports.razor` file in order to add the `Telerik.Blazor` and `Telerik.Blazor.Components` namespaces. If you don't have a `_Imports.razor` file in your project or if you have renamed it, you will get the following error when trying to convert the project:
 
@@ -65,7 +68,7 @@ The Telerik extension searches for the default `_Imports.razor` file in order to
 
 In order to fix this, double check to make sure you have the `_Imports.razor` file with its default naming.
 
-### `MainLayout.razor` not found
+### MainLayout.razor not found
 
 The Telerik extension searches for the default `MainLayout.razor` file in order to add the `TelerikLayout`. If you don't have a `MainLayout.razor` file in your project or if you have renamed it, you will get the following error when trying to convert the project:
 
@@ -73,7 +76,7 @@ The Telerik extension searches for the default `MainLayout.razor` file in order 
 
 In order to fix this, double check to make sure you have the `MainLayout.razor` file with its default naming.
 
-### `_Host.cshtml` or `index.html` is malformed, don't exist or does not contain a `<head>` element
+### _Host.cshtml or index.html is malformed, don't exist or does not contain a head element
 
 The Telerik extension searches for the default `_Host.cshtml` file in a Blazor Server-side app and `index.html` file in a Blazor WASM app in order to add the Telerik UI for Blazor CSS and JavaScript files in its `<head>` tag. In case you have renamed the `_Host.cshtml`/`index.html` file, you have deleted it or removed its `<head>` tag you will get the following error when trying to convert the project:
 
