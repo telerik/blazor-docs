@@ -57,6 +57,14 @@ You can get them from the:
 #end
 
 
+#vs-code-x-download
+You can get the extension:
+
+* from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard)
+
+* by opening the **Extensions** tab in Visual Studio Code, then searching for **Telerik UI for Blazor Template Wizard** and clicking **Install**
+#end
+
 
 #valuebind-vs-databind-link
 For details on Value Binding and Data Binding, and the differences between them, see the [Value Binding vs Data Binding]({%slug get-started-value-vs-data-binding%}) article.
