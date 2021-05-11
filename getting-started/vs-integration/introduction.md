@@ -10,7 +10,7 @@ position: 1
 
 The Progress&reg; Telerik&reg; UI for Blazor Visual Studio (VS) Extensions enhance the experience in developing Blazor web applications with Telerik UI for Blazor.
 
-The Telerik Blazor Extensions provide the following advantages:
+>caption The Telerik Blazor Extensions provide the following advantages:
 
 * They facilitate the [creation of projects]({% slug getting-started-vs-integration-new-project %}). 
 

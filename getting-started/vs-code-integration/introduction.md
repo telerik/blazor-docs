@@ -11,14 +11,13 @@ position: 1
 The **Telerik UI for Blazor Template Wizard** [Visual Studio Code](https://code.visualstudio.com/) Extension enhances the experience in developing Blazor web applications with Telerik UI for Blazor.
 
 
-The Telerik Blazor Extension for Visual Studio Code provides the following advantages:
+>caption The Telerik Blazor Extension for Visual Studio Code provides the following advantages:
 
 * It facilitates the [creation of projects]({% slug getting-started-vs-code-integration-new-project %}).
 
 * You can also use it to [add the Telerik Components to an existing project]({%slug getting-started-vs-code-integration-convert-project %}) with a few clicks.
 
 
-The Telerik UI for Blazor VS Code extension support Visual Studio Code 2019.
 
 ## Get the Extension
 
@@ -27,3 +26,6 @@ The Telerik UI for Blazor VS Code extension support Visual Studio Code 2019.
 To access the VS Code extension press `Ctrl`+`Shift`+`P` in Windows/Linux or `Cmd`+`Shift`+`P` on Mac to open VSCode's extension launcher.
 
 ![launch Telerik Blazor VS Code extension](images/launch-extension.png)
+
+
+>note When using the Telerik Blazor Extension for Visual Studio Code to create new project or convert an existing one, an important point to take into consideration is that the extension is designed to get and apply the latest version of Telerik UI for Blazor that you have in your **local NuGet feed**. Therefore, it is up to you to control the version of Telerik UI for Blazor that will be used in your application (for best performance of the Telerik UI for Blazor components, we recommend using the latest stable version).
