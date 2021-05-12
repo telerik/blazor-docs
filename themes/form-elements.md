@@ -111,9 +111,11 @@ You can match standard `button` and `a` elements with the styling of a Telerik B
 
 ## Cards
 
+>tip There is a native Telerik [Blazor Card component]({%slug card-overview%}).
+
 The Telerik Themes carry styling for card elements. You can read more about them in the [Kendo UI Cards](https://docs.telerik.com/kendo-ui/styles-and-layout/cards) article.
 
->tip The Cards that Telerik provides styles and sample HTML for can be put into reusable Blazor components in your app where you can define titles and content templates and any other features if needed by your use case and expose them as parameters.
+
 
 ## See Also
 

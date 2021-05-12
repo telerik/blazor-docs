@@ -147,6 +147,8 @@ You can use the following properties on the bound columns:
 * `HeaderTemplate` - this property can also be used as an inner tag and defines the custom contents of the [header cell]({%slug treelist-templates-column-header%}) that you can render instead of the Title.
 * `EditorTemplate` - this property can also be used as an inner tag and defines a [custom input and logic that is used for editing the field]({%slug treelist-templates-editor%}).
 
+* `Columns` - a nested tag where you can declare [multiple column headers]({%slug treelist-columns-multiple-column-headers%}).
+
 
 >tip You can find more examples in the rest of the treelist documentation and in our [live demos](https://demos.telerik.com/blazor-ui/treelist/overview).
 
