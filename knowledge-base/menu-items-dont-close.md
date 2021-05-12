@@ -17,6 +17,8 @@ I have setup a [Menu]({%slug components/menu/overview%}) in my Telerik Blazor Ap
 >caption The menu items do not close when the user hovers quickly over them
 
 ![menu items do not close on hover](images/menu-items-dont-close.gif)
+
+>note This issue should be fixed in the 2.23.0 release https://feedback.telerik.com/blazor/1428330-multiple-parent-menu-items-can-be-expanded-at-the-same-time
    
 ## Cause\Possible Cause(s)
 
