@@ -152,6 +152,6 @@ The content represents the items in the hierarchy that does not have children. I
 ## See Also
 
   * [Data Binding a PanelBar]({%slug panelbar-data-binding-overview%})
-  * [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/panelbar/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.PanelBar)
+  * [Live Demo: PanelBar](https://demos.telerik.com/blazor-ui/panelbar/overview)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikPanelBar)
 
