@@ -152,6 +152,7 @@ You can use the following properties on the bound columns:
 
 * The Grid uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert action is invoked, so the Model should have a Parameterless constructor defined. A workaround might be [invoking Insert through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
 
+* The `Data` collection of the grid must contain instances of only one model type. You cannot bind the grid to a base class and populate its data with instances of inherited classes (neither one, nor more than one type) - extra fields from such inherited classes may not work or may even throw exceptions because the grid will not know about them when its `Data` collection is of the base class type.
 
 >tip You can optimize database queries in two ways:
 >
