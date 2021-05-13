@@ -110,6 +110,8 @@ This section provides the following examples:
 
 ### Validate a Model
 
+You can use the built-in `DataAnnotationsValidator` that comes with the Blazor framework.
+
 ````CSHTML
 @* Use the Telerik Edit Form for Blazor to Validate a model *@
 
@@ -215,7 +217,9 @@ When using a model with nested objects and fields, specify their `Field` setings
 
 ### Fluent Validation
 
-You can use third-party validation libraries such as <a href="https://fluentvalidation.net/" target="_blank">FluentValidation</a> together with the Telerik Form for Blazor. 
+You can use third-party validation libraries that integrate with the standard `EditContext` such as <a href="https://fluentvalidation.net/" target="_blank">FluentValidation</a> together with the Telerik Form for Blazor.
+
+>note Such third party tools are not included with the Telerik UI for Blazor package. Your project must reference their NuGet packages explicitly. The code snippet below will not run unless you install the an appropriate package first. You can find some in <a href="https://docs.fluentvalidation.net/en/latest/blazor.html" target="_blank">their official documentation</a>.
 
 ````CSHTML
 @* Use FluentValidation to validate a model *@ 
