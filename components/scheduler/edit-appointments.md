@@ -306,4 +306,4 @@ The example below shows the signature of the event handlers so you can copy the 
 
   * [Data Binding]({%slug scheduler-appointments-databinding%})
   * [Live Demo: Appointment Editing](https://demos.telerik.com/blazor-ui/scheduler/appointment-editing)
-  
+  * [Custom Edit Form](https://github.com/telerik/blazor-ui/tree/master/scheduler/custom-edit-form)
