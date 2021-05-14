@@ -96,6 +96,9 @@ The following list of resources provides examples for data binding a grid in var
 * **Foreign Keys** - using foreign tables and keys is usually done through the grid templates. You can read more and find examples in the [Grid - Foreign Key]({%slug grids-foreign-key%}) KnowledgeBase article.
 
 
+>note The `Data` collection of the grid must contain instances of only one model type.
+
+
 ### Loading Animation
 
 When the user performs data operations in the grid, the grid will display a loading sign over itself when it detects a long-running operation (over 600ms). This improves the user experience so they know they have to wait for the action to complete, and also prevents repeated actions.
