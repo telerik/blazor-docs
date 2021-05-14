@@ -18,6 +18,8 @@ This article contains the following sections
 * [Define Resources](#define-resources)
 * [Examples](#examples)
 	* [One Resource](#one-resource)
+        * [Resource model with the default fields](#single-resource-type-in-the-scheduler-using-the-default-fields-for-the-resource-model)
+        * [Resource model with different than the default fields](#single-resource-type-in-the-scheduler-using-different-than-the-default-fields-for-the-resource-model)
 	* [Multiple Resources](#multiple-resources)
 
 ## Basics
@@ -38,7 +40,7 @@ To use resources:
     * Set its `Field` parameter to a string that will point to the name of the field in the appointment that associated appointments with the resource type.
     * The `Title` parameter defines the text shown for its dropdown in the [edit form]({%slug scheduler-appointments-edit%}).
 1. Provide a collection of resource entries for each type of resource you will use to the `Data` parameter of the resource.
-    * The `ColorField`, `ValueField` and `TextField` let you specify field names in the resource model that contain the data. These fields must all be of type `string`. The default values are `Value`, `Text`, `Color` respectively.
+    * The `ColorField`, `ValueField` and `TextField` let you specify field names in the resource model that contain the data. These fields must all be of type `string`. The default values are `Value`, `Text`, `Color` respectively. If you use them, you don't need to explicitly specify them in the markup as per [this example](#single-resource-type-in-the-scheduler-using-the-default-fields-for-the-resource-model).
 1. Define appointments [as usual]({%slug scheduler-appointments-databinding%}). Add a `string` field to them for each resources type they will require. The name of this field must match the value of the `Field` parameter of the resource declaration.
     * If you are using multiple resource types, you will need a field for each resource.
 1. Populate the appointment field that matches the resource name with the corresponding `Value` of the resource that you want associated with it.
@@ -48,26 +50,139 @@ To use resources:
 
 ## Examples
 
-The two examples below showcase [single resource](#one-resource) and [multiple resources](#multiple-resource) respectively. For brevity, they use hardcoded data, but you can populate the corresponding collections dynamically from your actual data service, and you can also use `async` methods to do so (our [live demo](https://demos.telerik.com/blazor-ui/scheduler/resources) shows an example of that).
+The examples below showcase [single resource](#one-resource) and [multiple resources](#multiple-resource) respectively. For brevity, they use hardcoded data, but you can populate the corresponding collections dynamically from your actual data service, and you can also use `async` methods to do so (our [live demo](https://demos.telerik.com/blazor-ui/scheduler/resources) shows an example of that).
 
 >tip The examples below hardcode the resource collections for brevity. In a real case you might be fetching them from asynchronous API. If so, initialize the resource collections to avoid null references while the scheduler is initializing, something like `List<SchedulerResource> Managers { get; set; } = new List<SchedulerResource>();`.
 
 ### One Resource
 
+#### Single Resource type in the scheduler using the default fields for the resource model
+
+The field names used for the resource model (Text, Value and Color) are the default ones, so you don't need to explicitly define them in the markup.
+
 >caption The result from the example below
 
 ![](images/resources-overview.png)
 
->caption Single Resource type in the scheduler
 
 ````CSHTML
 @* This example shows how to declare a resource and to match it to appointments, and how to have an appointment that is not associated with that resource.
-Actual CRUD operations are not implemented for brevity, just the UX is enabled so you can see how the edit form looks like.*@
+    Actual CRUD operations are not implemented for brevity, just the UX is enabled so you can see how the edit form looks like.*@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px" Width="800px"
                   AllowUpdate="true" AllowCreate="true">
     <SchedulerResources>
         <SchedulerResource Field="ManagerName" Title="Manager Name" Data="@Managers" />
+    </SchedulerResources>
+    <SchedulerViews>
+        <SchedulerDayView StartTime="@DayStart" />
+        <SchedulerWeekView StartTime="@DayStart" />
+        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
+    </SchedulerViews>
+</TelerikScheduler>
+
+@code {
+    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
+    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
+    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
+    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
+{
+        new SchedulerAppointment
+        {
+            ManagerName = "", //this appointment does not need a manager
+            Title = "Vet visit",
+            Description = "The cat needs vaccinations and her teeth checked.",
+            Start = new DateTime(2019, 11, 26, 11, 30, 0),
+            End = new DateTime(2019, 11, 26, 12, 0, 0)
+        },
+
+        new SchedulerAppointment
+        {
+            ManagerName = "1", // matches the Value field of the corresponding resource
+            Title = "Planning meeting",
+            Description = "Kick off the new project.",
+            Start = new DateTime(2019, 11, 25, 9, 30, 0),
+            End = new DateTime(2019, 11, 25, 12, 45, 0)
+        },
+
+        new SchedulerAppointment
+        {
+            ManagerName = "3",
+            Title = "Board meeting",
+            Description = "Q4 is coming to a close, review the details.",
+            Start = new DateTime(2019, 11, 28, 10, 00, 0),
+            End = new DateTime(2019, 11, 28, 11, 30, 0)
+        },
+    };
+
+    List<Resource> Managers { get; set; } = new List<Resource>()
+    {
+        new Resource // empty resource for appointments that don't require one
+        {
+            Text = "Noone", // can say anything you like, it's just another resource entry
+            Value = "",
+            Color = ""
+        },
+
+        new Resource
+        {
+            Text = "Alex",
+            Value = "1",
+            Color = "purple"
+        },
+        new Resource
+        {
+            Text = "Bob",
+            Value = "2",
+            Color = "#51a0ed"
+        },
+        new Resource
+        {
+            Text = "Sarah",
+            Value = "3",
+            Color = "#56ca85"
+        }
+    };
+
+    public class Resource
+    {
+        // these are the default field names
+        public string Text { get; set; }
+        public string Value { get; set; }
+        public string Color { get; set; } // must be a valid CSS string
+    }
+
+    public class SchedulerAppointment
+    {
+        public string ManagerName { get; set; } //field that matches the resource declaration Field
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
+    }
+}
+````
+
+#### Single Resource type in the scheduler using different than the default fields for the resource model
+
+The field names used for the resource model (Name, Id and Shade) are different than the default ones, therefore should be specified in the markup, so that the TextField, ValueField and ColorField will point to them.
+
+>caption The result from the example below
+
+![](images/resources-overview.png)
+
+
+````CSHTML
+
+@* This example shows how to declare a resource and to match it to appointments, and how to have an appointment that is not associated with that resource.
+   Actual CRUD operations are not implemented for brevity, just the UX is enabled so you can see how the edit form looks like.*@
+
+<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px" Width="800px"
+                  AllowUpdate="true" AllowCreate="true">
+    <SchedulerResources>
+        <SchedulerResource TextField="Name" ValueField="Id" ColorField="Shade"
+                           Field="ManagerName" Title="Manager Name" Data="@Managers" />
     </SchedulerResources>
     <SchedulerViews>
         <SchedulerDayView StartTime="@DayStart" />
@@ -110,41 +225,41 @@ Actual CRUD operations are not implemented for brevity, just the UX is enabled s
         },
     };
 
-    List<SchedulerResource> Managers { get; set; } = new List<SchedulerResource>()
+    List<Resource> Managers { get; set; } = new List<Resource>()
     {
-        new SchedulerResource // empty resource for appointments that don't require one
+        new Resource // empty resource for appointments that don't require one
         {
-            Text = "Noone", // can say anything you like, it's just another resource entry
-            Value = "",
-            Color = ""
+            Name = "Noone", // can say anything you like, it's just another resource entry
+            Id = "",
+            Shade = ""
         },
 
-        new SchedulerResource
+        new Resource
         {
-            Text = "Alex",
-            Value = "1",
-            Color = "purple"
+            Name = "Alex",
+            Id = "1",
+            Shade = "purple"
         },
-        new SchedulerResource
+        new Resource
         {
-            Text = "Bob",
-            Value = "2",
-            Color = "#51a0ed"
+            Name = "Bob",
+            Id = "2",
+            Shade = "#51a0ed"
         },
-        new SchedulerResource
+        new Resource
         {
-            Text = "Sarah",
-            Value = "3",
-            Color = "#56ca85"
+            Name = "Sarah",
+            Id = "3",
+            Shade = "#56ca85"
         }
     };
 
-    public class SchedulerResource
+    public class Resource
     {
         // these are the default field names
-        public string Text { get; set; }
-        public string Value { get; set; }
-        public string Color { get; set; } // must be a valid CSS string
+        public string Name { get; set; }
+        public string Id { get; set; }
+        public string Shade { get; set; } // must be a valid CSS string
     }
 
     public class SchedulerAppointment
@@ -158,7 +273,6 @@ Actual CRUD operations are not implemented for brevity, just the UX is enabled s
     }
 }
 ````
-
 
 ### Multiple Resources
 
