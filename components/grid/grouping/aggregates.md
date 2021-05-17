@@ -13,6 +13,17 @@ position: 5
 
 The Grid component provides built-in aggregates for column values based on [grouping]({%slug components/grid/features/grouping%}) and also a grand total row.
 
+#### In this article:
+
+
+* [Available Aggregate Functions](#available-aggregate-functions)
+* [Where You Can Use Aggregates](#where-you-can-use-aggregates)
+* [How to Enable Aggregates](#how-to-enable-aggregates)
+* [Example](#example)
+* [Notes](#notes)
+
+## Available Aggregate Functions
+
 There are several available aggregate functions under the `Telerik.Blazor.GridAggregateType` enum:
 
 * `Average`
@@ -23,11 +34,15 @@ There are several available aggregate functions under the `Telerik.Blazor.GridAg
 
 The `Count` aggregate can be applied to any type of field. The other aggregates can only be applied to numerical fields (e.g., `int`, `decimal`, `double`, etc.).
 
+## Where You Can Use Aggregates
+
 You can use aggregates in the following templates:
 
 * [`GroupFooterTemplate`]({%slug grid-templates-column-group-footer%}) of a `GridColumn` - a footer in the respective column that renders when the grid is grouped.
 * [`GroupHeaderTemplate`]({%slug grid-templates-group-header%}) of a `GridColumn` - a header in the respective column that renders when the grid is grouped by that column. The `Value` field in the context carries the current group value.
 * [`FooterTemplate`]({%slug grid-templates-column-footer%}) of a `GridColumn` - a grand total row of footers for the entire grid.
+
+## How to Enable Aggregates
 
 To enable aggregates:
 
@@ -37,10 +52,9 @@ To enable aggregates:
     * If you will be using only `FooterTemplate`s - grouping is not required.
 1. Group the grid to see the effect on group-specific templates
 
-You should define only aggregates that you will use to avoid unnecessary calculations that may be noticeable on large data sets.
 
-If you try to use an aggregate that is not defined, or an aggregate over an unsupported field type, a runtime error will be thrown.
 
+## Example
 
 >caption Use Aggregates in the Telerik Blazor Grid
 
@@ -137,6 +151,16 @@ Enable and use aggregates. To see the full effect, group by a column - "Team" an
 >caption The result of the code snippet above after the grid has been grouped by the `Team` and `Active Projects` columns
 
 ![](images/grid-aggregates-overview.png)
+
+
+
+## Notes 
+
+* You should define only aggregates that you will use to avoid unnecessary calculations that may be noticeable on large data sets.
+
+* If you try to use an aggregate that is not defined, or an aggregate over an unsupported field type, a runtime error will be thrown.
+
+* If you update a field of a model the `Data` collection in the view-model, aggregates will not be updated automatically - the grid needs to re-evaluate that data first, and since this is an expensive operation a UI render does not trigger it. You can [update the data collection]({%slug grid-refresh-data%}) yourself, or fetching it anew from the service (example [here]({%slug components/grid/editing/overview%}), see how the Create/Update/Delete events fetch data anew).
 
 
 ## See Also
