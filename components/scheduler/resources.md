@@ -331,7 +331,7 @@ Actual CRUD operations are not implemented for brevity, just the UX is enabled s
         {
             ManagerName = "", // not all resources need to be matched or used
             RoomId = "1",
-            
+
             Title = "Board meeting",
             Description = "Q4 is coming to a close, review the details.",
             Start = new DateTime(2019, 11, 28, 10, 00, 0),
@@ -339,28 +339,28 @@ Actual CRUD operations are not implemented for brevity, just the UX is enabled s
         },
     };
 
-    List<SchedulerResource> Managers { get; set; } = new List<SchedulerResource>()
+    List<Resource> Managers { get; set; } = new List<Resource>()
     {
-        new SchedulerResource // empty resource for appointments that don't require one
+        new Resource // empty resource for appointments that don't require one
         {
             Text = "Noone", // can say anything you like, it's just another resource entry
             Value = "",
             Color = ""
         },
 
-        new SchedulerResource
+        new Resource
         {
             Text = "Alex",
             Value = "1",
             Color = "purple"
         },
-        new SchedulerResource
+        new Resource
         {
             Text = "Bob",
             Value = "2",
             Color = "#51a0ed"
         },
-        new SchedulerResource
+        new Resource
         {
             Text = "Sarah",
             Value = "3",
@@ -368,9 +368,9 @@ Actual CRUD operations are not implemented for brevity, just the UX is enabled s
         }
     };
 
-    List<SchedulerResource> Rooms { get; set; } = new List<SchedulerResource>()
+    List<Resource> Rooms { get; set; } = new List<Resource>()
     {
-        new SchedulerResource // empty resource for appointments that don't require one
+        new Resource // empty resource for appointments that don't require one
         {
             Text = "None", // can say anything you like, it's just another resource entry
             Value = "",
@@ -378,13 +378,13 @@ Actual CRUD operations are not implemented for brevity, just the UX is enabled s
         },
 
         // we will see these colors first because the rooms resource is declared first
-        new SchedulerResource
+        new Resource
         {
             Text = "Big Room",
             Value = "1",
             Color = "orange"
         },
-        new SchedulerResource
+        new Resource
         {
             Text = "Small Room",
             Value = "2",
@@ -392,7 +392,7 @@ Actual CRUD operations are not implemented for brevity, just the UX is enabled s
         },
     };
 
-    public class SchedulerResource
+    public class Resource
     {
         // these are the default field names
         public string Text { get; set; }
