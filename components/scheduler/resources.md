@@ -18,8 +18,6 @@ This article contains the following sections
 * [Define Resources](#define-resources)
 * [Examples](#examples)
 	* [One Resource](#one-resource)
-        * [Resource model with the default fields](#single-resource-type-in-the-scheduler-using-the-default-fields-for-the-resource-model)
-        * [Resource model with different than the default fields](#single-resource-type-in-the-scheduler-using-different-than-the-default-fields-for-the-resource-model)
 	* [Multiple Resources](#multiple-resources)
 
 ## Basics
@@ -40,7 +38,7 @@ To use resources:
     * Set its `Field` parameter to a string that will point to the name of the field in the appointment that associated appointments with the resource type.
     * The `Title` parameter defines the text shown for its dropdown in the [edit form]({%slug scheduler-appointments-edit%}).
 1. Provide a collection of resource entries for each type of resource you will use to the `Data` parameter of the resource.
-    * The `ColorField`, `ValueField` and `TextField` let you specify field names in the resource model that contain the data. These fields must all be of type `string`. The default values are `Value`, `Text`, `Color` respectively. If you use them, you don't need to explicitly specify them in the markup as per [this example](#single-resource-type-in-the-scheduler-using-the-default-fields-for-the-resource-model).
+    * The `ColorField`, `ValueField` and `TextField` let you specify field names in the resource model that contain the data. These fields must all be of type `string`. The default values are `Value`, `Text`, `Color` respectively. If you use them, you don't need to explicitly specify them in the markup.
 1. Define appointments [as usual]({%slug scheduler-appointments-databinding%}). Add a `string` field to them for each resources type they will require. The name of this field must match the value of the `Field` parameter of the resource declaration.
     * If you are using multiple resource types, you will need a field for each resource.
 1. Populate the appointment field that matches the resource name with the corresponding `Value` of the resource that you want associated with it.
@@ -58,7 +56,7 @@ The examples below showcase [single resource](#one-resource) and [multiple resou
 
 #### Single Resource type in the scheduler using the default fields for the resource model
 
-The field names used for the resource model (Text, Value and Color) are the default ones, so you don't need to explicitly define them in the markup.
+The field names used for the resource model (`Text`, `Value` and `Color`) are the default ones, so you don't need to explicitly define them in the markup.
 
 >caption The result from the example below
 
@@ -86,7 +84,7 @@ The field names used for the resource model (Text, Value and Color) are the defa
     public SchedulerView CurrView { get; set; } = SchedulerView.Week;
     public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
     List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-{
+    {
         new SchedulerAppointment
         {
             ManagerName = "", //this appointment does not need a manager
@@ -166,7 +164,7 @@ The field names used for the resource model (Text, Value and Color) are the defa
 
 #### Single Resource type in the scheduler using different than the default fields for the resource model
 
-The field names used for the resource model (Name, Id and Shade) are different than the default ones, therefore should be specified in the markup, so that the TextField, ValueField and ColorField will point to them.
+The field names used for the resource model (`Name`, `Id` and `Shade`) are different than the default ones, therefore should be specified in the markup, so that the `TextField`, `ValueField` and `ColorField` will point to them.
 
 >caption The result from the example below
 
