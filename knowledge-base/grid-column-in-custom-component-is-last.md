@@ -107,7 +107,7 @@ You can observe and reproduce the same behavior with the example below.
 }
 ````
 
->tip If you want to have conditional columns, you can use the [`Visible`]({%slug grid-columns-visible%}) parameter. With a certain condition, for example, a ternary operator or a method that returns a bool.
+>tip If you want to have conditional columns, you can use the [`Visible`]({%slug grid-columns-visible%}) parameter. The condition can be a ternary operator or a method that returns a bool.
 
 ## Solution
 
@@ -116,4 +116,3 @@ There are two ways for specifying the position of the columns in the grid:
 * Avoid nesting components and put the grid columns directly under the grid tag.
 
 * Use the [Grid State]({%slug grid-state%}), its methods (`GetState`, `SetState`) and events (`OnStateInit`, `OnStateChanged`) to get the collection of column states and change the `Order` of the instances you want to rearrange.
-
