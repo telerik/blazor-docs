@@ -34,7 +34,7 @@ This behavior stems from the order in which the framework initializes components
 
 All parent components are initialized before their child components.
 
-On initialization, child components can't be rendered before the parent components. This is why the order in the actual code can't affect the order on initialization - the grid receives the `GridColumn` instances in the order in which their components are initialized. The columns that are added later in the component lifecycle will also be last.
+On initialization, child components can't be rendered before the parent components. The grid receives the `GridColumn` instances in the order in which their components are initialized. Components rendering determines the order of the columns initialization. Columns that are added programmatically later in the component lifecycle will also be last.
 
 You can observe and reproduce the same behavior with the example below.
 
