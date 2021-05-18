@@ -34,7 +34,7 @@ This behavior stems from the order in which the framework initializes components
 
 All parent components are initialized before their child components.
 
-On initialization, child components can't be rendered before the parent components. This is why the order in the actual code can't affect the order on initialization - the grid receives the `GridColumn` instances in the order in which their components are initialized.
+On initialization, child components can't be rendered before the parent components. This is why the order in the actual code can't affect the order on initialization - the grid receives the `GridColumn` instances in the order in which their components are initialized. The columns that are added later in the component lifecycle will also be last.
 
 You can observe and reproduce the same behavior with the example below.
 
@@ -107,6 +107,7 @@ You can observe and reproduce the same behavior with the example below.
 }
 ````
 
+>tip If you want to have conditional columns, you can use the [`Visible`]({%slug grid-columns-visible%}) parameter. With a certain condition, for example, a ternary operator or a method that returns a bool.
 
 ## Solution
 
