@@ -115,7 +115,9 @@ You can pass a `ColorField` to the chart as a part of the model, and the data po
 You can render the lines between the points with different styles. The supported styles can be set via the `Style` property that takes a member of `Telerik.Blazor.ChartSeriesStyle` enum:
 
 * `Normal`—This is the default style. It produces a straight line between data points.
-* `Step`—The style renders the connection between data points through vertical and horizontal lines. It is suitable for indicating that the value is constant between the changes. Supported for categorical [Line]({%slug components/chart/types/line%}) charts only.
+
+* `Step`—The style renders the connection between data points through vertical and horizontal lines. It is suitable for indicating that the value is constant between the changes. Supported for [categorical]({%slug components/chart/databind%}#series-types) types of [Line]({%slug components/chart/types/line%}) charts only, but not for scatter charts.
+
 * `Smooth`—This style causes the Chart to display a fitted curve through data points. It is suitable when the data requires to be displayed with a curve, or when you wish to connect the points with smooth instead of straight lines. Not supported with [stacked]({%slug components/chart/stack%}) series with missing values.
 
 >caption Comparison between the line styles
