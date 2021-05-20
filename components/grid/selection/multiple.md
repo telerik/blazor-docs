@@ -45,7 +45,7 @@ You can force selection to happen only through the checkboxes by setting the `Ch
 The Grid allows selection and deselection via the `SelectAll` property. Setting this property to `true` (its default value) will render a checkbox in the grid header.
 
 You can add a `SelectAllMode` parameter, which supports the following options:
-* `Current` - selects all rows on the current page. This also applies to filtered, sorted, etc. This is the default value of the `SelectAllMode`.
+* `Current` - selects all rows on the current page. This also applies to filtered, sorted, etc. This is the default value of the `SelectAllMode`. If the filtered/sorted rows exceed the page size, the  `Current` mode will select only the filtered/sorted rows on the current page.
 * `All` - selects all the data in the Grid.
     >note  If IQueriable collections are used, using the header checkbox with an `All` option will immediately execute the query over all the data. This may be a performance hit.
 

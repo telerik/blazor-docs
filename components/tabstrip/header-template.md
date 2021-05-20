@@ -1,5 +1,5 @@
 ---
-title: Header Temlate
+title: Header Template
 page_title: TabStrip Header Template
 description: Header Template for the Blazor TabStrip component
 slug: tabstrip-header-template
@@ -10,7 +10,7 @@ position: 15
 
 # Header Template
 
-The TabStrip `HeaderTemplate` allows you to define custom content in the tab header - such as components, icons or badges, instead of plain text. 
+The TabStrip `HeaderTemplate` allows you to define custom content in the tab header - such as components, icons or badges, instead of plain text.
 
 If you only want to include text in `TabStripTab`'s header use the `Title` attribute of the tab.
 
@@ -20,7 +20,7 @@ You can define the `HeaderTemplate` with the following configuration in the `Tab
 
 * `<HeaderTemplate>` tag holding the custom content that you want to display in the `TabStripTab`'s title (e.g., components, an icon, icon + text, badge, etc.)
 
-* `<Content>` tag holding the content of the tab. 
+* `<Content>` tag holding the content of the tab.
     * If you do not use the `HeaderTemplate`, you can define the content of the tab directly between its opening and closing tag.
 
 >caption The following example showcases the use of a `<HeaderTemplate>`, including `TelerikIcons`
