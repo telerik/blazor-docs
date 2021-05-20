@@ -28,6 +28,8 @@ For information on automated builds, CI and CD, see the [CI, CD, Build Server]({
 
 The following video explains how you can add the Telerik NuGet feed. If you prefer to do this yourself, follow the rest of this article.
 
+This video focuses on using `nuget.exe` as a generic approach to do this, but if you have .NET Core 3.1 or .NET 5 (or later) you do not need it - the `dotnet` CLI command allows you to manage nuget feeds. You can find examples of that later in this article.
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/c3m_BLMXNDk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Manual Steps - CLI
