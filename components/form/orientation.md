@@ -13,7 +13,7 @@ position: 10
 
 The Form component for Blazor allows you control its orientation through the `Orientation` parameter. It takes a member of the `Telerik.Blazor.Enums.FormOrientation` enum:
 
-* `Horizontal` - setting the orientation to `Horizonal` will place the labels to the left hand-side of the editors and thus reduce the vertical space taken by the Form.
+* `Horizontal` - setting the orientation to `Horizontal` will place the labels to the left hand-side of the editors and thus reduce the vertical space taken by the Form.
 
 * `Vertical` - by default the Form will be vertical.
 
