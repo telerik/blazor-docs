@@ -14,6 +14,8 @@ The column's `EditTemplate` defines the inline template or component that will b
 
 You can data bind components in it to the current context, which is an instance of the model the grid is bound to. You will need a global variable that is also an instance of the model to store those changes. The model the template receives is a copy of the original model, so that changes can be cancelled (the `Cancel` command).
 
+>note We recommend casting the Editor Template context to your model and storing in a global or local variable since binding does not work properly with direct casting.
+
 If you need to perform logic more complex than simple data binding, use the change event of the custom editor component to perform it. You can also consider using a [custom edit form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form).
 
 You can find the following examples below:
