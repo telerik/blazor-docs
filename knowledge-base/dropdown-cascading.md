@@ -28,6 +28,8 @@ How to make cascading dropdown or combobox components? The data from one should 
 
 Use the `ValueChanged` event to update the model value and to filter the data for the next dropdown. Additionally, you can also use its `Enabled` parameter and tie it to the value of its "parent".
 
+>tip You can also use the `OnChange` or `OnBlur` event to fetch data for the next dropdowns. This will allow you to keep using `@bind-Value` and makes the syntax for using `async` methods simpler. Make sure to review the component's Events article to see when these events fire to ensure you do not request data more often than you need to.
+
 >caption Cascading DropDowns
 
 ````DropDownList
