@@ -14,7 +14,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>DropDownList for Blazor, ComboBox for Blazor</td>
+			<td>DropDownList for Blazor, ComboBox for Blazor, MultiSelect for Blazor</td>
 		</tr>
 	</tbody>
 </table>
@@ -27,8 +27,6 @@ How to make cascading dropdown or combobox components? The data from one should 
 ## Solution
 
 Use the `ValueChanged` event to update the model value and to filter the data for the next dropdown. Additionally, you can also use its `Enabled` parameter and tie it to the value of its "parent".
-
->tip You can also use the `OnChange` or `OnBlur` event to fetch data for the next dropdowns. This will allow you to keep using `@bind-Value` and makes the syntax for using `async` methods simpler. Make sure to review the component's Events article to see when these events fire to ensure you do not request data more often than you need to.
 
 >caption Cascading DropDowns
 
@@ -463,4 +461,16 @@ else if (!string.IsNullOrEmpty(orderStatusMessage))
     }
 }
 ````
+
+## Notes
+
+You can, alternatively, use the `OnChange` or `OnBlur` event to fetch data for the next dropdowns. This will allow you to keep using `@bind-Value` and makes the syntax for using `async` methods simpler. Make sure to review the component's Events article to see when these events fire to ensure you do not request data more often than you need to.
+
+If you use the `ValueChanged` events for `async` operations, make sure that their lambda expression in the components markup are marked with `async-await` and that you update the local view-model as early as possible to avoid flickering of the values during execution and awaiting of slow data retrieval operations. In the samples below the local view-model updates are intentionally the last thing in the `ValueChanged` handlers to showcase how slowing this down can result in sub-optimal UX if there are async operations.
+
+In the [dropdownlist-cascading-samples.zip](samples/dropdownlist-cascading-samples.zip) archive, you can find two sample components based on the approaches above that showcase:
+
+* Sample virtualization for one of the dropdowns (local data and `Task.Delay()` are used to simulate actual remote database calls, you can replace them with your actual service calls)
+* How you can move the local view-model update earlier when using `ValueChanged` compared to the code snippets above, and how to make its calls `async`.
+* How you can use the `OnChange` event instead of `ValueChanged` so you can still get two-way binding (`@bind-Value`) and simpler `async` methods.
 
