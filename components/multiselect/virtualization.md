@@ -89,6 +89,7 @@ Number of selected items: @SelectedValues?.Count
 Run this and see how you can display, scroll and filter over 10k records in the MultiSelect without delays and performance issues from a remote endpoint. There is artificial delay in these operations for the sake of the demonstration.
 
 ````CSHTML
+@using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
 Number of selected items: @SelectedValues?.Count
