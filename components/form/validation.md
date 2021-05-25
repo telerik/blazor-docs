@@ -60,6 +60,8 @@ To enable validation in the Telerik Form for Blazor add the `<FormValidation>` t
 
 When you provide an `EditContext` to the form, you cold use its `AddDataAnnotationsValidation()` method to add the data annotation validation to the form, instead of using the markup. This can be useful when you will be changing the model the form is bound to at runtime, for example, when you [add a reset button]({%slug form-formitems-buttons%}#how-to-add-a-reset-clear-button-to-the-form). Alternatively, you could call this method to re-attach validation on the `Model` you pass when you change it by using the [reference to the Form component]({%slug form-overview%}#component-reference) - `TheFormReference.EditContext.AddDataAnnotationsValidation()`.
 
+@[template](/_contentTemplates/common/form-validation.md#note-validation)
+
 ## Validation Message Type
 
 With the `ValidationMessageType` parameter of the Telerik Form for Blazor you can customize the way the validation messages are presented to the user. This setting accepts a member of the `FormValidationMessageType` enum:
