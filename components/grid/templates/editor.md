@@ -14,17 +14,23 @@ The column's `EditTemplate` defines the inline template or component that will b
 
 You can data bind components in it to the current context, which is an instance of the model the grid is bound to. You will need a global variable that is also an instance of the model to store those changes. The model the template receives is a copy of the original model, so that changes can be cancelled (the `Cancel` command).
 
->note We recommend casting the Editor Template context to your model and storing in a global or local variable since binding does not work properly with direct casting.
-
 If you need to perform logic more complex than simple data binding, use the change event of the custom editor component to perform it. You can also consider using a [custom edit form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form).
 
-You can find the following examples below:
+In this article:
 
-* [Sample editor template for a field - limit the string input options through a select element](#sample-editor-template-for-a-field---limit-the-string-input-options-through-a-select-element)
+* [Examples](#examples)
 
-* [Sample editor template that uses a foreign key](#sample-editor-template-that-uses-a-foreign-key)
+    * [Sample editor template for a field - limit the string input options through a select element](#sample-editor-template-for-a-field---limit-the-string-input-options-through-a-select-element)
+
+    * [Sample editor template that uses a foreign key](#sample-editor-template-that-uses-a-foreign-key)
+
+* [Notes](#notes)
 
 >note As of version 2.23.0 of Telerik UI for Blazor the Grid row creates `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the notes section of [editing/overview](../editing/overview#notes) article.
+
+## Examples
+
+This section demonstrates two example usages of the Editor Template:
 
 ### Sample editor template for a field - limit the string input options through a select element
 
@@ -271,6 +277,48 @@ You can find the following examples below:
 >caption The result from the code snippet above, after Edit was clicked on the second row and the user expanded the dropdown from the editor template
 
 ![Editor Template for a foreign key](images/edit-template-foreign-key.png)
+
+## Notes
+
+We recommend casting the Editor Template context to your model and storing it in a global or local variable. Directly casting the context results in data binding not working properly.
+
+<br/>
+
+>caption Not recommended approach: direct casting - binding does not work properly
+
+````CSHTML
+<EditorTemplate>   
+        <TelerikDropDownList Data="@Roles" DefaultText="Select Role"
+                             @bind-Value="@((Employee)context).RoleId"
+                             TextField="@nameof(Role.RoleName)" ValueField="@nameof(Role.RoleId)"
+                             Width="100%" PopupHeight="auto">
+        </TelerikDropDownList>
+</EditorTemplate>
+````
+
+<br/>
+
+>caption Recommended approach: cast the context to your model and store it in a global variable - binding works as expected
+
+````CSHTML
+<EditorTemplate>
+    @{
+        CurrentlyEditedEmployee = context as Employee;
+
+        <TelerikDropDownList Data="@Roles" DefaultText="Select Role"
+                             @bind-Value="@CurrentlyEditedEmployee.RoleId"
+                             TextField="@nameof(Role.RoleName)" ValueField="@nameof(Role.RoleId)"
+                             Width="100%" PopupHeight="auto">
+        </TelerikDropDownList>
+    }
+</EditorTemplate>
+
+@code{
+
+    public Employee CurrentlyEditedEmployee { get; set; }
+
+}
+````
 
 ## See Also
 
