@@ -472,5 +472,5 @@ In the [dropdownlist-cascading-samples.zip](samples/dropdownlist-cascading-sampl
 
 * Sample virtualization for one of the dropdowns (local data and `Task.Delay()` are used to simulate actual remote database calls, you can replace them with your actual service calls)
 * How you can move the local view-model update earlier when using `ValueChanged` compared to the code snippets above, and how to make its calls `async`.
-* How you can use the `OnChange` event instead of `ValueChanged` so you can still get two-way binding (`@bind-Value`) and simpler `async` methods.
+* How you can use the `OnChange` event instead of `ValueChanged` so you can still get two-way binding (`@bind-Value`) and simpler `async` methods. This sample implements virtualization for both dropdowns to showcase how each has to have its own `ValueMapper` and `OnRead` handlers.
 
