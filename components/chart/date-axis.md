@@ -10,12 +10,20 @@ position: 30
 
 # Date Axis
 
+This article demonstrates how to use `DateTime` values for the x-axis of the chart.
+
+You can find the following sections:
+* [Categorical charts](#categorical-charts)
+* [Numerical charts](#numerical-charts)
+
+## Categorical charts
+
 Categorical charts (such as [Column]({%slug components/chart/types/column%}), [Line]({%slug components/chart/types/line%}), [Area]({%slug components/chart/types/area%})) support displaying dates on the x-axis. A date axis aggregates the data points that fall within its scope to a single data point that gets rendered.
 
 To enable a date axis:
 
 1. Set the `Type` property of the `ChartCategoryAxis` to `ChartCategoryAxisType.Date`.
-1. Provite categories of type `DateTime` to it (see [data binding a chart]({%slug components/chart/databind%})).
+1. Provide categories of type `DateTime` to it (see [data binding a chart]({%slug components/chart/databind%})).
 
 You can control the aggregation level through the `BaseUnit` property of the axis. It takes a member of the `Telerik.Blazor.ChartCategoryAxisBaseUnit` class.
 
@@ -67,9 +75,9 @@ Grouping by month, aggregates
 
 ![](images/date-axis.png)
 
-## Advanced Features
+### Advanced Features
 
-### Automatic Fitting
+#### Automatic Fitting
 
 If you set `BaseUnit="ChartCategoryAxisBaseUnit.Fit"`, the chart will choose such a base unit, so that the number of categories on the axis will be less than or equal to the value of the `MaxDateGroups` property (if it is set).
 
@@ -79,15 +87,15 @@ If you do not set the `BaseUnit`, its value is determined by the smallest interv
 
 >tip Avoid large intervals with short base units. This would result in a huge amount of categories and this can result in performance degradation, or even errors/crashes.
 
-### Base Unit Step
+#### Base Unit Step
 
 If there are many categories, you can choose to render every n-th of them by setting the `BaseUnitStep` property.
 
-### Week Start Day
+#### Week Start Day
 
 When the `BaseUnit` is set to weeks, you can control the start day of the week through the `WeekStartDay` property. The `0` value is `Sunday`, `1` is `Monday` and so on.
 
-### Labels Format
+#### Labels Format
 
 Each base unit has a default format for the date it displays. If you want to change it, use the `Format` property under the `ChartCategoryAxisLabels` tag of the category axis.
 
@@ -133,6 +141,128 @@ Steps, custom label format, non-default start of week
 		new MyDataModel() { MySharedCategories = new DateTime(2019, 12, 19), Product1 = 3, Product2 = 4 },
 		new MyDataModel() { MySharedCategories = new DateTime(2019, 12, 28), Product1 = 4, Product2 = 5 },
 	};
+}
+````
+
+## Numerical charts
+
+The numerical [Scatter]({%slug components/chart/types/scatter%}) and [ScatterLine]({%slug components/chart/types/scatterline%}) charts also support `DateTime` values for the x-axis. To enable such scenario:
+
+1. Include field of type `DateTime` in your model and data source.
+1. Provide it to the `XField` parameter of the `ChartSeries`
+
+#### Considerations
+
+If the chosen `BaseUnit` is `days` and the data provided to the chart uses the complete `DateTime` format, the chart will also take into account the time of the day. This applies for both labels and markers and should be considered when specifying them in order to achieve the desired result.
+
+For example, if the X labels mark the beginning of the day and the data records also specify time values, their markers will be rendered at the corresponding to their time value point and not exactly on the label for this day. This specific behavior when working with `DateTime` values could be observed in the following examples:
+
+>caption ScatterLine chart with day and time values. Markers are rendered after the day labels to also respect the time values. The result from the snippet below
+
+![ScatterLine chart with day and time values](images/scatter-line-day-and-time.png)
+
+````CSHTML
+@* ScatterLine chart with day and time values for the X-axis *@
+
+<TelerikChart>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.ScatterLine"
+                     Data="@ChartData"
+                     Name="0.8C"
+                     XField="@nameof(ModelData.X)"
+                     YField="@nameof(ModelData.Y)">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartXAxes>
+        <ChartXAxis Type="date"
+                    BaseUnit="days"
+                    MajorUnit="1"
+                    Min="@( new DateTime(2021, 5, 23) )"
+                    Max="@( new DateTime(2021, 5, 31) )">
+            <ChartXAxisTitle Text="Time"></ChartXAxisTitle>
+            <ChartXAxisLabels Format="{0:dd MMM yyyy}"></ChartXAxisLabels>
+        </ChartXAxis>
+    </ChartXAxes>
+
+</TelerikChart>
+
+@code {
+
+    public class ModelData
+    {
+        public DateTime X { get; set; }
+        public int Y { get; set; }
+    }
+
+    public List<ModelData> ChartData = new List<ModelData>
+    {
+        new ModelData() { X = new DateTime(2021, 5, 23, 10, 30, 0), Y = 20  },
+        new ModelData() { X = new DateTime(2021, 5, 24, 12, 0, 0), Y = 25  },
+        new ModelData() { X = new DateTime(2021, 5, 25, 0, 0, 0), Y = 40  },
+        new ModelData() { X = new DateTime(2021, 5, 26, 9, 0, 0), Y = 50  },
+        new ModelData() { X = new DateTime(2021, 5, 27, 14, 30, 0, 0), Y = 60  },
+        new ModelData() { X = new DateTime(2021, 5, 28, 18, 15, 0), Y = 65  },
+        new ModelData() { X = new DateTime(2021, 5, 29, 16, 20, 0), Y = 80  },
+        new ModelData() { X = new DateTime(2021, 5, 30, 15, 30, 0), Y = 90  },
+        new ModelData() { X = new DateTime(2021, 5, 31, 0, 0, 0), Y = 100 }
+    };
+}
+````
+<br/>
+
+>caption ScatterLine chart with only days values. Markers are rendered exactly on the day labels. The result from the snippet below
+
+![ScatterLine chart with only day values](images/scatter-line-days-only.png)
+
+````CSHTML
+@* ScatterLine chart with only day values for the X-axis *@
+
+<TelerikChart>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.ScatterLine"
+                     Data="@ChartData"
+                     Name="0.8C"
+                     XField="@nameof(ModelData.X)"
+                     YField="@nameof(ModelData.Y)">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartXAxes>
+        <ChartXAxis Type="date"
+                    BaseUnit="days"
+                    MajorUnit="1"
+                    Min="@( new DateTime(2021, 5, 23) )"
+                    Max="@( new DateTime(2021, 5, 31) )">
+            <ChartXAxisTitle Text="Time"></ChartXAxisTitle>
+            <ChartXAxisLabels Format="{0:dd MMM yyyy}"></ChartXAxisLabels>
+        </ChartXAxis>
+    </ChartXAxes>
+
+</TelerikChart>
+
+@code {
+
+    public class ModelData
+    {
+        public DateTime X { get; set; }
+        public int Y { get; set; }
+    }
+
+    public List<ModelData> ChartData = new List<ModelData>
+{
+        new ModelData() { X = new DateTime(2021, 5, 23), Y = 20  },
+        new ModelData() { X = new DateTime(2021, 5, 24), Y = 25  },
+        new ModelData() { X = new DateTime(2021, 5, 25), Y = 40  },
+        new ModelData() { X = new DateTime(2021, 5, 26), Y = 50  },
+        new ModelData() { X = new DateTime(2021, 5, 27), Y = 60  },
+        new ModelData() { X = new DateTime(2021, 5, 28), Y = 65  },
+        new ModelData() { X = new DateTime(2021, 5, 29), Y = 80  },
+        new ModelData() { X = new DateTime(2021, 5, 30), Y = 90  },
+        new ModelData() { X = new DateTime(2021, 5, 31), Y = 100 }
+    };
 }
 ````
 
