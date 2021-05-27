@@ -75,8 +75,30 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 * When inside an `EditForm`, if no attributes are present on the field, and the value is deleted, a validation error is shown.
 
 
+### Standard Behavior
+
+When the value in the editor is evaluated two separate aspects are taken into accont:
+
+* The `value` of the input
+
+* The `separator` of the date segments. The supported separators in the Telerik date editors - `TelerikDateInput`, `TelerikDatePicker`, `TelerikDateTimePicker`, and the `TelerikTimePicker`, are the forward-slash `/`, the comma `,`, and the dot `.`. 
+
+The input focuses the next date segment automatically when one of the following conditions are met. In the examples the `M/d/yyyy` date format will be used and the `month` segment specifically.
+
+* When the user inputs a `valid value` - a digit or two digits that can be successfully form a month of the year.
+
+    * If the value is `two (2)` the focus will automatically shift to the next date segment (the day) since there are no months with two digits that start with `two (2)`.
+    
+    * If the value is `one (1)` the focus will not automatically shift to the next date segment (the day) because there are months with two digits that start with `one (1)` - October (10), November (11), and December (12). 
+    
+* By providing the `separator` in the input or using the `left / right` arrows on the keyboard.
+
+    * This would allow the user to quickly submit `one (1)` as a valid month without having to type `01` for January.
+    
+    * Providing a `separator` is an alternative to using the `left / right` arrows on the keyboard. This is useful when the user utilizes a numeric keyboard on a mobile device where no arrows are available.
 
 
+This behavior allows the application users to quickly input a date in the editor, for example, writing `112021` will be automatically formatted to a valid `DateTime` object - `1/1/2021`.
 
 >caption Example of using validation to prompt the user for certain input
 
