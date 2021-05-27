@@ -217,7 +217,7 @@ If the [ExpandMode](#expandmode) is set to `Single` the ExpandedItems collection
 @* Use the buttons to programmatically expand and collapse items in the PanelBar *@ 
 
 <TelerikButton OnClick="@ExpandItems">Expand First and Second Item</TelerikButton>
-<TelerikButton OnClick="@CollapseItems">Collapse the Expanded Item</TelerikButton>
+<TelerikButton OnClick="@CollapseItems">Collapse the Expanded Items</TelerikButton>
 
 <div style="width: 30%;">
     <TelerikPanelBar Data="@Items"
