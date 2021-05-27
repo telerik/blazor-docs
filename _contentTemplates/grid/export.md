@@ -8,6 +8,8 @@
 * Only columns that have a `Field` set are exported.
 
 * If you are using the `OnRead` event, only the current page of data will be exported, because that's all the grid has at the time of the export action.
+    * Using `OnRead` and exporting all pages will be possible once this feature request is available - [Include all pages in Excel export should work with OnRead
+](https://feedback.telerik.com/blazor/1469312-include-all-pages-in-excel-export-should-work-with-onread). You can follow it to receive status email updates and keep in track with its implementation.
 
 * With Server-side Blazor, the file may become larger than the default SignalR connection limit, and this can disconnect the client and result in an error. Generally, this requires quite a lot of data to happen, but you may need to increase the size limit of the connection in the `ConfigureServices` method of your `Startup.cs` file, for example:
 
