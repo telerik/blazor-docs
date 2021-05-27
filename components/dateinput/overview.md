@@ -12,6 +12,8 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazor Date Input component</a> allows the user to enter a date. The developer can control the format of the date. If the user input does not match the desired pattern, the value is not accepted. If the input can be parsed, it will be corrected automatically.
 
+## Basics
+
 #### To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
 
 >caption Basic date input with namespace and reference
@@ -36,7 +38,9 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 
 ![](images/date-input-first-look.png)
 
->caption The date input provides the following features:
+## Features
+
+The date input provides the following features:
 
 * `Class` - the CSS class that will be rendered on the `input` element.
 
@@ -54,7 +58,9 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
->caption The behavior of the component will depend on the type of field it is bound to, and this can result in different user experience and values that it will output:
+## DateTime and Nullable DateTime
+
+The behavior of the component will depend on the type of field it is bound to, and this can result in different user experience and values that it will output:
 
 ##### Bound to a Nullabe DateTime
 
@@ -75,30 +81,51 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 * When inside an `EditForm`, if no attributes are present on the field, and the value is deleted, a validation error is shown.
 
 
-### Standard Behavior
+## Efficient Keyboard Input
 
-When the value in the editor is evaluated two separate aspects are taken into accont:
+The Telerik date inputs take into account what you are typing in order to let you input data quickly and efficiently.
 
-* The `value` of the input
+The input focuses the next date segment automatically when the input for the current segment uniquely and successfully identifies the value current segment. 
 
-* The `separator` of the date segments. The supported separators in the Telerik date editors - `TelerikDateInput`, `TelerikDatePicker`, `TelerikDateTimePicker`, and the `TelerikTimePicker`, are the forward-slash `/`, the comma `,`, and the dot `.`. 
+You can change the focused segment through entering:
 
-The input focuses the next date segment automatically when one of the following conditions are met. In the examples the `M/d/yyyy` date format will be used and the `month` segment specifically.
+* `LeftArrow` or `RightArrow`
 
-* When the user inputs a `valid value` - a digit or two digits that can be successfully form a month of the year.
+* the `value` of the input (for example, entering `12` for the month number)
 
-    * If the value is `two (2)` the focus will automatically shift to the next date segment (the day) since there are no months with two digits that start with `two (2)`.
+* the `separator` of the date segments.
+    * The supported separators in the Telerik date editors - `TelerikDateInput`, `TelerikDatePicker`, `TelerikDateTimePicker`, and the `TelerikTimePicker`, are the forward-slash `/`, the comma `,`, and the dot `.`. 
+
+
+>caption Example scenarios when and how focus moves between date segments
+
+In the example below, we will use the `M/d/yyyy` date format and take the `month` segment specifically to illustrate the component behavior.
+
+* When the user inputs a `valid value` - a digit or two digits that can successfully and uniquely form the month of the year.
+
+    * If the input is `two` (`2`), the focus will automatically shift to the next date segment (the day), because there are no months with two digits that start with `two` (`2`).
     
-    * If the value is `one (1)` the focus will not automatically shift to the next date segment (the day) because there are months with two digits that start with `one (1)` - October (10), November (11), and December (12). 
+    * If the value is `one` (`1`), the focus will **not** automatically shift to the next date segment (the day), because there are months with two digits that start with `one` (`1`) - such as January (1), October (10), November (11), and December (12). 
     
-* By providing the `separator` in the input or using the `left / right` arrows on the keyboard.
+* By typing the `separator` in the input (`/` in this example), or by using the `LeftArrow` / `RightArrow` keys on the keyboard.
 
-    * This would allow the user to quickly submit `one (1)` as a valid month without having to type `01` for January.
+    * This allows the user to quickly submit `one` (`1`) as a valid month without having to type `01` for January or wondering how to avoid typing a second digit because they don't want to enter `10`, `11` or `12`.
     
-    * Providing a `separator` is an alternative to using the `left / right` arrows on the keyboard. This is useful when the user utilizes a numeric keyboard on a mobile device where no arrows are available.
+    * Providing a `separator` is an alternative to using the `left` / `right` arrows on the keyboard. This is useful when the user utilizes a numeric keyboard on a mobile device where no arrows are available.
 
 
-This behavior allows the application users to quickly input a date in the editor, for example, writing `112021` will be automatically formatted to a valid `DateTime` object - `1/1/2021`.
+This behavior allows the application users to quickly input a date in the editor, for example:
+
+* writing `21/2021` will be automatically formatted to a valid `DateTime` object - `February 1, 2021` - the number `2` is a unique month and you don't have to do anything to move to the next segment, inputting the separator means you don't have to provide a two-digit date.
+
+* writing `1/2/2021` will be recognized as `January 2, 2021` - inputting a first separators means you don't have to write a two-digit month or date.
+
+* writing `5222021` will be recognized as `May 22, 2021` - inputting `5` uniquely identifies the month, and `22` uniquely identifies a date.
+
+We recognize that there are many user experience patterns and ways that people want to write input, especially dates, considering that there are many formats for them. We chose the user experience described above because we believe it is the best common ground between automation, efficiency and control over the input. Unfortunately, there may be some users in your user base that seek a slightly different experience, and it is impossible for such a simple component to provide different ways for different users to interact with it - there would be no UI for the user to set their preferences, and if there were, it would make the UX too complicated for real world usage. Thus, we chose what we believe will work best for the majority of people.
+
+## Validation
+
 
 >caption Example of using validation to prompt the user for certain input
 
