@@ -28,6 +28,8 @@ For information on automated builds, CI and CD, see the [CI, CD, Build Server]({
 
 >caption Here are the steps to add the Telerik NuGet Feed through Visual Studio
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dJo1Ij4CcIY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 1. Clear the local NuGet caches to ensure no cached Telerik packages exist (it is important in the steps later where your credentials will be stored by Windows). You can run [`dotnet nuget locals all --clear`](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-locals) in your CLI.
 
 1. Open Visual Studio and go to **Tools** > **NuGet Package Manager** > **Package Manager Settings** > **Package Sources**.
