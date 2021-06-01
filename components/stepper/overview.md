@@ -31,14 +31,24 @@ To use a Telerik Card for Blazor:
 
 ## Example
 
-The below snippet demonstrates the setup of a Stepper component.
+The below snippet demonstrates simple setup of a Stepper component.
 
 >caption The result from the snippet.
 
-![](images/)
+![Simple Stepper](images/stepper-overview-example.png)
 
 ````CSHTML
+@* Simple Stepper setup *@
 
+<div style="width:500px">
+    <TelerikStepper>
+        <StepperSteps>
+            <StepperStep Text="1" Label="Step 1"></StepperStep>
+            <StepperStep Text="2" Label="Step 2"></StepperStep>
+            <StepperStep Text="3" Label="Step 3"></StepperStep>
+        </StepperSteps>
+    </TelerikStepper>
+</div>
 ````
 
 ## Features
