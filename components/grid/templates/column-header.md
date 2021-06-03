@@ -21,7 +21,7 @@ Bound columns render the name of the field or their `Title` in their header. Thr
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Title="This title will not be rendered">
             <HeaderTemplate>
-                <span>Employee ID</span>                
+                <span>Employee ID</span>
             </HeaderTemplate>
         </GridColumn>
         <GridColumn Field="@(nameof(SampleData.Name))">
@@ -85,38 +85,6 @@ Bound columns render the name of the field or their `Title` in their header. Thr
 ![](images/header-template.png)
 
 >note Header Templates are not available for the `GridCheckboxColumn` and the `GridCommandColumn`.
-
->note If you need to use block elements in the header templates, keep in mind that they will push the sort indicator out of its expected position.  If you cannot avoid block elements (such as in the `ID` column in the example above), add a CSS rule like the ones below to adjust the sort indicator.
-
->caption Sort indicator adjustments when block elements are in the header template - you may need it for theme versions prior to the year 2021
-
-````CSS
-.k-grid th.k-header .k-icon.k-i-sort-asc-sm,
-.k-grid th.k-header .k-icon.k-i-sort-desc-sm {
-    position: absolute;
-    right: 0;
-    top: 8px;
-}
-
-/* OR */
-
-.k-grid-header .k-header > .k-link {
-    padding-right: 1.5em;
-}
-
-    .k-grid-header .k-header > .k-link > .k-icon {
-        position: absolute;
-        top: 50%;
-        right: 0.5em;
-        transform: translateY(-50%);
-        margin-left: 0;
-    }
-
-.k-grid-header .k-sort-order {
-    position: absolute;
-    right: 0.25em;
-}
-````
 
 ## See Also
 
