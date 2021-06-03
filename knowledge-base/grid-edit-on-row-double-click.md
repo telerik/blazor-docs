@@ -41,7 +41,7 @@ The Grid exposes two events that allows you to respond to the user clicking on i
              OnRowDoubleClick="@OnRowDoubleClickHandler">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
         <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
         <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
     </GridColumns>
@@ -52,13 +52,21 @@ The Grid exposes two events that allows you to respond to the user clicking on i
         Edit record
     </WindowTitle>
     <WindowContent>
-        <TelerikForm Model="@EditedEmployee" Columns="2" ColumnSpacing="30px" OnValidSubmit="@SaveEmployee">
+        <TelerikForm Model="@EditedEmployee"
+                     Columns="2"
+                     ColumnSpacing="30px"
+                     OnValidSubmit="@SaveEmployee">
+            <FormButtons>
+                <TelerikButton ButtonType="@ButtonType.Submit" Primary="true">Submit</TelerikButton>
+                <TelerikButton ButtonType="ButtonType.Button" OnClick="@ClearButton">Clear</TelerikButton>
+            </FormButtons>
         </TelerikForm>
     </WindowContent>
 </TelerikWindow>
 
 @code {
     private SampleData EditedEmployee = new SampleData();
+    private SampleData OriginalEditedEmployee = new SampleData();
 
     private bool isInEdit { get; set; }
 
@@ -69,7 +77,15 @@ The Grid exposes two events that allows you to respond to the user clicking on i
 
         var model = args.Item as SampleData;
 
-        EditedEmployee = model;
+        OriginalEditedEmployee = model;
+
+        EditedEmployee = new SampleData() 
+        {
+            Id = OriginalEditedEmployee.Id,
+            Name = OriginalEditedEmployee.Name,
+            Team = OriginalEditedEmployee.Team,
+            HireDate = OriginalEditedEmployee.HireDate
+        };
     }
 
     private void SaveEmployee()
@@ -78,7 +94,7 @@ The Grid exposes two events that allows you to respond to the user clicking on i
 
         var foundEmployeeIndex = MyData.FindIndex(x => x.Id == EditedEmployee.Id);
 
-        if(foundEmployeeIndex >= 0)
+        if (foundEmployeeIndex >= 0)
         {
             MyData[foundEmployeeIndex] = EditedEmployee;
         }
@@ -86,6 +102,13 @@ The Grid exposes two events that allows you to respond to the user clicking on i
         MyData = new List<SampleData>(MyData);
 
         //Hide the editing window
+
+        isInEdit = false;
+    }
+
+    private void ClearButton()
+    {
+        EditedEmployee = OriginalEditedEmployee = null;
 
         isInEdit = false;
     }
