@@ -19,10 +19,9 @@ Bound columns render the name of the field or their `Title` in their header. Thr
 
 <TelerikGrid Data="@MyData" Height="300px" Pageable="true" Sortable="true" FilterMode="@GridFilterMode.FilterMenu">
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.ID))" Title="This title will not be rendered">
+        <GridColumn Field="@(nameof(SampleData.Id))" Title="This title will not be rendered">
             <HeaderTemplate>
-                <div style="text-align:center">Id</div>
-                @* this is a block element and it will push the sorting indicator, see the notes below *@
+                <span>Employee ID</span>                
             </HeaderTemplate>
         </GridColumn>
         <GridColumn Field="@(nameof(SampleData.Name))">
@@ -67,14 +66,14 @@ Bound columns render the name of the field or their `Title` in their header. Thr
 
     public class SampleData
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public DateTime HireDate { get; set; }
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
     {
-        ID = x,
+        Id = x,
         Name = "name " + x,
         HireDate = DateTime.Now.AddDays(-x)
     });
@@ -87,7 +86,7 @@ Bound columns render the name of the field or their `Title` in their header. Thr
 
 >note Header Templates are not available for the `GridCheckboxColumn` and the `GridCommandColumn`.
 
->note If you need to use block elements in the header templates, keep in mind that they will push the sort indicator out of its expected position. If you cannot avoid block elements (such as in the `ID` column in the example above), add a CSS rule like the ones below to adjust the sort indicator.
+>note If you need to use block elements in the header templates, keep in mind that they will push the sort indicator out of its expected position.  If you cannot avoid block elements (such as in the `ID` column in the example above), add a CSS rule like the ones below to adjust the sort indicator.
 
 >caption Sort indicator adjustments when block elements are in the header template - you may need it for theme versions prior to the year 2021
 
