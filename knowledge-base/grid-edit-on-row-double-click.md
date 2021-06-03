@@ -29,10 +29,179 @@ I would like to edit a row in the Grid when the user clicks or double-clicks on 
 
 The Grid exposes two events that allows you to respond to the user clicking on its rows - [OnRowClick]({%slug grid-events%}#onrowclick) and [OnRowDoubleClick]({%slug grid-events%}#onrowdoubleclick). You can use either one of them together with the [Window]({%slug components/window/overview%}) to create a custom popup form on a click of a row. 
 
->caption Use the OnRowDoubleClick event to open a custom popup form to edit the Grid
+>caption Use the OnRowDoubleClick event to put the Grid in Edit mode
 
-````CSHTML
-@* Click on a Grid row twice to see the custom edit form *@ 
+
+````InlineMode
+@* Click on a Grid row twice to place the Grid in edit mode *@ 
+
+<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" @ref="@GridRef"
+             OnUpdate="@UpdateHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler"
+             OnRowDoubleClick="@OnRowDoubleClickHandler">
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    TelerikGrid<SampleData> GridRef { get; set; }
+
+    private async void OnRowDoubleClickHandler(GridRowClickEventArgs args)
+    {
+        SampleData clickedItem = args.Item as SampleData;
+        var currentState = GridRef.GetState();
+
+        currentState.InsertedItem = null;
+
+        SampleData itemToEdit = SampleData.GetClonedInstance(MyData.Where(x => x.ID == clickedItem.ID).FirstOrDefault());
+
+        currentState.OriginalEditItem = itemToEdit;
+
+        await GridRef.SetState(currentState);
+    }
+
+
+    // Sample CRUD operations and data follow
+
+    async Task UpdateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        // perform actual data source operations here through your service
+        await MyService.Update(item);
+
+        // update the local view-model data with the service data
+        await GetGridData();
+    }
+
+    async Task DeleteHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        // perform actual data source operation here through your service
+        await MyService.Delete(item);
+
+        // update the local view-model data with the service data
+        await GetGridData();
+    }
+
+    async Task CreateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        // perform actual data source operation here through your service
+        await MyService.Create(item);
+
+        // update the local view-model data with the service data
+        await GetGridData();
+    }
+
+    // Sample class definition - note the constructors, overrides and comments
+
+    public class SampleData
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+
+        // example of comparing stored items (from editing or selection)
+        // with items from the current data source - IDs are used instead of the default references
+        public override bool Equals(object obj)
+        {
+            if (obj is SampleData)
+            {
+                return this.ID == (obj as SampleData).ID;
+            }
+            return false;
+        }
+
+
+        // define constructors and a static method so we can deep clone instances
+        // we use that to define the edited item - otherwise the references will point
+        // to the item in the grid data sources and all changes will happen immediately on
+        // the Data collection, and we don't want that - so we need a deep clone with its own reference
+        // this is just one way to implement this, you can do it in a different way
+        public SampleData()
+        {
+
+        }
+
+        public SampleData(SampleData itmToClone)
+        {
+            this.ID = itmToClone.ID;
+            this.Name = itmToClone.Name;
+        }
+
+        public static SampleData GetClonedInstance(SampleData itmToClone)
+        {
+            return new SampleData(itmToClone);
+        }
+    }
+
+    public List<SampleData> MyData { get; set; }
+
+    async Task GetGridData()
+    {
+        MyData = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetGridData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<SampleData> _data { get; set; } = new List<SampleData>();
+
+        public static async Task Create(SampleData itemToInsert)
+        {
+            itemToInsert.ID = _data.Count + 1;
+            _data.Insert(0, itemToInsert);
+        }
+
+        public static async Task<List<SampleData>> Read()
+        {
+            if (_data.Count < 1)
+            {
+                for (int i = 1; i < 50; i++)
+                {
+                    _data.Add(new SampleData()
+                    {
+                        ID = i,
+                        Name = "Name " + i.ToString()
+                    });
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(SampleData itemToUpdate)
+        {
+            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
+
+        public static async Task Delete(SampleData itemToDelete)
+        {
+            _data.Remove(itemToDelete);
+        }
+    }
+}
+````
+````PopupMode
+@* Click on a Grid row twice to see the custom popup edit form *@ 
 
 <TelerikGrid Data="@MyData"
              Height="400px"
