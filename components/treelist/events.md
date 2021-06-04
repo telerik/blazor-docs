@@ -17,6 +17,7 @@ This article explains the events available in the Telerik TreeList for Blazor. T
     * [OnExpand and OnCollapse](#onexpand-and-oncollapse)
 	* [Command Button Click](#command-button-click)
 	* [SelectedItemsChanged](#selecteditemschanged)
+	* [OnModelInit](#onmodelinit)
 	* [OnRowRender](#onrowrender)
 	* [OnRowDrop](#onrowdrop)
 	* [PageChanged](#pagechanged)
@@ -165,6 +166,792 @@ The command buttons of a treelist provide an `OnClick` event before firing their
 ### SelectedItemsChanged
 
 Fires when the item selection is enabled and the user changes the selected [item]({%slug treelist-selection-single%}#selecteditemschanged-event) or [items]({%slug treelist-selection-multiple%}#selecteditemschanged-event).
+
+### OnModelInit
+
+The `OnModelInit` event fires before editing and adding new item in the TreeList. The event allows you to:
+
+* bind the TreeList to a class that has no parameterless constructor
+
+* bind the TreeList to an interface
+
+* bind the TreeList to an abstract class
+
+To achieve the desired behavior you can provide an instance of the model that the TreeList is bound to in the `OnModelInit` event handler.
+
+>caption The different use-cases of the OnModelInit event
+
+````Parameterless Constructor
+@* Bind the TreeList to a class without a parameterless constructor *@
+
+@using System.ComponentModel.DataAnnotations
+
+<TelerikTreeList Data="@Data"
+                 EditMode="@TreeListEditMode.Popup"
+                 OnModelInit="@OnModelInitHandler"
+                 OnUpdate="@UpdateItem"
+                 OnDelete="@DeleteItem"
+                 OnCreate="@CreateItem"
+                 OnCancel="@OnCancelHandler"
+                 Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
+                 Width="850px">
+    <TreeListToolBar>
+        <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
+    </TreeListToolBar>
+    <TreeListColumns>
+        <TreeListCommandColumn Width="280px">
+            <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon="edit">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Delete" Icon="delete">Delete</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+        </TreeListCommandColumn>
+
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+
+@code {
+    public List<Employee> Data { get; set; }
+
+    private Employee OnModelInitHandler()
+    {
+        return new Employee(1, "Test", "email@email.com", DateTime.Today, null, false);
+    }
+
+    // Sample CUD operations for the local data
+    async Task UpdateItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+
+        // perform actual data source operations here through your service
+        await MyService.Update(item);
+
+        // update the local view-model data with the service data
+        await GetTreeListData();
+    }
+
+    async Task CreateItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+        var parentItem = args.ParentItem as Employee;
+
+        // perform actual data source operations here through your service
+        await MyService.Create(item, parentItem);
+
+        // update the local view-model data with the service data
+        await GetTreeListData();
+    }
+
+    async Task DeleteItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+
+        // perform actual data source operations here through your service
+        await MyService.Delete(item);
+
+        // update the local view-model data with the service data
+        await GetTreeListData();
+    }
+
+    // OnCancel handler
+
+    async Task OnCancelHandler(TreeListCommandEventArgs args)
+    {
+        Employee empl = args.Item as Employee;
+        // if necessary, perform actual data source operation here through your service
+    }
+
+
+    // sample model
+
+    public class Employee
+    {
+        public int Id { get; set; }
+
+        [Required(ErrorMessage = "The employee must have a name")]
+        public string Name { get; set; }
+        [EmailAddress]
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+
+        public List<Employee> DirectReports { get; set; }
+        public bool HasChildren { get; set; }
+
+        public Employee(int id, string name, string email, DateTime date, List<Employee> reports, bool hasChildren)
+        {
+            Id = id;
+            Name = name;
+            EmailAddress = email;
+            HireDate = date;
+            DirectReports = reports;
+            HasChildren = hasChildren;
+        }
+
+        // Used for the editing so replacing the object in the view-model data
+        // will treat it as the same object and keep its state - otherwise it will
+        // collapse after editing is done, which is not what the user would expect
+        public override bool Equals(object obj)
+        {
+            if (obj is Employee)
+            {
+                return this.Id == (obj as Employee).Id;
+            }
+            return false;
+        }
+    }
+
+    // data generation
+
+    async Task GetTreeListData()
+    {
+        Data = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetTreeListData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<Employee> _data { get; set; } = new List<Employee>();
+        // used in this example for data generation and retrieval for CUD operations on the current view-model data
+        private static int LastId { get; set; } = 1;
+
+        public static async Task Create(Employee itemToInsert, Employee parentItem)
+        {
+            InsertItemRecursive(_data, itemToInsert, parentItem);
+        }
+
+        public static async Task<List<Employee>> Read()
+        {
+            if (_data.Count < 1)
+            {
+                for (int i = 1; i < 15; i++)
+                {
+                    Employee root = new Employee(LastId, $"root: {i}", $"{i}@example.com", DateTime.Now.AddYears(-i), new List<Employee>(), true);
+
+                    _data.Add(root);
+
+                    LastId++;
+
+                    for (int j = 1; j < 4; j++)
+                    {
+                        int currId = LastId;
+
+                        Employee firstLevelChild = new Employee(currId, $"first level child {j} of {i}", $"{currId}@example.com", DateTime.Now.AddDays(-currId), new List<Employee>(), true);
+
+                        root.DirectReports.Add(firstLevelChild);
+                        LastId++;
+
+                        for (int k = 1; k < 3; k++)
+                        {
+                            int nestedId = LastId;
+
+                            firstLevelChild.DirectReports.Add(new Employee(LastId, $"second level child {k} of {j} and {i}", $"{nestedId}@example.com", DateTime.Now.AddMinutes(-nestedId), null, false));
+                        }
+                    }
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(Employee itemToUpdate)
+        {
+            UpdateItemRecursive(_data, itemToUpdate);
+        }
+
+        public static async Task Delete(Employee itemToDelete)
+        {
+            RemoveChildRecursive(_data, itemToDelete);
+        }
+
+        // sample helper methods for handling the view-model data hierarchy
+        static void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].Id.Equals(itemToUpdate.Id))
+                {
+                    items[i] = itemToUpdate;
+                    return;
+                }
+
+                if (items[i].DirectReports?.Count > 0)
+                {
+                    UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
+                }
+            }
+        }
+
+        static void RemoveChildRecursive(List<Employee> items, Employee item)
+        {
+            for (int i = 0; i < items.Count(); i++)
+            {
+                if (item.Equals(items[i]))
+                {
+                    items.Remove(item);
+
+                    return;
+                }
+                else if (items[i].DirectReports?.Count > 0)
+                {
+                    RemoveChildRecursive(items[i].DirectReports, item);
+
+                    if (items[i].DirectReports.Count == 0)
+                    {
+                        items[i].HasChildren = false;
+                    }
+                }
+            }
+        }
+
+        static void InsertItemRecursive(List<Employee> Data, Employee insertedItem, Employee parentItem)
+        {
+            insertedItem.Id = LastId++;
+            if (parentItem != null)
+            {
+                parentItem.HasChildren = true;
+                if (parentItem.DirectReports == null)
+                {
+                    parentItem.DirectReports = new List<Employee>();
+                }
+
+                parentItem.DirectReports.Insert(0, insertedItem);
+            }
+            else
+            {
+                Data.Insert(0, insertedItem);
+            }
+        }
+    }
+}
+````
+````Interface
+@* Bind the TreeList to an interface *@
+
+@using System.ComponentModel.DataAnnotations
+
+<TelerikTreeList Data="@Data"
+                 EditMode="@TreeListEditMode.Popup"
+                 OnModelInit="@OnModelInitHandler"
+                 OnUpdate="@UpdateItem"
+                 OnDelete="@DeleteItem"
+                 OnCreate="@CreateItem"
+                 OnCancel="@OnCancelHandler"
+                 Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
+                 Width="850px">
+    <TreeListToolBar>
+        <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
+    </TreeListToolBar>
+    <TreeListColumns>
+        <TreeListCommandColumn Width="280px">
+            <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon="edit">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Delete" Icon="delete">Delete</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+        </TreeListCommandColumn>
+
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+
+@code {
+    public List<IEmployee> Data { get; set; }
+
+    private Employee OnModelInitHandler()
+    {
+        return new Employee(1, "Test", "email@email.com", DateTime.Today, null, false);
+    }
+
+    // Sample CUD operations for the local data
+    async Task UpdateItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+
+        // perform actual data source operations here through your service
+        await MyService.Update(item);
+
+        // update the local view-model data with the service data
+        await GetTreeListData();
+    }
+
+    async Task CreateItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+        var parentItem = args.ParentItem as Employee;
+
+        // perform actual data source operations here through your service
+        await MyService.Create(item, parentItem);
+
+        // update the local view-model data with the service data
+        await GetTreeListData();
+    }
+
+    async Task DeleteItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+
+        // perform actual data source operations here through your service
+        await MyService.Delete(item);
+
+        // update the local view-model data with the service data
+        await GetTreeListData();
+    }
+
+    // OnCancel handler
+
+    async Task OnCancelHandler(TreeListCommandEventArgs args)
+    {
+        Employee empl = args.Item as Employee;
+        // if necessary, perform actual data source operation here through your service
+    }
+
+
+    // sample model
+    public interface IEmployee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+
+        public List<IEmployee> DirectReports { get; set; }
+        public bool HasChildren { get; set; }
+    }
+
+    public class Employee : IEmployee
+    {
+        public int Id { get; set; }
+
+        [Required(ErrorMessage = "The employee must have a name")]
+        public string Name { get; set; }
+        [EmailAddress]
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+
+        public List<IEmployee> DirectReports { get; set; }
+        public bool HasChildren { get; set; }
+
+        public Employee(int id, string name, string email, DateTime date, List<IEmployee> reports, bool hasChildren)
+        {
+            Id = id;
+            Name = name;
+            EmailAddress = email;
+            HireDate = date;
+            DirectReports = reports;
+            HasChildren = hasChildren;
+        }
+
+        // Used for the editing so replacing the object in the view-model data
+        // will treat it as the same object and keep its state - otherwise it will
+        // collapse after editing is done, which is not what the user would expect
+        public override bool Equals(object obj)
+        {
+            if (obj is Employee)
+            {
+                return this.Id == (obj as Employee).Id;
+            }
+            return false;
+        }
+    }
+
+    // data generation
+
+    async Task GetTreeListData()
+    {
+        Data = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetTreeListData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<IEmployee> _data { get; set; } = new List<IEmployee>();
+        // used in this example for data generation and retrieval for CUD operations on the current view-model data
+        private static int LastId { get; set; } = 1;
+
+        public static async Task Create(Employee itemToInsert, Employee parentItem)
+        {
+            InsertItemRecursive(_data, itemToInsert, parentItem);
+        }
+
+        public static async Task<List<IEmployee>> Read()
+        {
+            if (_data.Count < 1)
+            {
+                for (int i = 1; i < 15; i++)
+                {
+                    Employee root = new Employee(LastId, $"root: {i}", $"{i}@example.com", DateTime.Now.AddYears(-i), new List<IEmployee>(), true);
+
+                    _data.Add(root);
+
+                    LastId++;
+
+                    for (int j = 1; j < 4; j++)
+                    {
+                        int currId = LastId;
+
+                        Employee firstLevelChild = new Employee(currId, $"first level child {j} of {i}", $"{currId}@example.com", DateTime.Now.AddDays(-currId), new List<IEmployee>(), true);
+
+                        root.DirectReports.Add(firstLevelChild);
+                        LastId++;
+
+                        for (int k = 1; k < 3; k++)
+                        {
+                            int nestedId = LastId;
+
+                            firstLevelChild.DirectReports.Add(new Employee(LastId, $"second level child {k} of {j} and {i}", $"{nestedId}@example.com", DateTime.Now.AddMinutes(-nestedId), null, false));
+                        }
+                    }
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(Employee itemToUpdate)
+        {
+            UpdateItemRecursive(_data, itemToUpdate);
+        }
+
+        public static async Task Delete(Employee itemToDelete)
+        {
+            RemoveChildRecursive(_data, itemToDelete);
+        }
+
+        // sample helper methods for handling the view-model data hierarchy
+        static void UpdateItemRecursive(List<IEmployee> items, Employee itemToUpdate)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].Id.Equals(itemToUpdate.Id))
+                {
+                    items[i] = itemToUpdate;
+                    return;
+                }
+
+                if (items[i].DirectReports?.Count > 0)
+                {
+                    UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
+                }
+            }
+        }
+
+        static void RemoveChildRecursive(List<IEmployee> items, Employee item)
+        {
+            for (int i = 0; i < items.Count(); i++)
+            {
+                if (item.Equals(items[i]))
+                {
+                    items.Remove(item);
+
+                    return;
+                }
+                else if (items[i].DirectReports?.Count > 0)
+                {
+                    RemoveChildRecursive(items[i].DirectReports, item);
+
+                    if (items[i].DirectReports.Count == 0)
+                    {
+                        items[i].HasChildren = false;
+                    }
+                }
+            }
+        }
+
+        static void InsertItemRecursive(List<IEmployee> Data, Employee insertedItem, Employee parentItem)
+        {
+            insertedItem.Id = LastId++;
+            if (parentItem != null)
+            {
+                parentItem.HasChildren = true;
+                if (parentItem.DirectReports == null)
+                {
+                    parentItem.DirectReports = new List<IEmployee>();
+                }
+
+                parentItem.DirectReports.Insert(0, insertedItem);
+            }
+            else
+            {
+                Data.Insert(0, insertedItem);
+            }
+        }
+    }
+}
+````
+````Abstract Class
+@* Bind the TreeList to an abstract class *@
+
+@using System.ComponentModel.DataAnnotations
+
+<TelerikTreeList Data="@Data"
+                 EditMode="@TreeListEditMode.Popup"
+                 OnModelInit="@OnModelInitHandler"
+                 OnUpdate="@UpdateItem"
+                 OnDelete="@DeleteItem"
+                 OnCreate="@CreateItem"
+                 OnCancel="@OnCancelHandler"
+                 Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
+                 Width="850px">
+    <TreeListToolBar>
+        <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
+    </TreeListToolBar>
+    <TreeListColumns>
+        <TreeListCommandColumn Width="280px">
+            <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon="edit">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Delete" Icon="delete">Delete</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+        </TreeListCommandColumn>
+
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+
+@code {
+    public List<EmployeeBase> Data { get; set; }
+
+    private Employee OnModelInitHandler()
+    {
+        return new Employee(1, "Test", "email@email.com", DateTime.Today, null, false);
+    }
+
+    // Sample CUD operations for the local data
+    async Task UpdateItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+
+        // perform actual data source operations here through your service
+        await MyService.Update(item);
+
+        // update the local view-model data with the service data
+        await GetTreeListData();
+    }
+
+    async Task CreateItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+        var parentItem = args.ParentItem as Employee;
+
+        // perform actual data source operations here through your service
+        await MyService.Create(item, parentItem);
+
+        // update the local view-model data with the service data
+        await GetTreeListData();
+    }
+
+    async Task DeleteItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+
+        // perform actual data source operations here through your service
+        await MyService.Delete(item);
+
+        // update the local view-model data with the service data
+        await GetTreeListData();
+    }
+
+    // OnCancel handler
+
+    async Task OnCancelHandler(TreeListCommandEventArgs args)
+    {
+        Employee empl = args.Item as Employee;
+        // if necessary, perform actual data source operation here through your service
+    }
+
+
+    // sample model
+    public abstract class EmployeeBase
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+
+        public List<EmployeeBase> DirectReports { get; set; }
+        public bool HasChildren { get; set; }
+    }
+
+    public class Employee : EmployeeBase
+    {
+        public Employee(int id, string name, string email, DateTime date, List<EmployeeBase> reports, bool hasChildren)
+        {
+            Id = id;
+            Name = name;
+            EmailAddress = email;
+            HireDate = date;
+            DirectReports = reports;
+            HasChildren = hasChildren;
+        }
+
+        // Used for the editing so replacing the object in the view-model data
+        // will treat it as the same object and keep its state - otherwise it will
+        // collapse after editing is done, which is not what the user would expect
+        public override bool Equals(object obj)
+        {
+            if (obj is Employee)
+            {
+                return this.Id == (obj as Employee).Id;
+            }
+            return false;
+        }
+    }
+
+    // data generation
+
+    async Task GetTreeListData()
+    {
+        Data = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetTreeListData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<EmployeeBase> _data { get; set; } = new List<EmployeeBase>();
+        // used in this example for data generation and retrieval for CUD operations on the current view-model data
+        private static int LastId { get; set; } = 1;
+
+        public static async Task Create(Employee itemToInsert, Employee parentItem)
+        {
+            InsertItemRecursive(_data, itemToInsert, parentItem);
+        }
+
+        public static async Task<List<EmployeeBase>> Read()
+        {
+            if (_data.Count < 1)
+            {
+                for (int i = 1; i < 15; i++)
+                {
+                    Employee root = new Employee(LastId, $"root: {i}", $"{i}@example.com", DateTime.Now.AddYears(-i), new List<EmployeeBase>(), true);
+
+                    _data.Add(root);
+
+                    LastId++;
+
+                    for (int j = 1; j < 4; j++)
+                    {
+                        int currId = LastId;
+
+                        Employee firstLevelChild = new Employee(currId, $"first level child {j} of {i}", $"{currId}@example.com", DateTime.Now.AddDays(-currId), new List<EmployeeBase>(), true);
+
+                        root.DirectReports.Add(firstLevelChild);
+                        LastId++;
+
+                        for (int k = 1; k < 3; k++)
+                        {
+                            int nestedId = LastId;
+
+                            firstLevelChild.DirectReports.Add(new Employee(LastId, $"second level child {k} of {j} and {i}", $"{nestedId}@example.com", DateTime.Now.AddMinutes(-nestedId), null, false));
+                        }
+                    }
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(Employee itemToUpdate)
+        {
+            UpdateItemRecursive(_data, itemToUpdate);
+        }
+
+        public static async Task Delete(Employee itemToDelete)
+        {
+            RemoveChildRecursive(_data, itemToDelete);
+        }
+
+        // sample helper methods for handling the view-model data hierarchy
+        static void UpdateItemRecursive(List<EmployeeBase> items, Employee itemToUpdate)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].Id.Equals(itemToUpdate.Id))
+                {
+                    items[i] = itemToUpdate;
+                    return;
+                }
+
+                if (items[i].DirectReports?.Count > 0)
+                {
+                    UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
+                }
+            }
+        }
+
+        static void RemoveChildRecursive(List<EmployeeBase> items, Employee item)
+        {
+            for (int i = 0; i < items.Count(); i++)
+            {
+                if (item.Equals(items[i]))
+                {
+                    items.Remove(item);
+
+                    return;
+                }
+                else if (items[i].DirectReports?.Count > 0)
+                {
+                    RemoveChildRecursive(items[i].DirectReports, item);
+
+                    if (items[i].DirectReports.Count == 0)
+                    {
+                        items[i].HasChildren = false;
+                    }
+                }
+            }
+        }
+
+        static void InsertItemRecursive(List<EmployeeBase> Data, Employee insertedItem, Employee parentItem)
+        {
+            insertedItem.Id = LastId++;
+            if (parentItem != null)
+            {
+                parentItem.HasChildren = true;
+                if (parentItem.DirectReports == null)
+                {
+                    parentItem.DirectReports = new List<EmployeeBase>();
+                }
+
+                parentItem.DirectReports.Insert(0, insertedItem);
+            }
+            else
+            {
+                Data.Insert(0, insertedItem);
+            }
+        }
+    }
+}
+````
 
 ### OnRowRender
 
