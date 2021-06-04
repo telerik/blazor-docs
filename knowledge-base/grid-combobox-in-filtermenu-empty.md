@@ -56,7 +56,7 @@ Here is a simple page that reproduces the issue and incorporates both workaround
 
     private List<string> VehicleMakeNames { get; set; } = new List<string>();
 
-    private List<VehicleModel> Vehicles { get; } = new List<VehicleModel>() {
+    private List<VehicleModel> Vehicles { get; set; } = new List<VehicleModel>() {
         new VehicleModel { VehicleID = 1, Make = "Honda" }
     };
 
@@ -69,7 +69,7 @@ Here is a simple page that reproduces the issue and incorporates both workaround
         }
     }
 
-    private async Task RefreshMakesAsync()
+    async Task RefreshMakesAsync()
     {
         // Comment next line to load the ComboBox data synchronously.
         await Task.Delay(1);
