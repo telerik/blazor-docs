@@ -34,3 +34,60 @@ The behavior is related to the filter menu popup. It is rendered outside the Gri
 ## Suggested Workarounds
 * Load the ComboBox data initially, before the filter menu is opened for the first time.
 * Load the ComboBox data synchronously.
+
+Here is a simple page that reproduces the issue and incorporates both workarounds.
+
+```razor
+<TelerikGrid Data="@Vehicles"
+             FilterMode="@GridFilterMode.FilterMenu">
+    <GridColumns>
+        <GridColumn Field="@nameof(VehicleModel.Make)" Title="Vehicle Make">
+            <FilterMenuTemplate>
+                <TelerikComboBox Data="@VehicleMakeNames"
+                                 OnRead="@OnReadMakeNames"
+                                 Value="string.Empty">
+                </TelerikComboBox>
+            </FilterMenuTemplate>
+        </GridColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+
+    private List<string> VehicleMakeNames { get; set; } = new List<string>();
+
+    private List<VehicleModel> Vehicles { get; } = new List<VehicleModel>() {
+        new VehicleModel { VehicleID = 1, Make = "Honda" }
+    };
+
+    async Task OnReadMakeNames(ComboBoxReadEventArgs args)
+    {
+        if (!VehicleMakeNames.Any())
+        {
+            await this.RefreshMakesAsync();
+            this.StateHasChanged();
+        }
+    }
+
+    private async Task RefreshMakesAsync()
+    {
+        // Comment next line to load the ComboBox data synchronously.
+        await Task.Delay(1);
+        VehicleMakeNames = new List<string>() { "Honda" };
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        // Uncomment next line to load the ComboBox data before the filter menu is opened.
+        //VehicleMakeNames = new List<string>() { "Honda" };
+
+        return base.OnInitializedAsync();
+    }
+
+    public class VehicleModel
+    {
+        public int VehicleID { get; set; }
+        public string Make { get; set; }
+    }
+}
+```
