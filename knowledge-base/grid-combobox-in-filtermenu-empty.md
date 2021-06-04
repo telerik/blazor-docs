@@ -5,7 +5,7 @@ type: troubleshooting
 page_title: ComboBox in Grid Filter Menu Template Has no Data When Opened the First Time
 slug: grid-kb-combobox-in-filtermenu-empty
 position: 
-tags: 
+tags: telerik, blazor, grid, filtermenu, template, combobox
 ticketid: 1522512
 res_type: kb
 ---
@@ -13,10 +13,6 @@ res_type: kb
 ## Environment
 <table>
 	<tbody>
-		<tr>
-			<td>Product Version</td>
-			<td>2.24.0</td>
-		</tr>
 		<tr>
 			<td>Product</td>
 			<td>Grid for Blazor</td>
