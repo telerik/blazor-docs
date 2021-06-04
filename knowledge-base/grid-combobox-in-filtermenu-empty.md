@@ -26,7 +26,7 @@ res_type: kb
 
 
 ## Description
-I have a ComboBox in a Grid `FilterMenuTemplate`. The first time I open it, the dropdown is empty and reads and *No Data*. The second time the ComboBox is opened, the data shows as expected.
+I have a ComboBox in a Grid `FilterMenuTemplate`. The ComboBox data is loaded asynchronously. The first time I open it, the dropdown is empty and reads and *No Data*. The second time the ComboBox is opened, the data shows as expected.
 
 ## Cause\Possible Cause(s)
 The behavior is related to the filter menu popup. It is rendered outside the Grid component in the page `<body>`. If the ComboBox data is loaded asynchronously, the popup is not refreshed even by `StateHasChanged`.
