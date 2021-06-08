@@ -13,6 +13,7 @@ position: 100
 This article explains the events available in the Telerik Scheduler for Blazor:
 
 * [CUD Events](#cud-events)
+* [OnModelInit](#onmodelinit)
 * [ItemRender](#itemrender)
 * [DateChanged](#datechanged)
 * [ViewChanged](#viewchanged)
@@ -20,6 +21,590 @@ This article explains the events available in the Telerik Scheduler for Blazor:
 ## CUD Events
 
 To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelete` and `OnUpdate` events. They let you propagate the changes the user makes in the UI to the view model and to the data storage. You can read mode in the [Appointment Editing]({%slug scheduler-appointments-edit%}) article.
+
+## OnModelInit
+
+The `OnModelInit` event fires before editing and adding new item in the Scheduler. The event allows you to:
+
+* bind the Scheduler to a class that has no parameterless constructor
+
+* bind the Scheduler to an interface
+
+* bind the Scheduler to an abstract class
+
+To achieve the desired behavior you can provide an instance of the model that the Scheduler is bound to in the `OnModelInit` event handler.
+
+>caption The different use-cases of the OnModelInit event
+
+````Parameterless Constructor
+@* Bind the Scheduler to a class without a parameterless constructor *@
+
+<TelerikScheduler Data="@Appointments"
+                  OnModelInit="@OnModelInitHandler"
+                  OnUpdate="@UpdateAppointment"
+                  OnCreate="@AddAppointment"
+                  OnDelete="@DeleteAppointment"
+                  OnEdit="@EditHandler" OnCancel="@CancelHandler"
+                  AllowCreate="true" AllowDelete="true" AllowUpdate="true"
+                  @bind-Date="@StartDate" Height="600px" @bind-View="@CurrView">
+    <SchedulerViews>
+        <SchedulerDayView StartTime="@DayStart" />
+        <SchedulerWeekView StartTime="@DayStart" />
+        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
+    </SchedulerViews>
+</TelerikScheduler>
+
+@code {
+    // sample data and scheduler settings
+    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
+    public DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
+    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0); //the time portion is important
+
+    private SchedulerAppointment OnModelInitHandler()
+    {
+        return new SchedulerAppointment(Guid.NewGuid(), String.Empty, String.Empty, new DateTime(), new DateTime(), false, String.Empty, null, null);
+    }
+
+    List<SchedulerAppointment> Appointments { get; set; }
+
+    async Task UpdateAppointment(SchedulerUpdateEventArgs args)
+    {
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
+
+        // perform actual data source operations here through your service
+        await MyService.Update(item);
+
+        // update the local view-model data with the service data
+        await GetSchedulerData();
+    }
+
+    async Task AddAppointment(SchedulerCreateEventArgs args)
+    {
+        SchedulerAppointment item = args.Item as SchedulerAppointment;
+
+        // perform actual data source operations here through your service
+        await MyService.Create(item);
+
+        // update the local view-model data with the service data
+        await GetSchedulerData();
+    }
+
+    async Task DeleteAppointment(SchedulerDeleteEventArgs args)
+    {
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
+
+        // perform actual data source operations here through your service
+        await MyService.Delete(item);
+
+        // update the local view-model data with the service data
+        await GetSchedulerData();
+
+        // see the comments in the service mimic method below.
+    }
+
+    //Handlers for application logic flexibility
+    void EditHandler(SchedulerEditEventArgs args)
+    {
+        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        if (!args.IsNew) // an edit operation, otherwise - an insert operation
+        {
+            // you can prevent opening an item for editing based on a condition
+            if (item.Title.Contains("vet", StringComparison.InvariantCultureIgnoreCase))
+            {
+                args.IsCancelled = true;
+            }
+        }
+        else
+        {
+            // new appointment
+            DateTime SlotStart = args.Start; // the start of the slot the user clicked
+            DateTime SlotEnd = args.End; // the start of the slot the user clicked
+            bool InsertInAllDay = args.IsAllDay; // whether the user started insertion in the All Day row
+        }
+    }
+
+    void CancelHandler(SchedulerCancelEventArgs args)
+    {
+        // you can know when a user wanted to modify an appointment but decided not to
+        // the model you get contains the new data from the edit form so you can see what they did
+        SchedulerAppointment item = args.Item as SchedulerAppointment;
+    }
+
+
+    public class SchedulerAppointment
+    {
+        public Guid Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
+        public string RecurrenceRule { get; set; }
+        public List<DateTime> RecurrenceExceptions { get; set; }
+        public Guid? RecurrenceId { get; set; }
+
+        public SchedulerAppointment(Guid id, string title, string description, DateTime start, DateTime end, bool allDay, string recurrance, List<DateTime> exceptions, Guid? recurrenceId)
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+            Start = start;
+            End = end;
+            IsAllDay = allDay;
+            RecurrenceRule = recurrance;
+            RecurrenceExceptions = exceptions;
+            RecurrenceId = recurrenceId;
+        }
+    }
+
+    async Task GetSchedulerData()
+    {
+        Appointments = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetSchedulerData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<SchedulerAppointment> _data { get; set; } = new List<SchedulerAppointment>()
+        {
+            new SchedulerAppointment(Guid.NewGuid(), "Board meeting", "Q4 is coming to a close, review the details.",new DateTime(2019, 12, 5, 10, 00, 0),new DateTime(2019, 12, 5, 11, 30, 0), false, String.Empty, null, null),
+            new SchedulerAppointment(Guid.NewGuid(), "Vet visit", "The cat needs vaccinations and her teeth checked.",new DateTime(2019, 12, 2, 11, 30, 0),new DateTime(2019, 12, 2, 12, 0, 0), false, String.Empty, null, null),
+            new SchedulerAppointment(Guid.NewGuid(), "Planning meeting", "Kick off the new project.", new DateTime(2019, 12, 6, 9, 30, 0), new DateTime(2019, 12, 6, 12, 45, 0), false, String.Empty, null, null),
+            new SchedulerAppointment(Guid.NewGuid(), "Trip to Hawaii", "An unforgettable holiday!", new DateTime(2019, 11, 27), new DateTime(2019, 12, 05), true, String.Empty, null, null),
+            new SchedulerAppointment(Guid.NewGuid(), "Morning run", "Some time to clear the head and exercise.", new DateTime(2019, 11, 27, 9, 0, 0), new DateTime(2019, 11, 27, 9, 30, 0), false,  "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR", null, null)
+        };
+
+        public static async Task Create(SchedulerAppointment itemToInsert)
+        {
+            itemToInsert.Id = Guid.NewGuid();
+            _data.Insert(0, itemToInsert);
+        }
+
+        public static async Task<List<SchedulerAppointment>> Read()
+        {
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(SchedulerAppointment itemToUpdate)
+        {
+            var index = _data.FindIndex(i => i.Id == itemToUpdate.Id);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
+
+        public static async Task Delete(SchedulerAppointment itemToDelete)
+        {
+            if (itemToDelete.RecurrenceId != null)
+            {
+                // a recurrence exception was deleted, you may want to update
+                // the rest of the data source - find an item where theItem.Id == itemToDelete.RecurrenceId
+                // and remove the current exception date from the list of its RecurrenceExceptions
+            }
+
+            if (!string.IsNullOrEmpty(itemToDelete.RecurrenceRule) && itemToDelete.RecurrenceExceptions?.Count > 0)
+            {
+                // a recurring appointment was deleted that had exceptions, you may want to
+                // delete or update any exceptions from the data source - look for
+                // items where theItem.RecurrenceId == itemToDelete.Id
+            }
+
+            _data.Remove(itemToDelete);
+        }
+    }
+}
+````
+````Interface
+@* Bind the Scheduler to an interface *@
+
+<TelerikScheduler Data="@Appointments"
+                  OnModelInit="@OnModelInitHandler"
+                  OnUpdate="@UpdateAppointment"
+                  OnCreate="@AddAppointment"
+                  OnDelete="@DeleteAppointment"
+                  OnEdit="@EditHandler" OnCancel="@CancelHandler"
+                  AllowCreate="true" AllowDelete="true" AllowUpdate="true"
+                  @bind-Date="@StartDate" Height="600px" @bind-View="@CurrView">
+    <SchedulerViews>
+        <SchedulerDayView StartTime="@DayStart" />
+        <SchedulerWeekView StartTime="@DayStart" />
+        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
+    </SchedulerViews>
+</TelerikScheduler>
+
+@code {
+    // sample data and scheduler settings
+    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
+    public DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
+    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0); //the time portion is important
+
+    private SchedulerAppointment OnModelInitHandler()
+    {
+        return new SchedulerAppointment(Guid.NewGuid(), String.Empty, String.Empty, new DateTime(), new DateTime(), false, String.Empty, null, null);
+    }
+
+    List<IAppointment> Appointments { get; set; }
+
+    async Task UpdateAppointment(SchedulerUpdateEventArgs args)
+    {
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
+
+        // perform actual data source operations here through your service
+        await MyService.Update(item);
+
+        // update the local view-model data with the service data
+        await GetSchedulerData();
+    }
+
+    async Task AddAppointment(SchedulerCreateEventArgs args)
+    {
+        SchedulerAppointment item = args.Item as SchedulerAppointment;
+
+        // perform actual data source operations here through your service
+        await MyService.Create(item);
+
+        // update the local view-model data with the service data
+        await GetSchedulerData();
+    }
+
+    async Task DeleteAppointment(SchedulerDeleteEventArgs args)
+    {
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
+
+        // perform actual data source operations here through your service
+        await MyService.Delete(item);
+
+        // update the local view-model data with the service data
+        await GetSchedulerData();
+
+        // see the comments in the service mimic method below.
+    }
+
+    //Handlers for application logic flexibility
+    void EditHandler(SchedulerEditEventArgs args)
+    {
+        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        if (!args.IsNew) // an edit operation, otherwise - an insert operation
+        {
+            // you can prevent opening an item for editing based on a condition
+            if (item.Title.Contains("vet", StringComparison.InvariantCultureIgnoreCase))
+            {
+                args.IsCancelled = true;
+            }
+        }
+        else
+        {
+            // new appointment
+            DateTime SlotStart = args.Start; // the start of the slot the user clicked
+            DateTime SlotEnd = args.End; // the start of the slot the user clicked
+            bool InsertInAllDay = args.IsAllDay; // whether the user started insertion in the All Day row
+        }
+    }
+
+    void CancelHandler(SchedulerCancelEventArgs args)
+    {
+        // you can know when a user wanted to modify an appointment but decided not to
+        // the model you get contains the new data from the edit form so you can see what they did
+        SchedulerAppointment item = args.Item as SchedulerAppointment;
+    }
+
+    public interface IAppointment
+    {
+        public Guid Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
+        public string RecurrenceRule { get; set; }
+        public List<DateTime> RecurrenceExceptions { get; set; }
+        public Guid? RecurrenceId { get; set; }
+    }
+
+    public class SchedulerAppointment : IAppointment
+    {
+        public Guid Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
+        public string RecurrenceRule { get; set; }
+        public List<DateTime> RecurrenceExceptions { get; set; }
+        public Guid? RecurrenceId { get; set; }
+
+        public SchedulerAppointment(Guid id, string title, string description, DateTime start, DateTime end, bool allDay, string recurrance, List<DateTime> exceptions, Guid? recurrenceId)
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+            Start = start;
+            End = end;
+            IsAllDay = allDay;
+            RecurrenceRule = recurrance;
+            RecurrenceExceptions = exceptions;
+            RecurrenceId = recurrenceId;
+        }
+    }
+
+    async Task GetSchedulerData()
+    {
+        Appointments = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetSchedulerData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<IAppointment> _data { get; set; } = new List<IAppointment>()
+        {
+            new SchedulerAppointment(Guid.NewGuid(), "Board meeting", "Q4 is coming to a close, review the details.",new DateTime(2019, 12, 5, 10, 00, 0),new DateTime(2019, 12, 5, 11, 30, 0), false, String.Empty, null, null),
+            new SchedulerAppointment(Guid.NewGuid(), "Vet visit", "The cat needs vaccinations and her teeth checked.",new DateTime(2019, 12, 2, 11, 30, 0),new DateTime(2019, 12, 2, 12, 0, 0), false, String.Empty, null, null),
+            new SchedulerAppointment(Guid.NewGuid(), "Planning meeting", "Kick off the new project.", new DateTime(2019, 12, 6, 9, 30, 0), new DateTime(2019, 12, 6, 12, 45, 0), false, String.Empty, null, null),
+            new SchedulerAppointment(Guid.NewGuid(), "Trip to Hawaii", "An unforgettable holiday!", new DateTime(2019, 11, 27), new DateTime(2019, 12, 05), true, String.Empty, null, null),
+            new SchedulerAppointment(Guid.NewGuid(), "Morning run", "Some time to clear the head and exercise.", new DateTime(2019, 11, 27, 9, 0, 0), new DateTime(2019, 11, 27, 9, 30, 0), false,  "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR", null, null)
+        };
+
+        public static async Task Create(SchedulerAppointment itemToInsert)
+        {
+            itemToInsert.Id = Guid.NewGuid();
+            _data.Insert(0, itemToInsert);
+        }
+
+        public static async Task<List<IAppointment>> Read()
+        {
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(SchedulerAppointment itemToUpdate)
+        {
+            var index = _data.FindIndex(i => i.Id == itemToUpdate.Id);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
+
+        public static async Task Delete(SchedulerAppointment itemToDelete)
+        {
+            if (itemToDelete.RecurrenceId != null)
+            {
+                // a recurrence exception was deleted, you may want to update
+                // the rest of the data source - find an item where theItem.Id == itemToDelete.RecurrenceId
+                // and remove the current exception date from the list of its RecurrenceExceptions
+            }
+
+            if (!string.IsNullOrEmpty(itemToDelete.RecurrenceRule) && itemToDelete.RecurrenceExceptions?.Count > 0)
+            {
+                // a recurring appointment was deleted that had exceptions, you may want to
+                // delete or update any exceptions from the data source - look for
+                // items where theItem.RecurrenceId == itemToDelete.Id
+            }
+
+            _data.Remove(itemToDelete);
+        }
+    }
+}
+````
+````Abstract Class
+@* Bind the Scheduler to an abstract class *@
+
+<TelerikScheduler Data="@Appointments"
+                  OnModelInit="@OnModelInitHandler"
+                  OnUpdate="@UpdateAppointment"
+                  OnCreate="@AddAppointment"
+                  OnDelete="@DeleteAppointment"
+                  OnEdit="@EditHandler" OnCancel="@CancelHandler"
+                  AllowCreate="true" AllowDelete="true" AllowUpdate="true"
+                  @bind-Date="@StartDate" Height="600px" @bind-View="@CurrView">
+    <SchedulerViews>
+        <SchedulerDayView StartTime="@DayStart" />
+        <SchedulerWeekView StartTime="@DayStart" />
+        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
+    </SchedulerViews>
+</TelerikScheduler>
+
+@code {
+    // sample data and scheduler settings
+    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
+    public DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
+    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0); //the time portion is important
+
+    private SchedulerAppointment OnModelInitHandler()
+    {
+        return new SchedulerAppointment(Guid.NewGuid(), String.Empty, String.Empty, new DateTime(), new DateTime(), false, String.Empty, null, null);
+    }
+
+    List<AppointmentBase> Appointments { get; set; }
+
+    async Task UpdateAppointment(SchedulerUpdateEventArgs args)
+    {
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
+
+        // perform actual data source operations here through your service
+        await MyService.Update(item);
+
+        // update the local view-model data with the service data
+        await GetSchedulerData();
+    }
+
+    async Task AddAppointment(SchedulerCreateEventArgs args)
+    {
+        SchedulerAppointment item = args.Item as SchedulerAppointment;
+
+        // perform actual data source operations here through your service
+        await MyService.Create(item);
+
+        // update the local view-model data with the service data
+        await GetSchedulerData();
+    }
+
+    async Task DeleteAppointment(SchedulerDeleteEventArgs args)
+    {
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
+
+        // perform actual data source operations here through your service
+        await MyService.Delete(item);
+
+        // update the local view-model data with the service data
+        await GetSchedulerData();
+
+        // see the comments in the service mimic method below.
+    }
+
+    //Handlers for application logic flexibility
+    void EditHandler(SchedulerEditEventArgs args)
+    {
+        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        if (!args.IsNew) // an edit operation, otherwise - an insert operation
+        {
+            // you can prevent opening an item for editing based on a condition
+            if (item.Title.Contains("vet", StringComparison.InvariantCultureIgnoreCase))
+            {
+                args.IsCancelled = true;
+            }
+        }
+        else
+        {
+            // new appointment
+            DateTime SlotStart = args.Start; // the start of the slot the user clicked
+            DateTime SlotEnd = args.End; // the start of the slot the user clicked
+            bool InsertInAllDay = args.IsAllDay; // whether the user started insertion in the All Day row
+        }
+    }
+
+    void CancelHandler(SchedulerCancelEventArgs args)
+    {
+        // you can know when a user wanted to modify an appointment but decided not to
+        // the model you get contains the new data from the edit form so you can see what they did
+        SchedulerAppointment item = args.Item as SchedulerAppointment;
+    }
+
+    public abstract class AppointmentBase
+    {
+        public Guid Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
+        public string RecurrenceRule { get; set; }
+        public List<DateTime> RecurrenceExceptions { get; set; }
+        public Guid? RecurrenceId { get; set; }
+    }
+
+    public class SchedulerAppointment : AppointmentBase
+    {
+        public SchedulerAppointment(Guid id, string title, string description, DateTime start, DateTime end, bool allDay, string recurrance, List<DateTime> exceptions, Guid? recurrenceId)
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+            Start = start;
+            End = end;
+            IsAllDay = allDay;
+            RecurrenceRule = recurrance;
+            RecurrenceExceptions = exceptions;
+            RecurrenceId = recurrenceId;
+        }
+    }
+
+    async Task GetSchedulerData()
+    {
+        Appointments = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetSchedulerData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<AppointmentBase> _data { get; set; } = new List<AppointmentBase>()
+        {
+            new SchedulerAppointment(Guid.NewGuid(), "Board meeting", "Q4 is coming to a close, review the details.",new DateTime(2019, 12, 5, 10, 00, 0),new DateTime(2019, 12, 5, 11, 30, 0), false, String.Empty, null, null),
+            new SchedulerAppointment(Guid.NewGuid(), "Vet visit", "The cat needs vaccinations and her teeth checked.",new DateTime(2019, 12, 2, 11, 30, 0),new DateTime(2019, 12, 2, 12, 0, 0), false, String.Empty, null, null),
+            new SchedulerAppointment(Guid.NewGuid(), "Planning meeting", "Kick off the new project.", new DateTime(2019, 12, 6, 9, 30, 0), new DateTime(2019, 12, 6, 12, 45, 0), false, String.Empty, null, null),
+            new SchedulerAppointment(Guid.NewGuid(), "Trip to Hawaii", "An unforgettable holiday!", new DateTime(2019, 11, 27), new DateTime(2019, 12, 05), true, String.Empty, null, null),
+            new SchedulerAppointment(Guid.NewGuid(), "Morning run", "Some time to clear the head and exercise.", new DateTime(2019, 11, 27, 9, 0, 0), new DateTime(2019, 11, 27, 9, 30, 0), false,  "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR", null, null)
+        };
+
+        public static async Task Create(SchedulerAppointment itemToInsert)
+        {
+            itemToInsert.Id = Guid.NewGuid();
+            _data.Insert(0, itemToInsert);
+        }
+
+        public static async Task<List<AppointmentBase>> Read()
+        {
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(SchedulerAppointment itemToUpdate)
+        {
+            var index = _data.FindIndex(i => i.Id == itemToUpdate.Id);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
+
+        public static async Task Delete(SchedulerAppointment itemToDelete)
+        {
+            if (itemToDelete.RecurrenceId != null)
+            {
+                // a recurrence exception was deleted, you may want to update
+                // the rest of the data source - find an item where theItem.Id == itemToDelete.RecurrenceId
+                // and remove the current exception date from the list of its RecurrenceExceptions
+            }
+
+            if (!string.IsNullOrEmpty(itemToDelete.RecurrenceRule) && itemToDelete.RecurrenceExceptions?.Count > 0)
+            {
+                // a recurring appointment was deleted that had exceptions, you may want to
+                // delete or update any exceptions from the data source - look for
+                // items where theItem.RecurrenceId == itemToDelete.Id
+            }
+
+            _data.Remove(itemToDelete);
+        }
+    }
+}
+````
 
 ## ItemRender
 
