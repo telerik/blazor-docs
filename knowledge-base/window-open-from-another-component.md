@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I want to make a separate razor page to hold the markup & code for the Window component. I then want to be able to open it from another page. How to achieve that?
+I want to make a separate razor page to hold the markup & code for the Window component and be able to open it from another page. How to achieve that?
 
 ## Solution
 
@@ -31,10 +31,11 @@ You could get a reference to the component hosting the Window and use that to to
 
 Another option would be to send such a reference as a cascading parameter if you have a more complex hierarchy and you need to go up and not down.
 
+
 >caption Open a Window from another component
 
 
-````Main page
+````MainPage.razor
 @* The page/component that you want to open the Window from *@
 
 <TelerikButton OnClick="@ToggleWindow" Primary="true">Toggle Window</TelerikButton>
@@ -72,5 +73,3 @@ Another option would be to send such a reference as a cascading parameter if you
     public bool WindowIsVisible { get; set; }
 }
 ````
-
-bla
