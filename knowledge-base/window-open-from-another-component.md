@@ -5,7 +5,7 @@ type: how-to
 page_title: Open a Window from another component
 slug: window-kb-open-from-another-component
 position: 
-tags: 
+tags: telerik, blazor, window, open, show, another, page, component
 ticketid:
 res_type: kb
 ---
@@ -23,11 +23,11 @@ res_type: kb
 
 ## Description
 
-I want to make a separate razor page to hold the markup & code for the Window component and be able to open it from another page. How to achieve that?
+I want to make a separate razor page to hold the markup and code for the Window component and be able to open it from another page. How to achieve that?
 
 ## Solution
 
-You could get a reference to the component hosting the Window and use that to toggle the field that is bound to the Visible parameter of the window.
+You can get a reference to the component hosting the Window and use that to toggle the field that is bound to the Visible parameter of the window.
 
 Another option would be to send such a reference as a cascading parameter if you have a more complex hierarchy and you need to go up and not down.
 
@@ -40,7 +40,8 @@ Another option would be to send such a reference as a cascading parameter if you
 
 <TelerikButton OnClick="@ToggleWindow" Primary="true">Toggle Window</TelerikButton>
 
-<Window WindowIsVisible="@Visible"></Window>
+<Window @bind-WindowIsVisible="@Visible"></Window>
+
 
 @code {
     bool Visible { get; set; }
@@ -54,7 +55,7 @@ Another option would be to send such a reference as a cascading parameter if you
 ````Window.razor
 @* Separate component hosting the markup and logic for the TelerikWindow *@
 
-<TelerikWindow @bind-Visible="@WindowIsVisible">
+<TelerikWindow Visible="@WindowIsVisible" VisibleChanged="@WindowIsVisibleChanged">
     <WindowTitle>
         <strong>The Title</strong>
     </WindowTitle>
@@ -71,5 +72,8 @@ Another option would be to send such a reference as a cascading parameter if you
 @code {
     [Parameter]
     public bool WindowIsVisible { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> WindowIsVisibleChanged { get; set; }
 }
 ````
