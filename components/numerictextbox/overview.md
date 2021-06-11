@@ -48,7 +48,7 @@ The numeric textbox provides the following features:
 
 * `Arrows` - whether the up/down spinner arrows (buttons) will be shown. Defaults to `true`.
 
-* `Decimals` - how many decimal places will be allowed while the user is typing a new value. Takes effect only while the input is focused.
+* `Decimals` - how many decimal places will be allowed while the user is typing a new value. Takes effect only while the input is focused. The default value is set from the specified culture.
 
 * `Format` - the format with which the number is presented when the input is not focused. Read more in the [Standard Numeric Format Strings in .NET](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) article.
 
