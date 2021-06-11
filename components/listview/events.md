@@ -44,7 +44,7 @@ To achieve the desired behavior you can provide an instance of the model that th
 
 >caption The different use-cases of the OnModelInit event
 
-````Parameterless Constructor
+````ParameterlessConstructor
 @* Bind the ListView to a class without a parameterless constructor *@
 
 <TelerikListView Data="@ListViewData" 
@@ -385,7 +385,7 @@ To achieve the desired behavior you can provide an instance of the model that th
     }
 }
 ````
-````Abstract Class
+````AbstractClass
 @* Bind the ListView to an abstract class *@
 
 <TelerikListView Data="@ListViewData" 

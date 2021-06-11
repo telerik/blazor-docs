@@ -36,7 +36,7 @@ To achieve the desired behavior you can provide an instance of the model that th
 
 >caption The different use-cases of the OnModelInit event
 
-````Parameterless Constructor
+````ParameterlessConstructor
 @* Bind the Scheduler to a class without a parameterless constructor *@
 
 <TelerikScheduler Data="@Appointments"

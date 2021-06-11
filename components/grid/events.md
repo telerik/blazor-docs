@@ -75,7 +75,7 @@ To achieve the desired behavior you can provide an instance of the model that th
 
 >caption The different use-cases of the OnModelInit event
 
-````Parameterless Constructor
+````ParameterlessConstructor
 @* Bind the Grid to a class without a parameterless constructor *@
 
 <TelerikGrid Data="@SampleGridData"
@@ -343,7 +343,7 @@ To achieve the desired behavior you can provide an instance of the model that th
     }
 }
 ````
-````Abstract Class
+````AbstractClass
 @* Bind the Grid to an abstract class *@
 
 <TelerikGrid Data="@SampleGridData"

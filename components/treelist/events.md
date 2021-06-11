@@ -181,7 +181,7 @@ To achieve the desired behavior you can provide an instance of the model that th
 
 >caption The different use-cases of the OnModelInit event
 
-````Parameterless Constructor
+````ParameterlessConstructor
 @* Bind the TreeList to a class without a parameterless constructor *@
 
 @using System.ComponentModel.DataAnnotations
@@ -699,7 +699,7 @@ To achieve the desired behavior you can provide an instance of the model that th
     }
 }
 ````
-````Abstract Class
+````AbstractClass
 @* Bind the TreeList to an abstract class *@
 
 @using System.ComponentModel.DataAnnotations
