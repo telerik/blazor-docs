@@ -418,7 +418,7 @@ To achieve the desired behavior you can provide an instance of the model that th
     }
 }
 ````
-````Abstract Class
+````AbstractClass
 @* Bind the Scheduler to an abstract class *@
 
 <TelerikScheduler Data="@Appointments"
