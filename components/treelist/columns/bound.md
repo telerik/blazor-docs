@@ -116,7 +116,7 @@ You can read more details on how to tie the treelist to your data fields and chi
 
 ## TreeList Bound Column Parameters
 
-You can use the following properties on the bound columns:
+You can use the following properties on bound columns:
 
 ### Data Binding
 
