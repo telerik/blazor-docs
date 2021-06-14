@@ -116,39 +116,36 @@ You can read more details on how to tie the treelist to your data fields and chi
 
 ## TreeList Bound Column Parameters
 
-You can use the following properties on the bound columns:
+You can use the following properties on bound columns:
+
+### Data Binding
 
 * `Expandable` - (defaults to `false`) - when set to true, the column shows an expand/collapse arrow in front of the value and denotes hierarchy be intending it. You should set this to at least one column of your treelist to showcase the hierarchical nature of the data.
-
 * `Field` - (defaults to `null`) - the name of the field in the data source that the column will render as a string (case-sensitive). You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeFIeld)`).
 
+### Appearance
+
 * `Title` - the text that is rendered in the column header. See the Notes below for its behavior.
-
 * `DisplayFormat` - the C# format string that is used to render the field value in the cell when the grid is in display mode. Read more in the [Column Display Format]({%slug treelist-columns-displayformat%}) article.
-
-* `Editable` - (defaults to `true`) - you can set this property to `true` or `false` to allow or prevent [editing]({%slug treelist-overview%}#editing) of this field. Defaults to `true`. To edit data, you also need a [CommandColumn]({%slug treelist-columns-command%}).
-
-* `Filterable` - (defaults to `true`) - you can set this to `false` so a [filterable]({%slug treelist-filtering%}) treelist will not let the user filter that particular column.
-
-* `Locked` - (defaults to `false`) - defines whether the column is [locked (frozen, pinned)]({%slug treelist-columns-frozen%}).
-
-* `Sortable` - (defaults to `true`) - set it to `false` so the user cannot [sort]({%slug treelist-sorting%}) this column.
-
-* `Reorderable` - (defaults to `true`) - whether the user can [drag to reorder]({%slug treelist-columns-reorder%}) this column.
-
-* `Resizable` - (defaults to `true`) - whether the user can [resize]({%slug treelist-columns-resize%}) this column.
-
+* `TextAlign` - specifies the horizontal alignment of the cell text. For example, you can use this property to right-align numeric columns. The property accepts `ColumnTextAlign` enum values (`Left`, `Right` or `Center`). If not set, the text alignment will depend on existing styles on the page, default browser behavior and the text direction.
 * `Width` -  (defaults to `null`) - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article. Keep in mind that these are columns in a `<table>`, so it is often a good practice to leave one column without explicit dimensions so it can accommodate the remaining width and changes to the container size.
-
+* `Locked` - (defaults to `false`) - defines whether the column is [locked (frozen, pinned)]({%slug treelist-columns-frozen%}).
+* `Reorderable` - (defaults to `true`) - whether the user can [drag to reorder]({%slug treelist-columns-reorder%}) this column.
+* `Resizable` - (defaults to `true`) - whether the user can [resize]({%slug treelist-columns-resize%}) this column.
 * `Visible` - (defaults to `null`) - if this parameter is set to `false` it [hides]({%slug treelist-columns-visible%}) the column from the TreeList. Accepts both `bool` and `bool?` types, and `null` is treated like `true`.
-
-* `Template` - this property can also be used as an inner tag and it defines the [custom cell content]({%slug treelist-templates-column%}) that renders instead of the default field value the treelist puts in it.
-
-* `HeaderTemplate` - this property can also be used as an inner tag and defines the custom contents of the [header cell]({%slug treelist-templates-column-header%}) that you can render instead of the Title.
-* `EditorTemplate` - this property can also be used as an inner tag and defines a [custom input and logic that is used for editing the field]({%slug treelist-templates-editor%}).
-
 * `Columns` - a nested tag where you can declare [multiple column headers]({%slug treelist-columns-multiple-column-headers%}).
 
+### Data Operations
+
+* `Editable` - (defaults to `true`) - you can set this property to `true` or `false` to allow or prevent [editing]({%slug treelist-overview%}#editing) of this field. Defaults to `true`. To edit data, you also need a [CommandColumn]({%slug treelist-columns-command%}).
+* `Filterable` - (defaults to `true`) - you can set this to `false` so a [filterable]({%slug treelist-filtering%}) treelist will not let the user filter that particular column.
+* `Sortable` - (defaults to `true`) - set it to `false` so the user cannot [sort]({%slug treelist-sorting%}) this column.
+
+### Templates
+
+* `Template` - this property can also be used as an inner tag and it defines the [custom cell content]({%slug treelist-templates-column%}) that renders instead of the default field value the treelist puts in it.
+* `HeaderTemplate` - this property can also be used as an inner tag and defines the custom contents of the [header cell]({%slug treelist-templates-column-header%}) that you can render instead of the Title.
+* `EditorTemplate` - this property can also be used as an inner tag and defines a [custom input and logic that is used for editing the field]({%slug treelist-templates-editor%}).
 
 >tip You can find more examples in the rest of the treelist documentation and in our [live demos](https://demos.telerik.com/blazor-ui/treelist/overview).
 
