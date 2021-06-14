@@ -73,64 +73,52 @@ To show data in a grid, you must define `GridColumn` instances in the `GridColum
 
 ## Grid Bound Column Parameters
 
-You can use the following properties on the bound columns:
+You can use the following properties on bound columns:
+
+### Data Binding
 
 * `Field` - (defaults to `null`) - the name of the field in the data source that the column will render as a string (case-sensitive). You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeFIeld)`).
-
-* `Title` - the text that is rendered in the column header. See the Notes below for its behavior.
-
-* `DisplayFormat` - the C# format string that is used to render the field value in the cell when the grid is in display mode. Read more in the [Column Display Format]({%slug grid-columns-displayformat%}) article.
-
-* `Id` - a unique identifier of the Grid Column. Use to associate the column to the respective item in the column chooser when the columns are organized in [sections]({%slug grid-column-menu%}#sections).  
-
-* `Editable` - (defaults to `true`) - you can set this property to `true` or `false` to allow or prevent [editing]({%slug components/grid/overview%}#editing) of this field. Defaults to `true`. To edit data, you also need a [CommandColumn]({%slug components/grid/columns/command%}).
-
-* `Filterable` - (defaults to `true`) - you can set this to `false` so a [filterable]({%slug components/grid/filtering%}) grid will not let the user filter that particular column.
-
-* `OnCellRender` - an event that fires upon the rendering of the Grids columns. For more information read the columns [events]({%slug grid-column-events%}#oncellrender) article.
-
-* `Sortable` - (defaults to `true`) - set it to `false` so the user cannot [sort]({%slug components/grid/features/sorting%}) this column.
-
-* `Groupable` - (defaults to `true`) - whether the use can [group]({%slug components/grid/features/grouping%}) the grid by this column.
-
-* `Reorderable` - (defaults to `true`) - whether the user can [drag to reorder]({%slug components/grid/columns/reorder%}) this column.
-
-* `Resizable` - (defaults to `true`) - whether the user can [resize]({%slug components/grid/columns/resize%}) this column.
-
-* `Width` - (defaults to `null`) - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article. Keep in mind that these are columns in a `<table>`, so it is often a good practice to leave one column without explicit dimensions so it can accommodate the remaining width and changes to the container size.
-
-* `Locked` - (defaults to `false`) - if this parameter is set to true it [locks]({%slug grid-columns-frozen%}) the column so it is always visible to the user.
-
-* `Visible` - (defaults to `null`) - if this parameter is set to `false` it [hides]({%slug grid-columns-visible%}) the column from the Grid. Accepts both `bool` and `bool?` types, and `null` is treated like `true`.
-
-* `ShowColumnMenu` - (defaults to `true`) - if set to false, disables the [column menu]({%slug grid-column-menu%}) for that particular column.
-
-* `Lockable` - (defaults to `true`) - determines whether the user can [pin the column]({%slug grid-columns-frozen%}) through the [column menu]({%slug grid-column-menu%}).
-
-* `VisibleInColumnChooser` - (defaults to `true`) - if set to false, removes the column from the Column chooser of the [column menu]({%slug grid-column-menu%}).
-
-* `Template` - this property can also be used as an inner tag and it lets you define the [column display content]({%slug components/grid/features/templates%}#column-template). It can also point to a component name.
-
-* `Context` - the standard Blazor context variable name for use inside the inline template.
-
-* `ref` - the standard Blazor reference name.
-
 * `FieldType` - when binding the grid to an `object` rather than a real model, set this to the `typeof` the field the column will be displaying. Such a case would be <a href="https://github.com/telerik/blazor-ui/tree/master/grid/binding-to-expando-object" target="_blank">binding to expando objects</a>, using [OnRead with grouping]({%slug components/grid/manual-operations%}#grouping-with-onread) or <a href="https://demos.telerik.com/blazor-ui/grid/data-table" target="_blank">binding to a DataTable</a>.
 
-* `EditorTemplate` - this property can also be used as an inner tag and it lets you define the [column edit content]({%slug components/grid/features/templates%}#edit-template). It can also point to a component name.
+### Appearance
 
-* `FilterCellTemplate` - this property can also be used as an inner tag and it lets you customize [the Grid Filter Row]({%slug grid-templates-filter%}#filter-row-template). It can also point to a component name.
-
-* `FilterMenuTemplate` - this property can also be used as an inner tag and it lets you customize [the Grid Filter Menu]({%slug grid-templates-filter%}#filter-menu-template). It can also point to a component name.
-
+* `Title` - the text that is rendered in the column header. See the Notes below for its behavior.
+* `DisplayFormat` - the C# format string that is used to render the field value in the cell when the grid is in display mode. Read more in the [Column Display Format]({%slug grid-columns-displayformat%}) article.
+* `TextAlign` - specifies the horizontal alignment of the cell text. For example, you can use this property to right-align numeric columns. The property accepts `ColumnTextAlign` enum values (`Left`, `Right` or `Center`). If not set, the text alignment will depend on existing styles on the page, default browser behavior and the text direction.
+* `OnCellRender` - an event that fires upon the rendering of the Grids columns. For more information read the columns [events]({%slug grid-column-events%}#oncellrender) article.
+* `Reorderable` - (defaults to `true`) - whether the user can [drag to reorder]({%slug components/grid/columns/reorder%}) this column.
+* `Resizable` - (defaults to `true`) - whether the user can [resize]({%slug components/grid/columns/resize%}) this column.
+* `Width` - (defaults to `null`) - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article. Keep in mind that these are columns in a `<table>`, so it is often a good practice to leave one column without explicit dimensions so it can accommodate the remaining width and changes to the container size.
+* `Lockable` - (defaults to `true`) - determines whether the user can [pin the column]({%slug grid-columns-frozen%}) through the [column menu]({%slug grid-column-menu%}).
+* `Locked` - (defaults to `false`) - if this parameter is set to true it [locks]({%slug grid-columns-frozen%}) the column so it is always visible to the user.
+* `Visible` - (defaults to `null`) - if this parameter is set to `false` it [hides]({%slug grid-columns-visible%}) the column from the Grid. Accepts both `bool` and `bool?` types, and `null` is treated like `true`.
 * `Columns` - a nested tag where you can declare [multiple column headers]({%slug grid-columns-multiple-column-headers%}).
+* `ShowColumnMenu` - (defaults to `true`) - if set to false, disables the [column menu]({%slug grid-column-menu%}) for that particular column.
+* `VisibleInColumnChooser` - (defaults to `true`) - if set to false, removes the column from the Column chooser of the [column menu]({%slug grid-column-menu%}).
 
+### Identification
+
+* `Id` - a unique identifier of the Grid Column. Use to associate the column to the respective item in the column chooser when the columns are organized in [sections]({%slug grid-column-menu%}#sections).  
+* `ref` - the standard Blazor reference name.
+
+### Data Operations
+
+* `Editable` - (defaults to `true`) - you can set this property to `true` or `false` to allow or prevent [editing]({%slug components/grid/overview%}#editing) of this field. Defaults to `true`. To edit data, you also need a [CommandColumn]({%slug components/grid/columns/command%}).
+* `Filterable` - (defaults to `true`) - you can set this to `false` so a [filterable]({%slug components/grid/filtering%}) grid will not let the user filter that particular column.
+* `Sortable` - (defaults to `true`) - set it to `false` so the user cannot [sort]({%slug components/grid/features/sorting%}) this column.
+* `Groupable` - (defaults to `true`) - whether the user can [group]({%slug components/grid/features/grouping%}) the grid by this column.
+
+### Templates
+
+* `Template` - this property can also be used as an inner tag and it lets you define the [column display content]({%slug components/grid/features/templates%}#column-template). It can also point to a component name.
+* `Context` - the standard Blazor context variable name for use inside the inline template.
+* `EditorTemplate` - this property can also be used as an inner tag and it lets you define the [column edit content]({%slug components/grid/features/templates%}#edit-template). It can also point to a component name.
+* `FilterCellTemplate` - this property can also be used as an inner tag and it lets you customize [the Grid Filter Row]({%slug grid-templates-filter%}#filter-row-template). It can also point to a component name.
+* `FilterMenuTemplate` - this property can also be used as an inner tag and it lets you customize [the Grid Filter Menu]({%slug grid-templates-filter%}#filter-menu-template). It can also point to a component name.
 
 >tip You can find more examples in the rest of the grid documentation and in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview).
 
 >tip The Grid can [automatically generate]({%slug grid-columns-automatically-generated%}) its columns out of the public properties of the model.
-
-
 
 ## Notes
 
