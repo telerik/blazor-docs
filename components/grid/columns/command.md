@@ -12,25 +12,22 @@ position: 1
 
 The command column of a grid allows you to initiate [inline]({%slug components/grid/editing/inline%}) or [popup]({%slug components/grid/editing/popup%}) editing, or to execute your own commands.
 
-To define it, add a `GridCommandColumn` in the `GridColumns` collection of a grid. The command column takes a collection of `GridCommandButton` instances that invoke the commands. It also offers the `Title` property so you can set its header text.
+To define it, add a `GridCommandColumn` in the `GridColumns` collection of a grid. The command column takes a collection of `GridCommandButton` instances that invoke the commands. It also provides the data item `context` and a `Title` property to set its header text.
 
 In this article:
 
 * [Grid Command Column Features](#features)
- 
    * [GridCommandButton](#the-gridcommandbutton-tag)
-   
    * [Built-in Commands](#built-in-commands)
-   
    * [OnClick Handler](#the-onclick-handler)
-   
+   * [Context](#context)
 * [Code Example](#example)
 
 ## Features
 
 The section describes the available features and their use.
 
-### The GridCommandButton tag
+### The GridCommandButton Tag
 
 The `GridCommandButton` tag offers the following features:
 
@@ -58,6 +55,26 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 * `IsNew` - a boolean field indicating whether the item was just added through the grid interface.
 
 >tip For handling CRUD operations we recommend that you use the grid events (`OnEdit`, `OnUpdate`, `OnCancel`, `OnCreate`). The `OnClick` handler is available for the built-in commands to provide consistency of the API.
+
+### Context
+
+The command column provides access to the data item via `context`. This may be useful for conditional statements or passing parameters to custom business logic.
+
+```razor
+<GridCommandColumn>
+    @{
+        var product = context as ProductModel;
+        if (product.Discontinued)
+        {
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+        }
+        else
+        {
+            <span>Cannot delete active products</span>
+        }
+    }
+</GridCommandColumn>
+```
 
 ## Example
 
