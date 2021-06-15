@@ -24,19 +24,11 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
 
 ## OnModelInit
 
-The `OnModelInit` event fires before editing and adding new item in the Scheduler. The event allows you to:
-
-* bind the Scheduler to a class that has no parameterless constructor
-
-* bind the Scheduler to an interface
-
-* bind the Scheduler to an abstract class
-
-To achieve the desired behavior you can provide an instance of the model that the Scheduler is bound to in the `OnModelInit` event handler.
+@[template](/_contentTemplates/common/onmodelinit.md#onmodelinit-info)
 
 >caption The different use-cases of the OnModelInit event
 
-````ParameterlessConstructor
+````NoParameterlessConstructor
 @* Bind the Scheduler to a class without a parameterless constructor *@
 
 <TelerikScheduler Data="@Appointments"

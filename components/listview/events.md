@@ -32,19 +32,11 @@ In the common case, you provide all the data to the listview's Data collection a
 
 ### OnModelInit
 
-The `OnModelInit` event fires before editing and adding new item in the ListView. The event allows you to:
-
-* bind the ListView to a class that has no parameterless constructor
-
-* bind the ListView to an interface
-
-* bind the ListView to an abstract class
-
-To achieve the desired behavior you can provide an instance of the model that the ListView is bound to in the `OnModelInit` event handler.
+@[template](/_contentTemplates/common/onmodelinit.md#onmodelinit-info)
 
 >caption The different use-cases of the OnModelInit event
 
-````ParameterlessConstructor
+````NoParameterlessConstructor
 @* Bind the ListView to a class without a parameterless constructor *@
 
 <TelerikListView Data="@ListViewData" 

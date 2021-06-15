@@ -169,19 +169,11 @@ Fires when the item selection is enabled and the user changes the selected [item
 
 ### OnModelInit
 
-The `OnModelInit` event fires before editing and adding new item in the TreeList. The event allows you to:
-
-* bind the TreeList to a class that has no parameterless constructor
-
-* bind the TreeList to an interface
-
-* bind the TreeList to an abstract class
-
-To achieve the desired behavior you can provide an instance of the model that the TreeList is bound to in the `OnModelInit` event handler.
+@[template](/_contentTemplates/common/onmodelinit.md#onmodelinit-info)
 
 >caption The different use-cases of the OnModelInit event
 
-````ParameterlessConstructor
+````NoParameterlessConstructor
 @* Bind the TreeList to a class without a parameterless constructor *@
 
 @using System.ComponentModel.DataAnnotations
