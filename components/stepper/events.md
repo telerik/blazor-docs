@@ -5,7 +5,7 @@ description: Events of the Stepper for Blazor.
 slug: stepper-events
 tags: telerik,blazor,stepper,events
 published: True
-position: 6
+position: 25
 ---
 
 # Stepper Events

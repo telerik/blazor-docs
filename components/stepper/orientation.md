@@ -5,7 +5,7 @@ description: Orientation of the Stepper for Blazor.
 slug: stepper-orientation
 tags: telerik,blazor,stepper,orientation
 published: True
-position: 0
+position: 15
 ---
 
 

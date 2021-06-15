@@ -5,7 +5,7 @@ description: Step Template for the Stepper for Blazor.
 slug: step-template
 tags: telerik,blazor,stepper,step,template
 published: True
-position: 5
+position: 23
 ---
 
 

@@ -5,7 +5,7 @@ description: Steps Validation for the Stepper for Blazor.
 slug: stepper-steps-validation
 tags: telerik,blazor,stepper,steps,validation
 published: True
-position: 6
+position: 7
 ---
 
 # Steps Validation

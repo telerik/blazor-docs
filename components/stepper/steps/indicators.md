@@ -1,11 +1,11 @@
 ---
-title: Stepper Indicators
-page_title: Stepper Indicators
+title: Indicators
+page_title: Indicators
 description: Indicators of the Stepper for Blazor.
 slug: stepper-indicators
 tags: telerik,blazor,stepper,indicators
 published: True
-position: 3
+position: 1
 ---
 
 
@@ -51,18 +51,17 @@ Stepper component allows you to use font icon, sprite or an image for its step i
 
 More details as well as a list of the available Telerik font icons you can find in the [Built-in Icons article]({%slug general-information/font-icons%}).
 
-![Text Indicators](images/icon-indicators-example.png)
+![Icon Indicators](images/icon-indicators-example.png)
 
 ````CSHTML
-@* Stepper with Telerik font icon indicators *@
+@* Stepper with icon indicators *@
 
 <div style="width:500px">
     <TelerikStepper>
         <StepperSteps>
-            <StepperStep Icon="user"></StepperStep>
-            <StepperStep Icon="dictionary-add"></StepperStep>
-            <StepperStep Icon="flip-vertical"></StepperStep>
-            <StepperStep Icon="attachment"></StepperStep>
+            <StepperStep Icon="dictionary-add" Label="Icon"></StepperStep>
+            <StepperStep Label="Icon Class" IconClass="k-icon k-i-music-notes"></StepperStep>
+            <StepperStep Label="Image Url" ImageUrl="https://docs.telerik.com/blazor-ui/images/star.png"></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>
@@ -74,6 +73,12 @@ When defining text and icons for the step indicators, you should take into consi
 
 * The icons have priority over the text.
 
+* If more than on type icon is defined, the  priority order will be as follows:
+    1. ImageUrl
+    2. Icon
+    3. IconClass
+    4. SpriteClass
+
 * If there is no icon, the text is used.
 
 * If there is no text either, the component will render the order of the step as text. If this is the first defined step, the text "1" will be displayed.
@@ -81,3 +86,4 @@ When defining text and icons for the step indicators, you should take into consi
 ## See Also
 
   * [Live Demo: Stepper Overview](https://demos.telerik.com/blazor-ui/stepper/overview)
+  * [Live Demo: Stepper Icons](https://demos.telerik.com/blazor-ui/stepper/overview)

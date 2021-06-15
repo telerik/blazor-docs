@@ -5,7 +5,7 @@ description: Linear Flow of the Stepper for Blazor.
 slug: stepper-linear-flow
 tags: telerik,blazor,stepper,linear,flow
 published: True
-position: 6
+position: 20
 ---
 
 # Linear Flow

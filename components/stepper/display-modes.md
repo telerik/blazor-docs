@@ -5,7 +5,7 @@ description: Display modes of the Stepper for Blazor.
 slug: stepper-display-modes
 tags: telerik,blazor,stepper,display,modes
 published: True
-position: 6
+position: 17
 ---
 
 # Display modes

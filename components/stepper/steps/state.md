@@ -2,18 +2,18 @@
 title: Steps State
 page_title: Steps State
 description: Steps State of the Stepper for Blazor.
-slug: stepper-steps-state
+slug: stepper-state
 tags: telerik,blazor,stepper,display,modes
 published: True
-position: 6
+position: 5
 ---
 
 # Steps State
 
-The Stepper for Blazor allows you to control the state of its steps. You can use to following step parameters to customize their state:
+The Stepper for Blazor allows you to control the state of its steps. You can use to following `<StepperStep>` parameters to customize the state of the steps:
 
-* [Optional]
-* [Disabled]
+* [Optional](#optional)
+* [Disabled](#disabled)
 
 ## Optional
 
