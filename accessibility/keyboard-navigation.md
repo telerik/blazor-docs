@@ -80,6 +80,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [RangeSlider](https://demos.telerik.com/blazor-ui/rangeslider/keyboard-navigation)
 
+* StackLayout - not applicable, it is a layout container.
+
 * [Scheduler](https://demos.telerik.com/blazor-ui/scheduler/keyboard-navigation)
 
 * [Slider](https://demos.telerik.com/blazor-ui/slider/keyboard-navigation)
