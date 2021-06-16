@@ -1,7 +1,7 @@
 ---
-title: Steps Validation
-page_title: Steps Validation
-description: Steps Validation for the Stepper for Blazor.
+title: Validation
+page_title: Validation
+description: Validation for the Stepper for Blazor.
 slug: stepper-steps-validation
 tags: telerik,blazor,stepper,steps,validation
 published: True
