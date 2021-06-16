@@ -10,20 +10,20 @@ position: 7
 
 # Steps Validation
 
-The Stepper component allows you to set validation logic for each step. You can configure it through the `Valid` parameter of the step which accepts `bool?`.
+The Stepper component allows you to set validation logic for each step. You can configure it through the `Valid` parameter of the `StepperStep` which accepts `bool?`.
 
 You can toggle the `Valid` parameter value based on your application logic to accordingly render success or error icon. Depending on the [display mode]({%slug stepper-display-modes%}) the Stepper is using, validation icons will be displayed either in the step indicator or as part of the step label.
 
 In this article:
 
-*[Validation in Stepper with Display mode: Steps](#validation-in-stepper-with-display-mode:-steps)
-*[Validation in Stepper with Display mode: Labels](#validation-in-stepper-with-display-mode:-labels)
+* [Validation in Stepper with Display mode: Steps](#validation-in-stepper-with-display-mode:-steps)
+* [Validation in Stepper with Display mode: Labels](#validation-in-stepper-with-display-mode:-labels)
 
 ## Validation in Stepper with Display mode: Steps
 
 If the Stepper uses the default display mode ([`Steps`]({%slug stepper-display-modes%}#steps)), the validation icons will be displayed in the step indicator regardless of whether or not a label is defined for every step.
 
-When validation icons are rendered inside the indicators, the will override the content of the step indicator (text, icon etc). They have priority over the step indicator content in order to notify whether the corresponding step is valid or not.
+When validation icons are rendered inside the indicators, they will override the content of the step indicator (text, icon etc). They have priority over the step indicator content in order to notify whether the corresponding step is valid or not.
 
 >caption Setup Steps validation in a Stepper with Display mode: Steps. The result from the snippet.
 
@@ -72,9 +72,9 @@ When validation icons are rendered inside the indicators, the will override the 
 
 ## Validation in Stepper with Display mode: Labels
 
-If the Stepper uses the ([`Labels`]({%slug stepper-display-modes%}#labels))display mode, the validation icons will be displayed as part of the step label.
+If the Stepper uses the [`Labels`]({%slug stepper-display-modes%}#labels)display mode, the validation icons will be displayed as part of the step label.
 
-caption Setup Steps validation in a Stepper with Display mode: Labels. The result from the snippet.
+>caption Setup Steps validation in a Stepper with Display mode: Labels. The result from the snippet.
 
 ![Validation for Labels](images/validation-for-labels-example.gif)
 
@@ -123,4 +123,4 @@ caption Setup Steps validation in a Stepper with Display mode: Labels. The resul
 
 ## See Also
 
-  * [Live Demo: Stepper Template](https://demos.telerik.com/blazor-ui/stepper/validation)
+  * [Live Demo: Stepper Validation](https://demos.telerik.com/blazor-ui/stepper/validation)

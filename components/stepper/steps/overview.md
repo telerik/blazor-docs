@@ -1,5 +1,5 @@
 ---
-title: Steps Overview
+title: Overview
 page_title: Overview
 description: Steps of the Stepper for Blazor.
 slug: stepper-steps-overview

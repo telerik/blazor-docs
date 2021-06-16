@@ -22,7 +22,7 @@ Since `horizontal` is the default value for the Stepper `Orientation` parameter,
 
 >caption Horizontal Stepper. The result from the snippet below.
 
-![Simple Stepper](images/stepper-overview-example.png)
+![Horizontal Stepper](images/horizontal-stepper-example.png)
 
 ````CSHTML
 @* Stepper with horizontal orientation *@
@@ -61,3 +61,4 @@ Set the `Orientation` parameter of the Stepper to `vertical` to change its defau
 ## See Also
 
   * [Live Demo: Stepper Overview](https://demos.telerik.com/blazor-ui/stepper/overview)
+  * [Live Demo: Stepper Configuration](https://demos.telerik.com/blazor-ui/stepper/configuration)

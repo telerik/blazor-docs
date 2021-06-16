@@ -1,6 +1,6 @@
 ---
-title: Step Template
-page_title: Step Template
+title: Template
+page_title: Template
 description: Step Template for the Stepper for Blazor.
 slug: step-template
 tags: telerik,blazor,stepper,step,template
@@ -13,14 +13,15 @@ position: 23
 
 You can customize the whole appearance of the steps through their Template. It allows you to control the rendering and styles of both indicators and labels of the step.
 
->caption Use Step Template to customize the appearance of the steps. The result from the snippet below.
+>caption Use the Step Template to customize the appearance of the steps. The result from the snippet below.
 
 ![Step Template](images/step-template-example.png)
 
 ````CSTHML
+
 @* Step Template *@
 
-<TelerikStepper>
+<TelerikStepper @bind-Value="@CurrentStepIndex">
     <StepperSteps>
         <StepperStep Template="@CreateTemplate(Happy, "Happy")" />
         <StepperStep Template="@CreateTemplate(Angry, "Angry")" />
@@ -32,6 +33,8 @@ You can customize the whole appearance of the steps through their Template. It a
 
 @code {
 
+    public int CurrentStepIndex { get; set; } = 3;
+
     RenderFragment CreateTemplate(string emoji, string label)
     {
         return@<text>
@@ -40,13 +43,13 @@ You can customize the whole appearance of the steps through their Template. It a
         </div>
         <span class="step-label">@label</span>
         </text>;
-    }
+}
 
-    string Happy = char.ConvertFromUtf32(0x1F600);
-    string Angry = char.ConvertFromUtf32(0x1F620);
-    string Cool = char.ConvertFromUtf32(0x1F60E);
-    string Love = char.ConvertFromUtf32(0x1F60D);
-    string Fear = char.ConvertFromUtf32(0x1F628);
+string Happy = char.ConvertFromUtf32(0x1F600);
+string Angry = char.ConvertFromUtf32(0x1F620);
+string Cool = char.ConvertFromUtf32(0x1F60E);
+string Love = char.ConvertFromUtf32(0x1F60D);
+string Fear = char.ConvertFromUtf32(0x1F628);
 }
 
 <style>

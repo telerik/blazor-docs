@@ -1,24 +1,24 @@
 ---
-title: Steps State
-page_title: Steps State
+title: State
+page_title: State
 description: Steps State of the Stepper for Blazor.
 slug: stepper-state
-tags: telerik,blazor,stepper,display,modes
+tags: telerik,blazor,stepper,state
 published: True
 position: 5
 ---
 
 # Steps State
 
-The Stepper for Blazor allows you to control the state of its steps. You can use to following `<StepperStep>` parameters to customize the state of the steps:
+The Stepper for Blazor allows you to control the state of its steps. You can use to following `StepperStep` parameters to customize the state of the steps:
 
 * [Optional](#optional)
 * [Disabled](#disabled)
 
 ## Optional
 
-To mark a step as optional, you can set its `Optional` parameter to `true` (its default value is `false`). This configuration strives to visually notify the user that a certain step is optional by rendering "(Optional)" text underneath the corresponding step. It doesn't come with a built-in functionality to skip the step if a linear flow is enabled.
-The stepper component will also Localize the "Optional" text which will appear under the optional steps
+To mark a step as optional, you can set its `Optional` parameter to `true` (its default value is `false`). This configuration strives to visually notify the user that a certain step is not required by rendering "(Optional)" text underneath the corresponding step. It doesn't come with a built-in functionality to skip the step if a linear flow is enabled.
+The stepper component will also allow you to [localize]({%slug globalization-localization%}) the "Optional" text.
 
 >caption Set an optional step. The result from the snippet.
 
@@ -43,11 +43,11 @@ The stepper component will also Localize the "Optional" text which will appear u
 
 ## Disabled
 
-You can disable a step by setting the `Disabled` parameter of the the desired Step to `true` (its default value is `false`). You can also toggle its value to conditionally enable/disable steps based on your application logic.
+You can disable a step by setting the `Disabled` parameter of the the desired `StepperStep` to `true` (its default value is `false`). You can also toggle its value to conditionally enable/disable steps based on your application logic.
 
 >caption Set a disabled step. The result from the snippet.
 
-![Optional step](images/disabled-step-example.png)
+![Disabled step](images/disabled-step-example.png)
 
 ````CSHTMl
 * Stepper with one disabled step. *@
@@ -67,4 +67,4 @@ You can disable a step by setting the `Disabled` parameter of the the desired St
 
 ## See Also
 
-  * [Live Demo: Stepper Template](https://demos.telerik.com/blazor-ui/stepper/state)
+  * [Live Demo: Stepper State](https://demos.telerik.com/blazor-ui/stepper/state)

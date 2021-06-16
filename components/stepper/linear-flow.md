@@ -10,9 +10,11 @@ position: 20
 
 # Linear Flow
 
-Linear flow property of the Stepper component allows you to configure it, so that completion of the previous step is required before proceeding to the next step. The user will be able to go one step at a time (back or forth).
+The `Linear` flow property of the Stepper component allows you to configure it, so that completion of the previous step is required before proceeding to the next step. The user will be able to go one step at a time (back or forth).
 
 To enable Linear flow of the Stepper, set its `Linear` parameter to `true`. By default its value is `false`.
+
+<br/>
 
 >caption Enable the Linear Flow of the Stepper. The result from the snippet.
 
@@ -35,4 +37,4 @@ To enable Linear flow of the Stepper, set its `Linear` parameter to `true`. By d
 
 ## See Also
 
-  * [Live Demo: Stepper Template](https://demos.telerik.com/blazor-ui/stepper/configuration)
+  * [Live Demo: Stepper Configuration](https://demos.telerik.com/blazor-ui/stepper/configuration)

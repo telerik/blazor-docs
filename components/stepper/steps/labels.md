@@ -11,7 +11,7 @@ position: 2
 
 # Steps Labels
 
-Stepper component allows you to set labels for the corresponding step indicators. You can define the desired labels through the `Label` parameter the `StepperStep` exposes. If there don't include the `Label` parameter, no label will be rendered beneath the step indicator.
+The Stepper component allows you to set labels for the corresponding step indicators. You can define the desired labels through the `Label` parameter the `StepperStep` exposes. If you don't set value to the `Label` parameter, no label will be rendered for the step indicator.
 
 >caption Stepper component with indicators and labels. The result from the snippet below.
 
@@ -32,7 +32,9 @@ Stepper component allows you to set labels for the corresponding step indicators
 </div>
 ````
 
->caption Stepper component with indicators and only a couple labels defined. the result from the snippet below.
+<br/>
+
+>caption Stepper component with indicators and only a couple labels defined. The result from the snippet below.
 
 ![Some Labels](images/some-labels-example.png)
 
@@ -51,9 +53,11 @@ Stepper component allows you to set labels for the corresponding step indicators
 </div>
 ````
 
->caption Stepper component with indicators and labels. the result from the snippet below.
+<br/>
 
-![Only Indicators](images/icon-indicators-example.png)
+>caption Stepper component with only indicators and no labels. The result from the snippet below.
+
+![Only Indicators](images/only-indicators-example.png)
 
 ````CSHTML
 @* Stepper with only indicators and no labels *@
