@@ -32,11 +32,15 @@ For our current project, we are grabbing data from the server and using it to dy
 >`at Microsoft.AspNetCore.Components.ComponentBase.RunInitAndSetParametersAsync()`
 
 ## Cause\Possible Cause(s)
-The reason for this error is a missing `FieldType` from the column that you try to filter.
+The possible reason for this error is a missing `FieldType` from the column that you try to filter.
 
 ## Solution
-The `FieldType` is required when you use filtering in Grid with data coming from a server.
+The `FieldType` is required when a `Grid` can't get its columns type through reflection. In cases, when the `Grid` is bound to an `object` rather than a real `model`.
 
-The follwing sample project in the blazor-ui repository demonstrates an example of a filtering in `Grid` with data coming from a server.
+The following sample project in the blazor-ui repository demonstrates an example of filtering in `Grid` with data coming from a server.
 
 https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server/ServerApp
+
+Additional useful information can be found at our `Grid` data binding documentation in the following link.
+
+https://docs.telerik.com/blazor-ui/components/grid/columns/bound#grid-bound-column-parameters
