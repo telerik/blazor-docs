@@ -1,5 +1,5 @@
 ---
-title: Get model from dropodown
+title: Get model from dropdown
 description: how to get a model from a dropdown instead of a primitive value.
 type: how-to
 page_title: Get model from dropdown
