@@ -102,7 +102,7 @@ In this article:
 ````
 ## Resource Grouping
 
-You can configure the Month view to display events that are [grouped]({%slug scheduler-grouping%}) by a resource.
+You can configure the Month view to display events that are [grouped]({%slug scheduler-resource-grouping%}) by a resource.
 
 >caption The result from the code snippet below.
 
@@ -110,7 +110,7 @@ You can configure the Month view to display events that are [grouped]({%slug sch
 
 >caption Resource Grouping in a Month view.
 
-@[template](/_contentTemplates/scheduler/views.md#code-snippet)
+@[template for an example of a resource grouping by one resource in different views](/_contentTemplates/scheduler/views.md#code-snippet)
 
 ## See Also
 

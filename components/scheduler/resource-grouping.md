@@ -1,22 +1,22 @@
 ---
-title: Grouping
-page_title: Scheduler - Grouping
-description: Grouping in the Scheduler for Blazor.
-slug: scheduler-grouping
-tags: telerik,blazor,scheduler,grouping
+title: Resource Grouping
+page_title: Scheduler - Resource Grouping
+description: Resource Grouping in the Scheduler for Blazor.
+slug: scheduler-resource-grouping
+tags: telerik,blazor,scheduler,resource,grouping
 published: true
 position: 33
 ---
 
-# Scheduler Grouping
+# Scheduler Resource Grouping
 
 The feature allows grouping Scheduler views by one or more resources. All available supported views: `Day`, `Week`, `MultiDay` and `Month` can render both `horizontal` and `vertical` grouping.
 
 For more information on grouping by resources in each view, refer to the following sections:
 
 * [**Day** view grouping]({%slug scheduler-views-day%}#resource-grouping)
-* [**Week** view grouping]({%slug scheduler-views-week%}#resource-grouping)
 * [**MultiDay** view grouping]({%slug scheduler-views-multiday%}#resource-grouping)
+* [**Week** view grouping]({%slug scheduler-views-week%}#resource-grouping)
 * [**Month** view grouping]({%slug scheduler-views-month%}#resource-grouping)
 
 ## Define Settings
@@ -34,7 +34,7 @@ The settings tag will have the following Parameters:
 
 >caption Resource Grouping by one resource.
 
-@[template](/_contentTemplates/scheduler/views.md#code-snippet)
+@[template for an example of a resource grouping by one resource](/_contentTemplates/scheduler/views.md#code-snippet)
 
 >caption The result from the code snippet below.
 
