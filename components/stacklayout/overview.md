@@ -96,13 +96,13 @@ The StackLayout offers the following features:
 
 * `Width`- takes a CSS unit that determines how wide the StackLayout is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
 
-* `Orientation` - whether the content will be aligned horizontally or vertically. Takes a member of the `StackLayoutOrientation` enum and defaults to `Horizontal`. See the [Appearance]({%slug stacklayout-appearance%}) article for more information.
+* `Orientation` - whether the content will be aligned horizontally or vertically. Takes a member of the `StackLayoutOrientation` enum and defaults to `Horizontal`. See the [Layout]({%slug stacklayout-layout%}) article for more information.
 
-* `Spacing` - the space between the elements in the StackLayout. See the [Appearance]({%slug stacklayout-appearance%}) article for more information.
+* `Spacing` - the space between the elements in the StackLayout. See the [Layout]({%slug stacklayout-layout%}) article for more information.
 
-* `HorizontalAlign` - controls the alignment of the items in the StackLayout based on the X axis. Takes a member of the `StackLayoutHorizontalAlign` enum. See the [Appearance]({%slug stacklayout-appearance%}) article for more information.
+* `HorizontalAlign` - controls the alignment of the items in the StackLayout based on the X axis. Takes a member of the `StackLayoutHorizontalAlign` enum. See the [Layout]({%slug stacklayout-layout%}) article for more information.
 
-* `VerticalAlign` - controls the alignment of the items in the StackLayout based on the Y axis. Takes a member of the `StackLayoutVerticalAlign` enum. See the [Appearance]({%slug stacklayout-appearance%}) article for more information.
+* `VerticalAlign` - controls the alignment of the items in the StackLayout based on the Y axis. Takes a member of the `StackLayoutVerticalAlign` enum. See the [Layout]({%slug stacklayout-layout%}) article for more information.
 
 ## Nested StackLayouts
 
@@ -164,10 +164,10 @@ Sometimes you need to create a more complex layout that includes both horizontal
 
 >caption The result from the code snippet above
 
-![Nested StackLayouts can create complex layout](images/stacklayout-overview-nested-stacklayouts-example.png.png)
+![Nested StackLayouts can create complex layout](images/stacklayout-overview-nested-stacklayouts-example.png)
 
 ## See Also
 
   * [Live Demo: StackLayout](https://demos.telerik.com/blazor-ui/stacklayout/overview)
-  * [Appearance]({%slug stacklayout-appearance%})
+  * [Layout]({%slug stacklayout-layout%})
   * [StackLayout API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikStackLayout)

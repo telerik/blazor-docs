@@ -1,14 +1,14 @@
 ---
-title: Appearance
-page_title: StackLayout Appearance
-description: Appearance settings of the StackLayout for Blazor.
-slug: stacklayout-appearance
-tags: telerik,blazor,stacklayout,appearance
+title: Layout
+page_title: StackLayout Layout
+description: Layout settings of the StackLayout for Blazor.
+slug: stacklayout-layout
+tags: telerik,blazor,stacklayout,layout
 published: True
 position: 0
 ---
 
-# StackLayout Appearance
+# Layout
 
 The StackLayout component provides the following parameters that control its appearance:
 
