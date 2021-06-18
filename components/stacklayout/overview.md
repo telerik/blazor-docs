@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/stacklayout" target="_blank">Blazor StackLayout component</a> allows you to easily align multiple elements in a vertical or horizontal order. 
 
-#### In This Article
+#### In This Article:
 
 
 * [Basics](#basics)

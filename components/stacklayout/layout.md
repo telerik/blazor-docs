@@ -80,7 +80,7 @@ The `Orientation` parameter controls whether the items nested inside the `Telere
 
 ## Spacing
 
-The `Spacing` parameter controls the elements nested inside the `TelerikStackLayout`. That parameter is mapped to the <a href="https://css-tricks.com/almanac/properties/g/gap/">gap</a> CSS rule and accepts each value you can pass to the `gap` CSS rule.
+The `Spacing` parameter controls the spacing of the elements nested inside the `TelerikStackLayout`. That parameter is mapped to the <a href="https://css-tricks.com/almanac/properties/g/gap/">gap</a> CSS rule and accepts each value you can pass to the `gap` CSS rule.
 
 >caption Use the NumericTextBox to alter the Spacing parameter
 
@@ -126,7 +126,7 @@ The `Spacing` parameter controls the elements nested inside the `TelerikStackLay
 
 ## HorizontalAlign
 
-The `HorizontalAlign` parameter controls the alignment of the items in the `TelerikStackLayout` based on the X axis. Takes a member of the `StackLayoutHorizontalAlign` enum.:
+The `HorizontalAlign` parameter controls the alignment of the items in the `TelerikStackLayout` based on the X axis. Takes a member of the `StackLayoutHorizontalAlign` enum:
 
 * `Left`
 
@@ -189,7 +189,7 @@ The `HorizontalAlign` parameter controls the alignment of the items in the `Tele
 
 ## VerticalAlign
 
-The `VerticalAlign` parameter controls the alignment of the items in the `TelerikStackLayout` based on the Y axis. Takes a member of the `StackLayoutVerticalAlign` enum.:
+The `VerticalAlign` parameter controls the alignment of the items in the `TelerikStackLayout` based on the Y axis. Takes a member of the `StackLayoutVerticalAlign` enum:
 
 * `Top`
 
