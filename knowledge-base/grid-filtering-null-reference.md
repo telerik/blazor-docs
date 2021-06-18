@@ -32,10 +32,10 @@ For our current project, we are grabbing data from the server and using it to dy
 >`at Microsoft.AspNetCore.Components.ComponentBase.RunInitAndSetParametersAsync()`
 
 ## Cause\Possible Cause(s)
-The reason for this error is a missing `FieldType` parameter from the column that you try to filter.
+The reason for this error is a missing `FieldType` from the column that you try to filter.
 
 ## Solution
-The `FieldType` parameter is required when you use filtering in Grid with data coming from a server.
+The `FieldType` is required when you use filtering in Grid with data coming from a server.
 
 The follwing sample project in the blazor-ui repository demonstrates an example of a filtering in `Grid` with data coming from a server.
 
