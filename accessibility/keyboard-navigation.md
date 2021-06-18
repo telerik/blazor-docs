@@ -86,6 +86,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [Splitter](https://demos.telerik.com/blazor-ui/splitter/keyboard-navigation)
 
+* StackLayout - not applicable, it is a layout container.
+
 * [Switch](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation)
 
 * [TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation)

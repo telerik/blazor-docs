@@ -328,6 +328,8 @@ navigation:
         title: "Sortable"
      "*splitter":
         title: "Splitter"
+     "*stacklayout":
+        title: "Stack Layout"
      "*stockchart":
         title: "Stock Chart"
      "*switch":
@@ -481,6 +483,7 @@ intro_columns:
       "Validation Tools": "validation-tools-overview"
       "Media Query": "mediaquery-overview"
       "Card": "card-overview"
+      "Stack Layout": "stacklayout-overview"
   -
     title: "Scheduling"
     items:
