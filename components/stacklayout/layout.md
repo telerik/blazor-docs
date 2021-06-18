@@ -5,7 +5,7 @@ description: Layout settings of the StackLayout for Blazor.
 slug: stacklayout-layout
 tags: telerik,blazor,stacklayout,layout
 published: True
-position: 0
+position: 5
 ---
 
 # Layout
@@ -74,6 +74,10 @@ The `Orientation` parameter controls whether the items nested inside the `Telere
 }
 ````
 
+>caption The result from the code snippet above
+
+![orientation example](images/stacklayout-layout-orientation-example.gif)
+
 ## Spacing
 
 The `Spacing` parameter controls the elements nested inside the `TelerikStackLayout`. That parameter is mapped to the <a href="https://css-tricks.com/almanac/properties/g/gap/">gap</a> CSS rule and accepts each value you can pass to the `gap` CSS rule.
@@ -115,6 +119,10 @@ The `Spacing` parameter controls the elements nested inside the `TelerikStackLay
     public int SpacingValue { get; set; }
 }
 ````
+
+>caption The result from the code snippet above
+
+![spacing example](images/stacklayout-layout-spacing-example.gif)
 
 ## HorizontalAlign
 
@@ -174,6 +182,10 @@ The `HorizontalAlign` parameter controls the alignment of the items in the `Tele
     };
 }
 ````
+
+>caption The result from the code snippet above
+
+![horizontalalign example](images/stacklayout-layout-horizontalalign-example.gif)
 
 ## VerticalAlign
 
@@ -236,6 +248,10 @@ The `VerticalAlign` parameter controls the alignment of the items in the `Teleri
     };
 }
 ````
+
+>caption The result from the code snippet above
+
+![horizontalalign example](images/stacklayout-layout-verticalalign-example.gif)
 
 ## See Also
 
