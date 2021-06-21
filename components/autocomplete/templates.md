@@ -5,7 +5,7 @@ description: Templates in the AutoComplete for Blazor.
 slug: autocomplete-templates
 tags: telerik,blazor,combo,autocomplete,templates
 published: True
-position: 5
+position: 20
 ---
 
 # AutoComplete Templates

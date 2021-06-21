@@ -5,7 +5,7 @@ description: UI virtualization to allow large data sources in the DropDownList f
 slug: dropdownlist-virtualization
 tags: telerik,blazor,dropdown,DropDownList,virtualization
 published: True
-position: 5
+position: 20
 ---
 
 # DropDownList Virtualization

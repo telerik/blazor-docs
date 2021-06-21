@@ -5,7 +5,7 @@ description: Filtering in the DropDownList for Blazor.
 slug: components/dropdownlist/filter
 tags: telerik,blazor,drop,down,list,dropdownlist,filter
 published: True
-position: 5
+position: 10
 ---
 
 # DropDownList Filter
