@@ -54,6 +54,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [Grid](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation) (set `Navigable="true"`)
 
+* GridLayout - not applicable, it is a layout container.
+
 * MaskedTextbox - not applicable, it is a simple input with the standard behavior.
 
 * [Menu](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation)
