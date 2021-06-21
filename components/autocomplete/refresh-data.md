@@ -5,7 +5,7 @@ description: Refresh Autocomplete Data using Observable Data or creating a new C
 slug: autocomplete-refresh-data
 tags: telerik,blazor,autocomplete,observable,data,new,collection
 published: True
-position: 15
+position: 30
 ---
 
 # Autocomplete - Refresh Data

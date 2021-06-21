@@ -5,7 +5,7 @@ description: Data Binding the DropdownList for Blazor.
 slug: components/dropdownlist/databind
 tags: telerik,blazor,dropdownlist,dropdown,list,data,bind,binding,databind
 published: True
-position: 1
+position: 5
 ---
 
 # DropDownList Data Binding

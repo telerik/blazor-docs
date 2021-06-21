@@ -5,7 +5,7 @@ description: Events in the DropDownList for Blazor.
 slug: components/dropdownlist/events
 tags: telerik,blazor,dropdown,list,dropdownlist,events
 published: true
-position: 20
+position: 35
 ---
 
 # Events

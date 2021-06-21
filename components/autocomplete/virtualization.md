@@ -5,7 +5,7 @@ description: UI virtualization to allow large data sources in the AutoComplete f
 slug: autocomplete-virtualization
 tags: telerik,blazor,AutoComplete,virtualization
 published: True
-position: 5
+position: 25
 ---
 
 # AutoComplete Virtualization

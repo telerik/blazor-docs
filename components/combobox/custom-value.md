@@ -5,7 +5,7 @@ description: Custom values and user input in the ComboBox for Blazor.
 slug: components/combobox/custom-value
 tags: telerik,blazor,combo,combobox,custom,value,input
 published: True
-position: 4
+position: 20
 ---
 
 # ComboBox Custom Values

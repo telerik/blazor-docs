@@ -5,7 +5,7 @@ description: Data Binding the AutoComplete for Blazor.
 slug: autocomplete-databind
 tags: telerik,blazor,autocomplete,data,bind,binding,databind
 published: True
-position: 1
+position: 5
 ---
 
 # AutoComplete Data Binding

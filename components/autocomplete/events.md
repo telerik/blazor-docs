@@ -5,7 +5,7 @@ description: Events in the AutoComplete for Blazor.
 slug: autocomplete-events
 tags: telerik,blazor,autocomplete,events
 published: true
-position: 20
+position: 35
 ---
 
 # AutoComplete Events

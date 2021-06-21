@@ -5,7 +5,7 @@ description: Templates in the DropdownList for Blazor.
 slug: components/dropdownlist/templates
 tags: telerik,blazor,dropdownlist,dropdown,list,templates
 published: True
-position: 7
+position: 25
 ---
 
 # DropDownList Templates

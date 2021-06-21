@@ -5,7 +5,7 @@ description: Events in the ComboBox for Blazor.
 slug: components/combobox/events
 tags: telerik,blazor,combobox,combo,events
 published: true
-position: 20
+position: 40
 ---
 
 # ComboBox Events

@@ -5,7 +5,7 @@ description: Refresh ComboBox Data using Observable Data or creating a new Colle
 slug: combobox-refresh-data
 tags: telerik,blazor,combobox,observable,data,new,collection
 published: True
-position: 15
+position: 35
 ---
 
 # ComboBox - Refresh Data

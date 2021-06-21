@@ -5,7 +5,7 @@ description: Refresh DropDownList Data using Observable Data or creating a new C
 slug: dropdownlist-refresh-data
 tags: telerik,blazor,dropdownlist,observable,data,new,collection
 published: True
-position: 15
+position: 30
 ---
 
 # DropDownList - Refresh Data

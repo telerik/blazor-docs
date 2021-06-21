@@ -5,7 +5,7 @@ description: Filtering in the ComboBox for Blazor.
 slug: autocomplete-filter
 tags: telerik,blazor,combo,autocomplete,filter
 published: True
-position: 3
+position: 10
 ---
 
 # AutoComplete Filter
