@@ -105,7 +105,7 @@ In this article:
 
 ## Resource Grouping in the MultiDay View
 
-You can configure the MultiDay view to display events that are [grouped]({%slug scheduler-resource-grouping%}) by a resource.
+You can configure the MultiDay view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
 
 >caption The result from the code snippet below.
 
