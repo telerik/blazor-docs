@@ -28,13 +28,13 @@ The Telerik Stepper for Blazor supports ValueChanged event. It fires upon every 
 
 @Result
 
-    <TelerikStepper ValueChanged="@ValueChangeHandler">
-        <StepperSteps>
-            <StepperStep Text="1" Label="Step 1"></StepperStep>
-            <StepperStep Text="2" Label="Step 2"></StepperStep>
-            <StepperStep Text="3" Label="Step 3"></StepperStep>
-        </StepperSteps>
-    </TelerikStepper>
+<TelerikStepper ValueChanged="@ValueChangeHandler">
+    <StepperSteps>
+        <StepperStep Text="1" Label="Step 1"></StepperStep>
+        <StepperStep Text="2" Label="Step 2"></StepperStep>
+        <StepperStep Text="3" Label="Step 3"></StepperStep>
+    </StepperSteps>
+</TelerikStepper>
 
 @code{
     public string Result { get; set; }

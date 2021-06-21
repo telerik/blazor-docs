@@ -11,14 +11,13 @@ position: 0
 
 # Stepper Overview
 
-The <strong>Stepper for Blazor</strong> is a component that renders a path formed by a sequence of logical steps towards a bigger action. The Stepper indicates the user’s progress within this action by showing the steps left for them to complete it. It makes the user experience less overwhelming as it breaks the long process into smaller parts.
+The <a href ="https://www.telerik.com/blazor-ui/stepper"><strong>Stepper for Blazor</strong></a> is a component that renders a path formed by a sequence of logical steps towards a bigger action. The Stepper indicates the user’s progress within this action by showing the steps left for them to complete it. It makes the user experience less overwhelming as it breaks the long process into smaller parts.
 
-The Stepper provides several features out of the box, including the ability to define the appearance of each step, validation for the steps, strict linear flow and step template to make the it fit any design requirements.
+The Stepper provides several features out of the box, including the ability to define the appearance of each [step]({%slug stepper-steps-overview%}), [validation]({%slug stepper-steps-validation%}) for the steps, strict [linear flow]({%slug stepper-linear-flow%}) and [step template]({%slug step-template%}) to make the it fit any design requirements.
 
 
 #### In this article:
    * [Basics](#basics)
-   * [Example](#example)
    * [Features](#features)
 
 ## Basics
@@ -29,11 +28,8 @@ To use a Telerik Stepper for Blazor:
 
 1. Under its `StepperSteps` tag include and configure the desired [`Steps`]({%slug  stepper-steps-overview%})
 
-## Example
 
-The below snippet demonstrates simple setup of a Stepper component.
-
->caption The result from the snippet.
+>caption Simple setup of a Stepper component. The result from the snippet below.
 
 ![Simple Stepper](images/stepper-overview-example.png)
 

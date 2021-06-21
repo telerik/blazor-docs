@@ -88,6 +88,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * StackLayout - not applicable, it is a layout container.
 
+* [Stepper](https://demos.telerik.com/blazor-ui/stepper/keyboard-navigation)
+
 * [Switch](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation)
 
 * [TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation)

@@ -88,14 +88,14 @@ To include the desired steps for the Stepper component, you can either manually 
 
 The `StepperStep` exposes the following features which allow you to configure their appearance:
 
-* [Indicators]({%slug stepper-indicators%})
+* [Indicators]({%slug stepper-indicators%}) - the visual indicators of the steps can include the following content:
     * Text - `string` - Specifies the step indicator text.
     * Icon - `string` - The icon which will be rendered inside the step indicator.
     * IconClass - `string` - The icon class which will be rendered inside the step indicator.
     * ImageUrl - `string` - The image which will be rendered inside the step indicator.
     * SpriteClass - `string` - The Sprite class which will be rendered inside the step indicator.
     
-* Label - `string` - Specify the [label text]({%slug stepper-labels%}) for the step indicator
+* Label - `string` - Specifies the [label text]({%slug stepper-labels%}) that will be rendered under the corresponding step indicator.
 
 * [State]({%slug stepper-state%})
     * Disabled `bool` - Specifies if the step is disabled. The default value is `false`.

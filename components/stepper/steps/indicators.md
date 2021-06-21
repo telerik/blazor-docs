@@ -60,8 +60,8 @@ More details as well as a list of the available Telerik font icons you can find 
     <TelerikStepper>
         <StepperSteps>
             <StepperStep Icon="dictionary-add" Label="Icon"></StepperStep>
-            <StepperStep Label="Icon Class" IconClass="k-icon k-i-music-notes"></StepperStep>
-            <StepperStep Label="Image Url" ImageUrl="https://docs.telerik.com/blazor-ui/images/star.png"></StepperStep>
+            <StepperStep IconClass="k-icon k-i-music-notes" Label="Icon Class" ></StepperStep>
+            <StepperStep ImageUrl="https://docs.telerik.com/blazor-ui/images/star.png" Label="Image Url" ></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>

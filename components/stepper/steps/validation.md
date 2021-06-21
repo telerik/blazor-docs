@@ -12,7 +12,12 @@ position: 7
 
 The Stepper component allows you to set validation logic for each step. You can configure it through the `Valid` parameter of the `StepperStep` which accepts `bool?`.
 
-You can toggle the `Valid` parameter value based on your application logic to accordingly render success or error icon. Depending on the [display mode]({%slug stepper-display-modes%}) the Stepper is using, validation icons will be displayed either in the step indicator or as part of the step label.
+Step validation serves as a visual indication whether a step is valid or not. It does not prevent the users from navigating between steps.
+
+You can toggle the `Valid` parameter value based on your application logic to accordingly render success or error icon. You can then use the `Valid` parameter value to perform logic for any further desired operations (for example preventing the user from navigating to the next step if the current one is invalid).
+
+Depending on the [display mode]({%slug stepper-display-modes%}) the Stepper is using, validation icons will be displayed either in the step indicator or as part of the step label.
+
 
 In this article:
 

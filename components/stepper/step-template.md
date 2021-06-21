@@ -37,19 +37,21 @@ You can customize the whole appearance of the steps through their Template. It a
 
     RenderFragment CreateTemplate(string emoji, string label)
     {
-        return@<text>
-        <div class="custom-step">
-            <span style="font-size:20px">@emoji</span>
-        </div>
-        <span class="step-label">@label</span>
-        </text>;
-}
+        return
+            @<text>
+                <div class="custom-step">
+                    <span style="font-size:20px">@emoji</span>
+                </div>
+                <span class="step-label">@label</span>
+            </text>;
+    }
 
-string Happy = char.ConvertFromUtf32(0x1F600);
-string Angry = char.ConvertFromUtf32(0x1F620);
-string Cool = char.ConvertFromUtf32(0x1F60E);
-string Love = char.ConvertFromUtf32(0x1F60D);
-string Fear = char.ConvertFromUtf32(0x1F628);
+    string Happy = char.ConvertFromUtf32(0x1F600);
+    string Angry = char.ConvertFromUtf32(0x1F620);
+    string Cool = char.ConvertFromUtf32(0x1F60E);
+    string Love = char.ConvertFromUtf32(0x1F60D);
+    string Fear = char.ConvertFromUtf32(0x1F628);
+
 }
 
 <style>

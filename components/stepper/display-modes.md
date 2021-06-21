@@ -1,21 +1,21 @@
 ---
-title: Display modes
-page_title: Display modes
-description: Display modes of the Stepper for Blazor.
+title: Display Modes
+page_title: Display Modes
+description: Display Modes of the Stepper for Blazor.
 slug: stepper-display-modes
 tags: telerik,blazor,stepper,display,modes
 published: True
 position: 17
 ---
 
-# Display modes
+# Display Modes
 
 This article explains the Display modes that the Stepper for Blazor provides.
 
-By default, the Stepper shows step indicators and labels (if there are labels defined). You can configure the desired display mode through the `StepType` parameter of the Stepper. It takes a member of the `StepperStepType` enum:
+You can configure the desired display mode through the `StepType` parameter of the Stepper. It takes a member of the `StepperStepType` enum:
 
-* [Steps](#steps) - the Stepper will render both indicators and labels
-* [Labels](#labels) - the Stepper will render only labels
+* [Steps](#steps) (the default)
+* [Labels](#labels)
 
 
 ## Steps
