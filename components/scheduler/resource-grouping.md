@@ -10,7 +10,7 @@ position: 33
 
 # Scheduler Resource Grouping
 
-The feature allows grouping Scheduler views by one or more resources. All available supported views: `Day`, `Week`, `MultiDay` and `Month` can render both `horizontal` and `vertical` grouping.
+The feature allows grouping Scheduler events by one or more resources. All available supported views: `Day`, `Week`, `MultiDay` and `Month` can render both `horizontal` and `vertical` grouping.
 
 This article contains the following sections:
 
