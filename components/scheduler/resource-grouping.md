@@ -22,7 +22,9 @@ This article contains the following sections:
 
 ## Basics
 
-In the grouping rendering in both horizontal and vertical orientation, the view tables are rendered next to each other. Moving an appointment between the resource tables is allowed, and upon dropping, the appointment resource changes alongside the start date.
+In the grouping rendering in both horizontal and vertical orientation, the view tables are rendered next to each other. 
+
+Moving an appointment between the resource tables is allowed, and upon dropping, the appointment resource changes alongside the start date.
 
 ### Define Settings
 
