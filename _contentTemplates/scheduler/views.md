@@ -33,7 +33,7 @@ Views that show hours let you control their precision through the `SlotDuration`
 ![](images/slot-example.png)
 #end
 
-#code-snippet
+#resource-grouping-code-snippet-for-examples
 ````SchedulerResourceGrouping.razor
 @* The example showcases Resource Grouping by one resource. *@
 
@@ -79,21 +79,7 @@ Views that show hours let you control their precision through the `SlotDuration`
 
     protected override async Task OnInitializedAsync()
     {
-        SchedulerDirectors = new List<Resource>()
-        {
-            new Resource()
-            {
-                Text = "Mr. Director",
-                Value = "1",
-                Color = ""
-            },
-            new Resource()
-            {
-                Text = "Mrs. Director",
-                Value = "2",
-                Color = ""
-            }
-        };
+        SchedulerDirectors = await resourceService.GetDirectorsAsync();
         SchedulerResources = await resourceService.GetResourcesAsync();
         SchedulerManagers = await resourceService.GetManagersAsync();
         Data = await appointmentService.GetAppointmentsAsync();
@@ -135,28 +121,13 @@ Views that show hours let you control their precision through the `SlotDuration`
 ````AppointmentService.cs
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 public class AppointmentService
 {
     public async Task<List<Appointment>> GetAppointmentsAsync()
     {
-        await Task.Delay(100);
-
-        return GetAppointments();
-    }
-
-    public async Task<List<Appointment>> GetAppointmentsAsync1000()
-    {
-        await Task.Delay(1000);
-
-        return GetAppointments();
-    }
-
-    public async Task<List<Appointment>> GetAppointmentsAsync3000()
-    {
-        await Task.Delay(3000);
+        await Task.Delay(0);
 
         return GetAppointments();
     }
@@ -408,36 +379,20 @@ public class AppointmentService
     {
         DateTime dt = new DateTime(2019, 12, 11);
         int daysSinceMonday = dt.DayOfWeek - DayOfWeek.Monday;
-        //return 8 AM for better visualization of the demos
+
         return new DateTime(dt.Year, dt.Month, dt.Day - daysSinceMonday, 8, 0, 0);
     }
 }
 ````
 ````ResourceService.cs
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 public class ResourceService
 {
     public async Task<List<Resource>> GetResourcesAsync()
     {
-        await Task.Delay(100);
-
-        return GetResources();
-    }
-
-    public async Task<List<Resource>> GetResourcesAsync1000()
-    {
-        await Task.Delay(1000);
-
-        return GetResources();
-    }
-
-    public async Task<List<Resource>> GetResourcesAsync3000()
-    {
-        await Task.Delay(3000);
+        await Task.Delay(0);
 
         return GetResources();
     }
@@ -468,24 +423,9 @@ public class ResourceService
         return result;
     }
 
-
     public async Task<List<Resource>> GetManagersAsync()
     {
-        await Task.Delay(500);
-
-        return GetManagers();
-    }
-
-    public async Task<List<Resource>> GetManagersAsync1000()
-    {
-        await Task.Delay(1000);
-
-        return GetManagers();
-    }
-
-    public async Task<List<Resource>> GetManagersAsync3000()
-    {
-        await Task.Delay(3000);
+        await Task.Delay(0);
 
         return GetManagers();
     }
@@ -511,6 +451,33 @@ public class ResourceService
             Text = "Charlie",
             Value = "3",
             Color = "#336600"
+        });
+
+        return result;
+    }
+
+    public async Task<List<Resource>> GetDirectorsAsync()
+    {
+        await Task.Delay(0);
+
+        return GetDirectors();
+    }
+
+    public List<Resource> GetDirectors()
+    {
+        List<Resource> result = new List<Resource>();
+
+        result.Add(new Resource()
+        {
+            Text = "Mr. Director",
+            Value = "1",
+            Color = ""
+        });
+        result.Add(new Resource()
+        {
+            Text = "Mrs. Director",
+            Value = "2",
+            Color = ""
         });
 
         return result;

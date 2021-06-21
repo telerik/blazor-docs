@@ -101,7 +101,7 @@ In this article:
 
 @[template](/_contentTemplates/scheduler/views.md#day-slots-explanation)
 
-## Resource Grouping
+## Resource Grouping in the Week View
 
 You can configure the MultiDay view to display events that are [grouped]({%slug scheduler-resource-grouping%}) by a resource.
 
@@ -111,7 +111,7 @@ You can configure the MultiDay view to display events that are [grouped]({%slug 
 
 >caption Resource Grouping in a Week view.
 
-@[template for an example of a resource grouping by one resource in different views](/_contentTemplates/scheduler/views.md#code-snippet)
+@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
 
 ## See Also
 

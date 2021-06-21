@@ -12,14 +12,19 @@ position: 33
 
 The feature allows grouping Scheduler views by one or more resources. All available supported views: `Day`, `Week`, `MultiDay` and `Month` can render both `horizontal` and `vertical` grouping.
 
-For more information on grouping by resources in each view, refer to the following sections:
+This article contains the following sections:
 
-* [**Day** view grouping]({%slug scheduler-views-day%}#resource-grouping)
-* [**MultiDay** view grouping]({%slug scheduler-views-multiday%}#resource-grouping)
-* [**Week** view grouping]({%slug scheduler-views-week%}#resource-grouping)
-* [**Month** view grouping]({%slug scheduler-views-month%}#resource-grouping)
+* [Basics](#basics)
+    * [Define Settings](#define-settings)
+* [Examples](#examples)
+    * [Resource Grouping by one resource](#resource-grouping-by-one-resource)
+    * [Resource Grouping by multiple resources](#resource-grouping-by-multiple-resources)
 
-## Define Settings
+## Basics
+
+In the grouping rendering in both horizontal and vertical orientation, the view tables are rendered next to each other. Moving an appointment between the resource tables is allowed, and upon dropping, the appointment resource changes alongside the start date.
+
+### Define Settings
 
 To configure the group rendering, define a dedicated settings tag, called a `SchedulerGroupSettings` inside the `SchedulerSettings` tag.
 
@@ -28,19 +33,31 @@ The settings tag will have the following Parameters:
 * `Resources(List<string>)` - provides a list of one or more resource names, which will be used to group the scheduler by.
 * `Orientation(SchedulerGroupOrientation)` - has two values: `Horizontal(default)` and `Vertical`. Determines the direction in which the resource tables are rendered.
 
+For more information on grouping by resources in each view, refer to the following sections:
+
+* [**Day** view grouping]({%slug scheduler-views-day%}#resource-grouping-in-the-day-view)
+* [**MultiDay** view grouping]({%slug scheduler-views-multiday%}#resource-grouping-in-the-multiday-view)
+* [**Week** view grouping]({%slug scheduler-views-week%}#resource-grouping-in-the-week-view)
+* [**Month** view grouping]({%slug scheduler-views-month%}#resource-grouping-in-the-month-view)
+
+## Examples
+The examples below showcase [resource grouping by one resource](#resource-grouping-by-one-resource) and [resource grouping by multiple resources](#resource-grouping-by-multiple-resources) respectively.
+
+### Resource Grouping by one resource
+
 >caption The result from the code snippet below.
 
 ![](images/scheduler-resource-grouping.png)
 
->caption Resource Grouping by one resource.
+@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
 
-@[template for an example of a resource grouping by one resource](/_contentTemplates/scheduler/views.md#code-snippet)
+### Resource Grouping by multiple resources
 
 >caption The result from the code snippet below.
 
 ![](images/scheduler-multiple-resource-grouping.png)
 
->caption Resource Grouping by multiple resources.
+>caption Declare multiple resources.
 
 ````SchedulerResourceGrouping.razor
 @* The example showcases Resource Grouping by two resources. *@
@@ -52,7 +69,7 @@ The settings tag will have the following Parameters:
 @inject ResourceService resourceService
 
 <div class="example-wrapper">
-    <TelerikScheduler @bind-Date="@SelectedDate" Height="750px" Data="@Data"
+    <TelerikScheduler @bind-Date="@SelectedDate" Height="600px" Data="@Data"
                       OnCreate="@AddAppointment"
                       OnUpdate="@UpdateAppointment"
                       OnDelete="@DeleteAppointment"
@@ -70,7 +87,7 @@ The settings tag will have the following Parameters:
             <SchedulerMonthView></SchedulerMonthView>
         </SchedulerViews>
         <SchedulerResources>
-            <SchedulerResource Field="Manager" Data="@SchedulerManagers"></SchedulerResource>
+            <SchedulerResource Field="Manager" Title="Manager" Data="@SchedulerManagers"></SchedulerResource>
             <SchedulerResource Field="Room" Title="Edit Room" Data="@SchedulerResources"></SchedulerResource>
         </SchedulerResources>
     </TelerikScheduler>
@@ -88,21 +105,7 @@ The settings tag will have the following Parameters:
 
     protected override async Task OnInitializedAsync()
     {
-        SchedulerDirectors = new List<Resource>()
-        {
-            new Resource()
-            {
-                Text = "Mr. Director",
-                Value = "1",
-                Color = ""
-            },
-            new Resource()
-            {
-                Text = "Mrs. Director",
-                Value = "2",
-                Color = ""
-            }
-        };
+        SchedulerDirectors = await resourceService.GetDirectorsAsync();
         SchedulerResources = await resourceService.GetResourcesAsync();
         SchedulerManagers = await resourceService.GetManagersAsync();
         Data = await appointmentService.GetAppointmentsAsync();
@@ -144,28 +147,13 @@ The settings tag will have the following Parameters:
 ````AppointmentService.cs
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 public class AppointmentService
 {
     public async Task<List<Appointment>> GetAppointmentsAsync()
     {
-        await Task.Delay(100);
-
-        return GetAppointments();
-    }
-
-    public async Task<List<Appointment>> GetAppointmentsAsync1000()
-    {
-        await Task.Delay(1000);
-
-        return GetAppointments();
-    }
-
-    public async Task<List<Appointment>> GetAppointmentsAsync3000()
-    {
-        await Task.Delay(3000);
+        await Task.Delay(0);
 
         return GetAppointments();
     }
@@ -417,36 +405,20 @@ public class AppointmentService
     {
         DateTime dt = new DateTime(2019, 12, 11);
         int daysSinceMonday = dt.DayOfWeek - DayOfWeek.Monday;
-        //return 8 AM for better visualization of the demos
+
         return new DateTime(dt.Year, dt.Month, dt.Day - daysSinceMonday, 8, 0, 0);
     }
 }
 ````
 ````ResourceService.cs
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 public class ResourceService
 {
     public async Task<List<Resource>> GetResourcesAsync()
     {
-        await Task.Delay(100);
-
-        return GetResources();
-    }
-
-    public async Task<List<Resource>> GetResourcesAsync1000()
-    {
-        await Task.Delay(1000);
-
-        return GetResources();
-    }
-
-    public async Task<List<Resource>> GetResourcesAsync3000()
-    {
-        await Task.Delay(3000);
+        await Task.Delay(0);
 
         return GetResources();
     }
@@ -477,24 +449,9 @@ public class ResourceService
         return result;
     }
 
-
     public async Task<List<Resource>> GetManagersAsync()
     {
-        await Task.Delay(500);
-
-        return GetManagers();
-    }
-
-    public async Task<List<Resource>> GetManagersAsync1000()
-    {
-        await Task.Delay(1000);
-
-        return GetManagers();
-    }
-
-    public async Task<List<Resource>> GetManagersAsync3000()
-    {
-        await Task.Delay(3000);
+        await Task.Delay(0);
 
         return GetManagers();
     }
@@ -520,6 +477,33 @@ public class ResourceService
             Text = "Charlie",
             Value = "3",
             Color = "#336600"
+        });
+
+        return result;
+    }
+
+    public async Task<List<Resource>> GetDirectorsAsync()
+    {
+        await Task.Delay(0);
+
+        return GetDirectors();
+    }
+
+    public List<Resource> GetDirectors()
+    {
+        List<Resource> result = new List<Resource>();
+
+        result.Add(new Resource()
+        {
+            Text = "Mr. Director",
+            Value = "1",
+            Color = ""
+        });
+        result.Add(new Resource()
+        {
+            Text = "Mrs. Director",
+            Value = "2",
+            Color = ""
         });
 
         return result;
