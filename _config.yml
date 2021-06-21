@@ -195,6 +195,8 @@ navigation:
         title: "How To"
      "*grid":
         title: "Grid"
+     "*gridlayout":
+        title: "Grid Layout"
      "*listview":
         title: "ListView"
      "*treelist":
