@@ -22,14 +22,13 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 <TelerikAutoComplete Data="@Data"
                  @bind-Value="@SelectedValue"
                  GroupField="Category.CategoryName"
-                 TextField="ProductName"
-                 ValueField="ProductId"
+                 ValueField="ProductName"
                  Placeholder="Select a product">
 </TelerikAutoComplete>
 
 @code {
     public List<Product> Data { get; set; }
-    public int? SelectedValue { get; set; }
+    public string SelectedValue { get; set; }
 
     protected override void OnInitialized()
     {
