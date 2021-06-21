@@ -28,8 +28,8 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 </TelerikComboBox>
 
 @code {
-    public List<Product> Data { get; set; }
-    public int? SelectedValue { get; set; }
+    public IEnumerable<Product> Data { get; set; }
+    public int SelectedValue { get; set; }
 
     protected override void OnInitialized()
     {
