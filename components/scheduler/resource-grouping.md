@@ -32,7 +32,7 @@ To configure the group rendering, define the `SchedulerGroupSettings` tag inside
 
 The settings tag will have the following Parameters:
 
-* `Resources(List<string>)` - provides a list of one or more resource names, which will be used to group the scheduler by.
+* `Resources(List<string>)` - provides a list of one or more resource names, which will be used to group the events.
 * `Orientation(SchedulerGroupOrientation)` - has two values: `Horizontal` (default) and `Vertical`. Determines the direction in which the resource tables are rendered.
 
 For more information on grouping by resources in each view, refer to the following sections:
