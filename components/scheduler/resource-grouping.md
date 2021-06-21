@@ -28,7 +28,7 @@ Moving an appointment between the resource tables is allowed, and upon dropping,
 
 ### Define Settings
 
-To configure the group rendering, define a dedicated settings tag, called a `SchedulerGroupSettings` inside the `SchedulerSettings` tag.
+To configure the group rendering, define the `SchedulerGroupSettings` tag inside the `SchedulerSettings` tag.
 
 The settings tag will have the following Parameters:
 
