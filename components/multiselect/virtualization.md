@@ -5,7 +5,7 @@ description: UI virtualization to allow large data sources in the MultiSelect fo
 slug: multiselect-virtualization
 tags: telerik,blazor,MultiSelect,virtualization
 published: True
-position: 5
+position: 25
 ---
 
 # MultiSelect Virtualization

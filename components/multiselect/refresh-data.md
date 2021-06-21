@@ -5,7 +5,7 @@ description: Refresh MultiSelect Data using Observable Data or creating a new Co
 slug: multiselect-refresh-data
 tags: telerik,blazor,multiselect,observable,data,new,collection
 published: True
-position: 15
+position: 30
 ---
 
 # MultiSelect - Refresh Data

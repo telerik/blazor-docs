@@ -5,7 +5,7 @@ description: Events in the MultiSelect for Blazor.
 slug: multiselect-events
 tags: telerik,blazor,multiselect,events
 published: true
-position: 20
+position: 35
 ---
 
 # MultiSelect Events

@@ -5,7 +5,7 @@ description: Templates in the MultiSelect for Blazor.
 slug: multiselect-templates
 tags: telerik,blazor,multiselect,templates
 published: True
-position: 5
+position: 20
 ---
 
 # MultiSelect Templates

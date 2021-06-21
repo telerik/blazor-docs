@@ -16,7 +16,7 @@ To enable MultiSelect grouping, set the `GroupField` parameter to a field name f
 
 The group headers can stick to the top of the dropdown during scrolling. In other words, users will always know which is the group of the current topmost items in the scrollable list.
 
->caption Grouping in the ComboBox
+>caption Grouping in the MultiSelect
 
 ````CSHTML
 <TelerikMultiSelect Data="@Data"
@@ -68,7 +68,7 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 
 * One level of grouping is supported.
 * The `DefaultItem` (e.g. "Select item...") is always rendered above the sticky group header in the dropdown.
-* A grouped ComboBox will provide a `Groups` property with a single [`GroupDescriptor`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.DataSourceRequest) argument of its [OnRead event]({%slug components/multiselect/events%}#onread). This will allow the developer to apply grouping with [manual data operations]({%slug components/grid/manual-operations%}).
+* A grouped MultiSelect will provide a `Groups` property with a single [`GroupDescriptor`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.DataSourceRequest) argument of its [OnRead event]({%slug components/multiselect/events%}#onread). This will allow the developer to apply grouping with [manual data operations]({%slug components/grid/manual-operations%}).
 * `GroupHeaderTemplate` and `GroupItemTemplate` will be introduced in a future version. Currently there is a bug in the Blazor framework that prevents us from supporting them.
 * Virtual scrolling with grouping will be supported in a future version.
 

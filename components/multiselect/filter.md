@@ -5,7 +5,7 @@ description: Filtering in the MultiSelect for Blazor.
 slug: multiselect-filter
 tags: telerik,blazor,combo,multiselect,filter
 published: True
-position: 3
+position: 10
 ---
 
 # MultiSelect Filter

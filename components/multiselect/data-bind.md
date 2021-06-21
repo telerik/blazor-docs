@@ -5,7 +5,7 @@ description: Data Binding the MultiSelect for Blazor.
 slug: multiselect-databind
 tags: telerik,blazor,multiselect,data,bind,binding,databind
 published: True
-position: 1
+position: 5
 ---
 
 # MultiSelect Data Binding
