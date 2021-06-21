@@ -5,7 +5,7 @@ description: Filtering in the ComboBox for Blazor.
 slug: components/combobox/filter
 tags: telerik,blazor,combo,combobox,filter
 published: True
-position: 3
+position: 10
 ---
 
 # ComboBox Filter

@@ -5,7 +5,7 @@ description: UI virtualization to allow large data sources in the ComboBox for B
 slug: combobox-virtualization
 tags: telerik,blazor,combo,combobox,virtualization
 published: True
-position: 5
+position: 30
 ---
 
 # ComboBox Virtualization

@@ -5,7 +5,7 @@ description: Data Binding the ComboBox for Blazor.
 slug: components/combobox/databind
 tags: telerik,blazor,combobox,combo,data,bind,binding,databind
 published: True
-position: 1
+position: 5
 ---
 
 # ComboBox Data Binding
