@@ -102,7 +102,7 @@ In this article:
 
 ## Resource Grouping in the Day View
 
-You can configure the Day view to display events that are [grouped]({%slug scheduler-resource-grouping%}) by a resource.
+You can configure the Day view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
 
 >caption The result from the code snippet below.
 
