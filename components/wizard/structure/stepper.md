@@ -10,7 +10,7 @@ position: 0
 
 # Wizard Stepper
 
-One of the main elements of the Wizard component is Stepper. The Wizard component utilizes the [Stepper]({%slug stepper-overview%}) component internally.
+One of the main elements of the Wizard component is the Stepper. The Wizard component utilizes the [Telerik UI for Blazor Stepper]({%slug stepper-overview%}) internally.
 
 You can use the parameters the `WizardStep` exposes to customize the following properties of the internal stepper:
 

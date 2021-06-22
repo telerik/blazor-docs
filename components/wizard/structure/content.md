@@ -10,7 +10,7 @@ position: 3
 
 # Wizard Content
 
-The `Content` of the wizard is a render fragment of the `WizardStep`. While it is a common use case to integrate a form in the Wizard Content, it can also contain any type of HTML content including various Telerik components as needed to cover your desired scenario.
+The `Content` of the Wizard is a `ChildContent` of the `WizardStep`. While it is a common use case to integrate a Form in the Wizard Content, it can also contain any type of HTML content including various Telerik components as needed to cover your desired scenario.
 
 >caption Include your desired content in the Wizard Content tag. The result from the snippet.
 

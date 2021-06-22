@@ -10,7 +10,7 @@ position: 15
 
 ## Events
 
-This article explains the events available in the Telerik Wizard for Blazor:
+The available events in the Telerik Wizard for Blazor are:
 
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
@@ -18,7 +18,7 @@ This article explains the events available in the Telerik Wizard for Blazor:
 
 ## OnChange
 
-The OnChange event is triggered on the current step and fires before the step has changed. It receives an argument of type `WizardStepChangeEventArgs` which exposes the following fields:
+The OnChange event is triggered on the current step and fires before the step has changed. The handler receives an object of type `WizardStepChangeEventArgs` which exposes the following fields:
 
 * `TargetIndex` - contains the index of the targeted new Wizard step.
 * `IsCancelled` - specifies whether the event is canceled and the built-in action is prevented.
@@ -79,7 +79,7 @@ Next targeted step index: @TargetIndex
 
 ## ValueChanged
 
-The `ValueChanged` event fires after the Step has been changed.
+The `ValueChanged` event fires after the [OnChange](#onchange) event is triggered and the Step has been changed.
 
 >caption Handle the `ValueChanged` event of the Wizard. The result from the snippet below.
 
