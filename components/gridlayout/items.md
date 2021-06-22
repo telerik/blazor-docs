@@ -10,7 +10,7 @@ position: 5
 
 # Items
 
-The you can control the items in the GridLayout with the parameters they expose:
+You can control the items in the GridLayout with the parameters they expose:
 
 * [Row](#row)
 
@@ -25,7 +25,7 @@ The you can control the items in the GridLayout with the parameters they expose:
 
 ## Row
 
-The `Row` parameter controls in which row the `GridLayoutItem` will reside. The rows in the component are `1-based`. 
+The `Row` parameter controls in which row the `GridLayoutItem` will reside. The rows in the component are `1-based`. If not rows are defined the items will be grouped in one column with `n` rows where `n` is the number of items.
 
 >caption Distribute the GridLayout items across the rows. The result from the code snippet below.
 
@@ -77,7 +77,7 @@ The `Row` parameter controls in which row the `GridLayoutItem` will reside. The 
 
 ## Column
 
-The `Column` parameter controls in which row the `GridLayoutItem` will reside. The columns in the component are `1-based`. 
+The `Column` parameter controls in which column the `GridLayoutItem` will reside. The columns in the component are `1-based`. If not columns are set the GridLayout items will be grouped in one column.
 
 >caption Distribute the GridLayout items across the columns. The result from the code snippet below.
 
@@ -133,7 +133,7 @@ The `Column` parameter controls in which row the `GridLayoutItem` will reside. T
 
 ## ColumnSpan
 
-The `ColumnSpan` parameter defines the column span that the item will occupy. 
+The `ColumnSpan` parameter defines the how many columns the item will occupy. 
 
 >caption Change the column span of the first item with the numeric text box
 
@@ -178,7 +178,7 @@ The `ColumnSpan` parameter defines the column span that the item will occupy.
 
 ## RowSpan
 
-The `RowSpan` parameter defines the row span that the item will occupy. 
+The `RowSpan` parameter defines how many rows the item will occupy.
 
 >caption Change the row span of the first item with the numeric text box
 
@@ -225,9 +225,9 @@ The `RowSpan` parameter defines the row span that the item will occupy.
 
 ## Example: Complex Grid Layout
 
-You can use the parameter exposed for the GridLayout items to create more complex layouts.
+You can use the exposed parameters of the GridLayout items to create more complex layouts.
 
->caption Create a page layout with the GridLayout component. The result from the code snippet below
+>caption Create a page layout with the GridLayout component
 
 ![complex layout](images/gridlayout-complex-example.png)
 
@@ -254,26 +254,26 @@ You can use the parameter exposed for the GridLayout items to create more comple
         <GridLayoutItem Column="1" Row="2">
 
             <div style="width: 200px">
-                <TelerikDrawer Data="@Data"
+                <TelerikDrawer Data="@DrawerData"
                                MiniMode="true"
                                Mode="DrawerMode.Push"
                                @ref="@DrawerRef"
                                @bind-SelectedItem="@SelectedItem">
                 </TelerikDrawer>
             </div>
-            
+
         </GridLayoutItem>
         <GridLayoutItem Column="2" Row="2">
 
-            <TelerikGrid Data="@MyData"
+            <TelerikGrid Data="@GridData"
                          AutoGenerateColumns="true"
                          Height="100%"
                          Width="100%"
-                         Pageable="true" 
-                         Sortable="true" 
+                         Pageable="true"
+                         Sortable="true"
                          Groupable="true"
                          FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-                         Resizable="true" 
+                         Resizable="true"
                          Reorderable="true">
             </TelerikGrid>
 
@@ -346,7 +346,7 @@ You can use the parameter exposed for the GridLayout items to create more comple
         public string MyImageUrl { get; set; }
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    public IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
         Name = "name " + x,
@@ -364,19 +364,19 @@ You can use the parameter exposed for the GridLayout items to create more comple
 
     TelerikDrawer<DrawerItem> DrawerRef { get; set; }
     DrawerItem SelectedItem { get; set; }
-    IEnumerable<DrawerItem> Data { get; set; } =
+    IEnumerable<DrawerItem> DrawerData { get; set; } =
         new List<DrawerItem>
         {
             new DrawerItem { Text = "Counter", Icon = "plus"},
             new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
-        };
+            };
 
     public class DrawerItem
     {
         public string Text { get; set; }
         public string Icon { get; set; }
     }
-} 
+}
 ````
 
 ## See Also
