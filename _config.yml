@@ -169,6 +169,9 @@ navigation:
      "*components/panelbar/templates":
         title: "Templates"
         position: 10
+     "*components/stepper/steps":
+        title: "Steps"
+        position: 3
 
 ## List helpers directory names and order here, like this:
      "*appearance":
@@ -332,6 +335,8 @@ navigation:
         title: "Splitter"
      "*stacklayout":
         title: "Stack Layout"
+     "*stepper":
+        title: "Stepper" 
      "*stockchart":
         title: "Stock Chart"
      "*switch":
@@ -394,6 +399,7 @@ intro_columns:
       "Pager": "pager-overview"
       "ToolBar": "toolbar-overview"
       "PanelBar": "panelbar-overview"
+      "Stepper" : "stepper-overview"
 
   -
     title: "Interactivity and UX"
