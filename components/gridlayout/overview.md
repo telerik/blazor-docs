@@ -119,7 +119,7 @@ The GridLayout offers the following features:
 
 * `Class` - the CSS class that renders on the main wrapping element of the component.
 
-* `Width`- takes a CSS lenght unit that determines how wide the GridLayout is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
+* `Width`- takes a CSS length unit that determines how wide the GridLayout is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
 
 * `ColumnSpacing` - controls the space between the columns in the GridLayout. Use a CSS length unit.
 
