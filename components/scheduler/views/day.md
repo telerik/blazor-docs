@@ -19,6 +19,7 @@ In this article:
 * [Example](#example)
 * [View Parameters](#view-parameters)
 	* [Slots](#slots)
+* [Resource Grouping](#resource-grouping)
 
 >caption Figure: Day View in the scheduler
 
@@ -99,6 +100,17 @@ In this article:
 
 @[template](/_contentTemplates/scheduler/views.md#day-slots-explanation)
 
+## Resource Grouping in the Day View
+
+You can configure the Day view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
+
+>caption The result from the code snippet below.
+
+![](images/scheduler-resource-grouping-day-view.png)
+
+>caption Resource Grouping in a Day view.
+
+@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
 
 ## See Also
 

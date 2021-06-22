@@ -1,41 +1,68 @@
-#day-views-common-properties
-## View Parameters
+---
+title: Resource Grouping
+page_title: Scheduler - Resource Grouping
+description: Group Resources in the Scheduler for Blazor.
+slug: scheduler-resource-grouping
+tags: telerik,blazor,scheduler,resource,grouping
+published: true
+position: 33
+---
 
-Generally, the views are designed around the timeframe that they show and the day-based views share some common properties that you will likely have to set to provide a good user experience for the user:
+# Scheduler Resource Grouping
 
-* `StartTime` - this is the first hour that is shown in the view. Defaults to midnight, so if you do not set it to a value close to the start of the working day, the user is likely to see only blank spaces before they scroll down.
+The feature allows grouping Scheduler events by one or more resources. All available supported views: `Day`, `Week`, `MultiDay` and `Month` can render both `horizontal` and `vertical` grouping.
 
-* `WorkDayStart` - this is when the working day starts. The work hours have a different background than non-working hours so the user can distinguish them easily. This parameter also influences the "Show Business Hours" toggle.
+This article contains the following sections:
 
-* `EndTime` - the counterpart to `StartTime` - defines when the full day ends. Defaults to midnight. If you have the day end earlier you can reduce the amount of elements that render, but the user may not see some late appointments.
+* [Basics](#basics)
+    * [Define Settings](#define-settings)
+* [Examples](#examples)
+    * [Resource Grouping by one resource](#resource-grouping-by-one-resource)
+    * [Resource Grouping by multiple resources](#resource-grouping-by-multiple-resources)
 
-* `WorkDayEnd` - the counterpart to `WorkDayStart` - defines when the working day ends.
+## Basics
 
-* `SlotDuration` - the time span of each major time slot in minutes.
+In the grouping rendering in both horizontal and vertical orientation, the view tables are rendered next to each other. 
 
-* `SlotDivisions` - the number of partitions in each major time slot.
-#end
+Moving an appointment between the resource tables is allowed, and upon dropping, the appointment resource changes alongside the start date.
 
-#visible-times-tip
-If there are appointments outside of the defined visible time the user will not be able to see them. For most cases where the working day is subject to scheduling this may not be a problem, but if your users need to manage night shifts or irregular work hours, you may want to have a longer day rendered, or to bind the value to a time picker so the user can alter it themselves.
-#end
+### Define Settings
 
-#day-slots-explanation
-### Slots
+To configure the group rendering, define the `SchedulerGroupSettings` tag inside the `SchedulerSettings` tag.
 
-Views that show hours let you control their precision through the `SlotDuration` and `SlotDivisions` parameters:
+The settings tag will have the following Parameters:
 
-1. `SlotDuration` - the time span of each major time slot in minutes.
-1. `SlotDivisions` - the number of partitions in each major time slot.
+* `Resources(List<string>)` - provides a list of one or more resource names, which will be used to group the events.
+* `Orientation(SchedulerGroupOrientation)` - has two values: `Horizontal` (default) and `Vertical`. Determines the direction in which the resource tables are rendered.
 
->caption Figure: Slots explanation
+For more information on grouping by resources in each view, refer to the following sections:
 
-![](images/slot-example.png)
-#end
+* [**Day** view grouping]({%slug scheduler-views-day%}#resource-grouping-in-the-day-view)
+* [**MultiDay** view grouping]({%slug scheduler-views-multiday%}#resource-grouping-in-the-multiday-view)
+* [**Week** view grouping]({%slug scheduler-views-week%}#resource-grouping-in-the-week-view)
+* [**Month** view grouping]({%slug scheduler-views-month%}#resource-grouping-in-the-month-view)
 
-#resource-grouping-code-snippet-for-examples
+## Examples
+The examples below showcase [resource grouping by one resource](#resource-grouping-by-one-resource) and [resource grouping by multiple resources](#resource-grouping-by-multiple-resources) respectively.
+
+### Resource Grouping by one resource
+
+>caption The result from the code snippet below.
+
+![](images/scheduler-resource-grouping.png)
+
+@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
+
+### Resource Grouping by multiple resources
+
+>caption The result from the code snippet below.
+
+![](images/scheduler-multiple-resource-grouping.png)
+
+>caption Declare multiple resources.
+
 ````SchedulerResourceGrouping.razor
-@* The example showcases Resource Grouping by one resource. *@
+@* The example showcases Resource Grouping by two resources. *@
 
 @using System.Collections.Generic
 
@@ -62,6 +89,7 @@ Views that show hours let you control their precision through the `SlotDuration`
             <SchedulerMonthView></SchedulerMonthView>
         </SchedulerViews>
         <SchedulerResources>
+            <SchedulerResource Field="Manager" Title="Manager" Data="@SchedulerManagers"></SchedulerResource>
             <SchedulerResource Field="Room" Title="Edit Room" Data="@SchedulerResources"></SchedulerResource>
         </SchedulerResources>
     </TelerikScheduler>
@@ -75,7 +103,7 @@ Views that show hours let you control their precision through the `SlotDuration`
     List<Resource> SchedulerManagers = new List<Resource>();
     List<Resource> SchedulerDirectors = new List<Resource>();
 
-    List<string> GroupingResources = new List<string> { "Room" };
+    List<string> GroupingResources = new List<string> { "Room", "Manager" };
 
     protected override async Task OnInitializedAsync()
     {
@@ -524,4 +552,8 @@ public class Appointment
     }
 }
 ````
-#end
+
+## See Also
+
+* [Live Demo: Scheduler Grouping](https://demos.telerik.com/blazor-ui/scheduler/resource-grouping)
+* [Scheduler Overview]({%slug scheduler-overview%})

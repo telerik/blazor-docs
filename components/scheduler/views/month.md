@@ -16,6 +16,11 @@ The `Date` parameter of the scheduler controls which month is displayed - the on
 
 A day shows up to two events and if there are more - an ellipsis button provides access to the DayView for the specific day so the user can see the needed details. This avoids cluttering and ugly rendering. You can also access the day view from the day number. Of course, you must also define a day view so the use can see it.
 
+In this article:
+
+* [Example](#example)
+* [Resource Grouping](#resource-grouping)
+
 >caption Figure: Month View in the scheduler
 
 ![](images/month-view-sample.png)
@@ -95,9 +100,17 @@ A day shows up to two events and if there are more - an ellipsis button provides
     }
 }
 ````
+## Resource Grouping in the Month View
 
+You can configure the Month view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
 
+>caption The result from the code snippet below.
 
+![](images/scheduler-resource-grouping-month-view.png)
+
+>caption Resource Grouping in a Month view.
+
+@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
 
 ## See Also
 
