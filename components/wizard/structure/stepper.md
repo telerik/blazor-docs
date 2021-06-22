@@ -10,7 +10,7 @@ position: 0
 
 # Wizard Stepper
 
-One of the main elements of the Wizard component is Stepper. The Wizard component utilizes the [Stepper]({%slug %}) component internally.
+One of the main elements of the Wizard component is Stepper. The Wizard component utilizes the [Stepper]({%slug stepper-overview%}) component internally.
 
 However, you can use the parameters the `WizardStep` exposes to customize the following properties of the internal stepper:
 
@@ -24,6 +24,7 @@ However, you can use the parameters the `WizardStep` exposes to customize the fo
     * [Labels](#labels)
     * [Optional](#state)
     * [Disabled](#disabled)
+    * [Valid](#valid)
 
 
 ## General Stepper settings
@@ -165,7 +166,7 @@ The priority and rules applied for their rendering is the same as for the [Stepp
 
 ### Labels
 
-The Wizard Stepper allows you to set labels for the corresponding step indicators. You can define the desired labels through the `Label` parameter the `WizardStep` exposes. If you don't set value to the `Label` parameter, no label will be rendered for the corresponding step indicator.
+The Wizard Stepper allows you to set labels for the corresponding step indicators following the [Stepper component Labels]({%slug stepper-labels%}) practice. You can define the desired labels through the `Label` parameter the `WizardStep` exposes. If you don't set value to the `Label` parameter, no label will be rendered for the corresponding step indicator.
 
 
 >caption Set up the desired labels for the Wizard Stepper steps. The result from the snippet below.
@@ -201,7 +202,9 @@ The Wizard Stepper allows you to set labels for the corresponding step indicator
 
 ### Optional
 
-To mark a Wizard step as optional, set the `Optional` parameter of the `WizardStep` to `true` (its default value is `false`). This configuration strives to visually notify the user that a certain step is not required by rendering "(Optional)" text underneath the corresponding step. It doesn't come with a built-in functionality to skip the Wizard step if a linear flow is enabled.
+Likewise the [Stepper component Optional property]({%slug stepper-state%}#optional), the Wizard Stepper also supports that.
+
+To mark a Wizard step as optional, set the `Optional` parameter of the `WizardStep` to `true` (its default value is `false`). This configuration strives to visually notify the user that a certain step is not required by rendering "(Optional)" text underneath the corresponding step. It doesn't come with a built-in functionality to skip the Wizard step if a [linear flow](#linear-flow) is enabled.
 
 >caption Set an optional step in the Wizard Stepper. The result from the snippet below.
 
@@ -241,14 +244,25 @@ To mark a Wizard step as optional, set the `Optional` parameter of the `WizardSt
 
 ### Disabled
 
+The Wizard Stepper also allows you to mark a step as disabled following the functionality if the [Stepper component `Disabled` property]({%slug stepper-state%}#disabled).
+
 You can disable a step by setting the `Disabled` parameter of the the desired `WizardStep` to `true` (its default value is `false`). You can also toggle its value to conditionally enable/disable the Wizard steps based on your application logic.
+
+This feature serves to mark the desired step as disabled, so users cannot click and select it. If [linear flow](#linear-flow) is enabled, users will not be able to skip the disabled step and click on the next enabled.
+
+If the next step is disabled, the next button on the current step will also be marked as disabled, so the user will not be able to click it.
+
+Respectively, if the previous step is disabled, the Previous button will be disabled.
+
 
 >caption Disable a Wizard step. The result from the snippet.
 
-![Disabled Wizard step](images/disabled-wizard-step-example.png)
+![Disabled Wizard step](images/disabled-wizard-step-example.gif)
 
 ````CSHTMl
 @* Set up a disabled Wizard step *@
+
+<TelerikButton OnClick="@ToggleDisabled">Toggle Disabled of the Preview Step</TelerikButton>
 
 <div style="text-align:center">
     <TelerikWizard Width="600px" Height="300px">
@@ -263,7 +277,7 @@ You can disable a step by setting the `Disabled` parameter of the the desired `W
                     <h2>Content for Wizard Step 2</h2>
                 </Content>
             </WizardStep>
-            <WizardStep Disabled="true" Label="Preview" Icon="eye">
+            <WizardStep Disabled="@IsDisabled" Label="Preview" Icon="eye">
                 <Content>
                     <h2>Content for Wizard Step 3</h2>
                 </Content>
@@ -276,6 +290,75 @@ You can disable a step by setting the `Disabled` parameter of the the desired `W
         </WizardSteps>
     </TelerikWizard>
 </div>
+
+@code{
+    public bool IsDisabled { get; set; }
+
+    void ToggleDisabled()
+    {
+        IsDisabled = !IsDisabled;
+    }
+}
+````
+
+### Valid
+
+Likewise the [Stepper component validation feature]({%slug stepper-steps-validation%}), the Wizard Stepper also provides an option to set validation logic for each step.
+
+You can set a visual indication whether a step is valid or not through the `Valid` parameter of the `WizardStep`. It accepts `bool?` and its default value is `null`.
+
+You can toggle the `Valid` parameter value based on your application logic to accordingly render success or error icon. Since it serves as a visual validity indicator it does not prevent the users from navigating between steps. You can use the `Valid` parameter value to perform logic to cover the desired scenario (for example preventing the user from navigating to the next step if the current one is invalid).
+
+>caption Set up valid/invalid steps in the Wizard Stepper. The result from the snippet.
+
+![Valid and invalid Wizard steps](images/valid-invalid-steps-example.gif)
+
+````CSHTMl
+@* Wizard with valid and invalid steps *@
+
+<div style="text-align:center">
+    <TelerikWizard Width="600px" Height="300px">
+        <WizardSteps>
+            <WizardStep Valid="@IsStep1Valid"  OnChange="@OnChangeHandler1"  Label="Cart" Icon="cart">
+                <Content>
+                    <h2>Valid Step 1</h2>
+                </Content>
+            </WizardStep>
+            <WizardStep Valid="@IsStep2Valid" OnChange="@OnChangeHandler2" Label="Delivery address" Icon="marker-pin-target">
+                <Content>
+                    <h2>Invalid step for Wizard Step 2</h2>
+                </Content>
+            </WizardStep>
+            <WizardStep Label="Preview" Icon="eye">
+                <Content>
+                    <h2>Content for Step 3</h2>
+                </Content>
+            </WizardStep>
+        </WizardSteps>
+    </TelerikWizard>
+</div>
+
+@code{
+    public bool? IsStep1Valid { get; set; }
+
+    public bool? IsStep2Valid { get; set; }
+
+    void OnChangeHandler1()
+    {
+        IsStep1Valid = true;
+    }
+
+    //prevent the user from going to the next/previous step if the current step is invalid
+    void OnChangeHandler2(WizardStepChangeEventArgs args)
+    {
+        IsStep2Valid = false;
+
+        if (IsStep2Valid == false)
+        {
+            args.IsCancelled = true;
+        }
+    }
+}
 ````
 
 ## See Also

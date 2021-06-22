@@ -175,4 +175,4 @@ The `OnFinish` event fires when the Done button of the Wizard is clicked.
 
 ## See Also
 
-  * [Live Demos: Wizard Overview](https://demos.telerik.com/blazor-ui/wizard/events)
+  * [Live Demos: Wizard Events](https://demos.telerik.com/blazor-ui/wizard/events)
