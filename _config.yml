@@ -195,6 +195,8 @@ navigation:
         title: "How To"
      "*grid":
         title: "Grid"
+     "*gridlayout":
+        title: "Grid Layout"
      "*listview":
         title: "ListView"
      "*treelist":
@@ -484,6 +486,7 @@ intro_columns:
       "Media Query": "mediaquery-overview"
       "Card": "card-overview"
       "Stack Layout": "stacklayout-overview"
+      "Grid Layout": "gridlayout-overview"
   -
     title: "Scheduling"
     items:
