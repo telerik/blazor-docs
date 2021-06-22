@@ -10,9 +10,11 @@ position: 0
 
 # Steps Overview
 
-The Steps are the building blocks of the Stepper component. You can include the desired steps by adding a  `StepperStep` tag for every step. The steps appearance can be configured through the features the `StepperStep` exposes or with a [Step Template]({%slug step-template%})
+The Steps are the building blocks of the Stepper component. You can include the desired steps by adding a `StepperStep` tag for every step. The steps appearance can be configured through the features the `StepperStep` exposes - each step includes a visual [indicator]({%slug stepper-indicators%}), you can define a [label]({%slug stepper-labels%}) for the corresponding indicator and manage the step [state]({%slug stepper-state%}) and [validity]({%slug stepper-steps-validation%}).
 
-In this article:
+The whole rendering of the steps can also be customized with a [Step Template]({%slug step-template%}).
+
+>caption In this article:
 
 * [Steps Declaration](#steps-declaration)
 * [Steps Features](#features)
