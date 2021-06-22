@@ -25,7 +25,13 @@ You can control the items in the GridLayout with the parameters they expose:
 
 ## Row
 
-The `Row` parameter controls in which row the `GridLayoutItem` will reside. The rows in the component are `1-based`. If not rows are defined the items will be grouped in one column with `n` rows where `n` is the number of items.
+The `Row` parameter controls in which row the `GridLayoutItem` will reside. The row indexes in the component are `1-based`. If no rows are defined, the items will be displayed in `r = i / c` rows, where:
+
+* `r` is the number of rows;
+
+* `i` is the number of items;
+
+* `c` is the number of columns;
 
 >caption Distribute the GridLayout items across the rows. The result from the code snippet below.
 
@@ -77,7 +83,7 @@ The `Row` parameter controls in which row the `GridLayoutItem` will reside. The 
 
 ## Column
 
-The `Column` parameter controls in which column the `GridLayoutItem` will reside. The columns in the component are `1-based`. If not columns are set the GridLayout items will be grouped in one column.
+The `Column` parameter controls in which column the `GridLayoutItem` will reside. The column indexes in the component are `1-based`. If no columns are defined, the GridLayout items will be displayed in one column.
 
 >caption Distribute the GridLayout items across the columns. The result from the code snippet below.
 
@@ -299,7 +305,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
 
     public List<TreeViewModel> TreeViewData { get; set; }
 
-    protected override void OnInitialized()
+    protected overrCoide void OnInitialized()
     {
         GenerateData();
     }
