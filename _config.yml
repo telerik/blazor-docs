@@ -172,6 +172,9 @@ navigation:
      "*components/stepper/steps":
         title: "Steps"
         position: 3
+     "*components/wizard/structure":
+        title: "Structure"
+        position: 3
 
 ## List helpers directory names and order here, like this:
      "*appearance":
@@ -369,6 +372,8 @@ navigation:
         title: "Validator"
      "*window":
         title: "Window"
+     "*wizard":
+        title: "Wizard"
      "*templates":
         title: "Templates"
 
@@ -493,6 +498,7 @@ intro_columns:
       "Card": "card-overview"
       "Stack Layout": "stacklayout-overview"
       "Grid Layout": "gridlayout-overview"
+      "Wizard": "wizard-overview"
   -
     title: "Scheduling"
     items:
