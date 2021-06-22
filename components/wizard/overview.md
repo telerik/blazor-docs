@@ -134,6 +134,35 @@ The Wizard for Blazor component displays content in sequential, stepwise order. 
 }
 ````
 
+
+>caption Component namespace and reference
+
+````CSHTMl
+@* Telerik Wizard namespace and reference *@
+
+<TelerikWizard @ref="@MyWizardRef">
+    <WizardSteps>
+        <WizardStep Text="1">
+            <Content>
+                <h2>Content for Wizard Step 1</h2>
+            </Content>
+        </WizardStep>
+        <WizardStep Text="2">
+            <Content>
+                <h2>Content for Wizard Step 2</h2>
+            </Content>
+        </WizardStep>
+    </WizardSteps>
+</TelerikWizard>
+
+@code{
+
+    Telerik.Blazor.Components.TelerikWizard MyWizardRef { get; set; }
+
+}
+````
+
+
 ## Features
 
 * `StepperPosition` - `WizardStepperPosition` - Specify where the stepper is rendered against the wizard content. The default is `Top`. See the [Layout]({%slug wizard-layout%}) article for more information.
