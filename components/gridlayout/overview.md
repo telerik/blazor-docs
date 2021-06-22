@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: GridLayout Overview
-description: Overview of the GridLayout for Blazor.
+description: Introduiction to the GridLayout for Blazor. The component provides a CSS grid system.
 slug: gridlayout-overview
 tags: telerik,blazor,gridlayout,overview
 published: True
@@ -20,17 +20,15 @@ The <a href="https://www.telerik.com/blazor-ui/gridlayout" target="_blank">Blazo
 
 ## Basics
 
-#### To use a Telerik GridLayout for Blazor
+To use the Telerik GridLayout for Blazor:
 
 1. Declare the `<TelerikGridLayout>` tag 
 
-1. To define columns in the GridLayout add one or more instances of the `<GridLayoutColumn>` to the `<GridLayoutColumns>` collection.
-
-    * The number of `<GridLayoutColumn>` should be the same as the number of the `<GridLayoutItem>`.
+1. To define columns in the GridLayout, add one or more `<GridLayoutColumn>` tags to the `<GridLayoutColumns>` collection.
     
-1. To define rows in the GridLayout add one or more instances of the `<GridLayoutRow>` to the `<GridLayoutRows>` collection.
+1. To define rows in the GridLayout add one or more `<GridLayoutRow>` tags to the `<GridLayoutRows>` collection.
 
-1. Provide one or more instances of the `<GridLayoutItem>` to the `<GridLayoutItems>` collection.
+1. Define one or more `<GridLayoutItem>` tags to the `<GridLayoutItems>` collection.
 
 >caption A basic configuration of the Telerik GridLayout
 
@@ -117,15 +115,15 @@ The <a href="https://www.telerik.com/blazor-ui/gridlayout" target="_blank">Blazo
 
 ## Features
 
-The StackLayout offers the following features:
+The GridLayout offers the following features:
 
 * `Class` - the CSS class that renders on the main wrapping element of the component.
 
-* `Width`- takes a CSS unit that determines how wide the GridLayout is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
+* `Width`- takes a CSS lenght unit that determines how wide the GridLayout is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
 
-* `ColumnSpacing` - controls the space between the columns in the GridLayout. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
+* `ColumnSpacing` - controls the space between the columns in the GridLayout. Use a CSS length unit.
 
-* `RowSpacing` - controls the space between the rows in the GridLayout. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
+* `RowSpacing` - controls the space between the rows in the GridLayout. Use a CSS length unit.
 
 * `HorizontalAlign` - controls the alignment of the inner items in the GridLayout column based on the X axis. Takes a member of the `GridLayoutHorizontalAlign` enum:
 
