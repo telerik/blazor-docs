@@ -10,12 +10,12 @@ position: 0
 
 # Wizard Overview
 
-The Wizard for Blazor component displays content in sequential, stepwise order. Each step of the Wizard has content (`render fragment`), which can contain any type of HTML content including a [Form]({% slug %}) component.
+The Wizard for Blazor component displays content in sequential, stepwise order. Each step of the Wizard has `Content` (`render fragment`), which can contain any type of HTML content including a [Form]({%slug form-overview%}) component.
 
-The Wizard is separated into 3 main sections:
+>caption The Wizard is separated into 3 main sections:
 * [Stepper]({%slug wizard-structure-stepper%})
 * [Content]({%slug wizard-structure-content%})
-* [Buttons]({%slug wizard-structure-content%})
+* [Buttons]({%slug wizard-structure-buttons%})
 
 >caption In this article:
 
@@ -136,7 +136,7 @@ The Wizard is separated into 3 main sections:
 
 ## Features
 
-* StepperPosition - `WizardStepperPosition` - Specify where the stepper is rendered against the wizard content. The default is `Top`. Read more about its configuration in the [Layout]() article.
+* `StepperPosition` - `WizardStepperPosition` - Specify where the stepper is rendered against the wizard content. The default is `Top`. Read more about its configuration in the [Layout]() article.
 
 * Value - `int` - Specifies the current step index.
 

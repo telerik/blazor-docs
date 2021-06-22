@@ -21,7 +21,7 @@ The Wizard component allows you to control its layout. By default, the internal 
 
 ![Wizard layout](images/wizard-layout-example.png)
 
-```CSHTML
+````CSHTML
 @* Change the position of the internal Stepper to Left *@
 
 <div style="text-align:center">
@@ -52,3 +52,7 @@ The Wizard component allows you to control its layout. By default, the internal 
     </TelerikWizard>
 </div>
 ````
+
+## See Also
+
+  * [Live Demos: Wizard Configuration](https://demos.telerik.com/blazor-ui/wizard/configuration)

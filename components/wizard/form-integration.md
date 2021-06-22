@@ -10,11 +10,11 @@ position: 5
 
 # Form Integration
 
-The wizard component provides integration with the [Telerik Form]({%slug form-overview%}).
+The Wizard component provides integration with the [Telerik Form]({%slug form-overview%}).
 
 Each step of the Wizard can include an instance of Telerik Form inside its `Content` tag. You will be able to use all the built-in features of the Form including its [Validation]({%slug form-validation%}) to achieve the desired Wizard configuration.
 
-If the Form validation is not satisfied, you can cancel the OnChange event of the step and prevent the user from moving to the next step until the Form is valid. To even improve the UX, you can also toggle the [`Valid`]({%slug wizard-structure-stepper%}#valid) or [`Disabled`]({%slug wizard-structure-stepper%}#disabled) parameters to add another visual aspect in the validation process.
+If the Form validation is not satisfied, you can cancel the `OnChange` event of the step and prevent the user from moving to the next step until the Form is valid. To even improve the UX, you can also toggle the [`Valid`]({%slug wizard-structure-stepper%}#valid) or [`Disabled`]({%slug wizard-structure-stepper%}#disabled) parameters to add another visual aspect in the validation process.
 
 
 >caption Integrate a Form component in the Telerik Wizard. Use its validation state to control the `Valid` parameter of the Steps. The result from the snippet.

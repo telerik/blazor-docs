@@ -12,14 +12,14 @@ position: 0
 
 One of the main elements of the Wizard component is Stepper. The Wizard component utilizes the [Stepper]({%slug stepper-overview%}) component internally.
 
-However, you can use the parameters the `WizardStep` exposes to customize the following properties of the internal stepper:
+You can use the parameters the `WizardStep` exposes to customize the following properties of the internal stepper:
 
-* [General Step settings](#individual-step-settings)
+* [General Stepper settings](#general-steper-settings)
     * [StepType](#steptype)
     * [Linear flow](#linear-flow)
 
 
-* [Individual Stepper settings](#general-stepper-settings)
+* [Individual Steper settings](#individual-stepper-settings)
     * [Indicators](#indicators)
     * [Labels](#labels)
     * [Optional](#state)
@@ -35,8 +35,8 @@ You can set the desired general settings of the internal Stepper through the par
 
 Much like the Stepper component, the internal Stepper of the Wizard provides two [display modes]({%slug stepper-display-modes%}) for the steps. You can configure the desired display mode through the `StepType` parameter of the `WizardStepperSettings` which takes a member of the `StepperStepType` enum:
 
-* [Steps](#steps) (the default) - the Stepper will render both indicators and labels
-* [Labels](#labels) - the Stepper will render only labels
+* `Steps` (the default) - the Stepper will render both indicators and labels
+* `Labels` - the Stepper will render only labels
 
 >caption Set up the display mode:Labels. The result from the snippet below.
 
@@ -122,7 +122,7 @@ You can enable/disable the Linear flow of the Wizard Stepper through the `Linear
 You can configure the content that will be rendered in the step indicators of the internal Stepper through the following parameters the `WizardStep` exposes:
 
 * `Text` - `string` - Specifies the step indicator text
-* `Icon` - `string` - Specifies The icon which will be put inside the step indicator.
+* `Icon` - `string` - Specifies the icon which will be put inside the step indicator.
 * `IconClass` - `string`- defines the CSS class of a desired third party font-icon.
 * `ImageUrl`- `string` - defines the `url` of the desired raster image.
 
@@ -250,7 +250,7 @@ You can disable a step by setting the `Disabled` parameter of the the desired `W
 
 This feature serves to mark the desired step as disabled, so users cannot click and select it. If [linear flow](#linear-flow) is enabled, users will not be able to skip the disabled step and click on the next enabled.
 
-If the next step is disabled, the next button on the current step will also be marked as disabled, so the user will not be able to click it.
+If the next step is disabled, the Next button on the current step will also be marked as disabled, so the user will not be able to click it.
 
 Respectively, if the previous step is disabled, the Previous button will be disabled.
 

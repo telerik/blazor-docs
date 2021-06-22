@@ -10,7 +10,7 @@ position: 15
 
 ## Events
 
-This article explains the events available in the Telerik DropDownList for Blazor:
+This article explains the events available in the Telerik Wizard for Blazor:
 
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
@@ -129,7 +129,7 @@ The `ValueChanged` event fires after the Step has been changed.
 
 The `OnFinish` event fires when the Done button of the Wizard is clicked.
 
->caption Handle the `ValueChanged` event of the Wizard. The result from the snippet below.
+>caption Handle the `OnFinish` event of the Wizard. The result from the snippet below.
 
 
 ![OnFinish](images/onfinish-example.gif)

@@ -116,6 +116,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [Window](https://demos.telerik.com/blazor-ui/window/keyboard-navigation)
 
+* [Wizard](https://demos.telerik.com/blazor-ui/wizard/keyboard-navigation)
+
 * AnimationContainer - not applicable, it is merely a container component the user cannot interact with.
 
 ## See Also
