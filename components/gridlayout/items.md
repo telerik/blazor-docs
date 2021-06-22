@@ -1,7 +1,7 @@
 ---
 title: Items
 page_title: GridLayout Items
-description: Items in the GridLayout for Blazor.
+description: Usage of the layout items in the GridLayout for Blazor.
 slug: gridlayout-items
 tags: telerik,blazor,gridlayout,items
 published: True
