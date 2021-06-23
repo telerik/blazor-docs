@@ -133,10 +133,6 @@ The `Column` parameter controls in which column the `GridLayoutItem` will reside
 </TelerikGridLayout>
 ````
 
->caption The result from the code snippet above
-
-![spacing example](images/stacklayout-layout-spacing-example.gif)
-
 ## ColumnSpan
 
 The `ColumnSpan` parameter defines the how many columns the item will occupy. 

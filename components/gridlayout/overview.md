@@ -76,7 +76,7 @@ To use the Telerik GridLayout for Blazor:
 
 >caption The result from the code snippet above
 
-![overview of the GridLayout functionality](images/gridlayout-overview-basic-example.png121)
+![overview of the GridLayout functionality](images/gridlayout-overview-basic-example.png)
 
 
 >caption Component namespace and reference
