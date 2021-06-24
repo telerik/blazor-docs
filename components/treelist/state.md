@@ -24,7 +24,7 @@ This article contains the following sections:
     * [Save and Load TreeList State from Browser LocalStorage](#save-and-load-treelist-state-from-browser-localstorage)
 	* [Set TreeList Options Through State](#set-treelist-options-through-state)
 	* [Set Default (Initial) State](#set-default-initial-state)
-	* [Get The User Action That Changes The TreeList](#get-the-user-action-that-changes-the-treelist)
+	* [Get and Override The User Action That Changes The TreeList](#get-and-override-the-user-action-that-changes-the-treelist)
 	* [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
 	* [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
 
@@ -483,15 +483,22 @@ If you want the TreeList to start with certain settings for your end users, you 
 }
 ````
 
-### Get The User Action That Changes The TreeList
+### Get and Override The User Action That Changes The TreeList
 
-Sometimes you may want to know what the user changed in the TreeList (e.g., when they filter, sort and so on).
+Sometimes you may want to know what the user changed in the TreeList (e.g., when they filter, sort and so on) and even override those operations.
 
 The example below shows how to achieve it by using the`OnStateChanged` event.
 
->caption Know when the TreeList state changes and which parameter changed
+>caption Know when the TreeList state changes, which parameter changed and amend the change
 
 ````CSHTML
+@* This example does the following:
+        * Renders a result string informing what changed in the TreeList
+        * If the user changes the Name column filtering, the filter is always overriden to "Contains" and its value to "second level child 1 of 1 and 1"
+        * If there is no filter on the ID column, the ID column is filtered with ID < 10.
+    To test it out, try filtering the name column
+*@
+
 @using Telerik.DataSource;
 
 <TelerikTreeList Data="@Data"
@@ -506,7 +513,7 @@ The example below shows how to achieve it by using the`OnStateChanged` event.
                  @ref="@TreeListRef">
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="Id" Editable="false" Width="150px" />
         <TreeListColumn Field="EmailAddress" Width="220px" />
         <TreeListColumn Field="HireDate" Width="220px" />
     </TreeListColumns>
@@ -519,23 +526,52 @@ The example below shows how to achieve it by using the`OnStateChanged` event.
 
     public string Result { get; set; }
 
+    // Note: This can cause a performance delay if you do long operations here
+    // Note 2: The TreeList does not await this event, its purpose is to notify you of changes
+    //         so you must not perform async operations and data loading here, or issues with the TreeList state may occur
+    //         or other things you change on the page won't actually change. The .SetState() call redraws only the TreeList, but not the rest of the page
     async Task OnStateChangedHandler(TreeListStateEventArgs<Employee> args)
     {
         string changedSetting = args.PropertyName;
 
-        if(changedSetting == "SortDescriptors")
+        if (changedSetting == "SortDescriptors")
         {
             foreach (var item in args.TreeListState.SortDescriptors)
             {
                 Result = $"The {item.Member} field was sorted";
             }
         }
-        else if(changedSetting == "FilterDescriptors")
+        else if (changedSetting == "FilterDescriptors")
         {
+            // ensure certain state based on some condition
+            // in this example - ensure that the ID field is always filtered with a certain setting unless the user filters it explicitly
+            bool isIdFiltered = false;
+
             foreach (FilterDescriptor item in args.TreeListState.FilterDescriptors)
             {
                 Result = $"The {item.Member} field was filtered";
+
+                // you could override a user action as well - change settings on the corresponding parameter
+                // make sure that the .SetState() method of the TeeList is always called if you do that
+                if (item.Member == "Name")
+                {
+                    item.Value = "second level child 1 of 1 and 1";
+                    item.Operator = FilterOperator.Contains;
+                }
             }
+            if (!isIdFiltered)
+            {
+                args.TreeListState.FilterDescriptors.Add(new FilterDescriptor
+                {
+                    Member = "Id",
+                    MemberType = typeof(int),
+                    Operator = FilterOperator.IsLessThan,
+                    Value = 10
+                });
+            }
+            //needed only if you will be overriding user actions or amending them
+            // if you only need to be notified of changes, you should not call this method
+            await TreeListRef.SetState(args.TreeListState);
         }
     }
 
