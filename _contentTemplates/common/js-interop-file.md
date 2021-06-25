@@ -6,7 +6,7 @@
 #end
 
 #add-js-interop-file-to-getting-started-client
- **add** the `telerik-blazor.js` file to your main index file - `wwwroot/index.html`:
+ Add the `telerik-blazor.js` file to your main index file - `wwwroot/index.html`:
 
     **HTML**
     
@@ -16,7 +16,7 @@
 #end
 
 #add-js-interop-file-to-getting-started-server
- **add** the `telerik-blazor.js` file to your main index file - `~/Pages/_Host.cshtml`:
+ Add the `telerik-blazor.js` file to your main index file - `~/Pages/_Host.cshtml`:
 
     **HTML**
     
@@ -49,7 +49,7 @@
 #end
 
 #enable-static-assets
-    To enable the use of static assets in your project, make sure you have the following line to your **Server** project `Startup.cs` file:
+    To enable the use of static assets in your project, add the following line to the `Startup.cs` file in the **Server** project:
 
 
     **C#**

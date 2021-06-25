@@ -1,6 +1,6 @@
 ---
-title: Client-side Blazor - Tutorial
-page_title: First Steps with Client-side Blazor
+title: Client-Side Blazor - Tutorial
+page_title: First Steps with Client-Side Blazor
 description: First Steps with UI for Blazor Client-side.
 slug: getting-started/client-side
 tags: get,started,first,steps,client
@@ -8,14 +8,14 @@ published: true
 position: 1
 ---
 
-# First Steps with Client-side UI for Blazor
+# First Steps with Client-Side UI for Blazor
 
 This article explains how to get the Telerik UI for Blazor components in your **Client-side (WebAssembly)** Blazor project and start using them quickly. The process consists of the following steps:
 
 1. [Set Up a Blazor Project](#step-1---set-up-a-blazor-project)
     * [Create a Project with the Telerik VS Extensions](#create-a-project-with-the-telerik-vs-extensions)
-    * [Create a Project with the CLI](#create-a-project-with-the-cli)
     * [Create a Project with Visual Studio](#create-a-project-with-visual-studio)
+    * [Create a Project with the CLI](#create-a-project-with-the-cli)
 1. [Add the Telerik Blazor Components to an Existing Project](#step-2---add-the-telerik-blazor-components-to-an-existing-project)
     1. [Add the Telerik NuGet Feed to Visual Studio](#add-the-telerik-nuget-feed-to-visual-studio)
     1. [Enable the Components in the Project](#enable-the-components-in-the-project)
@@ -28,14 +28,14 @@ This article explains how to get the Telerik UI for Blazor components in your **
 @[template](/_contentTemplates/common/get-started.md#blazor-tutorial-intro)
 
 
-For a client-side `Blazor App`, we recommend the usage of **`Blazor (ASP.NET Hosted)`** project. 
+To create a client-side Blazor app, use an **ASP.NET Core hosted** Blazor project:
 @[template](/_contentTemplates/common/get-started.md#project-creation-part-1)
 
-1. Choose the `Blazor WebAssembly App` project type, select the `ASP.NET Core hosted` checkbox, and click `Create`.
+1. Choose the **Blazor WebAssembly App** project type, select the **ASP.NET Core hosted** checkbox, and click **Create**.
 
     ![Select Blazor Project Type](images/choose-project-template.png)
 
-
+@[template](/_contentTemplates/common/get-started.md#project-creation-cli)
 
 ## Step 2 - Add the Telerik Blazor Components to an Existing Project
 
@@ -43,13 +43,13 @@ For a client-side `Blazor App`, we recommend the usage of **`Blazor (ASP.NET Hos
 
 @[template](/_contentTemplates/common/get-started.md#get-access)
 
-    1. Right-click on the `Client` project in the solution and select `Manage NuGet Packages`:
-    
-       ![](images/manage-nuget-packages-for-client-app.png)
-    
-    1. Choose the `telerik.com` feed, find the **`Telerik.UI.for.Blazor`** package and click `Install` (make sure to use the latest version). If you don't have a commercial license, you will only see `Telerik.UI.for.Blazor.Trial`. Use that instead.
-    
-         ![Add Telerik Blazor Package to Client Project](images/add-telerik-nuget-to-client-app.png)
+1. Right-click  the `Client` project in the solution and select **Manage NuGet Packages**:
+
+  ![Manage NuGet Packages](images/manage-nuget-packages-for-client-app.png)
+
+1. Choose the `telerik.com` feed, find the `Telerik.UI.for.Blazor` package and click **Install** (make sure to use the latest version). If you don't have a commercial license, you will see only `Telerik.UI.for.Blazor.Trial`. Use that instead.
+
+  ![Add Telerik Blazor Package to Client Project](images/add-telerik-nuget-to-client-app.png)
 
 
 1. @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-client)
@@ -92,7 +92,7 @@ For a client-side `Blazor App`, we recommend the usage of **`Blazor (ASP.NET Hos
             }
         }
          
-1. Add the following to your **`~/_Imports.razor`** file so the project recognizes our components in all files:
+1. Add the following to your `~/_Imports.razor` file so the project recognizes the Telerik components in all files:
 
     **_Imports.razor**
     
@@ -108,9 +108,9 @@ Now your project can use the Telerik UI for Blazor components.
 
 ## Step 3 - Add a Telerik Component to a View
 
-The final step is to actually use a component on a view and run it in the browser. For example:
+The final step is to use a component in a view and run it in the browser. For example:
 
-1. **Add** a **Button** component to the `~/Pages/Index.razor` view:
+1. Add a **Button** component to the `~/Pages/Index.razor` view:
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
 
 ## See Also
