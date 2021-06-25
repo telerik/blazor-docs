@@ -53,10 +53,11 @@ The `OnStateInit` and `OnStateChanged` events are raised by the grid so you can 
 
 * `OnStateInit` fires when the grid is initializing and you can provide the state you load from your storage to the `GridState` field of its event arguments.
 
-* `OnStateChanged` fires when the user makes a change to the grid state (such as dragging to group by a field, filtering a column, editing, selecting and so on). The `GridState` field of the event arguments provides the current grid state so you can store it. The `PropertyName` field of the event arguments indicates what is the aspect that changed.
-    * We recommend that you use an `async void` handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete.
+* `OnStateChanged` fires when the user makes a change to the grid state (such as paging, sorting, grouping, filtering, editing, selecting and so on). The `GridState` field of the event argument provides the current grid state so you can store it. The `PropertyName` field of the event arguments indicates what is the aspect that changed.
+    * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete.
+    * Filtering always resets the current page to 1, so the `OnStateChanged` event will fire twice. First, `PropertyName` will be equal to `"Page"`, and the second time it will be `"FilterDescriptors"`. However, the `GridState` field of the event argument will provide correct information about the overall Grid state in both event handler executions.
 
-By combining these two events you can save the grid layout for your users automatically by only calling upon your storage service in the respective method.
+By using the `OnStateChanged` and `OnStateInit` events, you can save and restore the grid layout for your users by calling your storage service in the respective handler.
 
 ### Methods
 
