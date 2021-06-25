@@ -11,58 +11,50 @@ position: 3
 
 # What You Need to Use the Telerik Blazor Components
 
-This article explains the packages you need to use the Telerik UI for Blazor components, how to get them, and how to configure your project to include the Telerik Blazor components.
+This article describes the packages that provide the Telerik UI for Blazor components, how to get them, and how to manually configure your project to use them.
 
-This article is a shorter, more focused version of the Getting Started articles and targets people who are familiar with the Telerik NuGet Feed and Blazor in general. If you are looking for step-by-step tutorials, see the [Client-side Blazor - Tutorial]({%slug getting-started/client-side%}) and [Server-side Blazor - Tutorial]({%slug getting-started/server-side%}) articles.
+>tip This article is a shorter, more focused version of the [Client-Side Blazor]({%slug getting-started/client-side%}) and [Server-Side Blazor]({%slug getting-started/server-side%}) step-by-step tutorials and targets people who are familiar with the Telerik NuGet Feed and Blazor in general.
 
-If you want to add the Telerik components to an existing Blazor project, our [Convert Project Wizard for VS]({%slug getting-started-vs-integration-convert-project%}) can do this for you. If you will be starting a new project, our [New Project Wizard for VS]({%slug getting-started-vs-integration-new-project%}) or [VS Code Wizard]({%slug getting-started-vs-code-integration-overview%}) can create one for you.
+>tip Telerik UI for Blazor provides wizards that can automatically configure a project for you:
+> * You can use the [Convert Project Wizard for VS]({%slug getting-started-vs-integration-convert-project%}) to configure an existing project for the Telerik components.
+> * You can use the [New Project Wizard for VS]({%slug getting-started-vs-integration-new-project%}) or [VS Code Wizard]({%slug getting-started-vs-code-integration-overview%}) to create a pre-configured project.
 
-You can review the rest of this article for information on how things work and what is required to get the Telerik components in a project manually.
+To use the Telerik UI for Blazor, you need to:
 
+1. Get the [Telerik Blazor packages](#telerik-specific-packages) in your project.
 
->caption To use the Telerik UI for Blazor, you need to:
+1. Add the [client assets](#client-assets).
 
-1. get the [Telerik Blazor packages](#telerik-specific-packages) in your project
-
-1. add the [client assets](#client-assets)
-
-1. [set up the project](#project-configuration) to recognize the Telerik components
+1. [Set up the project](#project-configuration) to recognize the Telerik components.
 
 
 ## Telerik Specific Packages
 
-The Telerik UI for Blazor component suite requires the following Telerik-specific NuGet packages:
+The Telerik UI for Blazor components suite requires the following [Telerik-specific NuGet packages]({%slug installation/nuget%}):
 
-* `Telerik.UI.for.Blazor` - **the only one you need to explicitly reference** - the UI components code.
+* `Telerik.UI.for.Blazor` - The code for the UI components. This is the only package that you must reference explicitly. Adding the package to your project will automatically add the other necessary dependencies.
 
-* `Telerik.DataSource` - code for working with data, needed for data binding the components.
+* `Telerik.DataSource` - Code for working with data, needed for data binding the components.
 
-* `Telerik.Recurrence` - code for working with recurring appointments (e.g., in the scheduler).
+* `Telerik.Recurrence` - Code for working with recurring appointments (e.g., in the scheduler).
 
-* `Telerik.Documents.SpreadsheetStreaming` - code for working with spreadsheet documents (used for exporting).
+* `Telerik.Documents.SpreadsheetStreaming` - Code for working with spreadsheet documents (used for exporting).
 
-* `Telerik.Zip` - code for working with zip archives - Excel files are actually archives (used for exporting).
+* `Telerik.Zip` - Code for working with zip archives, excel files are actually archives (used for exporting).
 
-
-
->tip Adding the `Telerik.UI.for.Blazor` package to your project will automatically add the other necessary dependencies.
-
->note For trial purposes, the package names have the `.Trial` suffix, for example `Telerik.UI.for.Blazor.Trial`, `Telerik.DataSource.Trial` and `Telerik.Recurrence.Trial`.
-
-Exporting features use the `Telerik.Documents.SpreadsheetStreaming` and `Telerik.Zip` packages as well, and it also comes in as a dependency automatically.
-
+>note For trial purposes, the package names have the `.Trial` suffix, for example `Telerik.UI.for.Blazor.Trial`, `Telerik.DataSource.Trial`, and `Telerik.Recurrence.Trial`.
 
 ### Get the Telerik Packages
 
 There are four ways to get the Telerik packages:
 
-* The **[Telerik private NuGet feed]({%slug installation/nuget%})** that requires an Internet connection and credentials. It also provides information about updates and new versions.
+* The [Telerik private NuGet feed]({%slug installation/nuget%}) - Requires an Internet connection and authentication. It also informs you about updates and new versions.
 
-* The **[Automated MSI installer]({%slug installation/msi%})**. You can download it from your account once and use without an Internet connection. It does not provide information about new versions. Depending on your setup, it may require elevated privileges to run the install wizard. Also provides an offline version of our [demos](https://demos.telerik.com/blazor-ui/) and our [VS extensions]({%slug getting-started-vs-integration-overview%}).
+* The [Automated MSI installer]({%slug installation/msi%}) - You can download it from your [Telerik account](https://www.telerik.com/account/) and then use it without an Internet connection. It does not provide information about new versions. Depending on your setup, it may require elevated privileges to run the install wizard. It provides an offline version of the [demos](https://demos.telerik.com/blazor-ui/) and allows you to install the [VS extensions]({%slug getting-started-vs-integration-overview%}).
 
-* The **[ZIP archive]({%slug installation/zip%})** package. You can download it from your account once and it does not require Internet connection after that. It does not provide information about new versions, and does not require installation. Also provides an offline version of our [demos](https://demos.telerik.com/blazor-ui/).
+* The [ZIP archive]({%slug installation/zip%}) package - You can download it from your [Telerik account](https://www.telerik.com/account/) and then use it without an Internet connection. It does not provide information about new versions and does not require installation. It also provides an offline version of the [demos](https://demos.telerik.com/blazor-ui/).
 
-* The standalone **.nupkg files**. They are the bare minimum that is required. To use them, follow the instructions for using the [ZIP archive]({%slug installation/zip%}), but download the `.nupkg` files instead.
+* The standalone `.nupkg` files - They are the bare minimum that is required. To use them, follow the instructions for using the [ZIP archive]({%slug installation/zip%}), but download the `.nupkg` files instead.
 
 
 ## Client Assets
@@ -71,21 +63,21 @@ To have the Telerik Blazor components look and behave as expected in the browser
 @[template](/_contentTemplates/common/js-interop-file.md#app-paths)
 
 
-* Our stylesheet. You can read more about it in the [Themes]({%slug general-information/themes%}) article. Here is a short example:
+* The Telerik stylesheet - For more information, refer to the [Themes]({%slug general-information/themes%}) article. Here is a short example:
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
 
-* Our JS Interop file. It provides features that cannot be implemented with native Blazor.
+* The Telerik JS Interop file - Provides features that cannot be implemented with native Blazor.
 
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
 
 ### Static Assets
 
-You can add the JS Interop file as a [static asset](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-3.1&tabs=visual-studio#consume-content-from-a-referenced-rcl) from our package. Static assets (the `_content` folder) are automatically included in the solution from the NuGet package during build, so all that's needed is then to reference the asset as shown below. The `_content` folder is expanded by the framework into the local nuget cache, and the project copies it from there.
+You can add the Telerik JS Interop file as a [static asset](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-3.1&tabs=visual-studio#consume-content-from-a-referenced-rcl). Static assets (the `_content` folder) are automatically included in the solution from the NuGet package during build, so all you need is to reference the asset as shown in the snippet below. The `_content` folder is expanded by the framework into the local NuGet cache, and the project copies it from there.
 
-To enable the use of static assets in your project, make sure you have the following line to your **Server** project `Startup.cs` file:
+To enable the use of static assets in your project, make sure you add the following line to the `Startup.cs` file in your **Server** project:
 
 
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
@@ -96,28 +88,32 @@ To enable the use of static assets in your project, make sure you have the follo
 @[template](/_contentTemplates/common/general-info.md#cdn)
 
 
->tip We recommend using the [static assets](#static-assets) approach instead of a CDN, because it relies on the static assets feature from the framework, and takes the correct file from our package, so you don't have to remember to update the CDN path when upgrading to a newer version.
+>tip Telerik recommends using the [static assets](#static-assets) approach instead of a CDN. This approach relies on the static assets feature from the framework and takes the correct file from the package, so you don't have to remember to update the CDN path when upgrading to a newer version.
    
    
 
 ## Project Configuration
 
-To use the Telerik Components, you must add a few items to your projects. Depending on the type of project (server-side or client-side), the steps differ slightly in syntax.
+To use the Telerik components, you must add a few items to your projects. Some of these items are common, while others depend on the project type (server-side or client-side), and the steps differ slightly in syntax. To configure the project:
 
-1. Follow the [Common Configuration](#common-configuration) instructions
-2. Follow the section for your project type - [Client-side (WASM)](#client-side-project-specifics) or [Server-side](#server-side-project-specifics)
+1. Follow the [Common Configuration](#common-configuration) instructions.
+
+2. Follow the section for your project type:
+
+   * [Client-side (WASM)](#client-side-project-specifics).
+   * [Server-side](#server-side-project-specifics).
 
 
 ### Common Configuration
 
-You can have the project recognize all our components without explicit `@using` statements on every `.razor` file. It is enough to add the following to your **`~/_Imports.razor`** file:
+You can set the project to recognize all Telerik components without explicit `@using` statements on every `.razor` file. To achieve this, add the following to your `~/_Imports.razor` file:
 
 ````CSHTML
 @using Telerik.Blazor
 @using Telerik.Blazor.Components
 ````
 
->caption To allow working with detached popups (for example, dropdown lists, menus, grid filters, etc.), a Telerik-specific Blazor component is needed at the root level of the DOM.
+To enable the use of detached popups (for example, dropdown lists, menus, grid filters, etc.), you must add a `TelerikLayout.razor` component at the root level of the DOM:
 
 @[template](/_contentTemplates/common/get-started.md#root-component-steps)
 

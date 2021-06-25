@@ -13,8 +13,6 @@ the `Format` is culture-specific and the same format may produce different resul
 #cdn
 You can reference the built-in Telerik assets from a cloud CDN instead of a local resource on your server.
 
->caption Reference the Telerik assets from the cloud CDN
-
 ````CSHTML
 <!DOCTYPE html>
 <html>
@@ -40,7 +38,7 @@ You can reference the built-in Telerik assets from a cloud CDN instead of a loca
 
 >important Make sure that the version in the URLs matches the version of the Telerik UI for Blazor package.
 
->tip If you decide to use a CDN over static assets, you may want to implement a [fallback]({%slug common-kb-cdn-fallback%}) in case it is unavailable to your users.
+>tip If you decide to use a CDN over static assets, you may want to implement a [fallback]({%slug common-kb-cdn-fallback%}) if the CDN is unavailable to your users.
 
 
 #end

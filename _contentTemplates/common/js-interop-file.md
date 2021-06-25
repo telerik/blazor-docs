@@ -80,6 +80,6 @@
 
 
 #app-paths
- Add the following to your main index file. For a server-side Blazor app it is `~/Pages/_Host.cshtml`, and for a client-side Blazor app, it is `wwwroot/index.html`.
+ Add the following to your main index file (`~/Pages/_Host.cshtml` for a server-side Blazor app and `wwwroot/index.html` for a client-side Blazor app):
 #end
 
