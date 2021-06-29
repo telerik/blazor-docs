@@ -2,9 +2,9 @@
 ## Step 1 - Set Up a Blazor Project
 
 
-Make sure that you have [.NET Core 3.1.x](https://dotnet.microsoft.com/download/dotnet-core/3.1) or [.NET 5](https://dotnet.microsoft.com/download/dotnet/5.0), and [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) installed.
-
-The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}` and it supports `{{site.supportedFrameworkVersion}}`.
+>Make sure that you have [.NET Core 3.1.x](https://dotnet.microsoft.com/download/dotnet-core/3.1) or [.NET 5](https://dotnet.microsoft.com/download/dotnet/5.0), and [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) installed.
+>
+>The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}`, and it supports `{{site.supportedFrameworkVersion}}`.
 
 #end
 
@@ -13,59 +13,58 @@ The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}
 #add-nuget-feed
 ### Add the Telerik NuGet Feed to Visual Studio
 
-Telerik UI for Blazor is distributed through our private NuGet feed.
+The recommended distribution method for the Telerik UI for Blazor packages is the private Telerik NuGet feed.
 
 @[template](/_contentTemplates/common/get-started.md#start-trial)
 
-If you prefer to do the process yourself, follow the [Setup the Telerik Private NuGet Feed]({%slug installation/nuget%}) article to set it up manually in case you don't have it already.
+If you prefer to configure the NuGet package source manually, follow the steps in the [Setup the Telerik Private NuGet Feed]({%slug installation/nuget%}) article.
 
-Once you have added the Telerik NuGet feed, continue with this tutorial.
+Once you have added the Telerik NuGet feed, continue by [enabling the components in the project](#enable-the-components-in-the-project).
 #end
 
 
 #project-creation-part-1
- If you have one, go to the [Add the Telerik Blazor Components to an Existing Project](#step-2---add-the-telerik-blazor-components-to-an-existing-project) section below.
 
-There are three ways to create the project:
+* If you already have one, go to the [Add the Telerik Blazor Components to an Existing Project](#step-2---add-the-telerik-blazor-components-to-an-existing-project) section below.
 
-* [Create a Project with the Telerik VS Extensions](#create-a-project-with-the-telerik-vs-extensions)
+* To create a new project, choose one of the following methods:
 
-* [Create a Project with the CLI](#create-a-project-with-the-cli)
-
-* [Create a Project with Visual Studio](#create-a-project-with-visual-studio)
+  * [Create a Project with the Telerik VS Extensions](#create-a-project-with-the-telerik-vs-extensions).
+  * [Create a Project with Visual Studio](#create-a-project-with-visual-studio).
+  * [Create a Project with the CLI](#create-a-project-with-the-cli).
 
 ### Create a Project with the Telerik VS Extensions
 
-You can use the [Visual Studio Extensions]({%slug getting-started-vs-integration-overview%}) we provide to [create the project for you]({%slug getting-started-vs-integration-new-project%}), so that you can start using the Telerik components immediately.
+You can use the [Telerik Visual Studio Extensions]({%slug getting-started-vs-integration-overview%}) that will [create and automatically configure the project]({%slug getting-started-vs-integration-new-project%}) so that you can start using the components immediately.
 
-If you use VS Code, you can also use our [VS Code Extension to create a Telerik-enabled project]({%slug getting-started-vs-code-integration-overview%}).
+>tip If you prefer VS Code, you can use the [VS Code Extension]({%slug getting-started-vs-code-integration-overview%}) to create a Telerik-enabled project.
 
-The rest of this article will explain the manual steps if you want to have a better understanding of the underlying process.
-
-### Create a Project with the CLI
-
-The next section shows how to create the Blazor through the Visual Studio interface. If you are not running Visual Studio, you can create the Blazor project from the command prompt - see the `dotnet new` command and the arguments related to Blazor apps: 
-
-* <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new#arguments" target="_blank">MSDN: dotnet new arguments</a>
-
-The rest of this article shows some steps through the Visual Studio interface, as it is the most common IDE used with Blazor. Where such steps exist, there are links and instructions on performing them yourself (e.g., adding a nuget feed through the CLI).
-
+If you choose to create a project with the Telerik VS Extensions, you can jump directly to [Step 3 - Add a Telerik Component to a View](#step-3---add-a-telerik-component-to-a-view). The following sections in this article explain the manual steps to configure the project so that you can better understand the underlying process.
 
 ### Create a Project with Visual Studio
 
-To create a project manually, follow these steps:
+To create a project manually, without using the Telerik VS Extensions, follow these steps:
 
-1. Open Visual Studio 2019
+1. Open Visual Studio 2019.
 
-1. Create a New Project
+1. Create a New Project.
 
-1. Choose `Blazor App` and click `Next`. Then, choose a name and location for the project and click `Create`.
+1. Choose **Blazor App** and click **Next**. Then, choose a name and location for the project and click **Create**.
 
     ![Create new ASP.NET Core Web Application](images/create-new-application.png)
+
+#end
+
+
+#project-creation-cli
+### Create a Project with the CLI
+
+If you are not running Visual Studio, you can create the Blazor project from the command prompt. See the <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new#arguments" target="_blank">`dotnet new` command and the arguments for Blazor apps</a>.
+
 #end
 
 #start-trial
-If you don't have an active license, [start a UI for Blazor trial](https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor). The file this will let you download and install the components, and will also let you setup our [online NuGet feed]({%slug installation/nuget%}) automatically - make sure to select the "Set up Telerik NuGet package source" checkbox: 
+If you don't have an active license, [start a free trial](https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor) - this will let you download the installation file, install the components, and use the Telerik NuGet feed. During the installation, select the **Set up Telerik NuGet package source** checkbox and the installer will configure the Telerik [online NuGet feed]({%slug installation/nuget%}) automatically: 
 
   ![Automatic Telerik NuGet feed installation](/getting-started/images/automated-nuget-feed-setup.png)
 
@@ -74,15 +73,9 @@ If you don't have an active license, [start a UI for Blazor trial](https://www.t
 #get-access
 ### Enable the Components in the Project
 
-To have the project use the Telerik UI for Blazor components, follow these steps:
-
-1. @[template](/_contentTemplates/common/get-started.md#start-trial)
-
-1. Install the `Telerik.UI.for.Blazor` NuGet package to your Blazor project:
-
-    You can watch a video tutorial how to add the Telerik components to your project here, or you can follow the text instructions after it.
+To prepare the project for the Telerik UI for Blazor components, install the `Telerik.UI.for.Blazor` NuGet package, and then configure the project. For detailed instructions, see the video tutorial below or follow the instructions after the video.
     
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/fwR8Yxe7DPQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fwR8Yxe7DPQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 #end
 
 
@@ -114,7 +107,7 @@ To have the project use the Telerik UI for Blazor components, follow these steps
            }
         }
 
-1. **Run the app** in the browser by pressing `F5`. You should see something like this, after clicking the button:
+1. Run the app in the browser by pressing `F5`. You should see something like this:
 
     ![App in the browser](images/app-in-browser.png)
 
@@ -127,9 +120,9 @@ Now you have the Telerik components running in your Blazor app.
 #next-steps-after-getting-started
 ## Next Steps
 
-Next, you can explore the [live demos](https://demos.telerik.com/blazor-ui/) and the rest of the documentation. You can also find the entire demos project in the `demos` folder of your local installation - it is fully runnable and you can inspect, modify and copy the code from it. @[template](/_contentTemplates/common/get-started.md#demos-project-net-version)
+Next, you can explore the [live demos](https://demos.telerik.com/blazor-ui/) and the rest of the documentation. You can also find the entire demos project in the `demos` folder of your local installation. The project is runnable and you can inspect, modify, and copy its code. @[template](/_contentTemplates/common/get-started.md#demos-project-net-version)
 
-Many applications have a data grid component, and you can get started with the fully featured Telerik Grid in the [Grid Overview]({%slug components/grid/overview%}) article.
+Many applications have a data grid component, and you can get started with the full-featured Telerik Grid by visiting the [Grid Overview]({%slug components/grid/overview%}) article.
 
 You can also explore the [List of Components]({%slug blazor-overview%}#list-of-components) and pick the ones you are interested in.
 #end
@@ -172,9 +165,8 @@ To setup a local NuGet package source, so you can install the Telerik components
 
 
 #root-component-steps
-1. Next to your main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), **add a razor component** called `TelerikLayout.razor` with the following content:
+1. Next to your main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), add a razor component called `TelerikLayout.razor` with the following content:
 
-    **TelerikLayout.razor**
     
         @inherits LayoutComponentBase
         
@@ -183,9 +175,8 @@ To setup a local NuGet package source, so you can install the Telerik components
         </TelerikRootComponent>
         
 
-1. Open the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project) and add the following line at its **first line**:
+1. Open the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), and add the following as the *first line* in the file:
 
-    **MainLayout.razor**
   
         @layout TelerikLayout
         
@@ -226,13 +217,19 @@ To setup a local NuGet package source, so you can install the Telerik components
 
 
 #download-intro-para-for-get-started
-If you are familiar with the Telerik NuGet Feed and Blazor in general, you may want to follow the shorter, more technical article with the same information: [What You Need]({%slug getting-started/what-you-need%}). The current article is designed as a step-by-step tutorial from the basics for new users.
+If you are familiar with the Telerik NuGet Feed and Blazor in general, you may want to follow the shorter, more technical getting started article: [What You Need]({%slug getting-started/what-you-need%}). The current article is designed as a step-by-step tutorial for new users and starts from the basics.
 
 ## Step 0 - Download the Components
 
-A pre-requisite is having access to the Telerik UI for Blazor components. The easiest way to get them to your development machine is to use the <a href="https://www.telerik.com/download-trial-file/v2/control-panel" target="_blank">Progress Control Panel</a> or to download the [automated installer]({%slug installation/msi%}) from <a href="https://www.telerik.com/account/product-download?product=BLAZOR" target="_blank">your telerik.com account</a>.
+To follow the steps in this tutorial, you need access to the Telerik UI for Blazor components. The recommended download methods differ depending on your Telerik UI for Blazor license - [trial](#download-the-free-trial-version) or [commercial](#download-the-commercial-version).
 
-If you are not a customer, you can <a href="https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor" target="_blank">download a free, fully functional trial</a> and the same options will apply to you as well.
+### Download the Free Trial Version
+
+If you want to try Telerik UI for Blazor, you can <a href="https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor" target="_blank">download a free, fully functional trial</a>. The trial offers the same functionality as the commercially licensed version.
+
+### Download the Commercial Version
+
+The easiest way to get the commercially licensed Telerik UI for Blazor components to your development machine is to use the <a href="https://www.telerik.com/download-trial-file/v2/control-panel" target="_blank">Progress Control Panel</a> or to download the [automated installer]({%slug installation/msi%}) from <a href="https://www.telerik.com/account/product-download?product=BLAZOR" target="_blank">your telerik.com account</a>.
 
 Alternatively, you can also access the `.nupkg` files from [our private NuGet feed]({%slug installation/nuget%}) or by creating a [local feed from your installation]({%slug installation/msi%}#set-up-a-local-nuget-feed-in-visual-studio).
 #end

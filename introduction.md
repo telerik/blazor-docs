@@ -10,13 +10,13 @@ position: 1
 
 Thank you for choosing Telerik® UI for Blazor!
 
-The [Blazor framework](https://blazor.net/) by Microsoft allows you to create web applications with .NET and C# to create front-end. The Telerik® UI for Blazor components facilitate the front-end development by providing you with ready made UI components.
+The <a href="https://blazor.net/" target="_blank">Blazor framework by Microsoft</a> allows you to create rich web UIs by using .NET and C#. The Telerik® UI for Blazor components facilitate the front-end development by providing ready-made UI components.
 
->tip Telerik UI for Blazor supports both Client-side (WebAssembly) Blazor and Server-side Blazor apps.
+>tip Telerik UI for Blazor supports both client-side (WebAssembly) and server-side Blazor apps.
 
-The UI for Blazor suite has the same HTML rendering and Theme stylesheets like other Kendo UI suites, so previous experience with them can be helpful. The components in **UI for Blazor are native components** and not wrappers over jQuery widgets, however.
+The UI for Blazor suite has the same HTML rendering and Theme stylesheets as the <a href="https://www.telerik.com/all-products" target="_blank">Kendo UI suites</a>, so previous experience with them can be helpful. The components in UI for Blazor are *native Blazor components* and not wrappers over jQuery widgets.
 
-To read more about the benefits of using Telerik UI for Blazor, please visit the <a href="https://www.telerik.com/blazor-ui" target="_blank">product overview page</a>.
+To read more about the benefits of using Telerik UI for Blazor, visit the <a href="https://www.telerik.com/blazor-ui" target="_blank">product overview page</a>.
 
 
 {% if site.has_cta_panels == true %}
@@ -26,16 +26,16 @@ To read more about the benefits of using Telerik UI for Blazor, please visit the
 
 ## Getting Started
 
-If you are new to Telerik UI for Blazor, we recommend that you **follow the Get Started articles** to add the Telerik components to your application:
+If you are new to Telerik UI for Blazor, visit the Get Started tutorials that demonstrate how to add the Telerik components to your application:
 
 * [Get Started with Client-side Blazor]({%slug getting-started/client-side%})
 
 * [Get Started with Server-side Blazor]({%slug getting-started/server-side%})
 
-You can find the basics of what our packages include and how to set up a project in the [What You Need]({%slug getting-started/what-you-need%}) article. It is suitable for people familiar with the IDE and Blazor and lists some more advanced details than the articles above.
+Developers who are familiar with the IDE and Blazor could prefer the [What You Need]({%slug getting-started/what-you-need%}) article. It is a shorter, more advanced version of the getting started tutorials above and explains the basics about the Telerik UI packages and how to set up a project.
 
 <!--
-If you are not familiar with Blazor yet, you may find useful our Blazor Quick Start Guide video series:
+If you are not familiar with Blazor yet, you may find our Blazor Quick Start Guide video series useful:
 
 * [Blazor Getting Started Guide](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo&index=1)
 * [Blazor Component Basics](https://www.youtube.com/watch?v=z9BOkBFDbc0&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo&index=2)
@@ -58,7 +58,7 @@ You can watch a YouTube playlist of getting started tutorials for Blazor (videos
 <!-- see the config file for the this declaration -->
 {% include intro-page-table.html %}
 
-Tell us which components you want implemented and how you intend to use them, and Blazor, at [our feedback portal](https://feedback.telerik.com/blazor).
+Use [our feedback portal](https://feedback.telerik.com/blazor) to tell us which components you want us to create and how you intend to use them with Blazor.
 
 ## Trial Version and Commercial License
 
@@ -71,17 +71,17 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 
 * License holders and active trialists can take advantage of our outstanding customer support delivered by the developers building the library. To submit a support ticket, use the [UI for Blazor dedicated support](https://www.telerik.com/account/support-tickets/) system.
 
-* [UI for Blazor forums](https://www.telerik.com/forums/blazor) are part of the free support you can get from the community and from the UI for Blazor team on all kinds of general issues.
+* The [UI for Blazor forums](https://www.telerik.com/forums/blazor) are part of the free support you can get from the community and from the UI for Blazor team on all kinds of general issues.
 
-* [UI for Blazor feedback portal](https://feedback.telerik.com/blazor) and [UI for Blazor roadmap](https://www.telerik.com/support/whats-new/blazor-ui/roadmap) provide information on the features in discussion and also the planned ones for release.
+* The [UI for Blazor feedback portal](https://feedback.telerik.com/blazor) and [UI for Blazor roadmap](https://www.telerik.com/support/whats-new/blazor-ui/roadmap) provide information on the features in discussion and those planned for release.
 
-* UI for Blazor uses [its feedback portal](https://feedback.telerik.com/blazor) as its bug tracker and you can submit any related reports there. Also, check out the [closed bugs list](https://feedback.telerik.com/blazor?listMode=Recent&typeId=3&statusId=2).
+* UI for Blazor uses [the feedback portal](https://feedback.telerik.com/blazor) as a bug tracker, and you can submit any related reports there. Also, check out the [closed bugs list](https://feedback.telerik.com/blazor?listMode=Recent&typeId=3&statusId=2).
 
 * You may still need a tailor-made solution for your project. In such cases, go straight to [Progress Services](https://www.progress.com/services).
 
 ## Learning Resources
 
-* <a href="https://demos.telerik.com/blazor-ui/" target="_blank">Online Demos</a> - also available as a project you can inspect and run locally. You can find them in the `demos` folder of your [installation]({%slug installation/msi%}).
+* <a href="https://demos.telerik.com/blazor-ui/" target="_blank">Online Demos</a> - also available as a project that you can inspect and run locally. You can find them in the `demos` folder of your [installation]({%slug installation/msi%}).
 
 * <a href="https://docs.telerik.com/blazor-ui/knowledge-base" target="_blank">Knowledge Base</a> - contains answers to some common questions, problems and errors. Free-text search is also available.
 

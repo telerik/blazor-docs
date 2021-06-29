@@ -1,14 +1,14 @@
 ---
-title: Server-side Blazor - Tutorial
-page_title: First Steps with Server-side Blazor
-description: First Steps with UI for Blazor Server-side.
+title: Server-Side Blazor - Tutorial
+page_title: First Steps with Server-Side Blazor
+description: First Steps with UI for Blazor Server-Side.
 slug: getting-started/server-side
 tags: get,started,first,steps,server
 published: true
 position: 2
 ---
 
-# First Steps with Server-side UI for Blazor
+# First Steps with Server-Side UI for Blazor
 
 This article explains how to get the Telerik UI for Blazor components in your **Server-side** Blazor project and start using them quickly. The process consists of the following steps:
 
@@ -29,14 +29,15 @@ This article explains how to get the Telerik UI for Blazor components in your **
 
 
 
-To use Blazor server-side, you need to use the `Blazor App` type of project with its **`Blazor Server App`** flavor.
+To create a server-side Blazor app, use a **Blazor Server App** project:
+
 @[template](/_contentTemplates/common/get-started.md#project-creation-part-1)
 
-1. Choose the `Blazor Server App` project type and click `Create`.
+1. Choose the **Blazor Server App** project type and click **Create**.
 
     ![Select Blazor Project Type](images/choose-project-template-server-blazor.png)
 
-
+@[template](/_contentTemplates/common/get-started.md#project-creation-cli)
 
 ## Step 2 - Add the Telerik Blazor Components to an Existing Project
 
@@ -44,25 +45,25 @@ To use Blazor server-side, you need to use the `Blazor App` type of project with
 
 @[template](/_contentTemplates/common/get-started.md#get-access)
 
-    1. Right-click on the project in the solution and select `Manage NuGet Packages`:
-    
-       ![](images/manage-nuget-packages-for-server-app.png)
-    
-    1. Choose the `telerik.com` feed, find the **`Telerik.UI.for.Blazor`** package and click `Install` (make sure to use the latest version). If you don't have a commercial license, you will only see `Telerik.UI.for.Blazor.Trial`. Use that instead.
-    
-         ![Add Telerik Blazor Package to the project](images/add-telerik-nuget-to-server-app.png)
+1. Right-click the project in the solution and select `Manage NuGet Packages`:
+
+    ![Manage NuGet Packages](images/manage-nuget-packages-for-server-app.png)
+
+1. Choose the `telerik.com` feed, find the **`Telerik.UI.for.Blazor`** package and click `Install` (make sure to use the latest version). If you don't have a commercial license, you will only see `Telerik.UI.for.Blazor.Trial`. Use that instead.
+
+    ![Add Telerik Blazor Package to the project](images/add-telerik-nuget-to-server-app.png)
 
 
 1. @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-server)
 
         
-1. Open the `~/Pages/_Host.cshtml` and register the [Theme stylesheet]({%slug general-information/themes%}):
+1. Open the `~/Pages/_Host.cshtml` file and register the [Theme stylesheet]({%slug general-information/themes%}):
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
         
       
         
-1. Open the `~/Startup.cs` file in the and register the Telerik Blazor service:
+1. Open the `~/Startup.cs` file and register the Telerik Blazor service:
 
     **C#**
     
@@ -95,7 +96,7 @@ Now your project can use the Telerik UI for Blazor components.
 
 ## Step 3 - Add a Telerik Component to a View
 
-The final step is to actually use a component on a view and run it in the browser. For example:
+The final step is to use a component in a view and run it in the browser. For example:
 
 1. **Add** a **Button** component to the `~/Components/Pages/Index.razor` view:
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
