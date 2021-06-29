@@ -12,7 +12,7 @@ position: 15
 
 The column's `EditTemplate` defines the inline template or component that will be rendered when the user is [editing]({%slug components/grid/overview%}#editing) the field. It is also used when inserting a new item.
 
-You can data bind components in it to the current context, which is an instance of the model the grid is bound to. You will need a global variable that is also an instance of the model to store those changes. The model the template receives is a copy of the original model, so that changes can be cancelled (the `Cancel` command).
+You can data bind components in the editor template to the current context, which is an instance of the model the grid is bound to. You will need a global variable that is also an instance of the model to store those changes. The template receives a copy of the original model, so that changes can be cancelled with the `Cancel` command. See the **Notes** section of the [Editing Overview]({%slug components/grid/editing/overview%}#notes) article for more details on how and when that copy is created.
 
 If you need to perform logic more complex than simple data binding, use the change event of the custom editor component to perform it. You can also consider using a [custom edit form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form).
 
@@ -324,4 +324,3 @@ This section demonstrates two example usages of the Editor Template:
 
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
  * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/customeditor)
-
