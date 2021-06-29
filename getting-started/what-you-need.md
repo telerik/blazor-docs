@@ -13,7 +13,7 @@ position: 3
 
 This article describes the packages that provide the Telerik UI for Blazor components, how to get them, and how to manually configure your project to use them.
 
->tip This article is a shorter, more focused version of the [Client-Side Blazor]({%slug getting-started/client-side%}) and [Server-Side Blazor]({%slug getting-started/server-side%}) step-by-step tutorials and targets people who are familiar with the Telerik NuGet Feed and Blazor in general.
+>tip This article is a shorter, more focused version of the [Client-Side Blazor](client-blazor) and [Server-Side Blazor](server-blazor) step-by-step tutorials and targets people who are familiar with the Telerik NuGet Feed and Blazor in general.
 
 >tip Telerik UI for Blazor provides wizards that can automatically configure a project for you:
 > * You can use the [Convert Project Wizard for VS]({%slug getting-started-vs-integration-convert-project%}) to configure an existing project for the Telerik components.
