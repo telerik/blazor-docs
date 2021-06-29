@@ -5,7 +5,7 @@ type: how-to
 page_title: How to rename a TreeView node?
 slug: treeview-kb-rename-node
 position: 
-tags: 
+tags: edit, rename, tree, treeview, note, item
 ticketid: 1525532
 res_type: kb
 ---
