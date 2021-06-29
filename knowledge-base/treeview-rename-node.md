@@ -27,4 +27,6 @@ Is there any way I can edit the node text within a Blazor TreeView?
 I want to let the user rename a node.
 
 ## Solution
-You can use the ItemTemplate to define how the node text will render and the desired UI and UX for editing. You can find an example in the following sample project: https://github.com/telerik/blazor-ui/tree/master/treeview/rename-node
+You can use the `ItemTemplate` to define how the node text will render and the desired UI and UX for editing. Here is a sample project that demonstrates a possible implementation. It uses a custom component `EditableTreeNode` that renders buttons and a textbox to update the TreeView item.
+
+https://github.com/telerik/blazor-ui/tree/master/treeview/rename-node
