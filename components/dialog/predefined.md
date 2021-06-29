@@ -19,6 +19,8 @@ To use these dialogs, receive a cascading parameter of type `Telerik.Blazor.Dial
 public DialogFactory Dialogs { get; set; }
 ````
 
+The predefined dialogs can only be used inside child Razor components of the `TelerikRootComponent`. This is easily achieved in standard Blazor apps where you have the `TelerikRootComponent` inside the layout file. When [using UI for Blazor in ASP.NET apps]({%slug telerik-blazor-in-asp-net-app%}), an additional child component is needed.
+
 There are three available ready-made dialogs:
 
 * [Alert](#alert)
