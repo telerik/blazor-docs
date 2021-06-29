@@ -1,5 +1,5 @@
 ---
-title: Is there a way to rename a node?
+title: How to Rename a TreeView Node
 description: How to edit the name (text) of a treeview node
 type: how-to
 page_title: How to rename a node?
