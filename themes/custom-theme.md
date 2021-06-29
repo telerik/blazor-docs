@@ -88,7 +88,8 @@ The rest is the Preview pane where you can see the changes in real-time as you m
 You can also upload a theme you have previously worked on:
 
 1. On the initial Sass Theme Builder pane, select **Import Theme**.
-1. Upload the `variables.scss` file which contains your current modifications of the customized theme. As a result, the selected components and styling elements load.
+1. Upload the `theme-name.json` file, which is part of the ZIP that you have previously downloaded from the Theme Builder. If you don't have a JSON file, you can [create it from the SCSS file]({% slug common-kb-themebuilder-json-from-scss%}) or create the custom theme from scratch.
+1. The JSON file contains the list of SASS variables and their values. When it is uploaded, the selected components and styling customizations will load.
 1. Start [customizing your theme](#modifying-themes).
 
 >caption Figure 4: Importing themes for customization
