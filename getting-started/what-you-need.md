@@ -30,7 +30,7 @@ To use the Telerik UI for Blazor, you need to:
 
 ## Telerik Specific Packages
 
-The Telerik UI for Blazor components suite requires the following [Telerik-specific NuGet packages]({%slug installation/nuget%}):
+The Telerik UI for Blazor components suite requires the following Telerik-specific [NuGet]({%slug installation/nuget%}) packages:
 
 * `Telerik.UI.for.Blazor` - This is the only package that you must reference explicitly because it contains the code for the UI components. Adding the package to your project will automatically add the other necessary dependencies.
 
