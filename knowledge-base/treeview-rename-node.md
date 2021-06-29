@@ -2,7 +2,7 @@
 title: How to Rename a TreeView Node
 description: How to edit the name (text) of a treeview node
 type: how-to
-page_title: How to rename a node?
+page_title: How to rename a TreeView node?
 slug: treeview-kb-rename-node
 position: 
 tags: 
