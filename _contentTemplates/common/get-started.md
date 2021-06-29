@@ -13,7 +13,7 @@
 #add-nuget-feed
 ### Add the Telerik NuGet Feed to Visual Studio
 
-One of the distribution options for Telerik UI for Blazor is a private NuGet feed.
+The recommended distribution method for the Telerik UI for Blazor packages is the private Telerik NuGet feed.
 
 @[template](/_contentTemplates/common/get-started.md#start-trial)
 
