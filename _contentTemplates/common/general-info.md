@@ -58,11 +58,11 @@ You can get them from:
 
 
 #vs-code-x-download
-You can get the extension:
+You can get the extension from:
 
-* from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard)
+* The [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard).
 
-* by opening the **Extensions** tab in Visual Studio Code, then searching for **Telerik UI for Blazor Template Wizard** and clicking **Install**
+* The **Extensions** tab in Visual Studio Code - search for **Telerik UI for Blazor Template Wizard**, select the extension and then click **Install**.
 #end
 
 
