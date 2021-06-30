@@ -8,7 +8,7 @@ position: 5
 
 # Troubleshooting
 
-This article provides solutions for common issues you may encounter while working with the Telerik UI for Blazor Visual Studio (VS) extensions.
+This article provides solutions for common issues you may encounter while working with the Telerik UI for Blazor Visual Studio (VS) Extensions.
 
 ## The Telerik sub-menu is Missing from the Extensions Menu
 

@@ -9,11 +9,11 @@ position: 2
 
 # Create New Projects
 
-This article demonstrates how to use the Telerik extension for Visual Studio Code to create a new project that is pre-configured for the Progress&reg; Telerik&reg; UI for Blazor components.
+This article demonstrates how to use the Telerik Extension for Visual Studio Code to create a new project that is pre-configured for the Progress&reg; Telerik&reg; UI for Blazor components.
 
 ## Get the Extension
 
-To use the **Telerik UI for Blazor Template Wizard**, install the Telerik UI for Blazor Visual Studio Code extension. @[template](/_contentTemplates/common/general-info.md#vs-code-x-download)
+To use the **Telerik UI for Blazor Template Wizard**, install the Telerik UI for Blazor Visual Studio Code Extension. @[template](/_contentTemplates/common/general-info.md#vs-code-x-download)
 
 ## Start the Wizard
 

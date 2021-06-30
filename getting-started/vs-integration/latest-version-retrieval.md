@@ -8,7 +8,7 @@ position: 4
 
 # Download New Versions
 
-The Progress&reg; Telerik&reg; UI for Blazor Visual Studio (VS) extensions enable you to keep your projects updated.
+The Progress&reg; Telerik&reg; UI for Blazor Visual Studio (VS) Extensions enable you to keep your projects updated.
 
 
 <!--

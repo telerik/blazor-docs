@@ -8,16 +8,18 @@ position: 4
 
 # Troubleshooting
 
-If the extension does not work right (missing pages, does not start, etc.), you can try the following to clean up cache files and get it working again:
+If the extension does not function correctly (missing pages, does not start, etc.), the first step is to clean up the cache files.
 
 ## General Extension Issues
 
+To clear the cache files:
+
 1. Uninstall the extension from VS Code.
-2. Go to the extensions templates cache folder and delete the `BlazorT` and `KendoT` folders - they are where caches for the Telerik extensions are kept:
-    * on Windows, open `%localappdata%` 
-    * on Mac, open `/Users/[user_name]/.local/share/`
+2. Delete the `BlazorT` and `KendoT` folders - they contain the cache for the Telerik Extensions. To Locate the cache folders:
+    * On Windows, open `%localappdata%`.
+    * on Mac, open `/Users/[user_name]/.local/share/`.
 3. [Install](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard) the extension again.
 
 ## Convert Project Command Issues
 
-If you are trying to convert your project through the `Convert Command` of the Telerik UI for Blazor Visual Studio Code Extension and you are having problems with it, see its [dedicated troubleshooting section]({%slug getting-started-vs-code-integration-convert-project%}#troubleshooting).
+If you are trying to convert your project through the `Convert Command` in the Telerik UI for Blazor Visual Studio Code Extension and observe any issues, see the dedicated [Convert Project troubleshooting section]({%slug getting-started-vs-code-integration-convert-project%}#troubleshooting).
