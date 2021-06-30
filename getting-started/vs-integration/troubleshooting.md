@@ -12,39 +12,39 @@ This article provides solutions for common issues you may encounter while workin
 
 ## The Telerik sub-menu is Missing from the Extensions Menu
 
-**Cause** The Visual Studio extensions are disabled or not correctly installed.
+**Cause**: The Visual Studio extensions are disabled or not correctly installed.
 
-**Solution** Depending on whether the extension is disabled or not correctly installed, use either of the following approaches.
+**Solution**: Depending on whether the extensions are disabled or not correctly installed, use one of the following approaches:
 
-If the extension is disabled:
+* If the extensions are disabled:
 
-1. Open Visual Studio.
-1. From the menu bar, select **Extensions** > **Manage Extensions**.
-1. Open the **Installed** tab.
-1. Search for **Telerik Blazor VSExtensions** and make sure they are **Enabled**.
+   1. Open Visual Studio.
+   1. From the menu bar, select **Extensions** > **Manage Extensions**.
+   1. Open the **Installed** tab.
+   1. Search for **Telerik Blazor VSExtensions** and make sure they are **Enabled**.
 
-    ![Troubleshooting when the VS extension is disabled](images/enable-extensions.png)
+      ![Troubleshooting when the VS extension is disabled](images/enable-extensions.png)
 
-If the extensions are not correctly installed:
+* If the extensions are not correctly installed:
 
-1. Open Visual Studio.
-1. From the menu bar, select **Extensions** > **Manage Extensions**.
-1. Open the **Online** tab.
-1. Search for **Telerik Blazor VSExtensions**
-1. Download and install the extensions.
+   1. Open Visual Studio.
+   1. From the menu bar, select **Extensions** > **Manage Extensions**.
+   1. Open the **Online** tab.
+   1. Search for **Telerik Blazor VSExtensions**
+   1. Download and install the extensions.
 
-If after you apply the described approaches the issue persists, contact the Support Team at Progress after you generate Visual Studio [ActivityLog](https://docs.microsoft.com/en-us/visualstudio/ide/reference/log-devenv-exe?view=vs-2019) file:
+If you apply both approaches and the issue persists, generate a Visual Studio [ActivityLog](https://docs.microsoft.com/en-us/visualstudio/ide/reference/log-devenv-exe?view=vs-2019) and contact the Progress Support Team:
 
 1. Under **Administrative rights**, open the [**Developer Command** prompt](https://docs.microsoft.com/en-us/dotnet/framework/tools/developer-command-prompt-for-vs) for Visual Studio.
 1. Execute the `devenv /log %userprofile%\desktop\ActivityLog.xml` command to start Visual Studio and create logs on your Desktop.
-1. Reproduce the issue you were having again so that the log is created.
+1. Reproduce the issue so that the log can capture it.
 1. Attach the `Activitylog` files when you contact our support.
 
 
 
 ## Convert Project Wizard Issues
 
-If you are using the "Convert Project" wizard and are having problems with it, see its [dedicated troubleshooting section]({%slug getting-started-vs-integration-convert-project%}#troubleshooting).
+For any issues with the **Convert Project** wizard, see its [dedicated troubleshooting section]({%slug getting-started-vs-integration-convert-project%}#troubleshooting).
 
 
 
