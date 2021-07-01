@@ -24,7 +24,7 @@ The Telerik UI for Blazor components use a set of keys that a localization servi
 You can find the list of keys in the following places:
 
 * In the [API reference](../api/Telerik.Blazor.Resources.Messages.html)
-* By inspecting the `Resources/TelerikMessages.resx` file in the offline Demos installation (under a path like `C:\Program Files (x86)\Progress\Telerik UI for Blazor <YOUR VERSION>\demos\TelerikBlazorDemos\Resources`). There you can also see the default values.
+* In the `Resources/TelerikMessages.resx` file in the offline Demos installation (under a path like `C:\Program Files (x86)\Progress\Telerik UI for Blazor <YOUR VERSION>\demos\TelerikBlazorDemos\Resources`). There you can also see the default English values.
 
 Telerik provides and supports the default English texts. The offline demos carry a few resource files with translations in several languages that are provided as-is, and you can use them as base for implementing your own.
 
