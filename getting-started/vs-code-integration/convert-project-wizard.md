@@ -50,7 +50,7 @@ There are a few common problems that might occur when converting a project:
 
 * [_Imports.razor not found](#_importsrazor-not-found)
 * [MainLayout.razor not found](#mainlayoutrazor-not-found)
-* [_Host.cshtml or index.html is malformed, doesn't exist, or doesn't contain a head element](#_hostcshtml-or-indexhtml-is-malformed-dont-exist-or-does-not-contain-a-head-element)
+* [_Host.cshtml or index.html is malformed, doesn't exist, or doesn't contain a head element](#_hostcshtml-or-indexhtml-is-malformed-doesnt-exist-or-doesnt-contain-a-head-element)
 * [Unable to locate services collection](#unable-to-locate-services-collection)
 * [No suitable project to convert](#no-suitable-project-to-convert)
 
