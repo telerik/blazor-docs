@@ -15,7 +15,7 @@ If the extension does not function correctly (missing pages, does not start, etc
 To clear the cache files:
 
 1. Uninstall the extension from VS Code.
-2. Delete the `BlazorT` and `KendoT` folders - they contain the cache for the Telerik Extensions. To Locate the cache folders:
+2. Delete the `BlazorT` and `KendoT` folders - they contain the cache for the Telerik Extensions. To locate the cache folders:
     * On Windows, open `%localappdata%`.
     * on Mac, open `/Users/[user_name]/.local/share/`.
 3. [Install](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard) the extension again.
