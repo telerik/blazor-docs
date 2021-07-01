@@ -28,23 +28,23 @@ In this documentation, we will refer to Value Binding as the process of passing 
 
 Value binding has two forms:
 
-* **one-way binding** (syntax like `<ParameterName>="@someField"`, for example `Value="@someField"`, `Page="@someField"`).
+* [One-way binding](#one-way-binding) - syntax like `<ParameterName>="@someField"`, for example `Value="@someField"`, `Page="@someField"`.
 
-* **two-way binding** (syntax like `@bind-<ParameterName>="@someField"`, for example `@bind-Value="@someField"`, `@bind-Page="@someField"`).
+* [Two-way binding](#two-way-binding) - syntax like `@bind-<ParameterName>="@someField"`, for example `@bind-Value="@someField"`, `@bind-Page="@someField"`.
 
 ### One-way Binding 
 
-One-way binding does *not* update the view-model if the component changes this value.
+One-way binding does *not* update the view-model if the component changes the value.
 
 When using one-way binding, you *can* use the `<ParameterName>Changed` event. For example, you can use both `Value` and `ValueChanged`.
 
-If you want to update the view-model in this scenario, you should handle the corresponding `<Parameter>Changed` event, and in the handler you will update the view-model with the new data. This allows you to apply some synchronous logic to that new value and effectively cancel the update if you don't set the new value to the view-model.
+To update the view-model in a one-way binding scenario, handle the corresponding `<Parameter>Changed` event. In the handler, update the view-model with the new data. This allows you to apply some synchronous logic to that new value and effectively cancel the update if you don't set the new value to the view-model.
 
 ### Two-way Binding
 
-Two-way binding *updates* the view-model field if the component changes this value.
+Two-way binding *updates* the view-model field if the component changes the value.
 
-When using two-way binding, you _cannot_ use the `<ParameterName>Changed` event. For example, if you use `@bind-Value`, adding `ValueChanged` will throw an exception from the framework. The way two-way binding works internally in Blazor is that the event is handled to populate the view-model field already, so you cannot handle it again.
+When using two-way binding, you _cannot_ use the `<ParameterName>Changed` event. If you use `@bind-Value` and then add `ValueChanged`, the framework will throw an exception. With two-way binding in Blazor, the event has already been handled to populate the view-model, so you cannot handle it again.
 
 ## Data Binding
 
@@ -56,7 +56,7 @@ Data binding includes the following steps:
 
 * Creating a collection with the desired set of models/primitive types in the view-model. You would usually get it from a data service specific to the app.
 
-* Pointing the `Data` parameter of the Telerik component to that collection
+* Pointing the `Data` parameter of the Telerik component to that collection.
 
 * Setting other necessary parameters that instruct the component how to work with that data (such as specifying ID fields, text and value fields, etc.).
 
