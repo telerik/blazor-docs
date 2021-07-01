@@ -10,18 +10,20 @@ position: 1
 
 The Progress&reg; Telerik&reg; UI for Blazor Visual Studio (VS) Extensions enhance the experience in developing Blazor web applications with Telerik UI for Blazor.
 
->caption The Telerik Blazor Extensions provide the following advantages:
+{% if site.has_cta_panels == true %}
+{% include cta-panel-introduction.html %}
+{% endif %}
+
+The Telerik Blazor Extensions provide the following advantages:
 
 * They facilitate the [creation of projects]({% slug getting-started-vs-integration-new-project %}). 
 
-* You can also use them to [add the Telerik Components to an existing project]({%slug getting-started-vs-integration-convert-project%}) with a few clicks.
+* They allow you to [add the Telerik Components to an existing project]({%slug getting-started-vs-integration-convert-project%}) with a few clicks.
 
-* They can also give you notifications to [get the latest version]({%slug getting-started-vs-integration-latest-version %}).
+* They notify you about [new component versions]({%slug getting-started-vs-integration-latest-version %}).
 
 
-The Telerik UI for Blazor VS extensions support Visual Studio 2019.
-
-@[template](/_contentTemplates/common/general-info.md#vsx-download)
+The Telerik UI for Blazor VS extensions support Visual Studio 2019. @[template](/_contentTemplates/common/general-info.md#vsx-download)
 
 To access the VS extensions, go to the **Extensions** > **Telerik** > **Telerik UI for Blazor** menu.
 

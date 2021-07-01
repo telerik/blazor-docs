@@ -46,21 +46,21 @@ You can reference the built-in Telerik assets from a cloud CDN instead of a loca
 
 
 #vsx-download
-You can get them from the:
+You can get them from:
 
-* [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions) (for Windows)
-* [Telerik UI for Blazor automated installer]({%slug installation/msi%}) (for Windows and Mac)
-* Your [Telerik.com account](https://www.telerik.com/account/product-download?product=BLAZOR) - the `.mpack` file for VS for Mac
+* The [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions) (for Windows).
+* The [Telerik UI for Blazor automated installer]({%slug installation/msi%}) (for Windows and Mac).
+* Your [Telerik.com account](https://www.telerik.com/account/product-download?product=BLAZOR) - the `.mpack` file for VS for Mac.
 
 #end
 
 
 #vs-code-x-download
-You can get the extension:
+You can get the extension from:
 
-* from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard)
+* The [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard).
 
-* by opening the **Extensions** tab in Visual Studio Code, then searching for **Telerik UI for Blazor Template Wizard** and clicking **Install**
+* The **Extensions** tab in Visual Studio Code - search for **Telerik UI for Blazor Template Wizard**, select the extension, and then click **Install**.
 #end
 
 

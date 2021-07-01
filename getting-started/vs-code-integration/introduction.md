@@ -8,14 +8,17 @@ position: 1
 
 # Visual Studio Code Integration Overview
 
-The **Telerik UI for Blazor Template Wizard** [Visual Studio Code](https://code.visualstudio.com/) Extension enhances the experience in developing Blazor web applications with Telerik UI for Blazor.
+The **Telerik UI for Blazor Template Wizard** Extension for [Visual Studio Code](https://code.visualstudio.com/) enhances the experience in developing Blazor web applications with Telerik UI for Blazor.
 
+{% if site.has_cta_panels == true %}
+{% include cta-panel-introduction.html %}
+{% endif %}
 
->caption The Telerik Blazor Extension for Visual Studio Code provides the following advantages:
+The extension for Visual Studio Code provides the following advantages:
 
 * It facilitates the [creation of projects]({% slug getting-started-vs-code-integration-new-project %}).
 
-* You can also use it to [add the Telerik Components to an existing project]({%slug getting-started-vs-code-integration-convert-project %}) with a few clicks.
+* It allows you to [add the Telerik Components to an existing project]({%slug getting-started-vs-code-integration-convert-project %}) with a few clicks.
 
 
 
@@ -23,13 +26,10 @@ The **Telerik UI for Blazor Template Wizard** [Visual Studio Code](https://code.
 
 @[template](/_contentTemplates/common/general-info.md#vs-code-x-download)
 
-To access the VS Code extension press `Ctrl`+`Shift`+`P` in Windows/Linux or `Cmd`+`Shift`+`P` on Mac to open VSCode's extension launcher.
+To access the VS Code extension, press `Ctrl`+`Shift`+`P` on Windows/Linux or `Cmd`+`Shift`+`P` on Mac to open the VS Code extension launcher.
 
 ![launch Telerik Blazor VS Code extension](images/launch-extension.png)
 
 
->note The Telerik Blazor Extension for Visual Studio Code is designed to get and apply the latest version of Telerik UI for Blazor that you have access to.
+>note For best results, the Telerik Extension for Visual Studio Code is designed to get and apply the latest version of Telerik UI for Blazor available with your license. Therefore, you must ensure that your system has access to the same version of the UI components - you can achieve this with the [Telerik NuGet feed](../../installation/nuget).
 >
->Therefore, you must ensure your system is set up to have the version you require. You can see how to use our online feed [here](../../installation/nuget).
->
->For best results, we recommend using the latest version.
