@@ -40,6 +40,12 @@ When using one-way binding, you *can* use the `<ParameterName>Changed` event. Fo
 
 To update the view-model in a one-way binding scenario, handle the corresponding `<Parameter>Changed` event. In the handler, update the view-model with the new data. This allows you to apply some synchronous logic to that new value and effectively cancel the update if you don't set the new value to the view-model.
 
+In some cases when using One-way binding, depending on the application structure you might get an error such as:
+
+>warning Error SystemInvalidOperationException: Telerik.Blazor.Components.SomeComponent requires a value for 'ValueExpression'. ValueExpression is provided automatically when using 'bind-Value'
+
+This error comes from the framework and applies to generic inputs as well, not only the Telerik components. To solve it, you can provide a `ValueExpression` to the component or use [Two-way binding](#two-way-binding). More details as well as an example you can find in [this knowledge base article]({%slug common-kb-requires-valueexpression%}).
+
 ### Two-way Binding
 
 Two-way binding *updates* the view-model field if the component changes the value.
