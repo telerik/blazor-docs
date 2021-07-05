@@ -114,6 +114,30 @@ By default, if no `Value` is provided and no `DefaultText` is defined, the DropD
 
 ## Examples
 
+>caption Preselect an item using data binding
+
+````CSHTML
+
+@* Preselect an item using two-way data-binding *@
+
+<TelerikDropDownList Data="@MyList" @bind-Value="@MyItem" />
+
+@code {
+protected string MyItem { get; set; }
+
+protected List<string> MyList = new List<string>() { "first", "second", "third" };
+
+protected override void OnInitialized()
+{
+    // preselect an item from the data source
+    // you can use another LINQ expression, like Where(), if it better suits your application needs
+    // you can preselect the item from different places in the application, e.g. a service, a parameter, the logic in the view model, etc.
+    MyItem = MyList.FirstOrDefault();
+    base.OnInitialized();
+}
+
+````
+
 >caption Default text (hint) to show when no actual item is selected
 
 ````CSHTML

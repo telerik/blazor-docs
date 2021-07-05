@@ -34,7 +34,7 @@ This event is available only for `ButtonGroupToggleButton` instances, as they ar
 
 @code{
     bool FirstSelected { get; set; }
-    bool SecondSelected { get; set; } = true; // you can pre-select buttons
+    bool SecondSelected { get; set; } = true; // you can preselect buttons
 
     void FirstSelectedChangedHandler(bool currState)
     {

@@ -52,7 +52,7 @@ When you click a button, it becomes selected. When you click another button, the
 
 @code{
     bool FirstSelected { get; set; }
-    bool SecondSelected { get; set; } = true; // you can pre-select buttons
+    bool SecondSelected { get; set; } = true; // you can preselect buttons
     bool ThirdSelected { get; set; }
 }
 ````
@@ -92,7 +92,7 @@ When you click a button, it becomes selected. When you click another button, the
 
 @code{
     bool FirstSelected { get; set; }
-    bool SecondSelected { get; set; } = true; // you can pre-select buttons
+    bool SecondSelected { get; set; } = true; // you can preselect buttons
     bool ThirdSelected { get; set; }
 }
 ````

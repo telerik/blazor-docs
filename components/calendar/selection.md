@@ -15,6 +15,7 @@ The user can select one or mode dates depending on the Calendar configuration se
 This article contains the following sections:
 
 * [Selection Mode](#selection-mode)
+* [Preselection of Dates](#preselection-of-dates)
 * [Receive User Selection](#receive-user-selection)
 	* [Single Selection Mode](#single-selection-mode)
 	* [Multiple Selection Mode](#multiple-selection-mode)
@@ -28,11 +29,89 @@ To control how many dates the user can select, use the `SelectionMode` property.
 * `Multiple`
 * `Range`
 
-You can pre-select a date in `Single` selection mode by setting the `Value` property of the calendar to the desired date.
-
-To pre-select dates in the `Multiple` selection mode, use the `SelectedDates` property which is of type `List<DateTime>`.
 
 In `Range` selection mode you can get the start and end dates of the range the user selected through the `RangeStart` and `RangeEnd` parameters of type `DateTime`. You also get events `RangeStartChanged` and `RangeEndChanged`. You can read more about them and see an example in the [Events]({%slug components/calendar/events%}) article.
+
+## Preselection of Dates
+
+You can preselect a date:
+* In `Single` selection mode by setting the `Value` property of the calendar to the desired date.
+* In `Multiple` selection mode, use the `SelectedDates` property which is of type `List<DateTime>`.
+* In `Range` selection mode set the desired dates to the `RangeStart` and `RangeEnd` upon initialization of the component
+
+>caption Preselect a date
+
+````CSHTML
+
+@* Preselect a date in the Calendar *@
+
+<TelerikCalendar SelectionMode="@CalendarSelectionMode.Single"
+                 ValueChanged="@( (DateTime d) => OnValueChangedHandler(d) )"
+                 Value="@MyDate">
+</TelerikCalendar>
+
+@code{
+    protected DateTime MyDate { get; set; } = DateTime.Now;
+
+    void OnValueChangedHandler(DateTime date)
+    {
+        MyDate = date;
+    }
+}
+
+````
+
+>caption Preselect multiple dates
+
+````CSHTML
+
+@* Preselect multiple dates in the Calendar *@
+
+<TelerikCalendar SelectionMode="@CalendarSelectionMode.Multiple"
+                 SelectedDates="@SelectedDates">
+</TelerikCalendar>
+
+@code {
+    protected List<DateTime> SelectedDates { get; set; } = new List<DateTime>();
+
+    protected override void OnInitialized()
+    {
+        SelectedDates.Add(DateTime.Now);
+        SelectedDates.Add(DateTime.Now.AddDays(1));
+        base.OnInitialized();
+    }
+}
+
+````
+
+>caption Preselct a range of dates
+
+````CSHTML
+
+@* Preselect a range of dates in the Calendar *@
+
+<TelerikCalendar Views="2"
+                 Date="@Date"
+                 @bind-RangeStart="@RangeStart"
+                 @bind-RangeEnd="@RangeEnd"
+                 SelectionMode="@CalendarSelectionMode.Range">
+</TelerikCalendar>
+
+
+@code {
+    public DateTime RangeStart { get; set; }
+    public DateTime RangeEnd { get; set; }
+    public DateTime Date { get; set; } = DateTime.Now.AddDays(-5);
+
+    protected override void OnInitialized()
+    {
+        RangeStart = DateTime.Now.Date;
+        RangeEnd = DateTime.Now.AddDays(15).Date;
+        base.OnInitialized();
+    }
+}
+
+````
 
 ## Receive User Selection
 
