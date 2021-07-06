@@ -28,7 +28,7 @@ This article explains the events available in the Telerik Upload for Blazor:
 
 The `OnSelect` event fires every time the user selects new files for upload. The event arguments provide the list of newly selected files.
 
-You can cancel the event based on a condition (e.g. some information about the selected files), so that those files will not be populated in the Upload component.
+You can cancel the event based on a condition (for example, some information about the selected files), so that those files will not be populated in the Upload component.
 
 @[template](/_contentTemplates/upload/notes.md#events-files-carry-client-validation-info)
 
@@ -760,4 +760,3 @@ The `OnClear` event fires when the user clicks the Clear button which is availab
 * [Upload Overview]({%slug upload-overview%})
 * [Validation]({%slug upload-validation%})
 * [Live Demo: Upload Events](https://demos.telerik.com/blazor-ui/upload/events)
-
