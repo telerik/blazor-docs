@@ -19,7 +19,7 @@ When the user starts dragging the component for the first time, it grows and sti
 
 The Window may expand on drag if it has no fixed width, and its content has no width either.
 
-The Window is an absolutely positioned element. If it has no width, it will expand to enclose its content. If the Window content can expand horizontally without a limit, this can cause the Window to expand until it reaches the viewport boundary.
+The Window is an absolutely positioned element. If it has no width, it will expand to enclose its content. If the Window content can expand horizontally without a limit (like block-level elements do), this can cause the Window to expand until it reaches the viewport boundary.
 
 The unexpected expansion does not occur while the Window is centered, because of the styles, which the component uses at that time: `top: 50%`, `left: 50%` and especially `transform: translate(-50%, -50%);`. As soon as the user starts dragging the Window, the `transform` style is removed, which triggers different browser behavior.
 
