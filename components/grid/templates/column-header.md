@@ -12,7 +12,7 @@ position: 20
 
 Bound columns render the name of the field or their `Title` in their header. Through the `HeaderTemplate`, you can define custom content there instead of the title text.
 
->tip If you only want to center and wrap the column header text, you can achieve that with some custom CSS as shown in [this knowledge base article]({%slug grid-kb-center-column-header-content%}).
+>tip If you only want to center or wrap and center the column header text, you can achieve that with some custom CSS. You can try one of the following approaches depending on the desired result - [Center Grid Column Header content]({%slug grid-kb-center-column-header-content%}) or [Wrap and center the Grid column header text]({%slug grid-kb-wrap-and-center-column-header-text%}).
 
 >caption Sample Header Template
 

@@ -1,11 +1,11 @@
 ---
-title: How to wrap and center the Grid column header text
-description: How to wrap and center the Grid column header text
+title: Wrap and center the Grid Column Header text
+description: How to wrap and center the Grid Column Header text
 type: how-to
-page_title: How to wrap and center the Grid column header text
+page_title: How to wrap and center the Grid Column Header text
 slug: grid-kb-wrap-and-center-column-header-text
 position: 
-tags: 
+tags: telerik, blazor, grid, column, header, wrap, center
 ticketid: 1507250
 res_type: kb
 ---
@@ -76,6 +76,8 @@ You can use some custom CSS that aligns text in the center and enables text wrap
 ````
 
 ## Notes
+
+* If you only need to center the header text content, you can also try the approach demonstrated in this knowledge base article - [Center Grid Column Header content]({%slug grid-kb-center-column-header-content%}). It allows you to keep the preset `display: flex` of the cells and simply justify their content to the center.
 
 * If you want full control over the header text contents and rendering, you can use the [column header template]({%slug grid-templates-column-header%}).
 
