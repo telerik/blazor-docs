@@ -28,7 +28,7 @@ This article explains the events available in the Telerik Upload for Blazor:
 
 The `OnSelect` event fires every time the user selects new files for upload. The event arguments provide the list of newly selected files.
 
-You can cancel the event based on a condition (for example, some information about the selected files) so that those files will not be populated in the Upload component.
+You can cancel the event based on a condition (for example, some information about the selected files), so that those files will not be populated in the Upload component.
 
 @[template](/_contentTemplates/upload/notes.md#events-files-carry-client-validation-info)
 
@@ -70,17 +70,17 @@ You can cancel the event based on a condition (for example, some information abo
 }
 ````
 
-
 >caption Changing the file name and checking for duplicate files on the server
 
-In some cases, you may have duplicate files with the same name on the server and you may need to change the current file name when uploading it. This must happen in the endpoint only, and there are a couple of ways to notify the client for that:
+In some cases, you may want to rename the current file when uploading it, for example:
 
-* Use the [OnSuccess event](#onsuccess) to read information the endpoint will send so you can use it in the view (for example, to add a preview of an image). In this case, the file name in the Upload component will not change.
+* if a file with the same name already exists on the server
+* if the user's file name does not meet some requirements
 
-* Use the OnSelect event to call the endpoint and check for duplicates before the actual upload process starts. You can generate a new name, if needed, and set it to the `Name` of the file that will be uploaded. This will update the rendered file name in the UI for the user. Note that this will not change the file name that will be sent to the endpoint - it will still be the original file name from the user's file system and it is up to the endpoint to implement the same logic when saving the file.
+The file rename process requires two separate steps:
 
-Of course, you can combine both approaches.
-
+* Use the `OnSelect` event to call the remote endpoint and check for duplicates before the actual upload process starts. If needed, generate a new name and set it to the `Name` of the file that will be uploaded. This will update the rendered file name in the Upload component UI. Note that this will not change the file name that will be sent to the endpoint, due to browser security restrictions. The endpoint will still receive the original file name from the user's file system.
+* Use the saving action in the remote endpoint to set the file name, as it will be saved on the server.
 
 ````CSHTML
 @inject NavigationManager NavigationManager
@@ -126,9 +126,6 @@ Of course, you can combine both approaches.
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-
-
 
 ## OnUpload
 
@@ -251,10 +248,6 @@ namespace MyBlazorApp.Controllers
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-
-
-
 
 ## OnRemove
 
@@ -380,9 +373,6 @@ namespace MyBlazorApp.Controllers
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
-
-
-
 ## OnProgress
 
 The `OnProgress` event fires each time a particular file makes a progress in its upload process (it is tied to the [`progress` event of the `xhr` object](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/progress_event) sending the file to the controller). The event arguments provide the file that made progress (the first file in the collection you will see in the event arguments), and the percentage of its upload. For small files it is likely to jump directly to 100%, especially on localhost.
@@ -424,12 +414,9 @@ The `OnProgress` event fires each time a particular file makes a progress in its
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
-
-
-
 ## OnSuccess
 
-The `OnSuccess` event fires each time a particular request is successful - either an upload of a file, or the deletion of a file. The event arguments provide the file that was uploaded or deleted, and the type of the operation. The `Request` object in the event arguments also carries information about the server response - such as a status code and any custom messages the server returned.
+The `OnSuccess` event fires each time a particular request is successful - either an upload of a file, or the deletion of a file. The event arguments provide the file that was uploaded or deleted, and the type of the operation. The `Request` object in the event arguments also carries information about the server response - such as a status code and any custom messages the server returned. For example, this response can be used to obtain a URL string from the endpoint and show a preview of an uploaded image.
 
 @[template](/_contentTemplates/upload/notes.md#events-files-carry-client-validation-info)
 
@@ -773,4 +760,3 @@ The `OnClear` event fires when the user clicks the Clear button which is availab
 * [Upload Overview]({%slug upload-overview%})
 * [Validation]({%slug upload-validation%})
 * [Live Demo: Upload Events](https://demos.telerik.com/blazor-ui/upload/events)
-
