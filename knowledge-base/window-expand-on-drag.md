@@ -25,7 +25,7 @@ The unexpected expansion does not occur while the Window is centered, because of
 
 ### Grid inside a Window
 
-A specific scenario, which can cause the discussed behavior, is a Grid placed inside a Window.
+The described behavior will occur if the Window contains a Grid.
 
 The Grid table has a `table-layout:fixed` style. If the Grid has no width, the fixed table layout will force the table to expand to 100% of the available horizontal space. This in turn will cause the Window to expand as much as possible and stick its right end to the browser screen edge.
 
