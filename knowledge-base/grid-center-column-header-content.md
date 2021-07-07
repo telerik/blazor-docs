@@ -78,4 +78,4 @@ In order to center the content of the Grid column headers you can use some custo
 
 * If you need to wrap the column header content as well, you can try the approach from this knowledge base article - [Wrap and center the Grid Column Header text]({%slug grid-kb-wrap-and-center-column-header-text%}). It shows how to change the default display property of the header cells to `block` and then easily operate with their content to wrap and center it.
 
-* If you want full control over the header text contents and rendering, you can use the [column header template]({%slug grid-templates-column-header%}).
+* If you want full control over the header text contents and rendering, you can use a [column header template]({%slug grid-templates-column-header%}).
