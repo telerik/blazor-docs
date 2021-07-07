@@ -22,6 +22,8 @@ The Window offers three ways for you to control its size:
 If you know the size you need, just set it to the `Width` and/or `Height` parameters. They can take valid CSS values (see the [Dimensions]({%slug common-features/dimensions%}) article).
 
 >note If you do not set dimensions, no `width` and `height` CSS rules will be set, and the browser will render the Window element with dimensions according to its contents, like any other `<div>` element. This may adversely affect [positioning](position).
+>
+> When you set dimensions, content larger than those dimensions will produce scrollbars in the window.
 
 >caption Set Width and Height to a Window
 
