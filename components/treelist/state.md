@@ -48,6 +48,7 @@ The `OnStateInit` and `OnStateChanged` events are raised by the TreeList so you 
 * `OnStateInit` fires when the TreeList is initializing and you can provide the state you load from your storage to the `TreeListState` field of its event arguments.
 
 * `OnStateChanged` fires when the user makes a change to the TreeList state (such as paging, sorting, filtering, editing, selecting and so on). The `TreeListState` field of the event argument provides the current TreeList state so you can store it. The `PropertyName` field of the event arguments indicates what is the aspect that changed.
+    * @[template](/_contentTemplates/grid/state.md#statechanged-possible-prop-values)
     * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete.
     * Filtering always resets the current page to 1, so the `OnStateChanged` event will fire twice. First, `PropertyName` will be equal to `"Page"`, and the second time it will be `"FilterDescriptors"`. However, the `TreeListState` field of the event argument will provide correct information about the overall TreeList state in both event handler executions.
 
