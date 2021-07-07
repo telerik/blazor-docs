@@ -77,7 +77,6 @@ You can use some custom CSS that aligns text in the center and enables text wrap
 
 ## Notes
 
-* If you only need to center the header text content, you can also try the approach demonstrated in this knowledge base article - [Center Grid Column Header content]({%slug grid-kb-center-column-header-content%}). It allows you to keep the preset `display: flex` of the cells and simply justify their content to the center.
+* If you only need to center the header text content, you can try the approach demonstrated in this knowledge base article - [Center Grid Column Header content]({%slug grid-kb-center-column-header-content%}). This will keep the preset `display: flex` style of the cells.
 
 * If you want full control over the header text contents and rendering, you can use the [column header template]({%slug grid-templates-column-header%}).
-
