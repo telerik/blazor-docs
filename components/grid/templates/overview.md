@@ -29,7 +29,7 @@ The Grid component can use templates for:
 
 * [filter]({%slug grid-templates-filter%})  - the content of the filter cell or filter menu where you can implement custom rendering and logic for the filters.
 
-* [no data available]({%slug grid-templates-no-data%}) - while the data is still loading or when you try to filter on a non-existing item, you can write any message.
+* [no data available]({%slug grid-templates-no-data%}) - when the Grid Data collection is empty or null, you can customize the content inside.
 
 * [column chooser]({%slug grid-templates-column-chooser%})  - the contents of the column chooser in the column menu. You can use this template to provide custom rendering.
 

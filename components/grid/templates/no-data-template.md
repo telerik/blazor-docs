@@ -11,9 +11,9 @@ position: 38
 
 # No Data Template
 
-The `NoDataTemplate` allows you to define custom content when the Grid has no data to show. It overrides the currently available **"No records available."**.
+The `NoDataTemplate` allows you to define custom content when the Grid has no data to show. It lets you change the default **No records available** localizable text.
 
->caption The result from the code snippet below
+>caption Custom content for an empty Grid
 
 ![](images/grid-no-data-template.gif)
 
@@ -22,14 +22,17 @@ The `NoDataTemplate` allows you to define custom content when the Grid has no da
 ````CSHTML
 @* The example showcases a Grid with a delay upon initializing its data and filtering on non-existing data *@
 
-<TelerikGrid Data="@MyData" Height="400px"
+<TelerikGrid Data="@MyData" Height="400px" Width="830px"
              Pageable="true"
              FilterMode="Telerik.Blazor.GridFilterMode.FilterRow">
+    <GridToolBar>
+        <GridCommandButton OnClick="@LoadData">Add Data</GridCommandButton>
+    </GridToolBar>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="400px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Width="200px" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" Width="200px" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" Width="200px" />
     </GridColumns>
     <NoDataTemplate>
         <strong>No Data available / The data is still loading...</strong>
@@ -39,14 +42,9 @@ The `NoDataTemplate` allows you to define custom content when the Grid has no da
 @code { 
     public IEnumerable<SampleData> MyData { get; set; }
 
-    protected override async Task OnInitializedAsync()
-    {
-        await LoadData();
-    }
-
     async Task LoadData()
     {
-        await Task.Delay(3000);
+        await Task.Delay(2000);
 
         MyData = Enumerable.Range(1, 30).Select(x => new SampleData
         {

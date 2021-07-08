@@ -11,9 +11,9 @@ position: 40
 
 # No Data Template
 
-The `NoDataTemplate` allows you to define custom content when the TreeList has no data to show. It overrides the currently available **"No records available."**.
+The `NoDataTemplate` allows you to define custom content when the TreeList has no data to show. It lets you change the default **No records available** localizable text.
 
->caption The result from the code snippet below
+>caption Custom content for an empty TreeList
 
 ![](images/treelist-no-data-template.gif)
 
@@ -29,11 +29,14 @@ The `NoDataTemplate` allows you to define custom content when the TreeList has n
                  Sortable="true"
                  FilterMode="@TreeListFilterMode.FilterMenu"
                  Width="830px" Height="400px">
+    <TreeListToolBar>
+        <TreeListCommandButton OnClick="@LoadData">Add Data</TreeListCommandButton>
+    </TreeListToolBar>
     <TreeListColumns>
         <TreeListColumn Expandable="true" Field="Position" Width="400px" />
         <TreeListColumn Field="FirstName" Width="200px" />
         <TreeListColumn Field="LastName" Width="200px" />
-        <TreeListColumn Field="EmployeeId" Width="100px" />
+        <TreeListColumn Field="EmployeeId" Width="200px" />
     </TreeListColumns>
     <NoDataTemplate>
         <strong>No Data available / The data is still loading...</strong>
@@ -52,14 +55,14 @@ The `NoDataTemplate` allows you to define custom content when the TreeList has n
 
     public List<EmployeeHierarchical> Data { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected async Task LoadData()
     {
         Data = await GetEmployees();
     }
 
     async Task<List<EmployeeHierarchical>> GetEmployees()
     {
-        await Task.Delay(3000);
+        await Task.Delay(2000);
 
         List<EmployeeHierarchical> sampleData = new List<EmployeeHierarchical>();
 

@@ -24,7 +24,7 @@ The TreeList component can use templates for:
 
 * [filter]({%slug treelist-templates-filter%}) - the content of the filter cell or filter menu where you can implement custom rendering and logic for the filters.
 
-* [no data available]({%slug treelist-templates-no-data%}) - while the data is still loading or when you try to filter on a non-existing item, you can write any message.
+* [no data available]({%slug treelist-templates-no-data%}) - when the TreeList Data collection is empty or null, you can customize the content inside.
 
 Like other Blazor content, most of them can receive a `context` argument that is the type of the model. To use templates, you must bind the treelist to a named model. The filter and header templates are the exception as they are not related to rows and models.
 
