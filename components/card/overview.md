@@ -81,6 +81,8 @@ The Card provides the following features:
 
 * `ChildContent` - `RenderFragment` - defines the child content of the component. All possible building blocks can be directly used as a `ChildContent` of the Card.
 
+>tip To make multiple Cards occupy the same **height** automatically, use the predefined [Deck or Group layouts]({%slug card-layouts%}). If the Cards should wrap to multiple rows, use the custom [Tile layout](https://demos.telerik.com/blazor-ui/card/data-cards). It is also possible to set a specific height to Cards with a CSS rule.
+
 
 ## See Also
 
