@@ -10,7 +10,7 @@ position: 0
 
 # Linear Gauge Overview
 
-The Telerik Linear Gauge for Blazor represents [numerical values]({%slug linear-gauge-pointers%}) on a [scale]({%slug linear-gauge-scale%}) of ranges in a linear format.
+The <a href = "https://www.telerik.com/blazor-ui/linear-gauge" target="_blank">Telerik Linear Gauge for Blazor</a> represents [numerical values]({%slug linear-gauge-pointers%}) on a [scale]({%slug linear-gauge-scale%}) of ranges in a linear format.
 
 #### This article is separated in the following sections: 
 

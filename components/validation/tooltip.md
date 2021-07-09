@@ -10,7 +10,7 @@ position: 20
 
 # Telerik Validation Tooltip for Blazor
 
-The Telerik Validation Tooltip for Blazor can render the validation errors as tooltips pointing to the problematic input when you hover it. It acts like the ValidationMessage, but is a popup and not an inline element, so it takes up less space.
+The <a href = "https://www.telerik.com/blazor-ui/validationtooltip" target="_blank">Telerik Validation Tooltip for Blazor</a> can render the validation errors as tooltips pointing to the problematic input when you hover it. It acts like the ValidationMessage, but is a popup and not an inline element, so it takes up less space.
 
 This article is separated in the following sections:
 

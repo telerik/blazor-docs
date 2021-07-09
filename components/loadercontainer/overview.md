@@ -10,7 +10,7 @@ position: 0
 
 # LoaderContainer Overview
 
-The Blazor LoaderContainer provides an animated indicator, a panel, and an overlay that can be used when the application is performing a time-consuming operation, for example, loading data.
+The <a href = "https://www.telerik.com/blazor-ui/loader-container" target="_blank">Blazor LoaderContainer</a> provides an animated indicator, a panel, and an overlay that can be used when the application is performing a time-consuming operation, for example, loading data.
 
 #### In This Article
 

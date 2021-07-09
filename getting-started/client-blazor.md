@@ -10,7 +10,7 @@ position: 1
 
 # First Steps with Client-Side UI for Blazor
 
-This article explains how to get the Telerik UI for Blazor components in your **Client-side (WebAssembly)** Blazor project and start using them quickly. The process consists of the following steps:
+This article explains how to get the <a href = "https://www.telerik.com/blazor-ui" target="_blank">Telerik UI for Blazor components</a> in your **Client-side (WebAssembly)** Blazor project and start using them quickly. The process consists of the following steps:
 
 1. [Set Up a Blazor Project](#step-1---set-up-a-blazor-project)
     * [Create a Project with the Telerik VS Extensions](#create-a-project-with-the-telerik-vs-extensions)

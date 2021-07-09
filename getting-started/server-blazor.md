@@ -10,7 +10,7 @@ position: 2
 
 # First Steps with Server-Side UI for Blazor
 
-This article explains how to get the Telerik UI for Blazor components in your **Server-side** Blazor project and start using them quickly. The process consists of the following steps:
+This article explains how to get the Telerik UI for Blazor components in your <a href = "https://www.telerik.com/faqs/blazor-ui/what-is-the-difference-between-blazor-webassembly-vs-server" target="_blank">**Server-side** Blazor</a> project and start using them quickly. The process consists of the following steps:
 
 1. [Set Up a Blazor Project](#step-1---set-up-a-blazor-project)
     * [Create a Project with the Telerik VS Extensions](#create-a-project-with-the-telerik-vs-extensions)
