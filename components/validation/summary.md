@@ -10,7 +10,7 @@ position: 5
 
 # Telerik Validation Summary for Blazor
 
-The Telerik Validation Summary for Blazor adds customization options on top of the standard <a href="https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.webcontrols.validationsummary?view=netframework-4.8" target="_blank">ValidationSummary</a> provided by the framework such as a [Template](#template) or cascading CSS rules from the custom CSS class in the [Class](#class) parameter.
+The <a href = "https://www.telerik.com/blazor-ui/validationsummary" target="_blank">Telerik Validation Summary for Blazor</a> adds customization options on top of the standard <a href="https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.webcontrols.validationsummary?view=netframework-4.8" target="_blank">ValidationSummary</a> provided by the framework such as a [Template](#template) or cascading CSS rules from the custom CSS class in the [Class](#class) parameter.
 
 This article is separated in the following sections:
 

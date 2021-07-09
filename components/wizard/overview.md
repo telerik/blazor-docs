@@ -10,7 +10,7 @@ position: 0
 
 # Wizard Overview
 
-The Wizard for Blazor component displays content in sequential, stepwise order. Each step of the Wizard has `Content` (`RenderFragment`), which can contain any type of HTML content including a [Form]({%slug form-overview%}) component.
+The <a href = "https://www.telerik.com/blazor-ui/wizard" target="_blank">Wizard for Blazor component</a> displays content in sequential, stepwise order. Each step of the Wizard has `Content` (`RenderFragment`), which can contain any type of HTML content including a [Form]({%slug form-overview%}) component.
 
 >caption The Wizard is separated into 3 main sections:
 * [Stepper]({%slug wizard-structure-stepper%})

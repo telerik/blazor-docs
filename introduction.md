@@ -8,7 +8,7 @@ position: 1
 
 # Welcome to UI for Blazor
 
-Thank you for choosing Telerik® UI for Blazor!
+Thank you for choosing <a href="https://www.telerik.com/blazor-ui" target="_blank">Telerik® UI for Blazor</a>!
 
 The <a href="https://blazor.net/" target="_blank">Blazor framework by Microsoft</a> allows you to create rich web UIs by using .NET and C#. The Telerik® UI for Blazor components facilitate the front-end development by providing ready-made UI components.
 

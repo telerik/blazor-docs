@@ -10,7 +10,7 @@ position: 20
 
 # Events
 
-This article explains the events available in the Telerik Textbox for Blazor:
+This article explains the events available in the <a href = "https://www.telerik.com/blazor-ui/textbox" target="_blank">Telerik Textbox for Blazor</a>:
 
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
