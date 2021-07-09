@@ -178,7 +178,7 @@
 
 
 #filter-menu-default-filters
->note There are default filters in the grid state for each column. This allows filter menu templates to work seamlessly and with little code. This, however, means that if you want to alter filters for a column, you must either modify the existing one, or remove it. Simply adding a filter will not show up in the UI because the grid will use the first filter for the given field it finds for the filtering UI.
+>note When a [`FilterMenuTemplate`]({%slug grid-templates-filter%}) is used for at least one column, the Grid will create default `FilterDecriptor`s in its state for **all columns**. This allows filter templates to work seamlessly and with little code. This, however, means that if you want to alter filters for a column, you must either modify the existing descriptor, or replace it. Simply adding an additional `FilterDescriptor` will not show up in the UI, because the Grid uses the first descriptor for the given field for the filtering UI.
 
 >caption Handling filter changes - unexpected addition that does not update the UI, replacement of one filter, replacecment of all filters
 
@@ -546,4 +546,3 @@ public static class FilterExtensions
     }
 }
 #end
-
