@@ -33,7 +33,7 @@ If you can access the feed in the browser, but you do not see the packages in Vi
 
 I you suspect the credentials are wrong, here is a sample process of removing stored credentials from Windows so you can re-add the correct ones:
 
-1. Remove saved credentials in <a href="https://support.microsoft.com/en-us/help/4026814/windows-accessing-credential-manager" target="_blank">Windows Credential Manager</a>. They will appear as nuget.telerik.com and/or VSCredentials_nuget.telerik.com entries.
+1. Remove saved credentials in <a href="https://support.microsoft.com/en-us/help/4026814/windows-accessing-credential-manager" target="_blank">Windows Credential Manager</a>. They will appear as `nuget.telerik.com` and/or `VSCredentials_nuget.telerik.com` entries.
 2. Remove the Telerik Nuget package source from Visual Studio.
 3. If you have added the Telerik  package source by nuget CLI, then try to remove it from the CLI:
     * <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-list-source" target="_blank">dotnet nuget list source</a> 
