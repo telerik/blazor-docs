@@ -194,11 +194,13 @@ The following **Example** shows how to define simple binding to match item field
 
 You can define different binding settings for the different levels of nodes in the PanelBar. With this, the children of a node can consume a different field than their parent, and this may make your application more flexible. If you use [hierarchical data binding]({%slug panelbar-data-binding-hierarchical%}), the children can even use a different field or model from their parent.
 
-This also allows you to define a different [`ItemTemplate`]({%slug panelbar-templates%}) for different levels.
+This also allows you to define different [header and content templates]({%slug panelbar-templates%}) for different levels.
 
 To define multiple bindings, add multiple `PanelBarBinding` tags and define their `Level`.
 
-If a certain level does not have an explicit data bindings tag, it will use the default one that has no level.
+There can be maximum one binding for each level and one ("default") binding without a level. If multiple same-level bindings are declared, the first one is used and the rest are ignored.
+
+If a certain level does not have an explicit data binding tag, it will use the default one that has no level.
 
 >caption How to use per-level data binding settings to change model fields
 
