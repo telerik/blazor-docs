@@ -144,7 +144,7 @@ Each item in the PanelBar consists of a `Header` and `Content`. The image below 
 
 You can customize their rendering through the corresponding [Header Template]({%slug panelbar-templates-header%}) and [Content Template]({%slug panelbar-templates-content%}).
 
-The content represents the items in the hierarchy that does not have children. If the items have children and the ContentTemplate is defined, the template will not render. The header contains the Text of the correponding data item (model).
+The content represents the items in the hierarchy that do not have children. If the items have children and the ContentTemplate is defined, the template will not render. The header contains the Text of the correponding data item (model).
 
 ![panelbar parts](images/panelbar-parts-overview.png)
 
