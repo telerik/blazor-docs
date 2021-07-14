@@ -1,12 +1,12 @@
 ---
-title: Custom Notification Position
-description: How to position the notifications more precisely
+title: Custom or Centered Notification Position
+description: How to position the notifications more precisely at a specific custom location? How to center notifications on the screen?
 type: how-to
-page_title: Custom Notification Position
+page_title: Custom or Centered Notification Position
 slug: notification-kb-custom-position
 position: 
-tags: 
-ticketid: 1504012
+tags: notification, center, centre, custom, position
+ticketid: 1504012, 1526682
 res_type: kb
 ---
 
@@ -20,14 +20,28 @@ res_type: kb
 	</tbody>
 </table>
 
-
 ## Description
-I have a top-menu and would like to be able to adjust the notification so it is displayed below the menu, like setting margin-top to -18px.
 
-I want to customize the position of the notification to be different from the default options that are relative to the viewport. I want the notifications in an area of the page I choose.
+I want to customize the position of the notification to be different from the default options that are relative to the viewport boundaries. I want the notifications in a page area I choose.
+
+I'd like to vertically center the notifications and display them at the center of the screen.
+
+I would like to adjust the notification, so it is displayed below the top menu.
 
 ## Solution
-You can wrap the notification in an element from your app (such as a `<div>`) and, through the `Class` the notification exposes, you can define CSS rules that put the notifications in that container so they respect its own offsets and position in your layout.
+
+To display notifications at a custom position, follow these steps. The examples below demonstrate them in action.
+
+* Place the `TelerikNotification` component in two nested `<div>` elements.
+    * The outer `<div>` should have a `position:relative` style.
+    * The inner `<div>` should have a `position:absolute` style.
+    * The **absolute** positioning ensures that the notifications don't push other content on the page. In some cases the outer `<div>` may not be needed.
+* Adjust the position of one or both `<div>`s. The exact approach and CSS styles will depend on the specific case.
+* Set a `Class` to the `TelerikNotification` component, which applies `position:relative` and `flex-wrap: nowrap !important` CSS styles.
+
+### Custom Notifications near the center-top of the page
+
+Here is where the notifications will appear if the outer relative `<div>` is placed right below the top bar of a Blazor app.
 
 ![Custom positions of the notifications that respect their parent element](images/notifications-with-custom-position.png)
 
@@ -42,17 +56,16 @@ You can wrap the notification in an element from your app (such as a `<div>`) an
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        z-index: 1234;
-        /* you may also want to set z-index or other rules here depending on your needs
-        This example centers the notification container according to its own parent which is
-        between the button and the tile layout in this snippet
-        Centering approach taken from https://css-tricks.com/centering-css-complete-guide/
+        z-index: 1234; /* depends on other z-indexes on the page */
+        /* This example centers the notification container according to its own parent which is
+        below the button.
+        Centering approach based on https://css-tricks.com/centering-css-complete-guide/
         */
     }
 
     .custom-positioned-notifications {
-        position: relative; /*make the container for the individual notifications respect the position of its parent*/
-        flex-wrap: nowrap !important; /*override the default setting from the component - this lets the individual notifications stay in a column instead of breaking out into two columns*/
+        position: relative; /* force the individual notifications respect the position of their parent */
+        flex-wrap: nowrap !important; /* display the individual notifications in a single column */
     }
 </style>
 
@@ -68,26 +81,7 @@ You can wrap the notification in an element from your app (such as a `<div>`) an
     </div>
 </div>
 
-<TelerikTileLayout Columns="3"
-                   ColumnWidth="200px"
-                   RowHeight="150px"
-                   Resizable="true"
-                   Reorderable="true">
-    <TileLayoutItems>
-        <TileLayoutItem HeaderText="Panel 1">
-            <Content>Regular sized first panel.</Content>
-        </TileLayoutItem>
-        <TileLayoutItem HeaderText="Panel 2">
-            <Content>You can put components in the tiles too.</Content>
-        </TileLayoutItem>
-        <TileLayoutItem HeaderText="Panel 3" RowSpan="3">
-            <Content>This tile is three rows tall.</Content>
-        </TileLayoutItem>
-        <TileLayoutItem HeaderText="Panel 4" RowSpan="2" ColSpan="2">
-            <Content>This tile is two rows tall and two columns wide</Content>
-        </TileLayoutItem>
-    </TileLayoutItems>
-</TelerikTileLayout>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lacinia suscipit velit, ut lobortis lorem egestas a. Mauris lobortis imperdiet lacus, quis dictum lacus. Integer suscipit ultrices velit nec malesuada. Vestibulum sodales tellus in nibh feugiat maximus non a augue. Nunc eu nisl arcu. Donec vitae justo felis. Maecenas condimentum, risus quis vehicula cursus, elit nisi posuere dui, eget feugiat sapien lacus in leo. Morbi molestie et velit at egestas.</p>
 
 @code {
     TelerikNotification NotificationReference { get; set; }
@@ -105,7 +99,56 @@ You can wrap the notification in an element from your app (such as a `<div>`) an
 }
 ````
 
+### Center Notifications Vertically and Horizontally on the Screen
+
+In this case, the `TelerikNotification` is wrapped in a single `<div>` with a `position:fixed` style. This will center the notifications on the screen, no matter the page scroll offset.
+
+````CSHTML
+<style>
+    .centered-notification-parent {
+        /* center this element on the screen, no matter the page scroll offset */
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1234; /* depends on other z-indexes on the page */
+    }
+
+    .custom-positioned-notifications {
+        position: relative; /* force the individual notifications respect the position of their parent */
+        flex-wrap: nowrap !important; /* display the individual notifications in a single column */
+    }
+</style>
+
+<TelerikButton OnClick="@AddNotification">Display a vertically centered notification</TelerikButton>
+
+<div class="custom-notification-parent">
+    <TelerikNotification Class="custom-positioned-notifications"
+                         @ref="@NotificationReference"
+                         HorizontalPosition="@NotificationHorizontalPosition.Center"
+                         VerticalPosition="@NotificationVerticalPosition.Top">
+    </TelerikNotification>
+</div>
+
+@code {
+    TelerikNotification NotificationReference { get; set; }
+    int counter { get; set; }
+    public void AddNotification()
+    {
+        var notificationText = counter % 5 == 0 ? "A Lot Longer Notification Content Here" : "Foo";
+        NotificationReference.Show(new NotificationModel()
+        {
+            Text = $"{notificationText} {++counter}",
+            ThemeColor = "primary",
+            Closable = true,
+            CloseAfter = 0
+        });
+    }
+}
+````
+
 ## Notes
+
 * Keep in mind that the container for the notifications might consume mouse clicks, selection or otherwise interfere with the UX of your app. Thus, style and size it accordingly.
 
 * You can inspect the rendered content to see what the built-in CSS rules and HTML structure are, so you can tweak this example further to fit your needs.
