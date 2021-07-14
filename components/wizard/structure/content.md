@@ -63,4 +63,4 @@ The `Content` of the Wizard is a `ChildContent` of the `WizardStep`. While it is
 
 ## See Also
 
-  * [Live Demos: Wizard Overview](https://demos.telerik.com/blazor-ui/wizard/index)
+  * [Live Demos: Wizard Overview](https://demos.telerik.com/blazor-ui/wizard/overview)
