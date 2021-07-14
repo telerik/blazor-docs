@@ -1,8 +1,8 @@
 ---
-title: Focus input
-description: How to focus a blazor input or textbox
+title: Focus TextBox Programmatically
+description: How to focus a blazor textbox or input programmatically.
 type: how-to
-page_title: Focus input or textbox
+page_title: Focus textbox or input programmatically
 slug: inputs-kb-focus
 position: 
 tags: 
@@ -20,14 +20,29 @@ res_type: kb
 	</tbody>
 </table>
 
-
 ## Description
-How do I focus a blazor input or texbox programmatically?
+How do I focus a Blazor TelerikTextBox or any other input component programmatically?
 
 ## Solution
-The Telerik textboxes and inputs offer the `FocusAsync` instance method that lets you focus them with code.
+The Telerik textboxes and inputs offer a `FocusAsync` method that lets you focus them with code.
 
-The example below showcases it for a few of them, but it is available for all inputs (date inputs and pickers, checkboxes, buttons).
+The example below showcases it for a few of them, but it is available for all input components and buttons:
+
+* AutoComplete
+* Button
+* ComboBox
+* CheckBox
+* DateInput
+* DatePicker
+* DateRangePicker
+* DateTimePicker
+* Editor
+* MaskedTextBox
+* MultiSelect
+* NumericTextBox
+* TextArea
+* TextBox
+* TimePicker
 
 >caption Focus input with code
 
