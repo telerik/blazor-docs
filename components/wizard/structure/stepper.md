@@ -363,4 +363,4 @@ You can toggle the `Valid` parameter value based on your application logic to ac
 
 ## See Also
 
-  * [Live Demos: Wizard Overview](https://demos.telerik.com/blazor-ui/wizard/configuration)
+  * [Live Demos: Wizard Configuration](https://demos.telerik.com/blazor-ui/wizard/configuration)

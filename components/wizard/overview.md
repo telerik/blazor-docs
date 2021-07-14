@@ -179,4 +179,4 @@ The <a href = "https://www.telerik.com/blazor-ui/wizard" target="_blank">Wizard 
 
 ## See Also
 
-  * [Live Demos: Wizard Overview](https://demos.telerik.com/blazor-ui/wizard/index)
+  * [Live Demos: Wizard Overview](https://demos.telerik.com/blazor-ui/wizard/overview)

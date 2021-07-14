@@ -126,4 +126,4 @@ This configuration overrides the whole rendering of the bottom right section of 
 
 ## See Also
 
-  * [Live Demos: Wizard Overview](https://demos.telerik.com/blazor-ui/wizard/buttons)
+  * [Live Demos: Wizard Buttons](https://demos.telerik.com/blazor-ui/wizard/buttons)
