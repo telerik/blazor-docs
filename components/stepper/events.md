@@ -17,7 +17,7 @@ This article explains the events available in the Telerik Stepper for Blazor:
 
 ## OnChange
 
-The `OnChange` event is triggered on the current step and fires before the step has changed. The handler receives an object of type `StepperStepChangeEventArgs` which exposes the following fields:
+The `OnChange` event fires before the current step has changed. The handler receives an object of type `StepperStepChangeEventArgs` which exposes the following fields:
 
 * `TargetIndex` - contains the index of the targeted new step.
 * `IsCancelled` - specifies whether the event is canceled and the built-in action is prevented.
