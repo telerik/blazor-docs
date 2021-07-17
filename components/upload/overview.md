@@ -14,7 +14,7 @@ The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Up
 
 #### To use a Telerik Upload for Blazor
 
-1. Add the `TelerikUpload` tag and set its `SaveUrl` and `RemoveUrl` (optional) to controller methods that will handle the files.
+1. Add the `TelerikUpload` tag and set its `SaveUrl` and `RemoveUrl` (RemoveUrl is optional) to controller methods that will handle the files.
 
     **CSHTML**
 
