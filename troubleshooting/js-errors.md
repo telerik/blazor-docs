@@ -16,6 +16,7 @@ This page provides solutions for common JavaScript errors you may encounter whil
 
 You may get runtime error messages in the browser console similar to the following:
 
+* `Could not find 'TelerikBlazor.getLocationHost' ('TelerikBlazor' was undefined).`
 * `Microsoft.JSInterop.JSException: Could not find 'TelerikBlazor' in 'window'.`
 * `Error: Microsoft.JSInterop.JSException: Could not find 'initGrid' in 'window.TelerikBlazor'.`
 * `Error: Could not find 'TelerikBlazorPopup' in 'window'.`
@@ -62,7 +63,6 @@ Instead of this
  <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
 
 ````
-
 
 ### TypeScript
 
