@@ -83,11 +83,13 @@ The Pager provides the UI for the user to change the page. To the developer, it 
 
 ## Features
 
+* `Total` - `int` - Represents the total count of items in the pager. **Required.**
+* `ButtonCount` - `int` - The maximum number of page buttons that will be visible. To take effect, `ButtonCount` must be smaller than the page count (`ButtonCount < Total / PageSize`).
+* `Page` - `int` - Represents the current page of the pager. The first page has an index of `1`. Supports two-way data binding. If no value is provided, the parameter will default to the first page (1), but you should always use this parameter value in order to successfully use the component. If you don't use two-way binding and you don't update the value of the parameter after the user action, the pager UI will not reflect the change and will revert to the previous value (page index).
+* `PageSize` - `int` - The number of items to display on a page.
+* `PageSizes` - `List<int?>` - Allows users to change the page size via a DropDownList. The attribute configures the DropDownList options. A `null` item in the `PageSizes` `List` will render an "All" option. By default, the Pager DropDownList is not displayed. You can also set `PageSizes` to `null` programmatically to remove the DropDownList at any time.
+* `InputType` - `PagerInputType` - Determines if the pager will show numeric buttons to go to a specific page, or a textbox to type the page index. The arrow buttons are always visible. The `PagerInputType` enum accepts values `Buttons` (default) or `Input`. When `Input` is used, the page index will change when the textbox is blurred, or when the user hits Enter. This is to avoid unintentional data requests.
 * `Class` - The CSS class that will be rendered on the main wrapping element of the Pager.
-* `Total` - `int - Represents the total count of items in the pager. Required.
-* `ButtonCount` - `int` - The maximum number of page buttons that will be visible. To take effect the `ButtonCount` must be smaller than the pages count (`ButtonCount < Total / PageSize`).
-* `Page` - `int` - Represents the current page of the pager. The first page has an index of `1`. Supports two-way data binding. If no value is provided the parameter will default to the first page (1), but you should always use this parameter value in order to successfully use the component. If you don't use two-way binding and you don't update the value of the parameter after the user action, the pager UI will not reflect the change and will revert to the previous value (page index).
-* `PageSize` - `int` - The number of items to be presented on a page.
 
 ## Examples
 
@@ -115,14 +117,18 @@ You can avoid loading all the data at once, as this can be a costly operation. I
     </div>
 }
 
-<TelerikPager Total="@TotalGames" PageSize="@PageSize" Page="@CurrPage"
-              PageChanged="@( (int page) => PageChangedHandler(page)  )">
+<TelerikPager Total="@TotalGames"
+              Page="@CurrPage"
+              PageChanged="@PageChangedHandler"
+              PageSize="@PageSize"
+              PageSizes="@GamesPerPage">
 </TelerikPager>
 
 @code {
     int TotalGames { get; set; }
-    int CurrPage { get; set; } = 1; // the page indexes are 1-based
-    int PageSize { get; set; } = 4;
+    int CurrPage { get; set; } = 1; // page index is 1-based
+    int PageSize { get; set; } = 5;
+    public List<int?> GamesPerPage = new List<int?> { 5, 10, 20, null };
 
     List<Game> PagedDataToRender { get; set; }
 
@@ -144,7 +150,7 @@ You can avoid loading all the data at once, as this can be a costly operation. I
     }
 
     // simulate a service below
-    private List<Game> _allData { get; set; } = Enumerable.Range(1, 500).Select(x => new Game
+    private List<Game> _allData { get; set; } = Enumerable.Range(1, 100).Select(x => new Game
     {
         GameName = $"Game {x}",
         GameId = x,
@@ -173,6 +179,8 @@ You can avoid loading all the data at once, as this can be a costly operation. I
 ````
 
 ### Two-way Binding
+
+This section shows how to manually implement a behavior that is **built-in** as of version 2.26. See [`InputType`](#features) above.
 
 You can use two-way binding for the `Page` parameter so it can respond to changes from other element, and to also update other elements. This is the most straightforward use of the component. As an alternative, use the `PageChanged` event to implement additional logic when paging the data, such as [loading it on demand](#load-on-demand).
 
