@@ -45,7 +45,7 @@ The example below demonstrates the described approach:
         border: 1px solid rgba(0, 0, 0, 0.08);
         z-index: 1;
         background-color: #fff;
-        transition-duration:0.3s;
+        transition-duration:0.3s; /* match the Drawer's animation duration */
     }
     
     .my-toggle-button.collapsed {
