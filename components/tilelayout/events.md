@@ -19,8 +19,6 @@ This article explains the events available in the Telerik TileLayout for Blazor:
 
 The `OnResize` event is fired when any tile is resized. It lets you respond to that change if needed - for example, call the `.Refresh()` method of a chart or otherwise repaint a child component in the content. You can also use it to, for example, update the saved [state]({%slug tilelayout-state%}) for your users.
 
-@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
-
 >caption Respond to the Resize event and adjust components in the tile
 
 ````CSHTML
@@ -84,8 +82,6 @@ The `OnResize` event is fired when any tile is resized. It lets you respond to t
 ## OnReorder
 
 The `OnReorder` event fires when tiles have been reordered. You can use it to, for example, update the saved [state]({%slug tilelayout-state%}) for your users.
-
-@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
 
 >caption Respond to the OnReorder event
 

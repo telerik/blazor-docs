@@ -20,8 +20,6 @@ The `OnClick` event fires when the user clicks or taps on a menu item. It receiv
 
 You can use the `OnClick` event to react to user choices in a menu without using navigation to load new content automatically.
 
-@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
-
 >caption Handle OnClick
 
 ````CSHTML
