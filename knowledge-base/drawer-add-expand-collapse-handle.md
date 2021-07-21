@@ -33,7 +33,11 @@ To achieve the desired result you can try the following:
 * Toggle the Drawer on click of that button
 * Use custom CSS to adjust the button's appearance, position, transition etc.
 
-The example below demonstrates the described approach:
+>caption Add Expand/Collapse Handle to Toggle the Drawer. The result from the snippet below.
+
+![Add Expand/Collapse Handle](images/drawer-expand-collapse-handle-example.gif)
+
+
 
 ````CSHTML
 @* Add Expand/Collapse handle to toggle the Drawer *@
