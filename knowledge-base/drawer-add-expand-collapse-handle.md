@@ -2,7 +2,7 @@
 title: Add Expand/Collapse Handle to Toggle the Drawer
 description: This demo shows how to add expand/collapse handle to toggle the Telerik Blazor Drawer.
 type: how-to
-page_title: Add Expand/Collapse Handle to toggle the Drawer
+page_title: Add Expand/Collapse Handle to Toggle the Drawer
 slug: drawer-kb-add-expand-collapse-handle
 position: 
 tags: telerik, blazor, drawer, expand, collapse, handle
