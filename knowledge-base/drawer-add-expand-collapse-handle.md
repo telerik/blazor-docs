@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-It would be nice to have a handle feature within the rendered Drawer component that would expand and collapse the component.
+How to add a handle feature within the rendered Drawer component that would expand and collapse the component?
 
 ## Solution
 
