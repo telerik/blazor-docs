@@ -1,5 +1,5 @@
 ---
-title: Add Expand/Collapse Handle to toggle the Drawer
+title: Add Expand/Collapse Handle to Toggle the Drawer
 description: How to add Expand/Collapse Handle to toggle the Drawer?
 type: how-to
 page_title: Add Expand/Collapse Handle to toggle the Drawer
