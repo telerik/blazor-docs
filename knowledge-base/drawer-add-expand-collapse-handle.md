@@ -60,6 +60,7 @@ The example below demonstrates the described approach:
 </style>
 
 <TelerikButton Class="@(ExpandedDrawer ? "my-toggle-button expanded" : "my-toggle-button collapsed")" Icon="@(ExpandedDrawer ? "chevron-left" : "chevron-right")" OnClick="@(() => DrawerRef.ToggleAsync())"></TelerikButton>
+
 <TelerikDrawer Data="@Data"
                Class="my-drawer"
                MiniMode="true"
