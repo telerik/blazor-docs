@@ -31,7 +31,7 @@ To achieve the desired result you can try the following:
 
 * Add a Telerik Button
 * Toggle the Drawer on click of that button
-* Use some custom CSS to style the button as desired (appearance, position, transition etc.)
+* Use custom CSS to adjust the button's appearance, position, transition etc.
 
 The example below demonstrates the described approach:
 
