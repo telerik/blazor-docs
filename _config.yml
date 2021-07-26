@@ -79,6 +79,9 @@ navigation:
      "*components/grid/editing":
         title: "Editing"
         position: 10
+     "*components/grid/editing/built-in-dialogs":
+        title: "Built-in Dialogs"
+        position: 17      
      "*components/grid/filter":
         title: "Filtering"
         position: 22
@@ -103,6 +106,9 @@ navigation:
      "*components/treelist/editing":
         title: "Editing"
         position: 10
+     "*components/treelist/editing/built-in-dialogs":
+        title: "Built-in Dialogs"
+        position: 17  
      "*components/treelist/filter":
         title: "Filtering"
         position: 22
