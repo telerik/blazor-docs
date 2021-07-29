@@ -83,7 +83,7 @@ The UI for the scheduler provides the following options for interacting with the
 
 ## Delete Confirmation Dialog
 
-The delete confirmation dialog triggers before event deletion. You can enable it by setting the `ConfirmDelete` parameter to `true`. You can also customize the dialog default texts.
+The delete confirmation dialog triggers before event deletion. You can enable it by setting the `ConfirmDelete` parameter of the Scheduler to `true`. The default texts of the dialog are exposed in the [localization]({%slug globalization-localization%}) messages of the component, and you can customize them.
 
 >important This dialog displays only for **single** events, **not** for recurring. The built-in delete confirmation dialog for recurring events is **not** changed.
 
