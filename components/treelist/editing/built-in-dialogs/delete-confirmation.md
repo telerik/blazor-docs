@@ -9,9 +9,7 @@ position: 3
 ---
 
 # Delete Confirmation Dialog
-The delete confirmation dialog triggers before item deletion. You can enable it by setting the `ConfirmDelete` parameter to `true`. 
-
->important `ConfirmDelete` is **not** a command column parameter.
+The delete confirmation dialog triggers before item deletion. You can enable it by setting the `ConfirmDelete` parameter of the TreeList to `true`. 
 
 >caption Delete Confirmation dialog
 

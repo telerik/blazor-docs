@@ -16,7 +16,7 @@ The Grid component can use built-in dialogs for:
 
 * [delete confirmation]({%slug grid-delete-confirmation%}) - displays a confirmation dialog when the user clicks the "**delete**" command button.
 
-The default texts of the dialogs are customizable.
+The default texts of the dialogs are exposed in the [localization]({%slug globalization-localization%}) messages of the component, and you can customize them.
 
 ## See Also
 
