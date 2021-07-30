@@ -27,7 +27,7 @@ List of the available events:
 
 * `OnCreate` - fires when the `Save` [command button]({%slug components/grid/columns/command%}) button for a newly added item is clicked. Cancellable (cancelling it keeps the grid in Insert mode).
 * `OnUpdate` - fires when the `Save` command button is clicked on an existing item. Cancellable (cancelling it keeps the grid in Edit mode). The model reference is a copy of the original data source item.
-* `OnDelete` - fires when the `Delete` command button is clicked.
+* `OnDelete` - fires when the `Delete` command button is clicked. You can also display a [delete confirmation dialog]({%slug grid-delete-confirmation%}) before the deletion.
 * `OnEdit` - fires when the user is about to enter edit mode for an existing row. Cancellable (cancelling it prevents the item from opening for editing).
 * `OnCancel` - fires when the user clicks the `Cancel` command button. Allows you to undo the changes to the data in the view data. Cancellable (keeps the grid in Edit/Insert mode).
 * `OnRead` - fires when the grid needs data - after any data source operation like updating, creating, deleting, filtering, sorting. If you cancel the CUD events, the [OnRead]({%slug components/grid/manual-operations%}) event will not fire.
