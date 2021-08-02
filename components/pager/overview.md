@@ -180,8 +180,6 @@ You can avoid loading all the data at once, as this can be a costly operation. I
 
 ### Two-way Binding
 
-This section shows how to manually implement a behavior that is **built-in** as of version 2.26. See [`InputType`](#features) above.
-
 You can use two-way binding for the `Page` parameter so it can respond to changes from other element, and to also update other elements. This is the most straightforward use of the component. As an alternative, use the `PageChanged` event to implement additional logic when paging the data, such as [loading it on demand](#load-on-demand).
 
 ````CSHTML

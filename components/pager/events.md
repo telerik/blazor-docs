@@ -12,6 +12,9 @@ position: 20
 
 This article explains the events available in the Telerik Pager for Blazor:
 
+* [PageChanged](#pagechanged) - fires when the user navigates to another page
+* [PageSizeChanged](#pagesizechanged) - fires when the user selects a different page size
+
 ## PageChanged
 
 The `PageChanged` event fires when a new page is selected. You can use it to implement [load on demand]({%slug pager-overview%}#load-on-demand).
