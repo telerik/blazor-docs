@@ -20,7 +20,7 @@ Sections in this article:
 
 ## Basics
 
-This section explains the available events and command buttons that you need to use for editing records in a Gantt Tree. After that, you will find a code example.
+This section explains the available events and command buttons that you need to use for editing records in a Gantt Tree. After that, you will find a code example. By default the Gantt Chart will enable the user to edit a record by double clicking on the respective node.
 
 List of the available events:
 
