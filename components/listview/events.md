@@ -16,6 +16,7 @@ This article explains the events available in the Telerik ListView for Blazor:
 * [Read Event](#read-event) - event related to obtaining data
 * [OnModelInit](#onmodelinit)
 * [PageChanged](#pagechanged)
+* [PageSizeChanged](#pagesizechanged)
 
 ## CUD Events
 
@@ -584,6 +585,47 @@ The event fires when the user pages the listview. If you will be providing the `
 }
 ````
 
+### PageSizeChanged
+
+The `PageSizeChanged` event fires when the user changes the page size via the pager DropDownList. The existence of this event also ensures that the TreeList `PageSize` attribute supports two-way binding.
+
+If the user selects the "All" option from the page size DropDownList, the `PageSizeChanged` event will receive the total item count as an argument.
+
+Make sure to update the current page size when using the event.
+
+>caption Handle PageSizeChanged
+
+````CSHTML
+<TelerikListView Data="@ListViewData"
+                 Pageable="true"
+                 PageSize="@PageSize"
+                 PageSizeChanged="@PageSizeChangedHandler">
+    <Template>
+        <h6>@context.Name</h6>
+    </Template>
+</TelerikListView>
+
+@code{
+    int PageSize { get; set; } = 15;
+    
+    async Task PageSizeChangedHandler(int newPageSize)
+    {
+        PageSize = newPageSize;
+    }
+
+    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 50).Select(x => new SampleData
+    {
+        Id = x,
+        Name = $"Name {x}"
+    }).ToList();
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+}
+````
 
 ## See Also
 

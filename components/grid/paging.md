@@ -12,11 +12,11 @@ position: 20
 
 The Grid component offers support for paging.
 
-To enable paging, set its `Pageable` property to `true`. 
+To enable paging, set the Grid `Pageable` property to `true`. 
 
-You can control the number of records per page through the `PageSize` property.
+You can control the number of records per page through the Grid `PageSize` property.
 
-You can set the current page of the grid through its integer `Page` property.
+You can set the current page of the Grid through its integer `Page` property.
 
 >caption Enable paging in Telerik Grid
 
@@ -79,6 +79,34 @@ Dynamic page size change
 			PageSize = int.Parse(e.Value.ToString());
 		}
 	}
+}
+````
+
+## Pager Settings
+
+In addition to `Page` and `PageSize`, the Grid provides advanced pager configuration options via the `GridPagerSettings` tag, which is nested inside `GridSettings`. These configuration attributes include:
+
+* `ButtonCount` - `int` - The maximum number of page buttons that will be visible. To take effect, `ButtonCount` must be smaller than the page count (`ButtonCount < Total / PageSize`). The default value is 10.
+* `InputType` - `PagerInputType` - Determines if the pager will show numeric buttons to go to a specific page, or a textbox to type the page index. The arrow buttons are always visible. The `PagerInputType` enum accepts values `Buttons` (default) or `Input`. When `Input` is used, the page index will change when the textbox is blurred, or when the user hits Enter. This is to avoid unintentional data requests.
+* `PageSizes` - `List<int?>` - Allows users to change the page size via a DropDownList. The attribute configures the DropDownList options. A `null` item in the `PageSizes` `List` will render an "All" option. By default, the Pager DropDownList is not displayed. You can also set `PageSizes` to `null` programmatically to remove the DropDownList at any time.
+
+````CSHTML
+<TelerikGrid Data="@MyData" Pageable="true" @bind-PageSize="@PageSize" @bind-Page="@CurrentPage">
+	<GridSettings>
+		<GridPagerSettings InputType="PagerInputType.Input" PageSizes="@PageSizes" ButtonCount="5" />
+	</GridSettings>
+	<GridColumns>
+		<GridColumn Field="ID"></GridColumn>
+		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
+	</GridColumns>
+</TelerikGrid>
+
+@code {
+	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
+
+	int PageSize { get; set; } = 15;
+	int CurrentPage { get; set; } = 3;
+	protected List<int?> PageSizes { get; set; } = new List<int?> { 15, 30, null };
 }
 ````
 

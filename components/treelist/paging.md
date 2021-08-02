@@ -12,9 +12,9 @@ position: 20
 
 The TreeList component offers support for paging.
 
-To enable paging, set its `Pageable` property to `true`.
+To enable paging, set the TreeList `Pageable` property to `true`.
 
-You can control the number of records per page through the `PageSize` property.
+You can control the number of records per page through the TreeList `PageSize` property.
 
 You can set the current page of the treelist through its integer `Page` property.
 
@@ -158,6 +158,89 @@ Dynamic page size change
     async Task<List<Employee>> GetTreeListData()
     {
         List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            data.Add(new Employee
+            {
+                Id = i,
+                ParentId = null,
+                Name = $"root: {i}"
+            });
+
+            for (int j = 2; j < 5; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                {
+                    Id = currId,
+                    ParentId = i,
+                    Name = $"first level child of {i}"
+                });
+
+                for (int k = 3; k < 5; k++)
+                {
+                    data.Add(new Employee
+                    {
+                        Id = currId * 1000 + k,
+                        ParentId = currId,
+                        Name = $"second level child of {i} and {currId}"
+                    }); ;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
+````
+
+## Pager Settings
+
+In addition to `Page` and `PageSize`, the TreeList provides advanced pager configuration options via the `TreeListPagerSettings` tag, which is nested inside `TreeListSettings`. These configuration attributes include:
+
+* `ButtonCount` - `int` - The maximum number of page buttons that will be visible. To take effect, `ButtonCount` must be smaller than the page count (`ButtonCount < Total / PageSize`). The default value is 10.
+* `InputType` - `PagerInputType` - Determines if the pager will show numeric buttons to go to a specific page, or a textbox to type the page index. The arrow buttons are always visible. The `PagerInputType` enum accepts values `Buttons` (default) or `Input`. When `Input` is used, the page index will change when the textbox is blurred, or when the user hits Enter. This is to avoid unintentional data requests.
+* `PageSizes` - `List<int?>` - Allows users to change the page size via a DropDownList. The attribute configures the DropDownList options. A `null` item in the `PageSizes` `List` will render an "All" option. By default, the Pager DropDownList is not displayed. You can also set `PageSizes` to `null` programmatically to remove the DropDownList at any time.
+
+````CSHTML
+<TelerikTreeList Data="@Data"
+                 Pageable="true" @bind-PageSize="@PageSize" @bind-Page="@CurrentPage"
+                 IdField="Id" ParentIdField="ParentId"
+                 Width="650px">
+	<TreeListSettings>
+		<TreeListPagerSettings InputType="PagerInputType.Input" PageSizes="@PageSizes" ButtonCount="5" />
+	</TreeListSettings>
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="300px"></TreeListColumn>
+        <TreeListColumn Field="Id"></TreeListColumn>
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    public List<Employee> Data { get; set; }
+
+    int PageSize { get; set; } = 15;
+	int CurrentPage { get; set; } = 3;
+	protected List<int?> PageSizes { get; set; } = new List<int?> { 15, 30, null };
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    // sample models and data generation
+
+    public class Employee
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; }
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List <Employee> data = new List<Employee>();
 
         for (int i = 1; i < 15; i++)
         {
