@@ -2,26 +2,26 @@
 title: Templates
 page_title: Gantt Chart - Templates
 description: Templates for the Gantt Chart for Blazor.
-slug: treelist-timeline-templates
+slug: gantt-timeline-templates
 tags: telerik,blazor,gantt,chart,templates
 published: True
 position: 0
 ---
 
-# Templates for the Gantt Timeline
+# TaskTemplate
 
-This article showcases the available templates for the [Timeline]({%slug gantt-timeline%}):
+The `TaskTemplate` provides you with full control over the rendering of the Timeline tasks.
+It is applied on regular tasks (not summary or milestone).
 
-* [TaskTemplate](#tasktemplate)
+The `TaskTemplate` is of type `RenderFragment<TItem>`, so the `context` has the datatype of the model. Therefore, no casting is needed in the template.
+
+>Customize the Tasks content and appearance through a `TaskTemplate`. The result from the snippet.
+
+````CSHTML
 
 
-## TaskTemplate
-
+````
 
 ## See Also
 
-  * [Live Demo: TreeList Inline Editing](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
-  * [Live Demo: TreeList PopUp Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
-  * [Live Demo: TreeList InCell Editing](https://demos.telerik.com/blazor-ui/treelist/editing-incell)
-  * [Live Demo: TreeList Custom Editor Template](https://demos.telerik.com/blazor-ui/treelist/custom-editor)
-  * [Live Demo: TreeList Custom Edit Form](https://demos.telerik.com/blazor-ui/treelist/editing-custom-form)
+  * [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)

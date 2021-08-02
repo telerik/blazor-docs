@@ -2,26 +2,36 @@
 title: Templates
 page_title: Gantt Chart - Templates
 description: Templates for the Gantt Chart for Blazor.
-slug: treelist-timeline-templates
+slug: gantt-timeline-templates
 tags: telerik,blazor,gantt,chart,templates
 published: True
 position: 0
 ---
 
-# Templates for the Gantt Timeline
+# TooltipTemplate
 
-This article showcases the available templates for the [Timeline]({%slug gantt-timeline%}):
+he `TooltipTemplate` provides you with full control over the rendering of the Timeline Task Tooltips.
 
-* [TaskTemplate](#tasktemplate)
+The `TooltipTemplate` receives a context of type `object`, that can be cast to `TooltipTemplateContext`. It has the following properties available for display:
+
+````CSHTML
+    <TooltipTemplate>
+        <h4>@(((TooltipTemplateContext)context).Title)</h4>
+        <h5>Percent Complete: @(((TooltipTemplateContext)context).DataAttributes["percent"])%</h5>
+        <h5>Start: @(((TooltipTemplateContext)context).DataAttributes["start"])</h5>
+        <h5>End: @(((TooltipTemplateContext)context).DataAttributes["end"])</h5>
+    </TooltipTemplate>
+````
+
+Apart from that, you can add and customize any other content - for example, icons, images, components etc.
+
+>Customize the Task Tooltip through the `TooltipTemplate`. The result from the snippet.
+
+````CSTHML
 
 
-## TaskTemplate
-
+````
 
 ## See Also
 
-  * [Live Demo: TreeList Inline Editing](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
-  * [Live Demo: TreeList PopUp Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
-  * [Live Demo: TreeList InCell Editing](https://demos.telerik.com/blazor-ui/treelist/editing-incell)
-  * [Live Demo: TreeList Custom Editor Template](https://demos.telerik.com/blazor-ui/treelist/custom-editor)
-  * [Live Demo: TreeList Custom Edit Form](https://demos.telerik.com/blazor-ui/treelist/editing-custom-form)
+  * [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)
