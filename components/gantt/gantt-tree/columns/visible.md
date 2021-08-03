@@ -2,8 +2,8 @@
 title: Visible
 page_title: TreeList - Visible Columns
 description: Hide TreeList columns.
-slug: treelist-columns-visible
-tags: telerik,blazor,treelist,column,visible
+slug: gantt-columns-visible
+tags: telerik,blazor,gantt,column,visible
 published: True
 position: 15
 ---

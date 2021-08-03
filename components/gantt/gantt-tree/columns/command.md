@@ -2,13 +2,13 @@
 title: Command Column
 page_title: Gantt Tree - Command Column
 description: Command buttons per row in treelist for Blazor.
-slug: treelist-columns-command
-tags: telerik,blazor,treelist,column,command
+slug: gantt-columns-command
+tags: telerik,blazor,gantt,column,command
 published: True
 position: 1
 ---
 
-# TreeList Command Column
+# Gantt Tree Command Column
 
 The command column of a Gantt Tree allows you to initiate [editing]({%slug gantt-tree-editing%}), or to execute your own commands.
 
