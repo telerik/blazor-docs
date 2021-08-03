@@ -24,7 +24,7 @@ This section explains the available events and command buttons that you need to 
 
 List of the available events:
 
-* `OnCreate` - fires when the `Save` [command button]({%slug gannt-columns-command%}) button for a newly added item is clicked. The event handler receives an argument of type `GanttCreateEventArgs` that exposes the following fields:
+* `OnCreate` - fires when the `Save` [command button]({%slug gantt-columns-command%}) button for a newly added item is clicked. The event handler receives an argument of type `GanttCreateEventArgs` that exposes the following fields:
 
     * `Item` - an object you can cast to your model class to obtain the current data item.
 
