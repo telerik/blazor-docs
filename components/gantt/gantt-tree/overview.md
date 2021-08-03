@@ -8,11 +8,11 @@ published: True
 position: 0
 ---
 
-# Tree
+# Gantt Tree
 
 The Gantt Tree is the left part of the [Gantt Chart]({%slug gantt-overview%}). You can provide data to the component through its [data binding]({%slug gantt-data-binding-overview%}) options. You can also use the [filtering]({%slug gantt-filtering-overview%}), [sorting]({%slug gantt-sorting%}), and [editing]({%slug gantt-tree-editing%}) capabilities of the Telerik Gantt for Blazor.
 
-## List of available feature for the Gantt Tree
+## List of available features for the Gantt Tree
 
 * `Gantt Columns` - The main building blocks of the Gantt Tree. They are used to render data in the component. You can read more information in the [Bound Column]({%slug gantt-columns-bound%}) article.
 

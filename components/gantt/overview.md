@@ -8,14 +8,14 @@ published: True
 position: 0
 ---
 
-# Blazor TreeList Component Overview
+# Blazor Gantt Component Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/ganttchart" target="_blank">Blazor Gantt Chart component</a> allows you to easily illustrate a collection of tasks. The component consists of two areas: 
 
 * the [Gantt Tree]({%slug gantt-tree%}) to the left that hosts hierarchical information on the tasks, their start and end time
 * the [Timeline]({%slug gantt-timeline%}) view to the right that illustrates the time-frame and the completeness of the task.
 
-The data collection is passed to the [TreeList]({%slug gantt-tree%}) and the component will automatically render the necessary elements in the [Timeline](%slug gantt-timeline%).
+The data collection is passed to the [Gantt Tree]({%slug gantt-tree%}) and the component will automatically render the necessary elements in the [Timeline]({%slug gantt-timeline%}).
 
 ![](images/gantt-parts.png)
 
@@ -23,11 +23,11 @@ The data collection is passed to the [TreeList]({%slug gantt-tree%}) and the com
 
 1. Use the `TelerikGantt` tag
 
-1. set its `Data` attribute to the variable that will hold your collection of data.
+1. Set its `Data` attribute to the variable that will hold your collection of data.
  
     * Read more on how to tie the model fields to the Gantt in the [Data Binding Overview]({%slug gantt-data-binding-overview%}) article. In this example, we point the Gantt Chart to the location of the nested items and the field that indicates whether an Expand arrow will be generated (that there are child items).
 
-1. under its `GanttColumns` tag, set the desired [`GanttColumn`]({%slug gantt-columns-bound%}) instances whose `Field` property points to the name of the model field that you want to show
+1. Under its `GanttColumns` tag, set the desired [`GanttColumn`]({%slug gantt-columns-bound%}) instances whose `Field` property points to the name of the model field that you want to show
 
 >caption The result from the code snippet below
 
@@ -174,7 +174,7 @@ The data collection is passed to the [TreeList]({%slug gantt-tree%}) and the com
 
 ## Data Binding
 
-To show data in a Telerik Gantt Chart, you need to define [GanttColumn]({%slug gantt-columns-bound%}) instances - they take a model `Field` and exposes settings to control the [visibility]({%slug gantt-columns-visible%}) of the column, the [format of the displayed data]({%slug gantt-columns-displayformat%}), the [expanded state]({%slug gantt-columns-expand%}) of the node, and the text alignment.
+To show data in a Telerik Gantt Chart, you need to define [GanttColumn]({%slug gantt-columns-bound%}) instances - they take a model `Field` and expose settings to control the [visibility]({%slug gantt-columns-visible%}) of the column, the [format of the displayed data]({%slug gantt-columns-displayformat%}), the [expanded state]({%slug gantt-columns-expand%}) of the node, and the text alignment.
 
 >tip The Telerik Blazor Gantt Chart is data source agnostic - you can use any database and service according to your project, you only need to get the collection of data models to the Gantt Chart in the view-model of the component hosting it.
 
@@ -441,9 +441,9 @@ The Gantt Chart can sort data automatically. You can read more about this featur
 The Gantt Chart can filter data automatically. You can read more about this feature in the [Filtering]({%slug gantt-filtering-overview%}) article.
 
 
-## Tree Column Features
+## Gantt Tree Column Features
 
-The columns of the Gantt TreeList are one of its main building blocks and they offer a rich set of functionality to enable great flexibility for your application scenarios.
+The columns of the Gantt Tree are one of its main building blocks and they offer a rich set of functionalities to enable great flexibility for your application scenarios.
 
 >caption Column features include
 
@@ -462,13 +462,13 @@ You can define user actions in a [dedicated toolbar]({%slug gantt-toolbar%}). Fo
 
 When the total column width exceeds the width of the Gantt Chart, you will get a horizontal scrollbar.
 
-When the height of the rows exceeds the Height of the Gantt Chart, you will get a vertical scrollbar.
+When the height of the rows exceeds the height of the Gantt Chart, you will get a vertical scrollbar.
 
 ## Styling
 
 You can customize the rendering of the items in the [Timeline]({%slug gantt-timeline%}) by using the exposed [Templates]({%slug gantt-timeline-templates%}).
 
-You can also set the [`Height` of the Gantt]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
+You can also set the [`Height` of the Gantt]({%slug common-features/dimensions%}), and you can use the `Class` parameter to provide more complex CSS rules (like ones that will be inherited in a template).
 
 ## See Also
 
