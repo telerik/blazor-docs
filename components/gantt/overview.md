@@ -24,7 +24,7 @@ The data collection is passed to the [TreeList]({%slug gantt-tree%}) and the com
 1. Use the `TelerikGantt` tag
 
 1. set its `Data` attribute to the variable that will hold your collection of data.
-2. 
+ 
     * Read more on how to tie the model fields to the Gantt in the [Data Binding Overview]({%slug gantt-data-binding-overview%}) article. In this example, we point the Gantt Chart to the location of the nested items and the field that indicates whether an Expand arrow will be generated (that there are child items).
 
 1. under its `GanttColumns` tag, set the desired [`GanttColumn`]({%slug gantt-columns-bound%}) instances whose `Field` property points to the name of the model field that you want to show
