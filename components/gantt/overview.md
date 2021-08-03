@@ -430,7 +430,7 @@ The Gantt Chart is a generic component, and to store a reference, you must use t
 
 ## Editing
 
-The Gantt Chart can perform CRUD operations on its current data collection and exposes events that let you control the operations and transfer changes to the actual data source. You can edit both the tasks in the [TreeList]({%gantt-tree-editing%}) and their respective representation in the [Timeline]({%gantt-timeline-editing%}).
+The Gantt Chart can perform CRUD operations on its current data collection and exposes events that let you control the operations and transfer changes to the actual data source. You can edit both the tasks in the [TreeList]({%slug gantt-tree-editing%}) and their respective representation in the [Timeline]({%slug gantt-timeline-editing%}).
 
 ## Sorting
 
@@ -438,7 +438,7 @@ The Gantt Chart can sort data automatically. You can read more about this featur
 
 ## Filtering
 
-The Gantt Chart can filter data automatically. You can read more about this feature in the [Filtering]({%slug gantt-filtering%}) article.
+The Gantt Chart can filter data automatically. You can read more about this feature in the [Filtering]({%slug gantt-filtering-overview%}) article.
 
 
 ## Tree Column Features
@@ -466,7 +466,7 @@ When the height of the rows exceeds the Height of the Gantt Chart, you will get 
 
 ## Styling
 
-You can customize the rendering of the items in the [Timeline]({%slug gantt-timeline%}) by using the exposed [Templates]({%gantt-timeline-templates%}).
+You can customize the rendering of the items in the [Timeline]({%slug gantt-timeline%}) by using the exposed [Templates]({%slug gantt-timeline-templates%}).
 
 You can also set the [`Height` of the Gantt]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
 

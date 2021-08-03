@@ -14,7 +14,7 @@ You can customize the appearance of the Gantt Timeline through the templates it 
 
 This article showcases the available templates for the [Timeline]({%slug gantt-timeline%}):
 
-* [TaskTemplate]({%slug gantt-task-template}) - allows you to customize the rendering of the tasks in the Timeline.
+* [TaskTemplate]({%slug gantt-task-template%}) - allows you to customize the rendering of the tasks in the Timeline.
 
 * [TooltipTemplate]({%slug gantt-tooltip-template%}) - allows you to customize the rendering of the ToolTip in the Timeline.
 
