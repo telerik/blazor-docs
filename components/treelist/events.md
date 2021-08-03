@@ -21,6 +21,7 @@ This article explains the events available in the Telerik TreeList for Blazor. T
 	* [OnRowRender](#onrowrender)
 	* [OnRowDrop](#onrowdrop)
 	* [PageChanged](#pagechanged)
+	* [PageSizeChanged](#pagechanged)
 
 ## CUD Events
 
@@ -1148,9 +1149,102 @@ The event fires when the user pages the treelist.
 }
 ````
 
+### PageSizeChanged
+
+The `PageSizeChanged` event fires when the user changes the page size via the pager DropDownList. The existence of this event also ensures that the TreeList `PageSize` attribute supports two-way binding.
+
+If the user selects the "All" option from the page size DropDownList, the `PageSizeChanged` event will receive the total item count as an argument.
+
+Make sure to update the current page size when using the event.
+
+>caption Handle PageSizeChanged
+
+````CSHTML
+<TelerikTreeList Data="@Data"
+                 Pageable="true"
+                 @bind-Page="@CurrentPage"
+                 PageSize="@PageSize"
+                 PageSizeChanged="@PageSizeChangedHandler"
+                 IdField="Id" ParentIdField="ParentId"
+                 Width="650px">
+	<TreeListSettings>
+		<TreeListPagerSettings PageSizes="@PageSizes" />
+	</TreeListSettings>
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="300px"></TreeListColumn>
+        <TreeListColumn Field="Id"></TreeListColumn>
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+	int PageSize { get; set; } = 15;
+	int CurrentPage { get; set; } = 3;
+
+	protected List<int?> PageSizes { get; set; } = new List<int?> { 15, 30, null };
+
+    void PageSizeChangedHandler(int newPageSize)
+    {
+        PageSize = newPageSize;
+    }
+
+    public List<Employee> Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    // sample models and data generation
+
+    public class Employee
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; }
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            data.Add(new Employee
+            {
+                Id = i,
+                ParentId = null,
+                Name = $"root: {i}"
+            });
+
+            for (int j = 2; j < 5; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                {
+                    Id = currId,
+                    ParentId = i,
+                    Name = $"first level child of {i}"
+                });
+
+                for (int k = 3; k < 5; k++)
+                {
+                    data.Add(new Employee
+                    {
+                        Id = currId * 1000 + k,
+                        ParentId = currId,
+                        Name = $"second level child of {i} and {currId}"
+                    }); ;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
+````
+
 ## See Also
 
   * [TreeList Overview]({%slug treelist-overview%})
   * [TreeList Column Events]({%slug treelist-column-events%})
   * [TreeList Editing Overview]({%slug treelist-editing-overview%})
-  

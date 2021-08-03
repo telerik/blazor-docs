@@ -10,13 +10,12 @@ position: 20
 
 # Grid Paging
 
-The Grid component offers support for paging.
+The Grid component supports paging.
 
-To enable paging, set its `Pageable` property to `true`. 
-
-You can control the number of records per page through the `PageSize` property.
-
-You can set the current page of the grid through its integer `Page` property.
+* To enable paging, set the Grid `Pageable` parameter to `true`.
+* Set the number of items rendered at once with the `PageSize` parameter (defaults to 10).
+* If needed, set the current page of the Grid through its integer `Page` property.
+* You can further customize the pager interface via additional [pager settings](#pager-settings).
 
 >caption Enable paging in Telerik Grid
 
@@ -79,6 +78,32 @@ Dynamic page size change
 			PageSize = int.Parse(e.Value.ToString());
 		}
 	}
+}
+````
+
+## Pager Settings
+
+In addition to `Page` and `PageSize`, the Grid provides advanced pager configuration options via the `GridPagerSettings` tag, which is nested inside `GridSettings`. These configuration attributes include:
+
+@[template](/_contentTemplates/common/pager-settings.md#pager-settings)
+
+````CSHTML
+<TelerikGrid Data="@MyData" Pageable="true" @bind-PageSize="@PageSize" @bind-Page="@CurrentPage">
+	<GridSettings>
+		<GridPagerSettings InputType="PagerInputType.Input" PageSizes="@PageSizes" ButtonCount="5" />
+	</GridSettings>
+	<GridColumns>
+		<GridColumn Field="ID"></GridColumn>
+		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
+	</GridColumns>
+</TelerikGrid>
+
+@code {
+	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
+
+	int PageSize { get; set; } = 15;
+	int CurrentPage { get; set; } = 3;
+	protected List<int?> PageSizes { get; set; } = new List<int?> { 15, 30, null };
 }
 ````
 

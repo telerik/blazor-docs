@@ -16,17 +16,18 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 * [Read Event](#read-event) - event related to obtaining data
 * [Other Events](#other-events) - other events the grid provides
     * [State Events](#state-events)
-	* [Command Button Click](#command-button-click)
-	* [SelectedItemsChanged](#selecteditemschanged)
-	* [OnModelInit](#onmodelinit)
-	* [OnRowClick](#onrowclick)
-	* [OnRowDoubleClick](#onrowdoubleclick)
-	* [OnRowContextMenu](#onrowcontextmenu)
-	* [OnRowExpand](#onrowexpand)
-	* [OnRowCollapse](#onrowcollapse)
-	* [OnRowRender](#onrowrender)
-	* [OnRowDrop](#onrowdrop)
-	* [PageChanged](#pagechanged)
+    * [Command Button Click](#command-button-click)
+    * [SelectedItemsChanged](#selecteditemschanged)
+    * [OnModelInit](#onmodelinit)
+    * [OnRowClick](#onrowclick)
+    * [OnRowDoubleClick](#onrowdoubleclick)
+    * [OnRowContextMenu](#onrowcontextmenu)
+    * [OnRowExpand](#onrowexpand)
+    * [OnRowCollapse](#onrowcollapse)
+    * [OnRowRender](#onrowrender)
+    * [OnRowDrop](#onrowdrop)
+    * [PageChanged](#pagechanged)
+    * [PageSizeChanged](#pagesizechanged)
 
 ## CUD Events
 
@@ -996,6 +997,47 @@ The event fires when the user pages the grid.
     }
 
     public IEnumerable<object> MyData = Enumerable.Range(1, 150).Select(x => new { ID = x, TheName = "name " + x });
+}
+````
+
+### PageSizeChanged
+
+The `PageSizeChanged` event fires when the user changes the page size via the pager DropDownList. The existence of this event also ensures that the Grid `PageSize` attribute supports two-way binding.
+
+If the user selects the "All" option from the page size DropDownList, the `PageSizeChanged` event will receive the total item count as an argument.
+
+Make sure to update the current page size when using the event.
+
+>caption Handle PageSizeChanged
+
+````CSHTML
+<TelerikGrid
+            Data="@MyData"
+            Pageable="true"
+            PageSize="@PageSize"
+            @bind-Page="@CurrentPage"
+            PageSizeChanged="@PageSizeChangedHandler">
+	<GridSettings>
+		<GridPagerSettings PageSizes="@PageSizes" />
+	</GridSettings>
+	<GridColumns>
+		<GridColumn Field="ID"></GridColumn>
+		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
+	</GridColumns>
+</TelerikGrid>
+
+@code {
+	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
+
+	int PageSize { get; set; } = 15;
+	int CurrentPage { get; set; } = 3;
+
+	protected List<int?> PageSizes { get; set; } = new List<int?> { 15, 30, null };
+
+    void PageSizeChangedHandler(int newPageSize)
+    {
+        PageSize = newPageSize;
+    }
 }
 ````
 
