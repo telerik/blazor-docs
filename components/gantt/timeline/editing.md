@@ -1,11 +1,11 @@
 ---
-title: Timeline Editing
-page_title: Editing
+title: Editing
+page_title: Timeline Editing
 description: Tasks Editing in the Gantt Timeline
 slug: gantt-timeline-editing
 tags: telerik,blazor,gantt,task,editing
 published: True
-position: 0
+position: 10
 ---
 
 # Timeline Editing

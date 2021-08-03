@@ -5,7 +5,7 @@ description: Edit tasks in the Gantt Tree.
 slug: gantt-tree-editing
 tags: telerik,blazor,gantt,tree,editing,overview
 published: True
-position: 0
+position: 10
 ---
 
 # Edit Tasks

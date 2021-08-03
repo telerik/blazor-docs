@@ -1,5 +1,5 @@
 ---
-title: Gantt Tree Overview
+title: Overview
 page_title: Gantt Chart - Tree
 description: Overview of the Tree for the Gantt Chart for Blazor.
 slug: gantt-tree

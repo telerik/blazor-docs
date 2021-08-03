@@ -1,11 +1,11 @@
 ---
-title: Templates
-page_title: Gantt Chart - Templates
-description: Templates for the Gantt Chart for Blazor.
+title: Task
+page_title: Task
+description: TaskTemplate for the Gantt Timeline Tasks
 slug: gantt-task-template
-tags: telerik,blazor,gantt,chart,templates
+tags: telerik,blazor,gantt,chart,task,template
 published: True
-position: 0
+position: 5
 ---
 
 # TaskTemplate

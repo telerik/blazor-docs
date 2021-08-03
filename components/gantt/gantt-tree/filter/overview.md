@@ -1,5 +1,5 @@
 ---
-title: Gantt Tree Filtering Overview
+title: Overview
 page_title: Gantt Chart - Filtering Overview
 description: Overview of the filtering for the Gantt Chart for Blazor.
 slug: gantt-filtering-overview

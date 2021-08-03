@@ -5,7 +5,7 @@ description: Data Binding the Gatt Chart for Blazor to hierarchical data.
 slug: gantt-data-binding-hierarchical-data
 tags: telerik,blazor,gantt,data,bind,databind,databinding,hierarchical
 published: True
-position: 1
+position: 5
 ---
 
 # Gantt Data Binding to Hierarchical Data

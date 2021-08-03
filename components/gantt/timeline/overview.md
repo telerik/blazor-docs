@@ -1,5 +1,5 @@
 ---
-title: Timeline Overview
+title: Overview
 page_title: Gantt Chart - Timeline
 description: Overview of the Timeline for the Gantt Chart for Blazor.
 slug: gantt-timeline

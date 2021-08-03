@@ -79,6 +79,18 @@ navigation:
      "*components/gantt/timeline":
         title: "Gantt Timeline"
         position: 10
+     "*components/gantt/gantt-tree/data-binding":
+        title: "Data Binding"
+        position: 5
+     "*components/gantt/gantt-tree/columns":
+        title: "Columns"
+        position: 7
+     "*components/gantt/gantt-tree/filter":
+        title: "Filtering"
+        position: 25
+     "*components/gantt/timeline/templates":
+        title: "Templates"
+        position: 15
      "*components/grid/columns":
         title: "Columns"
         position: 5

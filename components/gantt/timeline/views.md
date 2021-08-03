@@ -1,14 +1,14 @@
 ---
-title: Templates
-page_title: Gantt Chart - Templates
+title: Views
+page_title: Timeline Views
 description: Templates for the Gantt Chart for Blazor.
 slug: gantt-timeline-views
-tags: telerik,blazor,gantt,chart,templates
+tags: telerik,blazor,gantt,chart,views
 published: True
-position: 10
+position: 5
 ---
 
-# Templates for the Gantt Timeline
+# Timeline Views
 
 The Gantt Timeline provides four predefined views, which dictate how much time a single time slot represents:
 
@@ -22,7 +22,7 @@ The Gantt Timeline provides four predefined views, which dictate how much time a
 
 ## Basics
 
-## To use the desired Views for the Timeline:
+### To use the desired Views for the Timeline:
 
 1. Under the `<GanttViews>` define the desired views. (You should include at least one view that the Timeline will display, otherwise the component will throw an exception).
 

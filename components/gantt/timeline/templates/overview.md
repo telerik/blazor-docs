@@ -1,5 +1,5 @@
 ---
-title: Templates
+title: Overview
 page_title: Gantt Chart - Templates
 description: Templates for the Gantt Chart for Blazor.
 slug: gantt-timeline-templates

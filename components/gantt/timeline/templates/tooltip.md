@@ -1,11 +1,11 @@
 ---
-title: Templates
-page_title: Gantt Chart - Templates
-description: Templates for the Gantt Chart for Blazor.
+title: Tooltip
+page_title: Tooltip
+description: TooltipTemplate for the Gantt Timeline Tooltips.
 slug: gantt-tooltip-template
-tags: telerik,blazor,gantt,chart,templates
+tags: telerik,blazor,gantt,chart,tooltip,template
 published: True
-position: 0
+position: 10
 ---
 
 # TooltipTemplate
