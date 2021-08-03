@@ -73,6 +73,12 @@ navigation:
      "*components/form/formitems":
         title: "Form Items"
         position: 20
+     "*components/gantt/gantt-tree":
+        title: "Gantt Tree"
+        position: 5
+     "*components/gantt/timeline":
+        title: "Gantt Timeline"
+        position: 10
      "*components/grid/columns":
         title: "Columns"
         position: 5
