@@ -1,6 +1,6 @@
 ---
 title: DataBound Column
-page_title: Gantt - DataBound Column
+page_title: Gantt Tree - DataBound Column
 description: Data binding and bound column properties in Gantt for Blazor.
 slug: gantt-columns-bound
 tags: telerik,blazor,gantt,bound,column

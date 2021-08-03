@@ -174,7 +174,7 @@ The data collection is passed to the [TreeList]({%slug gantt-tree%}) and the com
 
 ## Data Binding
 
-To show data in a Telerik Gantt Chart, you need to define [GanttColumn]({%slug gantt-columns-bound%}) instances - they take a model `Field` and exposes settings to control the [visibility]({%slug gantt-columns-visible%}) of the column, the [format of the displayed data]({%slug gantt-columns-displayformat%}), the [expanded state]({%slug gantt-columns-expand%}) of the node, and the [text alignment]({%slug gantt-columns-textalign%}).
+To show data in a Telerik Gantt Chart, you need to define [GanttColumn]({%slug gantt-columns-bound%}) instances - they take a model `Field` and exposes settings to control the [visibility]({%slug gantt-columns-visible%}) of the column, the [format of the displayed data]({%slug gantt-columns-displayformat%}), the [expanded state]({%slug gantt-columns-expand%}) of the node, and the text alignment.
 
 >tip The Telerik Blazor Gantt Chart is data source agnostic - you can use any database and service according to your project, you only need to get the collection of data models to the Gantt Chart in the view-model of the component hosting it.
 
@@ -452,8 +452,6 @@ The columns of the Gantt TreeList are one of its main building blocks and they o
 * [Visibility]({%slug gantt-columns-visible%})
 
 * [Expandable]({%slug gantt-columns-expand%})
-
-* [TextAlign]({%slug gantt-columns-textalign%})
 
 
 ## Toolbar

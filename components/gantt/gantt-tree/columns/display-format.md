@@ -1,9 +1,9 @@
 ---
 title: Display Format
-page_title: TreeList - Display Format
-description: Use C# Format string to display values in the TreeList for Blazor.
-slug: treelist-columns-displayformat
-tags: telerik,blazor,treelist,column,display,format
+page_title: Gantt Tree - Display Format
+description: Use C# Format string to display values in the Gantt Tree for Blazor.
+slug: gantt-columns-displayformat
+tags: telerik,blazor,gantt,column,display,format
 published: True
 position: 2
 ---
@@ -14,67 +14,93 @@ position: 2
 
 ## Example
 
->caption Use C# format strings in the treelist through the component markup and a data annotation attribute in the model
+>caption Use C# format strings in the Gantt Tree through the component markup
 
 ````CSHTML
-@using System.ComponentModel.DataAnnotations
-@* This Using is for the model class attributes only *@
 
-<TelerikTreeList Data="@Data" ItemsField="Items" Pageable="true">
-    <TreeListColumns>
-        <TreeListColumn Field="Name" Expandable="true" Width="150px"></TreeListColumn>
+@* Format the dates in the Gantt Tree by using the DisplayFormat parameter *@
 
-        <TreeListColumn Field="Salary"></TreeListColumn>
-        <TreeListColumn DisplayFormat="{0:dd MMM yy}" Field="HireDate"></TreeListColumn>
-
-    </TreeListColumns>
-</TelerikTreeList>
+<TelerikGantt Data="@Data"
+              Width="900px"
+              Height="600px"
+              IdField="Id"
+              ParentIdField="ParentId">
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+        <GanttYearView></GanttYearView>
+    </GanttViews>
+    <GanttColumns>
+        <GanttColumn Field="Title"
+                     Expandable="true"
+                     Width="160px"
+                     Title="Task Title">
+        </GanttColumn>
+        <GanttColumn Field="Start"
+                     Width="100px"
+                     DisplayFormat="Start: {0:d}">
+        </GanttColumn>
+        <GanttColumn Field="End"
+                     DisplayFormat="End: {0:d}"
+                     Width="100px">
+        </GanttColumn>
+    </GanttColumns>
+</TelerikGantt>
 
 @code {
-    public class TreeListHierarchicalItem
+    public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
+
+    class FlatModel
     {
-        public int? Id { get; set; }
-        public string Name { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:C2}")]
-        public decimal? Salary { get; set; }
-        public DateTime HireDate { get; set; }
-
-        public List<TreeListHierarchicalItem> Items { get; set; } = new List<TreeListHierarchicalItem>();
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
     }
 
-    // sample data generation
-    public List<TreeListHierarchicalItem> Data { get; set; }
+    public int LastId { get; set; } = 1;
+    List<FlatModel> Data { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        Data = new List<TreeListHierarchicalItem>();
-        var rand = new Random();
+        Data = new List<FlatModel>();
+        var random = new Random();
 
-        for (int i = 1; i < 4; i++)
+        for (int i = 1; i < 6; i++)
         {
-            var item = new TreeListHierarchicalItem()
+            var newItem = new FlatModel()
             {
-                Id = i,
-                Name = "Item " + i.ToString(),
-                Salary = i * 50000 / 12.34m,
-                HireDate = DateTime.Now.Date.AddMonths(rand.Next(-20, 20)).AddDays(rand.Next(-10, 10)),
+                Id = LastId,
+                Title = "Employee  " + i.ToString(),
+                Start = new DateTime(2020, 12, 6 + i),
+                End = new DateTime(2020, 12, 11 + i),
+                PercentComplete = Math.Round(random.NextDouble(), 2)
             };
-            Data.Add(item);
 
-            for (int j = 1; j < 4; j++)
+            Data.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
             {
-                item.Items.Add(new TreeListHierarchicalItem()
+                Data.Add(new FlatModel()
                 {
-                    Id = j,
-                    Name = $"Item {i}:{j}",
-                    Salary = (i + j) * 50000 / 12.34m,
-                    HireDate = DateTime.Now.Date.AddMonths(rand.Next(-20, 20)).AddDays(rand.Next(-10, 10)),
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Employee " + i + " : " + j.ToString(),
+                    Start = new DateTime(2020, 12, 6 + i + j),
+                    End = new DateTime(2020, 12, 7 + i + j),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
                 });
+
+                LastId++;
             }
         }
 
-        await base.OnInitializedAsync();
+        base.OnInitialized();
     }
 }
 ````
@@ -83,10 +109,8 @@ position: 2
 
 ![DisplayFormat basic sample](images/treelist-display-format.png)
 
+## Notes
 
-@[template](/_contentTemplates/grid/common-link.md#display-format-notes)
+* `Numeric`, `DateTime` and Enum types can use such formats. String and Boolean types are displayed without such a format, however.
 
-
-## See Also
-
-  * [Live Demo: Column Format](https://demos.telerik.com/blazor-ui/treelist/column-format)
+* The `CurrentInfo.CurrentCulture` is used when rendering the formats, so if you need specific formats for specific users, you must set the culture of the app accordingly.
