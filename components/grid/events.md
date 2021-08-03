@@ -16,17 +16,17 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 * [Read Event](#read-event) - event related to obtaining data
 * [Other Events](#other-events) - other events the grid provides
     * [State Events](#state-events)
-	* [Command Button Click](#command-button-click)
-	* [SelectedItemsChanged](#selecteditemschanged)
-	* [OnModelInit](#onmodelinit)
-	* [OnRowClick](#onrowclick)
-	* [OnRowDoubleClick](#onrowdoubleclick)
-	* [OnRowContextMenu](#onrowcontextmenu)
-	* [OnRowExpand](#onrowexpand)
-	* [OnRowCollapse](#onrowcollapse)
-	* [OnRowRender](#onrowrender)
-	* [OnRowDrop](#onrowdrop)
-	* [PageChanged](#pagechanged)
+    * [Command Button Click](#command-button-click)
+    * [SelectedItemsChanged](#selecteditemschanged)
+    * [OnModelInit](#onmodelinit)
+    * [OnRowClick](#onrowclick)
+    * [OnRowDoubleClick](#onrowdoubleclick)
+    * [OnRowContextMenu](#onrowcontextmenu)
+    * [OnRowExpand](#onrowexpand)
+    * [OnRowCollapse](#onrowcollapse)
+    * [OnRowRender](#onrowrender)
+    * [OnRowDrop](#onrowdrop)
+    * [PageChanged](#pagechanged)
     * [PageSizeChanged](#pagesizechanged)
 
 ## CUD Events
