@@ -1,124 +1,119 @@
 ---
 title: Flat Data
-page_title: TreeList - Data Binding to Flat Data
-description: Data Binding the treelist for Blazor to flat data.
-slug: treelist-data-binding-flat-data
-tags: telerik,blazor,treelist,data,bind,databind,databinding,flat
+page_title: Gantt Tree - Data Binding to Flat Data
+description: Data Binding the Gantt Tree for Blazor to flat data.
+slug: gantt-data-binding-flat-data
+tags: telerik,blazor,gantt,data,bind,databind,databinding,flat
 published: True
 position: 2
 ---
 
-# TreeList Data Binding to Flat Data
+# Gantt Tree Data Binding to Flat Data
 
 This article explains how to bind the treelist for Blazor to flat data. 
 @[template](/_contentTemplates/treelist/databinding.md#link-to-basics)
 
 
-Flat data means that the entire collection of treelist items is available at one level, for example `List<MyTreeListItemModel>`.
+Flat data means that the entire collection of gantt items is available at one level, for example `List<MyGanttItemModel>`.
 
-The parent-child relationships are created through internal data in the model - the `ParentId` field which points to the `Id` of the item that will contain the current item. The root level has `null` for `ParentId`. There must be at least one node with a `null` value so that the treelist renders anything.
+The parent-child relationships are created through internal data in the model - the `ParentId` field which points to the `Id` of the item that will contain the current item. The root level has `null` for `ParentId`. There must be at least one node with a `null` value so that the Gantt tree renders anything.
 
 If there are child items for a certain node (items whose `ParentId` points to the current item's `Id`), it will have an expand icon. The `HasChildren` field can override this, however, but it is not required for flat data binding.
 
->caption Example of flat data in a treelist - you need to point the TreeList to the Id and ParentId fields in your model
+>caption Example of flat data in a Gantt Tree - you need to point the TreeList to the Id and ParentId fields in your model
 
 ````CSHTML
 @* Using self-referencing flat data. In this model, the field names match the defaults, but they are set to showcase the concept. *@
 
-<TelerikTreeList Data="@Data" 
-
-                 IdField="Id" ParentIdField="ParentId"
-
-                 Pageable="true" Width="850px" Height="400px">
-    <TreeListColumns>
-        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Width="120px" />
-        <TreeListColumn Field="ParentId" Width="120px" />
-        <TreeListColumn Field="EmailAddress" Width="120px" />
-        <TreeListColumn Field="HireDate" Width="220px" />
-    </TreeListColumns>
-</TelerikTreeList>
+<TelerikGantt Data="@Data"
+              Width="900px"
+              Height="600px"
+              HasChildrenField=""
+              IdField="Id"
+              ParentIdField="ParentId">
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+        <GanttYearView></GanttYearView>
+    </GanttViews>
+    <GanttColumns>
+        <GanttColumn Field="@nameof(FlatModel.Id)">
+        </GanttColumn>
+        <GanttColumn Field="Title"
+                     Expandable="true"
+                     Width="160px"
+                     Title="Task Title">
+        </GanttColumn>
+        <GanttColumn Field="Start"
+                     Width="100px">
+        </GanttColumn>
+        <GanttColumn Field="End"
+                     Width="100px">
+        </GanttColumn>
+    </GanttColumns>
+</TelerikGantt>
 
 @code {
-    public List<Employee> Data { get; set; }
+    public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
 
-    protected override async Task OnInitializedAsync()
+    class FlatModel
     {
-        Data = await GetTreeListData();
-    }
-
-    // sample model
-
-    public class Employee
-    {
-        // denote the parent-child relationship between items
         public int Id { get; set; }
         public int? ParentId { get; set; }
-        
-        // custom data fields for display
-        public string Name { get; set; }
-        public string EmailAddress { get; set; }
-        public DateTime HireDate { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
     }
 
-    // data generation
+    public int LastId { get; set; } = 1;
+    List<FlatModel> Data { get; set; }
 
-    async Task<List<Employee>> GetTreeListData()
+    protected override void OnInitialized()
     {
-        List<Employee> data = new List<Employee>();
+        Data = new List<FlatModel>();
+        var random = new Random();
 
-        for (int i = 1; i < 15; i++)
+        for (int i = 1; i < 6; i++)
         {
-            data.Add(new Employee
+            var newItem = new FlatModel()
             {
-                Id = i,
-                ParentId = null, // indicates a root-level item
-                Name = $"root: {i}",
-                EmailAddress = $"{i}@example.com",
-                HireDate = DateTime.Now.AddYears(-i)
-            }); ;
+                Id = LastId,
+                Title = "Employee  " + i.ToString(),
+                Start = new DateTime(2020, 12, 6 + i),
+                End = new DateTime(2020, 12, 11 + i),
+                PercentComplete = Math.Round(random.NextDouble(), 2)
+            };
 
-            for (int j = 1; j < 4; j++)
+            Data.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
             {
-                int currId = i * 100 + j;
-                data.Add(new Employee
+                Data.Add(new FlatModel()
                 {
-                    Id = currId,
-                    ParentId = i,
-                    Name = $"first level child {j} of {i}",
-                    EmailAddress = $"{currId}@example.com",
-                    HireDate = DateTime.Now.AddDays(-currId)
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Employee " + i + " : " + j.ToString(),
+                    Start = new DateTime(2020, 12, 6 + i + j),
+                    End = new DateTime(2020, 12, 7 + i + j),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
                 });
 
-                for (int k = 1; k < 3; k++)
-                {
-                    int nestedId = currId * 1000 + k;
-                    data.Add(new Employee
-                    {
-                        Id = nestedId,
-                        ParentId = currId,
-                        Name = $"second level child {k} of {i} and {currId}",
-                        EmailAddress = $"{nestedId}@example.com",
-                        HireDate = DateTime.Now.AddMinutes(-nestedId)
-                    }); ;
-                }
+                LastId++;
             }
         }
 
-        return await Task.FromResult(data);
+        base.OnInitialized();
     }
 }
 ````
 
->caption The result from the code snippet above
-
-![TreeList bound to flat data](images/flat-binding.png)
-
 
 ## See Also
 
-  * [TreeList Data Binding Basics]({%slug treelist-data-binding-overview%})
-  * [Live Demo: TreeList Flat Data](https://demos.telerik.com/blazor-ui/treelist/flat-data)
-  * [Binding to Hierarchical Data]({%slug treelist-data-binding-hierarchical-data%})
-  * [Load on Demand]({%slug treelist-data-binding-load-on-demand%})
+  * [TreeList Data Binding Basics]({%slug gantt-data-binding-overview%})
+  * [Binding to Hierarchical Data]({%slug gantt-data-binding-hierarchical-data%})
 
