@@ -10,7 +10,7 @@ position: 5
 
 # DateHeader Templates
 
-You can change the contents that render in the date header cells of the Scheduler. This allows you to change the date format, add custom icons or other HTML elements.
+You can use the `DateHeaderTemplate` to customize the rendering of the Scheduler date header cells. This allows you to change the date format, add custom icons or other HTML elements.
 
 The `DateHeaderTemplate` can be defined for each Scheduler [view]({%slug scheduler-views-overview%}). It receives as `context` a `DateTime` object. 
 
