@@ -174,7 +174,7 @@ The data collection is passed to the [Gantt Tree]({%slug gantt-tree%}) and the c
 
 ## Data Binding
 
-To show data in a Telerik Gantt Chart, you need to define [GanttColumn]({%slug gantt-columns-bound%}) instances - they take a model `Field` and expose settings to control the [visibility]({%slug gantt-columns-visible%}) of the column, the [format of the displayed data]({%slug gantt-columns-displayformat%}), the [expanded state]({%slug gantt-columns-expand%}) of the node, and the text alignment.
+To show data in a Telerik Gantt Chart, you need to define [GanttColumn]({%slug gantt-columns-bound%}) instances - they take a model `Field` and expose settings to control the [visibility]({%slug gantt-columns-visible%}) of the column, the [format of the displayed data]({%slug gantt-columns-displayformat%}), and the text alignment.
 
 >tip The Telerik Blazor Gantt Chart is data source agnostic - you can use any database and service according to your project, you only need to get the collection of data models to the Gantt Chart in the view-model of the component hosting it.
 
@@ -451,12 +451,10 @@ The columns of the Gantt Tree are one of its main building blocks and they offer
 
 * [Visibility]({%slug gantt-columns-visible%})
 
-* [Expandable]({%slug gantt-columns-expand%})
-
 
 ## Toolbar
 
-You can define user actions in a [dedicated toolbar]({%slug gantt-toolbar%}). For the moment, they are mostly custom actions, but in future versions you will be able to add features like exporting there.
+You can define user actions in a dedicated toolbar. For the moment, they are mostly custom actions, but in future versions you will be able to add features like exporting there.
 
 ## Scrolling
 
