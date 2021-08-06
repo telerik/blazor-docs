@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Gantt Component Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/ganttchart" target="_blank">Blazor Gantt Chart component</a> allows you to easily illustrate a collection of tasks. The component consists of two areas: 
+The <a href = "https://www.telerik.com/blazor-ui/gantt" target="_blank">Blazor Gantt Chart component</a> allows you to easily illustrate a collection of tasks. The component consists of two areas: 
 
 * the [Gantt Tree]({%slug gantt-tree%}) to the left that hosts hierarchical information on the tasks, their start and end time
 * the [Timeline]({%slug gantt-timeline%}) view to the right that illustrates the time-frame and the completeness of the task.
