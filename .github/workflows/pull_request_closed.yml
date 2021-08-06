@@ -63,4 +63,16 @@ jobs:
           issue-number: ${{github.event.number}}
           body: | 
             Here you are the link to your PR to production: [${{steps.pr.outputs.pr_number}}](${{steps.pr.outputs.pr_url}})
-      
+  
+  delete_branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          token: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: Delete branch
+        run: |
+          git push origin --delete ${{github.head_ref}}
