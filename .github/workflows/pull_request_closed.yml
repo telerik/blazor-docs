@@ -65,6 +65,8 @@ jobs:
             Here you are the link to your PR to production: [${{steps.pr.outputs.pr_number}}](${{steps.pr.outputs.pr_url}})
   
   delete_branch:
+    needs: [cherry_pick]
+    if: always()
     runs-on: ubuntu-latest
 
     steps:
