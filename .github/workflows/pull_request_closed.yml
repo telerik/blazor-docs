@@ -1,0 +1,66 @@
+name: Pull Request Closed
+on:
+  pull_request:
+    branches: [test-branch]
+    types: [closed]
+jobs:
+  cherry_pick:
+    if: ${{github.event.pull_request.merged == true}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Should create PR to production?
+        uses: peter-evans/find-comment@v1
+        id: fc
+        with:
+          issue-number: ${{github.event.number}}
+          body-includes: "- [x] PR to production"
+      - name: checkout
+        if: steps.fc.outputs.comment-id != ''
+        uses: actions/checkout@v2
+        with:
+          token: '${{ secrets.GITHUB_TOKEN }}'
+          ref: test-branch-2
+          clean: true
+          fetch-depth: 0
+      - name: Cherry-pick commits
+        if: steps.fc.outputs.comment-id != ''
+        id: cp
+        run: |
+          # Setup git and create cherry-pick branch
+          git config user.name ${{github.actor}}
+          git config user.email ${{github.actor}}@github.com
+          BRANCH_NAME=CP-${{github.head_ref}}-${{github.event.number}}
+          git checkout -b ${BRANCH_NAME}
+          commits=$(git log origin/test-branch..origin/${{github.head_ref}} --pretty=format:"%h" --reverse)
+          git cherry-pick $commits
+          git push -u origin ${BRANCH_NAME}
+          git checkout test-branch-2
+          git branch -D ${BRANCH_NAME}
+          echo "##[set-output name=branch;]$(echo ${BRANCH_NAME})"
+      - name: Failed cherry-pick
+        if: ${{ failure() }}
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{github.event.number}}
+          body: | 
+            Automatic cherry-pick & PR to production failed. Ping @telerik/blazor-admins for manual cherry-pick and push to production.
+      - name: pull-request
+        id: pr
+        if: steps.fc.outputs.comment-id != ''
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "test-branch-2"
+          source_branch: ${{ steps.cp.outputs.branch }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_title: "Merge ${{ steps.cp.outputs.branch }} into test-branch-2" 
+          pr_body: | 
+            :crown: *An automated PR*
+            PR from master branch: ${{github.event.number}}. 
+      - name: Post PR link
+        if: steps.pr.outputs.pr_url != ''
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{github.event.number}}
+          body: | 
+            Here you are the link to your PR to production: [${{steps.pr.outputs.pr_number}}](${{steps.pr.outputs.pr_url}})
+      

@@ -1,0 +1,20 @@
+name: Comment PR Procedures
+
+on:
+  pull_request:
+    branches: [test-branch]
+    types: [opened]
+
+jobs:
+  post_comment_master:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create branch comment
+        if: ${{github.base_ref == 'test-branch'}}
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{github.event.number}}
+          body: | 
+            Hello @${{github.actor}}, 
+            
+            - [ ] PR to production
