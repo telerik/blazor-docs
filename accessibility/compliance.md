@@ -10,7 +10,7 @@ position: 4
 
 # Accessibility Standards Compliance
 
-This article lists the compliance with the various accessibility standards that the Telerik UI for Blazor components provide.
+This article lists the compliance to the various accessibility standards that the Telerik UI for Blazor components provide.
 
 For details on the keyboard support, see the [Keyboard Navigation]({%slug accessibility-keyboard-navigation%}) article.
 
