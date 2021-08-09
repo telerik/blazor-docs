@@ -10,7 +10,7 @@ position: 0
 
 # Accessibility Overview
 
-Websites and applications are accessible when they provide full control over their features by enabling users with disabilities to access their content through assistive technologies or keyboard navigation.
+Websites and applications are accessible when they provide full control over their features by enabling users with disabilities to access their content through assistive technologies, or keyboard navigation.
 
 Accessibility consists of several aspects:
 
