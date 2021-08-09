@@ -18,8 +18,6 @@ To validate the Blazor inputs, you need to:
 1. Add a `DataAnnotationsValidator` inside the editable form.
 1. Provide the values to the inputs through the `bind-Value` binding syntax.
 
-This article provides examples of validating the Telerik Blazor components. The examples are separated by input types for brevity:
-
 
 * [Simple Inputs](#simple-inputs)
 * [DropDownList](#dropdownlist)
