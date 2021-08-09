@@ -13,13 +13,6 @@ The UI for Blazor suite supports and integrates seamlessly into Blazor's Forms a
 
 To validate the Blazor inputs, you need to:
 
-1. Define a model that has the desired [Data Annotation attributes](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation).
-1. Place the inputs corresponding to its fields in an `EditForm`.
-1. Add a `DataAnnotationsValidator` inside the editable form.
-1. Provide the values to the inputs through the `bind-Value` binding syntax.
-
-This article provides examples of validating the Telerik Blazor components. The examples are separated by input types for brevity:
-
 
 * [Simple Inputs](#simple-inputs)
 * [DropDownList](#dropdownlist)
