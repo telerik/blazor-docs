@@ -65,17 +65,17 @@ jobs:
           body: | 
             Here you are the link to your PR to production: [${{steps.pr.outputs.pr_number}}](${{steps.pr.outputs.pr_url}})
   
-  delete_branch:
-    needs: [cherry_pick]
-    if: always()
-    runs-on: ubuntu-latest
+  # delete_branch:
+  #   needs: [cherry_pick]
+  #   if: always()
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
-        with:
-          token: '${{ secrets.GITHUB_TOKEN }}'
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v2
+  #       with:
+  #         token: '${{ secrets.GITHUB_TOKEN }}'
 
-      - name: Delete branch
-        run: |
-          git push origin --delete ${{github.head_ref}}
+  #     - name: Delete branch
+  #       run: |
+  #         git push origin --delete ${{github.head_ref}}
