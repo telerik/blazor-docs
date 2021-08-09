@@ -10,9 +10,6 @@ position: 50
 
 # Telerik DataSource Package
 
-The Telerik DataSource NuGet package is a set of classes and extension methods that help with remote (server-side) sorting, paging, grouping and filtering data collections.
-
-In this article:
 
 <!-- Start Document Outline -->
 
