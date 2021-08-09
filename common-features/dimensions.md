@@ -10,7 +10,7 @@ position: 3
 
 # Dimensions
 
-This article explains how dimensional properties like `Width` and `Height`, `Top` and `Left` work in the Telerik UI for Blazor suite to set size and position.
+This article explains how dimensional properties `Width` and `Height`, `Top` and `Left` work in the Telerik UI for Blazor suite to set size and position.
 
 Properties that denote **dimensions and positions are** simple **string properties** that are not parsed by our code. You can provide **valid CSS values** to them. For example, `100px` or `50%` are valid options. This provides you with flexibility without limiting options. At the time of writing there is no `Unit` type in the underlying framework.
 
