@@ -13,7 +13,7 @@ jobs:
         id: fc
         with:
           issue-number: ${{github.event.number}}
-          body-includes: "- [x] PR to production"
+          body-includes: "- [x] create pr to production"
       - name: checkout
         if: steps.fc.outputs.comment-id != ''
         uses: actions/checkout@v2
@@ -32,6 +32,7 @@ jobs:
           BRANCH_NAME=CP-${{github.head_ref}}-${{github.event.number}}
           git checkout -b ${BRANCH_NAME}
           commits=$(git log origin/test-branch..origin/${{github.head_ref}} --pretty=format:"%h" --reverse)
+          git log origin/test-branch..origin/${{github.head_ref}} --pretty=format:"%h" --reverse
           git cherry-pick $commits
           git push -u origin ${BRANCH_NAME}
           git checkout test-branch-2

@@ -17,4 +17,4 @@ jobs:
           body: | 
             Hello @${{github.actor}}, 
             
-            - [ ] PR to production
+            - [ ] create pr to production
