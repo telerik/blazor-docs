@@ -8,14 +8,6 @@ published: True
 position: 2
 ---
 
-# Loading Sign
-
-Many times a component loads or saves data and that can take some time. To show your users the app is working, and to prevent them from performing the same action multiple times, the Telerik Blazor components can show a busy indicator while such an operation is under way.
-
-The Telerik components use the Telerik [Loader]({%slug loader-overview%}) and [LoaderContainer]({%slug loadercontainer-overview%}) components internally to match the theme and design.
-
-There are three patterns for showing a loading indicator:
-
 * Some components add a large busy indicator that covers the entire data portion of the comopnent when they detect a slow-running `async` **data operation** (when it takes more than 600ms). For example, when the user inserts a record in the grid and the data service operation takes longer than that, there will be a loading indicator over the grid.
 
 * Some components and scenarios show placeholder items until the actual items are fetched/rendered. For example, virtualized rows in a grid, or dropdowns while being filtered. At the moment, these placeholders do not have any delay and show up immediately.
