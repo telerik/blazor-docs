@@ -1,7 +1,7 @@
 name: Pull Request Closed
 on:
   pull_request:
-    branches: [test-branch]
+    branches: [master]
     types: [closed]
 jobs:
   cherry_pick:
@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           token: '${{ secrets.GITHUB_TOKEN }}'
-          ref: test-branch-2
+          ref: production
           clean: true
           fetch-depth: 0
       - name: Cherry-pick commits
@@ -29,12 +29,12 @@ jobs:
           # Setup git and create cherry-pick branch
           git config user.name ${{github.actor}}
           git config user.email ${{github.actor}}@github.com
-          BRANCH_NAME=CP-${{github.head_ref}}-${{github.event.number}}
+          BRANCH_NAME=${{github.head_ref}}-${{github.event.number}}
           git checkout -b ${BRANCH_NAME}
-          commits=$(git log origin/test-branch..origin/${{github.head_ref}} --pretty=format:"%h" --reverse)
+          commits=$(git log origin/master..origin/${{github.head_ref}} --pretty=format:"%h" --reverse)
           git cherry-pick $commits
           git push -u origin ${BRANCH_NAME}
-          git checkout test-branch-2
+          git checkout production
           git branch -D ${BRANCH_NAME}
           echo "##[set-output name=branch;]$(echo ${BRANCH_NAME})"
       - name: Failed cherry-pick
@@ -49,11 +49,10 @@ jobs:
         if: steps.fc.outputs.comment-id != ''
         uses: repo-sync/pull-request@v2
         with:
-          destination_branch: "test-branch-2"
+          destination_branch: "production"
           source_branch: ${{ steps.cp.outputs.branch }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          pr_title: "Merge ${{ steps.cp.outputs.branch }} into test-branch-2" 
-          pr_reviewer: "blazordocsadmins,blazor-admins"
+          pr_title: "Merge ${{ steps.cp.outputs.branch }} into production" 
           pr_body: | 
             *This is automatically generated PR*
             PR from master branch: #${{github.event.number}}. Once the change is merged, upload the changes to LIVE.

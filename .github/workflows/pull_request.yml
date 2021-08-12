@@ -2,7 +2,7 @@ name: Comment PR Procedures
 
 on:
   pull_request:
-    branches: [test-branch]
+    branches: [master]
     types: [opened]
 
 jobs:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create branch comment
-        if: ${{github.base_ref == 'test-branch'}}
+        if: ${{github.base_ref == 'master'}}
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{github.event.number}}
