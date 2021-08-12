@@ -105,10 +105,6 @@ position: 2
 }
 ````
 
->caption The result from the code snippet above
-
-![DisplayFormat basic sample](images/treelist-display-format.png)
-
 ## Notes
 
 * `Numeric`, `DateTime` and Enum types can use such formats. String and Boolean types are displayed without such a format, however.
