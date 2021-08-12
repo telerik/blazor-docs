@@ -53,7 +53,7 @@ jobs:
           source_branch: ${{ steps.cp.outputs.branch }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_title: "Merge ${{ steps.cp.outputs.branch }} into test-branch-2" 
-          pr_reviewer: "telerik/blazor-admins"
+          pr_reviewer: "blazordocsadmins,blazor-admins"
           pr_body: | 
             *This is automatically generated PR*
             PR from master branch: #${{github.event.number}}. Once the change is merged, upload the changes to LIVE.
