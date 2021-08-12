@@ -16,5 +16,7 @@ jobs:
           issue-number: ${{github.event.number}}
           body: | 
             Hello @${{github.actor}}, 
+
+            Check the below option if you would like to automatically generate PR to production.
             
             - [ ] create pr to production

@@ -32,7 +32,6 @@ jobs:
           BRANCH_NAME=CP-${{github.head_ref}}-${{github.event.number}}
           git checkout -b ${BRANCH_NAME}
           commits=$(git log origin/test-branch..origin/${{github.head_ref}} --pretty=format:"%h" --reverse)
-          git log origin/test-branch..origin/${{github.head_ref}} --pretty=format:"%h" --reverse
           git cherry-pick $commits
           git push -u origin ${BRANCH_NAME}
           git checkout test-branch-2
@@ -54,9 +53,10 @@ jobs:
           source_branch: ${{ steps.cp.outputs.branch }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_title: "Merge ${{ steps.cp.outputs.branch }} into test-branch-2" 
+          pr_reviewer: "telerik/blazor-admins"
           pr_body: | 
-            :crown: *An automated PR*
-            PR from master branch: ${{github.event.number}}. 
+            *This is automatically generated PR*
+            PR from master branch: #${{github.event.number}}. Once the change is merged, upload the changes to LIVE.
       - name: Post PR link
         if: steps.pr.outputs.pr_url != ''
         uses: peter-evans/create-or-update-comment@v1
@@ -65,17 +65,17 @@ jobs:
           body: | 
             Here you are the link to your PR to production: [${{steps.pr.outputs.pr_number}}](${{steps.pr.outputs.pr_url}})
   
-  # delete_branch:
-  #   needs: [cherry_pick]
-  #   if: always()
-  #   runs-on: ubuntu-latest
+  delete_branch:
+    needs: [cherry_pick]
+    if: always()
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - name: checkout
-  #       uses: actions/checkout@v2
-  #       with:
-  #         token: '${{ secrets.GITHUB_TOKEN }}'
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          token: '${{ secrets.GITHUB_TOKEN }}'
 
-  #     - name: Delete branch
-  #       run: |
-  #         git push origin --delete ${{github.head_ref}}
+      - name: Delete branch
+        run: |
+          git push origin --delete ${{github.head_ref}}
