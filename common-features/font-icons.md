@@ -14,13 +14,6 @@ The UI for Blazor suite comes with a set of font icons that you can use in vario
 
 In this article:
 
-* [Standalone Icon Component](#standalone-icon-component)
-* [Icon Parameters - Order of Precedence](#icon-parameters---order-of-precedence)
-* [Icon in Telerik Component](#icon-in-telerik-component)
-* [Icon Adjustments](#icon-adjustments)
-* [Icons List](#icons-list)
-	
-
 
 ## Standalone Icon Component
 
