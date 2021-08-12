@@ -10,8 +10,6 @@ position: 1
 
 # Built-in Icons
 
-The UI for Blazor suite comes with a set of font icons that you can use in various places like in the Button component, or as a standalone component.
-
 In this article:
 
 * [Standalone Icon Component](#standalone-icon-component)
