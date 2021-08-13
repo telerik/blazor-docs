@@ -57,7 +57,7 @@ The <a href="https://www.telerik.com/blazor-ui/tooltip" target="_blank">Blazor T
 * `Template` - a `RenderFragment` that lets you generate content for the tooltip based on metadata for the target. You can also fetch data on demand for the tooltip content through that. You can see examples in the [Tooltip Template]({%slug tooltip-template%}) article.
 * `Width` - The width of the tooltip. @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior)
 
->tip To have the tooltip stretch accroding to your content, you should leave _both_ the `Width` and `Height` parameters empty. If one of them has a value, the HTML element will have some layout and you may get unexpected results in terms of size and position.
+>tip To have the tooltip stretch according to your content, you should leave _both_ the `Width` and `Height` parameters empty. If one of them has a value, the HTML element will have some layout and you may get unexpected results in terms of size and position.
 >
 > If you will be [loading large content on demand]({%slug tooltip-template%}#separate-component-and-load-on-demand), you should set dimensions that will accommodate the expected content and layout.
 
