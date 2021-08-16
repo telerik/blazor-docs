@@ -32,11 +32,11 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
 @*Change the icons in the Hierarchical Grid*@
 
 <style>
-    .custom-icons .k-hierarchy-cell .k-icon.k-plus::before {
+    .custom-icons .k-hierarchy-cell .k-icon.k-i-plus::before {
         content: "\e005";
     }
 
-    .custom-icons .k-hierarchy-cell .k-icon.k-minus::before {
+    .custom-icons .k-hierarchy-cell .k-icon.k-i-minus::before {
         content: "\e006";
     }
 </style>
