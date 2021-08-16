@@ -3,7 +3,7 @@ title: Clear the value (selection) of a combobox, dropdown, input
 description: How to clear the selection of a combo box, dropdown or other input
 type: how-to
 page_title: Clear the selection (Value) of a combobox, dropdown, input
-slug: inputs-clear-selection-value
+slug: inputs-kb-clear-selection-value
 position: 
 tags: combobox, dropdownlist, input, textbox
 ticketid: 1531727
