@@ -5,7 +5,7 @@ publish: false
 
 # Telerik® UI for Blazor Documentation
 
-Welcome to the GitHub repo for the [UI for Blazor](https://www.telerik.com/blazor-ui) documentation. This repository contains the source content — written in Markdown — that we use to power Telerik® UI for Blazor Documentation at [http://docs.telerik.com/blazor-ui/introduction](http://docs.telerik.com/blazor-ui/introduction).
+Welcome to the GitHub repo for the [UI for Blazor components](https://www.telerik.com/blazor-ui) documentation. This repository contains the source content — written in Markdown — that we use to power Telerik® UI for Blazor Documentation at [http://docs.telerik.com/blazor-ui/introduction](http://docs.telerik.com/blazor-ui/introduction).
 
 If you've arrived here wanting to search and peruse our docs, you'd be better served heading over to [http://docs.telerik.com/blazor-ui/introduction](http://docs.telerik.com/blazor-ui/introduction) where our content is prettified and searchable.
 
