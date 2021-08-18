@@ -23,7 +23,7 @@ The OnChange event is triggered on the current step and fires before the step ha
 * `TargetIndex` - contains the index of the targeted new Wizard step.
 * `IsCancelled` - specifies whether the event is canceled and the built-in action is prevented.
 
-The OnChange event **does not fire** when clicking on [custom Wizard buttons]({%slug wizard-structure-buttons%}#custom-buttons). However, the event **will always fire** when clicking on the [Wizard Stepper]({%slug wizard-structure-stepper%}). This means that you may need to do one of the following:
+[Custom Wizard buttons]({%slug wizard-structure-buttons%}#custom-buttons) **do not trigger the OnChange event**. However, the event **will always fire** when clicking on the [Wizard Stepper]({%slug wizard-structure-stepper%}). This means that you may need to do one of the following:
 * Execute business logic in both the step `OnChange` handler and the [button `OnClick` handler]({%slug wizard-structure-buttons%}#custom-buttons).
 * Call the step `OnChange` handlers from the button `OnClick` handlers (second example below).
 
