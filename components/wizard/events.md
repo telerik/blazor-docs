@@ -25,7 +25,7 @@ The OnChange event is triggered on the current step and fires before the step ha
 
 The OnChange event **does not fire** when clicking on [custom Wizard buttons]({%slug wizard-structure-buttons%}#custom-buttons). However, the event **will always fire** when clicking on the [Wizard Stepper]({%slug wizard-structure-stepper%}). This means that you may need to do one of the following:
 * Execute business logic in both the step `OnChange` handler and the [button `OnClick` handler]({%slug wizard-structure-buttons%}#custom-buttons).
-* Call the step `OnChange` handlers from the button `OnClick` handlers (example below).
+* Call the step `OnChange` handlers from the button `OnClick` handlers (second example below).
 
 The OnChange event handler is defined in the respective `<WizardStep>` tag.
 
