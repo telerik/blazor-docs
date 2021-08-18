@@ -65,13 +65,13 @@ The Wizard provides the following default buttons:
 </div>
 ````
 
-
 ## Custom buttons
 
 The Wizard component allows you to include your custom buttons. You can define the desired buttons under the `WizardButtons` tag of the `TelerikWizard`.
 
-This configuration overrides the whole rendering of the bottom right section of the Wizard including the built-in buttons and thus provides a full control over it. If you want to include Next and Previous buttons as per the default setup of the Wizard, you need to also add them inside the `WizardButtons`.
+This configuration overrides the whole rendering of the bottom right section of the Wizard, including the built-in buttons and thus provides a full control over it. If you want to include Next and Previous buttons as per the default setup of the Wizard, you need to also add them inside the `WizardButtons`.
 
+>Custom Wizard buttons do not trigger the [Wizard `OnChange` event]({%slug wizard-events%}#onchange). See the event documentation for tips in such scenarios.
 
 >caption Wizard with custom buttons. The result from the snippet.
 
