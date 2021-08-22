@@ -378,7 +378,7 @@ public class LocalStorage
 ````
 
 ### Save and Load Grid State in a WebAssembly application
-This [knowledge base article]({%slug grid-kb-save-state-in-webassembly%}) shows one way to store the `Grid` state - through a custom controller. You can also store it in the Browser's Local Storage.
+This [knowledge base article]({%slug grid-kb-save-state-in-webassembly%}) shows the ways to store the `Grid` state in a WASM project - through a custom controller and LocalStorage service.
 
 ### Set Grid Options Through State
 

@@ -11,7 +11,7 @@ res_type: kb
 
 ## Description
 
-How to save the Grid State in a WASM project? How to save the Grid State in a WebAssembly controller?
+How to save the Grid State in a WASM project? How to save the Grid State in a WebAssembly through a controller? How to save the Grid State in a WebAssembly through a LocalStorage service? 
 
 
 ## Solution
