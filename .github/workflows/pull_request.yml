@@ -17,6 +17,6 @@ jobs:
           body: | 
             Hello @${{github.actor}}, 
 
-            Check the below option if you would like to automatically generate PR to production.
+            Check the below option if you would like to automatically generate PR to production. The automation uses the branch for the cherry-pick, and then will delete the branch. Please, do not delete it manually.
             
             - [ ] create pr to production
