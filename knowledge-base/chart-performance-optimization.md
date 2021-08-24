@@ -42,7 +42,7 @@ There are several things you can do to improve the performance, and you can do a
 
 * Set the `Transitions` property of the chart to `false` to disable the animations.
 
-* Set the `RenderAs` property to `Telerik.Blazor.RenderingMode.Canvas` (it defaults to SVG)
+* Set the `RenderAs` property to `Telerik.Blazor.RenderingMode.Canvas` (it defaults to SVG) - read more in the [Rendering Modes article]({%slug chart-rendering-modes%})
 
 * Increase the interval over which data updates are made. Very short intervals also make it difficult for human eyes to review the information anyway.
 
