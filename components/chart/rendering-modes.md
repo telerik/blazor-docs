@@ -71,7 +71,7 @@ The browser does not have to maintain a live DOM tree for the Chart which result
 On the downside, rendering to a fixed resolution bitmap results in:
 
 * Blurry images on zoom.
-* Poor print quality.
+* Poorer print quality.
 
 >caption Bar Chart rendered as Canvas. The result from the snippet below.
 
