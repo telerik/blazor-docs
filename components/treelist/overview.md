@@ -676,5 +676,5 @@ You can benefit from the elastic design the components expose to change their fo
 
 ## See Also
 
-  * [Live Demos: TreeList](https://demos.telerik.com/blazor-ui/treelist/index)
+  * [Live Demos: TreeList](https://demos.telerik.com/blazor-ui/treelist/overview)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeList-1)
