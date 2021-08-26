@@ -18,18 +18,16 @@ The available events in the Telerik Wizard for Blazor are:
 
 ## OnChange
 
-The OnChange event is triggered on the current step and fires before the step has changed. The handler receives an object of type `WizardStepChangeEventArgs` which exposes the following fields:
+The `OnChange` event is triggered on the current step and fires before the step has changed. The handler receives an object of type `WizardStepChangeEventArgs` which exposes the following fields:
 
 * `TargetIndex` - contains the index of the targeted new Wizard step.
 * `IsCancelled` - specifies whether the event is canceled and the built-in action is prevented.
 
-[Custom Wizard buttons]({%slug wizard-structure-buttons%}#custom-buttons) **do not trigger the OnChange event**. However, the event **will always fire** when clicking on the [Wizard Stepper]({%slug wizard-structure-stepper%}). This means that you may need to do one of the following:
-* Execute business logic in both the step `OnChange` handler and the [button `OnClick` handler]({%slug wizard-structure-buttons%}#custom-buttons).
-* Call the step `OnChange` handlers from the button `OnClick` handlers (second example below).
+>[Custom Wizard buttons]({%slug wizard-structure-buttons%}#custom-buttons) do not trigger the `OnChange` event. See section [Execute Business Logic With Custom Wizard Buttons]({%slug wizard-structure-buttons%}#execute-business-logic-with-custom-wizard-buttons).
 
-The OnChange event handler is defined in the respective `<WizardStep>` tag.
+The `OnChange` event handler is defined in the respective `<WizardStep>` tag.
 
->caption Handle the `OnChange` event of the first and second steps. The result from the snippet below.
+>caption Handle the `OnChange` event of the first and second step (code snippet below)
 
 ![OnChange](images/onchange-example.gif)
 
@@ -80,109 +78,12 @@ Next targeted step index: @TargetIndex
     public DialogFactory Dialog { get; set; }
 }
 ````
->caption Handle OnChange and cancel the event when using custom Wizard buttons
-
-````CHTML
-@* Handle OnChange and cancel the event when using custom Wizard buttons *@
-
-@if (ShowWizard)
-{
-    <TelerikWizard @bind-Value="@CurrentWizardStep" OnFinish="@OnWizardFinish">
-        <WizardSettings>
-            <WizardStepperSettings />
-        </WizardSettings>
-        <WizardSteps>
-            <WizardStep Label="Step 1" OnChange="@OnStepChange">
-                <Content>
-                    <p>First Step</p>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Step 2" OnChange="@OnStepChange">
-                <Content>
-                    <p>Second Step</p>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Step 3" OnChange="@OnStepChange">
-                <Content>
-                    <p>Third Step</p>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-        <WizardButtons>
-            @{
-                var currentStepIndex = context;
-
-                if (currentStepIndex > 0)
-                {
-                    <TelerikButton OnClick="@( () => PreviousClick(currentStepIndex) )">Back</TelerikButton>
-                }
-                if (currentStepIndex < 2)
-                {
-                    <TelerikButton Primary="true" OnClick="@( () => NextClick(currentStepIndex) )">Next</TelerikButton>
-                }
-                else
-                {
-
-                    <TelerikButton Primary="true" OnClick="@DoneClick">Done</TelerikButton>
-                }
-            }
-        </WizardButtons>
-    </TelerikWizard>
-}
-else
-{
-    <p>Wizard steps complete!</p>
-}
-
-@code {
-    public int CurrentWizardStep { get; set; } = 0;
-    public bool ShowWizard { get; set; } = true;
-
-    private async Task NextClick(int currentStepIndex)
-    {
-        var args = new WizardStepChangeEventArgs() {
-            IsCancelled = false,
-            TargetIndex = currentStepIndex + 1
-        };
-
-        await OnStepChange(args);
-
-        if (!args.IsCancelled)
-        {
-            CurrentWizardStep = currentStepIndex + 1;
-        }
-    }
-    private async Task PreviousClick(int newStepIndex)
-    {
-        CurrentWizardStep = newStepIndex - 1;
-    }
-    private async Task DoneClick()
-    {
-        OnWizardFinish();
-    }
-
-    public async Task OnStepChange(WizardStepChangeEventArgs args)
-    {
-        @*
-        if (true)
-        {
-            args.IsCancelled = true;
-        }
-        *@
-    }
-
-    private void OnWizardFinish()
-    {
-        ShowWizard = false;
-    }
-}
-````
 
 ## ValueChanged
 
-The `ValueChanged` event fires after the [OnChange](#onchange) event is triggered and the Step has been changed.
+The `ValueChanged` event fires after the [`OnChange`](#onchange) event is triggered and the Step has been changed.
 
->caption Handle the `ValueChanged` event of the Wizard. The result from the snippet below.
+>caption Handle the `ValueChanged` event of the Wizard (code snippet below).
 
 ![ValueChanged](images/valuechanged-example.gif)
 
@@ -227,13 +128,13 @@ The `ValueChanged` event fires after the [OnChange](#onchange) event is triggere
 
 ## OnFinish
 
-The `OnFinish` event fires when the Done button of the Wizard is clicked.
+The `OnFinish` event fires when the **Done** button of the Wizard is clicked.
 
->caption Handle the `OnFinish` event of the Wizard. The result from the snippet below.
+>[Custom Wizard buttons]({%slug wizard-structure-buttons%}#custom-buttons) do not trigger the `OnFinish` event. See section [Execute Business Logic With Custom Wizard Buttons]({%slug wizard-structure-buttons%}#execute-business-logic-with-custom-wizard-buttons).
 
+>caption Handle the `OnFinish` event of the Wizard (code snippet below)
 
 ![OnFinish](images/onfinish-example.gif)
-
 
 ````CSHTML
 @* Handle the OnFinish event of the Wizard *@
