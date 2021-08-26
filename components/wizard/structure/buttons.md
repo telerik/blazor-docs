@@ -132,7 +132,7 @@ Custom Wizard buttons cannot fire the `OnChange` and `OnFinish` events. As a res
 
 * [Disable all Stepper steps]({%slug wizard-structure-stepper%}#disabled). The user will still be able to navigate with the custom Wizard buttons.
 * [Disable Stepper clicks with CSS](#disable-stepper-clicks-with-css). In this way, the Stepper will not look disabled. It is also possible to [hide the Stepper completely](#hide-the-stepper).
-* [Call the `OnChange` and `OnFinish` handlers from the button `OnClick` handlers](#call-step-onchange-from-button-onclick), to avoid duplicate code.
+* [Call the `OnChange` and `OnFinish` handlers from the button `OnClick` handlers](#call-onchange-and-onfinish-from-button-onclick), to avoid duplicate code.
 * Execute the same code in both the step `OnChange` handlers and the button `OnClick` handlers.
 
 ### Disable Stepper Clicks with CSS
