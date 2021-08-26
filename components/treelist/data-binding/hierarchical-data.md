@@ -123,7 +123,7 @@ If there are items for a certain node, it will have an expand icon. The `HasChil
 ## See Also
 
   * [TreeList Data Binding Basics]({%slug treelist-data-binding-overview%})
-  * [Live Demo: TreeList Hierarchical Data](https://demos.telerik.com/blazor-ui/treelist/hierarchical-data)
+  * [Live Demo: TreeList Hierarchical Data](https://demos.telerik.com/blazor-ui/treelist/binding-hierarchical-data)
   * [Binding to Flat Data]({%slug treelist-data-binding-flat-data%})
   * [Load on Demand]({%slug treelist-data-binding-load-on-demand%})
 
