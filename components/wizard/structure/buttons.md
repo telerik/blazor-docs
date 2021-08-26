@@ -169,7 +169,7 @@ The code below shows will prevent clicks on all Stepper steps, without making th
 
 ### Call Step OnChange From Button OnClick
 
->caption Handle OnChange and cancel the event when using custom Wizard buttons
+>caption Handle OnChange and OnFinish events when using custom Wizard buttons. Cancel the OnChange event.
 
 ````CHTML
 @* Handle OnChange and OnFinish events when using custom Wizard buttons. Cancel the OnChange event. *@
