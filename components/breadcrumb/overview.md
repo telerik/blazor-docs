@@ -14,21 +14,20 @@ The <a href="https://www.telerik.com/blazor-ui/menu" target="_blank">Blazor Menu
 
 #### To use a Telerik Breadcrumb for Blazor:
 
-1. add the `TelerikMenu` tag
-1. provide a collection of models to its `Data` property (read more in the [Data Binding article]({%slug %}))
+1. add the `TelerikBreadcrumb` tag
+1. provide a collection of models to its `Data` property (read more in the [Data Binding article]({%slug breadcrumb-data-binding%}))
 1. match the fields in the models with the binding schema for the nodes
 
->caption Basic menu with hierarchical data binding and built-in navigation
+>caption Basic menu with data binding. The result from the snippet below.
+
+![Breadcrumb for Blazor](images/ )
 
 ````CSHTML
-Use a menu to navigate between views
-
 
 ````
 
->caption The result from the snippet above, after hovering the "Services" item
 
-![](images/ )
+
 
 >caption Component namespace and reference
 
@@ -52,11 +51,8 @@ Use a menu to navigate between views
 ````
 
 
-
-
 ## See Also
 
-  * [Data Binding a Menu]({% %})
-  * [Live Demo: Menu]()
+  * [Live Demo: Breadcrumb Overview](https://demos.telerik.com/blazor-ui/breadcrumb/overview)
   * [API Reference]()
 

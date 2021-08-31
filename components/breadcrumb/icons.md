@@ -20,7 +20,9 @@ You can put an image, an icon class or a font icon for each item in the Breadcru
 
 The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span class="the custom class" />` and as `<img src="the-image-src" />`
 
->caption How to use icons in Telerik Breadcrumb
+>caption How to use icons in Telerik Breadcrumb. The result from the code snippet below.
+
+![Breadcrumb Icons](images/)
 
 ````CSHTML
 @* This example shows how to add icons to the Breadcrumb items *@
@@ -28,12 +30,8 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
 
 ````
 
->caption The result from the code snippet above
-
-![icons](images/drawer-icons.png)
-
 
 
 ## See Also
 
-  * [Breadcrumb Overview]({%slug drawer-overview%})
+  * [Live Demo: Breadcrumb Icons](https://demos.telerik.com/blazor-ui/breadcrumb/icons)

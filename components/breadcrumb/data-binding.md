@@ -49,7 +49,7 @@ The properties of a Breadcrumb item match directly to a field of the model the B
 
 @[template](/_contentTemplates/common/navigation-components.md#default-fields-match-issues)
 
->caption Default field names for drawer item bindings. If you use these, you don't have to specify them in the `TelerikBreadcrumb` tag explicitly.
+>caption Default field names for Breadcrumb item bindings. If you use these, you don't have to specify them in the `TelerikBreadcrumb` tag explicitly.
 
 ````CSHTML
     public class BreadcrumbItem
@@ -99,8 +99,6 @@ The properties of a Breadcrumb item match directly to a field of the model the B
 }
 ````
 
-
-
 ## See Also
 
-* 
+* [Live Demo: Breadcrumb Data Binding](https://demos.telerik.com/blazor-ui/breadcrumb/data-binding)

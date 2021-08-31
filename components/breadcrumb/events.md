@@ -71,4 +71,4 @@ Last clicked item: @ClickedItem?.Text
 
 ## See Also
 
-* [Templates]({%slug components/menu/templates%})
+* [Live Demo: Breadcrumb Events](https://demos.telerik.com/blazor-ui/breadcrumb/events)
