@@ -21,10 +21,31 @@ You can specify how the Breadcrumb items are visualized when their total width i
 
 > caption Set the Breadcrumb CollapseMode to `Wrap`. The result from the snippet below.
 
-![Breadcrumb CollapseMode Wrap](images/)
+![Breadcrumb CollapseMode Wrap](images/breadcrumb-collapse-modes-example.png)
 
 ````CSHTML
+@* This example demonstrates how to change the default Breadcrumb CollapseMode to Wrap *@
 
+<div style="width:400px">
+    <TelerikBreadcrumb CollapseMode="@BreadcrumbCollapseMode.Wrap"
+                       Data="@Items">
+    </TelerikBreadcrumb>
+</div>
+
+@code {
+
+    public IEnumerable<BreadcrumbItem> Items { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Items = Enumerable.Range(1, 10).Select(x => new BreadcrumbItem { Text = $"Item {x}" }).ToList();
+    }
+
+    public class BreadcrumbItem
+    {
+        public string Text { get; set; }
+    }
+}
 ````
 
 ## See Also

@@ -9,42 +9,47 @@ position: 30
 ---
 
 
-# Events
+# Breadcrumb Events
 
 This article explains the events available in the Telerik Breadcrumb for Blazor:
 
-* [OnClick](#onclick)
+* [OnItemClick](#onitemclick)
 
-## OnClick
+## OnItemClick
 
-The `OnClick` event fires when the user clicks or taps on a Breadcrumb item. It receives object of type `BreadcrumbItemClickEventArgs` which exposes the following fields:
+The `OnItemClick` event fires when the user clicks or taps on a Breadcrumb item and before any navigation occurs. It receives object of type `BreadcrumbItemClickEventArgs` which exposes the following fields:
 
 * `Item` - an object you can cast to your model class to obtain the clicked data item.
 * `IsCancelled` - specifies whether the event is canceled and the built-in action is prevented.
 
-You can use the `OnClick` event to react to user choices in a Breadcrumb without using navigation to load new content automatically.
+**The event will not fire for the last item or if the Breadcrumb Item has been disabled.**
 
->caption Handle OnClick
+You can use the `OnItemClick` event to react to user choices in a Breadcrumb without using navigation to load new content automatically.
+
+>caption Handle OnItemClick event of the Breadcrumb
 
 ````CSHTML
-@* Handle the OnClick event of the Breadcrumb *@
+@* Handle the OnItemClick event of the Breadcrumb and cancel it for Item 3*@
 
-Last clicked item: @ClickedItem?.Text
+@logger
 
-<TelerikBreadcrumb Data="@Items" OnItemClick="@ClickHandler">
+<TelerikBreadcrumb OnItemClick="@ClickHandler"
+                   Data="@Items" >
 </TelerikBreadcrumb>
 
 @code {
-
-    public BreadcrumbItem ClickedItem { get; set; }
+    string logger;
 
     void ClickHandler(BreadcrumbItemClickEventArgs args)
     {
-        ClickedItem = args.Item as BreadcrumbItem;
+        var ClickedItem = args.Item as BreadcrumbItem;
 
-        if (ClickedItem.Text == "Item3")
+        logger = $"User clicked {ClickedItem.Text}";
+
+        if (ClickedItem.Text == "Item 3")
         {
-            args.IsCancelled = true;            
+            args.IsCancelled = true;
+            logger = $"OnItemClick is cancelled for {ClickedItem.Text}";
         }
     }
 
@@ -53,11 +58,11 @@ Last clicked item: @ClickedItem?.Text
     protected override void OnInitialized()
     {
         Items = new List<BreadcrumbItem>
-    {
-            new BreadcrumbItem { Text = "Item1" },
-            new BreadcrumbItem { Text = "Item2" },
-            new BreadcrumbItem { Text = "Item3" },
-            new BreadcrumbItem { Text = "Item4" },
+        {
+            new BreadcrumbItem { Text = "Item 1" },
+            new BreadcrumbItem { Text = "Item 2" },
+            new BreadcrumbItem { Text = "Item 3" },
+            new BreadcrumbItem { Text = "Item 4" },
         };
     }
 
