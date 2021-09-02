@@ -22,16 +22,55 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
 
 >caption How to use icons in Telerik Breadcrumb. The result from the code snippet below.
 
-![Breadcrumb Icons](images/)
+![Breadcrumb Icons](images/breadcrumb-icons-example.png)
 
 ````CSHTML
-@* This example shows how to add icons to the Breadcrumb items *@
+@* This example shows how to add icons or images to Breadcrumb items. 
+   Make sure that you also reference the OpenIconic font that comes with the Blazor App template to see the custom font icon *@
 
+<TelerikBreadcrumb Data="@Items"
+                   IconField="@nameof(BreadcrumbItem.TelerikIcon)"
+                   IconClassField="@nameof(BreadcrumbItem.MyIconClass)"
+                   ImageUrlField="@nameof(BreadcrumbItem.MyImage)">
+</TelerikBreadcrumb>
 
+@code {
+    public IEnumerable<BreadcrumbItem> Items { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Items = new List<BreadcrumbItem>
+        {
+            new BreadcrumbItem
+            {
+                Text = "Home",
+                TelerikIcon = "home"
+            },
+            new BreadcrumbItem
+            {
+                Text = "Settings",
+                MyIconClass = "oi oi-wrench"
+            },
+            new BreadcrumbItem
+            {
+                Text = "Favourites",
+                MyImage = "https://docs.telerik.com/blazor-ui/images/star.png"
+            }
+        };
+    }
+
+    public class BreadcrumbItem
+    {
+        public string Text { get; set; }
+        public string TelerikIcon { get; set; }
+        public string MyIconClass { get; set; }
+        public string MyImage { get; set; }
+    }
+}
 ````
 
 
 
 ## See Also
 
-  * [Live Demo: Breadcrumb Icons](https://demos.telerik.com/blazor-ui/breadcrumb/icons)
+  * [Live Demo: Breadcrumb Items](https://demos.telerik.com/blazor-ui/breadcrumb/items)

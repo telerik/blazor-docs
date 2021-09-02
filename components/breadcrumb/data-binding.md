@@ -8,9 +8,9 @@ published: True
 position: 5
 ---
 
-# Drawer Data Binding
+# Breadcrumb Data Binding
 
-This article explains the how to provide data to a Breadcrumb component so it renders items for you, the properties related to data binding and their results.
+This article explains how to provide data to a Breadcrumb component, so it renders items for you, the properties related to data binding and their results.
 
 @[template](/_contentTemplates/common/general-info.md#valuebind-vs-databind-link)
 
@@ -26,10 +26,11 @@ The Breadcrumb items provide the following features that you control through the
 
 
 * `Text` - the text that will be shown on the item.
-* `Title` - the text that will be added to the `title` attribute of the html element
-* `ImageUrl` / `Icon` / `IconClass`  - the URL to a raster image, the [Telerik icon]({%slug general-information/font-icons%}), or a class for a custom font icon that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `ImageUrl` will have the highest importance).
+* `Title` - the text that will be added to the `title` attribute of the html element.
+* `ImageUrl` / `Icon` / `IconClass`  - the URL to a raster image, the [Telerik icon]({%slug general-information/font-icons%}), or a class for a custom font icon that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `ImageUrl` will have the highest importance). Read more in the [Icons article]({%slug breadcrumb-icons%}).
 * `Url` - the view the item will navigate to by generating a link.
 * `Disabled` -  you can disable items by setting this field to `true`. Such items will keep rendering but will not be clickable.
+* `Class` - the CSS class that will be rendered on the main wrapping container of the item. You can use it to apply the desired styles to the separate Breadcrumb items.
 
 ## Data Bindings
 
@@ -43,6 +44,7 @@ The properties of a Breadcrumb item match directly to a field of the model the B
 * ImageUrlField => ImageUrl
 * UrlField => Url
 * DisabledField => Disabled
+* ClassField => Class
 
 
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
@@ -60,13 +62,14 @@ The properties of a Breadcrumb item match directly to a field of the model the B
         public string IconClass { get; set; }
         public string Url { get; set; }
         public string Disabled { get; set; }
+        public string Class { get; set; }
     }
 ````
 
 ## Example - Data Binding to Non-Default Field Names
 
 ````CSHTML
-@* This example shows how you can data bind the Breadcrumb and set the field names it will use from the model 
+@*This example shows how you can data bind the Breadcrumb and set the field names it will use from the model*@
 
 <TelerikBreadcrumb Data="@Items"
                    TextField="ItemText"
@@ -82,10 +85,22 @@ The properties of a Breadcrumb item match directly to a field of the model the B
     {
         Items = new List<BreadcrumbItem>
         {
-            new BreadcrumbItem { ItemText = "Item1", ItemUrl = "https://demos.telerik.com/blazor-ui/drawer/overview", ItemIcon = "home" },
-            new BreadcrumbItem { ItemText = "Item2", ItemUrl = "https://demos.telerik.com/blazor-ui/drawer/display-modes", ItemDisabled = "true" },
-            new BreadcrumbItem { ItemText = "Item3", ItemUrl = "https://demos.telerik.com/blazor-ui/drawer/mini" },
-            new BreadcrumbItem { ItemText = "Item4", ItemUrl = "https://demos.telerik.com/blazor-ui/drawer/positioning" },
+            new BreadcrumbItem 
+            { 
+                ItemText = "Overview", 
+                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/overview", 
+                ItemIcon = "home" 
+            },
+            new BreadcrumbItem 
+            { ItemText = "Navigation", 
+                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/navigation", 
+                ItemDisabled = "true" 
+            },
+            new BreadcrumbItem 
+            { 
+                ItemText = "Collapse Modes", 
+                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/collapse-modes" 
+            }
         };
     }
 
