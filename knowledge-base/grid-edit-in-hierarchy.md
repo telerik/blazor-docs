@@ -59,9 +59,9 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
             <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
-    <DetailTemplate>
+    <DetailTemplate Context="productItem">
         @{
-            Product product = context as Product;
+            Product product = productItem as Product;
 
             <TelerikGrid Data="@product.OrderDetails"
                          Height="auto"
