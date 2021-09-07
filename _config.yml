@@ -255,6 +255,8 @@ navigation:
         title: "Calendar"
      "*card":
         title: "Card"
+     "*carousel":
+        title: "Carousel"
      "*components/chart":
         title: "Chart"
      "*checkbox":
