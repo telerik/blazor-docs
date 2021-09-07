@@ -12,6 +12,8 @@ position: 1
 
 This article explains how to add the private Telerik NuGet feed to your system. You can use it to obtain the Telerik UI for Blazor components.
 
+@[template](/_contentTemplates/common/get-started.md#nuget-update-note)
+
 #### There are several approaches to set up the Telerik NuGet feed
 
 * [Visual Studio GUI](#visual-studio-gui)
