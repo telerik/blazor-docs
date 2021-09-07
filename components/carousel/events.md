@@ -34,12 +34,14 @@ The event can be used to implement custom business logic, or update the Carousel
                  Page="@PageIndex"
                  Width="400px" Height="200px">
     <Template>
-        <div class="carousel-item">Carousel page @(context)</div>
+        <div class="carousel-item">ID @(context.ID) : @(context.Text)</div>
     </Template>
 </TelerikCarousel>
 
 <style>
     .carousel-item {
+        background: #3d57d8;
+        color: #fff;
         font: 36px/200px sans-serif;
         text-align: center;
     }
@@ -53,13 +55,16 @@ The event can be used to implement custom business logic, or update the Carousel
         PageIndex = newPage;
     }
 
-    public List<int> CarouselData { get; set; }
-
-    protected override Task OnInitializedAsync()
+    public IEnumerable<CarouselModel> CarouselData = Enumerable.Range(1, 5).Select(x => new CarouselModel
     {
-        CarouselData = Enumerable.Range(1, 8).ToList();
+        ID = x,
+        Text = "Text " + x
+    });
 
-        return base.OnInitializedAsync();
+    public class CarouselModel
+    {
+        public int ID { get; set; }
+        public string Text { get; set; }
     }
 }
 ````
