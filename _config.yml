@@ -241,6 +241,8 @@ navigation:
         title: "BarCode"
      "*togglebutton":
         title: "ToggleButton"
+     "*breadcrumb":
+        title: "Breadcrumb"
      "*button":
         title: "Button"
      "*buttongroup":
