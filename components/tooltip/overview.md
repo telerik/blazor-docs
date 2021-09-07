@@ -48,7 +48,16 @@ The <a href="https://www.telerik.com/blazor-ui/tooltip" target="_blank">Blazor T
 
 >caption The Tooltip provides the following features:
 
-* `Class` - the CSS class rendered on the tooltip element. You can use it to customize its appearance (such as color, font, target elements in your template, and so on).
+* `Class` - the CSS class of the **tooltip parent**. You can use it to customize the tooltip appearance (such as color, font, elements in your template, and so on). To apply custom styles to the tooltip element itself, use a [child selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator) or a [descendant selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator), for example:
+
+        <TelerikTooltip Class="my-class" />
+
+        <style>
+        .my-class > .k-tooltip {
+            padding: 0;
+        }
+        <style>
+
 * `Height`- the height of the tooltip. @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior)
 * `Id` - the `id` attribute of the tooltip. Can be useful so you can point an `aria-described-by` attribute of your target to the tooltip ID for the benefit of screen readers.
 * `Position` - where the tooltip shows up in comparison to its target element. See more at the [Position]({%slug tooltip-position%}) article.
