@@ -36,7 +36,7 @@ Here is a simple Carousel that has 5 pages with some styled text.
 <TelerikCarousel Data="@CarouselData"
                  Width="400px" Height="200px">
     <Template>
-        <div class="carousel-item">Carousel page @(context)</div>
+        <div class="carousel-item">ID @(context.ID) : @(context.Text)</div>
     </Template>
 </TelerikCarousel>
 
@@ -50,7 +50,17 @@ Here is a simple Carousel that has 5 pages with some styled text.
 </style>
 
 @code {
-    public List<int> CarouselData = Enumerable.Range(1, 5).ToList();
+    public IEnumerable<CarouselModel> CarouselData = Enumerable.Range(1, 5).Select(x => new CarouselModel
+    {
+        ID = x,
+        Text = "Text " + x
+    });
+
+    public class CarouselModel
+    {
+        public int ID { get; set; }
+        public string Text { get; set; }
+    }
 }
 ````
 >caption The snippet will produce the following result:

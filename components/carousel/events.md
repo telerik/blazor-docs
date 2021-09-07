@@ -12,6 +12,8 @@ position: 20
 
 This article describes the available events of the Telerik Carousel for Blazor.
 
+* [PageChanged](#pagechanged)
+
 ## PageChanged
 
 The `PageChanged` event fires when:

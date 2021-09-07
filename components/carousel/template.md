@@ -10,6 +10,8 @@ position: 10
 
 # Carousel Template
 
+The Carousel template defines the markup to be rendered by the component. If a template is not set, the Carousel will not display anything.
+
 The nested `<Template>` tag of the `<TelerikCarousel>` represents a standard [`RenderFragment`](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/templated-components).
 
 The template exposes a `context` parameter, which allows access to the Carousel model and its properties. The context variable can assume a custom name, which is needed for nesting templates of different components.
@@ -20,7 +22,7 @@ The template exposes a `context` parameter, which allows access to the Carousel 
 <TelerikCarousel Data="@CarouselData"
                  Width="400px" Height="200px">
     <Template Context="carouselContext">
-        <div class="carousel-item">@carouselContext.Name</div>
+        <div class="carousel-item">@carouselContext.Text</div>
     </Template>
 </TelerikCarousel>
 
@@ -37,13 +39,13 @@ The template exposes a `context` parameter, which allows access to the Carousel 
     public IEnumerable<CarouselModel> CarouselData = Enumerable.Range(1, 5).Select(x => new CarouselModel
     {
         ID = x,
-        Name = "Name " + x
+        Text = "Text " + x
     });
 
     public class CarouselModel
     {
         public int ID { get; set; }
-        public string Name { get; set; }
+        public string Text { get; set; }
     }
 }
 ````
