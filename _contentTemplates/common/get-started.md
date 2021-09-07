@@ -15,6 +15,8 @@
 
 The recommended distribution method for the Telerik UI for Blazor packages is the private Telerik NuGet feed.
 
+@[template](/_contentTemplates/common/get-started.md#nuget-update-note)
+
 @[template](/_contentTemplates/common/get-started.md#start-trial)
 
 If you prefer to configure the NuGet package source manually, follow the steps in the [Setup the Telerik Private NuGet Feed]({%slug installation/nuget%}) article.
@@ -233,4 +235,9 @@ If you want to try Telerik UI for Blazor, you can <a href="https://www.telerik.c
 The easiest way to get the commercially licensed Telerik UI for Blazor components to your development machine is to use the <a href="https://www.telerik.com/download-trial-file/v2/control-panel" target="_blank">Progress Control Panel</a> or to download the [automated installer]({%slug installation/msi%}) from <a href="https://www.telerik.com/account/product-download?product=BLAZOR" target="_blank">your telerik.com account</a>.
 
 Alternatively, you can also access the `.nupkg` files from [our private NuGet feed]({%slug installation/nuget%}) or by creating a [local feed from your installation]({%slug installation/msi%}#set-up-a-local-nuget-feed-in-visual-studio).
+#end
+
+
+#nuget-update-note
+>Telerik now offers NuGet v3 API for our feed which is faster, lighter, and reduces the number of requests from NuGet clients. It is now available for beta testing at <a href = "https://nuget.telerik.com/v3/index.json" target = "_blank"> https://nuget.telerik.com/v3/index.json. You are welcome to try it.
 #end

@@ -56,6 +56,8 @@ There are four ways to get the Telerik packages:
 
 * The standalone `.nupkg` files - They are the bare minimum that is required. To use them, follow the instructions for using the [ZIP archive]({%slug installation/zip%}), but download the `.nupkg` files instead.
 
+@[template](/_contentTemplates/common/get-started.md#nuget-update-note)
+
 
 ## Client Assets
 
