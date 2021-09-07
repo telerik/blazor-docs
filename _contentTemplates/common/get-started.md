@@ -234,3 +234,10 @@ The easiest way to get the commercially licensed Telerik UI for Blazor component
 
 Alternatively, you can also access the `.nupkg` files from [our private NuGet feed]({%slug installation/nuget%}) or by creating a [local feed from your installation]({%slug installation/msi%}#set-up-a-local-nuget-feed-in-visual-studio).
 #end
+
+
+#nuget-update-note
+
+>The improved Telerik NuGet v3 is now available for beta testing at <a href = " https://nuget.telerik.com/v3/index.json" target = "_blank"> https://nuget.telerik.com/v3/index.json. The new v3 API is faster, lighter, and reduces the number of requests from NuGet clients. You are welcome to try it.
+
+#end
