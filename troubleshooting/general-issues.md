@@ -59,7 +59,7 @@ There are several common cases when such a mismatch occurs:
 
 * The position and size of the `<app>` element (or however the root component of your Blazor app is called) does not match the `<body>`.
 
-* There is more than one `<TelerikRootComponent>` in the app (for example, a certain Razor Component has its own). There should be only one instance - either in `MainLayout`, or in a separate layout file, which is referenced in `MainLayout`.
+* There is more than one `<TelerikRootComponent>` in the app (for example, a certain Razor Component has its own). There should be only one instance - either in `MainLayout`, or in a separate layout file, which is referenced in `MainLayout`. We recommend the second option for better separation of concerns.
 
 * CSS related cases:
 
