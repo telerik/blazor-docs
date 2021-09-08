@@ -1,7 +1,7 @@
 ---
 title: Timeline
 page_title: Scheduler - Timeline View
-description: Day View in the Scheduler for Blazor.
+description: Timeline View in the Scheduler for Blazor.
 slug: scheduler-views-timeline
 tags: telerik,blazor,scheduler,view,timeline
 published: True
