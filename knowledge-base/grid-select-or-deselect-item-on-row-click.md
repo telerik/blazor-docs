@@ -1,5 +1,5 @@
 ---
-title: Select or Deselect Items on Row Click in Grid
+title: Select or Deselect Grid Items on Row Click
 description: How to Select or Unselect Grid Rows on Row Click
 type: how-to
 page_title: Select or Deselect Grid Items on Row Click
