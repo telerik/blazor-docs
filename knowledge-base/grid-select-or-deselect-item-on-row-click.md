@@ -1,6 +1,6 @@
 ---
 title: Select or Deselect Items on Row Click in Grid
-description: How to Select or Deselect Items on Row Click in Grid?
+description: How to Select or Unselect Grid Rows on Row Click
 type: how-to
 page_title: Select or Deselect Items on Row Click in Grid
 slug: grid-kb-select-or-deselect-item-on-row-click
