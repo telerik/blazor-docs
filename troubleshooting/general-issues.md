@@ -30,7 +30,7 @@ There are three common reasons for this
 * [Missing JS Interop file]({%slug troubleshooting-js-errors%}#microsoftjsinteropjsexception-could-not-find-)
 * Special positioning on the `<app>` element.
 
-The `<app>` element is the topmost component that a developer has access to in Blazor. This means that we cannot place our popups higher than that in the DOM. Thus, their position and visibility depend on the position of the `<app>` element matching the position of the `<body>` element.
+The `<app>` element is the topmost component that a developer can access in Blazor. This means that we cannot place our popups higher than that in the DOM. Thus, their position and visibility depend on the position of the `<app>` element matching the position of the `<body>` element.
 
 The default application template has a `position: relative` rule for the `app` element that can break the appearance and positions of our popups (most notably in Firefox). The solution is to remove such special positioning. For example, modify the default `site.css` file like this:
 
@@ -59,7 +59,7 @@ There are several common cases when such a mismatch occurs:
 
 * The position and size of the `<app>` element (or however the root component of your Blazor app is called) does not match the `<body>`.
 
-* There is more than one `<TelerikRootComponent>` in the app (for example, a certain Razor Component has its own) - there should be only one instance in the main layout.
+* There is more than one `<TelerikRootComponent>` in the app (for example, a certain Razor Component has its own). There should be only one instance - either in `MainLayout`, or in a separate layout file, which is referenced in `MainLayout`. We recommend the second option for better separation of concerns.
 
 * CSS related cases:
 
@@ -69,7 +69,7 @@ There are several common cases when such a mismatch occurs:
 
     * There are CSS rules that alter the positioning of an element or class used in the Telerik popup elements.
 
-You can check the application for such issues and ensure that the `<app>` element size and position matches the `<body>` and the browser viewport, and that the `<TelerikRootComponent>` is a direct child of the `<app>` element and encompasses the `@Body` in the main layout.
+You can check the application for such issues and ensure that the `<app>` element size and position matches the `<body>` and the browser viewport, and that the `<TelerikRootComponent>` is a direct child of the `<app>` element and wraps the `@Body` in the main layout.
 
 
 ## Unable to find package Telerik.Documents.SpreadsheetStreaming
