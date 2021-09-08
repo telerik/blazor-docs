@@ -2,7 +2,7 @@
 title: Select or Deselect Items on Row Click in Grid
 description: How to Select or Unselect Grid Rows on Row Click
 type: how-to
-page_title: Select or Deselect Items on Row Click in Grid
+page_title: Select or Deselect Grid Items on Row Click
 slug: grid-kb-select-or-deselect-item-on-row-click
 position: 
 tags: telerik, blazor, grid, select, deselect, row, click
