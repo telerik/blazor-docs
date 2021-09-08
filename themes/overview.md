@@ -175,7 +175,7 @@ The Telerik Bootstrap theme is not the same as the Bootstrap framework (or style
 
 ### Bootstrap Framework Alternatives
 
-If you do not want to use the Bootstrap framework to create your layouts, there are several components from the Telerik UI for Blazor suite that canserve similar purposes. Below you will find some examples to get you started:
+If you do not want to use the Bootstrap framework to create your layouts, there are several components from the Telerik UI for Blazor suite that can serve similar purposes. Below you will find some examples to get you started:
 
 * The [Splitter](https://demos.telerik.com/blazor-ui/splitter/overview) is useful for organizing the whole page in areas, for example - header, left content, right content, footer. Splitter panes can be collapsed and resized.
 
