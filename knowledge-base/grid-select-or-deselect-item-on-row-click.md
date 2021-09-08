@@ -27,7 +27,7 @@ How can I select and deselect multiple rows by clicking on a row in a Grid with 
 
 ## Solution
 
-When selection is enabled in the Grid component, the built-in option for deselecting a row or selecting multiple rows is `Ctrl` + click. To deselect a row or select multiple rows by row clicking and without holding the `Ctrl` key, try the following:
+When Grid selection is enabled, the built-in option for deselecting a row or selecting multiple rows is `Ctrl` + Click (`Cmd` + Click on Macs). To deselect a row or select multiple rows by row clicking and without holding the `Ctrl` key, try the following:
 
 * Disable the built-in selection
 * Handle the Grid [OnRowClick]({%slug grid-events%}#onrowclick) event to programmatically modify the `SelectedItems` collection.
