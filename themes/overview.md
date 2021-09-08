@@ -173,6 +173,28 @@ Bootstrap and Telerik UI for Blazor are two completely separate products that do
 
 The Telerik Bootstrap theme is not the same as the Bootstrap framework (or styles), it is our own theme that uses the Bootstrap metrics and design approaches to fit into a Bootstrap layout better. It can also use customized variables from Bootstrap, and you can see one way to do that through building the SASS files for both Bootstrap and Telerik in the following sample app: [Blazor Dashboard](https://github.com/telerik/blazor-ui/tree/master/sample-applications/blazor-dashboard).
 
+### Bootstrap Framework Alternatives
+
+If you do not want to use the Bootstrap framework to create your layouts, there are several components from the Telerik UI for Blazor suite that can serve similar purposes. Below you will find some examples to get you started:
+
+* The [Splitter](https://demos.telerik.com/blazor-ui/splitter/overview) is useful for organizing the whole page in areas, for example - header, left content, right content, footer. Splitter panes can be collapsed and resized.
+
+* The [GridLayout](https://demos.telerik.com/blazor-ui/gridlayout/overview) displays items in rows and columns, similar to the CSS grid layout.
+
+* The [StackLayout](https://demos.telerik.com/blazor-ui/stacklayout/overview) displays cards in a single row or column with some spacing options.
+
+* The [TileLayout](https://demos.telerik.com/blazor-ui/tilelayout/overview) displays tiles that are resizable and reorderable.
+
+* The [MediaQuery](https://demos.telerik.com/blazor-ui/mediaquery/overview) can help you reach to viewport size changes and render different layout depending on the screen size (even replace entire rendering and components, not just hide elements with CSS).
+
+* The [Form](https://demos.telerik.com/blazor-ui/form/overview) can generate inputs and editors for your model without the need to spell every input out yourself.
+
+* Popups such as [tooltips](https://demos.telerik.com/blazor-ui/tooltip/overview), [windows](https://demos.telerik.com/blazor-ui/window/overview), [notifications](https://demos.telerik.com/blazor-ui/notification/overview) and [confirmation dialogs](https://demos.telerik.com/blazor-ui/dialog/predefined-dialogs) let you conserve real estate on the screen.
+
+* [Cards](https://demos.telerik.com/blazor-ui/card/overview) let you add quick and easy distinction and styling between items in sets of information.
+
+* Many other components help with navigation and layouts, review the [list of available components in our demos](https://demos.telerik.com/blazor-ui).
+
 ## See Also
 
   * [Custom Themes]({%slug themes-custom%})
