@@ -12,7 +12,7 @@ position: 3
 
 Encoding (symbology) represents the mapping between messages and barcodes.
 
-The following table lists the available symbologies and their specifications supported by the Barcode.
+You can choose which supported encoding to use by setting the `Type` paramater of the component. The following table lists the available symbologies and their specifications supported by the Barcode.
 
 >important If the value of a particular encoding does not meet the expected length or character set, the barcode will **not** be shown.
 

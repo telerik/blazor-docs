@@ -19,8 +19,7 @@ All graphics are rendered on the client by using [Scalable Vector Graphics (SVG)
 To add a Telerik Barcode to your Blazor app:
 
 1. Add the `TelerikBarcode` tag.
-1. Inside it, add `BarcodeText` tag that styles the barcode text.
-1. Provide `Value` (one-way data binding) or `bind-Value` (two-way data binding) property
+1. Provide `Value` property
 1. Set its `Height` and `Width`
 1. Optionally, choose a `Type` (one of the [encodings we support]({%slug  components/barcode/encoding%})).
     * Its default encoding is `Code39`.
@@ -32,11 +31,7 @@ The following example demonstrates how to initialize the Barcode with its defaul
 ````CSHTML
 <TelerikBarcode Width="300px"
                 Height="200px"
-                Type="@BarcodeType.Code39"
                 Value="123456789">
-    <BarcodeText Color="blue">
-        <BarcodeTextMargin Left="0"></BarcodeTextMargin>
-    </BarcodeText>
 </TelerikBarcode>
 ````
 
@@ -49,6 +44,46 @@ For more information, refer to the [article on encoding]({%slug  components/barc
 ## Features
 
 >caption The Barcode provides the following features:
+
+### General Properties
+
+* `RenderAs` - `enum` - defines the preferred rendering engine - svg/canvas.
+
+* `Checksum` - `bool` - by setting it to true, the Barcode will display the checksum digit next to the value in the text area.
+
+* `Type` - `enum` - defines the symbology (encoding) the Barcode will use - ([full list of supported encodings]({%slug  components/barcode/encoding%}))
+
+* `Value` - `string` - defines the initial value of the Barcode.
+
+* `Width` - `string`.
+
+* `Height` - `string`.
+
+* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the Barcode component.
+
+* `Background` - `string`.
+
+* `Color` - `string` - defines the color of the bar elements.
+
+### Properties for the Barcode Text
+
+* `BarcodeText` - `object`.
+
+* `BarcodeText.Color` - `string`.
+
+* `BarcodeText.Font` - `string`.
+
+* `BarcodeText.BarcodeTextMargin` - `object`.
+
+* `BarcodeText.BarcodeTextMargin.Bottom` - `double`.
+
+* `BarcodeText.BarcodeTextMargin.Left` - `double`.
+
+* `BarcodeText.BarcodeTextMargin.Right` - `double`.
+
+* `BarcodeText.BarcodeTextMargin.Top` - `double`.
+
+* `BarcodeText.Visible` - `bool` - by setting it to false, the Barcode will not display the value as a text below the barcode lines.
 
 ### Properties for the Barcode Border
 
@@ -72,46 +107,6 @@ For more information, refer to the [article on encoding]({%slug  components/barc
 
 * `BarcodePadding.Top` - `double`.
 
-### Properties for the Barcode Text
-
-* `BarcodeText` - `object`.
-
-* `BarcodeText.Color` - `string`.
-
-* `BarcodeText.Font` - `string`.
-
-* `BarcodeText.BarcodeTextMargin` - `object`.
-
-* `BarcodeText.BarcodeTextMargin.Bottom` - `double`.
-
-* `BarcodeText.BarcodeTextMargin.Left` - `double`.
-
-* `BarcodeText.BarcodeTextMargin.Right` - `double`.
-
-* `BarcodeText.BarcodeTextMargin.Top` - `double`.
-
-* `BarcodeText.Visible` - `bool` - by setting it to false, the Barcode will not display the value as a text below the barcode lines.
-
-### Other Properties
-
-* `RenderAs` - `enum` - defines the preferred rendering engine - svg/canvas.
-
-* `Background` - `string`.
-
-* `Checksum` - `bool` - by setting it to true, the Barcode will display the checksum digit next to the value in the text area.
-
-* `Color` - `string` - defines the color of the bar elements.
-
-* `Type` - `enum` - defines the symbology (encoding) the Barcode will use - ([full list of supported encodings]({%slug  components/barcode/encoding%}))
-
-* `Value` - `string` - defines the initial value of the Barcode.
-
-* `Width` - `string`.
-
-* `Height` - `string`.
-
-* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the Barcode component. 
-
 ## Methods
 
 The Barcode methods are accessible through it's reference.
@@ -121,19 +116,31 @@ The Barcode methods are accessible through it's reference.
 >caption Get a reference to the Barcode and use its methods
 
 ````CSHTML
-@* This example shows an example of getting reference to the Barcode. *@
+@* This code snippet showcases an example usage of the Refresh() method. *@
 
-<TelerikBarcode @ref="TelerikBarcodeRef" Width="300px"
-                Height="200px"
-                Type="@BarcodeType.Code39"
+<TelerikButton OnClick="@ChangeSize">Change Size!</TelerikButton>
+<br />
+<br />
+<TelerikButton OnClick="@(() => TelerikBarcodeRef.Refresh())">Refresh component after changes!</TelerikButton>
+<br />
+<br />
+
+<TelerikBarcode @ref="TelerikBarcodeRef" Width="@Width"
+                Height="@Height"
                 Value="123456789">
-    <BarcodeText Color="blue">
-        <BarcodeTextMargin Left="0"></BarcodeTextMargin>
-    </BarcodeText>
 </TelerikBarcode>
 
 @code{
     Telerik.Blazor.Components.TelerikBarcode TelerikBarcodeRef { get; set; }
+
+    string Height { get; set; } = "200px";
+    string Width { get; set; } = "300px";
+
+    public void ChangeSize()
+    {
+        Height = "400px";
+        Width = "500px";
+    }
 }
 ````
 
