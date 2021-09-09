@@ -285,6 +285,6 @@ Scroll through the groups or expand them to load their data on demand
 
 ## See Also
 
-  * [Live Demo: Grid Group Load On Demand](https://demos.telerik.com/blazor-ui/grid/group-load-on-demand)
+  * [Live Demo: Grid Group Load On Demand](https://demos.telerik.com/blazor-ui/grid/group-loadondemand)
    
   
