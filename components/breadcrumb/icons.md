@@ -10,7 +10,7 @@ position: 10
 
 # Breadcrumb Icons
 
-You can put an image, an icon class or a font icon for each item in the Breadcrumb to illustrate its purpose for your end users. To apply them, use the following properties:
+You can set an image, an icon class or a font icon for each Breadcrumb item to illustrate its purpose for your end users. To apply them, use the following properties:
 
 * for a [Telerik font icon]({%slug general-information/font-icons%}), point the `IconField` parameter of the component to a `string` field of the model that contains the corresponding icon name.
 
