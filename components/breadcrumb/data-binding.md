@@ -17,7 +17,7 @@ This article explains how to provide data to a Breadcrumb component, so it rende
 This article has the following sections:
 
 * The available (bindable) [features of a breadcrumb item](#breadcrumb-item-features).
-* How to match fields in the model with the Breadcrumb item [data bindings](#data-bindings).
+* How to map fields in the model to the Breadcrumb items [data bindings](#data-bindings).
 * [Example](#example---data-binding-to-non-default-field-names) of using non-default field names for data binding.
 
 ## Breadcrumb Item Features
