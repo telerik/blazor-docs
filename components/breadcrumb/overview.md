@@ -99,7 +99,7 @@ The Breadcrumb provides the following features:
 
 * `Data` - a collection of flat data for all items in the Breadcrumb. See the [Data Binding]({%slug breadcrumb-data-binding%}) article for details.
 
-* `CollapseMode` - specifies the collapse mode of the Breadcrumb component. Read more in the [Collapse Modes]({%slug breadcrumb-collapse-modes%}) article.
+* `CollapseMode` - specifies how the Breadcrumb items are displayed if they cannot fit on a single line. Read more in the [Collapse Modes]({%slug breadcrumb-collapse-modes%}) article.
 
 * `Width` - the width of the Breadcrumb component.
 
