@@ -1,7 +1,7 @@
 ---
 title: Data Binding
 page_title: Breadcrumb - Data Binding
-description: Data Binding basics in the Breadcrumb for Blazor.
+description: Data Binding basics for the Breadcrumb for Blazor.
 slug: breadcrumb-data-binding
 tags: telerik,blazor,breadcrumb,data,binding
 published: True
