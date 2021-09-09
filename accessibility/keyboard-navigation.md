@@ -20,6 +20,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/keyboard-navigation)
 
+* [Breadcrumb](https://demos.telerik.com/blazor-ui/breadcrumb/keyboard-navigation)
+
 * [Button](https://demos.telerik.com/blazor-ui/button/keyboard-navigation)
 
 * [ButtonGroup](https://demos.telerik.com/blazor-ui/buttongroup/keyboard-navigation)
