@@ -79,7 +79,7 @@ This template receives a `context` argument that is of the data model type and r
 
 ## SeparatorTemplate
 
-The `<SeparatorTemplate>` allows you to control the whole rendering of the Breadcrumb Separator, so you can define custom content between the component items.
+The `<SeparatorTemplate>` allows you to control the rendering of the Breadcrumb Separator, so you can define custom content between the component items.
 
 >caption Use `SeparatorTemplate` to customize the Breadcrumb Separator. The result from the snippet below.
 
