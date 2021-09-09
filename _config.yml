@@ -238,7 +238,7 @@ navigation:
      "*autocomplete":
         title: "AutoComplete"
      "*barcode":
-        title: "BarCode"
+        title: "Barcode"
      "*togglebutton":
         title: "ToggleButton"
      "*breadcrumb":
