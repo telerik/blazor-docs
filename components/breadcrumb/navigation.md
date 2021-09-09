@@ -19,7 +19,7 @@ In some cases you might prefer to dynamically generate the breadcrumbs based on 
 * Add the Breadcrumb to your application.
     * You may want to add it in the `MainLayout.razor` outside of the `@Body`, for example, in the `main` container of your app.
 
-* Introduce a `NavigationManager` instance by injecting it in the file you would like to build the breadcrumbs.
+* Inject a `NavigationManager` instance in the file where you want to build the breadcrumbs.
 
 * Create an event handler and subscribe it to the `LocationChanged` event of the `NavigationManager` to handle every change in the location.
 
