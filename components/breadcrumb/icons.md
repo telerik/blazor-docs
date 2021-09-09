@@ -1,6 +1,6 @@
 ---
 title: Icons
-page_title: Breadcrumb Icons
+page_title: Breadcrumb - Icons
 description: Icons and images in the Breadcrumb for Blazor.
 slug: breadcrumb-icons
 tags: telerik,blazor,breadcrumb,icons

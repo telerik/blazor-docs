@@ -10,7 +10,7 @@ position: 5
 
 # Breadcrumb Data Binding
 
-This article explains how to provide data to a Breadcrumb component, so it renders items for you, the properties related to data binding and their results.
+This article explains how to provide data to a Breadcrumb component, the properties related to data binding and their effect.
 
 @[template](/_contentTemplates/common/general-info.md#valuebind-vs-databind-link)
 
