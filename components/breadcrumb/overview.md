@@ -111,7 +111,7 @@ The Breadcrumb provides the following features:
 
 * `SeparatorTemplate` - define a custom template for the [Breadcrumb Separator]({%slug breadcrumb-separator%}). Read more in the [Templates]({%slug breadcrumb-templates%}) article.
 
-* Events - you can respond to the user actions to implement your business logic. For more details see the [Events]({%slug breadcrumb-events%}) article.
+* Events - you can respond to user actions to implement your business logic. For more details see the [Events]({%slug breadcrumb-events%}) article.
 
 ## See Also
 
