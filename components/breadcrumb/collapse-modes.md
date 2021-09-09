@@ -17,7 +17,7 @@ You can specify how the Breadcrumb items are visualized when their total width e
 
 * `Wrap` — Items are wrapped on multiple rows.
 
-* `None` — All items are expanded on the same row. This scenario is useful when the Breadcrumb needs to be scrolled.
+* `None` — All items are expanded on a single row and a horizontal scrollbar will appear if needed.
 
 >caption Set the Breadcrumb CollapseMode to `Wrap`. The result from the snippet below.
 
