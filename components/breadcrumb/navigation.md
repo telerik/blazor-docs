@@ -25,7 +25,7 @@ In some cases you might prefer to dynamically generate the breadcrumbs based on 
 
 * Dynamically generate the Breadcrumb items based on the `Url` provided by the `Location` field of the `LocationChangedEventArgs`.
 
-Here is an example for such a configuration in our public repository - [SubScribeToLocationChanged]().
+Here is an example for such a configuration in our public repository - [SubScribeToLocationChanged](https://github.com/telerik/blazor-ui/tree/master/breadcrumb/subscribe-to-location-changed).
 
 
 ## Notes
