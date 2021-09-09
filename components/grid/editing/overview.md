@@ -281,7 +281,7 @@ There are a few considerations to keep in mind with the CUD operations of the gr
 * If you want to perform other data operations while the component is in Edit mode (applicable for [InCell]({%slug components/grid/editing/incell%}) and [Inline]({%slug components/grid/editing/inline%}) editing) the following behavior will occur:
 
     * For operations like Filter, Group, Sort, Page, Search, Select, Row drag and Delete:
-        * InCell edit -  if the validation is satisfied, a save operation will be executed. If the validation is **not** satisfied, edit will be cancelled with `OnCancel` event and `IsCancelled` will be considered.
+        * InCell edit -  if the validation is satisfied, a save operation will be executed. If the validation is **not** satisfied, editing will be cancelled, the `OnCancel` event will fire and `IsCancelled` will be considered.
         * Inline edit - regardless of the validation, the edit will be cancelled with `OnCancel` event and `IsCancelled` will be considered.
 
     * For operations like Edit, Add, Save:
