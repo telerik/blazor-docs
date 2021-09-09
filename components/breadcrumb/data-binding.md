@@ -34,7 +34,7 @@ The Breadcrumb items provide the following features that you control through the
 
 ## Data Bindings
 
-The properties of a Breadcrumb item match directly to a field of the model the Breadcrumb is bound to. You provide that relationship by providing the name of the field from which the corresponding information is present. To do this, use the properties in the main `TelerikBreadcrumb` tag:
+The properties of a Breadcrumb item map directly to fields from the Breadcrumb model. You define that relationship by providing the names of the fields where the corresponding information is present. To do this, use the properties in the main `TelerikBreadcrumb` tag:
 
 
 * TextField => Text
