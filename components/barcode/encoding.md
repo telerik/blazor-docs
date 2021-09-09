@@ -38,6 +38,34 @@ You can choose which supported encoding to use by setting the `Type` paramater o
 | **MSImod1010** | numeric [0..9] | variable | 1 check digit |
 | **MSImod1110** | numeric [0..9] | variable | 1 check digit |
 
+>caption Explore the Barcode Type options
+
+````CSHTML
+@*Choose a type from the dropdown*@
+
+<div style="display: flex">
+    <div style="display: inline">
+        <select @bind="BarcodeType">
+            @foreach (var possibleType in Enum.GetValues(typeof(BarcodeType)))
+            {
+                <option value="@possibleType">@possibleType</option>
+            }
+        </select>
+    </div>
+
+    <TelerikBarcode @ref="myBarcode" Width="300px"
+                    Height="200px"
+                    Type="@BarcodeType"
+                    Value="123456789">
+    </TelerikBarcode>
+</div>
+
+@code {
+    TelerikBarcode myBarcode;
+    BarcodeType BarcodeType { get; set; } = BarcodeType.Code39;
+}
+````
+
 ## See Also
 
   * [Live Demo: Barcode](https://demos.telerik.com/blazor-ui/barcode/overview)
