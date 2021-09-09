@@ -15,7 +15,7 @@ You can specify how the Breadcrumb items are visualized when their total width e
 
 * `Auto` (default) - Items are automatically collapsed based on the width of the Breadcrumb. The first and last item always remain visible.
 
-* `Wrap` — Items are wrapped on multiple rows when their total width is bigger than the width of the BreadCrumb.
+* `Wrap` — Items are wrapped on multiple rows.
 
 * `None` — All items are expanded on the same row. This scenario is useful when the Breadcrumb needs to be scrolled.
 
