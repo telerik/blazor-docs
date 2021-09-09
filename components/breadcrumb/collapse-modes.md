@@ -13,7 +13,7 @@ position: 20
 
 You can specify how the Breadcrumb items are visualized when their total width exceeds the width of the component through the `CollapseMode` attribute of the Breadcrumb. It takes a member of the `BreadcrumbCollapseMode` enum and provides the following options:
 
-* `Auto` (the default) - Items are automatically collapsed based on the width of the Breadcrumb. First and last item always remain visible.
+* `Auto` (default) - Items are automatically collapsed based on the width of the Breadcrumb. The first and last item always remain visible.
 
 * `Wrap` — Items are wrapped on multiple rows when their total width is bigger than the width of the BreadCrumb.
 
