@@ -24,7 +24,7 @@ The `OnItemClick` event fires when the user clicks or taps on a Breadcrumb item 
 
 **The event will not fire for the last item and for disabled items.**
 
-You can use the `OnItemClick` event to react to user choices in a Breadcrumb without using navigation to load new content automatically.
+You can use the `OnItemClick` event to react to user choices in a Breadcrumb, and load new content without using navigation.
 
 >caption Handle OnItemClick event of the Breadcrumb
 
