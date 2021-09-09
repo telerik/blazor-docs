@@ -1,6 +1,6 @@
 ---
 title: Separator
-page_title: Breadcrumb Separator
+page_title: Breadcrumb - Separator
 description: Separator in the Breadcrumb for Blazor.
 slug: breadcrumb-separator
 tags: telerik,blazor,breadcrumb,separator

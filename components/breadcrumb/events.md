@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: Breadcrumb Events
+page_title: Breadcrumb - Events
 description: Events of the Breadcrumb for Blazor.
 slug: breadcrumb-events
 tags: telerik,blazor,breadcrumb,events
