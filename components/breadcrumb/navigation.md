@@ -25,7 +25,7 @@ In some cases you might prefer to dynamically generate the breadcrumbs based on 
 
 * Dynamically generate the Breadcrumb items based on the `Url` provided by the `Location` field of the `LocationChangedEventArgs`.
 
-An example of such a configuration you may find in our public repository - [SubScribeToLocationChanged]().
+Here is an example for such a configuration in our public repository - [SubScribeToLocationChanged]().
 
 
 ## Notes
