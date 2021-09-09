@@ -382,13 +382,7 @@ There are a few considerations to keep in mind with the CUD operations of the tr
 
 * If you want to perform other data operations while the component is in Edit mode (applicable for [InCell]({%slug treelist-editing-incell%}) and [Inline]({%slug treelist-editing-inline%}) editing) the following behavior will occur:
 
-    * For operations like Filter, Group, Sort, Paging, Search, Select, Row drag and Delete:
-        * InCell edit -  if the validation is satisfied, a save operation will be executed. If the validation is **not** satisfied, edit will be cancelled with `OnCancel` event and `IsCancelled` will be considered.
-        * Inline edit - regardless of the validation, the edit will be cancelled with `OnCancel` event and `IsCancelled` will be considered.
-
-    * For operations like Edit, Add, Save:
-        * InCell edit - if the validation is satisfied, the currently edited item will be saved and the command will be executed. If the validation is **not** satisfied, the command will be blocked until the item is valid or editing is cancelled.
-        * Inline edit - if the validation is satisfied, `OnCancel` will be fired for the currently edited item the command will be executed. If the validation is **not** satisfied, the command will be blocked until the item is valid or editing is cancelled.
+@[template](/_contentTemplates/common/grid-treelist-editing-notes.md#grid-treelist-data-operations-while-editing)
 
 <!-- * The validation will not be enabled for tree bound to Expando objects or Dictionaries (such as DataTable). -->
 
