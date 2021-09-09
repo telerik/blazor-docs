@@ -21,7 +21,7 @@ In some cases you might prefer to dynamically generate the breadcrumbs based on 
 
 * Inject a `NavigationManager` instance in the file where you want to build the breadcrumbs.
 
-* Create an event handler and subscribe it to the `LocationChanged` event of the `NavigationManager` to handle every change in the location.
+* Handle the `LocationChanged` event of the `NavigationManager`.
 
 * Dynamically generate the Breadcrumb items based on the `Url` provided by the `Location` field of the `LocationChangedEventArgs`.
 
