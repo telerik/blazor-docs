@@ -22,7 +22,7 @@ The `OnItemClick` event fires when the user clicks or taps on a Breadcrumb item 
 * `Item` - an object you can cast to your model class to obtain the clicked data item.
 * `IsCancelled` - specifies whether the event is canceled and the built-in action is prevented.
 
-**The event will not fire for the last item or if the Breadcrumb Item has been disabled.**
+**The event will not fire for the last item and for disabled items.**
 
 You can use the `OnItemClick` event to react to user choices in a Breadcrumb without using navigation to load new content automatically.
 
