@@ -85,21 +85,25 @@ The properties of a Breadcrumb item match directly to a field of the model the B
     {
         Items = new List<BreadcrumbItem>
         {
-            new BreadcrumbItem 
-            { 
-                ItemText = "Overview", 
-                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/overview", 
-                ItemIcon = "home" 
+            new BreadcrumbItem
+            {
+                ItemText = "Overview",
+                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/overview",
+                ItemIcon = "home"
             },
-            new BreadcrumbItem 
-            { ItemText = "Navigation", 
-                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/navigation", 
-                ItemDisabled = "true" 
+            new BreadcrumbItem
+            { ItemText = "Navigation",
+                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/navigation",
             },
-            new BreadcrumbItem 
-            { 
-                ItemText = "Collapse Modes", 
-                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/collapse-modes" 
+            new BreadcrumbItem
+            { ItemText = "Items",
+                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/items",
+                ItemDisabled = true
+            },
+            new BreadcrumbItem
+            {
+                ItemText = "Collapse Modes",
+                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/collapse-modes"
             }
         };
     }
@@ -109,10 +113,15 @@ The properties of a Breadcrumb item match directly to a field of the model the B
         public string ItemText { get; set; }
         public string ItemIcon { get; set; }
         public string ItemUrl { get; set; }
-        public string ItemDisabled { get; set; }
+        public bool ItemDisabled { get; set; }
     }
 }
 ````
+
+>caption Data Binding to Non-Default Field Names and disabling an item. The result from the snippet above
+
+![Breadcrumb with Non-default field names](images/breadcrumb-non-default-fields-example.png)
+
 
 ## See Also
 

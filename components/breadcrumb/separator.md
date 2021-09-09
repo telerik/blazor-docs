@@ -12,7 +12,7 @@ position: 15
 
 The Breadcrumb component renders a [Telerik font icon]({%slug general-information/font-icons%}) as a separator between its items. By default the separator icon is `chevron-right`.
 
-You can define a separator icon of your choice through the `SeparatorIcon` field the `TelerikBreadcrumb` exposes. It accepts a `string` with the Telerik icon name.
+You can define a separator icon of your choice through the `SeparatorIcon` field the `TelerikBreadcrumb` exposes. It accepts a `string` with the [Telerik icon]({%slug general-information/font-icons%}) name.
 
 Furthermore, you can take full control over the Separator rendering with the [SeparatorTemplate]({%slug breadcrumb-templates%}#separatortemplate) the Breadcrumb component provides.
 
