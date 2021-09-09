@@ -12,7 +12,7 @@ position: 7
 
 The Breadcrumb can be used to navigate between different pages in the application. It can generate the needed links for you through its `UrlField` when [data binding]({%slug breadcrumb-data-binding%}).
 
-In some cases you might prefer to dynamically generate the breadcrumbs based on the current application `Url`. For this scenario you can use the [`NavigationManager`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager?view=aspnetcore-5.0) that the component supports and subscribe to its [`LocationChanged`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.locationchanged?view=aspnetcore-5.0) event. Thus, you can set new Breadcrumb items on every location change.
+In some cases you might prefer to dynamically generate the breadcrumbs based on the current application `Url`. For this scenario you can use the [`NavigationManager`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager) that the component supports and subscribe to its [`LocationChanged`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.navigationmanager.locationchanged) event. Thus, you can set new Breadcrumb items on every location change.
 
 >caption To use the Breadcrumb and dynamically generate its items:
 
