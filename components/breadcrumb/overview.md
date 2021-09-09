@@ -23,7 +23,7 @@ The <a href="https://www.telerik.com/blazor-ui/breadcrumb" target="_blank">Blazo
 To use a Telerik Breadcrumb for Blazor:
 
 1. add the `TelerikBreadcrumb` tag
-1. provide a collection of models to its `Data` property (read more in the [Data Binding article]({%slug breadcrumb-data-binding%}))
+1. provide a collection of objects to its `Data` property (read more in the [Data Binding article]({%slug breadcrumb-data-binding%}))
 1. match the fields in the model with the binding schema for the nodes
     * In this example, we keep it simple by only providing text for the Breadcrumb items. See the [Navigation article]({%slug breadcrumb-navigation%}) for more details on how to use the Breadcrumb for navigating through items.
 
