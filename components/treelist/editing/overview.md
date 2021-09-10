@@ -380,10 +380,6 @@ There are a few considerations to keep in mind with the CUD operations of the tr
 @* Applies to the other input type components as well *@
 ````
 
-* If you want to perform other data operations while the component is in Edit mode (applicable for [InCell]({%slug treelist-editing-incell%}) and [Inline]({%slug treelist-editing-inline%}) editing) the following behavior will occur:
-
-@[template](/_contentTemplates/common/grid-treelist-editing-notes.md#grid-treelist-data-operations-while-editing)
-
 <!-- * The validation will not be enabled for tree bound to Expando objects or Dictionaries (such as DataTable). -->
 
 
