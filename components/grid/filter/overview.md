@@ -35,6 +35,13 @@ In addition to the two main filtering modes, the grid offers two more features t
 
 * The filter menu can show a [list of checkboxes]({%slug grid-checklist-filter%}) with the distinct values from the data to make filtering resemble Excel.
 
+## Filter Descriptors
+
+The Grid filter state is stored in two types of filter descriptors. The below information is important if you want to [get or change the Grid filters programmatically]({%slug grid-state%}).
+
+* [Filter rows]({%slug grid-filter-row%}) use [FilterDescriptors](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptor). Each `FilterDescriptor` contains **one** filtering criterion for one field (`Member`).
+* The [SearchBox]({%slug grid-searchbox%}) and [filter menus]({%slug grid-filter-menu%}) use [CompositeFilterDescriptors](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). Each `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection) which can target the same field or different fields. All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
+
 ## Custom Filtering
 
 There are two approaches to customize the grid filtering behavior, and you can use them together:
