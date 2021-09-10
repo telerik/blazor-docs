@@ -20,6 +20,8 @@ This article has the following sections:
 * How to map fields in the model to the Breadcrumb items [data bindings](#data-bindings).
 * [Example](#example---data-binding-to-non-default-field-names) of using non-default field names for data binding.
 
+>tip In some cases you might prefer to dynamically generate the Breadcrumb items based on the current application `Url`. Read more how to achieve that in the [Navigation article]({%slug breadcrumb-navigation%}).
+
 ## Breadcrumb Item Features
 
 The Breadcrumb items provide the following features that you control through the corresponding fields in their data binding:
