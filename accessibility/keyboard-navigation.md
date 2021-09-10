@@ -28,6 +28,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [Calendar](https://demos.telerik.com/blazor-ui/calendar/keyboard-navigation)
 
+* [Carousel](https://demos.telerik.com/blazor-ui/carousel/keyboard-navigation)
+
 * Chart - not applicable, the chart is a visualization component only.
 
 * Checkbox - not applicable, it is a simple input with the standard behavior.
