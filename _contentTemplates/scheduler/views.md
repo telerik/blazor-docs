@@ -60,6 +60,7 @@ Views that show hours let you control their precision through the `SlotDuration`
             <SchedulerWeekView></SchedulerWeekView>
             <SchedulerMultiDayView></SchedulerMultiDayView>
             <SchedulerMonthView></SchedulerMonthView>
+            <SchedulerTimelineView></SchedulerTimelineView>
         </SchedulerViews>
         <SchedulerResources>
             <SchedulerResource Field="Room" Title="Edit Room" Data="@SchedulerResources"></SchedulerResource>

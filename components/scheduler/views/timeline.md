@@ -1,40 +1,36 @@
 ---
-title: Overview
-page_title: Scheduler - Views Overview
-description: Views basics in the Scheduler for Blazor.
-slug: scheduler-views-overview
-tags: telerik,blazor,scheduler,view,overview
+title: Timeline
+page_title: Scheduler - Timeline View
+description: Timeline View in the Scheduler for Blazor.
+slug: scheduler-views-timeline
+tags: telerik,blazor,scheduler,view,timeline
 published: True
-position: 0
+position: 1
 ---
 
-# Scheduler Views
+# Timeline View
 
-The Scheduler component provides several different modes of display to fit different user preferences and needs.
+The Timeline view displays appointments in a continuous horizontal direction.
 
-You can choose which views the user can switch between. To do that, declare the desired views in the `SchedulerViews` tag (conditional markup is allowed).
+In this article:
 
-You can also control which is the default one through the `View` parameter. You should usually use it in the `@bind-View` syntax to prevent it from resetting to its initial view when re-rendering happens.
+* [Example](#example)
+* [View Parameters](#view-parameters)
+	* [Slots](#slots)
+* [Resource Grouping](#resource-grouping)
 
-You can read more about this in the [Navigation]({%slug scheduler-navigation%}) article.
+## Example
 
-The available views are:
+>caption Declare the Timeline View in the markup
 
-* [Scheduler**Day**View]({%slug scheduler-views-day%})
-* [Scheduler**MultiDay**View]({%slug scheduler-views-multiday%})
-* [Scheduler**Week**View]({%slug scheduler-views-week%})
-* [Scheduler**Month**View]({%slug scheduler-views-month%})
-* [Scheduler**Timeline**View]({%slug scheduler-views-timeline%})
-
->caption Allow the user to navigate between Day and Week views only by defining only them. Example how to choose starting View (Week) and Date (29 Nov 2019).
+>tip You can declare other views as well, this example adds only the timeline view for brevity.
 
 ````CSHTML
-@* The user can only choose the Day and Week views - the MultiDay view, for example, is not defined *@
+@* Define the Timeline view. *@
 
-<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px" Width="800px">
+<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px">
     <SchedulerViews>
         <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" />
-        <SchedulerWeekView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" />
     </SchedulerViews>
 </TelerikScheduler>
 
@@ -46,7 +42,7 @@ The available views are:
     public DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
     public DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
     List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-    {
+{
             new SchedulerAppointment
             {
                 Title = "Board meeting",
@@ -92,11 +88,23 @@ The available views are:
 }
 ````
 
+@[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
 
+@[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
 
+@[template](/_contentTemplates/scheduler/views.md#day-slots-explanation)
+
+## Resource Grouping in the Day View
+
+You can configure the Day view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
+
+>caption Resource Grouping in a Timeline view.
+
+@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
 
 ## See Also
 
-  * [Live Demo: Scheduler Views](https://demos.telerik.com/blazor-ui/sceduler/views)
-  * [Day View]({%slug scheduler-views-day%})
-
+  * [Views]({%slug scheduler-views-overview%})
+  * [Navigation]({%slug scheduler-navigation%})
+  * [Live Demo: Scheduler Timeline View](https://demos.telerik.com/blazor-ui/scheduler/timeline-view)
+  
