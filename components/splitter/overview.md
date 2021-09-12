@@ -135,9 +135,12 @@ If you set the `Width` and `Height` in percent, make sure that the parent elemen
 
 The individual panes use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis" target="_blank">CSS flex-basis</a> to set their dimensions and by default they have `flex: 1 1 auto` so they distribute the space evenly if there are no other settings.
 
+If the `Size` of a pane is set to a value larger than the `Max`, the pane cannot be resized even if its `Resizable` parameter is set to `true`.
+
 >tip You must leave at least one `SplitterPane` *without* a set `Size`. This pane will absorb size changes from other panes when the user resizes them and provides you with some flexibility when defining strict sizes for the other panes so that you don't have to keep track of all the pane sizes, their sum and the container size.
 
-If the `Size` of a pane is set to a value larger than the `Max`, the pane cannot be resized even if its `Resizable` parameter is set to `true`.
+>tip You can find a sample of creating a 100% height layout with a splitter that also offers a header, footer and sidebar in the following sample project: <a href="https://github.com/telerik/blazor-ui/tree/master/splitter/use-100-percent-viewport" target="_blank">How to make Splitter take 100% height of the viewport</a>.
+
 
 ## Nested Splitters
 
