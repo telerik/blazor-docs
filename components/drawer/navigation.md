@@ -64,6 +64,7 @@ To use the Drawer for navigating between pages:
 @[template](/_contentTemplates/common/navigation-components.md#navman-used)
 @[template](/_contentTemplates/common/navigation-components.md#double-navigation)
 
+* You may also find useful [this article on selecting an item when a page loads]({%slug drawer-kb-sync-selected-item%}).
 
 ## See Also
 
