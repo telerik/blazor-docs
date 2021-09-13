@@ -38,7 +38,7 @@ To align the Grid header cell labels to the right, use custom CSS as per the exa
         /* no sorting, no filtering */
         text-align: right;
 
-        /* filtering, no sorting */
+        /* filtering or column menu, no sorting */
         /*padding-right: calc(1.6em + 14px);*/
     }
 
@@ -47,14 +47,14 @@ To align the Grid header cell labels to the right, use custom CSS as per the exa
         flex-flow: row-reverse nowrap;
     }
 
-    /* filtering, column menu - keep the icon on the RIGHT */
+    /* filtering or column menu - keep the icon on the RIGHT */
     .right-align .k-cell-inner .k-column-title {
         padding-right: calc(1.6em + 10px);
     }
 
     /* OR */
 
-    /* filtering, column menu - move the icon to the LEFT */
+    /* filtering or column menu - move the icon to the LEFT */
     /*.right-align .k-grid-header .k-grid-filter,
     .right-align .k-grid-header .k-header-column-menu {
         right: auto;
