@@ -37,7 +37,7 @@ To enable virtual scrolling:
         <GridColumn Field="Id" />
         <GridColumn Field="Name" Title="First Name" />
         <GridColumn Field="LastName" Title="Last Name" />
-        <GridColumn Field="HireData" Width="200px">
+        <GridColumn Field="HireDate" Width="200px">
             <Template>
                 @((context as SampleData).HireDate.ToString("MMMM dd, yyyy"))
             </Template>
