@@ -2,7 +2,7 @@
 title: Scroll to Selected Grid Row
 description: How to scroll a grid to the selected table row
 type: how-to
-page_title: Scroll to selected row
+page_title: Scroll to Selected Grid item
 slug: grid-kb-scroll-to-selected-row
 position: 
 tags: 
