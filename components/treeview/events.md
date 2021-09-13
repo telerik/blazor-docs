@@ -435,7 +435,7 @@ The event handler receives a `TreeViewItemDoubleClickEventArgs` object which pro
 
 ### OnItemContextMenu
 
-The `OnItemContextMenu` event fires as a response to the user right clicking on a TreeView node, the context menu keyboard button or long-touch for mobile devices. 
+The `OnItemContextMenu` event fires when the user right-clicks on a TreeView node, presses the context menu keyboard button or taps and holds on a mobile device. 
 
 The event handler receives a `TreeViewItemContextMenuEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
