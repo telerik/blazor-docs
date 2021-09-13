@@ -27,6 +27,7 @@ This article provides the following two examples:
 
 * [Know The Target And Adjust Items](#know-the-target-and-adjust-items)
 * [Context Menu for a Grid Row](#context-menu-for-a-grid-row)
+* [Context Menu for a TreeView Node](#context-menu-for-a-treeview-node)
 
 You can apply the approach of hooking to your own events to show the context menu in other scenarios as well. For example, you can [add a context menu for your treeview nodes]({%slug contextmenu-kb-treeview-item%}).
 
@@ -171,8 +172,8 @@ Hooking to your own HTML elements' events lets you determine what to do with the
 
 To integrate the context menu with the Telerik Grid, you need to:
 
-1. Use the grid's `OnRowContextMenu` event to get the current row model and show the menu
-2. Use the context menu's `OnClick` event to handle the desired operation
+1. Use the grid's [`OnRowContextMenu`]({%slug grid-events%}#onrowcontextmenu) event to get the current row model and show the menu
+2. Use the context menu's [`OnClick`]({%slug contextmenu-events%}#onclick) event to handle the desired operation
 
 In this example, the context menu is used to select/deselect items, put an item in edit mode and delete items
 
@@ -383,6 +384,200 @@ In this example, the context menu is used to select/deselect items, put an item 
 }
 ````
 
+## Context Menu for a TreeView Node
+
+To integrate the context menu with the Telerik TreeView, you need to:
+
+1. Use the [`OnItemContextMenu`]({%slug treeview-events%}#onitemcontextmenu) event of the TreeView to get the current row model and show the menu
+2. Use the context menu's [`OnClick`]({%slug contextmenu-events%}#onclick) event to handle the desired operation
+
+In this example, the context menu is used to select/deselect items and delete items
+
+>caption Use a Context Menu for TreeView nodes
+
+````CSHTML
+@* Use the OnItemContextMenu event of the TreeView to show the ContextMenu for its items *@
+
+<TelerikContextMenu Data="@ContextMenuData"
+                    @ref="ContextMenu"
+                    OnClick="@((ContextMenuItem item) => ClickHandler(item))">
+</TelerikContextMenu>
+
+<TelerikTreeView Data="@FlatData"
+                 OnItemContextMenu="OnItemContextMenuHandler"
+                 SelectionMode="@TreeViewSelectionMode.Multiple"
+                 @bind-SelectedItems="@SelectedItems">
+</TelerikTreeView>
+
+@code {
+    private TelerikContextMenu<ContextMenuItem> ContextMenu { get; set; }
+
+    public TreeItem LastClickedItem { get; set; }
+
+    public IEnumerable<object> SelectedItems { get; set; } = new List<object>();
+
+    public List<TreeItem> FlatData { get; set; }
+
+    public List<ContextMenuItem> ContextMenuData { get; set; }
+
+    async Task OnItemContextMenuHandler(TreeViewItemContextMenuEventArgs args)
+    {
+        LastClickedItem = args.Item as TreeItem;
+
+        if (args.EventArgs is MouseEventArgs mouseEventArgs)
+        {
+            await ContextMenu.ShowAsync(mouseEventArgs.ClientX, mouseEventArgs.ClientY);
+        }
+    }
+
+    private void ClickHandler(ContextMenuItem item)
+    {
+
+        // Use local code to perform a task such as put select/deselect a node or delete it
+        switch (item.CommandName)
+        {
+            case "ToggleSelect":
+                var selItems = SelectedItems.ToList();
+                if (SelectedItems.Contains(LastClickedItem))
+                {
+                    selItems.Remove(LastClickedItem);
+                }
+                else
+                {
+                    selItems.Add(LastClickedItem);
+                }
+                SelectedItems = selItems;
+                SelectedItems = new List<object>(SelectedItems);
+                break;
+
+            case "InvokeDelete":
+                FlatData.Remove(LastClickedItem);
+                FlatData = new List<TreeItem>(FlatData);
+                break;
+            default:
+                break;
+        }
+        LastClickedItem = null; // clean up
+    }
+
+    // sample data
+
+    public class ContextMenuItem
+    {
+        public string Text { get; set; }
+        public string Icon { get; set; }
+        public bool Separator { get; set; }
+        public string CommandName { get; set; }
+    }
+
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public int? ParentId { get; set; }
+        public bool HasChildren { get; set; }
+        public string Icon { get; set; }
+        public bool Expanded { get; set; }
+    }
+
+    protected override void OnInitialized()
+    {
+        LoadFlatData();
+
+        ContextMenuData = new List<ContextMenuItem>()
+        {
+            new ContextMenuItem
+            {
+                Text = "Select",
+                Icon = "checkbox-checked",
+                CommandName = "ToggleSelect"
+            },
+            new ContextMenuItem
+            {
+                Separator = true
+            },
+            new ContextMenuItem
+            {
+                Text = "Delete",
+                Icon = "delete",
+                CommandName = "InvokeDelete"
+            }
+        };
+    }
+
+    private void LoadFlatData()
+    {
+        List<TreeItem>
+            items = new List<TreeItem>
+                ();
+
+        items.Add(new TreeItem()
+        {
+            Id = 1,
+            Text = "Project",
+            ParentId = null,
+            HasChildren = true,
+            Icon = "folder",
+            Expanded = true
+        });
+
+        items.Add(new TreeItem()
+        {
+            Id = 2,
+            Text = "Design",
+            ParentId = 1,
+            HasChildren = true,
+            Icon = "brush",
+            Expanded = true
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 3,
+            Text = "Implementation",
+            ParentId = 1,
+            HasChildren = true,
+            Icon = "folder",
+            Expanded = true
+        });
+
+        items.Add(new TreeItem()
+        {
+            Id = 4,
+            Text = "site.psd",
+            ParentId = 2,
+            HasChildren = false,
+            Icon = "psd",
+            Expanded = true
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 5,
+            Text = "index.js",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = "js"
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 6,
+            Text = "index.html",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = "html"
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 7,
+            Text = "styles.css",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = "css"
+        });
+
+        FlatData = items;
+    }
+}
+````
 
 ## See Also
 
