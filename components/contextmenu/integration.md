@@ -386,7 +386,7 @@ In this example, the context menu is used to select/deselect items, put an item 
 
 ## Context Menu for a TreeView Node
 
-To integrate the context menu with the Telerik TreeView, you need to:
+To integrate the ContextMenu with the TreeView, you need to:
 
 1. Use the [`OnItemContextMenu`]({%slug treeview-events%}#onitemcontextmenu) event of the TreeView to get the current row model and show the menu
 2. Use the context menu's [`OnClick`]({%slug contextmenu-events%}#onclick) event to handle the desired operation
