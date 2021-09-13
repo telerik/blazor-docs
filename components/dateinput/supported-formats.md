@@ -41,7 +41,7 @@ The Telerik Date Input supports the standard format strings and specifiers that 
 
 >caution While the results of unsupported format specifiers values will render correctly, editing is not supported for them.
 
->tip There are some samples in the [Examples seciton](#examples).
+>tip There are some samples in the [Examples section](#examples).
 
 ### Two-digit Year Formats
 
