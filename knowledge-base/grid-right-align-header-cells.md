@@ -33,15 +33,14 @@ To align the Grid header cell labels to the right, use custom CSS as per the exa
 </TelerikGrid>
 
 <style>
-    /* no sorting, no filtering */
-    .right-align .k-grid-header .k-header {
-        text-align: right;
-    }
 
-    /* filtering, no sorting */
-    /*.right-align .k-grid-header .k-header {
-        padding-right: calc(1.6em + 14px);
-    }*/
+    .right-align .k-grid-header .k-header {
+        /* no sorting, no filtering */
+        text-align: right;
+
+        /* filtering, no sorting */
+        /*padding-right: calc(1.6em + 14px);*/
+    }
 
     /* sorting - move the sorting arrow to the left */
     .right-align .k-cell-inner > .k-link {
