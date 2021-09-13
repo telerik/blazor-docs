@@ -28,7 +28,7 @@ A click on a Drawer item calls the sub page as intended.
 
 However if I call a sub page directly by URL, the corresponding Drawer item doesn't get selected.
 
-It might be confusing for a user if he call a sub page directly and no drawer item get selected.
+It might be confusing for a user if they open a sub page directly and no Drawer item gets selected.
 
 Is there a way to "fix" this issue?
 
