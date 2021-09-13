@@ -12,7 +12,7 @@ position: 2
 
 The Gantt Tree lets the user reorder its columns by dragging their headers.
 
-To enable the column reordering, set the `Reorderable` parameter of the respective `GanttColumn` to `true`.
+To enable column reordering, set the `Reorderable` parameter of the respective `GanttColumn` to `true`.
 
 To prevent the user from moving a certain column, set its own parameter `Reorderable="false"`. Note that the user can still re-arrange other columns around it.
 
