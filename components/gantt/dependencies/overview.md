@@ -1,24 +1,33 @@
 ---
 title: Overview
-page_title: Gantt Chart - Tree
-description: Overview of the Tree for the Gantt Chart for Blazor.
-slug: gantt-tree
-tags: telerik,blazor,gantt,chart,tree
+page_title: Gantt Chart - Dependencies
+description: Overview of the Dependencies for the Gantt Chart for Blazor.
+slug: gantt-dependencies-overview
+tags: telerik,blazor,gantt,chart,dependencies
 published: True
 position: 0
 ---
 
-# Gantt Tree
+# Gantt Dependencies
 
-The Gantt Tree is the left part of the [Gantt Chart]({%slug gantt-overview%}). You can provide data to the component through its [data binding]({%slug gantt-data-binding-overview%}) options. You can also use the [filtering]({%slug gantt-filtering-overview%}), [sorting]({%slug gantt-sorting%}), and [editing]({%slug gantt-tree-editing%}) capabilities of the Telerik Gantt for Blazor.
+The Telerik Gantt for Blazor allows you define dependencies, which are rendered in the [Timeline]({%slug gantt-timeline%}) section of the component. A dependency represents a relation between two tasks. The direction of the arrow indicates which task dependent on the other. You can bind a [data collection]({%slug gantt-dependencies-databind%}), define different [types]({%slug gantt-dependencies-types%}) of dependencies, and allow your users to [edit]({%slug gantt-dependencies-editing%}) the dependencies.
 
-## List of available features for the Gantt Tree
 
-* `Gantt Columns` - The main building blocks of the Gantt Tree. They are used to render data in the component. You can read more information in the [Bound Column]({%slug gantt-columns-bound%}) article.
+#### To define dependencies in your Gantt Chart
 
-* `Editing` - Allows you to create new records, update the existing or deleting them. You can read more on this topic in the [Editing]({%slug gantt-tree-editing%}) article.
+* Add the `GanttDependenciesSettings` tag, child tag of the `<TelerikGantt>`
+* inside the `GanttDependenciesSettings` add the `<GanttDependencies>` and provide a data collection to the `Data` parameter. 
 
-* `Filtering` - the Gantt can filter data automatically. You can read more about this feature in the [Filtering]({%slug gantt-filtering-overview%}) article.
 
-* `Sorting` - Allows you to sort the data in ascending and descending order. You can read more about this feature in the [Sorting]({%slug gantt-sorting%}) article.
+## Gantt Dependencies Features:
+
+* `IdField` - `string` - Unique identifier for each task. You can use it for editing and hierarchy.
+
+* `PredecessorField` - `string` - Points to the predecessor task. 
+
+* `SuccessorField` - `string` - Points to the successor task.
+
+* `TypeField` - `string` - Defines the dependency type. For more information read the [Types]({%slug gantt-dependencies-types%}) article. 
+
+* `Editing` - You can allow the user edit the dependencies. For more information read the [Editing]({%slug gantt-dependencies-editing%}) article.
 
