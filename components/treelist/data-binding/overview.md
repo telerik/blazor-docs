@@ -44,7 +44,6 @@ The properties of a treelist item match directly to a field of the model the tre
 * HasChildrenField => HasChildren
 * ItemsField => Items
 
-
 ## Examples
 
 For samples of using each data binding approach listed above, see its corresponding article:
