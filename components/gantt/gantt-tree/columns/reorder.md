@@ -10,7 +10,7 @@ position: 2
 
 # Reorder Columns
 
-The Gantt Tree lets the user reorder its columns by dragging their headers.
+The Gantt Tree lets the user reorder columns by dragging their headers.
 
 To enable column reordering, set the `Reorderable` parameter of the respective `GanttColumn` to `true`.
 
