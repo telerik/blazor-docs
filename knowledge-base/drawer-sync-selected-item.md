@@ -22,7 +22,7 @@ res_type: kb
 
 
 ## Description
-I'm using the drawer component for navigation purposes.
+I'm using the Drawer component for navigation purposes.
 
 A click on a drawer item calls the sub page as intended.
 
