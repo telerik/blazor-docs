@@ -1,5 +1,5 @@
 ---
-title: Scroll to selected row
+title: Scroll to Selected Grid Row
 description: How to scroll a grid to the selected table row
 type: how-to
 page_title: Scroll to selected row
