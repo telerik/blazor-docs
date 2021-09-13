@@ -14,7 +14,7 @@ The Gantt Tree lets the user resize columns by dragging the borders between thei
 
 To enable the column resizing, set the `Resizable` parameter of the `GanttColumn` to `true`.
 
-To prevent the user from resizing a certain column, set its own parameter `Resizable="false"`. Note that the user can still resize other columns around it.
+To disable resizing of a certain column, set its own parameter `Resizable="false"`. Note that the user can still resize other columns around it.
 
 When column resizing is enabled, a double click on the resize handle between two header cells will automatically adjust the column width, based on the header and data content.
 
