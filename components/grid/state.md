@@ -26,6 +26,7 @@ This article contains the following sections:
 * [Information in the Grid State](#information-in-the-grid-state)
 * [Examples](#examples)
 	* [Save and Load Grid State from Browser LocalStorage](#save-and-load-grid-state-from-browser-localstorage)
+    * [Save and Load Grid State in a WebAssembly application](#save-and-load-grid-state-in-a-webassembly-application)
 	* [Set Grid Options Through State](#set-grid-options-through-state)
 	* [Set Default (Initial) State](#set-default-initial-state)
 	* [Get and Override User Action That Changes The Grid](#get-and-override-user-action-that-changes-the-grid)
@@ -375,6 +376,9 @@ public class LocalStorage
     }
 }
 ````
+
+### Save and Load Grid State in a WebAssembly application
+The [knowledge base article for saving the Grid state in a WASM application]({%slug grid-kb-save-state-in-webassembly%}) explains two ways of storing the `Grid` state - through a custom controller and a custom service that calls the browser's LocalStorage.
 
 ### Set Grid Options Through State
 
