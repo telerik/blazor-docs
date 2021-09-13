@@ -24,7 +24,7 @@ res_type: kb
 ## Description
 I'm using the Drawer component for navigation purposes.
 
-A click on a drawer item calls the sub page as intended.
+A click on a Drawer item calls the sub page as intended.
 
 However if I call a sub page directly by URL the corresponding drawer item doesn't get selected.
 
