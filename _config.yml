@@ -76,6 +76,9 @@ navigation:
      "*components/gantt/gantt-tree":
         title: "Gantt Tree"
         position: 5
+     "*components/gantt/dependencies":
+        title: "Gantt Dependencies"
+        position: 15
      "*components/gantt/timeline":
         title: "Gantt Timeline"
         position: 10
