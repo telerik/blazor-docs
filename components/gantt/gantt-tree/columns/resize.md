@@ -1,7 +1,7 @@
 ---
 title: Resize
-page_title: TreeList - Resize Columns
-description: Drag to resize columns in the treelist for Blazor.
+page_title: Gantt Tree - Resize Columns
+description: Drag to resize columns in the Gantt Chart for Blazor.
 slug: gantt-columns-resize
 tags: telerik,blazor,gantt,column,resize,drag
 published: True
