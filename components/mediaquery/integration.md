@@ -24,13 +24,16 @@ You can hide or more columns in the Grid based on the dimensions of the browser 
 
 >tip You can use similar approach for the Telerik TreeList in order to hide some of the component columns on small devices. You can even replace the entire components with other components that have a simpler layout and limited functionality, such as a ListView, for small devices.
 
+>tip If you are [saving the Grid state]({%slug grid-state%}#save-and-load-grid-state-from-browser-localstorage), you need to remove column visibility information in `OnStateChanged`. Otherwise the saved column visibility may conflict with the visibility determined by the MediaQuery component.
+
 ````CSHTML
 @* Hide Grid columns on small screens - those below 1024px in this example *@
 
 <TelerikMediaQuery Media="(max-width: 1023px)" OnChange="@( (doesMatch) => IsMediumDown = doesMatch )"></TelerikMediaQuery>
 
 <TelerikGrid Data="@MyData"
-             Pageable="true" PageSize="10">
+             Pageable="true" PageSize="10"
+             OnStateChanged="@( (GridStateEventArgs<User> args) => OnStateChangedHandler(args) )">
     <GridColumns>
         <GridCheckboxColumn Title="Select" Width="70px" />
         <GridColumn Field="@(nameof(User.Id))" Width="100px" />
@@ -59,6 +62,18 @@ You can hide or more columns in the Grid based on the dimensions of the browser 
 
 @code {
     private bool IsMediumDown { get; set; } // sample rule to hide columns on small devices through their Visible parameter
+
+    async void OnStateChangedHandler(GridStateEventArgs<User> args)
+    {
+        // Strip column visibility information, so that only the MediaQuery component manages column visibility, not the Grid.
+        // This code is needed only in MediaQuery integration scenarios.
+        foreach (var columnState in args.GridState.ColumnStates)
+        {
+            columnState.Visible = null;
+        }
+
+        //await LocalStorage.SetItem("local-storage-key", args.GridState);
+    }
 
     // only sample data for the grid follows
     public IEnumerable<User> MyData = Enumerable.Range(1, 30).Select(x => new User
