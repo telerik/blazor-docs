@@ -21,11 +21,7 @@ The Telerik Gantt for Blazor allows you define dependencies, which are rendered 
 
 ## Gantt Dependencies Features:
 
-* `IdField` - `string` - Unique identifier for each task. You can use it for editing and hierarchy.
-
-* `PredecessorField` - `string` - Points to the predecessor task. 
-
-* `SuccessorField` - `string` - Points to the successor task.
+* Data Binding - You can provide a collection of dependencies to the Gantt Chart for Blazor. For more information read the [Data Binding]({%slug gantt-dependencies-databind%}) article.
 
 * `TypeField` - `string` - Defines the dependency type. For more information read the [Types]({%slug gantt-dependencies-types%}) article. 
 

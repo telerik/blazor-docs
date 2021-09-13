@@ -1,36 +1,29 @@
 ---
-title: Types
-page_title: Gantt Dependencies - Types
-description: Overview of the Dependency Types for the Gantt Chart for Blazor.
-slug: gantt-dependencies-types
-tags: telerik,blazor,gantt,chart,dependency,types
+title: Editing
+page_title: Gantt Dependencies - Editing
+description: Create and Delete Dependencies.
+slug: gantt-dependencies-editing
+tags: telerik,blazor,gantt,chart,dependency,edit,editing,dependencies
 published: True
-position: 10
+position: 15
 ---
 
-# Types
+# Editing
 
-The Telerik Gantt Chart for Blazor allows you to define four distinct types of dependencies. To define the dependency type use the `TypeField`, a parameter available on the `GanttDependencies` tag. The parameter accepts `int` and `enum` as values and can be one of the following:  
+The Gantt Chart component lets you edit dependencies. This article will explain how to enable and use it.
 
-* `FinishFinish` - `0` - A line from the end date of the predecessor to the end date of the successor.
+* [OnCreate](#oncreate)
 
-* `FinishStart` - `1` - A line from the end date of the predecessor to the start date of the successor.
+* [OnDelete](#ondelete)
 
-* `StartStart` - `2` - A line from the start date of the predecessor to the start date of the successor.
+## OnCreate
 
-* `StartFinish` - `3` - A line from the start date of the predecessor to the end date of the successor.
+The `OnCreate` event fires when the users drag the dependency line from one end-point to another and thus create a new dependency. It provides a `GanttDependencyCreateEventArgs` object that contains the currently created dependency.
 
-## Examples
-
-This section showcases both ways to define the dependency type - by using an `int`, and an `enum`:  
-
-* [Use an int to define the dependency type](#use-an-int-to-define-the-dependency-type)
-* [Use an enum to define the dependency type](#use-an-enum-to-define-the-dependency-type)
-
-### Use an int to define the dependency type
+### Use the OnCreate event to react to the user creating a new dependency
 
 ````CSHTML
-@* Set the dependency type to FinishStart *@
+@* Drag the line of a dependecy to a new end-point to fire the event *@
 
 <TelerikGantt Data="@Data"
               Width="100%"
@@ -53,7 +46,8 @@ This section showcases both ways to define the dependency type - by using an `in
         <GanttDependencies Data="@Dependencies"
                            PredecessorIdField="PredecessorId"
                            SuccessorIdField="SuccessorId"
-                           TypeField="Type">
+                           TypeField="Type"
+                           OnCreate="@CreateDependency">
         </GanttDependencies>
     </GanttDependenciesSettings>
     <GanttColumns>
@@ -84,6 +78,19 @@ This section showcases both ways to define the dependency type - by using an `in
 </TelerikGantt>
 
 @code { 
+    private void CreateDependency(GanttDependencyCreateEventArgs args)
+    {
+        var dependency = new DependencyModel()
+        {
+            Id = LastDependencyId++,
+            PredecessorId = (int)args.PredecessorId,
+            SuccessorId = (int)args.SuccessorId,
+            Type = args.Type
+        };
+
+        Dependencies.Add(dependency);
+    }
+
     public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
 
     class FlatModel
@@ -149,7 +156,7 @@ This section showcases both ways to define the dependency type - by using an `in
             Id = LastDependencyId++,
             PredecessorId = 3,
             SuccessorId = 4,
-            Type = 1
+            Type = 0
         });
 
         Dependencies.Add(new DependencyModel()
@@ -157,7 +164,7 @@ This section showcases both ways to define the dependency type - by using an `in
             Id = LastDependencyId++,
             PredecessorId = 2,
             SuccessorId = 5,
-            Type = 1
+            Type = 2
         });
 
         base.OnInitialized();
@@ -165,10 +172,14 @@ This section showcases both ways to define the dependency type - by using an `in
 }
 ````
 
-### Use an enum to define the dependency type
+## OnDelete
+
+The `OnDelete` event fires when the users deletes a dependency. To delete a dependency the user should select it using the mouse and press the `Delete` keyboard button. It provides a `GanttDependencyDeleteEventArgs` object that contains the currently deleted dependency. You can cast that object to your model.
+
+### Use the OnDelete event to react to the user deleting a dependency
 
 ````CSHTML
-@* Set the dependency type by using an enum *@
+@* Delete a dependency to fire the event *@
 
 <TelerikGantt Data="@Data"
               Width="100%"
@@ -191,7 +202,8 @@ This section showcases both ways to define the dependency type - by using an `in
         <GanttDependencies Data="@Dependencies"
                            PredecessorIdField="PredecessorId"
                            SuccessorIdField="SuccessorId"
-                           TypeField="Type">
+                           TypeField="Type"
+                           OnDelete="@DeleteDependency">
         </GanttDependencies>
     </GanttDependenciesSettings>
     <GanttColumns>
@@ -222,15 +234,12 @@ This section showcases both ways to define the dependency type - by using an `in
 </TelerikGantt>
 
 @code { 
-    public enum DependencyTypes
-    {
-        FinishFinish,
-        FinishStart,
-        StartStart,
-        StartFinish
-    };
-
     public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
+
+    private void DeleteDependency(GanttDependencyDeleteEventArgs args)
+    {
+        Dependencies.RemoveAll(d => d.Id.Equals((args.Item as DependencyModel).Id));
+    }
 
     class FlatModel
     {
@@ -247,7 +256,7 @@ This section showcases both ways to define the dependency type - by using an `in
         public int Id { get; set; }
         public int PredecessorId { get; set; }
         public int SuccessorId { get; set; }
-        public DependencyTypes Type { get; set; }
+        public int Type { get; set; }
     }
 
     public int LastId { get; set; } = 1;
@@ -295,7 +304,7 @@ This section showcases both ways to define the dependency type - by using an `in
             Id = LastDependencyId++,
             PredecessorId = 3,
             SuccessorId = 4,
-            Type = DependencyTypes.FinishFinish
+            Type = 0
         });
 
         Dependencies.Add(new DependencyModel()
@@ -303,11 +312,10 @@ This section showcases both ways to define the dependency type - by using an `in
             Id = LastDependencyId++,
             PredecessorId = 2,
             SuccessorId = 5,
-            Type = DependencyTypes.StartFinish
+            Type = 2
         });
 
         base.OnInitialized();
     }
 }
 ````
-
