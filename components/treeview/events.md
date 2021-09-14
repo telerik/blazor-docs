@@ -296,7 +296,7 @@ The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an no
 
 ## OnItemDoubleClick
 
-The `OnItemDoubleClick` event fires as a response to the user double clicking on a TreeView node.
+The `OnItemDoubleClick` event fires when the user double-clicks a TreeView node.
 
 The event handler receives a `TreeViewItemDoubleClickEventArgs` object which provides the model of the clicked node in the `Item` field that you can cast to your model type.
 
