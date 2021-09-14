@@ -22,16 +22,18 @@ Note the usage of [`OnModelInit`]({%slug treelist-events%}#onmodelinit) in the e
 
 ````CSHTML
 <TelerikTreeList Data="@TreeListData"
-             EditMode="TreeListEditMode.Inline"
-             OnUpdate="@UpdateHandler"
-             OnDelete="@DeleteHandler"
-             OnCreate="@CreateHandler"
-             OnModelInit="@(() => new Model1())">
+                 IdField="Id"
+                 ParentIdField="ParentId"
+                 EditMode="TreeListEditMode.Inline"
+                 OnUpdate="@UpdateHandler"
+                 OnDelete="@DeleteHandler"
+                 OnCreate="@CreateHandler"
+                 OnModelInit="@(() => new Model1())">
     <TreeListToolBar>
         <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
     </TreeListToolBar>
     <TreeListColumns>
-        <TreeListColumn Field="IntProperty" />
+        <TreeListColumn Field="IntProperty" Expandable="true" />
         <TreeListCommandColumn>
             <TreeListCommandButton Command="Edit">Edit</TreeListCommandButton>
             <TreeListCommandButton Command="Save" ShowInEdit="true">Save</TreeListCommandButton>
@@ -43,21 +45,21 @@ Note the usage of [`OnModelInit`]({%slug treelist-events%}#onmodelinit) in the e
 @code {
     public interface IModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public int? ParentId { get; set; }
         public int IntProperty { get; set; }
     }
 
     public class Model1 : IModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public int? ParentId { get; set; }
         public int IntProperty { get; set; }
     }
 
     public class Model2 : IModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public int? ParentId { get; set; }
         public int IntProperty { get; set; }
     }
