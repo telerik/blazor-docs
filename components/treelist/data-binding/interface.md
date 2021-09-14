@@ -44,21 +44,21 @@ Note the usage of [`OnModelInit`]({%slug treelist-events%}#onmodelinit) in the e
     public interface IModel
     {
         public int Id { get; set; }
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
         public int IntProperty { get; set; }
     }
 
     public class Model1 : IModel
     {
         public int Id { get; set; }
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
         public int IntProperty { get; set; }
     }
 
     public class Model2 : IModel
     {
         public int Id { get; set; }
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
         public int IntProperty { get; set; }
     }
 
