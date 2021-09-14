@@ -30,6 +30,8 @@ I would like to add the ContextMenu component to every item (node) in the TreeVi
 The ContextMenu exposes an API to associate the component to any DOM element through the [ShowAsync]({%slug contextmenu-integration%}) method. You can use the [oncontextmenu](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/oncontextmenu) event of an HTML element in the [treeview item template]({%slug components/treeview/templates%}) to show the context menu by using the `MouseEventArgs`. 
 
 
+>tip As of version 2.27, the TreeView exposes [`OnItemContextMenu` event]({%slug treeview-events%}#onitemcontextmenu) that you can use to integrate Telerik Context menu for the TreeView nodes. Here is an example of such a configuration - [Context menu for a TreeView node]({%slug contextmenu-integration%}#context-menu-for-a-treeview-node)
+
 
 ````CSHTML
 @* Use the oncontextmenu event of the HTML element to show the ContextMenu for the TreeView items *@
