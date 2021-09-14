@@ -606,6 +606,8 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
 The `OnItemClick` event fires when the user clicks on an appointment in the Scheduler. 
 It provides a `SchedulerItemClickEventArgs` object to the event handler and you can get the `Item` and cast it to your own model. If you set the `ShouldRender` field to `true`, the component will re-render. This can be useful if you need to change its parameters or state during the event execution and especially if you need to execute `async` logic in the event handler.
 
+@[template](/_contentTemplates/grid/common-link.md#rowclick-args)
+
 >caption Use the OnItemClick event for the scheduler
 
 ````CSHTML
@@ -679,6 +681,8 @@ It provides a `SchedulerItemClickEventArgs` object to the event handler and you 
 The `OnItemDoubleClick` event fires when the user double clicks on an appointment in the Scheduler. 
 It provides a `SchedulerItemDoubleClickEventArgs` object to the event handler and you can get the `Item` and cast it to your own model. If you set the `ShouldRender` field to `true`, the component will re-render. This can be useful if you need to change its parameters or state during the event execution and especially if you need to execute `async` logic in the event handler.
 
+@[template](/_contentTemplates/grid/common-link.md#rowclick-args)
+
 >caption Use the OnItemDoubleClick event for the scheduler
 
 ````CSHTML
@@ -751,6 +755,8 @@ It provides a `SchedulerItemDoubleClickEventArgs` object to the event handler an
 
 The `OnItemContextMenu` event fires when the user right clicks on an appointment in the Scheduler. 
 It provides a `SchedulerItemContextMenuEventArgs` object to the event handler and you can get the `Item` and cast it to your own model. If you set the `ShouldRender` field to `true`, the component will re-render. This can be useful if you need to change its parameters or state during the event execution and especially if you need to execute `async` logic in the event handler.
+
+@[template](/_contentTemplates/grid/common-link.md#rowclick-args)
 
 >caption Use the OnItemContextMenu event for the scheduler
 
