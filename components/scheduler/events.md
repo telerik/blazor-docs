@@ -679,7 +679,7 @@ It provides a `SchedulerItemClickEventArgs` object to the event handler and you 
 ## OnItemDoubleClick
 
 The `OnItemDoubleClick` event fires when the user double clicks on an appointment in the Scheduler. 
-It provides a `SchedulerItemDoubleClickEventArgs` object to the event handler and you can get the `Item` and cast it to your own model. If you set the `ShouldRender` field to `true`, the component will re-render. This can be useful if you need to change its parameters or state during the event execution and especially if you need to execute `async` logic in the event handler.
+It provides a `SchedulerItemDoubleClickEventArgs` object to the event handler and you can get the `Item` property and cast it to your own model. If you set the `ShouldRender` property to `true`, the component will re-render. This can be useful if you need to change the Scheduler parameters or state during the event execution and especially if you need to execute `async` logic in the event handler.
 
 @[template](/_contentTemplates/grid/common-link.md#rowclick-args)
 
