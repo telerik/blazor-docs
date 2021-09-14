@@ -1,6 +1,6 @@
 ---
 title: Data Binding to Interface
-page_title: Data Binding to Interface | TreeList for Blazor
+page_title: Blazor TreeList - Data Binding to Interface | Telerik UI for Blazor
 description: Data binding the Blazor TreeList to multiple model types with the same interface.
 slug: treelist-data-binding-interface
 tags: telerik,blazor,treelist,data,bind,databind,databinding,interface
