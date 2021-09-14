@@ -14,6 +14,8 @@ This article explains the events available in the Telerik TreeView for Blazor:
 
 * [OnExpand](#onexpand)
 * [OnItemClick](#onitemclick)
+* [OnItemDoubleClick](#onitemdoubleclick)
+* [OnItemContextMenu](#onitemcontextmenu)
 * [SelectedItemsChanged](#selecteditemschanged)
 * [CheckedItemsChanged](#checkeditemschanged)
 
@@ -139,7 +141,9 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
 
 ## OnItemClick
 
-The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an node (item) of the TreeView. You can use this event to react on user clicking on a node and load data on demand for another component, for example.
+The `OnItemClick` event fires when the user clicks, presses `Enter` or taps (for mobile devices) on an node (item) of the TreeView. You can use this event to react on user clicking on a node and load data on demand for another component, for example.
+
+@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
 
 @[template](/_contentTemplates/common/general-info.md#rerender-after-event)
 
@@ -168,13 +172,15 @@ The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an no
     public List<GridDataModel> GridData { get; set; }
     public List<TreeItem> FlatData { get; set; }
 
-    async Task OnItemClickHandler(TreeViewItemClickEventArgs e)
+    async Task OnItemClickHandler(TreeViewItemClickEventArgs args)
     {
-        var item = e.Item as TreeItem;
+        var item = args.Item as TreeItem;
         ChosenItem = item;
 
         //perform actual database operations here
         GridData = await LoadGridDataOnDemand(ChosenItem.Id);
+
+        @[template](/_contentTemplates/common/event-arguments.md#rowclick-args-treeview-example)
     }
 
     #region Data Generation
@@ -274,6 +280,281 @@ The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an no
         public string Name { get; set; }
         public int WorkingOn { get; set; }
     }
+
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public int? ParentId { get; set; }
+        public bool HasChildren { get; set; }
+        public string Icon { get; set; }
+        public bool Expanded { get; set; }
+    }
+    #endregion
+}
+````
+
+## OnItemDoubleClick
+
+The `OnItemDoubleClick` event fires when the user double-clicks or double-taps (for mobile devices) a TreeView node.
+
+The event handler receives a `TreeViewItemDoubleClickEventArgs` object which provides the model of the clicked node in the `Item` field that you can cast to your model type.
+
+@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
+
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+
+>caption Use the OnItemDoubleClick event to receive information for the clicked node
+
+````CSHTML
+@* Use the OnItemDoubleClick event to receive information for the node the user clicked on *@
+
+<TelerikTreeView Data="@FlatData"
+                 OnItemDoubleClick="@OnItemDoubleClickHandler">
+
+</TelerikTreeView>
+
+@if (!String.IsNullOrEmpty(logger))
+{
+    <div>
+        @logger
+    </div>
+}
+
+@code {
+    string logger = String.Empty;
+
+    TreeItem ChosenItem { get; set; }
+
+    public List<TreeItem> FlatData { get; set; }
+
+    async Task OnItemDoubleClickHandler(TreeViewItemDoubleClickEventArgs args)
+    {
+        var item = args.Item as TreeItem;
+
+        ChosenItem = item;
+
+        logger = $"Double clicked on {item.Text}";
+        
+        @[template](/_contentTemplates/common/event-arguments.md#rowclick-args-treeview-example)
+
+    }
+
+    #region Data Generation
+
+    protected override void OnInitialized()
+    {
+        LoadFlatData();
+    }
+
+    private void LoadFlatData()
+    {
+        List<TreeItem> items = new List<TreeItem>();
+
+        items.Add(new TreeItem()
+        {
+            Id = 1,
+            Text = "Project",
+            ParentId = null,
+            HasChildren = true,
+            Icon = "folder",
+            Expanded = true
+        });
+
+        items.Add(new TreeItem()
+        {
+            Id = 2,
+            Text = "Design",
+            ParentId = 1,
+            HasChildren = true,
+            Icon = "brush",
+            Expanded = true
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 3,
+            Text = "Implementation",
+            ParentId = 1,
+            HasChildren = true,
+            Icon = "folder",
+            Expanded = true
+        });
+
+        items.Add(new TreeItem()
+        {
+            Id = 4,
+            Text = "site.psd",
+            ParentId = 2,
+            HasChildren = false,
+            Icon = "psd",
+            Expanded = true
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 5,
+            Text = "index.js",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = "js"
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 6,
+            Text = "index.html",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = "html"
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 7,
+            Text = "styles.css",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = "css"
+        });
+
+        FlatData = items;
+    }
+    #endregion
+
+    #region Data Model
+
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public int? ParentId { get; set; }
+        public bool HasChildren { get; set; }
+        public string Icon { get; set; }
+        public bool Expanded { get; set; }
+    }
+    #endregion
+}
+````
+
+## OnItemContextMenu
+
+The `OnItemContextMenu` event fires when the user right-clicks on a TreeView node, presses the context menu keyboard button or taps and holds on a mobile device.
+
+The event handler receives a `TreeViewItemContextMenuEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+
+@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
+
+The `OnItemContextMenu` is used to [integrate the Context menu]({%slug contextmenu-integration%}#context-menu-for-a-treeview-node) to the TreeView node.
+
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+
+>caption Use the OnItemContextMenu event and get the node model
+
+````CSHTML
+@* Get the node information from a context menu action (right click/long tap) *@
+
+<TelerikTreeView Data="@FlatData"
+                 OnItemContextMenu="OnItemContextMenuHandler">
+
+</TelerikTreeView>
+
+@if (!String.IsNullOrEmpty(logger))
+{
+    <div>
+        @logger
+    </div>
+}
+
+@code {
+    string logger = String.Empty;
+
+    public List<TreeItem> FlatData { get; set; }
+
+    void OnItemContextMenuHandler(TreeViewItemContextMenuEventArgs args)
+    {
+        var item = args.Item as TreeItem;
+
+        logger = $"OnItemContextMenu event fired from right clicking on {item.Text}";
+
+        @[template](/_contentTemplates/common/event-arguments.md#rowclick-args-treeview-example)
+    }
+
+    #region Data Generation
+
+    protected override void OnInitialized()
+    {
+        LoadFlatData();
+    }
+
+    private void LoadFlatData()
+    {
+        List<TreeItem> items = new List<TreeItem>();
+
+        items.Add(new TreeItem()
+        {
+            Id = 1,
+            Text = "Project",
+            ParentId = null,
+            HasChildren = true,
+            Icon = "folder",
+            Expanded = true
+        });
+
+        items.Add(new TreeItem()
+        {
+            Id = 2,
+            Text = "Design",
+            ParentId = 1,
+            HasChildren = true,
+            Icon = "brush",
+            Expanded = true
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 3,
+            Text = "Implementation",
+            ParentId = 1,
+            HasChildren = true,
+            Icon = "folder",
+            Expanded = true
+        });
+
+        items.Add(new TreeItem()
+        {
+            Id = 4,
+            Text = "site.psd",
+            ParentId = 2,
+            HasChildren = false,
+            Icon = "psd",
+            Expanded = true
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 5,
+            Text = "index.js",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = "js"
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 6,
+            Text = "index.html",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = "html"
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 7,
+            Text = "styles.css",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = "css"
+        });
+
+        FlatData = items;
+    }
+    #endregion
+
+    #region Data Model
 
     public class TreeItem
     {

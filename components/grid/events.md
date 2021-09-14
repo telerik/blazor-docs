@@ -478,7 +478,7 @@ The `OnRowClick` event fires as a response to the user clicking on a row of the 
 
 The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
-@[template](/_contentTemplates/grid/common-link.md#rowclick-args)
+@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
 
 The `OnRowClick` event fires before selection happens.
 
@@ -526,7 +526,7 @@ There is a deliberate delay in the data loading to showcase the async nature of 
         var model = args.Item as SampleData;
 
         ProjectData = await GetProjectData(model.Id);
-        @[template](/_contentTemplates/grid/common-link.md#rowclick-args-example)
+        @[template](/_contentTemplates/common/event-arguments.md#rowclick-args-example)
     }
 
     async Task<List<ProjectModel>> GetProjectData(int id)
@@ -582,7 +582,7 @@ The `OnRowDoubleClick` event fires as a response to the user double clicking on 
 
 The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
-@[template](/_contentTemplates/grid/common-link.md#rowclick-args)
+@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
 
 The `OnRowDoubleClick` event fires before selection happens.
 
@@ -621,7 +621,7 @@ The `OnRowDoubleClick` event fires before selection happens.
         var model = args.Item as SampleData;
 
         logger = $"Double clicked on {model.Name}";
-        @[template](/_contentTemplates/grid/common-link.md#rowclick-args-example)
+        @[template](/_contentTemplates/common/event-arguments.md#rowclick-args-example)
         
     }
 
@@ -649,9 +649,9 @@ The `OnRowContextMenu` event fires as a response to the user right clicking on a
 
 The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
-@[template](/_contentTemplates/grid/common-link.md#rowclick-args)
+@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
 
-The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmenu-overview%}#context-menu-for-a-grid-row) to the Grid Row.
+The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmenu-integration%}#context-menu-for-a-grid-row) to the Grid Row.
 
 @[template](/_contentTemplates/common/general-info.md#rerender-after-event)
 
@@ -682,7 +682,7 @@ The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmen
         SampleData model = args.Item as SampleData;
 
         logger = $"OnRowContextMenu event fired from right clicking on {model.Name}";
-        @[template](/_contentTemplates/grid/common-link.md#rowclick-args-example)
+        @[template](/_contentTemplates/common/event-arguments.md#rowclick-args-example)
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
