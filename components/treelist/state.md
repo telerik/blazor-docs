@@ -146,7 +146,20 @@ The following example shows one way you can store the TreeList state - through a
 
     async Task OnStateInitHandler(TreeListStateEventArgs<Employee> args)
     {
-        args.TreeListState = await LocalStorage.GetItem<TreeListState<Employee>>(UniqueStorageKey);
+        try
+        {
+            var state = await LocalStorage.GetItem<TreeListState<Employee>>(UniqueStorageKey);
+            if (state != null)
+            {
+                args.TreeListState = state;
+            }
+
+        }
+        catch (InvalidOperationException e)
+        {
+            // the JS Interop for the local storage cannot be used during pre-rendering
+            // so the code above will throw. Once the app initializes, it will work fine
+        }
     }
 
     async Task OnStateChangedHandler(TreeListStateEventArgs<Employee> args)
