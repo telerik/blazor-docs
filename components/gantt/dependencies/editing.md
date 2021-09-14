@@ -8,7 +8,7 @@ published: True
 position: 15
 ---
 
-# Editing
+# Dependencies Editing
 
 The Gantt Chart component lets you edit dependencies. This article will explain how to enable and use it.
 
