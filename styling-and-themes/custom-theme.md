@@ -5,6 +5,7 @@ description: Create a custom theme for the UI for Blazor components based on the
 slug: themes-custom
 tags: telerik,blazor,theme,custom
 published: True
+previous_url: /themes/custom-theme
 position: 3
 ---
 
