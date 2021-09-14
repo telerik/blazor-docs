@@ -5,6 +5,7 @@ description: The UI for Blazor Themes provide classes that you can use to style 
 slug: themes-form-elements
 tags: telerik,blazor,form,element,class,styling
 published: True
+previous_url: /themes/form-elements
 position: 5
 ---
 
