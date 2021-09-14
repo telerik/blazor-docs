@@ -32,7 +32,7 @@ List of the available events:
 ## Example
 
 ````CSHTML
-@* Drag the line of a task to a new end-point to fire the Oncreate event. Delete a dependency to fire the OnDelete event *@
+@* Drag the dependency handle of a task to a new end-point to fire the Oncreate event. Delete a dependency to fire the OnDelete event *@
 
 <TelerikGantt Data="@Data"
               Width="100%"
