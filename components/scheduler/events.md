@@ -14,6 +14,9 @@ This article explains the events available in the Telerik Scheduler for Blazor:
 
 * [CUD Events](#cud-events)
 * [OnModelInit](#onmodelinit)
+* [OnItemClick](#onitemclick)
+* [OnItemDoubleClick](#onitemdoubleclick)
+* [OnItemContextMenu](#onitemcontextmenu)
 * [ItemRender](#itemrender)
 * [DateChanged](#datechanged)
 * [ViewChanged](#viewchanged)
@@ -594,6 +597,225 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
 
             _data.Remove(itemToDelete);
         }
+    }
+}
+````
+
+## OnItemClick
+
+The `OnItemClick` event fires when the user clicks on an appointment in the Scheduler. 
+It provides a `SchedulerItemClickEventArgs` object to the event handler and you can get the `Item` and cast it to your own model. If you set the `ShouldRender` field to `true`, the component will re-render. This can be useful if you need to change its parameters or state during the event execution and especially if you need to execute `async` logic in the event handler.
+
+>caption Use the OnItemClick event for the scheduler
+
+````CSHTML
+@* You can react to user clicking on a Scheduler item by using the OnItemClick event *@
+
+<TelerikScheduler Data="@Appointments" 
+                  @bind-Date="@StartDate"
+                  OnItemClick="@OnClickHandler"
+                  @bind-View="@CurrView" 
+                  Height="600px" 
+                  Width="800px">
+    <SchedulerViews>
+        <SchedulerDayView StartTime="@DayStart" />
+        <SchedulerWeekView StartTime="@DayStart" />
+        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
+    </SchedulerViews>
+</TelerikScheduler>
+
+@code {
+    private void OnClickHandler(SchedulerItemClickEventArgs args)
+    {
+        var currentItem = args.Item as SchedulerAppointment;
+
+        args.ShouldRender = false;
+    }
+
+    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
+    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
+    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
+    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
+{
+            new SchedulerAppointment
+            {
+                Title = "Vet visit",
+                Description = "The cat needs vaccinations and her teeth checked.",
+                Start = new DateTime(2019, 11, 26, 11, 30, 0),
+                End = new DateTime(2019, 11, 26, 12, 0, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Planning meeting",
+                Description = "Kick off the new project.",
+                Start = new DateTime(2019, 11, 25, 9, 30, 0),
+                End = new DateTime(2019, 11, 25, 12, 45, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Trip to Hawaii",
+                Description = "An unforgettable holiday!",
+                IsAllDay = true,
+                Start = new DateTime(2019, 11, 27),
+                End = new DateTime(2019, 12, 07)
+            }
+    };
+
+    public class SchedulerAppointment
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
+    }
+}
+````
+
+## OnItemDoubleClick
+
+The `OnItemDoubleClick` event fires when the user double clicks on an appointment in the Scheduler. 
+It provides a `SchedulerItemDoubleClickEventArgs` object to the event handler and you can get the `Item` and cast it to your own model. If you set the `ShouldRender` field to `true`, the component will re-render. This can be useful if you need to change its parameters or state during the event execution and especially if you need to execute `async` logic in the event handler.
+
+>caption Use the OnItemDoubleClick event for the scheduler
+
+````CSHTML
+@* You can react to user double clicking on a Scheduler item by using the OnItemDoubleClick event *@
+
+<TelerikScheduler Data="@Appointments" 
+                  @bind-Date="@StartDate"
+                  OnItemDoubleClick="@OnDoubleClickHandler"
+                  @bind-View="@CurrView" 
+                  Height="600px" 
+                  Width="800px">
+    <SchedulerViews>
+        <SchedulerDayView StartTime="@DayStart" />
+        <SchedulerWeekView StartTime="@DayStart" />
+        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
+    </SchedulerViews>
+</TelerikScheduler>
+
+@code {
+    private void OnDoubleClickHandler(SchedulerItemDoubleClickEventArgs args)
+    {
+        var currentItem = args.Item as SchedulerAppointment;
+
+        args.ShouldRender = false;
+    }
+
+    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
+    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
+    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
+    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
+    {
+            new SchedulerAppointment
+            {
+                Title = "Vet visit",
+                Description = "The cat needs vaccinations and her teeth checked.",
+                Start = new DateTime(2019, 11, 26, 11, 30, 0),
+                End = new DateTime(2019, 11, 26, 12, 0, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Planning meeting",
+                Description = "Kick off the new project.",
+                Start = new DateTime(2019, 11, 25, 9, 30, 0),
+                End = new DateTime(2019, 11, 25, 12, 45, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Trip to Hawaii",
+                Description = "An unforgettable holiday!",
+                IsAllDay = true,
+                Start = new DateTime(2019, 11, 27),
+                End = new DateTime(2019, 12, 07)
+            }
+    };
+
+    public class SchedulerAppointment
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
+    }
+}
+````
+
+## OnItemContextMenu
+
+The `OnItemContextMenu` event fires when the user right clicks on an appointment in the Scheduler. 
+It provides a `SchedulerItemContextMenuEventArgs` object to the event handler and you can get the `Item` and cast it to your own model. If you set the `ShouldRender` field to `true`, the component will re-render. This can be useful if you need to change its parameters or state during the event execution and especially if you need to execute `async` logic in the event handler.
+
+>caption Use the OnItemContextMenu event for the scheduler
+
+````CSHTML
+@* You can react to user right clicking on a Scheduler item by using the OnItemContextMenu event *@
+
+<TelerikScheduler Data="@Appointments" 
+                  @bind-Date="@StartDate"
+                  OnItemContextMenu="@OnItemContextMenu"
+                  @bind-View="@CurrView" 
+                  Height="600px" 
+                  Width="800px">
+    <SchedulerViews>
+        <SchedulerDayView StartTime="@DayStart" />
+        <SchedulerWeekView StartTime="@DayStart" />
+        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
+    </SchedulerViews>
+</TelerikScheduler>
+
+@code {
+    private void OnItemContextMenu(SchedulerItemContextMenuEventArgs args)
+    {
+        var currentItem = args.Item as SchedulerAppointment;
+
+        args.ShouldRender = false;
+    }
+
+    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
+    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
+    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
+    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
+{
+            new SchedulerAppointment
+            {
+                Title = "Vet visit",
+                Description = "The cat needs vaccinations and her teeth checked.",
+                Start = new DateTime(2019, 11, 26, 11, 30, 0),
+                End = new DateTime(2019, 11, 26, 12, 0, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Planning meeting",
+                Description = "Kick off the new project.",
+                Start = new DateTime(2019, 11, 25, 9, 30, 0),
+                End = new DateTime(2019, 11, 25, 12, 45, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Trip to Hawaii",
+                Description = "An unforgettable holiday!",
+                IsAllDay = true,
+                Start = new DateTime(2019, 11, 27),
+                End = new DateTime(2019, 12, 07)
+            }
+    };
+
+    public class SchedulerAppointment
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
     }
 }
 ````
