@@ -38,11 +38,12 @@ Hooking to your own HTML elements' events lets you determine what to do with the
 >caption Use the context menu target and change menu items based on the target data
 
 ````CSHTML
-@* Get context menu target and alter its items based on it *@ 
+@* Get context menu target and alter its items based on it *@
 
 <TelerikContextMenu Data="@MenuItems" @ref="@TheContextMenu"
-                    TextField="Text" SeparatorField="Separator" IconField="Icon" DisabledField="Disabled"
-                    OnClick="@( (ContextMenuItem itm) => ClickHandler(itm) )">
+                    TextField="Text" SeparatorField="Separator" IconField="Icon"
+                    DisabledField="Disabled"
+                    OnClick="@( (ContextMenuItem itm) => ContextMenuClickHandler(itm) )">
 </TelerikContextMenu>
 
 <TelerikListView Data="@ListViewData" Width="700px" Pageable="true">
@@ -78,7 +79,7 @@ Hooking to your own HTML elements' events lets you determine what to do with the
         MenuItems[2].Items[0].Disabled = clickedItem.IsSpecial;
     }
 
-    async Task ClickHandler(ContextMenuItem clickedItem)
+    async Task ContextMenuClickHandler(ContextMenuItem clickedItem)
     {
         // handle the command from the context menu by using the stored metadata
         if (!string.IsNullOrEmpty(clickedItem.CommandName) && LastClickedItem != null)
@@ -93,7 +94,7 @@ Hooking to your own HTML elements' events lets you determine what to do with the
     {
 
         MenuItems = new List<ContextMenuItem>()
-        { 
+    {
             new ContextMenuItem
             {
                 Text = "More Info",
@@ -108,7 +109,7 @@ Hooking to your own HTML elements' events lets you determine what to do with the
             {
                 Text = "Advanced",
                 Items = new List<ContextMenuItem>()
-                {
+            {
                     new ContextMenuItem
                     {
                         Text = "Delete",
@@ -183,7 +184,9 @@ In this example, the context menu is used to select/deselect items, put an item 
 @using System.Collections.Generic
 @using System.Collections.ObjectModel
 
-<TelerikContextMenu @ref="@ContextMenuRef" Data="@MenuItems" OnClick="@((MenuItem item) => OnItemClick(item))"></TelerikContextMenu>
+<TelerikContextMenu @ref="@ContextMenuRef" Data="@MenuItems" 
+                    OnClick="@((MenuItem item) => ContextMenuClickHandler(item))">
+</TelerikContextMenu>
 
 <TelerikGrid Data="@GridData" @ref="@GridRef"
              EditMode="@GridEditMode.Inline"
@@ -250,7 +253,7 @@ In this example, the context menu is used to select/deselect items, put an item 
     }
 
     // sample handling of the context menu click
-    async Task OnItemClick(MenuItem item)
+    async Task ContextMenuClickHandler(MenuItem item)
     {
         // one way to pass handlers is to use an Action, you don't have to use this
         if (item.Action != null)
@@ -294,7 +297,7 @@ In this example, the context menu is used to select/deselect items, put an item 
     {
         // context menu items
         MenuItems = new List<MenuItem>()
-        {
+    {
             new MenuItem(){ Text = "Select", Icon="checkbox-checked", CommandName="ToggleSelect" },
             new MenuItem(){ Text = "Edit", Icon="edit", CommandName="BeginEdit" },
             new MenuItem(){ Text = "Delete", Icon="delete", Action = DeleteItem }
@@ -400,7 +403,7 @@ In this example, the context menu is used to select/deselect items and delete it
 
 <TelerikContextMenu Data="@ContextMenuData"
                     @ref="ContextMenu"
-                    OnClick="@((ContextMenuItem item) => ClickHandler(item))">
+                    OnClick="@((ContextMenuItem item) => ContextMenuClickHandler(item))">
 </TelerikContextMenu>
 
 <TelerikTreeView Data="@FlatData"
@@ -430,7 +433,7 @@ In this example, the context menu is used to select/deselect items and delete it
         }
     }
 
-    private void ClickHandler(ContextMenuItem item)
+    private void ContextMenuClickHandler(ContextMenuItem item)
     {
 
         // Use local code to perform a task such as put select/deselect a node or delete it
@@ -485,7 +488,7 @@ In this example, the context menu is used to select/deselect items and delete it
         LoadFlatData();
 
         ContextMenuData = new List<ContextMenuItem>()
-        {
+    {
             new ContextMenuItem
             {
                 Text = "Select",
