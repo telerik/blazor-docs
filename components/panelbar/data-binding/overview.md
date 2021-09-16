@@ -66,8 +66,6 @@ Each `PanelBarBinding` tag exposes the following properties that refer to item p
 
 * UrlField => Url
 
-* ExpandedField => Expanded
-
 * HasChildrenField => HasChildren
 
 * ItemsField => Items
