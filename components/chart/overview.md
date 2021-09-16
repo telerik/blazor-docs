@@ -18,8 +18,8 @@ To add a Telerik Chart for Blazor:
 
 1. Use the `<TelerikChart>` tag.
 1. Define [Chart series](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChartSeries) and [bind them to data]({%slug components/chart/databind%}}).
-1. Configure the category axis (X axis). Either set a `CategoryField` for each `<ChartSeries>`, or provide all `Categories` in bulk in a `<ChartCategoryAxis>` tag.
-1. Set a `<ChartTitle>` and the `Position` of the `<ChartLegend>`. To make the legend appear, define a `Name` for each `<ChartSeries>`.
+1. Configure the [category axis](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChartCategoryAxis) (X axis). Either set a `CategoryField` for each `<ChartSeries>`, or provide all `Categories` in bulk in a `<ChartCategoryAxis>` tag.
+1. Set a `<ChartTitle>` and the `Position` of the [`<ChartLegend>`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChartLegend). To make the legend appear, define a `Name` for each `<ChartSeries>`.
 
 >caption Basic chart
 
