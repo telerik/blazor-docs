@@ -557,6 +557,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
     Note the model constructors and static method that show how to get a new instance for the edit item
 *@
 
+
 <TelerikButton OnClick="@StartInsert">Start Insert operation</TelerikButton>
 <TelerikButton OnClick="@EditItemFour">Put item 4 in Edit mode</TelerikButton>
 
@@ -599,10 +600,14 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         currState.InsertedItem = null;
 
         // add item you want to edit to the state, then set it to the grid
-        SampleData itemToEdit = SampleData.GetClonedInstance(MyData.Where(itm => itm.ID == 4).FirstOrDefault());
+        SampleData originalItem = MyData.Where(itm => itm.ID == 4).FirstOrDefault();
+        SampleData itemToEdit = SampleData.GetClonedInstance(originalItem);
+
         // you can alter values here as well (not mandatory)
         //itemToEdit.Name = "Changed from code";
-        currState.OriginalEditItem = itemToEdit;
+        currState.EditItem = itemToEdit;
+        currState.OriginalEditItem = originalItem;
+
         // for InCell editing, you can use the EditField property instead
         await GridRef.SetState(currState);
     }

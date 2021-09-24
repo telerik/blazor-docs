@@ -724,8 +724,11 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
     {
         var state = TreeListRef.GetState();
 
-        Employee employeeToEdit = Employee.GetClonedInstance(FindItemRecursive(Data, 2));
-        state.OriginalEditItem = employeeToEdit;
+        Employee originalEmployee = FindItemRecursive(Data, 2);
+        Employee employeeToEdit = Employee.GetClonedInstance(originalEmployee);
+
+        state.EditItem = employeeToEdit;
+        state.OriginalEditItem = originalEmployee;
         await TreeListRef.SetState(state);
     }
 
