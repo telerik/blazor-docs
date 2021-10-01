@@ -236,5 +236,5 @@ Alternatively, you can also access the `.nupkg` files from [our private NuGet fe
 
 
 #nuget-update-note
->Telerik now offers NuGet v3 API for our feed which is faster, lighter, and reduces the number of requests from NuGet clients. It is now available for beta testing at <a href = "https://nuget.telerik.com/v3/index.json" target = "_blank"> https://nuget.telerik.com/v3/index.json. You are welcome to try it.
+>tip Telerik now offers NuGet v3 API for our feed which is faster, lighter, and reduces the number of requests from NuGet clients. It is now available for beta testing at <a href = "https://nuget.telerik.com/v3/index.json" target = "_blank"> https://nuget.telerik.com/v3/index.json. You are welcome to try it.
 #end
