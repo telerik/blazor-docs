@@ -68,13 +68,14 @@ See the following example for reference:
         currState.InsertedItem = null;
         currState.EditItem = null;
         currState.OriginalEditItem = null;
-       
+
         SampleData itemToEdit = SampleData.GetClonedInstance(MyData.FirstOrDefault(x => x.Id == item.Id));
-        
-        currState.OriginalEditItem = itemToEdit;
+
+        currState.EditItem = itemToEdit;
+        currState.OriginalEditItem = item;
         GridRef.SetState(currState);
     }
-    
+
     async Task UpdateHandler(GridCommandEventArgs args)
     {
         SampleData itemToUpdate = args.Item as SampleData;
