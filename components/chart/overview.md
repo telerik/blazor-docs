@@ -12,9 +12,16 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Chart component</a> allows you to visualize data to your users in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins and templates.
 
-#### To use a Telerik chart for Blazor, add the `TelerikChart` tag.
+## Basics
 
->caption Basic chart with series and category axis [data binding](data-bind), and a few commonly used appearance settings
+To add a Telerik Chart for Blazor:
+
+1. Use the `<TelerikChart>` tag.
+1. Define [Chart series](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChartSeries) and [bind them to data]({%slug components/chart/databind%}).
+1. Configure the [category axis](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChartCategoryAxis) (X axis). Either set a `CategoryField` for each `<ChartSeries>`, or provide all `Categories` in bulk in a `<ChartCategoryAxis>` tag.
+1. Set a `<ChartTitle>` and the `Position` of the [`<ChartLegend>`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChartLegend). To make the legend appear, define a `Name` for each `<ChartSeries>`.
+
+>caption Basic chart
 
 ````CSHTML
 Basic chart and common settings/elements
@@ -69,21 +76,10 @@ Basic chart and common settings/elements
 ![](images/overview-chart.png)
 
 
+## Chart Elements
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
->caption Component namespace and reference
-
-````CSHTML
-@using Telerik.Blazor.Components
-
-<TelerikChart @ref="myChartRef">
-</TelerikChart>
-
-@code {
-	Telerik.Blazor.Components.TelerikChart myChartRef;
-}
-````
 
 ## Chart Size
 
@@ -137,6 +133,19 @@ You can make a responsive chart
     public List<object> someData = new List<object>() { 10, 2, 7, 5 };
 
     public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+}
+````
+
+## Component Namespace and Reference
+
+````CSHTML
+@using Telerik.Blazor.Components
+
+<TelerikChart @ref="myChartRef">
+</TelerikChart>
+
+@code {
+	Telerik.Blazor.Components.TelerikChart myChartRef;
 }
 ````
 
