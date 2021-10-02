@@ -26,6 +26,7 @@ In this article:
 
 * [Notes](#notes)
 
+>tip The Editor Template works in all edit modes (Inline, Popup, InCell). Before using it with InCell mode, review the [pertinent notes](../editing/incell#editor-template).
 
 ## Examples
 
