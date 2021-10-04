@@ -10,27 +10,29 @@ position: 0
 
 # Fiddler Jam
 
-Test
-
 [Fiddler Jam](https://www.telerik.com/fiddler-jam) is Telerik's new tool designed to facilitate the information exchange between the support and end-user. A simple capture log from the end-user can provide a lot of information to the support team:
+
+* Video recording and screenshots, along with a shareable link
+
+* Captured user actions such as mouse and keyboard interactions
 
 * Console logs and errors
 
-* Network requests
+* Captured Local and Session Storage logs
 
-* Local and Session Storage logs
+* Captured network traffic
 
-* Video recording and screenshots
-
-This would help the support team understand and investigate the issue faster and thus the response time would be lower.
+The tool's mission is to reduce the back-and-forth messages and save time of our customers. In addition, this would help the support team understand and investigate the issue faster and thus the response time would be shorter.
 
 ## Installing Fiddler Jam
 
-You can download and install the Fiddler Jam Chrome extension from [Chrome Web Store page for Fiddler Jam](https://chrome.google.com/webstore/detail/fiddler-jam/fnkjlegmkbicdodlheligomlfbdblpfj). Detailed instruction on how to install the extension can be found in [Fiddler Jam Extension Installation](https://docs.telerik.com/fiddler-jam/extension/installation) article.
+You can download and install the Fiddler Jam Chrome extension from [Chrome Web Store page for Fiddler Jam](https://chrome.google.com/webstore/detail/fiddler-jam/fnkjlegmkbicdodlheligomlfbdblpfj). 
+
+The detailed instruction on how to install the extension can be found in [Fiddler Jam Extension Installation](https://docs.telerik.com/fiddler-jam/extension/installation) article.
 
 ## Capture a Log
 
-Once you have [installed the Fiddler Jam browser extension](#installing-fiddler-jam), you can start capturing your issue and send it to the support team.
+Once you have [installed the Fiddler Jam browser extension](#installing-fiddler-jam), you can start capturing your issue and send it to the support team. You can capture issues for both Blazor Server-side applications and Blazor WebAssembly applications.
 
 The detailed capturing instructions can be found in [Fiddler Jam extension - Recording a log](https://docs.telerik.com/fiddler-jam/extension/recording-a-log) while below you can find a short video demonstrating the Installation and Capture processes. For convenience, below you can find summarized instructions to follow more easily when capturing a log.
 
