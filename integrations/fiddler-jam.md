@@ -18,7 +18,7 @@ position: 0
 * Captured network traffic
 * Captured Local and Session Storage logs
 
-The tool's mission is to reduce the back-and-forth messages and save time of our customers. In addition, this would help the support team understand and investigate the issue faster and thus the response time would be shorter.
+The tool's mission is to reduce the back-and-forth communication in support messages, and save time of our customers. In addition, this would help the support team understand and investigate the issue faster and thus the response time would be shorter.
 
 ## Install Fiddler Jam
 
@@ -29,16 +29,17 @@ You could find detailed instruction on how to install the extension in [Fiddler 
 ## Capture a Log
 
 Once you have [installed the Fiddler Jam browser extension](#installing-fiddler-jam), you can start capturing your use case, or an issue, and then send it to the support team. You can capture issues for both Blazor Server-side applications and Blazor WebAssembly applications.
+
 The detailed capturing instructions can be found in [Fiddler Jam extension - Recording a log](https://docs.telerik.com/fiddler-jam/extension/recording-a-log) while below you can find a short video demonstrating the Installation and Capture processes. For convenience, below you can find summarized instructions to follow more easily when capturing a log.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AegKWavRSv0" title="YouTube Video Player - Blazor, FiddlerJam" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe style="width:560px; height:315px; display: block; margin-left: auto; margin-right: auto;" src="https://www.youtube.com/embed/AegKWavRSv0" title="YouTube Video Player - Blazor, FiddlerJam" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. Navigate to <a href="about:blank" target="_blank">about:blank</a> or an empty page to ensure a clean capture
 2. Open the Fiddler Jam extension (the default shortcut is `Ctrl+Shift+F`)
 3. Configure the recording settings through the `Advanced Options` button (located above the `Start Capture` button):
    - Ensure the `Mask Post Data` switch is `disabled` if reproducing the issue triggers a postback or a POST request
    - Ensure the `Capture video` is `enabled` to provide more details and context in the capture
-   - Configure other settings per your assessment. Hover the information icon to see a brief explanation of the setting.
+   - Configure other settings per your assessment. Hover the information icon to see a brief explanation of the setting
         <br /> <br />![Fiddler Jam Settings](images/fiddler-jam-capture-settings.png)
 4. Click the `Start Capture button`
 5. Navigate to your blazor application (e.g. `https://mydomain.com/mypagewithissue`) in the same tab. In case you started the capture from your `https://mydomain.com/mypagewithissue` page instead of a blank page, follow the steps below to ensure a proper capture
