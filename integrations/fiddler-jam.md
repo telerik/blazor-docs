@@ -10,6 +10,8 @@ position: 0
 
 # Fiddler Jam
 
+Test
+
 [Fiddler Jam](https://www.telerik.com/fiddler-jam) is Telerik's new tool designed to facilitate the information exchange between the support and end-user. A simple capture log from the end-user can provide a lot of information to the support team:
 
 * Console logs and errors
