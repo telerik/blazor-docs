@@ -64,6 +64,8 @@ The Blazor Date Range Picker component exposes the following features:
 
 * `TabIndex` - maps to the `tabindex` attribute of both `input` HTML elements in the component and them both will have the same `tabindex`. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
 
+* `Placeholder` - `string` - maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to **nullable** DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. 
+
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article. 
     * To restrict the user from writing dates in the input so that the end is after the start, you must implement a custom data annotation attribute (you can find an example in the article linked above). The DateRangePicker component does not do this out-of-the-box in order to provide smooth user experience - the code cannot know what the user intent is and they might fix the range if they are given the chance, so correcting the input immediately may prevent them from using it comfortably. The component can fully control the user experience in the popup calendar and it ensures there that the range values are valid (start is before the end). If the user chooses an end date before the start, this date becomes the new start and they can choose the end again.
 
