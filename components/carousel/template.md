@@ -22,12 +22,12 @@ The template exposes a `context` parameter, which allows access to the Carousel 
 <TelerikCarousel Data="@CarouselData"
                  Width="400px" Height="200px">
     <Template Context="carouselContext">
-        <div class="carousel-item">@carouselContext.Text</div>
+        <div class="item">@carouselContext.Text</div>
     </Template>
 </TelerikCarousel>
 
 <style>
-    .carousel-item {
+    .item {
         background: #3d57d8;
         color: #fff;
         font: 36px/200px sans-serif;
@@ -49,6 +49,8 @@ The template exposes a `context` parameter, which allows access to the Carousel 
     }
 }
 ````
+
+@[template](/_contentTemplates/carousel/general.md#carousel-item-class)
 
 ## See Also
 
