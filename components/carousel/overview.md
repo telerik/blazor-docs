@@ -36,12 +36,12 @@ Here is a simple Carousel that has 5 pages with some styled text.
 <TelerikCarousel Data="@CarouselData"
                  Width="400px" Height="200px">
     <Template>
-        <div class="carousel-item">ID @(context.ID) : @(context.Text)</div>
+        <div class="item">ID @(context.ID) : @(context.Text)</div>
     </Template>
 </TelerikCarousel>
 
 <style>
-    .carousel-item {
+    .item {
         background: #3d57d8;
         color: #fff;
         font: 36px/200px sans-serif;
@@ -65,6 +65,8 @@ Here is a simple Carousel that has 5 pages with some styled text.
 ````
 >caption The snippet will produce the following result:
 ![Carousel component](images/carousel-overview.png)
+
+@[template](/_contentTemplates/carousel/general.md#carousel-item-class)
 
 ## Features
 
