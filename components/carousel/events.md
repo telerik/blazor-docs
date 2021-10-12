@@ -34,12 +34,12 @@ The event can be used to implement custom business logic, or update the Carousel
                  Page="@PageIndex"
                  Width="400px" Height="200px">
     <Template>
-        <div class="carousel-item">ID @(context.ID) : @(context.Text)</div>
+        <div class="item">ID @(context.ID) : @(context.Text)</div>
     </Template>
 </TelerikCarousel>
 
 <style>
-    .carousel-item {
+    .item {
         background: #3d57d8;
         color: #fff;
         font: 36px/200px sans-serif;
@@ -68,6 +68,8 @@ The event can be used to implement custom business logic, or update the Carousel
     }
 }
 ````
+
+@[template](/_contentTemplates/carousel/general.md#carousel-item-class)
 
 ## See Also
 
