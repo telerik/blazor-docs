@@ -38,7 +38,7 @@ For information on automated builds, CI and CD, see the [CI, CD, Build Server]({
 
 1. Click the `+` button at the top right hand side.
 
-1. Add the Telerik Feed URL `https://nuget.telerik.com/nuget` and choose a Name for that package source (such as "TelerikOnlineFeed").
+1. Add the Telerik Feed URL `https://nuget.telerik.com/v3/index.json` and choose a Name for that package source (such as "TelerikOnlineFeed").
 
 1. Click **OK** and close all Visual Studio instances.
 
@@ -70,7 +70,7 @@ The command from the example below stores the password in clear text in the `%Ap
 >caption Use the CLI to add the Telerik NuGet feed (make sure to *remove the new lines*, they are here for readability)
 
 ```
-dotnet nuget add source https://nuget.telerik.com/nuget 
+dotnet nuget add source https://nuget.telerik.com/v3/index.json 
 --name TelerikOnlineFeed 
 --username <YOUR TELERIK ACCOUNT EMAIL HERE> 
 --password <YOUR PASSWORD HERE> 
@@ -83,7 +83,7 @@ If you have already stored a token instead of storing the credentials as clear t
 
 ```
 dotnet nuget update source "TelerikOnlineFeed" 
---source "https://nuget.telerik.com/nuget" 
+--source "https://nuget.telerik.com/v3/index.json" 
 --username <YOUR TELERIK ACCOUNT EMAIL HERE> 
 --password <YOUR PASSWORD HERE> 
 --store-password-in-clear-text
@@ -117,7 +117,7 @@ To use a `nuget.config` file for the Telerik feed, you need to:
             <!--To inherit the global NuGet package sources remove the <clear/> line below -->
             <clear />
             <add key="nuget" value="https://api.nuget.org/v3/index.json" />
-            <add key="telerik" value="https://nuget.telerik.com/nuget" />
+            <add key="telerik" value="https://nuget.telerik.com/v3/index.json" />
          </packageSources>
          <packageSourceCredentials>
             <telerik>

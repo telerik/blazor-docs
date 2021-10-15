@@ -23,11 +23,11 @@ There are two common reasons for the Telerik packages to be missing in the Teler
 
 * Your license is tied to a different account than the one used for the feed credentials.
 
-To check if this is a networking issue, open the following URL in your browser and enter your `telerik.com` credentials: 
+To check if this is a networking issue, open the following URL in your browser and enter your `telerik.com` credentials:
 
-<a href="https://nuget.telerik.com/nuget/Search()?$filter=IsAbsoluteLatestVersion&searchTerm=%27Blazor%27&includePrerelease=true&$skip=0&$top=100&semVerLevel=2.0.0" target="_blank">https://nuget.telerik.com/nuget/Search()?$filter=IsAbsoluteLatestVersion&searchTerm=%27Blazor%27&includePrerelease=true&$skip=0&$top=100&semVerLevel=2.0.0</a>
+<a href="https://nuget.telerik.com/v3/search?q=blazor&prerelease=true&skip=0&take=100&semVerLevel=2.0.0" target="_blank">https://nuget.telerik.com/v3/search?q=blazor&prerelease=true&skip=0&take=100&semVerLevel=2.0.0</a>
 
-You should see an XML result with the list of packages you can access and you should see the `Telerik.UI.for.Blazor` package with the version appropriate to your license.
+You should see a json result with the list of packages you can access and you should see the `Telerik.UI.for.Blazor` package with the version appropriate to your license.
 
 If you can access the feed in the browser, but you do not see the packages in Visual Studio, the most likely problem is wrong credentials that are not associated with a license. Make sure that your credentials are correct and that there isn't a `nuget.config` file in the project that is bringing in invalid credentials - project-level config files override the global settings.
 
