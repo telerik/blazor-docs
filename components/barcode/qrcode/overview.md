@@ -10,7 +10,7 @@ position: 0
 
 # QRCode Overview
 
-The QRCode generates Canvas and [Scalable Vector Graphics (SVG)](https://www.w3.org/Graphics/SVG/) images that represent Quick Response (QR) codes.
+The QRCode generates Canvas and [SVG](https://www.w3.org/Graphics/SVG/) images that represent Quick Response (QR) codes.
 
 The component is a machine-readable label that contains information about data for a locator, identifier, or tracker that points to a website or application.
 
