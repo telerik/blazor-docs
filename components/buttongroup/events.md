@@ -20,7 +20,7 @@ This article explains the events available in the Telerik buttons in a ButtonGro
 
 The `SelectedChanged` fires when the user changes the state of the button by clicking it (or by using `Space` or `Enter`). You can use it to call local view-model logic. To fetch data or perform async operations, use the [OnClick](#onclick) event.
 
-This event is available only for `ButtonGroupToggleButton` instances, as they are the only selecteble buttons.
+This event is available only for `ButtonGroupToggleButton` instances, as they are the only selectable buttons.
 
 >caption Handle the SelectedChanged event
 
