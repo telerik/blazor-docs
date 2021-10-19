@@ -2,14 +2,14 @@
 title: Encoding
 page_title: QRCode Encoding
 description: Types of Encoding supported by the QRCode for Blazor.
-slug: components/barcode/qrcode/encoding
+slug: components-barcode-qrcode-encoding
 tags: telerik,blazor,barcode,qrcode,encoding
 published: True
 position: 3
 ---
 
 # QRCode Encoding
-The different types of QRCde values support different conventions accordingly.
+The different types of QRCode values support different **conventions** and **formatting** accordingly.
 
 In many cases, the value of the QRCode is processed by the device in a special way. For example, geolocations are displayed in the Global Positioning System (GPS) or Map application on the device, URLs are opened by the browser, and so on.
 

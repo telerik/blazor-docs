@@ -2,21 +2,21 @@
 title: QR Code Types
 page_title: QR Code Types
 description: Overview of the QR Code Types for Blazor.
-slug: components/barcode/qrcode/qr-code-types
+slug: components-barcode-qrcode-qr-code-types
 tags: telerik,blazor,barcode,qrcode,types,overview
 published: True
 position: 5
 ---
 
 # Swiss QR Type
-The QRCode component supports the [Swiss QR Code format](https://blog.xsuite.com/en/swiss-qr-code). Enabling the `swiss` type of the overlay will add a swiss cross in the QR Code.
+The QRCode component supports the [Swiss QR Code format](https://blog.xsuite.com/en/swiss-qr-code). Enabling the `Swiss` type of the overlay will add a Swiss cross in the QR Code.
 
 The following implementation demonstrates the code needed for the Swiss Type:
 
 >caption An example of a Swiss QR Type implementation
 
 ````CSHTML
-@* This code snippet showcases an example of swiss type QR code. *@
+@* This code snippet showcases an example of Swiss type QR code. *@
 
 <TelerikQRCode Size="200px"
                Value="@value">

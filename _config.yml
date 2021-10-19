@@ -240,6 +240,8 @@ navigation:
         title: "Arc"
      "*autocomplete":
         title: "AutoComplete"
+     "*barcodes":
+        title: "Barcodes"
      "*barcode":
         title: "Barcode"
      "*togglebutton":

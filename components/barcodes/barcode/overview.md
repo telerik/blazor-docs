@@ -2,7 +2,7 @@
 title: Overview
 page_title: Barcode Overview
 description: Overview of the Barcode for Blazor.
-slug: components/barcode/overview
+slug: components/barcodes/barcode/overview
 tags: telerik,blazor,barcode,overview
 published: True
 position: 0
@@ -21,7 +21,7 @@ To add a Telerik Barcode to your Blazor app:
 1. Add the `TelerikBarcode` tag.
 1. Provide `Value` property
 1. Set its `Height` and `Width`
-1. Optionally, choose a `Type` (one of the [encodings we support]({%slug  components/barcode/encoding%})).
+1. Optionally, choose a `Type` (one of the [encodings we support]({%slug  components/barcodes/barcode/encoding%})).
     * Its default encoding is `Code39`.
 
 The following example demonstrates how to initialize the Barcode with its default configuration.
@@ -39,7 +39,7 @@ The following example demonstrates how to initialize the Barcode with its defaul
 
 ![](images/barcode-basic-configuration.png)
 
-For more information, refer to the [article on encoding]({%slug  components/barcode/encoding%}) regarding the set of types supported by the Barcode.
+For more information, refer to the [article on encoding]({%slug  components/barcodes/barcode/encoding%}) regarding the set of types supported by the Barcode.
 
 ## Features
 
@@ -51,7 +51,7 @@ For more information, refer to the [article on encoding]({%slug  components/barc
 
 * `Checksum` - `bool` - by setting it to true, the Barcode will display the checksum digit next to the value in the text area.
 
-* `Type` - `enum` - defines the symbology (encoding) the Barcode will use - ([full list of supported encodings]({%slug  components/barcode/encoding%}))
+* `Type` - `enum` - defines the symbology (encoding) the Barcode will use - ([full list of supported encodings]({%slug  components/barcodes/barcode/encoding%}))
 
 * `Value` - `string` - defines the initial value of the Barcode.
 
