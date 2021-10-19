@@ -99,7 +99,7 @@ For more information, refer to the [article on types]({%slug  components/barcode
 
 ## Methods
 
-The QRCode methods are accessible through it's reference.
+The QRCode methods are accessible through its reference.
 
 * `Refresh` - redraws the component.
 
