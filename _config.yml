@@ -541,6 +541,9 @@ intro_columns:
 ## The application virtual path
 baseurl: /blazor-ui
 
+## Enable Blazor Repl
+enable_blazorRepl: true
+
 ## Latest UI for Blazor version. Used in some articles
 uiForBlazorLatestVersion: "2.27.0"
 supportedFrameworkVersion: ".NET Core 3.1.11 and .NET 5"
