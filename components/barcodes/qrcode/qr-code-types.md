@@ -13,7 +13,7 @@ position: 5
 The component exposes the following QRCode types:
 
 * [Swiss Type](#swiss-qrcode-type)
-* [Image Type](#qrcode-of-type-image)
+* [Image Type](#image-qrcode-type)
 
 ## Swiss QRCode Type
 The QRCode component supports the [Swiss QR Code format](https://blog.xsuite.com/en/swiss-qr-code). Enabling the `Swiss` type of the overlay will add a Swiss cross in the QR Code.
@@ -44,7 +44,7 @@ The following implementation demonstrates the code needed for the Swiss Type:
 
 ![](images/qrcode-swiss-type.png)
 
-## QRCode of Type Image
+## Image QRCode Type
 The image type of the overlay is adding an image in the QR Code.
 
 The following implementation demonstrates the code needed for the Image Type:

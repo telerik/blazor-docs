@@ -87,7 +87,7 @@ For more information, refer to the [article on types]({%slug  qrcode-qr-code-typ
 
 * `QRCodeOverlay.Width` - `double` - the width of the overlay in pixels.
 
-* `QRCodeOverlay.Height` - `double` - the height of the overlay in pixels..
+* `QRCodeOverlay.Height` - `double` - the height of the overlay in pixels.
 
 ### Properties for the QRCode Border
 
@@ -95,7 +95,7 @@ For more information, refer to the [article on types]({%slug  qrcode-qr-code-typ
 
 * `QRCodeBorder.Color` - `string` - the color of the border. Accepts a valid CSS color string, including HEX and RGB.
 
-* `QRCodeBorder.Width` - `double` - The width of the border in pixels. By default the border width is set to zero which means that the border will not appear.
+* `QRCodeBorder.Width` - `double` - The width of the border in pixels. By default the border width is set to zero which means that the border will not be visible.
 
 ## Methods
 
