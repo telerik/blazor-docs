@@ -2,7 +2,7 @@
 title: Encoding
 page_title: QRCode Encoding
 description: Types of Encoding supported by the QRCode for Blazor.
-slug: components-barcode-qrcode-encoding
+slug: qrcode-encoding
 tags: telerik,blazor,barcode,qrcode,encoding
 published: True
 position: 3

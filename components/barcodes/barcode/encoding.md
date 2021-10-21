@@ -2,7 +2,7 @@
 title: Encoding
 page_title: Barcode Encoding
 description: Types of Encoding supported by the Barcode for Blazor.
-slug: components/barcodes/barcode/encoding
+slug: barcode-encoding
 tags: telerik,blazor,barcode,encoding
 published: True
 position: 3
