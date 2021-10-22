@@ -152,7 +152,7 @@ Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-bg
 @TheDate
 <br />
 
-<TelerikDateInput @bind-Value="TheDate" Format="dd MM yy" /> @TheDate.ToString("dd MM yy")
+<TelerikDateInput @bind-Value="TheDate" Format="dd MM yyyy" /> @TheDate.ToString("dd MM yy")
 <br />
 <TelerikDateInput @bind-Value="TheDate" Format="dd MMM yyyy" /> @TheDate.ToString("dd MMM yyyy")
 <br />
@@ -160,7 +160,7 @@ Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-bg
 <br />
 <TelerikDateInput @bind-Value="TheDate" Format="HH:mm:ss" /> @TheDate.ToString("HH:mm:ss")
 <br />
-<TelerikDateInput @bind-Value="TheDate" Format="d M yy h:m:s tt" /> @TheDate.ToString("d M yy h:m:s")
+<TelerikDateInput @bind-Value="TheDate" Format="d M yyyy h:m:s tt" /> @TheDate.ToString("d M yy h:m:s")
 <br />
 <TelerikDateInput @bind-Value="TheDate" Format="dd MMM yyyy H:mm:ss" /> @TheDate.ToString("dd MMM yyyy H:mm:ss")
 <br />
