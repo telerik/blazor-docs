@@ -36,24 +36,26 @@ In this article:
 The Toolbar of Blazor REPL contains the commands that can be performed with the code in the [Editor](#editor):
 
 * `Run` - executes the code from the editor and renders it in the [Output](#output)
-* `Share` - allows you to save the snippet and share the snippet. Opens a confirmation popup, if confirmed a public link with the snippet will be generated.
-* `Download` - downloads the project dll
-* ....
-* ....
+* `Get Started` - links the getting started article for the product
+* `Share` - allows you to share the snippet. In the popup, you will find a generated public link with the snippet will that you can share as desired. The menu also provides buttons to directly share it in the corresponding social medias. Embed????????
+* `Download` - downloads the project dll.
+* `Feedback` - leads to the public feedback portal for Telerik Blazor REPL where you can share your enhancement requests and eventual bug reports. We use it to constantly monitor the community interest and demand and thus improve our products.
 
 ### Sidebar - Drawer
 
 The Sidebar/Drawer provides the following functionalities:
 
-* NuGet Manager - it allows you to desired version of the Telerik UI as well as to add other desired packages.??//not sure for adding other packages.
+* NuGet Package Manager - it allows you to specify the desired version of the Telerik UI for Blazor as well as to add other desired packages.??//not sure for adding other packages.
 
-* Static Asset Manager - it allows you to add a cdn with your desired CSS or JavaScript files. Place the file URL in the input and click the `+` button. You don't need to reference the files, Blazor REPL will do that for you.
+* Static Asset Manager - it allows you to add a cdn with your desired CSS or JavaScript files. Place the file URL in the input and click the download button. You don't need to reference the files, Blazor REPL will do that for you. Once the desired cdn is added, you can easily enable/disable it via a switch.
+
+* Telerik UI Asset Manager - provides a summary of the installed Telerik UI packages and a dropdown to choose the desired theme to apply to the application. The menu allows choosing between the [built-in themes]({%slug general-information/themes%}) and some of their most commonly used [swatches]({%slug themes-swatches%}).
 
 * Config button - by clicking it you can open the `Startup.cs` file of the project and modify it if desired.
 
 ### Editor
 
-The Editor allows you to type, paste, edit your code. It always contains `_Main.razor` file and you can also add other files to the project via the `+` button.
+The Editor allows you to type, paste and edit your code. It always contains `_Main.razor` file and you can also add other files to the project via the `+` button. The newly added files could be `.razor` or `.cs` and their names should always start with a capital letter.
 
 ### Output
 
@@ -70,6 +72,7 @@ The Telerik UI for Blazor documentation supports integration with the Telerik Bl
 * `Edit Source` - click to open the source in the integrated Blazor REPL Editor.
 
 * `Preview` - click to run the snippet in the integrated Blazor REPL Output.
+
 
 
 ## Telerik UI for Blazor demos Integration
