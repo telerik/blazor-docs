@@ -152,8 +152,6 @@ Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-bg
 @TheDate
 <br />
 
-<TelerikDateInput @bind-Value="TheDate" Format="dd MM yyyy" /> @TheDate.ToString("dd MM yy")
-<br />
 <TelerikDateInput @bind-Value="TheDate" Format="dd MMM yyyy" /> @TheDate.ToString("dd MMM yyyy")
 <br />
 <TelerikDateInput @bind-Value="TheDate" Format="dddd, dd MMM yyyy" /> @TheDate.ToString("dddd, dd MMM yyyy")
