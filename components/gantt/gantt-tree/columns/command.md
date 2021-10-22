@@ -41,19 +41,17 @@ The `GanttCommandButton` tag offers the following features:
 
 ### Built-in Commands
 
-There are four built-in commands:
+There are two built-in commands:
 
 * `Add` - initiates the creation of a new item. Can apply to rows as well, to create a child element for the current row.
-* `Edit` - initiates the editing in the Gantt Tree.
-* `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was created or edited.
-* `Cancel` - aborts the current operation (edit or insert).
+* `Delete` - initiates the deletion of an existing item.
 
-### The OnClick handler
+### OnClick handler
 
 The `OnClick` handler of the commands receives an argument of type `GanttTaskCommandEventArgs` that exposes the following properties:
 
 * `IsCancelled` - set this to true to prevent the operation if the business logic requires it.
-* `Item` - the model item the Gantt row is bound to. You can use it to access the model fields and methods in order to preform the actual data source operations. Applicable for buttons in a row, not in a toolbar.
+* `Item` - the model item the Gantt row is bound to. You can use it to access the model fields and methods in order to perform the actual data source operations. Applicable for buttons in a row, not in a toolbar.
 * `IsNew` - a boolean field indicating whether the item was just added through the Gantt interface.
 
 >tip For handling CRUD operations we recommend that you use the Gantt events (`OnEdit`, `OnUpdate`, `OnCancel`, `OnCreate`). The `OnClick` handler is available for the built-in commands to provide consistency of the API.
