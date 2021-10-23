@@ -16,6 +16,8 @@ I'm trying to see more than 1 level of hierarchy in my grid but i don't know how
 
 ## Solution
 
+>tip If you don't know how many levels of nesting you have, consider using the [Treelist](https://demos.telerik.com/blazor-ui/treelist/overview) or [TreeView](https://demos.telerik.com/blazor-ui/treeview/overview) component instead. A grid is generally designed for flat data, while the TreeList and TreeView are designed for hierarchical data.
+
 Put nested `<TelerikGrid>` instances in the `DetailTemplate` of their parents. This allows you to have multiple levels of nested grids. The example below shows a three-level hierarchy.
 
 >note It is important to use named `context` variables, otherwise such code will not compile. Read more [here]({%slug nest-renderfragment%}).
