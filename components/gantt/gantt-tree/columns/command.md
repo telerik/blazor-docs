@@ -50,7 +50,7 @@ There are two built-in commands:
 
 The `OnClick` handler of the commands receives an argument of type `GanttTaskCommandEventArgs` that exposes the following properties:
 
-* `IsCancelled` - set this to true to prevent the operation if the business logic requires it.
+* `IsCancelled` - set this to `true` to prevent the operation if the business logic requires it.
 * `Item` - the model item the Gantt row is bound to. You can use it to access the model fields and methods in order to perform the actual data source operations. Applicable for buttons in a row, not in a toolbar.
 * `IsNew` - a boolean field indicating whether the item was just added through the Gantt interface.
 
