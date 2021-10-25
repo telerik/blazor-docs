@@ -10,7 +10,7 @@ position: 13
 
 # Heatmap Chart
 
-The <a href="https://www.telerik.com/blazor-ui/heatmap-chart" target="_blank">Blazor Heatmap chart</a> shows the data in a grid-like structure that shows the magnitude of a value over two dimensions. The X and Y values are discrete and can be set in any order.
+The <a href="https://www.telerik.com/blazor-ui/heatmap-chart" target="_blank">Blazor Heatmap chart</a> shows the data in a grid-like structure that shows the magnitude of a value over two dimensions.
 
 
 #### In this article:
