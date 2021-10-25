@@ -16,7 +16,7 @@ You can find the main themes and their swatches in the following resources:
 
 * [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui) - it is an Angular web application that enables you to [create new or customize existing themes]({%slug themes-custom%}). You can use it to explore how certain theme/swatch will affect the appearance of the Telerik UI for Blazor components.
 
-* [kendo-themes repository](https://github.com/telerik/kendo-themes) - it is a public repository for all Kendo UI themes and swatches that are used across Telerik UI for Blazor and the Kendo UI suites.
+* [kendo-themes repository](https://github.com/telerik/kendo-themes) - the repository for all themes and swatches that are used across Telerik and Kendo web components.
 
 * ZIP archive for Telerik UI for Blazor - in the `styles` folder of the local ZIP archive you can find the base themes and a some of their most commonly used swatches. More details how to get the archive you can find in this article - [ZIP Archive]({%slug installation/zip%}).
 
