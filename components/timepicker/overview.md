@@ -83,6 +83,7 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 The Time Picker component supports `DateTime`, `DateTime?`, `DateTimeOffset` and `DateTimeOffset?` types.
 
+@[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
 ## See Also
 

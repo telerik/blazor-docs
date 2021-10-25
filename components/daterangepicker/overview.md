@@ -73,7 +73,7 @@ The Blazor Date Range Picker component exposes the following features:
 
 The date range picker is, essentially, a [date input]({%slug components/dateinput/overview%}) and a [calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
 
-
+@[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
 ## See Also
 

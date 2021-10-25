@@ -60,6 +60,8 @@ The date input provides the following features:
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
+@[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
+
 ## DateTime and Nullable DateTime
 
 The behavior of the component will depend on the type of field it is bound to, and this can result in different user experience and values that it will output:
