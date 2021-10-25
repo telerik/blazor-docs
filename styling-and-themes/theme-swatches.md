@@ -2,7 +2,7 @@
 title: Theme Swatches
 page_title: Theme Swatches
 description: The UI for Blazor suite comes with a set of built-in themes and themes swatches that you can choose from.
-slug: theme-swatches
+slug: themes-swatches
 tags: telerik,blazor,theme,swatch
 published: True
 position: 1
@@ -10,29 +10,40 @@ position: 1
 
 # Theme Swatches
 
-Each of the [built-in themes]({%slug general-information/themes%}) provides a set of color swatches that you can choose from to match your application appearance and styling. Any of the main themes and their swatches can be easily customized as desired - read more about that in the [Custom Themes article]({%slug themes-custom%}).
+Telerik UI for Blazor comes with three [built-in (base) themes]({%slug general-information/themes%}). Each of them provides a set of color swatches that you can choose from to match your application appearance and styling.
 
-You can find the main themes and their swatches in the following resources:
+#### In this article:
+   * [Basics](#basics)
+   * [Buit-in themes and swatches list](#buit-in-themes-and-swatches-list)
 
-* [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui) - it is an Angular web application that enables you to [create new or customize existing themes]({%slug themes-custom%}). You can use it to explore how certain theme/swatch will affect the appearance of the Telerik UI for Blazor components.
+
+## Basics
+
+The theme swatches are different color variations of the base themes. While they use the same variables as the built-in theme they accompany, they have different color values to deliver a variety of shades for the Telerik components. Any of the base themes and their swatches can be easily customized as desired - read more about that in the [Custom Themes article]({%slug themes-custom%}).
+
+You can find the built-in themes and their swatches in the following resources:
+
+* [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui) - it is a web application that enables you to [create new or customize existing themes]({%slug themes-custom%}). You can use it to explore how certain theme/swatch will affect the appearance of the Telerik UI for Blazor components.
 
 * [kendo-themes repository](https://github.com/telerik/kendo-themes) - the repository for all themes and swatches that are used across Telerik and Kendo web components.
 
 * ZIP archive for Telerik UI for Blazor - the `styles` folder contains the base themes and a some of their most commonly used swatches. The [ZIP Archive]({%slug installation/zip%}) article provides more details on how to get the archive.
 
 
+## Buit-in themes and swatches list
+
 Here is a complete list of the base themes, all available swatches and their CDN URLs.
 
-* [Default](#default)
-* [Bootstrap](#bootstrap)
-* [Material](#material)
+* [Default](#default) - These are the mostly ported swatches from our [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui). Main swatch is the current "Default" theme.
 
->important Make sure that the version in the URLs matches the latest version of the [Kendo Themes](https://github.com/telerik/kendo-themes).
+* [Bootstrap](#bootstrap) - Main swatch is the current "[Bootstrap]({%slug general-information/themes%}#bootstrap-notes)" theme, which is built on Bootstrap 5. As the other names suggest, Bootstrap 3 and Bootstrap 4 swatches are color swatches adapted to look like the respective versions.
+
+* [Material](#material) - Based on Material Design. Main is our "[Material]({%slug general-information/themes%}#material-notes)" theme, which itself is built around the initial theme of <a href = "https://material.angular.io/" target = "_blank">material.angular.io</a>.
+
+>important Make sure that the theme version in the CDN URL is compatible with the UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide information about the correct theme version for each UI for Blazor version.
 
 
-## Default
-
-These are the mostly ported swatches from our [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui). Main swatch is the current "default" theme:
+### Default
 
 * Default Main - https://cdn.kendostatic.com/themes/4.41.2/default/default-main.css
 * Default Main Dark - https://cdn.kendostatic.com/themes/4.41.2/default/default-main-dark.css
@@ -45,9 +56,7 @@ These are the mostly ported swatches from our [Sass Themebuilder](https://themeb
 * Default Urban - https://cdn.kendostatic.com/themes/4.41.2/default/default-urban.css
 
 
-## Bootstrap
-
-As the names suggest, Bootstrap 3 and Bootstrap 4 swatches are color swatches adapted to look like the respective versions. Main swatch is the current "Bootstrap" theme, which is built on bootstrap 5.
+### Bootstrap
 
 * Bootstrap Main - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-main.css
 * Bootstrap Main Dark - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-main-dark.css
@@ -62,9 +71,7 @@ As the names suggest, Bootstrap 3 and Bootstrap 4 swatches are color swatches ad
 * Bootstrap Vintage - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-vintage.css
 
 
-## Material
-
-Based on Material Design. Main is our "Material" theme, which itself is built around the initial theme of material.angular.io.
+### Material
 
 * Material Main - https://cdn.kendostatic.com/themes/4.41.2/material/material-main.css
 * Material Main Dark - https://cdn.kendostatic.com/themes/4.41.2/material/material-main-dark.css
