@@ -51,7 +51,7 @@ There are two built-in commands:
 The `OnClick` handler of the commands receives an argument of type `GanttTaskCommandEventArgs` that exposes the following properties:
 
 * `IsCancelled` - set this to `true` to prevent the operation if the business logic requires it.
-* `Item` - the model item of the Gantt row. You can use it to access the model fields and perform the actual data source operations. Applicable for buttons in a row, not in a toolbar.
+* `Item` - the model item of the Gantt row. You can use it to access the model fields and perform the actual data source operations. This property is applicable only for command buttons that are inside a Gantt row, not the toolbar.
 * `IsNew` - a boolean field indicating whether the item was just added through the Gantt interface.
 
 >tip For handling CRUD operations we recommend that you use the Gantt events (`OnEdit`, `OnUpdate`, `OnCancel`, `OnCreate`). The `OnClick` handler is available for the built-in commands to provide consistency of the API.
@@ -81,7 +81,7 @@ Use a **named** context variable to avoid errors when nesting components or `Ren
 
 ## Example
 
-The following code example demonstrates declarations and handling.
+The following code example demonstrates declarations and handling of the built-in and custom commands.
 
 >tip The event handlers use `EventCallback` and can be synchronous or async. This example shows async versions, and the signature for the synchronous handlers is `void MyHandlerName(GanttTaskCommandEventArgs args)`.
 
