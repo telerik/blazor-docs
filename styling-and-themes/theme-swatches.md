@@ -64,7 +64,7 @@ As the names suggest, Bootstrap 3 and Bootstrap 4 swatches are color swatches ad
 
 ## Material
 
-Based on material design. Main is our "material" theme, which itself is built around the initial theme of material.angular.io.
+Based on Material Design. Main is our "Material" theme, which itself is built around the initial theme of material.angular.io.
 
 * Material Main - https://cdn.kendostatic.com/themes/4.41.2/material/material-main.css
 * Material Main Dark - https://cdn.kendostatic.com/themes/4.41.2/material/material-main-dark.css
