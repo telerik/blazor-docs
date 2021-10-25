@@ -32,7 +32,7 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap-chart" target="_blank">Bl
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-#### To create an area chart:
+#### To create a Heatmap chart:
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Heatmap`
