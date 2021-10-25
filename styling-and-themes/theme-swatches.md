@@ -21,7 +21,7 @@ You can find the main themes and their swatches in the following resources:
 * ZIP archive for Telerik UI for Blazor - the `styles` folder contains the base themes and a some of their most commonly used swatches. The [ZIP Archive]({%slug installation/zip%}) article provides more details on how to get the archive.
 
 
-For ease of access, below you can find a complete list of the base themes, all available swatches and their CDN-s. The swatches are listed under the corresponding main theme they are variations of:
+Here is a complete list of the base themes, all available swatches and their CDN URLs.
 
 * [Default](#default)
 * [Bootstrap](#bootstrap)
