@@ -52,7 +52,7 @@ There are four built-in commands:
 The `OnClick` handler of the commands receives an argument of type `GridCommandEventArgs` that exposes the following properties:
 
 * `IsCancelled` - set this to true to prevent the operation if the business logic requires it.
-* `Item` - the model item the grid row is bound to. You can use it to access the model fields and methods in order to preform the actual data source operations. Applicable for buttons in a row, not in a toolbar.
+* `Item` - the model item of the Grid row. You can use it to access the model fields and preform the actual data source operations. This property is applicable only for command buttons that are inside a Grid row, not the toolbar.
 * `IsNew` - a boolean field indicating whether the item was just added through the grid interface.
 
 >tip For handling CRUD operations we recommend that you use the grid events (`OnEdit`, `OnUpdate`, `OnCancel`, `OnCreate`). The `OnClick` handler is available for the built-in commands to provide consistency of the API.
