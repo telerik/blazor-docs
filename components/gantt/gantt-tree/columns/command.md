@@ -83,7 +83,7 @@ Use a **named** context variable to avoid errors when nesting components or `Ren
 
 The following code example demonstrates declarations and handling.
 
->tip The event handlers use `EventCallback` and can be synchronous or async. This example shows async versions, and the signature for the synchronous handlers is `void MyHandlerName(GridCommandEventArgs args)`.
+>tip The event handlers use `EventCallback` and can be synchronous or async. This example shows async versions, and the signature for the synchronous handlers is `void MyHandlerName(GanttTaskCommandEventArgs args)`.
 
 >caption Example of handling built-in and custom commands in the Gantt component
 
