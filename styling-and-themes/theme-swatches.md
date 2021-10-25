@@ -47,7 +47,7 @@ These are the mostly ported swatches from our [Sass Themebuilder](https://themeb
 
 ## Bootstrap
 
-As the names suggest, Bootstrap 3 and Bootstrap 4 swatches are color swatches adapted to look like the respective versions. Main swatch is the current "bootstrap" theme, which is built on bootstrap 5.
+As the names suggest, Bootstrap 3 and Bootstrap 4 swatches are color swatches adapted to look like the respective versions. Main swatch is the current "Bootstrap" theme, which is built on bootstrap 5.
 
 * Bootstrap Main - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-main.css
 * Bootstrap Main Dark - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-main-dark.css
