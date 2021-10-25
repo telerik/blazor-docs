@@ -18,7 +18,7 @@ You can find the main themes and their swatches in the following resources:
 
 * [kendo-themes repository](https://github.com/telerik/kendo-themes) - the repository for all themes and swatches that are used across Telerik and Kendo web components.
 
-* ZIP archive for Telerik UI for Blazor - in the `styles` folder of the local ZIP archive you can find the base themes and a some of their most commonly used swatches. More details how to get the archive you can find in this article - [ZIP Archive]({%slug installation/zip%}).
+* ZIP archive for Telerik UI for Blazor - the `styles` folder contains the base themes and a some of their most commonly used swatches. The [ZIP Archive]({%slug installation/zip%}) article provides more details on how to get the archive.
 
 
 For ease of access, below you can find a complete list of the base themes, all available swatches and their CDN-s. The swatches are listed under the corresponding main theme they are variations of:
