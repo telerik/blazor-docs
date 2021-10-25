@@ -36,10 +36,10 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap-chart" target="_blank">Bl
 
 1. add a `ChartSeries` to the `ChartSeriesItems` collection
 2. set its `Type` property to `ChartSeriesType.Heatmap`
-3. provide a data collection to its `Data` property and set the corresponding fields:
-    *  `XField` - the value that will be displayed on the X-axis
-    *  `YField` - the value that will be displayed on the Y-axis
-    *  `Field` - the value that will be rendered in the contents of the Heatmap Chart
+3. provide a data collection to its `Data` property and set the corresponding attributes:
+    *  `XField` - the field that will be displayed on the X-axis
+    *  `YField` - the field that will be displayed on the Y-axis
+    *  `Field` - the field that will be rendered in the contents of the Heatmap Chart
 4. optionally, provide data for the X and Y axes `Categories`
 
 
@@ -115,8 +115,8 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap-chart" target="_blank">Bl
 
 When you are data binding the Heatmap Chart you should have the following points under consideration:
 
-* When you have set a value for the `XField` and `YField` fields you do not have to provide an `object[]` to the `Categories` field of the `<ChartXAxis>`, and the `<ChartYAxis>`.
-    * If there is data for both `X/YField` and the `<ChartX/YAxis>` the items must match, otherwise blank data items will be rendered in the Heatmap content. 
+* When you have set a value for the `XField` and `YField` attributes, you do not have to provide an `object[]` to the `Categories` attribute of the `<ChartXAxis>`, and the `<ChartYAxis>`.
+    * If you define both `X/YField` and the `<ChartX/YAxis>` the items must match, otherwise blank data items will be rendered in the Heatmap content. 
     
 
 >caption Heatmap Chart where the data for the `Categories` does not match the `YField` value. **Problematic behavior**. The result from the code snippet below.
@@ -280,7 +280,7 @@ To change the marker type you should set the `Type` parameter, exposed on the `C
 
 ### Color
 
-The `Color` parameter controls the general color pallete for the markers of the Heatmap. The individual color gradient of the marker would be part of the color pallete set through the `Color` parameter. The invidual color set to the markers is done over the value bound to the `Field` - the higher the value the darker the color. 
+The `Color` parameter controls the general color pallete for the markers of the Heatmap. The individual color gradient of the marker would be part of the color pallete set through the `Color` parameter. The invidual marker color set to the markers depends the value bound to the `Field` - the higher the value the darker the color. 
 
 >caption Change the Color of the Heatmap. The result from the code snippet below.
 
