@@ -73,90 +73,18 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap-chart" target="_blank">Bl
     {
         List<MyHeatmapDataModel> data = new List<MyHeatmapDataModel>()
         {
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 14,
-                Week = 1,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 8,
-                Week = 2,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 13,
-                Week = 3,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 22,
-                Week = 4,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 7,
-                Week = 1,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 18,
-                Week = 2,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 2,
-                Week = 3,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 5,
-                Week = 4,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 10,
-                Week = 1,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 11,
-                Week = 2,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 20,
-                Week = 3,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 15,
-                Week = 4,
-                Day = "Wed"
-            },
+            new MyHeatmapDataModel("John", 14, 1, "Mon"),
+            new MyHeatmapDataModel("Idell", 8, 2, "Mon"),
+            new MyHeatmapDataModel("Ines", 13, 3, "Mon"),
+            new MyHeatmapDataModel("Stephen", 22, 4, "Mon"),
+            new MyHeatmapDataModel("John", 7, 1, "Tue"),
+            new MyHeatmapDataModel("Idell", 18, 2, "Tue"),
+            new MyHeatmapDataModel("Ines", 2, 3, "Tue"),
+            new MyHeatmapDataModel("Stephen", 5, 4, "Tue"),
+            new MyHeatmapDataModel("John", 10, 1, "Wed"),
+            new MyHeatmapDataModel("Idell", 11, 2, "Wed"),
+            new MyHeatmapDataModel("Ines", 20, 3, "Wed"),
+            new MyHeatmapDataModel("Stephen", 15, 4, "Wed")
         };
 
         return data;
@@ -164,6 +92,16 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap-chart" target="_blank">Bl
 
     public class MyHeatmapDataModel
     {
+        public MyHeatmapDataModel() { }
+
+        public MyHeatmapDataModel(string devName, int commits, int week, string day)
+        {
+            DeveloperName = devName;
+            CommitsNumber = commits;
+            Week = week;
+            Day = day;
+        }
+
         public string DeveloperName { get; set; }
         public int CommitsNumber { get; set; }
         public int Week { get; set; }
@@ -220,91 +158,19 @@ When you are data binding the Heatmap Chart you should have the following points
     private List<MyHeatmapDataModel> GetMyHeatmapData()
     {
         List<MyHeatmapDataModel> data = new List<MyHeatmapDataModel>()
-        {
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 14,
-                Week = 1,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 8,
-                Week = 2,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 13,
-                Week = 3,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 22,
-                Week = 4,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 7,
-                Week = 1,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 18,
-                Week = 2,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 2,
-                Week = 3,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 5,
-                Week = 4,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 10,
-                Week = 1,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 11,
-                Week = 2,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 20,
-                Week = 3,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 15,
-                Week = 4,
-                Day = "Wed"
-            },
+        {       
+            new MyHeatmapDataModel("John", 14, 1, "Mon"),
+            new MyHeatmapDataModel("Idell", 8, 2, "Mon"),
+            new MyHeatmapDataModel("Ines", 13, 3, "Mon"),
+            new MyHeatmapDataModel("Stephen", 22, 4, "Mon"),
+            new MyHeatmapDataModel("John", 7, 1, "Tue"),
+            new MyHeatmapDataModel("Idell", 18, 2, "Tue"),
+            new MyHeatmapDataModel("Ines", 2, 3, "Tue"),
+            new MyHeatmapDataModel("Stephen", 5, 4, "Tue"),
+            new MyHeatmapDataModel("John", 10, 1, "Wed"),
+            new MyHeatmapDataModel("Idell", 11, 2, "Wed"),
+            new MyHeatmapDataModel("Ines", 20, 3, "Wed"),
+            new MyHeatmapDataModel("Stephen", 15, 4, "Wed")
         };
 
         return data;
@@ -312,6 +178,16 @@ When you are data binding the Heatmap Chart you should have the following points
 
     public class MyHeatmapDataModel
     {
+        public MyHeatmapDataModel() { }
+
+        public MyHeatmapDataModel(string devName, int commits, int week, string day)
+        {
+            DeveloperName = devName;
+            CommitsNumber = commits;
+            Week = week;
+            Day = day;
+        }
+
         public string DeveloperName { get; set; }
         public int CommitsNumber { get; set; }
         public int Week { get; set; }
@@ -364,91 +240,19 @@ To change the marker type you should set the `Type` parameter, exposed on the `C
     private List<MyHeatmapDataModel> GetMyHeatmapData()
     {
         List<MyHeatmapDataModel> data = new List<MyHeatmapDataModel>()
-        {
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 14,
-                Week = 1,
-                Day = "Mon",
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 8,
-                Week = 2,
-                Day = "Mon",
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 13,
-                Week = 3,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 22,
-                Week = 4,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 7,
-                Week = 1,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 18,
-                Week = 2,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 2,
-                Week = 3,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 5,
-                Week = 4,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 10,
-                Week = 1,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 11,
-                Week = 2,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 20,
-                Week = 3,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 15,
-                Week = 4,
-                Day = "Wed"
-            },
+        {       
+            new MyHeatmapDataModel("John", 14, 1, "Mon"),
+            new MyHeatmapDataModel("Idell", 8, 2, "Mon"),
+            new MyHeatmapDataModel("Ines", 13, 3, "Mon"),
+            new MyHeatmapDataModel("Stephen", 22, 4, "Mon"),
+            new MyHeatmapDataModel("John", 7, 1, "Tue"),
+            new MyHeatmapDataModel("Idell", 18, 2, "Tue"),
+            new MyHeatmapDataModel("Ines", 2, 3, "Tue"),
+            new MyHeatmapDataModel("Stephen", 5, 4, "Tue"),
+            new MyHeatmapDataModel("John", 10, 1, "Wed"),
+            new MyHeatmapDataModel("Idell", 11, 2, "Wed"),
+            new MyHeatmapDataModel("Ines", 20, 3, "Wed"),
+            new MyHeatmapDataModel("Stephen", 15, 4, "Wed")
         };
 
         return data;
@@ -456,6 +260,16 @@ To change the marker type you should set the `Type` parameter, exposed on the `C
 
     public class MyHeatmapDataModel
     {
+        public MyHeatmapDataModel() { }
+
+        public MyHeatmapDataModel(string devName, int commits, int week, string day)
+        {
+            DeveloperName = devName;
+            CommitsNumber = commits;
+            Week = week;
+            Day = day;
+        }
+
         public string DeveloperName { get; set; }
         public int CommitsNumber { get; set; }
         public int Week { get; set; }
@@ -499,91 +313,19 @@ The `Color` parameter controls the general color pallete for the markers of the 
     private List<MyHeatmapDataModel> GetMyHeatmapData()
     {
         List<MyHeatmapDataModel> data = new List<MyHeatmapDataModel>()
-        {
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 14,
-                Week = 1,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 8,
-                Week = 2,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 13,
-                Week = 3,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 22,
-                Week = 4,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 7,
-                Week = 1,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 18,
-                Week = 2,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 2,
-                Week = 3,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 5,
-                Week = 4,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 10,
-                Week = 1,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 11,
-                Week = 2,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 20,
-                Week = 3,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 15,
-                Week = 4,
-                Day = "Wed"
-            },
+        {       
+            new MyHeatmapDataModel("John", 14, 1, "Mon"),
+            new MyHeatmapDataModel("Idell", 8, 2, "Mon"),
+            new MyHeatmapDataModel("Ines", 13, 3, "Mon"),
+            new MyHeatmapDataModel("Stephen", 22, 4, "Mon"),
+            new MyHeatmapDataModel("John", 7, 1, "Tue"),
+            new MyHeatmapDataModel("Idell", 18, 2, "Tue"),
+            new MyHeatmapDataModel("Ines", 2, 3, "Tue"),
+            new MyHeatmapDataModel("Stephen", 5, 4, "Tue"),
+            new MyHeatmapDataModel("John", 10, 1, "Wed"),
+            new MyHeatmapDataModel("Idell", 11, 2, "Wed"),
+            new MyHeatmapDataModel("Ines", 20, 3, "Wed"),
+            new MyHeatmapDataModel("Stephen", 15, 4, "Wed")
         };
 
         return data;
@@ -591,6 +333,16 @@ The `Color` parameter controls the general color pallete for the markers of the 
 
     public class MyHeatmapDataModel
     {
+        public MyHeatmapDataModel() { }
+
+        public MyHeatmapDataModel(string devName, int commits, int week, string day)
+        {
+            DeveloperName = devName;
+            CommitsNumber = commits;
+            Week = week;
+            Day = day;
+        }
+
         public string DeveloperName { get; set; }
         public int CommitsNumber { get; set; }
         public int Week { get; set; }
@@ -635,102 +387,18 @@ The `ColorField` parameter allows you to control the color of an individual mark
     {
         List<MyHeatmapDataModel> data = new List<MyHeatmapDataModel>()
         {
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 14,
-                Week = 1,
-                Day = "Mon",
-                Color = "blue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 8,
-                Week = 2,
-                Day = "Mon",
-                Color = "darkblue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 13,
-                Week = 3,
-                Day = "Mon",
-                Color = "blueviolet"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 22,
-                Week = 4,
-                Day = "Mon",
-                Color = "deepskyblue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 7,
-                Week = 1,
-                Day = "Tue",
-                Color = "green"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 18,
-                Week = 2,
-                Day = "Tue",
-                Color = "darkgreen"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 2,
-                Week = 3,
-                Day = "Tue",
-                Color = "darkolivegreen"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 5,
-                Week = 4,
-                Day = "Tue",
-                Color = "darkseagreen"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 10,
-                Week = 1,
-                Day = "Wed",
-                Color = "orange"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 11,
-                Week = 2,
-                Day = "Wed",
-                Color = "orangered"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 20,
-                Week = 3,
-                Day = "Wed",
-                Color = "red"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 15,
-                Week = 4,
-                Day = "Wed",
-                Color = "darkred"
-            },
+            new MyHeatmapDataModel("blue","John", 14, 1, "Mon"),
+            new MyHeatmapDataModel("darkblue", "Idell", 8, 2, "Mon"),
+            new MyHeatmapDataModel("blueviolet", "Ines", 13, 3, "Mon"),
+            new MyHeatmapDataModel("deepskyblue", "Stephen", 22, 4, "Mon"),
+            new MyHeatmapDataModel("green", "John", 7, 1, "Tue"),
+            new MyHeatmapDataModel("darkgreen", "Idell", 18, 2, "Tue"),
+            new MyHeatmapDataModel("darkolivegreen", "Ines", 2, 3, "Tue"),
+            new MyHeatmapDataModel("darkseagreen", "Stephen", 5, 4, "Tue"),
+            new MyHeatmapDataModel("orange", "John", 10, 1, "Wed"),
+            new MyHeatmapDataModel("orangered", "Idell", 11, 2, "Wed"),
+            new MyHeatmapDataModel("red", "Ines", 20, 3, "Wed"),
+            new MyHeatmapDataModel("darkred", "Stephen", 15, 4, "Wed")
         };
 
         return data;
@@ -738,6 +406,17 @@ The `ColorField` parameter allows you to control the color of an individual mark
 
     public class MyHeatmapDataModel
     {
+        public MyHeatmapDataModel() { }
+
+        public MyHeatmapDataModel(string color, string devName, int commits, int week, string day)
+        {
+            Color = color;
+            DeveloperName = devName;
+            CommitsNumber = commits;
+            Week = week;
+            Day = day;
+        }
+
         public string Color { get; set; }
         public string DeveloperName { get; set; }
         public int CommitsNumber { get; set; }
@@ -794,91 +473,19 @@ The `ColorField` parameter allows you to control the color of an individual mark
     private List<MyHeatmapDataModel> GetMyHeatmapData()
     {
         List<MyHeatmapDataModel> data = new List<MyHeatmapDataModel>()
-        {
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 14,
-                Week = 1,
-                Day = "Mon",
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 8,
-                Week = 2,
-                Day = "Mon",
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 13,
-                Week = 3,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 22,
-                Week = 4,
-                Day = "Mon"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 7,
-                Week = 1,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 18,
-                Week = 2,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 2,
-                Week = 3,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 5,
-                Week = 4,
-                Day = "Tue"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "John",
-                CommitsNumber = 10,
-                Week = 1,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Idell",
-                CommitsNumber = 11,
-                Week = 2,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Ines",
-                CommitsNumber = 20,
-                Week = 3,
-                Day = "Wed"
-            },
-            new MyHeatmapDataModel()
-            {
-                DeveloperName = "Stephen",
-                CommitsNumber = 15,
-                Week = 4,
-                Day = "Wed"
-            },
+        {       
+            new MyHeatmapDataModel("John", 14, 1, "Mon"),
+            new MyHeatmapDataModel("Idell", 8, 2, "Mon"),
+            new MyHeatmapDataModel("Ines", 13, 3, "Mon"),
+            new MyHeatmapDataModel("Stephen", 22, 4, "Mon"),
+            new MyHeatmapDataModel("John", 7, 1, "Tue"),
+            new MyHeatmapDataModel("Idell", 18, 2, "Tue"),
+            new MyHeatmapDataModel("Ines", 2, 3, "Tue"),
+            new MyHeatmapDataModel("Stephen", 5, 4, "Tue"),
+            new MyHeatmapDataModel("John", 10, 1, "Wed"),
+            new MyHeatmapDataModel("Idell", 11, 2, "Wed"),
+            new MyHeatmapDataModel("Ines", 20, 3, "Wed"),
+            new MyHeatmapDataModel("Stephen", 15, 4, "Wed")
         };
 
         return data;
@@ -886,6 +493,16 @@ The `ColorField` parameter allows you to control the color of an individual mark
 
     public class MyHeatmapDataModel
     {
+        public MyHeatmapDataModel() { }
+
+        public MyHeatmapDataModel(string devName, int commits, int week, string day)
+        {
+            DeveloperName = devName;
+            CommitsNumber = commits;
+            Week = week;
+            Day = day;
+        }
+
         public string DeveloperName { get; set; }
         public int CommitsNumber { get; set; }
         public int Week { get; set; }
