@@ -24,7 +24,7 @@ With regard to the widths of its columns, the scrollable (default) treelist typi
 
 * When no column widths are set, the available width is distributed evenly between all treelist columns.
 
-* To allow the users to auto-fit the column widths to the content, enable [column resizing]({%slug treelist-columns-resize%}) - a double click on the border between the headers will have the treelist adjust the column width according to the size of the data, and header content.
+* To allow the users to auto-fit the column widths to the content, enable [column resizing]({%slug treelist-columns-resize%}) - a double click on the border between the headers will have the treelist adjust the column width according to the size of the data, and header content. It is also possible to [auto-fit columns programmatically]({%slug treelist-columns-resize%}#autofit-columns).
 
 
 # See Also
