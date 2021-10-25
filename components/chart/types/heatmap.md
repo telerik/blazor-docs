@@ -16,11 +16,8 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap-chart" target="_blank">Bl
 #### In this article:
 
 * [Basics](#basics)
-
 * [Data Binding Notes](#data-binding-notes)
-
 * [Heatmap Chart Specific Appearance Settings](#heatmap-chart-specific-appearance-settings)
-
     * [Setting the Marker Type](#setting-the-marker-type)
     * [Color](#color)
     * [ColorField](#colorfield)
