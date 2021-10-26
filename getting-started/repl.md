@@ -21,7 +21,7 @@ In this article:
 
 ## Getting Started
 
-<a href = "https://blazorrepl.telerik.com/" target = "_blank">The Telerik REPL for Blazor application</a> is divided in five main elements:
+The <a href = "https://blazorrepl.telerik.com/" target = "_blank">Telerik REPL for Blazor application</a> interface consists of five main sections:
 
 * [Toolbar](#toolbar)
 * [Sidebar - Drawer](#sidebar---drawer)
