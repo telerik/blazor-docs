@@ -61,7 +61,7 @@ The Sidebar provides the following functionalities:
 
 The Editor allows you to type, paste and edit your code. It always contains `_Main.razor` file and you can also add other files to the project via the `+` button.
 
-The newly added files could be `.razor`(pages, components) or `.cs`(models, code-behind files, services, etc.) All files of type `.razor` should be named with a capital letter.
+The newly added files could be `.razor` (pages, components) or `.cs` (models, code-behind files, services, etc.). All files of type `.razor` should be named with a capital letter.
 
 ### Result View
 
