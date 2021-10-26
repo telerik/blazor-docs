@@ -29,6 +29,8 @@ In this article:
 * [Result View](#result-view)
 * [Error List](#error-list)
 
+<!-- ![Overview](images/repl-overview.png) -->
+
 ### Toolbar
 
 The Toolbar of Telerik REPL for Blazor contains the operations that can be performed:
@@ -51,7 +53,7 @@ The Sidebar provides the following functionalities:
 
 * Static Asset Manager - it allows you to add a CDN with your desired CSS or JavaScript files. Place the file URL in the input and click the download button. This automatically add references for the corresponding files. Once the desired asset is added, you can easily enable/disable it via a switch. In case some of the installed NuGet packages include CSS/JavaScript files, they will automatically be listed in this section, so you can manage them.
 
-* Telerik UI Asset Manager - provides a summary of the installed Telerik UI package version and a dropdown for selecting one of the [built-in themes]({%slug general-information/themes%}) (Default, Material, Bootstrap) and some of their corresponding [color swatches]({%slug themes-swatches%}). By selecting different theme or swatch, you can immediately see the applied styles in the Results view.
+* Telerik UI Asset Manager - provides a summary of the installed Telerik UI package version and a dropdown for selecting one of the [built-in themes]({%slug general-information/themes%}) (Default, Material, Bootstrap) and some of their corresponding [color swatches]({%slug themes-swatches%}). By selecting different theme or swatch, you can immediately see the applied styles in the Result View.
 
 * Startup Config  - by clicking the config icon at the bottom of the Sidebar, you can open the `Startup.cs` file of the project and modify it if desired. This way you you can configure services or other settings in the your code.
 
