@@ -94,7 +94,7 @@ The Telerik UI for Blazor demos support integration with the Telerik REPL for Bl
 
 ## Visual Studio and Visual Studio Code Integration
 
-Telerik Extensions for [Visual Studio]({%slug getting-started-vs-integration-overview%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-overview%}) provide option to easily share your code to the Telerik REPL for Blazor in a couple clicks. You can share the whole file or just a selection.
+Telerik Extensions for [Visual Studio]({%slug getting-started-vs-integration-overview%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-overview%}) provide option to easily share your code to the Telerik REPL for Blazor with a few clicks. You can share the whole file or just a selection.
 
 The command can be used if more than 10 symbols are selected. If less symbols are selected, in Visual Studio it will appear as disabled and in Visual Studio Code you will get an error message ("Expected at least 10 characters"). In case of multiple selection every new piece will be concatenated on a new line.
 
