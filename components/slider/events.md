@@ -56,7 +56,10 @@ The `ValueChanged` event fires every time the `Value` parameter changes. This ha
 
 ## OnChange
 
-The `OnChange` event represents a user action - confirmation of the current value. It fires when the user clicks or taps the increase/decrease buttons, after the user stops dragging the handle or when they click on the track.
+The `OnChange` event represents a user action - confirmation of the current value. It fires when the user:
+* clicks on the increase/decrease buttons;
+* clicks on the track;
+* after the user stops dragging the handle;
 
 If you use two-way data binding, this will effectively fire the [`ValueChanged`](#valuechanged) event while the user drags the handle which will result in continuous component re-rendering. If you want to avoid that, use one-way binding and update the value for the view-model in the `OnChange` event handler.
 
