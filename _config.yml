@@ -270,8 +270,11 @@ navigation:
         title: "Checkbox"
      "*chunkprogressbar":
         title: "ChunkProgressBar"
+     "*colorgradient":
+        title: "ColorGradient"
+        isNew: true
      "*colorpalette":
-        title: "Color Palette"
+        title: "ColorPalette"
         isNew: true
      "*colorpicker":
         title: "ColorPicker"
