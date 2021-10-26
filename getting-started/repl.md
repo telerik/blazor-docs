@@ -55,7 +55,7 @@ The Sidebar provides the following functionalities:
 
 * Telerik UI Asset Manager - provides a summary of the installed Telerik UI package version and a dropdown for selecting one of the [built-in themes]({%slug general-information/themes%}) (Default, Material, Bootstrap) and some of their corresponding [color swatches]({%slug themes-swatches%}). By selecting different theme or swatch, you can immediately see the applied styles in the Result View.
 
-* Startup Config  - by clicking the config icon at the bottom of the Sidebar, you can open the `Startup.cs` file of the project and modify it if desired. This way you you can configure services or other settings in the your code.
+* Startup Config  - the config icon at the bottom of the Sidebar opens the `Startup.cs` file of the project. You can configure services or other settings there.
 
 ### Editor
 
