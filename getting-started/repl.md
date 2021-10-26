@@ -21,7 +21,7 @@ In this article:
 
 ## Getting Started
 
-<a href = "https://blazorrepl.telerik.com/" target = "_blank">The Telerik REPL for Blazor application</a> is divided in four main elements:
+<a href = "https://blazorrepl.telerik.com/" target = "_blank">The Telerik REPL for Blazor application</a> is divided in five main elements:
 
 * [Toolbar](#toolbar)
 * [Sidebar - Drawer](#sidebar---drawer)
@@ -31,29 +31,29 @@ In this article:
 
 ### Toolbar
 
-The Toolbar of Telerik REPL for Blazor contains the commands that can be performed with the code in the [Editor](#editor):
+The Toolbar of Telerik REPL for Blazor contains the operations that can be performed:
 
 * `Run` - executes the code from the editor and renders it in the [Result View](#result-view)
 
 * `Get Started` - links the [getting started article](https://telerik.com/blazor-ui/repl/getting-started) for the product
 
 * `Share` - allows you to share the snippet. The menu is divided in two sections:
-    *  `Share` - In the popup, you will find a generated public link with the snippet will that you can share as desired. The menu also provides buttons to directly share it in the corresponding social medias.
-    * `Embed` - generates a link which you can use to embed the snippet. Based on your use case, you can choose whether to embed only the Editor, the Result View, the Error Console or all three. A preview of the embed will be loaded in the popup upon selecting the desired option.
+    *  `Share` - In the popup, you will find a generated public link with the snippet will that you can share as desired. The menu also provides several options for direct sharing in social medias.
+    * `Embed` - generates a link which you can use to embed the snippet in blog posts and other websites. Based on your use case, you can choose whether to embed only the Editor, the Result View, the Error Console or all three. A preview of the embed will be loaded in the popup upon selecting the desired option.
     
 * `Feedback` - leads to the [public feedback portal for Telerik REPL for Blazor](https://feedback.telerik.com/repl) where you can share your enhancement requests and eventual bug reports. We use it to constantly monitor the community interest and demand and thus improve our products.
 
-### Sidebar - Drawer
+### Sidebar
 
-The Sidebar/Drawer provides the following functionalities:
+The Sidebar provides the following functionalities:
 
-* NuGet Package Manager - it allows you to install the desired NuGet packages. The latest version of `Telerik UI for Blazor` is installed by default and you can add any other packages that are stored in the public `nuget.org` repository.
+* NuGet Package Manager - it allows you to install third party NuGet packages that are stored in the public `nuget.org` repository. If the published NuGet requires accepting license agreement, you will see a prompt for confirming your acceptance. Regarding `Telerik UI for Blazor` package, latest version is installed by default, so no further action is required form your side.
 
-* Static Asset Manager - it allows you to add a CDN with your desired CSS or JavaScript files. Place the file URL in the input and click the download button. You don't need to reference the files, Telerik REPL for Blazor will do that for you. Once the desired CDN is added, you can easily enable/disable it via a switch. In case some of the installed NuGet packages include CSS/JavaScript files, they will automatically be listed in this section, so you can manage them.
+* Static Asset Manager - it allows you to add a CDN with your desired CSS or JavaScript files. Place the file URL in the input and click the download button. This automatically add references for the corresponding files. Once the desired asset is added, you can easily enable/disable it via a switch. In case some of the installed NuGet packages include CSS/JavaScript files, they will automatically be listed in this section, so you can manage them.
 
-* Telerik UI Asset Manager - provides a summary of the installed Telerik UI packages and a dropdown to choose the desired theme to apply in the application. The menu allows choosing between the [built-in themes]({%slug general-information/themes%}) and some of their most commonly used [swatches]({%slug themes-swatches%}).
+* Telerik UI Asset Manager - provides a summary of the installed Telerik UI package version and a dropdown for selecting one of the [built-in themes]({%slug general-information/themes%}) (Default, Material, Bootstrap) and some of their corresponding [color swatches]({%slug themes-swatches%}). By selecting different theme or swatch, you can immediately see the applied styles in the Results view.
 
-* Config button - by clicking it you can open the `Startup.cs` file of the project and modify it if desired. You can use this for configuring services or other settings in the app.
+* Startup Config  - by clicking the config icon at the bottom of the Sidebar, you can open the `Startup.cs` file of the project and modify it if desired. This way you you can configure services or other settings in the your code.
 
 ### Editor
 
@@ -63,13 +63,15 @@ The newly added files could be `.razor`(pages, components) or `.cs`(models, code
 
 ### Result View
 
-In the Result view, you can see the result of project after you run it.
+Once you click the Run button, the actual result of your code will be rendered in the Result View of the Telerik REPL for Blazor. To successfully run the code you need to make sure that no errors are thrown (if any, they will be listed in the [Error List](#error-list)).
 
 ### Error List
 
-Telerik REPL for Blazor provides an Error List that displays details on the compile time errors and warnings (if any). It can be expanded/collapsed via arrow buttons.
+Telerik REPL for Blazor provides an Error List that displays details for the compile time errors and warnings (if any). It can be expanded/collapsed via arrow buttons.
 
-## Telerik UI for Blazor documentation Integration
+The Error list is located at the bottom of the [Editor](#editor).
+
+## Telerik UI for Blazor Documentation Integration
 
 The Telerik UI for Blazor documentation supports integration with the Telerik REPL for Blazor. This provides interactive experience and easy to test snippets for the various components and scenarios. Above the code snippets listed in the documentation articles you will find a toolbar with the following options:
 
@@ -77,9 +79,16 @@ The Telerik UI for Blazor documentation supports integration with the Telerik RE
 
 * `Preview` - click to run the snippet in the integrated the Telerik REPL for Blazor Result View.
 
-## Telerik UI for Blazor demos Integration
+
+![Documentation Integration](images/repl-docs-integration.png)
+
+
+## Telerik UI for Blazor Demos Integration
 
 The Telerik UI for Blazor demos support integration with the Telerik REPL for Blazor. In the demo window toolbar, along with the "Example" and "View Source" tabs, you will find a tab with dropdown that provides option for editing the demo in Telerik REPL for Blazor. Once you select that option, you will be redirected to the Telerik REPL for Blazor and its editor will contain the source code of the current demo, so you can directly edit and test it.
+
+![Demos Integration](images/repl-demos-integration.png)
+
 
 ## Visual Studio and Visual Studio Code Integration
 
@@ -91,11 +100,20 @@ If no selection is made, the whole file will be shared to Telerik REPL for Blazo
 
 The sharing option is served as follows:
 
-* **Visual Studio(you can get the extension [here](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions)):**
-    * Context Menu option - select a section that you want to share, right click on it to open the context menu and click "Share to Blazor REPL" option.
+#### Visual Studio (you can get the extension [here](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions)):
+* Context Menu option - select a section that you want to share, right click on it to open the context menu and click "Share to Telerik REPL for Blazor" option.
+    
+![VS - Share to Telerik REPL for Blazor](images/vs-extension-share-to-repl.png)
 
-* **Visual Studio Code (you can get the extension [here](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard)):**
 
-    * Context Menu option - select a section that you want to share, right click on it to open the context menu and click "Share to Blazor REPL" option.`
+#### Visual Studio Code (you can get the extension [here](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard)):
 
-    * Command in the command palette - select a section that you want to share, search for "Blazor REPL:Share to Blazor REPL" in the command palette and choose it.
+* Context Menu option - select a section that you want to share, right click on it to open the context menu and click "Share to Telerik REPL for Blazor" option.`
+
+![VS Code - Share to Telerik REPL for Blazor](images/vs-code-extension-share-to-repl.png)
+
+
+* Command in the command palette - select a section that you want to share, search for "Share to Telerik REPL for Blazor" in the command palette and choose it.
+
+
+![VS Code - Share to Telerik REPL for Blazor](images/vs-code-extension-share-to-repl-command-palette.png)
