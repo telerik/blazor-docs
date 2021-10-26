@@ -61,7 +61,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 * clicks on the track;
 * after the user stops dragging the handle;
 
-If you use two-way data binding, this will effectively fire the [`ValueChanged`](#valuechanged) event while the user drags the handle which will result in continuous component re-rendering. If you want to avoid that, use one-way binding and update the value for the view-model in the `OnChange` event handler.
+If you use two-way binding, the [`ValueChanged`](#valuechanged) event will fire continuously while the user is dragging the handle. This will result in continuous component re-rendering. If you want to avoid that, use one-way binding and update the value for the view-model in the `OnChange` event handler.
 
 
 >tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
