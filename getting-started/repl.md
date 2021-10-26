@@ -10,7 +10,7 @@ position: 40
 
 # Telerik REPL for Blazor
 
-<a href = "https://telerik.com/blazor-ui/repl/getting-started" target = "_blank"> Progress Telerik REPL for Blazor </a> is innovative web-based application that allows you to write, compile, execute and share your rich UI Blazor components. You can write your code directly in the integrated editor and it in the browser security sandbox without any communication with a server. The code is compiled on top of Web Assembly which delivers near to native performance. With Telerik REPL for Blazor you can also easily edit, save and share your code.
+<a href = "https://telerik.com/blazor-ui/repl/getting-started" target = "_blank"> Progress Telerik REPL for Blazor </a> is innovative web-based application that allows you to write, compile, execute and share your rich Blazor UI components. You can write your code directly in the integrated editor and execute it in the browser security sandbox without any communication with a server. The code is compiled on top of Web Assembly which delivers near to native performance. With Telerik REPL for Blazor you can also easily edit, save and share your code.
 
 In this article:
 
@@ -40,8 +40,8 @@ The Toolbar of Telerik REPL for Blazor contains the operations that can be perfo
 * `Get Started` - links the [getting started article](https://telerik.com/blazor-ui/repl/getting-started) for the product
 
 * `Share` - allows you to share the snippet. The menu is divided in two sections:
-    *  `Share` - In the popup, you will find a generated public link with the snippet will that you can share as desired. The menu also provides several options for direct sharing in social medias.
-    * `Embed` - generates a link which you can use to embed the snippet in blog posts and other websites. Based on your use case, you can choose whether to embed only the Editor, the Result View, the Error Console or all three. A preview of the embed will be loaded in the popup upon selecting the desired option.
+    *  `Share` - In the popup, you will find a generated public link with the snippet that you can share as desired. The menu also provides several options for direct sharing in social media.
+    * `Embed` - generates a link which you can use to embed the snippet in blog posts and other websites. Based on your use case, you can choose whether to embed only the Editor, the Result View, the Error Console or all three. You will see a preview of the embed in the popup upon selecting the desired option.
     
 * `Feedback` - leads to the [public feedback portal for Telerik REPL for Blazor](https://feedback.telerik.com/repl) where you can share your enhancement requests and eventual bug reports. We use it to constantly monitor the community interest and demand and thus improve our products.
 
@@ -100,7 +100,7 @@ The command can be used if more than 10 symbols are selected. If less symbols ar
 
 If no selection is made, the whole file will be shared to Telerik REPL for Blazor. Only single files can be shared per command and not the whole application. Once the share to REPL process is triggered, notifications will appear in the bottom right corner for about 2 to 3 seconds to indicate the status, after that the default browser opens with the uploaded snippet.
 
-The sharing option is served as follows:
+The `Share to Telerik REPL for Blazor` command can be accessed as follows:
 
 #### Visual Studio (you can get the extension [here](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions)):
 * Context Menu option - select a section that you want to share, right click on it to open the context menu and click "Share to Telerik REPL for Blazor" option.
