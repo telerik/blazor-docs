@@ -70,6 +70,8 @@ The Time Picker component exposes the following features:
 * `Width` - Defines the width of the TimePicker.
 
 * `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
+* 
+* `Placeholder` - `string` - maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to **nullable** DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. 
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
@@ -81,6 +83,7 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 The Time Picker component supports `DateTime`, `DateTime?`, `DateTimeOffset` and `DateTimeOffset?` types.
 
+@[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
 ## See Also
 
