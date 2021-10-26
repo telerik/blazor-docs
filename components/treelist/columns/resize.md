@@ -10,31 +10,81 @@ position: 3
 
 # Resize Columns
 
-The treelist lets the user resize its columns by dragging the borders between their headers.
+The TreeList features two different column resizing mechanisms:
+
+* [Resize by Dragging](#resize-by-dragging)
+* [Fit to Content](#autofit-columns)
+
+The [example at the end of this page](#example) shows both options in action.
+
+## Resize by Dragging
+
+The TreeList allows users to resize columns by dragging the borders between header cells.
 
 To enable the column resizing, set the `Resizable` parameter of the treelist to `true`.
 
 To prevent the user from resizing a certain column, set its own parameter `Resizable="false"`. Note that the user can still resize other columns around it.
 
-When column resizing is enabled, a double click on the resize handle between the header cells will automatically fit the column width to the content of the header and data.
+## Autofit Columns
 
->caption Enable column resizing in Telerik treelist
+When column resizing is enabled, a double click on the resize handle between the header cells will automatically fit the column width to the content of the header, data and footers. This will remove text wrapping in the component.
+
+The TreeList also exposes methods to programmatically resize columns to fit their contents:
+
+* `AutoFitColumn(string id)` - autofits the column with the specified `Id` attribute;
+* `AutoFitColumns(IEnumerable<string> ids)` - autofits multiple columns at once;
+* `AutoFitAllColumns()` - autofits all applicable columns (for example, this method does not affect the hierarchy expand/collapse column);
+
+Autofitting specific columns preserves the current widths of all the other columns. Similar to [column resizing](#resize-by-dragging), column autofitting can trigger a horizontal Grid scrollbar, or leave empty space after the last column.
+
+Programmatic autofitting works even if column resizing is disabled.
+
+## Example
+
+>caption How column resizing works in the Telerik TreeList
+
+![](images/column-resize-preview.gif)
+
+
+>caption TreeList Column Resizing and Autofitting
 
 ````CSHTML
-@* Drag the border between column headers to change the column size. You cannot resize the ID column itself. *@
+@* TreeList column resizing and autofitting *@
+@* Drag the border between column headers to change the column width. You cannot resize the ID column itself. *@
 
-<TelerikTreeList Data="@Data" Resizable="true"
+<TelerikButton OnClick="@AutoFitSingleColumn">AutoFit Name Column</TelerikButton>
+<TelerikButton OnClick="@AutoFitMultipleColumns">AutoFit Id and ParentId Columns</TelerikButton>
+<TelerikButton OnClick="@AutoFitAllColumns">AutoFit All Columns</TelerikButton>
+
+<TelerikTreeList @ref="@TreeList" Data="@Data" Resizable="true"
                  Pageable="true" IdField="Id" ParentIdField="ParentId" Width="650px" Height="400px">
     <TreeListColumns>
-        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Resizable="false" />
-        <TreeListColumn Field="ParentId" />
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" Id="NameColumn" />
+        <TreeListColumn Field="Id" Resizable="false" Id="IdColumn" />
+        <TreeListColumn Field="ParentId" Id="ParentIdColumn" />
         <TreeListColumn Field="HireDate" />
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
+    public TelerikTreeList<Employee> TreeList { get; set; }
     public List<Employee> Data { get; set; }
+
+    private void AutoFitSingleColumn()
+    {
+        TreeList.AutoFitColumn("NameColumn");
+    }
+
+    private void AutoFitMultipleColumns()
+    {
+        var columns = new List<string>() { "IdColumn", "ParentIdColumn" };
+        TreeList.AutoFitColumns(columns);
+    }
+
+    private void AutoFitAllColumns()
+    {
+        TreeList.AutoFitAllColumns();
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -94,11 +144,6 @@ When column resizing is enabled, a double click on the resize handle between the
     }
 }
 ````
-
-
->caption How column resizing works in the Telerik treelist
-
-![](images/column-resize-preview.gif)
 
 ## See Also
 
