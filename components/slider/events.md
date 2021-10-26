@@ -17,7 +17,10 @@ This article showcases the available events in the Telerik Slider component:
 
 ## ValueChanged
 
-The `ValueChanged` event fires every time the `Value` parameter changes. This happens when the user clicks or taps the increase/decrease buttons, when the user drags the handle, or when they click on the track.
+The `ValueChanged` event fires every time the `Value` parameter changes. This happens when the user:
+* clicks on the increase/decrease buttons;
+* clicks on the track;
+* while dragging the handle;
 
 >tip As of version 2.28.0 of Telerik UI for Blazor, the `ValueChanged` event fires continuously while the user is dragging the handle to ensure updating the value accordingly and deliver live UX. Thus, the component will re-render multiple times during the dragging process. If you want to avoid that, you can handle the [`OnChange`](#onchange) event.
 
