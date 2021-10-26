@@ -22,7 +22,7 @@ The `ValueChanged` event fires every time the `Value` parameter changes. This ha
 * clicks on the track;
 * while dragging the handle;
 
->tip As of version 2.28.0 of Telerik UI for Blazor, the `ValueChanged` event fires continuously while the user is dragging the handle to ensure updating the value accordingly and deliver live UX. Thus, the component will re-render multiple times during the dragging process. If you want to avoid that, you can handle the [`OnChange`](#onchange) event.
+>tip As of version 2.28.0 of Telerik UI for Blazor, the `ValueChanged` event fires continuously while the user is dragging the handle to ensure updating the value accordingly and deliver live UX. Thus, the component will re-render multiple times during the dragging process. If you want to avoid that, you can handle the [`OnChange`](#onchange) event instead.
 
 >caption Handle the ValueChanged
 
