@@ -69,7 +69,7 @@ Once you click the Run button, the actual result of your code will be rendered i
 
 ### Error List
 
-Telerik REPL for Blazor provides an Error List that displays details for the compile time errors and warnings (if any). It can be expanded/collapsed via arrow buttons.
+Telerik REPL for Blazor provides an Error List that displays details for the compile time errors and warnings. It can be expanded/collapsed via arrow buttons.
 
 The Error list is located at the bottom of the [Editor](#editor).
 
