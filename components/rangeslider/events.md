@@ -133,7 +133,7 @@ The handler receives an object of type `RangeSliderChangeEventArgs` which expose
 * `StartValue` - the new lower value of the slider that marks the range start.
 * `EndValue` - the new higher value of the slider that marks the range end.
 
-If you use two-way data binding, this will effectively fire the [`StartValueChanged and EndValueChanged`](#startvaluechanged-and-endvaluechanged) events while the user drags the handle which will result in continuous component re-rendering. If you want to avoid that, use one-way binding and update the value for the view-model in the `OnChange` event handler.
+If you use two-way binding, this will effectively fire the [`StartValueChanged and EndValueChanged`](#startvaluechanged-and-endvaluechanged) events while the user is dragging the handle. This will result in continuous component re-rendering. If you want to avoid that, use one-way binding and update the value for the view-model in the `OnChange` event handler.
 
 >tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
 
