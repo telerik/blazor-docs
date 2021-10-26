@@ -19,7 +19,7 @@ This article showcases the available events in the Telerik RangeSlider component
 
 `StartValueChanged` fires when the user moves the lower range of the slider, and `EndValueChanged` fires when the user changes the higher range of the slider.
 
-The `ValueChanged` events fire every time the corresponding `Value` parameter changes. This happens when the user drags the handle or when they click on the track.
+The `ValueChanged` events fire every time the corresponding `Value` parameter changes. This happens while the user is dragging the handle or when they click on the track.
 
 >tip As of version 2.28.0 of Telerik UI for Blazor, the `ValueChanged` events fire continuously while the user is dragging the handle to ensure updating the value accordingly and deliver live UX. Thus, the component will re-render multiple times during the dragging process. If you want to avoid that, you can handle the [`OnChange`](#onchange) event.
 
