@@ -276,7 +276,7 @@ navigation:
      "*colorpalette":
         title: "ColorPalette"
         isNew: true
-     "*colorpicker":
+     "*/colorpicker":
         title: "ColorPicker"
      "*/multicolumncombobox":
         isNew: true
