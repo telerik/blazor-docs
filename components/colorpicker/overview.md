@@ -10,7 +10,7 @@ position: 0
 
 # ColorPicker Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/colorpicker" target="_blank">ColorPicker for Blazor</a> is an interactive component that allows color selection from a popup palette or a [HSVA](https://en.wikipedia.org/wiki/HSL_and_HSV) canvas. Users can also type a specific RGB/HEX color value manually.
+The <a href = "https://www.telerik.com/blazor-ui/colorpicker" target="_blank">ColorPicker for Blazor</a> is an interactive component that allows color selection from a popup palette or a [HSVA](https://en.wikipedia.org/wiki/HSL_and_HSV) canvas. Users can also type a specific RGB/HEX color value manually. The ColorPicker is practically identical to the [FlatColorPicker component]({%slug flatcolorpicker-overview%}) with the only difference that the ColorPicker takes up less space and displays the color selection UI in a popup.
 
 #### In this article:
    * [Basics](#basics)
@@ -51,7 +51,7 @@ The image below reveals all ColorPicker interface elements:
 * Current color box (below the color preview)
 * Clear button (top)
 * Palette tiles or HSV canvas with hue and opacity sliders (middle)
-* RGBA or HEX value textboxes (bottom)
+* RGBA or HEX value textboxes with a toggle button (bottom)
 * Apply and Cancel buttons (bottom)
 
 Clicking outside the ColorPicker popup acts as an **Apply** action.
@@ -74,7 +74,7 @@ The ColorPicker tag exposes the following features via its attributes:
 ### Buttons
 
 * `ShowButtons` - `bool` - sets the visibility of the Apply and Cancel buttons (`true` by default).
-* `ClearButton` - `bool` - sets the visibility of the Clear button.
+* `ShowClearButton` - `bool` - sets the visibility of the Clear button.
 
 ### Custom Icon
 
