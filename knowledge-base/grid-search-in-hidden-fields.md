@@ -27,7 +27,7 @@ I want to customize the Grid Toolbar Searchbox, so it also searches in the hidde
 
 ## Solution
 
-By default, the Grid looks in all string fields in its currently visible columns. You can [customize the SearchBox]({%slug grid-searchbox%}#customize-the-searchbox), so the Grid will search only in certain columns. However, the search will still be based on the **visible** fields provided to the `Field` parameter of the `GridSearchBox`.
+By default, the Grid looks in all string fields in its currently visible columns. You can [customize the SearchBox]({%slug grid-searchbox%}#customize-the-searchbox), so the Grid will search only in certain columns. However, the search will still be based on the **visible** fields provided to the `Fields` parameter of the `GridSearchBox`.
 
 If you want to search in the hidden fields of the Grid, do the following:
 
