@@ -103,7 +103,7 @@ The QRCode methods are accessible through its reference.
 
 * `Refresh` - redraws the component.
 
-You can see the [example with the Barcode](https://docs.telerik.com/blazor-ui/components/barcode/overview#methods) and use the `Refresh()` method in the same way with QRCode.
+You can see the [example with the Barcode]({%slug barcode-overview%}#methods) and use the `Refresh()` method in the same way with QRCode.
 
 ## See Also
 
