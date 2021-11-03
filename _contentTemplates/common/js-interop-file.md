@@ -16,36 +16,63 @@
 #end
 
 #add-js-interop-file-to-getting-started-server
- Add the `telerik-blazor.js` file to your main index file - `~/Pages/_Host.cshtml`:
+ Add the `telerik-blazor.js` file to your main index file:
+ 
+ * `~/Pages/_Host.cshtml` for .NET 3.x - .NET 5
+ * `~/Pages/_Layout.cshtml` for .NET 6
 
     **HTML**
-    
+
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets)
 #end
 
 #js-interop-file-snippet
-        <head>
-          . . .
-          <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
-          
-          <!-- For Trial licenses use
-            <script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>
-          -->
-        </head>
+````_Host.cshtml
+<head>
+    . . .
+    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
+
+    <!-- For Trial licenses use
+      <script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>
+    -->
+</head>
+````
+````_Layout.cshtml
+<head>
+    . . .
+    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
+
+    <!-- For Trial licenses use
+      <script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>
+    -->
+</head>
+````
 #end
 
 
 #theme-static-asset-snippet
-        <head>
-          . . .
-            <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
-            
-            <!-- For Trial licenses use
-                <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" />
-              -->
-        </head>
+````_Host.cshtml
+<head>
+    . . .
+    <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
+
+    <!-- For Trial licenses use
+        <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" />
+      -->
+</head>
+````
+````_Layout.cshtml
+<head>
+    . . .
+    <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
+
+    <!-- For Trial licenses use
+        <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" />
+      -->
+</head>
+````
 #end
 
 #enable-static-assets
@@ -59,22 +86,32 @@
 #end
 
 #enable-static-assets-snippet
-        // Startup.cs
-        namespace MyBlazorAppName
+````Startup.cs
+namespace MyBlazorAppName
         {
             public class Startup
             {
                 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
                 {
                     //more code may be present here
-                    
+
                     //make sure this is present to enable static files from a package
                     app.UseStaticFiles();
-                    
+
                     //more code may be present here
                 }
             }
         }
+````
+````Program.cs
+
+//more code may be present here
+
+//make sure this is present to enable static files from a package
+app.UseStaticFiles();
+
+//more code may be present here                
+````
 #end
 
 
@@ -83,3 +120,28 @@
  Add the following to your main index file (`~/Pages/_Host.cshtml` for a server-side Blazor app and `wwwroot/index.html` for a client-side Blazor app):
 #end
 
+#register-telerik-service
+````Startup.cs
+        namespace MyBlazorAppName
+        {
+            public class Startup
+            {
+                public void ConfigureServices(IServiceCollection services)
+                {
+                    //more code may be present here
+                    services.AddTelerikBlazor();
+                }
+                
+                //more code may be present here
+            }
+        }
+````
+````Program.cs
+
+//more code may be present here
+
+builder.Services.AddTelerikBlazor();
+
+//more code may be present here                
+````
+#end
