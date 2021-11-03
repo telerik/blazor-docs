@@ -1,5 +1,5 @@
 ---
-title: Autofit all Grid columns on the initial load. 
+title: Autofit all Grid columns on initial load. 
 description: Autofit all Grid columns on the initial load. 
 type: troubleshooting
 page_title: Autofit all Grid columns on the initial load. 
