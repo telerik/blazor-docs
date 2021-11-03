@@ -1,6 +1,6 @@
 ---
 title: Autofit all Grid columns on initial load. 
-description: Autofit all Grid columns on the initial load. 
+description: Autofit all Grid columns on initial load, so that their widths match their content. 
 type: troubleshooting
 page_title: Autofit all Grid columns on the initial load. 
 slug: grid-autofit-columns-on-initial-load
