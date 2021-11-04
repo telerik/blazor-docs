@@ -1,5 +1,5 @@
 ---
-title: Skip a Wizard Step
+title: How to Skip a Wizard Step
 description: How to skip a TelerikWizard step, based on custom condition from another step?
 type: how-to
 page_title: How to Skip a Wizard Step Programmatically
