@@ -28,7 +28,7 @@ I'm using the Telerik Slider, and I can't set Max to 0. When I set the Max param
 >warning ArgumentException: Telerik.Blazor.Components.TelerikSlider`1[System.Int32] requires the Max parameter.
 
 ## Cause\Possible Cause(s)
-Since the max parameter is a required parameter, we are checking if the user has provided value. That being said, if the user doesn't set any value for the Max parameter, the parameter will stay with its default value and throw an error. The default value for a non-nullable type (like int) is 0, and when you manually set 0 to the Max parameter, the component acts like there is no Max parameter declared and throws an error again.
+The `Max` parameter is a required attribute and the component is checking if it is set. If the developer doesn't set any value for `Max` and the Slider `Value` type is `int`, then the `Max` parameter value will match the default value of the `int` type. This causes the observed error. The default value for the non-nullable `int` type is 0, and when you explicitly set `Max` to 0, the component acts like there is no parameter value set and still throws the error.
 
 ## Solution
 You can avoid this exception by using a nullable type of the bound value.
