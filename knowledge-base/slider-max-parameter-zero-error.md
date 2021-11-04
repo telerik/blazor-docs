@@ -31,7 +31,7 @@ I'm using the Telerik Slider, and I can't set Max to 0. When I set the Max param
 The `Max` parameter is a required attribute and the component is checking if it is set. If the developer doesn't set any value for `Max` and the Slider `Value` type is `int`, then the `Max` parameter value will match the default value of the `int` type. This causes the observed error. The default value for the non-nullable `int` type is 0, and when you explicitly set `Max` to 0, the component acts like there is no parameter value set and still throws the error.
 
 ## Solution
-You can avoid this exception by using a nullable type of the bound value.
+You can avoid the exception by using a nullable type for the Slider `Value`.
 
 >caption Set Max parameter to zero in the Slider
 
