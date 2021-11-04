@@ -72,11 +72,17 @@ To fix this, make sure you have the `MainLayout.razor` file with its default nam
 
 ### _Host.cshtml or index.html is malformed, doesn't exist, or doesn't contain a head element
 
-The Telerik Extension searches for the default `_Host.cshtml` file in a Blazor Server-side app and `index.html` file in a Blazor WASM app in order to add the Telerik UI for Blazor CSS and JavaScript files in its `<head>` tag. If you have renamed or deleted the `_Host.cshtml`/`index.html` file, or removed its `<head>` tag, you will get the following error when trying to convert the project:
+The Telerik Extension searches for the default main index file of the application in order to add the Telerik UI for Blazor CSS and JavaScript files in its `<head>` tag:
+
+* `wwwroot/index.html` for a WebAssembly Blazor app
+* `~/Pages/_Host.cshtml` for a Server-Side Blazor app using .NET 3.x or .NET 5
+* `~/Pages/_Layout.cshtml` for a Server-Side Blazor app using.NET 6
+
+If you have renamed or deleted the `_Host.cshtml`/`_Layout.cshtml`/`index.html` file, or removed its `<head>` tag, you will get the following error when trying to convert the project:
 
 ![Changed _Host.cshtml file](images/changed-host-example.png)
 
-To fix this, make sure you have the `_Host.cshtml`/`index.html` file with its default name and it contains a `<head>` tag.
+To fix this, make sure you have the `_Host.cshtml`/`_Layout.cshtml`/`index.html` file with its default name and it contains a `<head>` tag.
 
 
 ### Unable to locate services collection

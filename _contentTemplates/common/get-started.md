@@ -47,7 +47,7 @@ If you choose to create a project with the Telerik VS Extensions, you can jump d
 
 To create a project manually, without using the Telerik VS Extensions, follow these steps:
 
-1. Open Visual Studio 2019.
+1. Open Visual Studio (2019 for .NET 3.x and .NET 5; 2022 for .NET 6).
 
 1. Create a New Project.
 
@@ -168,25 +168,25 @@ To setup a local NuGet package source, so you can install the Telerik components
 
 #root-component-steps
 
-### Add the Telerik Layout
+#### Add the Telerik Layout
 
 Next to your main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), add a Razor component called `TelerikLayout.razor` with the following content:
     
-        @inherits LayoutComponentBase
-        
-        <TelerikRootComponent>
-        	@Body
-        </TelerikRootComponent>
+    @inherits LayoutComponentBase
+                
+    <TelerikRootComponent>
+        @Body
+    </TelerikRootComponent>
         
 
-### Configure the Main Layout
+#### Configure the Main Layout
 
 Open the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), and add `@layout TelerikLayout` as the *first line* in the file. This will ensure that the `TelerikRootComponent` wraps all the content in `MainLayout`. Alternatively, the `TelerikRootComponent` can reside directly in `MainLayout`, but we place it in another file for better separation of concerns.
   
-        @layout TelerikLayout
-        @inherits LayoutComponentBase
+    @layout TelerikLayout
+    @inherits LayoutComponentBase
 
-        @* @Body and other code will be present here depending on your project *@
+    @* @Body and other code will be present here depending on your project *@
 #end
 
 

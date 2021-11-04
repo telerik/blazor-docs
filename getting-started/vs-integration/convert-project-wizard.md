@@ -100,7 +100,13 @@ The most common reason for this problem is a mismatch between the installed vers
 * Only a trial version is installed on your development machine, but you already have a commercial license, yet you never installed the commercial version.
 * The wizard did not properly detect the installed version.
 
-The cause are wrong paths to the needed web assets. The solution is to open the index file (`wwwroot/index.html` for a WebAssembly app and `Pages/_Host.cshtml` for a server-side Blazor app) and look for the comments left by the wizard. The comments are in the `<head>` near the Telerik assets and show the correct paths for a trial and commercial license.
+The cause are wrong paths to the needed web assets. To resolve this open the index file:
+
+* `wwwroot/index.html` for a WebAssembly Blazor app
+* `~/Pages/_Host.cshtml` for a Server-Side Blazor app using .NET 3.x or .NET 5
+* `~/Pages/_Layout.cshtml` for a Server-Side Blazor app using.NET 6
+
+Look for the comments left by the wizard. The comments are in the `<head>` near the Telerik assets and show the correct paths for a trial and commercial license.
 
 
 ### Extra Shared Folder
@@ -108,7 +114,6 @@ The cause are wrong paths to the needed web assets. The solution is to open the 
 You may get a `Shared` folder that contains a `TelerikLayout.razor` file at an unexpected place in the project. This can happen if a folder in the project was selected instead of the project itself when running the convert wizard.
 
 The fix is to move the `TelerikLayout.razor` file to the original `Shared` folder of your project, next to the `MainLayout.razor` file.
-
 
 
 ## See Also
