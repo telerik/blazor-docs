@@ -14,7 +14,7 @@ res_type: kb
 
 How to skip one or more Wizard steps, based on the results of another step?
 
-The [Wizard flow is linear]({%slug wizard-structure-stepper%}#linear-flow), so I can't disable steps, but I need to skip an unneeded step programmatically, based on a custom condition in a previous step.
+The [Wizard flow is set to linear]({%slug wizard-structure-stepper%}#linear-flow), so I can't disable steps, but I need to skip an unneeded step programmatically, based on a custom condition in a previous step.
 
 ## Solution
 
