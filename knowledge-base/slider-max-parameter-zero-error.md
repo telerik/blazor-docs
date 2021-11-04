@@ -22,7 +22,7 @@ res_type: kb
 
 
 ## Description
-I'm using the Telerik Slider, and I noticed that I can't set the Max to 0. When I set the Max parameter to zero, the component throws an error.
+I'm using the Telerik Slider, and I can't set Max to 0. When I set the Max parameter to zero, the component throws an error.
 
 ## Error Message
 >warning ArgumentException: Telerik.Blazor.Components.TelerikSlider`1[System.Int32] requires the Max parameter.
