@@ -1,6 +1,6 @@
 ---
 title: Requires the Max parameter error in Slider
-description: Max parameter of zero throws an error
+description: Blazor Slider requires a Max parameter and throws an error if zero is set.
 type: troubleshooting
 page_title: Requires the Max parameter error in Slider
 slug: slider-kb-max-parameter-zero-error
