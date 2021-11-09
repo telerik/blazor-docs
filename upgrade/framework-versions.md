@@ -17,6 +17,14 @@ This article lists the .NET Core versions supported by the UI for Blazor suite, 
 Telerik UI for Blazor targets `netstandard2.1`. Thus, apps/libraries that reference our package must target `netstandard2.1`, `netcoreapp3.1` or `net5.0`. Razor Class Libraries may target `netstandard2.0` by default so you would need to update that.
 
 
+## .NET 6
+
+Telerik UI for Blazor supports .NET 6 since its `2.29.0` release.
+
+| .NET 6     | Telerik UI for Blazor version                          |
+|------------|--------------------------------------------------------|
+| .NET 6 RTM | 2.29.0 - {{site.uiForBlazorLatestVersion}}             |
+
 
 ## .NET 5
 
@@ -74,9 +82,6 @@ The client-side (WebAssembly) flavor of Blazor is a set of separate NuGet packag
 | preview 1 (3.1.0-preview1.19506.1)   | 2.2.0, 2.2.1                  |
 
 
-## .NET 6
-
-The preview versions of .NET 6 have started. The Telerik UI for Blazor suite is commited to the currently supported official versions of the framework (currently .NET Core 3.1 and .NET 5). Support for .NET 6 will be evaluated and provided when the official release of the .NET 6 framework becomes available.
 
 ## See Also
 

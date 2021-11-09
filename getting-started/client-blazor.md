@@ -43,66 +43,63 @@ To create a client-side Blazor app, use an **ASP.NET Core hosted** Blazor projec
 
 @[template](/_contentTemplates/common/get-started.md#get-access)
 
-1. Right-click  the `Client` project in the solution and select **Manage NuGet Packages**:
+1\. Manage NuGet Packages
+
+Right-click  the `Client` project in the solution and select **Manage NuGet Packages**:
 
   ![Manage NuGet Packages](images/manage-nuget-packages-for-client-app.png)
 
-1. Choose the `telerik.com` feed, find the `Telerik.UI.for.Blazor` package and click **Install** (make sure to use the latest version). If you don't have a commercial license, you will see only `Telerik.UI.for.Blazor.Trial`. Use that instead.
+2\. Install the Telerik Package
+
+Choose the `telerik.com` feed, find the `Telerik.UI.for.Blazor` package and click **Install** (make sure to use the latest version). If you don't have a commercial license, you will see only `Telerik.UI.for.Blazor.Trial`. Use that instead.
 
   ![Add Telerik Blazor Package to Client Project](images/add-telerik-nuget-to-client-app.png)
 
+3\. Add the JavaScript File
 
-1. @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-client)
+Add the `telerik-blazor.js` file to your main index file - `wwwroot/index.html`:
 
+**HTML**
 
-1. Open the `~/wwwroot/index.html` file in the client web application and register the [Theme stylesheet]({%slug general-information/themes%}):
+@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
+
+To enable the use of static assets in your project, add the following line to the startup file of your **Server** project:
+
+ * `Startup.cs` for .NET 3.x and .NET 5
+ * `Program.cs` for .NET 6
+
+**C#**
+@[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
+
+4\. Add the Stylesheet
+
+Open the `~/wwwroot/index.html` file in the client web application and register the [Theme stylesheet]({%slug general-information/themes%}):
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
-        
-1. Open the `~/Program.cs` file in the client web application and register the Telerik Blazor service:
 
-    **C#**
-    
-        using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-        using Microsoft.Extensions.DependencyInjection;
-        using System.Threading.Tasks;
-        using System.Net.Http;
-        using System;
-        
-        namespace ClientBlazorProject.Client // make sure this matches your actual WASM project namespace
-        {
-            public class Program
-            {
-                public static async Task Main(string[] args)
-                {
-                    // sample host builder for a WASM app, yours may differ
-                    var builder = WebAssemblyHostBuilder.CreateDefault(args);
-                    builder.RootComponents.Add<App>("app");
-                    builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-                    // there may be more code here
-        
-                    // register the Telerik services
-                    builder.Services.AddTelerikBlazor();
-        
-                    // there may be more code here
-                    // sample host builder for a WASM app, yours may differ
-                    await builder.Build().RunAsync();
-                }
-            }
-        }
+
+5\. Register the Telerik Blazor Service
+
+Open the `~/Program.cs` file in the client web application and register the Telerik Blazor service:
+
+**C#**
+@[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-client)
+
          
-1. Add the following to your `~/_Imports.razor` file so the project recognizes the Telerik components in all files:
+6\. Add Usings
 
-    **_Imports.razor**
+Add the following to your `~/_Imports.razor` file so the project recognizes the Telerik components in all files:
+
+**_Imports.razor**
     
-        @using Telerik.Blazor
-        @using Telerik.Blazor.Components
-
-@[template](/_contentTemplates/common/get-started.md#root-component-steps)
+    @using Telerik.Blazor
+    @using Telerik.Blazor.Components
 
 
+7\. @[template](/_contentTemplates/common/get-started.md#root-component-telerik-layout)
 
+8\. @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
     
 Now your project can use the Telerik UI for Blazor components.
 

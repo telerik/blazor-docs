@@ -45,50 +45,70 @@ To create a server-side Blazor app, use a **Blazor Server App** project:
 
 @[template](/_contentTemplates/common/get-started.md#get-access)
 
-1. Right-click the project in the solution and select `Manage NuGet Packages`:
+1\. Manage NuGet Packages
 
-    ![Manage NuGet Packages](images/manage-nuget-packages-for-server-app.png)
+Right-click the project in the solution and select `Manage NuGet Packages`:
 
-1. Choose the `telerik.com` feed, find the **`Telerik.UI.for.Blazor`** package and click `Install` (make sure to use the latest version). If you don't have a commercial license, you will only see `Telerik.UI.for.Blazor.Trial`. Use that instead.
+![Manage NuGet Packages](images/manage-nuget-packages-for-server-app.png)
 
-    ![Add Telerik Blazor Package to the project](images/add-telerik-nuget-to-server-app.png)
+2\. Install the Telerik Package
+
+Choose the `telerik.com` feed, find the **`Telerik.UI.for.Blazor`** package and click `Install` (make sure to use the latest version). If you don't have a commercial license, you will only see `Telerik.UI.for.Blazor.Trial`. Use that instead.
+
+![Add Telerik Blazor Package to the project](images/add-telerik-nuget-to-server-app.png)
+
+3\. Add the JavaScript File
+
+Add the `telerik-blazor.js` file to your main index file:
+ 
+ * `~/Pages/_Host.cshtml` for .NET 3.x and .NET 5
+ * `~/Pages/_Layout.cshtml` for .NET 6
+
+**HTML**
+
+@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
 
-1. @[template](/_contentTemplates/common/js-interop-file.md#add-js-interop-file-to-getting-started-server)
+To enable the use of static assets in your project, add the following line to the startup file of your **Server** project:
 
-        
-1. Open the `~/Pages/_Host.cshtml` file and register the [Theme stylesheet]({%slug general-information/themes%}):
+ * `Startup.cs` for .NET 3.x and .NET 5
+ * `Program.cs` for .NET 6
+
+**C#**
+@[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
+
+4\. Add the Stylesheet
+
+Register the [Theme stylesheet]({%slug general-information/themes%}) in your main index file:
+ 
+ * `~/Pages/_Host.cshtml` for .NET 3.x and .NET 5
+ * `~/Pages/_Layout.cshtml` for .NET 6
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
-        
-      
-        
-1. Open the `~/Startup.cs` file and register the Telerik Blazor service:
 
-    **C#**
+5\. Register the Telerik Blazor Service
+
+Open the startup file of your **Server** project and register the Telerik Blazor service:
+
+* `Startup.cs` for .NET 3.x and .NET 5
+* `Program.cs` for .NET 6
+
+**C#**
+@[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)
+
+
+6\. Add Usings
+
+Add the following to your **`~/_Imports.razor`** file so the project recognizes our components in all files:
+
+**_Imports.razor**
     
-        namespace MyBlazorAppName
-        {
-            public class Startup
-            {
-                public void ConfigureServices(IServiceCollection services)
-                {
-                    //more code may be present here
-                    services.AddTelerikBlazor();
-                }
-                
-                //more code may be present here
-            }
-        }
+    @using Telerik.Blazor
+    @using Telerik.Blazor.Components
 
-1. Add the following to your **`~/_Imports.razor`** file so the project recognizes our components in all files:
+7\. @[template](/_contentTemplates/common/get-started.md#root-component-telerik-layout)
 
-    **_Imports.razor**
-    
-        @using Telerik.Blazor
-        @using Telerik.Blazor.Components
-
-@[template](/_contentTemplates/common/get-started.md#root-component-steps)
+8\. @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
 
     

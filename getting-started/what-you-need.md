@@ -65,12 +65,12 @@ To have the Telerik Blazor components look and behave as expected in the browser
 @[template](/_contentTemplates/common/js-interop-file.md#app-paths)
 
 
-* The Telerik stylesheet - For more information, refer to the [Themes]({%slug general-information/themes%}) article. Here is a short example:
+#### The Telerik stylesheet - For more information, refer to the [Themes]({%slug general-information/themes%}) article. Here is a short example:
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
 
-* The Telerik JS Interop file - Provides features that cannot be implemented with native Blazor.
+#### The Telerik JS Interop file - Provides features that cannot be implemented with native Blazor.
 
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
@@ -79,11 +79,13 @@ To have the Telerik Blazor components look and behave as expected in the browser
 
 You can add the Telerik JS Interop file as a [static asset](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-3.1&tabs=visual-studio#consume-content-from-a-referenced-rcl). Static assets (the `_content` folder) are automatically included in the solution from the NuGet package during build, so all you need is to reference the asset as shown in the snippet below. The `_content` folder is expanded by the framework into the local NuGet cache, and the project copies it from there.
 
-To enable the use of static assets in your project, make sure you add the following line to the `Startup.cs` file in your **Server** project:
+To enable the use of static assets in your project, add the following line to the startup file of your **Server** project:
 
+ * `Startup.cs` for .NET 3.x and .NET 5
+ * `Program.cs` for .NET 6
 
+**C#**
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
-
 
 ### CDN
 
@@ -117,60 +119,26 @@ You can set the project to recognize all Telerik components without explicit `@u
 
 To enable the use of detached popups (for example, dropdown lists, menus, grid filters, etc.), you must add a `TelerikLayout.razor` component at the root level of the DOM:
 
-@[template](/_contentTemplates/common/get-started.md#root-component-steps)
+* @[template](/_contentTemplates/common/get-started.md#root-component-telerik-layout)
+
+* @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
 ### Client-side Project Specifics
 
 The final step is to register the Telerik services. In a client-side Blazor project, you register services in the `Program.cs` file of the WebAssembly (Client) project:
 
-````CS
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using System.Threading.Tasks;
-
-namespace ClientBlazorProject.Client // make sure this matches your actual WASM project namespace
-{
-    public class Program
-    {
-        public static async Task Main(string[] args)
-        {
-            // sample host builder for a WASM app, yours may differ
-            var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            builder.RootComponents.Add<App>("app");
-            // there may be more code here
-            
-            // register the Telerik services
-            builder.Services.AddTelerikBlazor();
-
-            // there may be more code here
-            // sample host builder for a WASM app, yours may differ
-            await builder.Build().RunAsync();
-        }
-    }
-}
-````
+@[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-client)
 
 
 ### Server-side Project Specifics
 
-The final step is to register the Telerik services. In a server-side Blazor project, you register services in the `Startup.cs` file:
+The final step is to register the Telerik services. In a server-side Blazor project, you register services in the startup file of your project which varies depending on the used .NET version:
 
-````CS
-namespace MyBlazorAppName
-{
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //more code may be present here
-            services.AddTelerikBlazor();
-        }
+* `Startup.cs` for .NET 3.x and .NET 5
+* `Program.cs` for .NET 6
 
-        //more code may be present here
-    }
-}
-````
+**C#**
+@[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)
 
 
 @[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
