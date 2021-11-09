@@ -43,8 +43,6 @@ The data collection is passed to the [Gantt Tree]({%slug gantt-tree%}) and the c
                   Height="600px"
                   IdField="Id"
                   ParentIdField="ParentId"
-                  OnCancel="@(() => Console.WriteLine("CANCEL"))"
-                  OnEdit="@(() => Console.WriteLine("EDIT"))"
                   OnUpdate="@UpdateItem"
                   OnDelete="@DeleteItem"
                   Sortable="true"

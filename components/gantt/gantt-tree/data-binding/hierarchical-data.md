@@ -22,94 +22,241 @@ If there are items for a certain node, it will have an expand icon. The `HasChil
 ````CSHTML
 @* Hierarchical data items hold collections of the child items *@
 
-<TelerikTreeList Data="@Data"
-
-                 ItemsField="@(nameof(Employee.DirectReports))"
-
-                 Pageable="true" Width="850px">
-    <TreeListColumns>
-        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Editable="false" Width="120px" />
-        <TreeListColumn Field="EmailAddress" Width="220px" />
-        <TreeListColumn Field="HireDate" Width="220px" />
-    </TreeListColumns>
-</TelerikTreeList>
+<TelerikGantt Data="@Data"
+              Width="100%"
+              Height="600px"
+              ItemsField="Items"
+              OnCreate="@CreateItem"
+              OnUpdate="@UpdateItem"
+              OnDelete="@DeleteItem"
+              Sortable="true"
+              SortMode="@SortMode.Multiple"
+              FilterMode="@GanttFilterMode.FilterMenu"
+              FilterMenuType="@FilterMenuType.Menu">
+    <GanttToolBar>
+        <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
+    </GanttToolBar>
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+        <GanttYearView></GanttYearView>
+    </GanttViews>
+    <GanttColumns>
+        <GanttCommandColumn>
+            <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon="delete"></GanttCommandButton>
+        </GanttCommandColumn>
+        <GanttColumn Field="Id"
+                     Visible="false">
+        </GanttColumn>
+        <GanttColumn Field="Title"
+                     Expandable="true"
+                     Width="160px"
+                     Title="Task Title">
+        </GanttColumn>
+        <GanttColumn Field="PercentComplete"
+                     Width="100px">
+        </GanttColumn>
+        <GanttColumn Field="Start"
+                     Width="200px"
+                     TextAlign="@ColumnTextAlign.Right">
+        </GanttColumn>
+        <GanttColumn Field="End"
+                     DisplayFormat="End: {0:d}"
+                     Width="200px">
+        </GanttColumn>
+    </GanttColumns>
+</TelerikGantt>
 
 @code {
-    public List<Employee> Data { get; set; }
+    public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
 
-    // sample model
-
-    public class Employee
+    class HierarchicalModel
     {
-        // hierarchical data collections
-        public List<Employee> DirectReports { get; set; }
-
-        // data fields for display
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string EmailAddress { get; set; }
-        public DateTime HireDate { get; set; }
+        public List<HierarchicalModel> Items { get; set; }
+        public HierarchicalModel Parent { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
     }
 
-    // data generation
-
-    // used in this example for data generation and retrieval for CUD operations on the current view-model data
     public int LastId { get; set; } = 1;
 
-    protected override async Task OnInitializedAsync()
-    {
-        Data = await GetTreeListData();
-    }
+    List<HierarchicalModel> Data { get; set; }
 
-    async Task<List<Employee>> GetTreeListData()
+    protected override void OnInitialized()
     {
-        List<Employee> data = new List<Employee>();
+        Data = new List<HierarchicalModel>();
 
-        for (int i = 1; i < 15; i++)
+        for (int i = 1; i < 6; i++)
         {
-            Employee root = new Employee
+            var newItem = new HierarchicalModel()
             {
                 Id = LastId,
-                Name = $"root: {i}",
-                EmailAddress = $"{i}@example.com",
-                HireDate = DateTime.Now.AddYears(-i),
-                DirectReports = new List<Employee>(), // prepare a collection for the child items, will be populated later in the code
+                Items = new List<HierarchicalModel>(),
+                Title = "Employee  " + i.ToString(),
+                Start = new DateTime(2020, 12, 6 + i),
+                End = new DateTime(2020, 12, 11 + i),
+                PercentComplete = i * 0.125
             };
-            data.Add(root);
+
+            Data.Add(newItem);
             LastId++;
 
-            for (int j = 1; j < 4; j++)
+            for (int j = 0; j < 5; j++)
             {
-                int currId = LastId;
-                Employee firstLevelChild = new Employee
+                newItem.Items.Add(new HierarchicalModel()
                 {
-                    Id = currId,
-                    Name = $"first level child {j} of {i}",
-                    EmailAddress = $"{currId}@example.com",
-                    HireDate = DateTime.Now.AddDays(-currId),
-                    DirectReports = new List<Employee>(), // collection for child nodes
-                };
-                root.DirectReports.Add(firstLevelChild); // populate the parent's collection
-                LastId++;
+                    Id = LastId,
+                    Title = "    Employee " + i + " : " + j.ToString(),
+                    Start = new DateTime(2020, 12, 6 + i + j),
+                    End = new DateTime(2020, 12, 7 + i + j),
+                    PercentComplete = j * 0.225,
+                    Parent = newItem
+                });
 
-                for (int k = 1; k < 3; k++)
+                LastId++;
+            }
+        }
+    }
+
+    private void CreateItem(GanttCreateEventArgs args)
+    {
+        var argsItem = args.Item as HierarchicalModel;
+
+        argsItem.Id = LastId++;
+
+        if (args.ParentItem != null)
+        {
+            var parent = (HierarchicalModel)args.ParentItem;
+
+            if (parent.Items == null)
+            {
+                parent.Items = new List<HierarchicalModel>();
+            }
+
+            parent.Items.Add(argsItem);
+
+            argsItem.Parent = parent;
+
+            CalculateParentPercentRecursive(parent);
+            CalculateParentRangeRecursive(parent);
+        }
+        else
+        {
+            Data.Insert(0, argsItem);
+        }
+    }
+
+    private void UpdateItem(GanttUpdateEventArgs args)
+    {
+        var item = args.Item as HierarchicalModel;
+
+        var foundItem = FindItemRecursive(Data, item.Id);
+
+        if (foundItem != null)
+        {
+            var startOffset = item.Start - foundItem.Start;
+            if (startOffset != TimeSpan.Zero && foundItem.Items != null)
+            {
+                MoveChildrenRecursive(foundItem, startOffset);
+            }
+
+            foundItem.Title = item.Title;
+            foundItem.Start = item.Start;
+            foundItem.End = item.End;
+            foundItem.PercentComplete = item.PercentComplete;
+
+            if (foundItem.Parent != null)
+            {
+                CalculateParentPercentRecursive(foundItem.Parent);
+                CalculateParentRangeRecursive(foundItem.Parent);
+            }
+        }
+    }
+
+    private void DeleteItem(GanttDeleteEventArgs args)
+    {
+        var item = FindItemRecursive(Data, (args.Item as HierarchicalModel).Id);
+
+        if (item.Parent != null)
+        {
+            item.Parent.Items.Remove(item);
+
+            CalculateParentPercentRecursive(item.Parent);
+            CalculateParentRangeRecursive(item.Parent);
+        }
+        else
+        {
+            Data.Remove(item);
+        }
+    }
+
+    private void CalculateParentPercentRecursive(HierarchicalModel item)
+    {
+        if (item.Items != null && item.Items.Any())
+        {
+            item.PercentComplete = item.Items.Average(i => i.PercentComplete);
+
+            if (item.Parent != null)
+            {
+                CalculateParentPercentRecursive(item.Parent);
+            }
+        }
+    }
+
+    private void CalculateParentRangeRecursive(HierarchicalModel item)
+    {
+        if (item.Items != null && item.Items.Any())
+        {
+            item.Start = item.Items.Min(i => i.Start);
+            item.End = item.Items.Max(i => i.End);
+
+            if (item.Parent != null)
+            {
+                CalculateParentRangeRecursive(item.Parent);
+            }
+        }
+    }
+
+    private void MoveChildrenRecursive(HierarchicalModel parent, TimeSpan offset)
+    {
+        foreach (var item in parent.Items)
+        {
+            item.Start = item.Start.Add(offset);
+            item.End = item.End.Add(offset);
+
+            if (item.Items != null)
+            {
+                MoveChildrenRecursive(item, offset);
+            }
+        }
+    }
+
+    private HierarchicalModel FindItemRecursive(List<HierarchicalModel> items, int id)
+    {
+        foreach (var item in items)
+        {
+            if (item.Id.Equals(id))
+            {
+                return item;
+            }
+
+            if (item.Items?.Count > 0)
+            {
+                var childItem = FindItemRecursive(item.Items, id);
+
+                if (childItem != null)
                 {
-                    int nestedId = LastId;
-                    // populate the parent's collection
-                    firstLevelChild.DirectReports.Add(new Employee
-                    {
-                        Id = LastId,
-                        Name = $"second level child {k} of {j} and {i}",
-                        EmailAddress = $"{nestedId}@example.com",
-                        HireDate = DateTime.Now.AddMinutes(-nestedId)
-                    }); ;
-                    LastId++;
+                    return childItem;
                 }
             }
         }
 
-        return await Task.FromResult(data);
+        return null;
     }
 }
 ````
