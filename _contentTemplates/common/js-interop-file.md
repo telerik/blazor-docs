@@ -28,31 +28,7 @@
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets)
 #end
 
-#js-interop-file-snippet-server
-<div class="skip-repl"></div>
-````_Host.cshtml
-<head>
-    . . .
-    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
-
-    <!-- For Trial licenses use
-      <script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>
-    -->
-</head>
-````
-````_Layout.cshtml
-<head>
-    . . .
-    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
-
-    <!-- For Trial licenses use
-      <script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>
-    -->
-</head>
-````
-#end
-
-#js-interop-file-snippet-client
+#js-interop-file-snippet
 ````
 <head>
     . . .
@@ -65,30 +41,7 @@
 ````
 #end
 
-#theme-static-asset-snippet-server
-````_Host.cshtml
-<head>
-    . . .
-    <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
-
-    <!-- For Trial licenses use
-        <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" />
-      -->
-</head>
-````
-````_Layout.cshtml
-<head>
-    . . .
-    <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
-
-    <!-- For Trial licenses use
-        <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" />
-      -->
-</head>
-````
-#end
-
-#theme-static-asset-snippet-client
+#theme-static-asset-snippet
 ````
 <head>
     . . .
@@ -112,6 +65,7 @@
 #end
 
 #enable-static-assets-snippet
+<div class="skip-repl"></div>
 ````Startup.cs
 namespace MyBlazorAppName
         {
@@ -146,12 +100,13 @@ app.UseStaticFiles();
  Add the following to your main index file:
 
 * Client-Side Blazor app - `wwwroot/index.html`
- * Server-Side Blazor app
+* Server-Side Blazor app
     * `~/Pages/_Host.cshtml` for .NET 3.x and .NET 5
     * `~/Pages/_Layout.cshtml` for .NET 6
 #end
 
 #register-telerik-service-server
+<div class="skip-repl"></div>
 ````Startup.cs
 namespace MyBlazorAppName
 {
@@ -177,6 +132,7 @@ builder.Services.AddTelerikBlazor();
 #end
 
 #register-telerik-service-client
+<div class="skip-repl"></div>
 ````.NET_3.x_and_.NET_5
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;

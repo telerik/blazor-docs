@@ -166,9 +166,8 @@ To setup a local NuGet package source, so you can install the Telerik components
 #end
 
 
-#root-component-steps
-
-#### Add the Telerik Layout
+#root-component-telerik-layout
+Add the Telerik Layout
 
 Next to your main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), add a Razor component called `TelerikLayout.razor` with the following content:
     
@@ -178,8 +177,10 @@ Next to your main layout file (by default, the `~/Shared/MainLayout.razor` file 
         @Body
     </TelerikRootComponent>
         
+#end
 
-#### Configure the Main Layout
+#root-component-main-layout
+Configure the Main Layout
 
 Open the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), and add `@layout TelerikLayout` as the *first line* in the file. This will ensure that the `TelerikRootComponent` wraps all the content in `MainLayout`. Alternatively, the `TelerikRootComponent` can reside directly in `MainLayout`, but we place it in another file for better separation of concerns.
   

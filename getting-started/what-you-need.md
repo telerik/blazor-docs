@@ -67,12 +67,12 @@ To have the Telerik Blazor components look and behave as expected in the browser
 
 #### The Telerik stylesheet - For more information, refer to the [Themes]({%slug general-information/themes%}) article. Here is a short example:
 
-@[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet-client)
+@[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
 
 #### The Telerik JS Interop file - Provides features that cannot be implemented with native Blazor.
 
-@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet-client)
+@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
 
 ### Static Assets
@@ -119,7 +119,9 @@ You can set the project to recognize all Telerik components without explicit `@u
 
 To enable the use of detached popups (for example, dropdown lists, menus, grid filters, etc.), you must add a `TelerikLayout.razor` component at the root level of the DOM:
 
-@[template](/_contentTemplates/common/get-started.md#root-component-steps)
+* @[template](/_contentTemplates/common/get-started.md#root-component-telerik-layout)
+
+* @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
 ### Client-side Project Specifics
 
