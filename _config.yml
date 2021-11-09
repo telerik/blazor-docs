@@ -551,7 +551,7 @@ enable_blazorRepl: true
 
 ## Latest UI for Blazor version. Used in some articles
 uiForBlazorLatestVersion: "2.29.0"
-supportedFrameworkVersion: ".NET Core 3.1.11, .NET 5 and NET6"
+supportedFrameworkVersion: ".NET Core 3.1.11, .NET 5 and .NET 6"
 
 ## The Kendo UI version used
 cdnVersion: "2019.1.115"
