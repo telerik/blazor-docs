@@ -29,6 +29,7 @@
 #end
 
 #js-interop-file-snippet-server
+<div class="skip-repl">
 ````_Host.cshtml
 <head>
     . . .
@@ -48,6 +49,7 @@
       <script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>
     -->
 </head>
+</div>
 ````
 #end
 

@@ -66,9 +66,8 @@ Add the `telerik-blazor.js` file to your main index file:
 
 **HTML**
 
-<div class="skip-repl">
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet-server)
-</div>
+
 
 To enable the use of static assets in your project, add the following line to the startup file of your **Server** project:
 
