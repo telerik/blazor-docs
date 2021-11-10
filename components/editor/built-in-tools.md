@@ -420,9 +420,9 @@ There are commands without built-in tools, but can be [executed programmatically
             <td>Insert HTML</td>
             <td>insertHTML</td>
             <td>N/A</td>
-            <td>Insert HTML to the Editor component content area at the cursor position. <br />NOTE: this is a block command, so if you pass an inline element to it, it will be wrapped in a block element such as <code>p</code> or <code>div</code>, depending on the context. There are specific commands for creating links and images (two common inline elements).</td>
+            <td>Insert HTML in the Editor at the cursor position. <br />By default this is a block command that will wrap passed inline content in a <code>p</code> or <code>div</code>, depending on the context. To insert inline content, set the third argument to <code>true</code>. There are separate commands for inserting links and images.</td>
             <td>N/A</td>
-            <td>new HtmlCommandArgs(string commandName, string value)</td>
+            <td>new HtmlCommandArgs(string commandName, string value, bool inline)</td>
         </tr>
     </tbody>
 </table>
@@ -446,7 +446,7 @@ In order to do so you need to use the [Editor reference]({%slug editor-overview%
 <TelerikButton OnClick="@BoldText">Create bold text</TelerikButton>
 <TelerikButton OnClick="@InsertTable">Insert Table</TelerikButton>
 <TelerikButton OnClick="@InsertImage">Insert Image</TelerikButton>
-
+<TelerikButton OnClick="@InsertInlineText">Insert Inline Text</TelerikButton>
 
 <TelerikEditor @ref="@TheEditor" @bind-Value="@TheContent"></TelerikEditor>
 
@@ -458,6 +458,11 @@ In order to do so you need to use the [Editor reference]({%slug editor-overview%
     async Task InsertHr()
     {
         await TheEditor.ExecuteAsync(new HtmlCommandArgs("insertHtml", "<hr />"));
+    }
+
+    async Task InsertInlineText()
+    {
+        await TheEditor.ExecuteAsync(new HtmlCommandArgs("insertHtml", "John Doe", true));
     }
 
     async Task InsertImage()
