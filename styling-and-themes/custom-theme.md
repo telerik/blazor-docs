@@ -102,6 +102,7 @@ You can also upload a theme you have previously worked on:
 When you complete the modifications and the theme is ready to be used:
 
 1. Download the theme as a ZIP archive by clicking the **Download** button.
+
 1. Add the `THEME_NAME.css` file to the `wwwroot/css/` folder your application.
 1. Include the `THEME_NAME.css` file in the `<head>` tag of your `_Host.cshtml`/`index.html` document, for example:
     
