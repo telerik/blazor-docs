@@ -107,6 +107,7 @@ When you complete the modifications and the theme is ready to be used:
 1. Include the `THEME_NAME.css` file in the `<head>` tag of your `_Host.cshtml`/`index.html` document, for example:
     
     `<link rel="stylesheet" href="css/THEME_NAME.css" />`
+
 1. Keep the `scss` and `json` files for future reference, when you need to re-generate the theme or customize it further.
 
 >Make sure that the above CSS file is the only Telerik Theme, which is referenced in the application.
