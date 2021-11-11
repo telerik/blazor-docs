@@ -39,6 +39,16 @@ Autofitting specific columns preserves the current widths of all the other colum
 
 Programmatic autofitting works even if column resizing is disabled.
 
+
+### Limitations
+
+List of the known limitations of the AutoFit Columns feature:
+
+* Auto-fitting the columns on initial load of the Grid is not supported.
+
+* Auto-fitting the columns is not supported with [Virtual Columns]({%slug grid-columns-virtual%})
+
+
 ## Example
 
 >caption How Column Resizing Works in the Telerik Grid
