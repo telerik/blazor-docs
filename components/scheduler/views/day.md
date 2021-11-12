@@ -19,7 +19,7 @@ In this article:
 * [Example](#example)
 * [View Parameters](#view-parameters)
 	* [Slots](#slots)
-* [Resource Grouping](#resource-grouping)
+* [Resource Grouping](#resource-grouping-in-the-day-view)
 
 >caption Figure: Day View in the scheduler
 

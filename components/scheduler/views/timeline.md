@@ -17,7 +17,7 @@ In this article:
 * [Example](#example)
 * [View Parameters](#view-parameters)
 	* [Slots](#slots)
-* [Resource Grouping](#resource-grouping)
+* [Resource Grouping](#resource-grouping-in-the-timeline-view)
 
 ## Example
 
@@ -94,13 +94,17 @@ In this article:
 
 @[template](/_contentTemplates/scheduler/views.md#day-slots-explanation)
 
-## Resource Grouping in the Day View
+## Resource Grouping in the Timeline View
 
-You can configure the Day view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
+You can configure the Timeline view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
+
+>caption The result from the code snippet below.
+
+![](images/scheduler-resource-grouping-timeline-view.png)
 
 >caption Resource Grouping in a Timeline view.
 
-@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
+@[template](/_contentTemplates/scheduler/views.md#resource-grouping-vertical-code-snippet-for-examples)
 
 ## See Also
 

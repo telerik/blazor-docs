@@ -19,7 +19,7 @@ In this article:
 * [Example](#example)
 * [View Parameters](#view-parameters)
 	* [Slots](#slots)
-* [Resource Grouping](#resource-grouping)
+* [Resource Grouping](#resource-grouping-in-the-week-view)
 
 >caption Figure: Week View in the scheduler
 
@@ -103,7 +103,7 @@ In this article:
 
 ## Resource Grouping in the Week View
 
-You can configure the MultiDay view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
+You can configure the Week view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
 
 >caption The result from the code snippet below.
 
