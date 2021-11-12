@@ -19,7 +19,7 @@ A day shows up to two events and if there are more - an ellipsis button provides
 In this article:
 
 * [Example](#example)
-* [Resource Grouping](#resource-grouping)
+* [Resource Grouping](#resource-grouping-in-the-month-view)
 
 >caption Figure: Month View in the scheduler
 

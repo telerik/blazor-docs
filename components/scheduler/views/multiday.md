@@ -19,7 +19,7 @@ In this article:
 * [Example](#example)
 * [View Parameters](#view-parameters)
 	* [Slots](#slots)
-* [Resource Grouping](#resource-grouping)
+* [Resource Grouping](#resource-grouping-in-the-multiday-view)
 
 >caption Figure: MultiDay View in the scheduler
 
