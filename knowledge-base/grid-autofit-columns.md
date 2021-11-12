@@ -20,6 +20,102 @@ In the 2.28.0 release of Telerik UI for Blazor, the Grid introduced methods to a
 
 ## Solution
 
-Conceptually speaking the `OnAfterRender` and `OnAfterRenderAsync` lifecycle hooks should be the suitable events to call the autofit methods. This solution might not be really suitable because if the data service takes a longer time to populate the data for the Grid the OnAfterRenderAsync might have already fired before the actual data is rendered in the DOM. The AutoFit feature relies on the data to fit the columns based on the content in the cells and thus it is reliant on the data being already rendered in the DOM. 
+To AutoFit the Grid's columns on the initial load of the component you have to use a provision like the `MutationObserver`. This JavaScript tool would allow you to be notified when there are DOM changes. The code snippet below uses the MutationObserver to trigger the `AutoFitAllColumns` method when the nodes in the content of Grid have mutated (rendered in this case). 
 
-The best possible place to call the AutoFit methods would be in the data layer of the application after the data service that populates the collection bound to the `Data` parameter of the Grid. 
+In the JavaScript portion of the code snippet you should replace the `<YOUR PROJECT NAMESPACE>` with the actual namespace of your project. 
+
+>note There will be a flicker when you use the solution below to autofit the columns on the initial load. 
+
+````C#
+@inject IJSRuntime js
+
+<TelerikGrid @ref="@Grid"
+             Data="@GridData"
+             Resizable="true"
+             Pageable="true" 
+             PageSize="10" 
+             Sortable="true" 
+             Height="300px"
+             Class="@GridClass">
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.Id) Title="ID" Id="IDColumn" />
+        <GridColumn Field=@nameof(SampleData.Name) Title="First Name" Id="NameColumn1" />
+        <GridColumn Field=@nameof(SampleData.LastName) Title="Last Name" Id="NameColumn2" />
+        <GridCommandColumn Width="100px" Resizable="false">
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    [JSInvokable]
+    public static Task AutoFitAllColumns()
+    {
+        return Task.Run(() => Grid.AutoFitAllColumns());
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("observeTarget", GridClass);
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    private const string GridClass = "autofitter-columns";
+
+    public static TelerikGrid<SampleData> Grid { get; set; }
+    public List<SampleData> GridData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        GridData = GetData();
+    }
+
+    private List<SampleData> GetData()
+    {
+        return Enumerable.Range(1, 50).Select(x => new SampleData
+        {
+            Id = x,
+            Name = $"name {x}",
+            LastName = $"Surname {x}"
+        }).ToList();
+    }
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+    }
+}
+````
+````JavaScript
+let result;
+
+let observer = new MutationObserver(function () {
+    return window.DotNet.invokeMethodAsync('<YOUR PROJECT NAMESPACE>', 'AutoFitAllColumns');
+});
+
+let options = {
+    childList: true,
+    subtree: true
+};
+
+function observeTarget(gridClass) {
+    result = document.querySelector(`.${gridClass} .k-grid-table:first-of-type`);
+
+    if (!result || !window.DotNet) {
+        window.setTimeout(observeTarget, 500);
+        return;
+    }
+    observer.observe(result, options);
+
+    if (window.DotNet) {
+        window.DotNet.invokeMethodAsync('<YOUR PROJECT NAMESPACE>', 'AutoFitAllColumns');
+        observer.disconnect();
+    }
+}
+````
