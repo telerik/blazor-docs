@@ -48,6 +48,8 @@ List of the known limitations of the AutoFit Columns feature:
 
 * Auto-fitting the columns is not supported with [Virtual Columns]({%slug grid-columns-virtual%})
 
+>note Check the [AutoFit all Grid columns on initial load knowledge-based article]({%slug grid-autofit-columns-on-initial-load%}) to see a possible solution to achieve this behavior. 
+
 
 ## Example
 
