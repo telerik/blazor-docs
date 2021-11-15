@@ -22,7 +22,7 @@ In the 2.28.0 release of Telerik UI for Blazor, the Grid introduced [methods to 
 
 To AutoFit the Grid's columns on the initial load of the component you have to use a provision like the `MutationObserver`. This JavaScript tool would allow you to be notified when there are DOM changes. The code snippet below uses the MutationObserver to trigger the `AutoFitAllColumns` method when the nodes in the content of Grid have mutated (rendered in this case). 
 
-In the JavaScript portion of the code snippet you should replace the `<YOUR PROJECT NAMESPACE>` with the actual namespace of your project. 
+Make sure to replace `<YOUR PROJECT NAMESPACE>` in the JavaScript code. 
 
 >note There will be a flicker when you use the solution below to autofit the columns on the initial load. 
 
