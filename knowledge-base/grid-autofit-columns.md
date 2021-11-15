@@ -16,7 +16,7 @@ I would like to autofit the Grid columns on initial load of the Component using 
 
 ## Background
 
-In the 2.28.0 release of Telerik UI for Blazor, the Grid introduced methods to autofit one or more columns via the Grid reference. I would like to achieve that behavior on initial load of the component, but can not find a suitable event to call the methods.
+In the 2.28.0 release of Telerik UI for Blazor, the Grid introduced [methods to autofit columns programmatically]({%slug components/grid/columns/resize%}#autofit-columns). I would like to achieve that behavior on initial load of the component, but can not find a suitable event to call the methods.
 
 ## Solution
 
