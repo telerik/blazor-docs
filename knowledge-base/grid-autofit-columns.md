@@ -12,7 +12,7 @@ res_type: kb
 
 ## Description
 
-I would like to autofit the Grid columns on initial load of the Component using the [AutoFitAllColumns]({%slug components/grid/columns/resize%}#autofit-columns) method of the Grid reference. The goal is for all column widths to match the column content.
+I would like to autofit the Grid columns on initial page load using the [AutoFitAllColumns]({%slug components/grid/columns/resize%}#autofit-columns) method of the Grid. The goal is for all column widths to match the column content.
 
 ## Background
 
