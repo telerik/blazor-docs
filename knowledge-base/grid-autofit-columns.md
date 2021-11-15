@@ -5,7 +5,7 @@ type: how-to
 page_title: Autofit all Grid columns on initial load. 
 slug: grid-autofit-columns-on-initial-load
 position: 
-tags: 
+tags: grid, autofit, columns
 res_type: kb
 ---
 
