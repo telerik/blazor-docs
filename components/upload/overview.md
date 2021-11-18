@@ -38,7 +38,7 @@ The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Up
             }
         }
 
-1. Create a suitable controller (endpoint) that can receive files from a POST request. For example:
+1. Create a suitable controller (endpoint) that can receive files from a POST request. **Note the different ways to set `physicalPath` for server and client Blazor apps.** For example:
 
     **C#**
     
@@ -105,7 +105,10 @@ The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Up
                         try
                         {
                             var fileName = Path.GetFileName(fileToRemove);
+                            // server Blazor app
                             var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+                            // client Blazor app
+                            //var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
         
                             if (System.IO.File.Exists(physicalPath))
                             {
