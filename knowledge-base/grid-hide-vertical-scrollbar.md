@@ -30,10 +30,14 @@ How do I hide the Grid vertical scrollbar? I don't set the Grid `Height`, so I p
 There are three required CSS styles to disable vertical scrolling and ensure proper cell alignment between the header, data and footer area of the Grid/TreeList:
 
 1. Remove the vertical scrollbar, which is visible by default.
-1. Remove the empty space (`padding`) above the vertical scrollbar, in the **header** area.
-1. Remove the same space below the vertical scrollbar, in the **footer** area.
+1. Remove the empty space above the vertical scrollbar, in the **header** area.
+1. Remove the same space in the **footer** area.
 
-The exact same approach can be used for the **TreeList** as well, as the TreeList reuses Grid CSS classes.
+### Notes
+
+* Do not set the component `Height` attribute. Do not apply `height` style to the component `<div>`. Doing so may show the vertical scrollbar back and cause misalignment between the header cells and data cells.
+* Versions **2.26** and older require `!important` for the `padding` style.
+* The exact same classes and styles will work for the **TreeList** as well.
 
 >caption Hide the Grid/TreeList vertical scrollbar
 
@@ -53,7 +57,7 @@ The exact same approach can be used for the **TreeList** as well, as the TreeLis
 <style>
     .grid-no-scroll .k-grid-header,
     .grid-no-scroll .k-grid-footer {
-        padding-right: 0;
+        padding-right: 0; /* version 2.26 and older requires !important here */
     }
     .grid-no-scroll .k-grid-content {
         overflow-y: auto;
