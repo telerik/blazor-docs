@@ -30,8 +30,8 @@ How do I hide the Grid vertical scrollbar? I don't set the Grid `Height`, so I p
 There are three required CSS styles to disable vertical scrolling and ensure proper cell alignment between the header, data and footer area of the Grid/TreeList:
 
 1. Remove the vertical scrollbar, which is visible by default.
-1. Remove the empty space above the vertical scrollbar, in the **header** area.
-1. Remove the same space in the **footer** area.
+1. Remove the empty space above and below the vertical scrollbar. These empty spaces are in the header and footer area.
+1. Remove some right borders in the header and footer area, which are no longer necessary.
 
 ### Notes
 
@@ -55,13 +55,20 @@ There are three required CSS styles to disable vertical scrolling and ensure pro
 </TelerikGrid>
 
 <style>
+    .grid-no-scroll .k-grid-content {
+        overflow-y: auto;
+    }
+
     .grid-no-scroll .k-grid-header,
     .grid-no-scroll .k-grid-footer {
         padding-right: 0; /* version 2.26 and older requires !important here */
     }
-    .grid-no-scroll .k-grid-content {
-        overflow-y: auto;
+
+    .grid-no-scroll .k-grid-header-wrap,
+    .grid-no-scroll .k-grid-footer-wrap {
+        border-right-width: 0;
     }
+
 </style>
 
 @code {
