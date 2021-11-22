@@ -33,6 +33,7 @@ To enable the Drag and Drop functionality:
 
 The row drag and drop functionality works with a dedicated column which is always rendered as the first column when the feature is enabled.  
 
+If the user drags selected rows, the current row selection will be cleared on row drop.
 
 ## OnRowDrop Event
 
