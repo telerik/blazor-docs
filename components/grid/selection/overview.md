@@ -24,6 +24,7 @@ In this article:
 	* [SelectedItems Equals Comparison](#selecteditems-equals-comparison)
 	* [Handle Data Changes](#handle-data-changes)
     * [Selection in Grid with virtualized rows](#selection-in-grid-with-virtualized-rows)
+    * [Row Drag and Drop](#row-drag-and-drop)
 
 
 ## Selection Basics
@@ -194,7 +195,9 @@ When the grid `Data` collection changes, the `SelectedItems` collection has the 
 
 When the Grid has [virtualized rows]({%slug components/grid/virtual-scrolling%}) and the `SelectionMode` is set to [`Multiple`]({%slug components/grid/selection/multiple%}) the selectable items will be the one in the current set of items (page). If you select an item and scroll down to some of the ones that are not rendered yet (virtualiation kicks in) and you want to select that range with the `Shift` button, the selection will start from the position of the first item of the current set (page) to the last selected item.
 
+### Row Drag and Drop
 
+If the user drags selected rows, the current row selection will be cleared on row drop.
 
 
 ## See Also
