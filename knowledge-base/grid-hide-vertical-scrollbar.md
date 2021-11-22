@@ -31,7 +31,7 @@ There are three required CSS styles to disable vertical scrolling and ensure pro
 
 1. Remove the vertical scrollbar, which is visible by default.
 1. Remove the empty space above and below the vertical scrollbar. These empty spaces are in the header and footer area.
-1. Remove some right borders in the header and footer area, which are no longer necessary.
+1. Remove two right borders in the header and footer area, which are no longer necessary. These borders normally separate the empty spaces from the header and footer cells.
 
 ### Notes
 
