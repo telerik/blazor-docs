@@ -10,27 +10,33 @@ position: 4
 
 # TreeList InCell Editing
 
-In Cell editing allows the user to click the cell and type the new value. When they remove focus from the treelist or current row, the `OnUpdate` event fires, where the data-access logic can move it to the actual data source.
+In Cell editing allows the user to click cells and type new values immediately like in Excel. There is no need for Edit, Update and Cancel buttons.
 
-You can also use the `Tab`, `Shift+Tab` and `Enter` keys to move between edited cells quickly to perform fast data updates. This lets the user edit efficiently, with few actions, like in Excel, while avoiding delays and re-renders from data updates that will break up that flow. Command columns and non-editable columns are not part of this keyboard navigation.
+Users can use the `Tab`, `Shift+Tab` and `Enter` keys to move between edited cells quickly. If validation is not satisfied, the user cannot exit edit mode, unless they satisfy validation, or cancel changes by pressing `Esc`.
 
-When validation is not satisfied, you cannot close the cell (exit its edit mode), but you can cancel changes by pressing `Esc`.
+Command columns and non-editable columns are skipped while tabbing.
+
+The InCell edit mode provides a specific user experience and behaves differently than other edit modes. Please review the notes below to get a better understanding of these specifics.
 
 
-#### Sections in this article:
+#### Sections in this article
 
 * [Basics](#basics)
-* [Notes](#notes)
+* [Event Sequence](#event-sequence)
+* [Incell Editing and Selection](#incell-editing-and-selection)
+* [Adding Children to Collapsed Items](#adding-children-to-collapsed-items)
+* [Editor Template](#editor-template)
+
 
 ## Basics
 
-To enable InCell editing mode, set the `EditMode` property of the treelist to `Telerik.Blazor.TreeListEditMode.Incell`. You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below.
+To enable InCell editing mode, set the `EditMode` property of the grid to `Telerik.Blazor.TreeListEditMode.Incell`. You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below. 
 
-To add a new item, you must also add a [toolbar]({%slug treelist-toolbar%}) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button, see the [Notes](#notes) below.
+To add a new item, you must add a [toolbar]({%slug treelist-toolbar%}) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button - see [Event Sequence](#event-sequence) below.
 
-The `OnUpdate` event always fires for the last edited cell on the row - when you remove focus from the treelist, or when you press `Enter` to go to the next row.
+It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
 
->caption Reduced need for command buttons and user actions. The treelist events let you handle data operations in InCell edit mode (see the code comments for details)
+>caption Incell Editing Example. See the code comments for details.
 
 ````CSHTML
 @using System.ComponentModel.DataAnnotations @* for the validation attributes *@
@@ -307,45 +313,34 @@ Editing is cancelled for the first record.
 ![](images/incell-editing.png)
 
 
+## Event Sequence
 
-## Notes
+* The `OnCreate` event will fire as soon as you click the `Add` button. The Grid will render the new row and enter edit mode for the first editable column (to fire `OnEdit` and let the user alter the column). This means you should have [default values]({%slug grid-kb-default-value-for-new-row%}) that satisfy any initial validation and requirements your models may have.
 
-The InCell edit mode provides a specific user experience that aims at fast efficient data entry. This requires that it behaves a differently than other edit modes. Please review the notes below to get a better understanding of these specifics:
+    * This means that there is no actual inserted item, an item in InCell editing is always in Edit mode, never in Insert mode. Thus, you cannot use the `InsertedItem` field of the TreeList [State]({%slug treelist-state%}). If you want to insert items programmatically in the TreeList, alter the `Data` collection, and use the `OriginalEditItem` feature of the state (see the [Initiate Editing or Inserting of an Item]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item) example - it can put the InLine and PopUp edit modes in Insert mode, but this cannot work for InCell editing).
+
+* The `OnEdit` event fires every time a cell is opened for editing. Until version **2.27**, the event fired **once per row** - when the user edits a cell from a different row.
+
+* The `OnUpdate` event fires every time an edited cell is closed. Until version **2.27**, the event fired **once per row** - when the currently edited row loses focus.
+
+* If there is a cell that is being edited at the moment, clicking on another cell will first close the current cell and fire `OnUpdate`. To start editing the new cell, you need a second click. When the user removes focus from the TreeList or the current row, the `OnUpdate` event fires, where the data-access logic can move it to the actual data source.
+
+* The `OnCancel` event works only when pressing `Esc`. The `Cancel` command button is not supported. Clicking outside the currently edited cell will trigger `OnUpdate` and thus, clicking on the `Cancel` command button will not fire the `OnCancel` event, because an update has already occured.
 
 
-* [General](#general)
-* [Events Sequence](#events-sequence)
-* [Editor Template](#editor-template)
+## Incell Editing and Selection
 
-
-### General
-
-* When the InCell Edit Mode is enabled and you want to enable item selection a `<TreeListCheckboxColumn />` must be added to the `<Columns>` collection. More information on that can be read in the [Selection]({%slug treelist-selection-overview%}#notes) article.
+* To enable item selection with InCell Edit Mode, add a `<TreeListCheckboxColumn />` to the `<Columns>` collection. More information on that can be read in the [Selection]({%slug treelist-selection-overview%}#notes) article.
 
    <!-- * To see how to select the row that is being edited in InCell edit mode without using a `<TreeListCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode]({%slug grid-kb-row-select-incell-edit%}) Knowledge Base article. -->
 
-* It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
 
-* If validation is not satisfied, you cannot open another cell for editing, and you need to either satisfy the validation, or press `Esc` to revert its value to the original one that should, ideally, satisfy validation.
+## Adding Children to Collapsed Items
 
-* If you click the "Add" button on a row that is not expanded you will not see it in the UI opened for editing. There will be an `OnCreate` call to insert a record as its child, but editing (and inserting) items is a separate operation from expanding items and the treelist should not invoke these changes arbitrarily. There can be other handlers, business logic or load-on-demand attached to that action, and that changes the users state. This also applies to items that currently have no child items - they will now have a child item, but it will not expand and open for editing.
-
-### Events Sequence
-
-* The `OnCreate` event will fire as soon as you click the `Add` button so you can add the new row to the treelist `Data` - this will let it show up in the treelist, and then enter edit mode for the first editable column (to fire `OnEdit` and let the user alter the column). This means you should have [default values]({%slug grid-kb-default-value-for-new-row%}) that satisfy any initial validation and requirements your models may have.
-
-    * This means that there is no actual inserted item, an item in InCell editing is always in Edit mode, never in Insert mode. Thus, you cannot use the `InsertedItem` field of the treelist [State]({%slug treelist-state%}). If you want to insert items programmatically in the treelist, alter the `Data` collection, and use the `OriginalEditItem` feature of the state (see the [Initiate Editing or Inserting of an Item]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item) example - it can put the InLine and PopUp edit modes in Insert mode, but this cannot work for InCell editing).
-
-* The `OnEdit` event fires once per row - when the first cell from a row is opened for editing. Moving with the keyboard (`Tab` or `Shift+Tab`) between its cells does not fire events so that the treelist does not re-render, and there is no lag for the user, especially from slow data operations such as `OnUpdate`. This caters to the user experience so they can input data quickly and efficiently.
-
-* If you use the keyboard to navigate between open cells, `OnUpdate` will fire only when the entire row loses focus, not for each cell, so you will not need additional actions to open a new cell.
-
-* If there is a cell that is being edited at the moment, clicking on a cell will first close the current cell and fire `OnUpdate`. To start editing the new cell in such a case you will need a second click.
-
-* The `OnCancel` event can work only with the keyboard (when you press `Esc`). The `Cancel` command button is not supported. Clicking outside the currently edited cell will trigger the `OnUpdate` event and thus, clicking on the `Cancel` command button will not fire the `OnCancel` event because an update has already occured.
+If you click the "Add" button on a row that is not expanded, you will not see the new child row in the UI. There will be an `OnCreate` call to insert a record, but editing (and inserting) items is a separate operation from expanding items and the TreeList should not invoke these changes arbitrarily. There can be other handlers, business logic or load-on-demand attached to that action, and that changes the users state. This also applies to items that currently have no child items - they will now have a child item, but it will not expand and open for editing.
 
 
-### Editor Template
+## Editor Template
 
 When using an [editor template]({%slug treelist-templates-editor%}), the grid cannot know what the custom editor needs to do, what it contains, and when it needs to close the cell and update the data, because this is up to the editor. This has the following implications:
 
@@ -407,11 +402,6 @@ When using an [editor template]({%slug treelist-templates-editor%}), the grid ca
             }
         }
     </EditorTemplate>
-
-    
-    
-
-
 
 
 ## See Also
