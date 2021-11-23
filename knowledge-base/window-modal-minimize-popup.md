@@ -1,9 +1,9 @@
 ---
-title: How to create Chat popup window?
+title: How to minimize a popup window to the bottom of the page?
 description: 
 type: how-to
-page_title: How to create Chat popup window?
-slug: window-modal-chat-popup
+page_title: How to minimize a popup window to the bottom of the page?
+slug: window-modal-minimize-popup
 position: 
 tags: window,modal,chat,popup,collapse,minimize
 ticketid: 1542823
@@ -22,14 +22,14 @@ res_type: kb
 
 
 ## Description
-Is there any way to collapse a window to the bottom of a page? How to create a chat popup window? How can I minimize Modal Window as a chat for messages?
+Is there any way to collapse a window to the bottom of a page? How to create a responsive modal that can be minimized? How can I minimize Modal Window as a chat for messages?
 
 ## Solution
-To implement a chat popup:
+To implement a responsible popup that can be minimized to the bottom of the page:
 
 1. Implement custom HTML div that presents the Modal Window minimized.
 2. Use boolean flags to show and hide the popup.
-3. Use the [MediaQuery](https://docs.telerik.com/blazor-ui/components/mediaquery/overview) component to make the chat responsive.
+3. Use the [MediaQuery](https://docs.telerik.com/blazor-ui/components/mediaquery/overview) component to make the modal window responsive.
 
 >caption The result from the code snippet below on a big screen.
 
@@ -40,6 +40,8 @@ To implement a chat popup:
 ![](images/window-small-screen.gif)
 
 ````Razor
+@*Responsive minimizable popup.*@
+
 <TelerikMediaQuery Media="(max-width: 960px)" OnChange="((changed) => Small = changed)"></TelerikMediaQuery>
 
 <TelerikWindow Modal="true" @bind-Visible="@isModalVisible">
@@ -47,7 +49,7 @@ To implement a chat popup:
         <strong>@Title</strong>
     </WindowTitle>
     <WindowContent>
-        ---------- Welcome to our Chat! ----------
+        ---------- Welcome to our Minimized/Collapsed popup! ----------
     </WindowContent>
     <WindowActions>
         <WindowAction Name="Maximize" />
@@ -72,7 +74,7 @@ To implement a chat popup:
 }
 
 @code {
-    string Title = "My Chat";
+    string Title = "My Responsive Popup";
     bool isModalVisible { get; set; } = true;
 
     private bool Small { get; set; }
