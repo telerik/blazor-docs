@@ -61,6 +61,7 @@ TelerikDateInput:
     .picker-wrapper {
         display: inline-block;
         position: relative;
+        white-space: nowrap;
     }
     /* move the popup button over the DateInput */
     .picker-button {
