@@ -162,6 +162,8 @@ Enable and use aggregates. To see the full effect, group by a column - "Team" an
 
 * If you update a field of a model the `Data` collection in the view-model, aggregates will not be updated automatically - the grid needs to re-evaluate that data first, and since this is an expensive operation a UI render does not trigger it. You can [update the data collection]({%slug grid-refresh-data%}) yourself, or fetching it anew from the service (example [here]({%slug components/grid/editing/overview%}), see how the Create/Update/Delete events fetch data anew).
 
+* If you use [`OnRead`]({%slug components/grid/manual-operations%}), the Grid will calculate aggregates from the data on the current page only. It is still possible to [calculate and display aggregates, which are based on all the data]({%slug grid-templates-column-footer%}#notes).
+
 
 ## See Also
 
