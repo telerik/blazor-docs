@@ -6,7 +6,7 @@ page_title: How to Skip a Wizard Step Programmatically
 slug: wizard-skip-step
 position:
 tags: wizard, skip, step
-ticketid: 1541661
+ticketid: 1541661, 1544088
 res_type: kb
 ---
 
