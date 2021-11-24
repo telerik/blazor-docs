@@ -23,6 +23,8 @@ The [Wizard flow is set to linear]({%slug wizard-structure-stepper%}#linear-flow
 1. Set `args.IsCancelled` to `true` to cancel navigation to the next step.
 1. Set the Wizard `Value` to the desired step.
 
+Note that Wizard step indexes are zero-based for the developer and 1-based for the end user.
+
 >caption Skip a Wizard Step Based on Business Logic
 
 ````CSHTML
