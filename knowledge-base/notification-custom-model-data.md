@@ -33,7 +33,7 @@ I need to get a custom field with different value to each notification (i.e. the
 1. If you use [both overloads of `Show()`]({%slug notification-open-close-hide%}#open), make sure to check if the cast is successful, otherwise you may get a `NullReferenceException`.
 
 ````CSHTML
-<TelerikNotification @ref="@NotificationReference" VerticalPosition="NotificationVerticalPosition.Top">
+<TelerikNotification @ref="@NotificationReference">
     <Template>
         @{
             var myContext = context as MyExtendedNotificationModel;
@@ -69,8 +69,14 @@ I need to get a custom field with different value to each notification (i.e. the
 
     void ShowNotifications()
     {
-        // will use the default NotificationModel
-        NotificationReference.Show("plain notication", "tertiary");
+        NotificationReference.Show(new MyExtendedNotificationModel()
+        {
+            Text = "Tasks in development",
+            ThemeColor = "primary",
+            CustomID = 6,
+            CustomUrl = "https://feedback.telerik.com/blazor?listMode=Popular&statusId=",
+            CloseAfter = 0
+        });
 
         NotificationReference.Show(new MyExtendedNotificationModel()
         {
@@ -81,14 +87,8 @@ I need to get a custom field with different value to each notification (i.e. the
             CloseAfter = 0
         });
 
-        NotificationReference.Show(new MyExtendedNotificationModel()
-        {
-            Text = "Tasks in development",
-            ThemeColor = "primary",
-            CustomID = 6,
-            CustomUrl = "https://feedback.telerik.com/blazor?listMode=Popular&statusId=",
-            CloseAfter = 0
-        });
+        // will use the default NotificationModel
+        NotificationReference.Show("plain notication", "tertiary");
     }
 
     public class MyExtendedNotificationModel : NotificationModel
