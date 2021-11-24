@@ -17,6 +17,7 @@ In this article:
 
 * [Built-in Tools](#built-in-tools)
 	* [Inline Tools](#inline-tools)
+	* [Color Tool Customization](#color-tool-customization)
 	* [Block Tools](#block-tools)
 	* [Table Tools](#table-tools)
 	* [Commands Without Built-in Tools](#commands-without-built-in-tools)
@@ -73,7 +74,7 @@ The `Inline` tools work with or add an inline HTML element. Example of these are
             <td>new ToolCommandArgs(string commandName)</td>
         </tr>
         <tr>
-            <td>BackColor</td>
+            <td><a href="#color-tool-customization">BackgroundColor</a></td>
             <td>backColor</td>
             <td>Color</td>
             <td>Change the background color of the selected text</td>
@@ -81,7 +82,7 @@ The `Inline` tools work with or add an inline HTML element. Example of these are
             <td>new FormatCommandArgs(string commandName, string Value)</td>
         </tr>
         <tr>
-            <td>ForeColor</td>
+            <td><a href="#color-tool-customization">ForeColor</a></td>
             <td>foreColor</td>
             <td>Color</td>
             <td>Change the font color of a selected text</td>
@@ -162,6 +163,26 @@ The `Inline` tools work with or add an inline HTML element. Example of these are
         </tr>
     </tbody>
 </table>
+
+### Color Tool Customization
+
+The `ForeColor` and `BackgroundColor` tools expose a `Colors` property that accepts a color collection as `IEnumerable<string>`. You can provide a member of [`ColorPalettePresets`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.ColorPalettePresets), or a custom list of colors.
+
+````CSHTML
+@using Telerik.Blazor.Components.Editor
+
+<TelerikEditor Tools="@Tools"
+               @bind-Value="@Value"></TelerikEditor>
+
+@code {
+    string Value { get; set; }
+
+    List<IEditorTool> Tools { get; set; } = new List<IEditorTool>() {
+        new ForeColor() { Colors = new List<string> { "red", "green", "blue" } },
+        new BackgroundColor() { Colors = ColorPalettePresets.Basic }
+    };
+}
+````
 
 ### Block Tools
 
