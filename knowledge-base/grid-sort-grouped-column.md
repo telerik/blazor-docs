@@ -1,5 +1,5 @@
 ---
-title: Sort Grouped Column
+title: Sort the Grouped Column
 description: How can I sort the grouped column?
 type: how-to
 page_title: Sort the Grouped Column
