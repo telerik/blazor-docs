@@ -41,6 +41,8 @@ You can also use a checkbox column to select rows. To use it, add a `GridCheckbo
 
 By default, clicking anywhere on the row will select it, but you can require the user to activate the checkbox in the select column to select the row by setting its `CheckBoxOnlySelection` parameter to `true`.
 
+It is also possible to [center the checkboxes in the `GridCheckboxColumn`]({%slug grid-kb-center-checkbox-column%}).
+
 You can get or set the selected items through the `SelectedItems` property. It is a collection of items from the Grid's `Data`.
 
 The [single selection]({%slug components/grid/selection/single%}) and [multiple selection]({%slug components/grid/selection/multiple%}) articles provide more examples and details on using the grid features.
