@@ -27,7 +27,7 @@ I want to disable the weekends in the Calendar Month view, so the user is not ab
 
 ## Solution
 
-You can create a collection of weekend days and pass it to the [Disabled Dates]({%slug components/calendar/selection%}#disabled-dates) parameter of the Calendar.
+You can create a collection of weekend days and pass it to the [Disabled Dates]({%slug components/calendar/selection%}#disabled-dates) parameter of the Calendar. This will prevent the user from selecting them.
 
 To achieve that:
 
