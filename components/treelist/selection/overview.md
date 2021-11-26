@@ -41,6 +41,8 @@ By default, clicking anywhere on the row will select it, but you can require the
 
 You can get or set the selected items through the `SelectedItems` property. It is a collection of items from the treelist's `Data`.
 
+It is also possible to [center the checkboxes in the `GridCheckboxColumn`]({%slug grid-kb-center-checkbox-column%}).
+
 The [single selection]({%slug treelist-selection-single%}) and [multiple selection]({%slug treelist-selection-multiple%}) articles provide more examples and details on using the treelist features.
 
 ### Example - Enable Row Selection (multiple)
