@@ -1,5 +1,5 @@
 ---
-title: Disable Weekends in Calendar
+title: Disable Weekends in the Calendar
 description: How to disable Weekends in Calendar, so the user cannot select them?
 type: how-to
 page_title: Disable Weekends in the Calendar
