@@ -2,7 +2,7 @@
 title: Sort Grouped Column
 description: How can I sort the grouped column?
 type: how-to
-page_title: Sort Grouped Column
+page_title: Sort the Grouped Column
 slug: grid-kb-sort-grouped-column
 position: 
 tags: grid, sort, group
