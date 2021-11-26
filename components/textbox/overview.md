@@ -95,6 +95,8 @@ for example: https://demos.telerik.com/blazor-ui/textbox/password
 
 * `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
 
+* `DebounceDelay` - `int` - Specifies the time in milliseconds between the last typed symbol in the input and the updating of the value. The default value is `150ms`.
+
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 
