@@ -21,11 +21,15 @@ The [example at the end of this page](#example) shows both options in action.
 
 The Grid allows users to resize columns by dragging the borders between header cells.
 
-To enable such column resizing, set the `Resizable` parameter of the grid to `true`.
+To enable column resizing, set the `Resizable` parameter of the grid to `true`.
 
-To prevent the user from resizing a certain column, set its own parameter `Resizable="false"`. Note that the user can still resize other columns around it.
+To prevent the user from resizing a certain column, set its own parameter `Resizable="false"`. The user will still be able to resize other columns around it.
 
-If the column `Width` is less than `MinResizableWidth` and the user tries to resize the column, it will snap to its minimum width. When using [multi-column headers]({%slug grid-columns-multiple-column-headers%}) and there is a conflict between the `MinResizableWidth` configuration of the parent and child column, then the child column setting will take precedence. The same logic applies for `MaxResizableWidth`.
+Here a few notes on the resizing behavior:
+
+* If the column `Width` is less than `MinResizableWidth` and the user tries to resize the column, it will snap to its minimum width.
+* If the column `Width` is greater than `MaxResizableWidth` and the user tries to resize the column, it will snap to its maximum width.
+* When using [multi-column headers]({%slug grid-columns-multiple-column-headers%}) and there is a conflict between the `MinResizableWidth` or `MaxResizableWidth` configuration of parent and child columns, then the child column setting will take precedence.
 
 ## Autofit Columns
 
