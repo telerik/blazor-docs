@@ -1,5 +1,5 @@
 ---
-title: Hide Weekends in Calendar
+title: Hide Weekends in the Calendar
 description: How to hide weekend days in the Blazor Calendar?
 type: how-to
 page_title: Hide Weekends in Calendar
