@@ -11,6 +11,13 @@ position: 2
 
 The UI for Blazor suite supports and integrates seamlessly into Blazor's Forms and Validation infrastructure. All Telerik UI for Blazor Input components work out of the box when placed inside an `EditForm`, respond to `EditContext` changes and provide default invalid styles.
 
+In this article:
+
+* [Validation Basics](#validation-basics)
+* [Validation Mode for Simple Inputs](#validation-mode-for-simple-inputs)
+
+## Validation Basics
+
 To validate the Blazor inputs, you need to:
 
 1. Define a model that has the desired [Data Annotation attributes](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation).
@@ -34,7 +41,7 @@ This article provides examples of validating the Telerik Blazor components. The 
 
 >tip Telerik offers the [Form Component]({%slug form-overview%}) that lets you generate and manage forms with predefined layouts and less code.
 
-## Simple Inputs
+### Simple Inputs
 
 Simple textbox-like inputs do not have any special behavior. You need to bind them to a model field that has the desired data annotation attributes set. Such inputs are the textbox, numeric textbox and date input.
 
@@ -173,7 +180,7 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 }
 ````
 
-## DropDownList
+### DropDownList
 
 The DropDownList always has an item selected - the first item from its data source, the item corresponding to the `Value`, or the item created from the `DefaultText` the developer provides (which has the default value for the type of the Value field - for example, `0` for an `int` and `null` for an `int?` or `string`).
 
@@ -234,7 +241,7 @@ This means that for required field validation to work, the current item must hav
 }
 ````
 
-## RadioGroup
+### RadioGroup
 
 The radio group acts in a way similar to a dropdownlist - there is a collection of items that have values, and those values are used to populate a field in the model that is being validated. This lets you define the necessary data annottation attributes on the validated class. Note that required field validation needs nullable fields.
 
@@ -292,7 +299,7 @@ The radio group acts in a way similar to a dropdownlist - there is a collection 
 ````
 
 
-## ComboBox
+### ComboBox
 
 The ComboBox works with the `Value` of the selected item (through its `ValueField`). This means that for required field validation to work, the current item must have a `null` value, or `AllowCustom` must be `true` and the input empty.
 
@@ -397,7 +404,7 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
 
 
 
-## MultiSelect
+### MultiSelect
 
 The MultiSelect has a value that is a `List` and the validation attributes must take that into account (for example, a regular expression attribute cannot work).
 
@@ -445,7 +452,7 @@ The MultiSelect has a value that is a `List` and the validation attributes must 
 }
 ````
 
-## DateRangePicker
+### DateRangePicker
 
 The Date Range Picker component consists of two inputs that the user can change independently. They can choose to alter one or both, and the application cannot know their intent - they can change one to an invalid value (for example, a start date that is after the end date), but then intend to change the second input as well.
 
@@ -527,7 +534,7 @@ There is no built-in provision in the framework for validating a field value bas
 ````
 
 
-## Editor
+### Editor
 
 The Editor produces an HTML string in the field you bind its `Value` to. Thus, while the user may see a certain amount of content, the actual content may have more symbols, because the HTML tags count towards the total string length, but the user does not see them.
 
@@ -568,7 +575,7 @@ Unlike other components, the editor does not trigger form validation on every ke
 ````
 
 
-## MaskedTextbox
+### MaskedTextbox
 
 The Masked Textbox prompts the user for their input and restricts it according to its [Mask]({%slug maskedtextbox-mask-prompt%}). 
 
@@ -644,7 +651,7 @@ You may want to set the [`IncludeLiterals`]({%slug maskedtextbox-mask-prompt%}#i
 ````
 
 
-## Sliders
+### Sliders
 
 The sliders are, effectively, numeric inputs in terms of behavior and what data they provide. Thus, you can apply the standard validation rules to them.
 
@@ -713,7 +720,7 @@ The sliders are, effectively, numeric inputs in terms of behavior and what data 
 ````
 
 
-## Color Palette
+### Color Palette
 
 The Color Palette component, while not an input, can work with validation so you can, for example, require that the user picks a color. Since it is not an input, it does not have an invalid state, but you can add validation messages around it.
 
@@ -745,6 +752,150 @@ The Color Palette component, while not an input, can work with validation so you
     {
         Console.WriteLine("valid submit");
     }
+}
+````
+
+## Validation Mode for Simple Inputs
+
+Simple textbox-like inputs provide an option to configure the event triggering their validation. You can customize that event through the `ValidateOn` parameter they expose. It takes a member of the `ValidationEvent` enum and provides the following options:
+
+* `Input` - (the default) - triggers validation `OnInput`
+* `Change` - triggers validation `OnChnage`
+
+The feature is supported by the following components treated as simple textbox-like inputs:
+
+* TextBox
+* TextArea
+* MaskedTextBox
+* NumericTextBox
+* DateInput
+* DatePicker
+* DateTimePicker
+* TimePicker
+
+>caption Configure the event triggering the input validation
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+@* The Id parameters are not mandatory for validation, they just show better forms integration *@
+
+<EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    ---------- Validate OnInput -----------
+    <br />
+
+    <p class="name">
+        <label for="nameTextbox">Name:</label>
+        <TelerikTextBox @bind-Value="@person.Name" ValidateOn="@ValidationEvent.Input"
+                        Id="nameTextbox"></TelerikTextBox>
+        <ValidationMessage For="@(() => person.Name)"></ValidationMessage>
+    </p>
+    <p class="personal-notes">
+        <label for="personalNotes">Personal Notes:</label>
+        <TelerikTextArea @bind-Value="@person.PersonalNotes" ValidateOn="@ValidationEvent.Input"
+                         Id="personalNotes"></TelerikTextArea>
+        <ValidationMessage For="@(() => person.PersonalNotes)"></ValidationMessage>
+    </p>
+    <p class="phone-number">
+        <label for="phoneNumber">Phone Number:</label>
+        <TelerikMaskedTextBox @bind-Value="@person.PhoneNumber" ValidateOn="@ValidationEvent.Input"
+                              Id="phoneNumber" Mask="+1-000-000-0000" PromptPlaceholder="null"></TelerikMaskedTextBox>
+        <ValidationMessage For="@(() => person.PhoneNumber)"></ValidationMessage>
+    </p>
+
+    <br />
+    ---------- Validate OnChange -----------
+    <br />
+
+    <p class="height">
+        <label for="heightNumeric">Height (cm):</label>
+        <TelerikNumericTextBox @bind-Value="@person.Height" ValidateOn="@ValidationEvent.Change"
+                               Id="heightNumeric" />
+        <ValidationMessage For="@(() => person.Height)"></ValidationMessage>
+    </p>
+    <p class="birthday">
+        <label for="birthdayDateInput">Birthday:</label>
+        <TelerikDateInput @bind-Value="@person.Birthday" ValidateOn="@ValidationEvent.Change"
+                          Format="dd MMMM yyyy" Id="birthdayDateInput"></TelerikDateInput>
+        <ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
+    </p>
+    <p class="favorite-day">
+        <label for="favDayDatePicker">Favorite date:</label>
+        <TelerikDatePicker @bind-Value="@person.FavoriteDay" ValidateOn="@ValidationEvent.Change"
+                           Format="dd MMMM yyyy" Id="favDayDatePicker"></TelerikDatePicker>
+        <ValidationMessage For="@(() => person.FavoriteDay)"></ValidationMessage>
+    </p>
+    <p class="start-time">
+        <label for="dayStartDateTimePicker">Start time:</label>
+        <TelerikDateTimePicker @bind-Value="@person.StartTime" ValidateOn="@ValidationEvent.Change"
+                               Width="250px" Id="dayStartDateTimePicker" Format="G"></TelerikDateTimePicker>
+        <ValidationMessage For="@(() => person.StartTime)"></ValidationMessage>
+    </p>
+    <p class="daily-scrum">
+        <label for="scrumTimePicker">Daily scrum:</label>
+        <TelerikTimePicker @bind-Value="@person.DailyScrum" ValidateOn="@ValidationEvent.Change"
+                           Id="scrumTimePicker"></TelerikTimePicker>
+        <ValidationMessage For="@(() => person.DailyScrum)"></ValidationMessage>
+    </p>
+
+    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
+</EditForm>
+
+@code {
+    // Usually this class would be in a different file
+    public class Person
+    {
+        [Required(ErrorMessage = "Enter a name")]
+        [MinLength(3, ErrorMessage = "That name is too short")]
+        [StringLength(10, ErrorMessage = "That name is too long")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "You should add a note.")]
+        [MaxLength(300, ErrorMessage = "Your notes are too long.")]
+        public string PersonalNotes { get; set; }
+
+        [MinLength(10, ErrorMessage = "Enter a valid phone number")]
+        public string PhoneNumber { get; set; }
+
+        [Required(ErrorMessage = "Provide your height in centimeters")]
+        [Range(70, 300, ErrorMessage = "Enter a value between 70 and 300")]
+        public int? Height { get; set; }
+
+        [Required]
+        [Range(typeof(DateTime), "1/1/1900", "1/12/2000",
+            ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy} and {2:dd MMM yyyy}")]
+        public DateTime Birthday { get; set; }
+
+        [Required]
+        [Range(typeof(DateTime), "1/1/1999", "1/12/2019",
+            ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy} and {2:dd MMM yyyy}")]
+        [Display(Name = "Your Favourite Day")]
+        public DateTime FavoriteDay { get; set; }
+
+        [Required(ErrorMessage = "Enter a starting time")]
+        [Range(typeof(DateTime), "29/11/2018 10:00:00", "22/12/2025 17:00:00",
+            ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy HH:mm} and {2:dd MMM yyyy HH:mm}")]
+        public DateTime StartTime { get; set; }
+
+        [Required(ErrorMessage = "The daily standup is required")]
+        [Range(typeof(DateTime), "1/1/1900 08:00:00", "1/1/1900 17:00:00",
+            ErrorMessage = "Time should be in business hours, between 8AM and 5 PM.")]
+        public DateTime? DailyScrum { get; set; }
+    }
+
+    Person person = new Person()
+    {
+        // for time pickers, the initial date value must match the date portion of the range validation rule
+        DailyScrum = new DateTime(1900, 1, 1, 1, 1, 1),
+    };
+
+    void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }    
 }
 ````
 
