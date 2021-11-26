@@ -2,7 +2,7 @@
 title: Disable Weekends in Calendar
 description: How to disable Weekends in Calendar, so the user cannot select them?
 type: how-to
-page_title: Disable Weekends in Calendar
+page_title: Disable Weekends in the Calendar
 slug: calendar-kb-disable-weekends
 position: 
 tags: disable, weekends, calendar, datepicker, daterangepicker
