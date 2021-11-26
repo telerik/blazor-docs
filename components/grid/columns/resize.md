@@ -28,7 +28,7 @@ To prevent the user from resizing a certain column, set its own parameter `Resiz
 Here a few notes on the resizing behavior:
 
 * If the column `Width` is less than `MinResizableWidth` and the user tries to resize the column, it will snap to its minimum width.
-* If the column `Width` is greater than `MaxResizableWidth` and the user tries to resize the column, it will snap to its maximum width.
+* Similarly, if the column `Width` is greater than `MaxResizableWidth`, the column will snap to its maximum width.
 * When using [multi-column headers]({%slug grid-columns-multiple-column-headers%}) and there is a conflict between the `MinResizableWidth` or `MaxResizableWidth` configuration of parent and child columns, then the child column setting will take precedence.
 
 ## Autofit Columns
