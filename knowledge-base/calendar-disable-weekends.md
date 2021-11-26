@@ -39,7 +39,7 @@ To achieve that:
 The example below demonstrates this approach.
  
 > At the time of writing, [k-state-disabled class is not applied to all disabled cells
-](https://feedback.telerik.com/blazor/1539828-k-state-disabled-class-is-not-applied-to-all-disabled-cells). So, so in case you need to target all the disabled cells and customize them (for example, add some custom CSS to the disabled cells), use `[aria-disabled="true"]` selector.
+](https://feedback.telerik.com/blazor/1539828-k-state-disabled-class-is-not-applied-to-all-disabled-cells). So, in case you need to target all the disabled cells and customize them (for example, add some custom CSS to the disabled cells), use the `[aria-disabled="true"]` selector.
 
 >caption Pass the weekends to the Disabled Dates collection and disable all weekends between the Min and Max Value of the Calendar.
 
