@@ -37,21 +37,18 @@ By default, the first column of the view contains Sundays and the last one conta
 /* Hide the first and the last cell of every row. By default, Sunday is first and Saturday is last (seventh). 
 If needed, you can configure the selectors to target and customize other specific n-th child.*/
 
-    .k-calendar-monthview .k-calendar-th:nth-child(1),
-    .k-calendar-monthview .k-calendar-th:nth-child(7),
-    .k-calendar-monthview .k-calendar-td:nth-child(1),
-    .k-calendar-monthview .k-calendar-td:nth-child(7),
-    .k-calendar-monthview .k-other-month:nth-child(1),
-    .k-calendar-monthview .k-other-month:nth-child(7) {
-        display: none;
-    }
+   .k-calendar-monthview .k-calendar-th:nth-child(1),
+   .k-calendar-monthview .k-calendar-th:nth-child(7),
+   .k-calendar-monthview td:nth-child(1),
+   .k-calendar-monthview td:nth-child(7) {
+       display: none;
+   }
 
-    .k-calendar-monthview .k-calendar-th,
-    .k-calendar-monthview .k-calendar-td,
-    .k-calendar-monthview .k-other-month,
-    .k-calendar-monthview .k-link {
-        width: 46px;
-    }        
+   .k-calendar-monthview .k-calendar-th,
+   .k-calendar .k-calendar-monthview td,
+   .k-calendar-monthview .k-link {
+       width: 46px;
+   }
 </style>
 
 <TelerikCalendar Min="@min"
