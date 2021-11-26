@@ -29,7 +29,7 @@ I want to be able to sort the grouped column. How can I achieve this?
 
 At the time of writing (Telerik UI for Blazor version 2.29.0) the ability to sort the grouped column is not supported out of the box. There is a public feature request for it at [Allow sorting the Grouped Column](https://feedback.telerik.com/blazor/1544196-allow-sorting-the-grouped-column).
 
-For the time being, you can use the [Grid State]({%slug grid-state%}) to programmatically sort the grouped column. Based on whether the Grid is grouped or not (you can also get that information from the State), you can render a button in the [Grid Toolbar]({%slug components/grid/features/toolbar%}) allowing the user to sort the groups. The UI for triggering the sorting will be a bit different than the built-in feature, however the functionality will be supported.
+For the time being, you can use the [Grid State]({%slug grid-state%}) to programmatically sort the grouped column. Based on whether the Grid is grouped or not (you can also get that information from the State), you can render a button in the [Grid Toolbar]({%slug components/grid/features/toolbar%}) allowing the user to sort the groups. The UI for sorting will be a bit different than the built-in feature.
 
 Here is an example of the described approach.
 
