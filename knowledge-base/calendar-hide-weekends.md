@@ -26,7 +26,9 @@ I want to hide the weekends in the Calendar Month view, so only the week days ar
 
 ## Solution
 
-If you want to hide the weekends and have only the week days displayed in the Month view of the Calendar, you can achieve that with some custom CSS. By default, the first column of the view contains Sundays and the last one contains Saturdays. You can use that to target the specific n-th child of the table rows and hide them. In addition, you can expand the width of the visible cells to fill the layout of the view.
+It is possible to hide weekends and display only the week days in the Calendar Month view with custom CSS.
+
+By default, the first column of the view contains Sundays and the last one contains Saturdays. You can use that to [target the specific n-th child](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child) of the table rows and hide them. In addition, you can expand the width of the visible cells to fill the layout of the view.
 
 >caption Add some custom CSS to hide the weekends in Calendar Month view.
 
