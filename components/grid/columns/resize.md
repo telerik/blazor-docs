@@ -29,7 +29,7 @@ Here a few notes on the resizing behavior:
 
 * If the column `Width` is less than `MinResizableWidth` and the user tries to resize the column, it will snap to its minimum width.
 * Similarly, if the column `Width` is greater than `MaxResizableWidth`, the column will snap to its maximum width.
-* When using [multi-column headers]({%slug grid-columns-multiple-column-headers%}) and there is a conflict between the `MinResizableWidth` or `MaxResizableWidth` configuration of parent and child columns, then the child column setting will take precedence.
+* In [multi-column header scenarios]({%slug grid-columns-multiple-column-headers%}), do not set `MinResizableWidth` or `MaxResizableWidth` to parent columns and their child columns at the same time.
 
 ## Autofit Columns
 
