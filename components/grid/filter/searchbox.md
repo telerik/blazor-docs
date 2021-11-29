@@ -67,6 +67,87 @@ To enable the search box, add the `<GridSearchBox>` tag in the `<GridToolBar>`.
 
 ![grid search box](images/search-box-overview.gif)
 
+## Filter From Code
+
+You can set the Grid filters from your code through the component [state]({%slug grid-state%}).
+
+@[template](/_contentTemplates/grid/state.md#initial-state)
+
+>caption The result from the code snippet below.
+
+![](images/searchbox-filter-control.gif)
+
+>caption Set programmatically Searchbox Filter.
+
+````Razor
+@* This snippet shows how to set filtering state to the grid from your code.
+  Applies to the Searchbox filter *@
+
+@using Telerik.DataSource;
+
+<TelerikButton Primary="true" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
+
+<TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
+             Pageable="true">
+    <GridToolBar>
+        <GridSearchBox />
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
+        <GridColumn Field="@(nameof(SampleData.Address))" Title="Address" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    public TelerikGrid<SampleData> Grid { get; set; }
+
+    async Task SetGridFilter()
+    {
+        GridState<SampleData> desiredState = new GridState<SampleData>()
+        {
+            SearchFilter = CreateSearchFilter()
+        };
+
+        await Grid.SetState(desiredState);
+    }
+
+    private IFilterDescriptor CreateSearchFilter()
+    {
+        var descriptor = new CompositeFilterDescriptor();
+        var fields = new List<string>() { "Name", "Address" };
+        var searchValue = "name 10";
+        descriptor.LogicalOperator = FilterCompositionLogicalOperator.Or;
+
+        foreach (var field in fields)
+        {
+            var filter = new FilterDescriptor(field, FilterOperator.Contains, searchValue);
+
+            filter.MemberType = typeof(string);
+
+            descriptor.FilterDescriptors.Add(filter);
+        }
+
+        return descriptor;
+    }
+
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        Address = "address " + x % 5,
+    });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+    }
+}
+  
+````
+
 ## Customize the SearchBox
 
 The `GridSearchBox` component offers the following settings to customize its behavior:
