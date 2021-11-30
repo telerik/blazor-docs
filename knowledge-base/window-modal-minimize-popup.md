@@ -81,7 +81,7 @@ To implement a responsible popup that can be minimized to the bottom of the page
 }
 
 <style>
-    .messanger {
+    .minimized {
         background-color: #ff6358;
         color: white;
         display: inline;
