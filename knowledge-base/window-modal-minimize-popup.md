@@ -5,7 +5,7 @@ type: how-to
 page_title: How to minimize a popup window to the bottom of the page?
 slug: window-modal-minimize-popup
 position: 
-tags: window,modal,chat,popup,collapse,minimize
+tags: window,modal,popup,collapse,minimize
 ticketid: 1542823
 res_type: kb
 ---
