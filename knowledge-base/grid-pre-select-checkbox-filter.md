@@ -28,7 +28,9 @@ How can I pre-set a checkbox filter using a filter descriptor? How to set checkb
 To pre-select checkbox filter in the Grid using a filter descriptor:
 
 1. Use the [OnStateInit](https://docs.telerik.com/blazor-ui/components/grid/state#events) event of the Grid.
-2. Implement a **CompositeFilterDescriptor** inside the OnStateInit handler.
+2. Create a new `GridState` instance.
+3. Add a new `CompositeFilterDescriptor` instance to the `FilterDescriptors` collection in the state.
+4. Apply the new state to the current Grid state.
 
 >caption The result from the code snippet below.
 
