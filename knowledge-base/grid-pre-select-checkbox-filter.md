@@ -1,5 +1,5 @@
 ---
-title: How can I pre-set a checkbox filter using a filter descriptor?
+title: How to pre-set a checkbox filter with a filter descriptor?
 description: 
 type: how-to
 page_title: How can I pre-set a checkbox filter using a filter descriptor?
