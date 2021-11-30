@@ -62,7 +62,7 @@ To implement a responsible popup that can be minimized to the bottom of the page
     @if (Small)
     {
         <br />
-        <div @onclick="@( _ => isModalVisible = true )" class="messanger"><strong>@Title[0]</strong></div>
+        <div @onclick="@( _ => isModalVisible = true )" class="minimized"><strong>@Title[0]</strong></div>
     }
     else
     {
