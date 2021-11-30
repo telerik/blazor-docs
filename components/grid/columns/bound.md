@@ -90,7 +90,9 @@ You can use the following properties on bound columns:
 * `OnCellRender` - an event that fires upon the rendering of the Grids columns. For more information read the columns [events]({%slug grid-column-events%}#oncellrender) article.
 * `Reorderable` - (defaults to `true`) - whether the user can [drag to reorder]({%slug components/grid/columns/reorder%}) this column.
 * `Resizable` - (defaults to `true`) - whether the user can [resize]({%slug components/grid/columns/resize%}) this column.
-* `Width` - (defaults to `null`) - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article. Keep in mind that these are columns in a `<table>`, so it is often a good practice to leave one column without explicit dimensions so it can accommodate the remaining width and changes to the container size.
+* `Width` - (defaults to `null`) - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article for information about the supported formats. See [Grid Column Width Behavior]({%slug grid-columns-width%}) for detailed information about the Grid behavior with different column width configurations.
+* `MinResizableWidth` - (defaults to `0`) - the minimum allowed column width during [user resizing]({%slug components/grid/columns/resize%}). Unlike the `Width` string property, this one is decimal and expects pixel values.
+* `MaxResizableWidth` - (defaults to `0`) - the maximum allowed column width during [user resizing]({%slug components/grid/columns/resize%}). Unlike the `Width` string property, this one is decimal and expects pixel values.
 * `Lockable` - (defaults to `true`) - determines whether the user can [pin the column]({%slug grid-columns-frozen%}) through the [column menu]({%slug grid-column-menu%}).
 * `Locked` - (defaults to `false`) - if this parameter is set to true it [locks]({%slug grid-columns-frozen%}) the column so it is always visible to the user.
 * `Visible` - (defaults to `null`) - if this parameter is set to `false` it [hides]({%slug grid-columns-visible%}) the column from the Grid. Accepts both `bool` and `bool?` types, and `null` is treated like `true`.

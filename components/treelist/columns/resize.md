@@ -21,9 +21,15 @@ The [example at the end of this page](#example) shows both options in action.
 
 The TreeList allows users to resize columns by dragging the borders between header cells.
 
-To enable the column resizing, set the `Resizable` parameter of the treelist to `true`.
+To enable column resizing, set the `Resizable` parameter of the treelist to `true`.
 
-To prevent the user from resizing a certain column, set its own parameter `Resizable="false"`. Note that the user can still resize other columns around it.
+To prevent the user from resizing a certain column, set its own parameter `Resizable="false"`. The user will still be able to resize other columns around it.
+
+Here a few notes on the resizing behavior:
+
+* If the column `Width` is less than `MinResizableWidth` and the user tries to resize the column, it will snap to its minimum width.
+* Similarly, if the column `Width` is greater than `MaxResizableWidth`, the column will snap to its maximum width.
+* In [multi-column header scenarios]({%slug treelist-columns-multiple-column-headers%}), do not set `MinResizableWidth` or `MaxResizableWidth` to parent columns and their child columns at the same time.
 
 ## Autofit Columns
 
