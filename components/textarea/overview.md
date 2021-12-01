@@ -74,7 +74,7 @@ To use the Telerik TextArea in your Blazor application:
 
 * `Width` - the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article for more information.
 
-* `DebounceDelay` - `int` - Specifies the time in milliseconds between the last typed symbol in the input and the updating of the value. The default value is `150ms`.
+* `DebounceDelay` - `int` - Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms.
 
 * Events - see the [Events]({%slug textarea-events%}) article for more information.
 
