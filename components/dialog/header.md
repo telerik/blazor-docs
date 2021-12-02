@@ -20,7 +20,7 @@ The default `Title` value is `null`.
 
 You can control the close action via the `ShowCloseButton` parameter. Its default value is `true`.
 
->important If you don't want to render the header, set the `ShowCloseButton` to `false` and leave the title empty.
+> If you don't want to render the header, set the `ShowCloseButton` to `false` and don't set a `Title`.
 
 ## Example
 
