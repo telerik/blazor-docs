@@ -17,7 +17,7 @@ The Dialog component is a modal popup that displays information to the user. It 
 To add a Telerik Dialog to your Blazor app:
 
 1. Add the `TelerikDialog` tag.
-1. Provide `Visible` parameter.
+1. Set the `Visible` parameter via one-way or two-way binding..
 1. Set its `Title`.
 1. Optionally, choose a `ButtonsLayout` (from the `DialogButtonsLayout` enums).
     * Its default layout is `DialogButtonsLayout.Stretched`. See more in the [Action Buttons article]({%slug  dialog-action-buttons%})).
