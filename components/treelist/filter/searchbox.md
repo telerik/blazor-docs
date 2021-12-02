@@ -113,6 +113,146 @@ To enable the search box, add the `<TreeListSearchBox>` tag in the `<TreeListToo
 
 ![treelist search box](images/search-box-overview.gif)
 
+## Filter From Code
+
+You can set the TreeList filters programmatically through the component [state]({%slug treelist-state%}).
+
+@[template](/_contentTemplates/treelist/state.md#initial-state)
+
+>caption The result from the code snippet below.
+
+![](images/searchbox-filter-control.gif)
+
+>caption Set programmatically Searchbox Filter.
+
+````Razor
+@* This snippet shows how to set filtering state to the TreeList from your code
+    Applies to the Searchbox filter *@
+
+@using Telerik.DataSource;
+
+<TelerikButton OnClick="@SetTreeListFilter" Primary="true">Set filtered state</TelerikButton>
+
+<TelerikTreeList Data="@Data"
+                 ItemsField="@(nameof(Employee.DirectReports))"
+                 Height="400px"
+                 Pageable="true"
+                 Width="850px"
+                 @ref="TreeListRef">
+    <TreeListToolBar>
+        <TreeListSearchBox />
+    </TreeListToolBar>
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Width="120px" />
+        <TreeListColumn Field="Address" Title="Email Address" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    public TelerikTreeList<Employee> TreeListRef { get; set; } = new TelerikTreeList<Employee>();
+
+    async Task SetTreeListFilter()
+    {
+        var filteredState = new TreeListState<Employee>()
+        {
+            SearchFilter = CreateSearchFilter()
+        };
+
+        await TreeListRef.SetState(filteredState);
+    }
+
+    private IFilterDescriptor CreateSearchFilter()
+    {
+        var descriptor = new CompositeFilterDescriptor();
+        var fields = new List<string>() { "Name", "Address" };
+        var searchValue = "root: 1";
+        descriptor.LogicalOperator = FilterCompositionLogicalOperator.Or;
+
+        foreach (var field in fields)
+        {
+            var filter = new FilterDescriptor(field, FilterOperator.Contains, searchValue);
+
+            filter.MemberType = typeof(string);
+
+            descriptor.FilterDescriptors.Add(filter);
+        }
+
+        return descriptor;
+    }
+
+    public List<Employee> Data { get; set; }
+
+
+    public class Employee
+    {
+        public List<Employee> DirectReports { get; set; }
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    public int LastId { get; set; } = 1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            Employee root = new Employee
+            {
+                Id = LastId,
+                Name = $"root: {i}",
+                Address = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i),
+                DirectReports = new List<Employee>(),
+            };
+            data.Add(root);
+            LastId++;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = LastId;
+                Employee firstLevelChild = new Employee
+                {
+                    Id = currId,
+                    Name = $"first level child {j} of {i}",
+                    Address = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId),
+                    DirectReports = new List<Employee>(),
+                };
+                root.DirectReports.Add(firstLevelChild);
+                LastId++;
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = LastId;
+                    firstLevelChild.DirectReports.Add(new Employee
+                    {
+                        Id = LastId,
+                        Name = $"second level child {k} of {j} and {i}",
+                        Address = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                    LastId++;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
+````
+
 ## Customize the SearchBox
 
 The `TreeListSearchBox` component offers the following settings to customize its behavior:
