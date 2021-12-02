@@ -115,7 +115,7 @@ To enable the search box, add the `<TreeListSearchBox>` tag in the `<TreeListToo
 
 ## Filter From Code
 
-You can set the TreeList filters from your code through the component [state]({%slug treelist-state%}).
+You can set the TreeList filters programmatically through the component [state]({%slug treelist-state%}).
 
 @[template](/_contentTemplates/treelist/state.md#initial-state)
 
