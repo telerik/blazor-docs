@@ -80,7 +80,7 @@ The following example demonstrates how to set up the Dialog with its default con
 
 * `ShowCloseButton` - `bool` - defines the close behavior of the component - whether the component should render close flat button in the titlebar.
 
-* `CloseOnOverlayClick` - `bool` - defines whether clicking the overlay should close the dialog.
+* `CloseOnOverlayClick` - `bool` - defines whether clicking on the modal overlay should close the Dialog.
 
 * `FocusedElementSelector` - `string` - defines the CSS selector of the initially focused item on open. By default, it is the first focusable item in the dialog.
 
