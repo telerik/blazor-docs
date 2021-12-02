@@ -82,7 +82,7 @@ The following example demonstrates how to set up the Dialog with its default con
 
 * `CloseOnOverlayClick` - `bool` - defines whether clicking the overlay should close the dialog.
 
-* `FocusedElementSelector` - `string` - defines the queryselector of the initially focused item on open. By default, it is the first focusable item in the dialog.
+* `FocusedElementSelector` - `string` - defines the CSS selector of the initially focused item on open. By default, it is the first focusable item in the dialog.
 
 ## See Also
 
