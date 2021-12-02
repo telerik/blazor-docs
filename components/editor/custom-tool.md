@@ -25,13 +25,13 @@ In this article:
 
 To create a custom tool:
 
-1. Make sure your editor has the `<EditorCustomTools>` tag.
+1. Make sure your Editor has the `<EditorCustomTools>` tag.
 
-1. Under it, add an `<EditorCustomTool>` tag and set its `Name` parameter to something you can use to distinguish this tool. You can add more than one custom tool in an editor.
+1. Under it, add an `<EditorCustomTool>` tag and set its `Name` parameter to something you can use to distinguish this tool. You can add more than one custom tool in the Editor.
 
 1. Inside that tag, add your custom content (e.g., buttons, dropdowns, etc.) with their desired rendering, data, logic, event handlers.
 
-1. Add the custom tool to the toolbar (see [how to control toolbars]({%slug editor-toolbars%})). You can add the custom tools in the desired order and position, regardless of their order in the markup. Custom tools can be added as standalone tools only, not inside an `EditorButtonGroup`.
+1. [Add the custom tool to the Editor toolbar via the `Tools` collection]({%slug editor-toolbars%}#choose-toolbar-items). You can add the custom tools in the desired order and position, regardless of their order in the markup. Custom tools can be added as standalone tools only, not inside an `EditorButtonGroup`.
 
 1. Manipulate the editor content as desired from the custom content events (like clicks) - either through the [editor commands]({%slug editor-built-in-tools%}), or with your own code that manipulates its `Value` field contents.
 
