@@ -12,7 +12,11 @@ position: 5
 
 The header contains the `Title` and the `Close Action` button.
 
-The Dialog supports the title configuration through a template and a string parameter. The default value is `null(default(string))`.
+There are two ways to define a Dialog title:
+* a string `Title` attribute of the component
+* a nested `<DialogTitle>` template.
+
+The default `Title` value is `null`.
 
 You can control the close action via the `ShowCloseButton` parameter. Its default value is `true`.
 
