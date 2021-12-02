@@ -13,4 +13,5 @@ This article lists the releases of the Telerik UI for Blazor product that introd
 
 * [2.0.0]({%slug changes-in-2-0-0%})
 * [2.2.0]({%slug changes-in-2-2-0%})
+* [3.0.0]({%slug changes-in-3-0-0%})
 
