@@ -30,7 +30,7 @@ The following example demonstrates how to set up the title through a template. T
 
 ![](images/dialog-header.png)
 
->caption Title template and hidden closing button in the Telerik Dialog.
+>caption Title template and no close button in the Telerik Dialog.
 
 ````CSHTML
 @* An example of a title template and hidden button for closing. *@
