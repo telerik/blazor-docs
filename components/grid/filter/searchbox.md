@@ -69,7 +69,7 @@ To enable the search box, add the `<GridSearchBox>` tag in the `<GridToolBar>`.
 
 ## Filter From Code
 
-You can set the Grid filters from your code through the component [state]({%slug grid-state%}).
+You can set the Grid filters programmatically through the component [state]({%slug grid-state%}).
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
