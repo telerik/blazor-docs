@@ -18,7 +18,7 @@ To add a Telerik Dialog to your Blazor app:
 
 1. Add the `TelerikDialog` tag.
 1. Set the `Visible` parameter via one-way or two-way binding..
-1. Set its `Title`.
+1. Set a `Title`.
 1. Optionally, choose a `ButtonsLayout` (from the `DialogButtonsLayout` enums).
     * Its default layout is `DialogButtonsLayout.Stretched`. See more in the [Action Buttons article]({%slug  dialog-action-buttons%})).
 1. Optionally, set its `ShowCloseButton` parameter (true/false).
