@@ -57,10 +57,6 @@ The following example demonstrates all supported layout options for the action b
     {
         public string Text { get; set; }
         public DialogButtonsLayout Value { get; set; }
-
-        public DialogModel()
-        {
-        }
     }
 
     async Task OnChangeHandler(object newValue)
