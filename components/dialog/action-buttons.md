@@ -5,7 +5,7 @@ description: Action Buttons of the Dialog for Blazor.
 slug: dialog-action-buttons
 tags: telerik,blazor,dialog,action,buttons
 published: True
-position: 10
+position: 7
 ---
 
 # Dialog Action Buttons
@@ -34,8 +34,8 @@ The following example demonstrates all supported layout options for the action b
         <TelerikRadioGroup Data="@LayoutTypes" @bind-Value="@SelectedBtnLayout" OnChange="@OnChangeHandler"></TelerikRadioGroup>
     </DialogContent>
     <DialogButtons>
-        <TelerikButton Primary="true" OnClick="@(() => { Visible = false; })">Cancel</TelerikButton>
-        <TelerikButton OnClick="@(() => { Visible = false; })">OK</TelerikButton>
+        <TelerikButton OnClick="@(() => { Visible = false; })">Cancel</TelerikButton>
+        <TelerikButton OnClick="@(() => { Visible = false; })" Primary="true" >OK</TelerikButton>
     </DialogButtons>
 </TelerikDialog>
 
@@ -61,7 +61,7 @@ The following example demonstrates all supported layout options for the action b
 
     async Task OnChangeHandler(object newValue)
     {
-        dialogRef.Refresh();
+        dialogRef.Refresh(); // The Refresh() method is needed here to re-render and display the changed position of the buttons.
     }
 }
 ````

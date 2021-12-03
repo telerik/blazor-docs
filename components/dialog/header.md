@@ -37,22 +37,22 @@ The following example demonstrates how to set up the title through a template. T
 
 <TelerikDialog @bind-Visible="@Visible" ShowCloseButton="false">
     <DialogTitle>
-        <TelerikIcon IconClass="k-icon k-i-star"></TelerikIcon>
+        <TelerikIcon IconClass="k-icon k-i-caret-double-alt-up"></TelerikIcon>
         <strong>@Title</strong>
+        <TelerikIcon IconClass="k-icon k-i-caret-double-alt-up"></TelerikIcon>
     </DialogTitle>
     <DialogContent>
-        <br />
-        <div>--- Place here the Dialog content ---</div>
-        <br />
+        A new version of <strong>Telerik UI for Blazor</strong> is available. Would you like to download and install it now?
     </DialogContent>
     <DialogButtons>
-        <TelerikButton Primary="true" OnClick="@(() => { Visible = false; })">Cancel</TelerikButton>
-        <TelerikButton OnClick="@(() => { Visible = false; })">OK</TelerikButton>
+        <TelerikButton OnClick="@(() => { Visible = false; })">Skip this version</TelerikButton>
+        <TelerikButton OnClick="@(() => { Visible = false; })">Remind me later</TelerikButton>
+        <TelerikButton OnClick="@(() => { Visible = false; })" Primary="true">Install update</TelerikButton>
     </DialogButtons>
 </TelerikDialog>
 
 @code {
     private bool Visible { get; set; } = true;
-    private string Title { get; set; } = "Title here";
+    private string Title { get; set; } = "Software Update";
 }
 ````

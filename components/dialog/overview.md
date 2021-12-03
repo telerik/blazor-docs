@@ -10,19 +10,17 @@ position: 0
 
 # Dialog Overview
 
-The Dialog component is a modal popup that displays information to the user. It is fully customizable and extends the `DialogBuilder` to provide you with a way to achieve complex UI popups.
+The Dialog is a modal popup that brings information to the user.
+
+It provides actions through its action buttons to prompt the user for input or to ask for a decision. The component can also contain more complex UI elements that require the focus of the user. The main difference from the Window modal is the functionality for actions and predefined dialogs.
 
 ## Basics
 
 To add a Telerik Dialog to your Blazor app:
 
 1. Add the `TelerikDialog` tag.
-1. Set the `Visible` parameter via one-way or two-way binding..
+1. Set the `Visible` parameter via one-way or two-way binding.
 1. Set a `Title`.
-1. Optionally, choose a `ButtonsLayout` (from the `DialogButtonsLayout` enums).
-    * Its default layout is `DialogButtonsLayout.Stretched`. See more in the [Action Buttons article]({%slug  dialog-action-buttons%})).
-1. Optionally, set its `ShowCloseButton` parameter (true/false).
-    * Its **true** by default. See more in the [Header article]({%slug  dialog-header%}).
 
 The following example demonstrates how to set up the Dialog with its default configuration.
 
@@ -34,33 +32,32 @@ The following example demonstrates how to set up the Dialog with its default con
 <TelerikDialog @bind-Visible="@Visible"
                Title="@Title">
     <DialogContent>
-        <br />
-        <div>--- Place here the Dialog content ---</div>
-        <br />
+        A new version of <strong>Telerik UI for Blazor</strong> is available. Would you like to download and install it now?
     </DialogContent>
     <DialogButtons>
-        <TelerikButton Primary="true" OnClick="@(() => { Visible = false; })">Cancel</TelerikButton>
-        <TelerikButton OnClick="@(() => { Visible = false; })">OK</TelerikButton>
+        <TelerikButton OnClick="@(() => { Visible = false; })">Skip this version</TelerikButton>
+        <TelerikButton OnClick="@(() => { Visible = false; })">Remind me later</TelerikButton>
+        <TelerikButton OnClick="@(() => { Visible = false; })" Primary="true">Install update</TelerikButton>
     </DialogButtons>
 </TelerikDialog>
 
 @code {
     private bool Visible { get; set; } = true;
-    private string Title { get; set; } = "Title here";
+    private string Title { get; set; } = "Software Update";
 }
 ````
 
 >caption The result from the above code snippet.
 
-![](images/dialog-basic-overview.png)
+![](images/dialog-basic-configuration.png)
 
 ## Features
 
->caption The Dialog provides the following features:
-
-* `Title` - `string` - defines the title of the Dialog.
+The Dialog provides the following features:
 
 * `Visible` - `bool` - defines the visibility of the Dialog.
+
+* `Title` - `string` - defines the title of the Dialog.
 
 * `DialogTitle` - `RenderFragment` - defines the title template of the component.
 
@@ -68,21 +65,19 @@ The following example demonstrates how to set up the Dialog with its default con
 
 * `DialogButtons` - `RenderFragment` - defines the actions bar template of the component.
 
-* `ButtonLayout` - `enum`- `DialogButtonsLayout` - defines the layout of the actions button in the footer.
+* `ButtonsLayout` - `enum`- `DialogButtonsLayout` - defines the layout of the actions button in the footer. The default layout is `DialogButtonsLayout.Stretched`. See more in the [Action Buttons article]({%slug  dialog-action-buttons%})).
 
-* `VisibleChanged` - `EventCallback<false>` - triggers when the visibility of the component changes.
+* `ShowCloseButton` - `bool` - defines the close behavior of the component - whether the component should render close flat button in the titlebar. Its **true** by default. See more in the [Header article]({%slug  dialog-header%}).
+
+* `CloseOnOverlayClick` - `bool` - defines whether clicking on the modal overlay should close the Dialog.
+
+* `FocusedElementSelector` - `string` - defines the CSS selector of the initially focused item on open. By default, it is the first focusable item in the dialog.
 
 * `Class` - `string` - defines the class of the component instance.
 
 * `Width` - `string` - defines the width of the Dialog.
 
 * `Height` - `string` - defines the height of the Dialog.
-
-* `ShowCloseButton` - `bool` - defines the close behavior of the component - whether the component should render close flat button in the titlebar.
-
-* `CloseOnOverlayClick` - `bool` - defines whether clicking on the modal overlay should close the Dialog.
-
-* `FocusedElementSelector` - `string` - defines the CSS selector of the initially focused item on open. By default, it is the first focusable item in the dialog.
 
 ## See Also
 
