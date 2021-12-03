@@ -31,7 +31,7 @@ The InCell edit mode provides a specific user experience and behaves differently
 
 To enable InCell editing mode, set the `EditMode` property of the grid to `Telerik.Blazor.GridEditMode.Incell`. You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below. 
 
-To add a new item, you must add a [toolbar]({%slug components/grid/features/toolbar%}) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button - see [Events Sequence](#events-sequence) below.
+To add a new item, you must add a [toolbar]({%slug components/grid/features/toolbar%}) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button - see [Event Sequence](#event-sequence) below.
 
 It is up to the data access logic to save the data once it is changed in the data collection. The example below showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
 
