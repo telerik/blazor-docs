@@ -15,6 +15,11 @@ You can export the grid to Excel with a click of a button. The current filter, s
 When you click the Export button, your browser will receive the resulting file.
 
 
+#### In this article
+
+* [Basics](#basics)
+* [Notes](#notes)
+
 ## Basics
 
 To enable the grid Excel Export, add a [command button]({%slug components/grid/columns/command%}) with the `ExcelExport` command name to the [toolbar]({%slug components/grid/features/toolbar%}).
