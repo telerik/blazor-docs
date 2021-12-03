@@ -30,7 +30,7 @@ The InCell edit mode provides a specific user experience and behaves differently
 
 ## Basics
 
-To enable InCell editing mode, set the `EditMode` property of the grid to `Telerik.Blazor.TreeListEditMode.Incell`. You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below. 
+To enable InCell editing mode, set the `EditMode` property of the TreeList to `Telerik.Blazor.TreeListEditMode.Incell`. You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below.
 
 To add a new item, you must add a [toolbar]({%slug treelist-toolbar%}) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button - see [Event Sequence](#event-sequence) below.
 
