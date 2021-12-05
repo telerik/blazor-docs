@@ -10,7 +10,7 @@ position: 7
 
 # Dialog Action Buttons
 
-The Dialog provides options for rendering action buttons and customizing their content. To specify action buttons in the Dialog, use the `DialogButtons` tag. You can customize the layout of the buttons by using the `ButtonsLayout` property.
+The Dialog provides options for rendering action buttons and customizing their content. The action buttons of the Dialog allow you to provide specific interaction to users. To specify action buttons in the Dialog, use the `DialogButtons` tag. You can customize the layout of the buttons by using the `ButtonsLayout` property.
 
 ## Example
 
