@@ -19,7 +19,7 @@ You can configure the `TabStripTab` instances in a TabStrip through the followin
 
 ## Title
 
-The `Title` parameter allows you to define the desired text that will be rendered in the Tab heading. If not set, no text will be rendered in the `TabStrip` heading.
+The `Title` parameter allows you to define the desired text that will be rendered in the Tab heading. If not set, no text will be rendered in the Tab heading.
 
 >caption Set the desired title for the tab heading.
 
