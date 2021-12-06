@@ -58,7 +58,7 @@ To use a Telerik TabStrip for Blazor:
 * `Class` - the CSS class that will be rendered on the main wrapping element of the component.
 * `ActiveTabIndex` - allows you get and set the currently shown tab index through two-way binding, and also provides an event for the tab change. To deactivate all tabs, set it to `-1`.
 * `TabPosition` - allows you to set the desired position of the tab headers. Read more in [Tabs - Position]({%slug tabstrip-tabs-position%}) article.
-* `PersistTabContent` - defines whether the tab content will be preserved if the tab is inactive. Read more in the [Persist Content]({%slug tabstrip-persist-content%}) article.
+* `PersistTabContent` - defines whether the tab content will remain in the DOM when the tab is inactive (`false` by default). Read more in the [Persist Content]({%slug tabstrip-persist-content%}) article.
 
 
 ## Example
