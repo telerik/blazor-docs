@@ -10,7 +10,7 @@ position: 17
 
 # Tabs Collection
 
-The TabStrip allows you to render its tabs by iterating a collection of configurable objects.
+In some cases, you might need to declare tabs for objects in a collection. The TabStrip allows you to render its tabs by iterating that collection.
 
 This is an alternative approach for configuring the component instead of manually declaring each tab as a separate `TabStripTab` instance inside the `TabStrip` tag.
 

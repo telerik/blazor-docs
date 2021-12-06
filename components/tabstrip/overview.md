@@ -24,8 +24,7 @@ To use a Telerik TabStrip for Blazor:
 1. Use the `<TelerikTabStrip>` tag
 1. Inside it add an instance of `<TabStripTab>` tag for each tab you want to include in the component
 1. Place the desired content in the tabs - it can be any content, including other components
-1. (Optional) Configure the separate tab instances and their position - Read more in [Tabs]({%slug tabstrip-tabs%})
-article
+1. (Optional) Configure the separate tab instances and their position - Read more in [Tabs Configuration]({%slug tabstrip-tabs-configuration%}) and [Tabs Position]({%slug tabstrip-tabs-position%}) articles.
 
 >caption A Telerik TabStrip with example reference, tab position and disabled tab
 
@@ -58,7 +57,7 @@ article
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the component.
 * `ActiveTabIndex` - allows you get and set the currently shown tab index through two-way binding, and also provides an event for the tab change. To deactivate all tabs, set it to `-1`.
-* `TabPosition` - allows you to set the desired position of the tab headers. Read more in [Tabs - Position]({%slug tabstrip-tabs%}#position) section.
+* `TabPosition` - allows you to set the desired position of the tab headers. Read more in [Tabs - Position]({%slug tabstrip-tabs-position%}) article.
 * `PersistTabContent` - defines whether the tab content will be preserved if the tab is inactive. Read more in the [Persist Content]({%slug tabstrip-persist-content%}) article.
 
 

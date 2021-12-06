@@ -1,47 +1,21 @@
 ---
-title: Tabs
-page_title: TabStrip Tabs
+title: Tabs Configuration
+page_title: TabStrip Tabs Configuration
 description: Overview of the TabStrip for Blazor.
-slug: tabstrip-tabs
+slug: tabstrip-tabs-configuration
 tags: telerik,blazor,tab,strip,tabstrip,overview
 published: True
 position: 7
 ---
 
-# Tabs
+# Tabs Configuration
 
 You can configure the `TabStripTab` component and its child `TabStrip` instances through the following parameters:
 
-* [Position](#position)
 * [Title](#title)
 * [Visible](#visible)
 * [Disabled](#disabled)
 
-
-## Position
-
-To control the position of the tab titles, the main `TelerikTabStrip` tag exposes the optional `TabPosition` attribute that takes a member of the `Telerik.Blazor.TabPosition` enumeration:
-
-* `Top` (default)
-* `Left`
-* `Right`
-* `Bottom`
-
->caption Set the desired tab position.
-
-````CSHTML
-<TelerikTabStrip TabPosition="@TabPosition.Left">
-    <TabStripTab Title="First">
-        First tab content.
-    </TabStripTab>
-    <TabStripTab Title="Second">
-        Second tab content.        
-    </TabStripTab>
-    <TabStripTab Title="Third">
-        Third tab content.
-    </TabStripTab>
-</TelerikTabStrip>
-````
 
 ## Title
 
