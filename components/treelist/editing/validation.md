@@ -296,7 +296,7 @@ To disable the built-in validation, add a `<TreeListValidationSettings>`tag  to 
 }
 ````
 
-## Use a custom validator
+## Use a Custom Validator
 
 You can validate the TreeList with any validator that uses the `EditContext`. To change the default validator, add a `<ValidatorTemplate>` tag in `<TreeListSettings>`. Define the custom validator in the `ValidatorTemplate`. 
 
