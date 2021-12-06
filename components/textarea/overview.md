@@ -78,6 +78,8 @@ To use the Telerik TextArea in your Blazor application:
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
+* `ValidateOn` - configures the event that will trigger the validation (if the validation is enabled). Read more in the [Validation Mode for Simple Inputs]({%slug common-features/input-validation%}#validation-mode-for-simple-inputs) section.
+
 >caption TextArea with its most common features and symbols counter
 
 ````CSHTML

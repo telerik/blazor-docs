@@ -79,6 +79,8 @@ To use a Telerik MaskedTextbox for Blazor:
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
+* `ValidateOn` - configures the event that will trigger the validation (if the validation is enabled). Read more in the [Validation Mode for Simple Inputs]({%slug common-features/input-validation%}#validation-mode-for-simple-inputs) section.
+
 
 ## Some Sample Masks
 

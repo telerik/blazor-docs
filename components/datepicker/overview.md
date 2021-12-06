@@ -71,6 +71,8 @@ The Blazor Date Picker component exposes the following features:
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
+* `ValidateOn` - configures the event that will trigger the validation (if the validation is enabled). Read more in the [Validation Mode for Simple Inputs]({%slug common-features/input-validation%}#validation-mode-for-simple-inputs) section.
+
 The date picker is, essentially, a [date input]({%slug components/dateinput/overview%}) and a [calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
