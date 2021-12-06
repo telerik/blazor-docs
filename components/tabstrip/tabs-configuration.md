@@ -10,7 +10,7 @@ position: 7
 
 # Tabs Configuration
 
-You can configure the `TabStripTab` component and its child `TabStrip` instances through the following parameters:
+You can configure the `TabStripTab` instances in a TabStrip through the following parameters:
 
 * [Title](#title)
 * [Visible](#visible)
