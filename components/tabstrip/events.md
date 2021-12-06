@@ -8,7 +8,7 @@ published: True
 position: 20
 ---
 
-# Tab Strip Events
+# TabStrip Events
 
 This article explains the events available in the Telerik TabStrip for Blazor:
 

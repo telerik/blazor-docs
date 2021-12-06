@@ -8,7 +8,7 @@ published: True
 position: 7
 ---
 
-# Tabs Configuration
+# TabStrip Tabs Configuration
 
 You can configure the `TabStripTab` instances in a TabStrip through the following parameters:
 

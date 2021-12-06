@@ -8,7 +8,7 @@ published: True
 position: 15
 ---
 
-# Header Template
+# TabStrip Header Template
 
 The TabStrip `HeaderTemplate` allows you to define custom content in the tab header - such as components, icons or badges, instead of plain text.
 

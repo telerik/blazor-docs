@@ -1,6 +1,6 @@
 ---
 title: Tabs Collection
-page_title: Tabs Collection
+page_title: TabStrip Tabs Collection
 description: Overview of the TabStrip for Blazor.
 slug: tabstrip-tabs-collection
 tags: telerik,blazor,tab,strip,tabstrip,collection
@@ -8,7 +8,7 @@ published: True
 position: 17
 ---
 
-# Tabs Collection
+# TabStrip Tabs Collection
 
 In some cases, you might need to declare tabs for objects in a collection. The TabStrip allows you to render its tabs by iterating that collection.
 

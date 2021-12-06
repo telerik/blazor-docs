@@ -8,7 +8,7 @@ published: True
 position: 10
 ---
 
-# Tabs Position
+# TabStrip Tabs Position
 
 By default, the tab titles display on top of the tab content.
 

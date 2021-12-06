@@ -8,7 +8,7 @@ published: True
 position: 13
 ---
 
-# Persist Content
+# TabStrip Persist Content
 
 By default, the content of a Tab is rendered in the DOM when this Tab is active. Once it is deactivated, its content is disposed and re-initialized again when the user selects the corresponding tab.
 
