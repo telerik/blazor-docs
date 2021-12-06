@@ -176,7 +176,7 @@ To disable the built-in validation, add a `<GridValidationSettings>` tag to the 
 }
 ````
 
-## Use a custom validator
+## Use a Custom Validator
 
 You can validate the Grid with any validator that uses the `EditContext`. To change the default validator, add the `ValidatorTemplate` tag, a child of the `<GridSettings>`. In the `ValidatorTemplate` you should define the custom validator that your application requires. 
 
