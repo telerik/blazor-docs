@@ -15,7 +15,6 @@ The Telerik UI for Blazor TreeList supports built-in validation that is enabled 
 #### In this article:
 
 * [Disable the validation](#disable-the-validation)
-
 * [Use a custom validator](#use-custom-validator)
 
 ## Disable the validation
