@@ -1,6 +1,6 @@
 ---
 title: Validation
-page_title: Grid - Validation
+page_title: Grid Validation
 description: Built-in validation in the Grid and how to customize the validation behavior.
 slug: grid-editing-validation
 tags: telerik,blazor,grid,validation,editing
