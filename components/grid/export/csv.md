@@ -17,7 +17,7 @@ When you click the Export button, your browser will receive the resulting file.
 #### In this article
 
 * [Basics](#basics)
-* [Programmatic Export From Code](#programmatic-export-from-code)
+* [Programmatic Export](#programmatic-export)
 * [Notes](#notes)
 
 ## Basics
