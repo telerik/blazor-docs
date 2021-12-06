@@ -10,7 +10,7 @@ position: 10
 
 # Tabs Position
 
-By default, the tab titles are positioned on top of the tabs.
+By default, the tab titles display on top of the tab content.
 
 You can customize their position through the optional `TabPosition` attribute the main `TelerikTabStrip` tag exposes. It takes a member of the `Telerik.Blazor.TabPosition` enumeration:
 
