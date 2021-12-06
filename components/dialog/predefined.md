@@ -5,7 +5,7 @@ description: Predefined Dialogs (alert, confirm, prompt) for Blazor.
 slug: dialog-predefined
 tags: telerik,blazor,dialog,predefined,alert,confirm,prompt
 published: true
-position: 10
+position: 2
 ---
 
 # Predefined Dialogs - Alert, Confirm, Prompt
