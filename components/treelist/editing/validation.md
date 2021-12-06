@@ -12,7 +12,7 @@ position: 40
 
 The Telerik UI for Blazor TreeList supports built-in validation that is enabled by default. The component passes an `EditContext` as a cascading value to the editable cells. If any validation messages are present the TreeList will render them as [Validation Tooltips]({%slug validation-tools-tooltip%}) on hover of the specific editor. 
 
-#### In this article:
+#### In this Article:
 
 * [Disable the validation](#disable-the-validation)
 * [Use a custom validator](#use-custom-validator)
