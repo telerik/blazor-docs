@@ -10,11 +10,11 @@ position: 5
 
 # Dialog Header
 
-The header contains the `Title` and the `Close Action` button.
+The header contains the `Title` and the [`Close Action` button]({%slug dialog-action-buttons%}).
 
 There are two ways to define a Dialog title:
 * a string `Title` attribute of the component
-* a nested `<DialogTitle>` template.
+* a nested `<DialogTitle>` render fragment.
 
 The default `Title` value is `null`.
 
