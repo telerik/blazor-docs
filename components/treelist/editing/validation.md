@@ -1,6 +1,6 @@
 ---
 title: Validation
-page_title: TreeList - Validation
+page_title: TreeList Validation
 description: Built-in validation in the TreeList and how to customize the validation behavior.
 slug: treelist-editing-validation
 tags: telerik,blazor,treelist,validation,editing
