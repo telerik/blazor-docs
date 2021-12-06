@@ -22,7 +22,7 @@ This article provides information about the <a href = "https://www.telerik.com/b
 To use a Telerik TabStrip for Blazor:
 
 1. Use the `<TelerikTabStrip>` tag
-1. Inside it add an instance of `<TabStripTab>` tag for each tab you want to include in the component
+1. Add a nested `<TabStripTab>` tag for each tab you want to include in the component
 1. Place the desired content in the tabs - it can be any content, including other components
 1. (Optional) Configure the separate tab instances and their position - Read more in [Tabs Configuration]({%slug tabstrip-tabs-configuration%}) and [Tabs Position]({%slug tabstrip-tabs-position%}) articles.
 
