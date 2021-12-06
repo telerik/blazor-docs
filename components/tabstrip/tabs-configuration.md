@@ -39,7 +39,7 @@ The `Title` parameter allows you to define the desired text that will be rendere
 
 ## Visible
 
-You can control the visibility of the tabs through the `Visible` parameter the `TabStripTab` exposes. If you toggle a tab visibility at runtime, its order will be preserved.
+Control tab visibility through the `Visible` parameter of the `TabStripTab`. If you toggle the visibility at runtime, the tab order will be preserved. This is in contrast with adding a tab at runtime with a conditional statement, which adds it at last position.
 
 >caption Toggle the visibility of the second tab
 
