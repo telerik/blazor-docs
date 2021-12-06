@@ -12,20 +12,19 @@ position: 0
 
 This article provides information about the <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Blazor TabStrip component</a> and its core features.
 
-#### Basics
+>caption In this article:
+* [Basics](#basics)
+* [Features](#features)
+* [Example](#example)
 
-The TabStrip is defined through the `<TelerikTabStrip>` tag that accepts children of type `<TabStripTab>`. Inside the tabs you can add content like in any other container, including other components.
+## Basics
 
-The tab exposes a `Title` attribute that is the text rendered in the heading. It also offers the `Disabled` attribute that allows you to disable its selection.
+To use a Telerik TabStrip for Blazor:
 
-The `ActiveTabIndex` parameter lets you get and set the currently shown tab index through two-way binding, and also provides an event for the tab change. To deactivate all tabs, set it to `-1`.
-
-To control the position of the tab titles, the main TabStrip tag exposes the optional `TabPosition` attribute that takes a member of the `Telerik.Blazor.TabPosition` enumeration:
-
-* `Top` (default)
-* `Left`
-* `Right`
-* `Bottom`
+1. Use the `<TelerikTabStrip>` tag
+1. Add a nested `<TabStripTab>` tag for each tab you want to include in the component
+1. Set tab titles through the `Title` parameter of the `<TabStripTab>` tags. You can additionally configure the tabs as desired - read more in the [Tabs Configuration]({%slug tabstrip-tabs-configuration%}) article
+1. Place the desired content in the tabs - it can be any content, including other components
 
 >caption A Telerik TabStrip with example reference, tab position and disabled tab
 
@@ -53,7 +52,18 @@ To control the position of the tab titles, the main TabStrip tag exposes the opt
 
 ![](images/tabstrip-left.png)
 
->caption Get and set the selected tab index
+
+## Features
+
+* `Class` - the CSS class that will be rendered on the main wrapping element of the component.
+* `ActiveTabIndex` - allows you get and set the currently shown tab index through two-way binding, and also provides an event for the tab change. To deactivate all tabs, set it to `-1`.
+* `TabPosition` - allows you to set the desired position of the tab headers. Read more in [Tabs - Position]({%slug tabstrip-tabs-position%}) article.
+* `PersistTabContent` - defines whether the tab content will remain in the DOM when the tab is inactive (`false` by default). Read more in the [Persist Content]({%slug tabstrip-persist-content%}) article.
+
+
+## Example
+
+Get and set the selected tab index
 
 ````CSHTML
 Active Tab Index: @ActiveTabIndex
@@ -81,54 +91,6 @@ Active Tab Index: @ActiveTabIndex
     }
 }
 ````
-
-
->caption Extract information for the currently selected tab from your model. Alter the model to affect the TabStrip. Create tabs dynamically based on external data.
-
-You can find another example with some more details in the following sample project: [Dynamic Tabs](https://github.com/telerik/blazor-ui/tree/master/tabstrip/DynamicTabs).
-
-````CSHTML
-@result
-
-<TelerikTabStrip ActiveTabIndexChanged="@TabChangedHandler">
-    @{
-        foreach (MyTabModel item in tabs)
-        {
-            <TabStripTab Title="@item.Title" Disabled="@item.Disabled">
-                Content for tab @item.Title
-            </TabStripTab>
-        }
-    }
-</TelerikTabStrip>
-
-<TelerikButton OnClick="@( () => tabs[1].Disabled = !tabs[1].Disabled )">Toggle the Disabled state of the second tab</TelerikButton>
-
-@code {
-    MarkupString result { get; set; }
-    void TabChangedHandler(int newIndex)
-    {
-        string tempResult = $"current tab {newIndex} selected on {DateTime.Now}";
-        MyTabModel currTab = tabs[newIndex];
-        tempResult += $"<br />the new tab has a title {currTab.Title}";
-        result = new MarkupString(tempResult);
-    }
-
-    List<MyTabModel> tabs = new List<MyTabModel>()
-    {
-        new MyTabModel { Title = "One" },
-        new MyTabModel { Title = "Two", Disabled = true },
-        new MyTabModel { Title = "Three" }
-    };
-
-    public class MyTabModel
-    {
-        public string Title { get; set; }
-        public bool Disabled { get; set; }
-    }
-}
-````
-
->tip If you render components in the tabs created in a `foreach` loop, you may want to set their `@key` parameter to unique values, in order to ensure they will re-render. If you do not, the framework will render one instance of your custom component for all tabs and will only set its parameters, it will not initialize anew (`OnInitialized` will not fire a second time, only `OnParametersSet` will).
 
 ## See Also
 
