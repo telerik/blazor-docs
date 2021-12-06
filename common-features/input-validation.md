@@ -146,7 +146,7 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         public DateTime? DailyScrum { get; set; }
 
         [Required(ErrorMessage = "Enter a starting time")]
-        [Range(typeof(DateTime), "29/11/2018 10:00:00", "22/12/2025 17:00:00",
+        [Range(typeof(DateTime), "11/29/2018 10:00:00", "12/22/2025 17:00:00",
             ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy HH:mm} and {2:dd MMM yyyy HH:mm}")]
         public DateTime StartTime { get; set; }
 
@@ -158,8 +158,8 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         [Range(typeof(bool), "true", "true", ErrorMessage = "Must subscribe to the newsletter")]
         public bool SubscribeToNewsletter { get; set; }
 
-        [Required(ErrorMessage="You should add a note.")]
-        [MaxLength(300, ErrorMessage ="Your notes are too long.")]
+        [Required(ErrorMessage = "You should add a note.")]
+        [MaxLength(300, ErrorMessage = "Your notes are too long.")]
         public string PersonalNotes { get; set; }
     }
 
@@ -876,7 +876,7 @@ The feature is supported by the following components treated as simple textbox-l
         public DateTime FavoriteDay { get; set; }
 
         [Required(ErrorMessage = "Enter a starting time")]
-        [Range(typeof(DateTime), "29/11/2018 10:00:00", "22/12/2025 17:00:00",
+        [Range(typeof(DateTime), "11/29/2018 10:00:00", "12/22/2025 17:00:00",
             ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy HH:mm} and {2:dd MMM yyyy HH:mm}")]
         public DateTime StartTime { get; set; }
 
@@ -895,7 +895,7 @@ The feature is supported by the following components treated as simple textbox-l
     void HandleValidSubmit()
     {
         Console.WriteLine("OnValidSubmit");
-    }    
+    }
 }
 ````
 

@@ -31,6 +31,8 @@ Is there a way to disable this behaviour?
 
 We believe that firing the validation immediately makes the user experience more fluid and lets the user know about form issues quickly, which reduces frustration. Thus, we fire validation with the `ValueChanged` event.
 
+>tip As of Telerik UI for Blazor version 2.30.0, the simple inputs expose `ValidateOn` parameter that allows you to configure the event triggering their validation (`OnChange` or `OnInput`). Read more in the [Validation Mode for Simple Inputs]({%slug common-features/input-validation%}#validation-mode-for-simple-inputs) section.
+
 ### Differences with standard inputs
 
 The standard inputs (such as `InputText` and `InputNumber`) use the `onchange` DOM event to change the `Value` of the model. We have chosen to use `oninput` to provide immediate feedback.
