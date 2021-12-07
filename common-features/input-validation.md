@@ -759,7 +759,7 @@ The Color Palette component, while not an input, can work with validation so you
 
 Simple textbox-like inputs can trigger validation at different events. You can customize that through the `ValidateOn` parameter. It takes a member of the `ValidationEvent` enum and provides the following options:
 
-* `Input` - (the default) - triggers validation `OnInput`
+* `Input` - (default) - triggers validation on each key press (`oninput`)
 * `Change` - triggers validation `OnChange`
 
 The feature is supported by the following components treated as simple textbox-like inputs:
