@@ -757,7 +757,7 @@ The Color Palette component, while not an input, can work with validation so you
 
 ## Validation Mode for Simple Inputs
 
-Simple textbox-like inputs provide an option to configure the event triggering their validation. You can customize that event through the `ValidateOn` parameter they expose. It takes a member of the `ValidationEvent` enum and provides the following options:
+Simple textbox-like inputs can trigger validation at different events. You can customize that through the `ValidateOn` parameter. It takes a member of the `ValidationEvent` enum and provides the following options:
 
 * `Input` - (the default) - triggers validation `OnInput`
 * `Change` - triggers validation `OnChange`
