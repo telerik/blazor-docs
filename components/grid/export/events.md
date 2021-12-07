@@ -34,7 +34,7 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
 
     * `Width` - define the width of the column **in pixels**.
     * `Title` - define the column title to be shown in the Excel file header. 
-    * `NumberFormat` - you can use the `NumberFormat` to provide an Excel-compatible number/date format
+    * `NumberFormat` - provide an Excel-compatible number/date format
     * `Field` - provides the data bound field of the column.
     
     
