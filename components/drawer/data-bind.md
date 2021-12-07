@@ -28,7 +28,7 @@ The drawer items provide the following features that you control through the cor
 * `Text` - the text that will be shown on the item.
 * `ImageUrl` / `Icon` / `IconClass`  - the URL to a raster image, the [Telerik icon]({%slug general-information/font-icons%}), or a class for a custom font icon that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `ImageUrl` will have the highest importance).
 * `Url` - the view the item will navigate to by generating a link.
-* `Separator` - whether the item will be a separator line instead of a clickable item.
+* `Separator` - whether the item will be a separator line instead of a clickable item. (`IsSeparator` is deprecated and [will be removed in version 3.0]({%slug changes-in-3-0-0%}).)
 
 ## Data Bindings
 
@@ -40,7 +40,7 @@ The properties of a drawer item match directly to a field of the model the drawe
 * IconField => Icon
 * ImageUrlField => ImageUrl
 * UrlField => Url
-* SeparatorField => Separator
+* SeparatorField => Separator (`IsSeparatorField` is deprecated and [will be removed in version 3.0]({%slug changes-in-3-0-0%}).)
 
 
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
