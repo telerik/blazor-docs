@@ -44,47 +44,35 @@ To implement a responsible popup that can be minimized to the bottom of the page
 
 <TelerikMediaQuery Media="(max-width: 960px)" OnChange="((changed) => Small = changed)"></TelerikMediaQuery>
 
-@if (Small && !isModal)
-{
-    <TelerikWindow Class="minimized" Modal="@isModal" Top="100px" Left="300px" @bind-Visible="@isModalVisible">
-        <WindowTitle>
-            <strong>@Title[0]</strong>
-        </WindowTitle>
-        <WindowContent>
-        </WindowContent>
-        <WindowActions>
-            <WindowAction Name="MyExpander" Icon="window" OnClick="@MyCustomExpand" />
-        </WindowActions>
-    </TelerikWindow>
-}
-else
-{
-    <TelerikWindow Modal="@isModal" Top="@Top" Left="@Left" @bind-Visible="@isModalVisible">
-        <WindowTitle>
-            <strong>@Title</strong>
-        </WindowTitle>
-        <WindowContent>
-            @if (isModal)
-            {
-                @Content
-            }
-        </WindowContent>
-        <WindowActions>
-            <WindowAction Name="MyMinimizer" Hidden="@(!isModal)" Icon="window-minimize" OnClick="@MyCustomMinimize" />
-            <WindowAction Name="MyExpander" Hidden="@isModal" Icon="window" OnClick="@MyCustomExpand" />
-        </WindowActions>
-    </TelerikWindow>
-}
+<TelerikWindow Class="@myClass" Modal="@isModal"
+               Top="@(Small == true && !isModal ? "100px" : Top)"
+               Left="@(Small == true && !isModal ? "300px" : Left)" 
+               @bind-Visible="@isModalVisible">
+    <WindowTitle>
+        <strong>@Title</strong>
+    </WindowTitle>
+    <WindowContent>
+        @if (isModal)
+        {
+            @Content
+        }
+    </WindowContent>
+    <WindowActions>
+        <WindowAction Name="MyMinimizer" Hidden="@(!isModal)" Icon="window-minimize" OnClick="@MyCustomMinimize" />
+        <WindowAction Name="MyExpander" Hidden="@isModal" Icon="window" OnClick="@MyCustomExpand" />
+    </WindowActions>
+</TelerikWindow>
 
 @code {
     bool isModalVisible { get; set; } = true;
     bool isModal { get; set; } = true;
     private bool Small { get; set; }
 
-    string Title = "My Responsive Popup";
+    string Title => Small == true && !isModal ? "M" : "My Responsive Popup";
     string Content = "---------- Welcome to our Minimized/Collapsed popup! ----------";
     string Top = "40%";
     string Left = "40%";
+    string myClass => Small == true && !isModal ? "minimized" : "";
 
     public void MyCustomMinimize()
     {
@@ -111,7 +99,7 @@ else
         }
 
         .k-window-titlebar {
-            border-style:none;
+            border-style: none;
         }
 
         .minimized {
