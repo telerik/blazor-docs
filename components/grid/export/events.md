@@ -45,7 +45,7 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
 
 ### For CSV Export
 
-* `Data` - `IEnumerable<object>` - you can assign a custom collection of data to be exported to excel/csv such as the selected items in the Grid. 
+* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to CSV, for example only the selected items in the Grid. 
 
 * `isCancelled` -  `bool` - you can cancel the OnBeforeExcel event by setting the `isCancelled` field to `true`.
 
