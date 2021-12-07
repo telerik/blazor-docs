@@ -93,7 +93,7 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 }
 ````
 
-## Programmatic Export From Code
+## Programmatic Export
 
 You can programmatically invoke the export feature of the Grid, by using the following methods exposed on the `@ref` of the Grid:
 
