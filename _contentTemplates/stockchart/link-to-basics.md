@@ -33,10 +33,16 @@ Column, OHLC and Candlestick charts can take the color of the series item from t
 ### Customize Chart Elements - Nested Tags Settings
 
 When configuring nested properties and child elements in your chart, the inner tags will contain their parent tag name and add specifics to its end. In general the structure of such nested tags will be `<StockChart*Category**Specifics*>` where the Category can be one of the following:
-* SeriesItems
-* CategoryAxes
-* Title
+
+* CategoryAxis
+* ChartArea
 * Legend
+* Navigator
+* PlotArea
+* SeriesItems
+* Title
+* Tooltip
+* ValueAxis
 * and others
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#tip-look-for-nested-tags)

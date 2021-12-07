@@ -141,12 +141,17 @@ You can control how transparent the series fill is through the `Opacity` propert
 ### Customize Chart Elements - Nested Tags Settings
 
 When configuring nested properties and child elements in your chart, the inner tags will contain their parent tag name and add specifics to its end. In general the structure of such nested tags will be `<Chart*Category**Specifics*>` where the Category can be one of the following:
-* SeriesItems
-* CategoryAxes
-* Title
+
+* CategoryAxis
+* ChartArea
 * Legend
-* ChartXAxes
-* ChartYAxes
+* PlotArea
+* SeriesItems
+* Title
+* Tooltip
+* ValueAxis
+* XAxes
+* YAxes
 * and others
 
 @[template](/_contentTemplates/chart/link-to-basics.md#tip-look-for-nested-tags)
