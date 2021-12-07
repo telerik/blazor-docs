@@ -14,7 +14,7 @@ The UI for Blazor suite supports and integrates seamlessly into Blazor's Forms a
 In this article:
 
 * [Validation Basics](#validation-basics)
-* [Validation Mode for Simple Inputs](#validation-mode-for-simple-inputs)
+* [Validation Modes for Simple Inputs](#validation-modes-for-simple-inputs)
 
 ## Validation Basics
 
@@ -755,22 +755,22 @@ The Color Palette component, while not an input, can work with validation so you
 }
 ````
 
-## Validation Mode for Simple Inputs
+## Validation Modes for Simple Inputs
 
-Simple textbox-like inputs can trigger validation at different events. You can customize that through the `ValidateOn` parameter. It takes a member of the `ValidationEvent` enum and provides the following options:
+The simple textbox-like inputs (listed below) can trigger validation at different events. You can customize that through the `ValidateOn` parameter. It takes a member of the `ValidationEvent` enum and provides the following options:
 
 * `Input` - (default) - triggers validation on each key press (`oninput`)
 * `Change` - triggers validation on confirmed value change (`OnChange`)
 
 The feature is supported by the following components treated as simple textbox-like inputs:
 
-* TextBox
-* TextArea
-* MaskedTextBox
-* NumericTextBox
 * DateInput
 * DatePicker
 * DateTimePicker
+* MaskedTextBox
+* NumericTextBox
+* TextArea
+* TextBox
 * TimePicker
 
 >caption Configure the event triggering the input validation
