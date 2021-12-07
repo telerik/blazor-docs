@@ -56,7 +56,7 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
 
 <div class="skip-repl"></div>
 ````Excel
-@* This example showcases the capabilities of the OnBeforeExport event when exporting the Grid to excel. *@
+@* This example shows the capabilities of the OnBeforeExport event when exporting the Grid to excel. *@
 
 @using Telerik.Documents.SpreadsheetStreaming
 
