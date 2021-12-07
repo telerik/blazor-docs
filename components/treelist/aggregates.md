@@ -31,6 +31,7 @@ To enable aggregates:
 
 1. Set the grid's `Groupable` property to `true`.
 1. Under the `GridAggregates` tag, define the `GridAggregate` entries to enable the aggregations per field you want to use.
+1. If the TreeList is bound to a dynamic object, set the `FieldType` attribute of the `GridAggregate` tag (it is of type `Type`).
 1. Use the aggregate result in the templates that support it - their `context` is strongly typed and carries the aggregate values in the respective fields.
 1. Group the grid to see the effect
 
