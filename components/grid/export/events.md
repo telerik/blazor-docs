@@ -35,7 +35,7 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
     * `Width` - define the width of the column **in pixels**.
     * `Title` - define the column title to be shown in the Excel file header. 
     * `NumberFormat` - provide an Excel-compatible number/date format
-    * `Field` - provides the data bound field of the column.
+    * `Field` - set the data bound field of the column.
     
     
 * `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to Excel, for example only the selected items in the Grid. 
