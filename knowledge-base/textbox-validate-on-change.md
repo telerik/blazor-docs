@@ -31,7 +31,7 @@ Is there a way to disable this behaviour?
 
 We believe that firing the validation immediately makes the user experience more fluid and lets the user know about form issues quickly, which reduces frustration. Thus, we fire validation with the `ValueChanged` event.
 
->tip Telerik UI for Blazor 2.30 adds a `ValidateOn` parameter to input components. It defines the event that triggers validation (`OnChange` or `OnInput`). Read more at [Validation Mode for Simple Inputs]({%slug common-features/input-validation%}#validation-mode-for-simple-inputs).
+>tip Telerik UI for Blazor 2.30 adds a `ValidateOn` parameter to input components. It defines the event that triggers validation (`OnChange` or `OnInput`). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
 
 ### Differences with standard inputs
 

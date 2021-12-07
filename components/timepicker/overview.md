@@ -75,7 +75,7 @@ The Time Picker component exposes the following features:
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
-* `ValidateOn` - configures the event that will trigger the validation (if the validation is enabled). Read more in the [Validation Mode for Simple Inputs]({%slug common-features/input-validation%}#validation-mode-for-simple-inputs) section.
+* `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
 
 The `Min` and `Max` properties require a `DateTime` object, but will only use the time portion from it. Thus, the date itself is not important. The hours, minutes, seconds and AM/PM portions control the range of the tumblers in the time picker dropdown. They do not impose validation/limitations on the input editing.
 

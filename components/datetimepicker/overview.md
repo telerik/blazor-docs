@@ -74,7 +74,7 @@ The DateTimePicker component exposes the following features:
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
-* `ValidateOn` - configures the event that will trigger the validation (if the validation is enabled). Read more in the [Validation Mode for Simple Inputs]({%slug common-features/input-validation%}#validation-mode-for-simple-inputs) section.
+* `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
 
 When using the dropdown to edit dates, you must click the "Set" button to commit the date. It is located in the Time portion of the dropdown (you will be navigated to it automatically upon selecting a date). Clicking "Cancel", or outside of the dropdown without clicking "Set", will revert the time to the original value. You can also commit a date by clicking the "NOW" button which will choose the current time.
 
