@@ -32,7 +32,7 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
 
 * `Columns` - `List<ExcelExportableColumns` - a collection of all exportable columns in the Grid (the columns that have a defined `Field` and are visible). You can customize the following attributes of the Grid column before exporting it into Excel:
 
-    * `Width` - define the width of the column when exported to excel file.
+    * `Width` - define the width of the column **in pixels**.
     * `Title` - define the title of the column that would be shown in the header in excel file. 
     * `NumberFormat` - you can use the `NumberFormat` to provide an Excel-compatible number/date format
     * `Field` - provides the data bound field of the column.
