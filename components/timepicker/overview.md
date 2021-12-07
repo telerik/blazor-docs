@@ -70,10 +70,12 @@ The Time Picker component exposes the following features:
 * `Width` - Defines the width of the TimePicker.
 
 * `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
-* 
-* `Placeholder` - `string` - maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to **nullable** DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. 
+
+* `Placeholder` - `string` - maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to **nullable** DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object.
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
+
+* `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
 
 The `Min` and `Max` properties require a `DateTime` object, but will only use the time portion from it. Thus, the date itself is not important. The hours, minutes, seconds and AM/PM portions control the range of the tumblers in the time picker dropdown. They do not impose validation/limitations on the input editing.
 

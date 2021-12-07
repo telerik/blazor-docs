@@ -68,6 +68,8 @@ The numeric textbox provides the following features:
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
+* `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
+
 >caption Example of using a custom format strings
 
 ````CSHTML

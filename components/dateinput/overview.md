@@ -60,6 +60,8 @@ The date input provides the following features:
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
+* `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
+
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
 ## DateTime and Nullable DateTime
