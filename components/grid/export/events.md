@@ -202,7 +202,7 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
 
 ## OnAfterExport
 
-The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) event, and before the actual file is provided to the user. The event handler receives a `GridAfterExcelExportEventArgs` and `GridAfterCsvExportEventArgs` object, depending on the type of export, which provides the following fields:
+The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) event, and before the actual file is provided to the user. The event handler receives a `GridAfterExcelExportEventArgs` or `GridAfterCsvExportEventArgs` object, depending on the type of export, which provides the following fields:
 
 ### For Excel Export
 
