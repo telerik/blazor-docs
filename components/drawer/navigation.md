@@ -43,7 +43,7 @@ To use the Drawer for navigating between pages:
         new List<DrawerItem>
         {
             new DrawerItem { Text = "Home", Url = "/", Icon = "home" },
-            new DrawerItem { IsSeparator = true },
+            new DrawerItem { Separator = true },
             new DrawerItem { Text = "Counter", Url = "counter", Icon = "plus-outline" },
             new DrawerItem { Text = "FetchData", Url = "fetchdata", Icon = "grid" }
         };
@@ -53,7 +53,7 @@ To use the Drawer for navigating between pages:
         public string Text { get; set; }
         public string Url { get; set; }
         public string Icon { get; set; }
-        public bool IsSeparator { get; set; }
+        public bool Separator { get; set; }
     }
 }
 ````
