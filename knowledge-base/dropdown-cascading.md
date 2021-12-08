@@ -1,5 +1,5 @@
 ---
-title: Cascading DropdDown
+title: Cascading DropDowns
 description: how to make a cascading a dropdown or combo box.
 type: how-to
 page_title: Cascading DropDown or ComboBox
