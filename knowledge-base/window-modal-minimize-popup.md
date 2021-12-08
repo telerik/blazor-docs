@@ -45,8 +45,8 @@ To implement a responsible popup that can be minimized to the bottom of the page
 <TelerikMediaQuery Media="(max-width: 960px)" OnChange="((changed) => Small = changed)"></TelerikMediaQuery>
 
 <TelerikWindow Class="@myClass" Modal="@isModal"
-               Top="@(Small == true && !isModal ? "100px" : Top)"
-               Left="@(Small == true && !isModal ? "300px" : Left)" 
+               Top="@TopPosition"
+               Left="@LeftPosition" 
                @bind-Visible="@isModalVisible">
     <WindowTitle>
         <strong>@Title</strong>
@@ -70,8 +70,11 @@ To implement a responsible popup that can be minimized to the bottom of the page
 
     string Title => Small == true && !isModal ? "M" : "My Responsive Popup";
     string Content = "---------- Welcome to our Minimized/Collapsed popup! ----------";
+    string TopPosition => Small == true && !isModal ? "100px" : Top;
+    string LeftPosition => Small == true && !isModal ? "300px" : Left;
     string Top = "40%";
     string Left = "40%";
+
     string myClass => Small == true && !isModal ? "minimized" : "";
 
     public void MyCustomMinimize()
