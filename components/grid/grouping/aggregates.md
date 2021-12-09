@@ -47,7 +47,7 @@ You can use aggregates in the following templates:
 To enable aggregates:
 
 1. Under the `GridAggregates` tag, define the `GridAggregate` entries to enable the aggregations per field you want to use.
-1. If the Grid is bound to a dynamic object, set the `FieldType` attribute of the `GridAggregate` tag (it is of type `Type`).
+1. If the Grid is bound to a [dynamic object (Expando)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/walkthrough-creating-and-using-dynamic-objects), set the `FieldType` attribute of the `GridAggregate` tag (it is of type `Type`).
 1. Use the aggregate result in the templates that support it - their `context` is strongly typed and carries the aggregate values in the respective fields.
 1. Set the grid's `Groupable` property to `true`.
     * If you will be using only `FooterTemplate`s - grouping is not required.
