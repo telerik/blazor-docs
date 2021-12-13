@@ -566,6 +566,9 @@ platform: blazor
 ## CTA panels on every page for trials
 has_cta_panels: true
 
+## CTA overrides for docs-seed
+cta_panels_data_overwrites:
+   message: "professional grade UI library with 90+ native components for building modern and feature-rich applications."
 
 ## Color Scheme
 main_theme: blazor
