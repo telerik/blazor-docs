@@ -52,7 +52,7 @@ Action buttons expose the following properties:
 </TelerikWindow>
 
 @code {
-	bool HideMinimize {get; set; } = false;
+	bool HideMinMax {get; set; } = false;
 }
 ````
 
