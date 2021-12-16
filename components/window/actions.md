@@ -34,11 +34,11 @@ Action buttons expose the following properties:
 ````CSHTML
 <TelerikWindow Visible="true">
 	<WindowActions>
-		@if (!HideMinimize)
+		@if (!HideMinMax)
 		{
 			<WindowAction Name="Minimize" />
-		}		
-		<WindowAction Name="Maximize" />
+			<WindowAction Name="Maximize" />
+		}
 		<WindowAction Name="Close" Hidden="false" />
 	</WindowActions>
 	<WindowTitle>
