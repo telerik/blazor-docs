@@ -10,7 +10,7 @@ The `FormatPlaceholder` parameter allows you to set custom strings as placeholde
 * DateRangePicker
 * TimePicker
 
-To set up the `FormatPlaceholder`, you should use the `<*Component*FormatPlaceholder>` nested tag. It allows you to set format placeholders by using the following parameters:
+To set up the `FormatPlaceholder`, use the `<*Component*FormatPlaceholder>` nested tag. It allows you to set format placeholders by using the following parameters:
 
 * `Day`
 * `Month`
@@ -20,6 +20,6 @@ To set up the `FormatPlaceholder`, you should use the `<*Component*FormatPlaceho
 * `Second`
 * `Weekday`
 
-By default the value for all parameters would be `null`, the full format specifier for would be applied. 
+By default, the value for all parameters is `null`, which applies the full format specifier. 
 
 #end
