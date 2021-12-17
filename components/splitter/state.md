@@ -133,7 +133,7 @@ public class LocalStorage
 }
 ````
 
->tip You can use the [splitter events]({%slug splitter-events%}) to save its state for your users.
+>tip You can use the [splitter events]({%slug splitter-events%}) to save its state for your users. You can then set it every time the page is reloaded. Read more in this knowledge base article - [Save and Load the Splitter State]({%slug splitter-kb-save-and-load-state%}).
 
 ## See Also
 
