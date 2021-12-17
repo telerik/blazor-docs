@@ -166,7 +166,7 @@ The `Inline` tools work with or add an inline HTML element. Example of these are
 
 ### Color Tool Customization
 
-The `ForeColor` and `BackgroundColor` tools expose a `Colors` property that accepts a color collection as `IEnumerable<string>`. You can provide a member of [`ColorPalettePresets`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.ColorPalettePresets), or a custom list of colors.
+The `ForeColor` and `BackgroundColor` tools expose a `Colors` property that accepts a color collection as `IEnumerable<string>`. You can provide a member of [`ColorPalettePresets`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.ColorPalettePresets), or a custom list of [RGB(A) or HEX colors in different supported formats]({%slug colorpicker-overview%}#supported-value-formats).
 
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
@@ -178,7 +178,7 @@ The `ForeColor` and `BackgroundColor` tools expose a `Colors` property that acce
     string Value { get; set; }
 
     List<IEditorTool> Tools { get; set; } = new List<IEditorTool>() {
-        new ForeColor() { Colors = new List<string> { "red", "green", "blue" } },
+        new ForeColor() { Colors = new List<string> { "#f00", "#ff9900", "rgb(0, 128, 0)", "rgba(0, 0, 255, .8)" } },
         new BackgroundColor() { Colors = ColorPalettePresets.Basic }
     };
 }
