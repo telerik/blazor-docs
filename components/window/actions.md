@@ -23,7 +23,7 @@ To define action buttons, populate the `WindowActions` tag of the Window with `W
 Action buttons expose the following properties:
 
 * `Name` - the name of the action. Can be one of the built-in actions (see above), or a custom action name.
-* `Hidden` - a boolean property indicating whether the action button is rendered.
+* `Hidden` - a boolean property indicating whether the action button is rendered. Do not use for `Minimize` and `Maximize` actions - the Window manages their visibility internallty, based on the component state. Check the example below for a possible alternative.
 * `OnClick` - event handler so you can respond to custom action clicks.
 * `Icon` - the CSS class name of the icon that will be rendered. You can use the [Telerik font icons]({%slug general-information/font-icons%}) directly, or your own font icon font class.
 * `Title` - the `title` attribute of the action button.
@@ -34,9 +34,12 @@ Action buttons expose the following properties:
 ````CSHTML
 <TelerikWindow Visible="true">
 	<WindowActions>
-		<WindowAction Name="Minimize" />
-		<WindowAction Name="Maximize" />
-		<WindowAction Name="Close" />
+		@if (!HideMinMax)
+		{
+			<WindowAction Name="Minimize" />
+			<WindowAction Name="Maximize" />
+		}
+		<WindowAction Name="Close" Hidden="false" />
 	</WindowActions>
 	<WindowTitle>
 	    Optional title
@@ -47,6 +50,10 @@ Action buttons expose the following properties:
 		The titlebar will now render even if you don't define a title, because it will show the action buttons.
 	</WindowContent>
 </TelerikWindow>
+
+@code {
+	bool HideMinMax { get; set; } = false;
+}
 ````
 
 >caption The result from the code snippet above
