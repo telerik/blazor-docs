@@ -83,6 +83,11 @@ You can create a reference to an instance of the Blazor Calendar and use its met
     Telerik.Blazor.Components.TelerikCalendar myCalendarReference;
 }
 ````
+## Next Steps
+
+* [Configuring the Date Selection]({%slug components/calendar/selection%})
+
+* [Using the Calendar Events]({%slug components/calendar/events%})
 
 ## See Also
 
