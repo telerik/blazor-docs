@@ -73,6 +73,8 @@ for example: https://demos.telerik.com/blazor-ui/textbox/password
 
 * `Class` - the CSS class that will be rendered on the `input` element.
 
+* `DebounceDelay` - `int` - Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms.
+
 * `Enabled` - whether the `input` is enabled.
 
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
@@ -91,15 +93,13 @@ for example: https://demos.telerik.com/blazor-ui/textbox/password
 
 * `Title` - maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}).
 
-* `Value` - get/set the value of the input, can be used for binding.
-
-* `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
-
-* `DebounceDelay` - `int` - Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms.
-
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 * `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
+
+* `Value` - get/set the value of the input, can be used for binding.
+
+* `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
 
 ## See Also
 
