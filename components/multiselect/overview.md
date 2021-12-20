@@ -12,13 +12,17 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/multiselect" target="_blank">Blazor MultiSelect component</a> lets the user select several items from the available list. It is similar to a `<select multiple>` in this regard. The MultiSelect offers suggestions as you type and they can be [filtered]({%slug multiselect-filter%}). You can control the list of suggestions through [data binding]({%slug multiselect-databind%}), various appearance settings like [dimensions]({%slug common-features/dimensions%}) and [templates]({%slug multiselect-templates%}).
 
-#### To use a Telerik MultiSelect for Blazor
+## Creating MultiSelect
 
-1. add the `TelerikMultiSelect` tag
-1. populate its `Data` property with the collection of items you want in the dropdown
-1. (optional) enable features like [filtering]({%slug multiselect-filter%}) and clear button
+1. Use the `TelerikMultiSelect` tag to add the component to a view, for example, `~/Pages/Index.razor`.
 
->caption MultiSelect two-way value binding, main features and simple [data binding](data-bind)
+1. Populate the `Data` property with the collection of items that you want to appear in the dropdown.
+
+1. Set the [two-way value binding]({%slug get-started-value-vs-data-binding %}#value-binding) by using `@bind-Value`.
+
+1. (Optional) Enable features like placeholder text, clear button, and AutoClose.
+
+>caption MultiSelect two-way value binding, main features, and simple [data binding](data-bind)
 
 ````CSHTML
 @* Main features and simple data binding for the suggestions and the Value *@
@@ -60,143 +64,79 @@ The <a href="https://www.telerik.com/blazor-ui/multiselect" target="_blank">Blaz
 }
 ````
 
->caption The result from the code snippet above, after you select something
+## Data Binding
 
-![](images/multiselect-overview.png)
+The Blazor MultiSelect requires a data source so that it can populate the dropdown with data. To provide a data source, use the `Data` property. [Read more about the Blazor MultiSelect data binding...]({% slug multiselect-databind %})
 
->caption Component namespace and reference
+## Filter
 
-The MultiSelect is a generic component and its type is determined by the type of the model you use as its data source. You can find examples in the [Data Bind - Considerations]({%slug multiselect-databind%}#considerations) article.
+The Blazor MultiSelect has a built-in filter that narrows down the shown suggestions as the end-user types. To configure this feature, use the `Filterable` parameter. Additionally, you can choose between different filter operators and configure after how many symbols the list with suggestions will appear. [Read more about the Blazor MultiSelect filter...]({% slug multiselect-filter %})
 
+## Grouping
 
-## Features
+The Blazor MultiSelect enables you to group the listed suggestions into categories so you can help the end-user to browse faster through longer lists. [Read more about the Blazor MultiSelect grouping...]({% slug components/multiselect/grouping %})
 
->caption The MultiSelect provides the following features:
+## Pre-Selecting Items
 
-* `AutoClose` - `bool`, defaults to `true` - defines whether the dropdown list containing the items for the MultiSelect will automatically close after each user selection.
+To speed up the selection process, you can pre-select an item or a set of items for the end-user. This will work if the items are available in the data source. [Read more about the Blazor MultiSelect pre-selecting...]({% slug multiselect-pre-select-items %})
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the multiselect.
+## Templates
 
-* `PopupClass` - additional CSS class to customize the appearance of the MultiSelect's dropdown.
+You can use the functionality of the built-in templates and customize what is rendered in the items, header, and footer. [Read more about the Blazor MultiSelect templates...]({% slug multiselect-templates %})
 
-* `ClearButton` - whether the user will have the option to clear the selected items with a button on the input. When it is clicked, the `Value` will be updated to an empty list.
+## Validation
 
-* `Data` - allows you to provide the data source. Required.
+You can ensure that the end-user enters an acceptable input by using the Blazor MultiSelect validation. [Read more about input validation...]({%slug common-features/input-validation%}).
 
-* `Enabled` - whether the component is enabled.
+## Parameters
 
-* `Filterable` - whether [filtering]({%slug multiselect-filter%}) is enabled for the end user
-(suggestions will get narrowed down as they type).
+The Blazor MultiSelect provides various parameters that allow you to configure the component:
 
-* `FilterOperator` - the string operation that will be used for [filtering]({%slug multiselect-filter%}). Defaults to `StartsWith`.
+| Parameter      | Description |
+| ----------- | ----------- |
+| `AutoClose` | Defines whether the dropdown list containing the items for the MultiSelect will automatically close after each user selection. <br /> Type: `bool`, default value: `true`;  |
+| `ClearButton` | Whether the user will have the option to clear the selected items with a button on the input. When it is clicked, the `Value` will be updated to an empty list. |
+| `Data` | Allows you to provide the data source. Required. |
+| `Enabled` | Whether the component is enabled. |
+| `Filterable` | Whether [filtering]({%slug multiselect-filter%}) is enabled for the end user (suggestions will get narrowed down as they type). |
+| `FilterOperator` | The string operation that will be used for [filtering]({%slug multiselect-filter%}). Defaults to `StartsWith`. |
+| `Id` | Renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it. |
+| `MinLength` | How many characters the text has to be before the suggestions list appears. Cannot be `0`. Often works together with [filtering]({%slug multiselect-filter%}). |
+| `Placeholder` | The text the user sees as a hint when there is no selection. |
+| `TextField` | The field in the model from which the text of the items is taken. Defaults to `Text`. |
+| `TItem` | The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
+| `TValue` | The type of the value field in the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum`|
+| `Value` and `bind-Value` | Get/set the value of the component, can be used for binding. Use the `@bind-Value` syntax for two-way binding, for example, to a variable of your own. The `Value` must be a `List<TValue>`. |
+| `ValueField` | The name of the field from the model that will be used as values in the selection. Defaults to `Value`. |
+| `TabIndex` | Mps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 
-* `Id` - renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it.
+### Styling and Appearance
 
-* `MinLength` - how many characters the text has to be before the suggestions list appears. Cannot be `0`. Often works together with [filtering]({%slug multiselect-filter%}).
+The following parameters enable you to customize the appearance of the Blazor MultiSelect:
 
-* `Placeholder` - the text the user sees as a hint when there is no selection.
+| Parameter      | Description |
+| ----------- | ----------- |
+| `Class` | The CSS class that will be rendered on the main wrapping element of the multiselect. |
+| `PopupClass` | An additional CSS class to customize the appearance of the MultiSelect's dropdown. |
+| `PopupHeight` | The height of the expanded dropdown list element. |
+| `PopupWidth` | The width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths. |
+| `Width` | The width of the main element. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information) |
 
-* `PopupHeight` - the height of the expanded dropdown list element.
-
-* `PopupWidth` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
-
-* `TextField` - the field in the model from which the text of the items is taken. Defaults to `Text`.
-
-* `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
-
-* `TValue` - the type of the value field in the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
-
-    The type of the values can be:
-
-    * `number` (such as `int`, `double` and so on)
-    * `string`
-    * `Guid`
-    * `Enum`
-
-* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. Use the `@bind-Value` syntax for two-way binding, for example, to a variable of your own. The `Value` must be a `List<TValue>`.
-
-* `ValueField` - the name of the field from the model that will be used as values in the selection. Defaults to `Value`.
-
-* `Width` - the width of the main element. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
-
-* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
-
-* Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug multiselect-templates%}) article for more details.
-
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
-
-
-## Examples
-
->caption Pre-select items for the user
-
-````CSHTML
-@* You can pre-select an item or set of items only if they exist in the data source. *@
-
-<div>
-    <TelerikButton OnClick="@SelectHandler">Pre-select countries</TelerikButton>
-    <TelerikButton OnClick="@ClearSelectionHandler">Clear selection</TelerikButton>
-</div>
-
-<TelerikMultiSelect Data="@Countries"
-                    @bind-Value="@Values"
-                    Placeholder="Enter Balkan country, e.g., Bulgaria"
-                    Width="350px" ClearButton="true" />
-
-@if (Values.Count > 0)
-{
-    <ul>
-        @foreach (var item in Values)
-        {
-            <li>@item</li>
-        }
-    </ul>
-}
-
-@code {
-    List<string> Countries { get; set; } = new List<string>();
-    List<string> Values { get; set; } = new List<string>();
-
-    void SelectHandler()
-    {
-        List<string> PreselectedValues = new List<string>()
-        {
-            "Bulgaria", "Croatia"
-        };
-
-        // create a new reference so that the framework can notify the component to update
-        Values = new List<string>(PreselectedValues);
-    }
-
-    void ClearSelectionHandler()
-    {
-        Values = new List<string>();
-    }
-
-    protected override void OnInitialized()
-    {
-        Countries.Add("Albania");
-        Countries.Add("Bosnia & Herzegovina");
-        Countries.Add("Bulgaria");
-        Countries.Add("Croatia");
-        Countries.Add("Kosovo");
-        Countries.Add("North Macedonia");
-        Countries.Add("Montenegro");
-        Countries.Add("Serbia");
-        Countries.Add("Slovenia");
-
-        // you can also pre-select items here based on data you fetch, not just on a button click
-
-        base.OnInitialized();
-    }
-}
-````
 
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
+## Using Blazor MultiSelect Reference
+
+The MultiSelect is a generic component and its type is determined by the type of the model you use as its data source. You can find examples in the [Data Bind - Considerations]({%slug multiselect-databind%}#considerations) article.
+
+## Next Steps
+
+* [Binding the MultiSelect to Data]({%slug autocomplete-databind%})
+
+* [Pre-Selecting Items for the User]({% slug multiselect-pre-select-items %})
+
 ## See Also
 
-  * [Data Binding]({%slug multiselect-databind%})
   * [Live Demo: MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/overview)
   * [Live Demo: MultiSelect Validation](https://demos.telerik.com/blazor-ui/multiselect/validation)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMultiSelect-2)
