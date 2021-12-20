@@ -83,6 +83,12 @@ The following parameters enable you to customize the appearance of the Blazor Da
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
+## Next Steps
+
+* [Using the Date Picker Events]({%slug components/datepicker/events%})
+
+* [Configuring the Date Picker Increment Steps]({%slug datepicker-steps%})
+
 ## See Also
 
   * [Live Demo: Date Picker](https://demos.telerik.com/blazor-ui/datepicker/index)
