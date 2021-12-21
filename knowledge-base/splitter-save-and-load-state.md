@@ -47,7 +47,6 @@ The example below demonstrates the described approach.
 
 ````Component
 @inject LocalStorage LocalStorage
-@inject IJSRuntime JsRuntine
 
 <div style="width: 500px; height: 200px;">
     <TelerikSplitter @ref="@Splitter"
