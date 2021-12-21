@@ -71,7 +71,7 @@ The issue occurs after an upgrade to version 2.30.
 
 UI for Blazor 2.30 adds a [`DebounceDelay` parameter for the TextBox]({%slug components/textbox/overview%}#features). It specifies the time in milliseconds between the last typed symbol and the actual value update. DebounceDelay has a default value of 150ms and depends on the `oninput` event to count this time.
 
-However, when the browser (Chrome, for example) autofills the values in the fields, the `oninput` event is not fired until some interaction with the page occurs. This means that the browser does not notify the fields that their values have changed.
+However, when the browser (Chrome, for example) autofills form field values, the `oninput` event is not fired until some interaction with the page occurs. This means that the browser does not notify the fields that their values have changed.
 
 Thus, when clicking Login for the first time (interacting with the page), the `oninput` fires but by default there is a 150ms DebounceDelay due to which the TextBox values are still not updated.
 
