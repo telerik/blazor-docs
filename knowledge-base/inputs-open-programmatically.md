@@ -52,7 +52,7 @@ The **DropDownList** and **MultiSelect** open automatically on click. They need 
 
 The **AutoComplete**, **ComboBox** and **Date/Time Pickers** do not open automatically and need JavaScript for all three use cases - tab, click and `FocusAsync`.
 
-Review the `attachFocusHandler` JavaScript function below. It is called in `OnAfterRenderAsync` and attaches a focus handler to each component textbox. The handler simulates aN *Alt + Down* keyboard shortcut, which opens the dropdowns as a standard accessibility and usability feature.
+Review the `attachFocusHandler` JavaScript function below. It is called in `OnAfterRenderAsync` and attaches a focus handler to each component textbox. The handler simulates an *Alt + Down* keyboard shortcut, which opens the dropdowns as a standard accessibility and usability feature.
 
 Note that the Date/Time Pickers move focus to their popup once it is opened. This enables keyboard navigation in the popup, but prevents immediate move to another component via tabbing. You need to hit Enter to close the popup and return focus to the DateInput textbox. Then tab.
 
