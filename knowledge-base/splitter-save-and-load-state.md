@@ -84,10 +84,13 @@ The example below demonstrates the described approach.
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        var state = await LocalStorage.GetItem<SplitterState>(SplitterStateKey);
-        if (state != null)
+        if (firstRender)
         {
-            Splitter.SetState(state);
+            var state = await LocalStorage.GetItem<SplitterState>(SplitterStateKey);
+            if (state != null)
+            {
+                Splitter.SetState(state);
+            }
         }
     }
 }
