@@ -22,7 +22,8 @@ res_type: kb
 
 
 ## Description
-I want to be able to save the splitter state when it is expanded or collapsed and then automatically load it when the page is reloaded.
+
+I want to save the Splitter state when it is expanded or collapsed, and then automatically load it when the page is reloaded.
 
 ## Solution
 This scenario can be performed in two steps:
