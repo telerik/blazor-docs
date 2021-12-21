@@ -14,11 +14,11 @@ The <a href="https://www.telerik.com/blazor-ui/multiselect" target="_blank">Blaz
 
 ## Creating MultiSelect
 
-1. Use the `TelerikMultiSelect` tag to add the component to a view, for example, `~/Pages/Index.razor`.
+1. Use the `TelerikMultiSelect` tag to add the component to your razor page.
 
 1. Populate the `Data` property with the collection of items that you want to appear in the dropdown.
 
-1. Set the [two-way value binding]({%slug get-started-value-vs-data-binding %}#value-binding) by using `@bind-Value`.
+1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a collection of the same type as the collection that you bound through the `Data` property.
 
 1. (Optional) Enable features like placeholder text, clear button, and AutoClose.
 
@@ -75,10 +75,6 @@ The Blazor MultiSelect has a built-in filter that narrows down the shown suggest
 ## Grouping
 
 The Blazor MultiSelect enables you to group the listed suggestions into categories so you can help the end-user to browse faster through longer lists. [Read more about the Blazor MultiSelect grouping...]({% slug components/multiselect/grouping %})
-
-## Pre-Selecting Items
-
-To speed up the selection process, you can pre-select an item or a set of items for the end-user. This will work if the items are available in the data source. [Read more about the Blazor MultiSelect pre-selecting...]({% slug multiselect-pre-select-items %})
 
 ## Templates
 
