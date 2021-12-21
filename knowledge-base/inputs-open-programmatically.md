@@ -1,11 +1,11 @@
 ---
-title: Open Dropdown on Focus
-description: 
+title: Open Input Dropdown on Focus
+description: How to open the component dropdown (popup) programmatically or when the user focuses the textbox.
 type: how-to
-page_title: Open Dropdown Programmatically on Focus
+page_title: Open Input Dropdown Programmatically on Focus
 slug: inputs-kb-open-programmatically
 position: 
-tags: autocomplete,combobox,dropdown,dropdownlist,multiselect,focus,open
+tags: autocomplete,combobox,datepicker,datetimepicker,dropdown,dropdownlist,multiselect,timepicker,focus,open
 ticketid: 1526273, 1539587, 1547004
 res_type: kb
 ---
@@ -15,15 +15,18 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product Version</td>
-			<td>**2.25** and later</td>
+			<td><strong>2.25</strong> and later</td>
 		</tr>
 		<tr>
 			<td>Product</td>
 			<td>
                 AutoComplete <br />
                 ComboBox <br />
+                DatePicker <br />
+                DateTimePicker <br />
                 DropDownList <br />
                 MultiSelect <br />
+                TimePicker <br />
             </td>
 		</tr>
 	</tbody>
@@ -31,16 +34,27 @@ res_type: kb
 
 ## Description
 
+This Knowledge Base article covers multiple scenarios:
+
+* How to show the AutoComplete dropdown automatically when the user clicks inside the input?
+* How to open the ComboBox dropdown on component focus via click?
+* How to expand the item list when the ComboBox input is focused via tab?
+* How to open the MultiSelect popup from code?
+* How to open the MultiSelect list during keyboard navigation tabbing?
+* Is it possible to open the MultiSelect item popup open on page load, without clicking?
+* How to show the Calendar or Time popup immediately when the user focuses the Date/Time Picker textbox?
 
 ## Solution
 
-To begin with, [all Telerik inputs and dropdowns have a `FocusAsync` method]({%slug inputs-kb-focus%}) to focus them with code.
+To begin with, [all Telerik inputs and dropdowns have a `FocusAsync` method]({%slug inputs-kb-focus%}) to focus them programmatically.
 
 The **DropDownList** and **MultiSelect** open automatically on click. They need JavaScript code only to open on tab and `FocusAsync`.
 
-The **AutoComplete** and **ComboBox** do not open automatically and need JavaScript for all three use cases - tab, click and `FocusAsync`.
+The **AutoComplete**, **ComboBox** and **Date/Time Pickers** do not open automatically and need JavaScript for all three use cases - tab, click and `FocusAsync`.
 
 Review the `attachFocusHandler` JavaScript function below. It is called in `OnAfterRenderAsync` and attaches a focus handler to each component textbox. The handler simulates aN *Alt + Down* keyboard shortcut, which opens the dropdowns as a standard accessibility and usability feature.
+
+Note that the Date/Time Pickers move focus to their popup once it is opened. This enables keyboard navigation in the popup, but prevents immediate move to another component via tabbing. You need to hit Enter to close the popup and return focus to the DateInput textbox. Then tab.
 
 >caption Focus Component and Open Dropdown Programmatically
 
@@ -50,7 +64,8 @@ Review the `attachFocusHandler` JavaScript function below. It is called in `OnAf
 
 <!-- allow the script tag to be in the Razor file -->
 <script suppress-error="BL9992">//
-    // for DropDownList and MultiSelect this is enough to open their dropdowns after FocusAsync
+    // The DropDownList and MultiSelect can use a simpler approach to open their dropdowns.
+    // Call this openDropdown function after FocusAsync.
     function openDropdown(id) {
         var element = document.getElementById(id);
         if (element) {
@@ -70,7 +85,7 @@ Review the `attachFocusHandler` JavaScript function below. It is called in `OnAf
                 });
                 if ((componentClass == ".k-multiselect" && (!event.relatedTarget || event.relatedTarget != element.parentNode.parentNode))
                     || (componentClass != undefined && componentClass != ".k-multiselect")) {
-                    // AutoComplete and ComboBox - tab, click, FocusAsync
+                    // AutoComplete, ComboBox, DatePicker, TimePicker - tab, click, FocusAsync
                     // MultiSelect - tab, FocusAsync
                     // element is an input, so we go up the DOM tree to find the component root
                     element.closest(componentClass).dispatchEvent(keyEvent);
@@ -89,6 +104,8 @@ Review the `attachFocusHandler` JavaScript function below. It is called in `OnAf
     <TelerikButton OnClick="@OpenComboBox">Open ComboBox</TelerikButton>
     <TelerikButton OnClick="@OpenDropDownList">Open DropDownList</TelerikButton>
     <TelerikButton OnClick="@OpenMultiSelect">Open MultiSelect</TelerikButton>
+    <TelerikButton OnClick="@OpenDatePicker">Open DatePicker</TelerikButton>
+    <TelerikButton OnClick="@OpenTimePicker">Open TimePicker</TelerikButton>
 </div>
 
 <br />
@@ -131,16 +148,35 @@ MultiSelect:
                     Width="350px" AutoClose="false">
 </TelerikMultiSelect>
 
+<br />
+<br />
+DatePicker:
+<TelerikDatePicker @ref="@DatePickerRef"
+                   Id="DP1"
+                   @bind-Value="@DateValue">
+</TelerikDatePicker>
+
+<br />
+<br />
+TimePicker:
+<TelerikTimePicker @ref="@TimePickerRef"
+                   Id="TP1"
+                   @bind-Value="@DateValue">
+</TelerikTimePicker>
+
 @code {
     List<Product> ValueCollection { get; set; } = new();
     List<int> MultiValues { get; set; } = new();
     int IntValue { get; set; }
     string StringValue { get; set; }
+    DateTime DateValue { get; set; } = DateTime.Now;
 
     TelerikMultiSelect<Product, int> MultiSelectRef { get; set; }
     TelerikAutoComplete<Product> AutoCompleteRef { get; set; }
     TelerikComboBox<Product, int> ComboBoxRef { get; set; }
     TelerikDropDownList<Product, int> DropDownListRef { get; set; }
+    TelerikDatePicker<DateTime> DatePickerRef { get; set; }
+    TelerikTimePicker<DateTime> TimePickerRef { get; set; }
 
     async Task OpenAutoComplete()
     {
@@ -162,6 +198,16 @@ MultiSelect:
         await MultiSelectRef.FocusAsync();
     }
 
+    async Task OpenDatePicker()
+    {
+        await DatePickerRef.FocusAsync();
+    }
+
+    async Task OpenTimePicker()
+    {
+        await TimePickerRef.FocusAsync();
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await base.OnAfterRenderAsync(firstRender);
@@ -171,6 +217,8 @@ MultiSelect:
             // open on tab, click, FocusAsync:
             await js.InvokeVoidAsync("attachFocusHandler", AutoCompleteRef.Id, ".k-autocomplete");
             await js.InvokeVoidAsync("attachFocusHandler", ComboBoxRef.Id, ".k-combobox");
+            await js.InvokeVoidAsync("attachFocusHandler", DatePickerRef.Id, ".k-datepicker");
+            await js.InvokeVoidAsync("attachFocusHandler", TimePickerRef.Id, ".k-timepicker");
 
             // open on tab, FocusAsync:
             await js.InvokeVoidAsync("attachFocusHandler", DropDownListRef.Id);
