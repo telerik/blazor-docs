@@ -40,7 +40,7 @@ Handle the Splitter events to save its state in the LocalStorage when the user c
 
 ### Load the Splitter state
 
-You can then set the saved state from the local storage. It is important that this action is performed in the OnAfterRender(Async) event since typically the component references are populated then by the framework and not in OnInitialized(Async). So, if you try setting the state in OnInitialized(Async) the Splitter reference used for that purpose might still be null.
+Set the saved state from the browser local storage. It is important to perform this action in **OnAfterRender(Async)**, as the component references are typically unavailable earlier. If you try setting the state in OnInitialized(Async), the Splitter reference may still be `null`.
 
 
 The example below demonstrates the described approach.
