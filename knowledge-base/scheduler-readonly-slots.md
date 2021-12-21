@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I want to set readonly time slots, where no appointments are possible. This is useful for breaks (no appointments at lunch time) or holidays. How to achieve that?
+I want to define readonly time slots in the Scheduler. The user should not be able to create or edit appointments at those times. This is useful for breaks (no appointments at lunch time) or holidays. How to achieve that?
 
 ## Solution
 
