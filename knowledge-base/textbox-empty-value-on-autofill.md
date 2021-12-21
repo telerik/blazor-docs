@@ -82,7 +82,6 @@ Other components that also have DebounceDelay property and might be affected are
 To solve the case, proceed with one of the following options:
 
 * Reduce the DebounceDelay value or even remove it (set its value to 0). Try setting different values to validate what works best for your use case as the minimum DebounceDelay value needed for the according TextBox value update may vary depending on the machine.
-
 * Do not let the browser autofill the values
 
 The example below demonstrates the first approach - removing the default DebounceDelay:
