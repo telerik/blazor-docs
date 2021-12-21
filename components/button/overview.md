@@ -18,7 +18,7 @@ The Blazor Button provides a variety of styling options through the [built-in th
 
 ## Creating Blazor Button
 
-1. Use the `<TelerikButton>` tag to add the component to a view, for example, `~/Pages/Index.razor`.
+1. Use the `<TelerikButton>` tag to add the component to your razor page.
 
 1. Configure the `OnClick` event handling to show the current date and time.
 
