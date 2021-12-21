@@ -32,7 +32,7 @@ Implement this scenario in two steps:
 
 ### Save the Splitter state
 
-You can handle the various Splitter events to save its state in the local storage whenever it is resized:
+Handle the Splitter events to save its state in the LocalStorage when the user changes the component layout:
 
 * [OnCollapse]({%slug splitter-events%}#oncollapse)
 * [OnExpand]({%slug splitter-events%}#onexpand)
