@@ -1,6 +1,6 @@
 ---
 title: Save and Load the Splitter State
-description: How to Save the Splitter State in the Local Storage and set it when the page is reloaded?
+description: How to save the Splitter state in Local Storage and set it when the page reloads.
 type: how-to
 page_title: Save and Load the Splitter State
 slug: splitter-kb-save-and-load-state
