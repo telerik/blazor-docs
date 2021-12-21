@@ -26,7 +26,8 @@ res_type: kb
 I want to save the Splitter state when it is expanded or collapsed, and then automatically load it when the page is reloaded.
 
 ## Solution
-This scenario can be performed in two steps:
+
+Implement this scenario in two steps:
 
 
 ### Save the Splitter state
