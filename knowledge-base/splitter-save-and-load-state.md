@@ -95,6 +95,10 @@ The example below demonstrates the described approach.
 }
 ````
 ````Service
+using Microsoft.JSInterop;
+using System.Text.Json;
+using System.Threading.Tasks;
+
 public class LocalStorage
 {
     protected IJSRuntime JSRuntimeInstance { get; set; }
