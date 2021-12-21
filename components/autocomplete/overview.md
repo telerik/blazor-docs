@@ -14,11 +14,11 @@ The <a href="https://www.telerik.com/blazor-ui/autocomplete" target="_blank">Bla
 
 ## Creating AutoComplete
 
-1. Use the `TelerikAutoComplete` tag to add the component to a view, for example, `~/Pages/Index.razor`.
+1. Use the `TelerikAutoComplete` tag to add the component to your razor page.
 
 1. Populate the `Data` property with the collection of items that you want to appear in the dropdown.
 
-1. Set the [two-way value binding]({%slug get-started-value-vs-data-binding %}#value-binding) by using `@bind-Value`.
+1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a collection of the same type as the collection that you bound through the `Data` property.
 
 1. (Optional) Enable features like placeholder text and [clear button](#clear-button).
 
