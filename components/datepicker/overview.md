@@ -15,9 +15,9 @@ The <a href="https://www.telerik.com/blazor-ui/datepicker" target="_blank">Blazo
 
 ## Creating Blazor Date Picker
 
-1. Use the `TelerikDatePicker` tag to add the component to a view, for example, `~/Pages/Index.razor`.
+1. Use the `TelerikDatePicker` tag to add the component to your razor page.
 
-1. Set the [two-way value binding]({%slug get-started-value-vs-data-binding %}#value-binding) by using `@bind-Value`.
+1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a collection of the same type as the collection that you bound through the `Data` property.
 
 1. Optionally, create a reference to an instance of the Blazor Date Picker by providing the component's namespace. 
 
