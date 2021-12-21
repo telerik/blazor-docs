@@ -14,7 +14,7 @@ The <a href="https://www.telerik.com/blazor-ui/calendar" target="_blank">Blazor 
 
 ## Creating Blazor Calendar
 
-1. Use the `TelerikCalendar` tag to add the component to a view, for example, `~/Pages/Index.razor`.
+1. Use the `TelerikCalendar` tag to add the component to a razor page.
 
 1. Configure the minimum and maximum allowed dates by setting the `Min` and `Max` parameters.
 
