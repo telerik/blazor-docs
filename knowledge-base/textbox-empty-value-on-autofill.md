@@ -73,7 +73,7 @@ UI for Blazor 2.30 adds a [`DebounceDelay` parameter for the TextBox]({%slug com
 
 However, when the browser (Chrome, for example) autofills form field values, the `oninput` event is not fired until some interaction with the page occurs. This means that the browser does not notify the fields that their values have changed.
 
-Thus, when clicking Login for the first time (interacting with the page), the `oninput` fires but by default there is a 150ms DebounceDelay due to which the TextBox values are still not updated.
+Thus, when clicking Login for the first time (interacting with the page), the `oninput` fires but the default DebounceDelay of 150ms postpones the TextBox value update.
 
 Other components that also have DebounceDelay property and might be affected are [TextArea]({%slug textarea-overview%}#features) and [MaskedTextBox]({%slug maskedtextbox-overview%}#features).
 
