@@ -34,6 +34,8 @@ The following components support observable data for their `Data` parameter:
 
 * [AutoComplete]({%slug autocomplete-refresh-data%})
 
+* [Carousel]({%slug carousel-refresh-data%})
+
 * [ComboBox]({%slug combobox-refresh-data%})
 
 * [DropDownList]({%slug dropdownlist-refresh-data%})
