@@ -62,12 +62,7 @@ The RadioGroup will look the same as a [ButtonGroup with single selection]({%slu
 
     /* hide the radio buttons */
     .labels-only .k-radio {
-        width: 0;
-        height: 0;
-        border-width: 0;
         opacity: 0;
-        margin: 0;
-        padding: 0;
         position: absolute;
     }
     .labels-only .k-radio:checked::before {
