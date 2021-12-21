@@ -36,6 +36,7 @@ The example below showcases it for a few of them, but it is available for all in
 * DatePicker
 * DateRangePicker
 * DateTimePicker
+* DropDownList
 * Editor
 * MaskedTextBox
 * MultiSelect
