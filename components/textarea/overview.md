@@ -56,7 +56,11 @@ To use the Telerik TextArea in your Blazor application:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element.
 
+* `DebounceDelay` - `int` - Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms.
+
 * `Enabled` - `bool`, defaults to `true` - whether the TextArea is enabled.
+
+* Events - see the [Events]({%slug textarea-events%}) article for more information.
 
 * `Id` - renders as the `id` attribute on the `<textarea>` element, so you can attach a `<label for="">`.
 
@@ -70,17 +74,13 @@ To use the Telerik TextArea in your Blazor application:
 
 * `Title` - maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}).
 
-* `Value` - get/set the value of the input, can be used for binding.
-
-* `Width` - the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article for more information.
-
-* `DebounceDelay` - `int` - Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms.
-
-* Events - see the [Events]({%slug textarea-events%}) article for more information.
-
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
 
 * `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
+
+* `Value` - get/set the value of the input, can be used for binding.
+
+* `Width` - the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article for more information.
 
 >caption TextArea with its most common features and symbols counter
 
