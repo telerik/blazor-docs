@@ -33,4 +33,4 @@ Additionally, you can include some custom CSS styles to visually mark the corres
 
 You can find an example here: [Scheduler - Readonly Slots](https://github.com/telerik/blazor-ui/tree/master/scheduler/readonly-slots).
 
->tip At the time of writing (UI for Blazor version 2.30), the Scheduler does not expose [OnCellRender](https://feedback.telerik.com/blazor/1521973-oncellrender-event) event to add a specific CSS class to the readonly cells. The example showcases a custom approach for calculating the index of the desired cells and use that index to set the styles. Once the OnCellRender is available, it can be handled for such customizations.
+>tip At the time of writing (UI for Blazor version 2.30), the Scheduler does not expose an [OnCellRender event](https://feedback.telerik.com/blazor/1521973-oncellrender-event) to add custom CSS classes to time slots. The example calculates the readonly slot indexes manually and uses those indexes in a CSS rule. Once `OnCellRender` is available, such customizations will be a lot easier.
