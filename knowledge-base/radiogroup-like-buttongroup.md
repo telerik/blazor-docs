@@ -69,7 +69,7 @@ The RadioGroup will look the same as a [ButtonGroup with single selection]({%slu
         display: none;
     }
 
-    /* make the radio labels to look like buttons */
+    /* make the radio labels look like buttons */
     .labels-only .k-radio-label {
         display: inline-block;
         margin: 0;
