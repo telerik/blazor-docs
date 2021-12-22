@@ -63,6 +63,10 @@ You can get the extension from:
 * The **Extensions** tab in Visual Studio Code - search for **Telerik UI for Blazor Template Wizard**, select the extension, and then click **Install**.
 #end
 
+#vs-code-nuget-note
+>note For best results, the Telerik Extension for Visual Studio Code is designed to get and apply the latest version of Telerik UI for Blazor available with your license. Therefore, you must ensure that your system has access to the same version of the UI components - you can achieve this with the [Telerik NuGet feed](../../installation/nuget).
+#end
+
 
 #valuebind-vs-databind-link
 For details on Value Binding and Data Binding, and the differences between them, see the [Value Binding vs Data Binding]({%slug get-started-value-vs-data-binding%}) article.

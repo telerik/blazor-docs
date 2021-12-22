@@ -51,6 +51,7 @@ The **Create New Project** wizard provides two options to start you project:
 
 ![VS code wizard overview](images/vs-code-swatches-menu.png)
 
+@[template](/_contentTemplates/common/general-info.md#vs-code-nuget-note)
 
 ## Run the Project
 
