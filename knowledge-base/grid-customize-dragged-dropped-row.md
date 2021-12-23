@@ -1,5 +1,5 @@
 ---
-title: Customize the dragged and dropped row
+title: Customize dragged and dropped Grid rows
 description: How to customize and change the style of the dragged and dropped rows in the Grid?
 type: how-to
 page_title: Customize dragged and dropped Grid rows
