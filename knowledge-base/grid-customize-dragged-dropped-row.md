@@ -35,7 +35,7 @@ Do the following to customize the appearance of the dropped item:
 
 * Additionally, you can set some custom styles for the drag clue container. The element matches this CSS selector: `.k-header.k-drag-clue`.
 
-The example below demonstrates the described approach. Note that this way, the customized item will only be the one matching the dropped item. Once you drag and drop another item, it will be the one having the custom styles and the previous one will be targeted as regular Grid item.
+Here is an example. Note that the customized item will match only the last dropped item. Once you drag and drop another item, it will assume the custom styles and the previous one will be treated as a regular Grid item. It is possible to enhance the code logic, preserve all dragged rows in a collection and persist the custom styles for all of them.
 
 ````CSHTML
 <style>
