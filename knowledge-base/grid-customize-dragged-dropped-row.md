@@ -33,7 +33,7 @@ Do the following to customize the appearance of the dropped item:
 
 * Handle the [`OnRowRender` event]({%slug grid-events%}#onrowrender) of the Grid to set a custom CSS class to the item that is matching the dropped one (you can compare them by Id, for example).
 
-* Additionally, you can set some custom styles for the drag clue container
+* Additionally, you can set some custom styles for the drag clue container. The element matches this CSS selector: `.k-header.k-drag-clue`.
 
 The example below demonstrates the described approach. Note that this way, the customized item will only be the one matching the dropped item. Once you drag and drop another item, it will be the one having the custom styles and the previous one will be targeted as regular Grid item.
 
