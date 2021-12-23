@@ -85,7 +85,7 @@ The following information is present in the grid state:
 
 * **Filtering** - filter descriptors (fields by which the grid is filtered, the operator and value).
 
-* **SearchFilter** - filter descriptor specific to the Grid SearchBox.
+* **SearchFilter** - filter descriptor specific to the GridSearchBox.
 
 * **Grouping** - group descriptors (fields by which the grid is grouped), collapsed group indexes.
 
