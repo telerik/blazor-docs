@@ -78,7 +78,7 @@ The following information is present in the TreeList state:
 
 * **Filtering** - filter descriptors (fields by which the Treelist is filtered, the operator and value).
 
-* **SearchFilter** - filter descriptor specific to the TreeList SearchBox.
+* **SearchFilter** - filter descriptor specific to the TreeListSearchBox.
 
 * **Paging** - page index
 
