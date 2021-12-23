@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I am using Grid with Drag and Drop functionality to drag the items from one grid to another. I want to change the background color of the dragged item. How to achieve that?
+I am using Grid with Drag and Drop functionality to drag the items from one Grid to another. How to change the background color style of the dragged item?
 
 ## Solution
 
