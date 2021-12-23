@@ -2,7 +2,7 @@
 title: Customize the dragged and dropped row
 description: How to customize and change the style of the dragged and dropped row?
 type: how-to
-page_title: Customize the dragged and dropped row
+page_title: Customize dragged and dropped Grid rows
 slug: grid-kb-customize-dragged-dropped-row
 position: 
 tags: grid, drag, drop, customize, style
