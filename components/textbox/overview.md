@@ -64,6 +64,27 @@ for example: https://demos.telerik.com/blazor-ui/textbox/password
 }
 ````
 
+>caption Programmatically change the textbox value
+
+````CSHTML
+TextBox value: @theTbValue
+<br />
+
+<TelerikButton OnClick="@ChangeValue">Change TextBox Value</TelerikButton>
+
+<br />
+
+<TelerikTextBox @bind-Value="theTbValue" Label="Enter Information"></TelerikTextBox>
+
+@code {
+    string theTbValue { get; set; } = "lorem ipsum";
+
+    void ChangeValue()
+    {
+        theTbValue = "New programmatically set value";
+    }
+}
+````
 
 ## Features
 
