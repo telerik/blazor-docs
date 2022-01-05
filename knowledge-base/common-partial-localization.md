@@ -55,7 +55,7 @@ The Telerik UI for Blazor suite grows rapidly, and we constantly add new feature
 
 The following repository contains translations provided by the community. You can use them as base and also contribute your own - both new translations, and updates to older ones that contain new keys. We welcome contributions and pull requests. Repository link: [https://github.com/telerik/blazor-ui-messages](https://github.com/telerik/blazor-ui-messages).
 
-Apart from missing texts, you may occasionally experience an error, similar to this one:
+Apart from missing localization strings, you may occasionally experience an error, similar to this one:
 
 >warning Unhandled exception rendering component: Value cannot be null. (Parameter 'format')
 
