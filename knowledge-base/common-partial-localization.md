@@ -59,4 +59,4 @@ Apart from missing localization strings, you may occasionally experience an erro
 
 >warning Unhandled exception rendering component: Value cannot be null. (Parameter 'format')
 
-See this knowledge base article for more details on that: [Value cannot be null. (Parameter 'format')]({%slug common-kb-null-value-parameter-format%})
+See knowledge base article [Value cannot be null. (Parameter 'format')]({%slug common-kb-null-value-parameter-format%}) for more details.
