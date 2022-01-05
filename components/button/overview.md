@@ -55,7 +55,7 @@ The Blazor Button generate events that you can handle and further customize the 
 
 ## Disabled State
 
-To stop the users from interacting with a button until certain requirements are met, you can render a disabled button. [Read more about the disabled Blazor Button...]({%slug disabled-button%}).
+To stop the users from interacting with a button until certain requirements are met, you can render a disabled button. [Read more about the disabled Blazor Button...]({%slug button-disabled%}).
 
 ## Styling
 

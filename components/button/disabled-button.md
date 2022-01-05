@@ -2,7 +2,7 @@
 title: Disabled Button
 page_title: Disabled Button
 description: Learn how to configure a disabled Blazor Button component by Telerik UI.
-slug: disabled-button
+slug: button-disabled
 tags: telerik,blazor,disabled,button,
 published: True
 position: 5
@@ -14,13 +14,21 @@ Sometimes specific buttons in an application must be temporarily disabled. To co
 
 The following example demonstrates how to enable and disable the Button.
 
-To render a disabled button, set its `Enabled` attribute to `false`.
-
->caption Disabled Telerik Button
+>caption Toggle Telerik Button Enabled State
 
 ````CSHTML
-<TelerikButton Enabled="false">Disabled Button</TelerikButton>
-````
+<p>
+    <label>
+        <TelerikCheckBox @bind-Value="@ButtonIsEnabled" /> Toggle Button State
+    </label>
+</p>
+
+<TelerikButton Enabled="@ButtonIsEnabled">@ButtonText</TelerikButton>
+
+@code {
+    bool ButtonIsEnabled { get; set; } = false;
+    string ButtonText => ButtonIsEnabled ? "Enabled Button" : "Disabled Button";
+}
 
 >caption Comparison between disabled and enabled button
 
