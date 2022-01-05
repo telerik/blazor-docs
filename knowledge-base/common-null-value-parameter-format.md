@@ -1,6 +1,6 @@
 ---
 title: Value cannot be null. (Parameter 'format')
-description: Value cannot be null. (Parameter 'format')
+description: Fix error Value cannot be null. (Parameter 'format') when using Telerik UI for Blazor.
 type: troubleshooting
 page_title: Value cannot be null. (Parameter 'format')
 slug: common-kb-null-value-parameter-format
