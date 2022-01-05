@@ -32,13 +32,15 @@ The keyboard events bubble up the DOM, so you can attach event handlers for them
 
 If you are looking for an event when the user confirms an action, consider the built-in `OnChange` event which fires when the user presses `Enter` or blurs the input.
 
+>important Optionally, you can disable the [**`DebounceDelay`**](https://docs.telerik.com/blazor-ui/components/textbox/overview#:~:text=DebounceDelay,int) parameter of the textbox by setting it to 0. The `DebounceDelay` default value is 150. It can fire the `onkeypress` event logic before the [**`ValueChanged`**](https://docs.telerik.com/blazor-ui/components/textbox/events#valuechanged) event of the input. 
+
 >caption Handle keyboard events in Telerik inputs
 
 ````CSHTML
 @* Add a keyboard event handler on the parent element to capture the events *@
 
 <span @onkeypress="@KeyHandlerTb" @onkeydown="@KeyHandlerTb">
-    <TelerikTextBox @bind-Value="@TbValue"></TelerikTextBox>
+    <TelerikTextBox DebounceDelay="0" @bind-Value="@TbValue"></TelerikTextBox>
 </span>
 
 <span @onkeypress="@KeyHandlerNtb" @onkeydown="@KeyHandlerNtb">
