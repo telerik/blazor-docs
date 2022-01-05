@@ -36,7 +36,7 @@ If your custom theme targets all components, you can create the `JSON` file manu
 * `ORIGINAL_NAME` - should be the name of your base theme, e.g. `default`, `bootstrap`, `material`, etc.
 * all variable **values**
 
->tip The specific `"themeBuilder"` field has been replaced with a more generic one - `"groups"`. Make sure you use the updated syntax in your JSON file.
+>tip The `"themeBuilder"` field has been replaced with a more generic one - `"groups"`. Make sure you use the updated syntax in your JSON file.
 
 ```json
 {
