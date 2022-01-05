@@ -64,7 +64,7 @@ for example: https://demos.telerik.com/blazor-ui/textbox/password
 }
 ````
 
->caption Programmatically change the textbox value
+>caption Programmatically change the TextBox value
 
 ````CSHTML
 TextBox value: @theTbValue
