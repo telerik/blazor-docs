@@ -38,7 +38,7 @@ The <a href="https://www.telerik.com/blazor-ui/tooltip" target="_blank">Blazor T
 >caption Component namespace and reference
 
 ````CSHTML
-<TelerikTooltip @ref="@theTooltipRef">
+<TelerikTooltip @ref="@theTooltipRef" TargetSelector=".someTarget">
 </TelerikTooltip>
 
 @code{
