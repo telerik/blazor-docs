@@ -40,7 +40,7 @@ at Microsoft.AspNetCore.Components.RenderTree.Renderer.ProcessRenderQueue()
 
 ## Cause\Possible Cause(s)
 
-You may run across an error similar to the above listed one for other components as well. It is associated with incomplete localization implementation and occurs if a component is used in a localized application but the resex files are missing the needed keys for the corresponding component.
+You may run across a similar error for other components as well. It occurs if a component is used in a localized application, but the `.resx` files are missing some keys for the corresponding component.
 
 The app needs to either implement localization for the Telerik components correctly or not implement a service for that at all. So, it is essential that the resx files used for the Telerik components in the localized application are always up-to-date containing all the necessary keys.
 
