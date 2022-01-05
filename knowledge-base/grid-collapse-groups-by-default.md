@@ -1,6 +1,6 @@
 ---
 title: Collapse Grid Groups by Default 
-description: Implement Collapsed Groups in the Grid on initiliaze and when paging.
+description: Implement collapsed groups in the Grid on initiliaze and when paging.
 type: how-to
 page_title: How to Collapse Grid Groups by Default on Initialize and When Paging
 slug: grid-kb-collapse-groups-by-default
