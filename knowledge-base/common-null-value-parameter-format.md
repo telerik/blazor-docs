@@ -54,7 +54,7 @@ To solve the issue, make sure that:
 
 You can find the latest localization files in two places:
 
-* The Resources folder of our demo site. The demo site is part of the UI for Blazor installation: /demos/TelerikBlazorDemos/Resources/ (maintained by Telerik)
+* In the /Resources/ folder of our demo site. The demo site is part of the UI for Blazor installation: /demos/TelerikBlazorDemos/Resources/ (maintained by Telerik)
 
 * [UI for Blazor: Translation of Messages](https://github.com/telerik/blazor-ui-messages) repository (maintained by the community)
 
