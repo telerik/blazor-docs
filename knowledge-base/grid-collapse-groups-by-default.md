@@ -98,7 +98,7 @@ The required steps to collapse groups programmatically are:
             var gridState = GridRef.GetState();
             gridState.CollapsedGroups = Enumerable.Range(0, MyData.ToList().Count).ToList();
             GridGroupFlag = false;
-        await GridRef.SetState(gridState);
+            await GridRef.SetState(gridState);
     }
         await base.OnAfterRenderAsync(firstRender);
     }
