@@ -12,12 +12,12 @@ res_type: kb
 
 ## Environment
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 
@@ -69,17 +69,17 @@ The required steps to collapse groups programmatically are:
     void OnStateInitHandler(GridStateEventArgs<SampleData> args)
     {
         GridState<SampleData> desiredState = new GridState<SampleData>()
+        {
+            GroupDescriptors = new List<GroupDescriptor>()
             {
-                GroupDescriptors = new List<GroupDescriptor>()
+                new GroupDescriptor()
                 {
-                    new GroupDescriptor()
-                    {
-                        Member = "Team",
-                        MemberType = typeof(string)
-                    }
-                },
-                CollapsedGroups = Enumerable.Range(0, MyData.ToList().Count).ToList()
-            };
+                    Member = "Team",
+                    MemberType = typeof(string)
+                }
+            },
+            CollapsedGroups = Enumerable.Range(0, MyData.ToList().Count).ToList()
+        };
         args.GridState = desiredState;
     }
 
@@ -99,7 +99,7 @@ The required steps to collapse groups programmatically are:
             gridState.CollapsedGroups = Enumerable.Range(0, MyData.ToList().Count).ToList();
             GridGroupFlag = false;
             await GridRef.SetState(gridState);
-    }
+        }
         await base.OnAfterRenderAsync(firstRender);
     }
 
