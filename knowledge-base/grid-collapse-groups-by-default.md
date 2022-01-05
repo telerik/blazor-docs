@@ -29,7 +29,7 @@ How to collapse all Grid groups by default when the Grid is loaded. The Grid sho
 
 There are two ways to collapse all groups of the Grid both on initialization and after paging:
 
-* [Load groups on demand]({%slug grid-group-lod%})
+* [Load groups on demand]({%slug grid-group-lod%}) - in this case, all groups automatically render as collapsed
 * Collapse groups programmatically
 
 The required steps to collapse groups programmatically are:
