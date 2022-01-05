@@ -57,4 +57,4 @@ You can find the latest localization files in two places:
 * In the /Resources/ folder of our demo site. The demo site is part of the UI for Blazor installation: /demos/TelerikBlazorDemos/Resources/ (maintained by Telerik)
 * In the [telerik/blazor-ui-messages](https://github.com/telerik/blazor-ui-messages) GitHub repository (maintained by the community)
 
-In some cases, you might not get this error, but components could appear partially localized (some texts are missing, for example) - check this knowledge base article for more details on that: [Paritally Localized Components, Missing Text, Not Translated Text]({%slug common-kb-partial-localization%}).
+In some cases, you might not get an error, but components could appear partially localized (some texts are missing). More details on that are available at [Partially Localized Components, Missing Text, Not Translated Text]({%slug common-kb-partial-localization%}).
