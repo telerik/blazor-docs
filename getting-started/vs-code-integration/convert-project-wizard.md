@@ -42,6 +42,7 @@ If the Telerik components are already enabled in the project, you will see the f
 
 You have successfully enabled the Progress&reg; Telerik&reg; UI for Blazor components in your Blazor app!
 
+@[template](/_contentTemplates/common/general-info.md#vs-code-nuget-note)
 
 ## Troubleshooting
 

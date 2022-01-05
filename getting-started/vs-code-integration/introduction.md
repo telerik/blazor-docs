@@ -31,5 +31,4 @@ To access the VS Code extension, press `Ctrl`+`Shift`+`P` on Windows/Linux or `C
 ![launch Telerik Blazor VS Code extension](images/launch-extension.png)
 
 
->note For best results, the Telerik Extension for Visual Studio Code is designed to get and apply the latest version of Telerik UI for Blazor available with your license. Therefore, you must ensure that your system has access to the same version of the UI components - you can achieve this with the [Telerik NuGet feed](../../installation/nuget).
->
+@[template](/_contentTemplates/common/general-info.md#vs-code-nuget-note)
