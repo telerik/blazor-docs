@@ -1,0 +1,44 @@
+---
+title: Overview
+page_title: FileSelect Overview
+description: Overview of the FileSelect for Blazor.
+slug: fileselect-overview
+tags: telerik,blazor,fileselect,async,overview
+published: True
+position: 0
+---
+
+# FileSelect Overview
+
+FileSelect component helps users select single or multiple files from their local file systems. The component is especially useful when you want full control over the process of creating the server requests and sent forms.
+
+
+#### To use a Telerik FileSelect for Blazor
+
+
+>caption Component namespace and reference
+
+````CSHTML
+<TelerikFileSelect @ref="@FileSelectRef" />
+
+@code{
+    Telerik.Blazor.Components.TelerikFileSelect FileSelectRef { get; set; }
+}
+````
+
+## Features
+
+The FileSelect component provides the following key features:
+
+* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the FileSelect component
+* `Enabled` - `bool` - enables or disables the component.
+* `Multiple` - `bool` - controls whether selection of multiple files at once is allowed. Default value is true`.
+* `AllowedExtensions` - `List<string>` - a list of allowed file extensions. Read more in [Validation article]({%slug fileselect-validation%}).
+* `MinFileSize` - `int?` - the minimum file size in bytes allowed for upload. Default is null. Read more in [Validation article]({%slug fileselect-validation%}).
+* `MaxFileSize`- `int?` - the maximum file size in bytes. Default is null. Read more in [Validation article]({%slug fileselect-validation%}).
+
+## See Also
+
+* [Live Demo: FileSelect Overview](https://demos.telerik.com/blazor-ui/fileselect/overview)
+* [FileSelect Validation]({%slug fileselect-validation%})
+* [FileSelect Events]({%slug fileselect-events%})
