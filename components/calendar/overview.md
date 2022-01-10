@@ -49,8 +49,6 @@ The selected date is: @selectedDate
 
 ````
 
-To see the result from the code snippet above, select the **PREVIEW** tab in the code snippet toolbar.
-
 >tip The `Date` parameter indicates the view the user is in. You can use its `DateChanged` event to know when the user browses through the Calendar.
 
 ## Navigation
@@ -69,9 +67,9 @@ You can display a wider range of dates by rendering multiple instances of the Ca
 
 The Calendar generates events that you can handle and further customize ist behavior. [Read more about the Blazor Calendar events...]({%slug components/calendar/events%}).
 
-## Using Blazor Calendar Reference
+## Calendar Reference
 
-You can create a reference to an instance of the Blazor Calendar and use its methods. To declare a reference to the Calendar component, you must provide the component's namespace. 
+Add a reference to an instance of the Blazor Calendar to use its methods.
 
 ````CSHTML
 @using Telerik.Blazor.Components
