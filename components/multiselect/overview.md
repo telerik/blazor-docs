@@ -121,7 +121,7 @@ The following parameters enable you to customize the appearance of the Blazor Mu
 
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
-## Using Blazor MultiSelect Reference
+## MultiSelect Reference
 
 The MultiSelect is a generic component and its type is determined by the type of the model you use as its data source. You can find examples in the [Data Bind - Considerations]({%slug multiselect-databind%}#considerations) article.
 
