@@ -42,8 +42,6 @@ User input: @TheValue
 }
 ````
 
-In the code snippet toolbar, select the **PREVIEW** tab to see the result.
-
 >tip If you need a value identifier for the items in the dropdown instead of their text, consider the [ComboBox component](../combobox/overview). The AutoComplete is a free text input that accepts any text the user writes, not just the suggestions from the dropdown. Thus, the `Value` of the AutoComplete is always a `string`, while the ComboBox can provide you with a `number` or a `Guid`, not only a `string`.
 
 ## Data Binding
@@ -100,7 +98,7 @@ The following parameters enable you to customize the appearance of the Blazor Au
 
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
-## Using Blazor AutoComplete Reference
+## AutoComplete Reference
 
 The AutoComplete is a generic component and its type depends on the type of the model that you use as its data source. For examples on referencing the Blazor AutoComplete, see the [AutoComplete Data Binding]({%slug autocomplete-databind%}#considerations) article.
 
