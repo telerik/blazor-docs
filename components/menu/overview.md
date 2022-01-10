@@ -91,8 +91,6 @@ Use a menu to navigate between views
 }
 ````
 
-In the code snippet toolbar, select the **PREVIEW** tab to see the result.
-
 ## Navigate Views
 
 A menu is often used to list pages, views, or sections in an application so the user can navigate through them. To do that with a menu, you have two options:
@@ -122,7 +120,7 @@ The Blazor Menu allows you to control its orientation and display the items hori
 
 To illustrate the purpose of each menu item, the Blazor Menu allows you to add images, icon classes, or font icons. [Read more about the Blazor Menu icons...]({%slug menu-icons%})
 
-## Using Blazor Menu Reference
+## Menu Reference
 
 The Menu is a generic component and its type depends on the type of the model that you use as its data source.
 
