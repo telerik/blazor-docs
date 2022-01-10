@@ -37,8 +37,6 @@ The selected date is: @datePickerValue.ToShortDateString()
 }
 ````
 
-To see the result from the code snippet above, select the **PREVIEW** tab in the code snippet toolbar.
-
 ## Increment Steps
 
 The Date Picker enables the end users to change the selected value by clicking the rendered arrows. You can set the increment and decrement steps through the nested `DatePickerSteps` tag and its parameters. [Read more about the Blazor Date Picker increment steps...]({%slug datepicker-steps%})
@@ -82,6 +80,10 @@ The following parameters enable you to customize the appearance of the Blazor Da
 | `Width` | Defines the width of the DatePicker. Defaults to `280px`. |
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
+
+## Date Picker Reference
+
+Add a reference to the Date Picker instance to use its methods.
 
 ## Next Steps
 
