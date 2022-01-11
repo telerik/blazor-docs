@@ -38,7 +38,7 @@ The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Up
             }
         }
 
-1. Create a suitable controller (endpoint) that can receive files from a POST request. **Note the different ways to set `physicalPath` for server and client Blazor apps.** For example:
+2. Create a suitable controller (endpoint) that can receive files from a POST request. **Note the different ways to set `physicalPath` for server and client Blazor apps.** For example:
 
     **C#**
     
@@ -172,7 +172,60 @@ The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Up
 
 * [Validation]({%slug upload-validation%})
 
+## Methods
 
+The Upload methods are accesible through its reference.
+
+* `ClearFiles` - Clears all files from the list, both uploaded and in queue.
+  
+* `UploadFiles` - Uploads all valid selected files. Fires the [OnUpload]({%slug upload-events%}#onupload) event.
+
+* `OpenFileSelectAsync` - Triggers the browser's file select dialog.
+
+>caption Get a reference to the Upload and use its methods. The example uses the same controller as the above demo.
+
+````CSHTML 
+@* This example showcases the use of the methods. *@
+
+@inject NavigationManager NavigationManager
+
+<TelerikButton @onclick="@Clear">Clear File List</TelerikButton>
+<TelerikButton @onclick="@Upload">Manual Upload Files</TelerikButton>
+<TelerikButton @onclick="@OpenFile">Open FileSelect Dialog</TelerikButton>
+<br/><br/>
+
+<TelerikUpload @ref="@UploadRef"
+               RemoveField="@RemoveUrl"
+               SaveUrl="@SaveUrl"
+               AutoUpload="false">
+</TelerikUpload>
+
+@code {
+    public TelerikUpload UploadRef { get; set; }
+    public string SaveUrl => ToAbsoluteUrl("api/upload/save");
+    public string RemoveUrl => ToAbsoluteUrl("api/upload/remove");
+
+    public string ToAbsoluteUrl(string url)
+    {
+        return $"{NavigationManager.BaseUri}{url}";
+    }
+
+    public void Clear()
+    {
+        UploadRef.ClearFiles();
+    }
+
+    public void Upload()
+    {
+        UploadRef.UploadFiles();
+    }
+
+    public async Task OpenFile()
+    {
+        await UploadRef.OpenFileSelectAsync();
+    }
+}
+````
 
 ## Notes
 

@@ -13,14 +13,16 @@ position: 20
 This article explains the events available in the Telerik Upload for Blazor:
 
 
-* [OnSelect](#onselect)
-* [OnUpload](#onupload)
-* [OnRemove](#onremove)
-* [OnProgress](#onprogress)
-* [OnSuccess](#onsuccess)
-* [OnError](#onerror)
-* [OnCancel](#oncancel)
-* [OnClear](#onclear)
+- [Upload Events](#upload-events)
+  - [OnSelect](#onselect)
+  - [OnUpload](#onupload)
+  - [OnRemove](#onremove)
+  - [OnProgress](#onprogress)
+  - [OnSuccess](#onsuccess)
+  - [OnError](#onerror)
+  - [OnCancel](#oncancel)
+  - [OnClear](#onclear)
+  - [See Also](#see-also)
 
 >note The file `Name` in the event arguments is HTML encoded. If you want the actual name you may need to decode it (for example, use `System.Net.WebUtility.HtmlDecode(file.Name)`). The file name that the controller (endpoint) receives is *not* encoded.
 
@@ -724,6 +726,8 @@ The `OnClear` event fires when the user clicks the Clear button which is availab
 
 <TelerikUpload SaveUrl="@SaveUrl"
                RemoveUrl="@RemoveUrl"
+               SaveField="file"
+               RemoveField="fileToRemove"
                OnClear="@OnClearHandler"
                AutoUpload="false">
 </TelerikUpload>
@@ -759,4 +763,5 @@ The `OnClear` event fires when the user clicks the Clear button which is availab
 
 * [Upload Overview]({%slug upload-overview%})
 * [Validation]({%slug upload-validation%})
+* [Upload Methods]({%slug upload-overview%}#methods)
 * [Live Demo: Upload Events](https://demos.telerik.com/blazor-ui/upload/events)
