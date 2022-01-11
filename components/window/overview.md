@@ -138,7 +138,7 @@ The `Class` property lets you define a CSS class that will be rendered on the po
 </TelerikWindow>
 
 <style>
-    div.k-widget.k-window.MyClass { /* targets the entire popup element */
+    div.k-window.MyClass { /* targets the entire popup element */
         border: 5px solid red;
     }
 
