@@ -50,6 +50,8 @@ There are four built-in commands:
 * `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was created or edited.
 * `Cancel` - aborts the current operation (edit or insert).
 
+> The `Add` and `Edit` commands require [enabled editing]({%slug treelist-overview%}#editing).
+
 ### Context
 
 The command column provides access to the data item via `context`. This may be useful for conditional statements or passing parameters to custom business logic.
