@@ -42,7 +42,7 @@ There are two options:
 @* These CSS rules hide the second component wrappers *@
 
 <style>
-    .k-filter-menu-container .k-widget.k-dropdown,
+    .k-filter-menu-container .k-dropdown,
     .k-filter-menu-container .k-state-empty:nth-of-type(2n),
     .k-filter-menu-container .k-textbox:nth-of-type(2n),
     .k-filter-menu-container .k-datepicker:nth-of-type(2n+1),
@@ -50,7 +50,7 @@ There are two options:
         display: none;
     }
 
-        .k-filter-menu-container .k-widget.k-dropdown:first-of-type {
+        .k-filter-menu-container .k-dropdown:first-of-type {
             display: block;
         }
 </style>

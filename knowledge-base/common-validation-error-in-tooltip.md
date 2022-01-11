@@ -65,7 +65,7 @@ There are several key aspects in implementing this:
 
     <TelerikAnimationContainer @ref="@AnimationContainer" Top=@TopStyle Left=@LeftStyle Width="300px" Height="100px" AnimationType=@AnimationType.Fade>
         <div role="tooltip" 
-                class="ValidationTooltip k-widget k-tooltip k-tooltip-closable k-popup k-group k-reset k-state-border-up"
+                class="ValidationTooltip k-tooltip k-tooltip-closable k-popup k-group k-reset k-state-border-up"
                 style="margin-left: 12px;">
             <div class="k-tooltip-content">
                 <div class="template-wrapper">
