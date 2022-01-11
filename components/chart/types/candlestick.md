@@ -126,6 +126,8 @@ Set the color - a valid CSS, RGB, RGBA color - of the series when the `OpenField
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#color-field-column-ohlc-candlestick)
 
+>note The values bound to the `DownColorField` and `ColorField` will take precedence over the values passed to the `Color` and the `DownColor` attributes. 
+
 @[template](/_contentTemplates/stockchart/link-to-basics.md#gap-and-spacing)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
