@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Button Overview
-description: Overview of the Button for Blazor.
+description: Discover the Blazor Button and explore the examples.
 slug: components/button/overview
 tags: telerik,blazor,button,overview
 published: True
@@ -10,24 +10,19 @@ position: 0
 
 # Button Overview
 
-This article provides information about the <a href="https://www.telerik.com/blazor-ui/buttons" target="_blank">Blazor Button component</a> and its core features.
+This article introduces the <a href="https://www.telerik.com/blazor-ui/buttons" target="_blank">Blazor Button component</a>, shows how to start using it, and lists its core features.
 
-The Button component provides styling according to the [chosen theme]({%slug general-information/themes%}), click [event]({%slug button-events%}) and [icons]({%slug button-icons%}). You can also disable the button and set its [type]({%slug button-type%}).
+Buttons convey user actions and can display text, images and HTML.
 
-#### In this article:
+The Blazor Button provides a variety of styling options through the [built-in themes]({%slug general-information/themes%}) and the [button type]({%slug button-type%}). It supports [font icons and images]({%slug button-icons%}) and fires click [events]({%slug button-events%}).
 
-* [Basic Button](#basic-button)
-* [Primary Button](#primary-button)
-* [Disabled State](#disabled-state)
-* [Styling](#styling)
+## Creating Blazor Button
 
+1. Use the `<TelerikButton>` tag to add the component to your razor page.
 
+1. Add an `OnClick` event handler to show the current date and time.
 
-## Basic Button
-
-To add a Telerik Button to your Blazor app, use the `<TelerikButton>` tag:
-
->caption Basic Telerik Button with OnClick event handling
+>caption Basic Blazor Button with OnClick event handler
 
 ````CSHTML
 @result
@@ -44,95 +39,58 @@ To add a Telerik Button to your Blazor app, use the `<TelerikButton>` tag:
 }
 ````
 
->caption The result from the code snippet above
 
-![](images/basic-button.png)
+## Icons
+
+To visually communicate the purpose of a button, you can add an image, sprite, or font icon. You can choose between a wide range of built-in font icons or use your custom font icons. [Read more about the Blazor Button icons...]({%slug button-icons%})
+
+## Type
+
+To control the submit behavior of the Blazor Button, use the `Type` attribute. Select from the following button types: `Submit`, `Reset`, and `Button`. [Read more about the Blazor Button Type...]({%slug button-type%})
+
+## Events
+
+The Blazor Button fires events that you can handle and respond to user actions. [Read more about the Blazor Button events...]({%slug button-events%}).
+
+## Disabled State
+
+To prevent user interaction with a Button, disable it. [Read more about the disabled Blazor Button...]({%slug button-disabled%}).
+
+## Styling
+
+To customize the style and the appearance of the Blazor Button, you can use the [built-in themes]({%slug general-information/themes%}). Additionally, set the `Class` attribute and implement custom CSS rules. [Read more about the Blazor Button styling...]({%slug button-styling%})
+
+## Button Reference
+
+Add a reference to the Button instance to use its methods (for example - `FocusAsync()`).
 
 >caption Component namespace and reference
 
 ````CSHTML
-@using Telerik.Blazor.Components
-
 <TelerikButton @ref="theButton">Hello!</TelerikButton>
 
 @code{
-	Telerik.Blazor.Components.TelerikButton theButton;
+    Telerik.Blazor.Components.TelerikButton theButton { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await theButton.FocusAsync();
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
 }
 ````
 
-## Primary Button
+## Next Steps
 
-You can also make the button use a strong color to attact attention, called Primary button styling. To do that, set its `Primary` property to true.
+* [Styling the Blazor Button]({%slug button-styling%})
 
->caption Button with the Primary color scheme from the current theme
-
-````CSHTML
-<TelerikButton Primary="true">Primary</TelerikButton>
-````
-
->caption The result from the code snippet above, with the Default theme
-
-![](images/primary-button.png)
-
-
-## Disabled State
-
-To disable a button, set its `Enabled` attribute to `false`.
-
->caption Disabled Telerik Button
-
-````CSHTML
-<TelerikButton Enabled="false">Disabled Button</TelerikButton>
-````
-
->caption Comparison between disabled and enabled button
-
-![](images/disabled-button.png)
-
-## Styling
-
-You can style the button through its `Class` attribute to define your own CSS rules that apply to the HTML rendering.
-
->caption Set CSS class to the button and change its appearance
-
-````CSHTML
-<TelerikButton Class="RedText">My text is red.</TelerikButton>
-
-<style>
-	.RedText,
-	.RedText:hover {
-		color: red;
-	}
-</style>
-````
-
->caption The result from the code snippet above
-
-![](images/red-button.png)
-
-
->caption Change the button size
-
-````
-<style>
-    .large-button {
-        width: 200px;
-        height: 50px;
-    }
-</style>
-
-<TelerikButton Class="large-button">Large button</TelerikButton>
-````
-
->caption The result from the code snippet above
-
-![use css to change the button size](images/button-size-change.png)
+* [Using Button Icons]({%slug button-icons%})
 
 ## See Also
 
   * [Live Demo: Button](https://demos.telerik.com/blazor-ui/button/index)
   * [Events]({%slug button-events%})
-  * [Icons]({%slug button-icons%})
   * [Type]({%slug button-type%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikButton)
-   
+  
