@@ -92,7 +92,7 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
     public string GetSelectedItemClass(DrawerItem item)
     {
         if (SelectedItem == null) return string.Empty;
-        return SelectedItem.Text.ToLowerInvariant().Equals(item.Text.ToLowerInvariant()) ? "k-state-selected" : "";
+        return SelectedItem.Text.ToLowerInvariant().Equals(item.Text.ToLowerInvariant()) ? "k-selected" : "";
     }
 
     public class DrawerItem

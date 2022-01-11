@@ -43,7 +43,7 @@ Hooking to your own HTML elements' events lets you determine what to do with the
 <TelerikContextMenu Data="@MenuItems" @ref="@TheContextMenu"
                     TextField="Text" SeparatorField="Separator" IconField="Icon"
                     DisabledField="Disabled"
-                    OnClick="@( (ContextMenuItem itm) => ContextMenuClickHandler(itm) )">
+                    OnClick="@( (ContextMenuClickEventArgs<ContextMenuItem> args) => ContextMenuClickHandler(args) )">
 </TelerikContextMenu>
 
 <TelerikListView Data="@ListViewData" Width="700px" Pageable="true">
@@ -79,8 +79,9 @@ Hooking to your own HTML elements' events lets you determine what to do with the
         MenuItems[2].Items[0].Disabled = clickedItem.IsSpecial;
     }
 
-    async Task ContextMenuClickHandler(ContextMenuItem clickedItem)
+    void ContextMenuClickHandler(ContextMenuClickEventArgs<ContextMenuItem> args)
     {
+        var clickedItem = args.Item;
         // handle the command from the context menu by using the stored metadata
         if (!string.IsNullOrEmpty(clickedItem.CommandName) && LastClickedItem != null)
         {
@@ -92,9 +93,8 @@ Hooking to your own HTML elements' events lets you determine what to do with the
     // generate sample data for the listview and the menu
     protected override void OnInitialized()
     {
-
         MenuItems = new List<ContextMenuItem>()
-    {
+        {
             new ContextMenuItem
             {
                 Text = "More Info",
@@ -185,7 +185,7 @@ In this example, the context menu is used to select/deselect items, put an item 
 @using System.Collections.ObjectModel
 
 <TelerikContextMenu @ref="@ContextMenuRef" Data="@MenuItems" 
-                    OnClick="@((MenuItem item) => ContextMenuClickHandler(item))">
+                    OnClick="@((ContextMenuClickEventArgs<MenuItem> args) => ContextMenuClickHandler(args))">
 </TelerikContextMenu>
 
 <TelerikGrid Data="@GridData" @ref="@GridRef"
@@ -253,8 +253,9 @@ In this example, the context menu is used to select/deselect items, put an item 
     }
 
     // sample handling of the context menu click
-    async Task ContextMenuClickHandler(MenuItem item)
+    async Task ContextMenuClickHandler(ContextMenuClickEventArgs<MenuItem> args)
     {
+        var item = args.Item;
         // one way to pass handlers is to use an Action, you don't have to use this
         if (item.Action != null)
         {
@@ -403,7 +404,7 @@ In this example, the context menu is used to select/deselect items and delete it
 
 <TelerikContextMenu Data="@ContextMenuData"
                     @ref="ContextMenu"
-                    OnClick="@((ContextMenuItem item) => ContextMenuClickHandler(item))">
+                    OnClick="@((ContextMenuClickEventArgs<ContextMenuItem> args) => ContextMenuClickHandler(args))">
 </TelerikContextMenu>
 
 <TelerikTreeView Data="@FlatData"
@@ -433,9 +434,9 @@ In this example, the context menu is used to select/deselect items and delete it
         }
     }
 
-    private void ContextMenuClickHandler(ContextMenuItem item)
+    private void ContextMenuClickHandler(ContextMenuClickEventArgs<ContextMenuItem> args)
     {
-
+        var item = args.Item;
         // Use local code to perform a task such as put select/deselect a node or delete it
         switch (item.CommandName)
         {
