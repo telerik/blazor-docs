@@ -1,3 +1,3 @@
 #inputs-width-information
-By default this parameter is set to `300px`. In case you would like it to fit to a container you could set it in `100%` or other percent value depending on the application needs.
+The default `Width` value is null, but the theme applies `100%`. Use the `Width` property or custom CSS to set another value [in any supported unit]({%slug common-features/dimensions%}).
 #end
