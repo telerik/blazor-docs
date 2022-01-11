@@ -1,16 +1,16 @@
 ---
 title: Appearance
-page_title: Button Appearance
-description: Appearance settings of the Button for Blazor.
-slug: button-appearance
-tags: telerik,blazor,button,appearance
+page_title: ToggleButton Appearance
+description: Appearance settings of the ToggleButton for Blazor.
+slug: togglebutton-appearance
+tags: telerik,blazor,button,toggle,togglebutton,appearance
 published: True
 position: 35
 ---
 
 # Appearance Settings
 
-You can control the appearance of the button by setting the following attributes:
+You can control the appearance of the toggle button by setting the following attributes:
 
 * [FillMode](#fillmode)
 * [Rounded](#rounded)
@@ -22,7 +22,7 @@ You can use all of them together to achieve the desired appearance. This article
 
 ## FillMode
 
-The `FillMode` controls how the TelerikButton is filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.FillMode` class:
+The `FillMode` controls how the TelerikToggleButton is filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.FillMode` class:
 
 | Class members | Result |
 |------------|--------|
@@ -47,7 +47,7 @@ The `FillMode` controls how the TelerikButton is filled. You can set it to a mem
         string fillmode = field.GetValue(null).ToString();
 
         <div style="float:left; margin: 20px;">
-            <TelerikButton FillMode="@fillmode">@fillmode</TelerikButton>
+            <TelerikToggleButton FillMode="@fillmode">@fillmode</TelerikToggleButton>
         </div>
     }
 }
@@ -55,7 +55,7 @@ The `FillMode` controls how the TelerikButton is filled. You can set it to a mem
 
 ## Rounded
 
-The `Rounded` parameter applies the `border-radiums` CSS rule to the button to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.Rounded` class:
+The `Rounded` paramter applies the `border-radiums` CSS rule to the button to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.Rounded` class:
 
 | Class members | Result |
 |------------|--------|
@@ -80,7 +80,7 @@ The `Rounded` parameter applies the `border-radiums` CSS rule to the button to a
         string rounded = field.GetValue(null).ToString();
 
         <div style="float:left; margin: 20px;">
-            <TelerikButton Rounded="@rounded">@rounded</TelerikButton>
+            <TelerikToggleButton Rounded="@rounded">@rounded</TelerikToggleButton>
         </div>
     }
 }
@@ -113,7 +113,7 @@ The `Shape` attribute defines the geometric shape of the button. You can set it 
         string shape = field.GetValue(null).ToString();
 
         <div style="float:left; margin: 20px;">
-            <TelerikButton Shape="@shape">@shape</TelerikButton>
+            <TelerikToggleButton Shape="@shape">@shape</TelerikToggleButton>
         </div>
     }
 }
@@ -143,7 +143,7 @@ You can increase or decrease the size of the button by setting the `Size` parame
         string size = field.GetValue(null).ToString();
 
         <div style="float:left; margin: 20px;">
-            <TelerikButton Size="@size">@size</TelerikButton>
+            <TelerikToggleButton Size="@size">@size</TelerikToggleButton>
         </div>
     }
 }

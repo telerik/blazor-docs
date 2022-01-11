@@ -1,16 +1,16 @@
 ---
 title: Appearance
-page_title: Button Appearance
-description: Appearance settings of the Button for Blazor.
-slug: button-appearance
-tags: telerik,blazor,button,appearance
+page_title: ButtonGroup Button Appearance
+description: Appearance settings of the Buttons in the ButtonGroup for Blazor.
+slug: buttongroup-appearance
+tags: telerik,blazor,buttongroup,button,appearance
 published: True
 position: 35
 ---
 
 # Appearance Settings
 
-You can control the appearance of the button by setting the following attributes:
+You can control the appearance of the buttons in the `<TelerikButtonGroup>` by setting the following attributes:
 
 * [FillMode](#fillmode)
 * [Rounded](#rounded)
@@ -36,26 +36,25 @@ The `FillMode` controls how the TelerikButton is filled. You can set it to a mem
 ````CSHTML
 @* These are all built-in fill modes *@
 
-@{ 
+@{
     var fields = typeof(Telerik.Blazor.ThemeConstants.Button.FillMode)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
         | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
 
-    foreach (var field in fields)
-    {
-        string fillmode = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikButton FillMode="@fillmode">@fillmode</TelerikButton>
-        </div>
-    }
+    <TelerikButtonGroup>
+        @foreach (var field in fields)
+        {
+            string fillmode = field.GetValue(null).ToString();
+            <ButtonGroupButton FillMode="@fillmode">@fillmode</ButtonGroupButton>
+        }
+    </TelerikButtonGroup>
 }
 ````
 
 ## Rounded
 
-The `Rounded` parameter applies the `border-radiums` CSS rule to the button to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.Rounded` class:
+The `Rounded` paramter applies the `border-radiums` CSS rule to the button to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.Rounded` class:
 
 | Class members | Result |
 |------------|--------|
@@ -75,14 +74,13 @@ The `Rounded` parameter applies the `border-radiums` CSS rule to the button to a
         | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
 
-    foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikButton Rounded="@rounded">@rounded</TelerikButton>
-        </div>
-    }
+    <TelerikButtonGroup>
+        @foreach (var field in fields)
+        {
+            string rounded = field.GetValue(null).ToString();
+            <ButtonGroupButton Rounded="@rounded">@rounded</ButtonGroupButton>
+        }
+    </TelerikButtonGroup>
 }
 ````
 
@@ -108,14 +106,13 @@ The `Shape` attribute defines the geometric shape of the button. You can set it 
         | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
 
-    foreach (var field in fields)
-    {
-        string shape = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikButton Shape="@shape">@shape</TelerikButton>
-        </div>
-    }
+    <TelerikButtonGroup>
+        @foreach (var field in fields)
+        {
+            string shape = field.GetValue(null).ToString();
+            <ButtonGroupButton Shape="@shape">@shape</ButtonGroupButton>
+        }
+    </TelerikButtonGroup>
 }
 ````
 
@@ -138,14 +135,13 @@ You can increase or decrease the size of the button by setting the `Size` parame
         | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
 
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikButton Size="@size">@size</TelerikButton>
-        </div>
-    }
+    <TelerikButtonGroup>
+        @foreach (var field in fields)
+        {
+            string size = field.GetValue(null).ToString();
+            <ButtonGroupButton Size="@size">@size</ButtonGroupButton>
+        }
+    </TelerikButtonGroup>
 }
 ````
 
@@ -179,14 +175,13 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
         | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
 
-    foreach (var field in fields)
-    {
-        string themeColor = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikToggleButton ThemeColor="@themeColor">@themeColor</TelerikToggleButton>
-        </div>
-    }
+    <TelerikButtonGroup>
+        @foreach (var field in fields)
+        {
+            string themeColor = field.GetValue(null).ToString();
+            <ButtonGroupButton ThemeColor="@themeColor">@themeColor</ButtonGroupButton>
+        }
+    </TelerikButtonGroup>
 }
 ````
 
