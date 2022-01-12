@@ -64,10 +64,10 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
             </ul>
         </div>
     </Template>
-    <Content>
+    <DrawerContent>
         <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu" />
         <div class="m-5">Content for @SelectedItem?.Text - @SelectedItem?.Description</div>
-    </Content>
+    </DrawerContent>
 </TelerikDrawer>
 
 @code {

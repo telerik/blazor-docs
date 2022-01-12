@@ -43,9 +43,9 @@ This template receives a `context` argument that is of the data model type and r
             </div>
         }
     </ItemTemplate>
-    <Content>
+    <DrawerContent>
         <strong>@SelectedItem?.Description</strong>
-    </Content>
+    </DrawerContent>
 </TelerikDrawer>
 
 
@@ -84,7 +84,7 @@ When using this template all built-in features of the Drawer are disabled and sh
 
 The drawer will expand and collapse as usual, but the content has to be controlled by the application entirely.
 
-Make sure that the `<Content>` tag is outside of the `<Template>` - the `<Content>` is responsible for the rendering the application outside of the Drawer, whereas the `<Template>` controls only the rendering of the component. In the `<Content>` tag you can place the `@Body` when you are using the Drawer as a sidebar navigation. 
+Make sure that the `<DrawerContent>` tag is outside of the `<Template>` - the `<DrawerContent>` is responsible for the rendering the application outside of the Drawer, whereas the `<Template>` controls only the rendering of the component. In the `<DrawerContent>` tag you can place the `@Body` when you are using the Drawer as a sidebar navigation. 
 
 >tip You can find a runnable sample that showcases this in the [Drawer as Side Navigation using the Template](https://github.com/telerik/blazor-ui/tree/master/drawer/template) sample project.
 
@@ -162,9 +162,9 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
             </div>
         }
     </Template>
-    <Content>
+    <DrawerContent>
         <div class="m-5">Content for @SelectedItem?.Text - @SelectedItem?.Description</div>
-    </Content>
+    </DrawerContent>
 </TelerikDrawer>
 
 @code {

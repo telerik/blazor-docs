@@ -66,9 +66,9 @@ https://docs.telerik.com/blazor-ui/components/drawer/navigation
 
 <TelerikDrawer Data="@Data" UrlField="ItemUrl" TextField="ItemText" IconField="ItemIcon"
                MiniMode="true" Mode="@DrawerMode.Push" Expanded="true">
-    <Content>
+    <DrawerContent>
         @Body
-    </Content>
+    </DrawerContent>
 </TelerikDrawer>
 
 @code {
