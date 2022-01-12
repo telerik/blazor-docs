@@ -10,10 +10,9 @@ position: 1
 
 # Window Size
 
-The Window offers three ways for you to control its size:
+The Window offers different ways for you to control its size:
 
 * [Set Width and Height](#set-width-and-height)
-* [Predefined Size Options](#predefined-size)
 * [Maximize and Minimize](#maximize-and-minimize)
 
 
@@ -37,31 +36,6 @@ If you know the size you need, just set it to the `Width` and/or `Height` parame
 	</WindowContent>
 </TelerikWindow>
 ````
-
-## Predefined Size
-
-The `Size` parameter takes a member of the `Telerik.Blazor.WindowSize` enum. It renders as a class that sets only the width of the dialog, and the height is rendered by the browser based on the contents. The `Width` and `Height` properties take precedence, because they are rendered as inline `style` rules.
-
-The `Telerik.Blazor.WindowSize` enum provides the following options:
-
-* `Small` - `300px` width
-* `Medium` - `800px` width
-* `Large` - `1200px` width
-
->caption Set predefined size to the Window
-
-````CSHTML
-<TelerikWindow Visible="true" Size="@WindowSize.Small">
-	<WindowTitle>
-		<strong>The Title</strong>
-	</WindowTitle>
-	<WindowContent>
-		I am <strong>300px</strong> wide and my height is determined by the content my developer adds.
-	</WindowContent>
-</TelerikWindow>
-````
-
->tip If you want to resize the window dynamically through data binding its `Size` property, you may want to data bind the `Width` and `Height` properties as well, so you can reset them to `null` when you want to change the size.
 
 ## Maximize and Minimize
 
