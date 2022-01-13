@@ -38,7 +38,7 @@ The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Up
             }
         }
 
-2. Create a suitable controller (endpoint) that can receive files from a POST request. **Note the different ways to set `physicalPath` for server and client Blazor apps.** For example:
+1. Create a suitable controller (endpoint) that can receive files from a POST request. **Note the different ways to set `physicalPath` for server and client Blazor apps.** For example:
 
     **C#**
     
@@ -177,14 +177,12 @@ The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Up
 The Upload methods are accesible through its reference.
 
 * `ClearFiles` - Clears all files from the list, both uploaded and in queue.
-  
 * `UploadFiles` - Uploads all valid selected files. Fires the [OnUpload]({%slug upload-events%}#onupload) event.
-
 * `OpenFileSelectAsync` - Triggers the browser's file select dialog.
 
 >caption Get a reference to the Upload and use its methods. The example uses the same controller as the above demo.
 
-````CSHTML 
+````Component 
 @* This example showcases the use of the methods. *@
 
 @inject NavigationManager NavigationManager
@@ -195,8 +193,8 @@ The Upload methods are accesible through its reference.
 <br/><br/>
 
 <TelerikUpload @ref="@UploadRef"
-               RemoveField="@RemoveUrl"
                SaveUrl="@SaveUrl"
+               RemoveField="@RemoveUrl"
                AutoUpload="false">
 </TelerikUpload>
 
@@ -225,6 +223,98 @@ The Upload methods are accesible through its reference.
         await UploadRef.OpenFileSelectAsync();
     }
 }
+````
+````Controller
+        using Microsoft.AspNetCore.Mvc;
+        using System.IO;
+        using Microsoft.AspNetCore.Http;
+        using Microsoft.AspNetCore.Hosting;
+        using System.Net.Http.Headers;
+        using System.Threading.Tasks;
+        
+        namespace MyBlazorApp.Controllers
+        {
+            [Route("api/[controller]/[action]")]
+            public class UploadController : Controller
+            {
+                public IWebHostEnvironment HostingEnvironment { get; set; }
+        
+                public UploadController(IWebHostEnvironment hostingEnvironment)
+                {
+                    HostingEnvironment = hostingEnvironment;
+                }
+        
+                [HttpPost]
+                public async Task<IActionResult> Save(IFormFile file) // must match SaveField which defaults to "files"
+                {
+                    if (file != null)
+                    {
+                        try
+                        {
+                            var fileContent = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
+        
+                            // Some browsers send file names with full path.
+                            // We are only interested in the file name.
+                            var fileName = Path.GetFileName(fileContent.FileName.ToString().Trim('"'));
+                            var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+        
+                            // Implement security mechanisms here - prevent path traversals,
+                            // check for allowed extensions, types, size, content, viruses, etc.
+                            // This sample always saves the file to the root and is not sufficient for a real application.
+        
+                            using (var fileStream = new FileStream(physicalPath, FileMode.Create))
+                            {
+                                await file.CopyToAsync(fileStream);
+                            }
+                        }
+                        catch
+                        {
+                            // Implement error handling here, this example merely indicates an upload failure.
+                            Response.StatusCode = 500;
+                            await Response.WriteAsync("some error message"); // custom error message
+                        }
+                    }
+        
+                    // Return an empty string message in this case
+                    return new EmptyResult();
+                }
+        
+        
+                [HttpPost]
+                public ActionResult Remove(string fileToRemove) // must match RemoveField which defaults to "files"
+                {
+                    if (fileToRemove != null)
+                    {
+                        try
+                        {
+                            var fileName = Path.GetFileName(fileToRemove);
+                            // server Blazor app
+                            var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+                            // client Blazor app
+                            //var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
+        
+                            if (System.IO.File.Exists(physicalPath))
+                            {
+                                // Implement security mechanisms here - prevent path traversals,
+                                // check for allowed extensions, types, permissions, etc.
+                                // this sample always deletes the file from the root and is not sufficient for a real application.
+        
+                                System.IO.File.Delete(physicalPath);
+                            }
+                        }
+                        catch
+                        {
+                            // Implement error handling here, this example merely indicates an upload failure.
+                            Response.StatusCode = 500;
+                            Response.WriteAsync("some error message"); // custom error message
+                        }
+                    }
+        
+                    // Return an empty string message in this case
+                    return new EmptyResult();
+                }
+            }
+        }
 ````
 
 ## Notes
