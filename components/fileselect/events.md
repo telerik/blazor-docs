@@ -35,6 +35,47 @@ The `FileSelectFileInfo` object contains the following properties:
 >caption Handle the OnSelect event of the FileSelect
 
 ````CSHTML
+*Handle the OnSelect event of the FileSelect to access the selected files and upload them*@
+
+@using System.IO
+@using Microsoft.AspNetCore.Hosting
+@using System.Threading
+@using Telerik.Blazor.Components.FileSelect
+
+@inject IWebHostEnvironment HostingEnvironment
+
+<div style="width:300px">
+	<TelerikFileSelect OnSelect=@HandleFiles
+					   AllowedExtensions="@AllowedExtensions">
+	</TelerikFileSelect>
+	<div class="k-form-hint">
+		Expected files: <strong>JPG, PNG, GIF</strong>		
+	</div>
+</div>
+
+@code {
+	public List<string> AllowedExtensions { get; set; } = new List<string>() { ".jpg", ".png", ".gif" };
+	public Dictionary<string, CancellationTokenSource> Tokens { get; set; } = new Dictionary<string, CancellationTokenSource>();
+
+	private void HandleFiles(FileSelectEventArgs args)
+	{
+		foreach (var file in args.Files)
+		{
+			if (!file.InvalidExtension)
+			{
+				_ = UploadFile(file);
+			}
+		}
+	}
+
+	private async Task UploadFile(FileSelectFileInfo file)
+	{
+		Tokens.Add(file.Id, new CancellationTokenSource());
+		var path = Path.Combine(HostingEnvironment?.WebRootPath, file.Name);
+		await using FileStream fs = new FileStream(path, FileMode.Create);
+		await file.Stream.CopyToAsync(fs, Tokens[file.Id].Token);
+	}
+}
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
@@ -58,6 +99,46 @@ The event handler receives a `FileSelectEventArgs` object which has a collection
 >caption Handle the OnRemove event of the FileSelect
 
 ````CSHTML
+@*Handle the OnRemove event of the FileSelect to access and delete the uploaded files*@
+
+@using System.IO
+@using Microsoft.AspNetCore.Hosting
+@using System.Threading
+@using Telerik.Blazor.Components.FileSelect
+
+@inject IWebHostEnvironment HostingEnvironment
+
+<div style="width:300px">
+	<TelerikFileSelect OnRemove=@HandleRemoveFiles
+					   AllowedExtensions="@AllowedExtensions">
+	</TelerikFileSelect>
+	<div class="k-form-hint">
+		Expected files: <strong>JPG, PNG, GIF</strong>		
+	</div>
+</div>
+
+@code {
+	public List<string> AllowedExtensions { get; set; } = new List<string>() { ".jpg", ".png", ".gif" };
+	public Dictionary<string, CancellationTokenSource> Tokens { get; set; } = new Dictionary<string, CancellationTokenSource>();
+
+	private async Task HandleRemoveFiles(FileSelectEventArgs args)
+    {
+        foreach (var file in args.Files)
+        {
+            // If you're still uploading the file, cancel the process first.
+            Tokens[file.Id].Cancel();
+            Tokens.Remove(file.Id);
+
+            await Task.Delay(1);
+
+            var path = Path.Combine(HostingEnvironment?.WebRootPath, file.Name);
+            
+            // Remove the file from the file system
+            File.Delete(path);
+        }
+
+    }
+}
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
@@ -65,6 +146,6 @@ The event handler receives a `FileSelectEventArgs` object which has a collection
 
 ## See Also
 
-* [Live Demo: FileSelect Events](https://demos.telerik.com/blazor-ui/upload/events)
+* [Live Demo: FileSelect Events](https://demos.telerik.com/blazor-ui/fileselect/events)
 * [FileSelect Overview]({%slug fileselect-overview%})
 * [FileSelect Validation]({%slug fileselect-validation%})
