@@ -140,17 +140,9 @@ The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Up
 
 >note The sample controller above takes only one field with the given name. If you already have existing controllers that handle files, it is possible that they accept `IEnumerable<IFormFile>` and `string[]` respectively. This will work with the Telerik Upload too - it simply allows for more fields with that name to be present in the request, while the Telerik component will add only one file (field).
 
->caption Component namespace and reference
+## Features
 
-````CSHTML
-<TelerikUpload @ref="@UploadRef" />
-
-@code{
-    Telerik.Blazor.Components.TelerikUpload UploadRef { get; set; }
-}
-````
-
->caption The Upload provides the following key features:
+The Upload provides the following key features:
 
 * `AutoUpload` - Specifies whether the upload of a file should start immediately upon its selection, or the user must click the "Upload" button. Defaults to `true`.
 
@@ -172,24 +164,34 @@ The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Up
 
 * [Validation]({%slug upload-validation%})
 
+## Upload Reference
+
+````CSHTML
+<TelerikUpload @ref="@UploadRef" />
+
+@code{
+    Telerik.Blazor.Components.TelerikUpload UploadRef { get; set; }
+}
+````
+
 ## Methods
 
-The Upload methods are accesible through its reference.
+The Upload methods are accesible through its [reference](#upload-reference).
 
 * `ClearFiles` - Clears all files from the list, both uploaded and in queue.
 * `UploadFiles` - Uploads all valid selected files. Fires the [OnUpload]({%slug upload-events%}#onupload) event.
 * `OpenFileSelectAsync` - Triggers the browser's file select dialog.
 
->caption Get a reference to the Upload and use its methods. The example uses the same controller as the above demo.
+>caption Get a reference to the Upload and use its methods.
 
 ````Component 
-@* This example showcases the use of the methods. *@
+@* This example showcases the use of the Upload methods. *@
 
 @inject NavigationManager NavigationManager
 
 <TelerikButton @onclick="@Clear">Clear File List</TelerikButton>
-<TelerikButton @onclick="@Upload">Manual Upload Files</TelerikButton>
-<TelerikButton @onclick="@OpenFile">Open FileSelect Dialog</TelerikButton>
+<TelerikButton @onclick="@Upload">Start Upload Programmatically</TelerikButton>
+<TelerikButton @onclick="@OpenFile">Open File Selection Dialog</TelerikButton>
 <br/><br/>
 
 <TelerikUpload @ref="@UploadRef"
