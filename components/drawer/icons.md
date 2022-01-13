@@ -32,12 +32,12 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
                Mode="DrawerMode.Push"
                @ref="@DrawerRef"
                @bind-SelectedItem="@SelectedItem">
-    <Content>
+    <DrawerContent>
         <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
         <div class="m-5">
             Selected Item: @SelectedItem?.Text
         </div>
-    </Content>
+    </DrawerContent>
 </TelerikDrawer>
 
 @code {

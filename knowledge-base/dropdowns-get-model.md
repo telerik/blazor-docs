@@ -228,7 +228,7 @@ The example below copies the Telerik DropDownList rendering and uses a grid to p
 }
 <div style="position:relative; width:@Width">
     <span class="k-dropdown k-header" @onclick="@ToggleDropdown" style="width: 100%;">
-        <span class="k-dropdown-wrap k-state-default @( DropDownShown ? "k-state-focused" : "" )">
+        <span class="k-dropdown-wrap k-state-default @( DropDownShown ? "k-focus" : "" )">
             <span class="k-input">@SelectedItemText</span>
             <span class="k-select">
                 <span class="k-icon k-i-arrow-60-down"></span>

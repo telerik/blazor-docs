@@ -32,15 +32,15 @@ In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%
 
 <TelerikContextMenu Selector=".context-menu-target" Data="@MenuItems"
                     TextField="Text" SeparatorField="Separator" IconField="Icon"
-                    OnClick="@( (ContextMenuItem itm) => ClickHandler(itm) )">
+                    OnClick="@( (ContextMenuClickEventArgs<ContextMenuItem> args) => ClickHandler(args) )">
 </TelerikContextMenu>
-
 
 @code {
     public List<ContextMenuItem> MenuItems { get; set; }
 
-    async Task ClickHandler(ContextMenuItem clickedItem)
+    async Task ClickHandler(ContextMenuClickEventArgs<ContextMenuItem> args)
     {
+        var clickedItem = args.Item;
         if (!string.IsNullOrEmpty(clickedItem.CommandName))
         {
             Console.WriteLine($"The programm will now perform the {clickedItem.CommandName} operation");

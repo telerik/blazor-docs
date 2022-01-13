@@ -32,13 +32,13 @@ I would like to set the Editor in invalid state when validation does not pass by
 
 ## Solution
 
-The Editor is a composite component and as such, currently, does not support the `k-state-invalid` class. In order to add a red border when the validation set for its value does not pass you can make a custom CSS class that mimics k-state-invalid and add it to the `Class` parameter based on a `bool` expression.
+The Editor is a composite component and as such, currently, does not support the `k-invalid` class. In order to add a red border when the validation set for its value does not pass you can make a custom CSS class that mimics k-invalid and add it to the `Class` parameter based on a `bool` expression.
 
 You can utilize the capabilities and information provided by the `EditContext` to determine if the validation did not pass for the exact field bound to the Editor and render anew the component to apply the custom CSS class. A step by step explanation and an example of those concepts can be found below.
 
 #### Step by step explanation:
 
-1. Create a custom CSS class that mimics the k-state-invalid.
+1. Create a custom CSS class that mimics the k-invalid.
 1. Pass an `EditContext` to the `<EditForm>`.
 1. Instantiate a `FieldIdentifier` and in its constructor pass the data model and the field bound to the Editor. 
 1. Use a getter-only property to check if there are any validation messages for that `FieldIdentifier`.
@@ -48,7 +48,7 @@ You can utilize the capabilities and information provided by the `EditContext` t
 >caption Set the Editor in invalid state when validation does not pass
 
 ````CSHTML
-@*This is the custom class that mimics k-state-invalid*@
+@*This is the custom class that mimics k-invalid*@
 <style>
     .myCustomInvalidState {
         border-color: #dc3545;

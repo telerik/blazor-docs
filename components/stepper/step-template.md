@@ -60,7 +60,7 @@ You can customize the whole appearance of the steps through their Template. It a
         top: 18px;
     }
 
-        .custom-stepper .k-progressbar .k-state-selected {
+        .custom-stepper .k-progressbar .k-selected {
             background: linear-gradient(to right, #ffc837, #ff8008);
         }
 

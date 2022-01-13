@@ -72,12 +72,12 @@ To achieve the desired result you can try the following:
                @ref="@DrawerRef"
                @bind-SelectedItem="@SelectedItem"
                @bind-Expanded="@ExpandedDrawer">
-    <Content>
+    <DrawerContent>
         @* Place your contents here - it can be as simple as text, it can be conditional components or components that take the selected item as a parameter, or even the @Body tag for navigation if you place the drawer high enough in the project layout hierarchy *@
         <div class="m-5">
             Selected Item: @SelectedItem?.Text
         </div>
-    </Content>
+    </DrawerContent>
 </TelerikDrawer>
 
 

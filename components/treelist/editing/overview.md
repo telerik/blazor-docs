@@ -13,6 +13,8 @@ position: 0
 CRUD operations with the TreeList for Blazor support validation and
 are done through the dedicated CRUD events it exposes for data editing. You can use them to transfer the changes to the underlying data source (for example, call a service that will actually work with the database, and not only with the view data).
 
+To enable TreeList editing, set the [`EditMode` attribute]({%slug treelist-overview%}#editing) to the desired edit mode.
+
 Sections in this article:
 
 * [Basics](#basics)

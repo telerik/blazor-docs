@@ -96,7 +96,7 @@ Here are some additional notes to keep in mind, and an example.
     }
 
     /* (re)apply selected state background  */
-    .colored-dropdown .k-item.k-state-selected .item-wrapper {
+    .colored-dropdown .k-item.k-selected .item-wrapper {
         background: #666 !important;
     }
 

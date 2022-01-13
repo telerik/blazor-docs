@@ -47,6 +47,8 @@ There are four built-in commands:
 * `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was created or edited.
 * `Cancel` - aborts the current operation (edit or insert).
 
+> The `Add` and `Edit` commands require [enabled editing]({%slug components/grid/overview%}#editing).
+
 ### The OnClick handler
 
 The `OnClick` handler of the commands receives an argument of type `GridCommandEventArgs` that exposes the following properties:

@@ -134,6 +134,7 @@ The grid can perform CRUD operations on its current data collection and exposes 
 
 The grid offers several editing modes with different user experience through the `EditMode` property that is a member of the `GridEditMode` enum:
 
+* `None` - the default `GridEditMode` value. The built-in [`Add` and `Edit` commands]({%slug components/grid/columns/command%}#built-in-commands) don't work in this mode.
 * `Incell` - editing is done [in the current cell]({%slug components/grid/editing/incell%}) with a double click
 * `Inline` - editing is done for the [entire row]({%slug components/grid/editing/inline%}) with an [Edit Command Button]({%slug components/grid/columns/command%})
 * `Popup` - editing is done in a [popup]({%slug components/grid/editing/popup%}) for the entire row with an [Edit Command Button]({%slug components/grid/columns/command%})

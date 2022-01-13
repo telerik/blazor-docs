@@ -16,7 +16,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 
 1. Add the `TelerikDrawer` tag.
 1. Populate its `Data` property with the collection of items you want the user to see.
-1. Place the content of the Drawer in the `<Content>` tag.
+1. Place the content of the Drawer in the `<DrawerContent>` tag.
     * In this example, we keep it simple by using the selected item. See the [Navigation]({%slug drawer-navigation%}) article for a menu-like experience with links.
 
 >caption Basic configuration of the Drawer.
@@ -29,7 +29,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
                Mode="DrawerMode.Push"
                @ref="@DrawerRef"
                @bind-SelectedItem="@SelectedItem">
-    <Content>
+    <DrawerContent>
         <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
 
         @* Place your contents here - it can be as simple as text, it can be conditional components or components that
@@ -38,7 +38,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
         <div class="m-5">
             Selected Item: @SelectedItem?.Text
         </div>
-    </Content>
+    </DrawerContent>
 </TelerikDrawer>
 
 @code {
@@ -73,7 +73,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 * `Position` - you can control the position of the Drawer, through the `DrawerPosition` enum.
 The members of the enum are:
  * `Left` - the default position
- * `Right` - the drawer item list will render on the right hand side of the `Content`
+ * `Right` - the drawer item list will render on the right hand side of the `DrawerContent`
 
 * `Expanded` - two-way bindable property that specifies whether the Drawer is expanded or collapsed. If this parameter is used to expand or collapse the component the animations will not be available. To use animations you have to use the Drawer's [Methods](#methods). You can, however, use the value to implement custom layouts in the drawer [templates]({%slug drawer-templates%}) or in your own layout.
 
@@ -85,7 +85,7 @@ The members of the enum are:
 
 * `MiniMode` - controls whether there is mini view when the Drawer is collapsed. For more information read the [Mini View]({%slug drawer-mini-mode%}) article.
 
-* `Content` - the `<Content>` child tag of `<TelerikDrawer>` is a `RenderFragment` where you put a component or custom HTML as the content of the Drawer - this is what the drawer will push or overlay.
+* `DrawerContent` - the `<DrawerContent>` child tag of `<TelerikDrawer>` is a `RenderFragment` where you put a component or custom HTML as the content of the Drawer - this is what the drawer will push or overlay.
 
 * `SelectedItem` - two-way bindable property that contains the currently selected item in the Drawer. For more information read the [Selection]({%slug drawer-selection%}) article.
 
@@ -117,7 +117,7 @@ The Drawer methods are accessible through it's reference. The reference exposes 
 
 <TelerikDrawer Data="@Data" Mode="@DrawerMode.Push"
                @ref="@DrawerRef">
-    <Content>lorem ipsum</Content>
+    <DrawerContent>lorem ipsum</DrawerContent>
 </TelerikDrawer>
 
 @code {
