@@ -367,7 +367,7 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 </TelerikGrid>
 
 
-@functions {
+@code {
     MarkupString ConsoleSim { get; set; } // to showcase what you get
 
     // implementation of OnRead
