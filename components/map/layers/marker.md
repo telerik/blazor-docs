@@ -156,7 +156,7 @@ The Markers in Map are two types - **Pin** and **PinTarget**. They can be define
 
 ## Marker Tooltip Settings
 
-The `MapLayerMarkerSettingsTooltip` tag allows you to fine tune the tooltips content, appearance and options. You can add HTML, use templates or load an entire page in the tooltip.
+The `MapLayerMarkerSettingsTooltip` tag allows you to fine tune the tooltips content, appearance and options. You can fully customize the HTML content of the tooltip.
 
 >caption Marker Tooltip Template.
 

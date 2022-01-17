@@ -56,15 +56,13 @@ Tha layers are responsible for organizing the Map information. [Read more about 
 
 You can add different points with real coordinates on the map as markers. [Read more about the Blazor Map Markers...]({%slug components/map/layers/marker%})
 
-## Zoom and Navigation
+## Pan and Zoom
 
 Raster maps are divided into images (tiles) for serving over the web. Tiles are typically 256px squares. The top level (zoom level 0) displays the whole world as a single tile. Each progressive zoom level doubles the size of the Map. You can set the zoom level through the `Zoom` property. The zoom operation can be performed with a double click on the map or by using the mouse scroll wheel.
 
-Blazor Map incorporates a navigation tool allowing the end to user to easily zoom, pan and change the current view. You can change the navigation tool position by using the `MapControlsNavigator.Position` enum.
-
-## Pan
-
 The end user can pan the control by simply holding the left mouse button and dragging the map to a desired location.
+
+Blazor Map also incorporates a navigation tool allowing the end to user to easily zoom, pan and change the current view. You can change the navigation tool position by using the `MapControlsNavigator.Position` enum.
 
 ## Events
 
