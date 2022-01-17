@@ -12,9 +12,13 @@ position: 20
 
 This article explains the events available in the Telerik Splitter for Blazor:
 
-* [OnCollapse](#oncollapse)
-* [OnExpand](#onexpand)
-* [OnResize](#onresize)
+* Splitter
+    * [OnCollapse](#oncollapse)
+    * [OnExpand](#onexpand)
+    * [OnResize](#onresize)
+* Pane
+    * [SizeChanged](#sizechanged)
+    * [CollapsedChanged](#collapsed-changed)
 
 ## OnCollapse
 
@@ -56,8 +60,6 @@ Try collapsing any of the panes by clicking the corresponding arrow on the adjac
     }
 }
 ````
-
-
 
 
 ## OnExpand
@@ -102,8 +104,6 @@ Try collapsing and expanding any of the panes by clicking the corresponding arro
 ````
 
 
-
-
 ## OnResize
 
 The `OnResize` event fires after the user has finished resizing a pane (after the mouse button is released). It fires for each resized pane and receives the index and new size in its event arguments.
@@ -145,9 +145,94 @@ Try resizing any of the panes by dragging the splitbars
 }
 ````
 
+## SizeChanged
+
+`SizeChanged` is triggered when the `Size` parameter of the corresponding pane is changed.
+
+>caption Handle the SizeChanged event of a Splitter Pane
+
+````CSTHML
+@* Try resizing Pane 1 *@ 
+
+<div style="width: 500px; border: 1px solid red;">
+    <TelerikSplitter Width="100%"
+                     Height="200px">
+        <SplitterPanes>
+
+            <SplitterPane Size="200px" Collapsible="true">
+                <div>pane 0</div>
+            </SplitterPane>
+
+            <SplitterPane Size="@PaneSize" 
+                          SizeChanged="@SizeChangedHandler" 
+                          Collapsible="true">
+                <div>pane 1</div>
+            </SplitterPane>
+
+            <SplitterPane Collapsible="true">
+                <div>pane 2</div>
+            </SplitterPane>
+
+        </SplitterPanes>
+    </TelerikSplitter>
+</div>
+
+@code{
+    public string PaneSize { get; set; } = "250px";
+
+    void SizeChangedHandler(string size)
+    {
+        PaneSize = size;
+        Console.WriteLine("Pane 1 size was changed. Current size: " + PaneSize);
+    }
+}
+````
 
 
+## CollapsedChanged
 
+`CollapsedChanged` is triggered when the `Collapsed` parameter of the corresponding pane is changed.
+
+>caption Handle the CollapsedChanged event of a Splitter Pane
+
+````CSTHML
+@* Try collapsing Pane 1 *@ 
+
+<div style="width: 500px; border: 1px solid red;">
+    <TelerikSplitter Width="100%"
+                     Height="200px">
+        <SplitterPanes>
+
+            <SplitterPane Size="200px" Collapsible="true">
+                <div>pane 0</div>
+            </SplitterPane>
+
+            <SplitterPane Collapsed="@IsCollapsed"
+                          CollapsedChanged="@CollapsedChangedHandler"
+                          Size="250px"
+                          Collapsible="true">
+                <div>pane 1</div>
+            </SplitterPane>
+
+            <SplitterPane Collapsible="true">
+                <div>pane 2</div>
+            </SplitterPane>
+
+        </SplitterPanes>
+    </TelerikSplitter>
+</div>
+
+@code{
+    public bool IsCollapsed { get; set; }
+
+    void CollapsedChangedHandler(bool collapsed)
+    {
+        IsCollapsed = collapsed;
+
+        Console.WriteLine("Collapsed state of Pane 1 was changed. Current state: " + IsCollapsed);
+    }
+}
+````
 
 ## See Also
 
