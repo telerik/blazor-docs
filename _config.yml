@@ -326,6 +326,9 @@ navigation:
         title: "LoaderContainer"
      "*map":
         title: "Map"
+     "*layers":
+        title: "Layers"
+        position: 10
      "*maskedtextbox":
         title: "MaskedTextBox"
      "*mediaplayer":
