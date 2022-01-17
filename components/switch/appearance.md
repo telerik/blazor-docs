@@ -10,7 +10,7 @@ position: 35
 
 # Appearance Settings
 
-You can control the appearance of the RadioButtonGroup button by setting the following attribute:
+You can control the appearance of the Switch button by setting the following attribute:
 
 * [Size](#size)
 * [ThumbRounded](#thumbrounded)
@@ -21,11 +21,11 @@ You can control the appearance of the RadioButtonGroup button by setting the fol
 
 You can increase or decrease the size of the Switch by setting the `Size` attribute to a member of the `Telerik.Blazor.ThemeConstants.Switch.Size` class:
 
-| Class members | Result |
-|---------------|--------|
-|`Small`|![button-small](images/switch-size-small.png)|
-|`Medium`|![button-medium](images/switch-size-medium.png)|
-|`Large` |![button-large](images/switch-size-large.png)|
+| Class members | Manual declarations |
+|------------|--------|
+|`Small` |`sm`|
+|`Medium`|`md`|
+|`Large`|`lg`|
 
 >caption The built-in sizes
 
@@ -56,12 +56,12 @@ You can increase or decrease the size of the Switch by setting the `Size` attrib
 
 The `ThumbRounded` attribute applies the `border-radiums` CSS rule to the thumb of the switch to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Switch.ThumbRounded` class:
 
-| Class members | Result |
+| Class members | Manual declarations |
 |------------|--------|
-|`Small` |![button-rounded](images/switch-thumbrounded-small.png)|
-|`Medium`|![button-rounded](images/switch-thumbrounded-medium.png)|
-|`Large`|![button-rounded](images/switch-thumbrounded-large.png)|
-|`Full`|![button-rounded](images/switch-thumbrounded-full.png)|
+|`Small` |`sm`|
+|`Medium`|`md`|
+|`Large`|`lg`|
+|`Full`|`full`|
 
 >caption The built-in values of the ThumbRounded attribute
 
@@ -69,19 +69,24 @@ The `ThumbRounded` attribute applies the `border-radiums` CSS rule to the thumb 
 @* The built-in values of the ThumbRounded attribute.  *@
 
 @{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Button.Rounded)
+    var fields = typeof(Telerik.Blazor.ThemeConstants.Switch.ThumbRounded)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
         | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
 
-    foreach (var field in fields)
+
+    @foreach (var field in fields)
     {
-        string rounded = field.GetValue(null).ToString();
+        string thumbRounded = field.GetValue(null).ToString();
 
         <div style="float:left; margin: 20px;">
-            <TelerikButton Rounded="@rounded">@rounded</TelerikButton>
+            <TelerikSwitch @bind-Value="@isSelected" ThumbRounded="@thumbRounded"></TelerikSwitch>
         </div>
     }
+}
+
+@code{
+    private bool isSelected { get; set; }
 }
 ````
 
@@ -89,32 +94,37 @@ The `ThumbRounded` attribute applies the `border-radiums` CSS rule to the thumb 
 
 The `TrackRounded` attribute applies the `border-radiums` CSS rule to the track of the switch to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Switch.TrackRounded` class:
 
-| Class members | Result |
+| Class members | Manual declarations |
 |------------|--------|
-|`Small` |![button-rounded](images/switch-thumbrounded-small.png)|
-|`Medium`|![button-rounded](images/switch-thumbrounded-medium.png)|
-|`Large`|![button-rounded](images/switch-thumbrounded-large.png)|
-|`Full`|![button-rounded](images/switch-thumbrounded-full.png)|
+|`Small` |`sm`|
+|`Medium`|`md`|
+|`Large`|`lg`|
+|`Full`|`full`|
 
 >caption The built-in values of the ThumbRounded attribute
 
 ````CSHTML
-@* The built-in values of the ThumbRounded attribute.  *@
+@* The built-in values of the TrackRounded attribute.  *@
 
 @{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Button.Rounded)
+    var fields = typeof(Telerik.Blazor.ThemeConstants.Switch.TrackRounded)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
         | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
 
-    foreach (var field in fields)
+
+    @foreach (var field in fields)
     {
-        string rounded = field.GetValue(null).ToString();
+        string trackRounded = field.GetValue(null).ToString();
 
         <div style="float:left; margin: 20px;">
-            <TelerikButton Rounded="@rounded">@rounded</TelerikButton>
+            <TelerikSwitch @bind-Value="@isSelected" TrackRounded="@trackRounded"></TelerikSwitch>
         </div>
     }
+}
+
+@code{
+    private bool isSelected { get; set; }
 }
 ````
 

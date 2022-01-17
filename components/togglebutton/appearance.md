@@ -24,12 +24,12 @@ You can use all of them together to achieve the desired appearance. This article
 
 The `FillMode` controls how the TelerikToggleButton is filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.FillMode` class:
 
-| Class members | Result |
+| Class members | Manual declarations |
 |------------|--------|
-|`Solid` <br /> default value|![](images/button-fillmode-solid.png)|
-|`Flat`|![](images/button-fillmode-flat.png)|
-|`Outline`|![](images/button-fillmode-outline.png)|
-|`Link`|![](images/button-fillmode-link.png)|
+|`Solid` <br /> default value|`solid`|
+|`Flat`|`flat`|
+|`Outline`|`outline`|
+|`Link`|`link`|
 
 >caption The built-in Fill modes
 
@@ -57,12 +57,12 @@ The `FillMode` controls how the TelerikToggleButton is filled. You can set it to
 
 The `Rounded` paramter applies the `border-radiums` CSS rule to the button to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.Rounded` class:
 
-| Class members | Result |
+| Class members | Manual declarations |
 |------------|--------|
-|`Small` |![button-rounded](images/button-rounded-small.png)|
-|`Medium`|![button-rounded](images/button-rounded-medium.png)|
-|`Large`|![button-rounded](images/button-rounded-large.png)|
-|`Full`|![button-rounded](images/button-rounded-full.png)|
+|`Small` |`sm`|
+|`Medium`|`md`|
+|`Large`|`lg`|
+|`Full`|`full`|
 
 >caption The built-in values of the Rounded attribute
 
@@ -90,10 +90,10 @@ The `Rounded` paramter applies the `border-radiums` CSS rule to the button to ac
 
 The `Shape` attribute defines the geometric shape of the button. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.Shape` class:
 
-| Class members | Result |
+| Class members | Manual declarations |
 |---------------|--------|
-| `Rectangle`   |![button-rectangle](images/button-shape-rectangle.png)|
-| `Square`   |![button-square](images/button-shape-square.png)|
+| `Rectangle`   |`rectangle`|
+| `Square`   |`square`|
 | `Circle`   |To create a circular button you should set the `Shape` attribute to **Square**, and the `Rounded` attribute to **Full**|
 
 
@@ -123,11 +123,11 @@ The `Shape` attribute defines the geometric shape of the button. You can set it 
 
 You can increase or decrease the size of the button by setting the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.Button.Size` class:
 
-| Class members | Result |
+| Class members | Manual declarations |
 |---------------|--------|
-| `Small`   |![button-small](images/button-size-small.png)|
-| `Medium`   |![button-medium](images/button-size-medium.png)|
-| `Large`   |![button-large](images/button-size-large.png)|
+| `Small`   |`sm`|
+| `Medium`   |`md`|
+| `Large`   |`lg`|
 
 >caption The built-in button sizes
 
@@ -153,19 +153,19 @@ You can increase or decrease the size of the button by setting the `Size` parame
 
 The color of the button is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.ThemeColor` class:
 
-| Class members | Result |
+| Class members | Manual declarations |
 |------------|--------|
-|`Base` <br /> default value |![button-base](images/button-themecolor-base.png)|
-|`Primary`|![button-primary](images/button-themecolor-primary.png)|
-|`Secondary`|![button-secondary](images/button-themecolor-secondary.png)|
-|`Tertiary`|![button-tertiary](images/button-themecolor-tertiary.png)|
-|`Info`|![button-info](images/button-themecolor-info.png)|
-|`Success`|![button-success](images/button-themecolor-success.png)|
-|`Warning`|![button-warning](images/button-themecolor-warning.png)|
-|`Error`|![button-error](images/button-themecolor-error.png)|
-|`Dark`|![button-dark](images/button-themecolor-dark.png)|
-|`Light`|![button-light](images/button-themecolor-light.png)|
-|`Inverse`|![button-inverse](images/button-themecolor-inverse.png)|
+|`Base` <br /> default value |`base`|
+|`Primary`|`primary`|
+|`Secondary`|`secondary`|
+|`Tertiary`|`tertiary`|
+|`Info`|`info`|
+|`Success`|`success`|
+|`Warning`|`warning`|
+|`Error`|`error`|
+|`Dark`|`dark`|
+|`Light`|`light`|
+|`Inverse`|`inverse`|
 
 
 >caption The built-in ThemeColors
