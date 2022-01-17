@@ -306,6 +306,8 @@ navigation:
         title: "DropDownTree"
      "*editor":
         title: "Editor"
+     "*fileselect":
+        title: "FileSelect"
      "*form":
         title: "Form"
      "*flatcolorpicker":
