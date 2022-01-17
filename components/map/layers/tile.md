@@ -10,7 +10,7 @@ position: 3
 
 # Tile Layer
 
-The images used to render the actual map are requested from third-party services that conform to the [Tile Map Service standard](https://en.wikipedia.org/wiki/Tile_Map_Service) and support the [WGS 84 projection standards](https://en.wikipedia.org/wiki/World_Geodetic_System). 
+The tile layer works by rendering images to display the actual map that are requested from third-party services that conform to the [Tile Map Service standard](https://en.wikipedia.org/wiki/Tile_Map_Service) and support the [WGS 84 projection standards](https://en.wikipedia.org/wiki/World_Geodetic_System). 
 
 The built-in configuration options of the `MapLayer` allow you to set an URL template via the `UrlTemplate` property that will access the service and provide the needed images.
 

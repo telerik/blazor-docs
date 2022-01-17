@@ -10,21 +10,21 @@ position: 0
 
 # Map Overview
 
-The Map displays geospatial information organized in layers. It is supported for both desktop and mobile devices.
+The Map displays geospatial information organized in layers.
 
-The component also provides tile layers, shape (vector) layers, and marker layers.
+The component provides tile layers, shape (vector) layers, bubble layers, and marker layers.
 
-## Basics
+## Creating Blazor Map
 
-To add a Telerik Map to your Blazor app:
+1. Use the `TelerikMap` tag to add the component to your razor page.
 
-1. Add the `TelerikMap` tag.
-2. Add the `MapLayer` nested inside `MapLayers`.
-3. Provide the `Type` property.
+2. Add the `MapLayer` tag nested inside `MapLayers`.
+
+3. Set the `Type` property.
+
 4. Set the `Attribution` and `Subdomains` properties.
-5. Provide the `UrlTemplate` property.
 
-The following example demonstrates how to set up the Map with its default configuration.
+5. Provide the `UrlTemplate` property.
 
 >caption A basic configuration of the Telerik Map.
 
@@ -48,153 +48,27 @@ The following example demonstrates how to set up the Map with its default config
 }
 ````
 
->caption The result from the above code snippet.
+## Layers
 
-![](images/map-basics.png)
+Tha layers are responsible for organizing the Map information. [Read more about the supported Blazor Map layers...]({%slug components/map/layers%})
 
-For more information, refer to the [article on layers]({%slug  components/map/layers%}) regarding the set of layers supported by the Map.
+## Markers
 
-## Features
+You can add different points with real coordinates on the map as markers. [Read more about the Blazor Map Markers...]({%slug components/map/layers/marker%})
 
->caption The Map provides the following features:
+## Zoom and Navigation
 
-### General Properties
+Raster maps are divided into images (tiles) for serving over the web. Tiles are typically 256px squares. The top level (zoom level 0) displays the whole world as a single tile. Each progressive zoom level doubles the size of the Map. You can set the zoom level through the `Zoom` property. The zoom operation can be performed with a double click on the map or by using the mouse scroll wheel.
 
-* `TelerikMap.Center` - `double[]` - The map center. Coordinates are listed as [Latitude, Longitude].
+Blazor Map incorporates a navigation tool allowing the end to user to easily zoom, pan and change the current view. You can change the navigation tool position by using the `MapControlsNavigator.Position` enum.
 
-* `TelerikMap.MinZoom` - `double` - The minimum zoom level. Typical web maps use zoom levels from 0 (the whole world) to 19 (sub-meter features).
+## Pan
 
-* `TelerikMap.MaxZoom` - `double` - The maximum zoom level. Typical web maps use zoom levels from 0 (the whole world) to 19 (sub-meter features).
+The end user can pan the control by simply holding the left mouse button and dragging the map to a desired location.
 
-* `TelerikMap.MinSize` - `double` - The size of the map in pixels at zoom level 0.
+## Events
 
-* `TelerikMap.Pannable` - `bool` - Controls whether the user can pan the map.
-
-* `TelerikMap.WrapAround` - `bool` - Specifies whether the map should wrap around the east-west edges.
-
-* `TelerikMap.Zoom` - `double` - The initial zoom level. Typical web maps use zoom levels from 0 (the whole world) to 19 (sub-meter features). The map size is derived from the zoom level and minScale options: size = (2 ^ zoom) * minSize
-
-* `TelerikMap.Zoomable` - `bool` - Controls whether the map zoom level can be changed by the user.
-
-* `Class` - `string` - Specifies the class of the main DOM element.
-
-* `Width` - `string` - Specifies the width of the main DOM element.
-
-* `Height` - `string` - Specifies the height of the main DOM element.
-
-### Properties for the Map Layers
-
-* `MapLayers` - `List` - The configuration of the map layers. The layer type is determined by the value of the `Type` parameter.
-
-* `MapLayers.Attribution` - `string` - The attribution for the layer.
-
-* `MapLayers.Extent` - `double[]` - Specifies the extent of the region covered by this layer. The layer will be hidden when the specified area is out of view. Accepts a four-element array that specifies the extent covered by this layer: North-West latitude, longitude, South-East latitude, longitude.
-
-* `MapLayers.Data` - `object` - The data for the layer.
-
-* `MapLayers.LocationField` - `string` - The data item field which contains the marker (symbol) location. The field should be an array with two numbers - latitude and longitude in decimal degrees.
-
-* `MapLayersMarkerSettings` - `object` - The default configuration of markers.
-
-* `MapLayersMarkerSettings.Tooltip` - `object` - The configuration of the marker tooltip.
-
-* `MapLayersMarkerSettings.Tooltip.Template` - `RenderFragment` - Specifies the tooltip template.
-
-* `MapLayers.TileSize` - `double` - The size of the image tile in pixels.
-
-* `MapLayers.TitleField` - `string` - The data item field which contains the marker title.
-
-* `MapLayers.MaxSize` - `double` - The maximum symbol size for bubble layer symbols.
-
-* `MapLayers.MinSize` - `double` - The minimum symbol size for bubble layer symbols.
-
-* `MapLayers.MaxZoom` - `double` - The maximum zoom level at which to show this layer.
-
-* `MapLayers.MinZoom` - `double` - The minimum zoom level at which to show this layer.
-
-* `MapLayers.Opacity` - `double` - The opacity for the layer.
-
-* `MapLayers.Subdomains` - `string[]` - A list of subdomains to use for loading tiles. Alternating between different subdomains allows more requests to be executed in parallel.
-
-* `MapLayersBubbleSettings.Style` - `object` - The default style for bubbles (shapes).
-
-* `MapLayersBubbleSettingsStyleFill` - `object` - The fill settings for layer bubbles.
-
-* `MapLayersBubbleSettingsStyleFill.Color` - `string` - The default fill color for layer bubbles. Accepts a valid CSS color string, including hex and rgb.
-
-* `MapLayersBubbleSettingsStyleFill.Opacity` - `double` - The default fill opacity (0 to 1) for layer bubbles.
-
-* `MapLayersBubbleSettingsStyleStroke` - `object` - The stroke settings for layer bubbles.
-
-* `MapLayersBubbleSettingsStyleStroke.Color` - `string` - The default stroke color for layer bubbles. Accepts a valid CSS color string, including hex and rgb.
-
-* `MapLayersBubbleSettingsStyleStroke.DashType` - `enum` - `DashType` - The default dash type for layer bubbles.
-
-* `MapLayersBubbleSettingsStyleStroke.Opacity` - `double` - The default stroke opacity (0 to 1) for layer bubbles.
-
-* `MapLayersBubbleSettingsStyleStroke.Width` - `double` - The default stroke width for layer bubbles.
-
-* `MapLayersShapeSettingsStyle` - `object` - The default style for bubbles.
-
-* `MapLayersShapeSettingsStyleFill` - `object` - The fill settings for layer shapes.
-
-* `MapLayersShapeSettingsStyleFill.Color` - `string` - The default fill color for layer shapes. Accepts a valid CSS color string, including hex and rgb.
-
-* `MapLayersShapeSettingsStyleFill.Opacity` - `double` - The fill opacity of the shape.
-
-* `MapLayersShapeSettingsStyleStroke` - `object` - The stroke settings for layer shapes.
-
-* `MapLayersShapeSettingsStyleStroke.Color` - `string` - The stroke color of the shape.
-
-* `MapLayersShapeSettingsStyleStroke.DashType` - `double` - The default dash type for layer shapes. The following dash types are supported: "dash" - a line consisting of dashes; "dashDot" - a line consisting of a repeating pattern of dash-dot; "dot" - a line consisting of dots; "longDash" - a line consisting of a repeating pattern of long-dash; "longDashDot" - a line consisting of a repeating pattern of long-dash-dot; "longDashDotDot" - a line consisting of a repeating pattern of long-dash-dot-dot or "solid" - a solid line.
-
-* `MapLayersShapeSettingsStyleStroke.Opacity` - `double` - The default stroke opacity (0 to 1) for layer shapes.
-
-* `MapLayersShapeSettingsStyleStroke.Width` - `double` - The default stroke width for layer shapes.
-
-* `MapLayers.UrlTemplate` - `string` - The URL template for tile layers. Template variables: x - X coordinate of the tile; y - Y coordinate of the tile; zoom - zoom level or subdomain - Subdomain for this tile. See subdomains.
-
-* `MapLayers.ValueField` - `string` - The value field for bubble layer symbols. The data item field should be a number.
-
-* `MapLayers.ZIndex` - `double` - The zIndex for this layer. Layers are normally stacked in declaration order (last one is on top).
-
-* `MapLayers.Shape` - `enum` - The marker shape for marker layers. The possible values are:
-    * `MapMarkersShape.Pin`
-    * `MapMarkersShape.PinTarget`
-
-* `MapLayers.Symbol` - `enum` - The default symbol for bubble layers. The possible values are:
-    * `MapLayersSymbol.Circle`
-    * `MapLayersSymbol.Square`
-
-* `MapLayers.Type` - `enum` - The type of the layer. The possible values are:
-    * `MapLayersType.Tile`
-    * `MapLayersType.Marker`
-    * `MapLayersType.Shape`
-    * `MapLayersType.Bubble`
-
-### Properties for the Map Controls
-
-* `MapControls` - `object` - The configuration of built-in map controls.
-
-* `MapControlsAttribution` - `object` - Configures the built-in attribution control.
-
-* `MapControlsAttribution.Position` - `enum` - Specifies the position of the attribtion control. The possible values are:
-    * `MapControlsPosition.TopLeft`
-    * `MapControlsPosition.TopRight`
-    * `MapControlsPosition.BottomLeft`
-    * `MapControlsPosition.BottomRight`
-
-* `MapControlsNavigator` - `object` - Configures or disables the built-in navigator control (directional pad).
-
-* `MapControlsNavigator.Position` - `enum` - Specifies the position of the navigation control. The possible values are:
-    * `MapControlsPosition.TopLeft`
-    * `MapControlsPosition.TopRight`
-    * `MapControlsPosition.BottomLeft`
-    * `MapControlsPosition.BottomRight`
-
-* `MapControlsZoom` - `object` - Configures or disables the built-in zoom control (+/- button).
-
-* `MapControlsZoom.Position` - `string` - Specifies the position of the zoom control.
+The Blazor Map generates events that you can handle and further customize its behavior. [Read more about the Blazor Map events...]({%slug components/map/events%}).
 
 ## Methods
 
@@ -237,6 +111,126 @@ The Map methods are accessible through its reference.
     public string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
 }
 ````
+
+## Parameters
+
+The Blazor Map provides various parameters that allow you to configure the component:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Center` | `double[]` | The map center. Coordinates are listed as [Latitude, Longitude]. |
+| `MinZoom` | `double` | The minimum zoom level. Typical web maps use zoom levels from 0 (the whole world) to 19 (sub-meter features). |
+| `MaxZoom` | `double` | The maximum zoom level. Typical web maps use zoom levels from 0 (the whole world) to 19 (sub-meter features). |
+| `MinSize` | `double` | The size of the map in pixels at zoom level 0. |
+| `Pannable` | `bool` | Controls whether the user can pan the map. |
+| `WrapAround` | `bool` | Specifies whether the map should wrap around the east-west edges. |
+| `Zoom` | `double` | The initial zoom level. Typical web maps use zoom levels from 0 (the whole world) to 19 (sub-meter features). The map size is derived from the zoom level and minScale options: size = (2 ^ zoom) * minSize. |
+| `Zoomable` | `bool` | Controls whether the map zoom level can be changed by the user. |
+| `Class` | `string` | Specifies the class of the main DOM element. |
+| `Width` | `string` | Specifies the width of the main DOM element. |
+| `Height` | `string` | Specifies the height of the main DOM element. |
+
+### MapLayers parameters
+
+The following parameters enable you to customize the appearance of the Blazor Map Layers:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Type` | `MapLayersType (enum)` | The type of the layer. |
+| `Attribution` | `string` | The attribution for the layer. |
+| `Subdomains` | `string[]` | A list of subdomains to use for loading tiles. Alternating between different subdomains allows more requests to be executed in parallel. |
+| `UrlTemplate` | `string` | The URL template for tile layers. Template variables: x - X coordinate of the tile; y - Y coordinate of the tile; zoom - zoom level or subdomain - Subdomain for this tile. See subdomains. |
+| `Shape` | `MapMarkersShape (enum)` | The marker shape for marker layers. |
+| `Symbol` | `MapLayersSymbol (enum)` | The default symbol for bubble layers. |
+| `ZIndex` | `double` | The zIndex for this layer. Layers are normally stacked in declaration order (last one is on top). |
+| `ValueField` | `string` | The value field for bubble layer symbols. The data item field should be a number. |
+| `Extent` | `double[]` | Specifies the extent of the region covered by this layer. The layer will be hidden when the specified area is out of view. Accepts a four-element array that specifies the extent covered by this layer: North-West latitude, longitude, South-East latitude, longitude. |
+| `Data` | `object` | The data for the layer. |
+| `LocationField` | `string` | The data item field which contains the marker (symbol) location. The field should be an array with two numbers - latitude and longitude in decimal degrees. |
+| `TileSize` | `double` | The size of the image tile in pixels. |
+| `TitleField` | `string` | The data item field which contains the marker title. |
+| `MaxSize` | `double` | The maximum symbol size for bubble layer symbols. |
+| `MinSize` | `double` | The minimum symbol size for bubble layer symbols. |
+| `MaxZoom` | `double` | The maximum zoom level at which to show this layer. |
+| `MinZoom` | `double` | The minimum zoom level at which to show this layer. |
+| `Opacity` | `double` | The opacity for the layer. |
+
+### MapLayersMarkerSettings parameters
+
+The following parameters enable you to customize the appearance of the Blazor Map Marker Layers:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Tooltip` | `object` | The configuration of the marker tooltip. |
+| `Template` | `RenderFragment` | Specifies the tooltip template. |
+
+### MapLayersBubbleSettingsStyleFill parameters
+
+The following parameters enable you to customize the appearance of the Blazor Map Bubble Layers:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Color` | `string` | The default fill color for layer bubbles. Accepts a valid CSS color string, including hex and rgb. |
+| `Opacity` | `double` | The default fill opacity (0 to 1) for layer bubbles. |
+
+### MapLayersBubbleSettingsStyleStroke parameters
+
+The following parameters enable you to customize the appearance of the Blazor Map Bubble Layers:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Color` | `string` | The default stroke color for layer bubbles. Accepts a valid CSS color string, including hex and rgb. |
+| `Opacity` | `double` | The default fill opacity (0 to 1) for layer bubbles. |
+| `DashType` | `DashType (enum)` | The default dash type for layer bubbles. |
+| `Opacity` | `double` | The default stroke opacity (0 to 1) for layer bubbles. |
+| `Width` | `double` | The default stroke width for layer bubbles. |
+
+### MapLayersShapeSettingsStyleFill parameters
+
+The following parameters enable you to customize the appearance of the Blazor Map Shape Layers:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Color` | `string` | The default fill color for layer shapes. Accepts a valid CSS color string, including hex and rgb. |
+| `Opacity` | `double` | The fill opacity of the shape. |
+
+### MapLayersShapeSettingsStyleStroke parameters
+
+The following parameters enable you to customize the appearance of the Blazor Map Shape Layers:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Color` | `string` | The stroke color of the shape. |
+| `Opacity` | `double` | The default stroke opacity (0 to 1) for layer shapes. |
+| `DashType` | `double` | The default dash type for layer shapes. The following dash types are supported: "dash" - a line consisting of dashes; "dashDot" - a line consisting of a repeating pattern of dash-dot; "dot" - a line consisting of dots; "longDash" - a line consisting of a repeating pattern of long-dash; "longDashDot" - a line consisting of a repeating pattern of long-dash-dot; "longDashDotDot" - a line consisting of a repeating pattern of long-dash-dot-dot or "solid" - a solid line. |
+| `Opacity` | `double` | The default stroke opacity (0 to 1) for layer bubbles. |
+| `Width` | `double` | The default stroke width for layer shapes. |
+
+### MapControls parameters
+
+The following `MapControlsAttribution` parameters enable you to customize the appearance of the Blazor Map Controls:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Position` | `MapControlsPosition (enum)` | Specifies the position of the attribtion control. |
+
+The following `MapControlsNavigator` parameters enable you to customize the appearance of the Blazor Map Controls:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Position` | `MapControlsPosition (enum)` | Specifies the position of the navigation control. |
+
+The following `MapControlsZoom` parameters enable you to customize the appearance of the Blazor Map Controls:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Position` | `string` | Specifies the position of the zoom control. |
+
+## Next Steps
+
+[Configure the Tile Layer]({%slug components/map/layers/tile%})
+
+[Using the Map Events]({%slug components/map/events%})
 
 ## See Also
 

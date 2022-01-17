@@ -10,7 +10,7 @@ position: 7
 
 # Shape Layer
 
-You can bind, display and customize shapes with **Map** from JSON files in **GeoJSON** format.
+The shape layer provides binding to **GeoJSON** data and renders the specified geospatial objects.
 
 Telerik Map supports all **Geometry** and **Feature Objects**, as well as the **Geometry** and **Feature Collections** from the GeoJSON Specification (which could be found at https://geojson.org).
 

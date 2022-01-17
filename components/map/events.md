@@ -16,8 +16,6 @@ This article explains the available events for the Telerik Map for Blazor:
 * [OnMarkerClick](#onmarkerclick)
 * [OnShapeClick](#onshapeclick)
 
->important The **asynchronous** rendering is **not** supported.
-
 ## OnClick
 
 The `OnClick` event fires as a response to the user click on the map. Its `EventCallback<MapClickEventArgs>` gives:

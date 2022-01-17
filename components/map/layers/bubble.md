@@ -10,7 +10,7 @@ position: 9
 
 # Bubble Layer
 
-The **Bubble** type of layer lets you create circular shapes on a geographic position with a radius that is calculated via the value associated with the shape.
+The **Bubble** layer lets you create shapes of different type on a geographic position with a radius that is calculated via the value associated with the shape.
 
 The radiuses of the bubbles are automatically calculated by the map component, based on the maximum and minimum values available in the data source.
 
