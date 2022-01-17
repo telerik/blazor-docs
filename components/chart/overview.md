@@ -71,11 +71,6 @@ Basic chart and common settings/elements
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/overview-chart.png)
-
-
 ## Chart Elements
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)

@@ -71,10 +71,6 @@ Grouping by month, aggregates
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/date-axis.png)
-
 ### Advanced Features
 
 #### Automatic Fitting
