@@ -5,7 +5,7 @@ description: Appearance settings of the MaskedTextBox for Blazor.
 slug: maskedtextbox-appearance
 tags: telerik,blazor,button,maskedtextbox,mask,appearance
 published: True
-position: 35
+position: 55
 ---
 
 # Appearance Settings
