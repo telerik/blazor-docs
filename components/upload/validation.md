@@ -10,7 +10,7 @@ position: 2
 
 # Validate Uploaded Files
 
-Files must be validated when uploading, and the process has two parts:
+If you want to validate the files when uploading, you should implement the validation in two parts:
 
 * client validation - performed by the Telerik Upload component
 * server validation - must be implemented in the application endpoints

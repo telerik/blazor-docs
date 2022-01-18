@@ -23,14 +23,16 @@ The event handler receives a `FileSelectEventArgs` object. Its `Files` field is 
 
 The `FileSelectFileInfo` object contains the following properties:
 
-* `Id`- `string` - the unique identifier of the file.
-* `Name`- `string` - the file name.
-* `Size` - `long` - the file size in bytes.
-* `Extension` - `string` - the file extension.
-* `InvalidExtension` - `bool` - a boolean flag indicating whether the file has an extension that is not within the specified ones.
-* `InvalidMinFileSize` - `bool` - a boolean flag indicating whether the file has a size below the minimum.
-* `InvalidMaxFileSize` - `bool` - a boolean flag indicating whether the file exceeds the max file size.
-* `Stream`- `FileInfoStream` - a stream that can be used to upload the file to memory, file system or other. It's used to asynchronously get the byte array data of the file.
+Property | Type | Description
+---------|----------|---------
+`Id` | `string` | the unique identifier of the file.
+`Name`|`string` | the file name.
+`Size` |`long` | the file size in bytes.
+`Extension` |`string` | the file extension.
+`InvalidExtension` | `bool` | a boolean flag indicating whether the file has an extension that is not within the specified ones.
+`InvalidMinFileSize` | `bool` | a boolean flag indicating whether the file has a size below the minimum.
+`InvalidMaxFileSize` | `bool` | a boolean flag indicating whether the file exceeds the max file size.
+`Stream`| `FileInfoStream` | a stream that can be used to upload the file to memory, file system or other. It's used to asynchronously get the byte array data of the file.
 
 >caption Handle the OnSelect event of the FileSelect
 
@@ -87,14 +89,16 @@ The `OnRemove` fires when a file has been removed from the list of selected file
 
 The event handler receives a `FileSelectEventArgs` object. Its `Files` field is a collection of `FileSelectFileInfo` objects. As the FileSelect component allows deleting one item at a time, the collection contains only one `FileSelectFileInfo` object (the deleted one) and it has the following fields:
 
-* `Id`- `string` - the unique identifier of the file.
-* `Name`- `string` - the file name.
-* `Size` - `long` - the file size in bytes.
-* `Extension` - `string` - the file extension.
-* `InvalidExtension` - `bool` - a boolean flag indicating whether the file has an extension that is not within the specified ones.
-* `InvalidMinFileSize` - `bool` - a boolean flag indicating whether the file has a size below the minimum.
-* `InvalidMaxFileSize` - `bool` - a boolean flag indicating whether the file exceeds the max file size.
-* `Stream`- `FileInfoStream` - a stream that can be used to upload the file to memory, file system or other. It's used to asynchronously get the byte array data of the file.
+Property | Type | Description
+---------|----------|---------
+`Id`| `string` | the unique identifier of the file.
+`Name` | `string` | the file name.
+`Size` | `long`  | the file size in bytes.
+`Extension` | `string` | the file extension.
+`InvalidExtension` | `bool` | a boolean flag indicating whether the file has an extension that is not within the specified ones.
+`InvalidMinFileSize` | `bool` | a boolean flag indicating whether the file has a size below the minimum.
+`InvalidMaxFileSize` | `bool` | a boolean flag indicating whether the file exceeds the max file size.
+`Stream` | `FileInfoStream` | a stream that can be used to upload the file to memory, file system or other. It's used to asynchronously get the byte array data of the file.
 
 >caption Handle the OnRemove event of the FileSelect
 
