@@ -157,10 +157,6 @@ Label templates
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/basic-templates-result.png)
-
 
 In a **series label template**, you can use the following fields:
 

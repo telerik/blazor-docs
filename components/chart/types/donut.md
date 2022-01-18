@@ -143,10 +143,6 @@ You can control the color of the individual segments of the donut chart by provi
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/custom-color-in-segments-donut.png)
-
 ### Exploded Segment
 
 You can have some of the segments of the donut chart separated from the rest of the circle with a small margin. This helps bring attention to them as outliers or as important bits that the viewer should focus on.
@@ -205,10 +201,6 @@ To explode (separate) a segment, use the `ExplodeField` property of the series a
     };
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/exploded-donut-chart.png)
 
 ### Visible In Legend
 
@@ -272,10 +264,6 @@ You can hide certain segments from the legend (for example, if their contributio
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/donut-chart-hide-from-legend.png)
-
 ### Hole Size
 
 You can change the percentage that the hole in the middle takes from the entire diameter of the circle by setting the `HoleSize` property of the series. Setting `0` removes the hole, and `100` means the entire chart is the hole.
@@ -325,10 +313,6 @@ Control the hole size of the donut chart
 }
 ````
 
->caption Comparison between the result of the code snippet above and the default behavior
-
-![](images/donut-hole-size.png)
-
 ### Multiple Series
 
 Unlike a pie chart, a donut chart can have multiple series in a single chart. Each series is nested in the next - the first declared series is in the center, and the last series is at the outer edge.
@@ -336,10 +320,6 @@ Unlike a pie chart, a donut chart can have multiple series in a single chart. Ea
 You can use multiple series to showcase relationships within a data set, or several similar sets of data.
 
 You can also use the `ColorField` property to define a field with the segments' colors. With this, you can color-code different series and their relationships to one another.
-
->caption Multiple donut series in a single chart (code sample after the figure)
-
-![](images/multiple-donut-series.png)
 
 ````CSHTML
 @* You can bind the entire chart to one collection of data, even though this example shows separate collections for each series *@

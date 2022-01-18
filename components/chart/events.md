@@ -107,10 +107,6 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 }
 ````
 
->caption The result from the code snippet above
-
-![onseriesclick basic example](images/onseries-click-basic-example.gif)
-
 
 ### Get The Data Model For The Clicked Series
 
@@ -177,9 +173,7 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 }
 ````
 
->caption The result from the code snippet above
-
-![onseriesclick get data model example](images/onseries-click-get-model-example.gif)
+![onseriesclick get data model example]
 
 
 ### Load Data On Demand Based On Series Click

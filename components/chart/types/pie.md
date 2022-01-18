@@ -183,10 +183,6 @@ Separate items from the main body of the chart
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/exploded-pie-chart.png)
-
 ### Visible In Legend
 
 You can hide certain segments from the legend (for example, if their contribution is insignificantly small). To do this, add a boolean field to the model and set its name to the `VisibleInLegendField` property of the pie series. The flags in this field will denote whether the particular item will be rendered in the legend.
@@ -243,10 +239,6 @@ Show only some items in the legend
 	};
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/pie-chart-hide-from-legend.png)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 

@@ -164,9 +164,7 @@ If the data provided to the chart uses the complete `DateTime` format, this will
 
 For example, if the chosen `BaseUnit` is `days`, the X labels mark the beginning of the day and the data records also specify time values, their markers will be rendered at the corresponding to their time value point and not exactly on the label for this day. This specific behavior when working with `DateTime` values could be observed in the following examples:
 
->caption ScatterLine chart with day and time values. Markers are rendered after the day labels to also respect the time values. The result from the snippet below
-
-![ScatterLine chart with day and time values](images/scatter-line-day-and-time.png)
+>caption ScatterLine chart with day and time values. Markers are rendered after the day labels to also respect the time values.
 
 ````CSHTML
 @* ScatterLine chart with day and time values for the X-axis *@
@@ -221,9 +219,7 @@ For example, if the chosen `BaseUnit` is `days`, the X labels mark the beginning
 ````
 <br/>
 
->caption ScatterLine chart with only days values. Markers are rendered exactly on the day labels. The result from the snippet below
-
-![ScatterLine chart with only day values](images/scatter-line-days-only.png)
+>caption ScatterLine chart with only days values. Markers are rendered exactly on the day labels. 
 
 ````CSHTML
 @* ScatterLine chart with only day values for the X-axis *@
