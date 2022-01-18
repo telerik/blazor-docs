@@ -101,6 +101,8 @@ The `TrackRounded` attribute applies the `border-radius` CSS rule to the track o
 |`Large`|`lg`|
 |`Full`|`full`|
 
+>tip To achieve the best possible layout you should match the values passed to the `ThumbRounded` and `TrackRounded` attributes. 
+
 >caption The built-in values of the TrackRounded attribute
 
 ````CSHTML
