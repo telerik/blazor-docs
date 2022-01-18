@@ -147,7 +147,7 @@ Try resizing any of the panes by dragging the splitbars
 
 ## SizeChanged
 
-`SizeChanged` is triggered when the `Size` parameter of the corresponding pane is changed.
+The `SizeChanged` event is triggered when the `Size` parameter of the corresponding pane is changed.
 
 >caption Handle the SizeChanged event of a Splitter Pane
 
@@ -191,7 +191,7 @@ Try resizing any of the panes by dragging the splitbars
 
 ## CollapsedChanged
 
-`CollapsedChanged` is triggered when the `Collapsed` parameter of the corresponding pane is changed.
+The `CollapsedChanged` event is triggered when the `Collapsed` parameter of the corresponding pane is changed.
 
 >caption Handle the CollapsedChanged event of a Splitter Pane
 
