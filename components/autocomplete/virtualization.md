@@ -92,7 +92,7 @@ Run this and see how you can display, scroll and filter over 10k records in the 
                      Filterable="true"
                      FilterOperator="@StringFilterOperator.Contains">
     <AutoCompleteSettings>
-        <AutoCompletePopupSettings Height="300px"></AutoCompletePopupSettings>
+        <AutoCompletePopupSettings Height="300px" />
     </AutoCompleteSettings>
 </TelerikAutoComplete>
 

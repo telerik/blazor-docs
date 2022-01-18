@@ -97,7 +97,7 @@ Run this and see how you can display, scroll and filter over 10k records in the 
                  @bind-Value="@SelectedValue"
                  Filterable="true" FilterOperator="@StringFilterOperator.Contains">
     <ComboBoxSettings>
-        <ComboBoxPopupSettings Height="200px"></ComboBoxPopupSettings>
+        <ComboBoxPopupSettings Height="200px" />
     </ComboBoxSettings>    
 </TelerikComboBox>
 
