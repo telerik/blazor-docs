@@ -54,7 +54,7 @@ You can increase or decrease the size of the TextArea by setting the `Size` attr
 
 ## Rounded
 
-The `Rounded` attribute applies the `border-radiums` CSS rule to the TextArea to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.TextArea.Rounded` class:
+The `Rounded` attribute applies the `border-radius` CSS rule to the TextArea to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.TextArea.Rounded` class:
 
 | Class members | Manual declarations |
 |------------|--------|
