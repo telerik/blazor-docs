@@ -18,9 +18,7 @@ The data source fields that represent the location and the value of the shapes c
 
 Optionally, the bubbles can also be styled by using the `MapLayerBubbleSettings` inner tag - `MapLayerBubbleSettingsStyle`.
 
-## Bubble Layer Configuration
-
-To configure a Map Layer of type Bubble:
+**To configure a Map Layer of type Bubble:**
 
 1. Add the `TelerikMap` tag.
 2. Set the `Type` parameter of the `MapLayer` to `Bubble`.

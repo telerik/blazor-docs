@@ -16,9 +16,7 @@ The built-in configuration options of the `MapLayer` allow you to set an URL tem
 
 >tip Licenses and Official Author rights to the Tile Layer Images are determined by the used Web Map Service. The **Telerik Map** only provides an UI control that allows you to setup and place a map in an application, built via Blazor techniques. You need to provide proper attribution with the correct copyright notice and, if needed, establish an account with the map owner to ensure unlimited/fast access.
 
-## Tile Layer Configuration
-
-To configure a Map Layer of type Tile:
+**To configure a Map Layer of type Tile:**
 
 1. Add the `TelerikMap` tag.
 2. Set the `Type` parameter of the `MapLayer` to `Tile`.
