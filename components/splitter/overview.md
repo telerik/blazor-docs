@@ -115,7 +115,7 @@ Each individual splitter pane (section) offers the following features:
 
 * `Class` - the CSS class that renders on the top element of the pane. Lets you apply styling such as changing the `overflow` for the content.
 
-* `Collapsed` - whether the pane will be collapsed (not visible). Defaults to `false`.
+* `Collapsed` - whether the pane will be collapsed (not visible). Defaults to `false`. Supports two-way binding.
 
 * `Collapsible` - whether the user can collapse (hide) the pane to provide more room for other panes. When enabled, the adjacent splitbar (the drag handle between the panes) will offer a collapse button for the pane. Defaults to `false`.
 
@@ -125,7 +125,7 @@ Each individual splitter pane (section) offers the following features:
 
 * `Resizable` - whether the user can resize the pane by dragging the resize handle (splitbar) between two panes. Resizing means that the adjacent pane will take up the difference in size. Defaults to `true`.
 
-* `Size` - the size the pane in pixels or percentages. Must be between `Min` and `Max`.
+* `Size` - the size the pane in pixels or percentages. Must be between `Min` and `Max`. Supports two-way binding.
 
 ## Splitter and Pane Size
 
