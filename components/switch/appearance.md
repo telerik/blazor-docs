@@ -101,7 +101,7 @@ The `TrackRounded` attribute applies the `border-radius` CSS rule to the track o
 |`Large`|`lg`|
 |`Full`|`full`|
 
->caption The built-in values of the ThumbRounded attribute
+>caption The built-in values of the TrackRounded attribute
 
 ````CSHTML
 @* The built-in values of the TrackRounded attribute.  *@
