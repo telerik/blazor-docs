@@ -127,11 +127,11 @@ List of the known limitations of the virtual scrolling feature:
 <!--
 Code for the GIF
 
-<TelerikGrid Data=@GridData
+<TelerikGrid TItem="@SampleData"
              ScrollMode="@GridScrollMode.Virtual"
              Height="480px" RowHeight="60" PageSize="20"
              Sortable="true" FilterMode="@GridFilterMode.FilterMenu"
-             TotalCount=@Total OnRead=@ReadItems Width="640px">
+             OnRead=@ReadItems Width="640px">
     <GridColumns>
         <GridColumn Field="Id" />
         <GridColumn Field="Name" Title="First Name" />
@@ -146,8 +146,6 @@ Code for the GIF
 
 @code {
     public List<SampleData> SourceData { get; set; }
-    public int Total { get; set; } = 0;
-    public List<SampleData> GridData { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -171,10 +169,8 @@ Code for the GIF
         await Task.Delay(500); //delay for creating the GIF
         Console.WriteLine("after");
 
-        GridData = SourceData.Skip(args.Request.Skip).Take(args.Request.PageSize).ToList();
-        Total = SourceData.Count;
-
-        StateHasChanged();
+        args.Data = SourceData.Skip(args.Request.Skip).Take(args.Request.PageSize).ToList();
+        args.Total = SourceData.Count;
     }
 
     public class SampleData
@@ -185,7 +181,6 @@ Code for the GIF
         public DateTime HireDate { get; set; }
     }
 }
-
 -->
 
 ## See Also

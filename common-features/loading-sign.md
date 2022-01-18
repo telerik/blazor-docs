@@ -358,16 +358,15 @@ We understand, however, that you might want to disable this feature in some case
 @* The data operations (such as filtering, sorting, paging) are slow in this example, but there is no loading sign *@
 
 <TelerikGrid EnableLoaderContainer="false"
-             Data=@GridData TotalCount=@Total OnRead=@ReadItems
-             FilterMode=@GridFilterMode.FilterRow Sortable=true Pageable=true EditMode="@GridEditMode.Inline">
+             TItem="@Employee" OnRead="@ReadItems"
+             FilterMode="@GridFilterMode.FilterRow"
+             Sortable="true"
+             Pageable="true">
     <GridColumns>
         <GridColumn Field=@nameof(Employee.ID) />
         <GridColumn Field=@nameof(Employee.Name) Title="Name" />
         <GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
     </GridColumns>
-    <GridToolBar>
-        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
 </TelerikGrid>
 
 @* Everything else here is sample data binding *@
@@ -376,8 +375,6 @@ We understand, however, that you might want to disable this feature in some case
 
 @code {
     public List<Employee> SourceData { get; set; }
-    public List<Employee> GridData { get; set; }
-    public int Total { get; set; } = 0;
 
     protected override void OnInitialized()
     {
@@ -390,14 +387,9 @@ We understand, however, that you might want to disable this feature in some case
 
         var datasourceResult = SourceData.ToDataSourceResult(args.Request);
 
-        GridData = (datasourceResult.Data as IEnumerable<Employee>).ToList();
-        Total = datasourceResult.Total;
-
-        StateHasChanged();
+        args.Data = (datasourceResult.Data as IEnumerable<Employee>).ToList();
+        args.Total = datasourceResult.Total;
     }
-
-    //This sample implements only reading of the data. To add the rest of the CRUD operations see
-    //https://docs.telerik.com/blazor-ui/components/grid/editing/overview
 
     private List<Employee> GenerateData()
     {

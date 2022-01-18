@@ -43,7 +43,7 @@ Here is an example:
 @using Telerik.DataSource.Extensions
 @using Telerik.DataSource
 
-<TelerikGrid Data="@CurrentGridData" TotalCount="@CurrentGridTotalCount"
+<TelerikGrid TItem="@GridItem"
              OnRead="@GridReadHandler"
              FilterMode="@GridFilterMode.FilterRow">
     <GridToolBar>
@@ -59,21 +59,7 @@ Here is an example:
 </TelerikGrid>
 
 @code {
-
-    private int CurrentGridTotalCount { get; set; }
-
     public List<GridItem> GridData { get; set; } = new List<GridItem>();
-    public List<GridItem> CurrentGridData { get; set; } = new List<GridItem>();
-
-    protected override Task OnInitializedAsync()
-    {
-        for (int j = 1; j <= 9; j++)
-        {
-            GridData.Add(new GridItem() { ID = j, Name = "Name " + j, Secret = "Secret" + j });
-        }
-
-        return base.OnInitializedAsync();
-    }
 
     private async Task GridReadHandler(GridReadEventArgs args)
     {
@@ -101,8 +87,18 @@ Here is an example:
         }
 
         var result = GridData.ToDataSourceResult(args.Request);
-        CurrentGridData = (result.Data as IEnumerable<GridItem>).ToList();
-        CurrentGridTotalCount = result.Total;
+        args.Data = result.Data;
+        args.Total = result.Total;
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        for (int j = 1; j <= 10; j++)
+        {
+            GridData.Add(new GridItem() { ID = j, Name = "Name " + j, Secret = "Secret" + j });
+        }
+
+        return base.OnInitializedAsync();
     }
 
     public class GridItem

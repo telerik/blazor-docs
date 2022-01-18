@@ -21,30 +21,31 @@ res_type: kb
 
 ## Description
 
-I am having a Grid and I would like to know the new index of a row when sorting or filtering the Grid. 
+I have a Grid and I would like to know the new index of a row when sorting or filtering the Grid. 
 
 
 ## Solution
 
-The Grid does not directly alter the collection of items passed to its `Data` parameter so when performing operations like Sorting or Filtering the collection will not be changed, thus the index of the item will remain unchanged. In order to get the sorted/filtered collection you should use the [OnRead]({%slug components/grid/manual-operations%}) event for the Grid.
+The Grid does not directly alter the collection of items passed to its `Data` parameter. When performing operations like Sorting or Filtering the collection will not be changed, thus the index of an item will remain unchanged. In order to get the sorted/filtered collection, use the [OnRead event]({%slug components/grid/manual-operations%}) of the Grid.
 
-* [Get the New Index Of a Selected Row](#get-the-new-index-of-a-selected-row)
-* [Get the New Index Of a Clicked Row](#get-the-new-index-of-an-clicked-row)
+* Use the `OnRead` event to cache the Grid data in its current sort state.
+* Use the `SelectedItemsChanged` or `OnRowClick` event to find the item index.
+* Optionally, use `OnRead` to update the item index.
 
-### Get the New Index Of a Selected Row
+>caption Get the index of a clicked/selected row immediately and after sorting
 
 ````CSHTML
-@*Get the new index of the selected Grid row when sorting the Grid*@
+@*Get the index of a clicked/selected row immediately and after sorting*@
 
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-<TelerikGrid Data="@currentSalesTeamMembers"
-             SelectionMode="@GridSelectionMode.Single"
-             SelectedItems="@selectedItems"
-             SelectedItemsChanged="@((IEnumerable<MainModel> items) => SelectedItemsChanged(items))"
+<TelerikGrid TItem="@MainModel"
              OnRead="@OnReadHandler"
-             TotalCount="@Total"
+             OnRowClick="@OnRowClick"
+             SelectionMode="@GridSelectionMode.Single"
+             SelectedItems="@SelectedItems"
+             SelectedItemsChanged="@((IEnumerable<MainModel> items) => SelectedItemsChanged(items))"
              Sortable="true">
     <GridColumns>
         <GridColumn Field="Id"></GridColumn>
@@ -60,109 +61,30 @@ The Grid does not directly alter the collection of items passed to its `Data` pa
 }
 
 @code {
-    public int Total { get; set; }
-    List<MainModel> salesTeamMembers { get; set; }
-    IEnumerable<MainModel> selectedItems { get; set; } = new List<MainModel>();
-    List<MainModel> currentSalesTeamMembers { get; set; } //implementation of OnRead
-    MainModel currentItem { get; set; } //need to save the selected item to determine its new index
+    List<MainModel> SalesTeamMembers { get; set; }
+    List<MainModel> CurrentSalesTeamMembers { get; set; } //implementation of OnRead
+    IEnumerable<MainModel> SelectedItems { get; set; } = new List<MainModel>();
+    MainModel ClickedItem { get; set; }
     public string Result { get; set; }
 
     void SelectedItemsChanged(IEnumerable<MainModel> items)
     {
-        selectedItems = items;
-
-        var selectedItem = items.FirstOrDefault();
-
-        currentItem = selectedItem;
+        // same logic as in OnRowClick, use either event
+        SelectedItems = items;
+        ClickedItem = items.FirstOrDefault();
+        PrintTheRowIndex(ClickedItem);
     }
 
-    async Task OnReadHandler(GridReadEventArgs args)
+    void OnRowClick(GridRowClickEventArgs args)
     {
-        var dataSourceResult = salesTeamMembers.ToDataSourceResult(args.Request);
-
-        currentSalesTeamMembers = dataSourceResult.Data.Cast<MainModel>().ToList(); // this is the collection with the sorted items
-
-        int currentIndexOfItem = currentSalesTeamMembers.IndexOf(currentItem);
-
-        if(currentIndexOfItem > -1) // this check is not mandatory
-        {
-            Result = $"The index of the selected item is: {currentIndexOfItem}";
-        }
-
-        Total = dataSourceResult.Total;
-
-        StateHasChanged();
-    }
-
-    protected override void OnInitialized()
-    {
-        salesTeamMembers = GenerateData();
-    }
-
-    private List<MainModel> GenerateData()
-    {
-        List<MainModel> data = new List<MainModel>();
-        for (int i = 0; i < 5; i++)
-        {
-            MainModel mdl = new MainModel { Id = i, Name = $"Name {i}" };
-            data.Add(mdl);
-        }
-        return data;
-    }
-
-    public class MainModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
-
-### Get the New Index Of a Clicked Row
-
-````CSHTML
-@*Get the new index of a clicked row*@
-
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<TelerikGrid Data="@currentSalesTeamMembers"
-             OnRowClick="@OnRowClickHandler"
-             OnRead="@OnReadHandler"
-             TotalCount="@Total"
-             Sortable="true">
-    <GridColumns>
-        <GridColumn Field="Id"></GridColumn>
-        <GridColumn Field="Name"></GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@if (!String.IsNullOrEmpty(Result))
-{
-    <div>
-        @Result
-    </div>
-}
-
-@code {
-    public int Total { get; set; }
-    List<MainModel> salesTeamMembers { get; set; }
-    List<MainModel> currentSalesTeamMembers { get; set; } //implementation of OnRead
-    MainModel currentItem { get; set; } //need to save the selected item to determine its new index
-    public string Result { get; set; }
-
-    void OnRowClickHandler(GridRowClickEventArgs args)
-    {
-        var clickedRow = args.Item as MainModel;
-
-        currentItem = clickedRow;
-
-        PrintTheRowIndex(clickedRow);
+        // same logic as in SelectedItemsChanged, use either event
+        //ClickedItem = args.Item as MainModel;
+        //PrintTheRowIndex(ClickedItem);
     }
 
     void PrintTheRowIndex(MainModel item)
     {
-        int currentIndexOfItem = currentSalesTeamMembers.IndexOf(item);
+        int currentIndexOfItem = CurrentSalesTeamMembers.IndexOf(item);
 
         if (currentIndexOfItem > -1) // this check is not mandatory
         {
@@ -172,26 +94,24 @@ The Grid does not directly alter the collection of items passed to its `Data` pa
 
     async Task OnReadHandler(GridReadEventArgs args)
     {
-        var dataSourceResult = salesTeamMembers.ToDataSourceResult(args.Request);
+        var dataSourceResult = SalesTeamMembers.ToDataSourceResult(args.Request);
 
-        currentSalesTeamMembers = dataSourceResult.Data.Cast<MainModel>().ToList(); // this is the collection with the sorted items
+        args.Data = CurrentSalesTeamMembers = dataSourceResult.Data.Cast<MainModel>().ToList(); // this is the collection with the sorted items
+        args.Total = dataSourceResult.Total;
 
-        Total = dataSourceResult.Total;
-
-        PrintTheRowIndex(currentItem);
-
-        StateHasChanged();
+        // update the row index if changed
+        PrintTheRowIndex(ClickedItem);
     }
 
     protected override void OnInitialized()
     {
-        salesTeamMembers = GenerateData();
+        SalesTeamMembers = GenerateData();
     }
 
     private List<MainModel> GenerateData()
     {
         List<MainModel> data = new List<MainModel>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 1; i <= 5; i++)
         {
             MainModel mdl = new MainModel { Id = i, Name = $"Name {i}" };
             data.Add(mdl);
@@ -206,4 +126,3 @@ The Grid does not directly alter the collection of items passed to its `Data` pa
     }
 }
 ````
-

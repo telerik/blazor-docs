@@ -27,9 +27,9 @@ Is there a way to add row numbers to the grid?
 I want them to update every time the grid changes, so whenever I filter it or sort it. So basically if it's sorted by date ascending, the rows start at 1 and increase as you travel down the grid.  If you then sort descending, the row numbers will again start at 1 and increase as you travel down the grid.
 
 ## Solution
-Add a field to the row model that will display the row index, and populate the index in the `OnRead` event by iterating the collection.
+Add a property to the row model that will display the row index. Populate the index in the [Grid `OnRead` event]({%slug components/grid/manual-operations%}) by iterating the items collection.
 
-You can then use a regular grid column to show them in the beginning of the grid. This column should have the various data operations disabled (such as filtering, sorting, grouping, editing) because it does not carry actual information about the data.
+You can then use a Grid column to show them. This column should have the various data operations disabled (such as filtering, sorting, grouping, editing) because it does not carry actual information about the data.
 
 In the general case, that logic would be done by the backend, this sample keeps all the operations in one place for brevity.
 
@@ -38,13 +38,13 @@ In the general case, that logic would be done by the backend, this sample keeps 
 ````CSHTML
 @using Telerik.DataSource.Extensions
 
-<TelerikGrid Data=@GridData TotalCount=@Total OnRead=@ReadItems
-             FilterMode=@GridFilterMode.FilterRow Sortable=true Pageable=true 
+<TelerikGrid TItem="@Employee" OnRead="@ReadItems"
+             FilterMode=@GridFilterMode.FilterRow Sortable="true" Pageable="true"
              Reorderable="true" Resizable="true" SelectionMode="@GridSelectionMode.Multiple">
     <GridColumns>
-    
+
         <GridColumn Field="@nameof(Employee.RowIndex)" Title="#" Width="40px" Sortable="false" Filterable="false" Groupable="false" Editable="false" />
-        
+
         <GridColumn Field=@nameof(Employee.ID) Editable="false" Filterable="false"/>
         <GridColumn Field=@nameof(Employee.Name) Title="Name" />
         <GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
@@ -52,13 +52,10 @@ In the general case, that logic would be done by the backend, this sample keeps 
 </TelerikGrid>
 
 @code {
-    public List<Employee> SourceData { get; set; } // in a real case that's a remote data source, it is here for brevity
-    public List<Employee> GridData { get; set; }
-    public int Total { get; set; } = 0;
+    public List<Employee> SourceData { get; set; }
 
     protected async Task ReadItems(GridReadEventArgs args)
     {
-        // in a real case, the remote data source will hande the data shaping, this is here for brevity
         var datasourceResult = SourceData.ToDataSourceResult(args.Request);
 
         // start row index setup
@@ -68,14 +65,10 @@ In the general case, that logic would be done by the backend, this sample keeps 
             iteratableData[i].RowIndex = i + 1; // we add one for human readabale 1-based index
         }
         datasourceResult.Data = iteratableData;
-
         // end row index setup
 
-        // in a real case you receive the data here and use it as-is
-        GridData = (datasourceResult.Data as IEnumerable<Employee>).ToList();
-        Total = datasourceResult.Total;
-
-        StateHasChanged();
+        args.Data = datasourceResult.Data;
+        args.Total = datasourceResult.Total;
     }
 
     protected override void OnInitialized()
@@ -87,7 +80,7 @@ In the general case, that logic would be done by the backend, this sample keeps 
     {
         var result = new List<Employee>();
         var rand = new Random();
-        for (int i = 0; i < 100; i++)
+        for (int i = 1; i <= 100; i++)
         {
             result.Add(new Employee()
             {
@@ -105,9 +98,8 @@ In the general case, that logic would be done by the backend, this sample keeps 
         public Guid ID { get; set; }
         public string Name { get; set; }
         public DateTime HireDate { get; set; }
-        //this field will contain the row index for display purposes
+        //this property will contain the row index for display purposes
         public int RowIndex { get; set; }
     }
 }
 ````
-
