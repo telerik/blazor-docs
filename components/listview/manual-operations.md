@@ -21,9 +21,11 @@ In this article you will find examples how to:
 This is, effectively, loading data on demand only when the user goes to a certain page, as opposed to the default case where you fetch all the data items initially.
 
 To implement your own paging in the listview, you need to:
-* Handle the `OnRead` event and...
+* Handle the `OnRead` event.
 * Set the current page of data to the `args.Data` property of the event argument.
 * Set the `args.Total` property to the total number of items on all pages, so that the pager displays correct information.
+* Set the `TItem` attribute of the ListView to the model type.
+* Do not set the component `Data` attribute.
 
 >caption Custom Paging in the ListView
 
