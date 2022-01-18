@@ -18,13 +18,7 @@ There are a few ways to style the Button component:
 
 ## Primary Button
 
-Through the primary button styling, you can make the button use a strong color to attract attention. To do that, set its `Primary` property to true.
-
->caption Button with the Primary color scheme from the current theme
-
-````CSHTML
-<TelerikButton Primary="true">Primary</TelerikButton>
-````
+To set a Primary button you should set the `ThemeColor` parameter to `primary`. [Read the Appearance article for further information...]({%slug button-appearance%}).
 
 ## Button Class
 

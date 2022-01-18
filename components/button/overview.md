@@ -87,6 +87,10 @@ Add a reference to the Button instance to use its methods (for example - `FocusA
 
 * [Using Button Icons]({%slug button-icons%})
 
+>caption The result from the code snippet above
+
+![use css to change the button size](images/button-size-change.png)
+
 ## See Also
 
   * [Live Demo: Button](https://demos.telerik.com/blazor-ui/button/index)
