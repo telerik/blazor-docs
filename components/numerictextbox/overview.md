@@ -58,7 +58,7 @@ The numeric textbox provides the following features:
 
 * `Min` - the minimum decimal value the input can take. Must be of the same type as the `Value`.
 
-* `Placeholder` - `string` - maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to **nullable** value type and there is no default value set. 
+* `Placeholder` - `string` - maps to the `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to **nullable** value type and there is no value set. 
 
 * `Step` - the decimal value of the step with which the value changes when the arrows are used. Must be of the same type as the `Value`.
 
