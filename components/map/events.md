@@ -18,7 +18,7 @@ This article explains the available events for the Telerik Map for Blazor:
 
 ## OnClick
 
-The `OnClick` event fires as a response to the user click on the map. Its `EventCallback<MapClickEventArgs>` gives:
+The `OnClick` event fires when the user clicks on the map. Its `EventCallback<MapClickEventArgs>` gives:
 * `MapClickEventArgs.EventArgs` - provides the native DOM event (browser event).
 * `MapClickEventArgs.Location` - provides the location of the click on the map (`MapLocation` has `Latitude` and `Longitude` props).
 
@@ -120,7 +120,7 @@ The `OnClick` event fires as a response to the user click on the map. Its `Event
 
 ## OnMarkerClick
 
-The `OnMarkerClick` event fires as a response to the user click on a marker. Its `EventCallback<MapMarkerClickEventArgs>` gives:
+The `OnMarkerClick` event fires when the user clicks on a marker. Its `EventCallback<MapMarkerClickEventArgs>` gives:
 * `MapMarkerClickEventArgs.DataItem` - provides the data item (object) of the bound marker.
 * `MapMarkerClickEventArgs.EventArgs` - provides the native DOM event (browser event).
 
@@ -222,7 +222,7 @@ The `OnMarkerClick` event fires as a response to the user click on a marker. Its
 
 ## OnShapeClick
 
-The `OnShapeClick` event fires as a response to the user click on a shape. Its `EventCallback<MapShapeClickEventArgs>` gives:
+The `OnShapeClick` event fires when the user clicks on a shape. Its `EventCallback<MapShapeClickEventArgs>` gives:
 * `MapShapeClickEventArgs.DataItem` - provides the data item when the shape is coming from a bubble layer (null for shape layer).
 * `MapShapeClickEventArgs.GeoJsonDataItem` - provides the data item in the form of GeoJSON (dictionary) when the layer is a shape layer (null for bubble layer).
 * `MapShapeClickEventArgs.EventArgs` - provides the native DOM event (browser event).

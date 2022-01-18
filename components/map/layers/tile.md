@@ -10,13 +10,13 @@ position: 3
 
 # Tile Layer
 
-The tile layer works by rendering images to display the actual map that are requested from third-party services that conform to the [Tile Map Service standard](https://en.wikipedia.org/wiki/Tile_Map_Service) and support the [WGS 84 projection standards](https://en.wikipedia.org/wiki/World_Geodetic_System). 
+The tile layer works by rendering images that display the actual map. These images are requested from third-party services that conform to the [Tile Map Service standard](https://en.wikipedia.org/wiki/Tile_Map_Service) and support the [WGS 84 projection standards](https://en.wikipedia.org/wiki/World_Geodetic_System). 
 
 The built-in configuration options of the `MapLayer` allow you to set an URL template via the `UrlTemplate` property that will access the service and provide the needed images.
 
 >tip Licenses and Official Author rights to the Tile Layer Images are determined by the used Web Map Service. The **Telerik Map** only provides an UI control that allows you to setup and place a map in an application, built via Blazor techniques. You need to provide proper attribution with the correct copyright notice and, if needed, establish an account with the map owner to ensure unlimited/fast access.
 
-## How to configure Tile Layer?
+## Tile Layer Configuration
 
 To configure a Map Layer of type Tile:
 

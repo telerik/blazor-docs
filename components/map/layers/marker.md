@@ -12,7 +12,7 @@ position: 5
 
 The marker functionality allows you to add points in the map. These points are defined by geographical position in the map and can show useful information to the user in a tooltip.
 
-## How to configure Marker Layer?
+## Marker Layer Configuration
 
 To configure a Map Layer of type Marker:
 

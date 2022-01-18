@@ -14,7 +14,7 @@ The shape layer provides binding to **GeoJSON** data and renders the specified g
 
 Telerik Map supports all **Geometry** and **Feature Objects**, as well as the **Geometry** and **Feature Collections** from the GeoJSON Specification (which could be found at https://geojson.org).
 
-## How to configure Shape Layer?
+## Shape Layer Configuration
 
 To configure a Map Layer of type Shape:
 

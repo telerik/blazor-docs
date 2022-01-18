@@ -18,7 +18,7 @@ The data source fields that represent the location and the value of the shapes c
 
 Optionally, the bubbles can also be styled by using the `MapLayerBubbleSettings` inner tag - `MapLayerBubbleSettingsStyle`.
 
-## How to configure Bubble Layer?
+## Bubble Layer Configuration
 
 To configure a Map Layer of type Bubble:
 
