@@ -173,7 +173,6 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 }
 ````
 
-![onseriesclick get data model example]
 
 
 ### Load Data On Demand Based On Series Click
