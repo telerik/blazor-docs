@@ -161,7 +161,10 @@ This section demonstrates two example usages of the Editor Template:
                     <TelerikDropDownList Data="@Roles" DefaultText="Select Role"
                                          @bind-Value="@CurrentlyEditedEmployee.RoleId"
                                          TextField="@nameof(Role.RoleName)" ValueField="@nameof(Role.RoleId)"
-                                         Width="100%" PopupHeight="auto">
+                                         Width="100%">
+                        <DropDownListSettings>
+                            <DropDownListPopupSettings Height="auto" />
+                        </DropDownListSettings>
                     </TelerikDropDownList>
                 }
             </EditorTemplate>
@@ -292,7 +295,10 @@ This section demonstrates two example usages of the Editor Template:
         <TelerikDropDownList Data="@Roles" DefaultText="Select Role"
                              @bind-Value="@((Employee)context).RoleId"
                              TextField="@nameof(Role.RoleName)" ValueField="@nameof(Role.RoleId)"
-                             Width="100%" PopupHeight="auto">
+                             Width="100%">
+            <DropDownListSettings>
+                <DropDownListPopupSettings Height="auto" />
+            </DropDownListSettings>
         </TelerikDropDownList>
 </EditorTemplate>
 ````
@@ -309,7 +315,10 @@ This section demonstrates two example usages of the Editor Template:
         <TelerikDropDownList Data="@Roles" DefaultText="Select Role"
                              @bind-Value="@CurrentlyEditedEmployee.RoleId"
                              TextField="@nameof(Role.RoleName)" ValueField="@nameof(Role.RoleId)"
-                             Width="100%" PopupHeight="auto">
+                             Width="100%">
+            <DropDownListSettings>
+                <DropDownListPopupSettings Height="auto" />
+            </DropDownListSettings>
         </TelerikDropDownList>
     }
 </EditorTemplate>

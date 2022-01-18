@@ -38,8 +38,10 @@ In this article you can find the following examples:
                 <TelerikDropDownList @bind-Value="@MyModel.Country"
                                      DefaultText="Choose a country"
                                      Data="@DropDownData"
-                                     PopupHeight=""
                                      Id="country">
+                    <DropDownListSettings>
+                        <DropDownListPopupSettings Height="auto" />
+                    </DropDownListSettings>
                 </TelerikDropDownList>
             </Template>
         </FormItem>
@@ -48,8 +50,10 @@ In this article you can find the following examples:
                 <label for="city">Destination city:</label>
                 <TelerikComboBox @bind-Value="@MyModel.City"
                                  Data="@CityData"
-                                 PopupHeight=""
                                  Id="city">
+                    <ComboBoxSettings>
+                        <ComboBoxPopupSettings Height="auto" />
+                    </ComboBoxSettings>
                 </TelerikComboBox>
             </Template>
         </FormItem>
@@ -151,8 +155,10 @@ You can render validation messages for templated Form items by using the [Teleri
                 <TelerikDropDownList @bind-Value="@MyModel.Country"
                                      DefaultText="Choose a country"
                                      Data="@DropDownData"
-                                     PopupHeight=""
                                      Id="country">
+                    <DropDownListSettings>
+                        <DropDownListPopupSettings Height="auto" />
+                    </DropDownListSettings>
                 </TelerikDropDownList>
                 <TelerikValidationMessage For="@(() => MyModel.Country)" />
             </Template>
@@ -162,8 +168,10 @@ You can render validation messages for templated Form items by using the [Teleri
                 <label for="city">Destination city:</label>
                 <TelerikComboBox @bind-Value="@MyModel.City"
                                  Data="@CityData"
-                                 PopupHeight=""
                                  Id="city">
+                    <ComboBoxSettings>
+                        <ComboBoxPopupSettings Height="auto" />
+                    </ComboBoxSettings>
                 </TelerikComboBox>
                 <TelerikValidationMessage For="@(() => MyModel.City)" />
             </Template>

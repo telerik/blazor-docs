@@ -44,12 +44,14 @@ The AutoComplete @[template](/_contentTemplates/common/dropdowns-virtualization.
 <br />
 <TelerikAutoComplete Data="@Data"
                      ScrollMode="@DropDownScrollMode.Virtual"
-                     PopupHeight="200px"
                      ItemHeight="30"
                      PageSize="20"
 
                      @bind-Value="@SelectedValue"
                      Filterable="true" FilterOperator="@StringFilterOperator.Contains">
+    <AutoCompleteSettings>
+        <AutoCompletePopupSettings Height="200px" />
+    </AutoCompleteSettings>
 </TelerikAutoComplete>
 
 @code {

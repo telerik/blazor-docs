@@ -48,7 +48,6 @@ The DropDownList @[template](/_contentTemplates/common/dropdowns-virtualization.
 <TelerikDropDownList Data="@Data"
 
                      ScrollMode="@DropDownScrollMode.Virtual"
-                     PopupHeight="200px"
                      ItemHeight="30"
                      PageSize="20"
                      
@@ -56,6 +55,9 @@ The DropDownList @[template](/_contentTemplates/common/dropdowns-virtualization.
                      ValueField="@nameof(Person.Id)"
                      @bind-Value="@SelectedValue"
                      Filterable="true" FilterOperator="@StringFilterOperator.Contains">
+    <DropDownListSettings>
+        <DropDownListPopupSettings Height="200px" />
+    </DropDownListSettings>
 </TelerikDropDownList>
 
 @code {

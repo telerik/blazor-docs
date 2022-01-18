@@ -43,7 +43,6 @@ The ComboBox @[template](/_contentTemplates/common/dropdowns-virtualization.md#v
 <TelerikComboBox Data="@Data"
 
                  ScrollMode="@DropDownScrollMode.Virtual"
-                 PopupHeight="200px"
                  ItemHeight="30"
                  PageSize="20"
 
@@ -51,6 +50,9 @@ The ComboBox @[template](/_contentTemplates/common/dropdowns-virtualization.md#v
                  ValueField="@nameof(Person.Id)"
                  @bind-Value="@SelectedValue"
                  Filterable="true" FilterOperator="@StringFilterOperator.Contains">
+    <ComboBoxSettings>
+        <ComboBoxPopupSettings Height="200px" />
+    </ComboBoxSettings>
 </TelerikComboBox>
 
 @code {

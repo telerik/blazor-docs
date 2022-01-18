@@ -41,11 +41,12 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
     }
 </style>
 
-<TelerikGrid Class="custom-icons" Data="salesTeamMembers" @ref="Grid">
+<TelerikGrid Class="custom-icons" Data="salesTeamMembers" @ref="Grid"
+             OnStateInit="@( (GridStateEventArgs<MainModel> args) => OnStateInit(args))">
     <DetailTemplate>
         @{
             var employee = context as MainModel;
-            <TelerikGrid Data="employee.Orders" Pageable="true" PageSize="5">
+            <TelerikGrid Data="employee.Orders">
                 <GridColumns>
                     <GridColumn Field="OrderId"></GridColumn>
                     <GridColumn Field="DealSize"></GridColumn>
@@ -62,14 +63,10 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
 @code {
     public TelerikGrid<MainModel> Grid { get; set; }
 
-    async Task ExpandHierarchy()
+    async Task OnStateInit(GridStateEventArgs<MainModel> args)
     {
-        GridState<MainModel> desiredState = new GridState<MainModel>()
-        {
-            ExpandedRows = new List<int> { 0, 1 }//expand the first two rows
-        };
-
-        await Grid.SetState(desiredState);
+        //expand first row
+        args.GridState.ExpandedItems = new List<MainModel> { salesTeamMembers.FirstOrDefault() };
     }
 
     List<MainModel> salesTeamMembers { get; set; }
@@ -85,7 +82,7 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
         for (int i = 0; i < 5; i++)
         {
             MainModel mdl = new MainModel { Id = i, Name = $"Name {i}" };
-            mdl.Orders = Enumerable.Range(1, 15).Select(x => new DetailsModel { OrderId = x, DealSize = x ^ i }).ToList();
+            mdl.Orders = Enumerable.Range(1, 3).Select(x => new DetailsModel { OrderId = x, DealSize = x ^ i }).ToList();
             data.Add(mdl);
         }
         return data;

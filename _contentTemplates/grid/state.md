@@ -507,7 +507,8 @@ public static class FilterExtensions
     {
         GridState<MainModel> desiredState = new GridState<MainModel>()
         {
-            ExpandedRows = new List<int> { 0, 1 }//expand the first two rows
+            //expand the first two rows
+            ExpandedItems = new List<int> { salesTeamMembers[0], salesTeamMembers[1] }
         };
 
         await Grid.SetState(desiredState);
@@ -549,5 +550,5 @@ public static class FilterExtensions
 
 
 #statechanged-possible-prop-values
-The possible values for the `PropertyName` are `SortDescriptors`, `FilterDescriptors`, `GroupDescriptors`, `Page`, `Skip`, `CollapsedGroups`, `ColumnStates`, `ExpandedRows`, `InsertedItem`, `OriginalEditItem`, `EditItem`.
+The possible values for the `PropertyName` are `SortDescriptors`, `FilterDescriptors`, `GroupDescriptors`, `Page`, `Skip`, `CollapsedGroups`, `ColumnStates`, `ExpandedItems`, `InsertedItem`, `OriginalEditItem`, `EditItem`.
 #end
