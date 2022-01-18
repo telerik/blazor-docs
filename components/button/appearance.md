@@ -55,7 +55,7 @@ The `FillMode` controls how the TelerikButton is filled. You can set it to a mem
 
 ## Rounded
 
-The `Rounded` parameter applies the `border-radiums` CSS rule to the button to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.Rounded` class:
+The `Rounded` parameter applies the `border-radius` CSS rule to the button to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.Rounded` class:
 
 | Class members | Manual declarations |
 |------------|--------|
