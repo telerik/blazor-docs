@@ -23,10 +23,6 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap" target="_blank">Blazor H
     * [ColorField](#colorfield)
     * [Customize Chart Elements - Nested Tags Settings](#customize-chart-elements--nested-tags-settings)
 
->caption Heatmap chart. Results from the first code snippet below
-
-![](images/basic-heatmap-chart.png)
-
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
 #### To create a Heatmap chart:

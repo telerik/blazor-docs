@@ -59,10 +59,6 @@ To enable tooltips for the data points of each individual series:
 }
 ````
 
->caption The result from the code snippet above
-
-![single series tooltip](images/tooltip-basic-config.png)
-
 
 ## Common Tooltip
 
@@ -108,10 +104,6 @@ To enable the same tooltip for all series:
     public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
-
->caption The result from the code snippet above
-
-![common tooltip settings for all series](images/tooltip-common-example.gif)
 
 
 ## Customization
@@ -185,10 +177,6 @@ You can customize the appearance of the individual series tooltip by using:
 }
 
 ````
-
->caption The result from the code snippet above
-
-![tooltip parameter customization example](images/tooltip-customized-example.png)
 
 
 #### Common Tooltip Settings
@@ -270,10 +258,6 @@ The available series data point information in the `context` is:
     public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
-
->caption The result from the code snippet above
-
-![tooltip template example](images/tooltip-template-example.png)
 
 
 ## See Also

@@ -14,10 +14,6 @@ The <a href="https://www.telerik.com/blazor-ui/scatter-chart" target="_blank">Bl
 
 Scatter charts are useful for showing the relation between different sets of data, for example scientific (experimental) results.
 
->caption Scatter chart. Results from the first code snippet below
-
-![](images/basic-scatter-chart.png)
-
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
 #### To create a scatter chart:

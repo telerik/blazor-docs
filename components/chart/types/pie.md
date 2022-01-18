@@ -14,8 +14,6 @@ The <a href="https://www.telerik.com/blazor-ui/pie-chart" target="_blank">Blazor
 
 >caption Pie chart. Results from the first code snippet below
 
-![](images/basic-pie-chart.png)
-
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
 #### To create a pie chart:
@@ -130,10 +128,6 @@ Set color to the pie chart items
 	};
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/custom-color-in-segments.png)
 
 ### Exploded Segment
 

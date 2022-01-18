@@ -501,10 +501,6 @@ The general approach is to set an axis crossing point that has a very large valu
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/x-axis-labels-at-bottom.png)
-
 
 ### Move Value Axis to the Right
 
@@ -573,10 +569,6 @@ This approach can work for both numerical and categorical axes. The example belo
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![Move the second value axis to the right](images/chart-crossing-value-axis-to-the-right.png)
 
 
 ## See Also
