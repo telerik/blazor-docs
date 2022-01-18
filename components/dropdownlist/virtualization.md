@@ -91,34 +91,33 @@ Run this and see how you can display, scroll and filter over 10k records in the 
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-@SelectedValue
+<p>Selected Id: @SelectedValue</p>
 <br />
-<TelerikDropDownList Data="@CurentPageOfData"
+<TelerikDropDownList TItem="@Person" TValue="@int"
                      ScrollMode="@DropDownScrollMode.Virtual"
                      OnRead="@GetRemoteData"
-                     TotalCount="@TotalItems"
                      ValueMapper="@GetModelFromValue"
-                     PopupHeight="200px"
                      ItemHeight="30"
                      PageSize="20"
-    
+                     @bind-Value="@SelectedValue"
                      TextField="@nameof(Person.Name)"
                      ValueField="@nameof(Person.Id)"
-                     @bind-Value="@SelectedValue"
-                     Filterable="true" FilterOperator="@StringFilterOperator.Contains">
+                     Filterable="true"
+                     FilterOperator="@StringFilterOperator.Contains">
+    <DropDownListSettings>
+        <DropDownListPopupSettings Height="200px" />
+    </DropDownListSettings>
 </TelerikDropDownList>
 
 @code{
     int SelectedValue { get; set; } = 1234; // pre-select an item to showcase the value mapper
-    List<Person> CurentPageOfData { get; set; }
-    int TotalItems { get; set; }
 
-    async Task GetRemoteData(DropDownListReadEventArgs e)
+    async Task GetRemoteData(DropDownListReadEventArgs args)
     {
-        DataEnvelope<Person> result = await MyService.GetItems(e.Request);
+        DataEnvelope<Person> result = await MyService.GetItems(args.Request);
 
-        CurentPageOfData = result.Data;
-        TotalItems = result.Total;
+        args.Data = result.Data;
+        args.Total = result.Total;
     }
 
     async Task<Person> GetModelFromValue(int selectedValue)
@@ -126,7 +125,6 @@ Run this and see how you can display, scroll and filter over 10k records in the 
         // return a model that matches the selected value so the component can get its text
         return await MyService.GetItemFromValue(selectedValue);
     }
-
 
     // mimics a real service in terms of API appearance, refactor as necessary for your app
     public static class MyService

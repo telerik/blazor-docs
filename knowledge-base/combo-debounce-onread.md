@@ -41,29 +41,28 @@ For min filter length, just add a check in the handler for the desired string le
 @implements IDisposable
 @using System.Threading
 
-@SelectedValue
-<br />
-<TelerikComboBox Data="@Options"
+<p>@SelectedValue</p>
+
+<TelerikComboBox TItem="@String" TValue="@String"
                  OnRead="@ReadItems"
+                 @bind-Value="@SelectedValue"
                  Filterable="true"
-                 Placeholder="Find what you seek by typing"
-                 @bind-Value="@SelectedValue">
+                 Placeholder="Type anything">
 </TelerikComboBox>
 
-@code{
+@code {
     public string SelectedValue { get; set; }
-    List<string> Options { get; set; } = new List<string>();
     CancellationTokenSource tokenSource = new CancellationTokenSource(); // for debouncing the service calls
 
-    async Task RequestData(string userInput, string method)
+    async Task RequestData(string userInput, string method, ComboBoxReadEventArgs args)
     {
         // this method calls the actual service (in this case - a local method)
-        Options = await GetOptions(userInput, method);
+        args.Data = await GetOptions(userInput, method);
     }
 
     async Task ReadItems(ComboBoxReadEventArgs args)
     {
-        if (args.Request.Filters.Count > 0) // there is user filter input, skips providing data on initialization
+        if (args.Request.Filters.Count > 0) // wait for user input
         {
             Telerik.DataSource.FilterDescriptor filter = args.Request.Filters[0] as Telerik.DataSource.FilterDescriptor;
             string userInput = filter.Value.ToString();
@@ -81,21 +80,18 @@ For min filter length, just add a check in the handler for the desired string le
                 await Task.Delay(300, token); // 300ms timeout for the debouncing
 
                 //new service request after debouncing
-                await RequestData(userInput, method);
+                await RequestData(userInput, method, args);
             }
         }
         else
         {
-            if (Options?.Count < 1)
-            {
-                // when there is no user input you may still want to provide data
-                // in this example we just hardcode a few items, you can either fetch all the data
-                // or you can provide some subset of most common items, or something based on the business logic
-                Options = new List<string>() { "one", "two", "three" };
-            }
+            // when there is no user input you may still want to provide data
+            // in this example we just hardcode a few items, you can either fetch all the data
+            // or you can provide some subset of most common items, or something based on the business logic
+            args.Data = new List<string>() { "one", "two", "three" };
         }
     }
-    
+
     public void Dispose()
     {
         try
@@ -120,5 +116,5 @@ For min filter length, just add a check in the handler for the desired string le
 
         return optionsData;
     }
+}
 ````
-

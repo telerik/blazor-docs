@@ -14,7 +14,7 @@ By default, the scheduler will receive the entire collection of appointments, an
 
 The parameter of type `DataSourceRequest` exposes information about the desired paging, filtering and sorting so you can, for example, call your remote endpoint with appropriate parameters so its performance is optimized and it fetches only the relevant data.
 
-When the `OnRead` event is used, the internal operations are disabled and you must perform them all in the `OnRead` event. You must also set the `TotalCount` property of the grid to the total number of items in the data source.
+When the `OnRead` event is used, the internal operations are disabled and you must perform them all in the `OnRead` event. You must set the `args.Data` and `args.Total` properties of the event argument object. Do not set the component `Data` attribute when using `OnRead`.
 
 ## Examples
 

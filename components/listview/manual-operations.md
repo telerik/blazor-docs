@@ -21,35 +21,29 @@ In this article you will find examples how to:
 This is, effectively, loading data on demand only when the user goes to a certain page, as opposed to the default case where you fetch all the data items initially.
 
 To implement your own paging in the listview, you need to:
-* Handle the `OnRead` event and set the current page of data to the listview's `Data` parameter
-* Set the `TotalCount` parameter of the listview to the total number of items from the data source, so it can show the proper pager.
+* Handle the `OnRead` event and...
+* Set the current page of data to the `args.Data` property of the event argument.
+* Set the `args.Total` property to the total number of items on all pages, so that the pager displays correct information.
 
 >caption Custom Paging in the ListView
 
 ````CSHTML
 @* This example simulates fetching the page data from a service *@
 
-<TelerikListView Data="@ListViewCurrPageData" OnRead="@OnReadHandler" TotalCount="@TotalItems" Pageable="true" PageSize="@PageSize">
+<TelerikListView TItem="@SampleData"
+                 OnRead="@OnReadHandler"
+                 Pageable="true" PageSize="@PageSize">
     <Template>
         <h6>@context.Name</h6>
     </Template>
 </TelerikListView>
 
 @code{
-    int TotalItems { get; set; }
-    List<SampleData> ListViewCurrPageData { get; set; }
     int PageSize { get; set; } = 15;
-    async Task OnReadHandler(ListViewReadEventArgs e)
+    async Task OnReadHandler(ListViewReadEventArgs args)
     {
-        ListViewCurrPageData = await GetListViewPageData(e.Request.Page, e.Request.PageSize);
-        TotalItems = await GetTotalItemsCount();
-        StateHasChanged();
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        ListViewCurrPageData = await GetListViewPageData(1, PageSize);
-        TotalItems = await GetTotalItemsCount();
+        args.Data = await GetListViewPageData(args.Request.Page, args.Request.PageSize);
+        args.Total = await GetTotalItemsCount();
     }
 
     async Task<List<SampleData>> GetListViewPageData(int pageIndex, int pageSize)
@@ -80,7 +74,6 @@ To implement your own paging in the listview, you need to:
     }
 }
 ````
-
 
 ## Filter and Sort
 
@@ -165,5 +158,3 @@ The example below shows a relatively simple way to filter and sort over all data
 
   * [Live Demo: ListView Filtering](https://demos.telerik.com/blazor-ui/listview/filtering)
   * [Live Demo: ListView Sorting](https://demos.telerik.com/blazor-ui/listview/sorting)
-   
-  

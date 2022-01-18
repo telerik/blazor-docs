@@ -51,20 +51,16 @@ Attempting to use built-in aggregates with the templates that need to extract th
 Note that using OnRead makes the grid calculate aggregates on the current page of data only
 This sample contains a solution for calculating them on the server over all data
 
-<TelerikGrid Data=@GridData TotalCount=@Total OnRead=@ReadItems Pageable="true">
+<TelerikGrid TItem="@(Dictionary<string,object>)" OnRead="@ReadItems" Pageable="true">
     <GridColumns>
         <GridColumn Field=@nameof(Employee.ID) FieldType="@typeof(int)">
             <FooterTemplate>
-                Total employees: @totalEmployees
-                <hr />
-                Total employees (from current data): @context.Count
+                Total employees: @context.Count
             </FooterTemplate>
         </GridColumn>
         <GridColumn Field="@nameof(Employee.Salary)" FieldType="@typeof(decimal)">
             <FooterTemplate>
-                Top salary: @highestSalary
-                <hr />
-                Top salary (from current data): @context.Max
+                Top salary: @context.Max
             </FooterTemplate>
         </GridColumn>
         <GridColumn Field=@nameof(Employee.Name) Title="Name" FieldType="@typeof(string)">
@@ -78,12 +74,6 @@ This sample contains a solution for calculating them on the server over all data
 
 @code {
     public DataTable SourceData { get; set; }
-    public List<Dictionary<string, object>> GridData { get; set; } = new List<Dictionary<string, object>>();
-    public int Total { get; set; } = 0;
-
-    // values for the data table aggregations
-    int totalEmployees { get; set; }
-    decimal highestSalary { get; set; }
 
     protected override void OnInitialized()
     {
@@ -94,7 +84,7 @@ This sample contains a solution for calculating them on the server over all data
     {
         DataSourceResult datasourceResult = SourceData.ToDataSourceResult(args.Request);
 
-        GridData = (datasourceResult.Data as IEnumerable<Dictionary<string, object>>)
+        args.Data = (datasourceResult.Data as IEnumerable<Dictionary<string, object>>)
             .Select(x => x.ToDictionary(
                 x => x.Key,
                 x =>
@@ -110,21 +100,9 @@ This sample contains a solution for calculating them on the server over all data
                 }))
             .ToList();
 
-        Total = datasourceResult.Total;
-
-
-        // extract the aggregate data like you would within the footer template - by the function and field name
-        // and put it in the view-model. In a real case that would be extra data returned in the response
-        totalEmployees = (int)datasourceResult.AggregateResults.FirstOrDefault(
-            r => r.AggregateMethodName == "Count" && r.Member == nameof(Employee.ID))?.Value;
-
-        highestSalary = (decimal)datasourceResult.AggregateResults.FirstOrDefault(
-            r => r.AggregateMethodName == "Max" && r.Member == nameof(Employee.Salary))?.Value;
-
-        // for the grid data update itself
-        StateHasChanged();
+        args.Total = datasourceResult.Total;
+        args.AggregateResults = datasourceResult.AggregateResults;
     }
-
 
     public DataTable GenerateData()
     {
@@ -140,7 +118,7 @@ This sample contains a solution for calculating them on the server over all data
         table.Columns["Name"].DefaultValue = default(string);
         table.Columns["Salary"].DefaultValue = default(decimal);
 
-        for (int i = 1; i < 50; i++)
+        for (int i = 1; i <= 50; i++)
         {
             table.Rows.Add(i, $"Name {i}", rand.Next(1000, 5000));
         }
@@ -157,9 +135,6 @@ This sample contains a solution for calculating them on the server over all data
 }
 ````
 
-
-
-
 ## Cause\Possible Cause(s)
 When using a `DataTable` as the grid data source, aggregates are not supported, they require using a model so they can extract the type of the field - the grid itself is strongly typed.
 
@@ -174,7 +149,7 @@ For such scecnarios you can pass the desired aggregation functions through the `
 Since the grid data source is a DataTable, built-in aggregate calculations cannot work, because they need a model.
 You can, however, add the desired aggregate functions and let .ToDataSourceResult() calculate them so you can use them through view-model fields
 
-<TelerikGrid Data=@GridData TotalCount=@Total OnRead=@ReadItems Pageable="true">
+<TelerikGrid TItem="@(Dictionary<string,object>)" OnRead="@ReadItems" Pageable="true">
     <GridColumns>
         <GridColumn Field=@nameof(Employee.ID) FieldType="@typeof(int)">
             <FooterTemplate>
@@ -193,8 +168,6 @@ You can, however, add the desired aggregate functions and let .ToDataSourceResul
 
 @code {
     public DataTable SourceData { get; set; }
-    public List<Dictionary<string, object>> GridData { get; set; } = new List<Dictionary<string, object>>();
-    public int Total { get; set; } = 0;
 
     // values for the data table aggregations
     int totalEmployees { get; set; }
@@ -211,35 +184,33 @@ You can, however, add the desired aggregate functions and let .ToDataSourceResul
         //so that the ToDataSourceResult method will calculate them for you
         args.Request.Aggregates = new List<AggregateDescriptor>
         {
-            new AggregateDescriptor{
+            new AggregateDescriptor
+            {
                 Member = nameof(Employee.Salary),
-                Aggregates =
-                    new List<AggregateFunction>()
-                    {
-                        new MaxFunction()
-                        {
-                            SourceField = nameof(Employee.Salary)
-                        }
-                    }
-            },
-        new AggregateDescriptor
-        {
-            Member = nameof(Employee.ID),
-            Aggregates =
-                new List<AggregateFunction>()
+                Aggregates = new List<AggregateFunction>()
                 {
-                        new CountFunction()
-                        {
-                            SourceField = nameof(Employee.ID)
-                        }
+                    new MaxFunction()
+                    {
+                        SourceField = nameof(Employee.Salary)
                     }
-        },
-    };
-
+                }
+            },
+            new AggregateDescriptor
+            {
+                Member = nameof(Employee.ID),
+                Aggregates = new List<AggregateFunction>()
+                {
+                    new CountFunction()
+                    {
+                        SourceField = nameof(Employee.ID)
+                    }
+                }
+            }
+        };
 
         DataSourceResult datasourceResult = SourceData.ToDataSourceResult(args.Request);
 
-        GridData = (datasourceResult.Data as IEnumerable<Dictionary<string, object>>)
+        args.Data = (datasourceResult.Data as IEnumerable<Dictionary<string, object>>)
             .Select(x => x.ToDictionary(
                 x => x.Key,
                 x =>
@@ -255,8 +226,7 @@ You can, however, add the desired aggregate functions and let .ToDataSourceResul
                 }))
             .ToList();
 
-        Total = datasourceResult.Total;
-
+        args.Total = datasourceResult.Total;
 
         // extract the aggregate data like you would within the footer template - by the function and field name
         // and put it in the view-model. In a real case that might be extra data returned in the response
@@ -265,12 +235,7 @@ You can, however, add the desired aggregate functions and let .ToDataSourceResul
 
         highestSalary = (decimal)datasourceResult.AggregateResults.FirstOrDefault(
             r => r.AggregateMethodName == "Max" && r.Member == nameof(Employee.Salary))?.Value;
-
-
-        // for the grid data update itself
-        StateHasChanged();
     }
-
 
     public DataTable GenerateData()
     {
@@ -286,7 +251,7 @@ You can, however, add the desired aggregate functions and let .ToDataSourceResul
         table.Columns["Name"].DefaultValue = default(string);
         table.Columns["Salary"].DefaultValue = default(decimal);
 
-        for (int i = 1; i < 50; i++)
+        for (int i = 1; i <= 50; i++)
         {
             table.Rows.Add(i, $"Name {i}", rand.Next(1000, 5000));
         }
@@ -300,11 +265,11 @@ You can, however, add the desired aggregate functions and let .ToDataSourceResul
         public string Name { get; set; }
         public decimal Salary { get; set; }
     }
-
+}
 ````
 
 ## Suggested Workarounds
 
-Consider using a [collection of ExpandoObjects](https://github.com/telerik/blazor-ui/tree/master/grid/binding-to-expando-object) instead of a `DataTable` in general.
+Consider using a [collection of ExpandoObjects](https://github.com/telerik/blazor-ui/tree/master/grid/binding-to-expando-object) instead of a `DataTable`.
 
 

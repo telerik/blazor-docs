@@ -52,9 +52,10 @@ There are three ideas on the basic approach how to do this:
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-<TelerikGrid Data=@GridData TotalCount=@Total
-             Pageable=true PageSize=15
-             OnRead=@ReadItems FilterMode="@GridFilterMode.FilterRow">
+<TelerikGrid TItem="@Employee"
+             OnRead="@ReadItems"
+             Pageable="true" PageSize="15"
+             FilterMode="@GridFilterMode.FilterRow">
     <GridColumns>
         <GridColumn Field=@nameof(Employee.Id) Title="ID" />
         <GridColumn Field=@nameof(Employee.Name) Title="Name" />
@@ -62,10 +63,6 @@ There are three ideas on the basic approach how to do this:
 </TelerikGrid>
 
 @code {
-    public List<Employee> GridData { get; set; }
-    public int Total { get; set; } = 0;
-
-    DataSourceRequest lastRequest { get; set; }
     CancellationTokenSource tokenSource = new CancellationTokenSource(); // for debouncing
 
     protected async Task ReadItems(GridReadEventArgs args)
@@ -77,21 +74,18 @@ There are three ideas on the basic approach how to do this:
         tokenSource = new CancellationTokenSource();
         var token = tokenSource.Token;
 
-        await Task.Delay(500, token); // 500ms timeout for the debouncing
+        await Task.Delay(1500, token); // 500ms timeout for the debouncing
 
         //new data collection comes down from the service after debouncing
-        lastRequest = args.Request;
-        await RequestData();
+        await RequestData(args);
     }
 
-    async Task RequestData()
+    async Task RequestData(GridReadEventArgs args)
     {
-        DataEnvelope DataResult = await FetchPagedData(lastRequest);
+        DataEnvelope DataResult = await FetchPagedData(args.Request);
 
-        GridData = DataResult.CurrentPageData;
-        Total = DataResult.TotalItemCount;
-
-        StateHasChanged();
+        args.Data = DataResult.CurrentPageData;
+        args.Total = DataResult.TotalItemCount;
     }
 
     public void Dispose()
@@ -112,7 +106,7 @@ There are three ideas on the basic approach how to do this:
         List<Employee> fullList = new List<Employee>();
 
         int totalCount = 100;
-        for (int i = 0; i < totalCount; i++)
+        for (int i = 1; i <= totalCount; i++)
         {
             fullList.Add(new Employee()
             {

@@ -5,7 +5,7 @@ description: Use custom date headers rendering through a template in the schedul
 slug: scheduler-templates-dateheader
 tags: telerik,blazor,scheduler,templates,date,header,dateheader
 published: True
-position: 5
+position: 10
 ---
 
 # DateHeader Templates

@@ -135,12 +135,11 @@ This example shows how you can combine the virtual row scrolling feature with lo
 
 Scroll through the groups or expand them to load their data on demand
 
-<TelerikGrid Data="@GridData"
+<TelerikGrid TItem="@object"
              LoadGroupsOnDemand="true"
              Groupable="true"
              OnStateInit="@((GridStateEventArgs<object> args) => OnStateInitHandler(args))"
              OnRead="@ReadItems"
-             TotalCount="@Total"
              ScrollMode="@GridScrollMode.Virtual" PageSize="20" RowHeight="60"
              Navigable="true" Sortable="true" FilterMode="@GridFilterMode.FilterRow" Height="600px">
     <GridColumns>
@@ -153,7 +152,6 @@ Scroll through the groups or expand them to load their data on demand
 
 @code {
     List<object> GridData { get; set; }
-    int Total { get; set; } = 0;
 
     protected async Task ReadItems(GridReadEventArgs args)
     {
@@ -162,16 +160,14 @@ Scroll through the groups or expand them to load their data on demand
 
         if (args.Request.Groups.Count > 0)
         {
-            GridData = result.GroupedData.Cast<object>().ToList();
+            args.Data = result.GroupedData.Cast<object>().ToList();
         }
         else
         {
-            GridData = result.CurrentPageData.Cast<object>().ToList();
+            args.Data = result.CurrentPageData.Cast<object>().ToList();
         }
 
-        Total = result.TotalItemCount;
-
-        StateHasChanged();
+        args.Total = result.TotalItemCount;
     }
 
     void OnStateInitHandler(GridStateEventArgs<object> args)
@@ -222,7 +218,7 @@ Scroll through the groups or expand them to load their data on demand
             {
                 SourceData = new List<Employee>();
                 var rand = new Random();
-                for (int i = 0; i < 2500; i++)
+                for (int i = 1; i <= 2500; i++)
                 {
                     SourceData.Add(new Employee()
                     {

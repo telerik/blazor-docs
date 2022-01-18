@@ -185,13 +185,16 @@ For cases when directly modifying the data collection with the new information a
 ````CSHTML
 @using Telerik.DataSource.Extensions
 
-<TelerikButton OnClick="@RefreshThroughState">Make grid request fresh data and call OnRead</TelerikButton>
-<br />Monitor the <code>GeneratedAtMilliseconds</code> column values when you click the button
+<TelerikButton OnClick="@RefreshThroughState">Call OnRead to refresh Grid</TelerikButton>
+<p>Monitor the <code>GeneratedAtMilliseconds</code> column values when you click the button</p>
 
-<TelerikGrid Data=@GridData TotalCount=@Total OnRead=@ReadItems 
+<TelerikGrid TItem="@Employee"
+             OnRead="@ReadItems"
              @ref="@GridRef"
              AutoGenerateColumns="true"
-             FilterMode=@GridFilterMode.FilterRow Sortable="true" Pageable="true">
+             FilterMode="@GridFilterMode.FilterRow"
+             Sortable="true"
+             Pageable="true">
 </TelerikGrid>
 
 @code {
@@ -204,8 +207,6 @@ For cases when directly modifying the data collection with the new information a
 
     //basic data generation follows
     public List<Employee> SourceData { get; set; }
-    public List<Employee> GridData { get; set; }
-    public int Total { get; set; } = 0;
 
     protected override void OnInitialized()
     {
@@ -219,15 +220,13 @@ For cases when directly modifying the data collection with the new information a
         // this is the standard data retrieval. Replace with your actual service
         // see more at https://docs.telerik.com/blazor-ui/components/grid/manual-operations
 
-        // here we will just generate the data again to clearly showcase the grid got new data
+        // here we will regenerate the data to clearly show the Grid got new data
         SourceData = GenerateData();
 
         var datasourceResult = SourceData.ToDataSourceResult(args.Request);
 
-        GridData = (datasourceResult.Data as IEnumerable<Employee>).ToList();
-        Total = datasourceResult.Total;
-
-        StateHasChanged();
+        args.Data = (datasourceResult.Data as IEnumerable<Employee>).ToList();
+        args.Total = datasourceResult.Total;
     }
 
     //This sample implements only reading of the data. To add the rest of the CRUD operations see
@@ -237,7 +236,7 @@ For cases when directly modifying the data collection with the new information a
     {
         var result = new List<Employee>();
         var rand = new Random();
-        for (int i = 0; i < 100; i++)
+        for (int i = 1; i <= 100; i++)
         {
             result.Add(new Employee()
             {

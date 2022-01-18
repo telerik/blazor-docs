@@ -6,7 +6,7 @@ page_title: Expand only one detail template on row click
 slug: grid-kb-one-expanded-detail-template
 position: 
 tags: 
-ticketid: 1520717
+ticketid: 1513997, 1520717
 res_type: kb
 ---
 
@@ -20,6 +20,7 @@ res_type: kb
 	</tbody>
 </table>
 
+<!-- duplicate, merge with grid-kb-expand-only-current -->
 
 ## Description
 I would like functionality where you close any detail page that is open if the customer open another one. So in any given situation, there will be only one detailpage open.
@@ -32,13 +33,12 @@ You can use the [grid state]({%slug grid-state%}) to make sure only one item is 
 ````CSHTML
 @using Telerik.DataSource.Extensions
 
-<TelerikGrid Data="@CurrentSalesTeamMembers"
+<TelerikGrid TItem="@MainModel"
              OnRead="@OnReadHandler"
-             TotalCount="@Total"
              OnRowClick="@OnRowClickHandler"
              OnRowExpand="@OnRowExpandHandler"
              @ref="@Grid"
-             Pageable="true" PageSize="3" FilterMode="@GridFilterMode.FilterMenu" Sortable="true">
+             Pageable="true" PageSize="5" FilterMode="@GridFilterMode.FilterMenu" Sortable="true">
     <DetailTemplate>
         @{
             var employee = context as MainModel;
@@ -58,23 +58,17 @@ You can use the [grid state]({%slug grid-state%}) to make sure only one item is 
 
 @code {
     List<MainModel> AllSalesTeamMembers { get; set; }
-    List<MainModel> CurrentSalesTeamMembers { get; set; }
-    int Total { get; set; }
     TelerikGrid<MainModel> Grid { get; set; }
 
     async Task EnsureOnlyCurrentRowExpanded(MainModel currItem)
     {
-        int currentIndexOfItem = CurrentSalesTeamMembers.IndexOf(currItem);
-        if (currentIndexOfItem > -1)
-        {
-            // use the current grid state to keep filters, sorts, paging and so on
-            var state = Grid.GetState();
-            // set only the current row to be expanded
-            state.ExpandedRows = new List<int> { currentIndexOfItem };
-            // Note: SetState() will call OnRead, so you may want to
-            // consider raising flags and caching data if you want to reduce requests for remote data
-            await Grid.SetState(state);
-        }
+        // use the current grid state to keep filters, sorts, paging and so on
+        var state = Grid.GetState();
+        // set only the current row to be expanded
+        state.ExpandedItems = new List<MainModel> { currItem };
+        // Note: SetState() will call OnRead, so you may want to
+        // consider raising flags and caching data if you want to reduce requests for remote data
+        await Grid.SetState(state);
     }
 
     async Task OnRowClickHandler(GridRowClickEventArgs args)
@@ -92,9 +86,8 @@ You can use the [grid state]({%slug grid-state%}) to make sure only one item is 
     async Task OnReadHandler(GridReadEventArgs args)
     {
         var dataSourceResult = AllSalesTeamMembers.ToDataSourceResult(args.Request);
-        CurrentSalesTeamMembers = dataSourceResult.Data.Cast<MainModel>().ToList();
-        Total = dataSourceResult.Total;
-        await InvokeAsync(StateHasChanged);
+        args.Data = dataSourceResult.Data.Cast<MainModel>().ToList();
+        args.Total = dataSourceResult.Total;
     }
 
     // only models and data generation follow
@@ -107,10 +100,10 @@ You can use the [grid state]({%slug grid-state%}) to make sure only one item is 
     private List<MainModel> GenerateData()
     {
         List<MainModel> data = new List<MainModel>();
-        for (int i = 0; i < 15; i++)
+        for (int i = 1; i <= 15; i++)
         {
             MainModel mdl = new MainModel { Id = i, Name = $"Name {i}" };
-            mdl.Orders = Enumerable.Range(1, 15).Select(x => new DetailsModel { OrderId = x, DealSize = x ^ i }).ToList();
+            mdl.Orders = Enumerable.Range(1, 3).Select(x => new DetailsModel { OrderId = x, DealSize = x ^ i }).ToList();
             data.Add(mdl);
         }
         return data;
