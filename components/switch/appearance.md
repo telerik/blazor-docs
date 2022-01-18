@@ -92,7 +92,7 @@ The `ThumbRounded` attribute applies the `border-radius` CSS rule to the thumb o
 
 ## TrackRounded
 
-The `TrackRounded` attribute applies the `border-radiums` CSS rule to the track of the switch to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Switch.TrackRounded` class:
+The `TrackRounded` attribute applies the `border-radius` CSS rule to the track of the switch to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Switch.TrackRounded` class:
 
 | Class members | Manual declarations |
 |------------|--------|
