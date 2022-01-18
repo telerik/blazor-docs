@@ -41,6 +41,8 @@ To create a basic dashboard with the TileLayout component:
 
 1. Optionally, set the `Resizable` and `Reorderable` parameters to `true` to allow the user to alter the layout. Read more about storing it in the [State]({%slug tilelayout-state%}) article.
 
+    * Set the `Id` attribute of the tiles to receive it as an event argument during [tile resizing and reordering]({%slug tilelayout-events%}).
+
 >caption Basic Tile Layout with its core features
 
 ````CSHTML
