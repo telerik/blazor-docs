@@ -59,9 +59,6 @@ To enable the shared tooltip:
     public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
->caption The result from the code snippet above
-
-![shared tooltip example](images/shared-tooltip-basic.png)
 
 ## Customization
 
@@ -145,9 +142,6 @@ Each `Point` contains the following data:
     public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
->caption The result from the code snippet above
-
-![shared tooltip template example](images/shared-tooltip-template.png)
 
 ## See also
 

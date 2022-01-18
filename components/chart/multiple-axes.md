@@ -12,10 +12,6 @@ position: 21
 
 You can have the chart render more than one axis for a given dimension. This lets you associate series with different axes, and position different axes to the left, right, top or bottom of the chart. This is often useful when you have data for some series that varies greatly in magnitude from other data, or is measured in a different unit. You can also associate series with different categories on the x-axis without having them side-by-side.
 
->caption Multiple Y-axes in a chart
-
-![](images/multiple-y-axes.png)
-
 >tip The [Examples](#examples) section offer several common use-cases.
 
 This article contains the following sections:
@@ -122,10 +118,6 @@ Multiple y-axes and their position
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/multiple-y-axes.png)
-
 ### Category Axes
 
 You can use multiple category axes to associate each series with its own points on the axis instead of having them add up on the same axis.
@@ -175,10 +167,6 @@ Multiple category axes and their position
 	public object[] crossingPoints = new object[] { -9999999, 9999999 };
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/multiple-category-axes-line-chart.png)
 
 
 ### Behavior with Bar and Column Charts
@@ -233,10 +221,6 @@ Viable values for the axes positions
 	public object[] crossingPoints = new object[] { -9999999, 20 };
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/multiple-category-axes=-column-chart.png)
 
 >caption Examples of potentially unwanted behaviors of column and bar types of charts with multiple axes, and the code that produces those issues.
 
@@ -320,10 +304,6 @@ Potentially unwanted behavior 2
 	};
 }
 ````
-
->caption The result from the code snippets above
-
-![](images/column-chart-multiple-axes-behavior.png)
 
 
 ### Numerical Chart Examples
@@ -442,10 +422,6 @@ When using numerical charts, you define the extra axes in the `ChartXAxes` and `
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/multiple-axes-numerical-series.png)
-
 
 ### Move X-Axis Labels to the Bottom
 
@@ -500,10 +476,6 @@ The general approach is to set an axis crossing point that has a very large valu
     public string[] categories = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/x-axis-labels-at-bottom.png)
 
 
 ### Move Value Axis to the Right
@@ -573,10 +545,6 @@ This approach can work for both numerical and categorical axes. The example belo
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![Move the second value axis to the right](images/chart-crossing-value-axis-to-the-right.png)
 
 
 ## See Also

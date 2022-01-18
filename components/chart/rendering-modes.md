@@ -27,9 +27,7 @@ Using vector graphics ensures that:
 
 Since `SVG` is the default rendering mode of the Chart, you don't need to explicitly define it.
 
->caption Bar Chart rendered as SVG. The result from the snippet below.
-
-![](images/svg-chart-example.png)
+>caption Bar Chart rendered as SVG.
 
 ````CSHTML
 @* SVG Bar Chart *@
@@ -73,9 +71,7 @@ On the downside, rendering to a fixed resolution bitmap results in:
 * Blurry images on zoom.
 * Poorer print quality.
 
->caption Bar Chart rendered as Canvas. The result from the snippet below.
-
-![](images/canvas-chart-example.png)
+>caption Bar Chart rendered as Canvas.
 
 ````CSHTML
 @* Canvas Bar Chart *@

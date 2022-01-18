@@ -12,10 +12,6 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/bar-chart" target="_blank">Blazor Bar chart</a> displays data as horizontal bars whose lengths vary according to their value. You can use a Bar chart to show a comparison between several sets of data (for example, summaries of sales data for different time periods). Each series is automatically colored differently for easier reading.
 
->caption Bar chart. Results from the first code snippet below
-
-![](images/basic-bar-chart.png)
-
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
 #### To create a bar chart:

@@ -53,10 +53,6 @@ Colors per series item
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/color-field-bar-column-chart.png)
-
 #end
 
 #gap-and-spacing
@@ -120,9 +116,6 @@ You can render the lines between the points with different styles. The supported
 
 * `Smooth`—This style causes the Chart to display a fitted curve through data points. It is suitable when the data requires to be displayed with a curve, or when you wish to connect the points with smooth instead of straight lines. Not supported with [stacked]({%slug components/chart/stack%}) series with missing values.
 
->caption Comparison between the line styles
-
-![](images/line-chart-step-and-smooth.png)
 #end
 
 #opacity-area-bubble
