@@ -12,7 +12,7 @@ position: 40
 
 <a href = "https://telerik.com/blazor-ui/repl/getting-started" target = "_blank"> Progress Telerik REPL for Blazor </a> is innovative web-based application that allows you to write, compile, execute and share your rich Blazor UI components. You can write your code directly in the integrated editor and execute it in the browser security sandbox without any communication with a server. The code is compiled on top of Web Assembly which delivers near to native performance. With Telerik REPL for Blazor you can also easily edit, save and share your code.
 
->important Telerik REPL for Blazor integrates 3.0.0 version of Telerik.UI.for.Blazor. Any snippet created before 3.0.0 that uses the Telerik Components might need an update due to the [breaking changes in the release](({%slug changes-in-3-0-0%})).
+>important Telerik REPL for Blazor integrates 3.0.0 version of Telerik.UI.for.Blazor. Any snippet created before 3.0.0 that uses the Telerik Components might need an update due to the [breaking changes in the release]({%slug changes-in-3-0-0%}).
 
 In this article:
 
