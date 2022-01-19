@@ -77,8 +77,6 @@ The MultiSelect is a generic component and its type is determined by the type of
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the multiselect.
 
-* `PopupClass` - additional CSS class to customize the appearance of the MultiSelect's dropdown.
-
 * `ClearButton` - whether the user will have the option to clear the selected items with a button on the input. When it is clicked, the `Value` will be updated to an empty list.
 
 * `Data` - allows you to provide the data source. Required.
@@ -95,10 +93,6 @@ The MultiSelect is a generic component and its type is determined by the type of
 * `MinLength` - how many characters the text has to be before the suggestions list appears. Cannot be `0`. Often works together with [filtering]({%slug multiselect-filter%}).
 
 * `Placeholder` - the text the user sees as a hint when there is no selection.
-
-* `PopupHeight` - the height of the expanded dropdown list element.
-
-* `PopupWidth` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
 
 * `TextField` - the field in the model from which the text of the items is taken. Defaults to `Text`.
 
@@ -124,6 +118,23 @@ The MultiSelect is a generic component and its type is determined by the type of
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug multiselect-templates%}) article for more details.
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
+
+### Popup settings
+
+The attributes below are set via nested tags:
+
+<div class="skip-repl"></div>
+````
+<TelerikMultiSelect>
+    <MultiSelectSettings>
+        <MultiSelectPopupSettings Height="..." />
+    </MultiSelectSettings>
+</TelerikMultiSelect>
+````
+
+* `Class` - additional CSS class to customize the appearance of the MultiSelect dropdown.
+* `Height` - the height of the expanded dropdown list element.
+* `Width` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
 
 
 ## Examples

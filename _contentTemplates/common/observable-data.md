@@ -10,6 +10,8 @@ Databound components can benefit from live data - when the data source collectio
 When the `Data` of the component is a collection that implements the `INotifyCollectionChanged` interface (such as `ObservableCollection`), the Telerik components subscribe to its `CollectionChanged` event to update. This means that adding items, removing items, or clearing the collection updates the components (its `.Add()`, `.Remove()` and `.Clear()` methods).
 
 The Observable collections fire the `CollectionChanged` event only when their `Add`, `Remove` and `Clear` methods are called. They do not fire it when you change the value of a field of one of their elements.
+
+>important Observable data is not supported with manual data operations via the `OnRead` event.
 #end
 
 #refresh-data

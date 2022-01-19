@@ -63,8 +63,6 @@ The DropDownList provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the dropdownlist.
 
-* `PopupClass` - additional CSS class to customize the appearance of the DropDownList's dropdown.
-
 * `Data` - allows you to provide the data source. Required.
 
 * `DefaultText` -  simple hint to be displayed when no item is selected yet. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. See the first example in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article.
@@ -72,10 +70,6 @@ The DropDownList provides the following features:
 * `Enabled` - whether the component is enabled.
 
 * `Id` - renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it.
-
-* `PopupHeight` - the height of the expanded dropdown list element.
-
-* `PopupWidth` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
 
 * `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
 
@@ -101,6 +95,23 @@ The DropDownList provides the following features:
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug components/dropdownlist/templates%}) article for more details.
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
+
+### Popup settings
+
+The attributes below are set via nested tags:
+
+<div class="skip-repl"></div>
+````
+<TelerikDropDownList>
+    <DropDownListSettings>
+        <DropDownListPopupSettings Height="..." />
+    </DropDownListSettings>
+</TelerikDropDownList>
+````
+
+* `Class` - additional CSS class to customize the appearance of the DropDownList dropdown.
+* `Height` - the height of the expanded dropdown list element.
+* `Width` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
 
 
 ## Selected Item and DefaultText

@@ -46,7 +46,6 @@ Number of selected items: @SelectedValues?.Count
 <TelerikMultiSelect Data="@Data"
 
                     ScrollMode="@DropDownScrollMode.Virtual"
-                    PopupHeight="200px"
                     ItemHeight="30"
                     PageSize="20"
 
@@ -55,6 +54,9 @@ Number of selected items: @SelectedValues?.Count
                     ValueField="@nameof(Person.Id)"
                     @bind-Value="@SelectedValues"
                     Filterable="true" FilterOperator="@StringFilterOperator.Contains">
+    <MultiSelectSettings>
+        <MultiSelectPopupSettings Height="200px" />
+    </MultiSelectSettings>
 </TelerikMultiSelect>
 
 @code {

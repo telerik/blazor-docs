@@ -37,7 +37,7 @@ As for 2.20.0, the [drag-and-drop feature of the treeview](https://demos.telerik
 Stop the mouse events propagation so that they don't reach the treeview, for example:
 
 ````CSHTML
-<TelerikTreeView Data="@TreeData">
+<TelerikTreeView Data="@TreeData" @bind-ExpandedItems="@ExpandedItems">
     <TreeViewBindings>
         <TreeViewBinding>
             <ItemTemplate>
@@ -54,29 +54,30 @@ Stop the mouse events propagation so that they don't reach the treeview, for exa
 </TelerikTreeView>
 
 @code {
-    List<string> AvailableValues { get; set; } = new List<string> { "None", "One", "Two" };
+    List<string> AvailableValues { get; set; } = new List<string> { "One", "Two", "Three" };
     string SelectedValue { get; set; }
 
     List<TreeItem> TreeData { get; set; }
+    IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
 
     public class TreeItem
     {
         public string Text { get; set; }
         public int Id { get; set; }
         public List<TreeItem> Items { get; set; } = new List<TreeItem>();
-        public bool Expanded { get; set; }
         public bool HasChildren { get; set; }
     }
 
     protected override void OnInitialized()
     {
         LoadHierarchical();
+        ExpandedItems = new List<object>() { TreeData.FirstOrDefault() };
     }
 
     private void LoadHierarchical()
     {
         List<TreeItem> roots = new List<TreeItem>() {
-            new TreeItem { Text = "Item 1", Id = 1, Expanded = true, HasChildren = true },
+            new TreeItem { Text = "Item 1", Id = 1, HasChildren = true },
             new TreeItem { Text = "Item 2", Id = 2, HasChildren = true }
         };
 
@@ -87,32 +88,14 @@ Stop the mouse events propagation so that they don't reach the treeview, for exa
 
         });
 
-        roots[0].Items.Add(new TreeItem
-        {
-            Text = "Item 1 second child",
-            Id = 4
-
-        });
-
         roots[1].Items.Add(new TreeItem
         {
             Text = "Item 2 first child",
-            Id = 5
-
-        });
-
-        roots[1].Items.Add(new TreeItem
-        {
-            Text = "Item 2 second child",
-            Id = 6
+            Id = 4
 
         });
 
         TreeData = roots;
     }
 }
-
-
-
 ````
-

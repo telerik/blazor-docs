@@ -20,7 +20,7 @@ For elements with **special positioning** (`Top` and `Left` properties), keep in
 
 When setting **percentage values** (such as `100%` or `50%`), keep in mind the following - according to the web standards, elements which have their height set in percentage require that the height of their parent is also explicitly set. This requirement applies recursively until either an element with a pixel height or the html element is reached. Elements that are 100% high should not have margins, paddings, borders, or sibling elements.
 
-When setting **percentage dimensions** to elements with **special positioning** (such as `Width` of a Window or the `PopupWidth` of a dropdown), their parent element in the DOM determines the rendered size.
+When setting **percentage dimensions** to elements with **special positioning** (such as `Width` of a Window or the popup `Width` of a dropdown), their parent element in the DOM determines the rendered size.
 
 >tip You can use dimensions in percent (such as `Width="100%"`) to make the components responsive - so they will fit in your layout and let the layout adjust with viewport sizes or other application logic.
 
@@ -46,7 +46,10 @@ The examples here showcase different units and examples of using them to set dim
 >caption Using auto width to have an element adjust to its contents
 
 ````CSHTML
-<TelerikDropDownList Data="@MyList" @bind-Value="MyItem" PopupWidth="auto" PopupHeight="auto">
+<TelerikDropDownList Data="@MyList" @bind-Value="MyItem">
+    <DropDownListSettings>
+        <DropDownListPopupSettings Width="auto" />
+    </DropDownListSettings>
 </TelerikDropDownList>
 
 @code {
@@ -55,7 +58,8 @@ The examples here showcase different units and examples of using them to set dim
         "first",
         "second very long item that determines the width of the dropdown element",
         "third"
-        //if you have many items, avoid PopupHeight="auto" because it will go off the screen
+        //avoid popup Height="auto" for many items,
+        // because the dropdown will go off the screen and not scroll
     };
 
     protected string MyItem { get; set; } = "third";

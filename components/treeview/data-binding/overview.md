@@ -31,7 +31,6 @@ The treeview items provide the following features that you control through the c
 
 * `Id` - a unique identifier for the item. Required for binding to flat data.
 * `ParentId` - identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, this must be `null`.
-* `Expanded` - whether the item is expanded when it renders, or the user has to expand it manually.
 * `HasChildren` - whether the item has children. Determines whether an expand arrow is rendered next to the item. Required for binding to flat data and for load-on-demand. With hierarchical data, the treeview will render the icon based on the existence of child items, but `HasChildren` will take precedence.
 * `Items` - the collection of child items that will be rendered under the current item. Required only when binding to hierarchical data.
 * `Text` - the text that will be shown on the item.
@@ -51,7 +50,6 @@ Each `TreeViewBinding` tag exposes the following properties that refer to item p
 * IconField => Icon
 * ImageUrlField => ImageUrl
 * UrlField => Url
-* ExpandedField => Expanded
 * HasChildrenField => HasChildren
 * ItemsField => Items
 * Level - this is used for defining [different bindings for different levels](#multiple-level-bindings). If no level is set, the bindings are taken as default for any level that does not have explicit settings. You should have one `TelerikTreeViewBinding` without a level.
@@ -72,7 +70,6 @@ public class TreeItem
 	public int? ParentId { get; set; }
 	public bool HasChildren { get; set; }
 	public string Icon { get; set; }
-	public bool Expanded { get; set; }
 	public string Url { get; set; }
 }
 ````
@@ -102,15 +99,16 @@ If a certain level does not have an explicit data bindings tag, it will use the 
 ````CSHTML
 The third level will use the main data bindings settings that do not have a level specified
 
-<TelerikTreeView Data="@FlatData">
+<TelerikTreeView Data="@FlatData" @bind-ExpandedItems="@ExpandedItems">
 	<TreeViewBindings>
-		<TreeViewBinding ParentIdField="Parent" ExpandedField="IsExpanded" />
-		<TreeViewBinding Level="1" TextField="SecondText" ParentIdField="Parent" ExpandedField="IsExpanded" />
+		<TreeViewBinding ParentIdField="Parent" />
+		<TreeViewBinding Level="1" TextField="SecondText" ParentIdField="Parent" />
 	</TreeViewBindings>
 </TelerikTreeView>
 
 @code {
 	public IEnumerable<TreeItem> FlatData { get; set; }
+	public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
 	public class TreeItem
 	{
@@ -119,12 +117,12 @@ The third level will use the main data bindings settings that do not have a leve
 		public string SecondText { get; set; }
 		public int? Parent { get; set; }
 		public bool HasChildren { get; set; }
-		public bool IsExpanded { get; set; }
 	}
 
 	protected override void OnInitialized()
 	{
 		LoadFlat();
+		ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
 	}
 
 	private void LoadFlat()
@@ -138,8 +136,7 @@ The third level will use the main data bindings settings that do not have a leve
 				Id = i,
 				Text = "Parent " + i,
 				Parent = null,
-				HasChildren = i < 3,
-				IsExpanded = i == 1
+				HasChildren = i < 3
 			});
 		}
 
@@ -150,8 +147,7 @@ The third level will use the main data bindings settings that do not have a leve
 				Id = i,
 				SecondText = "Child " + i, //this is the field used at level 1 - it is a different field than at levels 0 and 2
 				Parent = i < 10 ? 1 : 2,
-				HasChildren = i == 5,
-				IsExpanded = i == 5
+				HasChildren = i == 5
 			});
 		}
 

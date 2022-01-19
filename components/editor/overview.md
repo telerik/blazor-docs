@@ -90,9 +90,9 @@ You can use the following features to get or set the editor content:
 
 * `@bind-Value` - the recommended approach of using two-way binding to get and set the content of the editor. It lets your view-model provide the initial value, and it will update the view-model as the user alters the HTML.
 
-* `UpdateInterval` - the time in milliseconds that passes between updates on the `Value`. The default is `100ms` and if that causes performance issues with many repaints on your view, you can increase it. Since the editor is expected to handle longer editing sessions and larger content than regular inputs, we added this parameter to debounce the view-model updates and events.
+* `DebounceDelay` - the time in milliseconds that passes between updates on the `Value`. The default is `100ms` and if that causes performance issues with many repaints on your view, you can increase it. Since the editor is expected to handle longer editing sessions and larger content than regular inputs, we added this parameter to debounce the view-model updates and events.
 
-* [Validation]({%slug common-features/input-validation%}#editor) - the standard Data Annotation attributes are supported for validation, but for the performance reasons listed above, validation happens with the `UpdateInterval` delay, not immediately on every keystroke, like simpler inputs. 
+* [Validation]({%slug common-features/input-validation%}#editor) - the standard Data Annotation attributes are supported for validation, but for the performance reasons listed above, validation happens with the `DebounceDelay` delay, not immediately on every keystroke, like simpler inputs.
 
 * The `ValueChanged` [event]({%slug editor-events%}) lets you receive the value and act on it. If you use the `ValueChanged` event (no two-way binding), you can effectively cancel the user's input by not updating the view-model, or you can even alter it with something else.
 

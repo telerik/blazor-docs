@@ -70,7 +70,6 @@ You can use the template to render arbitrary content according to your applicati
         public string Text { get; set; }
         public int Id { get; set; }
         public List<TreeItem> Items { get; set; } = new List<TreeItem>();
-        public bool Expanded { get; set; }
         public bool HasChildren { get; set; }
     }
 
@@ -82,7 +81,7 @@ You can use the template to render arbitrary content according to your applicati
     private void LoadHierarchical()
     {
         List<TreeItem> roots = new List<TreeItem>() {
-            new TreeItem { Text = "Item 1", Id = 1, Expanded = true, HasChildren = true },
+            new TreeItem { Text = "Item 1", Id = 1, HasChildren = true },
             new TreeItem { Text = "Item 2", Id = 2, HasChildren = true }
         };
 
@@ -128,7 +127,7 @@ Implement your own navigation through NavLink elements, instead of using the bui
 
 <TelerikTreeView Data="@TreeData">
 	<TreeViewBindings>
-		<TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" HasChildrenField="HasChildren">
+		<TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" HasChildrenField="HasChildren">
 			<ItemTemplate>
 				<NavLink Match="NavLinkMatch.All" href="@((context as TreeItem).Page)">
 					@((context as TreeItem).Text)
@@ -146,7 +145,6 @@ Implement your own navigation through NavLink elements, instead of using the bui
 		public int? ParentIdValue { get; set; }
 		public bool HasChildren { get; set; }
 		public string Page { get; set; }
-		public bool Expanded { get; set; }
 	}
 
 	public IEnumerable<TreeItem> TreeData { get; set; }
@@ -166,8 +164,7 @@ Implement your own navigation through NavLink elements, instead of using the bui
 			Text = "Project",
 			ParentIdValue = null,
 			HasChildren = true,
-			Page = "one",
-			Expanded = true
+			Page = "one"
 		});
 
 		items.Add(new TreeItem()
@@ -176,8 +173,7 @@ Implement your own navigation through NavLink elements, instead of using the bui
 			Text = "Design",
 			ParentIdValue = 1,
 			HasChildren = false,
-			Page = "two",
-			Expanded = true
+			Page = "two"
 		});
 		items.Add(new TreeItem()
 		{
@@ -185,8 +181,7 @@ Implement your own navigation through NavLink elements, instead of using the bui
 			Text = "Implementation",
 			ParentIdValue = 1,
 			HasChildren = false,
-			Page = "three",
-			Expanded = true
+			Page = "three"
 		});
 
 		TreeData = items;
@@ -224,7 +219,6 @@ Multiple templates usage.
 	{
 		public string Category { get; set; }
 		public List<ProductItem> Products { get; set; }
-		public bool Expanded { get; set; }
 		public bool HasChildren { get; set; }
 	}
 
@@ -251,7 +245,6 @@ Multiple templates usage.
 		roots.Add(new ProductCategoryItem
 		{
 			Category = "Category 1",
-			Expanded = true,
 			Products = firstCategoryProducts,
 			HasChildren = firstCategoryProducts?.Count > 0,
 

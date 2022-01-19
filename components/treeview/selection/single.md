@@ -42,6 +42,7 @@ You can use one-way binding to provide an initial node selection, and respond to
 @* Handle single node selection with one-way data binding *@
 
 <TelerikTreeView Data="@Data"
+                 @bind-ExpandedItems="@ExpandedItems"
                  SelectionMode="@TreeViewSelectionMode.Single"
                  SelectedItems="@SelectedItems"
                  SelectedItemsChanged="@((IEnumerable<object> item) => SelectedItemsHandler(item))">
@@ -70,9 +71,12 @@ You can use one-way binding to provide an initial node selection, and respond to
 
     public IEnumerable<TreeItem> Data { get; set; }
 
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+
     protected override void OnInitialized()
     {
         LoadData();
+        ExpandedItems = Data.Where(x => x.HasChildren == true).ToList();
     }
 
     private void LoadData()
@@ -84,8 +88,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "Project",
             ParentId = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
         items.Add(new TreeItem()
         {
@@ -93,8 +96,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "Design",
             ParentId = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -102,8 +104,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "Implementation",
             ParentId = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -112,8 +113,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "site.psd",
             ParentId = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
 
         items.Add(new TreeItem()
@@ -152,7 +152,6 @@ You can use one-way binding to provide an initial node selection, and respond to
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 }
 ````
@@ -169,6 +168,7 @@ You can use two-way binding to get the node the user has selected. This can be u
 @* Handle single node selection with two-way data binding *@
 
 <TelerikTreeView Data="@Data"
+                 @bind-ExpandedItems="@ExpandedItems"
                  SelectionMode="@TreeViewSelectionMode.Single"
                  @bind-SelectedItems="@SelectedItems">
 </TelerikTreeView>
@@ -191,9 +191,12 @@ You can use two-way binding to get the node the user has selected. This can be u
 
     public IEnumerable<TreeItem> Data { get; set; }
 
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+
     protected override void OnInitialized()
     {
         LoadData();
+        ExpandedItems = Data.Where(x => x.HasChildren == true).ToList();
     }
 
     private void LoadData()
@@ -205,8 +208,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "Project",
             ParentId = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
         items.Add(new TreeItem()
         {
@@ -214,8 +216,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "Design",
             ParentId = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -223,8 +224,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "Implementation",
             ParentId = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -233,8 +233,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "site.psd",
             ParentId = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
 
         items.Add(new TreeItem()
@@ -273,7 +272,6 @@ You can use two-way binding to get the node the user has selected. This can be u
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 }
 ````

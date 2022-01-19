@@ -67,7 +67,6 @@ The ComboBox is a generic component and its type is determined by the type of th
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the combobox.
 
-* `PopupClass` - additional CSS class to customize the appearance of the ComboBox's dropdown.
 
 * `ClearButton` - whether the user will have the option to clear the selected value. When it is clicked, the `Value` will be updated to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, clearing the value will lead to a `0` `Value`, so if there is an Item with `0` in its `ValueField` - issues may arise with its selection. This feature can often go together with `AllowCustom`.
 
@@ -82,10 +81,6 @@ The ComboBox is a generic component and its type is determined by the type of th
 * `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
 
 * `Placeholder` - the text the user sees as a hint when no item is selected. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source.
-
-* `PopupHeight` - the height of the expanded dropdown list element.
-
-* `PopupWidth` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
 
 * `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
 
@@ -111,6 +106,23 @@ The ComboBox is a generic component and its type is determined by the type of th
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug components/combobox/templates%}) article for more details.
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
+
+### Popup settings
+
+The attributes below are set via nested tags:
+
+<div class="skip-repl"></div>
+````
+<TelerikComboBox>
+    <ComboBoxSettings>
+        <ComboBoxPopupSettings Height="..." />
+    </ComboBoxSettings>
+</TelerikComboBox>
+````
+
+* `Class` - additional CSS class to customize the appearance of the ComboBox dropdown.
+* `Height` - the height of the expanded dropdown list element.
+* `Width` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
 
 
 ## Selected Item

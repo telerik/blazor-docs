@@ -23,7 +23,7 @@ This approach of providing nodes lets you gather separate collections of data an
 ````CSHTML
 Hierarchical data hold collections of the child items
 
-<TelerikTreeView Data="@HierarchicalData">
+<TelerikTreeView Data="@HierarchicalData" @bind-ExpandedItems="@ExpandedItems">
 	<TreeViewBindings>
 		<TreeViewBinding TextField="Category" ItemsField="Products" />
 		<TreeViewBinding Level="1" TextField="ProductName" />
@@ -32,27 +32,24 @@ Hierarchical data hold collections of the child items
 
 @code {
 	public IEnumerable<ProductCategoryItem> HierarchicalData { get; set; }
+	public IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
 
 	public class ProductCategoryItem
 	{
 		public string Category { get; set; }
 		public List<ProductItem> Products { get; set; }
-		public bool Expanded { get; set; }
 	}
 
 	public class ProductItem
 	{
 		public string ProductName { get; set; }
-		// the following fields are to denote you can keep having hierarchy further down. They are not required
-		// they are not really used in this example and you would have a collection of child items too
-		// see the information about multiple data bindings earlier in this article on using them
-		public bool Expanded { get; set; }
 	}
 
 
 	protected override void OnInitialized()
 	{
 		LoadHierarchical();
+		ExpandedItems = HierarchicalData.Where(x => x.Products != null && x.Products.Any()).ToList();
 	}
 
 	private void LoadHierarchical()
@@ -68,7 +65,6 @@ Hierarchical data hold collections of the child items
 		roots.Add(new ProductCategoryItem
 		{
 			Category = "Category 1",
-			Expanded = true,
 			Products = firstCategoryProducts // this is how child items are provided
 
 		});
@@ -90,4 +86,3 @@ Hierarchical data hold collections of the child items
   * [Live Demo: TreeView Hierarchical Data](https://demos.telerik.com/blazor-ui/treeview/hierarchical-data)
   * [Binding to Flat Data]({%slug components/treeview/data-binding/flat-data%})
   * [Load on Demand]({%slug components/treeview/data-binding/load-on-demand%})
-

@@ -33,7 +33,7 @@ In this article:
 
 <TelerikTreeView Data="@Items">
     <TreeViewBindings>
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
     </TreeViewBindings>
 </TelerikTreeView>
 
@@ -46,8 +46,7 @@ In this article:
                 Text = "Testing",
                 ParentIdValue = 1,
                 HasChildren = false,
-                Icon = "gears",
-                Expanded = false
+                Icon = "gears"
             });
     }
 
@@ -66,7 +65,6 @@ In this article:
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public ObservableCollection<TreeItem> Items { get; set; } = new ObservableCollection<TreeItem>() {
@@ -77,8 +75,7 @@ In this article:
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         },
        new TreeItem()
        {
@@ -86,8 +83,7 @@ In this article:
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         },
         new TreeItem()
         {
@@ -95,8 +91,7 @@ In this article:
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         },
         new TreeItem()
         {
@@ -104,8 +99,7 @@ In this article:
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         },
         new TreeItem()
         {
@@ -154,7 +148,7 @@ In this article:
 
 <TelerikTreeView Data="@Items">
     <TreeViewBindings>
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
     </TreeViewBindings>
 </TelerikTreeView>
 
@@ -168,8 +162,7 @@ In this article:
                 Text = "Testing",
                 ParentIdValue = 1,
                 HasChildren = false,
-                Icon = "gears",
-                Expanded = false
+                Icon = "gears"
             });
         Items = new List<TreeItem>(Items);
     }
@@ -193,8 +186,7 @@ In this article:
             Text = "New root item",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         },
             new TreeItem()
         {
@@ -202,8 +194,7 @@ In this article:
             Text = "New child item 1",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         },
             new TreeItem()
         {
@@ -211,8 +202,7 @@ In this article:
             Text = "New child item 2",
             ParentIdValue = 1,
             HasChildren = false,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         },
             new TreeItem()
         {
@@ -220,8 +210,7 @@ In this article:
             Text = "Child of item 1",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "gears",
-            Expanded = true
+            Icon = "gears"
         }
         };
         Items = new List<TreeItem>(Items);
@@ -234,7 +223,6 @@ In this article:
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public List<TreeItem> Items { get; set; } = new List<TreeItem>() {
@@ -245,8 +233,7 @@ In this article:
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         },
        new TreeItem()
        {
@@ -254,8 +241,7 @@ In this article:
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         },
         new TreeItem()
         {
@@ -263,8 +249,7 @@ In this article:
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         },
         new TreeItem()
         {
@@ -272,8 +257,7 @@ In this article:
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         },
         new TreeItem()
         {
@@ -308,3 +292,4 @@ In this article:
   * [ObservableCollection]({%slug common-features-observable-data%})
   * [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
   * [Live Demos](https://demos.telerik.com/blazor-ui/)
+  

@@ -49,7 +49,6 @@ The **example** below shows how you can handle hierarchical data load on demand 
         public string ProductName { get; set; }
         public int Id { get; set; } //will be used to identify the node, not for rendering in this example
         public List<ProductItem> SubProducts { get; set; }
-        public bool Expanded { get; set; }
         public bool HasChildren { get; set; } = true;
     }
 
@@ -258,7 +257,6 @@ The **example** below shows how you can handle hierarchical data load on demand 
         public string Category { get; set; }
         public int CategoryId { get; set; } //will be used to identify the node, not for rendering in this example
         public List<ProductItem> Products { get; set; }
-        public bool Expanded { get; set; }
         public bool HasChildren { get; set; }
     }
 
@@ -268,7 +266,6 @@ The **example** below shows how you can handle hierarchical data load on demand 
         // the following fields are to denote you can keep having hierarchy further down. They are not required
         // they are not really used in this example and you would have a collection of child items too
         // see the information about multiple data bindings earlier in this article on using them
-        public bool Expanded { get; set; }
         public bool HasChildren { get; set; }
     }
 
@@ -346,4 +343,3 @@ The **example** below shows how you can handle hierarchical data load on demand 
   * [Live Demo: TreeView Load on Demand](https://demos.telerik.com/blazor-ui/treeview/lazy-loading)
   * [Binding to Flat Data]({%slug components/treeview/data-binding/flat-data%})
   * [Binding to Hierarchical Data]({%slug components/treeview/data-binding/hierarchical-data%})
-

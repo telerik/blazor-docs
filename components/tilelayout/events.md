@@ -19,6 +19,11 @@ This article explains the events available in the Telerik TileLayout for Blazor:
 
 The `OnResize` event is fired when any tile is resized. It lets you respond to that change if needed - for example, call the `.Refresh()` method of a chart or otherwise repaint a child component in the content. You can also use it to, for example, update the saved [state]({%slug tilelayout-state%}) for your users.
 
+The `OnResize` event provides an argument of type `TileLayoutResizeEventArgs`. It exposes two properties:
+
+* `Id` (`string`) of the resized item
+* `ShouldRender` flag (`bool`) that determines if the component should re-render after the event handler execution.
+
 >caption Respond to the Resize event and adjust components in the tile
 
 ````CSHTML
@@ -28,7 +33,7 @@ The `OnResize` event is fired when any tile is resized. It lets you respond to t
                    Resizable="true"
                    OnResize="@OnResizeHandler">
     <TileLayoutItems>
-        <TileLayoutItem HeaderText="Resize me" RowSpan="2" ColSpan="2">
+        <TileLayoutItem HeaderText="Resize me" RowSpan="2" ColSpan="2" Id="chart-tile">
             <Content>
                 <TelerikChart @ref="@ChartRef" Width="100%" Height="100%">
                     <ChartSeriesItems>
@@ -47,7 +52,7 @@ The `OnResize` event is fired when any tile is resized. It lets you respond to t
                 </TelerikChart>
             </Content>
         </TileLayoutItem>
-        <TileLayoutItem HeaderText="Resize me too" RowSpan="2">
+        <TileLayoutItem HeaderText="Resize me too" RowSpan="2" Id="text-tile">
             <Content>
                 <div style="width: 100%; height: 100%; background: yellow; overflow: auto;">
                     Elements whose dimensions are set as percentage of their parent
@@ -56,10 +61,10 @@ The `OnResize` event is fired when any tile is resized. It lets you respond to t
                 </div>
             </Content>
         </TileLayoutItem>
-        <TileLayoutItem HeaderText="Panel 3" ColSpan="2">
+        <TileLayoutItem HeaderText="Panel 3" ColSpan="2" Id="tile3">
             <Content>Panel 3.</Content>
         </TileLayoutItem>
-        <TileLayoutItem HeaderText="Panel 4">
+        <TileLayoutItem HeaderText="Panel 4" Id="tile4">
             <Content>Panel 4.</Content>
         </TileLayoutItem>
     </TileLayoutItems>
@@ -67,9 +72,13 @@ The `OnResize` event is fired when any tile is resized. It lets you respond to t
 
 @code {
     TelerikChart ChartRef { get; set; }
-    void OnResizeHandler()
+    void OnResizeHandler(TileLayoutResizeEventArgs args)
     {
-        ChartRef.Refresh();
+        Console.WriteLine($"tile {args.Id} resized");
+        if (args.Id == "chart-tile")
+        {
+            ChartRef.Refresh();
+        }
     }
 
     public List<object> chartData = new List<object>() { 10, 2, 5, 6 };
@@ -78,10 +87,14 @@ The `OnResize` event is fired when any tile is resized. It lets you respond to t
 ````
 
 
-
 ## OnReorder
 
 The `OnReorder` event fires when tiles have been reordered. You can use it to, for example, update the saved [state]({%slug tilelayout-state%}) for your users.
+
+The `OnReorder` event provides an argument of type `TileLayoutReorderEventArgs`. It exposes two properties:
+
+* `Id` (`string`) of the reordered item
+* `ShouldRender` flag (`bool`) that determines if the component should re-render after the event handler execution.
 
 >caption Respond to the OnReorder event
 
@@ -108,13 +121,12 @@ The `OnReorder` event fires when tiles have been reordered. You can use it to, f
 </TelerikTileLayout>
 
 @code{
-    async Task OnReorderHandler()
+    async Task OnReorderHandler(TileLayoutReorderEventArgs args)
     {
-        Console.WriteLine("tile order changed, might be a good time to save the state.");
+        Console.WriteLine($"tile {args.Id} reordered, might be a good time to save the state.");
     }
 }
 ````
-
 
 
 ## See Also
