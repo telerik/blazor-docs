@@ -1,52 +1,79 @@
 ---
-title: TelerikDropDownList does not open when contained in TelerikTreeView
-description: How to fix the dropdownlist not opening when inside a treeview
+title: DropDownList or TextBox in TreeView Doesn't Work
+description: How to fix DropDownList or ComboBox not opening when inside a TreeView template. How to type in a TextBox in a TreeView ItemTemplate.
 type: troubleshooting
-page_title: DropdownList does not work in treeview
+page_title: DropDownList and TextBox Don't Work inside a TreeView
 slug: treeview-kb-ddl-not-open
 position: 
-tags: 
-ticketid: 1500437
+tags: treeview, dropdownlist, textbox, combobox, focus
+ticketid: 1500437, 1548428
 res_type: kb
 ---
 
 ## Environment
 <table>
-	<tbody>
-		<tr>
-			<td>Product Version</td>
-			<td>2.20.0 and later</td>
-		</tr>
-		<tr>
-			<td>Product</td>
-			<td>DropDownList for Blazor, TreeView for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product Version</td>
+            <td>2.20 and later</td>
+        </tr>
+        <tr>
+            <td>Product</td>
+            <td>ComboBox for Blazor,<br />
+                DropDownList for Blazor,<br />
+                TreeView for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 
 ## Description
-The TelerikDropDownList does not open / dropdown when contained within TelerikTreeView.  This worked in previous versions before v2.20.0.
+
+I have a TreeView with TextBoxes and DropDowns inside the item template. We can never focus and open the Dropdown, or type inside the TextBox. The TreeView only selects the treeview row (item).
+
+TelerikDropDownList used to open its dropdown when contained within TelerikTreeView in previous versions before v2.20.
 
 Other elements that rely on clicks and focus may not operate as expected.
 
 ## Cause\Possible Cause(s)
-As for 2.20.0, the [drag-and-drop feature of the treeview](https://demos.telerik.com/blazor-ui/treeview/drag-drop) consumes mouse events and so the focus is lost from the dropdown, which causes it to close.
+
+UI for Blazor 2.20 add the [TreeView drag-and-drop feature](https://demos.telerik.com/blazor-ui/treeview/drag-drop). It consumes mouse events, so the focus is lost from the dropdown, which causes it to close. TreeView item focus also ensures working keyboard navigation.
 
 ## Solution
-Stop the mouse events propagation so that they don't reach the treeview, for example:
+
+Wrap the TreeView `<ItemTemplate>` content inside a `<div @onclick:stopPropagation> </div>`. This will stop click event propagation and the event will not reach the TreeView item.
 
 ````CSHTML
-<TelerikTreeView Data="@TreeData" @bind-ExpandedItems="@ExpandedItems">
+@* TreeView with disabled selection, overridden hover styles and clickable nested components *@
+
+<TelerikTreeView Data="@TreeData"
+                 @bind-ExpandedItems="@ExpandedItems"
+                 SelectionMode="TreeViewSelectionMode.None">
     <TreeViewBindings>
-        <TreeViewBinding>
+        <TreeViewBinding Level="0">
             <ItemTemplate>
-                <div @onclick:stopPropagation="true">
-
-                    <TelerikDropDownList Data="@AvailableValues"
-                                         @bind-Value="@SelectedValue">
-                    </TelerikDropDownList>
-
+                @{
+                    var item = context as TreeItem;
+                }
+                @item.Text
+                <div @onclick:stopPropagation>
+                    <TelerikDropDownList Data="@ListData"
+                                         TextField="Text"
+                                         ValueField="ID"
+                                         @bind-Value="@ListValue"
+                                         DefaultText="Select..."
+                                         Width="140px" />
+                </div>
+            </ItemTemplate>
+        </TreeViewBinding>
+        <TreeViewBinding Level="1">
+            <ItemTemplate>
+                @{
+                    var item = context as TreeItem;
+                }
+                @item.Text
+                <div @onclick:stopPropagation>
+                    <TelerikTextBox PlaceHolder="Type..." Width="140px" />
                 </div>
             </ItemTemplate>
         </TreeViewBinding>
@@ -54,48 +81,48 @@ Stop the mouse events propagation so that they don't reach the treeview, for exa
 </TelerikTreeView>
 
 @code {
-    List<string> AvailableValues { get; set; } = new List<string> { "One", "Two", "Three" };
-    string SelectedValue { get; set; }
-
-    List<TreeItem> TreeData { get; set; }
+    IEnumerable<TreeItem> TreeData { get; set; }
+    
     IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
 
-    public class TreeItem
+    IEnumerable<ListItem> ListData { get; set; }
+
+    int ListValue { get; set; }
+
+    void LoadData()
     {
-        public string Text { get; set; }
-        public int Id { get; set; }
-        public List<TreeItem> Items { get; set; } = new List<TreeItem>();
-        public bool HasChildren { get; set; }
+        ListData = new List<ListItem>() {
+            new ListItem() { ID = 1, Text = "Text 1" },
+            new ListItem() { ID = 2, Text = "Text 2" }
+        };
+
+        TreeData = new List<TreeItem>() {
+            new TreeItem() {
+                Text = "Root Item",
+                Items = new List<TreeItem>() {
+                    new TreeItem { Text = "Child Item" }
+                }
+            }
+        };
     }
 
     protected override void OnInitialized()
     {
-        LoadHierarchical();
+        LoadData();
+        
         ExpandedItems = new List<object>() { TreeData.FirstOrDefault() };
     }
 
-    private void LoadHierarchical()
+    public class ListItem
     {
-        List<TreeItem> roots = new List<TreeItem>() {
-            new TreeItem { Text = "Item 1", Id = 1, HasChildren = true },
-            new TreeItem { Text = "Item 2", Id = 2, HasChildren = true }
-        };
+        public int ID { get; set; }
+        public string Text { get; set; }
+    }
 
-        roots[0].Items.Add(new TreeItem
-        {
-            Text = "Item 1 first child",
-            Id = 3
-
-        });
-
-        roots[1].Items.Add(new TreeItem
-        {
-            Text = "Item 2 first child",
-            Id = 4
-
-        });
-
-        TreeData = roots;
+    public class TreeItem
+    {
+        public string Text { get; set; }
+        public List<TreeItem> Items { get; set; }
     }
 }
 ````
