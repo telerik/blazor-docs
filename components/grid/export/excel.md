@@ -98,7 +98,7 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 You can programmatically invoke the export feature of the Grid, by using the following methods exposed on the `@ref` of the Grid:
 
 * `SaveAsExcelFileAsync` - `ValueTask` - sends the exported excel file to the browser for download
-* `ExportToExcel` - `MemoryStream` - returns the exported data as a memory stream
+* `ExportToExcelAsync` - `Task<MemoryStream>` - returns the exported data as a memory stream
 
 >note The same methods are exposed for exporting a [CSV file]({%slug grid-export-csv%}#programmatic-export-from-code).
 
@@ -145,9 +145,9 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
     private MemoryStream exportedExcelStream { get; set; }
 
-    private void GetTheDataAsAStream()
+    private async Task GetTheDataAsAStream()
     {
-        exportedExcelStream = GridRef.ExportToExcel();
+        exportedExcelStream = await GridRef.ExportToExcelAsync();
     }
 
     List<SampleData> GridData { get; set; }

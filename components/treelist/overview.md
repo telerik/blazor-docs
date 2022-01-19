@@ -384,10 +384,9 @@ The treelist can perform CRUD operations on its current data collection and expo
 
 The treelist offers several editing modes with different user experience through the `EditMode` property that is a member of the `TreeListEditMode` enum:
 
+* `None` - the default `TreeListEditMode` value. The built-in [`Add` and `Edit` commands]({%slug treelist-columns-command%}#built-in-commands) don't work in this mode.
 * `Incell` - editing is done [in the current cell]({%slug treelist-editing-incell%}) with a double click
-
 * `Inline` - editing is done for the [entire row]({%slug treelist-editing-inline%}) with an [Edit Command Button]({%slug treelist-columns-command%})
-
 * `Popup` - editing is done in a [popup]({%slug treelist-editing-popup%}) for the entire row with an [Edit Command Button]({%slug treelist-columns-command%}), and model Validation through Data Annotation attributes is available.
 
 

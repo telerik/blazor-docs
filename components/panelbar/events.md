@@ -214,8 +214,8 @@ If the item that is customized has children, they will also inherit the styles a
     .customized-panelbar-item,
     .k-panelbar-toggle.k-icon,
     .customized-panelbar-item.k-item .k-link,
-    .customized-panelbar-item.k-item .k-link.k-state-selected,
-    .customized-panelbar-item.k-item .k-link.k-state-selected:hover {
+    .customized-panelbar-item.k-item .k-link.k-selected,
+    .customized-panelbar-item.k-item .k-link.k-selected:hover {
         background-color: blue;
         color: white;
         text-decoration: underline;

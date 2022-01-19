@@ -216,9 +216,11 @@ public class CultureController : Controller
     <TelerikDropDownList Data="@Cultures"
                          Value="@SelectedCulture"
                          ValueChanged="@((string value) => { OnValueChanged(value); })"
-                         PopupHeight=""
                          TextField="@nameof(CultureData.Text)"
                          ValueField="@nameof(CultureData.Value)">
+        <DropDownListSettings>
+            <DropDownListPopupSettings Height="auto" />
+        </DropDownListSettings>
     </TelerikDropDownList>
     <br />
     Current UI culture (used for localization): @Thread.CurrentThread.CurrentUICulture.Name

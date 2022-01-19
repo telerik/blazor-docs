@@ -6,7 +6,7 @@ page_title: Expand only current item of the Grid and programmatically collapse a
 slug: grid-kb-expand-only-current
 position: 
 tags: grid, expand, collapse, programmatically
-ticketid: 1513997
+ticketid: 1513997, 1520717
 res_type: kb
 ---
 
@@ -20,6 +20,7 @@ res_type: kb
 	</tbody>
 </table>
 
+<!-- duplicate, merge with grid-kb-one-expanded-detail-template -->
 
 ## Description
 
@@ -27,25 +28,18 @@ I have a Grid with hierarchy enabled. When I expand one row, I want to programma
 
 ## Solution
 
-The `OnRowExpand` event provides arguments of type `GridRowExpandEventArgs`. You can check the `Item` field of the arguments to get information which item is currently expanded.
-
-You can then use the [Grid State]({%slug grid-state%}) to programmatically set its `ExpandedRows` field. In order to achieve the desired behavior, the `ExpandedRows` of the Grid State should only has information for the current expanded item. This will result in collapsing all previously expanded items and keep just the current one expanded.
-
-The `ExpandedRows` accepts a list of item indexes. In order to [get the correct index of the current expanded item]({%slug grid-kb-index-of-a-grid-row%}) in case of filtering, sorting, paging of the Grid, use the `OnRead` event to work with the current data.
-
-See code comments in the example below for more details on the spot.
+1. Handle the [Grid `OnRowExpand` event]({%slug grid-events%}#onrowexpand). It provides argument of type `GridRowExpandEventArgs` with a `Item` field that refers to the currently expanded Grid item.
+1. Set the `ShouldRender` property of the `GridRowExpandEventArgs` argument to `true`.
+1. Use the [Grid State]({%slug grid-state%}) to programmatically set its `ExpandedItems` property. Set `ExpandedItems` to a `List<T>` that should only contain the currently expanded item. This will result in collapsing all previously expanded items.
 
 ````CSHTML
-@using Telerik.DataSource.Extensions
-
-Expanded item index: @currItemIndex
-
-<TelerikGrid Data="@currentSalesTeamMembers" OnRowExpand="@OnExpand" OnRead="@OnReadHandler" TotalCount="@Total"
-             @ref="GridRef" Sortable="true" Pageable="true" FilterMode="GridFilterMode.FilterRow">
+<TelerikGrid @ref="@GridRef"
+             Data="@SalesTeamMembers"
+             OnRowExpand="@OnExpand">
     <DetailTemplate>
         @{
             var employee = context as MainModel;
-            <TelerikGrid Data="employee.Orders" Pageable="true" PageSize="5">
+            <TelerikGrid Data="employee.Orders">
                 <GridColumns>
                     <GridColumn Field="OrderId"></GridColumn>
                     <GridColumn Field="DealSize"></GridColumn>
@@ -61,41 +55,15 @@ Expanded item index: @currItemIndex
 
 @code {
     public TelerikGrid<MainModel> GridRef { get; set; }
+    List<MainModel> SalesTeamMembers { get; set; }
 
-    List<MainModel> salesTeamMembers { get; set; }
-
-    List<MainModel> currentSalesTeamMembers { get; set; } //implementation of OnRead
-
-    MainModel currentItem { get; set; } //need to save the expanded item to determine its new index
-
-    public int currItemIndex { get; set; } //the new index of the current expanded item
-
-    public int Total { get; set; }
-
-    //use the OnRead event to work with the current data in order to get the new index of the current expanded item in case of filtering, sorting, paging of the Grid
-    void OnReadHandler(GridReadEventArgs args)
-    {
-        var dataSourceResult = salesTeamMembers.ToDataSourceResult(args.Request);
-
-        currentSalesTeamMembers = dataSourceResult.Data.Cast<MainModel>().ToList(); // this is the collection with the current items
-
-        Total = dataSourceResult.Total;
-
-        StateHasChanged();
-    }
-
-    //in the OnRowExpand handler you can perform the desired logic to collapse the rest of the items and keep just the current one opened
     async Task OnExpand(GridRowExpandEventArgs args)
     {
-        currentItem = args.Item as MainModel;
+        args.ShouldRender = true;
 
-        //get the new index of the current expanded item from the current data
-        currItemIndex = currentSalesTeamMembers.IndexOf(currentItem);
-
-        //use the Grid state and its ExpandedRows field to set the only expanded item to be the current one
         GridState<MainModel> desiredState = GridRef.GetState();
 
-        desiredState.ExpandedRows = new List<int> { currItemIndex };
+        desiredState.ExpandedItems = new List<MainModel> { args.Item as MainModel };
 
         await GridRef.SetState(desiredState);
     }
@@ -103,16 +71,16 @@ Expanded item index: @currItemIndex
     //data generation and models
     protected override void OnInitialized()
     {
-        salesTeamMembers = GenerateData();
+        SalesTeamMembers = GenerateData();
     }
 
     private List<MainModel> GenerateData()
     {
         List<MainModel> data = new List<MainModel>();
-        for (int i = 0; i < 30; i++)
+        for (int i = 1; i <= 30; i++)
         {
             MainModel mdl = new MainModel { Id = i, Name = $"Name {i}" };
-            mdl.Orders = Enumerable.Range(1, 15).Select(x => new DetailsModel { OrderId = x, DealSize = x ^ i }).ToList();
+            mdl.Orders = Enumerable.Range(1, 3).Select(x => new DetailsModel { OrderId = x, DealSize = x ^ i }).ToList();
             data.Add(mdl);
         }
         return data;
@@ -132,4 +100,3 @@ Expanded item index: @currItemIndex
     }
 }
 ````
-

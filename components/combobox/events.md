@@ -212,43 +212,45 @@ You can use the `OnRead` event to provide data to the component according to som
 
 You can also call remote data through `async` operations.
 
+When using `OnRead`, make sure to set `TItem` and `TValue`.
+
 >caption Custom Data according to the user input in the ComboBox
 
 >tip You can also [debounce the service calls and implement minimum filter length]({%slug combo-kb-debounce-onread%}).
 
->important You should **change** **only** the `Data` of the ComboBox in the `OnRead` handler. You should **not** change other parameters such as `Value`, because this can lead to issues with the asynchronous nature of the event - the ComboBox cannot know whether the change of those parameters comes from somewhere external, and race conditions can occur with the arrival of the new data. Moreover, such a change is likely to be unwanted and unexpected for the end user and cause bad UX.
+@[template](/_contentTemplates/common/dropdowns-virtualization.md#value-in-onread)
+
 
 ````CSHTML
-@SelectedValue
-<br />
-<TelerikComboBox Data="@Options"
+<p>@SelectedValue</p>
+
+<TelerikComboBox TItem="@String" TValue="@String"
                      OnRead="@ReadItems"
+                     @bind-Value="@SelectedValue"
                      Filterable="true"
-                     Placeholder="Find what you seek by typing"
-                     @bind-Value="@SelectedValue">
+                     Placeholder="Type anything">
 </TelerikComboBox>
 
-@code{
+@code {
     public string SelectedValue { get; set; }
-    List<string> Options { get; set; } = new List<string>();
 
     async Task ReadItems(ComboBoxReadEventArgs args)
     {
-        if (args.Request.Filters.Count > 0) // there is user filter input, skips providing data on initialization
+        if (args.Request.Filters.Count > 0) // wait for user input to load data
         {
             Telerik.DataSource.FilterDescriptor filter = args.Request.Filters[0] as Telerik.DataSource.FilterDescriptor;
             string userInput = filter.Value.ToString();
             string method = filter.Operator.ToString();
 
             //new data collection comes down from the service
-            Options = await GetOptions(userInput, method);
+            args.Data = await GetOptions(userInput, method);
         }
         else
         {
             // when there is no user input you may still want to provide data
             // in this example we just hardcode a few items, you can either fetch all the data
             // or you can provide some subset of most common items, or something based on the business logic
-            Options = new List<string>() { "one", "two", "three" }; 
+            args.Data = new List<string>() { "one", "two", "three" }; 
         }
     }
 
@@ -256,10 +258,10 @@ You can also call remote data through `async` operations.
     {
         await Task.Delay(500); // simulate network delay, remove it for a real app
 
-        //sample logic for getting suggestions - here they are generated, you can call a remote service
+        //dummy suggestions
         //for brevity, this example does not use the filter operator, but your actual service can
         List<string> optionsData = new List<string>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 1; i <= 5; i++)
         {
             optionsData.Add($"option {i} for input {userInput}");
         }
@@ -277,51 +279,50 @@ You can also call remote data through `async` operations.
 ````CSHTML
 @using Telerik.DataSource.Extensions
 
-@SelectedValue
-<br />
-<TelerikComboBox Data="@CurrentOptions"
-                     OnRead=@ReadItems
-                     Filterable="true"
-                     Placeholder="Find a car by typing part of its make"
-                     @bind-Value="@SelectedValue" ValueField="Id" TextField="Make">
+<p>Selected Id: @SelectedValue</p>
+
+<TelerikComboBox TItem="@Car" TValue="@(int?)"
+                 OnRead="@ReadItems"
+                 ValueField="@nameof(Car.Id)"
+                 TextField="@nameof(Car.Make)"
+                 @bind-Value="@SelectedValue"
+                 Filterable="true"
+                 Placeholder="Type a car brand">
 </TelerikComboBox>
 
 @code {
     public int? SelectedValue { get; set; }
     List<Car> AllOptions { get; set; }
 
-    List<Car> CurrentOptions { get; set; }
-
     protected async Task ReadItems(ComboBoxReadEventArgs args)
     {
-        //generate the big data source that we want to narrow down for the user
-        //in a real case you would probably have fetched it in OnInitializedAsync
-        if (AllOptions == null)
-        {
-            AllOptions = new List<Car>
-            {
-                new Car { Id = 1, Make = "Honda" },
-                new Car { Id = 2, Make = "Opel" },
-                new Car { Id = 3, Make = "Audi" },
-                new Car { Id = 4, Make = "Lancia" },
-                new Car { Id = 5, Make = "BMW" },
-                new Car { Id = 6, Make = "Mercedes" },
-                new Car { Id = 7, Make = "Tesla" },
-                new Car { Id = 8, Make = "Vw" },
-                new Car { Id = 9, Make = "Alpha Romeo" },
-                new Car { Id = 10, Make = "Chevrolet" },
-                new Car { Id = 11, Make = "Ford" },
-                new Car { Id = 12, Make = "Cadillac" },
-                new Car { Id = 13, Make = "Dodge" },
-                new Car { Id = 14, Make = "Jeep" },
-                new Car { Id = 15, Make = "Chrysler" },
-                new Car { Id = 16, Make = "Lincoln" }
-            };
-        }
-
-        //use Telerik extension methods to filter the data source based on the request from the component
+        //using Telerik extension methods to filter the data
         var datasourceResult = AllOptions.ToDataSourceResult(args.Request);
-        CurrentOptions = (datasourceResult.Data as IEnumerable<Car>).ToList();
+        args.Data = (datasourceResult.Data as IEnumerable<Car>).ToList();
+    }
+
+    protected override void OnInitialized()
+    {
+        AllOptions = new List<Car> {
+            new Car { Id = 1, Make = "Honda" },
+            new Car { Id = 2, Make = "Opel" },
+            new Car { Id = 3, Make = "Audi" },
+            new Car { Id = 4, Make = "Lancia" },
+            new Car { Id = 5, Make = "BMW" },
+            new Car { Id = 6, Make = "Mercedes" },
+            new Car { Id = 7, Make = "Tesla" },
+            new Car { Id = 8, Make = "Vw" },
+            new Car { Id = 9, Make = "Alpha Romeo" },
+            new Car { Id = 10, Make = "Chevrolet" },
+            new Car { Id = 11, Make = "Ford" },
+            new Car { Id = 12, Make = "Cadillac" },
+            new Car { Id = 13, Make = "Dodge" },
+            new Car { Id = 14, Make = "Jeep" },
+            new Car { Id = 15, Make = "Chrysler" },
+            new Car { Id = 16, Make = "Lincoln" }
+        };
+
+        base.OnInitialized();
     }
 
     public class Car

@@ -76,10 +76,6 @@ Standard number format strings
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/label-format-strings-basics.png)
-
 ## Templates
 
 To set a template for the corresponding label, use the `Template` property in the corresponding Label inner tag of the element you want to customize, for example, under `ChartSeriesLabels` or under `ChartValueAxisLabels`.
@@ -160,10 +156,6 @@ Label templates
     };
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/basic-templates-result.png)
 
 
 In a **series label template**, you can use the following fields:
@@ -261,11 +253,6 @@ Conditional label display
 	};
 }
 ````
-
->caption The result from the code above:
-
-![](images/hide-label-conditionally.png)
-
 
 ## See Also
 

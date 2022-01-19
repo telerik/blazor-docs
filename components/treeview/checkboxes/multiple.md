@@ -43,11 +43,12 @@ You can use one-way binding to provide an initial node selection, and respond to
 @* Handle multiple node selection through checkboxes with one-way data binding *@
 
 <TelerikTreeView Data="@FlatData"
+                 @bind-ExpandedItems="@ExpandedItems"
                  CheckBoxMode="@TreeViewCheckBoxMode.Multiple"
                  CheckedItems="@checkedItems"
                  CheckedItemsChanged="@( (IEnumerable<object> items) => CheckedItemsChangedHandler(items) )">
     <TreeViewBindings>
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
     </TreeViewBindings>
 </TelerikTreeView>
 
@@ -88,14 +89,15 @@ You can use one-way binding to provide an initial node selection, and respond to
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
     protected override void OnInitialized()
     {
         LoadFlatData();
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
     }
 
     private void LoadFlatData()
@@ -108,8 +110,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -118,8 +119,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -127,8 +127,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -137,8 +136,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {
@@ -183,10 +181,11 @@ You can use two-way binding to get the node the user has selected. This can be u
 @* Handle multiple node selection with two-way data binding *@
 
 <TelerikTreeView Data="@FlatData"
+                 @bind-ExpandedItems="@ExpandedItems"
                  CheckBoxMode="@TreeViewCheckBoxMode.Multiple"
                  @bind-CheckedItems="@checkedItems">
     <TreeViewBindings>
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
     </TreeViewBindings>
 </TelerikTreeView>
 
@@ -222,14 +221,16 @@ You can use two-way binding to get the node the user has selected. This can be u
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
     protected override void OnInitialized()
     {
         LoadFlatData();
+
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
 
         var precheckedItem = FlatData.Where(x => x.Id == 3); // provide initial checked item when the page is loaded
 
@@ -246,8 +247,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -256,8 +256,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -265,8 +264,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -275,8 +273,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {
@@ -317,6 +314,7 @@ You can bind the treeview to different models at each level, and the selection a
 @* Handle multiple selection of items from different data models *@
 
 <TelerikTreeView Data="@HierarchicalData"
+                 @bind-ExpandedItems="@ExpandedItems"
                  CheckBoxMode="@TreeViewCheckBoxMode.Multiple"
                  CheckedItems="@CheckedItems"
                  CheckedItemsChanged="@((IEnumerable<object> items) => CheckedItemsHandler(items))">
@@ -350,6 +348,7 @@ You can bind the treeview to different models at each level, and the selection a
 @code {
     public IEnumerable<ProductCategoryItem> HierarchicalData { get; set; }
     public IEnumerable<object> CheckedItems { get; set; } = new List<object>();
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
 
     void CheckedItemsHandler(IEnumerable<object> items)
     {
@@ -360,19 +359,18 @@ You can bind the treeview to different models at each level, and the selection a
     {
         public string Category { get; set; }
         public List<ProductItem> Products { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public class ProductItem
     {
         public string ProductName { get; set; }
-        public bool Expanded { get; set; }
     }
 
 
     protected override void OnInitialized()
     {
         LoadHierarchical();
+        ExpandedItems = HierarchicalData.Where(x => x.Products != null && x.Products.Any()).ToList();
     }
 
     private void LoadHierarchical()
@@ -388,7 +386,6 @@ You can bind the treeview to different models at each level, and the selection a
         roots.Add(new ProductCategoryItem
         {
             Category = "Category 1",
-            Expanded = true,
             Products = firstCategoryProducts // this is how child items are provided
 
         });

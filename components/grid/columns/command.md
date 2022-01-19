@@ -35,7 +35,7 @@ The `GridCommandButton` tag offers the following features:
 * `OnClick` - the event handler that the button will fire. If used on a built-in command, this handler will fire before the [corresponding CRUD event]({%slug components/grid/editing/overview%}). Cancelling it will prevent the built-in CRUD event from firing.
 * `ShowInEdit` - a boolean property indicating whether the button is only visible while the user is editing/inserting data.
 * `ChildContent` - the text the button will render. You can also place it between the command button's opening and closing tags.
-* Appearance properties like `Icon`, `Class`, `Enabled` that are come from the underlying [Button Component features]({%slug components/button/overview%}).
+* You can customize the appearance of the `GridCommandButton` by applying the [appearance attributes available for the TelerikButton]({%slug button-appearance%}).
 
 ### Built-in Commands
 
@@ -46,6 +46,8 @@ There are four built-in commands:
 * `Delete` - initiates the deletion of an existing item. You can also enable a [delete confirmation dialog]({%slug grid-delete-confirmation%}).
 * `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was created or edited.
 * `Cancel` - aborts the current operation (edit or insert).
+
+> The `Add` and `Edit` commands require [enabled editing]({%slug components/grid/overview%}#editing).
 
 ### The OnClick handler
 

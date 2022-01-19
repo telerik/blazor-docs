@@ -20,11 +20,13 @@ By default, the grid will receive the entire collection of data, and it will per
 
 The parameter of type `DataSourceRequest` exposes information about the desired paging, filtering and sorting so you can, for example, call your remote endpoint with appropriate parameters so its performance is optimized and it fetches only the relevant data. 
 
-When the `OnRead` event is used, the internal operations are disabled and you must perform them all in the `OnRead` event. You must also set the `TotalCount` property of the grid to the total number of items in the data source.
+When the `OnRead` event is used, the internal operations are disabled and you must perform them all in the `OnRead` event. You must set:
 
-If you are using an `ObservableCollection`, make sure to create a `new` one, because using `.Add()`, `.Remove()` or `.Clear()` on it will cause an infinite loop - the [grid monitors the ObservableCollection events]({%slug common-features-observable-data%}) and updates its data, which will fire `OnRead`.
+* the data to `args.Data`
+* the total number of items (if there is no paging) to `args.Total`
+* the Grid itself should set the `TItem` attribute to the model type
 
-The event arguments to `OnRead` will receive the `Page` that comes from the application. For example, if you load the grid [state]({%slug grid-state%}), or you set the parameter value yourself, that value will be passed to the event handler. If it is out of the range of the available data, it will be up to the application to handle that discrepancy.
+The event arguments of `OnRead` will receive the `Page` that comes from the application. For example, if you load the grid [state]({%slug grid-state%}), or you set the parameter value yourself, that value will be passed to the event handler. If it is out of the range of the available data, it will be up to the application to handle that discrepancy.
 
 ## Examples
 
@@ -32,24 +34,14 @@ Below you can find a few examples of using the `OnRead` event to perform custom 
 
 The comments in the code provide explanations on what is done and why.
 
-
 Examples:
 
-
 * [Custom paging with a remote service](#custom-paging-with-a-remote-service)
-
 * [Telerik .ToDataSourceResult(request)](#telerik-todatasourceresultrequest)
-
 * [Grouping with OnRead](#grouping-with-onread)
-
 * [Get Information From the DataSourceRequest](#get-information-from-the-datasourcerequest)
-
-* [Cache Data Request](#cache-data-request)
-
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
-
 * [Serialize the DataSoureRequest to the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
-
 * [Debounce Data Source Operations and Requests]({%slug grid-kb-debounce-operations%})
 
 ## Custom paging with a remote service
@@ -59,9 +51,9 @@ Examples:
 ````CSHTML
 Custom paging. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
-<TelerikGrid Data=@GridData TotalCount=@Total
-			 Pageable=true PageSize=15
-             OnRead=@ReadItems>
+<TelerikGrid TItem="@Employee"
+			 OnRead="@ReadItems"
+			 Pageable="true" PageSize="15">
 	<GridColumns>
 		<GridColumn Field=@nameof(Employee.Id) Title="ID" />
 		<GridColumn Field=@nameof(Employee.Name) Title="Name" />
@@ -69,9 +61,6 @@ Custom paging. There is a deliberate delay in the data source operations in this
 </TelerikGrid>
 
 @code {
-	public List<Employee> GridData { get; set; }
-	public int Total { get; set; } = 0;
-
 	protected async Task ReadItems(GridReadEventArgs args)
 	{
 		Console.WriteLine("data requested: " + args.Request);
@@ -81,10 +70,8 @@ Custom paging. There is a deliberate delay in the data source operations in this
 		DataEnvelope DataResult = await FetchPagedData(args.Request.Page, args.Request.PageSize);
 
 		//use the current page of data and the total amount of items in the data source that are returned from the service
-		GridData = DataResult.CurrentPageData;
-		Total = DataResult.TotalItemCount;
-
-		StateHasChanged();
+		args.Data = DataResult.CurrentPageData;
+		args.Total = DataResult.TotalItemCount;
 	}
 
 	//This sample implements only reading pages of the data. To add the rest of the CRUD operations see
@@ -102,7 +89,7 @@ Custom paging. There is a deliberate delay in the data source operations in this
 		
 		//generate dummy data for the example
 		int totalCount = 100;
-		for (int i = 0; i < totalCount; i++)
+		for (int i = 1; i <= totalCount; i++)
 		{
 			fullList.Add(new Employee()
 			{
@@ -120,7 +107,7 @@ Custom paging. There is a deliberate delay in the data source operations in this
 		result.CurrentPageData = fullList.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
 		result.TotalItemCount = fullList.Count;
 
-		await Task.Delay(2000); //simulate network delay from a real async call
+		await Task.Delay(1000); //simulate network delay from a real async call
 
 		return result;
 	}
@@ -155,81 +142,65 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 
 @using Telerik.DataSource.Extensions
 
-<TelerikGrid Data=@GridData TotalCount=@Total OnRead=@ReadItems
-			 FilterMode=@GridFilterMode.FilterRow Sortable=true Pageable=true EditMode="@GridEditMode.Inline">
-	<GridColumns>
-		<GridColumn Field=@nameof(Employee.ID) />
-		<GridColumn Field=@nameof(Employee.Name) Title="Name" />
-		<GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
-		<GridCommandColumn>
-			<GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-			<GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-			<GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
-			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
-		</GridCommandColumn>
-	</GridColumns>
-	<GridToolBar>
-		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-	</GridToolBar>
+<TelerikGrid TItem="@Employee" OnRead="@ReadItems"
+             FilterMode="@GridFilterMode.FilterRow"
+             Sortable="true" Pageable="true">
+    <GridColumns>
+        <GridColumn Field=@nameof(Employee.ID) />
+        <GridColumn Field=@nameof(Employee.Name) Title="Name" />
+        <GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
+    </GridColumns>
 </TelerikGrid>
 
 @code {
-	public List<Employee> SourceData { get; set; }
-	public List<Employee> GridData { get; set; }
-	public int Total { get; set; } = 0;
+    public List<Employee> SourceData { get; set; }
 
-	protected override void OnInitialized()
-	{
-		SourceData = GenerateData();
-	}
+    protected async Task ReadItems(GridReadEventArgs args)
+    {
+        Console.WriteLine("data requested: " + args.Request);
 
-	protected async Task ReadItems(GridReadEventArgs args)
-	{
-		Console.WriteLine("data requested: " + args.Request);
+        //update the Data and Total properties
+        //the ToDataSourceResult() extension method can be used to perform the operations over the full data collection
+        //in a real case, you can call data access layer and remote services here instead, to fetch only the necessary data
 
-		//you need to update the total and data variables
-		//the ToDataSourceResult() extension method can be used to perform the operations over the full data collection
-		//in a real case, you can call data access layer and remote services here instead, to fetch only the necessary data
+        await Task.Delay(1000); //simulate network delay from a real async call
 
-		await Task.Delay(2000); //simulate network delay from a real async call
+        var datasourceResult = SourceData.ToDataSourceResult(args.Request);
 
-		var datasourceResult = SourceData.ToDataSourceResult(args.Request);
+        args.Data = datasourceResult.Data;
+        args.Total = datasourceResult.Total;
+    }
 
-		GridData = (datasourceResult.Data as IEnumerable<Employee>).ToList();
-		Total = datasourceResult.Total;
+    protected override void OnInitialized()
+    {
+        SourceData = GenerateData();
+    }
 
-		StateHasChanged();
-	}
-	
-	//This sample implements only reading of the data. To add the rest of the CRUD operations see
-	//https://docs.telerik.com/blazor-ui/components/grid/editing/overview
+    private List<Employee> GenerateData()
+    {
+        var result = new List<Employee>();
+        var rand = new Random();
+        for (int i = 0; i < 100; i++)
+        {
+            result.Add(new Employee()
+            {
+                ID = i,
+                Name = "Name " + i,
+                HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20))
+            });
+        }
 
-	private List<Employee> GenerateData()
-	{
-		var result = new List<Employee>();
-		var rand = new Random();
-		for (int i = 0; i < 100; i++)
-		{
-			result.Add(new Employee()
-			{
-				ID = i,
-				Name = "Name " + i,
-				HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20))
-			});
-		}
+        return result;
+    }
 
-		return result;
-	}
-
-	public class Employee
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-		public DateTime HireDate { get; set; }
-	}
+    public class Employee
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public DateTime HireDate { get; set; }
+    }
 }
 ````
-
 
 ## Grouping with OnRead
 
@@ -239,7 +210,7 @@ When you let the grid handle the operations internally, it hides that complexity
 
 Thus, to use the `OnRead` event with grouping, you must:
 
-1. Use an `IEnumerable<object>` for the grid `Data`.
+1. Use an `IEnumerable<object>` for the Grid data.
     * This is required so the special data structure for grouped data can be used, otherwise you will get compile-time errors.
 1. Set the `FieldType` of the columns to match the type of the field you will be showing.
     * If you also use [filtering]({%slug components/grid/filtering%}), do not use nullable types. For example, if the model field is `int?`, set `FieldType="@(typeof(int))"`.
@@ -255,36 +226,21 @@ This sample shows how to set up the grid to use grouping with manual data source
 
 @using Telerik.DataSource.Extensions
 
-<TelerikGrid Data=@GridData TotalCount=@Total OnRead=@ReadItems Groupable="true"
-             FilterMode=@GridFilterMode.FilterRow Sortable=true Pageable=true EditMode="@GridEditMode.Inline">
+<TelerikGrid TItem="@Employee"
+             OnRead="@ReadItems"
+             Groupable="true"
+             FilterMode="@GridFilterMode.FilterRow"
+             Sortable="true"
+             Pageable="true">
     <GridColumns>
         <GridColumn Field=@nameof(Employee.Name) FieldType="@(typeof(string))" Groupable="false" />
         <GridColumn Field=@nameof(Employee.Team) FieldType="@(typeof(string))" Title="Team" />
         <GridColumn Field=@nameof(Employee.IsOnLeave) FieldType="@(typeof(bool))" Title="On Vacation" />
-        <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
-        </GridCommandColumn>
     </GridColumns>
-    <GridToolBar>
-        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
 </TelerikGrid>
 
 @code {
     public List<Employee> SourceData { get; set; }
-
-    // the grid Data needs to be IEnumerable<object> to work with grouping in OnRead
-    public List<object> GridData { get; set; }
-
-    public int Total { get; set; } = 0;
-
-    protected override void OnInitialized()
-    {
-        SourceData = GenerateData();
-    }
 
     // Handling grouping happens here - by casting the DataSourceResult.Data to objects
     protected async Task ReadItems(GridReadEventArgs args)
@@ -294,24 +250,24 @@ This sample shows how to set up the grid to use grouping with manual data source
         // https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server
         var datasourceResult = SourceData.ToDataSourceResult(args.Request);
 
-        // to work with grouping, the grid Data needs to be an IEnumerable<object>
+        // to work with grouping, the grid data needs to be an IEnumerable<object>
         // because grouped data has a different shape than non-grouped data
         // and this is, generally, hidden from you by the grid, but now it cannot be
-        GridData = datasourceResult.Data.Cast<object>().ToList();
+        args.Data = datasourceResult.Data.Cast<object>().ToList();
 
-        Total = datasourceResult.Total;
-
-        StateHasChanged();
+        args.Total = datasourceResult.Total;
     }
 
-    //This sample implements only reading of the data. To add the rest of the CRUD operations see
-    //https://docs.telerik.com/blazor-ui/components/grid/editing/overview
+    protected override void OnInitialized()
+    {
+        SourceData = GenerateData();
+    }
 
     private List<Employee> GenerateData()
     {
         var result = new List<Employee>();
         var rand = new Random();
-        for (int i = 0; i < 15; i++)
+        for (int i = 1; i <= 15; i++)
         {
             result.Add(new Employee()
             {
@@ -337,7 +293,7 @@ This sample shows how to set up the grid to use grouping with manual data source
 
 >important This approach cannot work directly with a [DataTable](https://demos.telerik.com/blazor-ui/grid/data-table) or [OData](https://github.com/telerik/blazor-ui/tree/master/grid/odata) as underlying data sources, because these two external data sources do not return objects that can be converted to the data structure needed for grouping by the grid. We recommend that you consider creating actual models to use the Grid in a native Blazor way. If that's not possible, you can consider [ExpandoObject collections](https://github.com/telerik/blazor-ui/tree/master/grid/binding-to-expando-object) which are a bit more flexible and can be parsed to the needed grouping structure.
 
->note Since the grid does not have the type of the data models (it is bound to `IEnumerable<object>`), it uses the first item in the available `Data` to infer the type. If there is no data, this type will be unavailable and the grid will be unable to create an item to insert. The filters can get the proper operators list from the `FieldType`, but an entire model cannot be constructed by the grid. 
+>note Since the grid does not have the type of the data models (it is bound to `IEnumerable<object>`), it uses the first item in the available data to infer the type. If there is no data, this type will be unavailable and the grid will be unable to create an item to insert. The filters can get the proper operators list from the `FieldType`, but an entire model cannot be constructed by the grid. 
 >
 > Thus, clicking the built-in Add command button on its toolbar when there is no data will produce a `null` item and if you have editor templates, there may be null reference errors (the `context` will be `null`). To avoid that, you can [initiate insertion of items through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) in order to ensure a model reference exists.
 
@@ -350,12 +306,12 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-@ConsoleSim
+<p>@ConsoleSim</p>
 
-<br />
-
-<TelerikGrid Data=@CurrPageData OnRead="@OnReadHandler" TotalCount=@Total
-             Sortable="true" FilterMode="@GridFilterMode.FilterRow"
+<TelerikGrid TItem="@SampleData"
+             OnRead="@OnReadHandler"
+             Sortable="true"
+             FilterMode="@GridFilterMode.FilterRow"
              Pageable="true" PageSize="15"
              Height="400px">
     <GridColumns>
@@ -367,12 +323,8 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 </TelerikGrid>
 
 
-@functions {
+@code {
     MarkupString ConsoleSim { get; set; } // to showcase what you get
-
-    // implementation of OnRead
-    List<SampleData> CurrPageData { get; set; }
-    int Total { get; set; }
 
     async Task OnReadHandler(GridReadEventArgs args)
     {
@@ -412,10 +364,9 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 
         // actual data source operation, implement as required in your case (e.g., call a service with parameters you built)
         var result = PristineData.ToDataSourceResult(args.Request);
-        CurrPageData = (result.Data as IEnumerable<SampleData>).ToList();
-        Total = result.Total;
 
-        StateHasChanged();
+        args.Data = result.Data;
+        args.Total = result.Total;
     }
 
     public IEnumerable<SampleData> PristineData = Enumerable.Range(1, 300).Select(x => new SampleData
@@ -431,118 +382,6 @@ With a few simple loops, you can extract information from the DataSourceRequest 
         public int Id { get; set; }
         public string Name { get; set; }
         public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
-
-
-## Cache Data Request
-
-If you need to replay the last request for some reason (your data has updated, or you need to await some business logic that determines what data to request), store the `DataSourceRequest` object in a field in your view model, then run the method that will read the data when necessary - a button click, or when some async operation completes.
-
-
-````CSHTML
-@* This example awaits some business data in OnInitializedAsync and fetches grid data according to it
-You can call the SetGridData() method from button clicks or other events according to your needs *@
-
-@using Telerik.DataSource.Extensions
-@using Telerik.DataSource
-
-<TelerikGrid Data=@GridData TotalCount=@Total OnRead=@ReadItems
-             FilterMode=@GridFilterMode.FilterRow Sortable=true Pageable=true>
-    <GridColumns>
-        <GridColumn Field=@nameof(Employee.ID) />
-        <GridColumn Field=@nameof(Employee.Name) Title="Name" />
-        <GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    string something { get; set; } // an object on which the grid data depends
-
-    protected override async Task OnInitializedAsync()
-    {
-        // the business logic that determines the global object - such as a user, their role, access rights, settings, etc.
-        await GetSomething();
-
-        // Refresh the Grid Data after the business data has arrived
-        SetGridData();
-
-        await base.OnInitializedAsync();
-    }
-
-    async Task GetSomething()
-    {
-        // in a real case - apply the desired business logic here
-        await Task.Delay(3000);
-        something = DateTime.Now.Millisecond.ToString();
-    }
-
-    public List<Employee> SourceData { get; set; }
-    public List<Employee> GridData { get; set; }
-    public int Total { get; set; } = 0;
-
-    // cache the last data request so you can "replay" it and update the grid data anytime
-    public DataSourceRequest CurrentRequest { get; set; }
-
-
-    protected async Task ReadItems(GridReadEventArgs args)
-    {
-        // cache the last data request so you can update teh grid data with it at any time
-        CurrentRequest = args.Request;
-
-        if (!string.IsNullOrEmpty(something)) // business logic that dictates when/what to request for the grid
-        {
-            SetGridData();
-        }
-    }
-
-    // Update the grid data with the cached request at any time
-    private void SetGridData()
-    {
-        if (CurrentRequest == null)
-        {
-            return;
-        }
-
-        // implement actual reading of the data, for example, use the "something" business object above
-        // this is merely some generated data to get the grid running
-        var datasourceResult = SourceData.ToDataSourceResult(CurrentRequest);
-
-        GridData = (datasourceResult.Data as IEnumerable<Employee>).ToList();
-        Total = datasourceResult.Total;
-    }
-
-    //This sample implements only reading of the data. To add the rest of the CRUD operations see
-    //https://docs.telerik.com/blazor-ui/components/grid/editing/overview
-
-    protected override void OnInitialized()
-    {
-        SourceData = GenerateData();
-    }
-
-    private List<Employee> GenerateData()
-    {
-        var result = new List<Employee>();
-        var rand = new Random();
-        for (int i = 0; i < 100; i++)
-        {
-            result.Add(new Employee()
-            {
-                ID = i,
-                Name = "Name " + i,
-                HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20))
-            });
-        }
-
-        return result;
-    }
-
-    public class Employee
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
         public DateTime HireDate { get; set; }
     }
 }

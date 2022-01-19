@@ -48,7 +48,11 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
                     CurrentlyEditedEmployee = context as SampleData;
                     if (CurrentlyEditedEmployee.ID == 0) // default value for the field => new model
                     {
-                        <TelerikDropDownList Data="@Roles" @bind-Value="CurrentlyEditedEmployee.Role" Width="120px" PopupHeight="auto"></TelerikDropDownList>
+                        <TelerikDropDownList Data="@Roles" @bind-Value="CurrentlyEditedEmployee.Role" Width="120px">
+                            <DropDownListSettings>
+                                <DropDownListPopupSettings Height="auto" />
+                            </DropDownListSettings>
+                        </TelerikDropDownList>
                     }
                     else
                     {
@@ -142,7 +146,11 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
                     CurrentlyEditedEmployee = context as SampleData;
                     if (CurrentlyEditedEmployee.ID == 0) // default value for the field => new model
                     {
-                        <TelerikDropDownList Data="@Roles" @bind-Value="CurrentlyEditedEmployee.Role" Width="120px" PopupHeight="auto"></TelerikDropDownList>
+                        <TelerikDropDownList Data="@Roles" @bind-Value="CurrentlyEditedEmployee.Role" Width="120px">
+                            <DropDownListSettings>
+                                <DropDownListPopupSettings Height="auto" />
+                            </DropDownListSettings>
+                        </TelerikDropDownList>
                     }
                     else
                     {

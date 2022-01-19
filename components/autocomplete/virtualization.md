@@ -24,7 +24,6 @@ The AutoComplete @[template](/_contentTemplates/common/dropdowns-virtualization.
 ![Virtual Scrolling of large local data](images/autocomplete-virtual-scrolling-local.gif)
 
 
-
 ## Basics
 
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#basics-core)
@@ -37,7 +36,6 @@ The AutoComplete @[template](/_contentTemplates/common/dropdowns-virtualization.
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#limitations)
 
 
-
 ## Local Data Example
 
 
@@ -46,12 +44,14 @@ The AutoComplete @[template](/_contentTemplates/common/dropdowns-virtualization.
 <br />
 <TelerikAutoComplete Data="@Data"
                      ScrollMode="@DropDownScrollMode.Virtual"
-                     PopupHeight="200px"
                      ItemHeight="30"
                      PageSize="20"
 
                      @bind-Value="@SelectedValue"
                      Filterable="true" FilterOperator="@StringFilterOperator.Contains">
+    <AutoCompleteSettings>
+        <AutoCompletePopupSettings Height="200px" />
+    </AutoCompleteSettings>
 </TelerikAutoComplete>
 
 @code {
@@ -73,8 +73,6 @@ The AutoComplete @[template](/_contentTemplates/common/dropdowns-virtualization.
 }
 ````
 
-
-
 ## Remote Data Example
 
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#remote-data-sample-intro)
@@ -85,31 +83,30 @@ Run this and see how you can display, scroll and filter over 10k records in the 
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-@SelectedValue
-<br />
-<TelerikAutoComplete Data="@CurentPageOfData"
+<p>@AutoCompleteValue</p>
+
+<TelerikAutoComplete TItem="@String"
                      ScrollMode="@DropDownScrollMode.Virtual"
-                     OnRead="@GetRemoteData"
-                     TotalCount="@TotalItems"
-                     PopupHeight="200px"
                      ItemHeight="30"
                      PageSize="20"
-
-                     @bind-Value="@SelectedValue"
-                     Filterable="true" FilterOperator="@StringFilterOperator.Contains">
+                     OnRead="@GetRemoteData"
+                     @bind-Value="@AutoCompleteValue"
+                     Filterable="true"
+                     FilterOperator="@StringFilterOperator.Contains">
+    <AutoCompleteSettings>
+        <AutoCompletePopupSettings Height="300px" />
+    </AutoCompleteSettings>
 </TelerikAutoComplete>
 
-@code{
-    string SelectedValue { get; set; } = "Name 1234"; // pre-select an item to showcase it works like in a regular textbox
-    List<string> CurentPageOfData { get; set; }
-    int TotalItems { get; set; }
+@code {
+    string AutoCompleteValue { get; set; } = "Name 1234"; // pre-select an item to showcase it works like in a regular textbox
 
-    async Task GetRemoteData(AutoCompleteReadEventArgs e)
+    async Task GetRemoteData(AutoCompleteReadEventArgs args)
     {
-        DataEnvelope<string> result = await MyService.GetItems(e.Request);
+        DataEnvelope<string> result = await MyService.GetItems(args.Request);
 
-        CurentPageOfData = result.Data;
-        TotalItems = result.Total;
+        args.Data = result.Data;
+        args.Total = result.Total;
     }
 
     // mimics a real service in terms of API appearance, refactor as necessary for your app
@@ -149,6 +146,4 @@ Run this and see how you can display, scroll and filter over 10k records in the 
 
 ## See Also
 
-  * [Live Demo: AutoComplete Virtualization](https://demos.telerik.com/blazor-ui/autocomplete/virtualization)
-   
-  
+* [Live Demo: AutoComplete Virtualization](https://demos.telerik.com/blazor-ui/autocomplete/virtualization)

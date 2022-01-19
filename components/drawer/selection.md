@@ -28,12 +28,12 @@ If you use the drawer for [page navigation]({%slug drawer-navigation%}), the sel
                Mode="@DrawerMode.Push"
                @bind-SelectedItem="@selectedItem"
                @ref="@DrawerRef">
-    <Content>
+    <DrawerContent>
         <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
         <div class="text-info">
             Content for the @selectedItem?.Text item
         </div>
-    </Content>
+    </DrawerContent>
 </TelerikDrawer>
 
 @code {

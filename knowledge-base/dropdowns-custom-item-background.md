@@ -41,13 +41,15 @@ Here are some additional notes to keep in mind, and an example.
 >caption Apply custom background colors to dropdown items and the DropDownList component.
 
 ````CSHTML
-@* The same approach with PopupClass is possible with AutoComplete and MultiSelect *@
+@* The same approach with popup Class is possible with AutoComplete and MultiSelect *@
 
 <TelerikComboBox Data="@ItemsToSelect"
                  @bind-Value="@SelectedValue"
                  TextField="@nameof(ModelWithColor.Text)"
-                 ValueField="@nameof(ModelWithColor.ID)"
-                 PopupClass="colored-dropdown">
+                 ValueField="@nameof(ModelWithColor.ID)">
+    <ComboBoxSettings>
+        <ComboBoxPopupSettings Class="colored-dropdown" />
+    </ComboBoxSettings>
     <ItemTemplate>
         <div class="item-wrapper" style="background: @context.Color;">
             @context.Text
@@ -61,8 +63,10 @@ Here are some additional notes to keep in mind, and an example.
                      FilterOperator="StringFilterOperator.Contains"
                      TextField="@nameof(ModelWithColor.Text)"
                      ValueField="@nameof(ModelWithColor.ID)"
-                     PopupClass="colored-dropdown"
                      Class="colored-input">
+    <DropDownListSettings>
+        <DropDownListPopupSettings Class="colored-dropdown" />
+    </DropDownListSettings>
     <ItemTemplate>
         <div class="item-wrapper" style="background: @context.Color;">
             @context.Text
@@ -96,7 +100,7 @@ Here are some additional notes to keep in mind, and an example.
     }
 
     /* (re)apply selected state background  */
-    .colored-dropdown .k-item.k-state-selected .item-wrapper {
+    .colored-dropdown .k-item.k-selected .item-wrapper {
         background: #666 !important;
     }
 

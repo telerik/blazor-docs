@@ -12,10 +12,6 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/candlestick-chart" target="_blank"> Candlestick chart </a>shows data for the movement of the price of a financial unit. It consists of a bar (the candle), representing the open and close values, and vertical lines, the candlesticks, which illustrate the highest and lowest values.
 
->caption Candlestick chart. Results from the first code snippet below
-
-![](images/basic-candlestick-chart.png)
-
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
 #### To create a candlestick chart:
@@ -125,6 +121,8 @@ The <a href="https://www.telerik.com/blazor-ui/candlestick-chart" target="_blank
 Set the color - a valid CSS, RGB, RGBA color - of the series when the `OpenField` is greater than the `CloseField` by setting the `DownColor` property of the `ChartSeries`. This can be passed throught the data model and bound to the `DownColorField`.
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#color-field-column-ohlc-candlestick)
+
+>note The values bound to `DownColorField` and `ColorField` will take precedence over the values passed to the `Color` and the `DownColor` attributes. 
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#gap-and-spacing)
 

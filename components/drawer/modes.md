@@ -43,14 +43,14 @@ The drawer's height is dynamic based on the height of the content (you can chang
                    Mode="@DrawerMode.Push"
                    @bind-SelectedItem="@selectedItem"
                    @ref="@DrawerRef">
-        <Content>
+        <DrawerContent>
             <div class="m-5">
                 Select an item. The drawer is expaned: @Expanded
                 <div class="text-info">
                     Content for the @selectedItem?.Text
                 </div>
             </div>
-        </Content>
+        </DrawerContent>
     </TelerikDrawer>
 </div>
 
@@ -94,13 +94,13 @@ You may want to add padding to the left of the content so that it is not overlap
                Mode="@DrawerMode.Overlay"
                @bind-SelectedItem="@selectedItem"
                @ref="@DrawerRef">
-    <Content>
+    <DrawerContent>
         <div class="text-info pl-4">
             The drawer is expanded: @Expanded
             <br />
             Content for the @selectedItem?.Text
         </div>
-    </Content>
+    </DrawerContent>
 </TelerikDrawer>
 
 @code {

@@ -14,8 +14,6 @@ The <a href="https://www.telerik.com/blazor-ui/pie-chart" target="_blank">Blazor
 
 >caption Pie chart. Results from the first code snippet below
 
-![](images/basic-pie-chart.png)
-
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
 #### To create a pie chart:
@@ -131,10 +129,6 @@ Set color to the pie chart items
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/custom-color-in-segments.png)
-
 ### Exploded Segment
 
 You can have some of the segments of the pie separated from the rest of the circle with a small margin. This helps bring attention to them as outliers or as important bits that the viewer should focus on.
@@ -188,10 +182,6 @@ Separate items from the main body of the chart
 	};
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/exploded-pie-chart.png)
 
 ### Visible In Legend
 
@@ -249,10 +239,6 @@ Show only some items in the legend
 	};
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/pie-chart-hide-from-legend.png)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 

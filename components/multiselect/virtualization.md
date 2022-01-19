@@ -38,9 +38,7 @@ The MultiSelect @[template](/_contentTemplates/common/dropdowns-virtualization.m
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#limitations)
 
 
-
 ## Local Data Example
-
 
 ````CSHTML
 Number of selected items: @SelectedValues?.Count
@@ -48,7 +46,6 @@ Number of selected items: @SelectedValues?.Count
 <TelerikMultiSelect Data="@Data"
 
                     ScrollMode="@DropDownScrollMode.Virtual"
-                    PopupHeight="200px"
                     ItemHeight="30"
                     PageSize="20"
 
@@ -57,6 +54,9 @@ Number of selected items: @SelectedValues?.Count
                     ValueField="@nameof(Person.Id)"
                     @bind-Value="@SelectedValues"
                     Filterable="true" FilterOperator="@StringFilterOperator.Contains">
+    <MultiSelectSettings>
+        <MultiSelectPopupSettings Height="200px" />
+    </MultiSelectSettings>
 </TelerikMultiSelect>
 
 @code {
@@ -79,7 +79,6 @@ Number of selected items: @SelectedValues?.Count
 ````
 
 
-
 ## Remote Data Example
 
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#remote-data-sample-intro)
@@ -94,12 +93,10 @@ Run this and see how you can display, scroll and filter over 10k records in the 
 
 Number of selected items: @SelectedValues?.Count
 <br />
-<TelerikMultiSelect Data="@CurentPageOfData"
+<TelerikMultiSelect TItem="@Person" TValue="@int"
                     ScrollMode="@DropDownScrollMode.Virtual"
                     OnRead="@GetRemoteData"
-                    TotalCount="@TotalItems"
                     ValueMapper="@GetModelFromValue"
-                    PopupHeight="200px"
                     ItemHeight="30"
                     
                     AutoClose="false"
@@ -108,19 +105,20 @@ Number of selected items: @SelectedValues?.Count
                     ValueField="@nameof(Person.Id)"
                     @bind-Value="@SelectedValues"
                     Filterable="true" FilterOperator="@StringFilterOperator.Contains">
+    <MultiSelectSettings>
+        <MultiSelectPopupSettings Height="200px" />
+    </MultiSelectSettings>
 </TelerikMultiSelect>
 
 @code{
     List<int> SelectedValues { get; set; } = new List<int> { 4, 1234 }; // pre-select an item to showcase the value mapper
-    List<Person> CurentPageOfData { get; set; }
-    int TotalItems { get; set; }
 
-    async Task GetRemoteData(MultiSelectReadEventArgs e)
+    async Task GetRemoteData(MultiSelectReadEventArgs args)
     {
-        DataEnvelope<Person> result = await MyService.GetItems(e.Request);
+        DataEnvelope<Person> result = await MyService.GetItems(args.Request);
 
-        CurentPageOfData = result.Data;
-        TotalItems = result.Total;
+        args.Data = result.Data;
+        args.Total = result.Total;
     }
 
     async Task<List<Person>> GetModelFromValue(List<int> selectedValues)
@@ -128,7 +126,6 @@ Number of selected items: @SelectedValues?.Count
         // return a model that matches the selected value so the component can get its text
         return await MyService.GetItemsFromValue(selectedValues);
     }
-
 
     // mimics a real service in terms of API appearance, refactor as necessary for your app
     public static class MyService

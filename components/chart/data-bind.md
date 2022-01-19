@@ -79,10 +79,6 @@ Independent data
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/independent-series-binding.png)
-
 ## Attach Series Items to Their Categories
 
 You can provide a `List<object>` to the `Data` property of a series that contains both its data points, and its x-axis categories. Then, set the series:
@@ -128,10 +124,6 @@ One model for all the chart data
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/bind-chart-to-single-collection.png)
-
 >caption Unique categories are added independently.
 
 ````CSHTML
@@ -166,10 +158,6 @@ Separate fields for series categories
     };
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/unique-categories.png)
 
 >tip You can define [multiple x-axes](multiple-axes) to avoid this behavior and have each series populate its own x-axis.
 
@@ -210,10 +198,6 @@ Combining matching standalone categories
     };
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/matching-categories.png)
 
 ## Mixed Data Source
 
@@ -263,10 +247,6 @@ Mixed data binding
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/mixed-data-sources-1.png)
-
 >caption Populate categories from model, and some series from standalone data. Standalone categories are ignored.
 
 ````CSHTML
@@ -308,11 +288,6 @@ Standalone categories are ignored when there is category data binding to a model
     };
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/standalone-categories-ignored-if-bound-from-series.png)
-
 
 ## Numerical Charts
 

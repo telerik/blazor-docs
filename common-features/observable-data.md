@@ -30,7 +30,7 @@ In this article:
 
 ## Telerik components that support Observable Data
 
-The following components support observable data for their `Data` parameter:
+The following components support observable data for their `Data` parameter. Note that obserable data is not supported with manual data binding via the `OnRead` event.
 
 * [AutoComplete]({%slug autocomplete-refresh-data%})
 

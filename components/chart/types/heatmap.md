@@ -23,10 +23,6 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap" target="_blank">Blazor H
     * [ColorField](#colorfield)
     * [Customize Chart Elements - Nested Tags Settings](#customize-chart-elements--nested-tags-settings)
 
->caption Heatmap chart. Results from the first code snippet below
-
-![](images/basic-heatmap-chart.png)
-
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
 #### To create a Heatmap chart:
@@ -204,9 +200,7 @@ To change the marker type you should set the `Type` parameter, exposed on the `C
 
 * `RoundedRect` - specifies a rectangle with rounded edges form of the marker. 
 
->caption Change the Type of the marker. The result from the code snippet below.
-
-![roundedrect type](images/heatmap-type-parameter.png)
+>caption Change the Type of the marker.
 
 ````CSHTML
 @* Set the type of the marker to RoundedRect *@
@@ -279,9 +273,7 @@ To change the marker type you should set the `Type` parameter, exposed on the `C
 
 The `Color` parameter controls the general color pallete for the markers of the Heatmap. The invidual marker color set to the markers depends the value bound to the `Field` - the higher the value the darker the color. 
 
->caption Change the Color of the Heatmap. The result from the code snippet below.
-
-![color parameter](images/heatmap-color-parameter.png)
+>caption Change the Color of the Heatmap.
 
 ````CSHTML
 @* Set the color of the Heatmap to blue. *@
@@ -352,9 +344,7 @@ The `Color` parameter controls the general color pallete for the markers of the 
 
 The `ColorField` parameter allows you to control the color of an individual marker in the content of the Heatmap. If you do not provide a color in the field bound to the `ColorField` the Heatmap will render white markers.
 
->caption Provide a custom color to all markers in the Heatmap. The result from the code snippet below.
-
-![colorfield parameter](images/heatmap-colorfield-parameter.png)
+>caption Provide a custom color to all markers in the Heatmap.
 
 ````CSHTML
 @* Use the ColorField to provide custom color to each individual marker *@ 
@@ -428,9 +418,7 @@ The `ColorField` parameter allows you to control the color of an individual mark
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-axis-free)
 
->caption Hide the Labels for both X and Y axes. The result of the code snippet below.
-
-![hidden labels](images/heatmap-hidden-labels.png)
+>caption Hide the Labels for both X and Y axes.
 
 ````CSHTML
 @* Use the nested tag settings to hide the labels for both axes *@

@@ -166,11 +166,6 @@ using TelerikBlazorAppSource.Models;
             return new List<BaseFlatItem>(FlatItems);
         }
 
-        public void SetExpanded(BaseFlatItem item, bool expanded)
-        {
-            item.Expanded = expanded;
-        }
-
         private void Remove(BaseFlatItem sourceItem)
         {
             // update the hasChildren state of the parent item of the source flat item that is dragged
@@ -220,7 +215,6 @@ using TelerikBlazorAppSource.Models;
         public Guid? ParentId { get; set; }
         public string Text { get; set; }
         public bool HasChildren { get; set; }
-        public bool Expanded { get; set; }
     }
 ````
 
@@ -330,11 +324,6 @@ using Telerik.Blazor;
             return new List<BaseHierarchicalItem>(HierarchicalItems);
         }
 
-        public void SetExpanded(BaseHierarchicalItem item, bool expanded)
-        {
-            item.Expanded = expanded;
-        }
-
         private void RemoveItem(BaseHierarchicalItem item)
         {
             // locate the parent of the source item
@@ -435,7 +424,6 @@ using System.Threading.Tasks;
         public List<BaseHierarchicalItem> Items { get; set; }
         public bool HasChildren { get; set; }
         public bool HasItems => Items?.Count > 0;
-        public bool Expanded { get; set; }
     }
 ````
 
@@ -704,7 +692,6 @@ using System.Collections.ObjectModel;
         public Guid? ParentId { get; set; }
         public string Text { get; set; }
         public bool HasChildren { get; set; }
-        public bool Expanded { get; set; }
     }
 ````
 

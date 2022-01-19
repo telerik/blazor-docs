@@ -94,9 +94,12 @@ Now try to filter by the On Vacation column - it will use only the current grid 
 depending on how you filter the data so you may never be able to get back all values.
 
 
-<TelerikGrid Data=@CurrentGridData Pageable="true" Height="400px"
-             TotalCount="Total" OnRead="@OnReadHandler"
-             FilterMode="@GridFilterMode.FilterMenu" FilterMenuType="@FilterMenuType.CheckBoxList">
+<TelerikGrid TItem="@Employee"
+             OnRead="@OnReadHandler"
+             Pageable="true"
+             FilterMode="@GridFilterMode.FilterMenu"
+             FilterMenuType="@FilterMenuType.CheckBoxList"
+             Height="400px">
     <GridColumns>
         <GridColumn Field="@(nameof(Employee.EmployeeId))" Filterable="false" />
         <GridColumn Field="@nameof(Employee.Name)">
@@ -121,9 +124,6 @@ depending on how you filter the data so you may never be able to get back all va
 
 @code {
     List<Employee> AllGridData { get; set; }
-
-    IEnumerable<Employee> CurrentGridData { get; set; }
-    int Total { get; set; }
 
     #region custom-filter-data
     List<TeamNameFilterOption> TeamsList { get; set; }
@@ -171,12 +171,12 @@ depending on how you filter the data so you may never be able to get back all va
     }
     #endregion custom-filter-data
 
-    async Task OnReadHandler(GridReadEventArgs e)
+    async Task OnReadHandler(GridReadEventArgs args)
     {
         //typical data retrieval for the grid
-        var filteredData = await AllGridData.ToDataSourceResultAsync(e.Request);
-        CurrentGridData = filteredData.Data as IEnumerable<Employee>;
-        Total = filteredData.Total;
+        var filteredData = await AllGridData.ToDataSourceResultAsync(args.Request);
+        args.Data = filteredData.Data as IEnumerable<Employee>;
+        args.Total = filteredData.Total;
     }
 
     protected override async Task OnInitializedAsync()
@@ -185,7 +185,7 @@ depending on how you filter the data so you may never be able to get back all va
         // the actual grid data is retrieve in its OnRead handler
         AllGridData = new List<Employee>();
         var rand = new Random();
-        for (int i = 0; i < 15; i++)
+        for (int i = 1; i <= 15; i++)
         {
             AllGridData.Add(new Employee()
             {
@@ -225,7 +225,6 @@ depending on how you filter the data so you may never be able to get back all va
     }
 }
 ````
-
 
 
 ## See Also

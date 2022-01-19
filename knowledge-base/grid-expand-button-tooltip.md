@@ -51,9 +51,11 @@ The example below shows one way to do that, and to distinguish a particular grid
     }
 </script>
 
-<TelerikGrid Data="@CurrentGridData" Class="titles-on-expand-buttons"
-                TotalCount="@Total" OnRead="@ReadItems"
-                Sortable="true" Pageable="true" FilterMode="@GridFilterMode.FilterMenu">
+<TelerikGrid TItem="@MainModel"
+             OnRead="@ReadItems"
+             Class="titles-on-expand-buttons"
+             Sortable="true" Pageable="true"
+             FilterMode="@GridFilterMode.FilterMenu">
     <DetailTemplate>
         @{
             var employee = context as MainModel;
@@ -72,23 +74,24 @@ The example below shows one way to do that, and to distinguish a particular grid
 </TelerikGrid>
 
 @code {
-    List<MainModel> CurrentGridData { get; set; }
     List<MainModel> AllData { get; set; }
-    int Total { get; set; } = 0;
 
     protected async Task ReadItems(GridReadEventArgs args)
     {
         // typical data retrieval through OnRead
         var datasourceResult = AllData.ToDataSourceResult(args.Request);
 
-        CurrentGridData = (datasourceResult.Data as IEnumerable<MainModel>).ToList();
-        Total = datasourceResult.Total;
-
-        StateHasChanged();
+        args.Data = datasourceResult.Data;
+        args.Total = datasourceResult.Total;
         // end data operations
-        
-        // ensure the hierarchy expand icons have the desired tooltip after the grid re-renderes with new data
-        await _js.InvokeVoidAsync("setGridExpandButtonTitles", ".titles-on-expand-buttons", "Expand Details");
+
+        try
+        {
+            // using try-catch to prevent JSInterop calls at too early stage
+            // ensure the hierarchy expand icons have the desired tooltip after the grid re-renderes with new data
+            await _js.InvokeVoidAsync("setGridExpandButtonTitles", ".titles-on-expand-buttons", "Expand Details");
+        }
+        catch (InvalidOperationException e) { }
     }
 
     // only data generation follows

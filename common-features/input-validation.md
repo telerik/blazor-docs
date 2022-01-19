@@ -538,7 +538,7 @@ There is no built-in provision in the framework for validating a field value bas
 
 The Editor produces an HTML string in the field you bind its `Value` to. Thus, while the user may see a certain amount of content, the actual content may have more symbols, because the HTML tags count towards the total string length, but the user does not see them.
 
-Unlike other components, the editor does not trigger form validation on every keystroke, because it is expected to require a lot of content and that would be bad for performance. Validation is still triggered upon the `ValueChanged` event, but that fires with a delay - the `UpdateInterval` parameter which defaults to 100ms.
+Unlike other components, the editor does not trigger form validation on every keystroke, because it is expected to require a lot of content and that would be bad for performance. Validation is still triggered upon the `ValueChanged` event, but that fires with a delay - the `DebounceDelay` parameter which defaults to 100ms.
 
 >caption How to validate the Editor component
 

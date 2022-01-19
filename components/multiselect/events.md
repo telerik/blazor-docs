@@ -135,10 +135,13 @@ You can also call remote data through async operations.
 ````CSHTML
 @* this sample simulates fetching options based on the user input *@
 
-<TelerikMultiSelect Data="@Options" @bind-Value="@TheValues" OnRead="@ReadItems"
-                    Filterable="true" />
-<br />
-selected values
+<TelerikMultiSelect TItem="@String" TValue="@String"
+                    OnRead="@ReadItems"
+                    @bind-Value="@TheValues"
+                    Filterable="true"
+                    Placeholder="Type anything" />
+
+<p>Selected values:</p>
 <ul>
     @foreach (var item in TheValues)
     {
@@ -148,18 +151,17 @@ selected values
 
 @code{
     List<string> TheValues { get; set; } = new List<string>();
-    List<string> Options { get; set; } = new List<string>();
 
     async Task ReadItems(MultiSelectReadEventArgs args)
     {
-        if (args.Request.Filters.Count > 0) // there is user filter input, skips providing data on initialization
+        if (args.Request.Filters.Count > 0) // wait for user input to load data
         {
             Telerik.DataSource.FilterDescriptor filter = args.Request.Filters[0] as Telerik.DataSource.FilterDescriptor;
             string userInput = filter.Value.ToString();
             string method = filter.Operator.ToString();
 
-            //new data collection comes down from the service
-            Options = await GetSuggestionsData(userInput, method);
+            //new data collection comes from the service
+            args.Data = await GetSuggestionsData(userInput, method);
         }
     }
 
@@ -170,7 +172,7 @@ selected values
         //sample logic for getting options - here they are generated, you can call a remote service
         //for brevity, this example does not use the filter operator, but your actual service can
         List<string> optionssData = new List<string>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 1; i <= 5; i++)
         {
             optionssData.Add($"suggestion {i} for input {userInput}");
         }
@@ -185,10 +187,15 @@ selected values
 ````CSHTML
 @using Telerik.DataSource.Extensions
 
-<TelerikMultiSelect Data="@CurrentOptions" @bind-Value="@TheValues" OnRead="@ReadItems"
-                    Filterable="true" ValueField="Id" TextField="Make" />
-<br />
-selected values
+<TelerikMultiSelect TItem="@Car" TValue="@int"
+                    OnRead="@ReadItems"
+                    @bind-Value="@TheValues"
+                    ValueField="@(nameof(Car.Id))"
+                    TextField="@(nameof(Car.Make))"
+                    Filterable="true"
+                    Placeholder="Type a car brand" />
+
+<p>Selected values</p>
 <ul>
     @foreach (var item in TheValues)
     {
@@ -196,7 +203,7 @@ selected values
     }
 </ul>
 
-@code{
+@code {
     List<int> TheValues { get; set; } = new List<int>();
     List<Car> AllOptions { get; set; }
 
@@ -204,34 +211,34 @@ selected values
 
     async Task ReadItems(MultiSelectReadEventArgs args)
     {
-        //generate the big data source that we want to narrow down for the user
-        //in a real case you would probably have fetched it in OnInitializedAsync
-        if (AllOptions == null)
-        {
-            AllOptions = new List<Car>
-            {
-                new Car { Id = 1, Make = "Honda" },
-                new Car { Id = 2, Make = "Opel" },
-                new Car { Id = 3, Make = "Audi" },
-                new Car { Id = 4, Make = "Lancia" },
-                new Car { Id = 5, Make = "BMW" },
-                new Car { Id = 6, Make = "Mercedes" },
-                new Car { Id = 7, Make = "Tesla" },
-                new Car { Id = 8, Make = "Vw" },
-                new Car { Id = 9, Make = "Alpha Romeo" },
-                new Car { Id = 10, Make = "Chevrolet" },
-                new Car { Id = 11, Make = "Ford" },
-                new Car { Id = 12, Make = "Cadillac" },
-                new Car { Id = 13, Make = "Dodge" },
-                new Car { Id = 14, Make = "Jeep" },
-                new Car { Id = 15, Make = "Chrysler" },
-                new Car { Id = 16, Make = "Lincoln" }
-            };
-        }
-
-        //use Telerik extension methods to filter the data source based on the request from the component
+        //using Telerik extension methods to filter the data
         var datasourceResult = AllOptions.ToDataSourceResult(args.Request);
-        CurrentOptions = (datasourceResult.Data as IEnumerable<Car>).ToList();
+        args.Data = datasourceResult.Data;
+    }
+
+    protected override void OnInitialized()
+    {
+        AllOptions = new List<Car>()
+        {
+            new Car { Id = 1, Make = "Honda" },
+            new Car { Id = 2, Make = "Opel" },
+            new Car { Id = 3, Make = "Audi" },
+            new Car { Id = 4, Make = "Lancia" },
+            new Car { Id = 5, Make = "BMW" },
+            new Car { Id = 6, Make = "Mercedes" },
+            new Car { Id = 7, Make = "Tesla" },
+            new Car { Id = 8, Make = "Vw" },
+            new Car { Id = 9, Make = "Alpha Romeo" },
+            new Car { Id = 10, Make = "Chevrolet" },
+            new Car { Id = 11, Make = "Ford" },
+            new Car { Id = 12, Make = "Cadillac" },
+            new Car { Id = 13, Make = "Dodge" },
+            new Car { Id = 14, Make = "Jeep" },
+            new Car { Id = 15, Make = "Chrysler" },
+            new Car { Id = 16, Make = "Lincoln" }
+        };
+
+        base.OnInitialized();
     }
 
     public class Car
@@ -241,8 +248,6 @@ selected values
     }
 }
 ````
-
-
 
 ## OnBlur
 

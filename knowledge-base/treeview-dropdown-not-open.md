@@ -47,6 +47,7 @@ Wrap the TreeView `<ItemTemplate>` content inside a `<div @onclick:stopPropagati
 @* TreeView with disabled selection, overridden hover styles and clickable nested components *@
 
 <TelerikTreeView Data="@TreeData"
+                 @bind-ExpandedItems="@ExpandedItems"
                  SelectionMode="TreeViewSelectionMode.None">
     <TreeViewBindings>
         <TreeViewBinding Level="0">
@@ -81,6 +82,8 @@ Wrap the TreeView `<ItemTemplate>` content inside a `<div @onclick:stopPropagati
 
 @code {
     IEnumerable<TreeItem> TreeData { get; set; }
+    
+    IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
 
     IEnumerable<ListItem> ListData { get; set; }
 
@@ -96,7 +99,6 @@ Wrap the TreeView `<ItemTemplate>` content inside a `<div @onclick:stopPropagati
         TreeData = new List<TreeItem>() {
             new TreeItem() {
                 Text = "Root Item",
-                Expanded = true,
                 Items = new List<TreeItem>() {
                     new TreeItem { Text = "Child Item" }
                 }
@@ -107,6 +109,8 @@ Wrap the TreeView `<ItemTemplate>` content inside a `<div @onclick:stopPropagati
     protected override void OnInitialized()
     {
         LoadData();
+        
+        ExpandedItems = new List<object>() { TreeData.FirstOrDefault() };
     }
 
     public class ListItem
@@ -119,7 +123,6 @@ Wrap the TreeView `<ItemTemplate>` content inside a `<div @onclick:stopPropagati
     {
         public string Text { get; set; }
         public List<TreeItem> Items { get; set; }
-        public bool Expanded { get; set; }
     }
 }
 ````

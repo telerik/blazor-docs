@@ -28,11 +28,11 @@ The `SelectedItemChanged` event fires every time the user clicks on a new item f
 <TelerikDrawer Data="@Data" Expanded="true" MiniMode="true" Mode="DrawerMode.Push"
                SelectedItem="@selectedItem"
                SelectedItemChanged="((DrawerItem item) => SelectedItemChangedHandler(item))">
-    <Content>
+    <DrawerContent>
         <div class="text-info">
             Content for the @selectedItem?.Text
         </div>
-    </Content>
+    </DrawerContent>
 </TelerikDrawer>
 
 @code {
@@ -91,11 +91,11 @@ The `ExpandedChanged` event fires every time the component's state is changed - 
                Mode="@DrawerMode.Push"
                @bind-SelectedItem="@selectedItem"
                @ref="@DrawerRef">
-    <Content>
+    <DrawerContent>
         <div class="text-info">
             Content for the @selectedItem?.Text
         </div>
-    </Content>
+    </DrawerContent>
 </TelerikDrawer>
 
 @code {

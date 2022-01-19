@@ -14,10 +14,6 @@ The <a href="https://www.telerik.com/blazor-ui/scatter-line-chart" target="_blan
 
 You would usually use ScatterLine charts for showing the relation between different sets of data, for example scientific (experimental) results, or when you need to have two numerical axes on a line-type chart.
 
->caption ScatterLine chart. Results from the first code snippet below
-
-![](images/basic-scatterline-chart.png)
-
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
 #### To create a scatter chart:

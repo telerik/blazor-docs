@@ -306,6 +306,8 @@ navigation:
         title: "DropDownTree"
      "*editor":
         title: "Editor"
+     "*fileselect":
+        title: "FileSelect"
      "*form":
         title: "Form"
      "*flatcolorpicker":
@@ -326,6 +328,9 @@ navigation:
         title: "LoaderContainer"
      "*map":
         title: "Map"
+     "*layers":
+        title: "Layers"
+        position: 10
      "*maskedtextbox":
         title: "MaskedTextBox"
      "*mediaplayer":
@@ -550,7 +555,7 @@ baseurl: /blazor-ui
 enable_blazorRepl: true
 
 ## Latest UI for Blazor version. Used in some articles
-uiForBlazorLatestVersion: "2.30.0"
+uiForBlazorLatestVersion: "3.0.0"
 supportedFrameworkVersion: ".NET Core 3.1.11, .NET 5 and .NET 6"
 
 ## The Kendo UI version used

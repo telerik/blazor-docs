@@ -21,6 +21,8 @@ This library enables you to work with spreadsheet documents – create ones from
 
 * [**Shapes and Images**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/shapes-and-images): API for insertion, positioning and deletion of images in worksheets.		
 
+* [**Conditional Formatting**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/conditional-formatting): Make it easy to analyze data, find critical issues, patterns and trends by representing the data inside in a user-friendly manner. 
+
 * [**Hyperlinks**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/hyperlink): The API enables you to add, remove, edit and search for hyperlinks in the worksheets of the document.
 
 * [**Workbook Protection**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/protection/workbook): Prevents the users from modifying the workbook by adding, removing, renaming or reordering sheets.	

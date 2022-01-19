@@ -50,11 +50,9 @@ The AutoComplete is a generic component and its type is determined by the type o
 
 ## Features
 
->caption The AutoComplete provides the following features:
+The AutoComplete provides the following features:
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the AutoComplete.
-
-* `PopupClass` - additional CSS class to customize the appearance of the AutoComplete's dropdown.
 
 * `ClearButton` - whether the user will have the option to clear the selected value with a button on the input. When it is clicked, the `Value` will be updated to `string.Empty`.
 
@@ -72,10 +70,6 @@ The AutoComplete is a generic component and its type is determined by the type o
 
 * `Placeholder` - the text the user sees as a hint when there is no text in the input. In order for it to be shown, the `Value` parameter should be set to the default value for string (`null`).
 
-* `PopupHeight` - the height of the expanded dropdown list element.
-
-* `PopupWidth` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
-
 * `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
 
 * `Value` and `bind-Value`- get/set the value of the component, can be used for binding. Use the `@bind-Value` syntax for two-way binding, for example, to a variable of your own. The `Value` must be a `string`.
@@ -89,6 +83,24 @@ The AutoComplete is a generic component and its type is determined by the type o
 * Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug autocomplete-templates%}) article for more details.
 
 * Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
+
+### Popup settings
+
+The attributes below are set via nested tags:
+
+<div class="skip-repl"></div>
+````
+<TelerikAutoComplete>
+    <AutoCompleteSettings>
+        <AutoCompletePopupSettings Height="..." />
+    </AutoCompleteSettings>
+</TelerikAutoComplete>
+````
+
+* `Class` - additional CSS class to customize the appearance of the AutoComplete's dropdown.
+* `Height` - the height of the expanded dropdown list element.
+* `Width` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
+
 
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 

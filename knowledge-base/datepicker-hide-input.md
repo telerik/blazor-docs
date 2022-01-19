@@ -37,7 +37,7 @@ You can also style the icon button as needed.
         border: none;
     }
 
-    .date-picker-only-icon .k-widget.k-dateinput {
+    .date-picker-only-icon .k-dateinput {
         display: none;
     }
 

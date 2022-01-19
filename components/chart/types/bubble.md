@@ -14,10 +14,6 @@ The <a href="https://www.telerik.com/blazor-ui/bubble-chart" target="_blank">Bla
 
 A Bubble chart is useful for visualizing different scientific relationships (e.g, economical, social, etc.). This chart type's x-axis is also numerical and does not require items.
 
->caption Bubble chart. Results from the first code snippet below
-
-![](images/basic-bubble-chart.png)
-
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
 #### To create a bubble chart:
@@ -150,10 +146,6 @@ The size field should, generally, have positive values as it correlates to the p
     };
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/bubble-chart-negative-values.png)
 
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)

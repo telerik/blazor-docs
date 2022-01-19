@@ -43,10 +43,11 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
 @* Allow the user to use checkboxes to select nodes in the TreeView. Use the two-way data binding of the CheckedItems collection to obtain what the user checked. This example shows how to pre-select a node. *@
 
 <TelerikTreeView Data="@FlatData"
+                 @bind-ExpandedItems="@ExpandedItems"
                  CheckBoxMode="@TreeViewCheckBoxMode.Multiple"
                  @bind-CheckedItems="@checkedItems">
     <TreeViewBindings>
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
     </TreeViewBindings>
 </TelerikTreeView>
 
@@ -82,14 +83,16 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
     protected override void OnInitialized()
     {
         LoadFlatData();
+
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
 
         var precheckedItem = FlatData.Where(x => x.Id == 3); // provide initial checked item when the page is loaded
 
@@ -106,8 +109,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -116,8 +118,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -125,8 +126,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -135,8 +135,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {
@@ -181,11 +180,12 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
 @* Click on a parent item to observe the behavior of the CheckChildren bool parameter *@
 
 <TelerikTreeView Data="@FlatData"
+                 @bind-ExpandedItems="@ExpandedItems"
                  CheckChildren="true"
                  CheckBoxMode="@TreeViewCheckBoxMode.Multiple"
                  @bind-CheckedItems="@checkedItems">
     <TreeViewBindings>
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
     </TreeViewBindings>
 </TelerikTreeView>
 
@@ -221,14 +221,15 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
     protected override void OnInitialized()
     {
         LoadFlatData();
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
     }
 
     private void LoadFlatData()
@@ -241,8 +242,7 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -251,8 +251,7 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -260,8 +259,7 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -270,8 +268,7 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {
@@ -324,11 +321,12 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
 @* Enable the CheckParents parameter and observe the behavior of this setting. *@
 
 <TelerikTreeView Data="@FlatData"
+                 @bind-ExpandedItems="@ExpandedItems"
                  CheckParents="true"
                  CheckBoxMode="@TreeViewCheckBoxMode.Multiple"
                  @bind-CheckedItems="@checkedItems">
     <TreeViewBindings>
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
     </TreeViewBindings>
 </TelerikTreeView>
 
@@ -364,14 +362,15 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
     protected override void OnInitialized()
     {
         LoadFlatData();
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
     }
 
     private void LoadFlatData()
@@ -384,8 +383,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -394,8 +392,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -403,8 +400,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -413,8 +409,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {
@@ -458,11 +453,12 @@ You can allow the user to click on the node itself and the TreeView will automat
 @* Set the CheckOnClick parameter to true and click on a node to add it in the CheckedItems collection. *@
 
 <TelerikTreeView Data="@FlatData"
+                 @bind-ExpandedItems="@ExpandedItems"
                  CheckOnClick="true"
                  CheckBoxMode="@TreeViewCheckBoxMode.Multiple"
                  @bind-CheckedItems="@checkedItems">
     <TreeViewBindings>
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
     </TreeViewBindings>
 </TelerikTreeView>
 
@@ -498,14 +494,15 @@ You can allow the user to click on the node itself and the TreeView will automat
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
     protected override void OnInitialized()
     {
         LoadFlatData();
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
     }
 
     private void LoadFlatData()
@@ -518,8 +515,7 @@ You can allow the user to click on the node itself and the TreeView will automat
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -528,8 +524,7 @@ You can allow the user to click on the node itself and the TreeView will automat
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -537,8 +532,7 @@ You can allow the user to click on the node itself and the TreeView will automat
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -547,8 +541,7 @@ You can allow the user to click on the node itself and the TreeView will automat
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {
@@ -588,12 +581,13 @@ You can combine both selection and checking nodes. To keep both collections in s
 @* You can couple checking the item and placing it in the selected item list. *@
 
 <TelerikTreeView Data="@FlatData"
+                 @bind-ExpandedItems="@ExpandedItems"
                  CheckBoxMode="@TreeViewCheckBoxMode.Single"
                  SelectionMode="@TreeViewSelectionMode.Single"
                  @bind-SelectedItems="@checkedItems"
                  @bind-CheckedItems="@checkedItems">
     <TreeViewBindings>
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
     </TreeViewBindings>
 </TelerikTreeView>
 
@@ -619,14 +613,16 @@ You can combine both selection and checking nodes. To keep both collections in s
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
     protected override void OnInitialized()
     {
         LoadFlatData();
+
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
 
         var precheckedItem = FlatData.Where(x => x.Id == 3); // provide initial checked item when the page is loaded
 
@@ -643,8 +639,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -653,8 +648,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -662,8 +656,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -672,8 +665,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {
@@ -708,12 +700,13 @@ You can combine both selection and checking nodes. To keep both collections in s
 @* To select and check multiple items change both modes to Multiple *@
 
 <TelerikTreeView Data="@FlatData"
+                 @bind-ExpandedItems="@ExpandedItems"
                  CheckBoxMode="@TreeViewCheckBoxMode.Multiple"
                  SelectionMode="@TreeViewSelectionMode.Multiple"
                  @bind-SelectedItems="@checkedItems"
                  @bind-CheckedItems="@checkedItems">
     <TreeViewBindings>
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
     </TreeViewBindings>
 </TelerikTreeView>
 
@@ -746,14 +739,16 @@ You can combine both selection and checking nodes. To keep both collections in s
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
     protected override void OnInitialized()
     {
         LoadFlatData();
+
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
 
         var precheckedItem = FlatData.Where(x => x.Id == 3); // provide initial checked item when the page is loaded
 
@@ -770,8 +765,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -780,8 +774,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -789,8 +782,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -799,8 +791,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {

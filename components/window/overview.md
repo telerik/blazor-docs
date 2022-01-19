@@ -117,8 +117,6 @@ The `Visible` property lets you control whether the window component is shown (a
 }
 ````
 
-
-
 ## Styling
 
 The `Class` property lets you define a CSS class that will be rendered on the popup element so you can cascade through it in order to change the appearane of both the content, and the built-in elements of the Window.
@@ -138,7 +136,7 @@ The `Class` property lets you define a CSS class that will be rendered on the po
 </TelerikWindow>
 
 <style>
-    div.k-widget.k-window.MyClass { /* targets the entire popup element */
+    div.k-window.MyClass { /* targets the entire popup element */
         border: 5px solid red;
     }
 

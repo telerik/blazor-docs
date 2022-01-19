@@ -62,10 +62,6 @@ Basic stacking of series
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/stacked-series.png)
-
 ## Named Stack
 
 You can choose which series to cluster together through the `Group` property of the `ChartSeriesStack` tag. If you set it to one series, it automatically enables stacking, so if you want to put one or more series in a separate group, you must provide a group name for each series.
@@ -105,10 +101,6 @@ Stack clustering in groups
 	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/named-stacks.png)
 
 ## Stack 100%
 
@@ -153,10 +145,6 @@ Stack to 100%
     public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/stack-100-groups.png)
 
 ## See Also
 

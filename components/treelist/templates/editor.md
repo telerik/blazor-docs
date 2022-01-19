@@ -43,7 +43,10 @@ If you need to perform logic more complex than simple data binding, use the chan
                 @{
                     CurrentlyEditedEmployee = context as Employee;
                     <TelerikDropDownList Data="@Roles" @bind-Value="@CurrentlyEditedEmployee.Role"
-                                         Width="100%" PopupHeight="auto" DefaultText="Select Role...">
+                                         Width="100%" DefaultText="Select Role...">
+                        <DropDownListSettings>
+                            <DropDownListPopupSettings Height="auto" />
+                        </DropDownListSettings>
                     </TelerikDropDownList>
                 }
             </EditorTemplate>
