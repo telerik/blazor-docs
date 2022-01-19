@@ -15,6 +15,10 @@ res_type: kb
 		<tr>
 			<td>Product</td>
 			<td>TextBox for Blazor, MaskedTextBox for Blazor, NumericTextBox for Blazor, other inputs/form elements</td>
+		</tr>        
+		<tr>
+			<td>Version</td>
+			<td>3.0.0 and later before 3.2.0</td>
 		</tr>
 	</tbody>
 </table>
