@@ -18,6 +18,7 @@ This article explains the events available in the Telerik TreeView for Blazor:
 * [OnItemContextMenu](#onitemcontextmenu)
 * [SelectedItemsChanged](#selecteditemschanged)
 * [CheckedItemsChanged](#checkeditemschanged)
+* [ExpandedItemsChanged](#expandeditemschanged)
 
 ## OnExpand
 
@@ -57,7 +58,6 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
         public string Text { get; set; }
         public int? ParentId { get; set; } //this is a non-default field name
         public bool HasChildren { get; set; }
-        public bool Expanded { get; set; } //this is a non-default field name
     }
 
     protected override void OnInitialized()
@@ -74,8 +74,7 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
             Id = 1,
             Text = "Parent 1",
             ParentId = null, // indicates a root (zero-level) item
-            HasChildren = true, // informs the treeview there are children so it renders the expand option
-            Expanded = true // an item can be expanded by default
+            HasChildren = true // informs the treeview there are children so it renders the expand option
         });
 
         items.Add(new TreeItem()
@@ -83,8 +82,7 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
             Id = 2,
             Text = "Parent 2",
             ParentId = null, //  indicates a root item
-            HasChildren = true,
-            Expanded = false
+            HasChildren = true
         });
 
         items.Add(new TreeItem()
@@ -92,8 +90,7 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
             Id = 3,
             Text = "Parent 3",
             ParentId = null, // indicates a root item
-            HasChildren = false, //there will be no children in this item
-            Expanded = true // will not have an effect if there are no children
+            HasChildren = false //there will be no children in this item
         });
 
         items.Add(new TreeItem()
@@ -101,8 +98,7 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
             Id = 4,
             Text = "Child 1 of Parent 1",
             ParentId = 1, // the parent will be the first item
-            HasChildren = false,
-            Expanded = false
+            HasChildren = false
         });
 
         items.Add(new TreeItem()
@@ -110,8 +106,7 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
             Id = 5,
             Text = "Child 2 of Parent 1",
             ParentId = 1, // the parent will be the first item
-            HasChildren = true,
-            Expanded = true
+            HasChildren = true
         });
 
         items.Add(new TreeItem()
@@ -119,8 +114,7 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
             Id = 6,
             Text = "Child 1 of Child 2",
             ParentId = 5, // the parent will be the first child of the first root item
-            HasChildren = false,
-            Expanded = false
+            HasChildren = false
         });
 
         items.Add(new TreeItem()
@@ -128,8 +122,7 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
             Id = 7,
             Text = "Child 1 of Parent 2",
             ParentId = 2, // the parent will be the second root item
-            HasChildren = false,
-            Expanded = false
+            HasChildren = false
         });
 
         return items;
@@ -212,8 +205,7 @@ The `OnItemClick` event fires when the user clicks, presses `Enter` or taps (for
             Text = "Project",
             ParentId = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -222,8 +214,7 @@ The `OnItemClick` event fires when the user clicks, presses `Enter` or taps (for
             Text = "Design",
             ParentId = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -231,8 +222,7 @@ The `OnItemClick` event fires when the user clicks, presses `Enter` or taps (for
             Text = "Implementation",
             ParentId = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -241,8 +231,7 @@ The `OnItemClick` event fires when the user clicks, presses `Enter` or taps (for
             Text = "site.psd",
             ParentId = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {
@@ -288,7 +277,6 @@ The `OnItemClick` event fires when the user clicks, presses `Enter` or taps (for
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
     #endregion
 }
@@ -357,8 +345,7 @@ The event handler receives a `TreeViewItemDoubleClickEventArgs` object which pro
             Text = "Project",
             ParentId = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -367,8 +354,7 @@ The event handler receives a `TreeViewItemDoubleClickEventArgs` object which pro
             Text = "Design",
             ParentId = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -376,8 +362,7 @@ The event handler receives a `TreeViewItemDoubleClickEventArgs` object which pro
             Text = "Implementation",
             ParentId = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -386,8 +371,7 @@ The event handler receives a `TreeViewItemDoubleClickEventArgs` object which pro
             Text = "site.psd",
             ParentId = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {
@@ -427,7 +411,6 @@ The event handler receives a `TreeViewItemDoubleClickEventArgs` object which pro
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
     #endregion
 }
@@ -493,8 +476,7 @@ The `OnItemContextMenu` is used to [integrate the Context menu]({%slug contextme
             Text = "Project",
             ParentId = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -503,8 +485,7 @@ The `OnItemContextMenu` is used to [integrate the Context menu]({%slug contextme
             Text = "Design",
             ParentId = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -512,8 +493,7 @@ The `OnItemContextMenu` is used to [integrate the Context menu]({%slug contextme
             Text = "Implementation",
             ParentId = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -522,8 +502,7 @@ The `OnItemContextMenu` is used to [integrate the Context menu]({%slug contextme
             Text = "site.psd",
             ParentId = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {
@@ -563,7 +542,6 @@ The `OnItemContextMenu` is used to [integrate the Context menu]({%slug contextme
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
     #endregion
 }
@@ -619,8 +597,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
             Text = "Project",
             ParentId = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
         items.Add(new TreeItem()
         {
@@ -628,8 +605,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
             Text = "Design",
             ParentId = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -637,8 +613,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
             Text = "Implementation",
             ParentId = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -647,8 +622,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
             Text = "site.psd",
             ParentId = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
 
         items.Add(new TreeItem()
@@ -687,7 +661,6 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 }
 ````
@@ -707,7 +680,7 @@ The `CheckedItemsChanged` event fires every time the user uses a [checkbox]({%sl
                  CheckedItems="@checkedItems"
                  CheckedItemsChanged="@((IEnumerable<object> items) => CheckedItemsChangedHandler(items) )">
     <TreeViewBindings >
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
     </TreeViewBindings>
 </TelerikTreeView>
 
@@ -736,7 +709,6 @@ The `CheckedItemsChanged` event fires every time the user uses a [checkbox]({%sl
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
@@ -760,8 +732,7 @@ The `CheckedItemsChanged` event fires every time the user uses a [checkbox]({%sl
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -770,8 +741,7 @@ The `CheckedItemsChanged` event fires every time the user uses a [checkbox]({%sl
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -779,8 +749,7 @@ The `CheckedItemsChanged` event fires every time the user uses a [checkbox]({%sl
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -789,8 +758,7 @@ The `CheckedItemsChanged` event fires every time the user uses a [checkbox]({%sl
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {
@@ -825,6 +793,112 @@ The `CheckedItemsChanged` event fires every time the user uses a [checkbox]({%sl
 >caption The result of the code snippet above
 
 ![checking single node example](images/single-node-checking-one-way-binding-example.png)
+
+
+## ExpandedItemsChanged
+
+The `ExpandedItemsChanged` event fires every time the user expands or collapses a TreeView item.
+
+````CSHTML
+<TelerikTreeView Data="@FlatData" ExpandedItems="@ExpandedItems"
+                 ExpandedItemsChanged="@ExpandedItemsChanged">
+    <TreeViewBindings>
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue"
+                         TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+    </TreeViewBindings>
+</TelerikTreeView>
+
+@code {
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public int? ParentIdValue { get; set; }
+        public bool HasChildren { get; set; }
+        public string Icon { get; set; }
+    }
+
+    public IEnumerable<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+
+    public async Task ExpandedItemsChanged(IEnumerable<object> items)
+    {
+        ExpandedItems = items;
+    }
+
+    protected override void OnInitialized()
+    {
+        LoadFlatData();
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
+    }
+
+    private void LoadFlatData()
+    {
+        List<TreeItem> items = new List<TreeItem>();
+
+        items.Add(new TreeItem()
+        {
+            Id = 1,
+            Text = "Project",
+            ParentIdValue = null,
+            HasChildren = true,
+            Icon = "folder"
+        });
+
+        items.Add(new TreeItem()
+        {
+            Id = 2,
+            Text = "Design",
+            ParentIdValue = 1,
+            HasChildren = true,
+            Icon = "brush"
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 3,
+            Text = "Implementation",
+            ParentIdValue = 1,
+            HasChildren = true,
+            Icon = "folder"
+        });
+
+        items.Add(new TreeItem()
+        {
+            Id = 4,
+            Text = "site.psd",
+            ParentIdValue = 2,
+            HasChildren = false,
+            Icon = "psd"
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 5,
+            Text = "index.js",
+            ParentIdValue = 3,
+            HasChildren = false,
+            Icon = "js"
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 6,
+            Text = "index.html",
+            ParentIdValue = 3,
+            HasChildren = false,
+            Icon = "html"
+        });
+        items.Add(new TreeItem()
+        {
+            Id = 7,
+            Text = "styles.css",
+            ParentIdValue = 3,
+            HasChildren = false,
+            Icon = "css"
+        });
+
+        FlatData = items;
+    }
+}
+````
 
 
 ## See Also

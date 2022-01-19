@@ -52,7 +52,7 @@ A treeview is often used to list pages, views or sections in an application so t
 ````CSHTML
 Built-in navigation between views
 
-<TelerikTreeView Data="@TreeData">
+<TelerikTreeView Data="@TreeData" @bind-ExpandedItems="@ExpandedItems">
 	<TreeViewBindings>
 		<TreeViewBinding UrlField="Page" ParentIdField="ParentIdValue">
 		</TreeViewBinding>
@@ -67,14 +67,15 @@ Built-in navigation between views
 		public int? ParentIdValue { get; set; }
 		public bool HasChildren { get; set; }
 		public string Page { get; set; }
-		public bool Expanded { get; set; }
 	}
 
 	public IEnumerable<TreeItem> TreeData { get; set; }
+	public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
 	protected override void OnInitialized()
 	{
 		LoadTreeData();
+		ExpandedItems = TreeData.Where(x => x.HasChildren == true).ToList();
 	}
 
 	private void LoadTreeData()
@@ -87,8 +88,7 @@ Built-in navigation between views
 			Text = "Project",
 			ParentIdValue = null,
 			HasChildren = true,
-			Page = "one", //the URL to navigate to
-			Expanded = true
+			Page = "one" //the URL to navigate to
 		});
 
 		items.Add(new TreeItem()
@@ -97,8 +97,7 @@ Built-in navigation between views
 			Text = "Design",
 			ParentIdValue = 1,
 			HasChildren = false,
-			Page = "two", //the URL to navigate to
-			Expanded = true
+			Page = "two" //the URL to navigate to
 		});
 		items.Add(new TreeItem()
 		{
@@ -106,8 +105,7 @@ Built-in navigation between views
 			Text = "Implementation",
 			ParentIdValue = 1,
 			HasChildren = false,
-			Page = "three", //the URL to navigate to
-			Expanded = true
+			Page = "three" //the URL to navigate to
 		});
 
 		TreeData = items;
@@ -120,4 +118,3 @@ Built-in navigation between views
   * [Data Binding a TreeView]({%slug components/treeview/data-binding/overview%})
   * [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/treeview/index)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView)
-

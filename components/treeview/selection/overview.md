@@ -25,6 +25,7 @@ You get or set the selected items through the `SelectedItems` parameter. It is a
 @* Observe how the node selection works and preselect the second node. *@
 
 <TelerikTreeView Data="@Data"
+                 @bind-ExpandedItems="@ExpandedItems"
                  SelectionMode="@TreeViewSelectionMode.Single"
                  @bind-SelectedItems="@SelectedItems">
 </TelerikTreeView>
@@ -45,16 +46,18 @@ You get or set the selected items through the `SelectedItems` parameter. It is a
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public IEnumerable<object> SelectedItems { get; set; } = new List<object>();
 
     public IEnumerable<TreeItem> Data { get; set; }
 
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+
     protected override void OnInitialized()
     {
         LoadData();
+        ExpandedItems = TreeData.Where(x => x.HasChildren == true).ToList();
         
         // Preselection of the second node (not required)
         SelectedItems = new List<object>() { Data.Skip(1).FirstOrDefault() };
@@ -69,8 +72,7 @@ You get or set the selected items through the `SelectedItems` parameter. It is a
             Text = "Project",
             ParentId = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
         items.Add(new TreeItem()
         {
@@ -78,8 +80,7 @@ You get or set the selected items through the `SelectedItems` parameter. It is a
             Text = "Design",
             ParentId = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -87,8 +88,7 @@ You get or set the selected items through the `SelectedItems` parameter. It is a
             Text = "Implementation",
             ParentId = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -97,8 +97,7 @@ You get or set the selected items through the `SelectedItems` parameter. It is a
             Text = "site.psd",
             ParentId = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
 
         items.Add(new TreeItem()

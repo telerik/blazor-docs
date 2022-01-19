@@ -40,12 +40,13 @@ You can use one-way binding to provide an initial checked node, and respond to t
 ````CSHTML
 @* Check a single node by using one-way data binding and provide initially checked node. *@
 
-<TelerikTreeView Data="@FlatData" 
-                 CheckBoxMode="@TreeViewCheckBoxMode.Single" 
+<TelerikTreeView Data="@FlatData"
+                 @bind-ExpandedItems="@ExpandedItems"
+                 CheckBoxMode="@TreeViewCheckBoxMode.Single"
                  CheckedItems="@checkedItems"
                  CheckedItemsChanged="@((IEnumerable<object> items) => CheckedItemsChangedHandler(items) )">
     <TreeViewBindings >
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
     </TreeViewBindings>
 </TelerikTreeView>
 
@@ -74,14 +75,16 @@ You can use one-way binding to provide an initial checked node, and respond to t
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
     protected override void OnInitialized()
     {
         LoadFlatData();
+
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
 
         var precheckedItem = FlatData.Where(x => x.Id == 3); // provide initial checked item when the page is loaded
 
@@ -98,8 +101,7 @@ You can use one-way binding to provide an initial checked node, and respond to t
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -108,8 +110,7 @@ You can use one-way binding to provide an initial checked node, and respond to t
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -117,8 +118,7 @@ You can use one-way binding to provide an initial checked node, and respond to t
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -127,8 +127,7 @@ You can use one-way binding to provide an initial checked node, and respond to t
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {
@@ -171,11 +170,12 @@ You can use two-way binding to get the node the user has checked. This can be us
 ````CSHTML
 @* Check a single node using the @bind-CheckedItems syntax for two-way data binding. *@
 
-<TelerikTreeView Data="@FlatData" 
-                 CheckBoxMode="@TreeViewCheckBoxMode.Single" 
+<TelerikTreeView Data="@FlatData"
+                 @bind-ExpandedItems="@ExpandedItems"
+                 CheckBoxMode="@TreeViewCheckBoxMode.Single"
                  @bind-CheckedItems="@checkedItems">
     <TreeViewBindings >
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" ExpandedField="Expanded" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
     </TreeViewBindings>
 </TelerikTreeView>
 
@@ -199,14 +199,15 @@ You can use two-way binding to get the node the user has checked. This can be us
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-        public bool Expanded { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
     protected override void OnInitialized()
     {
         LoadFlatData();
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
     }
 
     private void LoadFlatData()
@@ -219,8 +220,7 @@ You can use two-way binding to get the node the user has checked. This can be us
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -229,8 +229,7 @@ You can use two-way binding to get the node the user has checked. This can be us
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush",
-            Expanded = true
+            Icon = "brush"
         });
         items.Add(new TreeItem()
         {
@@ -238,8 +237,7 @@ You can use two-way binding to get the node the user has checked. This can be us
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder",
-            Expanded = true
+            Icon = "folder"
         });
 
         items.Add(new TreeItem()
@@ -248,8 +246,7 @@ You can use two-way binding to get the node the user has checked. This can be us
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd",
-            Expanded = true
+            Icon = "psd"
         });
         items.Add(new TreeItem()
         {

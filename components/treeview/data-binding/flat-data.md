@@ -25,14 +25,15 @@ You must also provide the correct value for the `HasChildren` field - for items 
 ````CSHTML
 Using self-referencing flat data
 
-<TelerikTreeView Data="@FlatData">
+<TelerikTreeView Data="@FlatData" @bind-ExpandedItems="@ExpandedItems">
 	<TreeViewBindings>
-		<TreeViewBinding ParentIdField="Parent" ExpandedField="IsExpanded" />
+		<TreeViewBinding ParentIdField="Parent" />
 	</TreeViewBindings>
 </TelerikTreeView>
 
 @code {
 	public IEnumerable<TreeItem> FlatData { get; set; }
+	public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
 	public class TreeItem //most fields use the default names and will bind automatically in this example
 	{
@@ -40,12 +41,12 @@ Using self-referencing flat data
 		public string Text { get; set; }
 		public int? Parent { get; set; } //this is a non-default field name
 		public bool HasChildren { get; set; }
-		public bool IsExpanded { get; set; } //this is a non-default field name
 	}
 
 	protected override void OnInitialized()
 	{
 		FlatData = LoadFlat();
+		ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
 	}
 
 	private List<TreeItem> LoadFlat()
@@ -57,8 +58,7 @@ Using self-referencing flat data
 			Id = 1,
 			Text = "Parent 1",
 			Parent = null, // indicates a root (zero-level) item
-			HasChildren = true, // informs the treeview there are children so it renders the expand option
-			IsExpanded = true // an item can be expanded by default
+			HasChildren = true // informs the treeview there are children so it renders the expand option
 		});
 
 		items.Add(new TreeItem()
@@ -66,8 +66,7 @@ Using self-referencing flat data
 			Id = 2,
 			Text = "Parent 2",
 			Parent = null, //  indicates a root item
-			HasChildren = true, 
-			IsExpanded = false
+			HasChildren = true
 		});
 
 			items.Add(new TreeItem()
@@ -75,8 +74,7 @@ Using self-referencing flat data
 			Id = 3,
 			Text = "Parent 3",
 			Parent = null, // indicates a root item
-			HasChildren = false, //there will be no children in this item
-			IsExpanded = true // will not have an effect if there are no children
+			HasChildren = false //there will be no children in this item
 		});
 
 		items.Add(new TreeItem()
@@ -84,8 +82,7 @@ Using self-referencing flat data
 			Id = 4,
 			Text = "Child 1 of Parent 1",
 			Parent = 1, // the parent will be the first item
-			HasChildren = false,
-			IsExpanded = false
+			HasChildren = false
 		});
 
 		items.Add(new TreeItem()
@@ -93,8 +90,7 @@ Using self-referencing flat data
 			Id = 5,
 			Text = "Child 2 of Parent 1",
 			Parent = 1, // the parent will be the first item
-			HasChildren = true,
-			IsExpanded = true
+			HasChildren = true
 		});
 
 		items.Add(new TreeItem()
@@ -102,8 +98,7 @@ Using self-referencing flat data
 			Id = 6,
 			Text = "Child 1 of Child 2",
 			Parent = 5, // the parent will be the first child of the first root item
-			HasChildren = false,
-			IsExpanded = false
+			HasChildren = false
 		});
 
 		items.Add(new TreeItem()
@@ -111,8 +106,7 @@ Using self-referencing flat data
 			Id = 7,
 			Text = "Child 1 of Parent 2",
 			Parent = 2, // the parent will be the second root item
-			HasChildren = false,
-			IsExpanded = false
+			HasChildren = false
 		});
 
 		return items;
@@ -127,4 +121,3 @@ Using self-referencing flat data
   * [Live Demo: TreeView Flat Data](https://demos.telerik.com/blazor-ui/treeview/flat-data)
   * [Binding to Hierarchical Data]({%slug components/treeview/data-binding/hierarchical-data%})
   * [Load on Demand]({%slug components/treeview/data-binding/load-on-demand%})
-
