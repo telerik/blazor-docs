@@ -16,27 +16,26 @@ This article explains the events available in the Telerik Context Menu for Blazo
 
 ## OnClick
 
-The `OnClick` event fires when the user clicks or taps on a menu item. The event handler receives an argument of type `ContextMenuClickEventArgs<TItem>` with the item model (`args.Item`) and a boolean flag that controls component re-rendering (`args.ShouldRender`) after the event.
+The `OnClick` event fires when the user clicks or taps on a menu item. It receives the model of the item as an argument that you can cast to the concrete model type you are using.
 
-You can use the `OnClick` event to react to user choices, for example load new content without using navigation.
+You can use the `OnClick` event to react to user choices in a menu without using navigation to load new content automatically.
 
 >caption Handle OnClick
 
 ````CSHTML
-<p>Last clicked item: @ClickedItem?.Text</p>
-
-<div id="context-menu-target" style="padding:1em;background:yellow;">right-click for context menu</div>
+Last clicked item: @ClickedItem?.Text
+<div id="context-menu-target" style="background:yellow;">right click for context menu</div>
 
 <TelerikContextMenu Data="@MenuItems" Selector="#context-menu-target"
-                    OnClick="@((ContextMenuClickEventArgs<MenuItem> args) => OnClickHandler(args))">
+                    OnClick="@((MenuItem item) => OnClickHandler(item))">
 </TelerikContextMenu>
 
 @code {
     public MenuItem ClickedItem { get; set; }
 
-    protected void OnClickHandler(ContextMenuClickEventArgs<MenuItem> args)
+    protected void OnClickHandler(MenuItem item)
     {
-        ClickedItem = args.Item;
+        ClickedItem = item;
     }
 
     public List<MenuItem> MenuItems { get; set; }
