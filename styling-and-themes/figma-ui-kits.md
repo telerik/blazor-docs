@@ -20,7 +20,7 @@ To enable efficient collaboration between designers and developers, we created t
 
 These polished UI kits include pre-made, reusable design components that follow the [atomic design principles](https://atomicdesign.bradfrost.com/chapter-2/).
 
-The design files represent more than 30 of the most used Telerik UI for Blazor components in every possible state, their detailed anatomy, colors, metrics, and icons. All these elements enable the seamless handover of the design to the developers.
+The design files represent the Telerik UI for Blazor components in every possible state, their detailed anatomy, colors, metrics, and icons. All these elements enable the seamless handover of the design to the developers.
 
 You are free to decide if or how much to customize the UI kits:
 
@@ -60,7 +60,6 @@ Each Telerik UI Kit for Figma contains the following pages, most of which provid
 * **_Cover**&mdash;The cover page of the UI kit.
 * **_Change Log**&mdash;A list with the changes in the UI kit.
 * **_Styles**&mdash;An informational page with all styles that are applied to the components such as typography, colors, and effects.
-* **_Base (Structural Components)**&mdash;Contains the base components (building blocks). Most of the component states (normal, hover, active, and so on) and component types (for example, solid, flat, and so on) share a common base component. Changes to a base component affect all individual components that use the same base components. For example, if you change the `_Base Button` radius, you will change all button components that nest `_Base Button`.
 * **Components & Variants**&mdash;Contains all components with all their variants.
 * **Icons**&mdash;Contains all icons in the form of convenient components.
 * **Scenarios**&mdash;Contains complex design examples that build upon the components on the **Components & Variants** page and add custom content.
