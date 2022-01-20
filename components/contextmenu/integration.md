@@ -434,7 +434,6 @@ In this example, the context menu is used to select/deselect items and delete it
 
     private void ContextMenuClickHandler(ContextMenuItem item)
     {
-
         // Use local code to perform a task such as put select/deselect a node or delete it
         switch (item.CommandName)
         {
