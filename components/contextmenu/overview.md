@@ -35,7 +35,6 @@ In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%
                     OnClick="@( (ContextMenuItem itm) => ClickHandler(itm) )">
 </TelerikContextMenu>
 
-
 @code {
     public List<ContextMenuItem> MenuItems { get; set; }
 
