@@ -18,7 +18,7 @@ This article explains the events available in the Telerik Context Menu for Blazo
 
 The `OnClick` event fires when the user clicks or taps on a menu item. It receives the model of the item as an argument that you can cast to the concrete model type you are using.
 
-You can use the `OnClick` event to react to user choices in a menu without using navigation to load new content automatically.
+You can use the `OnClick` event to react to user choices, for example load new content without using navigation.
 
 >caption Handle OnClick
 
