@@ -153,7 +153,7 @@ A menu is often used to list pages, views or sections in an application so the u
 
 ## Customize per Target
 
-The same context menu can easily be attached to many targets, or you can use its `ShowAsync(x, y)` method to show it explicitly based on your business logic needs, data and events. Read more in the [Integrtion]({%slug contextmenu-integration%}) article.
+The same context menu can easily be attached to many targets, or you can use its `ShowAsync(x, y)` method to show it explicitly based on your business logic needs, data and events. Read more in the [Integration]({%slug contextmenu-integration%}) article.
 
 
 ## See Also
