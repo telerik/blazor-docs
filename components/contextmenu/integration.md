@@ -92,7 +92,6 @@ Hooking to your own HTML elements' events lets you determine what to do with the
     // generate sample data for the listview and the menu
     protected override void OnInitialized()
     {
-
         MenuItems = new List<ContextMenuItem>()
         {
             new ContextMenuItem
