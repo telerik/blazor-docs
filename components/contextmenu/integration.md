@@ -94,7 +94,7 @@ Hooking to your own HTML elements' events lets you determine what to do with the
     {
 
         MenuItems = new List<ContextMenuItem>()
-    {
+        {
             new ContextMenuItem
             {
                 Text = "More Info",
