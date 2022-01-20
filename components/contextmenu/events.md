@@ -24,6 +24,7 @@ You can use the `OnClick` event to react to user choices in a menu without using
 
 ````CSHTML
 <p>Last clicked item: @ClickedItem?.Text</p>
+
 <div id="context-menu-target" style="padding:1em;background:yellow;">right-click for context menu</div>
 
 <TelerikContextMenu Data="@MenuItems" Selector="#context-menu-target"
