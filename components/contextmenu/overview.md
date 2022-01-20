@@ -32,15 +32,15 @@ In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%
 
 <TelerikContextMenu Selector=".context-menu-target" Data="@MenuItems"
                     TextField="Text" SeparatorField="Separator" IconField="Icon"
-                    OnClick="@( (ContextMenuClickEventArgs<ContextMenuItem> args) => ClickHandler(args) )">
+                    OnClick="@( (ContextMenuItem itm) => ClickHandler(itm) )">
 </TelerikContextMenu>
+
 
 @code {
     public List<ContextMenuItem> MenuItems { get; set; }
 
-    async Task ClickHandler(ContextMenuClickEventArgs<ContextMenuItem> args)
+    async Task ClickHandler(ContextMenuItem clickedItem)
     {
-        var clickedItem = args.Item;
         if (!string.IsNullOrEmpty(clickedItem.CommandName))
         {
             Console.WriteLine($"The programm will now perform the {clickedItem.CommandName} operation");
@@ -162,4 +162,3 @@ The same context menu can easily be attached to many targets, or you can use its
   * [Data Binding a Context Menu]({%slug contextmenu-data-binding-overview%})
   * [Live Demo: Context Menu](https://demos.telerik.com/blazor-ui/context menu/index)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikContextMenu-1)
-
