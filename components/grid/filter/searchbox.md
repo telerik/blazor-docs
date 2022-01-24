@@ -85,7 +85,7 @@ You can set the Grid filters programmatically through the component [state]({%sl
 
 @using Telerik.DataSource;
 
-<TelerikButton Primary="true" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
+<TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
 
 <TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
              Pageable="true">

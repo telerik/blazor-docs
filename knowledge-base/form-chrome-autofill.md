@@ -66,7 +66,7 @@ The application is not given the chance to respond to the autofill action of the
         </FormItem>
     </FormItems>
     <FormButtons>
-        <TelerikButton ButtonType="ButtonType.Submit" Primary="true">Login</TelerikButton>
+        <TelerikButton ButtonType="ButtonType.Submit" ThemeColor="primary">Login</TelerikButton>
     </FormButtons>
 </TelerikForm>
 
@@ -122,7 +122,7 @@ You can also add a standard HTML `<label>` element to have a label for your inpu
         </FormItem>
     </FormItems>
     <FormButtons>
-        <TelerikButton ButtonType="ButtonType.Submit" Primary="true">Login</TelerikButton>
+        <TelerikButton ButtonType="ButtonType.Submit" ThemeColor="primary">Login</TelerikButton>
     </FormButtons>
 </TelerikForm>
 

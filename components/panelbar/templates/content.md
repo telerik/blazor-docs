@@ -39,7 +39,7 @@ You can control and customize the rendering of the content items in the PanelBar
                             <br />
                             @if (item.Text == "Item 2")
                             {
-                                <TelerikButton Primary="true">Nested Component</TelerikButton>
+                                <TelerikButton ThemeColor="primary">Nested Component</TelerikButton>
                             }
 
                         </div>

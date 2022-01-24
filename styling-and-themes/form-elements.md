@@ -101,7 +101,7 @@ You can match standard `button` and `a` elements with the styling of a Telerik B
 ````HTML
 <TelerikButton>Telerik Button</TelerikButton>
 <br /><br />
-<TelerikButton Primary="true">Primary Telerik Button</TelerikButton>
+<TelerikButton ThemeColor="primary">Primary Telerik Button</TelerikButton>
 <br /><br />
 <input type="button" value="click me" class="k-button" />
 <br /><br />

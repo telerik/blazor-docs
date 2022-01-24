@@ -226,7 +226,7 @@ The Grid exposes two events that allows you to respond to the user clicking on i
                      ColumnSpacing="30px"
                      OnValidSubmit="@SaveEmployee">
             <FormButtons>
-                <TelerikButton ButtonType="@ButtonType.Submit" Primary="true">Submit</TelerikButton>
+                <TelerikButton ButtonType="@ButtonType.Submit" ThemeColor="primary">Submit</TelerikButton>
                 <TelerikButton ButtonType="ButtonType.Button" OnClick="@ClearButton">Clear</TelerikButton>
             </FormButtons>
         </TelerikForm>

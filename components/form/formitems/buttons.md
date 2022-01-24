@@ -26,7 +26,7 @@ You can provide a standard [TelerikButton]({%slug components/button/overview%}) 
 <TelerikForm EditContext="@theEditContext" OnValidSubmit="@OnValidSubmitHandler" Width="200px">
 
     <FormButtons>
-        <TelerikButton ButtonType="@ButtonType.Submit" Primary="true">Submit</TelerikButton>
+        <TelerikButton ButtonType="@ButtonType.Submit" ThemeColor="primary">Submit</TelerikButton>
         <TelerikButton ButtonType="ButtonType.Button" OnClick="@ClearButton">Clear</TelerikButton>
     </FormButtons>
 
