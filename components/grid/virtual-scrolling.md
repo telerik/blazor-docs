@@ -106,7 +106,7 @@ There are several things to keep in mind when using virtual scrolling:
 
 * Horizontal scrolling is not virtualized by default and all columns are rendered. You can enable [Column Virtualization]({%slug grid-columns-virtual%}) separately too.
 
-* Multiple Selection has some specifics when you use the `OnRead` event, you can read more about its behavior in the [Multiple Seletion]({%slug components/grid/selection/multiple%}#checkbox-selection) article.
+* Multiple Selection has some specifics when you use the `OnRead` event, you can read more about its behavior in the [Multiple Selection]({%slug components/grid/selection/multiple%}#checkbox-selection) article.
 
 ## Limitations
 
