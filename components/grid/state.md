@@ -433,7 +433,7 @@ If you want the grid to start with certain settings for your end users, you can 
             {
                 new Telerik.DataSource.SortDescriptor{ Member = "Name", SortDirection = Telerik.DataSource.ListSortDirection.Descending }
             },
-            FilterDescriptors = new List<Telerik.DataSource.FilterDescriptorBase>()
+            FilterDescriptors = new List<Telerik.DataSource.IFilterDescriptor>()
             {
                 new Telerik.DataSource.FilterDescriptor() { Member = "Id", Operator = Telerik.DataSource.FilterOperator.IsLessThan, Value = 5, MemberType = typeof(int) },
             }

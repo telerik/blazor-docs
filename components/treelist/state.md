@@ -188,7 +188,7 @@ The following example shows one way you can store the TreeList state - through a
     {
         TreeListState<Employee> state = new TreeListState<Employee>()
         {
-            FilterDescriptors = new List<FilterDescriptorBase>()
+            FilterDescriptors = new List<IFilterDescriptor>()
             {
                 new FilterDescriptor() { Member="StringProp", MemberType=typeof(string), Value = "2", Operator = FilterOperator.Contains }
             },
@@ -398,7 +398,7 @@ If you want the TreeList to start with certain settings for your end users, you 
     {
         var initialState = new TreeListState<Employee>()
         {
-            FilterDescriptors = new List<FilterDescriptorBase>()
+            FilterDescriptors = new List<IFilterDescriptor>()
             {
                 new FilterDescriptor()
                 {
