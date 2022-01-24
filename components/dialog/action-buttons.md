@@ -35,7 +35,7 @@ The following example demonstrates all supported layout options for the action b
     </DialogContent>
     <DialogButtons>
         <TelerikButton OnClick="@(() => { Visible = false; })">Cancel</TelerikButton>
-        <TelerikButton OnClick="@(() => { Visible = false; })" Primary="true" >OK</TelerikButton>
+        <TelerikButton OnClick="@(() => { Visible = false; })" ThemeColor="primary" >OK</TelerikButton>
     </DialogButtons>
 </TelerikDialog>
 

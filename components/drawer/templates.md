@@ -158,7 +158,7 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
             <div style="text-align: center; margin-top: 3em; padding-top: 2em; border-top: 2px solid black; white-space:nowrap">
                 <img src="user-avatar.png" alt="my avatar" style="border-radius: 50%; width: 50px; height: 50px;" />
                 <br /><br />
-                <TelerikButton Icon="logout" Primary="true">Log Out</TelerikButton>
+                <TelerikButton Icon="logout" ThemeColor="primary">Log Out</TelerikButton>
             </div>
         }
     </Template>

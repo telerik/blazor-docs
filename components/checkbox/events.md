@@ -171,7 +171,7 @@ The `IndeterminateChanged` event fires every time the `Indeterminate` parameter 
                      IndeterminateChanged="((bool val) => ChangeHandler(val))">
     </TelerikCheckBox>
 </div>
-<TelerikButton Primary="true" OnClick="@(() => Indeterminate = !Indeterminate)"> Toggle Indeterminate </TelerikButton>
+<TelerikButton ThemeColor="primary" OnClick="@(() => Indeterminate = !Indeterminate)"> Toggle Indeterminate </TelerikButton>
 
 @code{
     bool Indeterminate { get; set; } = true;

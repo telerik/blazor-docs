@@ -31,7 +31,7 @@ I'm wanting to leverage CSS isolation in my projects but am finding that it does
 ````CSHTML
 <p>This button's class is defined in the component's scoped css file. The class is applied to the button but the random attribute the framework renders is not applied so it does not have effect.</p>
 <TelerikButton Class="my-component-button-class"
-               Primary="true">
+               ThemeColor="primary">
     The font size should be larger but the scoped class is not applied properly.
 </TelerikButton>
 
@@ -91,7 +91,7 @@ There are two ways to go around this:
 <p>This button's class is defined in the component's scoped css file. It's applied to the wrapping element from this component (a span in this case, make sure to use an appropriate one to have valid HTML) and the ::deep pseudoselector applies it to the button.</p>
 <span>
     <TelerikButton Class="my-component-button-class"
-                   Primary="true">
+                   ThemeColor="primary">
         The font size should be larger but the scoped class is not applied properly.
     </TelerikButton>
 </span>

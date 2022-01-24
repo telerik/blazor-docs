@@ -264,7 +264,7 @@ The radio group acts in a way similar to a dropdownlist - there is a collection 
 
     <ValidationMessage For="@( () => form.TwoFaMethod )" />
     <br />
-    <TelerikButton ButtonType="@ButtonType.Submit" Primary="true">SUBMIT</TelerikButton>
+    <TelerikButton ButtonType="@ButtonType.Submit" ThemeColor="primary">SUBMIT</TelerikButton>
 </EditForm>
 
 @code{
@@ -620,7 +620,7 @@ You may want to set the [`IncludeLiterals`]({%slug maskedtextbox-mask-prompt%}#i
         <ValidationMessage For="@(() => Payment.Zip)" />
     </p>
 
-    <TelerikButton ButtonType="@ButtonType.Submit" Primary="true">Submit</TelerikButton>
+    <TelerikButton ButtonType="@ButtonType.Submit" ThemeColor="primary">Submit</TelerikButton>
 </EditForm>
 
 

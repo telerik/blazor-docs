@@ -33,7 +33,7 @@ A simplified example - show the tooltip, type in the textbox - the expected beha
 ````CSHTML
 @* Type in the textbox *@
 
-<TelerikButton Class="search-tooltip" Primary="true">Click for tooltip</TelerikButton>
+<TelerikButton Class="search-tooltip" ThemeColor="primary">Click for tooltip</TelerikButton>
 
 <TelerikTooltip TargetSelector=".search-tooltip" Position="TooltipPosition.Bottom" ShowOn="TooltipShowEvent.Click">
     <Template>
@@ -67,7 +67,7 @@ You can expose the necessary parameters and events from it so that there are no 
 ````MainComponent
 @* The API is the same, the contents are in their own component, see the adjacent tab *@
 
-<TelerikButton Class="search-tooltip" Primary="true">Click for tooltip</TelerikButton>
+<TelerikButton Class="search-tooltip" ThemeColor="primary">Click for tooltip</TelerikButton>
 
 <TelerikTooltip TargetSelector=".search-tooltip" Position="TooltipPosition.Bottom" ShowOn="TooltipShowEvent.Click">
     <Template>

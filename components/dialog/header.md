@@ -47,7 +47,7 @@ The following example demonstrates how to set up the title through a template. T
     <DialogButtons>
         <TelerikButton OnClick="@(() => { Visible = false; })">Skip this version</TelerikButton>
         <TelerikButton OnClick="@(() => { Visible = false; })">Remind me later</TelerikButton>
-        <TelerikButton OnClick="@(() => { Visible = false; })" Primary="true">Install update</TelerikButton>
+        <TelerikButton OnClick="@(() => { Visible = false; })" ThemeColor="primary">Install update</TelerikButton>
     </DialogButtons>
 </TelerikDialog>
 

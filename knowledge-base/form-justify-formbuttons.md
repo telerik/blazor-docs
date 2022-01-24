@@ -41,7 +41,7 @@ You can customize the appearance of the Telerik Form by using CSS. To justify th
 <TelerikForm EditContext="@theEditContext" OnValidSubmit="@OnValidSubmitHandler" Width="200px" Class="my-form">
 
     <FormButtons>
-        <TelerikButton ButtonType="@ButtonType.Submit" Primary="true">Submit</TelerikButton>
+        <TelerikButton ButtonType="@ButtonType.Submit" ThemeColor="primary">Submit</TelerikButton>
         <TelerikButton ButtonType="ButtonType.Button" OnClick="@ClearButton">Clear</TelerikButton>
     </FormButtons>
 

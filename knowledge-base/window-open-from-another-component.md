@@ -38,7 +38,7 @@ Another option would be to send such a reference as a cascading parameter if you
 ````MainPage.razor
 @* The page/component that you want to open the Window from *@
 
-<TelerikButton OnClick="@ToggleWindow" Primary="true">Toggle Window</TelerikButton>
+<TelerikButton OnClick="@ToggleWindow" ThemeColor="primary">Toggle Window</TelerikButton>
 
 <Window @bind-WindowIsVisible="@Visible"></Window>
 

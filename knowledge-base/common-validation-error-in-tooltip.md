@@ -82,7 +82,7 @@ There are several key aspects in implementing this:
     <br /><br />
     <span @onmouseover="@StoreBtnPos"
             @onmouseout="@HideTooltip">@* you may want to remove the onmouseout handler, depending on the UX you are looking for *@
-        <TelerikButton Primary="true">Submit</TelerikButton>
+        <TelerikButton ThemeColor="primary">Submit</TelerikButton>
     </span>
 </EditForm>
 
@@ -175,7 +175,7 @@ This sample uses a tooltip component and mimics clicks on its targets to make it
     <TelerikTextBox @bind-Value="@validationModel.LengthField" Id="length-field"></TelerikTextBox>
     <br /><br />
     <span @onmouseover="@(() => ShowTooltip())">
-        <TelerikButton Primary="true">Submit</TelerikButton>
+        <TelerikButton ThemeColor="primary">Submit</TelerikButton>
     </span>
 </EditForm>
 
