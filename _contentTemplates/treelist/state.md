@@ -154,7 +154,7 @@
     {
         var filteredState = new TreeListState<Employee>()
         {
-            FilterDescriptors = new List<FilterDescriptorBase>()
+            FilterDescriptors = new List<IFilterDescriptor>()
             {
                 new FilterDescriptor()
                 {
@@ -286,7 +286,7 @@
     {
         var filteredState = new TreeListState<Employee>()
         {
-            FilterDescriptors = new List<FilterDescriptorBase>()
+            FilterDescriptors = new List<IFilterDescriptor>()
             {
                 new FilterDescriptor()
                 {

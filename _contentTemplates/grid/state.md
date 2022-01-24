@@ -81,7 +81,7 @@
     {
         GridState<SampleData> desiredState = new GridState<SampleData>()
         {
-            FilterDescriptors = new List<FilterDescriptorBase>()
+            FilterDescriptors = new List<IFilterDescriptor>()
             {
                 new FilterDescriptor() { Member = "Id", Operator = FilterOperator.IsGreaterThan, Value = 10, MemberType = typeof(int) },
                 new FilterDescriptor() { Member = "Team", Operator = FilterOperator.Contains, Value = "3", MemberType = typeof(string) },
@@ -134,7 +134,7 @@
     {
         GridState<SampleData> desiredState = new GridState<SampleData>()
         {
-            FilterDescriptors = new List<FilterDescriptorBase>()
+            FilterDescriptors = new List<IFilterDescriptor>()
             {
                 new CompositeFilterDescriptor()
                 {
@@ -271,7 +271,7 @@ This flexibility lets you choose what behavior you want from the grid.
         // remove the existing filters for the Team field from the current collection
         for (int i = 0; i < teamFilters.Count(); i++)
         {
-            state.FilterDescriptors.Remove(teamFilters.ElementAt(i) as FilterDescriptorBase);
+            state.FilterDescriptors.Remove(teamFilters.ElementAt(i) as IFilterDescriptor);
         }
 
         // create the desired new filter for the Team field
@@ -311,7 +311,7 @@ This flexibility lets you choose what behavior you want from the grid.
         var state = Grid.GetState();
 
         //replace the entire filters collection so it only has the new desired filter
-        state.FilterDescriptors = new List<FilterDescriptorBase>()
+        state.FilterDescriptors = new List<IFilterDescriptor>()
         {
             new CompositeFilterDescriptor()
             {
