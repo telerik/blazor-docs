@@ -23,7 +23,7 @@ To put the ProgressBar in Indeterminate state set the `Indeterminate`, `boolean`
 
 ````CSHTML
 <div>
-    <TelerikButton Primary="true" OnClick="(_ => isIndeterminate = true)">Put the ProgressBar in Indeterminate State</TelerikButton>
+    <TelerikButton ThemeColor="primary" OnClick="(_ => isIndeterminate = true)">Put the ProgressBar in Indeterminate State</TelerikButton>
 </div>
 
 <br />

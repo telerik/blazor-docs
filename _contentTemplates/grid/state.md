@@ -8,7 +8,7 @@
 
 @using Telerik.DataSource;
 
-<TelerikButton Primary="true" OnClick="@SetGridSort">set sort from code</TelerikButton>
+<TelerikButton ThemeColor="primary" OnClick="@SetGridSort">set sort from code</TelerikButton>
 
 <TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
              Pageable="true" Sortable="true">
@@ -62,7 +62,7 @@
 
 @using Telerik.DataSource;
 
-<TelerikButton Primary="true" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
+<TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
 
 <TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
              Pageable="true" FilterMode="@GridFilterMode.FilterRow">
@@ -115,7 +115,7 @@
   
 @using Telerik.DataSource;
 
-<TelerikButton Primary="true" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
+<TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
 
 <TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
              Pageable="true" FilterMode="@GridFilterMode.FilterMenu">
@@ -415,7 +415,7 @@ public static class FilterExtensions
 #group-from-code
 @using Telerik.DataSource;
 
-<TelerikButton Primary="true" OnClick="@SetGridGroup">set grouping from code</TelerikButton>
+<TelerikButton ThemeColor="primary" OnClick="@SetGridGroup">set grouping from code</TelerikButton>
 
 <TelerikGrid Data="@MyData" Height="400px" @ref="@Grid" Groupable="true"
              Pageable="true" FilterMode="@GridFilterMode.FilterMenu">
@@ -480,7 +480,7 @@ public static class FilterExtensions
 #expand-hierarchy-from-code
 @using Telerik.DataSource;
 
-<TelerikButton Primary="true" OnClick="@ExpandHierarchy">Expand hierarchy from code</TelerikButton>
+<TelerikButton ThemeColor="primary" OnClick="@ExpandHierarchy">Expand hierarchy from code</TelerikButton>
 
 <TelerikGrid Data="salesTeamMembers" @ref="Grid">
     <DetailTemplate>

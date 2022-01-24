@@ -110,8 +110,8 @@ This configuration overrides the whole rendering of the bottom-right section of 
                 }
                 if (index != 2)
                 {
-                    <TelerikButton ButtonType="ButtonType.Button" Primary="true" OnClick="@(() => Value += 1)">Next</TelerikButton>
-                    <TelerikButton ButtonType="ButtonType.Button" Primary="true" OnClick="@(() => Value = 2)">Go to last page</TelerikButton>
+                    <TelerikButton ButtonType="ButtonType.Button" ThemeColor="primary" OnClick="@(() => Value += 1)">Next</TelerikButton>
+                    <TelerikButton ButtonType="ButtonType.Button" ThemeColor="primary" OnClick="@(() => Value = 2)">Go to last page</TelerikButton>
                 }
             }
         </WizardButtons>
@@ -207,12 +207,12 @@ The code below shows will prevent clicks on all Stepper steps, without making th
                 }
                 if (currentStepIndex < 2)
                 {
-                    <TelerikButton Primary="true" OnClick="@( () => NextClick(currentStepIndex) )">Next</TelerikButton>
+                    <TelerikButton ThemeColor="primary" OnClick="@( () => NextClick(currentStepIndex) )">Next</TelerikButton>
                 }
                 else
                 {
 
-                    <TelerikButton Primary="true" OnClick="@DoneClick">Done</TelerikButton>
+                    <TelerikButton ThemeColor="primary" OnClick="@DoneClick">Done</TelerikButton>
                 }
             }
         </WizardButtons>
