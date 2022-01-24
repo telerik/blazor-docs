@@ -131,7 +131,7 @@ You can set the TreeList filters programmatically through the component [state](
 
 @using Telerik.DataSource;
 
-<TelerikButton OnClick="@SetTreeListFilter" Primary="true">Set filtered state</TelerikButton>
+<TelerikButton OnClick="@SetTreeListFilter" ThemeColor="primary">Set filtered state</TelerikButton>
 
 <TelerikTreeList Data="@Data"
                  ItemsField="@(nameof(Employee.DirectReports))"

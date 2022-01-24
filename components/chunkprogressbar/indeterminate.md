@@ -23,7 +23,7 @@ To put the ChunkProgressBar in Indeterminate state set the `Indeterminate`, `boo
 
 ````CSHTML
 <div>
-    <TelerikButton Primary="true" OnClick="(_ => isIndeterminate = true)">Put the ChunkProgressBar in Indeterminate State</TelerikButton>
+    <TelerikButton ThemeColor="primary" OnClick="(_ => isIndeterminate = true)">Put the ChunkProgressBar in Indeterminate State</TelerikButton>
 </div>
 
 <br />

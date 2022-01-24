@@ -86,7 +86,7 @@ The ProgressBar provides the following features:
 @using System.Timers
 @implements IDisposable
 
-<TelerikButton Primary="true" OnClick="@StartProgress">Start</TelerikButton>
+<TelerikButton ThemeColor="primary" OnClick="@StartProgress">Start</TelerikButton>
 
 <br />
 

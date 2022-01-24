@@ -38,7 +38,7 @@ You can use the `VisibleChanged` event to get notifications when the user tries 
     <DialogButtons>
         <TelerikButton OnClick="@ToggleDialog">Skip this version</TelerikButton>
         <TelerikButton OnClick="@ToggleDialog">Remind me later</TelerikButton>
-        <TelerikButton OnClick="@ToggleDialog" Primary="true">Install update</TelerikButton>
+        <TelerikButton OnClick="@ToggleDialog" ThemeColor="primary">Install update</TelerikButton>
     </DialogButtons>
 </TelerikDialog>
 

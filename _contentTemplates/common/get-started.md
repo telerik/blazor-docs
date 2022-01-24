@@ -95,7 +95,7 @@ To prepare the project for the Telerik UI for Blazor components, install the `Te
     
         @page "/"
         
-        <TelerikButton OnClick="@SayHelloHandler" Primary="true">Say Hello</TelerikButton>
+        <TelerikButton OnClick="@SayHelloHandler" ThemeColor="primary">Say Hello</TelerikButton>
         
         <br />
         

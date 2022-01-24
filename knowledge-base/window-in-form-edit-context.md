@@ -37,7 +37,7 @@ Call the `NotifyFieldChanged()` method of the `EditContext` to let it know it ne
 <CascadingValue Value="@CurrentModel">
     <EditForm EditContext="@MyEditContext">
 
-        <TelerikButton OnClick="@SaveData" Enabled="@SaveEnabled" Primary="true">Save</TelerikButton>
+        <TelerikButton OnClick="@SaveData" Enabled="@SaveEnabled" ThemeColor="primary">Save</TelerikButton>
         <div>Edit Context Info:</div>
         <div>
             Modified: @MyEditContext.IsModified().ToString()

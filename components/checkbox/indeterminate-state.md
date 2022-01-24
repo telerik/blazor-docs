@@ -35,7 +35,7 @@ Indeterminate: @( !TheValue.HasValue )
 Checked: @TheValue
 <br />
 
-<TelerikButton Primary="true" OnClick="@( _ => TheValue = null )">Make indeterminate</TelerikButton>
+<TelerikButton ThemeColor="primary" OnClick="@( _ => TheValue = null )">Make indeterminate</TelerikButton>
 <br />
 
 <TelerikCheckBox Id="DemoCheckbox" @bind-Value="@TheValue" Indeterminate="@( !TheValue.HasValue )" />

@@ -60,7 +60,7 @@ You can control whether the indicator is shown through its `Visible` parameter. 
 ````CSHTML
 @* Toggling the Loader and the Enabled state of the button through a single flag while working lets you implement a single-click button with a loading indicator *@
 
-<TelerikButton Primary="true" OnClick="@GenerateReport" Enabled="@(!IsGeneratingReport)">
+<TelerikButton ThemeColor="primary" OnClick="@GenerateReport" Enabled="@(!IsGeneratingReport)">
     <TelerikLoader Visible="@IsGeneratingReport" ThemeColor="light"></TelerikLoader>
     @( IsGeneratingReport ? "Generating Report" : "Generate Report" )
 </TelerikButton>
