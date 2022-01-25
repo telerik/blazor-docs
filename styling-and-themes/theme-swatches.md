@@ -40,50 +40,50 @@ Here is a complete list of the base themes, all available swatches and their CDN
 
 * [Material](#material) - Based on Material Design. Main is our "[Material]({%slug general-information/themes%}#material-notes)" theme, which itself is built around the initial theme of <a href = "https://material.angular.io/" target = "_blank">material.angular.io</a>.
 
->important Make sure that the theme version in the CDN URL is compatible with the UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide information about the correct theme version for each UI for Blazor version.
+>important Make sure that the theme version in the CDN URL is compatible with the UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide compatibility information for each UI for Blazor version. You may also be able to use a [newer **minor** theme version number](https://github.com/telerik/kendo-themes/releases) with a specific fix that you need.
 
 
 ### Default
 
-* Default Main - https://cdn.kendostatic.com/themes/4.41.2/default/default-main.css
-* Default Main Dark - https://cdn.kendostatic.com/themes/4.41.2/default/default-main-dark.css
-* Default Blue - https://cdn.kendostatic.com/themes/4.41.2/default/default-blue.css
-* Default Green - https://cdn.kendostatic.com/themes/4.41.2/default/default-green.css
-* Default Nordic - https://cdn.kendostatic.com/themes/4.41.2/default/default-nordic.css
-* Default Orange - https://cdn.kendostatic.com/themes/4.41.2/default/default-orange.css
-* Default Purple - https://cdn.kendostatic.com/themes/4.41.2/default/default-purple.css
-* Default Turquoise - https://cdn.kendostatic.com/themes/4.41.2/default/default-turquoise.css
-* Default Urban - https://cdn.kendostatic.com/themes/4.41.2/default/default-urban.css
+* Default Main - https://cdn.kendostatic.com/themes/5.1.1/default/default-main.css
+* Default Main Dark - https://cdn.kendostatic.com/themes/5.1.1/default/default-main-dark.css
+* Default Blue - https://cdn.kendostatic.com/themes/5.1.1/default/default-blue.css
+* Default Green - https://cdn.kendostatic.com/themes/5.1.1/default/default-green.css
+* Default Nordic - https://cdn.kendostatic.com/themes/5.1.1/default/default-nordic.css
+* Default Orange - https://cdn.kendostatic.com/themes/5.1.1/default/default-orange.css
+* Default Purple - https://cdn.kendostatic.com/themes/5.1.1/default/default-purple.css
+* Default Turquoise - https://cdn.kendostatic.com/themes/5.1.1/default/default-turquoise.css
+* Default Urban - https://cdn.kendostatic.com/themes/5.1.1/default/default-urban.css
 
 
 ### Bootstrap
 
-* Bootstrap Main - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-main.css
-* Bootstrap Main Dark - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-main-dark.css
-* Bootstrap 3 - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-3.css
-* Bootstrap 3 Dark - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-3-dark.css
-* Bootstrap 4 - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-4.css
-* Bootstrap 4 Dark - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-4-dark.css
-* Bootstrap Nordic - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-nordic.css
-* Bootstrap Turquoise - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-turquoise.css
-* Bootstrap Turquoise Dark - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-turquoise-dark.css
-* Bootstrap Urban - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-urban.css
-* Bootstrap Vintage - https://cdn.kendostatic.com/themes/4.41.2/bootstrap/bootstrap-vintage.css
+* Bootstrap Main - https://cdn.kendostatic.com/themes/5.1.1/bootstrap/bootstrap-main.css
+* Bootstrap Main Dark - https://cdn.kendostatic.com/themes/5.1.1/bootstrap/bootstrap-main-dark.css
+* Bootstrap 3 - https://cdn.kendostatic.com/themes/5.1.1/bootstrap/bootstrap-3.css
+* Bootstrap 3 Dark - https://cdn.kendostatic.com/themes/5.1.1/bootstrap/bootstrap-3-dark.css
+* Bootstrap 4 - https://cdn.kendostatic.com/themes/5.1.1/bootstrap/bootstrap-4.css
+* Bootstrap 4 Dark - https://cdn.kendostatic.com/themes/5.1.1/bootstrap/bootstrap-4-dark.css
+* Bootstrap Nordic - https://cdn.kendostatic.com/themes/5.1.1/bootstrap/bootstrap-nordic.css
+* Bootstrap Turquoise - https://cdn.kendostatic.com/themes/5.1.1/bootstrap/bootstrap-turquoise.css
+* Bootstrap Turquoise Dark - https://cdn.kendostatic.com/themes/5.1.1/bootstrap/bootstrap-turquoise-dark.css
+* Bootstrap Urban - https://cdn.kendostatic.com/themes/5.1.1/bootstrap/bootstrap-urban.css
+* Bootstrap Vintage - https://cdn.kendostatic.com/themes/5.1.1/bootstrap/bootstrap-vintage.css
 
 
 ### Material
 
-* Material Main - https://cdn.kendostatic.com/themes/4.41.2/material/material-main.css
-* Material Main Dark - https://cdn.kendostatic.com/themes/4.41.2/material/material-main-dark.css
-* Material Aqua Dark - https://cdn.kendostatic.com/themes/4.41.2/material/material-aqua-dark.css
-* Material Arctic - https://cdn.kendostatic.com/themes/4.41.2/material/material-arctic.css
-* Material Burnt Teal - https://cdn.kendostatic.com/themes/4.41.2/material/material-burnt-teal.css
-* Material Eggplant - https://cdn.kendostatic.com/themes/4.41.2/material/material-eggplant.css
-* Material Lime - https://cdn.kendostatic.com/themes/4.41.2/material/material-lime.css
-* Material Lime Dark - https://cdn.kendostatic.com/themes/4.41.2/material/material-lime-dark.css
-* Material Nova - https://cdn.kendostatic.com/themes/4.41.2/material/material-nova.css
-* Material Pacific - https://cdn.kendostatic.com/themes/4.41.2/material/material-pacific.css
-* Material Pacific Dark - https://cdn.kendostatic.com/themes/4.41.2/material/material-pacific-dark.css
-* Material Sky - https://cdn.kendostatic.com/themes/4.41.2/material/material-sky.css
-* Material Sky Dark - https://cdn.kendostatic.com/themes/4.41.2/material/material-sky-dark.css
-* Material Smoke - https://cdn.kendostatic.com/themes/4.41.2/material/material-smoke.css
+* Material Main - https://cdn.kendostatic.com/themes/5.1.1/material/material-main.css
+* Material Main Dark - https://cdn.kendostatic.com/themes/5.1.1/material/material-main-dark.css
+* Material Aqua Dark - https://cdn.kendostatic.com/themes/5.1.1/material/material-aqua-dark.css
+* Material Arctic - https://cdn.kendostatic.com/themes/5.1.1/material/material-arctic.css
+* Material Burnt Teal - https://cdn.kendostatic.com/themes/5.1.1/material/material-burnt-teal.css
+* Material Eggplant - https://cdn.kendostatic.com/themes/5.1.1/material/material-eggplant.css
+* Material Lime - https://cdn.kendostatic.com/themes/5.1.1/material/material-lime.css
+* Material Lime Dark - https://cdn.kendostatic.com/themes/5.1.1/material/material-lime-dark.css
+* Material Nova - https://cdn.kendostatic.com/themes/5.1.1/material/material-nova.css
+* Material Pacific - https://cdn.kendostatic.com/themes/5.1.1/material/material-pacific.css
+* Material Pacific Dark - https://cdn.kendostatic.com/themes/5.1.1/material/material-pacific-dark.css
+* Material Sky - https://cdn.kendostatic.com/themes/5.1.1/material/material-sky.css
+* Material Sky Dark - https://cdn.kendostatic.com/themes/5.1.1/material/material-sky-dark.css
+* Material Smoke - https://cdn.kendostatic.com/themes/5.1.1/material/material-smoke.css
