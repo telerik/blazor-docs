@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Calendar Overview
-description: Overview of the Calendar for Blazor.
+description: Discover the Calendar component for Blazor by checking the examples, and learn about its key features.
 slug: components/calendar/overview
 tags: telerik,blazor,calendar,overview
 published: True
@@ -12,9 +12,17 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/calendar" target="_blank">Blazor Calendar component</a> allows the user to scroll through a Gregorian calendar and select one or more dates. You can control to what level the user can zoom the calendar (for example, up to months or years), what are the minimum and maximum date the user can navigate to, and whether they can select one or more dates.
 
-#### To use a Telerik Calendar for Blazor, add the `TelerikCalendar` tag.
+## Creating Blazor Calendar
 
->caption Basic calendar with its key features, and ValueChanged event handling
+1. Use the `TelerikCalendar` tag to add the component to a razor page.
+
+1. Configure the minimum and maximum allowed dates by setting the `Min` and `Max` parameters.
+
+1. Handle the `ValueChanged` event.
+
+1. Set the value binding.
+
+>caption Basic Calendar with its key features and ValueChanged event handling
 
 ````CSHTML
 @* Main Calendar features, ValueChanged event handling. *@
@@ -41,13 +49,27 @@ The selected date is: @selectedDate
 
 ````
 
->caption The result from the code snippet above
+>tip The `Date` parameter indicates the view the user is in. You can use its `DateChanged` event to know when the user browses through the Calendar.
 
-![](images/basic-calendar.png)
+## Navigation
 
->tip The `Date` parameter indicates the view the user is in. You can use its `DateChanged` event to know when the user browses through the calendar.
+The Calendar navigation allows the user to navigate through several views that represent different periods of time, for example, a month or a year. You can control the calendar level (view) at which the user starts, to what detail (view) they can go, the min, max, and current date. To make the Calendar display a specific date programmatically, you can use the `Date` and `View` parameters that support two-way binding. [Read more about the Calendar navigation...]({%slug components/calendar/navigation%}) 
 
->caption Component namespace and reference
+## Selection
+
+The Calendar allows you to configure every aspect of the date selection. You can control whether the user can select only one or more dates. You can create a collection of disabled dates so that the user cannot select from them or define selectable ranges of days. [Read more about the Calendar selection...]({%slug components/calendar/selection%})
+
+## Multiple Views
+
+You can display a wider range of dates by rendering multiple instances of the Calendar so that the users can find the desired date easier. [Read more about the multiple views in the Calendar...]({%slug components/calendar/multiview%})
+
+## Events
+
+The Calendar generates events that you can handle and further customize ist behavior. [Read more about the Blazor Calendar events...]({%slug components/calendar/events%}).
+
+## Calendar Reference
+
+Add a reference to an instance of the Blazor Calendar to use its methods.
 
 ````CSHTML
 @using Telerik.Blazor.Components
@@ -59,12 +81,11 @@ The selected date is: @selectedDate
     Telerik.Blazor.Components.TelerikCalendar myCalendarReference;
 }
 ````
-The calendar provides a number of features that allow you to control the user experience:
+## Next Steps
 
-* [Navigation]({%slug components/calendar/navigation%}) - the calendar level (view) at which the user starts, to what detail (view) they can go, the min, max and current date.
-* [Selection]({%slug components/calendar/selection%}) - whether the user can select only one or more dates, a collection of disabled dates so that the user cannot select from them and also a range selection of days.
-* [Multiple Views]({%slug components/calendar/multiview%}) - you can show the user a wider range of dates.
+* [Configuring the Date Selection]({%slug components/calendar/selection%})
 
+* [Using the Calendar Events]({%slug components/calendar/events%})
 
 ## See Also
 
