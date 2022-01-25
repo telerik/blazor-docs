@@ -84,7 +84,7 @@ This sample shows only an indicator for the initial data load, only the DELETE o
     <TelerikLoaderContainer OverlayThemeColor="light" Visible="@( !InitialDataLoadComplete )"
                             Text="@null">
         <Template>
-            <TelerikLoader Type="@LoaderType.InfiniteSpinner" Size="@LoaderSize.Large"></TelerikLoader>
+            <TelerikLoader Type="@LoaderType.InfiniteSpinner" Size="@ThemeConstants.Loader.Size.Large"></TelerikLoader>
         </Template>
     </TelerikLoaderContainer>
 
@@ -151,7 +151,7 @@ This sample shows only an indicator for the initial data load, only the DELETE o
     <TelerikLoaderContainer OverlayThemeColor="light" Visible="@( !InitialDataLoadComplete )"
                             Text="@null">
         <Template>
-            <TelerikLoader Type="@LoaderType.InfiniteSpinner" Size="@LoaderSize.Large"></TelerikLoader>
+            <TelerikLoader Type="@LoaderType.InfiniteSpinner" Size="@ThemeConstants.Loader.Size.Large"></TelerikLoader>
         </Template>
     </TelerikLoaderContainer>
 

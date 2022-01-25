@@ -98,7 +98,7 @@ You can devise such a loading panel as needed by your app, and place a Telerik L
                 @* sample loading panel, styles are at the end *@
                 <div class="loading-panel-wrapper">
                     <div class="loading-panel-overlay"></div>
-                    <TelerikLoader Size="@LoaderSize.Large" Type="@LoaderType.ConvergingSpinner" ThemeColor="@ThemeColors.Tertiary" />
+                    <TelerikLoader Size="@ThemeConstants.Loader.Size.Large" Type="@LoaderType.ConvergingSpinner" ThemeColor="@ThemeConstants.Loader.ThemeColor.Tertiary" />
                 </div>
             }
             <TelerikGrid Data="@GridData" Height="500px" Pageable="true" AutoGenerateColumns="true">
@@ -111,7 +111,7 @@ You can devise such a loading panel as needed by your app, and place a Telerik L
                     here we just copy it to showcase the concept of showing a loading sign *@
                 <div class="loading-panel-wrapper">
                     <div class="loading-panel-overlay"></div>
-                    <TelerikLoader Size="@LoaderSize.Large" Type="@LoaderType.ConvergingSpinner" ThemeColor="@ThemeColors.Tertiary" />
+                    <TelerikLoader Size="@ThemeConstants.Loader.Size.Large" Type="@LoaderType.ConvergingSpinner" ThemeColor="@ThemeConstants.Loader.ThemeColor.Tertiary" />
                 </div>
             }
             <p>some other content</p>
