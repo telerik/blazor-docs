@@ -508,7 +508,11 @@ public static class FilterExtensions
         GridState<MainModel> desiredState = new GridState<MainModel>()
         {
             //expand the first two rows
-            ExpandedItems = new List<int> { salesTeamMembers[0], salesTeamMembers[1] }
+            ExpandedItems = new List<MainModel> 
+            { 
+                salesTeamMembers[0], 
+                salesTeamMembers[1] 
+            }
         };
 
         await Grid.SetState(desiredState);
