@@ -31,6 +31,7 @@ I would like the expand to only be visible when it has further data to expand.
 Use the [`OnRowRender` event]({%slug grid-events%}#onrowrender) to evaluate the current row item (for example, whether it has child items in a collection or some other flag your application has). 
 
 Then, if you want to hide the expand icon, set a CSS class to the row that will hide the button in the expand cell.
+You should also set the visibility of the td to hidden, so the click event is not triggered when clicking in the td.
 
 >caption Hide the expand button conditionally per row
 
@@ -43,8 +44,14 @@ Then, if you want to hide the expand icon, set a CSS class to the row that will 
         conditionally hide hierarchy expand buttons.
         You may want to add this to your site-wide stylesheet.
     */
+    /* Hide the expand icon. */
     .k-grid tr.no-children td.k-hierarchy-cell * {
         display: none;
+    }
+
+    /* Set the visibility of .k-hierarchy-cell to hidden, so the click is not trigger when clicking in the td. */
+    .k-grid tr.no-children td.k-hierarchy-cell {
+        visibility: hidden;
     }
 </style>
 
@@ -73,7 +80,7 @@ Then, if you want to hide the expand icon, set a CSS class to the row that will 
         MainModel item = args.Item as MainModel;
 
         bool hasNoHierarchy = item.Orders == null || item.Orders.Count == 0;
-        args.Class = hasNoHierarchy ? "" : "no-children";
+        args.Class = hasNoHierarchy ? "no-children" : "";
     }
 
     // sample data generation follows
