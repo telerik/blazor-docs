@@ -6,7 +6,7 @@ page_title: Adding Reporting or Newtonsoft.Json breaks DataSourceRequest filters
 slug: common-kb-newtonsoft-breaks-datasourcerequest-serialization
 position: 
 tags: 
-ticketid: 1505522
+ticketid: 1505522, 1550585
 res_type: kb
 ---
 
@@ -23,11 +23,11 @@ res_type: kb
 
 ## Description
 
-I recently added the Telerik Reporting to my Blazor WebAssembly application.
+I recently added the Telerik Reporting (Web Report Designer) to my Blazor WebAssembly application.
 
 My application has `services.AddRazorPages().AddNewtonsoftJson();` on the server-side so I can work with various REST APIs and send data.
 
-Now, when I <a href="https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server" target="_blank">send the `DataSourceRequest` from the grid to the server</a> things break when I use filters. It worked before.
+Now, when I <a href="https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server" target="_blank">send the `DataSourceRequest` from the grid to the server</a> things break when I use filters. The same happens to DropDownList virtualization. It worked before.
 
 
 ## Steps to Reproduce
