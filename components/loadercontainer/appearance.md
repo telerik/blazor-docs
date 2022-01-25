@@ -96,7 +96,7 @@ The `LoaderContainer` utilizes the [Loader]({%slug loader-overview%}) component 
 
 <TelerikLoaderContainer LoaderType="@LoaderType.InfiniteSpinner"
                         LoaderPosition="@LoaderPosition.Start"
-                        Size="@LoaderSize.Small"
+                        Size="@ThemeConstants.Loader.Size.Small"
                         ThemeColor="info">
 </TelerikLoaderContainer>
 ````

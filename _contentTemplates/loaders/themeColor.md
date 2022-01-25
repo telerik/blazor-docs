@@ -1,6 +1,6 @@
 #loaders-theme-color
 
-The color of the animated loading icon is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeColor` class:
+The color of the animated loading icon is controlled through the `ThemeColor` parameter. You can set it to a string property of the static `ThemeConstants.Loader.ThemeColor` class:
 
 * `Primary`
 * `Secondary`
@@ -19,6 +19,7 @@ These predefined options match the main [Telerik Theme]({%slug general-informati
 
 ![Loader Theme Colors](images/loader-built-in-theme-colors.png)
 
+<!--
 ````CSHTML
 @{
     var fields = typeof(Telerik.Blazor.ThemeColors)
@@ -36,6 +37,7 @@ These predefined options match the main [Telerik Theme]({%slug general-informati
     }
 }
 ````
+-->
 
 The `ThemeColor` parameter renders as the `k-loader-<ThemeColor>` CSS class on the wrapping element and you can set it to a custom value to cascade through and set the color to a setting of your own without customizing the entire theme.
 
@@ -53,4 +55,3 @@ The `ThemeColor` parameter renders as the `k-loader-<ThemeColor>` CSS class on t
 ````
 
 #end
-
