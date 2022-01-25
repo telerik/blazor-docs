@@ -40,7 +40,7 @@ Here is a complete list of the base themes, all available swatches and their CDN
 
 * [Material](#material) - Based on Material Design. Main is our "[Material]({%slug general-information/themes%}#material-notes)" theme, which itself is built around the initial theme of <a href = "https://material.angular.io/" target = "_blank">material.angular.io</a>.
 
->important Make sure that the theme version in the CDN URL is compatible with the UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide compatibility information for each UI for Blazor version. You may also be able to use a [newer **minor** theme version number](https://github.com/telerik/kendo-themes/releases) with a specific fix that you need.
+>important Make sure that the theme version in the CDN URL is compatible with the UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide theme compatibility information for each UI for Blazor version. You may also be able to use a [newer **minor** theme version number](https://github.com/telerik/kendo-themes/releases) with a specific fix that you need.
 
 
 ### Default
