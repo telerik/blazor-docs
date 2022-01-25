@@ -558,6 +558,9 @@ enable_blazorRepl: true
 uiForBlazorLatestVersion: "3.0.0"
 supportedFrameworkVersion: ".NET Core 3.1.11, .NET 5 and .NET 6"
 
+## Compatible theme version for CDN URLs
+themeCdnVersion: "5.1.1"
+
 ## The Kendo UI version used
 cdnVersion: "2019.1.115"
 
@@ -577,9 +580,6 @@ cta_panels_data_overwrites:
 
 ## Color Scheme
 main_theme: blazor
-
-## Theme version for CDN URLs
-themeCdnVersion: "5.1.1"
 
 ## Assign layout and category per different paths
 defaults:
