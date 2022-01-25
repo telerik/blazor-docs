@@ -61,12 +61,6 @@ The grid will render a row below the column headers with UI that you can use to 
 }
 ````
 
->caption The result from the code snippet above, before and after the user filled in a filter and clicked on the filter button
-
-![](images/filter-row-1.png)
-
-![](images/filter-row-filtered.png)
-
 
 
 
