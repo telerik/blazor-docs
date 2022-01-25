@@ -578,6 +578,9 @@ cta_panels_data_overwrites:
 ## Color Scheme
 main_theme: blazor
 
+## Theme version for CDN URLs
+themeCdnVersion: "5.1.1"
+
 ## Assign layout and category per different paths
 defaults:
 -
