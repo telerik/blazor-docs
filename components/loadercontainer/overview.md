@@ -87,7 +87,7 @@ The LoaderContainer provides the following features:
 
 * `LoaderType` - `enum` - controls the shape of the loader indicator. Takes a member of the `Telerik.Blazor.Component.LoaderType` enum. See the [Appearance]({%slug loadercontainer-appearance%}) article for more information and examples.
 
-* `Size` - `string` - controls the size of the loader indicator. Use a static property from the `ThemeConstants.Loader.Size` class - `Size.Small`, `Size.Medium` (default) or `Size.Large`. See the [Appearance]({%slug loadercontainer-appearance%}) article for more information and examples.
+* `Size` - `string` - controls the size of the loader indicator, when a `Template` is *not* used. Use a static property from the `ThemeConstants.Loader.Size` class - `Size.Small`, `Size.Medium` (default) or `Size.Large`. See the [Appearance]({%slug loadercontainer-appearance%}) article for more information and examples.
 
 * `LoaderPosition` - `enum` - configures the position of the loader indicator against the `Text` parameter. Takes a member of the `Telerik.Blazor.Components.LoaderPosition`. You can find more information and examples in the [Appearance]({%slug loadercontainer-appearance%}) article.
 
