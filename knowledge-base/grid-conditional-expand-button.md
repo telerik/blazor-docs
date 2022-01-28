@@ -22,29 +22,35 @@ res_type: kb
 
 
 ## Description
-How would you remove the icon to expand a detail grid only for certain rows?  Some rows will not have detail data and should not be expandable.
 
-I would like the expand to only be visible when it has further data to expand. 
+How would you remove the icon to expand a detail Grid only for certain rows?  Some rows will not have detail data and should not be expandable.
+
+I would like the expand to only be visible when it has further data to expand.
 
 ## Solution
 
-Use the [`OnRowRender` event]({%slug grid-events%}#onrowrender) to evaluate the current row item (for example, whether it has child items in a collection or some other flag your application has). 
+Use the [`OnRowRender` event]({%slug grid-events%}#onrowrender) to evaluate the current row item (for example, whether it has child items in a collection or some other flag your application has).
 
-Then, if you want to hide the expand icon, set a CSS class to the row that will hide the button in the expand cell.
+Then, if you want to hide the expand icon, set a CSS class to the row that will hide the icon in the expand cell. It is also important to disable the pointer events of the cells with no expand icons, so the user cannot click them to open the empty child Grid even though the plus icon is hidden.
 
 >caption Hide the expand button conditionally per row
 
 ````CSHTML
 @* Use CSS and the RowRender event to hide the detail template expand button conditionally *@
-
 <style>
     /* 
         A CSS rule that matches the OnRowRender handler to 
-        conditionally hide hierarchy expand buttons.
+        conditionally hide hierarchy expand buttons and 
+        stops the pointer events of the cells with no
+        expand buttons.
         You may want to add this to your site-wide stylesheet.
     */
     .k-grid tr.no-children td.k-hierarchy-cell * {
         display: none;
+    }
+
+    .k-grid tr.no-children td.k-hierarchy-cell {
+        pointer-events: none;
     }
 </style>
 
@@ -73,7 +79,7 @@ Then, if you want to hide the expand icon, set a CSS class to the row that will 
         MainModel item = args.Item as MainModel;
 
         bool hasNoHierarchy = item.Orders == null || item.Orders.Count == 0;
-        args.Class = hasNoHierarchy ? "" : "no-children";
+        args.Class = hasNoHierarchy ? "no-children" : "";
     }
 
     // sample data generation follows
