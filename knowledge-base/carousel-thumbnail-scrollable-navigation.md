@@ -40,7 +40,8 @@ To add a thumbnail scrollable navigation:
 @inject IJSRuntime JSRuntime;
 
 <TelerikCarousel Data="@CarouselData"
-                 Width="600px" Height="384px" PageChanged="PageChangedHandler" Page="PageIndex">
+                 Width="600px" Height="384px"
+                 PageChanged="PageChangedHandler" Page="PageIndex">
     <Template>
         <div class="image-with-text">
             <p>Showing image @(context.ImageID) of @CarouselData.Count.ToString().</p>
@@ -53,10 +54,23 @@ To add a thumbnail scrollable navigation:
     <div class="images-nav">
         @foreach (var img in CarouselData)
         {
-            <img @onclick="@(() => PageChangedHandler(img.ImageID))" id="@img.ImageID" style="border:outset;margin:1px 1px 1px 1px" src="@img.ImageUrl" alt="Photograph" width="80" height="50" />
+            <img @onclick="@(() => PageChangedHandler(img.ImageID))" id="@img.ImageID"
+                 class="image-thumbnail"
+                 src="@img.ImageUrl" alt="Photograph" />
         }
     </div>
 </div>
+
+<script suppress-error="BL9992">
+    function ScrollToCurrentPage(imgId) {
+        var elem = document.getElementById(imgId);
+        console.log(imgId);
+        console.log(elem);
+        if (elem) {
+            elem.scrollIntoView();
+        }
+    }
+</script>
 
 @code {
     public List<CarouselModel> CarouselData { get; set; }
@@ -70,11 +84,11 @@ To add a thumbnail scrollable navigation:
 
     protected override Task OnInitializedAsync()
     {
-        CarouselData = Enumerable.Range(1, 7).Select(x => new CarouselModel
-            {
-                ImageID = x,
-                ImageUrl = $"https://demos.telerik.com/blazor-ui/images/photos/{x}.jpg"
-            }).ToList();
+        CarouselData = Enumerable.Range(0, 13).Select(x => new CarouselModel
+        {
+            ImageID = x + 1,
+            ImageUrl = $"https://demos.telerik.com/blazor-ui/images/photos/{x % 7 + 1}.jpg"
+        }).ToList();
 
         return base.OnInitializedAsync();
     }
@@ -103,16 +117,16 @@ To add a thumbnail scrollable navigation:
         position: relative;
     }
 
-        /* style the overlay text inside the Carousel */
-        .image-with-text > p {
-            position: absolute;
-            top: 1rem;
-            left: 1.6rem;
-            color: rgba(255, 255, 255, .8);
-            margin: 0;
-            font-style: italic;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
-        }
+    /* style the overlay text inside the Carousel */
+    .image-with-text > p {
+        position: absolute;
+        top: 1rem;
+        left: 1.6rem;
+        color: rgba(255, 255, 255, .8);
+        margin: 0;
+        font-style: italic;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
+    }
 
     .images-nav {
         text-align: center;
@@ -122,17 +136,16 @@ To add a thumbnail scrollable navigation:
         overflow-x: auto;
     }
 
+    .image-thumbnail {
+        width: 80px;
+        height: 50px;
+        border: outset;
+        margin: 1px 1px 1px 1px
+    }
+
     .container-nav {
         display: flex;
         justify-content: center;
     }
 </style>
-````
->caption Javascript function
-
-````JavaScript
-function ScrollToCurrentPage(imgId) {
-    var elem = document.getElementById(imgId);
-    elem.scrollIntoView();
-}
 ````
