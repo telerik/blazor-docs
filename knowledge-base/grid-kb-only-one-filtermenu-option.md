@@ -36,6 +36,7 @@ There are two options:
 * Use custom CSS to [override the theme]({%slug themes-override%}) and hide the elements that provide the and/or secondary conditions. The example below demonstrates this approach. Note that **the required CSS is different for different UI for Blazor versions**:
 
     <div class="skip-repl"></div>
+
         /* UI for Blazor 3.0+ */
         .k-filter-menu-container > span:nth-child(n+3) {
             display: none;
