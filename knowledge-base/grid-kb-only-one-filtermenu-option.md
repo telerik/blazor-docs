@@ -1,12 +1,12 @@
 ---
 title: Only one filter option in FilterMenu
-description: How to leave Only one filter option in FilterMenu.
+description: How to leave only one filter option in the Grid FilterMenu. Applies to the TreeList too.
 type: how-to
 page_title: Only one filter option in FilterMenu
 slug: grid-kb-only-one-filtermenu-option
 position: 
 tags: 
-ticketid: 1451755
+ticketid: 1451755, 1551245
 res_type: kb
 ---
 
@@ -22,7 +22,7 @@ res_type: kb
 
 
 ## Description
-I want simple filtering options in the filter menu - both for my uses and my backend. How do I remove the extra conditions so it behaves like the filter row and does not have extra and/or operators
+I want simple filtering options in the Grid filter menu - both for my uses and my backend. How do I remove the extra conditions so it behaves like the filter row and does not have extra and/or operators?
 
 >caption Before and after results
 
@@ -32,66 +32,81 @@ I want simple filtering options in the filter menu - both for my uses and my bac
 
 There are two options:
 
-* A [custom filter template]({%slug grid-templates-filter%}) provides full flexibility, including on building the filter descriptor. This is the approach we recommend for such a scenario.
+* Use a [custom filter template]({%slug grid-templates-filter%}). It provides full flexibility over the interface and building the filter descriptor.
+* Use custom CSS to [override the theme]({%slug themes-override%}) and hide the elements that provide the and/or secondary conditions. The example below demonstrates this approach. Note that **the required CSS is different for different UI for Blazor versions**:
 
-* You can use CSS to hide the elements that provide the and/or secondary conditions. An example of this is provided below. Note that the CSS rules used by the grid rendering may change and that these rules will also target all the grids on the page.
+    <div class="skip-repl"></div>
 
->caption Hide And/Or filter options in FilterMenu with CSS
+        /* UI for Blazor 3.0+ */
+        .k-filter-menu-container > span:nth-child(n+3) {
+            display: none;
+        }
+
+        /* UI for Blazor 2.30- */
+        .k-filter-menu-container > div > :nth-child(n+3) {
+            display: none;
+        }
+
+>caption Hide And/Or filter options in the Grid/TreeList FilterMenu with CSS
 
 ````CSHTML
-@* These CSS rules hide the second component wrappers *@
+@* Hide the secondary filter interface with CSS *@
 
-<style>
-    .k-filter-menu-container .k-dropdown,
-    .k-filter-menu-container .k-state-empty:nth-of-type(2n),
-    .k-filter-menu-container .k-textbox:nth-of-type(2n),
-    .k-filter-menu-container .k-datepicker:nth-of-type(2n+1),
-    .k-filter-menu-container .k-numerictextbox:nth-of-type(2n) {
-        display: none;
-    }
-
-        .k-filter-menu-container .k-dropdown:first-of-type {
-            display: block;
-        }
-</style>
-
-<TelerikGrid Data=@GridData FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu"
-             Pageable="true" Height="400px">
+<TelerikGrid Data="@GridData"
+             Pageable="true"
+             PageSize="5"
+             Sortable="true"
+             FilterMode="GridFilterMode.FilterMenu">
     <GridColumns>
-        <GridColumn Field=@nameof(Employee.Name) />
-        <GridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />
-        <GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
-        <GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
+        <GridColumn Field=@nameof(Product.Name) Title="Product Name" />
+        <GridColumn Field=@nameof(Product.Price) Title="Price" />
+        <GridColumn Field=@nameof(Product.ReleaseDate) Title="Release Date" />
+        <GridColumn Field=@nameof(Product.Discontinued) Title="Discontinued" />
     </GridColumns>
 </TelerikGrid>
 
+<style>
+
+    /* UI for Blazor 3.0+ */
+    .k-filter-menu-container > span:nth-child(n+3) {
+        display: none;
+    }
+
+    /* UI for Blazor 2.30- */
+    .k-filter-menu-container > div > :nth-child(n+3) {
+        display: none;
+    }
+
+</style>
+
 @code {
-    public List<Employee> GridData { get; set; }
+    List<Product> GridData { get; set; }
 
     protected override void OnInitialized()
     {
-        GridData = new List<Employee>();
-        var rand = new Random();
-        for (int i = 0; i < 100; i++)
+        GridData = new List<Product>();
+        var rnd = new Random();
+
+        for (int i = 1; i <= 15; i++)
         {
-            GridData.Add(new Employee()
+            GridData.Add(new Product()
             {
-                EmployeeId = i,
-                Name = "Employee " + i.ToString(),
-                AgeInYears = rand.Next(10, 80),
-                HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20)),
-                IsOnLeave = i % 3 == 0
+                ID = i,
+                Name = "Product " + i.ToString(),
+                Price = (decimal)rnd.Next(1, 100),
+                ReleaseDate = new DateTime(rnd.Next(2020, 2023), rnd.Next(1, 13), rnd.Next(1, 28)),
+                Discontinued = i % 4 == 0
             });
         }
     }
 
-    public class Employee
+    public class Product
     {
-        public int? EmployeeId { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
-        public int? AgeInYears { get; set; }
-        public DateTime HireDate { get; set; }
-        public bool IsOnLeave { get; set; }
+        public decimal Price { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public bool Discontinued { get; set; }
     }
 }
 ````
