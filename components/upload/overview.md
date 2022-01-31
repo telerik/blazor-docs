@@ -327,7 +327,11 @@ The Telerik Upload component facilitates sending a file to an endpoint. There ar
 
 ### File Size
 
-The `MaxFileSize` parameter of the component is used for [client-side validation]({% slug upload-validation %}), and the server needs a separate configuration. At this stage, the files are uploaded in one piece and so the server may block large requests - server settings such as the IIS `MaxRequestLength` will always be taken into account by the endpoint. You can find some examples of configuring this in the following StackOverflow thread: [IIS7 - The request filtering module is configured to deny a request that exceeds the request content length](https://stackoverflow.com/questions/10871881/iis7-the-request-filtering-module-is-configured-to-deny-a-request-that-exceeds).
+The `MaxFileSize` parameter of the component is used for [client-side validation]({%slug upload-validation%}), and the server needs a separate configuration. At this stage, the files are uploaded in one piece and so the server may block large requests. Make sure the applicable server settings for your environment are set correctly. Here are a few common examples:
+
+* [IIS `maxAllowedContentLength`](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/security/requestfiltering/requestlimits/#configuration) (also see this [StackOverflow thread](https://stackoverflow.com/questions/10871881/iis7-the-request-filtering-module-is-configured-to-deny-a-request-that-exceeds))
+* [ASP.NET Core `MultipartBodyLengthLimit`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#multipart-body-length-limit)
+* [Kestrel `MaxRequestBodySize`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#kestrel-maximum-request-body-size)
 
 ### Application Logic
 
@@ -336,8 +340,6 @@ Authentication, authorization and routing of the requests is up to the applicati
 ### Cross-Origin Requests
 
 Cross-origin requests depend on the application and endpoint setup. The `WidthCredentials` parameter sets the corresponding parameter of the XHR request. Handling the cookies, headers and other parameters of the Blazor app and [CORS](https://www.w3.org/TR/cors/) endpoint are to be implemented by the respective applications (for example, including the `Access-Control-Allow-Origin` header with an appropriate value and the `Access-Control-Allow-Credentials` header with a `true` value). You can read more on the subject in the following article: [https://www.html5rocks.com/en/tutorials/cors/](https://www.html5rocks.com/en/tutorials/cors/). You can also find one example setup from a customer of ours in [this thread](https://www.telerik.com/forums/upload-component-reports-'file-failed-to-upload'#-6QPJn3obkm3D1kR1ysukA) which shows one way to setup the CORS requests, headers and responses on the receiving server.
-
-
 
 
 ## See Also
