@@ -37,7 +37,7 @@ Property | Type | Description
 >caption Handle the OnSelect event of the FileSelect
 
 ````CSHTML
-*Handle the OnSelect event of the FileSelect to access the selected files and upload them*@
+@*Handle the OnSelect event of the FileSelect to access the selected files and upload them*@
 
 @using System.IO
 @using Microsoft.AspNetCore.Hosting
