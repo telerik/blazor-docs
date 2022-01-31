@@ -73,8 +73,12 @@ The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Up
                             // Some browsers send file names with full path.
                             // We are only interested in the file name.
                             var fileName = Path.GetFileName(fileContent.FileName.ToString().Trim('"'));
+
+                            // server Blazor app
                             var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
-        
+                            // client Blazor app
+                            //var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
+
                             // Implement security mechanisms here - prevent path traversals,
                             // check for allowed extensions, types, size, content, viruses, etc.
                             // This sample always saves the file to the root and is not sufficient for a real application.
@@ -105,6 +109,7 @@ The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Up
                         try
                         {
                             var fileName = Path.GetFileName(fileToRemove);
+
                             // server Blazor app
                             var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
                             // client Blazor app
@@ -258,7 +263,11 @@ The Upload methods are accesible through its [reference](#upload-reference).
                             // Some browsers send file names with full path.
                             // We are only interested in the file name.
                             var fileName = Path.GetFileName(fileContent.FileName.ToString().Trim('"'));
-                            var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+
+                            // server Blazor app
+                            //var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+                            // client Blazor app
+                            var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
         
                             // Implement security mechanisms here - prevent path traversals,
                             // check for allowed extensions, types, size, content, viruses, etc.
@@ -290,10 +299,11 @@ The Upload methods are accesible through its [reference](#upload-reference).
                         try
                         {
                             var fileName = Path.GetFileName(fileToRemove);
+
                             // server Blazor app
-                            var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+                            //var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
                             // client Blazor app
-                            //var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
+                            var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
         
                             if (System.IO.File.Exists(physicalPath))
                             {
