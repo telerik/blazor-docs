@@ -1,5 +1,5 @@
 ---
-title: Carousel Thumbnail Scrollable navigation
+title: Carousel Thumbnail Scrollable Navigation
 description: How to create Thumbnail Scrollable Navigation in Carousel?
 type: how-to
 page_title: Carousel Thumbnail Scrollable navigation
