@@ -225,7 +225,11 @@ namespace MyBlazorApp.Controllers
                 {
                     var fileContent = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
                     var fileName = Path.GetFileName(fileContent.FileName.ToString().Trim('"'));
-                    var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+
+                    // server Blazor app
+                    //var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+                    // client Blazor app
+                    var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
 
                     string customHeaderValue = Request.Headers["CustomHeader"]; // the key from the OnUpload event
                     string customFormValue = Request.Form["SomeFormField"]; // the key from the OnUpload event
@@ -355,7 +359,11 @@ namespace MyBlazorApp.Controllers
                     // implement security and validation here
 
                     var fileName = Path.GetFileName(fullName);
-                    var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+
+                    // server Blazor app
+                    //var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+                    // client Blazor app
+                    var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
 
                     if (System.IO.File.Exists(physicalPath))
                     {
@@ -504,7 +512,11 @@ namespace MyBlazorApp.Controllers
                 {
                     var fileContent = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
                     var fileName = Path.GetFileName(fileContent.FileName.ToString().Trim('"'));
-                    var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+
+                    // server Blazor app
+                    //var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+                    // client Blazor app
+                    var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
 
                     // implement security and validation here
 
@@ -624,7 +636,11 @@ namespace MyBlazorApp.Controllers
                 {
                     var fileContent = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
                     var fileName = Path.GetFileName(fileContent.FileName.ToString().Trim('"'));
-                    var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+
+                    // server Blazor app
+                    //var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
+                    // client Blazor app
+                    var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
 
                     // always cause an exception to showcase the idea
                     // these are examples of throwing errors and sending response texts and status code
