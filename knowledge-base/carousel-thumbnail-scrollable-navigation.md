@@ -64,8 +64,6 @@ To add a thumbnail scrollable navigation:
 <script suppress-error="BL9992">
     function ScrollToCurrentPage(imgId) {
         var elem = document.getElementById(imgId);
-        console.log(imgId);
-        console.log(elem);
         if (elem) {
             elem.scrollIntoView();
         }
