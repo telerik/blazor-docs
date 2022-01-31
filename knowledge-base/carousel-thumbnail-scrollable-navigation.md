@@ -2,7 +2,7 @@
 title: Carousel Thumbnail Scrollable Navigation
 description: How to use thumbnails in scrollable navigation for the Carousel?
 type: how-to
-page_title: Carousel Thumbnail Scrollable navigation
+page_title: Carousel Thumbnail Scrollable Navigation
 slug: carousel-kb-thumbnail-scrollable-navigation
 position: 
 tags: telerik,blazor,carousel,thumbnail,navigation,images
