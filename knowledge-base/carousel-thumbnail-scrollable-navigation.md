@@ -1,6 +1,6 @@
 ---
 title: Carousel Thumbnail Scrollable Navigation
-description: How to create Thumbnail Scrollable Navigation in Carousel?
+description: How to use thumbnails in scrollable navigation for the Carousel?
 type: how-to
 page_title: Carousel Thumbnail Scrollable navigation
 slug: carousel-kb-thumbnail-scrollable-navigation
