@@ -17,7 +17,7 @@ res_type: kb
 		<tr>
 			<td>Product</td>
 			<td>
-                AutoCopmlete for Blazor,
+                AutoComplete for Blazor, <br />
                 ComboBox for Blazor, <br />
                 DropDownList for Blazor, <br />
                 MultiSelect for Blazor
@@ -32,16 +32,18 @@ My dropdown data model has one numeric property and two string properties. I wan
 
 ## Solution
 
-The milestones of the solution is to use an **`OnRead` handler** and modify the **filtering** criteria of the data request.
+* Use manual data binding for the component with the `OnRead` event. THis will allow programmatic changes to the data request filter.
+* Create a new [`DataSourceRequest`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.DataSourceRequest) object in the `OnRead` handler. Set its `Filters` collection to include one [`CompositeFilterDescriptor`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor) instead of the default [`FilterDescriptor`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptor) (see note below).
+* The `CompositeFilterDescriptor` object should have its `LogicalOperator` set to `FilterCompositionLogicalOperator.Or` (unless you want **all** searchable fields to contain the search string).
+* The `CompositeFilterDescriptor` object should have its `FilterDescriptors` collection contain one `FilterDescriptor` for each searchable field in the data.
+* (optional) The new `DataSourceRequest` should copy the `PageSize` and `Skip` property values of the original `OnRead` event argument. This applies to virtual scrolling scenarios.
+* The `FilterOperator` of the component should be the same as the one in the custom filter descriptors.
+* Set the component `ValueField`, according to the application and business requirements. The dropdown items can display any field. The user can search (filter) in any `string` fields.
+* (optional) Use an `ItemTemplate` to display multiple fields in the dropdown.
 
-* Set the `ValueField`, according to the application and business requirements. The dropdown items can display any field. The user can search (filter) in any `string` fields.
-* Use an `ItemTemplate` to display multiple fields in the dropdown.
-* Use manual data binding with the `OnRead` event.
-* Create a new [`DataSourceRequest`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.DataSourceRequest) object in the `OnRead` handler. Set its `Filters` collection to include one [`CompositeFilterDescriptor`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor) instead of the default [`FilterDescriptor`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptor). (see note below)
-* The new `DataSourceRequest` should copy the `PageSize` and `Skip` properties of the `OnRead` event argument. This applies only to virtual scrolling scenarios.
-* The `FilterOperator` of the component should be the same as the one in the custom filter descriptor.
+> Each `FilterDescriptor` defines **one** filtering criterion for one data field (`Member`). The `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection), which can target the same field or different fields. All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
 
->The `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection) which can target the same field or different fields. All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
+>tip The `OnRead` handler below uses a `ReadEventArgs` event argument type. This is to reuse the `OnRead` handler for all components and prevent code duplication. Use the **correct event argument type** in the production application, depending on the component (`AutoCompleteReadEventArgs`, `ComboBoxReadEventArgs`, etc.).
 
 >caption Search in multiple data fields - custom filtering
 
