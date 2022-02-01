@@ -9,7 +9,7 @@ previous_url: /components/treelist/filtering
 position: 0
 ---
 
-# TreeList Filtering Overview
+# Blazor TreeList Filtering Overview
 
 The TreeList component offers built-in support for filtering.
 

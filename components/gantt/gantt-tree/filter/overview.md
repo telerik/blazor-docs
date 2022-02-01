@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Filtering Overview
+# Blazor Filtering Overview
 
 The Grid component offers built-in support for filtering.
 

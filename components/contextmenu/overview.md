@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Context Menu Overview
+# Blazor Context Menu Overview
 
 The <a href="https://www.telerik.com/blazor-ui/context-menu" target="_blank">Blazor Context Menu component </a> displays a contextual popup with data (flat or hierarchical) in a traditional menu-like structure. It lets you invoke commands while preserving screen real estate.
 

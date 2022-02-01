@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# ListView Overview
+# Blazor ListView Overview
 
 The <a href="https://www.telerik.com/blazor-ui/listview" target="_blank">Blazor ListView component</a> is a fully customizable templated component that repeats your layout for each item in the data source. It lets you page the data, edit items through a dedicated edit template and also add header and footer templates.
 

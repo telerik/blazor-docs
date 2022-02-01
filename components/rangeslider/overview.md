@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# RangeSlider Overview
+# Blazor RangeSlider Overview
 
 The <a href="https://www.telerik.com/blazor-ui/rangeslider" target="_blank">Blazor Range Slider component</a> allows the user to select a value range by dragging its handles along the track. It provides templates, various configuration options, validation and keyboard navigation.
 

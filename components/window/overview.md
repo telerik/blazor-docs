@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Window Overview
+# Blazor Window Overview
 
 This article provides basic information about the <a href="https://www.telerik.com/blazor-ui/window" target="_blank">Blazor Window component</a>.
 

@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Linear Gauge Overview
+# Blazor Linear Gauge Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/linear-gauge" target="_blank">Telerik Linear Gauge for Blazor</a> represents [numerical values]({%slug linear-gauge-pointers%}) on a [scale]({%slug linear-gauge-scale%}) of ranges in a linear format.
 
