@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# ToggleButton Overview
+# Blazor ToggleButton Overview
 
 This article provides information about the <a href="https://www.telerik.com/blazor-ui/togglebutton" target="_blank">Blazor ToggleButton component</a> and its core features.
 

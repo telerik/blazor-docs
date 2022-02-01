@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Switch Overview
+# Blazor Switch Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/switch" target="_blank">Blazor Switch component</a> allows the user to toggle between checked and unchecked states.
 

@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Form Items Overview
+# Blazor Form Items Overview
 
 You can customize the [default editors]({%slug form-overview%}#automatic-generation-of-fields) by using instances of the `FormItem` tag. Those instances should be in the `FormItems` collection.
 

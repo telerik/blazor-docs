@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Circular Gauge Overview
+# Blazor Circular Gauge Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/circular-gauge" target="_blank">Telerik Circular Gauge for Blazor</a> represents [numerical values]({%slug circular-gauge-pointers%}) on a circular [scale]({%slug circular-gauge-scale%}).
 

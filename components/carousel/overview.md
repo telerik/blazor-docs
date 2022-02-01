@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Carousel Overview
+# Blazor Carousel Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/carousel" target="_blank">Carousel for Blazor</a> is an interactive component that allows users to browse a collection of content items (pages) one at a time. The Carousel template supports random web content, although it is most often used to display images.
 
