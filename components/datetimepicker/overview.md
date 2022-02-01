@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# DateTime Picker Overview
+# Blazor DateTime Picker Overview
 
 The <a href="https://www.telerik.com/blazor-ui/datetimepicker" target="_blank">Blazor DateTime Picker component</a> allows the user to choose both a date and a time from a visual list in a dropdown, or to type it into a [date input]({%slug components/dateinput/overview%}) that can accept only DateTime values. You can control the date and time format of the input, and respond to [events]({%slug components/datetimepicker/events %}).
 

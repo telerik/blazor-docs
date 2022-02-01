@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Slider Overview
+# Blazor Slider Overview
 
 The <a href="https://www.telerik.com/blazor-ui/slider" target="_blank">Blazor Slider component</a> allows the user to select a value by dragging its handle along the track, or by clicking the side arrow buttons. It provides templates, various configuration options, validation and keyboard navigation.
 

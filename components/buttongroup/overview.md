@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# ButtonGroup Overview
+# Blazor ButtonGroup Overview
 
 This article provides information about the <a href="https://www.telerik.com/blazor-ui/buttongroup" target="_blank">Blazor ButtonGroup component</a> and its core features.
 

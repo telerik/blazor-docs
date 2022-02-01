@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Textbox Overview
+# Blazor Textbox Overview
 
 The <a href="https://www.telerik.com/blazor-ui/textbox" target="_blank">Blazor Textbox component</a> allows the user to enter a generic plain text message. To customize the Textbox, you can:
 

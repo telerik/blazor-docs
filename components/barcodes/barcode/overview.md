@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Barcode Overview
+# Blazor Barcode Overview
 
 The Barcode represents data in a machine-readable format. You can choose from several supported standards.
 

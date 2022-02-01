@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Dialog Overview
+# Blazor Dialog Overview
 
 The Dialog is a modal popup that brings information to the user. It provides actions through its action buttons to prompt the user for input or to ask for a decision. The component can also contain more complex UI elements that require the attention of the user. The main difference from the Window modal is the functionality for actions and predefined dialogs.
 

@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Globalization Overview
+# Blazor Globalization Overview
 
 Internationalization (I18N) is the process of making an app support different languages and regions. In the Telerik UI for Blazor suite, this will consist of the following features:
 

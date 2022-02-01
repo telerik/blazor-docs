@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Blazor TreeList Component Overview
+# Blazor Blazor TreeList Component Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/treelist" target="_blank">Blazor TreeList component</a> displays hierarchical data in a tabular format and allows [sorting]({%slug treelist-sorting%}), [filtering]({%slug treelist-filtering%}), [data editing]({%slug treelist-editing-overview%}); provides item [selection]({%slug treelist-selection-overview%}), [templates]({%slug treelist-templates-overview%}) and [load on demand]({%slug treelist-data-binding-load-on-demand%}).
 

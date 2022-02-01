@@ -9,7 +9,7 @@ published: True
 position: 1
 ---
 
-# Deployment Overview
+# Blazor Deployment Overview
 
 This article explains the basics about deploying a Telerik-enabled Blazor web application. It consists of the following sections:
 
