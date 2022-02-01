@@ -9,7 +9,7 @@ previous_url: /components/grid/filtering
 position: 0
 ---
 
-# Grid Filtering Overview
+# Blazor Grid Filtering Overview
 
 The Grid component offers built-in support for filtering.
 

@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# FileSelect Overview
+# Blazor FileSelect Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/fileselect" target="_blank">Blazor FileSelect component</a> helps users select single or multiple files from their local file systems. It provides UI for selecting the files and allows the application logic to handle the actual upload as desired. The component is especially useful when you want full control over the process of creating the server requests and sent forms.
 

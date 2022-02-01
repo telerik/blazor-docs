@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# QRCode Overview
+# Blazor QRCode Overview
 
 The QRCode generates **Canvas** and **SVG** images that represent Quick Response (QR) codes.
 

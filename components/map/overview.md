@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Map Overview
+# Blazor Map Overview
 
 The Map displays geospatial information organized in layers.
 
