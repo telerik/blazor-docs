@@ -1,8 +1,8 @@
 ---
-title: Prevent the Grid from wrapping text in multiple lines
-description: How to prevent the Grid from wrapping text in multiple lines
+title: Prevent the Grid from wrapping text in multiple lines and show ellipsis
+description: How to prevent the Grid from wrapping text in multiple lines and show ellipsis
 type: how-to
-page_title: Prevent the Grid from wrapping text in multiple lines
+page_title: Prevent the Grid from wrapping text in multiple lines and show ellipsis
 slug: grid-kb-rows-text-ellipsis
 position: 
 tags: 
@@ -27,18 +27,23 @@ I am using the TelerikGrid component for Blazor. One of my columns contains a lo
 
 ## Solution
 
-In order to prevent the Grid from wrapping the text in multiple lines you can use CSS and target the `<td>` HTML tags, which contain the data. In order to make that easier you can take advantage of the [OnCellRender event]({%slug grid-column-events%}#oncellrender) that the component exposes. The solution below showcases a sample implementation.
+In order to prevent the Grid from wrapping the text in multiple lines you can use CSS and target the `<td>` HTML tags, which contain the data. In order to make that easier you can take advantage of the [OnCellRender event]({%slug grid-column-events%}#oncellrender) that the component exposes.
 
 >note You can achieve the same behavior if you use the [Template]({%slug grid-templates-column%}) instead of the OnCellRender event. If you choose to go for the `Template` approach you should wrap the `(context as <YourModel>).FieldName` into a HTML element and add the CSS class to the `class` attribute of that element.
 
+You might still want to allow the user to see the whole content, so you can enable the `Resizable` parameter of the Grid. If, however, the content is too long, the user should resize a lot in order to see the cell content. To cover such scenario, you can display the full content in a separate container. One option would be to use a [Window component]({%slug components/window/overview%}) and handle some of the Grid events to display it ([`OnRowClick`]({%slug grid-events%}#onrowclick), [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick)). Another approach is to show a Tooltip on hover of the cell (similar example is available in [Tooltip in Grid]({%slug tooltip-kb-in-grid%}) knowledge base article). The solution below showcases a sample implementation of the first mentioned approach - using a Window component and handling the `OnRowDoubleClick` event.
+
 
 ````CSHTML
-@*Use the OnCellRender event to pass a custom CSS class to the Grid column and prevent it from wrapping the text in multiple lines for the Notes column*@
+@*Use the OnCellRender event to pass a custom CSS class to the Grid column and prevent it from wrapping the text in multiple lines for the Notes column. Display the full content of the column in a separate Window component.*@
+
+Resize Note column or double click on a row to see the product details
 
 <TelerikGrid Data="@MyData" Height="400px"
              Pageable="true" Sortable="true" Groupable="true"
              FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-             Resizable="true" Reorderable="true">
+             Resizable="true" Reorderable="true"
+             OnRowDoubleClick="@OnRowDoubleClickHandler">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
@@ -48,7 +53,32 @@ In order to prevent the Grid from wrapping the text in multiple lines you can us
     </GridColumns>
 </TelerikGrid>
 
+<TelerikWindow @bind-Visible="@WindowIsVisible" Modal="true">
+    <WindowTitle>
+        <strong>Details for @CurrEmployee.Name</strong>
+    </WindowTitle>
+    <WindowContent>
+        @CurrEmployee.Note
+    </WindowContent>
+    <WindowActions>
+        <WindowAction Name="Minimize"></WindowAction>
+        <WindowAction Name="Maximize"></WindowAction>
+        <WindowAction Name="Close"></WindowAction>
+    </WindowActions>
+</TelerikWindow>
+
 @code {
+    bool WindowIsVisible { get; set; }
+
+    SampleData CurrEmployee { get; set; } = new SampleData();
+
+    void OnRowDoubleClickHandler(GridRowClickEventArgs args)
+    {
+        CurrEmployee = args.Item as SampleData;
+
+        WindowIsVisible = !WindowIsVisible;
+    }
+
     void OnCellRenderHandler(GridCellRenderEventArgs args)
     {
         args.Class = "custom-ellipsis";
@@ -82,10 +112,6 @@ In order to prevent the Grid from wrapping the text in multiple lines you can us
     }
 </style>
 ````
-
->caption The result from the code snippet above
-
-![](images/grid-rows-ellipsis-text-example.png)
 
 ## See also
 
