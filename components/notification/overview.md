@@ -46,7 +46,7 @@ To add a Telerik Notification component to your page:
         NotificationReference.Show(new NotificationModel()
         {
             Text = "Auto Closable Notification",
-            ThemeColor = ThemeColors.Primary
+            ThemeColor = ThemeConstants.Notification.ThemeColor.Primary
         });
     }
 }
@@ -91,28 +91,28 @@ There are built-in themes for the most common notifications such as Success, Inf
         // Success
         NotificationReference.Show(new NotificationModel()
         {
-            ThemeColor = ThemeColors.Success,
+            ThemeColor = ThemeConstants.Notification.ThemeColor.Success,
             Text = "Success",
         });
 
         // Info
         NotificationReference.Show(new NotificationModel()
         {
-            ThemeColor = ThemeColors.Info,
+            ThemeColor = ThemeConstants.Notification.ThemeColor.Info,
             Text = "Info",
         });
 
         // Warning
         NotificationReference.Show(new NotificationModel()
         {
-            ThemeColor = ThemeColors.Warning,
+            ThemeColor = ThemeConstants.Notification.ThemeColor.Warning,
             Text = "Warning",
         });
 
         // Error
         NotificationReference.Show(new NotificationModel()
         {
-            ThemeColor = ThemeColors.Error,
+            ThemeColor = ThemeConstants.Notification.ThemeColor.Error,
             Text = "Error",
         });
     }
