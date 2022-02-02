@@ -762,7 +762,7 @@ Field | Type | Description
  `Field` | `string` | the field of the column
  `Visible` | `bool?` | whether the column is hidden or not
  `Locked` | `bool` | whether the column is locked or not
- `Width` | `string` | the width of the column if it has one set
+ `Width` | `string` | the width of the column if it is set
 
 By looping over the `ColumnStates` collection you can know what the user sees. By default, the order of the columns in the state collection will remain the same but their `Index` value will be changed to indicate their position. You can, for example, sort by the index and filter by the visibility of the columns to get the approximate view the user sees.
 
