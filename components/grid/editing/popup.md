@@ -10,6 +10,13 @@ position: 2
 
 # Grid PopUp Editing
 
+In this article:
+
+* [Basics](#basics)
+* [Customization](#customization)
+
+## Basics
+
 Popup editing lets the user click an [Edit command button]({%slug components/grid/columns/command%}) on the row, and a popup shows up with all its editable columns open up for changes. They can then click the `Save` button in the dialog to submit the changes to the model. This fires the `OnUpdate` event of the grid where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
 
 In a similar fashion, the `Cancel`, `Delete` command buttons and the `Add` toolbar button fire events on the grid to let you handle the data source operations.
@@ -180,6 +187,104 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 ![](images/popup-editing.png)
 
 >note It is up to the data access logic to save the data once it is changed in the data collection, or to revert changes. The example above showcases the events that allow you to do that. In a real application, the code for handling data operations may be entirely different.
+
+## Customization
+
+The Grid exposes various options to for customizing the edit form. You can define your desired configuration in the `GridPopupEditSettings` under the `GridSettings` tag. It exposes the following features:
+
+Parameter | Type | Description
+---------|----------|---------
+ `Class` | `string` | CSS class of the edit popup
+ `Width` | `string` | width of the edit popup
+ `MaxWidth ` | `string` | specifies the maximum width of the window
+ `MinWidth ` | `string` | specifies the minimum width of the window
+ `Height ` | `string` | height of edit popup
+ `MaxHeight ` | `string` | specifies the maximum height of the window
+ `MinHeight ` | `string` | specifies the minimum height of the window
+
+
+>caption Customize the popup edit form
+
+````CSHTML
+@*The snippet focuses on the edit form customization. CRUD events are not handled for brevity*@
+
+@using System.ComponentModel.DataAnnotations
+@* Used for the model annotations only *@
+
+<strong>Editing is cancelled for the first two records.</strong>
+
+<TelerikGrid Data=@MyData EditMode="@GridEditMode.Popup" Pageable="true" Height="500px">
+    <GridSettings>
+        @*<GridPopupEditSettings Class="test"
+                               MaxWidth="600px"
+                               MaxHeight="95vh"
+                               Orientation="horizontal"
+                               Columns= "2">
+        </GridPopupEditSettings>*@
+    </GridSettings>
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+
+    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
+    public class SampleData
+    {
+        public int ID { get; set; }
+
+        [Required(ErrorMessage = "The employee must have a name")]
+        public string Name { get; set; }
+    }
+
+    public List<SampleData> MyData { get; set; }
+
+    async Task GetGridData()
+    {
+        MyData = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetGridData();
+    }
+
+    // the following static class mimics an actual data service that handles the actual data source
+    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    public static class MyService
+    {
+        private static List<SampleData> _data { get; set; } = new List<SampleData>();
+
+        public static async Task<List<SampleData>> Read()
+        {
+            if (_data.Count < 1)
+            {
+                for (int i = 1; i < 50; i++)
+                {
+                    _data.Add(new SampleData()
+                        {
+                            ID = i,
+                            Name = "Name " + i.ToString()
+                        });
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+    }
+}
+````
 
 ## See Also
 
