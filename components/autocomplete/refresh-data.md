@@ -14,8 +14,58 @@ position: 30
 @[template](/_contentTemplates/common/observable-data.md#intro)
 
 In this article:
+
+- [Rebind Method](#rebind-method)
 - [Observable Data](#observable-data)
 - [New Collection Reference](#new-collection-reference)
+
+## Rebind Method
+
+To refresh the AutoComplete data when using [`OnRead`]({%slug autocomplete-events%}#onread), call the `Rebind` method of the TelerikAutoComplete reference. This will fire the `OnRead` event and execute the business logic in the handler.
+
+````CSHTML
+@* Clicking on the Rebind button will delete the first item from the datasource and refresh the data in the UI *@
+
+@using Telerik.DataSource.Extensions
+
+<TelerikButton OnClick="@RebindAutoComplete">Rebind the AutoComplete</TelerikButton>
+
+<TelerikAutoComplete TItem="@String"
+                     @ref="@AutoCompleteRef"
+                     OnRead="@ReadItems"
+                     @bind-Value="@SelectedValue">
+</TelerikAutoComplete>
+
+@code{
+    private TelerikAutoComplete<string> AutoCompleteRef { get; set; }
+
+    private void RebindAutoComplete()
+    {
+        if (Options.Count > 0)
+        {
+            Options.RemoveAt(0);
+        }
+
+        AutoCompleteRef.Rebind();
+    }
+
+    public string SelectedValue { get; set; }
+    List<string> Options { get; set; } = new List<string>();
+
+    async Task ReadItems(AutoCompleteReadEventArgs args)
+    {
+        await Task.Delay(1000);
+        args.Data = Options.ToDataSourceResult(args.Request).Data;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Options = new List<string>() { "one", "two", "three" };
+    }
+}
+````
+
+@[template](/_contentTemplates/common/refresh-data-not-applicable.md#refresh-data-note)
 
 ## Observable Data
 

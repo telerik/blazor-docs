@@ -13,8 +13,60 @@ position: 30
 @[template](/_contentTemplates/common/observable-data.md#intro)
 
 In this article:
+
+- [Rebind Method](#rebind-method)
 - [Observable Data](#observable-data)
 - [New Collection Reference](#new-collection-reference)
+
+
+## Rebind Method
+
+You can refresh the data of the DropDownList by using the `Rebind` method exposed to the reference of the TelerikDropDownList. If you have manually defined the [OnRead event]({%slug components/dropdownlist/events%}#onread) the business logic defined in its event handler will be executed. 
+
+````CSHTML
+@* Clicking on the Rebind button will delete the first option from the dropdown and refresh the data *@
+
+@using Telerik.DataSource.Extensions
+
+<TelerikButton OnClick="@RebindDropDown">Rebind the DropDown</TelerikButton>
+
+<TelerikDropDownList TItem="@String" 
+                     TValue="@String"
+                     @ref="@DropDownRef"
+                     OnRead="@ReadItems"
+                     @bind-Value="@SelectedValue">
+</TelerikDropDownList>
+
+@code{
+    private TelerikDropDownList<string, string> DropDownRef { get; set; }
+
+    private void RebindDropDown()
+    {
+        if(Options.Count > 0)
+        {
+            Options.RemoveAt(0);
+        }
+
+        DropDownRef.Rebind();
+    }
+
+    public string SelectedValue { get; set; }
+    List<string> Options { get; set; } = new List<string>();
+
+    async Task ReadItems(DropDownListReadEventArgs args)
+    {
+        await Task.Delay(1000);
+        args.Data = Options.ToDataSourceResult(args.Request).Data;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Options = new List<string>() { "one", "two", "three" };
+    }
+}
+````
+
+@[template](/_contentTemplates/common/refresh-data-not-applicable.md#refresh-data-note)
 
 ## Observable Data
 
