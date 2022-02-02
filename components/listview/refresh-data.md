@@ -20,71 +20,78 @@ In this article:
 
 ## Rebind Method
 
-You can refresh the data of the ListView by using the `Rebind` method exposed to the reference of the TelerikListView. If you have manually defined the [OnRead event]({%slug listview-events%}#onread) the business logic defined in its event handler will be executed. 
+To refresh the ComboBox data when using [`OnRead`]({%slug autocomplete-events%}#onread), call the `Rebind` method of the TelerikAutoComplete reference. This will fire the `OnRead` event and execute the business logic in the handler.
 
 ````CSHTML
 @* Clicking on the Rebind button will delete the first item from the ListView and refresh the data *@
 
 @using Telerik.DataSource.Extensions
 
-<TelerikButton OnClick="@RebindListView">Rebind</TelerikButton>
-<TelerikListView @ref="@ListViewRef"
-                 TItem="@Product"
-                 OnRead="@ReadItems"
-                 Width="500px"
-                 Height="700px">
-    <Template>
-        <div>
-            @context.ProductName
-        </div>
-    </Template>
-</TelerikListView>
+<div class="example-box">
+    <h3>Pressing rebind will remove the first item from the combobox and rebind it.</h3>
+    <TelerikButton OnClick="@RebindComboBox">Rebind</TelerikButton>
+    <TelerikComboBox @ref="@ComboBoxRef"
+                     TItem="Product" TValue="int"
+                     OnRead="@ReadItems"
+                     ValueField="@nameof(Product.ProductId)"
+                     TextField="@nameof(Product.ProductName)"
+                     Filterable="true"
+                     Placeholder="Find what you seek by typing"
+                     @bind-Value="@SelectedValue">
+    </TelerikComboBox>
+</div>
 
-@code {
+@code{
+    public int SelectedValue { get; set; }
+    List<Product> AllData { get; set; } = new List<Product>();
+    public TelerikComboBox<Product, int> ComboBoxRef { get; set; }
+
+    async Task ReadItems(ComboBoxReadEventArgs args)
+    {
+        await Task.Delay(1000);
+        args.Data = AllData.ToDataSourceResult(args.Request).Data;
+    }
+
+    protected override void OnInitialized()
+    {
+        List<Product> products = new List<Product>();
+        for (int i = 0; i < 200; i++)
+        {
+            products.Add(new Product()
+            {
+                ProductId = i,
+                ProductName = "Product" + i.ToString(),
+                SupplierId = i,
+                UnitPrice = (decimal)(i * 3.14),
+                UnitsInStock = (short)(i * 1),
+            });
+        }
+
+        AllData = products;
+    }
+
     public class Product
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; }
+        public int SupplierId { get; set; }
+        public decimal UnitPrice { get; set; }
+        public short UnitsInStock { get; set; }
     }
 
-    private List<Product> GetProductsData()
+    private void RebindComboBox()
     {
-        List<Product> _data = Enumerable.Range(1, 10).Select(x => new Product()
+        if (AllData.Count > 0)
         {
-            ProductId = x,
-            ProductName = $"Product {x}"
-        }).ToList();
-
-        return _data;
-    }
-
-    public List<Product> SourceData { get; set; }
-    public TelerikListView<Product> ListViewRef { get; set; }
-
-    protected async Task ReadItems(ListViewReadEventArgs args)
-    {
-        if (SourceData == null)
-        {
-            SourceData = GetProductsData();
+            AllData.RemoveAt(0);
         }
 
-        var datasourceResult = SourceData.ToDataSourceResult(args.Request);
-
-        args.Data = datasourceResult.Data;
-        args.Total = datasourceResult.Total;
-    }
-
-    private void RebindListView()
-    {
-        if (SourceData.Count > 0)
-        {
-            SourceData.RemoveAt(0);
-        }
-
-        ListViewRef.Rebind();
+        ComboBoxRef.Rebind();
     }
 }
 ````
+
+@[template](/_contentTemplates/common/refresh-data-not-applicable.md#refresh-data-note)
 
 ## Observable Data
 

@@ -102,9 +102,9 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 }
 ````
 
-## Observable Data
+@[template](/_contentTemplates/common/refresh-data-not-applicable.md#refresh-data-note)
 
-@[template](/_contentTemplates/common/observable-data.md#observable-data)
+## Observable Data
 
 >caption Bind the Grid to an ObservableCollection, so it can react to collection changes.
 

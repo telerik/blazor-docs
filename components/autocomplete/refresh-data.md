@@ -65,6 +65,8 @@ To refresh the AutoComplete data when using [`OnRead`]({%slug autocomplete-event
 }
 ````
 
+@[template](/_contentTemplates/common/refresh-data-not-applicable.md#refresh-data-note)
+
 ## Observable Data
 
 @[template](/_contentTemplates/common/observable-data.md#observable-data)
