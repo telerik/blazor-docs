@@ -21,7 +21,7 @@ In this article:
 
 ## Rebind Method
 
-You can refresh the data of the AutoComplete by using the `Rebind` method exposed to the reference of the TelerikAutoComplete. If you have manually defined the [OnRead event]({%slug autocomplete-events%}#onread) the business logic defined in its event handler will be executed. 
+To refresh the AutoComplete data when using [`OnRead`]({%slug autocomplete-events%}#onread), call the `Rebind` method of the TelerikAutoComplete reference. This will fire the `OnRead` event and execute the business logic in the handler.
 
 ````CSHTML
 @* Clicking on the Rebind button will delete the first option from the dropdown and refresh the data *@
