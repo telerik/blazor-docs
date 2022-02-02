@@ -66,6 +66,8 @@ You can refresh the data of the DropDownList by using the `Rebind` method expose
 }
 ````
 
+@[template](/_contentTemplates/common/refresh-data-not-applicable.md#refresh-data-note)
+
 ## Observable Data
 
 @[template](/_contentTemplates/common/observable-data.md#observable-data)
