@@ -13,8 +13,78 @@ position: 53
 @[template](/_contentTemplates/common/observable-data.md#intro)
 
 In this article:
+
+- [Rebind Method](#rebind-method)
 - [Observable Data](#observable-data)
 - [New Collection Reference](#new-collection-reference)
+
+## Rebind Method
+
+You can refresh the data of the ListView by using the `Rebind` method exposed to the reference of the TelerikListView. If you have manually defined the [OnRead event]({%slug listview-events%}#onread) the business logic defined in its event handler will be executed. 
+
+````CSHTML
+@* Clicking on the Rebind button will delete the first item from the ListView and refresh the data *@
+
+@using Telerik.DataSource.Extensions
+
+<TelerikButton OnClick="@RebindListView">Rebind</TelerikButton>
+<TelerikListView @ref="@ListViewRef"
+                 TItem="@Product"
+                 OnRead="@ReadItems"
+                 Width="500px"
+                 Height="700px">
+    <Template>
+        <div>
+            @context.ProductName
+        </div>
+    </Template>
+</TelerikListView>
+
+@code {
+    public class Product
+    {
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+    }
+
+    private List<Product> GetProductsData()
+    {
+        List<Product> _data = Enumerable.Range(1, 10).Select(x => new Product()
+        {
+            ProductId = x,
+            ProductName = $"Product {x}"
+        }).ToList();
+
+        return _data;
+    }
+
+    public List<Product> SourceData { get; set; }
+    public TelerikListView<Product> ListViewRef { get; set; }
+
+    protected async Task ReadItems(ListViewReadEventArgs args)
+    {
+        if (SourceData == null)
+        {
+            SourceData = GetProductsData();
+        }
+
+        var datasourceResult = SourceData.ToDataSourceResult(args.Request);
+
+        args.Data = datasourceResult.Data;
+        args.Total = datasourceResult.Total;
+    }
+
+    private void RebindListView()
+    {
+        if (SourceData.Count > 0)
+        {
+            SourceData.RemoveAt(0);
+        }
+
+        ListViewRef.Rebind();
+    }
+}
+````
 
 ## Observable Data
 
