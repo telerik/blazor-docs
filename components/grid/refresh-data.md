@@ -13,10 +13,94 @@ position: 53
 @[template](/_contentTemplates/common/observable-data.md#intro)
 
 In this article:
+
+- [Rebind Method](#rebind-method)
 - [Observable Data](#observable-data)
 - [New Collection Reference](#new-collection-reference)
 - [Call OnRead](#call-onread)
 - [Entity Framework Data](#entity-framework-data)
+
+## Rebind Method
+
+You can refresh the Grid data by using the `Rebind` method exposed to the reference of the TelerikGrid. If you have manually defined the [OnRead event]({%slug components/grid/manual-operations%}) the business logic defined in its event handler will be executed. 
+
+````CSHTML
+@* Clicking on the Rebind button will change the Name of the first item in the Grid and refresh the data *@
+
+<TelerikButton OnClick="@RebindGrid">Rebind the Grid</TelerikButton>
+
+@using Telerik.DataSource.Extensions
+
+<TelerikGrid TItem="@Employee" 
+             OnRead="@ReadItems"
+             FilterMode="@GridFilterMode.FilterRow"
+             Sortable="true" 
+             Pageable="true"
+             @ref="@GridRef">
+    <GridColumns>
+        <GridColumn Field=@nameof(Employee.ID) />
+        <GridColumn Field=@nameof(Employee.Name) Title="Name" />
+        <GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private TelerikGrid<Employee> GridRef { get; set; }
+
+    private void RebindGrid()
+    {
+        if(SourceData.Count > 0)
+        {
+            Employee firstDataItem = SourceData.FirstOrDefault();
+
+            firstDataItem.Name = "Changed in the rebound method";
+        }
+
+        GridRef?.Rebind();
+    }
+
+    public List<Employee> SourceData { get; set; }
+
+    protected async Task ReadItems(GridReadEventArgs args)
+    {
+        await Task.Delay(1000); //simulate network delay from a real async call
+
+        var datasourceResult = SourceData.ToDataSourceResult(args.Request);
+
+        args.Data = datasourceResult.Data;
+        args.Total = datasourceResult.Total;
+    }
+
+    protected override void OnInitialized()
+    {
+        SourceData = GenerateData();
+    }
+
+    private List<Employee> GenerateData()
+    {
+        var result = new List<Employee>();
+        var rand = new Random();
+        for (int i = 0; i < 100; i++)
+        {
+            result.Add(new Employee()
+            {
+                ID = i,
+                Name = "Name " + i,
+                HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20))
+            });
+        }
+
+        return result;
+    }
+
+    public class Employee
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
 
 ## Observable Data
 
