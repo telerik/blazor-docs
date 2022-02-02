@@ -40,6 +40,8 @@ The Telerik FileSelect for Blazor provides a [Stream](https://docs.microsoft.com
 }
 ````
 
+>important To avoid issues with large file size, increase the [Max WebSocket Message Size](http://barwicktechnology.com/2020/03/23/signalr-modify-the-max-websocket-message-size/) used for **SignalR** in your Visual Studio project.
+
 >caption Component namespace and reference
 
 ````CSHTML
