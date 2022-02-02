@@ -13,8 +13,85 @@ position: 53
 @[template](/_contentTemplates/common/observable-data.md#intro)
 
 In this article:
+
+- [Rebind Method](#rebind-method)
 - [Observable Data](#observable-data)
 - [New Collection Reference](#new-collection-reference)
+
+## Rebind Method
+
+To refresh the ComboBox data when using [`OnRead`]({%slug autocomplete-events%}#onread), call the `Rebind` method of the TelerikAutoComplete reference. This will fire the `OnRead` event and execute the business logic in the handler.
+
+````CSHTML
+@* Clicking on the Rebind button will delete the first item from the ListView and refresh the data *@
+
+@using Telerik.DataSource.Extensions
+
+<div class="example-box">
+    <h3>Pressing rebind will remove the first item from the combobox and rebind it.</h3>
+    <TelerikButton OnClick="@RebindComboBox">Rebind</TelerikButton>
+    <TelerikComboBox @ref="@ComboBoxRef"
+                     TItem="Product" TValue="int"
+                     OnRead="@ReadItems"
+                     ValueField="@nameof(Product.ProductId)"
+                     TextField="@nameof(Product.ProductName)"
+                     Filterable="true"
+                     Placeholder="Find what you seek by typing"
+                     @bind-Value="@SelectedValue">
+    </TelerikComboBox>
+</div>
+
+@code{
+    public int SelectedValue { get; set; }
+    List<Product> AllData { get; set; } = new List<Product>();
+    public TelerikComboBox<Product, int> ComboBoxRef { get; set; }
+
+    async Task ReadItems(ComboBoxReadEventArgs args)
+    {
+        await Task.Delay(1000);
+        args.Data = AllData.ToDataSourceResult(args.Request).Data;
+    }
+
+    protected override void OnInitialized()
+    {
+        List<Product> products = new List<Product>();
+        for (int i = 0; i < 200; i++)
+        {
+            products.Add(new Product()
+            {
+                ProductId = i,
+                ProductName = "Product" + i.ToString(),
+                SupplierId = i,
+                UnitPrice = (decimal)(i * 3.14),
+                UnitsInStock = (short)(i * 1),
+            });
+        }
+
+        AllData = products;
+    }
+
+    public class Product
+    {
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public int SupplierId { get; set; }
+        public decimal UnitPrice { get; set; }
+        public short UnitsInStock { get; set; }
+    }
+
+    private void RebindComboBox()
+    {
+        if (AllData.Count > 0)
+        {
+            AllData.RemoveAt(0);
+        }
+
+        ComboBoxRef.Rebind();
+    }
+}
+````
+
+@[template](/_contentTemplates/common/refresh-data-not-applicable.md#refresh-data-note)
 
 ## Observable Data
 

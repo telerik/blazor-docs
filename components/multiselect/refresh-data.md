@@ -13,9 +13,60 @@ position: 30
 @[template](/_contentTemplates/common/observable-data.md#intro)
 
 Sections in this article:
+
+- [Rebind Method](#rebind-method)
 - [Observable Data](#observable-data)
 - [New Collection Reference](#new-collection-reference)
 - [Update Value](#update-value)
+
+## Rebind Method
+
+You can refresh the data of the MultiSelect by using the `Rebind` method exposed to the reference of the TelerikMultiSelect. If you have manually defined the [OnRead event]({%slug multiselect-events%}#onread) the business logic defined in its event handler will be executed. 
+
+````CSHTML
+@* Clicking on the Rebind button will delete the first option from the dropdown and refresh the data *@
+
+@using Telerik.DataSource.Extensions
+
+<TelerikButton OnClick="@RebindMultiSelect">Rebind the Multiselect</TelerikButton>
+
+<TelerikMultiSelect TItem="@String"
+                    TValue="@String"
+                    @ref="@MultiSelectRef"
+                    OnRead="@ReadItems"
+                    @bind-Value="@SelectedValues">
+</TelerikMultiSelect>
+
+@code{
+    private TelerikMultiSelect<string, string> MultiSelectRef { get; set; }
+
+    private void RebindMultiSelect()
+    {
+        if (Options.Count > 0)
+        {
+            Options.RemoveAt(0);
+        }
+
+        MultiSelectRef.Rebind();
+    }
+
+    public List<string> SelectedValues { get; set; }
+    List<string> Options { get; set; } = new List<string>();
+
+    async Task ReadItems(MultiSelectReadEventArgs args)
+    {
+        await Task.Delay(1000);
+        args.Data = Options.ToDataSourceResult(args.Request).Data;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Options = new List<string>() { "one", "two", "three" };
+    }
+}
+````
+
+@[template](/_contentTemplates/common/refresh-data-not-applicable.md#refresh-data-note)
 
 ## Observable Data
 
