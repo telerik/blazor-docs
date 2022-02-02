@@ -758,7 +758,7 @@ The `ColumnStates` property of the GridState object provides you with informatio
 Field | Type | Description
 ---------|----------|---------
  `Index` | `int` | the current index of the column based on the position the user chose
- `Id` | `string` | the Id of the column if it has one set
+ `Id` | `string` | the Id of the column if it is set
  `Field` | `string` | the field of the column
  `Visible` | `bool?` | whether the column is hidden or not
  `Locked` | `bool` | whether the column is locked or not
