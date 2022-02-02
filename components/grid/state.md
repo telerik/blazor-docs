@@ -752,7 +752,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 
 ### Get Current Columns Visibility, Order, Field
 
-The `ColumnStates` field of the state object provides you with information about the current state of the grid columns. It contains the following fields:
+The `ColumnStates` property of the GridState object provides you with information about the current state of the Grid columns. It contains the following properties:
 
 
 Field | Type | Description
