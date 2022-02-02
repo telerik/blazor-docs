@@ -752,44 +752,42 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 
 ### Get Current Columns Visibility, Order, Field
 
-The `ColumnStates` field of the state object provides you with information about the current grid. The `Index` field describes the position the user chose, and the `Visible` parameter indicates whether the column is hidden or not. By looping over that collection you can know what the user sees. You could, for example, sort by the index and filter by the visibility of the columns to approximate the view of the user.
+The `ColumnStates` property of the GridState object provides you with information about the current state of the Grid columns. It contains the following properties:
+
+
+Field | Type | Description
+---------|----------|---------
+ `Index` | `int` | the current index of the column based on the position the user chose
+ `Id` | `string` | the Id of the column if it is set
+ `Field` | `string` | the field of the column
+ `Visible` | `bool?` | whether the column is hidden or not
+ `Locked` | `bool` | whether the column is locked or not
+ `Width` | `string` | the width of the column if it is set
+
+By looping over the `ColumnStates` collection you can know what the user sees. By default, the order of the columns in the state collection will remain the same but their `Index` value will be changed to indicate their position. You can, for example, sort by the index and filter by the visibility of the columns to get the approximate view the user sees.
 
 >caption Obtain the current columns visibility, rendering order, locked state and field name
 
 ````CSHTML
-@* Click the button, reorder some columns, maybe lock one of them, hide another, and click the button again to see how the state changes but the order of the columns in the state collection remains the same. This example also shows a workaround for getting the Field of the column that will be availale in a future release as part of the column state - this is what the loop in the grid markup is for, and the ColumnFields collection. *@
+@* Click the button, reorder some columns, maybe lock one of them, hide another, and click the button
+    again to see how the state changes but the order of the columns in the state collection remains the same.*@
 
 <TelerikButton OnClick="@GetCurrentColumns">Get Columns order and parameters</TelerikButton>
 
 <TelerikGrid Data="@GridData"
+             AutoGenerateColumns="true"
              @ref="@Grid"
              ShowColumnMenu="true"
              Reorderable="true"
              Pageable="true">
-    <GridColumns>
-        @* we use a loop to get the field name, you can simply declare the columns directly too *@
-        @foreach (var field in ColumnFields)
-        {
-            <GridColumn Field="@field"></GridColumn>
-        }
-    </GridColumns>
 </TelerikGrid>
 
 @( new MarkupString(ColumnsLog) )
-
 
 @code {
     IEnumerable<Person> GridData { get; set; }
     TelerikGrid<Person> Grid { get; set; }
     string ColumnsLog { get; set; } = string.Empty;
-
-    //part of workaround for getting the field too
-    public List<string> ColumnFields => new List<string>
-    {
-        nameof(Person.Id),
-        nameof(Person.Name),
-        nameof(Person.Age)
-    };
 
     protected override void OnInitialized()
     {
@@ -804,21 +802,14 @@ The `ColumnStates` field of the state object provides you with information about
 
         var columnsState = Grid.GetState().ColumnStates;
 
-        var index = 0;
-
         foreach (var columnState in columnsState)
         {
-            // final part of the workaround for getting the field
-            var columnField = ColumnFields[index];
-
             // human readable info for visibility information
             var visible = columnState.Visible != false;
 
-            string log = $"<p>Column: <strong>{columnField}</strong> | Index in Grid: {columnState.Index} | Index in state: {index} | Visible: {visible} | Locked: {columnState.Locked}</p>";
+            string log = $"<p>Column: <strong>{columnState.Field}</strong> | Index in state:{columnState.Index} | Visible: {visible} | Locked: {columnState.Locked}</p>";
 
             ColumnsLog += log;
-
-            index++;
         }
     }
 
@@ -840,7 +831,6 @@ The `ColumnStates` field of the state object provides you with information about
         return data;
     }
 }
-
 ````
 
 
