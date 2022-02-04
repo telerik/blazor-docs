@@ -1,6 +1,6 @@
 ---
 title: Cannot read properties of null (reading addEventListener)
-description: How to resolve JavaScript JSInterop error in Blazor WebAssembly applications.
+description: How to resolve JavaScript JSInterop error about addEventListener in Blazor WebAssembly applications.
 type: troubleshooting
 page_title: Cannot read properties of null (reading addEventListener)
 slug: common-kb-cannot-read-properties-of-null-reading-addeventlistener
