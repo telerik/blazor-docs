@@ -337,7 +337,7 @@ The Telerik Upload component facilitates sending a file to an endpoint. There ar
 
 The `MaxFileSize` parameter of the component is used for [client-side validation]({%slug upload-validation%}), and the server needs a separate configuration. At this stage, the files are uploaded in one piece and so the server may block large requests. Make sure the applicable server settings for your environment are set correctly. Here are a few common examples:
 
-* [IIS `maxAllowedContentLength`](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/security/requestfiltering/requestlimits/#configuration) (also see this [StackOverflow thread](https://stackoverflow.com/questions/10871881/iis7-the-request-filtering-module-is-configured-to-deny-a-request-that-exceeds))
+* [IIS `maxAllowedContentLength`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#iis) (also check the [`requestLimits` article](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/security/requestfiltering/requestlimits/) and this [StackOverflow thread](https://stackoverflow.com/questions/10871881/iis7-the-request-filtering-module-is-configured-to-deny-a-request-that-exceeds))
 * [ASP.NET Core `MultipartBodyLengthLimit`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#multipart-body-length-limit)
 * [Kestrel `MaxRequestBodySize`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#kestrel-maximum-request-body-size)
 
