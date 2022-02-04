@@ -66,7 +66,14 @@ Instead of this
 
 ### TypeScript
 
-By default, TypeScript results in compiled code that needs the `exports` object, and that is not available in Blazor by default, so it throws an error. A common workaround for that (defining an empty `exporst` object) causes errors from the Telerik JS Interop files. You can read more about the errors and the solutions in the [TypeScript Exports error breaks Telerik Blazor]({%slug common-kb-typescript-exports%}) KnowledgeBase article.
+By default, TypeScript results in compiled code that needs the `exports` object, and that is not available in Blazor by default, so it throws an error. A common workaround for that (defining an empty `exporst` object) causes errors from the Telerik JS Interop files. You can read more about the errors and the solutions in the [TypeScript Exports error breaks Telerik Blazor]({%slug common-kb-typescript-exports%}) Knowledge Base article.
+
+## Cannot read properties of null (reading 'addEventListener')
+
+This JavaScript error may occur after UI for Blazor update in WebAssembly (WASM) projects. The following article provides more details and a fix:
+
+[Knowledge Base: `TypeError: Cannot read properties of null (reading 'addEventListener')`]({%slug common-kb-cannot-read-properties-of-null-reading-addeventlistener%})
+
 
 ## Object doesn't support property or method 'assign'
 
