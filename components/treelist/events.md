@@ -951,7 +951,11 @@ Fires when the item selection is enabled and the user changes the selected [item
 
 ### OnRowClick
 
-The `OnRowClick` event fires as a response to the user clicking on a row of the Grid. Clicking on the `TreeListCommandButton`, select row `CheckBox`, expanding a parent row or when the row is in `edit/insert mode` will not trigger the event.
+The `OnRowClick` event fires when the user clicks on a TreeList row. The event does not fire when clicking on:
+* `TreeListCommandButton`
+* row selection checkbox
+* expand/collapse button
+* row in edit mode
 
 The event handler receives a `TreeListRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
