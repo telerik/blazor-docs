@@ -957,7 +957,7 @@ The `OnRowClick` event fires when the user clicks on a TreeList row. The event d
 * expand/collapse button
 * row in edit mode
 
-The event handler receives a `TreeListRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+The event handler receives a `TreeListRowClickEventArgs` object. It provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
 @[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
 
