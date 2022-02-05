@@ -1059,7 +1059,11 @@ The `OnRowClick` event fires before selection happens.
 
 ### OnRowDoubleClick
 
-The `OnRowDoubleClick` event fires as a response to the user double clicking on a row of the Grid. Clicking on the `GridCommandButton`, select row `CheckBox`, expanding a parent row or when the row is in `edit/insert mode` will not trigger the event.
+The `OnRowDoubleClick` event fires when the user double-clicks on a TreeList row. The event does not fire when clicking on:
+* `TreeListCommandButton`
+* row selection checkbox
+* expand/collapse button
+* row in edit mode
 
 The event handler receives a `TreeListRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
