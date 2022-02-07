@@ -120,5 +120,5 @@ TextBox value: @StringValue
   * [Live Demo: Textbox](https://demos.telerik.com/blazor-ui/textbox/index)
   * [Live Demo: Textbox Validation](https://demos.telerik.com/blazor-ui/textbox/validation)
   * [Input Validation]({%slug common-features/input-validation%})
-  * [Add Floating Label]({%slug knowledge-base/inputs-floating-label%})
+  * [Add Floating Label]({%slug inputs-kb-floating-label%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)
