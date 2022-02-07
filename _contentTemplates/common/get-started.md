@@ -162,7 +162,7 @@ To setup a local NuGet package source, so you can install the Telerik components
 
 
 #navigate-account
-1. Log into your [Telerik account](http://www.telerik.com/account/default.aspx) and click on **Downloads** from the top menu.
+1. Go to [Downloads](https://www.telerik.com/account/downloads) in your [Telerik account](https://www.telerik.com/account/).
 
 1. On the loaded page choose from your purchased products or trial downloads **Progress® Telerik® UI for Blazor**, and click on it.
 #end
