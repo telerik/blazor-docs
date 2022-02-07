@@ -63,7 +63,7 @@ The Blazor Date Picker component exposes the following features:
 
 * `View` - Specifies the current view that will be displayed in the popup calendar.
 
-* `Width` - Defines the width of the DatePicker. Defaults to `280px`.
+* `Width` - Defines the width of the DatePicker.
 
 * `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
 
