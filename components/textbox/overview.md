@@ -22,7 +22,7 @@ Furthermore, you can control [various attributes](#features) of the `input` elem
 @theTbValue
 <br />
 
-<TelerikTextBox @bind-Value="theTbValue" ></TelerikTextBox>
+<TelerikTextBox @bind-Value="theTbValue"></TelerikTextBox>
 
 @code {
     string theTbValue { get; set; } = "lorem ipsum";
