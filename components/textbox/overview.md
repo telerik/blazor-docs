@@ -10,11 +10,7 @@ position: 0
 
 # Blazor Textbox Overview
 
-The <a href="https://www.telerik.com/blazor-ui/textbox" target="_blank">Blazor Textbox component</a> allows the user to enter a generic plain text message. To customize the Textbox, you can:
-
-* Add an animated floating Label
-
-* Add a custom CSS class
+The <a href="https://www.telerik.com/blazor-ui/textbox" target="_blank">Blazor Textbox component</a> allows the user to enter a generic plain text message. To customize the Textbox, you can add a custom CSS class.
 
 Furthermore, you can control [various attributes](#features) of the `input` element and turn the Textbox into a password box, for example. You can also configure this component to respond to [events]({%slug components/textbox/events%}).
 
@@ -26,7 +22,7 @@ Furthermore, you can control [various attributes](#features) of the `input` elem
 @theTbValue
 <br />
 
-<TelerikTextBox @bind-Value="theTbValue" Label="Enter Information"></TelerikTextBox>
+<TelerikTextBox @bind-Value="theTbValue" ></TelerikTextBox>
 
 @code {
     string theTbValue { get; set; } = "lorem ipsum";
@@ -53,7 +49,6 @@ for example: https://demos.telerik.com/blazor-ui/textbox/password
 *@
 
 <TelerikTextBox Password="true"
-                Label="Enter Password"
                 @bind-Value="@ThePassword"
                 AutoComplete="current-password" Name="password" Id="password">
 </TelerikTextBox>
@@ -74,7 +69,7 @@ TextBox value: @StringValue
 
 <br />
 
-<TelerikTextBox @bind-Value="@StringValue" Label="Enter Information" />
+<TelerikTextBox @bind-Value="@StringValue" />
 
 @code {
     string StringValue { get; set; } = "lorem ipsum";
@@ -102,8 +97,6 @@ TextBox value: @StringValue
 
 * `InputMode` - a `string` that maps to the [`inputmode`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) attribute of the HTML element. You can use it to instruct the rendering device to show a suitable virtual keyboard (for example, one optimized for entering an URL or an email). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates.
 
-* `Label` - the `label` element rendered next to the `input` to provide the user with information on its purpose. It covers the input in a fashion similar to a placeholder, and animates up on focus. If you don't want this effect or the height increase it causes, use the `Id` parameter to attach your own `<label>` tag.
-
 * `Name` - the `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser.
 
 * `Password` - when set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Live Demo: Password Textbox](https://demos.telerik.com/blazor-ui/textbox/password)
@@ -127,4 +120,5 @@ TextBox value: @StringValue
   * [Live Demo: Textbox](https://demos.telerik.com/blazor-ui/textbox/index)
   * [Live Demo: Textbox Validation](https://demos.telerik.com/blazor-ui/textbox/validation)
   * [Input Validation]({%slug common-features/input-validation%})
+  * [Add Floating Label]({%slug knowledge-base/inputs-floating-label%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)
