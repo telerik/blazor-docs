@@ -256,13 +256,9 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 
 ## Call OnRead
 
-If you are [using the `OnRead` event to optimize the data requests]({%slug components/grid/manual-operations%}), you may want to call that to fetch fresh data from the server. The grid does that automatically after the [edit operations]({%slug components/grid/editing/overview%}), yet you may need to do it on your own.
+If you are [using the `OnRead` event to optimize the data requests]({%slug components/grid/manual-operations%}), you may want to call that to fetch fresh data from the server. The Grid does that automatically after the [edit operations]({%slug components/grid/editing/overview%}), yet you may need to do it on your own.
 
-For cases when directly modifying the data collection with the new information as described above is not possible, you have two options:
-
-* Make the grid call `OnRead` on its own by calling its [`SetState` method]({%slug grid-state%})
-
-* [Cache the `DataSourceRequest` object from the grid]({%slug components/grid/manual-operations%}#cache-data-request), extract the data retrieval logic into your own method, and call that method when needed.
+To make the Grid fire `OnRead`, execute its [`SetState` method]({%slug grid-state%})
 
 >caption Make the grid call OnRead by using its state
 
