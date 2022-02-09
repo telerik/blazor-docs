@@ -92,10 +92,11 @@ The Linear Gauge reference exposes the `Refresh` method which allows you to prog
 
     public string Height { get; set; } = "300px";
 
-    private void ChangeTheHeight()
+    private async Task ChangeTheHeight()
     {
         Height = "450px";
-
+        // Refresh() may execute before OnParameterSet(). The delay avoids this.
+        await Task.Delay(1);
         LinearGaugeRef.Refresh();
     }
 }
