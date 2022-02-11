@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Overview - FromItems
+page_title: Overview - FormItems
 description: Overview of the FormItems.
 slug: form-formitems
 tags: telerik,blazor,form,edit,formitems
