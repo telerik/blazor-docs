@@ -52,7 +52,7 @@ To pre-select checkbox filter in the Grid using a filter descriptor:
     {
         var state = new GridState<SampleData>
         {
-            FilterDescriptors = new List<Telerik.DataSource.FilterDescriptorBase>()
+            FilterDescriptors = new List<Telerik.DataSource.IFilterDescriptor>()
             {
                 new Telerik.DataSource.CompositeFilterDescriptor()
                 {
