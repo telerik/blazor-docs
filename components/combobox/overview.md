@@ -70,7 +70,7 @@ The Blazor ComboBox enables you to group the listed suggestions into categories 
 
 ## Templates
 
-You can use the functionality of the built-in templates and customize what is rendered in the items, header, and footer. [Read more about the Blazor ComboBox templates...]({% slug components/combobox/templates %})
+You can use the functionality of the built-in templates and customize what is rendered in the items, header, and footer. [Read more about the Blazor ComboBox templates...]({% slug components/combobox/templates %}).
 
 ## Validation
 
@@ -85,33 +85,35 @@ You can ensure that the end-user enters an acceptable input by using the Blazor 
 | ----------- | ----------- | -----------|
 | `AllowCustom` | `bool` | whether the user can enter [custom values]({%slug components/combobox/custom-value%}). If enabled, the `ValueField` must be a `string`.
 | `ClearButton` | `bool` | whether the user will have the option to clear the selected value. When it is clicked, the `Value` will be updated to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, clearing the value will lead to a `0` `Value`, so if there is an Item with `0` in its `ValueField` - issues may arise with its selection. This feature can often go together with `AllowCustom`.
-| `Data` | -- | allows you to provide the data source. Required.
+| `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required.
 | `Enabled` | `bool` | whether the component is enabled.
 |`Filterable` | `bool` | whether [filtering]({%slug components/combobox/filter%}) is enabled for the end user.
-| `FilterOperator` | -- | the method of [filtering]({%slug components/combobox/filter%}) the items. Defaults to `StartsWith`.
-| `Id` | -- | renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+| `FilterOperator` | `StringFilterOperator` | the method of [filtering]({%slug components/combobox/filter%}) the items. Defaults to `StartsWith`.
+| `Id` | `string` | renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
 | `Placeholder` | `string` | the text the user sees as a hint when no item is selected. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source.
-| `TItem` | -- | the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
-| `TValue` | -- | the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum`|
-| `TextField` | -- | the name of the field from the model that will be shown to the user. Defaults to `Text`.
-| `ValueField` | -- | the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
-| `Value` and `bind-Value` | -- | get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
-| `TabIndex` | -- | maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
+| `TItem` | `Type` | the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
+| `TValue` | `Type` | the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum`|
+| `TextField` | `string` | the name of the field from the model that will be shown to the user. Defaults to `Text`.
+| `ValueField` | `string` | the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
+| `Value` and `bind-Value` | `TValue` | get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
+| `TabIndex` | `int?` | maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
 
 ### Styling and Appearance
 
+| Parameter      | Type | Description
+| ----------- | ----------- | -----------|
+`Width` | `string` | the width the main element. It will also control the width of the dropdown if it hasn't one explicitly set. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
+| `Class` |`string`| the CSS class that will be rendered on the main wrapping element of the combobox.
 
-| `Width` | -- | the width the main element. It will also control the width of the dropdown if it hasn't one explicitly set. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
-
-* `Class` - the CSS class that will be rendered on the main wrapping element of the combobox.
+You can find more options for customizing the ComboBox styling in the [Appearance article]({%slug combobox-appearance%}).
 
 
 ### Popup settings
 
 The attributes below are set via nested tags:
 
-<div class="skip-repl"></div>
 ````
+<div class="skip-repl"></div>
 <TelerikComboBox>
     <ComboBoxSettings>
         <ComboBoxPopupSettings Height="..." />
@@ -119,9 +121,11 @@ The attributes below are set via nested tags:
 </TelerikComboBox>
 ````
 
-* `Class` - additional CSS class to customize the appearance of the ComboBox dropdown.
-* `Height` - the height of the expanded dropdown list element.
-* `Width` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
+| Parameter      | Type | Description
+| ----------- | ----------- | -----------|
+| `Class` | `string` | additional CSS class to customize the appearance of the ComboBox dropdown.
+| `Height` | `string` | the height of the expanded dropdown list element.
+| `Width` | `string` | the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
 
 
 ## Selected Item
