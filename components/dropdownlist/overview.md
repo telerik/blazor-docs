@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: DropDown List Overview
-description: Overview of the DropdownList for Blazor.
+description: Discover the Blazor DropdownList for Blazor and explore the examples.
 slug: components/dropdownlist/overview
 tags: telerik,blazor,dropdownlist,dropdown,list,overview
 published: True
@@ -12,14 +12,16 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/dropdownlist" target="_blank">Blazor DropDownList component</a> allows the user to choose an option from a predefined set of choices presented in a dropdown popup. The developer can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
 
-#### To use a Telerik DropDownList for Blazor
+## Creating DropDownList
 
-1. add the `TelerikDropDownList` tag
-1. populate its `Data` property with the collection of items you want in the dropdown
+1. Use the `TelerikDropDownList` tag to add the component to your razor page.
+1. Populate its `Data` property with the collection of items you want to appear in the dropdown.
 1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
+1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
+1. (optional) enable features like filtering and clear button
 1. (optional) set the `Value` property to the initial value of the model.
 
->caption Basic dropdownlist [data binding](data-bind) and two-way value binding
+>caption DropDownList [data binding](data-bind), two-way value binding and main features
 
 ````CSHTML
 Selected value: @selectedValue
@@ -49,52 +51,60 @@ Selected value: @selectedValue
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/dropdownlist-basic-screenshot.jpg)
-
 >caption Component namespace and reference
 
 See the [Component Reference]({%slug components/dropdownlist/databind%}#component-reference) section in the Data Binding article for details and examples.
 
-## Features
+## Data Binding
 
-The DropDownList provides the following features:
+The Blazor DropDownList requires a data source so that it can populate the dropdown with data. To provide a data source, use the `Data` property. [Read more about the Blazor DropDownList data binding...]({% slug components/dropdownlist/databind %}).
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the dropdownlist.
+## Filter
 
-* `Data` - allows you to provide the data source. Required.
+The Blazor DropDownList has a built-in filter that narrows down the shown suggestions as the end-user types. To configure this feature, use the `Filterable` parameter. Additionally, you can choose between different filter operators and configure after how many symbols the list with suggestions will appear. [Read more about the Blazor DropDownList filter...]({% slug components/dropdownlist/filter %}).
 
-* `DefaultText` -  simple hint to be displayed when no item is selected yet. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. See the first example in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article.
+## Grouping
 
-* `Enabled` - whether the component is enabled.
+The Blazor DropDownList enables you to group the listed suggestions into categories so you can help the end-user to browse faster through longer lists. [Read more about the Blazor DropDownList grouping...]({% slug components/dropdownlist/grouping %}).
 
-* `Id` - renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it.
+## Templates
 
-* `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
+You can use the functionality of the built-in templates and customize what is rendered in the items, header, and footer. [Read more about the Blazor DropDownList templates...]({% slug components/dropdownlist/templates %}).
 
-* `TValue` - the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
+## Validation
 
-* `TabIndex` - the `tabindex` attribute rendered on the dropdown.
+You can ensure that the end-user enters an acceptable input by using the Blazor DropDownList validation. [Read more about input validation...]({%slug common-features/input-validation%}).
 
-* `TextField` - the name of the field from the model that will be shown to the user. Defaults to `Text`.
 
-* `ValueField` - the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
+## Parameters
 
-* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
+>caption The DropDownList provides various parameters that allow you to configure the component:
 
-    The `Value` and `ValueField` can be of types:
+| Parameter      | Type | Description
+| ----------- | ----------- | -----------|
+| `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required.
+| `DefaultText` | `string` | simple hint to be displayed when no item is selected yet. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. See the first example in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article.
+| `Enabled` | `bool` | whether the component is enabled.
+|`Filterable` | `bool` | whether [filtering]({%slug components/dropdownlist/filter%}) is enabled for the end user.
+| `FilterOperator` | `StringFilterOperator` | the method of [filtering]({%slug components/dropdownlist/filter%}) the items. Defaults to `StartsWith`.
+| `Id` | `string` | renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it.
+| `TItem` | `Type`| the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
+| `TValue` | `Type` | the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum`
+| `TabIndex` | `int?` | the `tabindex` attribute rendered on the dropdown.
+| `TextField` | `string` | the name of the field from the model that will be shown to the user. Defaults to `Text`.
+| `ValueField` | `string` | the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
+|`Value` and `bind-Value`| `TValue` | get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
 
-    * `number` (such as `int`, `double` and so on)
-    * `string`
-    * `Guid`
-    * `Enum`
 
-* `Width` - the width of the dropdown and the main element. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
+### Styling and Appearance
 
-* Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug components/dropdownlist/templates%}) article for more details.
+| Parameter      | Type | Description
+| ----------- | ----------- | -----------|
+| `Width` | `string` | the width of the dropdown and the main element. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
+| `Class` | `string` | the CSS class that will be rendered on the main wrapping element of the dropdownlist.
 
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
+You can find more options for customizing the DropDownList styling in the [Appearance article]({%slug dropdownlist-appearance%}).
+
 
 ### Popup settings
 
@@ -109,9 +119,11 @@ The attributes below are set via nested tags:
 </TelerikDropDownList>
 ````
 
-* `Class` - additional CSS class to customize the appearance of the DropDownList dropdown.
-* `Height` - the height of the expanded dropdown list element.
-* `Width` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
+| Parameter      | Type | Description
+| ----------- | ----------- | -----------|
+| `Class` | `string` | additional CSS class to customize the appearance of the DropDownList dropdown.
+| `Height` | `string` | the height of the expanded dropdown list element.
+| `Width` | `string` | the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
 
 
 ## Selected Item and DefaultText
