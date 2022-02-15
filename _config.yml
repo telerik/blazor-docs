@@ -308,6 +308,11 @@ navigation:
         title: "Editor"
      "*fileselect":
         title: "FileSelect"
+     "*filter":
+        title: "Filter"
+     "*fields":
+        title: "Fields"
+        position: 2
      "*form":
         title: "Form"
      "*flatcolorpicker":
