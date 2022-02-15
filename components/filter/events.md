@@ -100,3 +100,7 @@ The `ValueChanged` event fires when the value has changed. Its `EventCallback<Co
     }
 </style>
 ````
+
+## See Also
+
+  * [Live Demo: Filter](https://demos.telerik.com/blazor-ui/filter/events)

@@ -26,7 +26,7 @@ Its main use is to serve as a complementary addition to a data-bound component t
 
 @using Telerik.DataSource
 
-<TelerikFilter @bind-Value="@Value">
+<TelerikFilter @ref="FilterRef" @bind-Value="@Value">
     <FilterFields>
         <FilterField Name="@(nameof(Person.EmployeeId))" Type="@(typeof(int))" Label="First Name"></FilterField>
         <FilterField Name="@(nameof(Person.Name))" Type="@(typeof(string))" Label="First Name"></FilterField>
@@ -35,6 +35,7 @@ Its main use is to serve as a complementary addition to a data-bound component t
 </TelerikFilter>
 
 @code {
+    TelerikFilter FilterRef { get; set; }
     public CompositeFilterDescriptor Value { get; set; } = new CompositeFilterDescriptor();
 
     public class Person
