@@ -41,39 +41,37 @@ Selected value: @selectedValue
 
     int selectedValue { get; set; }
 
-    //Define a preselected value when the component initializes
-    protected override void OnInitialized()
-    {
-        selectedValue = 3;
-    }
-
     IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 }
 ````
 
->caption Component namespace and reference
+## Component Reference
 
-See the [Component Reference]({%slug components/dropdownlist/databind%}#component-reference) section in the Data Binding article for details and examples.
+The DropDownList is a generic component and its type comes from the model it is bound to and from the value field type. See the [Component Reference]({%slug components/dropdownlist/databind%}#component-reference) section in the Data Binding article for details and examples.
 
 ## Data Binding
 
-The Blazor DropDownList requires a data source so that it can populate the dropdown with data. To provide a data source, use the `Data` property. [Read more about the Blazor DropDownList data binding...]({% slug components/dropdownlist/databind %}).
+The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor DropDownList data binding...]({% slug components/dropdownlist/databind %}).
 
-## Filter
+## Filtering
 
-The Blazor DropDownList has a built-in filter that narrows down the shown suggestions as the end-user types. To configure this feature, use the `Filterable` parameter. Additionally, you can choose between different filter operators and configure after how many symbols the list with suggestions will appear. [Read more about the Blazor DropDownList filter...]({% slug components/dropdownlist/filter %}).
+The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor DropDownList filter...]({% slug components/dropdownlist/filter %}).
 
 ## Grouping
 
-The Blazor DropDownList enables you to group the listed suggestions into categories so you can help the end-user to browse faster through longer lists. [Read more about the Blazor DropDownList grouping...]({% slug components/dropdownlist/grouping %}).
+The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor DropDownList grouping...]({% slug components/dropdownlist/grouping %}).
 
 ## Templates
 
-You can use the functionality of the built-in templates and customize what is rendered in the items, header, and footer. [Read more about the Blazor DropDownList templates...]({% slug components/dropdownlist/templates %}).
+@[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor DropDownList templates...]({% slug components/dropdownlist/templates %}).
 
 ## Validation
 
-You can ensure that the end-user enters an acceptable input by using the Blazor DropDownList validation. [Read more about input validation...]({%slug common-features/input-validation%}).
+@[template](/_contentTemplates/dropdowns/features.md#validation)
+
+## Virtualization
+
+@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor DropDownList virtualization...]({% slug dropdownlist-virtualization %})
 
 
 ## Parameters
@@ -98,17 +96,16 @@ You can ensure that the end-user enters an acceptable input by using the Blazor 
 
 ### Styling and Appearance
 
-| Parameter      | Type | Description
-| ----------- | ----------- | -----------|
-| `Width` | `string` | the width of the dropdown and the main element. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
-| `Class` | `string` | the CSS class that will be rendered on the main wrapping element of the dropdownlist.
+The following parameters enable you to customize the appearance of the Blazor DropDownList:
+
+@[template](/_contentTemplates/dropdowns/features.md#styling)
 
 You can find more options for customizing the DropDownList styling in the [Appearance article]({%slug dropdownlist-appearance%}).
 
 
 ### Popup settings
 
-The attributes below are set via nested tags:
+The popup of the component can be additionally customized via nested tags:
 
 <div class="skip-repl"></div>
 ````
@@ -119,11 +116,9 @@ The attributes below are set via nested tags:
 </TelerikDropDownList>
 ````
 
-| Parameter      | Type | Description
-| ----------- | ----------- | -----------|
-| `Class` | `string` | additional CSS class to customize the appearance of the DropDownList dropdown.
-| `Height` | `string` | the height of the expanded dropdown list element.
-| `Width` | `string` | the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
+The DropDownList provides the following popup settings:
+
+@[template](/_contentTemplates/dropdowns/features.md#popup-settings)
 
 
 ## Selected Item and DefaultText
@@ -208,6 +203,12 @@ By default, if no `Value` is provided and no `DefaultText` is defined, the DropD
 
 
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
+
+## Next Steps
+
+* [Binding the DropDownList to Data]({%slug components/dropdownlist/databind%})
+
+* [Pre-Selecting Items for the User]({% slug dropdownlist-pre-select-item %})
 
 
 ## See Also
