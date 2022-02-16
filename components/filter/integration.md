@@ -13,6 +13,14 @@ You can integrate the Filter in different data-bound components.
 
 It also allows you to build complex filtering criteria depending on the data type of the underlying source fields.
 
+This article contains the following sections:
+
+* [Filter integration in Grid](#filter-for-a-grid)
+* [Filter integration in TreeView](#filter-for-a-treeview)
+* [Filter integration in TreeList](#filter-for-a-treelist)
+* [Filter integration in ListView](#filter-for-a-listview)
+* [Filter integration in Chart](#filter-for-a-chart)
+
 ## Filter for a Grid
 
 **To integrate the Filter with the Telerik Grid, you need to:**
@@ -20,9 +28,9 @@ It also allows you to build complex filtering criteria depending on the data typ
 1. Set the Value parameter of the Filter via one-way or two-way binding.
 2. Update the Grid data based on the Filter value.
 
->caption Use Filter with two-way bound value in Grid.
+>caption Filter with two-way bound value in Grid. If you want to filter at the moment of change, use Filter with a [one-way bound value]({%slug filter-events%}#valuechanged).
 
-````CHTML
+````Two-way
 @using Telerik.DataSource;
 @using Telerik.DataSource.Extensions;
 
@@ -98,13 +106,7 @@ It also allows you to build complex filtering criteria depending on the data typ
     }
 }
 ````
->caption The result from the above code snippet.
-
-![](images/filter-grid-integration.png)
-
->caption If you want to filter at the moment of change, use Filter with a [one-way bound value]({%slug filter-events%}#valuechanged) in Grid.
-
-````CSHTML
+````One-way
 @using Telerik.DataSource;
 @using Telerik.DataSource.Extensions;
 
@@ -174,6 +176,266 @@ It also allows you to build complex filtering criteria depending on the data typ
     }
 }
 ````
+>caption The result from the above code snippet.
+
+![](images/filter-grid-integration.gif)
+
+## Filter for a TreeView
+
+**To integrate the Filter with the Telerik TreeView, you need to:**
+
+1. Set the Value parameter of the Filter via one-way or two-way binding.
+2. Update the TreeView data based on the Filter value.
+
+>caption Use Filter in TreeView.
+
+````CSHTML
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+<TelerikFilter ValueChanged="@OnValueChanged">
+    <FilterFields>
+        <FilterField Name="@(nameof(TreeItem.Id))" Type="@(typeof(int))" Label="Id"></FilterField>
+        <FilterField Name="@(nameof(TreeItem.Text))" Type="@(typeof(string))" Label="Text"></FilterField>
+        <FilterField Name="@(nameof(TreeItem.HasChildren))" Type="@(typeof(bool))" Label="Has Children"></FilterField>
+    </FilterFields>
+</TelerikFilter>
+
+<TelerikTreeView Data="@FlatData" @bind-ExpandedItems="@ExpandedItems">
+    <TreeViewBindings>
+        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue"
+                         TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+    </TreeViewBindings>
+</TelerikTreeView>
+
+@code {
+    public static List<TreeItem> InitialData { get; set; } = new List<TreeItem>();
+    public List<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+
+    private void OnValueChanged(CompositeFilterDescriptor filter)
+    {
+        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor> { filter } };
+
+        var datasourceResult = InitialData.ToDataSourceResult(dataSourceRequest);
+        var filteredList = datasourceResult.Data.Cast<TreeItem>().ToList();
+        FlatData = new List<TreeItem>();
+
+        foreach (TreeItem item in filteredList)
+        {
+            var currentItem = item;
+            FlatData.Add(currentItem);
+
+            while(currentItem.ParentIdValue != null)
+            {
+                var parent = InitialData.First(p => p.Id == currentItem.ParentIdValue);
+
+                if (!FlatData.Contains(parent))
+                {
+                    FlatData.Add(parent);
+                }
+
+                currentItem = parent;
+            }
+        }
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
+    }
+
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public int? ParentIdValue { get; set; }
+        public bool HasChildren { get; set; }
+        public string Icon { get; set; }                                                  
+    }
+
+    protected override void OnInitialized()
+    {
+        LoadFlatData();
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
+    }
+
+    private void LoadFlatData()
+    {
+        List<TreeItem> items = new List<TreeItem>();
+
+        items.Add(new TreeItem()
+            {
+                Id = 1,
+                Text = "Project",
+                ParentIdValue = null,
+                HasChildren = true,
+                Icon = "folder"
+            });
+
+        items.Add(new TreeItem()
+            {
+                Id = 2,
+                Text = "Design",
+                ParentIdValue = 1,
+                HasChildren = true,
+                Icon = "brush"
+            });
+        items.Add(new TreeItem()
+            {
+                Id = 3,
+                Text = "Implementation",
+                ParentIdValue = 1,
+                HasChildren = true,
+                Icon = "folder"
+            });
+
+        items.Add(new TreeItem()
+            {
+                Id = 4,
+                Text = "site.psd",
+                ParentIdValue = 2,
+                HasChildren = false,
+                Icon = "psd"
+            });
+        items.Add(new TreeItem()
+            {
+                Id = 5,
+                Text = "index.js",
+                ParentIdValue = 3,
+                HasChildren = false,
+                Icon = "js"
+            });
+        items.Add(new TreeItem()
+            {
+                Id = 6,
+                Text = "index.html",
+                ParentIdValue = 3,
+                HasChildren = false,
+                Icon = "html"
+            });
+        items.Add(new TreeItem()
+            {
+                Id = 7,
+                Text = "styles.css",
+                ParentIdValue = 3,
+                HasChildren = false,
+                Icon = "css"
+            });
+
+        InitialData = items;
+        FlatData = InitialData;
+    }
+}
+````
+>caption The result from the above code snippet.
+
+![](images/filter-treeview-integration.gif)
+
+## Filter for a TreeList
+
+**To integrate the Filter with the Telerik TreeList, you need to:**
+
+1. Set the Value parameter of the Filter via one-way or two-way binding.
+2. Update the TreeList data based on the Filter value.
+
+>caption Use Filter in TreeList.
+
+````CSHTML
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+<TelerikFilter ValueChanged="@OnValueChanged">
+    <FilterFields>
+        <FilterField Name="@(nameof(Employee.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
+        <FilterField Name="@(nameof(Employee.FirstName))" Type="@(typeof(string))" Label="First Name"></FilterField>
+        <FilterField Name="@(nameof(Employee.ReportsTo))" Type="@(typeof(int?))" Label="Reports"></FilterField>
+    </FilterFields>
+</TelerikFilter>
+
+<TelerikTreeList Data="@Data"
+                 IdField="EmployeeId"
+                 ParentIdField="ReportsTo"
+                 Pageable="true">
+    <TreeListColumns>
+        <TreeListColumn Field="FirstName" Expandable="true"></TreeListColumn>
+        <TreeListColumn Field="EmployeeId"></TreeListColumn>
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    public static List<Employee> InitialData { get; set; } = new List<Employee>();
+    public List<Employee> Data { get; set; }
+
+    private void OnValueChanged(CompositeFilterDescriptor filter)
+    {
+        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor> { filter } };
+
+        var datasourceResult = InitialData.ToDataSourceResult(dataSourceRequest);
+        var filteredList = datasourceResult.Data.Cast<Employee>().ToList();
+        Data = new List<Employee>();
+
+        foreach (Employee item in filteredList)
+        {
+            var currentItem = item;
+            Data.Add(currentItem);
+
+            while (currentItem.ReportsTo != null)
+            {
+                var parent = InitialData.First(p => p.EmployeeId == currentItem.ReportsTo);
+
+                if (!Data.Contains(parent))
+                {
+                    Data.Add(parent);
+                }
+
+                currentItem = parent;
+            }
+        }
+    }
+
+    public class Employee
+    {
+        public int EmployeeId { get; set; }
+        public string FirstName { get; set; }
+        public int? ReportsTo { get; set; }
+    }
+
+    protected override void OnInitialized()
+    {
+        List<Employee> items = new List<Employee>();
+        var rand = new Random();
+        int currentId = 1;
+
+        for (int i = 1; i < 6; i++)
+        {
+            items.Add(new Employee()
+            {
+                EmployeeId = currentId,
+                ReportsTo = null,
+                FirstName = "Employee  " + i.ToString()
+            });
+
+            currentId++;
+        }
+        for (int i = 1; i < 6; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                items.Add(new Employee()
+                {
+                    EmployeeId = currentId,
+                    ReportsTo = i,
+                    FirstName = "    Employee " + i + " : " + j.ToString()
+                });
+
+                currentId++;
+            }
+        }
+        InitialData = items;
+        Data = InitialData;
+    }
+}
+````
+>caption The result from the above code snippet.
+
+![](images/filter-treelist-integration.gif)
 
 ## Filter for a ListView
 
@@ -249,16 +511,17 @@ It also allows you to build complex filtering criteria depending on the data typ
 ````
 >caption The result from the above code snippet.
 
-![](images/filter-listview-integration.png)
+![](images/filter-listview-integration.gif)
 
-## Filter for a TreeView
+## Filter for a Chart
 
-**To integrate the Filter with the Telerik TreeView, you need to:**
+**To integrate the Filter with the Telerik Chart, you need to:**
 
 1. Set the Value parameter of the Filter via one-way or two-way binding.
-2. Update the TreeView data based on the Filter value.
+2. Update the Chart data based on the Filter value.
+3. Refresh the Chart.
 
->caption Use Filter in TreeView.
+>important Not every type of Chart is compatible with the Filter component.
 
 ````CSHTML
 @using Telerik.DataSource
@@ -266,23 +529,35 @@ It also allows you to build complex filtering criteria depending on the data typ
 
 <TelerikFilter ValueChanged="@OnValueChanged">
     <FilterFields>
-        <FilterField Name="@(nameof(TreeItem.Id))" Type="@(typeof(int))" Label="Id"></FilterField>
-        <FilterField Name="@(nameof(TreeItem.Text))" Type="@(typeof(string))" Label="Text"></FilterField>
-        <FilterField Name="@(nameof(TreeItem.HasChildren))" Type="@(typeof(bool))" Label="Has Children"></FilterField>
+        <FilterField Name="@(nameof(MyChartDataModel.ItemValue))" Type="@(typeof(double))" Label="Value"></FilterField>
+        <FilterField Name="@(nameof(MyChartDataModel.Category))" Type="@(typeof(string))" Label="Category"></FilterField>
+        <FilterField Name="@(nameof(MyChartDataModel.Color))" Type="@(typeof(string))" Label="Color"></FilterField>
     </FilterFields>
 </TelerikFilter>
 
-<TelerikTreeView Data="@FlatData" @bind-ExpandedItems="@ExpandedItems">
-    <TreeViewBindings>
-        <TreeViewBinding ParentIdField="Parent" />
-        <TreeViewBinding Level="1" TextField="SecondText" ParentIdField="Parent" />
-    </TreeViewBindings>
-</TelerikTreeView>
+<TelerikChart @ref="myChartRef">
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Bar" Data="@ChartData" ColorField="@nameof(MyChartDataModel.Color)"
+                     Field="@nameof(MyChartDataModel.ItemValue)" CategoryField="@nameof(MyChartDataModel.Category)" />
+    </ChartSeriesItems>
+
+    <ChartTitle Text="Revenue per product" />
+
+    <ChartLegend Position="ChartLegendPosition.Right" />
+</TelerikChart>
 
 @code {
-    public static IEnumerable<TreeItem> InitialData { get; set; }
-    public IEnumerable<TreeItem> FlatData { get; set; } = InitialData;
-    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+    TelerikChart myChartRef;
+
+    public static List<MyChartDataModel> InitialData { get; set; } = new List<MyChartDataModel>();
+    public List<MyChartDataModel> ChartData { get; set; }
+
+    public class MyChartDataModel
+    {
+        public string Category { get; set; }
+        public double ItemValue { get; set; }
+        public string Color { get; set; }
+    }
 
     private void OnValueChanged(CompositeFilterDescriptor filter)
     {
@@ -290,132 +565,56 @@ It also allows you to build complex filtering criteria depending on the data typ
 
         var datasourceResult = InitialData.ToDataSourceResult(dataSourceRequest);
 
-        FlatData = datasourceResult.Data.Cast<TreeItem>().ToList();
-    }
-
-    public class TreeItem
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-        public string SecondText { get; set; }
-        public int? Parent { get; set; }
-        public bool HasChildren { get; set; }
+        ChartData = datasourceResult.Data.Cast<MyChartDataModel>().ToList();
+        myChartRef.Refresh();
     }
 
     protected override void OnInitialized()
     {
-        LoadFlat();
-        ExpandedItems = InitialData.Where(x => x.HasChildren == true).ToList();
+        LoadData();
     }
 
-    private void LoadFlat()
+    private void LoadData()
     {
-        List<TreeItem> items = new List<TreeItem>();
-
-        for (int i = 1; i <= 4; i++)
+        List<MyChartDataModel> items = new List<MyChartDataModel>
         {
-            items.Add(new TreeItem()
+            new MyChartDataModel
             {
-                Id = i,
-                Text = "Parent " + i,
-                Parent = null,
-                HasChildren = i < 3
-            });
-        }
+                Category = "Product 1",
+                ItemValue = 1,
+                Color = "red"
+            },
+            new MyChartDataModel
+            {
+                Category = "Product 2",
+                ItemValue = 2,
+                Color = "#00ff00"
+            },
+            new MyChartDataModel
+            {
+                Category = "Product 3",
+                ItemValue = 3,
+                Color = "#00f"
+            },
+            new MyChartDataModel
+            {
+                Category = "Product 4",
+                ItemValue = 4,
+                Color = "#f56147"
+            },
+            new MyChartDataModel
+            {
+                Category = "Bonus Item 10",
+                ItemValue = 5,
+                Color = "darkseagreen"
+            }
+        };
 
         InitialData = items;
+        ChartData = InitialData;
     }
 }
 ````
 >caption The result from the above code snippet.
 
-![](images/filter-treeview-integration.png)
-
-## Filter for a TreeList
-
-**To integrate the Filter with the Telerik TreeList, you need to:**
-
-1. Set the Value parameter of the Filter via one-way or two-way binding.
-2. Update the TreeList data based on the Filter value.
-
->caption Use Filter in TreeList.
-
-````CSHTML
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<TelerikFilter ValueChanged="@OnValueChanged">
-    <FilterFields>
-        <FilterField Name="@(nameof(Employee.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
-        <FilterField Name="@(nameof(Employee.FirstName))" Type="@(typeof(string))" Label="First Name"></FilterField>
-        <FilterField Name="@(nameof(Employee.ReportsTo))" Type="@(typeof(int?))" Label="Reports"></FilterField>
-    </FilterFields>
-</TelerikFilter>
-
-<TelerikTreeList Data="@Data"
-                 IdField="EmployeeId"
-                 ParentIdField="ReportsTo"
-                 Pageable="true">
-    <TreeListColumns>
-        <TreeListColumn Field="FirstName" Expandable="true"></TreeListColumn>
-        <TreeListColumn Field="EmployeeId"></TreeListColumn>
-    </TreeListColumns>
-</TelerikTreeList>
-
-@code {
-    public static List<Employee> InitialData { get; set; }
-    public List<Employee> Data { get; set; } = InitialData;
-
-    private void OnValueChanged(CompositeFilterDescriptor filter)
-    {
-        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor>{ filter } };
-
-        var datasourceResult = InitialData.ToDataSourceResult(dataSourceRequest);
-
-        Data = datasourceResult.Data.Cast<Employee>().ToList();
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string FirstName { get; set; }
-        public int? ReportsTo { get; set; }
-    }
-
-    protected override void OnInitialized()
-    {
-        InitialData = new List<Employee>();
-        var rand = new Random();
-        int currentId = 1;
-
-        for (int i = 1; i < 6; i++)
-        {
-            InitialData.Add(new Employee()
-            {
-                EmployeeId = currentId,
-                ReportsTo = null,
-                FirstName = "Employee  " + i.ToString()
-            });
-
-            currentId++;
-        }
-        for (int i = 1; i < 6; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                InitialData.Add(new Employee()
-                {
-                    EmployeeId = currentId,
-                    ReportsTo = i,
-                    FirstName = "    Employee " + i + " : " + j.ToString()
-                });
-
-                currentId++;
-            }
-        }
-    }
-}
-````
->caption The result from the above code snippet.
-
-![](images/filter-treelist-integration.png)
+![](images/filter-chart-integration.gif)

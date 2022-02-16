@@ -11,7 +11,7 @@ position: 4
 # Filter Fields Operators
 The Filter provides options for defining which filter operators will be displayed in the filtering dropdown.
 
-The `Operators` parameter takes a literal with the available operators for each field type. You can list the desired operators together and customize their text.
+The `Operators` parameter takes a literal with the available operators for each field type. You can list the desired operators and customize their text.
 
 **To configure a Field Operators:**
 
@@ -67,45 +67,17 @@ The `Operators` parameter takes a literal with the available operators for each 
 
 ## Supported Fields Operators
 
-**String**:
-* `IsEqualTo`
-* `IsNotEqualTo`
-* `StartsWith`
-* `Contains`
-* `DoesNotContain`
-* `EndsWith`
-* `IsNull`
-* `IsNotNull`
-* `IsEmpty`
-* `IsNotEmpty`
-* `IsNullOrEmpty`
-* `IsNotNullOrEmpty`
-
-**Numeric**:
-* `IsLessThan`
-* `IsLessThanOrEqualTo`
-* `IsEqualTo`
-* `IsNotEqualTo`
-* `IsGreaterThanOrEqualTo`
-* `IsGreaterThan`
-* `IsNull`
-* `IsNotNull`
-
-**Bool**:
-* `IsEqualTo`
-
-**Enum**:
-* `IsEqualTo`
-* `IsNotEqualTo`
-* `IsNull`
-* `IsNotNull `
-
-**Date**:
-* `IsEqualTo`
-* `IsNotEqualTo`
-* `IsGreaterThanOrEqualTo`
-* `IsGreaterThan`
-* `IsLessThanOrEqualTo`
-* `IsLessThan`
-* `IsNull`
-* `IsNotNull`
+| **String** | **Numeric** | **Bool** | **Enum** | **Date** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| `IsEqualTo` | `IsLessThan` | `IsEqualTo` | `IsEqualTo` | `IsEqualTo` |
+| `IsNotEqualTo` | `IsLessThanOrEqualTo` | | `IsNotEqualTo` | `IsNotEqualTo` |
+| `StartsWith` | `IsEqualTo` | | `IsNull` | `IsGreaterThanOrEqualTo` |
+| `Contains` | `IsNotEqualTo` | | `IsNotNull ` | `IsGreaterThan` |
+| `DoesNotContain` | `IsGreaterThanOrEqualTo` | | | `IsLessThanOrEqualTo` |
+| `EndsWith` | `IsGreaterThan` | | | `IsLessThan` |
+| `IsNull` | `IsNull` | | | `IsNull` |
+| `IsNotNull` | `IsNotNull` | | | `IsNotNull` |
+| `IsEmpty` | | | |
+| `IsNotEmpty` | | | |
+| `IsNullOrEmpty` | | | |
+| `IsNotNullOrEmpty` | | | |
