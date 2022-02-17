@@ -25,8 +25,6 @@ The Form component for Blazor allows you control its orientation through the `Or
 ````CSHTML
 @* Use the dropdownlist to change the orientation of the Form *@
 
-@using Telerik.Blazor.Enums;
-
 <div>
     <TelerikDropDownList @bind-Value="@Orientation" Data="@OrientationTypes"></TelerikDropDownList>
 </div>
