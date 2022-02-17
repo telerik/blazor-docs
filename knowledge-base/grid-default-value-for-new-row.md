@@ -42,6 +42,7 @@ There are two ways to set default values in a new row:
 
 >caption How to set default values in a new grid row
 
+<div class="skip-repl"></div>
 ````Model
     public class SampleData
     {

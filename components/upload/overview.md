@@ -188,6 +188,7 @@ The Upload methods are accesible through its [reference](#upload-reference).
 
 >caption Get a reference to the Upload and use its methods.
 
+<div class="skip-repl"></div>
 ````Component 
 @* This example showcases the use of the Upload methods. *@
 

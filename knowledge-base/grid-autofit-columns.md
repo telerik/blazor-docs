@@ -26,6 +26,7 @@ Make sure to replace `<YOUR PROJECT NAMESPACE>` in the JavaScript code.
 
 >note There will be a flicker when you use the solution below to autofit the columns on the initial load. 
 
+<div class="skip-repl"></div>
 ````C#
 @inject IJSRuntime js
 

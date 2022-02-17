@@ -113,6 +113,7 @@ Handling such "unexpected" values is up to the application - for example, throug
 
 The DropDownList is a generic component and its type comes from the model it is bound to and from the value field type. When bound to a primitive type, the reference is of that primitive type only.
 
+<div class="skip-repl"></div>
 ````Primitive
 Reference type when binding to primitive values
 

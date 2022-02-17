@@ -125,6 +125,7 @@ The following example shows one way you can store the grid state - through a cus
 
 >caption Save, Load, Reset grid state on every state change. Uses a sample LocalStorage in the browser.
 
+<div class="skip-repl"></div>
 ````Component
 @inject LocalStorage LocalStorage
 @inject IJSRuntime JsInterop
@@ -390,7 +391,7 @@ The grid state allows you to control the behavior of the grid programmatically -
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
-
+<div class="skip-repl"></div>
 ````Sorting
 @[template](/_contentTemplates/grid/state.md#set-sort-from-code)
 ````

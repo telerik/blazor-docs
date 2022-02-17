@@ -117,6 +117,7 @@ When `AllowCustom="true"`, what the user types in the input will be set to the `
 
 The ComboBox is a generic component and its type comes from the model it is bound to and from the value field type. When bound to a primitive type, the reference is of that primitive type only.
 
+<div class="skip-repl"></div>
 ````Primitive
 @*Reference type when binding to primitive values*@
 

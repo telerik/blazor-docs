@@ -29,6 +29,7 @@ You can consider saving the current state of the component in events that it exp
 
 >caption Save, Load, Persist and Manage the State of a TileLayout. Uses a sample LocalStorage in the browser.
 
+<div class="skip-repl"></div>
 ````Component
 @* You can see this code in action in our live demos *@
 

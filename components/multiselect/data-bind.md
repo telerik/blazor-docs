@@ -134,6 +134,7 @@ The MultiSelect component attempts to infer the type of its model and value base
 
 The MultiSelect component is generic and its type depends on the type of the model you provide as its `Data` collection.
 
+<div class="skip-repl"></div>
 ````Primitive
 @*Reference type when binding to primitive collections*@
 

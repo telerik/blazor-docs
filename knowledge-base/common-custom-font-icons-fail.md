@@ -111,6 +111,7 @@ There are two ways to solve this:
 
 ![custom font icons success](images/custom-font-icons-success.png)
 
+<div class="skip-repl"></div>
 ````DummyIconFieldName
 @* Just one example of including custom font icon libraries.
 Make sure to use the correct way and resources for your actual project *@

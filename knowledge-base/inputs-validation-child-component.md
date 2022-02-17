@@ -36,6 +36,7 @@ The example below shows how to wrap a ComboBox (adding two-way data binding) in 
 
 >caption Validate the ComboBox wrapped in a custom component
 
+<div class="skip-repl"></div>
 ````MyCustomComponent
 @* Validate the value for the combobox. In this example the invalid value is the CEO or no selection.
 This component is generic to showcase the concept, it does not have to be if you know the data type of the field or you do not itend to use it for several field types. It receives its Data from the parent to showcase this is possible too. We use a nullable integer and a string   in this example.

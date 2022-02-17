@@ -77,6 +77,7 @@ Thus, to show a loading indicator during the initial data load, you can do eithe
 
 >caption Loading Sign for the initial data load - a few examples
 
+<div class="skip-repl"></div>
 ````Grid
 This sample shows only an indicator for the initial data load, only the DELETE operation is slowed down so you can see a loading sign.
 

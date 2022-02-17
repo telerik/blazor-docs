@@ -116,6 +116,7 @@ The following example shows one way you can store the TreeList state - through a
 
 >caption Save, Load, Reset TreeList state on every state change. Uses a sample LocalStorage in the browser.
 
+<div class="skip-repl"></div>
 ````Component
 @using Telerik.DataSource;
 
@@ -351,6 +352,7 @@ The TreeList state allows you to control the behavior of the TreeList programmat
 
 @[template](/_contentTemplates/treelist/state.md#initial-state)
 
+<div class="skip-repl"></div>
 ````ExpandedItems
 @[template](/_contentTemplates/treelist/state.md#expand-items-from-code)
 ````
