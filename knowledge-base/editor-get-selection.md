@@ -47,6 +47,7 @@ If you want to use it on the .NET (Blazor) side, you need to:
 1. Serialize the selection to a string so .NET can understand it, by using the `toString()` method.
 1. Call a JavaScript function from a [Custom Tool]({%slug editor-custom-tool%}) in the Editor that will return that selection.
 
+<div class="skip-repl"></div>
 ````Component
 @using Telerik.Blazor.Components.Editor
 
@@ -105,6 +106,7 @@ If you want to use it on the .NET (Blazor) side, you need to:
 1. Serialize the selection to a string so .NET can understand it, by using the `toString()` method.
 1. Call a JavaScript function from a [Custom Tool]({%slug editor-custom-tool%}) in the Editor that will return that selection.
 
+<div class="skip-repl"></div>
 ````Component
 @using Telerik.Blazor.Components.Editor
 

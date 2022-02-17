@@ -34,6 +34,7 @@ Views that show hours let you control their precision through the `SlotDuration`
 #end
 
 #resource-grouping-code-snippet-for-examples
+<div class="skip-repl"></div>
 ````SchedulerResourceGrouping.razor
 @* The example showcases Resource Grouping by one resource. *@
 
@@ -528,6 +529,7 @@ public class Appointment
 #end
 
 #resource-grouping-vertical-code-snippet-for-examples
+<div class="skip-repl"></div>
 ````SchedulerResourceGrouping.razor
 @* The example showcases Resource Grouping by one resource. *@
 

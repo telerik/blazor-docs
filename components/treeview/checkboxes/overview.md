@@ -577,6 +577,7 @@ You can allow the user to click on the node itself and the TreeView will automat
 
 You can combine both selection and checking nodes. To keep both collections in sync you can assign the same collection to both `SelectedItems` and `CheckedItems` as demonstrated in the example below.
 
+<div class="skip-repl"></div>
 ````Single
 @* You can couple checking the item and placing it in the selected item list. *@
 

@@ -34,7 +34,7 @@ Another option would be to send such a reference as a cascading parameter if you
 
 >caption Open a Window from another component
 
-
+<div class="skip-repl"></div>
 ````MainPage.razor
 @* The page/component that you want to open the Window from *@
 

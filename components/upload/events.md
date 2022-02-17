@@ -177,6 +177,7 @@ You can cancel the event based on a condition (for example, some information abo
 
 @[template](/_contentTemplates/upload/notes.md#server-security-note)
 
+<div class="skip-repl"></div>
 ````Component
 @inject NavigationManager NavigationManager
 
@@ -303,6 +304,7 @@ You can cancel the event based on a condition (for example, some information abo
 
 @[template](/_contentTemplates/upload/notes.md#server-security-note)
 
+<div class="skip-repl"></div>
 ````Component
 @inject NavigationManager NavigationManager
 
@@ -466,6 +468,7 @@ The `OnSuccess` event fires each time a particular request is successful - eithe
 
 @[template](/_contentTemplates/upload/notes.md#server-security-note)
 
+<div class="skip-repl"></div>
 ````Component
 @inject NavigationManager NavigationManager
 
@@ -590,6 +593,7 @@ The `OnError` event fires each time a particular request fails - either an uploa
 
 @[template](/_contentTemplates/upload/notes.md#server-security-note)
 
+<div class="skip-repl"></div>
 ````Component
 @inject NavigationManager NavigationManager
 

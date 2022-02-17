@@ -61,6 +61,7 @@ The examples below showcase [resource grouping by one resource](#resource-groupi
 
 >caption Declare multiple resources.
 
+<div class="skip-repl"></div>
 ````SchedulerResourceGrouping.razor
 @* The example showcases Resource Grouping by two resources. *@
 

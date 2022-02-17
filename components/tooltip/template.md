@@ -103,6 +103,7 @@ This examle shows how you can use a standalone component to generate the tooltip
 
 >caption Generate tooltip content through a separate component
 
+<div class="skip-repl"></div>
 ````MainComponent
 @* Tip: set dimensions that will accommodate the data/content you fetch/generate
     to avoid sizing and/or positioning issues when the new content is rendered *@

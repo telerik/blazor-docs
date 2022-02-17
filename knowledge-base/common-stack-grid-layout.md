@@ -38,6 +38,7 @@ To do a grid layout, the easiest approach is to use a CSS Grid. For example:
 
 ![Basic Grid Layout](images/grid-layout-basics.png)
 
+<div class="skip-repl"></div>
 ````Blazor
 <style>
     .main-layout {
@@ -82,6 +83,7 @@ To create a stack layout, you can use CSS Flexbox. For example:
 
 ![Basic Stack Layout](images/stack-layout-basics.png)
 
+<div class="skip-repl"></div>
 ````Blazor
 <style>
     /*vertial - first example*/

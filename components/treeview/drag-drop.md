@@ -57,6 +57,7 @@ The `OnDrop` event provides an object of type `TreeViewDropEventArgs` to its eve
 
 ### Flat Data
 
+<div class="skip-repl"></div>
 ````Component
 @inject TreeViewFlatDataService TreeViewFlatDataService
 
@@ -220,6 +221,7 @@ using TelerikBlazorAppSource.Models;
 
 ### Hierarchical Data
 
+<div class="skip-repl"></div>
 ````Component
 @inject TreeViewHierarchicalDataService TreeViewHierarchicalDataService
 
@@ -431,6 +433,7 @@ using System.Threading.Tasks;
 
 When you drap and drop items from one instance of the TreeView to another, the `OnDrop` event fires for the TreeView where the item originally was.
 
+<div class="skip-repl"></div>
 ````Component
 @using System.Collections.ObjectModel
 

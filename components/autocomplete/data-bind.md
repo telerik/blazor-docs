@@ -96,6 +96,7 @@ To bind the AutoComplete to a model:
 
 The AutoComplete component is generic and its type depends on the type of the model you provide as its `Data` collection.
 
+<div class="skip-repl"></div>
 ````Primitive
 @*Reference type when binding to primitive collections*@
 

@@ -224,6 +224,7 @@ Viable values for the axes positions
 
 >caption Examples of potentially unwanted behaviors of column and bar types of charts with multiple axes, and the code that produces those issues.
 
+<div class="skip-repl"></div>
 ````LargeCrossingPoint
 Potentially unwanted behavior 1
 
