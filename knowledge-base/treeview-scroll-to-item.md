@@ -32,7 +32,7 @@ How to implement behavior like `scrollIntoView` in Javascript, or `BringIntoView
 
 ## Solution
 
-Use the [`scrollIntoView` JavaScript method](), which all DOM elements have.
+Use the [`scrollIntoView` JavaScript method](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView), which all DOM elements have.
 
 The whole process involves these steps:
 
