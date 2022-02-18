@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-How to create a vertical ButtonGroup? What is the best way to make the buttons display one below the other?
+How to create a vertical button group? What is the best way to make the buttons display one below the other?
 
 ## Solution
 
