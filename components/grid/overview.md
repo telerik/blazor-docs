@@ -1,8 +1,8 @@
 ---
 title: Overview
 page_title: Grid Overview
-description: Overview of the Grid for Blazor.
-slug: components/grid/overview
+description: Discover the Blazor Data Grid. Explore the features and examples.
+slug: grid-overview
 tags: telerik,blazor,grid,datagrid,overview
 published: True
 position: 0
@@ -10,311 +10,223 @@ position: 0
 
 # Blazor Blazor Grid Component Overview
 
-This article provides a quick introduction so you can get your first <a href="https://www.telerik.com/blazor-ui/grid" target="_blank">Blazor data grid component</a> up and running in a few seconds, a video tutorial, and a list of the key features it provides.
+This article provides a quick introduction to get your first <a href="https://www.telerik.com/blazor-ui/grid" target="_blank">Blazor data grid component</a> up and running in a few seconds. There is a video tutorial and a list of the key features.
 
-The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use features covering everything from paging, sorting, filtering, editing, and grouping to row virtualization, optimized data reading, keyboard navigation and accessibility support.
+The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use features. They cover everything from paging, sorting, filtering, editing, and grouping to row virtualization, optimized data reading, keyboard navigation and accessibility support.
 
-The Telerik Blazor grid is built on native Blazor from the ground up, by a company with a long history of making enterprise-ready Grids. This results in a Blazor data grid that delivers lighting fast performance and is highly customizable.
+The Telerik Blazor grid is built on native Blazor from the ground up, by a company with a long history of making enterprise-ready Grids. This results in a highly customizable Grid that delivers lighting fast performance.
 
-#### To create a basic Telerik Grid:
 
-1. use the `TelerikGrid` tag
-1. set its `Data` attribute to the variable that will hold your collection of data
-1. under its `GridColumns` tag, set the desired [`GridColumn`]({%slug components/grid/columns/bound%}) instances whose `Field` property points to the name of the model field
+## Creating Blazor Data Grid
 
->caption Get started with the grid by providing it with a data collection and enabling its key features
+1. Use the `TelerikGrid` tag.
+1. Assign the Grid `Data` attribute to an `IEnumerable` property.
+1. Enable some data operations like paging, sorting or filtering.
+1. Add  [`GridColumn`]({%slug components/grid/columns/bound%}) instances under the `GridColumns` tag. Each column `Field` should point to the model property to display. Use `nameof()` or the plain field name.
+
+>caption Get started with the Blazor Grid
 
 ````CSHTML
-General grid with its most common features
+@* Telerik Blazor Grid with some common features *@
 
-<TelerikGrid Data="@MyData" Height="400px"
-             Pageable="true" Sortable="true" Groupable="true"
-             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-             Resizable="true" Reorderable="true">
+<TelerikGrid Data="@GridData"
+             Pageable="true"
+             Sortable="true"
+             FilterMode="@GridFilterMode.FilterRow">
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="Name" Title="Product Name" />
+        <GridColumn Field="Price" />
+        <GridColumn Field="@(nameof(Product.Released))" />
+        <GridColumn Field="@(nameof(Product.Discontinued))" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+    List<Product> GridData { get; set; }
 
-    public class SampleData
+    protected override void OnInitialized()
+    {
+        GridData = Enumerable.Range(1, 30).Select(x => new Product
+        {
+            Id = x,
+            Name = "Product name " + x,
+            Price = (decimal)(x * 3.14),
+            Released = DateTime.Now.AddMonths(-x).Date,
+            Discontinued = x % 5 == 0
+        }).ToList();
+
+        base.OnInitialized();
+    }
+
+    public class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
+        public decimal Price { get; set; }
+        public DateTime Released { get; set; }
+        public bool Discontinued { get; set; }
     }
 }
 ````
 
->caption The result from the code snippet above
+## Video Tutorial
 
-![Blazor DataGrid Component Example](images/basic-grid.png)
+If you prefer video instructions, watch this short Blazor Grid video tutorial. It covers to following topics:
 
->caption Video tutorial - Get started with Telerik Data Grid for Blazor
+* Introduction to the Telerik Blazor Grid
+* Add TelerikRootComponent to MainLayout
+* Add a Blazor Grid
+* Configure columns
+* Enable additional features
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NW2hHtmM2Gk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ## Data Binding
 
-To show data in a Grid, you need to define [GridColumn]({%slug components/grid/columns/bound%}) instances or allow the Grid to [generate columns automatically]({%slug grid-columns-automatically-generated%}). Declared columns take a model `Field` and expose settings for [templates]({%slug components/grid/features/templates%}), [grouping](#grouping) and [reordering]({%slug components/grid/columns/reorder%}). To [edit](#editing) data or invoke custom logic, you define a [CommandColumn]({%slug components/grid/columns/command%}).
+There are two main steps to data bind a Grid:
 
-The [Grid Data Binding article]({%slug grid-data-binding%}) provides detailed information and examples about binding the Grid in different scenarios and to various data sources.
+1. **Provide the data.** There are two alternative ways to do this:
+    * Set the Grid **`Data`** attribute. In this case, the Grid will hold **all the data** and will perform all data operations internally (sorting, paging, filtering, grouping, aggregates, etc.). This approach provides **simplicity**.
+    * Use the Grid [**`OnRead`** event]({%slug components/grid/manual-operations%}) and pass the data to the event argument. In this case, the Grid will hold **only the current page** of data items. The component will fire `OnRead` again for every data operation and expect to receive the expected items. This approach provides **flexibility** and **performance** if the total number of data items is large.
 
-### Loading Animation
-
-When the user performs data operations in the grid, the grid will display a loading sign over itself when it detects a long-running operation (over 600ms). This improves the user experience so they know they have to wait for the action to complete, and also prevents repeated actions.
-
-The operations include paging, filtering, sorting, grouping, expanding groups with load-on-demand; editing, inserting and deleting records.
-
-The grid will not, however, display a loading animation during its initial rendering. It cannot know when or even if data will be provided to it, and having an automatic loading sign appear can either make it show up indefinitely, or it could prevent the user from altering any saved grid state (such as changing filters). If you want a loading animation on the initial load, you can add a [LoaderContainer component]({%slug loadercontainer-overview%}#basic-loadercontainer) with the desired `Visible` logic.
-
-When using the [`OnRead` event]({%slug components/grid/manual-operations%}), the loading sign will display every time its event handler is called, which will include the initial load of data - the grid will raise that request every time.
-
-You can see both scenarios in action in the [Live Demo: Grid Loading Animation](https://demos.telerik.com/blazor-ui/grid/loading-animation).
+    The [Grid Data Binding article]({%slug grid-data-binding%}) provides detailed information and examples for binding the Grid to various data sources.
+1. **Configure the Grid to display the data.** Again, there are two ways to do this:
+    * [Generate some or all columns automatically]({%slug grid-columns-automatically-generated%}). The autogenerated columns will depend on the Model properties and Data Annotations.
+    * Define [GridColumn]({%slug components/grid/columns/bound%}) instances and set their `Field` attribute. The field is required for data and CRUD operations. The field type determines the sorting, filtering and editing behavior. Some columns do not need a field, for example the [CommandColumn]({%slug components/grid/columns/command%}). To customize data rendering and column behavior, use [templates]({%slug components/grid/features/templates%}) and all the [column settings](#column-features).
 
 
+## Data Operations
 
-## Blazor Grid Reference
+The Blazor Grid supports all fundamental data operations out-of-the-box:
 
-The grid is a generic component, and to store a reference, you must use the model type that you pass to its `Data` when declaring the variable.
+* [Paging]({%slug components/grid/features/paging%}) or alternatively, [virtual scrolling]({%slug components/grid/virtual-scrolling%})
+* [Sorting]({%slug components/grid/features/sorting%})
+* [Filtering]({%slug components/grid/filtering%})
+* [Grouping]({%slug components/grid/features/grouping%}). The Grid can also [load the data for each group on demand]({%slug grid-group-lod%}).
+* [Aggregates]({%slug grid-aggregates%})
 
->caption Store a reference to a Telerik Grid
-
-````CSHTML
-@using Telerik.Blazor.Components
-
-<TelerikGrid Data="@MyData" @ref="theGridReference">
-	<GridColumns>
-		<GridColumn Field="@(nameof(SampleData.ID))">
-		</GridColumn>
-		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-		</GridColumn>
-	</GridColumns>
-</TelerikGrid>
-
-@code {
-	Telerik.Blazor.Components.TelerikGrid<SampleData> theGridReference;
-
-	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		ID = x,
-		Name = "name " + x
-	});
-
-	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-	}
-}
-````
-
-
-## Autogenerated Columns
-
-You can autogenerate columns in a Grid for each public property in its model. For more information about this feature you can read the [Autogenerated Columns]({%slug grid-columns-automatically-generated%}) article.
 
 ## Editing
 
-The grid can perform CRUD operations on its current data collection and exposes events that let you control the operations and transfer changes to the actual data source. The [CRUD Operations Overview]({%slug components/grid/editing/overview%}) article offers more details on this.
+The Grid can perform CRUD operations on its current data - add, edit and delete rows. It exposes events that let you control the editing and commit changes to the actual data source.
 
-The grid offers several editing modes with different user experience through the `EditMode` property that is a member of the `GridEditMode` enum:
+The Grid offers several editing modes with different user experience - incell, inline and popup.
 
-* `None` - the default `GridEditMode` value. The built-in [`Add` and `Edit` commands]({%slug components/grid/columns/command%}#built-in-commands) don't work in this mode.
-* `Incell` - editing is done [in the current cell]({%slug components/grid/editing/incell%}) with a double click
-* `Inline` - editing is done for the [entire row]({%slug components/grid/editing/inline%}) with an [Edit Command Button]({%slug components/grid/columns/command%})
-* `Popup` - editing is done in a [popup]({%slug components/grid/editing/popup%}) for the entire row with an [Edit Command Button]({%slug components/grid/columns/command%})
+See [Grid CRUD Operations Overview]({%slug components/grid/editing/overview%}) for more details.
 
 
-## Paging
+## Virtualization
 
-The grid supports paging of the data out of the box. You can read more about it in the [Paging]({%slug components/grid/features/paging%}) article. An alternative to standard paging is [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}) that provides a different user experience.
+The Blazor Grid features UI virtualization to improve browser performance:
 
-## Sorting
+* [Row virtualization]({%slug components/grid/virtual-scrolling%})
+* [Column virtualization]({%slug grid-columns-virtual%})
 
-The grid can sort data automatically. You can read more about this feature in the [Sorting]({%slug components/grid/features/sorting%}) article.
-
-## Filtering
-
-The grid can filter data automatically. You can read more about this feature in the [Filtering]({%slug components/grid/filtering%}) article.
-
-
-## Grouping
-
-The grid can group data automatically. You can read more about this feature in the [Grouping]({%slug components/grid/features/grouping%}) article.
 
 ## Column Features
 
-The columns of the Grid are one of its main building blocks and they offer a rich set of functionality to enable immense flexibility for your application scenarios.
+The Grid columns offer a rich set of functionality to enable immense flexibility for your application scenarios. The main column features include:
 
->caption Column features include
-
-* [Autogenerated Columns]({%slug grid-columns-automatically-generated%})
-
-* [Freezing columns]({%slug grid-columns-frozen%})
-
-* [Column Menu]({%slug grid-column-menu%})
-
-* [Display Format]({%slug grid-columns-displayformat%})
-
-* [Column Reodering]({%slug components/grid/columns/reorder%})
-
-* [Column Resizing]({%slug components/grid/columns/resize%})
-
-* [UI Virtualization]({%slug grid-columns-virtual%})
-
-* [Visibility]({%slug grid-columns-visible%})
-
-* [Multi-column Headers]({%slug grid-columns-multiple-column-headers%})
-
-* [Events]({%slug grid-column-events%})
+* [Display Format]({%slug grid-columns-displayformat%}) for numeric and date values
+* [Resizing]({%slug components/grid/columns/resize%})
+* [Reodering]({%slug components/grid/columns/reorder%})
+* [Column Menu]({%slug grid-column-menu%}) to control data operations and column visibility
+* [Frozen columns]({%slug grid-columns-frozen%}), which do not scroll horizontally (also called locked columns)
+* [Multi-column Headers]({%slug grid-columns-multiple-column-headers%}) to group multiple column headers under a single parent header
+* [Column Events]({%slug grid-column-events%})
+* [Visibility]({%slug grid-columns-visible%}) and [Width]({%slug grid-columns-width%})
 
 
-## Selection
+## Templates
 
-The grid offers single or multiple selection modes. You can read more about this feature in the [Selection]({%slug components/grid/selection/overview%}) article.
-
-## Toolbar
-
-You can define user actions in a [dedicated toolbar]({%slug components/grid/features/toolbar%}). For the moment, they are mostly custom actions, but in future versions you will be able to add features like exporting there.
-
-## Column Menu
-
-The Grid allows you to setup a menu for it's columns. It enables you to perform high-level customization like [sorting]({%slug components/grid/features/sorting%}), [filtering]({%slug components/grid/filtering%}), [showing or hiding]({%slug grid-columns-visible%}) columns and [freezing or unfreezing]({%slug grid-columns-frozen%}) them. You can read more about this feature in the [column menu]({%slug grid-column-menu%}) article.
-
-## Scrolling
-
-The grid offers two modes of scrolling through its `ScrollMode` parameter that takes a member of the `Telerik.Blazor.GridScrollMode` enum:
-
-* `Scrollable` - the default setting - the scrollbars are controlled by the grid's `Width` and `Height` parameters and the data shown in it. If the rendered rows are taller than the height, there will be a vertical scrollbar. If the sum of the column widths is larger than the width, there will be a horizontal scrollbar (read more in the [Column Width]({%slug grid-columns-width%}) article).
-* `Virtual` - this enables [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}).
-
-The Grid offers Virtual horizontal scrolling. You can read more about this feature in the [Column Virtualization]({%slug grid-columns-virtual%}) article.
-
-## Frozen Columns
-
-The grid lets you freeze one or more columns. You can read more about this feature in the [Frozen columns]({%slug grid-columns-frozen%}) article.
-
-## State
-
-The grid provides its current state (such as filtering, sorting, grouping, selection and so on) through methods and events so you can store the grid layout for your end users - this lets them continue where they left off. You can read more about this in the [Grid State]({%slug grid-state%}) article.
+The Grid supports custom content in various parts of the component such as data cells, headers, footers, editors and more. See [Grid Templates]({%slug components/grid/features/templates%}).
 
 
-## Styling
+## More Grid Features
 
-You can define your own content for column cells or even the entire row through [Templates]({%slug components/grid/features/templates%}).
+* [Selection]({%slug components/grid/selection/overview%}) - select one or multiple rows via clicks or checkboxes
+* [State]({%slug grid-state%}) - get or set the Grid configuration programmatically
+* [Toolbar]({%slug components/grid/features/toolbar%}) - define user actions in a toolbar above the header cells
+* [Hierarchy]({%slug components/grid/features/hierarchy%}) - nest Grids and visualize parent-child relations between data records
+* [Drag and drop rows]({%slug grid-drag-drop-overview%}) - move rows in a Grid or between different Grids
+* [Loading animation]({%slug grid-loading%}) - show a loading animation to improve user experience during long data operations
+* Scrolling - the Grid will show standard scrollbars automatically if the data does not fit the current component width and height.
 
-You can also set the [`Height` of the grid]({%slug common-features/dimensions%}), and you can use the `Class` to provide more complex CSS rules (like ones that will be inherited in a template).
 
-Below, you can see examples on how to [format the cells and the rows of the Grid based on certain conditions](#conditional-formatting) and how to take advantage of the [elastic design](#elastic-design).
+## Grid Attributes
 
-### Conditional Formatting
-
-You can format the cells and rows of the Grid based on certain condition in the logic of the application. 
-
-To do so, use the [OnCellRender]({%slug grid-column-events%}#oncellrender) and [OnRowRender]({%slug grid-events%}#onrowrender) events and set the desired CSS class through the event handlers arguments.
-
->caption Use the OnCellRender and OnRowRender events to customize the formatting of the Grid rows and cells based on conditions.
-
-@[template](/_contentTemplates/grid/common-link.md#conditional-style-row-and-cell-render)
-
->caption The result from the code snippet above
-
-![conditional formatting of the grid](images/grid-styling-conditional-formatting-example.png)
-
-### Elastic Design
-
-You can benefit from the elastic design the components expose to change their font size so they change dimensions.
-
->caption Change font size and dimensions of a grid
-
-````CSHTML
-The grid offers elastic design capabilities
+The following table lists Grid attributes, which are not related to other features on this page. Check the [Grid API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1) for a full list of properties, methods and events.
 
 <style>
-    div.smallerFont,
-    div.smallerFont .k-filtercell * {
-        font-size: 10px;
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
     }
-
-        div.smallerFont .k-dropdown.k-header.k-dropdown-operator {
-            width: calc(8px + 2em) !important;
-        }
-
-        /* One example for altering content inside the cells - the inputs in InCell editing mode here 
-        You can create similar rules as needed by inspecting the rendered HTML. This blog can help you do that
-        https://www.telerik.com/blogs/improve-your-debugging-skills-with-chrome-devtools
-        */
-        div.smallerFont .k-grid-edit-cell input{
-            font-size: 10px;
-        }
 </style>
 
-<TelerikGrid Data="@MyData" Class="smallerFont"
-             Pageable="true" FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-             Sortable="true" Height="200px">
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.ID))">
-        </GridColumn>
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-        </GridColumn>
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
-        </GridColumn>
-    </GridColumns>
-</TelerikGrid>
+| Attribute | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders additional CSS class to the `div.k-grid` element. |
+| `Height` | `string` | Sets a height style in [any supported CSS unit]({%slug common-features/dimensions%}). |
+| `Navigable` | `bool` | Enables [keyboard navigation]({%slug accessibility-keyboard-navigation%}). |
+| `Width` | `string` | Sets a width style in [any supported CSS unit]({%slug common-features/dimensions%}). The Grid has no default width, but expands horizontally to fill its container. |
 
-original:
 
-<TelerikGrid Data="@MyData"
-             Pageable="true" FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-             Sortable="true" Height="200px">
+## Grid Reference
+
+The Grid has methods to execute actions such as:
+
+* [refresh the data]({%slug grid-refresh-data%}#rebind-method)
+* [export to Excel]({%slug grid-export-excel%}) and other formats
+* [resize columns to fit the content]({%slug components/grid/columns/resize%}#autofit-columns)
+* [get or set the Grid state]({%slug grid-state%})
+
+To execute these methods, obtain reference to the Grid instance via `@ref`.
+
+>caption Use a Telerik Blazor Grid reference
+
+````CSHTML
+<TelerikButton OnClick="@AutoFit">Autofit All Columns</TelerikButton>
+
+<TelerikGrid Data="@GridData" @ref="TheGrid" Width="600px">
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.ID))">
-        </GridColumn>
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-        </GridColumn>
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date">
-        </GridColumn>
+        <GridColumn Field="@(nameof(GridModel.Id))" />
+        <GridColumn Field="@(nameof(GridModel.Text))" Width="300px" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
+    TelerikGrid<GridModel> TheGrid { get; set; }
+
+    void AutoFit()
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
+        TheGrid.AutoFitAllColumns();
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
+    IEnumerable<GridModel> GridData = Enumerable.Range(1, 5)
+        .Select(x => new GridModel
+        {
+            Id = x,
+            Text = "some longer text here that will not fit on a single line and we would like to expand it " + x
+        });
+
+    public class GridModel
     {
-        ID = x,
-        Name = "name " + x,
-        HireDate = DateTime.Now.AddDays(-x)
-    });
+        public int Id { get; set; }
+        public string Text { get; set; }
+    }
 }
 ````
 
->caption The result from the reduced font size is a reduction in the overall size of the grid elements
 
-![Blazor Grid Component Reduced Font Size Example](images/grid-reduced-font-size.png)
+## Next Steps
+
+* [Explore Grid data binding]({%slug grid-data-binding%})
+* [Learn about Grid columns]({%slug components/grid/columns/bound%})
+
 
 ## See Also
 
-  * [Live Demos: Grid](https://demos.telerik.com/blazor-ui/grid/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)
+* [Live Grid Demos](https://demos.telerik.com/blazor-ui/grid/index)
+* [Grid API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)

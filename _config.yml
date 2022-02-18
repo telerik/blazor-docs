@@ -428,7 +428,7 @@ intro_columns:
   -
     title: "Data Management"
     items:
-      "Grid": "components/grid/overview"
+      "Grid": "grid-overview"
       "TreeList": "treelist-overview"
       "ListView": "listview-overview"
 
