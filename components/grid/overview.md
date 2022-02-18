@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Blazor Blazor Grid Component Overview
+# Blazor Grid Component Overview
 
 This article provides a quick introduction to get your first <a href="https://www.telerik.com/blazor-ui/grid" target="_blank">Blazor data grid component</a> up and running in a few seconds. There is a video tutorial and a list of the key features.
 
