@@ -67,4 +67,4 @@ position: 2
 
 ## See Also
 
-  * [Live Demo: Column Format](https://demos.telerik.com/blazor-ui/grid/column-format)
+  * [Live Demo: Cell Formatting](https://demos.telerik.com/blazor-ui/grid/cell-formatting)
