@@ -6,40 +6,40 @@ page_title: Dropdown Custom Filtering in Multiple Fields
 slug: dropdowns-kb-search-in-multiple-fields
 position: 
 tags: search, filter
-ticketid: 1550307
+ticketid: 1550307, 1554601
 res_type: kb
 ---
 
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
                 AutoComplete for Blazor, <br />
                 ComboBox for Blazor, <br />
                 DropDownList for Blazor, <br />
                 MultiSelect for Blazor
             </td>
-		</tr>
-	</tbody>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
 
-My dropdown data model has one numeric property and two string properties. I want to search (filter) for text from both string fields and get filtered results. After the user makes a selection, the component value should be the numeric value.
+My dropdown data model has one numeric property in `ValueField` and two string properties (one of them is the `TextField`). I want to search (filter) for text from both string fields and get filtered results. After the user makes a selection, the component value should be the value from `ValueField`.
 
 ## Solution
 
-* Use manual data binding for the component with the `OnRead` event. THis will allow programmatic changes to the data request filter.
+* Use manual data binding for the component with the `OnRead` event. This will allow programmatic changes to the data request filter.
 * Create a new [`DataSourceRequest`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.DataSourceRequest) object in the `OnRead` handler. Set its `Filters` collection to include one [`CompositeFilterDescriptor`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor) instead of the default [`FilterDescriptor`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptor) (see note below).
 * The `CompositeFilterDescriptor` object should have its `LogicalOperator` set to `FilterCompositionLogicalOperator.Or` (unless you want **all** searchable fields to contain the search string).
 * The `CompositeFilterDescriptor` object should have its `FilterDescriptors` collection contain one `FilterDescriptor` for each searchable field in the data.
-* (optional) The new `DataSourceRequest` should copy the `PageSize` and `Skip` property values of the original `OnRead` event argument. This applies to virtual scrolling scenarios.
+* (optional) The new `DataSourceRequest` should copy the `PageSize` and `Skip` property values of the original `OnRead` event argument. This applies to **virtual scrolling** scenarios.
 * The `FilterOperator` of the component should be the same as the one in the custom filter descriptors.
-* Set the component `ValueField`, according to the application and business requirements. The dropdown items can display any field. The user can search (filter) in any `string` fields.
-* (optional) Use an `ItemTemplate` to display multiple fields in the dropdown.
+* Configure the component `ValueField`, according to the application and business requirements. The dropdown items can display any `string` field via `TextField`. The `TextField` should be a `string` property, because the built-in filtering uses string filter operators. (Note that the AutoComplete does not have a `TextField` parameter and its `ValueField` should be a `string`.)
+* (optional) Use an `ItemTemplate` to display multiple fields in the dropdown, including non-string fields.
 
 > Each `FilterDescriptor` defines **one** filtering criterion for one data field (`Member`). The `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection), which can target the same field or different fields. All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
 
