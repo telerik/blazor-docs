@@ -13,6 +13,23 @@ The Filter provides options for defining which filter operators will be displaye
 
 The `Operators` parameter takes a literal with the available operators for each field type. You can list the desired operators and customize their text.
 
+## Supported Fields Operators
+
+| **String** | **Numeric** | **Bool** | **Enum** | **Date** |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| `IsEqualTo` | `IsLessThan` | `IsEqualTo` | `IsEqualTo` | `IsEqualTo` |
+| `IsNotEqualTo` | `IsLessThanOrEqualTo` | | `IsNotEqualTo` | `IsNotEqualTo` |
+| `StartsWith` | `IsEqualTo` | | `IsNull` | `IsGreaterThanOrEqualTo` |
+| `Contains` | `IsNotEqualTo` | | `IsNotNull ` | `IsGreaterThan` |
+| `DoesNotContain` | `IsGreaterThanOrEqualTo` | | | `IsLessThanOrEqualTo` |
+| `EndsWith` | `IsGreaterThan` | | | `IsLessThan` |
+| `IsNull` | `IsNull` | | | `IsNull` |
+| `IsNotNull` | `IsNotNull` | | | `IsNotNull` |
+| `IsEmpty` | | | |
+| `IsNotEmpty` | | | |
+| `IsNullOrEmpty` | | | |
+| `IsNotNullOrEmpty` | | | |
+
 **To configure a Field Operators:**
 
 1. Provide list of `<FilterListOperator>` for every Field.
@@ -64,20 +81,3 @@ The `Operators` parameter takes a literal with the available operators for each 
     }
 }
 ````
-
-## Supported Fields Operators
-
-| **String** | **Numeric** | **Bool** | **Enum** | **Date** |
-| ----------- | ----------- | ----------- | ----------- | ----------- |
-| `IsEqualTo` | `IsLessThan` | `IsEqualTo` | `IsEqualTo` | `IsEqualTo` |
-| `IsNotEqualTo` | `IsLessThanOrEqualTo` | | `IsNotEqualTo` | `IsNotEqualTo` |
-| `StartsWith` | `IsEqualTo` | | `IsNull` | `IsGreaterThanOrEqualTo` |
-| `Contains` | `IsNotEqualTo` | | `IsNotNull ` | `IsGreaterThan` |
-| `DoesNotContain` | `IsGreaterThanOrEqualTo` | | | `IsLessThanOrEqualTo` |
-| `EndsWith` | `IsGreaterThan` | | | `IsLessThan` |
-| `IsNull` | `IsNull` | | | `IsNull` |
-| `IsNotNull` | `IsNotNull` | | | `IsNotNull` |
-| `IsEmpty` | | | |
-| `IsNotEmpty` | | | |
-| `IsNullOrEmpty` | | | |
-| `IsNotNullOrEmpty` | | | |

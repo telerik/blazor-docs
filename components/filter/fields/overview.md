@@ -9,7 +9,7 @@ position: 0
 ---
 
 # Filter Fields
-You can set the fields settings of the component. Filter provides field names, labels, and [filter operators]({%slug filter-operators%}).
+You can define different Fields settings. For example, names, labels, and [filter operators]({%slug filter-operators%}).
 
 ## FilterField Parameters
 

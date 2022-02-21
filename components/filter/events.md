@@ -16,7 +16,7 @@ This article explains the available events for the Telerik Filter for Blazor:
 
 ## ValueChanged
 
-The `ValueChanged` event fires when the value has changed. Its `EventCallback<CompositeFilterDescriptor>` returns the updated `CompositeFilterDescriptor`.
+The `ValueChanged` event fires when the value has changed. Its event handler receives the updated `CompositeFilterDescriptor` argument and returns it afterward.
 
 >caption Handle ValueChanged.
 
