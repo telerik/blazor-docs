@@ -14,88 +14,31 @@ The QRCode generates **Canvas** and **SVG** images that represent Quick Response
 
 The generated image from the component is a machine-readable label that contains information about data for a locator, identifier, or tracker that points to a website or application.
 
-## Basics
+## Creating Blazor QRCode
 
-To add a Telerik QRCode to your Blazor app:
+1. Add the `TelerikQRCode` tag to add the component to your razor page.
 
-1. Add the `TelerikQRCode` tag.
-1. Provide `Value` property
-1. Set its `Size`
+1. Provide `Value` property.
+
+1. Set its `Size` property.
+
 1. Optionally, choose a `QRCode Type` (one of the [types we support]({%slug  qrcode-qr-code-types%})).
-
-The following example demonstrates how to set up the QRCode with its default configuration.
 
 >caption A basic configuration of the Telerik QRCode
 
 ````CSHTML
-@* This code snippet showcases an example of basic a QRCode configuration. *@
-
 <TelerikQRCode Size="200px"
                Value="https://docs.telerik.com/blazor-ui/introduction">
 </TelerikQRCode>
 ````
 
->caption The result from the above code snippet
+## Encoding
 
-![](images/qrcode-basic-configuration.png)
+Encoding represents the mapping between messages and qr codes. [Read more about the supported Blazor QRCode Encodings...]({%slug qrcode-encoding%})
 
-For more information, refer to the [article on types]({%slug  qrcode-qr-code-types%}) regarding the set of QRCode types.
+## Types
 
-## Features
-
->caption The QRCode provides the following features:
-
-### General Properties
-
-* `RenderAs` - `enum` - `RenderingMode` - defines the preferred rendering mode:
-    * `SVG`
-    * `Canvas`
-
-* `Encoding` - `enum` - `QRCodeEncoding` - the encoding mode used to encode the value. The possible members are:
-    * `ISO_8859_1` - supports all characters from the ISO/IEC 8859-1 character set.
-    * `UTF_8` - supports all Unicode characters. The UTF-8 encoding is not included in the specifications and is not supported by all readers.
-
-* `ErrorCorrection` - `enum` - `QRCodeErrorCorrection` - the error correction level used to encode the value. The possible values are:
-    * `L` - approximately 7% of the codewords can be restored.
-    * `M` - approximately 15% of the codewords can be restored.
-    * `Q` - approximately 25% of the codewords can be restored.
-    * `H` - approximately 30% of the codewords can be restored.
-
-* `Value` - `string` - defines the initial value of the QRCode.
-
-* `Size` - `string` - specifies the size (`Width` and `Height`) of a QR code in pixels (i.e. "200px") as the QRCode is a square. You can read more details for the dimension properties in the [Dimensions article](https://docs.telerik.com/blazor-ui/common-features/dimensions#dimensions). Setting both `Size` and `Width` and/or `Height` will throw an error. Setting different values to `Width` and `Height` will also cause an issue.
-
-* `Width` - `string` - sets the width of the QRCode. If `Height` is set and the `Size` property is not set, the same value as `Width` should be set to `Height`.
-
-* `Height` - `string` - sets the height of the QRCode. If `Height` is set and the `Size` property is not set, the same value as `Height` should be set to `Width`.
-
-* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the QRCode component.
-
-* `Background` - `string` - the background color of the QRCode. Accepts a valid CSS color string, including HEX and RGB.
-
-* `Color` - `string` - defines the color of the QRCode elements. The default color is black.
-
-* `Padding` - `double` - defines the minimum distance in pixels that should be left between the border and the QR modules.
-
-### Properties for the QRCode Overlay
-
-* `QRCodeOverlay` - `object` - the overlay configuration which allows you to choose from predefined layouts or insert a custom image.
-
-* `QRCodeOverlay.Type` - `enum` - `QRCodeOverlayType` - available options are `Image` and `Swiss`. When set to image, you have to specify the url source of the image. If set to swiss, a [Swiss QR Code](https://blog.xsuite.com/en/swiss-qr-code#:~:text=This%20QR%20code%20is%20called,(e.g.%20in%20PDF%20format).) is created.
-
-* `QRCodeOverlay.ImageUrl` - `string` - the URL of the displayed overlay image.
-
-* `QRCodeOverlay.Width` - `double` - the width of the overlay in pixels.
-
-* `QRCodeOverlay.Height` - `double` - the height of the overlay in pixels.
-
-### Properties for the QRCode Border
-
-* `QRCodeBorder` - `object` - the border of the QR code.
-
-* `QRCodeBorder.Color` - `string` - the color of the border. Accepts a valid CSS color string, including HEX and RGB.
-
-* `QRCodeBorder.Width` - `double` - The width of the border in pixels. By default the border width is set to zero which means that the border will not be visible.
+The component exposes Swiss and Image QRCode types. [Read more about the supported Blazor QRCode Types...]({%slug qrcode-qr-code-types%})
 
 ## Methods
 
@@ -104,6 +47,50 @@ The QRCode methods are accessible through its reference.
 * `Refresh` - redraws the component.
 
 You can see the [example with the Barcode]({%slug barcode-overview%}#methods) and use the `Refresh()` method in the same way with QRCode.
+
+## Parameters
+
+The Blazor Barcode provides various parameters that allow you to configure the component:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `RenderingMode` | `enum` | Defines the preferred rendering mode. |
+| `QRCodeEncoding` | `enum` | The encoding mode used to encode the value. |
+| `QRCodeErrorCorrection` | `enum` | The error correction level used to encode the value. |
+| `Value` | `string` | Defines the initial value of the QRCode. |
+| `Size` | `string` | Specifies the size (`Width` and `Height`) of a QR code in pixels (i.e. "200px") as the QRCode is a square. You can read more details for the dimension properties in the [Dimensions article](https://docs.telerik.com/blazor-ui/common-features/dimensions#dimensions). Setting both `Size` and `Width` and/or `Height` will throw an error. Setting different values to `Width` and `Height` will also cause an issue. |
+| `Width` | `string` | Sets the width of the QRCode. If `Height` is set and the `Size` property is not set, the same value as `Width` should be set to `Height`. |
+| `Height` | `string` | Sets the height of the QRCode. If `Height` is set and the `Size` property is not set, the same value as `Height` should be set to `Width`. |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the QRCode component. |
+| `Background` | `string` | The background color of the QRCode. Accepts a valid CSS color string, including HEX and RGB. |
+| `Color` | `string` | Defines the color of the QRCode elements. The default color is black. |
+| `Padding` | `double` | Defines the minimum distance in pixels that should be left between the border and the QR modules. |
+
+### QRCodeOverlay parameters
+
+The following `QRCodeOverlay` parameters allow you to choose from predefined layouts or insert a custom image in the Blazor QRCode:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `QRCodeOverlayType` | `enum` | Available options are `Image` and `Swiss`. When set to image, you have to specify the url source of the image. If set to swiss, a [Swiss QR Code](https://blog.xsuite.com/en/swiss-qr-code#:~:text=This%20QR%20code%20is%20called,(e.g.%20in%20PDF%20format).) is created. |
+| `ImageUrl` | `string` | The URL of the displayed overlay image. |
+| `Width` | `double` | The width of the overlay in pixels. |
+| `Height` | `double` | The height of the overlay in pixels. |
+
+### QRCodeBorder parameters
+
+The following `QRCodeBorder` parameters enable you to customize the appearance of the Blazor QRCode border:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Color` | `string` | The color of the border. Accepts a valid CSS color string, including HEX and RGB. |
+| `Width` | `double` | The width of the border in pixels. By default the border width is set to zero which means that the border will not be visible. |
+
+## Next Steps
+
+[Explore the QRCode Encodings]({%slug qrcode-encoding%})
+
+[Explore the QRCode Types]({%slug qrcode-qr-code-types%})
 
 ## See Also
 

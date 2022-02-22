@@ -14,17 +14,16 @@ The Barcode represents data in a machine-readable format. You can choose from se
 
 All graphics are rendered on the client by using [Scalable Vector Graphics (SVG)](https://www.w3.org/Graphics/SVG/).
 
-## Basics
+## Creating Blazor Barcode
 
-To add a Telerik Barcode to your Blazor app:
+1. Add the `TelerikBarcode` tag to add the component to your razor page.
 
-1. Add the `TelerikBarcode` tag.
-1. Provide `Value` property
-1. Set its `Height` and `Width`
+1. Provide `Value` property.
+
+1. Set the `Height` and `Width` properties.
+
 1. Optionally, choose a `Type` (one of the [encodings we support]({%slug  barcode-encoding%})).
     * Its default encoding is `Code39`.
-
-The following example demonstrates how to set up the Barcode with its default configuration.
 
 >caption A basic configuration of the Telerik Barcode
 
@@ -35,77 +34,9 @@ The following example demonstrates how to set up the Barcode with its default co
 </TelerikBarcode>
 ````
 
->caption The result from the above code snippet
+## Encoding
 
-![](images/barcode-basic-configuration.png)
-
-For more information, refer to the [article on encoding]({%slug  barcode-encoding%}) regarding the set of types supported by the Barcode.
-
-## Features
-
->caption The Barcode provides the following features:
-
-### General Properties
-
-* `RenderAs` - `enum` - defines the preferred rendering mode - svg/canvas.
-
-* `Checksum` - `bool` - by setting it to true, the Barcode will display the checksum digit next to the value in the text area.
-
-* `Type` - `enum` - defines the symbology (encoding) the Barcode will use - ([full list of supported encodings]({%slug  barcode-encoding%}))
-
-* `Value` - `string` - defines the initial value of the Barcode.
-
-* `Width` - `string`.
-
-* `Height` - `string`.
-
-* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the Barcode component.
-
-* `Background` - `string`.
-
-* `Color` - `string` - defines the color of the bar elements.
-
-### Properties for the Barcode Text
-
-* `BarcodeText` - `object`.
-
-* `BarcodeText.Color` - `string`.
-
-* `BarcodeText.Font` - `string`.
-
-* `BarcodeText.BarcodeTextMargin` - `object`.
-
-* `BarcodeText.BarcodeTextMargin.Bottom` - `double`.
-
-* `BarcodeText.BarcodeTextMargin.Left` - `double`.
-
-* `BarcodeText.BarcodeTextMargin.Right` - `double`.
-
-* `BarcodeText.BarcodeTextMargin.Top` - `double`.
-
-* `BarcodeText.Visible` - `bool` - by setting it to false, the Barcode will not display the value as a text below the barcode lines.
-
-### Properties for the Barcode Border
-
-* `BarcodeBorder` - `object`.
-
-* `BarcodeBorder.Color` - `string`.
-
-* `BarcodeBorder.DashType` - `enum`.
-
-* `BarcodeBorder.Width` - `double`.
-
-### Properties for the Barcode Padding
-
-* `BarcodePadding` - `object`.
-
-* `BarcodePadding.Bottom` - `double`.
-
-* `BarcodePadding.Left` - `double`.
-
-* `BarcodePadding.Right` - `double`.
-
-* `BarcodePadding.Top` - `double`.
+Encoding represents the mapping between messages and barcodes. [Read more about the supported Blazor Barcode Encodings...]({%slug barcode-encoding%})
 
 ## Methods
 
@@ -143,6 +74,62 @@ The Barcode methods are accessible through it's reference.
     }
 }
 ````
+
+## Parameters
+
+The Blazor Barcode provides various parameters that allow you to configure the component:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `RenderAs` | `enum` | Defines the preferred rendering mode - svg/canvas. |
+| `Checksum` | `bool` | By setting it to true, the Barcode will display the checksum digit next to the value in the text area. |
+| `Type` | `enum` | Defines the symbology (encoding) the Barcode will use - ([full list of supported encodings]({%slug  barcode-encoding%})) |
+| `Value` | `string` | Defines the initial value of the Barcode. |
+| `Width` | `string` | |
+| `Height` | `string` | |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Barcode component. |
+| `Background` | `string` | |
+| `Color` | `string` | Defines the color of the bar elements. |
+
+### BarcodeText parameters
+
+The following `BarcodeText` parameters enable you to customize the appearance of the Blazor Barcode text:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Color` | `string` | |
+| `Font` | `string` | |
+| `BarcodeTextMargin` | `object` | |
+| `BarcodeTextMargin.Bottom` | `double` | |
+| `BarcodeTextMargin.Left` | `double` | |
+| `BarcodeTextMargin.Right` | `double` | |
+| `BarcodeTextMargin.Top` | `double` | |
+| `Visible` | `bool` | By setting it to false, the Barcode will not display the value as a text below the barcode lines. |
+
+### BarcodeBorder parameters
+
+The following `BarcodeBorder` parameters enable you to customize the appearance of the Blazor Barcode border:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Color` | `string` | |
+| `DashType` | `enum` | |
+| `Width` | `double` | |
+
+### BarcodePadding parameters
+
+The following `BarcodePadding` parameters enable you to customize the appearance of the Blazor Barcode:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Bottom` | `double` | |
+| `Left` | `double` | |
+| `Right` | `double` | |
+| `Top` | `double` | |
+
+## Next Steps
+
+[Explore the Barcode Encodings]({%slug barcode-encoding%})
 
 ## See Also
 
