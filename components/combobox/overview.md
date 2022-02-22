@@ -86,13 +86,13 @@ The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#groupin
 | `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required.
 | `Enabled` | `bool` | whether the component is enabled.
 |`Filterable` | `bool` | whether [filtering]({%slug components/combobox/filter%}) is enabled for the end user.
-| `FilterOperator` | `StringFilterOperator` | the method of [filtering]({%slug components/combobox/filter%}) the items. Defaults to `StartsWith`.
+| `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | the method of [filtering]({%slug components/combobox/filter%}) the items.
 | `Id` | `string` | renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
 | `Placeholder` | `string` | the text the user sees as a hint when no item is selected. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source.
 | `TItem` | `Type` | the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
 | `TValue` | `Type` | the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum`|
-| `TextField` | `string` | the name of the field from the model that will be shown to the user. Defaults to `Text`.
-| `ValueField` | `string` | the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
+| `TextField` | `string` <br /> (`Text`)| the name of the field from the model that will be shown to the user.
+| `ValueField` | `string` <br /> (`Value`) | the name of the field from the model that will be the underlying `value`.
 | `Value` and `bind-Value` | `TValue` | get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
 | `TabIndex` | `int?` | maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
 
