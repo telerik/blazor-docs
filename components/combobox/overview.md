@@ -153,7 +153,7 @@ Missing selection is most common when the initial value is `null` as data source
 
 * [Binding the ComboBox to Data]({%slug components/combobox/databind%})
 
-* [Pre-Selecting Items for the User]({% slug multiselect-pre-select-items %})
+* [Pre-Selecting Items for the User]({% slug  combobox-pre-select-item %})
 
 ## See Also
 

@@ -143,9 +143,6 @@ The MultiSelect provides the following popup settings:
 
 * [Pre-Selecting Items for the User]({% slug multiselect-pre-select-items %})
 
-
-@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
-
 ## See Also
 
   * [Data Binding]({%slug multiselect-databind%})
