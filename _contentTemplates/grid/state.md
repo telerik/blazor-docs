@@ -112,7 +112,7 @@
 #filter-menu-from-code
 @* This snippet shows how to set filtering state to the grid from your code
   Applies to the FilterMenu mode *@
-  
+
 @using Telerik.DataSource;
 
 <TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
@@ -176,9 +176,11 @@
 }
 #end
 
-
 #filter-menu-default-filters
->note When the Grid `FilterMode` is `FilterMenu`, the component will create default `FilterDecriptor`s in its state for **all columns**. This allows filter templates to work seamlessly and with little code. If you want to alter filters for a column, you must either modify the existing descriptor, or replace it. Simply adding an additional `FilterDescriptor` will not show up in the UI, because the Grid uses the first descriptor for the given field for the filtering UI. Another implication is that the Grid state always contains filter descriptors, no matter if the user has filtered or not. Inactive filter descriptors are distinguished by their `null` `Value`.
+
+>note Until version `3.1.0`, there was a bug that made the component create default `FilterDecriptor`s in its state for **all columns** when `FilterMode` is `FilterMenu`, including when no filtering occurs at all. This side-effect allowed filter templates to work seamlessly and with little code. After version `3.1.0`, ths bug was fixed and empty `FilterDecriptor`s are not added to the state of the component if no filtering occurs (the way filter templates work is unchanged).
+
+>note If you want to alter filters for a column, you must either modify the existing descriptor, or replace it. Simply adding an additional `FilterDescriptor` will not show up in the UI, because the Grid uses the first descriptor for the given field for the filtering UI. Another implication is that the Grid state always contains filter descriptors, no matter if the user has filtered or not. Inactive filter descriptors are distinguished by their `null` `Value`.
 
 >caption Handling filter changes - unexpected addition that does not update the UI, replacement of one filter, replacecment of all filters
 
@@ -267,7 +269,7 @@ This flexibility lets you choose what behavior you want from the grid.
         // see the extension methods related to GetFiltersForMember in the adjacent code tab
         // create a new collection so we can iterate over it without it getting lost with the removal from the parent collection
         List<IFilterDescriptor> teamFilters = new List<IFilterDescriptor>(state.FilterDescriptors.GetFiltersForMember("Team"));
-        
+
         // remove the existing filters for the Team field from the current collection
         for (int i = 0; i < teamFilters.Count(); i++)
         {
@@ -508,10 +510,10 @@ public static class FilterExtensions
         GridState<MainModel> desiredState = new GridState<MainModel>()
         {
             //expand the first two rows
-            ExpandedItems = new List<MainModel> 
-            { 
-                salesTeamMembers[0], 
-                salesTeamMembers[1] 
+            ExpandedItems = new List<MainModel>
+            {
+                salesTeamMembers[0],
+                salesTeamMembers[1]
             }
         };
 
