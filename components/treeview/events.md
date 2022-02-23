@@ -903,6 +903,6 @@ The `ExpandedItemsChanged` event fires every time the user expands or collapses 
 
 ## See Also
 
-  * [TreeView Overview]({%slug components/treeview/overview%})
+  * [TreeView Overview]({%slug treeview-overview%})
   * [TreeView Selection]({%slug treeview-selection-overview%})
   * [TreeView CheckBoxes]({%slug treeview-checkboxes-overview%})

@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Treeview - Data Binding Overview
+page_title: Treeview Data Binding Overview
 description: Data Binding basics in the Treeview for Blazor.
 slug: components/treeview/data-binding/overview
 tags: telerik,blazor,treeview,data,bind,databind,databinding,basics
@@ -8,176 +8,219 @@ published: True
 position: 0
 ---
 
-# Treeview Data Binding Basics
+# Treeview Data Binding
 
-This article explains the different ways to provide data to a TreeView component, the properties related to data binding and their results.
+This article explains how to relate TreeView item features to properties of the data model. This is a prerequisite for successful data binding of the TreeView:
 
-@[template](/_contentTemplates/common/general-info.md#valuebind-vs-databind-link)
+* What are the [features of a TreeView item](#item-features).
+* How to [match model properties with TreeView item features](#treeview-bindings).
 
-First, review:
 
-* The available (bindable) [features of a treeview item](#treeview-item-features).
-* How to match fields in the model with the treeview item [data bindings](#data-bindings).
+## Item Features
 
-There are three modes of providing data to a treeview, and they all use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
+The TreeView items have features that map to properties in the model. The following model uses property names that will [work automatically, with no additional TreeView configuration]({%slug treeview-overview%}#creating-blazor-treeview):
 
-* [Flat data]({%slug components/treeview/data-binding/flat-data%}) - a single collection of items with defined parent-child relationships.
-* [Hierarchical data]({%slug components/treeview/data-binding/hierarchical-data%}) - separate collections of items and their child items.
-* [Load on demand]({%slug components/treeview/data-binding/load-on-demand%}) or lazy loading - providing children to a node when it expands through an event.
+<div class="skip-repl"></div>
 
-## Treeview Item Features
+```CSHARP
+public class TreeItem
+{
+    public int Id { get; set; }
+    public string Text { get; set; }
+    public bool HasChildren { get; set; }
 
-The treeview items provide the following features that you control through the corresponding fields in their data binding:
+    // ParenId for flat data
+    public int? ParentId { get; set; }
+    // OR
+    // Items for hierarchical data
+    public IEnumerable<TreeItem> Items { get; set; }
 
-* `Id` - a unique identifier for the item. Required for binding to flat data.
-* `ParentId` - identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, this must be `null`.
-* `HasChildren` - whether the item has children. Determines whether an expand arrow is rendered next to the item. Required for binding to flat data and for load-on-demand. With hierarchical data, the treeview will render the icon based on the existence of child items, but `HasChildren` will take precedence.
-* `Items` - the collection of child items that will be rendered under the current item. Required only when binding to hierarchical data.
-* `Text` - the text that will be shown on the item.
-* `ImageUrl` / `Icon` / `IconClass` -the URL to a raster image, the [Telerik icon]({%slug general-information/font-icons%}), or a class for a custom font icon that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `ImageUrl` will have the highest importance).
-* `Url` - the view the item will navigate to by generating a link.
+    public string ImageUrl { get; set; }
+    public string Icon { get; set; }
+    public string IconClass { get; set; }
+    public string Url { get; set; }
+}
+```
 
-## Data Bindings
+The above model properties have the following meaning for the TreeView:
 
-The properties of a treeview item match directly to a field of the model the treeview is bound to. You provide that relationship by providing the name of the field from which the corresponding information is present. To do this, under the `TreeViewBindings` tag, use the `TreeViewBinding` tag properties.
+<style>
+    style + table {
+        table-layout: auto;
+    }
+    style + table td {
+        vertical-align: top;
+    }
+</style>
 
-Each `TreeViewBinding` tag exposes the following properties that refer to item properties:
+| Property | Description |
+| --- | --- |
+| `Id` | A unique identifier. Required for [binding to **flat data**]({%slug components/treeview/data-binding/flat-data%}). |
+| `Text` | Sets the item content as plain text. For rich content and nested components, use an [item template]({%slug components/treeview/templates%}) |
+| **Item relations** | |
+| `HasChildren` | Determines whether the item has children, no matter if they are loaded or not. Required for binding to **flat data** and for [**load on demand**]({%slug components/treeview/data-binding/load-on-demand%}). If `true`, the item will show an expand arrow. With **hierarchical data**, the TreeView renders expand icons based on `Items`, but `HasChildren` will take precedence. |
+| `ParentId` | Identifies the item's parent. Required for binding to **flat data**. Set to `null` for root items. **Do not use `ParentId` with hierarhical data.** |
+| `Items` | Defines the item's children. Required for [binding to **hierarchical data**]({%slug components/treeview/data-binding/hierarchical-data%}). The children's type can be different from the parent item type. |
+| [**Graphics**]({%slug treeview-icons%}) | |
+| `ImageUrl` | Sets a URL to a raster image |
+| `Icon` | Defines a [Telerik icon]({%slug general-information/font-icons%}) |
+| `IconClass` | Sets a CSS class for a custom font icon. |
+| [**Navigation**]({%slug treeview-navigation%}) | |
+| `Url` | If set, the TreeView will generate a link to another page in the app, or an external page. |
 
-* IdField => Id
-* ParentIdField => ParentId
-* TextField => Text
-* IconClassField => IconClass
-* IconField => Icon
-* ImageUrlField => ImageUrl
-* UrlField => Url
-* HasChildrenField => HasChildren
-* ItemsField => Items
-* Level - this is used for defining [different bindings for different levels](#multiple-level-bindings). If no level is set, the bindings are taken as default for any level that does not have explicit settings. You should have one `TelerikTreeViewBinding` without a level.
+>tip Define only the model properties you need. If several image/icon properties have a value, the TreeView will use only one value in the following order of precedence: `ImageUrl`, `Icon`, `IconClass`.
 
->tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
+
+## TreeView Bindings
+
+All [TreeView item features](#item-features) map to model properties. The model properties can have different names in every application. That is why, the mappings between the model and the TreeView depend on `TreeViewBinding` tags.
+
+Each `TreeViewBinding` tag exposes the following parameters that refer to model property names:
+
+| TreeViewBinding Parameter | Default Value |
+| --- | --- |
+| `IdField` | `"Id"` |
+| `TextField` | `"Text"` |
+| **Item relations** | |
+| `HasChildrenField` | `"HasChildren"` |
+| `ParentIdField` (flat data) | `"ParentId"` |
+| `ItemsField` (hierarchical data) | `"Items"` |
+| [**Graphics**]({%slug treeview-icons%}) | |
+| `IconField` | `"Icon"` |
+| `IconClassField` | `"IconClass"` |
+| `ImageUrlField` | `"ImageUrl"` |
+| [**Navigation**]({%slug treeview-navigation%}) | |
+| `UrlField` | `"Url"` |
+
+It is possible to [configure different bindings for different item levels](#multiple-level-bindings). Usually one binding configuration is enough. For example, if the model properties are...
+
+<div class="skip-repl"></div>
+
+```CSHARP
+public class TreeItem
+{
+    public int UniqueID { get; set; }
+    public string Description { get; set; }
+    public bool HasChildren { get; set; }
+    public IEnumerable<TreeItem> Children { get; set; }
+}
+```
+
+... then the binding configuration should look like this:
+
+<div class="skip-repl"></div>
+
+````HTML
+<TelerikTreeView>
+    <TreeViewBindings>
+        <TreeViewBinding IdField="UniqueID" TextField="Description" ItemsField="Children" />
+    </TreeViewBindings>
+</TelerikTreeView>
+````
+
+>tip If some model property names match the default ones in the table above, then there is no need to configure them in a `TreeViewBinding`.
 
 @[template](/_contentTemplates/common/navigation-components.md#default-fields-match-issues)
 
->important If you are using hierarchical data binding, your model must not contain a field called `ParentId` (or a field that matches the name given to the `ParentIdField` parameter of a `TreeViewBinding`). That would confuse the treeview that it is binding to flat data, and so there may be no roots and you may see no data.
+> Do not use `ParentId` with hierarhical data. This will confuse the TreeView that it is bound to flat data and the component may not render any items. If the model must have a `ParentId` property, set `ParentIdField` in the `TreeViewBinding` to a non-existent property.
 
->caption Default field names for treeview item bindings. If you use these, you don't have to specify them in the `TreeViewBinding` tag explicitly.
-
-````CSHTML
-public class TreeItem
-{
-	public int Id { get; set; }
-	public string Text { get; set; }
-	public int? ParentId { get; set; }
-	public bool HasChildren { get; set; }
-	public string Icon { get; set; }
-	public string Url { get; set; }
-}
-````
-
-The following **Example** shows how to define simple binding to match item fields to a model so a tree renders the provided flat data source.
-
->caption Sample binding on a flat data source. Showcases how to set the properties to match the model. With this model, the only field name you must explicitly specify is `ParentIdField`, the others match the defaults.
-
-@[template](/_contentTemplates/treeview/basic-example.md#basic-example)
-
->caption The result from the snippet above
-
-![](../images/treeview-overview.png)
 
 ### Multiple Level Bindings
 
-You can define different binding settings for the different levels of nodes in a treeview. With this, the children of a node can consume a different field than their parent, and this may make your application more flexible. If you use [hierarchical data binding]({%slug components/treeview/data-binding/hierarchical-data%}), the children can even use a different field or model from their parent.
+The `TreeViewBinding` tag has one more parameter - **`Level`**. It allows you to define different model properties for different TreeView levels.
 
-This also allows you to define a different [`ItemTemplate`]({%slug components/treeview/templates%}) for different levels.
+Multiple level bindings can make the application more flexible. If you use [hierarchical data binding]({%slug components/treeview/data-binding/hierarchical-data%}), the children can even use a different model type from their parent.
 
-To define multiple bindings, add multiple `TreeViewBinding` tags and define their `Level`.
+`Level` also allows you to define a different [`ItemTemplate`]({%slug components/treeview/templates%}) for different levels.
 
-If a certain level does not have an explicit data bindings tag, it will use the default one that has no level.
+To define multiple bindings, add multiple `TreeViewBinding` tags and set their `Level`. **Levels are zero-based.**
 
->caption How to use per-level data binding settings to change model fields
+`Level` defines a binding for a specific level of depth. If no `Level` is set, the bindings will apply to any level that does not have explicit settings. TreeViews with unknown item depth should have one `TreeViewBinding` without a `Level`.
+
+>caption How to use different model fields and binding settings for different levels
 
 ````CSHTML
 The third level will use the main data bindings settings that do not have a level specified
 
 <TelerikTreeView Data="@FlatData" @bind-ExpandedItems="@ExpandedItems">
-	<TreeViewBindings>
-		<TreeViewBinding ParentIdField="Parent" />
-		<TreeViewBinding Level="1" TextField="SecondText" ParentIdField="Parent" />
-	</TreeViewBindings>
+    <TreeViewBindings>
+        <TreeViewBinding ParentIdField="Parent" />
+        <TreeViewBinding Level="1" TextField="SecondText" ParentIdField="Parent" />
+    </TreeViewBindings>
 </TelerikTreeView>
 
 @code {
-	public IEnumerable<TreeItem> FlatData { get; set; }
-	public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+    public IEnumerable<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
-	public class TreeItem
-	{
-		public int Id { get; set; }
-		public string Text { get; set; }
-		public string SecondText { get; set; }
-		public int? Parent { get; set; }
-		public bool HasChildren { get; set; }
-	}
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public string SecondText { get; set; }
+        public int? Parent { get; set; }
+        public bool HasChildren { get; set; }
+    }
 
-	protected override void OnInitialized()
-	{
-		LoadFlat();
-		ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
-	}
+    protected override void OnInitialized()
+    {
+        LoadFlat();
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
+    }
 
-	private void LoadFlat()
-	{
-		List<TreeItem> items = new List<TreeItem>();
+    private void LoadFlat()
+    {
+        List<TreeItem> items = new List<TreeItem>();
 
-		for (int i = 1; i <= 4; i++)
-		{
-			items.Add(new TreeItem()
-			{
-				Id = i,
-				Text = "Parent " + i,
-				Parent = null,
-				HasChildren = i < 3
-			});
-		}
+        for (int i = 1; i <= 4; i++)
+        {
+            items.Add(new TreeItem()
+            {
+                Id = i,
+                Text = "Parent " + i,
+                Parent = null,
+                HasChildren = i < 3
+            });
+        }
 
-		for (int i = 5; i < 15; i++)
-		{
-			items.Add(new TreeItem()
-			{
-				Id = i,
-				SecondText = "Child " + i, //this is the field used at level 1 - it is a different field than at levels 0 and 2
-				Parent = i < 10 ? 1 : 2,
-				HasChildren = i == 5
-			});
-		}
+        for (int i = 5; i < 15; i++)
+        {
+            items.Add(new TreeItem()
+            {
+                Id = i,
+                SecondText = "Child " + i, //this is the field used at level 1 - it is a different field than at levels 0 and 2
+                Parent = i < 10 ? 1 : 2,
+                HasChildren = i == 5
+            });
+        }
 
-		for (int i = 16; i < 20; i++)
-		{
-			items.Add(new TreeItem()
-			{
-				Id = i,
-				Text = "Second Child " + i,
-				Parent = 5
-			});
-		}
+        for (int i = 16; i < 20; i++)
+        {
+            items.Add(new TreeItem()
+            {
+                Id = i,
+                Text = "Second Child " + i,
+                Parent = 5
+            });
+        }
 
-		FlatData = items;
-	}
+        FlatData = items;
+    }
 }
 ````
 
->caption The result from the snippet above
+>note For better performance, define the same `ParentIdField` for all levels, when using flat data.
 
-![](images/treeview-multiple-databindings-result.png)
 
->note For performance reasons, when using [flat data binding](https://docs.telerik.com/blazor-ui/components/treeview/data-binding/flat-data), all the bindings for all the levels must use the same `ParentIdField`.
+## Next Steps
+
+Learn the three different ways to provide data to a TreeView:
+
+* [Use flat data]({%slug components/treeview/data-binding/flat-data%}) - a collection of self-referencing items with parent-child relationships
+* [Use hierarchical data]({%slug components/treeview/data-binding/hierarchical-data%}) - each item holds its children in a nested property
+* [Load child items on demand]({%slug components/treeview/data-binding/load-on-demand%}) (lazy loading) - load children when the parent node expands. Applies to both types of data.
+
 
 ## See Also
 
-  * [Binding to Flat Data]({%slug components/treeview/data-binding/flat-data%})
-  * [Binding to Hierarchical Data]({%slug components/treeview/data-binding/hierarchical-data%})
-  * [Load on Demand]({%slug components/treeview/data-binding/load-on-demand%})
-  * [Live Demo: TreeView Flat Data](https://demos.telerik.com/blazor-ui/treeview/flat-data)
-  * [Live Demo: TreeView Hierarchical Data](https://demos.telerik.com/blazor-ui/treeview/hierarchical-data)
-  * [Live Demo: TreeView Per-Level Data Bindings](https://demos.telerik.com/blazor-ui/treeview/bindings)
-  * [Live Demo: TreeView Load on Demand](https://demos.telerik.com/blazor-ui/treeview/lazy-loading)
+* [Live Demo: Multiple Level Bindings](https://demos.telerik.com/blazor-ui/treeview/bindings)
