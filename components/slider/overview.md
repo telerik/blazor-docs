@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Slider Component Overview
-description: Overview of the Slider for Blazor.
+description: Discover the Blazor Slider and explore the examples.
 slug: slider-overview
 tags: telerik,blazor,slider,overview
 published: True
@@ -12,20 +12,16 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/slider" target="_blank">Blazor Slider component</a> allows the user to select a value by dragging its handle along the track, or by clicking the side arrow buttons. It provides templates, various configuration options, validation and keyboard navigation.
 
-#### In This Article
+## Creating Slider
 
-* [To use a Telerik Slider for Blazor](#to-use-a-telerik-slider-for-blazor)
-* [Features](#features)
-* [Examples](#examples)
+1. Use the `TelerikSlider` tag to add the component to your razor page.
 
-## To use a Telerik Slider for Blazor
-
-1. Add the `TelerikSlider` tag.
 1. Provide the `Value` (one-way data binding) or `bind-Value` (two-way data binding) property.
-1. Choose the `Min`, `Max`, `SmallStep` and `LargeStep` settings to define the appearance and behavior of the slider.
+
+1. Choose the `Min`, `Max`, `SmallStep` and `LargeStep` settings to define the appearance and behavior of the Slider.
 
 
->caption Basic setup of the Telerik Slider using two-way data binding
+>caption Creating Slider with two-way value binding and main features
 
 ````CSHTML
 @* The user can choose integers with a step of 1 and every 20 there will be a major tick *@
@@ -45,12 +41,7 @@ The <a href="https://www.telerik.com/blazor-ui/slider" target="_blank">Blazor Sl
 }
 ````
 
->caption The result from the code snippet above
-
-![slider first look](images/slider-overview.png)
-
-
->caption Component namespace and reference
+## Component Reference
 
 The Slider is a generic component that takes the type of the `Value` which can be e numerical type.
 
@@ -67,119 +58,54 @@ The Slider is a generic component that takes the type of the `Value` which can b
 }
 ````
 
+## Steps
 
-## Features
+The Slider works with small and large steps and they are both required. Read more for their configuration and explore examples in the [Steps article]({%slug slider-steps%}).
 
-The Slider provides the following features:
+## Ticks Position
 
-@[template](/_contentTemplates/slider/common.md#base-slider-features)
+The Slider lets you choose where its ticks will render. You can control that through the `TickPosition` parameter. It takes a member of the `Telerik.Blazor.SliderTickPosition` enum. Can be `Before`, `After`, `Both` (the default), `None`. For example, with the default horizontal slider, these values will render ticks above, below, both above and below, and no ticks.
 
-* `ShowButtons` - whether there will be increase and decrase buttons at the ends of the slider. Defaults to `true`.
+## Orientation
 
-* `Value` and `bind-Value`- the value of the slider. Can be a numerical type (such as `int`, `decimal`, `double` and so on). 
-    
-    * When the user moves the drag handle of the slider, it changes with the `SmallStep`, but you can set a value programmatically that will land the handle between the ticks and between those steps.
+You can customize the default horizontal orientation of the Slider through its `Orientation` parameter. Takes a member of the `Telerik.Blazor.SliderOrientation` enum which contains `Horizontal`(the default) and `Vertical` options.
 
-* Events - see the [Slider events]({%slug slider-events%}) article for more information and examples.
+## Decimals
 
+This setting helps avoid [round-off errors](https://en.wikipedia.org/wiki/Round-off_error) when calculating steps (see more about this type of errors [here](https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems)). Explore the [Decimals article]({%slug rangeslider-decimals%}) for details on how to configure this option.
 
-## Examples
+## Validation
 
-This section provides the following examples to showcase some of the slider features and their behavior:
+You can validate Slider value using the built-in validation. See the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
-* [Matching Ticks Steps, Min, Max](#matching-ticks-steps-min-max)
-* [Not Matching Ticks Steps, Min, Max](#not-matching-ticks-steps-min-max)
-* [Vertical Slider Without Buttons](#vertical-slider-without-buttons)
-* [Decimals and Rounding Errors](#decimals-and-rounding-errors)
+## Parameters
 
-### Matching Ticks Steps, Min, Max
+The Slider provides various parameters that allow you to configure the component:
 
-You can use a multiplier over the small step to set the large step, and to ensure that this can divide the difference between the min and max. This will provide the best possible appearance where ticks will be distributed evenly and you will be able to use the full range of the slider.
+| Parameter    | Type  | Description |
+| ----------- | ----------- | -------|
+| `Decimals` | `int` | Specifies the number precision for the steps.
+| `Enabled` | `bool` | whether the component is enabled.
+| `LabelTemplate` | `RenderFragment<TValue>` | lets you render your own custom labels for the major ticks.
+| `LargeStep` | `TValue` | defines where the larger (longer) ticks lie - they are rendered on every n-th occurrence of the `LargeStep`. Required. read more in ...
+| `Max` | `TValue` | the maximum value on the slider. Required.
+| `Min` | `TValue` | the minimum value on the slider. Required. Must be lower than the `Max`.
+| `SmallStep` | `TValue` | defines the step through which the slider `Value` is changed when the user drags the handle. Also defines where small ticks appear on the track to indicate a value that can be selected. Required.
+| `Orientation` | `SliderOrientation` <br/> (`Horizontal`) | whether the slider will be horizontal (the default) or vertical.
+| `TickPosition` | `SliderTickPosition` <br/> (`Both`) | controls the position of the ticks.
+| `ShowButtons` | `bool` | whether there will be increase and decrease buttons at the ends of the slider. Defaults to `true`.
+|`Value` and `bind-Value`| `TValue` | the value of the slider. Can be a numerical type (such as `int`, `decimal`, `double` and so on). When the user moves the drag handle of the slider, it changes with the `SmallStep`, but you can set a value programmatically that will land the handle between the ticks and between those steps.
 
-![matching ticks](images/slider-matching-ticks.png)
+### Styling and Appearance
 
-````CSHTML
-@TheValue
-<br />
-<TelerikSlider @bind-Value="@TheValue" SmallStep="5m" LargeStep="15m" Min="5m" Max="50m">
-</TelerikSlider>
+The following parameters enable you to customize the appearance of the Blazor Slider:
 
-@code{
-    decimal TheValue { get; set; } = 20m;
-}
-````
-
-### Not Matching Ticks Steps, Min, Max
-
-In this example, the max value does not match the large step, small step and the min, so the max value is not rendered and the user can only go up to `90` instead of `100`. The small and large steps match in this example, however, the only "issue" is the `Max` value.
-
-![non-matching values](images/slider-non-matching-ticks.png)
-
-````CSHTML
-@TheValue
-<br />
-<TelerikSlider @bind-Value="@TheValue" SmallStep="15m" LargeStep="30m" Min="0m" Max="100m">
-</TelerikSlider>
-
-@code{
-    decimal TheValue { get; set; } = 12.3m;
-}
-````
-
-### Vertical Slider Without Buttons
-
-This example shows how to make the slider vertical and how to remove the increase/decrease buttons. You can use these settings separately, of course.
-
-````CSHTML
-@TheValue
-<br /><br />
-<TelerikSlider Orientation="@SliderOrientation.Vertical" ShowButtons="false"
-               @bind-Value="@TheValue" SmallStep="10" LargeStep="20" Min="0" Max="100">
-</TelerikSlider>
-
-@code{
-    int TheValue { get; set; } = 30;
-}
-````
+@[template](/_contentTemplates/slider/common.md#styling-features)
 
 
-![vertical slider without buttons](images/vertical-slider-without-buttons.png)
+## Next Steps
 
-
-### Decimals and Rounding Errors
-
-The first slider in this example has a sufficient precision (`Decimals`) to properly handle the values that it will have to render in its labels and set in its `Value`. The second slider does not have sufficient precision - the `Decimals` value is too low and thus the rounding in the labels texts and of the `Value` will be off a little.
-
-To see the difference in how rounding can have issues with insufficient precision, try changing the values from each slider - you will see that the second slider does not respond "correctly" and as expected.
-
-![precision issues with wrong Decimals setting](images/slider-precision-issue.gif)
-
-````CSHTML
-@TheValue
-<br /><br />
-
-@* Sufficient precision for the selected values and steps *@
-
-<TelerikSlider @bind-Value="@TheValue" Decimals="3"
-               SmallStep="0.005m" LargeStep="0.02m" Min="0m" Max="0.1m" Width="500px">
-</TelerikSlider>
-
-<br /><br />
-
-@* Insufficient precision for the current values and steps
-    the labels texts will be off and the value will not change every time you move the handle
-    only when it reaches the threshold of the decimals which default to 2 for invariant and most cultures*@
-
-<TelerikSlider @bind-Value="@TheValue" Decimals="2"
-               SmallStep="0.005m" LargeStep="0.02m" Min="0m" Max="0.1m" Width="500px">
-</TelerikSlider>
-
-@code{
-    decimal TheValue { get; set; } = 0.015m;
-}
-````
-
-
+* [Slider Steps]({%slug slider-steps%})
 
 ## See Also
 
