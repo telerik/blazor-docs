@@ -17,6 +17,7 @@ To enable Grid editing, set the [`EditMode` attribute]({%slug components/grid/ov
 Sections in this article:
 
 - [Basics](#basics)
+- [Customize The Editor Fields](#customize-the-editor-fields)
 - [Example](#example)
 - [Notes](#notes)
 
@@ -43,6 +44,154 @@ The CUD event handlers receive an argument of type `GridCommandEventArgs` that e
 * `Value` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates what is the new value the user changed when updating data.
 
 You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the grid, or components in a column template) through the [grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item).
+
+## Customize The Editor Fields
+
+You can customize the editors rendered in the Grid by providing the `EditorType` attribute, exposed on the `<GridColumn>`, or by using the [Editor Template]({%slug grid-templates-editor%}). The `EditorType` attribute accepts a member of the `GridEditorType` enum:
+
+| Field data type | GridEditorType enum members              |
+|-----------------|------------------------------------------|
+| **Text**            | `GridEditorType.TextArea`<br> `GridEditorType.TextBox` |
+| **Boolean**         | `GridEditorType.CheckBox`<br> `GridEditorType.Switch` |
+| **DateTime**        | `GridEditorType.DatePicker`<br> `GridEditorType.DateTimePicker`<br> `GridEditorType.TimePicker` |
+
+
+````CSHTML
+@* The usage of the EditorType parameter *@
+
+@using System.ComponentModel.DataAnnotations
+
+<TelerikGrid Data=@MyData 
+             EditMode="@GridEditMode.Inline" 
+             Pageable="true" 
+             Height="400px"
+             OnUpdate="@UpdateHandler" 
+             OnDelete="@DeleteHandler" 
+             OnCreate="@CreateHandler" 
+             OnCancel="@CancelHandler">
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+        <GridColumn Field=@nameof(SampleData.Name) 
+                    EditorType="@GridEditorType.TextArea"
+                    Title="Name" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+
+@code {
+    async Task UpdateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        await MyService.Update(item);
+
+        await GetGridData();
+    }
+
+    async Task DeleteHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        await MyService.Delete(item);
+
+        await GetGridData();
+    }
+
+    async Task CreateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        await MyService.Create(item);
+
+        await GetGridData();
+    }
+
+    async Task CancelHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        await Task.Delay(1000); //simulate actual long running async operation
+    }
+
+    public class SampleData
+    {
+        public int ID { get; set; }
+        [Required]
+        public string Name { get; set; }
+    }
+
+    List<SampleData> MyData { get; set; }
+
+    async Task GetGridData()
+    {
+        MyData = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetGridData();
+    }
+
+    public static class MyService
+    {
+        private static List<SampleData> _data { get; set; } = new List<SampleData>();
+
+        public static async Task Create(SampleData itemToInsert)
+        {
+            await Task.Delay(1000); // simulate actual long running async operation
+
+            itemToInsert.ID = _data.Count + 1;
+            _data.Insert(0, itemToInsert);
+        }
+
+        public static async Task<List<SampleData>> Read()
+        {
+            await Task.Delay(1000); // simulate actual long running async operation
+
+            if (_data.Count < 1)
+            {
+                for (int i = 1; i < 50; i++)
+                {
+                    _data.Add(new SampleData()
+                    {
+                        ID = i,
+                        Name = "Name " + i.ToString()
+                    });
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(SampleData itemToUpdate)
+        {
+            await Task.Delay(1000); // simulate actual long running async operation
+
+            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
+
+        public static async Task Delete(SampleData itemToDelete)
+        {
+            await Task.Delay(1000); // simulate actual long running async operation
+
+            _data.Remove(itemToDelete);
+        }
+    }
+}
+````
 
 ## Example
 
