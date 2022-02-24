@@ -253,8 +253,7 @@ The `Value` parameter also accepts a collection but it does not support observab
 
     void ClearSelected()
     {
-        TheValues.Clear();
-        TheValues = new List<int>(TheValues);
+        TheValues = new List<int>();
     }
 
     List<OptionsModel> Options { get; set; } = new List<OptionsModel>
