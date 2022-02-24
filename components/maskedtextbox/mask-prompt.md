@@ -63,7 +63,7 @@ In some cases, you may want to include a literal that matches a Rule, however. T
 
 @invoiceNumber
 
-<TelerikMaskedTextBox Mask="\AB\C---00\0\9" Label="Invoice Number" @bind-Value="@invoiceNumber"></TelerikMaskedTextBox>
+<TelerikMaskedTextBox Mask="\AB\C---00\0\9" @bind-Value="@invoiceNumber"></TelerikMaskedTextBox>
 
 @code{
     string invoiceNumber { get; set; } = "12";
@@ -83,7 +83,6 @@ By default, the `Value` of the component only includes the rules from the mask. 
 
 <TelerikMaskedTextBox Mask="(+999) 000-0000"
                       @bind-Value="@TheValue"
-                      Label="Phone Number:"
                       IncludeLiterals="@ShouldAddLiterals">
 </TelerikMaskedTextBox>
 
@@ -116,7 +115,6 @@ If `MaskOnFocus` is set to `false` (its default value), the `Label` will always 
 @TheValue
 <br />
 <TelerikMaskedTextBox MaskOnFocus="true"
-                      Label="Credit Card Number:"
                       Mask="0000-0000-0000-0000" @bind-Value="@TheValue">
 </TelerikMaskedTextBox>
 @code{
@@ -148,8 +146,7 @@ The `PromptPlaceholder` is useful when you need to process the user input at a l
 </div>
 <TelerikMaskedTextBox PromptPlaceholder="@( CustomPromptPlaceholder ? "a"[0] : ' ' )"
                       Prompt="@( CustomPrompt ? "*"[0] : '_' )"
-                      Mask="0000-0000-0000-0000" @bind-Value="@TheValue"
-                      Label="Credit Card Number:">
+                      Mask="0000-0000-0000-0000" @bind-Value="@TheValue">
 </TelerikMaskedTextBox>
 @code{
     string TheValue { get; set; } 

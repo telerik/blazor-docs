@@ -70,7 +70,7 @@ https://docs.telerik.com/blazor-ui/components/listview/editing
 
 <TelerikListView Data="@ListViewData" Pageable="true" PageSize="15">
     <EditTemplate>
-        <TelerikTextBox @bind-Value="@context.Name" Label="Name"></TelerikTextBox>
+        <TelerikTextBox @bind-Value="@context.Name"></TelerikTextBox>
         <ListViewCommandButton Command="Save">Save</ListViewCommandButton>
     </EditTemplate>
     <Template>

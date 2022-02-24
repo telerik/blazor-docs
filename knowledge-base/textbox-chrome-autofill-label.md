@@ -46,7 +46,7 @@ Actual: The textbox label is still "inside" the textbox.
     <br />
     <input @bind="@SomeUserModel.UserName" />
     <br />
-    <TelerikTextBox @bind-Value="@SomeUserModel.UserName" Label="Enter Username" />
+    <TelerikTextBox @bind-Value="@SomeUserModel.UserName" />
     <br />
     <input type="password" @bind="@SomeUserModel.Password" />
     <br />

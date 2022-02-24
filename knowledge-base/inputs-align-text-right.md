@@ -50,7 +50,7 @@ The example below shows how to align a numeric textbox and a combo box to the ri
 <TelerikNumericTextBox @bind-Value="@theValue" Class="myNumericTextbox"></TelerikNumericTextBox>
 
 <h4>TextBox - Centered text</h4>
-<TelerikTextBox @bind-Value="theTbValue" Label="Enter Information" Class="myTextbox"></TelerikTextBox>
+<TelerikTextBox @bind-Value="theTbValue" Class="myTextbox"></TelerikTextBox>
 
 <h4>ComboBox - Right alignment</h4>
 <TelerikComboBox Data="@myComboData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue"
