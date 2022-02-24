@@ -69,8 +69,7 @@ The sample below demonstrates the described approach.
 							  ValueChanged="@ValueChangedHandler"
 							  IncludeLiterals="true"
 							  Class="@(Invalid? "k-state-invalid" : "")"
-							  Width="250px"
-							  Label="Duration:">
+							  Width="250px">
 		</TelerikMaskedTextBox>
 	</div>
 

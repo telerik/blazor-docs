@@ -29,8 +29,7 @@ To use a Telerik MaskedTextbox for Blazor:
 <br />
 
 <TelerikMaskedTextBox Mask="0000-0000-0000-0000"
-                      @bind-Value="@TheValue"
-                      Label="Credit Card Number:">
+                      @bind-Value="@TheValue">
 </TelerikMaskedTextBox>
 
 @code{
@@ -116,12 +115,12 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
     @ZipPlus4Code
 </div>
 
-<TelerikMaskedTextBox Mask="(+999) 000-0000" Label="Phone Number:" @bind-Value="@Phone"></TelerikMaskedTextBox><br />
-<TelerikMaskedTextBox Mask="0000-0000-0000-0000" Label="Credit Card:" @bind-Value="@CardNumber"></TelerikMaskedTextBox><br />
-<TelerikMaskedTextBox Mask="000-00-0000" Label="SSN:" @bind-Value="@SSN"></TelerikMaskedTextBox><br />
-<TelerikMaskedTextBox Mask="L0L 0LL" Label="UK Post Code:" @bind-Value="@UkPostcode"></TelerikMaskedTextBox><br />
-<TelerikMaskedTextBox Mask="00000" Label="ZIP Code:" @bind-Value="@ZipCode"></TelerikMaskedTextBox><br />
-<TelerikMaskedTextBox Mask="00000-0000" Label="ZIP+4 Code:" @bind-Value="@ZipPlus4Code"></TelerikMaskedTextBox><br />
+<TelerikMaskedTextBox Mask="(+999) 000-0000" @bind-Value="@Phone"></TelerikMaskedTextBox><br />
+<TelerikMaskedTextBox Mask="0000-0000-0000-0000" @bind-Value="@CardNumber"></TelerikMaskedTextBox><br />
+<TelerikMaskedTextBox Mask="000-00-0000" @bind-Value="@SSN"></TelerikMaskedTextBox><br />
+<TelerikMaskedTextBox Mask="L0L 0LL" @bind-Value="@UkPostcode"></TelerikMaskedTextBox><br />
+<TelerikMaskedTextBox Mask="00000" @bind-Value="@ZipCode"></TelerikMaskedTextBox><br />
+<TelerikMaskedTextBox Mask="00000-0000" @bind-Value="@ZipPlus4Code"></TelerikMaskedTextBox><br />
 
 @code{
     string Phone { get; set; }
@@ -146,8 +145,7 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
 <TelerikMaskedTextBox Mask="@PercentageMask"
                       IncludeLiterals="true"
                       PromptPlaceholder="null"
-                      @bind-Value="@RawPercentage"
-                      Label="Percentage:">
+                      @bind-Value="@RawPercentage">
 </TelerikMaskedTextBox>
 
 @code{
@@ -182,7 +180,7 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
 
 @invoiceNumber
 
-<TelerikMaskedTextBox Mask="LA-\9\0\00000" Label="Invoice Number" @bind-Value="@invoiceNumber" IncludeLiterals="true"></TelerikMaskedTextBox>
+<TelerikMaskedTextBox Mask="LA-\9\0\00000" @bind-Value="@invoiceNumber" IncludeLiterals="true"></TelerikMaskedTextBox>
 
 @code{
     string invoiceNumber { get; set; }

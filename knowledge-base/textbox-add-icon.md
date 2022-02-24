@@ -73,7 +73,7 @@ The example below showcases both approaches and here is the outcome from it:
 <br />
 <span class="tb-icon-container with-label">
     <TelerikIcon Icon="zoom" />
-    <TelerikTextBox @bind-Value="@TheText" Label="some label" />
+    <TelerikTextBox @bind-Value="@TheText" />
 </span>
 <style>
     .tb-icon-container {

@@ -27,8 +27,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 <br />
 
 <TelerikMaskedTextBox Mask="0000-0000-0000-0000" @bind-Value="@TheValue"
-                      OnChange="@OnChangeHandler"
-                      Label="Credit Card Number:">
+                      OnChange="@OnChangeHandler">
 </TelerikMaskedTextBox>
 
 @code{
@@ -58,8 +57,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 <br />
 
 <TelerikMaskedTextBox Mask="0000-0000-0000-0000" Value="@TheValue"
-                      ValueChanged="@ValueChangedHandler"
-                      Label="Credit Card Number:">
+                      ValueChanged="@ValueChangedHandler">
 </TelerikMaskedTextBox>
 
 @code{

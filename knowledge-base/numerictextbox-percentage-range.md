@@ -119,8 +119,7 @@ as double: @PercentageZeroToHundred
 <br />
 <TelerikMaskedTextBox Mask="@TheMask"
                       IncludeLiterals="true"
-                      @bind-Value="@TheStringValue"
-                      Label="Percentage:">
+                      @bind-Value="@TheStringValue">
 </TelerikMaskedTextBox>
 
 @code{

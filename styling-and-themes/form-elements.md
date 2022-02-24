@@ -84,7 +84,7 @@ You can match standard `input`(`textbox`) elements with the styling of a Telerik
 >caption Textbox with Telerik Theme styling
 
 ````CSHTML
-<TelerikTextBox Label="Username:" />
+<TelerikTextBox />
 <br /><br />
 <input type="password" placeholder="Password:" class="k-textbox" />
 ````
