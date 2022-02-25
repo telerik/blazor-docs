@@ -1,62 +1,53 @@
 ---
-title: Editing
-page_title: Gantt Tree - Editing
-description: Edit tasks in the Gantt Tree.
-slug: gantt-tree-editing
-tags: telerik,blazor,gantt,tree,editing,overview
+title: Events
+page_title: Gantt - Events
+description: Events of the Gantt for Blazor
+slug: gantt-events
+tags: telerik,blazor,gantt,events
 published: True
-position: 10
+position: 20
 ---
 
-# Edit Tasks
+# Gantt Events
 
-The Gantt Tree allows you to edit the tasks. This article will explain how to enable and use it.
+This article explains the events available in the Telerik Gantt for Blazor. They are grouped logically.
 
-Sections in this article:
+* [CUD Event](#cud-events) - events related to Creating, Updating and Deleting items
+* [OnExpand and OnCollapse](#onexpand-and-oncollapse) - events related to Expanding and Collapsing Gantt Tree items
 
-* [Basics](#basics)
-* [Example](#example)
-* [Notes](#notes)
+## CUD Events
 
-## Basics
+The `OnCreate`, `OnUpdate` and `OnDelete` events lets you get the data item that the user changed so you can transfer the user action to the actual data source.
 
-This section explains the available events and command buttons that you need to use for editing records in a Gantt Tree. After that, you will find a code example. By default the Gantt Chart will enable the user to edit a record by double clicking on the respective node.
+The `OnEdit` event lets you respond to user actions when they want to edit an item. For example, you can use it to prevent editing of certain items based on some condition.
 
-List of the available events:
-
-* `OnCreate` - fires when the `Save` [command button]({%slug gantt-columns-command%}) button for a newly added item is clicked. The event handler receives an argument of type `GanttCreateEventArgs` that exposes the following fields:
-
-    * `Item` - an object you can cast to your model class to obtain the current data item.
-
-    * `ParentItem` - an object you can cast to your model class to obtain the parent of current data item. Will be `null` if the current item is at the root level.
-
-* `OnUpdate` - fires when the `Save` command button is clicked on an existing item. The model reference is a copy of the original data source item. The event handler receives an argument of type `GanttUpdateEventArgs` that exposes the following fields:
-
-    * `Item` - an object you can cast to your model class to obtain the current data item.
-
-    * `ParentItem` - an object you can cast to your model class to obtain the parent of current data item. Will be `null` if the current item is at the root level.
-
-* `OnDelete` - fires when the `Delete` command button is clicked. The event handler receives an argument of type `GanttDeleteEventArgs` that exposes the following fields:
-
-    * `Item` - an object you can cast to your model class to obtain the current data item.
+You can read more about the CUD events in the [Gantt Tree Editing Overview]({%slug gantt-tree-editing%}) article.
 
 
-## Example
+## OnExpand and OnCollapse
 
-The example below shows how you can handle the events the Gantt component exposes, so you can Create, Update or Delete records in your data source and the view model.
+The `OnExpand` and `OnCollapse` events fire as a response to the user expanding and collapsing an item of the Gant Tree.
 
->tip The Gantt CUD events use `EventCallback` and can be synchronous or asynchronous. The example below shows async versions, and the signature for synchronous events is `void <MethodName>(TreeListCommandEventArgs args)`.
+The event handlers receive arguments of type `GanttExpandEventArgs` and `GanttCollapseEventArgs` respectively which exposes the following fields:
+* `Item` - an object you can cast to your model class to obtain the current data item.
+* `ShouldRender` - a boolean field indicating whether the component will re-render.
 
->caption Handling the CRUD events of the Gantt to save data to the actual data source
+The `OnCollapse` event fires as a response to the user collapsing an item of the Gant Tree.
 
+
+>caption Handle OnExpand and OnCollapse events
 ````CSHTML
-@* Sample CUD operations in the Gantt chart *@
+@eventActions
 
 <TelerikGantt Data="@Data"
-              Width="100%"
+              Width="1200px"
               Height="600px"
               IdField="Id"
               ParentIdField="ParentId"
+
+              OnExpand="@OnItemExpand"
+              OnCollapse="@OnItemCollapse"
+
               OnUpdate="@UpdateItem"
               OnDelete="@DeleteItem"
               OnCreate="@CreateItem">
@@ -98,6 +89,8 @@ The example below shows how you can handle the events the Gantt component expose
 
 @code {
     public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
+
+    public string eventActions { get; set; }
 
     class FlatModel
     {
@@ -204,6 +197,18 @@ The example below shows how you can handle the events the Gantt component expose
         CalculateParentRangeRecursive(item);
     }
 
+    public void OnItemExpand(GanttExpandEventArgs args)
+    {
+        var item = args.Item as FlatModel;
+        eventActions = $"The user expanded {item.Title} with ID {item.Id}";
+    }
+
+    public void OnItemCollapse(GanttCollapseEventArgs args)
+    {
+        var item = args.Item as FlatModel;
+        eventActions = $"The user collapsed {item.Title} with ID {item.Id}";
+    }
+
     private void RemoveChildRecursive(FlatModel item)
     {
         var children = GetChildren(item).ToList();
@@ -276,25 +281,6 @@ The example below shows how you can handle the events the Gantt component expose
 }
 ````
 
-## Notes
-
-There are a few considerations to keep in mind with the CUD operations of the treelist. They are explained in the following list:
-
-* It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
-
-* The CRUD event handlers must be `async Task` and **not** `async void`. A Task can be properly awaited and allows working with services and contexts, and lets the treelist update after the actual data source operations complete.
-
-    * When the method returns `void`, the execution of the context operations is not actually awaited, and you may get errors from the context (such as "Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application" or "A second operation started on this context before a previous operation completed. This is usually caused by different threads using the same instance of DbContext"). The treelist may also re-render before the actual data update happens and you may not see the result.
-
-* The Gantt uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert or Edit action is invoked, so the Model should have a parameterless constructor defined.
-
-* While editing, the Gantt creates a **copy of your original object** which has a **different reference**. You receive that copy in the `OnUpdate` event handler.
-
-
 ## See Also
 
-  * [Live Demo: TreeList Inline Editing](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
-  * [Live Demo: TreeList PopUp Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
-  * [Live Demo: TreeList InCell Editing](https://demos.telerik.com/blazor-ui/treelist/editing-incell)
-  * [Live Demo: TreeList Custom Editor Template](https://demos.telerik.com/blazor-ui/treelist/custom-editor)
-  * [Live Demo: TreeList Custom Edit Form](https://demos.telerik.com/blazor-ui/treelist/editing-custom-form)
+  * [Live Demo: Gantt Events](https://demos.telerik.com/blazor-ui/gantt/events)

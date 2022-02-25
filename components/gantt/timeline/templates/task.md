@@ -5,7 +5,7 @@ description: TaskTemplate for the Gantt Timeline Tasks
 slug: gantt-task-template
 tags: telerik,blazor,gantt,chart,task,template
 published: True
-position: 5
+position: 10
 ---
 
 # TaskTemplate
