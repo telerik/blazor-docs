@@ -91,7 +91,11 @@ Click the + icon to expand the row details
 
 ## Expand Rows From Code
 
-You can choose which detail templates will be expanded from your code through the grid [state]({%slug grid-state%}) by their indexes (all detail templates are collapsed by default).
+You can choose which detail templates will be expanded from your code through the grid [state]({%slug grid-state%}). Its `ExpandedItems` field contains a collection of the expanded Grid items (all detail templates are collapsed by default).
+
+The `ExpandedItems` collection is compared against the Grid Data collection in order to determine which rows will be expanded. The default behavior of the framework is to compare objects by their reference.
+
+When the `ExpandedItems` are obtained from a different data source to the Grid (e.g., from a separate service method and not from the view-model), the references may not match and so there will be no expanded items. In such cases, you have to override the [`Equals`](https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=net-6.0) method of the underlying model class so that it matches them, for example, by a unique identifier rather than by reference so that two objects can be equal regardless of their origin, but according to their contents. When you are overriding the `Equals` method, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=net-6.0) method as well. A similar example is available in the [Save and Load Grid State from Browser LocalStorage]({%slug grid-state%}#save-and-load-grid-state-from-browser-localstorage) example.
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
