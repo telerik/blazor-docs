@@ -155,6 +155,80 @@ A menu is often used to list pages, views or sections in an application so the u
 
 The same context menu can easily be attached to many targets, or you can use its `ShowAsync(x, y)` method to show it explicitly based on your business logic needs, data and events. Read more in the [Integration]({%slug contextmenu-integration%}) article.
 
+## Methods
+
+The ContextMenu methods are accessible through it's reference. You can use the available `HideAsync` method to programatically close the ContextMenu.
+
+````CSHTML
+@* Close the ContextMenu programatically *@
+
+<div @oncontextmenu:preventDefault="true"
+     @oncontextmenu="@( (MouseEventArgs e) => ShowContextMenu(e, false) )"
+     class="menuTarget">
+    normal target
+</div>
+
+<TelerikContextMenu Data="@MenuItems" @ref="@TheContextMenu">
+    <Template>
+        @{
+            var dataSource = context as List<ContextMenuItem>;
+            <p>We have this data:</p>
+            <ul>
+                @foreach (var item in dataSource)
+                {
+                    <li>@item.Text</li>
+                }
+            </ul>
+        }
+
+        <TelerikButton OnClick="@(async () => await TheContextMenu.HideAsync())">Close</TelerikButton>
+    </Template>
+</TelerikContextMenu>
+
+@code {
+    public List<ContextMenuItem> MenuItems { get; set; }
+    TelerikContextMenu<ContextMenuItem> TheContextMenu { get; set; }
+
+    async Task ShowContextMenu(MouseEventArgs e, bool IsSpecial)
+    {
+        await TheContextMenu.ShowAsync(e.ClientX, e.ClientY);
+    }
+
+    // generate sample data for the listview and the menu
+    protected override void OnInitialized()
+    {
+        MenuItems = new List<ContextMenuItem>()
+    {
+            new ContextMenuItem
+            {
+                Text = "More Info",
+                Metadata = "info"
+            },
+            new ContextMenuItem
+            {
+                Text = "Special Command",
+                Metadata = "special"
+            }
+        };
+
+        base.OnInitialized();
+    }
+
+    public class ContextMenuItem
+    {
+        public string Text { get; set; }
+        public string Metadata { get; set; }
+    }
+}
+
+<style>
+    .menuTarget {
+        width: 100px;
+        background: yellow;
+        margin: 50px;
+    }
+</style>
+````
 
 ## See Also
 
