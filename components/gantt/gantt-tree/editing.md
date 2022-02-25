@@ -290,6 +290,7 @@ There are a few considerations to keep in mind with the CUD operations of the tr
 
 * While editing, the Gantt creates a **copy of your original object** which has a **different reference**. You receive that copy in the `OnUpdate` event handler.
 
+* Double clicking on a task within the Timeline part of the component will always trigger Popup edit of the said task, even if edit mode is set to Inline or Incell.
 
 ## See Also
 
