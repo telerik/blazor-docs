@@ -8,7 +8,7 @@ published: True
 position: 20
 ---
 
-# Zoom to fit for the Gantt Timeline
+# Zoom for the Gantt Timeline
 
 You can change the starting point of the Gantt Timeline view through the `RangeSnapTo`. By default, the range of the view is calculated based on major slot division.
 

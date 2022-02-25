@@ -19,7 +19,7 @@ The `Date Header` provides you with full control over the rendering for each hea
 | `MonthView` | `MonthHeaderTemplate` | `WeekHeaderTemplate` |
 | `YearView` | `YearHeaderTemplate` | `MonthHeaderTemplate` |
 
-The above properties are of type `RenderFragment<DateTime>`, so the `context` is of type `DateTime`.
+The templates are `RenderFragment<DateTime>`, so the `context` is of type `DateTime`.
 When both `Template` and [`DateFormat`]({%slug gantt-columns-dateformat%}) are specified, the `Template` will be rendered. 
 
 
