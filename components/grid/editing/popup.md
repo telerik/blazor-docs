@@ -190,44 +190,44 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 
 ## Customization
 
-The Grid exposes various options to for customizing the edit form. You can define your desired configuration in the `GridPopupEditSettings` under the `GridSettings` tag. It exposes the following features:
+The Grid exposes various options for customizing the edit popup and its form. You can define your desired configuration in the `GridPopupEditSettings` and `GridPopupEditFormSettings` tags under the `GridSettings` tag.
 
-Parameter | Type | Description
----------|----------|---------
- `Class` | `string` | CSS class of the edit popup
- `Width` | `string` | width of the edit popup
- `MaxWidth ` | `string` | specifies the maximum width of the window
- `MinWidth ` | `string` | specifies the minimum width of the window
- `Height ` | `string` | height of edit popup
- `MaxHeight ` | `string` | specifies the maximum height of the window
- `MinHeight ` | `string` | specifies the minimum height of the window
+### Popup Customization
 
+The `GridPopupEditSettings` nested tag exposes the following parameters to allow customizing the popup appearance:
+
+@[template](/_contentTemplates/common/popup-edit-customization.md#popup-settings)
+
+### Edit Form Customization
+
+The `GridPopupEditFormSettings` nested tag exposes the following parameters to allow customizing the edit form appearance:
+
+@[template](/_contentTemplates/common/popup-edit-customization.md#edit-form-settings)
 
 >caption Customize the popup edit form
 
 ````CSHTML
-@*The snippet focuses on the edit form customization. CRUD events are not handled for brevity*@
-
-@using System.ComponentModel.DataAnnotations
-@* Used for the model annotations only *@
-
-<strong>Editing is cancelled for the first two records.</strong>
+@*The snippet focuses on the popup edit form customization. CRUD events are not handled for brevity*@
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Popup" Pageable="true" Height="500px">
     <GridSettings>
-        @*<GridPopupEditSettings Class="test"
-                               MaxWidth="600px"
-                               MaxHeight="95vh"
-                               Orientation="horizontal"
-                               Columns= "2">
-        </GridPopupEditSettings>*@
+        <GridPopupEditSettings MaxWidth="600px"
+                               MaxHeight="300px"
+                               Class="custom-popup">
+        </GridPopupEditSettings>
+        <GridPopupEditFormSettings Orientation="@FormOrientation.Horizontal"
+                                   ButtonsLayout="FormButtonsLayout.Center"
+                                   Columns="2">
+        </GridPopupEditFormSettings>
     </GridSettings>
     <GridToolBar>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
     </GridToolBar>
     <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <GridColumn Field=@nameof(SampleData.Id) />
+        <GridColumn Field=@nameof(SampleData.Name) />
+        <GridColumn Field=@nameof(SampleData.Team) />
+        <GridColumn Field=@nameof(SampleData.HireDate) />
         <GridCommandColumn>
             <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
             <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
@@ -242,47 +242,19 @@ Parameter | Type | Description
     // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
     public class SampleData
     {
-        public int ID { get; set; }
-
-        [Required(ErrorMessage = "The employee must have a name")]
+        public int Id { get; set; }
         public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
     }
 
-    public List<SampleData> MyData { get; set; }
-
-    async Task GetGridData()
-    {
-        MyData = await MyService.Read();
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await GetGridData();
-    }
-
-    // the following static class mimics an actual data service that handles the actual data source
-    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
-    public static class MyService
-    {
-        private static List<SampleData> _data { get; set; } = new List<SampleData>();
-
-        public static async Task<List<SampleData>> Read()
+    public List<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
         {
-            if (_data.Count < 1)
-            {
-                for (int i = 1; i < 50; i++)
-                {
-                    _data.Add(new SampleData()
-                        {
-                            ID = i,
-                            Name = "Name " + i.ToString()
-                        });
-                }
-            }
-
-            return await Task.FromResult(_data);
-        }
-    }
+            Id = x,
+            Name = "name " + x,
+            Team = "team " + x % 5,
+            HireDate = DateTime.Now.AddDays(-x).Date
+        }).ToList();
 }
 ````
 
