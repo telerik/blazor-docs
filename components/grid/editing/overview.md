@@ -27,7 +27,8 @@ This section explains the available events and command buttons that you need to 
 
 List of the available events:
 
-* `OnCreate` - fires when the `Save` [command button]({%slug components/grid/columns/command%}) button for a newly added item is clicked. Cancellable (cancelling it keeps the grid in Insert mode).
+* `OnAdd` - fires when the `Add` [command button]({%slug components/grid/columns/command%}) for a newly added item is clicked. The event is cancellable.
+* `OnCreate` - fires when the `Save` [command button]({%slug components/grid/columns/command%}) for a newly added item is clicked. Cancellable (cancelling it keeps the grid in Insert mode).
 * `OnUpdate` - fires when the `Save` command button is clicked on an existing item. Cancellable (cancelling it keeps the grid in Edit mode). The model reference is a copy of the original data source item.
 * `OnDelete` - fires when the `Delete` command button is clicked. You can also display a [delete confirmation dialog]({%slug grid-delete-confirmation%}) before the deletion.
 * `OnEdit` - fires when the user is about to enter edit mode for an existing row. Cancellable (cancelling it prevents the item from opening for editing).
@@ -60,7 +61,7 @@ Editing is cancelled for the first two records.
 <strong>There is a deliberate delay</strong> in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="400px"
-             OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
+             OnAdd="@AddHandler" OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
     <GridToolBar>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
     </GridToolBar>
@@ -79,6 +80,15 @@ Editing is cancelled for the first two records.
 @logger
 
 @code {
+    async Task AddHandler(GridCommandEventArgs args)
+    {
+        //Set default values for new items
+        ((SampleData)args.Item).Name = "New Item Name";
+
+        //Cancel if needed
+        //args.IsCancelled = true;
+    }
+
     async Task EditHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
