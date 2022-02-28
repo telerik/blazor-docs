@@ -92,7 +92,7 @@ The following table lists the FloatingLabel parameters. Also check the [Floating
 | Attribute | Type | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders additional CSS class to the `span.k-floating-label-container` element, which holds the `<label>` child element. Use `Class` to apply custom styles or [override the theme]({%slug themes-override%}). |
-| `Id` | `string` | Renders an `id` attribute to the  `label.k-label` element. To improve accessibility, set it together with the `AriaLabelledBy` parameter of the associated Telerik component. |
+| `Id` | `string` | Renders an `id` attribute to the `label.k-label` element. To improve accessibility, set the same string as floating label `Id` and `AriaLabelledBy` value of the associated Telerik component. |
 
 
 ## Next Steps
