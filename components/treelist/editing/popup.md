@@ -10,6 +10,13 @@ position: 2
 
 # TreeList PopUp Editing
 
+In this article:
+
+* [Basics](#basics)
+* [Customization](#customization)
+
+## Basics
+
 Popup editing lets the user click an [Edit command button]({%slug treelist-columns-command%}) on the row, and a popup shows up with all its editable columns open up for changes. They can then click the `Save` button in the dialog to submit the changes to the model. This fires the `OnUpdate` event of the treelist where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
 
 In a similar fashion, the `Cancel`, `Delete` command buttons and the `Add` toolbar button fire events on the treelist to let you handle the data source operations.
@@ -306,7 +313,7 @@ Editing is cancelled for the first record.
 
 ## Customization
 
-The Grid exposes various options for customizing the edit popup and its form. You can define your desired configuration in the `TreeListPopupEditSettings` and `TreeListPopupEditFormSettings` tags under the `TreeListSettings` tag.
+The TreeList exposes various options for customizing the edit popup and its form. You can define your desired configuration in the `TreeListPopupEditSettings` and `TreeListPopupEditFormSettings` tags under the `TreeListSettings` tag.
 
 ### Popup Customization
 
