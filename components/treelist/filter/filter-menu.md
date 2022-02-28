@@ -12,6 +12,14 @@ position: 10
 
 One of the [filter modes of the treelist]({%slug treelist-filtering%}) is a popup menu with filter options that you can open from the column headers.
 
+In this article:
+
+* [Basics](#basics)
+* [Filter From Code](#filter-from-code)
+* [Customization](#customization)
+
+## Basics
+
 To enable the filter menu, set the `FilterMode` property of the grid to `Telerik.Blazor.TreeListFilterMode.FilterMenu`.
 
 The treelist will render a button in the column header that you click to get a popup with filtering options. The popup lets you choose filter operator, filter criteria, to apply and clear the filter.
@@ -105,6 +113,103 @@ You can set the TreeList filters from your code through the component [state]({%
 @[template](/_contentTemplates/treelist/state.md#filter-menu-from-code)
 ````
 
+## Customization
+
+The TreeList allows you to customize the default behavior of the Filter Row in a couple ways:
+
+### Configuring the Filter Menu
+
+You can override the default Filter Row behavior for each column through the following property the `TreeListColumn` exposes:
+
+@[template](/_contentTemplates/common/filtering.md#filter-menu-customization-properties)
+
+>caption Configure the Filter Menu
+
+````CSHTML
+@*Customize the Filter Menu*@
+
+@using Telerik.DataSource
+
+<TelerikTreeList Data="@Data"
+                 IdField="Id"
+                 ParentIdField="ParentId"
+                 FilterMode="@TreeListFilterMode.FilterMenu"
+                 Pageable="true" Width="850px" Height="400px">
+    <TreeListColumns>
+        <TreeListColumn DefaultFilterOperator="FilterOperator.StartsWith"
+                        Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn DefaultFilterOperator="FilterOperator.IsEqualTo"
+                        Field="Id" Width="120px" />
+        <TreeListColumn DefaultFilterOperator="FilterOperator.IsEqualTo"
+                        Field="ParentId" Width="120px" />
+        <TreeListColumn DefaultFilterOperator="FilterOperator.Contains"
+                        Field="EmailAddress" Width="120px" />
+        <TreeListColumn DefaultFilterOperator="FilterOperator.IsGreaterThanOrEqualTo"
+                        Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    public List<Employee> Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    // sample model
+
+    public class Employee
+    {
+        // denote the parent-child relationship between items
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+
+        // custom data fields for display
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    // data generation
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            data.Add(new Employee
+                {
+                    Id = i,
+                    ParentId = null, // indicates a root-level item
+                    Name = $"root: {i}",
+                    EmailAddress = $"{i}@example.com",
+                    HireDate = DateTime.Now.AddYears(-i)
+                }); ;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                    {
+                        Id = currId,
+                        ParentId = i,
+                        Name = $"first level child {j} of {i}",
+                        EmailAddress = $"{currId}@example.com",
+                        HireDate = DateTime.Now.AddDays(-currId)
+                    });
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
+````
+
+### Filter Menu Template
+
+The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example in the [Filter Row Template]({%slug grid-templates-filter%}#filter-menu-template) article.
 
 
 ## See Also

@@ -12,6 +12,15 @@ position: 5
 
 One of the [filter modes of the grid]({%slug components/grid/filtering%}) is a row of filter elements below the column headers.
 
+In this article:
+
+* [Basics](#basics)
+* [Filter From Code](#filter-from-code)
+* [Customization](#customization)
+
+
+## Basics
+
 To enable the filter row set the `FilterMode` property of the grid to `Telerik.Blazor.GridFilterMode.FilterRow`.
 
 The grid will render a row below the column headers with UI that you can use to fill in the filter criteria. You can type in the input to execute the default operator as you type, or click a button to choose a different filter operator (like "contains", "greater than" and so on). Filters are applied as the user types in the inputs. Once you enter a filter criteria, the clear button will be enabled to allow you to reset the filter state.
@@ -62,8 +71,6 @@ The grid will render a row below the column headers with UI that you can use to 
 ````
 
 
-
-
 ## Filter From Code
 
 You can set the grid filters from your code through the grid [state]({%slug grid-state%}).
@@ -76,6 +83,63 @@ You can set the grid filters from your code through the grid [state]({%slug grid
 @[template](/_contentTemplates/grid/state.md#filter-row-from-code)
 ````
 
+## Customization
+
+The Grid allows you to customize the default behavior of the Filter Row in a couple ways:
+
+### Configuring the Filter Row
+
+You can override the default Filter Row behavior for each column through the following properties the `GridColumn` exposes:
+
+@[template](/_contentTemplates/common/filtering.md#filter-row-customization-properties)
+
+>caption Configure the Filter Row
+
+````CSHTML
+@*Customize the Filter Row*@
+
+@using Telerik.DataSource
+
+<TelerikGrid Data="@MyData"
+             Height="400px"
+             Pageable="true"
+             FilterMode="@GridFilterMode.FilterRow">
+    <GridColumns>
+        <GridColumn DefaultFilterOperator="FilterOperator.IsEqualTo"
+                    ShowFilterCellButtons="false"
+                    Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn DefaultFilterOperator="FilterOperator.StartsWith"
+                    ShowFilterCellButtons="false"
+                    Field="@(nameof(SampleData.Name))" Title="Employee Name" />
+        <GridColumn DefaultFilterOperator="FilterOperator.Contains"
+                    ShowFilterCellButtons="false" Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn DefaultFilterOperator="FilterOperator.IsGreaterThanOrEqualTo"
+                    ShowFilterCellButtons="false" Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+        {
+            Id = x,
+            Name = "name " + x,
+            Team = "team " + x % 5,
+            HireDate = DateTime.Now.AddDays(-x).Date
+        });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
+
+### Filter Row Template
+
+The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example in the [Filter Row Template]({%slug grid-templates-filter%}#filter-row-template) article.
 
 
 ## See Also
