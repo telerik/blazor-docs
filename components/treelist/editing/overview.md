@@ -27,7 +27,8 @@ This section explains the available events and command buttons that you need to 
 
 List of the available events:
 
-* `OnCreate` - fires when the `Save` [command button]({%slug treelist-columns-command%}) button for a newly added item is clicked. Cancellable.
+* `OnAdd` - fires when the `Add` [command button]({%slug treelist-columns-command%}) for a newly added item is clicked. Cancellable.
+* `OnCreate` - fires when the `Save` [command button]({%slug treelist-columns-command%}) for a newly added item is clicked. Cancellable.
 * `OnUpdate` - fires when the `Save` command button is clicked on an existing item. Cancellable. The model reference is a copy of the original data source item.
 * `OnDelete` - fires when the `Delete` command button is clicked. The event is cancellable, and you can also display a [delete confirmation dialog]({%slug treelist-delete-confirmation%}) before the deletion.
 * `OnEdit` - fires when the user is about to enter edit mode for an existing row. Cancellable.
@@ -64,6 +65,7 @@ Editing is cancelled for the first record.
 
 <TelerikTreeList Data="@Data"
                  EditMode="@TreeListEditMode.Inline"
+                 OnAdd="@AddItem"
                  OnUpdate="@UpdateItem"
                  OnDelete="@DeleteItem"
                  OnCreate="@CreateItem"
@@ -97,6 +99,15 @@ Editing is cancelled for the first record.
     public List<Employee> Data { get; set; }
 
     // Sample CUD operations for the local data
+    async Task AddItem(TreeListCommandEventArgs args)
+    {
+        //Set default values for new items
+        ((Employee)args.Item).Name = "New Employee Name";
+
+        //Cancel if needed
+        //args.IsCancelled = true;
+    }
+
     async Task UpdateItem(TreeListCommandEventArgs args)
     {
         var item = args.Item as Employee;
