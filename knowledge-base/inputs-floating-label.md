@@ -11,21 +11,21 @@ res_type: kb
 
 ## Environment
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
                 TextBox for Blazor, <br />
                 MaskedTextBox for Blazor, <br />
                 NumericTextBox for Blazor, <br />
                 other inputs/form elements
             </td>
-		</tr>        
-		<tr>
-			<td>Version</td>
-			<td>3.0.0 and 3.0.1</td>
-		</tr>
-	</tbody>
+        </tr>        
+        <tr>
+            <td>Version</td>
+            <td>3.0.0 and 3.0.1</td>
+        </tr>
+    </tbody>
 </table>
 
 
