@@ -28,7 +28,7 @@ The Telerik FloatingLabel enhances HTML `label` functionality in the following w
 1. Use the `TelerikFloatingLabel` tag.
 1. Set the `Text` parameter of the floating label.
 1. Place a [compatible Telerik component](#compatibility) inside the floating label.
-1. Set an `Id` to the Telerik component. Otherwise the floating label will not render a `for` attribute and label clicks will not focus the associated component.
+1. Set an `Id` to the Telerik component. The `Id` value will automatically render as a `for` attribute for the `<label>` element.
 
 >caption How to use a Floating Label
 
