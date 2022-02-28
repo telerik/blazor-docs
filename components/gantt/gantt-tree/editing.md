@@ -16,7 +16,6 @@ Sections in this article:
 
 * [Basics](#basics)
 * [Example](#example)
-* [Customization](#customization)
 * [Notes](#notes)
 
 ## Basics
@@ -275,27 +274,6 @@ The example below shows how you can handle the events the Gantt component expose
         return Data.Where(i => item.Id.Equals(i.ParentId));
     }
 }
-````
-
-## Customization
-
-The Grid exposes various options for customizing the edit popup and its form. You can define your desired configuration in the `GridPopupEditSettings` and `GridPopupEditFormSettings` tags under the `GridSettings` tag.
-
-### Popup Customization
-
-The `GridPopupEditSettings` nested tag exposes the following parameters to allow customizing the popup appearance:
-
-@[template](/_contentTemplates/common/popup-edit-customization.md#popup-settings)
-
-### Edit Form Customization
-
-The `GridPopupEditFormSettings` nested tag exposes the following parameters to allow customizing the edit form appearance:
-
-@[template](/_contentTemplates/common/popup-edit-customization.md#edit-form-settings)
-
->caption Customize the popup edit form
-
-````CSHTML
 ````
 
 ## Notes
