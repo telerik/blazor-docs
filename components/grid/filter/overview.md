@@ -50,6 +50,64 @@ There are two approaches to customize the grid filtering behavior, and you can u
 
 * Customize the appearance and behavior of the filters - for that, use the [Filter Templates]({%slug grid-templates-filter%}) the grid provides.
 
+
+### Customize The Filtering Fields
+
+You can customize the editors rendered in the Grid by providing the `FilterEditorType` attribute, exposed on the `<GridColumn>`, or by utilizing the points above. The `FilterEditorType` attribute accepts a member of the `GridFilterEditorType` enum:
+
+| Field data type | GridFilterEditorType enum members              |
+|-----------------|------------------------------------------|
+| **DateTime**    | `GridFilterEditorType.DatePicker`<br> `GridFilterEditorType.DateTimePicker` |
+
+
+````CSHTML
+@* The usage of the FilterEditorType parameter *@
+
+<TelerikGrid Data=@GridData 
+             FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu"
+             Pageable="true" 
+             Height="400px">
+    <GridColumns>
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />
+        <GridColumn Field=@nameof(Employee.HireDate) 
+                    FilterEditorType="@GridFilterEditorType.DateTimePicker"
+                    Title="Hire Date" />
+        <GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    public List<Employee> GridData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<Employee>();
+        var rand = new Random();
+        for (int i = 0; i < 100; i++)
+        {
+            GridData.Add(new Employee()
+            {
+                EmployeeId = i,
+                Name = "Employee " + i.ToString(),
+                AgeInYears = rand.Next(10, 80),
+                HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20)),
+                IsOnLeave = i % 3 == 0
+            });
+        }
+    }
+
+    public class Employee
+    {
+        public int? EmployeeId { get; set; }
+        public string Name { get; set; }
+        public int? AgeInYears { get; set; }
+        public DateTime HireDate { get; set; }
+        public bool IsOnLeave { get; set; }
+    }
+}
+````
+
 ## Advanced Examples
 
 The following articles and sample projects can be helpful when implementing filtering:
