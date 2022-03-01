@@ -313,7 +313,7 @@ Editing is cancelled for the first record.
 
 ## Customization
 
-The TreeList exposes various options for customizing the edit popup and its form. You can define your desired configuration in the `TreeListPopupEditSettings` and `TreeListPopupEditFormSettings` tags under the `TreeListSettings` tag.
+The TreeList exposes options to customize the edit popup and its form. You can define your desired configuration in the `TreeListPopupEditSettings` and `TreeListPopupEditFormSettings` tags under the `TreeListSettings` tag.
 
 ### Popup Customization
 

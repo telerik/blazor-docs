@@ -9,6 +9,8 @@ Parameter | Type | Description
  `Height` | `string` | The height of edit popup
  `MaxHeight` | `string` | The maximum height of the window
  `MinHeight` | `string` | The minimum height of the window
+
+>tip The min/max options for the width and height apply to the initial rendering of the window and not browser resizing.
 #end
 
 #edit-form-settings
