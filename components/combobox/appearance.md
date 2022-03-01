@@ -10,7 +10,7 @@ position: 65
 
 # Appearance Settings
 
-You can control the appearance of the ComboBox button by setting the following attribute:
+You can control the appearance of the ComboBox by setting the following attribute:
 
 * [Size](#size)
 * [Rounded](#rounded)

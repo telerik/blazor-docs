@@ -10,7 +10,7 @@ position: 35
 
 # Appearance Settings
 
-You can control the appearance of the DateInput button by setting the following attribute:
+You can control the appearance of the DateInput by setting the following attribute:
 
 * [Size](#size)
 * [Rounded](#rounded)

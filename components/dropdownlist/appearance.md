@@ -10,7 +10,7 @@ position: 65
 
 # Appearance Settings
 
-You can control the appearance of the DropDownList button by setting the following attribute:
+You can control the appearance of the DropDownList by setting the following attribute:
 
 * [Size](#size)
 * [Rounded](#rounded)

@@ -10,7 +10,7 @@ position: 65
 
 # Appearance Settings
 
-You can control the appearance of the MultiSelect button by setting the following attribute:
+You can control the appearance of the MultiSelect by setting the following attribute:
 
 * [Size](#size)
 * [Rounded](#rounded)
