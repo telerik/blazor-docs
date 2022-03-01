@@ -194,13 +194,13 @@ The Grid exposes options to customize the edit popup and its form. Define the de
 
 ### Popup Customization
 
-The `GridPopupEditSettings` nested tag exposes the following parameters to allow customizing the popup appearance:
+The `GridPopupEditSettings` nested tag exposes the following parameters to allow popup customization:
 
 @[template](/_contentTemplates/common/popup-edit-customization.md#popup-settings)
 
 ### Edit Form Customization
 
-The `GridPopupEditFormSettings` nested tag exposes the following parameters to allow customizing the edit form appearance:
+The `GridPopupEditFormSettings` nested tag exposes the following parameters to allow edit form customization:
 
 @[template](/_contentTemplates/common/popup-edit-customization.md#edit-form-settings)
 

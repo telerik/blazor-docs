@@ -181,6 +181,9 @@ navigation:
      "*components/scheduler/appointments":
         title: "Appointments"
         position: 2
+     "*components/scheduler/editing":
+        title: "Editing"
+        position: 3
      "*components/scheduler/views":
         title: "Views"
         position: 5
