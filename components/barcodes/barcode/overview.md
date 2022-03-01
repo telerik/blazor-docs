@@ -104,7 +104,7 @@ The following `BarcodeText` parameters enable you to customize the appearance of
 | `BarcodeTextMargin.Left` | `double` | |
 | `BarcodeTextMargin.Right` | `double` | |
 | `BarcodeTextMargin.Top` | `double` | |
-| `Visible` | `bool` | By setting it to false, the Barcode will not display the value as a text below the barcode lines. |
+| `Visible` | `bool` <br /> `true` | If `false`, the Barcode will not display the value as text below the barcode lines. |
 
 ### BarcodeBorder parameters
 
