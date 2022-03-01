@@ -18,7 +18,7 @@ The generated image from the component is a machine-readable label that contains
 
 1. Add the `TelerikQRCode` tag to add the component to your razor page.
 
-1. Provide `Value` property.
+1. Set the `Value` property.
 
 1. Set its `Size` property.
 
@@ -34,7 +34,7 @@ The generated image from the component is a machine-readable label that contains
 
 ## Encoding
 
-Encoding represents the mapping between messages and qr codes. [Read more about the supported Blazor QRCode Encodings...]({%slug qrcode-encoding%})
+Encoding represents the mapping between messages and qr codes. [Read more about the supported Blazor QRCode Encodings]({%slug qrcode-encoding%}).
 
 ## Types
 
@@ -54,7 +54,7 @@ The Blazor Barcode provides various parameters that allow you to configure the c
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `RenderingMode` | `enum` | Defines the preferred rendering mode. |
+| `RenderAs` | `RenderingMode` enum <br /> `Svg` | Defines the preferred rendering mode - svg/canvas. |
 | `QRCodeEncoding` | `enum` | The encoding mode used to encode the value. |
 | `QRCodeErrorCorrection` | `enum` | The error correction level used to encode the value. |
 | `Value` | `string` | Defines the initial value of the QRCode. |
@@ -68,7 +68,7 @@ The Blazor Barcode provides various parameters that allow you to configure the c
 
 ### QRCodeOverlay parameters
 
-The following `QRCodeOverlay` parameters allow you to choose from predefined layouts or insert a custom image in the Blazor QRCode:
+The nested `QRCodeOverlay` tag exposes parameters that allow you to choose from predefined layouts or insert a custom image in the Blazor QRCode:
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
@@ -79,7 +79,7 @@ The following `QRCodeOverlay` parameters allow you to choose from predefined lay
 
 ### QRCodeBorder parameters
 
-The following `QRCodeBorder` parameters enable you to customize the appearance of the Blazor QRCode border:
+The nested `QRCodeBorder` tag exposes parameters that enable you to customize the appearance of the Blazor QRCode border:
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |

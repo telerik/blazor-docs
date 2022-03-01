@@ -108,7 +108,7 @@ The nested `BarcodeText` tag exposes parameters that customize the appearance of
 
 ### BarcodeBorder parameters
 
-The following `BarcodeBorder` parameters enable you to customize the appearance of the Blazor Barcode border:
+The nested `BarcodeBorder` tag exposes parameters that enable you to customize the appearance of the Blazor Barcode border:
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
@@ -118,7 +118,7 @@ The following `BarcodeBorder` parameters enable you to customize the appearance 
 
 ### BarcodePadding parameters
 
-The following `BarcodePadding` parameters enable you to customize the appearance of the Blazor Barcode:
+The nested `BarcodePadding` tag exposes parameters that enable you to customize the appearance of the Blazor Barcode:
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
