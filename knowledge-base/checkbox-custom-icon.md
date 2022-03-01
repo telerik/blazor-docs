@@ -26,19 +26,18 @@ How do I change the checkbox icon? I want to use another icon, not the default c
 
 ## Solution
 
-Add a `Class` to the component and cascade through it to alter the font icon glyph that is used.
+Add a `Class` to the CheckBox component. [Override the theme styles]({%slug themes-override%}) and change the default font icon glyphs.
 
-You can replace it with a different glyph, even froma different font, you can chang the size of the icon and the checkbox and its color.
+You can replace the icons with different glyphs, even from a different font. You can also change the icon size and color.
+
+The `k-icon` CSS class applies the custom font, which contains all [built-in Telerik font icons]({%slug general-information/font-icons%}). If you will use a different font, remove `k-icon`.
 
 >caption How to change the checkbox icon
 
 ````CSHTML
-<TelerikCheckBox Value="true" Class="heart-icon">
-</TelerikCheckBox>
-<TelerikCheckBox Value="false" Class="heart-icon">
-</TelerikCheckBox>
-<TelerikCheckBox Value="false" Indeterminate="true" Class="heart-icon">
-</TelerikCheckBox>
+<TelerikCheckBox Value="true" Class="k-icon heart-icon" />
+<TelerikCheckBox Value="false" Class="k-icon heart-icon" />
+<TelerikCheckBox Value="false" Indeterminate="true" Class="k-icon heart-icon" />
 
 <style>
     /* remove some built-in styles */
