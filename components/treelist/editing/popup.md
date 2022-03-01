@@ -10,6 +10,13 @@ position: 2
 
 # TreeList PopUp Editing
 
+In this article:
+
+* [Basics](#basics)
+* [Customization](#customization)
+
+## Basics
+
 Popup editing lets the user click an [Edit command button]({%slug treelist-columns-command%}) on the row, and a popup shows up with all its editable columns open up for changes. They can then click the `Save` button in the dialog to submit the changes to the model. This fires the `OnUpdate` event of the treelist where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
 
 In a similar fashion, the `Cancel`, `Delete` command buttons and the `Add` toolbar button fire events on the treelist to let you handle the data source operations.
@@ -303,6 +310,138 @@ Editing is cancelled for the first record.
 ![](images/popup-editing.png)
 
 >note It is up to the data access logic to save the data once it is changed in the data collection, or to revert changes. The example above showcases the events that allow you to do that. In a real application, the code for handling data operations may be entirely different.
+
+## Customization
+
+The TreeList exposes options to customize the edit popup and its form. You can define your desired configuration in the `TreeListPopupEditSettings` and `TreeListPopupEditFormSettings` tags under the `TreeListSettings` tag.
+
+### Popup Customization
+
+The `TreeListPopupEditSettings` nested tag exposes the following parameters to allow popup customization:
+
+@[template](/_contentTemplates/common/popup-edit-customization.md#popup-settings)
+
+### Edit Form Customization
+
+The `TreeListPopupEditFormSettings` nested tag exposes the following parameters to allow edit form customization:
+
+@[template](/_contentTemplates/common/popup-edit-customization.md#edit-form-settings)
+
+>caption Customize the popup edit form
+
+````CSHTML
+@*The snippet focuses on the popup edit form customization. CRUD events are not handled for brevity*@
+
+<TelerikTreeList Data="@Data" Pageable="true"
+                 EditMode="@TreeListEditMode.Popup"
+                 ItemsField="@(nameof(Employee.DirectReports))">
+
+    <TreeListSettings>
+        <TreeListPopupEditSettings Width="700px"
+                                   MinWidth="650px"
+                                   MaxHeight="300px"
+                                   Class="custom-popup">
+        </TreeListPopupEditSettings>
+        <TreeListPopupEditFormSettings Orientation="@FormOrientation.Horizontal"
+                                       ButtonsLayout="FormButtonsLayout.Stretched"
+                                       Columns="2">
+        </TreeListPopupEditFormSettings>
+    </TreeListSettings>
+
+    <TreeListToolBar>
+        <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
+    </TreeListToolBar>
+
+    <TreeListColumns>
+        <TreeListColumn Field="Id" Width="120px" />
+        <TreeListColumn Field="Name" Expandable="true" />
+        <TreeListColumn Field="EmailAddress" />
+        <TreeListColumn Field="HireDate" />
+
+        <TreeListCommandColumn Width="280px">
+            <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon="edit">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Delete" Icon="delete">Delete</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+        </TreeListCommandColumn>
+
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    public List<Employee> Data { get; set; }
+
+    // sample model
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+        public List<Employee> DirectReports { get; set; }
+        public bool HasChildren { get; set; }
+    }
+
+    // data generation
+    public int LastId { get; set; } = 1;
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            Employee root = new Employee
+                {
+                    Id = LastId,
+                    Name = $"root: {i}",
+                    EmailAddress = $"{i}@example.com",
+                    HireDate = DateTime.Now.AddYears(-i),
+                    DirectReports = new List<Employee>(),
+                    HasChildren = true
+                };
+            data.Add(root);
+            LastId++;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = LastId;
+                Employee firstLevelChild = new Employee
+                    {
+                        Id = currId,
+                        Name = $"first level child {j} of {i}",
+                        EmailAddress = $"{currId}@example.com",
+                        HireDate = DateTime.Now.AddDays(-currId),
+                        DirectReports = new List<Employee>(),
+                        HasChildren = true
+                    };
+                root.DirectReports.Add(firstLevelChild);
+                LastId++;
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = LastId;
+                    firstLevelChild.DirectReports.Add(new Employee
+                        {
+                            Id = LastId,
+                            Name = $"second level child {k} of {j} and {i}",
+                            EmailAddress = $"{nestedId}@example.com",
+                            HireDate = DateTime.Now.AddMinutes(-nestedId)
+                        }); ;
+                    LastId++;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
+````
 
 ## See Also
 
