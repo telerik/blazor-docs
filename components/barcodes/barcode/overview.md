@@ -36,7 +36,7 @@ All graphics are rendered on the client by using [Scalable Vector Graphics (SVG)
 
 ## Encoding
 
-Encoding represents the mapping between messages and barcodes. [Read more about the supported Blazor Barcode Encodings...]({%slug barcode-encoding%})
+Encoding represents the mapping between messages and barcodes. [Read more about the supported Blazor Barcode Encodings]({%slug barcode-encoding%}).
 
 ## Methods
 
