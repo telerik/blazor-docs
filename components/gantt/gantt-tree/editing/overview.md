@@ -51,6 +51,246 @@ The Gantt Tree offers several editing modes with different user experience. Set 
 * `OnDelete` - fires when the `Delete` command button is clicked. The event handler receives an argument of type `GanttDeleteEventArgs` that exposes the following fields:
 
     * `Item` - an object you can cast to your model class to obtain the current data item.
+    
+    
+## Customize The Editor Fields
+
+You can customize the editors rendered in the Gantt Tree by providing the `EditorType` attribute, exposed on the `<GanttColumn>`. The `EditorType` attribute accepts a member of the `GanttTreeListEditorType` enum:
+
+| Field data type | GanttTreeListEditorType enum members              |
+|-----------------|------------------------------------------|
+| **Text**            | `GanttTreeListEditorType.TextArea`<br> `GanttTreeListEditorType.TextBox` |
+| **Boolean**         | `GanttTreeListEditorType.CheckBox`<br> `GanttTreeListEditorType.Switch` |
+| **DateTime**        | `GanttTreeListEditorType.DatePicker`<br> `GanttTreeEditorType.DateTimePicker`<br> `GanttTreeListEditorType.TimePicker` |
+
+
+````CSHTML
+@* The usage of the EditorType parameter *@
+
+<TelerikGantt Data="@Data"
+              Width="100%"
+              Height="600px"
+              IdField="Id"
+              ParentIdField="ParentId"
+              OnUpdate="@UpdateItem"
+              OnDelete="@DeleteItem"
+              OnCreate="@CreateItem">
+    <GanttToolBar>
+        <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
+    </GanttToolBar>
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+        <GanttYearView></GanttYearView>
+    </GanttViews>
+    <GanttColumns>
+        <GanttColumn Field="Id"
+                     Visible="false">
+        </GanttColumn>
+        <GanttColumn Field="Title"
+                     Expandable="true"
+                     Width="160px"
+                     Title="Task Title">
+        </GanttColumn>
+        <GanttColumn Field="PercentComplete"
+                     Width="60px">
+        </GanttColumn>
+        <GanttColumn Field="Start"
+                     Width="100px"
+                     EditorType="@GanttTreeListEditorType.DateTimePicker"
+                     TextAlign="@ColumnTextAlign.Right">
+        </GanttColumn>
+        <GanttColumn Field="End"
+                     DisplayFormat="End: {0:d}"
+                     Width="100px">
+        </GanttColumn>
+        <GanttCommandColumn>
+            <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon="delete"></GanttCommandButton>
+        </GanttCommandColumn>
+    </GanttColumns>
+</TelerikGantt>
+
+@code {
+    public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
+
+    class FlatModel
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    public int LastId { get; set; } = 1;
+    List<FlatModel> Data { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Data = new List<FlatModel>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new FlatModel()
+            {
+                Id = LastId,
+                Title = "Employee  " + i.ToString(),
+                Start = new DateTime(2020, 12, 6 + i),
+                End = new DateTime(2020, 12, 11 + i),
+                PercentComplete = Math.Round(random.NextDouble(), 2)
+            };
+
+            Data.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                Data.Add(new FlatModel()
+                {
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Employee " + i + " : " + j.ToString(),
+                    Start = new DateTime(2020, 12, 6 + i + j),
+                    End = new DateTime(2020, 12, 7 + i + j),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    private async Task CreateItem(GanttCreateEventArgs args)
+    {
+        var argsItem = args.Item as FlatModel;
+
+        argsItem.Id = LastId++;
+
+        if (args.ParentItem != null)
+        {
+            var parent = (FlatModel)args.ParentItem;
+
+            argsItem.ParentId = parent.Id;
+        }
+
+        Data.Insert(0, argsItem);
+
+        CalculateParentPercentRecursive(argsItem);
+        CalculateParentRangeRecursive(argsItem);
+    }
+
+    private async Task UpdateItem(GanttUpdateEventArgs args)
+    {
+        var item = args.Item as FlatModel;
+
+        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+
+        if (foundItem != null)
+        {
+            var startOffset = item.Start - foundItem.Start;
+            if (startOffset != TimeSpan.Zero)
+            {
+                MoveChildrenRecursive(foundItem, startOffset);
+            }
+
+            foundItem.Title = item.Title;
+            foundItem.Start = item.Start;
+            foundItem.End = item.End;
+            foundItem.PercentComplete = item.PercentComplete;
+        }
+
+        CalculateParentPercentRecursive(foundItem);
+        CalculateParentRangeRecursive(foundItem);
+    }
+
+    private async Task DeleteItem(GanttDeleteEventArgs args)
+    {
+        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as FlatModel).Id));
+
+        RemoveChildRecursive(item);
+
+        CalculateParentPercentRecursive(item);
+        CalculateParentRangeRecursive(item);
+    }
+
+    private void RemoveChildRecursive(FlatModel item)
+    {
+        var children = GetChildren(item).ToList();
+
+        foreach (var child in children)
+        {
+            RemoveChildRecursive(child);
+        }
+
+        Data.Remove(item);
+    }
+
+    private void CalculateParentPercentRecursive(FlatModel item)
+    {
+        if (item.ParentId != null)
+        {
+            var parent = GetParent(item);
+
+            var children = GetChildren(parent);
+
+            if (children.Any())
+            {
+                parent.PercentComplete = children.Average(i => i.PercentComplete);
+
+                CalculateParentPercentRecursive(parent);
+            }
+        }
+    }
+
+    private void CalculateParentRangeRecursive(FlatModel item)
+    {
+        if (item.ParentId != null)
+        {
+            var parent = GetParent(item);
+
+            var children = GetChildren(parent);
+
+            if (children.Any())
+            {
+                parent.Start = children.Min(i => i.Start);
+                parent.End = children.Max(i => i.End);
+
+                CalculateParentRangeRecursive(parent);
+            }
+        }
+    }
+
+    private void MoveChildrenRecursive(FlatModel item, TimeSpan offset)
+    {
+        var children = GetChildren(item);
+
+        foreach (var child in children)
+        {
+            child.Start = child.Start.Add(offset);
+            child.End = child.End.Add(offset);
+
+            MoveChildrenRecursive(child, offset);
+        }
+    }
+
+    private FlatModel GetParent(FlatModel item)
+    {
+        return Data.FirstOrDefault(i => i.Id.Equals(item.ParentId));
+    }
+
+    private IEnumerable<FlatModel> GetChildren(FlatModel item)
+    {
+        return Data.Where(i => item.Id.Equals(i.ParentId));
+    }
+}
+````
 
 * `OnEdit` - fires when the user is about to enter edit mode on an existing item(Cancellable). The event handler receives an argument of type `GanttEditEventArgs` that exposes the following fields:
 
@@ -321,6 +561,7 @@ There are a few considerations to keep in mind with the CUD operations of the tr
 
 * While editing, the Gantt creates a **copy of your original object** which has a **different reference**. You receive that copy in the `OnUpdate` event handler.
 
+* Double clicking on a task within the Timeline part of the component will always trigger Popup edit of the said task, even if edit mode is set to Inline or Incell.
 
 ## See Also
 

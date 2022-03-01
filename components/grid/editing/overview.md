@@ -17,6 +17,7 @@ To enable Grid editing, set the [`EditMode` attribute]({%slug components/grid/ov
 Sections in this article:
 
 - [Basics](#basics)
+- [Customize The Editor Fields](#customize-the-editor-fields)
 - [Example](#example)
 - [Notes](#notes)
 
@@ -27,7 +28,8 @@ This section explains the available events and command buttons that you need to 
 
 List of the available events:
 
-* `OnCreate` - fires when the `Save` [command button]({%slug components/grid/columns/command%}) button for a newly added item is clicked. Cancellable (cancelling it keeps the grid in Insert mode).
+* `OnAdd` - fires when the `Add` [command button]({%slug components/grid/columns/command%}) for a newly added item is clicked. The event is cancellable.
+* `OnCreate` - fires when the `Save` [command button]({%slug components/grid/columns/command%}) for a newly added item is clicked. Cancellable (cancelling it keeps the grid in Insert mode).
 * `OnUpdate` - fires when the `Save` command button is clicked on an existing item. Cancellable (cancelling it keeps the grid in Edit mode). The model reference is a copy of the original data source item.
 * `OnDelete` - fires when the `Delete` command button is clicked. You can also display a [delete confirmation dialog]({%slug grid-delete-confirmation%}) before the deletion.
 * `OnEdit` - fires when the user is about to enter edit mode for an existing row. Cancellable (cancelling it prevents the item from opening for editing).
@@ -43,6 +45,154 @@ The CUD event handlers receive an argument of type `GridCommandEventArgs` that e
 * `Value` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates what is the new value the user changed when updating data.
 
 You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the grid, or components in a column template) through the [grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item).
+
+## Customize The Editor Fields
+
+You can customize the editors rendered in the Grid by providing the `EditorType` attribute, exposed on the `<GridColumn>`, or by using the [Editor Template]({%slug grid-templates-editor%}). The `EditorType` attribute accepts a member of the `GridEditorType` enum:
+
+| Field data type | GridEditorType enum members              |
+|-----------------|------------------------------------------|
+| **Text**            | `GridEditorType.TextArea`<br> `GridEditorType.TextBox` |
+| **Boolean**         | `GridEditorType.CheckBox`<br> `GridEditorType.Switch` |
+| **DateTime**        | `GridEditorType.DatePicker`<br> `GridEditorType.DateTimePicker`<br> `GridEditorType.TimePicker` |
+
+
+````CSHTML
+@* The usage of the EditorType parameter *@
+
+@using System.ComponentModel.DataAnnotations
+
+<TelerikGrid Data=@MyData 
+             EditMode="@GridEditMode.Inline" 
+             Pageable="true" 
+             Height="400px"
+             OnUpdate="@UpdateHandler" 
+             OnDelete="@DeleteHandler" 
+             OnCreate="@CreateHandler" 
+             OnCancel="@CancelHandler">
+    <GridToolBar>
+        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+        <GridColumn Field=@nameof(SampleData.Name) 
+                    EditorType="@GridEditorType.TextArea"
+                    Title="Name" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+
+@code {
+    async Task UpdateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        await MyService.Update(item);
+
+        await GetGridData();
+    }
+
+    async Task DeleteHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        await MyService.Delete(item);
+
+        await GetGridData();
+    }
+
+    async Task CreateHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        await MyService.Create(item);
+
+        await GetGridData();
+    }
+
+    async Task CancelHandler(GridCommandEventArgs args)
+    {
+        SampleData item = (SampleData)args.Item;
+
+        await Task.Delay(1000); //simulate actual long running async operation
+    }
+
+    public class SampleData
+    {
+        public int ID { get; set; }
+        [Required]
+        public string Name { get; set; }
+    }
+
+    List<SampleData> MyData { get; set; }
+
+    async Task GetGridData()
+    {
+        MyData = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetGridData();
+    }
+
+    public static class MyService
+    {
+        private static List<SampleData> _data { get; set; } = new List<SampleData>();
+
+        public static async Task Create(SampleData itemToInsert)
+        {
+            await Task.Delay(1000); // simulate actual long running async operation
+
+            itemToInsert.ID = _data.Count + 1;
+            _data.Insert(0, itemToInsert);
+        }
+
+        public static async Task<List<SampleData>> Read()
+        {
+            await Task.Delay(1000); // simulate actual long running async operation
+
+            if (_data.Count < 1)
+            {
+                for (int i = 1; i < 50; i++)
+                {
+                    _data.Add(new SampleData()
+                    {
+                        ID = i,
+                        Name = "Name " + i.ToString()
+                    });
+                }
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(SampleData itemToUpdate)
+        {
+            await Task.Delay(1000); // simulate actual long running async operation
+
+            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
+            if (index != -1)
+            {
+                _data[index] = itemToUpdate;
+            }
+        }
+
+        public static async Task Delete(SampleData itemToDelete)
+        {
+            await Task.Delay(1000); // simulate actual long running async operation
+
+            _data.Remove(itemToDelete);
+        }
+    }
+}
+````
 
 ## Example
 
@@ -60,7 +210,7 @@ Editing is cancelled for the first two records.
 <strong>There is a deliberate delay</strong> in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="400px"
-             OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
+             OnAdd="@AddHandler" OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
     <GridToolBar>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
     </GridToolBar>
@@ -79,6 +229,15 @@ Editing is cancelled for the first two records.
 @logger
 
 @code {
+    async Task AddHandler(GridCommandEventArgs args)
+    {
+        //Set default values for new items
+        ((SampleData)args.Item).Name = "New Item Name";
+
+        //Cancel if needed
+        //args.IsCancelled = true;
+    }
+
     async Task EditHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;

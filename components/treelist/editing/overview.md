@@ -18,6 +18,7 @@ To enable TreeList editing, set the [`EditMode` attribute]({%slug treelist-overv
 Sections in this article:
 
 * [Basics](#basics)
+* [Customize The Editor Fields](#customize-the-editor-fields)
 * [Example](#example)
 * [Notes](#notes)
 
@@ -27,7 +28,8 @@ This section explains the available events and command buttons that you need to 
 
 List of the available events:
 
-* `OnCreate` - fires when the `Save` [command button]({%slug treelist-columns-command%}) button for a newly added item is clicked. Cancellable.
+* `OnAdd` - fires when the `Add` [command button]({%slug treelist-columns-command%}) for a newly added item is clicked. Cancellable.
+* `OnCreate` - fires when the `Save` [command button]({%slug treelist-columns-command%}) for a newly added item is clicked. Cancellable.
 * `OnUpdate` - fires when the `Save` command button is clicked on an existing item. Cancellable. The model reference is a copy of the original data source item.
 * `OnDelete` - fires when the `Delete` command button is clicked. The event is cancellable, and you can also display a [delete confirmation dialog]({%slug treelist-delete-confirmation%}) before the deletion.
 * `OnEdit` - fires when the user is about to enter edit mode for an existing row. Cancellable.
@@ -46,6 +48,256 @@ The CUD event handlers receive an argument of type `TreeListCommandEventArgs` th
 
 You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the treelist, or components in a column template) through the [treelist state]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item).
 
+## Customize The Editor Fields
+
+You can customize the editors rendered in the TreeList by providing the `EditorType` attribute, exposed on the `<TreeListColumn>`, or by using the [Editor Template]({%slug treelist-templates-editor%}). The `EditorType` attribute accepts a member of the `TreeListEditorType` enum:
+
+| Field data type | TreeListEditorType enum members              |
+|-----------------|------------------------------------------|
+| **Text**            | `TreeListEditorType.TextArea`<br> `TreeListEditorType.TextBox` |
+| **Boolean**         | `TreeListEditorType.CheckBox`<br> `TreeListEditorType.Switch` |
+| **DateTime**        | `TreeListEditorType.DatePicker`<br> `TreeListEditorType.DateTimePicker`<br> `TreeListEditorType.TimePicker` |
+
+
+````CSHTML
+@* The usage of the EditorType parameter *@
+
+@using System.ComponentModel.DataAnnotations
+
+<TelerikTreeList Data="@Data"
+                 EditMode="@TreeListEditMode.Inline"
+                 OnUpdate="@UpdateItem"
+                 OnDelete="@DeleteItem"
+                 OnCreate="@CreateItem"
+                 OnCancel="@OnCancelHandler"
+                 Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
+                 Width="850px">
+
+    <TreeListToolBar>
+        <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
+    </TreeListToolBar>
+    <TreeListColumns>
+        <TreeListCommandColumn Width="280px">
+            <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon="edit">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Delete" Icon="delete">Delete</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+        </TreeListCommandColumn>
+
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate"
+                        EditorType="@TreeListEditorType.DateTimePicker"
+                        Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    public List<Employee> Data { get; set; }
+
+    async Task UpdateItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+
+        await MyService.Update(item);
+
+        await GetTreeListData();
+    }
+
+    async Task CreateItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+        var parentItem = args.ParentItem as Employee;
+
+        await MyService.Create(item, parentItem);
+
+        await GetTreeListData();
+    }
+
+    async Task DeleteItem(TreeListCommandEventArgs args)
+    {
+        var item = args.Item as Employee;
+
+        await MyService.Delete(item);
+
+        await GetTreeListData();
+    }
+
+    async Task OnCancelHandler(TreeListCommandEventArgs args)
+    {
+        Employee empl = args.Item as Employee;
+    }
+
+    public class Employee
+    {
+        public int Id { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+
+        public List<Employee> DirectReports { get; set; }
+        public bool HasChildren { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Employee)
+            {
+                return this.Id == (obj as Employee).Id;
+            }
+            return false;
+        }
+    }
+
+    async Task GetTreeListData()
+    {
+        Data = await MyService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetTreeListData();
+    }
+
+    public static class MyService
+    {
+        private static List<Employee> _data { get; set; } = new List<Employee>();
+
+        private static int LastId { get; set; } = 1;
+
+        public static async Task Create(Employee itemToInsert, Employee parentItem)
+        {
+            InsertItemRecursive(_data, itemToInsert, parentItem);
+        }
+
+        public static async Task<List<Employee>> Read()
+        {
+            if (_data.Count < 1)
+            {
+                for (int i = 1; i < 15; i++)
+                {
+                    Employee root = new Employee
+                    {
+                        Id = LastId,
+                        Name = $"root: {i}",
+                        EmailAddress = $"{i}@example.com",
+                        HireDate = DateTime.Now.AddYears(-i),
+                        DirectReports = new List<Employee>(),
+                        HasChildren = true
+                    };
+                    _data.Add(root);
+                    LastId++;
+
+                    for (int j = 1; j < 4; j++)
+                    {
+                        int currId = LastId;
+                        Employee firstLevelChild = new Employee
+                        {
+                            Id = currId,
+                            Name = $"first level child {j} of {i}",
+                            EmailAddress = $"{currId}@example.com",
+                            HireDate = DateTime.Now.AddDays(-currId),
+                            DirectReports = new List<Employee>(),
+                            HasChildren = true
+                        };
+                        root.DirectReports.Add(firstLevelChild);
+                        LastId++;
+
+                        for (int k = 1; k < 3; k++)
+                        {
+                            int nestedId = LastId;
+                            firstLevelChild.DirectReports.Add(new Employee
+                            {
+                                Id = LastId,
+                                Name = $"second level child {k} of {j} and {i}",
+                                EmailAddress = $"{nestedId}@example.com",
+                                HireDate = DateTime.Now.AddMinutes(-nestedId)
+                            }); ;
+                            LastId++;
+                        }
+                    }
+                }
+
+                _data[0].Name += " (non-editable, see OnEdit)";
+            }
+
+            return await Task.FromResult(_data);
+        }
+
+        public static async Task Update(Employee itemToUpdate)
+        {
+            UpdateItemRecursive(_data, itemToUpdate);
+        }
+
+        public static async Task Delete(Employee itemToDelete)
+        {
+            RemoveChildRecursive(_data, itemToDelete);
+        }
+
+        // sample helper methods for handling the view-model data hierarchy
+        static void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].Id.Equals(itemToUpdate.Id))
+                {
+                    items[i] = itemToUpdate;
+                    return;
+                }
+
+                if (items[i].DirectReports?.Count > 0)
+                {
+                    UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
+                }
+            }
+        }
+
+        static void RemoveChildRecursive(List<Employee> items, Employee item)
+        {
+            for (int i = 0; i < items.Count(); i++)
+            {
+                if (item.Equals(items[i]))
+                {
+                    items.Remove(item);
+
+                    return;
+                }
+                else if (items[i].DirectReports?.Count > 0)
+                {
+                    RemoveChildRecursive(items[i].DirectReports, item);
+
+                    if (items[i].DirectReports.Count == 0)
+                    {
+                        items[i].HasChildren = false;
+                    }
+                }
+            }
+        }
+
+        static void InsertItemRecursive(List<Employee> Data, Employee insertedItem, Employee parentItem)
+        {
+            insertedItem.Id = LastId++;
+            if (parentItem != null)
+            {
+                parentItem.HasChildren = true;
+                if (parentItem.DirectReports == null)
+                {
+                    parentItem.DirectReports = new List<Employee>();
+                }
+
+                parentItem.DirectReports.Insert(0, insertedItem);
+            }
+            else
+            {
+                Data.Insert(0, insertedItem);
+            }
+        }
+    }
+}
+````
 
 ## Example
 
@@ -64,6 +316,7 @@ Editing is cancelled for the first record.
 
 <TelerikTreeList Data="@Data"
                  EditMode="@TreeListEditMode.Inline"
+                 OnAdd="@AddItem"
                  OnUpdate="@UpdateItem"
                  OnDelete="@DeleteItem"
                  OnCreate="@CreateItem"
@@ -97,6 +350,15 @@ Editing is cancelled for the first record.
     public List<Employee> Data { get; set; }
 
     // Sample CUD operations for the local data
+    async Task AddItem(TreeListCommandEventArgs args)
+    {
+        //Set default values for new items
+        ((Employee)args.Item).Name = "New Employee Name";
+
+        //Cancel if needed
+        //args.IsCancelled = true;
+    }
+
     async Task UpdateItem(TreeListCommandEventArgs args)
     {
         var item = args.Item as Employee;
