@@ -12,7 +12,7 @@ position: 10
 
 The `FilterOperator` enum contains all filter operators supported in the Telerik UI for Blazor suite.
 
-When customizing the filtering behavior of the components, it is important to use the correct filter operators depending on the specific data type. Otherwise, you will receive an exception - the assigned `DefaultFilterOperator` not applicable for the current data type.
+Each filter operator is compatible with a specific data type. Always use the correct filter operator during filter customizations. Otherwise, an exception will occur about the assigned `DefaultFilterOperator` not applicable for the current data type.
 
 >important ArgumentException: The assigned DefaultFilterOperator ... for the Start column is not applicable for ... type.
 
