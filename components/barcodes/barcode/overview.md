@@ -113,7 +113,7 @@ The following `BarcodeBorder` parameters enable you to customize the appearance 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
 | `Color` | `string` | |
-| `DashType` | `enum` | |
+| `DashType` | `DashType` enum <br /> `Solid`  | |
 | `Width` | `double` | |
 
 ### BarcodePadding parameters
