@@ -18,7 +18,7 @@ All graphics are rendered on the client by using [Scalable Vector Graphics (SVG)
 
 1. Add the `TelerikBarcode` tag to add the component to your razor page.
 
-1. Provide `Value` property.
+1. Set the `Value` property.
 
 1. Set the `Height` and `Width` properties.
 
