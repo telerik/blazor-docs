@@ -10,6 +10,13 @@ position: 15
 
 # Gantt Tree Popup Editing
 
+In this article:
+
+* [Basics](#basics)
+* [Customization](#customization)
+
+## Basics
+
 Popup editing lets the user click an [Edit command button]({%slug components/grid/columns/command%}) on the row, and a popup shows up with the editable fields associated with a Gantt Task. They can then click the `Save` button in the dialog to submit the changes to the model. This fires the `OnUpdate` event where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
 
 In a similar fashion, the `Cancel`, `Delete` command buttons and the `Add` toolbar button fire events to let you handle the data source operations.
@@ -246,6 +253,141 @@ To enable PopUp editing in the Gantt Tree, set its `TreeListEditMode` property t
 ````
 
 >note It is up to the data access logic to save the data once it is changed in the data collection, or to revert changes. The example above showcases the events that allow you to do that. In a real application, the code for handling data operations may be entirely different.
+
+## Customization
+
+The Gantt exposes options to customize the edit popup and its form. You can define your desired configuration in the `GanttPopupEditSettings` and `GanttPopupEditFormSettings` tags under the `GanttSettings` tag.
+
+### Popup Customization
+
+The `GanttPopupEditSettings` nested tag exposes the following parameters to allow popup customization:
+
+@[template](/_contentTemplates/common/popup-edit-customization.md#popup-settings)
+
+### Edit Form Customization
+
+The `GanttPopupEditFormSettings` nested tag exposes the following parameters to allow edit form customization:
+
+Parameter | Type | Description
+---------|----------|---------
+ `Columns` | `int` | The count of the columns
+ `ColumnSpacing` | `int` | The column spacing 
+ `Orientation` | `FormOrientation` <br/> (`Vertical`) | The orientation of the form. Takes a member of the `FormOrientation` enum: <br/> - `Horizontal` <br/> - `Vertical`
+
+>caption Customize the popup edit form
+
+````CSHTML
+@*The snippet focuses on the popup edit form customization. CRUD events are not handled for brevity*@
+
+<TelerikGantt Data="@Data"
+              @bind-View="@SelectedView"
+              TreeListEditMode="@GanttTreeListEditMode.Popup"
+              Width="1000px"
+              Height="600px"
+              IdField="Id"
+              ParentIdField="ParentId">
+    <GanttSettings>
+        <GanttPopupEditSettings Width="700px"
+                                MinWidth="650px"
+                                MaxHeight="300px"
+                                Class="custom-popup">
+        </GanttPopupEditSettings>
+        <GanttPopupEditFormSettings Orientation="@FormOrientation.Horizontal"
+                                    Columns="2"
+                                    ColumnSpacing="50px">
+        </GanttPopupEditFormSettings>
+    </GanttSettings>
+    <GanttToolBar>
+        <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
+    </GanttToolBar>
+    <GanttColumns>
+        <GanttCommandColumn Width="110px">
+            <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>
+            <GanttCommandButton Command="Edit" Icon="edit"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon="delete"></GanttCommandButton>
+        </GanttCommandColumn>
+        <GanttColumn Field="Title"
+                     Expandable="true"
+                     Width="160px"
+                     Title="Task Title">
+        </GanttColumn>
+        <GanttColumn Field="PercentComplete"
+                     Title="Status"
+                     Width="60px">
+        </GanttColumn>
+        <GanttColumn Field="Start"
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+        <GanttColumn Field="End"
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+    </GanttColumns>
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+    </GanttViews>
+</TelerikGantt>
+
+@code {
+    public GanttView SelectedView { get; set; } = GanttView.Week;
+
+    List<FlatModel> Data { get; set; }
+
+    class FlatModel
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    public int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        Data = new List<FlatModel>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new FlatModel()
+                {
+                    Id = LastId,
+                    Title = "Task  " + i.ToString(),
+                    Start = new DateTime(2021, 7, 5 + i),
+                    End = new DateTime(2021, 7, 11 + i),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                };
+
+            Data.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                Data.Add(new FlatModel()
+                    {
+                        Id = LastId,
+                        ParentId = parentId,
+                        Title = "    Task " + i + " : " + j.ToString(),
+                        Start = new DateTime(2021, 7, 5 + j),
+                        End = new DateTime(2021, 7, 6 + i + j),
+                        PercentComplete = Math.Round(random.NextDouble(), 2)
+                    });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+}
+````
 
 ## See Also
 

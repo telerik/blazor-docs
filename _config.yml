@@ -88,6 +88,9 @@ navigation:
      "*components/gantt/gantt-tree/columns":
         title: "Columns"
         position: 7
+     "*components/gantt/gantt-tree/editing":
+        title: "Editing"
+        position: 10
      "*components/gantt/gantt-tree/filter":
         title: "Filtering"
         position: 25
