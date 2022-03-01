@@ -53,7 +53,7 @@ There are two approaches to customize the grid filtering behavior, and you can u
 
 ### Customize The Filtering Fields
 
-You can customize the editors rendered in the Grid by providing the `FilterEditorType` attribute, exposed on the `<GridColumn>`, or by utilizing the points above. The `FilterEditorType` attribute accepts a member of the `GridFilterEditorType` enum:
+You can customize the filter editors rendered in the Grid by providing the `FilterEditorType` attribute, exposed on the `<GridColumn>`, or by utilizing the points above. The `FilterEditorType` attribute accepts a member of the `GridFilterEditorType` enum:
 
 | Field data type | GridFilterEditorType enum members              |
 |-----------------|------------------------------------------|
