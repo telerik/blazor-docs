@@ -45,7 +45,7 @@ In addition to the two main filtering modes, the treelist offers two more featur
 
 ### Customize The Filtering Fields
 
-You can customize the editors rendered in the TreeList
+You can customize the filter editors rendered in the TreeList
 by providing the `FilterEditorType` attribute, exposed on the `<TreeListColumn>`, or by utilizing the points above. The `FilterEditorType` attribute accepts a member of the `TreeListFilterEditorType` enum:
 
 | Field data type | TreeListFilterEditorType enum members              |
