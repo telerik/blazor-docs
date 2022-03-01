@@ -312,6 +312,8 @@ navigation:
         title: "Form"
      "*flatcolorpicker":
         title: "FlatColorPicker"
+     "*floatinglabel":
+        title: "FloatingLabel"
      "*gantt":
         title: "Gantt"
      "*gauges":
