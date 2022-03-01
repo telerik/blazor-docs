@@ -91,6 +91,7 @@ You must match the field names you provide in the chart settings (such as `Field
 
 >caption Example of handling custom serialization settings in the chart
 
+<div class="skip-repl"></div>
 ````Model
 [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.11.0 (Newtonsoft.Json v12.0.0.0)")]
 public partial class ChartDataModel

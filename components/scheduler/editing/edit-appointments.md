@@ -5,7 +5,7 @@ description: Edit Appointments in the Scheduler for Blazor.
 slug: scheduler-appointments-edit
 tags: telerik,blazor,scheduler,appointment,appointments,edit,editing
 published: True
-position: 3
+position: 0
 ---
 
 # Edit Appointments

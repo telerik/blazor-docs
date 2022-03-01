@@ -12,6 +12,14 @@ position: 10
 
 One of the [filter modes of the grid]({%slug components/grid/filtering%}) is a popup menu with filter options that you can open from the column headers.
 
+In this article:
+
+* [Basics](#basics)
+* [Filter From Code](#filter-from-code)
+* [Customization](#customization)
+
+## Basics
+
 To enable the filter menu, set the `FilterMode` property of the grid to `Telerik.Blazor.GridFilterMode.FilterMenu`.
 
 The grid will render a button in the column header that you click to get a popup with filtering options. The popup lets you choose filter operator, filter criteria, to apply and clear the filter.
@@ -82,6 +90,62 @@ You can set the grid filters from your code through the grid [state]({%slug grid
 ````
 
 @[template](/_contentTemplates/grid/state.md#filter-menu-default-filters)
+
+## Customization
+
+The Grid allows you to customize the default behavior of the Filter Menu in a couple ways:
+
+### Configuring the Filter Menu
+
+You can override the default Filter Row behavior for each column through the following property the `GridColumn` exposes:
+
+@[template](/_contentTemplates/common/filtering.md#filter-menu-customization-properties)
+
+>caption Configure the Filter Menu
+
+````CSHTML
+@*Customize the Filter Menu*@
+
+@using Telerik.DataSource
+
+<TelerikGrid Data="@MyData"
+             Height="400px"
+             Pageable="true"
+             FilterMode="@GridFilterMode.FilterMenu">
+    <GridColumns>
+        <GridColumn DefaultFilterOperator="FilterOperator.IsEqualTo"
+                    Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn DefaultFilterOperator="FilterOperator.StartsWith"
+                    Field="@(nameof(SampleData.Name))" Title="Employee Name" />
+        <GridColumn DefaultFilterOperator="FilterOperator.Contains"
+                    Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn DefaultFilterOperator="FilterOperator.IsGreaterThanOrEqualTo"
+                    Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+        {
+            Id = x,
+            Name = "name " + x,
+            Team = "team " + x % 5,
+            HireDate = DateTime.Now.AddDays(-x).Date
+        });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
+
+### Filter Menu Template
+
+The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example in the [Filter Menu Template]({%slug grid-templates-filter%}#filter-menu-template) article.
 
 
 ## See Also

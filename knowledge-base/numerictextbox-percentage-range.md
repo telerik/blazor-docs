@@ -55,6 +55,7 @@ If you want precision to the decimal places of the percentage values, this means
 
 >caption Change the Value in the app code to make 10% come from input "10"
 
+<div class="skip-repl"></div>
 ````OnChange
 Actual value: @thePercentage, formatted value @thePercentage.ToString("P2")
 
@@ -118,8 +119,7 @@ as double: @PercentageZeroToHundred
 <br />
 <TelerikMaskedTextBox Mask="@TheMask"
                       IncludeLiterals="true"
-                      @bind-Value="@TheStringValue"
-                      Label="Percentage:">
+                      @bind-Value="@TheStringValue">
 </TelerikMaskedTextBox>
 
 @code{

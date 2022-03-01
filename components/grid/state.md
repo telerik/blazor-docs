@@ -91,7 +91,7 @@ The following information is present in the grid state:
 
 * **Paging** - page index, offset (skip) for virtual scrolling.
 
-* **Rows** - indexes of expanded detail templates.
+* **Rows** - list of expanded items.
 
 * **Sorting** - sort descriptors (fields by which the grid is sorted, and the direction).
 
@@ -125,6 +125,7 @@ The following example shows one way you can store the grid state - through a cus
 
 >caption Save, Load, Reset grid state on every state change. Uses a sample LocalStorage in the browser.
 
+<div class="skip-repl"></div>
 ````Component
 @inject LocalStorage LocalStorage
 @inject IJSRuntime JsInterop
@@ -145,6 +146,17 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
              OnUpdate=@UpdateItem OnDelete=@DeleteItem OnCreate=@CreateItem EditMode="@GridEditMode.Inline"
              OnStateInit="@((GridStateEventArgs<SampleData> args) => OnStateInitHandler(args))"
              OnStateChanged="@((GridStateEventArgs<SampleData> args) => OnStateChangedHandler(args))">
+    <DetailTemplate>
+        @{
+            var employee = context as SampleData;
+            <TelerikGrid Data="employee.Assignments" Pageable="true" PageSize="5">
+                <GridColumns>
+                    <GridColumn Field="AssignmentId" Title="Assignment Id"></GridColumn>
+                    <GridColumn Field="AssignmentTitle" Title="Assignment Title"></GridColumn>
+                </GridColumns>
+            </TelerikGrid>
+        }
+    </DetailTemplate>
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Editable="false" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
@@ -265,6 +277,8 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
         public int Id { get; set; }
         public string Name { get; set; }
         public string Team { get; set; }
+        public List<Assignment> Assignments { get; set; }
+
 
         // example of comparing stored items (from editing or selection)
         // with items from the current data source - IDs are used instead of the default references
@@ -276,6 +290,17 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
             }
             return false;
         }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+    }
+
+    public class Assignment
+    {
+        public int AssignmentId { get; set; }
+        public string AssignmentTitle { get; set; }
     }
 
     async Task GetGridData()
@@ -306,12 +331,11 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
             {
                 for (int i = 1; i < 50; i++)
                 {
-                    _data.Add(new SampleData()
-                    {
-                        Id = i,
-                        Name = "name " + i,
-                        Team = "team " + i % 5
-                    });
+                    SampleData employee = new SampleData { Id = i, Name = $"Name {i}", Team = "team " + i % 5 };
+
+                    employee.Assignments = Enumerable.Range(1, 15).Select(x => new Assignment { AssignmentId = x, AssignmentTitle = "Assignment " + x }).ToList();
+
+                    _data.Add(employee);
                 }
             }
 
@@ -390,7 +414,7 @@ The grid state allows you to control the behavior of the grid programmatically -
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
-
+<div class="skip-repl"></div>
 ````Sorting
 @[template](/_contentTemplates/grid/state.md#set-sort-from-code)
 ````

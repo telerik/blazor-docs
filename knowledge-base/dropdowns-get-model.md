@@ -44,6 +44,7 @@ The examples below show one way to do this for the DropDownList, ComboBox and Au
 
 >caption Get model from dropdown
 
+<div class="skip-repl"></div>
 ````DropDownList
 Value: @DdlValue
 <br />

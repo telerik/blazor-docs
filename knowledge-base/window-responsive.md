@@ -71,6 +71,8 @@ If you want to use the CSS media queries, you have to create a separate CSS file
 >caption Observe the behavior of a Window made responsive with media queries
 
 **Component:**
+
+<div class="skip-repl"></div>
 ````Component
 @* The Class parameter is set to make cascading the styles easier *@
 

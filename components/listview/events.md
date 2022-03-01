@@ -37,6 +37,7 @@ In the common case, you provide all the data to the listview's Data collection a
 
 >caption The different use-cases of the OnModelInit event
 
+<div class="skip-repl"></div>
 ````NoParameterlessConstructor
 @* Bind the ListView to a class without a parameterless constructor *@
 
@@ -50,7 +51,7 @@ In the common case, you provide all the data to the listview's Data collection a
                  OnCancel="@CancelHandler">
     <EditTemplate>
         <div style="border: 1px solid green; margin: 10px; padding: 10px; display: inline-block;">
-            <TelerikTextBox @bind-Value="@context.Name" Label="Name" /><br />
+            <TelerikTextBox @bind-Value="@context.Name" /><br />
             <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" />
             <ListViewCommandButton Command="Save" Icon="save">Save</ListViewCommandButton>
             <ListViewCommandButton Command="Cancel" Icon="cancel">Cancel</ListViewCommandButton>
@@ -217,7 +218,7 @@ In the common case, you provide all the data to the listview's Data collection a
                  OnCancel="@CancelHandler">
     <EditTemplate>
         <div style="border: 1px solid green; margin: 10px; padding: 10px; display: inline-block;">
-            <TelerikTextBox @bind-Value="@context.Name" Label="Name" /><br />
+            <TelerikTextBox @bind-Value="@context.Name" /><br />
             <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" />
             <ListViewCommandButton Command="Save" Icon="save">Save</ListViewCommandButton>
             <ListViewCommandButton Command="Cancel" Icon="cancel">Cancel</ListViewCommandButton>
@@ -391,7 +392,7 @@ In the common case, you provide all the data to the listview's Data collection a
                  OnCancel="@CancelHandler">
     <EditTemplate>
         <div style="border: 1px solid green; margin: 10px; padding: 10px; display: inline-block;">
-            <TelerikTextBox @bind-Value="@context.Name" Label="Name" /><br />
+            <TelerikTextBox @bind-Value="@context.Name" /><br />
             <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" />
             <ListViewCommandButton Command="Save" Icon="save">Save</ListViewCommandButton>
             <ListViewCommandButton Command="Cancel" Icon="cancel">Cancel</ListViewCommandButton>

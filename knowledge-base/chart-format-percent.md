@@ -42,7 +42,7 @@ To customize the percentage display, you need to
 
 >tip You can find a sample project with even more examples in the [https://github.com/telerik/blazor-ui/tree/master/chart/label-template](https://github.com/telerik/blazor-ui/tree/master/chart/label-template) repo.
 
-
+<div class="skip-repl"></div>
 ````Razor
 This is only one example, you can implement different functions and logic
 

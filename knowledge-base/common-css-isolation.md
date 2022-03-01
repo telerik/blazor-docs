@@ -28,6 +28,7 @@ I'm wanting to leverage CSS isolation in my projects but am finding that it does
 
 1. Apply that class to a Telerik component
 
+<div class="skip-repl"></div>
 ````CSHTML
 <p>This button's class is defined in the component's scoped css file. The class is applied to the button but the random attribute the framework renders is not applied so it does not have effect.</p>
 <TelerikButton Class="my-component-button-class"

@@ -51,14 +51,13 @@ The application is not given the chance to respond to the autofill action of the
         <FormItem>
             <Template>
                 <TelerikTextBox PlaceHolder="john@smith.com" Title="Email" @bind-Value="@person.LoginId"
-                                Label="Enter Email" InputMode="email" Id="email" AutoComplete="email" Name="email">
+                                InputMode="email" Id="email" AutoComplete="email" Name="email">
                 </TelerikTextBox>
             </Template>
         </FormItem>
         <FormItem>
             <Template>
                 <TelerikTextBox Password="true"
-                                Label="Enter Password"
                                 @bind-Value="@person.Password"
                                 AutoComplete="new-password" Name="password" Id="password">
                 </TelerikTextBox>

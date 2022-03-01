@@ -31,7 +31,7 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 
 ## CUD Events
 
-The `OnCreate`, `OnUpdate` and `OnDelete` events let you get the data item that the user changed so you can transfer the user action to the actual data source.
+The `OnAdd`, `OnCreate`, `OnUpdate` and `OnDelete` events let you get the data item that the user changed so you can transfer the user action to the actual data source.
 
 The `OnEdit` and `OnCancel` events let you respond to user actions - when they want to edit an item and when the want to cancel changes on an item they have been editing. You can use them to, for example, prevent editing of certain items based on some condition.
 
@@ -68,6 +68,7 @@ Fires when the item selection is enabled and the user changes the selected [item
 
 >caption The different use-cases of the OnModelInit event
 
+<div class="skip-repl"></div>
 ````NoParameterlessConstructor
 @* Bind the Grid to a class without a parameterless constructor *@
 

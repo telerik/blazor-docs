@@ -5,7 +5,7 @@ description: TooltipTemplate for the Gantt Timeline Tooltips.
 slug: gantt-tooltip-template
 tags: telerik,blazor,gantt,chart,tooltip,template
 published: True
-position: 10
+position: 15
 ---
 
 # TooltipTemplate

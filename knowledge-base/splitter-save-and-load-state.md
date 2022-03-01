@@ -45,6 +45,7 @@ Set the saved state from the browser local storage. It is important to perform t
 
 The example below demonstrates the described approach.
 
+<div class="skip-repl"></div>
 ````Component
 @inject LocalStorage LocalStorage
 

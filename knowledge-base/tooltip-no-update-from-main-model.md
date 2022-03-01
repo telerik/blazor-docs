@@ -64,6 +64,7 @@ The solution is to encapsulate the desired content in its own component so that 
 
 You can expose the necessary parameters and events from it so that there are no API changes in the view-model of the main component
 
+<div class="skip-repl"></div>
 ````MainComponent
 @* The API is the same, the contents are in their own component, see the adjacent tab *@
 

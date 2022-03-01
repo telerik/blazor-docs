@@ -31,6 +31,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
 
 >caption The different use-cases of the OnModelInit event
 
+<div class="skip-repl"></div>
 ````NoParameterlessConstructor
 @* Bind the Scheduler to a class without a parameterless constructor *@
 

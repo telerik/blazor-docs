@@ -52,6 +52,7 @@ If you want to expose more information, for example, some multi line text, HTML 
 
 #### Localize numeric labels in the Chart using the Template parameter
 
+<div class="skip-repl"></div>
 ````Razor
 @* This example shows how to localize numeric labels in the Chart using the Template parameter *@
 

@@ -158,7 +158,7 @@ The Gantt component allows you to initiate editing from its Timeline component i
 
 ## Popup Editing
 
-You can invoke popup editing of a task by double clicking on it. A Popup container will be displayed containing the default editors for the fields defined in the Gantt.
+You can invoke popup editing of a task by double clicking on it. A Popup container will be displayed containing only the default editors associated with a Gantt Task. No additional fields defined in the Gantt will be editable through this form.
 
 If you have set the corresponding handlers, you will be able to Save or Cancel the editing operation, or Delete the record.
 

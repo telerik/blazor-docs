@@ -11,16 +11,21 @@ res_type: kb
 
 ## Environment
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TextBox for Blazor, MaskedTextBox for Blazor, NumericTextBox for Blazor, other inputs/form elements</td>
-		</tr>        
-		<tr>
-			<td>Version</td>
-			<td>3.0.0 and later before 3.2.0</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
+                TextBox for Blazor, <br />
+                MaskedTextBox for Blazor, <br />
+                NumericTextBox for Blazor, <br />
+                other inputs/form elements
+            </td>
+        </tr>        
+        <tr>
+            <td>Version</td>
+            <td>3.0.0 and 3.0.1</td>
+        </tr>
+    </tbody>
 </table>
 
 
@@ -30,9 +35,11 @@ I would like to show a floating label for Telerik Inputs. The label should be di
 
 ## Solution
 
->important The 3.0.0 release introduced a breaking change of removing the `Label` parameter from TextBox, MaskedTextBox, TextArea components. In 3.2.0 Floating Label component will be released to fulfill all use cases. However, in the meantime this solution can be used to implement floating label in any component.
+>important **UI for Blazor 3.1.0** includes a standalone [FloatingLabel component]({%slug floatinglabel-overview%}). Use that instead.
 
-The following code snippet shows how to add a floating label to TextBox, MaskedTextBox, TextArea, DatePicker, and DropDownList components. The example illustrates how with simple html rendering that is shipped with `Telerik UI for Blazor` you could transform the inner html label into a floating label.
+The following code snippet shows how to add a floating label to TextBox, MaskedTextBox, TextArea, DatePicker, and DropDownList components. The example uses plain HTML elements and CSS styles that are included in the `Telerik UI for Blazor` theme. The styles transform the `<label>` element to a floating label.
+
+>caption Implement a floating label with static HTML
 
 ````CSHTML
 <div style="width: 400px;">
@@ -82,5 +89,4 @@ The following code snippet shows how to add a floating label to TextBox, MaskedT
     public string DropDownListEmptyClass => string.IsNullOrEmpty(DropDownListValue) ? emptyClass : string.Empty;
     public List<string> DropDownListData { get; set; } = new List<string>() { "one", "two", "three" };
 }
-
 ````

@@ -43,6 +43,93 @@ In addition to the two main filtering modes, the treelist offers two more featur
 * You can customize the appearance and behavior of the filters through the [filter templates]({%slug treelist-templates-filter%}).
 
 
+### Customize The Filtering Fields
+
+You can customize the filter editors rendered in the TreeList
+by providing the `FilterEditorType` attribute, exposed on the `<TreeListColumn>`, or by utilizing the points above. The `FilterEditorType` attribute accepts a member of the `TreeListFilterEditorType` enum:
+
+| Field data type | TreeListFilterEditorType enum members              |
+|-----------------|------------------------------------------|
+| **DateTime**  | `TreeListFilterEditorType.DatePicker`<br> `TreeListFilterEditorType.DateTimePicker` |
+
+
+````CSHTML
+@* The usage of the FilterEditorType parameter *@
+
+<TelerikTreeList Data="@Data" 
+                 FilterMode="@TreeListFilterMode.FilterMenu"
+                 Pageable="true" 
+                 IdField="Id" ParentIdField="ParentId" 
+                 Width="650px">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px"></TreeListColumn>
+        <TreeListColumn Field="Id"></TreeListColumn>
+        <TreeListColumn Field="@(nameof(Employee.HireDate))"
+                        FilterEditorType="@TreeListFilterEditorType.DateTimePicker">
+        </TreeListColumn>
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    public List<Employee> Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    public class Employee
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            data.Add(new Employee
+            {
+                Id = i,
+                ParentId = null,
+                Name = $"root: {i}",
+                HireDate = DateTime.Today.AddYears(-i)
+            });
+
+            for (int j = 2; j < 5; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                {
+                    Id = currId,
+                    ParentId = i,
+                    Name = $"first level child of {i}",
+                    HireDate = DateTime.Today.AddYears(-j)
+                });
+
+                for (int k = 3; k < 5; k++)
+                {
+                    data.Add(new Employee
+                    {
+                        Id = currId * 1000 + k,
+                        ParentId = currId,
+                        Name = $"second level child {k} of {i} and {currId}",
+                        HireDate = DateTime.Today.AddYears(-k)
+                    }); ;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
+````
+
+
 ## Notes
 
 * The treelist uses `Activator.CreateInstance<TItem>();` to get the type of the item it is bound to in order to generate proper filters and filter operators for them. Thus, the Model should have a Parameterless constructor defined.

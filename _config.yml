@@ -181,6 +181,9 @@ navigation:
      "*components/scheduler/appointments":
         title: "Appointments"
         position: 2
+     "*components/scheduler/editing":
+        title: "Editing"
+        position: 3
      "*components/scheduler/views":
         title: "Views"
         position: 5
@@ -308,10 +311,17 @@ navigation:
         title: "Editor"
      "*fileselect":
         title: "FileSelect"
+     "*filter":
+        title: "Filter"
+     "*fields":
+        title: "Fields"
+        position: 2
      "*form":
         title: "Form"
      "*flatcolorpicker":
         title: "FlatColorPicker"
+     "*floatinglabel":
+        title: "FloatingLabel"
      "*gantt":
         title: "Gantt"
      "*gauges":
@@ -555,7 +565,7 @@ baseurl: /blazor-ui
 enable_blazorRepl: true
 
 ## Latest UI for Blazor version. Used in some articles
-uiForBlazorLatestVersion: "3.0.0"
+uiForBlazorLatestVersion: "3.0.1"
 supportedFrameworkVersion: ".NET Core 3.1.11, .NET 5 and .NET 6"
 
 ## Compatible theme version for CDN URLs

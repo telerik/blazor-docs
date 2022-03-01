@@ -31,7 +31,7 @@ The Grid exposes two events that allows you to respond to the user clicking on i
 
 >caption Use the OnRowDoubleClick event to put the Grid in Edit mode
 
-
+<div class="skip-repl"></div>
 ````InlineMode
 @* Click on a Grid row twice to place the Grid in edit mode *@ 
 

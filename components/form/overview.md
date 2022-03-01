@@ -178,6 +178,57 @@ The following data types are supported out-of-the box and they use the following
 
 * `bool` - [Telerik CheckBox]({%slug checkbox-overview%})
 
+### Customize the Automatically Generated Fields
+
+You can customize the automatically generated field by providing the `EditorType` attribute, exposed on the `<FormItem>`, or by using the [FormItem Template]({%slug form-formitems-template%}). The `EditorType` attribute accepts a member of the `FormEditorType` enum:
+
+| Field data type | FormEditorType enum members              |
+|-----------------|------------------------------------------|
+| **Text**            | `FormEditorType.TextArea`<br> `FormEditorType.TextBox` |
+| **Boolean**         | `FormEditorType.CheckBox`<br> `FormEditorType.Switch` |
+| **DateTime**        | `FormEditorType.DatePicker`<br> `FormEditorType.DateTimePicker`<br> `FormEditorType.TimePicker` |
+
+
+````CSHTML
+@* The usage of the EditorType parameter *@
+
+@using System.ComponentModel.DataAnnotations
+
+<TelerikForm Model="@person">
+    <FormValidation>
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+    </FormValidation>
+    <FormItems>
+        <FormItem Field="@nameof(Person.Id)" LabelText="Id"></FormItem>
+        <FormItem Field="@nameof(Person.FirstName)"
+                  EditorType="@FormEditorType.TextArea"
+                  LabelText="First name">
+        </FormItem>
+        <FormItem Field="@nameof(Person.LastName)" 
+                  EditorType="@FormEditorType.TextArea"
+                  LabelText="Last name">
+        </FormItem>
+        <FormItem Field="@nameof(Person.DOB)"
+                  EditorType="@FormEditorType.DateTimePicker"
+                  LabelText="Date of birth">
+        </FormItem>
+    </FormItems>
+</TelerikForm>
+
+@code {
+    public Person person = new Person();
+
+    public class Person
+    {
+        public int Id { get; set; } = 10;
+        public string FirstName { get; set; } = "John";
+        public string LastName { get; set; } = "Doe";
+        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
+    }
+}
+````
+
+
 ## Data Annotation Attributes
 
 The Telerik Form for Blazor supports validation through the `<DataAnnotationsValidator />`. This allows you to take advantage of all validation attributes from the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0" target="_blank">data annotation attributes</a> list provided by .NET.

@@ -18,6 +18,9 @@ This article explains the events available in the Telerik TreeList for Blazor. T
 	* [Command Button Click](#command-button-click)
 	* [SelectedItemsChanged](#selecteditemschanged)
 	* [OnModelInit](#onmodelinit)
+	* [OnRowClick](#onrowclick)
+	* [OnRowDoubleClick](#onrowdoubleclick)
+	* [OnRowContextMenu](#onrowcontextmenu)
 	* [OnRowRender](#onrowrender)
 	* [OnRowDrop](#onrowdrop)
 	* [PageChanged](#pagechanged)
@@ -25,7 +28,7 @@ This article explains the events available in the Telerik TreeList for Blazor. T
 
 ## CUD Events
 
-The `OnCreate`, `OnUpdate` and `OnDelete` events let you get the data item that the user changed so you can transfer the user action to the actual data source.
+The `OnAdd`, `OnCreate`, `OnUpdate` and `OnDelete` events let you get the data item that the user changed so you can transfer the user action to the actual data source.
 
 The `OnEdit` and `OnCancel` events let you respond to user actions - when they want to edit an item and when they want to cancel changes on an item they have been editing. You can use them to, for example, prevent editing of certain items based on some condition.
 
@@ -174,6 +177,7 @@ Fires when the item selection is enabled and the user changes the selected [item
 
 >caption The different use-cases of the OnModelInit event
 
+<div class="skip-repl"></div>
 ````NoParameterlessConstructor
 @* Bind the TreeList to a class without a parameterless constructor *@
 
@@ -942,6 +946,343 @@ Fires when the item selection is enabled and the user changes the selected [item
                 Data.Insert(0, insertedItem);
             }
         }
+    }
+}
+````
+
+### OnRowClick
+
+The `OnRowClick` event fires when the user clicks on a TreeList row. The event does not fire when clicking on:
+* `TreeListCommandButton`
+* row selection checkbox
+* expand/collapse button
+* row in edit mode
+
+The event handler receives a `TreeListRowClickEventArgs` object. It provides the model of the clicked row in the `Item` field that you can cast to your model type.
+
+@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
+
+The `OnRowClick` event fires before selection happens.
+
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+
+````CSHTML
+@* Use the OnRowClick event for the TreeList *@
+
+<TelerikTreeList Data="@Data"
+                 IdField="Id" ParentIdField="ParentId"
+                 Pageable="true" Width="850px" Height="400px" 
+                 OnRowClick="@OnRowClickHander">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Width="120px" />
+        <TreeListColumn Field="ParentId" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="120px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    private void OnRowClickHander(TreeListRowClickEventArgs args)
+    {
+        var clickedRow = args.Item as Employee;
+    }
+
+    public List<Employee> Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    // sample model
+
+    public class Employee
+    {
+        // denote the parent-child relationship between items
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+
+        // custom data fields for display
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    // data generation
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            data.Add(new Employee
+            {
+                Id = i,
+                ParentId = null, // indicates a root-level item
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i)
+            }); ;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                {
+                    Id = currId,
+                    ParentId = i,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId)
+                });
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = currId * 1000 + k;
+                    data.Add(new Employee
+                    {
+                        Id = nestedId,
+                        ParentId = currId,
+                        Name = $"second level child {k} of {i} and {currId}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
+````
+
+### OnRowDoubleClick
+
+The `OnRowDoubleClick` event fires when the user double-clicks on a TreeList row. The event does not fire when clicking on:
+* `TreeListCommandButton`
+* row selection checkbox
+* expand/collapse button
+* row in edit mode
+
+The event handler receives a `TreeListRowClickEventArgs` object. It provides the model of the clicked row in the `Item` field that you can cast to your model type.
+
+@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
+
+The `OnRowDoubleClick` event fires before selection happens.
+
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+
+````CSHTML
+@* Use the OnRowDoubleClick event for the TreeList. *@ 
+
+<TelerikTreeList Data="@Data"
+                 IdField="Id" ParentIdField="ParentId"
+                 Pageable="true" Width="850px" Height="400px" 
+                 OnRowDoubleClick="@OnRowDoubleClickHander">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Width="120px" />
+        <TreeListColumn Field="ParentId" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="120px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    private void OnRowDoubleClickHander(TreeListRowClickEventArgs args)
+    {
+        var clickedRow = args.Item as Employee;
+    }
+
+    public List<Employee> Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    // sample model
+
+    public class Employee
+    {
+        // denote the parent-child relationship between items
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+
+        // custom data fields for display
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    // data generation
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            data.Add(new Employee
+            {
+                Id = i,
+                ParentId = null, // indicates a root-level item
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i)
+            }); ;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                {
+                    Id = currId,
+                    ParentId = i,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId)
+                });
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = currId * 1000 + k;
+                    data.Add(new Employee
+                    {
+                        Id = nestedId,
+                        ParentId = currId,
+                        Name = $"second level child {k} of {i} and {currId}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
+````
+
+### OnRowContextMenu
+
+The `OnRowContextMenu` event fires as a response to the user right clicking action on a row of the TreeList, the context menu keyboard button or long-touch for mobile devices. The event does not fire when clicking on:
+* `TreeListCommandButton`
+* row selection checkbox
+* expand/collapse button
+* row in edit mode
+
+The event handler receives a `TreeListRowClickEventArgs` object. It provides the model of the clicked row in the `Item` field that you can cast to your model type.
+
+@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
+
+The `OnRowContextMenu` event can be used to integrate a ContextMenu to the row.
+
+@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+
+````CSHTML
+@* Get the row model from a context menu action (right click/long tap) *@
+
+<TelerikTreeList Data="@Data"
+                 IdField="Id" 
+				 ParentIdField="ParentId"
+                 Pageable="true"
+				 Width="850px"
+				 Height="400px" 
+				 OnRowContextMenu="@OnRowContextMenuHandler">
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Width="120px" />
+        <TreeListColumn Field="ParentId" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="120px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+<br />
+
+@logger
+
+@code {
+    public string logger { get; set; } = String.Empty;
+	
+    private void OnRowContextMenuHandler(TreeListRowClickEventArgs args)
+    {
+        var clickedRow = args.Item as Employee;
+
+        logger = $"OnRowContextMenu event fired from right clicking on {clickedRow.Name}";
+		
+        @[template](/_contentTemplates/common/event-arguments.md#rowclick-args-example)
+    }
+
+    public List<Employee> Data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    // sample model
+
+    public class Employee
+    {
+        // denote the parent-child relationship between items
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+
+        // custom data fields for display
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+
+    // data generation
+
+    async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            data.Add(new Employee
+            {
+                Id = i,
+                ParentId = null, // indicates a root-level item
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i)
+            }); ;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = i * 100 + j;
+                data.Add(new Employee
+                {
+                    Id = currId,
+                    ParentId = i,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId)
+                });
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = currId * 1000 + k;
+                    data.Add(new Employee
+                    {
+                        Id = nestedId,
+                        ParentId = currId,
+                        Name = $"second level child {k} of {i} and {currId}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
     }
 }
 ````
