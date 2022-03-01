@@ -190,7 +190,7 @@ The PopUp editing mode supports [validation]({%slug common-features/input-valida
 
 ## Customization
 
-The Grid exposes various options for customizing the edit popup and its form. You can define your desired configuration in the `GridPopupEditSettings` and `GridPopupEditFormSettings` tags under the `GridSettings` tag.
+The Grid exposes options to customize the edit popup and its form. Define the desired configuration in the `GridPopupEditSettings` and `GridPopupEditFormSettings` tags under the `GridSettings` tag.
 
 ### Popup Customization
 
