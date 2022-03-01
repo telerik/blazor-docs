@@ -93,7 +93,7 @@ The Blazor Barcode provides various parameters that allow you to configure the c
 
 ### BarcodeText parameters
 
-The following `BarcodeText` parameters enable you to customize the appearance of the Blazor Barcode text:
+The nested `BarcodeText` tag exposes parameters that customize the appearance of the Blazor Barcode text:
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
