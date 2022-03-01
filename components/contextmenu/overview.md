@@ -157,7 +157,9 @@ The same context menu can easily be attached to many targets, or you can use its
 
 ## Methods
 
-The ContextMenu methods are accessible through it's reference. You can use the available `HideAsync` method to programatically close the ContextMenu.
+The ContextMenu methods are accessible through it's reference:
+* `ShowAsync` - programmatically shows the ContextMenu 
+* `HideAsync` - programmatically hides the ContextMenu
 
 ````CSHTML
 @* Close the ContextMenu programatically *@
