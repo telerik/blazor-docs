@@ -568,11 +568,11 @@ baseurl: /blazor-ui
 enable_blazorRepl: true
 
 ## Latest UI for Blazor version. Used in some articles
-uiForBlazorLatestVersion: "3.0.1"
+uiForBlazorLatestVersion: "3.1.0"
 supportedFrameworkVersion: ".NET Core 3.1.11, .NET 5 and .NET 6"
 
 ## Compatible theme version for CDN URLs
-themeCdnVersion: "5.1.1"
+themeCdnVersion: "5.2.0"
 
 ## The Kendo UI version used
 cdnVersion: "2019.1.115"
@@ -589,7 +589,7 @@ has_cta_panels: true
 
 ## CTA overrides for docs-seed
 cta_panels_data_overwrites:
-   message: "professional grade UI library with 90+ native components for building modern and feature-rich applications."
+   message: "professional grade UI library with 95+ native components for building modern and feature-rich applications."
 
 ## Color Scheme
 main_theme: blazor
