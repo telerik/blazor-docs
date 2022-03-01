@@ -162,7 +162,7 @@ The ContextMenu methods are accessible through it's reference:
 * `HideAsync` - programmatically hides the ContextMenu
 
 ````CSHTML
-@* Close the ContextMenu programatically *@
+@* Open and close the ContextMenu programmatically *@
 
 <div @oncontextmenu:preventDefault="true"
      @oncontextmenu="@( (MouseEventArgs e) => ShowContextMenu(e, false) )"
