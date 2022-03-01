@@ -1,28 +1,40 @@
 ---
-title: Editing
-page_title: Gantt Tree - Editing
+title: Overview
+page_title: Gantt Tree - Editing Overview
 description: Edit tasks in the Gantt Tree.
 slug: gantt-tree-editing
 tags: telerik,blazor,gantt,tree,editing,overview
 published: True
-position: 10
+position: 5
 ---
 
 # Edit Tasks
 
-The Gantt Tree allows you to edit the tasks. This article will explain how to enable and use it.
+The Blazor Gantt supports CRUD operations and validation. Use the CRUD events to transfer the changes to the underlying data source (for example, call a service to update the database, and not only with the view data).
+
+The Gantt Tree has by default the InCell editing enable. 
+
+This page explains how to use the relevant events and command buttons. There is also a runnable code example.
+
 
 Sections in this article:
 
 * [Basics](#basics)
+* [Events](#events)
 * [Example](#example)
 * [Notes](#notes)
 
 ## Basics
 
-This section explains the available events and command buttons that you need to use for editing records in a Gantt Tree. After that, you will find a code example. By default the Gantt Chart will enable the user to edit a record by double clicking on the respective node.
+The Gantt Tree offers several editing modes with different user experience. Set the `TreeListEditMode` property to a member of the `GanttTreeListEditMode` enum:
 
-List of the available events:
+* `None` - The built-in [`Add` and `Edit` commands]({%slug gantt-columns-command%}#built-in-commands) don't work in this mode.
+* `Incell` - the default `TreeListEditMode` value. [Edit a single cell]({%slug gant-tree-incell-editing%}) by clicking on it or tabbing
+* `Inline` - [edit a row]({%slug gant-tree-inline-editing%}) by clicking on an [Edit command button]({%slug gantt-columns-command%})
+* `Popup` - [edit a row in a popup form]({%slug gant-tree-popup-editing%}) by clicking on an Edit button
+
+
+## Events
 
 * `OnCreate` - fires when the `Save` [command button]({%slug gantt-columns-command%}) button for a newly added item is clicked. The event handler receives an argument of type `GanttCreateEventArgs` that exposes the following fields:
 
@@ -280,6 +292,12 @@ You can customize the editors rendered in the Gantt Tree by providing the `Edito
 }
 ````
 
+* `OnEdit` - fires when the user is about to enter edit mode on an existing item(Cancellable). The event handler receives an argument of type `GanttEditEventArgs` that exposes the following fields:
+
+    * `Item` - an object you can cast to your model class to obtain the current data item.
+    
+    * `IsCanceled`- a boolean field indicating whether the operation is to be prevented.
+
 
 ## Example
 
@@ -293,13 +311,15 @@ The example below shows how you can handle the events the Gantt component expose
 @* Sample CUD operations in the Gantt chart *@
 
 <TelerikGantt Data="@Data"
-              Width="100%"
+              Width="1200px"
               Height="600px"
               IdField="Id"
               ParentIdField="ParentId"
+              TreeListEditMode="@GanttTreeListEditMode.Incell"
               OnUpdate="@UpdateItem"
               OnDelete="@DeleteItem"
-              OnCreate="@CreateItem">
+              OnCreate="@CreateItem"
+              OnEdit="@OnEditItem">
     <GanttToolBar>
         <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
     </GanttToolBar>
@@ -444,6 +464,17 @@ The example below shows how you can handle the events the Gantt component expose
         CalculateParentRangeRecursive(item);
     }
 
+    private async Task OnEditItem(GanttEditEventArgs args)
+    {
+        var item = args.Item as FlatModel;
+
+        //prevent opening for edit based on condition
+        if(item.Id < 7)
+        {
+            args.IsCancelled = true;
+        }
+    }
+
     private void RemoveChildRecursive(FlatModel item)
     {
         var children = GetChildren(item).ToList();
@@ -534,8 +565,6 @@ There are a few considerations to keep in mind with the CUD operations of the tr
 
 ## See Also
 
-  * [Live Demo: TreeList Inline Editing](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
-  * [Live Demo: TreeList PopUp Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
-  * [Live Demo: TreeList InCell Editing](https://demos.telerik.com/blazor-ui/treelist/editing-incell)
-  * [Live Demo: TreeList Custom Editor Template](https://demos.telerik.com/blazor-ui/treelist/custom-editor)
-  * [Live Demo: TreeList Custom Edit Form](https://demos.telerik.com/blazor-ui/treelist/editing-custom-form)
+  * [Live Demo: Gantt Inline Editing](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
+  * [Live Demo: Gantt PopUp Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
+  * [Live Demo: Gantt InCell Editing](https://demos.telerik.com/blazor-ui/treelist/editing-incell)

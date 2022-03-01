@@ -18,6 +18,8 @@ This article showcases the available templates for the [Timeline]({%slug gantt-t
 
 * [TooltipTemplate]({%slug gantt-tooltip-template%}) - allows you to customize the rendering of the ToolTip in the Timeline.
 
+* [Date Header Templates]({%slug gantt-dateheader-template%}) - allows you to customize the rendering of major and minor slot header for each view in the Timeline.
+
 
 ## See Also
 
