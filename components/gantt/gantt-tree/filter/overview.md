@@ -37,7 +37,7 @@ by providing the `FilterEditorType` attribute, exposed on the `<GanttColumn>`. T
 @* The usage of the FilterEditorType parameter *@
 
 <TelerikGantt Data="@Data"
-               Width="100%"
+               Width="900px"
                Height="600px"
                IdField="Id"
                FilterMode="@GanttFilterMode.FilterMenu"
