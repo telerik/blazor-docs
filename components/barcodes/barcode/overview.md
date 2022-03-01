@@ -81,7 +81,7 @@ The Blazor Barcode provides various parameters that allow you to configure the c
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `RenderAs` | `enum` | Defines the preferred rendering mode - svg/canvas. |
+| `RenderAs` | `RenderingMode` enum <br /> `Svg` | Defines the preferred rendering mode - svg/canvas. |
 | `Checksum` | `bool` | By setting it to true, the Barcode will display the checksum digit next to the value in the text area. |
 | `Type` | `enum` | Defines the symbology (encoding) the Barcode will use - ([full list of supported encodings]({%slug  barcode-encoding%})) |
 | `Value` | `string` | Defines the initial value of the Barcode. |
