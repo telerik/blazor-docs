@@ -50,11 +50,11 @@ There are two other events that you are not required to handle - you can use the
 
 >caption Some examples of the UX related to appointments, read more in the list after the figure
 
-![scheduler event handling ux explanation](images/ux-explanations.png)
+![scheduler event handling ux explanation](../images/ux-explanations.png)
 
 >caption Recurring appointments appearance and indicators
 
-![UI of recurring appointments and exceptions](images/recurring-event-ui-explanation.png)
+![UI of recurring appointments and exceptions](../images/recurring-event-ui-explanation.png)
 
 
 The UI for the scheduler provides the following options for interacting with the appointments collection:
@@ -89,7 +89,7 @@ The delete confirmation dialog triggers before event deletion. You can enable it
 
 >caption Delete Confirmation dialog appearance
 
-![](images/scheduler-delete-confirmation.gif)
+![](../images/scheduler-delete-confirmation.gif)
 
 >caption Enabling of the Delete Confirmation Dialog
 

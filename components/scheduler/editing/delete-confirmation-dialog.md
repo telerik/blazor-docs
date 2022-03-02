@@ -16,7 +16,7 @@ The delete confirmation dialog triggers before event deletion. You can enable it
 
 >caption Delete Confirmation dialog appearance
 
-![](images/scheduler-delete-confirmation.gif)
+![A gif that visualizes the delete confirmation](../images/scheduler-delete-confirmation.gif)
 
 >caption Enabling of the Delete Confirmation Dialog
 
