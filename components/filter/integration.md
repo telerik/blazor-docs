@@ -28,7 +28,7 @@ This article contains the following sections:
 1. Set the Value parameter of the Filter via [one-way]({%slug filter-events%}#valuechanged) or two-way binding.
 2. Update the Grid data based on the Filter value.
 
->caption Filter with two-way bound value in Grid. If you want to filter at the moment of change, use Filter with a one-way bound value.
+>caption Filter with two-way bound value in Grid. If you want to filter at the moment of change, use Filter with a [one-way bound value](events)
 
 ````Two-way
 @using Telerik.DataSource;
