@@ -47,36 +47,36 @@ Property | Type | Description
 @inject IWebHostEnvironment HostingEnvironment
 
 <div style="width:300px">
-	<TelerikFileSelect OnSelect=@HandleFiles
-					   AllowedExtensions="@AllowedExtensions">
-	</TelerikFileSelect>
-	<div class="k-form-hint">
-		Expected files: <strong>JPG, PNG, GIF</strong>		
-	</div>
+    <TelerikFileSelect OnSelect=@HandleFiles
+                       AllowedExtensions="@AllowedExtensions">
+    </TelerikFileSelect>
+    <div class="k-form-hint">
+        Expected files: <strong>JPG, PNG, GIF</strong>
+    </div>
 </div>
 
 @code {
-	public List<string> AllowedExtensions { get; set; } = new List<string>() { ".jpg", ".png", ".gif" };
-	public Dictionary<string, CancellationTokenSource> Tokens { get; set; } = new Dictionary<string, CancellationTokenSource>();
+    public List<string> AllowedExtensions { get; set; } = new List<string>() { ".jpg", ".png", ".gif" };
+    public Dictionary<string, CancellationTokenSource> Tokens { get; set; } = new Dictionary<string, CancellationTokenSource>();
 
-	private void HandleFiles(FileSelectEventArgs args)
-	{
-		foreach (var file in args.Files)
-		{
-			if (!file.InvalidExtension)
-			{
-				_ = UploadFile(file);
-			}
-		}
-	}
+    private async Task HandleFiles(FileSelectEventArgs args)
+    {
+        foreach (var file in args.Files)
+        {
+            if (!file.InvalidExtension)
+            {
+                await UploadFile(file);
+            }
+        }
+    }
 
-	private async Task UploadFile(FileSelectFileInfo file)
-	{
-		Tokens.Add(file.Id, new CancellationTokenSource());
-		var path = Path.Combine(HostingEnvironment?.WebRootPath, file.Name);
-		await using FileStream fs = new FileStream(path, FileMode.Create);
-		await file.Stream.CopyToAsync(fs, Tokens[file.Id].Token);
-	}
+    private async Task UploadFile(FileSelectFileInfo file)
+    {
+        Tokens.Add(file.Id, new CancellationTokenSource());
+        var path = Path.Combine(HostingEnvironment?.WebRootPath, file.Name);
+        await using FileStream fs = new FileStream(path, FileMode.Create);
+        await file.Stream.CopyToAsync(fs, Tokens[file.Id].Token);
+    }
 }
 ````
 
