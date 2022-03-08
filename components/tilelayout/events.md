@@ -22,7 +22,6 @@ The `OnResize` event is fired when any tile is resized. It lets you respond to t
 The `OnResize` event provides an argument of type `TileLayoutResizeEventArgs`. It exposes two properties:
 
 * `Id` (`string`) of the resized item
-* `ShouldRender` flag (`bool`) that determines if the component should re-render after the event handler execution.
 
 >caption Respond to the Resize event and adjust components in the tile
 
@@ -94,7 +93,6 @@ The `OnReorder` event fires when tiles have been reordered. You can use it to, f
 The `OnReorder` event provides an argument of type `TileLayoutReorderEventArgs`. It exposes two properties:
 
 * `Id` (`string`) of the reordered item
-* `ShouldRender` flag (`bool`) that determines if the component should re-render after the event handler execution.
 
 >caption Respond to the OnReorder event
 
