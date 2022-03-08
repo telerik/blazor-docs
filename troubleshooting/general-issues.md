@@ -21,6 +21,7 @@ This page provides solutions for common issues you may encounter while working w
 * [Issues After Deployment]({%slug deployment-troubleshooting%})
 * [Content Security Policy]({%slug troubleshooting-csp%})
 * [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%})
+* [Upload Troubleshooting]({%slug upload-troubleshooting%})
 
 
 ## Popups Do Not Work
