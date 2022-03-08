@@ -22,7 +22,9 @@ This article explains the events available in the Telerik Upload for Blazor:
 * [OnCancel](#oncancel)
 * [OnClear](#onclear)
 
->note The file `Name` in the event arguments is HTML encoded. If you want the actual name you may need to decode it (for example, use `System.Net.WebUtility.HtmlDecode(file.Name)`). The file name that the controller (endpoint) receives is *not* encoded.
+>note The file `Name` in the event arguments is HTML encoded. If you want the actual name you may need to decode it (for example, use `System.Net.WebUtility.HtmlDecode(file.Name)`).
+>
+The file name that the controller (endpoint) receives is *not* encoded.
 
 ## OnSelect
 
@@ -426,7 +428,9 @@ The `OnProgress` event fires each time a particular file makes a progress in its
 
 ## OnSuccess
 
-The `OnSuccess` event fires each time a particular request is successful - either an upload of a file, or the deletion of a file. The event arguments provide the file that was uploaded or deleted, and the type of the operation. The `Request` object in the event arguments also carries information about the server response - such as a status code and any custom messages the server returned. For example, this response can be used to obtain a URL string from the endpoint and show a preview of an uploaded image.
+The `OnSuccess` event fires each time a particular request is successful - either an upload of a file, or the deletion of a file. The Upload assumes a successful request if `Response.StatusCode` in the controller action is [between 200 and 299](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#successful_responses).
+
+The event arguments provide the file that was uploaded or deleted, and the type of the operation. The `Request` object in the event arguments also carries information about the server response - such as a status code and any custom messages the server returned. For example, this response can be used to obtain a URL string from the endpoint and show a preview of an uploaded image.
 
 @[template](/_contentTemplates/upload/notes.md#events-files-carry-client-validation-info)
 
@@ -465,8 +469,6 @@ The `OnSuccess` event fires each time a particular request is successful - eithe
 ````
 
 >caption Handling the OnSuccess event and consuming information the controller sent
-
-@[template](/_contentTemplates/upload/notes.md#server-security-note)
 
 <div class="skip-repl"></div>
 ````Component
@@ -548,8 +550,6 @@ namespace MyBlazorApp.Controllers
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 
-
-
 ## OnError
 
 The `OnError` event fires each time a particular request fails - either an upload of a file, or the deletion of a file. The event arguments provide the file that was uploaded or deleted, and the type of the operation. The `Request` object in the event arguments also carries information about the server response - such as a status code and any custom messages the server returned.
@@ -590,8 +590,6 @@ The `OnError` event fires each time a particular request fails - either an uploa
 ````
 
 >caption Handling the OnError event and consuming information the controller sent
-
-@[template](/_contentTemplates/upload/notes.md#server-security-note)
 
 <div class="skip-repl"></div>
 ````Component

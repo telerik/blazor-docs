@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Upload Overview
-description: Overview of the File Upload for Blazor.
+description: Overview of the Blazor File Upload. See how to use the component and discover all features.
 slug: upload-overview
 tags: telerik,blazor,upload,async,overview
 published: True
@@ -10,349 +10,250 @@ position: 0
 
 # Blazor Upload Overview
 
-The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Upload component</a> lets the users upload files to a server handler asynchronously. They can select one or multiple files, and you can control whether the upload starts immediately or upon a button click, and also let users delete their uploaded files. The component offers [client-side validation]({%slug upload-validation%}) for the selected files' extensions and size.
+The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Upload component</a> lets users upload files to a server endpoint asynchronously. Users can select one or multiple files. The upload process can start immediately after selection or after a button click. Users can also delete their uploaded files. The component can validate the selected files' extensions and size.
 
-#### To use a Telerik Upload for Blazor
+[client-side validation]({%slug upload-validation%})
 
-1. Add the `TelerikUpload` tag and set its `SaveUrl` and `RemoveUrl` (RemoveUrl is optional) to controller methods that will handle the files.
+## Comparison with the FileSelect
 
-    **CSHTML**
+@[template](/_contentTemplates/upload/notes.md#fileselect-upload-comparison)
 
-        @inject NavigationManager NavigationManager
-        
-        <TelerikUpload SaveUrl="@SaveUrl" RemoveUrl="@RemoveUrl"
-                       SaveField="file" RemoveField="fileToRemove"
-                       AllowedExtensions="@( new List<string>() { ".jpg", ".png", ".jpeg" } )"
-                       MaxFileSize="2048000" MinFileSize="1024">
-        </TelerikUpload>
-        
-        @code {
-            // One way to define relative paths is to put the desired URL here.
-            // This can be a full URL such as https://mydomain/myendpoint/save
-            public string SaveUrl => ToAbsoluteUrl("api/upload/save");
-            public string RemoveUrl => ToAbsoluteUrl("api/upload/remove");
-        
-            public string ToAbsoluteUrl(string url)
-            {
-                return $"{NavigationManager.BaseUri}{url}";
-            }
-        }
+## Creating Blazor Upload
 
-1. Create a suitable controller (endpoint) that can receive files from a POST request. **Note the different ways to set `physicalPath` for server and client Blazor apps.** For example:
+There are two main steps to use the Upload component:
 
-    **C#**
-    
-        using Microsoft.AspNetCore.Mvc;
-        using System.IO;
-        using Microsoft.AspNetCore.Http;
-        using Microsoft.AspNetCore.Hosting;
-        using System.Net.Http.Headers;
-        using System.Threading.Tasks;
-        
-        namespace MyBlazorApp.Controllers
-        {
-            [Route("api/[controller]/[action]")]
-            public class UploadController : Controller
-            {
-                public IWebHostEnvironment HostingEnvironment { get; set; }
-        
-                public UploadController(IWebHostEnvironment hostingEnvironment)
-                {
-                    HostingEnvironment = hostingEnvironment;
-                }
-        
-                [HttpPost]
-                public async Task<IActionResult> Save(IFormFile file) // must match SaveField which defaults to "files"
-                {
-                    if (file != null)
-                    {
-                        try
-                        {
-                            var fileContent = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
+* [Configure the component](#configure-the-component)
+* [Implement controller methods](#implement-controller-methods)
 
-                            // Some browsers send file names with full path.
-                            // We are only interested in the file name.
-                            var fileName = Path.GetFileName(fileContent.FileName.ToString().Trim('"'));
+Afterwards, take care of [application security](#security) and check our tips for [large file uploads](#large-file-uploads) and [CORS](#cross-origin-requests).
 
-                            // server Blazor app
-                            var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
-                            // client Blazor app
-                            //var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
+### Configure the component
 
-                            // Implement security mechanisms here - prevent path traversals,
-                            // check for allowed extensions, types, size, content, viruses, etc.
-                            // This sample always saves the file to the root and is not sufficient for a real application.
+1. Add the `TelerikUpload` tag.
+1. Set `SaveUrl` to the endpoint URL that will receive the uploaded files.
+1. (optional) Set `RemoveUrl` to the endpoint URL that will receive the file names to delete.
+1. Configure the allowed file types via `AllowedExtensions`. Use a `List<string>`.
+1. Set `MaxFileSize` in bytes (`int`). Note that [web servers have their own request size restrictions](#large-file-uploads).
 
-                            using (var fileStream = new FileStream(physicalPath, FileMode.Create))
-                            {
-                                await file.CopyToAsync(fileStream);
-                            }
-                        }
-                        catch
-                        {
-                            // Implement error handling here, this example merely indicates an upload failure.
-                            Response.StatusCode = 500;
-                            await Response.WriteAsync("some error message"); // custom error message
-                        }
-                    }
+Steps 4 and 5 are optional, but strongly recommended.
 
-                    // Return an empty string message in this case
-                    return new EmptyResult();
-                }
+>caption Sample Upload configuration
 
-                [HttpPost]
-                public ActionResult Remove(string fileToRemove) // must match RemoveField which defaults to "files"
-                {
-                    if (fileToRemove != null)
-                    {
-                        try
-                        {
-                            var fileName = Path.GetFileName(fileToRemove);
+<div class="skip-repl"></div>
 
-                            // server Blazor app
-                            var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
-                            // client Blazor app
-                            //var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
+````CS
+<TelerikUpload SaveUrl="/api/upload/save"
+               RemoveUrl="/api/upload/remove"
+               AllowedExtensions="@AllowedFileTypes"
+               MaxFileSize="@MaxFileSize" />
 
-                            if (System.IO.File.Exists(physicalPath))
-                            {
-                                // Implement security mechanisms here - prevent path traversals,
-                                // check for allowed extensions, types, permissions, etc.
-                                // this sample always deletes the file from the root and is not sufficient for a real application.
-        
-                                System.IO.File.Delete(physicalPath);
-                            }
-                        }
-                        catch
-                        {
-                            // Implement error handling here, this example merely indicates an upload failure.
-                            Response.StatusCode = 500;
-                            Response.WriteAsync("some error message"); // custom error message
-                        }
-                    }
-
-                    // Return an empty string message in this case
-                    return new EmptyResult();
-                }
-            }
-        }
-
-
->caption The result from the code snippet above after selecting some valid and some invalid files
-
-![Valid and Invalid files uploaded](images/upload-overview-validation.png)
-
->note The sample controller above takes only one field with the given name. If you already have existing controllers that handle files, it is possible that they accept `IEnumerable<IFormFile>` and `string[]` respectively. This will work with the Telerik Upload too - it simply allows for more fields with that name to be present in the request, while the Telerik component will add only one file (field).
-
-## Features
-
-The Upload provides the following key features:
-
-* `AutoUpload` - Specifies whether the upload of a file should start immediately upon its selection, or the user must click the "Upload" button. Defaults to `true`.
-
-* `Enabled` - Whether the component is enabled for the end user.
-
-* `Multiple` - Enables the selection of multiple files. If set to `false` (defaults to `true`), only one file can be selected at a time.
-
-* `RemoveField` - Sets the `FormData` key which contains the file names submitted to the `RemoveUrl` endpoint when the user clicks the individual [x] button on the chosen files. Defaults to `files`.
-
-* `RemoveUrl`- Sets the URL of the endpoint for the remove request. The `FormData` request key is named after the `RemoveField` parameter. It contains the list of file names which should be removed from the server. The handler must accept POST requests which contain one or more fields with the same name as the `RemoveField`. The handler is hit once for each file.
-
-* `SaveField` - Sets the `FormData` key which contains the files submitted to the `SaveUrl` endpoint. Defaults to `files`.
-
-* `SaveUrl`- The URL of the handler (endpoint, controller) that will receive the uploaded files. The handler must accept POST requests which contain one or more fields with the same name as the `SaveField`. The handler is hit once for each file.
-
-* `WithCredentials` - Controls whether to send credentials (cookies, headers) for cross-site requests (see the [XMLHttpRequest.withCredentials property](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials)). You can also add extra information to the request (such as authentication tokens and other metadata) through the `OnUpload` and `OnRemove` [events]({%slug upload-events%}).
-
-* `Class` - the CSS class that will be rendered on the main wrapping element of the Upload component
-
-* [Validation]({%slug upload-validation%})
-
-## Upload Reference
-
-````CSHTML
-<TelerikUpload @ref="@UploadRef" />
-
-@code{
-    Telerik.Blazor.Components.TelerikUpload UploadRef { get; set; }
+@code {
+    List<string> AllowedFileTypes = new List<string>() { ".jpg", ".jpeg", ".png", ".gif" };
+    int MaxFileSize = 10 * 1024 * 1024; // 10 MB
 }
 ````
 
-## Methods
+### Implement controller methods
 
-The Upload methods are accesible through its [reference](#upload-reference).
+* **Save** action method
+    * Its argument should be `IFormFile` or `IEnumerable<IFormFile>`.
+    * The Upload always sends files one by one, but both argument types can work.
+    * The argument name (`FormData` request key) must match the Upload [`SaveField` parameter](#upload-parameters) value. By default, that is `files`.
+* **Remove** action method
+    * Its argument should be `string` or `IEnumerable<string>`.
+    * The argument name (`FormData` request key) must match the Upload [`RemoveField` parameter](#upload-parameters) value. By default, that is `files`.
+
+Both action methods should accept `POST` requests. Correct request routing depends on the application.
+
+>caption Sample Upload Controller
+
+<div class="skip-repl"></div>
+
+````CS
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace MyBlazorApp.Controllers
+{
+    [Route("api/[controller]/[action]")]
+    public class UploadController : Controller
+    {
+        public IWebHostEnvironment HostingEnvironment { get; set; }
+
+        public UploadController(IWebHostEnvironment hostingEnvironment)
+        {
+            HostingEnvironment = hostingEnvironment;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Save(IFormFile files) // must match SaveField
+        {
+            if (files != null)
+            {
+                try
+                {
+                    // save to wwwroot - Blazor Server only
+                    var saveLocation = Path.Combine(HostingEnvironment.WebRootPath, files.FileName);
+                    // save to project root - Blazor Server or WebAssembly
+                    //var saveLocation = Path.Combine(HostingEnvironment.ContentRootPath, files.FileName);
+
+                    using (var fileStream = new FileStream(saveLocation, FileMode.Create))
+                    {
+                        await files.CopyToAsync(fileStream);
+                    }
+                }
+                catch
+                {
+                    Response.StatusCode = 500;
+                    await Response.WriteAsync("Upload failed.");
+                }
+            }
+
+            return new EmptyResult();
+        }
+
+        [HttpPost]
+        public ActionResult Remove(string files) // must match RemoveField
+        {
+            if (files != null)
+            {
+                try
+                {
+                    // delete from wwwroot - Blazor Server only
+                    var fileLocation = Path.Combine(HostingEnvironment.WebRootPath, files);
+                    // delete from project root - Blazor Server or WebAssembly
+                    //var fileLocation = Path.Combine(HostingEnvironment.ContentRootPath, files);
+
+                    if (System.IO.File.Exists(fileLocation))
+                    {
+                        System.IO.File.Delete(fileLocation);
+                    }
+                }
+                catch
+                {
+                    Response.StatusCode = 500;
+                    Response.WriteAsync("File deletion failed.");
+                }
+            }
+
+            return new EmptyResult();
+        }
+    }
+}
+````
+
+### Security
+
+The Telerik Upload component makes XHR requests from the browser to the designated endpoints. If needed, use the [`OnUpload` and `OnRemove` events]({% slug upload-events %}) to add headers, authentication tokens and custom data to the request.
+
+Authentication and authorization depends on the application.
+
+@[template](/_contentTemplates/upload/notes.md#server-security-note)
+
+### Cross-Origin Requests
+
+[Cross-origin (CORS) requests](https://www.w3.org/TR/cors/) depend on the application and endpoint setup. The Upload `WithCredentials` parameter sets the corresponding [parameter of the XHR request](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials). Cookies, headers and other parameters of the Blazor app and CORS endpoint should be implemented by the respective applications (for example, set the `Access-Control-Allow-Origin` header with an appropriate value and the `Access-Control-Allow-Credentials` header with a `true` value). Read more in this [CORS Tutorial](https://www.html5rocks.com/en/tutorials/cors/). Also check [this forum thread](https://www.telerik.com/forums/upload-component-reports-'file-failed-to-upload'#-6QPJn3obkm3D1kR1ysukA), which shows one way to setup the CORS requests, headers and responses on the receiving server.
+
+
+## Validation
+
+The Upload includes [built-in client-side validation]({%slug upload-validation%}) for the file size and type (extension). Additional custom validation can take place in the [OnSelect event]({%slug upload-events%}#onselect).
+
+
+## Large File Uploads
+
+The Upload `MaxFileSize` parameter is used only for [client-side validation]({%slug upload-validation%}). The component sends files in one piece and the server needs a separate configuration to support large file uploads. Here are some examples for common server settings:
+
+* [IIS `maxAllowedContentLength`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#iis) (also check the [`requestLimits` article](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/security/requestfiltering/requestlimits/) and this [StackOverflow thread](https://stackoverflow.com/questions/10871881/iis7-the-request-filtering-module-is-configured-to-deny-a-request-that-exceeds))
+* [ASP.NET Core `MultipartBodyLengthLimit`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#multipart-body-length-limit)
+* [Kestrel](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/options) web server [`MaxRequestBodySize`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#kestrel-maximum-request-body-size)
+
+
+## Upload Parameters
+
+The following table lists the Upload parameters. Also check the [Upload API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikUpload) for a full list of properties, methods and events.
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `AllowedExtensions` | `List<string>` | The list of allowed file types. Read more at [Validation]({%slug upload-validation%}). |
+| `AutoUpload` | `bool`<br />(`true`) | When `true`, the upload process starts automatically after file selection. When `false`, the component renders an upload button. |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-upload">` element. |
+| `Enabled` | `bool`<br />(`true`) | Enables file selection and upload. |
+| `Multiple` | `bool`<br />(`true`) | Sets if the user can select several files at the same time. The component always uploads files one by one, and the controller method receives them separately. |
+| `RemoveField` | `string`<br />(`"files"`) | Sets the `FormData` key, which contains the file name submitted for deletion to the [`RemoveUrl` endpoint](#implement-controller-methods). The `RemoveField` value must match the delete controller method's argument name. The user triggers remove requests when clicking on the [x] buttons in the uploaded file list. |
+| `RemoveUrl` | `string` | The URL which receives the file names for deletion. |
+| `SaveField` | `string`<br />(`"files"`) | Sets the `FormData` key, which contains the file submitted to the [`SaveUrl` endpoint](#implement-controller-methods). The `SaveField` value must match the save controller method's argument name. |
+| `SaveUrl` | `string` | The URL which receives the uploaded files. |
+| `WithCredentials` | `bool` | Controls if the Upload will send credentials such as cookies or HTTP headers for [**cross-site** requests](#cross-origin-requests). See [XMLHttpRequest.withCredentials](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials). On the other hand, use the [`OnUpload` and `OnRemove` events]({%slug upload-events%}) to add authentication tokens and other metadata to the component requests. |
+
+
+## Upload Reference and Methods
+
+The Upload exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute (example below). The Upload methods are:
 
 * `ClearFiles` - Clears all files from the list, both uploaded and in queue.
 * `UploadFiles` - Uploads all valid selected files. Fires the [OnUpload]({%slug upload-events%}#onupload) event.
 * `OpenFileSelectAsync` - Triggers the browser's file select dialog.
 
->caption Get a reference to the Upload and use its methods.
+>caption Get a reference to the Upload and execute methods.
 
 <div class="skip-repl"></div>
-````Component 
-@* This example showcases the use of the Upload methods. *@
 
-@inject NavigationManager NavigationManager
-
-<TelerikButton @onclick="@Clear">Clear File List</TelerikButton>
-<TelerikButton @onclick="@Upload">Start Upload Programmatically</TelerikButton>
-<TelerikButton @onclick="@OpenFile">Open File Selection Dialog</TelerikButton>
-<br/><br/>
+````HTML
+<p>
+    <TelerikButton OnClick="@SelectFiles">Open File Selection Dialog</TelerikButton>
+    <TelerikButton OnClick="@Clear">Clear File List</TelerikButton>
+    <TelerikButton OnClick="@Upload">Start Upload</TelerikButton>
+</p>
 
 <TelerikUpload @ref="@UploadRef"
-               SaveUrl="@SaveUrl"
-               RemoveField="@RemoveUrl"
-               AutoUpload="false">
-</TelerikUpload>
+               SaveUrl="/api/upload/save"
+               RemoveUrl="/api/upload/remove"
+               AutoUpload="false" />
 
 @code {
-    public TelerikUpload UploadRef { get; set; }
-    public string SaveUrl => ToAbsoluteUrl("api/upload/save");
-    public string RemoveUrl => ToAbsoluteUrl("api/upload/remove");
+    TelerikUpload UploadRef { get; set; }
 
-    public string ToAbsoluteUrl(string url)
+    async Task SelectFiles()
     {
-        return $"{NavigationManager.BaseUri}{url}";
+        await UploadRef.OpenFileSelectAsync();
     }
 
-    public void Clear()
+    void Clear()
     {
         UploadRef.ClearFiles();
     }
 
-    public void Upload()
+    void Upload()
     {
         UploadRef.UploadFiles();
     }
-
-    public async Task OpenFile()
-    {
-        await UploadRef.OpenFileSelectAsync();
-    }
 }
 ````
-````Controller
-        using Microsoft.AspNetCore.Mvc;
-        using System.IO;
-        using Microsoft.AspNetCore.Http;
-        using Microsoft.AspNetCore.Hosting;
-        using System.Net.Http.Headers;
-        using System.Threading.Tasks;
-        
-        namespace MyBlazorApp.Controllers
-        {
-            [Route("api/[controller]/[action]")]
-            public class UploadController : Controller
-            {
-                public IWebHostEnvironment HostingEnvironment { get; set; }
-        
-                public UploadController(IWebHostEnvironment hostingEnvironment)
-                {
-                    HostingEnvironment = hostingEnvironment;
-                }
-        
-                [HttpPost]
-                public async Task<IActionResult> Save(IFormFile file) // must match SaveField which defaults to "files"
-                {
-                    if (file != null)
-                    {
-                        try
-                        {
-                            var fileContent = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
-        
-                            // Some browsers send file names with full path.
-                            // We are only interested in the file name.
-                            var fileName = Path.GetFileName(fileContent.FileName.ToString().Trim('"'));
 
-                            // server Blazor app
-                            //var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
-                            // client Blazor app
-                            var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
 
-                            // Implement security mechanisms here - prevent path traversals,
-                            // check for allowed extensions, types, size, content, viruses, etc.
-                            // This sample always saves the file to the root and is not sufficient for a real application.
-        
-                            using (var fileStream = new FileStream(physicalPath, FileMode.Create))
-                            {
-                                await file.CopyToAsync(fileStream);
-                            }
-                        }
-                        catch
-                        {
-                            // Implement error handling here, this example merely indicates an upload failure.
-                            Response.StatusCode = 500;
-                            await Response.WriteAsync("some error message"); // custom error message
-                        }
-                    }
+## Troubleshooting
 
-                    // Return an empty string message in this case
-                    return new EmptyResult();
-                }
+The Upload component requires integration with remote endpoints and controller methods to work. See how to [detect and troubleshoot issues with the endpoint implementation, and how to fix them]({%slug upload-troubleshooting%}).
 
-                [HttpPost]
-                public ActionResult Remove(string fileToRemove) // must match RemoveField which defaults to "files"
-                {
-                    if (fileToRemove != null)
-                    {
-                        try
-                        {
-                            var fileName = Path.GetFileName(fileToRemove);
 
-                            // server Blazor app
-                            //var physicalPath = Path.Combine(HostingEnvironment.WebRootPath, fileName);
-                            // client Blazor app
-                            var physicalPath = Path.Combine(HostingEnvironment.ContentRootPath, fileName);
-        
-                            if (System.IO.File.Exists(physicalPath))
-                            {
-                                // Implement security mechanisms here - prevent path traversals,
-                                // check for allowed extensions, types, permissions, etc.
-                                // this sample always deletes the file from the root and is not sufficient for a real application.
+## Next Steps
 
-                                System.IO.File.Delete(physicalPath);
-                            }
-                        }
-                        catch
-                        {
-                            // Implement error handling here, this example merely indicates an upload failure.
-                            Response.StatusCode = 500;
-                            Response.WriteAsync("some error message"); // custom error message
-                        }
-                    }
-
-                    // Return an empty string message in this case
-                    return new EmptyResult();
-                }
-            }
-        }
-````
-
-## Notes
-
-The Telerik Upload component facilitates sending a file to an endpoint. There are a few considerations to keep in mind with regards to handling the files on the server:
-
-@[template](/_contentTemplates/upload/notes.md#server-security-note)
-
-### File Size
-
-The `MaxFileSize` parameter of the component is used for [client-side validation]({%slug upload-validation%}), and the server needs a separate configuration. At this stage, the files are uploaded in one piece and so the server may block large requests. Make sure the applicable server settings for your environment are set correctly. Here are a few common examples:
-
-* [IIS `maxAllowedContentLength`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#iis) (also check the [`requestLimits` article](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/security/requestfiltering/requestlimits/) and this [StackOverflow thread](https://stackoverflow.com/questions/10871881/iis7-the-request-filtering-module-is-configured-to-deny-a-request-that-exceeds))
-* [ASP.NET Core `MultipartBodyLengthLimit`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#multipart-body-length-limit)
-* [Kestrel `MaxRequestBodySize`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#kestrel-maximum-request-body-size)
-
-### Application Logic
-
-Authentication, authorization and routing of the requests is up to the application logic. The Telerik Upload component makes an XHR request from the browser to the designated endpoint and further application logic is up to the server. You can use the [OnUpload and OnRemove events]({% slug upload-events %}) to add headers and data to the request so you can handle the requests accordingly on the server.
-
-### Cross-Origin Requests
-
-Cross-origin requests depend on the application and endpoint setup. The `WidthCredentials` parameter sets the corresponding parameter of the XHR request. Handling the cookies, headers and other parameters of the Blazor app and [CORS](https://www.w3.org/TR/cors/) endpoint are to be implemented by the respective applications (for example, including the `Access-Control-Allow-Origin` header with an appropriate value and the `Access-Control-Allow-Credentials` header with a `true` value). You can read more on the subject in the following article: [https://www.html5rocks.com/en/tutorials/cors/](https://www.html5rocks.com/en/tutorials/cors/). You can also find one example setup from a customer of ours in [this thread](https://www.telerik.com/forums/upload-component-reports-'file-failed-to-upload'#-6QPJn3obkm3D1kR1ysukA) which shows one way to setup the CORS requests, headers and responses on the receiving server.
+* [Use Upload Validation]({%slug upload-validation%})
+* [Subscribe to Upload Events]({%slug upload-events%})
 
 
 ## See Also
 
-  * [Events]({%slug upload-events%})
-  * [Validation]({%slug upload-validation%})
-  * [Live Demo: Upload](https://demos.telerik.com/blazor-ui/upload/overview)
+* [Live Upload Demos](https://demos.telerik.com/blazor-ui/upload/overview)
+* [Upload API](/blazor-ui/api/Telerik.Blazor.Components.TelerikUpload)
