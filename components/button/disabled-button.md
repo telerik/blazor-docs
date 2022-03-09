@@ -12,7 +12,7 @@ position: 5
 
 Sometimes specific buttons in an application must be temporarily disabled. To control the enabled state of the component, use the `Enabled` Boolean attribute.
 
-> `Enabled="false"` renders a `disabled` attribute on the `<button>` element. A disabled Button will fire its `OnClick` handler if the user removes the `disabled` attribute via the browser's developer console. This behavior is consistent with standard buttons.
+> `Enabled="false"` renders a `disabled` attribute on the `<button>` element. A disabled Button will fire its `OnClick` handler if the user removes the `disabled` attribute via the browser's developer console. This behavior is consistent with standard buttons. For sensitive tasks, verify the button state in the `OnClick` handler and perform any other relevant checks.
 
 The following example demonstrates how to enable and disable the Button.
 
