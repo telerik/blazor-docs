@@ -119,7 +119,7 @@ The following table lists the FileSelect parameters. Also check the [FileSelect 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `AllowedExtensions` | `List<string>` | The list of allowed file types. Read more at [Validation]({%slug fileselect-validation%}). |
-| `Class` | `string` | Renders a custom CSS class to the `<div class="k-fileselect">` element. |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-upload">` element. (The FileSelect reuses the Upload HTML rendering.) |
 | `Enabled` | `bool`<br />(`true`) | Enables file selection. |
 | `MinFileSize` | `int?` | Sets the minimum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
 | `MaxFileSize`| `int?` | Sets the maximum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
