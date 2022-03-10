@@ -63,7 +63,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 
 ## Data Binding
 
-The Blazor Drawer requires a data source so that it can display items to the user. To provide a data source, use the `Data` property. [Read more about the Blazor Drawer data binding]({%slug drawer-data-binding%})
+The Blazor Drawer requires a data source so that it can display items to the user. To provide a data source, use the `Data` property. [Read more about the Blazor Drawer data binding]({%slug drawer-data-binding%}).
 
 ## Navigation
 
@@ -72,31 +72,31 @@ A Drawer is often used to list pages, views, or sections in an application so th
 * Use the built-in `UrlField` in the [bound data]({%slug drawer-data-binding%}) to populate the URLs in the anchors that the Drawer will generate if you provide a URL for the given item.
 * Use a [Template]({%slug drawer-templates%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
 
-[Read more about the Blazor Drawer navigation]({%slug drawer-navigation%})
+[Read more about the Blazor Drawer navigation]({%slug drawer-navigation%}).
 
 ## Modes
 
-Drawer provides different modes of expansion. [Read more about the Blazor Drawer modes]({%slug drawer-modes%})
+Drawer provides different modes of expansion. [Read more about the Blazor Drawer modes]({%slug drawer-modes%}).
 
 ## Mini View
 
-The Drawer is not visible by default when it is collapsed. To leave a small hint for the user, the Drawer provides a Mini View so they can navigate with just a single action. [Read more about the Blazor Drawer mini view]({%slug drawer-mini-mode%})
+The Drawer is not visible by default when it is collapsed. To leave a small hint for the user, the Drawer provides a Mini View so they can navigate with just a single action. [Read more about the Blazor Drawer mini view]({%slug drawer-mini-mode%}).
 
 ## Selection
 
-You can pre-select the desired Drawer item, then use the highlighted item to load/generate content, or denote the current page. [Read more about the Blazor Drawer selection]({%slug drawer-selection%})
+You can pre-select the desired Drawer item, then use the highlighted item to load/generate content, or denote the current page. [Read more about the Blazor Drawer selection]({%slug drawer-selection%}).
 
 ## Templates
 
-You can use the functionality of the built-in templates and customize what is rendered. [Read more about the Blazor Drawer templates]({%slug drawer-templates%})
+You can use the functionality of the built-in templates and customize what is rendered. [Read more about the Blazor Drawer templates]({%slug drawer-templates%}).
 
 ## Drawer Icons
 
-To illustrate the purpose of each Drawer item, the Blazor Drawer allows you to add images, icon classes, or font icons. [Read more about the Blazor Drawer icons]({%slug drawer-icons%})
+To illustrate the purpose of each Drawer item, the Blazor Drawer allows you to add images, icon classes, or font icons. [Read more about the Blazor Drawer icons]({%slug drawer-icons%}).
 
 ## Refresh Data
 
-The Drawer allows you to refresh its data manually so the component can react to changes in the collection. [Read more about the Blazor Drawer data refresh]({%slug drawer-refresh-data%})
+The Drawer allows you to refresh its data manually so the component can react to changes in the collection. [Read more about the Blazor Drawer data refresh]({%slug drawer-refresh-data%}).
 
 ## Events
 
@@ -147,7 +147,7 @@ The Drawer methods are accessible through it's reference. The reference exposes 
 
 ## Parameters
 
-The Blazor Dialog provides various parameters that allow you to configure the component:
+The Blazor Drawer provides various parameters that allow you to configure the component:
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
