@@ -12,13 +12,14 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/checkbox" target="_blank">Blazor Checkbox component</a> allows you to add more customizable checkboxes to your application. It maintains the behavior of the standard HTML checkbox and provides checked, unchecked and [indeterminate]({%slug checkbox-indeterminate-state%}) states.
 
-#### To use a Telerik Checkbox for Blazor
+## Creating Blazor Checkbox
 
-1. add the `TelerikCheckBox` tag
-1. provide `Value` (one-way data binding) or `bind-Value` (two-way data binding) property
+1. Add the `TelerikCheckBox` tag to add the component to your razor page.
+
+1. Set the `Value` (one-way data binding) or the `bind-Value` (two-way data binding) property.
 
 
->caption Basic setup of the Telerik CheckBox using two-way data binding
+>caption Basic setup of the Telerik CheckBox using two-way data binding.
 
 ````CSHTML
 @*Basic setup of the Telerik CheckBox Component*@
@@ -31,23 +32,17 @@ The <a href="https://www.telerik.com/blazor-ui/checkbox" target="_blank">Blazor 
 }
 ````
 
-## Features
+## Indeterminate State
 
-The CheckBox provides the following features:
+In addition to checked and unchecked basic states, the Blazor CheckBox has a third state - Indeterminate. [Read more about the Blazor Checkbox third state]({%slug checkbox-indeterminate-state%}).
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the CheckBox.
-* `Enabled` - whether the component is enabled.
-* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to it.
-* `TabIndex` - the `tabindex` attribute rendered on the CheckBox.
-* `Value` and `bind-Value`- mapped to the `Checked` property of the normal HTML checkbox
-  * The `Value` and `bind-Value` accept `bool` and `bool?` types
-* `Indeterminate` and `bind-Indeterminate` - see the [Indeterminate state]({%slug checkbox-indeterminate-state%}) article for more information and examples
-* Events - see the [CheckBox events]({%slug checkbox-events%}) article for more information and examples.
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
+## Appearance
 
-## Examples
+The Checkbox component provides settings to control its appearance. [Read more about the Blazor Checkbox appearance settings]({%slug checkbox-appearance%}).
 
->caption Example that showcases the "I agree to the terms and conditions" basic scenario
+## Common Example
+
+>caption Example that showcases the "I agree to the terms and conditions" basic scenario.
 
 ````CSHTML
 @if (hasAgreed)
@@ -72,10 +67,31 @@ else
     private bool hasAgreed { get; set; }
 }
 ````
->caption The result from the code snippet above
 
-![screenshot to showcase checkbox with bind-Indeterminate](images/checkbox-two-way-data-bind.gif)
+## Events
 
+The Blazor Checkbox generates events that you can handle and further customize its behavior. [Read more about the Blazor Checkbox events]({%slug checkbox-events%}).
+
+## Parameters
+
+The Blazor CheckBox provides various parameters that allow you to configure the component:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Value` | `bool` | Mapped to the `Checked` property of the normal HTML checkbox. |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the CheckBox. |
+| `Enabled` | `bool` | Whether the component is enabled. |
+| `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to it. |
+| `TabIndex` | `Nullable<int>` | The `tabindex` attribute rendered on the CheckBox. |
+| `Indeterminate` | `bool` | See the [Indeterminate state]({%slug checkbox-indeterminate-state%}) article for more information and examples. |
+
+See also the [Input Validation]({%slug common-features/input-validation%}) article.
+
+## Next Steps
+
+[Explore the CheckBox Indeterminate State]({%slug checkbox-indeterminate-state%})
+
+[Explore the CheckBox Events]({%slug checkbox-events%})
 
 ## See Also
 
