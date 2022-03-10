@@ -12,15 +12,15 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/radiogroup" target="_blank">Blazor RadioGroup component</a> allows the user to choose an option from a predefined set of choices presented in a list of radio buttons styled according to the Telerik [Theme]({%slug general-information/themes%}). You can also choose its [layout order]({%slug radiogroup-layout%}) and [label position]({%slug radiogroup-label-position%}).
 
-## Basics
+## Creating Blazor RadioGroup
 
-To use a Telerik RadioGroup for Blazor
+1. Add the `<TelerikRadioGroup>` tag to add the component to your razor page.
 
-1. Add the `<TelerikRadioGroup>` tag.
 1. Populate its `Data` property with the collection of items you want in the list.
+
 1. Set the `TextField` and `ValueField` properties to point to the corresponding names of the model.
 
->caption Basic Radio Button Group with two-way value binding
+>caption Basic Radio Button Group configuration.
 
 ````CSHTML
 Chosen gender: @( ChosenGender == 0 ? "no selection yet" : ChosenGender.ToString() )
@@ -53,55 +53,58 @@ Chosen gender: @( ChosenGender == 0 ? "no selection yet" : ChosenGender.ToString
 }
 ````
 
->caption The result from the code snippet above
+## Data Binding
 
-![Radio Group First Look](images/radiogroup-overview.gif)
+The Blazor RadioGroup requires a data source so that it can display buttons to the user. To provide a data source, use the `Data` property. [Read more about the Blazor RadioGroup data binding]({%slug radiogroup-databind%}).
 
->caption Component namespace and reference
+## Layout
+
+RadioGroup component lets you render the list of options in a vertical or in a horizontal fashion. [Read more about the Blazor RadioGroup layouts]({%slug radiogroup-layout%}).
+
+## Label Position
+
+RadioGroup component lets you render the labels of the radio buttons before or after the buttons themselves. [Read more about the Blazor RadioGroup label position]({%slug radiogroup-label-position%}).
+
+## Appearance Settings
+
+RadioGroup component provides settings for customizing the button appearance. [Read more about the Blazor RadioGroup settings]({%slug radiogroup-appearance%}).
+
+## Events
+
+The Blazor RadioGroup generates events that you can handle and further customize its behavior. [Read more about the Blazor RadioGroup events]({%slug radiogroup-events%}).
+
+## Parameters
+
+The Blazor RadioGroup provides various parameters that allow you to configure the component:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the component. |
+| `Enabled` | `bool` | Whether the component is enabled. |
+| `Id` | `string` | Renders as the id attribute on the main wrapping `ul` element. |
+| `LabelPosition` | `RadioGroupLabelPosition` enum <br /> `After` | Whether the labels render after or before the radio button itself. |
+| `Layout` | `RadioGroupLayout` enum <br /> `Vertical` | Whether the buttons are rendered vertically or horizontally. |
+| `Name` | `string` | Lets you choose your own `name` attribute for the underying `<input type=radio>` elements. |
+| `TItem` | `object` | The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
+| `TValue` | `object` | The type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
+| `TextField` | `string` | The name of the field from the model that will be shown to the user. Defaults to `Text`. |
+| `ValueField` | `string` | The name of the field from the model that will populate the underlying `Value`. Defaults to `Value`. |
+| `Value` | `object` | Get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. |
+
+
+## RadioGroup Reference and Validation
 
 See the [Component Reference]({%slug radiogroup-databind%}#component-reference) section in the Data Binding article for details and examples.
 
+See the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
-## Features
+## Next Steps
 
-The RadioGroup provides the following features:
+[Binding the RadioGroup to Data]({%slug radiogroup-databind%})
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the component.
+[Explore the RadioGroup Layouts]({%slug radiogroup-layout%})
 
-* `Data` - allows you to provide the data source. Required.
-
-* `Enabled` - whether the component is enabled.
-
-* `Id` - renders as the id attribute on the main wrapping `ul` element.
-
-* `LabelPosition` - whether the labels render after or before the radio button itself.
-
-* `Layout` - whether the buttons are rendered vertically or horizontally.
-
-* `Name` - lets you choose your own `name` attribute for the underying `<input type=radio>` elements.
-
-* `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
-
-* `TValue` - the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
-
-<!-- * `TabIndex` - the `tabindex` attribute rendered on the dropdown. -->
-
-* `TextField` - the name of the field from the model that will be shown to the user. Defaults to `Text`.
-
-* `ValueField` - the name of the field from the model that will populate the underlying `Value`. Defaults to `Value`.
-
-* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `@bind-Value` syntax for two-way binding, for example, to a variable of your own.
-
-    The `Value` and `ValueField` can be of types:
-
-    * `number` (such as `int`, `double` and so on)
-    * `string`
-    * `Guid`
-    * `Enum`
-
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
-
-
+[Explore the RadioGroup Events]({%slug radiogroup-events%})
 
 ## See Also
 
