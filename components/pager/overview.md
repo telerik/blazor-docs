@@ -14,13 +14,15 @@ The <a href="https://www.telerik.com/blazor-ui/pager" target="_blank">Blazor Pag
 
 The Pager provides the UI for the user to change the page. To the developer, it provides the page index so you can render only the relevant data portion and an [event]({%slug pager-events%}) that you can use to implement [load on demand](#load-on-demand).
 
-#### To use Telerik Pager component for Blazor:
+## Creating Blazor Pager
 
-1. Add the `TelerikPager` tag
+1. Add the `TelerikPager` tag to add the component to your razor page.
+
 1. Set its `Total` parameter to the number of items in the data source.
+
 1. Use the values of its `Page` and `PageSize` parameters to extract and render the desired subset of data.
 
->caption Use the TelerikPager to paginate your own data and content
+>caption Use the TelerikPager to paginate your own data and content.
 
 ````CSHTML
 @{
@@ -75,21 +77,6 @@ The Pager provides the UI for the user to change the page. To the developer, it 
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![first look at the Telerik Blazor Pager](images/pager-first-look.png)
-
-
-## Features
-
-* `Total` - `int` - Represents the total count of items in the pager. **Required.**
-* `ButtonCount` - `int` - The maximum number of page buttons that will be visible. To take effect, `ButtonCount` must be smaller than the page count (`ButtonCount < Total / PageSize`).
-* `Page` - `int` - Represents the current page of the pager. The first page has an index of `1`. Supports two-way data binding. If no value is provided, the parameter will default to the first page (1), but you should always use this parameter value in order to successfully use the component. If you don't use two-way binding and you don't update the value of the parameter after the user action, the pager UI will not reflect the change and will revert to the previous value (page index).
-* `PageSize` - `int` - The number of items to display on a page.
-* `PageSizes` - `List<int?>` - Allows users to change the page size via a DropDownList. The attribute configures the DropDownList options. A `null` item in the `PageSizes` `List` will render an "All" option. By default, the Pager DropDownList is not displayed. You can also set `PageSizes` to `null` programmatically to remove the DropDownList at any time.
-* `InputType` - `PagerInputType` - Determines if the pager will show numeric buttons to go to a specific page, or a textbox to type the page index. The arrow buttons are always visible. The `PagerInputType` enum accepts values `Buttons` (default) or `Input`. When `Input` is used, the page index will change when the textbox is blurred, or when the user hits Enter. This is to avoid unintentional data requests.
-* `Class` - The CSS class that will be rendered on the main wrapping element of the Pager.
 
 ## Examples
 
@@ -199,9 +186,28 @@ You can use two-way binding for the `Page` parameter so it can respond to change
     public int Page { get; set; } = 1;
 }
 ````
->caption The result from the code snippet above
 
-![config of the pager with one-way binding](images/checkbox-page-selection-outside-input.gif)
+## Events
+
+The Blazor Pager generates events that you can handle and further customize its behavior. [Read more about the Blazor Pager events]({%slug pager-events%}).
+
+## Parameters
+
+The Blazor Pager provides various parameters that allow you to configure the component:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Total` | `int` | Represents the total count of items in the pager. **Required.** |
+| `ButtonCount` | `int` | The maximum number of page buttons that will be visible. To take effect, `ButtonCount` must be smaller than the page count (`ButtonCount < Total / PageSize`). |
+| `Page` | `int` | Represents the current page of the pager. The first page has an index of `1`. Supports two-way data binding. If no value is provided, the parameter will default to the first page (1), but you should always use this parameter value in order to successfully use the component. If you don't use two-way binding and you don't update the value of the parameter after the user action, the pager UI will not reflect the change and will revert to the previous value (page index). |
+| `PageSize` | `int` | The number of items to display on a page. |
+| `PageSizes` | `List<int?>` | Allows users to change the page size via a DropDownList. The attribute configures the DropDownList options. A `null` item in the `PageSizes` `List` will render an "All" option. By default, the Pager DropDownList is not displayed. You can also set `PageSizes` to `null` programmatically to remove the DropDownList at any time. |
+| `InputType` | `PagerInputType` enum <br /> `Buttons` | Determines if the pager will show numeric buttons to go to a specific page, or a textbox to type the page index. The arrow buttons are always visible. The `PagerInputType` enum accepts values `Buttons` (default) or `Input`. When `Input` is used, the page index will change when the textbox is blurred, or when the user hits Enter. This is to avoid unintentional data requests. |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Pager. |
+
+## Next Steps
+
+[Explore the Pager Events]({%slug pager-events%})
 
 ## See Also
 
