@@ -12,22 +12,15 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor ToolBar component</a> is a container for buttons or other application-specifc tools. This article explains the available features.
 
-#### In This Article
+## Creating Blazor ToolBar
 
-* [Basics](#basics)
-* [Features](#features)
+1. Add the `<TelerikToolBar>` tag to add the component to your razor page.
 
-## Basics
-
-To use the Telerik Toolbar component:
-
-1. Add the `<TelerikToolBar>` tag to your page.
 1. Populate it with [Built-In Tools]({%slug toolbar-built-in-tools%}) or [Custom Tools]({%slug toolbar-templated-item%}).
+
 1. Handle their respective events so your application can respond to the user actions.
 
->caption Basic Telerik Toolbar
-
-![basic toolbar screenshot](images/basic-toolbar-screenshot.png)
+>caption Basic Telerik Toolbar.
 
 ````CSHTML
 @*Add a basic Telerik ToolBar to your page with a few built-in buttons.*@
@@ -70,8 +63,39 @@ To use the Telerik Toolbar component:
 }
 ````
 
+## Built-in Tools
 
->caption Components namespace and reference
+The ToolBar component allows you to use built-in buttons and button groups or add a custom tool. [Read more about the Blazor ToolBar built-in tools]({%slug toolbar-built-in-tools%}).
+
+## Separators
+
+You can visually separate the items in the ToolBar. [Read more about the supported Blazor ToolBar separators]({%slug toolbar-separators%}).
+
+## Custom Items
+
+The ToolBar component allows you to add a custom element. You can use that item to add complex toolbars to your application, which have dropdowns, inputs and other components. [Read more about the Blazor ToolBar item customization]({%slug toolbar-templated-item%}).
+
+## Events
+
+The Blazor ToolBar generates events that you can handle and further customize its behavior. [Read more about the Blazor ToolBar events]({%slug toolbar-events%}).
+
+## Parameters
+
+The Blazor ToolBar provides various parameters that allow you to configure the component:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolBar component. You could use that class to control the size of the component through CSS. |
+| `ToolBarButton` | `RenderFragment` | Renders a button in the ToolBar. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbarbutton) article. |
+| `ToolBarToggleButton` | `RenderFragment` | Renders a toggle button in the ToolBar. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbartogglebutton) article. |
+| `ToolBarButtonGroup` | `RenderFragment` | Creates a group of buttons in the component. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbarbuttongroup) article. |
+| `ToolBarTemplateItem` | `RenderFragment` | Allows you to create a custom item for the ToolBar. You can read more about this in the [Templated Item]({%slug toolbar-templated-item%}) article. |
+| `ToolBarSeparator` | `RenderFragment` | Adds a line that separates items in the ToolBar. You can find more information in the [Separators]({%slug toolbar-separators%}) article. |
+| `ToolBarSpacer` | `RenderFragment` | Adds empty space that separates the items into different groups. You can find more information in the [Separators]({%slug toolbar-separators%}) article. |
+
+## ToolBar Reference
+
+>caption Components namespace and reference.
 
 ````CSHTML
 @*Component namespace and reference*@
@@ -89,25 +113,13 @@ To use the Telerik Toolbar component:
 }
 ````
 
-## Features
+## Next Steps
 
->caption The ToolBar provides the following features:
+[Explore the ToolBar Built-in Tools]({%slug toolbar-built-in-tools%})
 
-* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the ToolBar component. You could use that class to control the size of the component through CSS.
+[Explore the ToolBar Separators]({%slug toolbar-separators%})
 
-* `ToolBarButton` - renders a button in the ToolBar. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbarbutton) article.
-
-* `ToolBarToggleButton` - renders a toggle button in the ToolBar. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbartogglebutton) article.
-
-* `ToolBarButtonGroup` - creates a group of buttons in the component. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbarbuttongroup) article.
-
-* `ToolBarTemplateItem` - allows you to create a custom item for the ToolBar. You can read more about this in the [Templated Item]({%slug toolbar-templated-item%}) article.
-
-* `ToolBarSeparator` - adds a line that separates items in the ToolBar. You can find more information in the [Separators]({%slug toolbar-separators%}) article.
-
-* `ToolBarSpacer` - adds empty space that separates the items into different groups. You can find more information in the [Separators]({%slug toolbar-separators%}) article.
-
-
+[Explore the ToolBar Events]({%slug toolbar-events%})
 
 ## See Also
 

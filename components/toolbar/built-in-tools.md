@@ -22,25 +22,20 @@ A toolbar button is a plain button that you can click and it raises an event so 
 
 You can add multiple buttons to the Telerik Toolbar. To do that you should add the `<ToolBarButton>` to the `<TelerikToolBar>`.
 
-You can customize the buttons using the following features:
+### ToolBarButton parameters
 
-* `Enabled` - `bool`, defaults to `true` - specifies if the button is clickable.
+The nested `ToolBarButton` tag exposes parameters that allow you to customize the buttons:
 
-* `Visible` - `bool`, defaults to `true` - specifies if the button will be visible in the toolbar.
-
-* `Title` - `string` - maps to the `title` HTML attribute for the `<button>`.
-
-* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the ToolbarButton. You could use that class to cascade styles.
-
-* `OnClick` - `EventCallback` - allows you to execute a method upon the click of the button. For more information see the [Events]({%slug toolbar-events%}) article.
-
-* `Icon` - `string` - adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component).
-
-* `ImageURL` - `string` - adds an image to the button. You can provide an image url to this parameter.
-
-* `SpriteClass` - `string` - add a sprite class image to the button. Set this attribute to `k-icon MySpriteClass` where `MySpriteClass` defines the CSS rules for the sprite.
-
-* `IconClass` - `string` - allows you to set a CSS class that provides the required font name, font size and content for the `::before` pseudo-element.
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Enabled` | `bool` <br /> `true` | Specifies if the button is clickable. |
+| `Visible` | `bool` <br /> `true` | Specifies if the button will be visible in the toolbar. |
+| `Title` | `string` | Maps to the `title` HTML attribute for the `<button>`. |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolbarButton. You could use that class to cascade styles. |
+| `Icon` | `string` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component). |
+| `ImageURL` | `string` | Adds an image to the button. You can provide an image url to this parameter. |
+| `SpriteClass` | `string` | Add a sprite class image to the button. Set this attribute to `k-icon MySpriteClass` where `MySpriteClass` defines the CSS rules for the sprite. |
+| `IconClass` | `string` | Allows you to set a CSS class that provides the required font name, font size and content for the `::before` pseudo-element. |
 
 >caption The Telerik ToolBar with ToolBarButtons
 
@@ -79,27 +74,21 @@ A toolbar toggle button has two states - normal and selected - and clicking it c
 
 You can add multiple toggle  buttons to the Telerik Toolbar. To do that you should add the `<ToolBarToggleButton>` to the `<TelerikToolBar>`.
 
-You can customize the toggle buttons using the following features:
+### ToolBarToggleButton parameters
 
-* `Selected` - `bool` - specifies whether the button is in selected state. You can use it with one and two-way data binding with the `SelectedChanged` event. For more information on how to handle the `SelectedChanged` event see the [Events]({%slug toolbar-events%}) article.
+The nested `ToolBarToggleButton` tag exposes parameters that allow you to customize the buttons:
 
-* `Enabled` - `bool`, defaults to `true` - specifies if the button is clickable.
-
-* `Visible` - `bool`, defaults to `true` - specifies if the button will be visible in the toolbar.
-
-* `Title` - `string` - maps to the `title` HTML attribute for the `<button>`.
-
-* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the ToolbarButton. You could use that class to cascade styles.
-
-* `OnClick` - `EventCallback` - allows you to execute an method upon the click of the button. For more information read the [Events]({%slug toolbar-events%}) article.
-
-* `Icon` - `string` - adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component).
-
-* `ImageURL` - `string` - adds an image to the button. You can provide an image url to this parameter.
-
-* `SpriteClass` - `string` - add a sprite class image to the button. Set this attribute to `k-icon MySpriteClass` where `MySpriteClass` defines the CSS rules for the sprite.
-
-* `IconClass` - `string` - allows you to set a CSS class that provides the required font name, font size and content for the `::before` pseudo-element.
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Selected` | `bool` | Specifies whether the button is in selected state. You can use it with one and two-way data binding with the `SelectedChanged` event. For more information on how to handle the `SelectedChanged` event see the [Events]({%slug toolbar-events%}) article. |
+| `Enabled` | `bool` <br /> `true` | Specifies if the button is clickable. |
+| `Visible` | `bool` <br /> `true` | Specifies if the button will be visible in the toolbar. |
+| `Title` | `string` | Maps to the `title` HTML attribute for the `<button>`. |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolbarButton. You could use that class to cascade styles. |
+| `Icon` | `string` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component). |
+| `ImageURL` | `string` | Adds an image to the button. You can provide an image url to this parameter. |
+| `SpriteClass` | `string` | Add a sprite class image to the button. Set this attribute to `k-icon MySpriteClass` where `MySpriteClass` defines the CSS rules for the sprite. |
+| `IconClass` | `string` | Allows you to set a CSS class that provides the required font name, font size and content for the `::before` pseudo-element. |
 
 >caption The Telerik ToolBar with ToolBarToggleButtons
 
@@ -141,20 +130,17 @@ The button group is a container for one or more buttons that renders them togeth
 
 You can add one or more group of buttons to the Toolbar. To do that you should add the `<ToolBarButtonGroup>` to the `<TelerikToolBar>`. In the button group you can place either the `ToolBarButton` or the `ToolBarToggleButton`.
 
-You can customize the groups using the following features:
+### ToolBarButtonGroup parameters
 
-* `Visible` - `bool`, defaults to `true` - specifies if the group will be visible in the toolbar.
+The nested `ToolBarButtonGroup` tag exposes parameters that allow you to customize the buttons:
 
-* `SelectionMode` - `enum` - specifies whether you can select one or multiple buttons from the group at the same time (applicable for `ToolBarToggleButton` instances inside it). It takes a member of the `ButtonGroupSelectionMode` enum:
-
-    * Single - this is the default value
-    * Multiple
-    
-* `Enabled` - `bool`, defaults to `true` - specifies if the group is clickable.
-
-* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the ToolBarButtonGroup. You could use that class to cascade styles.
-
-* `Width` - `string` - allows you to control the width of the group.
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Visible` | `bool` <br /> `true` | Specifies if the group will be visible in the toolbar. |
+| `SelectionMode` | `ButtonGroupSelectionMode` enum <br /> `Single` | Specifies whether you can select one or multiple buttons from the group at the same time (applicable for `ToolBarToggleButton` instances inside it). |
+| `Enabled` | `bool` <br /> `true` | Specifies if the group is clickable. |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolBarButtonGroup. You could use that class to cascade styles. |
+| `Width` | `string` | Allows you to control the width of the group. |
 
 >caption The Telerik ToolBar with grouped buttons
 
