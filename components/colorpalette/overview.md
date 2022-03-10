@@ -14,16 +14,16 @@ The <a href = "https://www.telerik.com/blazor-ui/colorpalette" target="_blank">B
 
 If unlimited choice of colors is preferred, consider the [ColorGradient component]({%slug colorgradient-overview%}) instead.
 
-## Basics
+## Creating Blazor RadioGroup
 
-To use a Telerik Color Palette for Blazor:
+1. Add the `<TelerikColorPalette>` tag to add the component to your razor page.
 
-1. Add the `<TelerikColorPalette>` tag.
 1. Bind its `Value` to the `string` you want to get out of it.
+
 1. Optionally, choose a list of `Colors` to show the user (one of the [presets we provide]({%slug colorpalette-presets%}), or a set of [custom colors]({%slug colorpalette-custom-colors%})).
     * If you do not provide a value for the `Colors`, it will default to the `Office` [preset]({%slug colorpalette-presets%}).
 
->caption Basic color palette with two-way value binding and a default predefined palette
+>caption Basic color palette with two-way value binding and a default predefined palette.
 
 ````CSHTML
 <span style="color: @MyColor">@MyColor</span>
@@ -37,9 +37,13 @@ To use a Telerik Color Palette for Blazor:
 }
 ````
 
->caption The result from the code snippet above after selecting a color
+## Predefined Colors
 
-![Color Palette first look](images/color-palette-first-look.png)
+The ColorPalette component comes with a set of predefined color sets that you can show to the users. [Read more about the available ColorPallete predefined colors]({%slug colorpalette-presets%}).
+
+## Custom Colors
+
+You can provide your own set of colors to the Blazor Color Palette component. [Read more about the Blazor ColorPallete custom colors setup]({%slug colorpalette-custom-colors%}).
 
 ## Appearance
 
@@ -57,13 +61,29 @@ You can control the appearane of the component not only through the lists of `Co
 }
 ````
 
->caption Theresult from the code snippet above
+## Events
 
-![color palette appearance and size customization](images/large-size-few-columns.png)
+The Blazor ColorPalette generates events that you can handle and further customize its behavior. [Read more about the Blazor Dialog events]({%slug colorpalette-events%}).
 
+## Parameters
 
+The Blazor ColorPalette provides various parameters that allow you to configure the component:
 
-## Component Reference
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Value` | `string` | Get/set the value of the input, can be used for binding. Can take any string that can be a [CSS background-color string](https://css-tricks.com/almanac/properties/b/background-color/). The presets we provide use hex format (`#123abc`). |
+| `Class` | `string` | The CSS class that will be rendered on the wrapping element of the component. |
+| `Colors` | `IEnumerable<string>` <br /> `Office` | The collection of colors the user can choose from. Can be one of the [presets that come with the component]({%slug colorpalette-presets%}), or [a custom list]({%slug colorpalette-custom-colors%}). |
+| `Columns` | `int` <br /> `10` | The number of columns to use when rendering the Colors list. Determines the size of the component together with the `TileHeight` and `TileWidth`. |
+| `Enabled` | `bool` | Whether the component is enabled. |
+| `Id` | `string` | Renders as the `id` attribute on the wrapping element of the component. |
+| `TabIndex` | `Nullable<int>` | Maps to the `tabindex` attribute of the main HTML element. You can use it to customize the order in which the elements in your page focus with the `Tab` key. |
+| `TileHeight` | `string` | The height of each individual color item. Determines the size of the component together with the `Columns` and `TileWidth`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings  |
+| `TileWidth` | `string` | The width of each individual color item. Determines the size of the component together with the `Columns` and `TileHeight`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings  |
+
+## ColorPallete Reference and Validation
+
+>caption Example of the component reference.
 
 ````CSHTML
 <TelerikColorPalette @ref="@TheColorPaletteRef"></TelerikColorPalette>
@@ -73,35 +93,13 @@ You can control the appearane of the component not only through the lists of `Co
 }
 ````
 
-## Features
+See the [Input Validation]({%slug common-features/input-validation%}) article.
 
->caption The Color Palette provides the following features:
+## Next Steps
 
-* `Class` - the CSS class that will be rendered on the wrapping element of the component.
+[Explore the ColorPallete Predefined Colors]({%slug colorpalette-presets%})
 
-* `Colors` - the collection of colors the user can choose from. Can be one of the [presets that come with the component]({%slug colorpalette-presets%}), or [a custom list]({%slug colorpalette-custom-colors%}).
-
-* `Columns` - the number of columns to use when rendering the Colors list. Determines the size of the component together with the `TileHeight` and `TileWidth`.
-
-* `Enabled` - whether the component is enabled.
-
-* `Id` - renders as the `id` attribute on the wrapping element of the component.
-
-* `TabIndex` - maps to the `tabindex` attribute of the main HTML element. You can use it to customize the order in which the elements in your page focus with the `Tab` key.
-
-* `TileHeight` - the height of each individual color item. Determines the size of the component together with the `Columns` and `TileWidth`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings 
-
-* `TileWidth`- the width of each individual color item. Determines the size of the component together with the `Columns` and `TileHeight`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings 
-
-* `Value` - get/set the value of the input, can be used for binding. Can take any string that can be a [CSS background-color string](https://css-tricks.com/almanac/properties/b/background-color/). The presets we provide use hex format (`#123abc`).
-
-* [Events]({%slug colorpalette-events%}) to let you react to the user actions.
-
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
-
-
-
-
+[Explore the ColorPallete Events]({%slug colorpalette-events%})
 
 ## See Also
 
