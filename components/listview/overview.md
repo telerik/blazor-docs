@@ -12,14 +12,17 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/listview" target="_blank">Blazor ListView component</a> is a fully customizable templated component that repeats your layout for each item in the data source. It lets you page the data, edit items through a dedicated edit template and also add header and footer templates.
 
-#### To use a Telerik ListView for Blazor
+## Creating Blazor ListView
 
-1. add the `TelerikListView` tag
-1. populate its `Data` property with the collection of items you want the user to see
-1. define the `Template` for the items and add the relevant styles to your app
-1. (optional) enable paging and set dimensions to the component
+1. Add the `TelerikListView` tag to add the component to your razor page.
 
->caption ListView in read mode with paging enabled
+1. Populate its `Data` property with the collection of items you want the user to see.
+
+1. Define the `Template` for the items and add the relevant styles to your app.
+
+1. (optional) Enable paging and set dimensions to the component.
+
+>caption ListView in read mode with paging enabled.
 
 ````CSHTML
 @* Styles would usually go to to the site stylesheet, and you can read more details about
@@ -66,18 +69,29 @@ the rest of the features the component provides further in this article *@
 </style>
 ````
 
->caption The result from the code snippet above
+## Templates
 
-![ListView basic example](images/listview-first-look.png)
+You fully control the rendering of the items and their layout. You can add header, footer, and a template for editing items. [Read more about the Blazor ListView templates]({%slug listview-templates%}).
 
->caption The ListView provides the following features:
+## Editing
 
-* [Paging]({%slug listview-paging%}) - you can enable automatic paging of the provided data so the user has less scrolling to do and the list can fit better in your layout
-* [Templates]({%slug listview-templates%}) - you fully control the rendering of the items and their layout. You can add header, footer, and a template for editing items.
-* [Editing]({%slug listview-editing%}) - you can define a template for an item in edit mode and add command buttons for the user to edit, delete and insert items.
-* [Events]({%slug listview-events%}) - the CRUD operations happen through dedicated events, and there is also an option for [load-on-demand for the data]({%slug listview-manual-operations%}), which provides you with full control over the data operations and not only the rendering.
+The ListView component allows you to define a template for an item in edit mode and add command buttons for the user to edit, delete and insert items. [Read more about the Blazor ListView editing]({%slug listview-editing%}).
 
->caption Component namespace and reference
+## Paging
+
+You can enable automatic paging of the provided data so the user has less scrolling to do and the list can fit better in your layout. [Read more about the Blazor ListView paging]({%slug listview-paging%}).
+
+## Refresh Data
+
+The ListView allows you to refresh its data manually so the component can react to changes in the collection. [Read more about the Blazor ListView data refresh]({%slug listview-refresh-data%}).
+
+## Events
+
+The CRUD operations happen through dedicated events, and there is also an option for [load-on-demand for the data]({%slug listview-manual-operations%}), which provides you with full control over the data operations and not only the rendering. [Read more about the Blazor ListView events]({%slug listview-events%}).
+
+## ListView Reference
+
+>caption Component namespace and reference.
 
 The ListView is a generic component and its type is determined by the type of the model you use as its data source.
 
@@ -110,7 +124,15 @@ The ListView is a generic component and its type is determined by the type of th
 }
 ````
 
+## Next Steps
 
+[Using ListView Templates]({%slug listview-templates%})
+
+[Using ListView Editing]({%slug listview-editing%})
+
+[Explore the ListView Paging]({%slug listview-paging%})
+
+[Explore the ListView Events]({%slug listview-events%})
 
 ## See Also
 
