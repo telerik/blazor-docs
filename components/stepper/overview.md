@@ -16,25 +16,16 @@ The <a href ="https://www.telerik.com/blazor-ui/stepper"><strong>Stepper for Bla
 The Stepper provides several features out of the box, including the ability to define the appearance of each [step]({%slug stepper-steps-overview%}), [validation]({%slug stepper-steps-validation%}) for the steps, strict [linear flow]({%slug stepper-linear-flow%}) and [step template]({%slug step-template%}) to make the it fit any design requirements.
 
 
-#### In this article:
-   * [Basics](#basics)
-   * [Features](#features)
+## Creating Blazor Stepper
 
-## Basics
+1. Add the `TelerikStepper` tag to add the component to your razor page.
 
-To use a Telerik Stepper for Blazor:
+1. Under its `StepperSteps` tag include and configure the desired [`Steps`]({%slug  stepper-steps-overview%}).
 
-1. Use the `TelerikStepper` tag
-
-1. Under its `StepperSteps` tag include and configure the desired [`Steps`]({%slug  stepper-steps-overview%})
-
-
->caption Simple setup of a Stepper component. The result from the snippet below.
-
-![Simple Stepper](images/stepper-overview-example.png)
+>caption Simple setup of a Stepper component.
 
 ````CSHTML
-@* Simple Stepper setup *@
+@* Simple Stepper setup. *@
 
 <div style="width:700px">
     <TelerikStepper @bind-Value="@CurrentStepIndex">
@@ -53,17 +44,49 @@ To use a Telerik Stepper for Blazor:
 }
 ````
 
-## Features
+## Steps
 
-The Stepper provides the following features:
+The Steps are the building blocks of the Stepper component. You can include the desired steps by adding a `StepperStep` tag for every step. The steps appearance can be configured through the features the `StepperStep` exposes. [Read more about the Blazor Stepper configuration]({%slug stepper-steps-overview%}).
 
-* `Orientation` - `StepperOrientation` - defines the orientation of the Stepper. You can read more on how to configure it in the [Orientation]({%slug stepper-orientation%}) article.
+## Orientation
+The Stepper component provides different orientations. [Read more about the Blazor Stepper orientation]({%slug stepper-orientation%}).
 
-* `Value ` - `int`- defines the current step index.
+## Display Modes
 
-* `Linear` - `bool` - enables/disables [linear flow]({%slug stepper-linear-flow%}).
+The Stepper component provides different display modes. [Read more about the Blazor Stepper display modes]({%slug stepper-display-modes%}).
 
-* `StepType` - `StepperStepType` - defines the display mode of the Stepper. You can read more on how to configure it in the [Display modes]({%slug stepper-display-modes%}) article.
+## Linear Flow
+
+By default, the user can select any step in the Stepper component. This behavior could be customized by configuring its Linear flow property. [Read more about the Blazor Stepper linear flow]({%slug stepper-linear-flow%}).
+
+## Templates
+
+You can use the functionality of the built-in templates and customize what is rendered as steps. [Read more about the Blazor Stepper templates]({%slug step-template%}).
+
+## Events
+
+The Blazor Stepper generates events that you can handle and further customize its behavior. [Read more about the Blazor Stepper events]({%slug stepper-events%}).
+
+## Parameters
+
+The Blazor Stepper provides various parameters that allow you to configure the component:
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Value` | `int` | Defines the current step index. |
+| `Orientation` | `StepperOrientation` enum <br /> `Horizontal` | Defines the orientation of the Stepper. You can read more on how to configure it in the [Orientation]({%slug stepper-orientation%}) article. |
+| `Linear` | `bool` | Enables/disables [linear flow]({%slug stepper-linear-flow%}). |
+| `StepType` | `StepperStepType` enum <br /> `Steps` | Defines the display mode of the Stepper. You can read more on how to configure it in the [Display modes]({%slug stepper-display-modes%}) article. |
+
+## Next Steps
+
+[Using Stepper Templates]({%slug step-template%})
+
+[Configure Steps]({%slug stepper-steps-overview%})
+
+[Explore the Stepper Display modes]({%slug stepper-display-modes%})
+
+[Explore the Stepper Events]({%slug stepper-events%})
 
 ## See Also
 
