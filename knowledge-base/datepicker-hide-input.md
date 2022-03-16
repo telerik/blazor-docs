@@ -1,8 +1,8 @@
 ---
-title: Hide DatePicker input box
-description: How to hide DatePicker input box.
+title: Hide DatePicker Input
+description: How to hide DatePicker input textbox.
 type: how-to
-page_title: Hide DatePicker input box
+page_title: Hide DatePicker Input
 slug: datepicker-kb-hide-input
 position: 
 tags: 
@@ -11,30 +11,90 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DatePicker for Blazor, DateTimePicker for Blazor, TimePicker for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
+                DatePicker for Blazor, <br />
+                DateTimePicker for Blazor, <br />
+                TimePicker for Blazor
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 
 ## Description
-Is there a way to hide the input portion of the DatePicker and leave only the Select/Icon?
+
+Is there a way to hide the input portion of the DatePicker and leave only the selections Icon? Users should not see or type in the textbox.
+
 
 ## Solution
-You can use some custom CSS to hide the input and leave only the select icon. 
 
-To make sure you are styling only the desired instance of the DatePicker (and not all instances on the page/app) use the Class parameter to provide your custom CSS class to the component. 
+Use custom CSS to hide the textbox and leave only the button and icon.
 
-You can also style the icon button as needed.
+To customize only specific Date/Time Pickers, use their Class parameter.
+
+This technique prevent automatic closing of the DatePicker popup after the user selects a date. To hide the popup, call JavaScript from the ValueChanged event handler. This workaround is not necessary for DateTimePickers and TimePickers.
+
+>caption Hide Date/Time Picker TextBox
 
 ````CSHTML
+@inject IJSRuntime js
+
+<p>DatePickerValue: @DatePickerValue.ToLongDateString()</p>
+
+DatePicker:
+<TelerikDatePicker Class="date-picker-only-icon"
+                   Value="@DatePickerValue"
+                   Id="datePicker1"
+                   ValueChanged="@( (DateTime newValue) => OnValueChanged(newValue, "datePicker1") )" />
+
+DateTimePicker:
+<TelerikDateTimePicker Class="date-picker-only-icon"
+                       @bind-Value="@DatePickerValue" />
+
+TimePicker:
+<TelerikTimePicker Class="date-picker-only-icon"
+                   @bind-Value="@DatePickerValue" />
+
 <style>
+    .date-picker-only-icon.k-input {
+        width: auto;
+    }
+
+    .date-picker-only-icon .k-dateinput {
+        display: none;
+    }
+</style>
+
+@* Move this script outside the Razor component *@
+<script suppress-error="BL9992">
+    function closePickerPopup(pickerId) {
+        document.getElementById(pickerId).dispatchEvent(new Event("focus"));
+    }
+</script>
+
+@code  {
+    DateTime DatePickerValue { get; set; } = DateTime.Now;
+
+    async Task OnValueChanged(DateTime newValue, string pickerId)
+    {
+        DatePickerValue = newValue;
+
+        // close the DatePicker popup automatically
+        await js.InvokeVoidAsync("closePickerPopup", pickerId);
+    }
+}
+
+@* CSS for UI for Blazor 2.30 and older versions *@
+
+@*<style>
+    .date-picker-only-icon,
     .date-picker-only-icon .k-picker-wrap {
-        border: none;
+        width: auto;
     }
 
     .date-picker-only-icon .k-dateinput {
@@ -45,16 +105,5 @@ You can also style the icon button as needed.
         width: 30px;
         height: 30px;
     }
-</style>
-
-The selected date is: @datePickerValue.ToShortDateString()
-<br />
-
-<TelerikDatePicker Class="date-picker-only-icon" @bind-Value="datePickerValue"></TelerikDatePicker>
-
-@code  {
-    DateTime datePickerValue { get; set; } = DateTime.Now;
-
-}
+</style>*@
 ````
-
