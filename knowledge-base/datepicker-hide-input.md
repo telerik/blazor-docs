@@ -6,7 +6,7 @@ page_title: Hide DatePicker Input
 slug: datepicker-kb-hide-input
 position: 
 tags: 
-ticketid: 1504648
+ticketid: 1504648, 1557843
 res_type: kb
 ---
 
