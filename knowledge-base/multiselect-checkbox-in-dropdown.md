@@ -44,8 +44,8 @@ The MultiSelect offers a highlighted state for the selected items already, yet i
 
 <TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues" AutoClose="false" Placeholder="Write the roles you need">
     <ItemTemplate>
-        <input type="checkbox" id="@( "cb" + context.Replace(" ", "") )" class="k-checkbox" checked="@GetChecked(context)">
-        <label class="k-checkbox-label" for="@( "cb" + context.Replace(" ", "") )">@context</label>
+        <input type="checkbox" id="@( "cb" + context.Replace(" ", "") )" class="k-checkbox k-rounded-md k-checkbox-md" checked="@GetChecked(context)">
+        @context
     </ItemTemplate>
 </TelerikMultiSelect>
 
