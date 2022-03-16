@@ -149,7 +149,7 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
     </GridToolBar>
 
     <GridExport>
-        <GridCsvExport FileName="telerik-grid-export" AllPages="@ExportAllPages" OnBeforeExport="@OnBeforCsvExport" />
+        <GridCsvExport FileName="telerik-grid-export" AllPages="@ExportAllPages" OnBeforeExport="@OnBeforeCsvExport" />
     </GridExport>
 
     <GridColumns>
@@ -163,7 +163,7 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
 </TelerikGrid>
 
 @code {
-    private async Task OnBeforCsvExport(GridBeforeCsvExportEventArgs args)
+    private async Task OnBeforeCsvExport(GridBeforeCsvExportEventArgs args)
     {
         args.Data = SelectedItems;
 
