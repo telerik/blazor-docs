@@ -28,7 +28,7 @@ The component gives a unified way to build filter descriptors using its [fields]
 
 <TelerikFilter @ref="FilterRef" @bind-Value="@Value">
     <FilterFields>
-        <FilterField Name="@(nameof(Person.EmployeeId))" Type="@(typeof(int))" Label="First Name"></FilterField>
+        <FilterField Name="@(nameof(Person.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
         <FilterField Name="@(nameof(Person.Name))" Type="@(typeof(string))" Label="First Name"></FilterField>
         <FilterField Name="@(nameof(Person.AgeInYears))" Type="@(typeof(int))" Label="Age"></FilterField>
     </FilterFields>
