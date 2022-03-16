@@ -184,7 +184,7 @@ You can customize the automatically generated field by providing the `EditorType
 
 | Field data type | FormEditorType enum members              |
 |-----------------|------------------------------------------|
-| **Text**            | `FormEditorType.TextArea`<br> `FormEditorType.TextBox` |
+| **String**          | `FormEditorType.TextArea`<br> `FormEditorType.TextBox` |
 | **Boolean**         | `FormEditorType.CheckBox`<br> `FormEditorType.Switch` |
 | **DateTime**        | `FormEditorType.DatePicker`<br> `FormEditorType.DateTimePicker`<br> `FormEditorType.TimePicker` |
 
