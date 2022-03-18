@@ -17,7 +17,7 @@ How can I add RadioGroup in the same line with another element. By default the R
 
 The RadioGroup adds an `<ul>` which is a block-level element. It will always start on a new line and take up the full width of the page.
 
-Use custom CSS to change the default `display: flex` of the `ul` to `inline-flex`. Optional, set `vertical-align` to `middle` to have it lined up next to other elements.
+Set a [custom CSS Class]({%slug radiogroup-overview%}#features) to separate the specific RadioGroup. Use CSS to override the default `display: flex` of the `ul` to `inline-flex`. Optional, set `vertical-align` to `middle` to have it lined up next to other elements. 
 
 >caption RadioGroup with description and options 
 
@@ -27,11 +27,11 @@ Use custom CSS to change the default `display: flex` of the `ul` to `inline-flex
 <TelerikRadioGroup Data="@scaleModes" 
                    Value="@selectedScaleMode" 
                    Layout="RadioGroupLayout.Horizontal"
-                   Class="custom-class">
+                   Class="inline-radiogroup">
 </TelerikRadioGroup>
 
 <style>
-   .custom-class.k-list-horizontal{
+   .inline-radiogroup.k-list-horizontal{
         display: inline-flex;
         vertical-align: middle; 
     }
