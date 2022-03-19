@@ -16,6 +16,7 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 * [Read Event](#read-event) - event related to obtaining data
 * [Other Events](#other-events) - other events the grid provides
     * [State Events](#state-events)
+    * [Column Events](#column-events)
     * [Command Button Click](#command-button-click)
     * [Export Events](#export-events)
     * [SelectedItemsChanged](#selecteditemschanged)
