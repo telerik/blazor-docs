@@ -2,15 +2,17 @@ name: Comment PR Procedures
 
 on:
   pull_request:
-    branches: [master]
-    types: [opened]
+    branches: [master]    
+    types:
+      - opened
+      - labeled
 
 jobs:
   post_comment_master:
     runs-on: ubuntu-latest
     steps:
       - name: Create branch comment
-        if: ${{github.base_ref == 'master'}}
+        if: ${{github.base_ref == 'master' && !contains(github.event.pull_request.labels.*.names, 'merge-to-production')}}
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{github.event.number}}

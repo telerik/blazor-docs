@@ -78,3 +78,7 @@ jobs:
       - name: Delete branch
         run: |
           git push origin --delete ${{github.head_ref}}
+
+      - name: Delete production branch
+        run: |
+          git push origin --delete ${{github.head_ref}}-${{github.event.number}}
