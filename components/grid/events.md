@@ -17,6 +17,7 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 * [Other Events](#other-events) - other events the grid provides
     * [State Events](#state-events)
     * [Command Button Click](#command-button-click)
+    * [Export Events](#export-events)
     * [SelectedItemsChanged](#selecteditemschanged)
     * [OnModelInit](#onmodelinit)
     * [OnRowClick](#onrowclick)
@@ -57,6 +58,10 @@ Review the [grid state]({%slug grid-state%}) article for more details and exampl
 ### Command Button Click
 
 The command buttons of a grid provide an `OnClick` event before firing their built-in command (such as opening a row for editing, or adding a new row). You can do this to implement some additional logic and to also handle custom commands - both from a [Command Column]({%slug components/grid/columns/command%}), and from a [Toolbar Button]({%slug components/grid/features/toolbar%})
+
+### Export Events
+
+When exporting the content of the grid, it will fire events like `OnBeforeExport` and `OnAfterExport`. They allow you to get or modify the columns and their settings, provide custom data, to cancel the export, and to also get the final file output. You can read more about them and find code examples in the [Grid Export Events]({%slug grid-export-events%}) article.
 
 ### SelectedItemsChanged
 
