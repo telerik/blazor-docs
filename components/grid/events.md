@@ -55,6 +55,10 @@ The grid state lets you control through code the aspects of the grid the user ca
 
 Review the [grid state]({%slug grid-state%}) article for more details and examples on how the grid state works and what you can do with it.
 
+### Column Events
+
+The grid column emits the `OnCellRender` event when rendering the cells so you can customize them. You can read more and find examples in the [Grid Column Events]({%slug grid-column-events%}) article.
+
 ### Command Button Click
 
 The command buttons of a grid provide an `OnClick` event before firing their built-in command (such as opening a row for editing, or adding a new row). You can do this to implement some additional logic and to also handle custom commands - both from a [Command Column]({%slug components/grid/columns/command%}), and from a [Toolbar Button]({%slug components/grid/features/toolbar%})
