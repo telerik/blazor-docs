@@ -15,7 +15,7 @@ By customizing themes you can alter the default appearance of the Telerik compon
 
 This article contains the following sections:
 
-
+* [What is the best way to customize the Telerik Blazor styles](#best-way-to-customize-the-telerik-blazor-css)
 * [Using the Sass Theme Builder](#using-the-sass-theme-builder)
 	* [Create New Theme](#create-new-theme)
 	* [Modifying Themes](#modifying-themes)
@@ -28,9 +28,11 @@ This article contains the following sections:
 * [How to Use a Custom Theme I Have](#how-to-use-a-custom-theme-i-have)
 * [Contribution](#contribution)
 
+>tip To get the theme updates and fixes, re-generate the custom theme when you upgrade the Telerik components in your project.
 
+## Best Way to Customize the Telerik Blazor CSS
 
->tip To get theme updates and fixes, re-generate the custom themes from the latest built-in base theme when we release a new version of the suite, or when you upgrade the Telerik components in your project.
+There are **three** ways to customize the appearance of the Telerik Blazor components. Each has pros and cons, and each is most suitable for specific scenarios and business requirements. Learn more about the [Blazor CSS theme customization alternatives]({%slug common-kb-theme-customization-options%}).
 
 ## Using the Sass Theme Builder
 
