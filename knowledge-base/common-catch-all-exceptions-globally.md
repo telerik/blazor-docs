@@ -13,12 +13,12 @@ res_type: kb
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>UI for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 
@@ -27,6 +27,7 @@ res_type: kb
 Is it possible to catch all errors in Blazor Server like in MVC 5 in `global.asax` on `Application_Error`?
 
 We are trying to integrate the `ErrorBoundary` component. It seems it does not catch exceptions thrown from the Window component. What is the correct way of using `ErrorBoundary` with the Telerik Blazor components?
+
 
 ## Solution
 
