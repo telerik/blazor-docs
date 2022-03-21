@@ -16,7 +16,7 @@ The <a href="https://www.telerik.com/blazor-ui/checkbox" target="_blank">Blazor 
 
 1. Add the `TelerikCheckBox` tag to add the component to your razor page.
 
-1. Set the `Value` (one-way data binding) or the `bind-Value` (two-way data binding) property.
+1. Set the `Value` parameter. It supports one-way and two-way binding.
 
 
 >caption Basic setup of the Telerik CheckBox using two-way data binding.
@@ -76,7 +76,13 @@ The Blazor Checkbox generates events that you can handle and further customize i
 
 The Blazor CheckBox provides various parameters that allow you to configure the component:
 
-| Parameter | Type | Description |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Value` | `bool` | Mapped to the `Checked` property of the normal HTML checkbox. |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the CheckBox. |
@@ -89,12 +95,11 @@ See also the [Input Validation]({%slug common-features/input-validation%}) artic
 
 ## Next Steps
 
-[Explore the CheckBox Indeterminate State]({%slug checkbox-indeterminate-state%})
+* [Explore the CheckBox Indeterminate State]({%slug checkbox-indeterminate-state%})
 
-[Explore the CheckBox Events]({%slug checkbox-events%})
+* [Handle the CheckBox Events]({%slug checkbox-events%})
 
 ## See Also
 
-* [Live Demo: CheckBox](https://demos.telerik.com/blazor-ui/checkbox/overview)
-* [CheckBox Events]({%slug checkbox-events%})
-* [Indeterminate State]({%slug checkbox-indeterminate-state%})
+* [Live CheckBox Demos](https://demos.telerik.com/blazor-ui/checkbox/overview)
+* [CheckBox API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikCheckBox-1)
