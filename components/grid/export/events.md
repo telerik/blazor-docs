@@ -210,8 +210,6 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 
 ### For CSV Export
 
-### For Excel Export
-
 * `Stream` - `MemoryStream` - The output of the CSV export as a memory stream. 
 
 ### Examples
