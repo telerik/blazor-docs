@@ -77,7 +77,7 @@ The ToolBar component allows you to add a custom element. You can use that item 
 
 ## Events
 
-The Blazor ToolBar generates events that you can handle and further customize its behavior. [Read more about the Blazor ToolBar events]({%slug toolbar-events%}).
+The Blazor ToolBar fires events that you can handle and further customize its behavior. [Read more about the Blazor ToolBar events]({%slug toolbar-events%}).
 
 ## Parameters
 
