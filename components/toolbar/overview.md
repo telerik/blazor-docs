@@ -10,7 +10,7 @@ position: 0
 
 # Blazor ToolBar Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor ToolBar component</a> is a container for buttons or other application-specifc tools. This article explains the available features.
+The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor ToolBar component</a> is a container for buttons or other application-specific tools. This article explains the available features.
 
 ## Creating Blazor ToolBar
 
