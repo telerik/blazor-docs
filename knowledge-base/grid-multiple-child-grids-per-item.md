@@ -2,7 +2,7 @@
 title: Multiple Details Grids per Master
 description: How to render multiple child (detail) Grids under a master Grid?
 type: how-to
-page_title: Multiple child Grids per item
+page_title: Show Multiple Detail Grids per Master
 slug: grid-kb-multiple-child-grids-per-item
 position: 
 tags: grid, hierarchy, multiple, children
