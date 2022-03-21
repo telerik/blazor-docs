@@ -90,11 +90,9 @@ The Blazor Stepper provides various parameters that allow you to configure the c
 
 ## Next Steps
 
-* [Using Stepper Templates]({%slug step-template%})
-
 * [Configure Steps]({%slug stepper-steps-overview%})
-
-* [Explore the Stepper Events]({%slug stepper-events%})
+* [Use Stepper Templates]({%slug step-template%})
+* [Explore Stepper Events]({%slug stepper-events%})
 
 ## See Also
 
