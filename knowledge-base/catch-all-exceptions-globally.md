@@ -31,7 +31,7 @@ We are trying to integrate the `ErrorBoundary` component. It seems it does not c
 
 As of .NET 6, you can use the [`ErrorBoundary` component](https://docs.microsoft.com/en-us/aspnet/core/blazor/fundamentals/handle-errors?view=aspnetcore-6.0#error-boundaries) to catch exceptions.
 
-To do so, wrap the existing content in an `ErrorBoundary` component. It will render error UI when an unhandled exception is thrown. The app continues to function normally, but the error boundary handles the exceptions in the affected component.
+To do so, wrap the existing content in an `ErrorBoundary` component. It will render error UI when unhandled exceptions are thrown. The application continues to function normally, but the error boundary handles the exception in the affected component.
 
 `ErrorBoundary` can be wrapped around any Blazor component or around the `@Body` element in the MainLaout.razor, so it catches all exceptions globally.
 
