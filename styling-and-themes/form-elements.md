@@ -42,13 +42,13 @@ A specific CSS class applied to a `label` element can give you a checkbox that l
 >caption Checkboxes with Telerik Theme styling
 
 ````HTML
-<input type="checkbox" id="cb1" class="k-checkbox" checked="checked">
+<input type="checkbox" id="cb1" class="k-checkbox k-checkbox-md" checked="checked">
 <label class="k-checkbox-label" for="cb1">Option 1</label>
 <br /><br />
-<input type="checkbox" id="cb2" class="k-checkbox">
+<input type="checkbox" id="cb2" class="k-checkbox k-checkbox-md">
 <label class="k-checkbox-label" for="cb2">Option 2</label>
 <br /><br />
-<input type="checkbox" id="cb3" class="k-checkbox" checked="checked" disabled="disabled">
+<input type="checkbox" id="cb3" class="k-checkbox k-checkbox-md" checked="checked" disabled="disabled">
 <label class="k-checkbox-label" for="cb3">Disabled checkbox</label>
 ````
 

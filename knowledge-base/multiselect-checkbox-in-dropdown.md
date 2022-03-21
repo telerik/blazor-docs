@@ -88,7 +88,7 @@ Here is one example:
     </HeaderTemplate>
 
     <ItemTemplate>
-        <input type="checkbox" id="@( "cb" + context.Replace(" ", "") )" class="k-checkbox" checked="@GetChecked(context)">
+        <input type="checkbox" id="@( "cb" + context.Replace(" ", "") )" class="k-checkbox k-checkbox-md" checked="@GetChecked(context)">
         <label class="k-checkbox-label" for="@( "cb" + context.Replace(" ", "") )">@context</label>
     </ItemTemplate>
 
