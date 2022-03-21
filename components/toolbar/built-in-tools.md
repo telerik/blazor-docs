@@ -26,7 +26,13 @@ You can add multiple buttons to the Telerik Toolbar. To do that you should add t
 
 The nested `ToolBarButton` tag exposes parameters that allow you to customize the buttons:
 
-| Parameter | Type | Description |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Enabled` | `bool` <br /> `true` | Specifies if the button is clickable. |
 | `Visible` | `bool` <br /> `true` | Specifies if the button will be visible in the toolbar. |
@@ -78,7 +84,13 @@ You can add multiple toggle  buttons to the Telerik Toolbar. To do that you shou
 
 The nested `ToolBarToggleButton` tag exposes parameters that allow you to customize the buttons:
 
-| Parameter | Type | Description |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Selected` | `bool` | Specifies whether the button is in selected state. You can use it with one and two-way data binding with the `SelectedChanged` event. For more information on how to handle the `SelectedChanged` event see the [Events]({%slug toolbar-events%}) article. |
 | `Enabled` | `bool` <br /> `true` | Specifies if the button is clickable. |
@@ -134,7 +146,13 @@ You can add one or more group of buttons to the Toolbar. To do that you should a
 
 The nested `ToolBarButtonGroup` tag exposes parameters that allow you to customize the buttons:
 
-| Parameter | Type | Description |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Visible` | `bool` <br /> `true` | Specifies if the group will be visible in the toolbar. |
 | `SelectionMode` | `ButtonGroupSelectionMode` enum <br /> `Single` | Specifies whether you can select one or multiple buttons from the group at the same time (applicable for `ToolBarToggleButton` instances inside it). |
