@@ -27,7 +27,7 @@ I want to expand and collapse the Grid Details on row click or double click inst
 
 ## Solution
 
-You can handle the Grid events ([`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick)) to programmatically expand/collapse the `DetailTemplate` of an item.
+Handle the Grid events ([`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick)) to programmatically expand/collapse the `DetailTemplate` of a master item.
 
 In the event handlers, get the [Grid State]({%slug grid-state%}) and modify its `ExpandedItems` field. If the current item is not expanded, add it to the `ExpandedItems` collection. If it is already expanded - remove it from the collection. Set the modified Grid State afterwards. The examples below demonstrate how to achieve that.
 
