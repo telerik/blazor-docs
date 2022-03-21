@@ -47,7 +47,7 @@ Generally, there are **three** ways to customize the appearance of the Telerik B
 3. [Override theme styles with additional CSS code]({%slug themes-override%}).
     * This approach is possible with **both built-in themes or custom themes** made by the ThemeBuilder.
     * This option allows **full control** over the styling, but makes sense only up to a certain amount of customization. Beyond that, resort to building the theme from the source.
-    * Upgrading may or may not require changes to the additional CSS code.
+    * Upgrading may require changes to the additional custom CSS code, but only if there are breaking changes in the HTML output and styling.
 
 To change the sizing and layout of most or all our components, go for manual theme build. For minor adjustments here and there, consider overrides only.
 
