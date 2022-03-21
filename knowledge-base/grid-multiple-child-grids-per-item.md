@@ -1,5 +1,5 @@
 ---
-title: Multiple child Grids per item
+title: Multiple Details Grids per Master
 description: How to render multiple child (detail) Grids under a master Grid?
 type: how-to
 page_title: Multiple child Grids per item
