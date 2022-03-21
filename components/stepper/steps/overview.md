@@ -92,7 +92,13 @@ The `StepperStep` exposes the following parameters which allow you to configure 
 
 * [Indicators]({%slug stepper-indicators%}) - the visual indicators of the steps can include the content below.
 
-| Parameter | Type | Description |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Text` | `string` | Specifies the step indicator text. |
 | `Icon` | `string` | The icon which will be rendered inside the step indicator. |
@@ -102,17 +108,29 @@ The `StepperStep` exposes the following parameters which allow you to configure 
 
 * [State]({%slug stepper-state%}) - the steps can have one of the states below.
 
-| Parameter | Type | Description |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
-| `Disabled` | `bool` | Specifies if the step is disabled. The default value is `false`. |
-| `Optional` | `bool` | Specifies if the step is optional. The default value is `false`. |
+| `Disabled` | `bool` <br /> `false` | Specifies if the step is disabled. |
+| `Optional` | `bool` <br /> `false` | Specifies if the step is optional. |
 
 * Other parameters
 
-| Parameter | Type | Description |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Label` | `string` | Specifies the [label text]({%slug stepper-labels%}) that will be rendered under the corresponding step indicator. |
-| `Valid` | `bool?` | Specifies if the step is [valid]({%slug stepper-steps-validation%}) or not. The default value is `null`. |
+| `Valid` | `bool?` <br /> `null` | Specifies if the step is [valid]({%slug stepper-steps-validation%}) or not. |
 | `Class` | `string` | CSS class for the current step. |
 
 ## See Also

@@ -81,7 +81,7 @@ The Blazor Stepper provides various parameters that allow you to configure the c
         word-break: normal;
     }
 </style>
-| Parameter | Type | Description |
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Value` | `int` | Defines the current step index. |
 | `Orientation` | `StepperOrientation` enum <br /> `Horizontal` | Defines the orientation of the Stepper. You can read more on how to configure it in the [Orientation]({%slug stepper-orientation%}) article. |
