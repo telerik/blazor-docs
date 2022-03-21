@@ -18,10 +18,7 @@ If unlimited choice of colors is preferred, consider the [ColorGradient componen
 
 1. Add the `<TelerikColorPalette>` tag to add the component to your razor page.
 
-1. Bind its `Value` to the `string` you want to get out of it.
-
-1. Optionally, choose a list of `Colors` to show the user (one of the [presets we provide]({%slug colorpalette-presets%}), or a set of [custom colors]({%slug colorpalette-custom-colors%})).
-    * If you do not provide a value for the `Colors`, it will default to the `Office` [preset]({%slug colorpalette-presets%}).
+1. Set the `Value` parameter to the `string` you want to get out of it. It supports one-way and two-way binding.
 
 >caption Basic color palette with two-way value binding and a default predefined palette.
 
@@ -69,7 +66,13 @@ The Blazor ColorPalette generates events that you can handle and further customi
 
 The Blazor ColorPalette provides various parameters that allow you to configure the component:
 
-| Parameter | Type | Description |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Value` | `string` | Get/set the value of the input, can be used for binding. Can take any string that can be a [CSS background-color string](https://css-tricks.com/almanac/properties/b/background-color/). The presets we provide use hex format (`#123abc`). |
 | `Class` | `string` | The CSS class that will be rendered on the wrapping element of the component. |
@@ -81,29 +84,15 @@ The Blazor ColorPalette provides various parameters that allow you to configure 
 | `TileHeight` | `string` | The height of each individual color item. Determines the size of the component together with the `Columns` and `TileWidth`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings  |
 | `TileWidth` | `string` | The width of each individual color item. Determines the size of the component together with the `Columns` and `TileHeight`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings  |
 
-## ColorPallete Reference and Validation
-
->caption Example of the component reference.
-
-````CSHTML
-<TelerikColorPalette @ref="@TheColorPaletteRef"></TelerikColorPalette>
-
-@code{
-    Telerik.Blazor.Components.TelerikColorPalette TheColorPaletteRef { get; set; }
-}
-````
-
 See the [Input Validation]({%slug common-features/input-validation%}) article.
 
 ## Next Steps
 
-[Explore the ColorPallete Predefined Colors]({%slug colorpalette-presets%})
+* [Explore the ColorPallete Predefined Colors]({%slug colorpalette-presets%})
 
-[Explore the ColorPallete Events]({%slug colorpalette-events%})
+* [Handle the ColorPallete Events]({%slug colorpalette-events%})
 
 ## See Also
 
-  * [Live Demo: Color Palette](https://demos.telerik.com/blazor-ui/colorpalette/overview)
-  * [Color Presets]({%slug colorpalette-presets%})
-  * [Custom Color Collections]({%slug colorpalette-custom-colors%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPalette)
+  * [Live ColorPalette Demos](https://demos.telerik.com/blazor-ui/colorpalette/overview)
+  * [ColorPalette API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPalette)
