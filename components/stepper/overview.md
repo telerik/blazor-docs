@@ -61,7 +61,7 @@ The Stepper steps can display labels and icons. [Read more about the Blazor Step
 
 ## Linear Flow
 
-By default, the user can select any step in the Stepper component. This behavior could be customized by configuring its Linear flow property. [Read more about the Blazor Stepper linear flow]({%slug stepper-linear-flow%}).
+By default, the user can select any step in the Stepper component and go to it directly. This behavior can be changed with the `Linear` parameter, so that the user goes through the steps sequentially. [Read more about the Blazor Stepper linear flow]({%slug stepper-linear-flow%}).
 
 ## Templates
 
