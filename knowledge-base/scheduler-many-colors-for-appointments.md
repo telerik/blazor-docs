@@ -34,7 +34,7 @@ I want to set different background color to the appointments. I see that this ca
 
 ````CSHTML
 <style>
-/* remove the default padding, so the template container can be expanded to cover the whole appointment */
+/* remove the default padding, so the template container expands to cover the whole appointment */
     .k-scheduler .k-event{
         padding:0px;
     } 
