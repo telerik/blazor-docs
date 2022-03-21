@@ -248,7 +248,7 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 
 * `Stream` - `MemoryStream` - The output of the Excel export as a memory stream. 
 
-````CSHTML
+````Excel
 @* Get the output of the excel export as a memory stream *@
 
 @using System.IO

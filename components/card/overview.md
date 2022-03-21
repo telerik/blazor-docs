@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Card Overview
-description: Overview of the Card for Blazor.
+description: Discover the Blazor Card and explore the examples.
 slug: card-overview
 tags: telerik,blazor,card,overview
 published: True
@@ -14,28 +14,15 @@ position: 0
 The <a href = "https://www.telerik.com/blazor-ui/card" target="_blank">Card for Blazor</a> is a component that combines text, visual content and actions about a single subject. It quickly grabs the user’s attention with its clean layout, consisting of a title, usually an image, some text as the body and perhaps a footer. You can use it to easily organize content when building catalogs, dashboards, blogs, e-shops, etc. It has dedicated areas for its [building blocks]({%slug card-building-blocks%}) and that provides various ways of component usage.
 
 
-#### In this article:
-   * [Basics](#basics)
-   * [Example](#example)
-   * [Features](#features)
+## Creating Card
 
-## Basics
+1. Use the `TelerikCard` tag to add the component to your razor page.
 
-To use a Telerik Card for Blazor:
+1. Add the desired Building Blocks - explore the available elements in the [Card Building Blocks]({%slug card-building-blocks%}) article.
 
-1. add the `TelerikCard` tag
-
-1. add the desired [Card Building Blocks]({%slug card-building-blocks%})
-
->tip You can see a code example below, review the [Building Blocks]({%slug card-building-blocks%}) article for more examples.
-
-## Example 
+1. (Optional) Configure the Card settings such as ThemeColor, [Orientation]({%slug card-orientation%}).
 
 The below snippet demonstrates the setup of a Card component with all building blocks implemented. You don't have to use them all.
-
->caption The result from the snippet.
-
-![Card component](images/overview-card-example.png)
 
 ````CSHTML
 @* Blazor Card with all building blocks included *@
@@ -67,22 +54,32 @@ The below snippet demonstrates the setup of a Card component with all building b
 </TelerikCard>
 ````
 
-## Features
+## Parameters
 
-The Card provides the following features:
+The Card provides various parameters that allow you to configure the component:
 
-* `Width` - `string` - defines width of the component.
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter   | Type | Description |
+| ----------- | ----------- | -------|
+| `Width` | `string` | defines width of the component.
+| `Class` | `string` | the CSS class that will be rendered on the main wrapping element of the Card.
+| `Orientation` | `CardOrientation` | defines the orientation of the card. Takes a member of the `Telerik.Blazor.CardOrientation` enum (`Horizontal` or `Vertical`). Read more in the [Card Orientation article]({%slug card-orientation%}).
+| `ThemeColor` | `string` | defines the appearance of the component. We support predefined theme colors such as info, error, success (members of the `Telerik.Blazor.ThemeColors` class). Test changing the Card theme colors in our [live demo](https://demos.telerik.com/blazor-ui/card/appearance).
+| `ChildContent` | `RenderFragment` | defines the child content of the component. All possible building blocks can be directly used as a `ChildContent` of the Card.
 
-* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the Card.
-
-* `Orientation` - `CardOrientation` - defines the orientation of the card. Takes a member of the `Telerik.Blazor.CardOrientation` enum (`Horizontal` or `Vertical`). Read more in the [Card Orientation article]({%slug card-orientation%}).
-
-* `ThemeColor` - `string` - defines the appearance of the component. We support predefined theme colors such as info, error, success (members of the `Telerik.Blazor.ThemeColors` class). Test changing the Card theme colors in our [live demo](https://demos.telerik.com/blazor-ui/card/appearance).
-
-* `ChildContent` - `RenderFragment` - defines the child content of the component. All possible building blocks can be directly used as a `ChildContent` of the Card.
 
 >tip To make multiple Cards occupy the same **height** automatically, use the predefined [Deck or Group layouts]({%slug card-layouts%}). If the Cards should wrap to multiple rows, use the custom [Tile layout](https://demos.telerik.com/blazor-ui/card/data-cards). It is also possible to set a specific height to Cards with a CSS rule.
 
+
+## Next Steps
+
+* [Card Building Blocks]({%slug card-building-blocks%})
+* [Card Actions]({%slug card-actions%})
 
 ## See Also
 

@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: ComboBox Overview
-description: Overview of the ComboBox for Blazor.
+description: Discover the Blazor ComboBox and explore the examples.
 slug: components/combobox/overview
 tags: telerik,blazor,combobox,combo,overview
 published: True
@@ -12,15 +12,15 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/combobox" target="_blank">Blazor ComboBox component</a> allows the user to choose an option from a predefined set of choices presented in a dropdown popup. You can also allow them to enter [custom values]({%slug components/combobox/custom-value%}) and to [filter]({%slug components/combobox/filter%}) the available items. You can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/combobox/templates%}).
 
-#### To use a Telerik ComboBox for Blazor
+## Creating ComboBox
 
-1. add the `TelerikComboBox` tag
-1. populate its `Data` property with the collection of items you want in the dropdown
-1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
-1. (optional) set the `Value` property to the initial value of the model.
+1. Use the `TelerikComboBox` tag to add the component to your razor page.
+1. Populate the `Data` property with the collection of items that you want to appear in the dropdown.
+1. Set the `TextField` and `ValueField` properties to point to the corresponding names of the model
+1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
 1. (optional) enable features like filtering and clear button
 
->caption Combobox [data binding](data-bind), two-way value binding and main features
+>caption Combobox [data binding](data-bind) with two-way value binding
 
 ````CSHTML
 Selected value: @selectedValue
@@ -33,13 +33,7 @@ Selected value: @selectedValue
 @code {
     IEnumerable<MyDdlModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 
-    int selectedValue { get; set; }
-
-    //Define a preselected value when the component initializes. Placeholder will not be shown as the selected value is defined.
-    protected override void OnInitialized()
-    {
-        selectedValue = 3;
-    }
+    int selectedValue { get; set; }    
 
     //in a real case, the model is usually in a separate file
     //the model type and value field type must be provided to the dropdpownlist
@@ -51,68 +45,77 @@ Selected value: @selectedValue
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/combobox-basic-screenshot.png)
-
->caption Component namespace and reference
+## Component Reference
 
 The ComboBox is a generic component and its type is determined by the type of the model you pass to it, and the type of its value field. You can find examples in the [Data Bind - Considerations]({%slug components/combobox/databind%}#considerations) article.
 
-## Features
+## Data Binding
 
->caption The ComboBox provides the following features:
+The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor ComboBox data binding...]({% slug components/combobox/databind %}).
 
-* `AllowCustom` - whether the user can enter [custom values]({%slug components/combobox/custom-value%}). If enabled, the `ValueField` must be a `string`.
+## Filtering
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the combobox.
+The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor ComboBox filter...]({% slug components/combobox/filter %}).
+
+## Grouping
+
+The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor ComboBox grouping...]({% slug components/combobox/grouping %}).
+
+## Templates
+
+@[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor ComboBox templates...]({% slug components/combobox/templates %}).
+
+## Validation
+
+@[template](/_contentTemplates/dropdowns/features.md#validation)
+
+## Virtualization
+
+@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor ComboBox virtualization...]({% slug combobox-virtualization %})
 
 
-* `ClearButton` - whether the user will have the option to clear the selected value. When it is clicked, the `Value` will be updated to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, clearing the value will lead to a `0` `Value`, so if there is an Item with `0` in its `ValueField` - issues may arise with its selection. This feature can often go together with `AllowCustom`.
+## Parameters
 
-* `Data` - allows you to provide the data source. Required.
+>caption The ComboBox provides various parameters that allow you to configure the component:
 
-* `Enabled` - whether the component is enabled.
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter      | Type | Description
+| ----------- | ----------- | -----------|
+| `AllowCustom` | `bool` | whether the user can enter [custom values]({%slug components/combobox/custom-value%}). If enabled, the `ValueField` must be a `string`.
+| `ClearButton` | `bool` | whether the user will have the option to clear the selected value. When it is clicked, the `Value` will be updated to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, clearing the value will lead to a `0` `Value`, so if there is an Item with `0` in its `ValueField` - issues may arise with its selection. This feature can often go together with `AllowCustom`.
+| `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required.
+| `Enabled` | `bool` | whether the component is enabled.
+|`Filterable` | `bool` | whether [filtering]({%slug components/combobox/filter%}) is enabled for the end user.
+| `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | the method of [filtering]({%slug components/combobox/filter%}) the items.
+| `Id` | `string` | renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+| `Placeholder` | `string` | the text the user sees as a hint when no item is selected. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source.
+| `TItem` | `Type` | the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
+| `TValue` | `Type` | the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum`|
+| `TextField` | `string` <br /> (`Text`)| the name of the field from the model that will be shown to the user.
+| `ValueField` | `string` <br /> (`Value`) | the name of the field from the model that will be the underlying `value`.
+| `Value` and `bind-Value` | `TValue` | get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
+| `TabIndex` | `int?` | maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
 
-* `Filterable` - whether [filtering]({%slug components/combobox/filter%}) is enabled for the end user.
+### Styling and Appearance
 
-* `FilterOperator` - the method of [filtering]({%slug components/combobox/filter%}) the items. Defaults to `StartsWith`.
+The following parameters enable you to customize the appearance of the Blazor ComboBox:
 
-* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+@[template](/_contentTemplates/dropdowns/features.md#styling)
 
-* `Placeholder` - the text the user sees as a hint when no item is selected. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source.
+You can find more options for customizing the ComboBox styling in the [Appearance article]({%slug combobox-appearance%}).
 
-* `TItem` - the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
-
-* `TValue` - the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
-
-* `TextField` - the name of the field from the model that will be shown to the user. Defaults to `Text`.
-
-* `ValueField` - the name of the field from the model that will be the underlying `value`. Defaults to `Value`.
-
-* `Value` and `bind-Value`- get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
-
-    The `Value` and `ValueField` can be of types:
-
-    * `number` (such as `int`, `double` and so on)
-    * `string`
-    * `Guid`
-    * `Enum`
-
-* `Width` - the width of the dropdown and the main element. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
-
-* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
-
-* Templates - they allow you to control the rendering of items in the component. See the [Templates]({%slug components/combobox/templates%}) article for more details.
-
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
 ### Popup settings
 
-The attributes below are set via nested tags:
+The popup of the component can be additionally customized via nested tags:
 
-<div class="skip-repl"></div>
 ````
+<div class="skip-repl"></div>
 <TelerikComboBox>
     <ComboBoxSettings>
         <ComboBoxPopupSettings Height="..." />
@@ -120,9 +123,9 @@ The attributes below are set via nested tags:
 </TelerikComboBox>
 ````
 
-* `Class` - additional CSS class to customize the appearance of the ComboBox dropdown.
-* `Height` - the height of the expanded dropdown list element.
-* `Width` - the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
+The ComboBox provides the following popup settings:
+
+@[template](/_contentTemplates/dropdowns/features.md#popup-settings)
 
 
 ## Selected Item
@@ -150,6 +153,12 @@ Missing selection is most common when the initial value is `null` as data source
 
 
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
+
+## Next Steps
+
+* [Binding the ComboBox to Data]({%slug components/combobox/databind%})
+
+* [Pre-Selecting Items for the User]({% slug  combobox-pre-select-item %})
 
 ## See Also
 

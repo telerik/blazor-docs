@@ -10,29 +10,42 @@ position: 20
 
 # FileSelect Events
 
-This article explains the events available in the Telerik FileSelect for Blazor:
+This article describes the events and event arguments of the Telerik FileSelect for Blazor:
 
-* [OnSelect](#onselect)
-* [OnRemove](#onremove)
+* [OnSelect event](#onselect)
+* [OnRemove event](#onremove)
+* [FileSelectFileInfo class](#fileselectfileinfo)
+
+## FileSelectFileInfo
+
+The FileSelect event handlers provide a [`FileSelectEventArgs` argument](/blazor-ui/api/Telerik.Blazor.Components.FileSelectEventArgs). It has a `Files` property, which is a `List<FileSelectFileInfo>`.
+
+The `FileSelectFileInfo` type contains these properties:
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+
+Property | Type | Description
+---------|----------|---------
+`Id` | `string` | the unique file identifier
+`Name`|`string` | the file name
+`Size` |`long` | the file size in bytes
+`Extension` |`string` | the file extension
+`InvalidExtension` | `bool` | a boolean flag that shows if the file type is invalid
+`InvalidMinFileSize` | `bool` | a boolean flag that shows if file size is below the minimum
+`InvalidMaxFileSize` | `bool` | a boolean flag that shows if the file size exceeds the maximum
+`Stream`| `FileInfoStream` | a [System.IO.Stream](https://docs.microsoft.com/en-us/dotnet/api/system.io.stream) that can be used to load the file to memory, file system or other. Use it to asynchronously get the file contents as byte array.
+
 
 ## OnSelect
 
 The `OnSelect` fires when one or multiple files have been selected through the `Select files` button. Contains a list of fileInfo objects, allowing processing of the files.
 
-The event handler receives a `FileSelectEventArgs` object. Its `Files` field is a collection of `FileSelectFileInfo` objects. They describe each selected file and allow its processing.
-
-The `FileSelectFileInfo` object contains the following properties:
-
-Property | Type | Description
----------|----------|---------
-`Id` | `string` | the unique identifier of the file.
-`Name`|`string` | the file name.
-`Size` |`long` | the file size in bytes.
-`Extension` |`string` | the file extension.
-`InvalidExtension` | `bool` | a boolean flag indicating whether the file has an extension that is not within the specified ones.
-`InvalidMinFileSize` | `bool` | a boolean flag indicating whether the file has a size below the minimum.
-`InvalidMaxFileSize` | `bool` | a boolean flag indicating whether the file exceeds the max file size.
-`Stream`| `FileInfoStream` | a stream that can be used to upload the file to memory, file system or other. It's used to asynchronously get the byte array data of the file.
+The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo).
 
 >caption Handle the OnSelect event of the FileSelect
 
@@ -85,20 +98,9 @@ Property | Type | Description
 
 ## OnRemove
 
-The `OnRemove` fires when a file has been removed from the list of selected files (by clicking the `x` icon or pressing `Del` key). Contains the removed fileInfo object.
+The `OnRemove` fires when a file has been removed from the list of selected files (by clicking the `x` icon or pressing `Del` key).
 
-The event handler receives a `FileSelectEventArgs` object. Its `Files` field is a collection of `FileSelectFileInfo` objects. As the FileSelect component allows deleting one item at a time, the collection contains only one `FileSelectFileInfo` object (the deleted one) and it has the following fields:
-
-Property | Type | Description
----------|----------|---------
-`Id`| `string` | the unique identifier of the file.
-`Name` | `string` | the file name.
-`Size` | `long`  | the file size in bytes.
-`Extension` | `string` | the file extension.
-`InvalidExtension` | `bool` | a boolean flag indicating whether the file has an extension that is not within the specified ones.
-`InvalidMinFileSize` | `bool` | a boolean flag indicating whether the file has a size below the minimum.
-`InvalidMaxFileSize` | `bool` | a boolean flag indicating whether the file exceeds the max file size.
-`Stream` | `FileInfoStream` | a stream that can be used to upload the file to memory, file system or other. It's used to asynchronously get the byte array data of the file.
+The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo). As the FileSelect component allows deleting one item at a time, the collection contains only one `FileSelectFileInfo` object (the deleted one).
 
 >caption Handle the OnRemove event of the FileSelect
 
