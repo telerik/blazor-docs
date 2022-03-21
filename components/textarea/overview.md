@@ -16,7 +16,9 @@ The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank
 
 1. Add the `<TelerikTextArea>` tag to add the component to your razor page.
 
-2. Set the `Value` (one and two-way data binding applicable) property.
+2. Set the `Value` parameter. It supports one-way and two-way binding.
+
+3. (optional) Set the `Label` and `AutoSize` properties.
 
 >caption Basic TextArea with two-way value binding.
 
@@ -47,7 +49,13 @@ The Blazor TextArea generates events that you can handle and further customize i
 
 The Blazor TextArea provides various parameters that allow you to configure the component:
 
-| Parameter | Type | Description |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Value` | `string` | Get/set the value of the input, can be used for binding. |
 | `AutoComplete` | `bool` | Maps to the autocomplete attribute of the HTML `<textarea>`. |
@@ -64,30 +72,15 @@ The Blazor TextArea provides various parameters that allow you to configure the 
 | `ValidateOn` | `ValidationEvent` | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
 | `Width` | `string` | The width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article for more information. |
 
-## TextArea Reference and Validation
-
->caption Component namespace and reference.
-
-````CSHTML
-<TelerikTextArea @bind-Value="@TextAreaValue" @ref="@TextAreaRef"></TelerikTextArea>
-
-@code {
-    public Telerik.Blazor.Components.TelerikTextArea TextAreaRef { get; set; }
-    public string TextAreaValue { get; set; }
-}
-````
-
 See the [Input Validation]({%slug common-features/input-validation%}) article.
 
 ## Next Steps
 
-[Explore the TextArea Appearance Settings]({%slug TextArea-appearance%})
+* [Explore the TextArea Appearance Settings]({%slug TextArea-appearance%})
 
-[Explore the TextArea Events]({%slug textarea-events%})
+* [Handle the TextArea Events]({%slug textarea-events%})
 
 ## See Also
 
-  * [Live Demo: TextArea](https://demos.telerik.com/blazor-ui/textarea/index)
-  * [Live Demo: TextArea Validation](https://demos.telerik.com/blazor-ui/textarea/validation)
-  * [Input Validation]({%slug common-features/input-validation%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextArea)
+  * [Live TextArea Demos](https://demos.telerik.com/blazor-ui/textarea/index)
+  * [TextArea API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextArea)
