@@ -2,7 +2,7 @@
 title: Catch all exceptions globally using ErrorBoundary
 description: How to use ErrorBoundary to catch all Blazor app exceptions globally?
 type: how-to
-page_title: Catch all exceptions globally using ErrorBoundary
+page_title: Catch all exceptions globally with ErrorBoundary
 slug: common-kb-catch-all-exceptions-globally
 position: 
 tags: telerik,blazor,catch,all,exceptions,globally,error,boundary
