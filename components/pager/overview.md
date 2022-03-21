@@ -18,7 +18,7 @@ The Pager provides the UI for the user to change the page. To the developer, it 
 
 1. Add the `TelerikPager` tag to add the component to your razor page.
 
-1. Set its `Total` parameter to the number of items in the data source.
+1. Set its `Total` property to the number of items in the data source.
 
 1. Use the values of its `Page` and `PageSize` parameters to extract and render the desired subset of data.
 
@@ -195,7 +195,13 @@ The Blazor Pager generates events that you can handle and further customize its 
 
 The Blazor Pager provides various parameters that allow you to configure the component:
 
-| Parameter | Type | Description |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Total` | `int` | Represents the total count of items in the pager. **Required.** |
 | `ButtonCount` | `int` | The maximum number of page buttons that will be visible. To take effect, `ButtonCount` must be smaller than the page count (`ButtonCount < Total / PageSize`). |
@@ -207,11 +213,9 @@ The Blazor Pager provides various parameters that allow you to configure the com
 
 ## Next Steps
 
-[Explore the Pager Events]({%slug pager-events%})
+* [Explore the Pager Events]({%slug pager-events%})
 
 ## See Also
 
-* [Live Demo: Pager Overview](https://demos.telerik.com/blazor-ui/pager/overview)
-* [Live Demo: Pager Integration](https://demos.telerik.com/blazor-ui/pager/integration)
-* [Live Demo: Pager Localization](https://demos.telerik.com/blazor-ui/pager/localization)
-* [Live Demo: Pager Keyboard Navigation](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation)
+* [Live Pager Demos](https://demos.telerik.com/blazor-ui/pager/overview)
+* [Pager API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikPager)
