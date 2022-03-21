@@ -16,11 +16,11 @@ The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor
 
 1. Add the `<TelerikToolBar>` tag to add the component to your razor page.
 
-1. Populate it with [Built-In Tools]({%slug toolbar-built-in-tools%}) or [Custom Tools]({%slug toolbar-templated-item%}).
+2. Populate it with [Built-In Tools]({%slug toolbar-built-in-tools%}) or [Custom Tools]({%slug toolbar-templated-item%}).
 
 3. (optional) Add the `<ToolBarToggleButton>` to the `<TelerikToolBar>`. The toolbar toggle button can toggle between normal and selected states through two-way binding or an event.
 
-1. Handle their respective events so your application can respond to the user actions.
+4. Handle their respective events so your application can respond to the user actions.
 
 >caption Basic Telerik Toolbar.
 
