@@ -18,6 +18,8 @@ You can control [various attributes](#features) of the `input` element and turn 
 
 1. Add the `<TelerikTextBox>` tag to add the component to your razor page.
 
+2. Set the `Value` parameter. It supports one-way and two-way binding.
+
 >caption Basic textbox with two-way value binding
 
 ````CSHTML
@@ -30,7 +32,6 @@ You can control [various attributes](#features) of the `input` element and turn 
     string theTbValue { get; set; } = "lorem ipsum";
 }
 ````
-
 
 >caption Customized textbox with input attributes
 
@@ -96,7 +97,13 @@ The Blazor TextBox generates events that you can handle and further customize it
 
 The Blazor TextBox provides various parameters that allow you to configure the component:
 
-| Parameter | Type | Description |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Value` | `string` | Get/set the value of the input, can be used for binding. |
 | `AutoComplete` | `string` | A `string` that maps to the [`autocomplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) attribute of the HTML element. You can use it to instruct the browser to turn `off` its autocompletion or to use specific settings for it (such as `new-password`). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates. |
@@ -117,14 +124,11 @@ See also the [Input Validation]({%slug common-features/input-validation%}) artic
 
 ## Next Steps
 
-[Explore the TextBox Appearance Settings]({%slug textbox-appearance%})
+* [Explore the TextBox Appearance Settings]({%slug textbox-appearance%})
 
-[Explore the TextBox Events]({%slug components/textbox/events%})
+* [Handle the TextBox Events]({%slug components/textbox/events%})
 
 ## See Also
 
-  * [Live Demo: Textbox](https://demos.telerik.com/blazor-ui/textbox/index)
-  * [Live Demo: Textbox Validation](https://demos.telerik.com/blazor-ui/textbox/validation)
-  * [Input Validation]({%slug common-features/input-validation%})
-  * [Add Floating Label]({%slug inputs-kb-floating-label%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)
+  * [Live TextBox Demos](https://demos.telerik.com/blazor-ui/textbox/index)
+  * [TextBox API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)
