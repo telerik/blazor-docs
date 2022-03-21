@@ -27,7 +27,10 @@ I want to set different background color to the appointments. I see that this ca
 
 ## Solution
 
-You can add background-color and color properties to the appointment model which will be used to provide the desired background and font color for each appointment. Use [Appointment Templates]({%slug scheduler-templates-appointment%}), wrap the appointment content in a container and set some inline styles (background-color, color) based on the context. The example below demonstrates the suggested approach.
+* Add background-color and color properties to the appointment model.
+* Use [Appointment Templates]({%slug scheduler-templates-appointment%}) to render the desired colors and styles for each appointment. Retrieve the style values from the template `context`.
+* Wrap the appointment template content in a container that will hold the custom styles.
+* (optional) Remove the default `padding` of the `.k-event` elements.
 
 ````CSHTML
 <style>
