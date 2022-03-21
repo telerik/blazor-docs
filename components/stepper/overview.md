@@ -22,7 +22,7 @@ The Stepper provides several features out of the box, including the ability to d
 
 2. Set the `Value` parameter. It supports one-way and two-way binding.
 
-3. Under its `StepperSteps` tag include and configure the desired [`Steps`]({%slug  stepper-steps-overview%}).
+3. Configure the [`StepperStep` instances]({%slug  stepper-steps-overview%}) inside the `StepperSteps` tag.
 
 4. (optional) Set the `Icon` and `Label` `StepperStep` properties.
 
