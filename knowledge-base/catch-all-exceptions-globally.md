@@ -55,7 +55,7 @@ To do so, wrap the existing content in an `ErrorBoundary` component. It will ren
 </div>
 ````
 
-The `ErrorBoundary` component can be used to catch exceptions in the Telerik components as well. While the common approach to catch all exceptions on global level is to wrap it around the `@Body` element, this will not cover errors thrown in components such as Window, Dialog, other popups. These components are not rendered in their place of declaration and essentially they are outside the body.
+The `ErrorBoundary` component can catch exceptions in the Telerik Blazor components as well. The usual approach to catch all exceptions is to wrap `ErrorBoundary` around the `@Body` element. However, this may not catch errors thrown in components such as Window, Dialog, and other popups. These components are not rendered in their place of declaration and essentially they are outside the body.
 
 To handle this, wrap the `ErrorBoundary` component around the `TelerikRootComponent` which wraps the body. This is the topmost element our components can access.
 
