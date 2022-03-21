@@ -82,6 +82,12 @@ You can validate Slider value using the built-in validation. See the [Input Vali
 
 The Slider provides various parameters that allow you to configure the component:
 
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
 | Parameter    | Type  | Description |
 | ----------- | ----------- | -------|
 | `Decimals` | `int` | Specifies the number precision for the steps.

@@ -18,14 +18,14 @@ The <a href="https://www.telerik.com/blazor-ui/autocomplete" target="_blank">Bla
 
 1. Populate the `Data` property with the collection of items that you want to appear in the dropdown.
 
-1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a collection of the same type as the collection that you bound through the `Data` property.
+1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to the same type as the member of the `ValueField` parameter.
 
 1. (Optional) Enable features like placeholder text and [clear button](#clear-button).
 
->caption Creating AutoComplete with two-way value binding, main features, and simple [data binding](data-bind)
+>caption AutoComplete with two-way value binding and [data binding]({%slug autocomplete-databind%}) to a primitive type
 
 ````CSHTML
-@* Main features and simple data binding for the suggestions and the value *@
+@* AutoComplete with two-way value binding and data binding to a primitive type *@
 
 User input: @TheValue
 <br />
@@ -52,7 +52,7 @@ The AutoComplete is a generic component and its type is determined by the type o
 
 The Blazor AutoComplete @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor AutoComplete data binding...]({%slug autocomplete-databind%})
 
-## Filter
+## Filtering
 
 The Blazor AutoComplete @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor AutoComplete filter...]({%slug autocomplete-filter%})
 
@@ -75,6 +75,13 @@ The Blazor AutoComplete @[template](/_contentTemplates/dropdowns/features.md#gro
 ## Parameters
 
 The Blazor AutoComplete provides various parameters that allow you to configure the component:
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
 
 | Parameter    | Type  | Description |
 | ----------- | ----------- | -------|

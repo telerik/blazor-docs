@@ -18,7 +18,7 @@ The <a href="https://www.telerik.com/blazor-ui/multiselect" target="_blank">Blaz
 
 1. Populate the `Data` property with the collection of items that you want to appear in the dropdown.
 
-1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a collection of the same type as the collection that you bound through the `Data` property.
+1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a collection of the same type as the type defined in the `ValueField` parameter.
 
 1. (Optional) Enable features like placeholder text, clear button, and AutoClose.
 
@@ -67,7 +67,7 @@ The MultiSelect is a generic component and its type is determined by the type of
 
 The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor MultiSelect data binding...]({% slug multiselect-databind %})
 
-## Filter
+## Filtering
 
 The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor MultiSelect filter...]({% slug multiselect-filter %})
 
