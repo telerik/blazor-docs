@@ -58,7 +58,7 @@ Review the [grid state]({%slug grid-state%}) article for more details and exampl
 
 ### Column Events
 
-The grid column emits the `OnCellRender` event when rendering the cells so you can customize them. You can read more and find examples in the [Grid Column Events]({%slug grid-column-events%}) article.
+The Grid columns emit the `OnCellRender` event, so you can customize each cell separately. Read more and find examples in the [Grid Column Events]({%slug grid-column-events%}) article.
 
 ### Command Button Click
 
