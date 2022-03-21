@@ -20,6 +20,8 @@ You can control [various attributes](#features) of the `input` element and turn 
 
 2. Set the `Value` parameter to the desired `string`. It supports one-way and two-way binding.
 
+2. Set the `Value` parameter. It supports one-way and two-way binding.
+
 >caption Basic textbox with two-way value binding
 
 ````CSHTML
