@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-We have a hierarchical Grid where each item has two sub-Grids. We want to display both child Grids simultaneously.
+We have a hierarchical Grid where each master item has two child sub-Grids. We want to display both child Grids at the same time.
 
 ## Solution
 
