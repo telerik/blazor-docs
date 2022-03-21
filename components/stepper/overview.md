@@ -50,7 +50,7 @@ The Stepper provides several features out of the box, including the ability to d
 
 ## Steps
 
-The Steps are the building blocks of the Stepper component. You can include the desired steps by adding a `StepperStep` tag for every step. The steps appearance can be configured through the features the `StepperStep` exposes. [Read more about the Blazor Stepper configuration]({%slug stepper-steps-overview%}).
+The Steps are the building blocks of the Stepper component. Include the desired steps by adding a `StepperStep` tag for every step. Then, configure each `StepperStep` appearance via its parameters. [Read more about the Blazor Steps configuration]({%slug stepper-steps-overview%}).
 
 ## Orientation
 The Stepper component provides different orientations. [Read more about the Blazor Stepper orientation]({%slug stepper-orientation%}).
