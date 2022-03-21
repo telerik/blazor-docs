@@ -33,7 +33,7 @@ As of .NET 6, you can use the [`ErrorBoundary` component](https://docs.microsoft
 
 To do so, wrap the existing content in an `ErrorBoundary` component. It will render error UI when unhandled exceptions are thrown. The application continues to function normally, but the error boundary handles the exception in the affected component.
 
-`ErrorBoundary` can be wrapped around any Blazor component or around the `@Body` element in the MainLaout.razor, so it catches all exceptions globally.
+`ErrorBoundary` can wrap any Blazor component or the `@Body` in `MainLayout.razor`, so it catches all exceptions globally.
 
 ````CSHTML
 <div class="page">
