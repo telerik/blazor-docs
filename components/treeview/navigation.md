@@ -1,7 +1,7 @@
 ---
 title: Navigation
-page_title: TreeView - Navigation
-description: Using the Blazor TreeView for navigating between pages.
+page_title: TreeView Navigation
+description: How to use the Blazor TreeView to navigate between pages.
 slug: treeview-navigation
 tags: telerik,blazor,treeview,navigation
 published: True
@@ -10,113 +10,102 @@ position: 5
 
 # TreeView for Navigation
 
-The TreeView can be used to navigate between different pages in the applicaiton. It can generate the needed links for you through its `UrlField` when [data binding]({%slug components/treeview/data-binding/overview%}).
+The TreeView can navigate between different pages in the application.
 
-To use the TreeView for navigating between pages:
+* Use a `Url` property in the model, or set the `UrlField` attribute in a [`TreeViewBinding`]({%slug components/treeview/data-binding/overview%}#treeview-bindings). Thus the TreeView will generate navigation links.
+* It is possible to add the TreeView to the `MainLayout.razor`, outside the app `@Body`.
 
-* Add the TreeView to your application.
-    * You may want to add it in the `MainLayout.razor` outside of the @Body, for example, in the sidebar section of your app.
-* Provide a collection of models that describe the pages you want the user to navigate to.
-* Populate its `UrlField` with the corresponding data from the model or provide a `Url` property in the model.
+> External links should include a protocol, for example `https://`.
+>
+> Blazor doesn't support [navigation to page sections](https://www.meziantou.net/anchor-navigation-in-a-blazor-application.htm) out-of-the-box.
 
->caption Use the TreeView to navigate between pages
+For specific scenarios, use a [Template]({%slug components/treeview/templates%}) to generate the desired links manually (e.g. `NavLink` components) to enable fine-tuning.
+
+>caption TreeView for page navigation
 
 ````CSHTML
-@* This a basic example of a TreeView used as Navigation. *@
-@* The items that does not have a set Url are not navigation links *@
-
-<TelerikTreeView Data="@TreeViewData"></TelerikTreeView>
+<TelerikTreeView Data="@TreeViewData"
+                 @bind-ExpandedItems="@ExpandedItems"/>
 
 @code {
-    public List<TreeViewModel> TreeViewData { get; set; }
+    List<TreeItem> TreeViewData { get; set; }
+    IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
     protected override void OnInitialized()
     {
         GenerateData();
+
+        ExpandedItems = TreeViewData.Where(x => x.HasChildren == true).ToList();
     }
 
-    public void GenerateData()
+    void GenerateData()
     {
-        TreeViewData = new List<TreeViewModel>();
+        TreeViewData = new List<TreeItem>();
 
-        TreeViewData.Add(new TreeViewModel()
+        TreeViewData.Add(new TreeItem()
         {
             Id = 1,
-            Text = "Company",
+            Text = "App Pages",
             ParentId = null,
             HasChildren = true
         });
 
-        TreeViewData.Add(new TreeViewModel()
+        TreeViewData.Add(new TreeItem()
         {
             Id = 2,
-            Text = "Overview",
+            Text = "Home",
             ParentId = 1,
-            HasChildren = false,
-            Url = "/company/overview"
+            Url = "/"
         });
 
-        TreeViewData.Add(new TreeViewModel()
+        TreeViewData.Add(new TreeItem()
         {
             Id = 3,
-            Text = "Contact us",
+            Text = "Counter",
             ParentId = 1,
-            HasChildren = false,
-            Url = "/company/contacts"
+            Url = "/counter"
         });
 
-        TreeViewData.Add(new TreeViewModel()
+        TreeViewData.Add(new TreeItem()
         {
             Id = 4,
-            Text = "Our mission",
+            Text = "Fetch Data",
             ParentId = 1,
-            HasChildren = false,
-            Url = "/company/mission"
+            Url = "/fetchdata"
         });
 
-        TreeViewData.Add(new TreeViewModel()
+        TreeViewData.Add(new TreeItem()
         {
             Id = 5,
-            Text = "Products",
+            Text = "External Pages",
             ParentId = null,
             HasChildren = true
         });
 
-        TreeViewData.Add(new TreeViewModel()
+        TreeViewData.Add(new TreeItem()
         {
             Id = 6,
-            Text = "Core product",
+            Text = "Telerik",
             ParentId = 5,
-            HasChildren = true,
-            Url = "/producs/core"
+            Url = "https://www.telerik.com/"
         });
 
-        TreeViewData.Add(new TreeViewModel()
+        TreeViewData.Add(new TreeItem()
         {
             Id = 7,
-            Text = "Main product",
-            ParentId = 6,
-            HasChildren = false,
-            Url = "/producs/core/main"
-        });
-
-        TreeViewData.Add(new TreeViewModel()
-        {
-            Id = 8,
-            Text = "Other products",
+            Text = "UI for Blazor Demos",
             ParentId = 5,
-            HasChildren = false,
-            Url = "/producs/other"
+            Url = "https://demos.telerik.com/blazor-ui/"
         });
     }
 
-    public class TreeViewModel
+    public class TreeItem
     {
         public int Id { get; set; }
+        public int? ParentId { get; set; }
         public string Text { get; set; }
         public string Url { get; set; }
         public bool HasChildren { get; set; }
-        public int? ParentId { get; set; }
     }
 }
 ````
@@ -130,6 +119,6 @@ To use the TreeView for navigating between pages:
 
 ## See Also
 
-* [TreeView Overview]({%slug components/treeview/overview%})
+* [TreeView Overview]({%slug treeview-overview%})
 * [TreeView Data Binding]({%slug components/treeview/data-binding/overview%})
 * [TreeView Templates]({%slug components/treeview/templates%})

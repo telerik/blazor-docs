@@ -1,6 +1,6 @@
 ---
 title: Icons
-page_title: TreeView - Icon
+page_title: TreeView Icons
 description: Icons and images in the TreeView for Blazor.
 slug: treeview-icons
 tags: telerik,blazor,treeview,icon,iconclass,image
@@ -92,4 +92,4 @@ Make sure that you also refernce the OpenIconic font that comes with the Blazor 
 
 ## See Also
 
-  * [TreeView Overview]({%slug components/treeview/overview%})
+  * [TreeView Overview]({%slug treeview-overview%})

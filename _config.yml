@@ -454,7 +454,7 @@ intro_columns:
       "Menu": "components/menu/overview"
       "Context Menu": "contextmenu-overview"
       "Tab Strip": "components/tabstrip/overview"
-      "TreeView": "components/treeview/overview"
+      "TreeView": "treeview-overview"
       "Pager": "pager-overview"
       "ToolBar": "toolbar-overview"
       "PanelBar": "panelbar-overview"
