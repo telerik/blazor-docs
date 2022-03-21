@@ -14,10 +14,10 @@ category: knowledge-base
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
                 DateInput for Blazor, <br />
                 DatePicker for Blazor, <br />
                 DateTimePicker for Blazor, <br />
@@ -27,8 +27,8 @@ category: knowledge-base
                 ListView for Blazor, <br />
                 Wizard for Blazor
             </td>
-		</tr>
-	</tbody>
+        </tr>
+    </tbody>
 </table>
 
 
