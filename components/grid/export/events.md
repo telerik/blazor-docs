@@ -26,7 +26,7 @@ You can customize the files exported to Excel and CSV by using the [OnBeforeExpo
 
 The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `CsvExport` buttons, or by [programmatically invoking the export]({%slug grid-export-excel%}#programmatic-export-from-code). The event handler receives a `GridBeforeExcelExportEventArgs` and `GridBeforeCsvExportEventArgs` object, depending on the type of export, which provides the following fields:
 
-## For Excel Export
+### For Excel Export
 
 * `Columns` - `List<ExcelExportableColumns` - a collection of all exportable columns in the Grid (the columns that have a defined `Field` and are visible). You can customize the following attributes of the Grid column before exporting it into Excel:
 
@@ -393,10 +393,7 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 ````
 
 
-
 ## See Also
 
-  * [Grid Excel Export]({%slug grid-export-excel%})
-  * [Grid CSV Export]({%slug grid-export-csv%})
-  
-   
+* [Grid Excel Export]({%slug grid-export-excel%})
+* [Grid CSV Export]({%slug grid-export-csv%})
