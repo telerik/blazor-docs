@@ -16,9 +16,13 @@ The Dialog is a modal popup that brings information to the user. It provides act
 
 1. Add the `TelerikDialog` tag to add the component to your razor page.
 
-1. Set the `Visible` property.
+2. Set the `Visible` parameter. It supports one-way and two-way binding.
 
-1. Set the `Title` property.
+3. Set the `Title` property.
+
+4. Configure the `DialogContent` instance inside the `TelerikDialog` tag.
+
+5. (optional) Configure the [`DialogButtons` instance]({%slug  dialog-action-buttons%}) inside the `TelerikDialog` tag.
 
 >caption A basic configuration of the Telerik Dialog.
 
@@ -59,11 +63,45 @@ The Dialog provides options for rendering action buttons and customizing their t
 
 The Blazor Dialog generates events that you can handle and further customize its behavior. [Read more about the Blazor Dialog events]({%slug dialog-events%}).
 
-## Methods
+## Parameters
+
+The Blazor Dialog provides various parameters that allow you to configure the component:
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| ----------- | ----------- | ----------- |
+| `Visible` | `bool` | Defines the Dialog visibility. |
+| `Title` | `string` | Defines the Dialog title. |
+| `DialogTitle` | `RenderFragment` | Defines the title template of the component. |
+| `DialogContent` | `RenderFragment` | Defines the content template of the component. |
+| `DialogButtons` | `RenderFragment` | Defines the actions bar template of the component. |
+| `ButtonsLayout` | `DialogButtonsLayout` enum <br /> `Stretched` | Defines the layout of the actions button in the footer. See more in the [Action Buttons article]({%slug  dialog-action-buttons%})). |
+| `ShowCloseButton` | `bool` <br /> `true` | Defines the close behavior of the component - whether the component should render close flat button in the titlebar. See more in the [Header article]({%slug  dialog-header%}). |
+| `CloseOnOverlayClick` | `bool` | Defines whether clicking on the modal overlay should close the Dialog. |
+| `FocusedElementSelector` | `string` | Defines the CSS selector of the initially focused item on open. By default, it is the first focusable item in the dialog.
+ |
+| `Class` | `string` | Defines the class of the component instance. |
+| `Width` | `string` | Defines the width of the Dialog. |
+| `Height` | `string` | Defines the height of the Dialog. |
+
+## Dialog Reference and Methods
 
 The Dialog methods are accessible through its reference.
 
-* `Refresh` - redraws the component.
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Method | Description |
+| ----------- | ----------- |
+| `Refresh` | Redraws the component. |
 
 >caption Get a reference to the Dialog and use its methods.
 
@@ -103,36 +141,17 @@ The Dialog methods are accessible through its reference.
 }
 ````
 
-## Parameters
-
-The Blazor Dialog provides various parameters that allow you to configure the component:
-
-| Parameter | Type | Description |
-| ----------- | ----------- | ----------- |
-| `Visible` | `bool` | Defines the Dialog visibility. |
-| `Title` | `string` | Defines the Dialog title. |
-| `DialogTitle` | `RenderFragment` | Defines the title template of the component. |
-| `DialogContent` | `RenderFragment` | Defines the content template of the component. |
-| `DialogButtons` | `RenderFragment` | Defines the actions bar template of the component. |
-| `ButtonsLayout` | `DialogButtonsLayout` enum <br /> `Stretched` | Defines the layout of the actions button in the footer. See more in the [Action Buttons article]({%slug  dialog-action-buttons%})). |
-| `ShowCloseButton` | `bool` <br /> `true` | Defines the close behavior of the component - whether the component should render close flat button in the titlebar. See more in the [Header article]({%slug  dialog-header%}). |
-| `CloseOnOverlayClick` | `bool` | Defines whether clicking on the modal overlay should close the Dialog. |
-| `FocusedElementSelector` | `string` | Defines the CSS selector of the initially focused item on open. By default, it is the first focusable item in the dialog.
- |
-| `Class` | `string` | Defines the class of the component instance. |
-| `Width` | `string` | Defines the width of the Dialog. |
-| `Height` | `string` | Defines the height of the Dialog. |
-
 ## Next Steps
 
-[Customize the Dialog Header]({%slug dialog-header%})
+* [Customize the Dialog Header]({%slug dialog-header%})
 
-[Customize the Dialog Action Buttons]({%slug dialog-action-buttons%})
+* [Customize the Dialog Action Buttons]({%slug dialog-action-buttons%})
 
-[Explore the Predefined Dialogs]({%slug dialog-predefined%})
+* [Explore the Predefined Dialogs]({%slug dialog-predefined%})
 
-[Explore the Dialog Events]({%slug dialog-events%})
+* [Handle the Dialog Events]({%slug dialog-events%})
 
 ## See Also
 
-  * [Live Demo: Dialog](https://demos.telerik.com/blazor-ui/dialog/overview)
+  * [Live Dialog Demos](https://demos.telerik.com/blazor-ui/dialog/overview)
+  * [Dialog API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDialog)
