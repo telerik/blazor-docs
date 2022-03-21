@@ -1,6 +1,6 @@
 ---
 title: Multiple child Grids per item
-description: How to render more than one child Grid for an item?
+description: How to render multiple child (detail) Grids under a master Grid?
 type: how-to
 page_title: Multiple child Grids per item
 slug: grid-kb-multiple-child-grids-per-item
