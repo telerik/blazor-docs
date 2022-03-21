@@ -1,8 +1,8 @@
 ---
-title: Many different colors for the appointments
-description: How to apply many different colors to the appointments
+title: Dynamic appointment colors
+description: How to apply many different colors to the appointments dynamically
 type: how-to
-page_title: Many different colors for the appointments
+page_title: Dynamic appointment colors
 slug: scheduler-kb-many-colors-for-appointments
 position: 
 tags: scheduler, many, colors, appointment
@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I want to set different background color to the appointments. I see that this can be achieved through the [OnItemRender]({%slug scheduler-events%}#itemrender) event by adding custom CSS class to the appointment. However, this isn't a practical use case for us, as we will be applying many different styles, which can change depending on who is using the application, so we don't want to have that many classes for each case. Is there any other way to achieve the desired result?
+I want to set different background colors to the appointments dynamically. I can add custom CSS classes through the [OnItemRender]({%slug scheduler-events%}#itemrender) event. However, this isn't a practical use case for us, as we will be applying many different styles, which can change depending on who is using the application, so we don't want to have that many classes for each case. Is there any other way to achieve the desired result? We already have the colors in the database.
 
 ## Solution
 
@@ -36,15 +36,15 @@ I want to set different background color to the appointments. I see that this ca
 <style>
 /* remove the default padding, so the template container expands to cover the whole appointment */
     .k-scheduler .k-event{
-        padding:0px;
+        padding: 0px;
     } 
 /* set some padding to the template containers, expand them and add any other desired customizations. 
-Background and font color should be set inline in the templates, so we can get their values from the context 
+Styles from the model will be obtained from the ItemTemplate context and set inline.
 based on the specific appointment*/
     .custom-appointment{    
-        width:100%;
-        height:100%;
-        padding:5px;        
+        width: 100%;
+        height: 100%;
+        padding: 5px;
     }
 </style>
 
@@ -57,7 +57,7 @@ based on the specific appointment*/
         @{
             var appt = context as SchedulerAppointment;
             <div class="custom-appointment"
-                 style="background-color:@appt.BackgroundColor; color:@appt.Color">
+                 style="background-color: @appt.BackgroundColor; color: @appt.Color">
                 @appt.Title
             </div>
         }
@@ -66,7 +66,7 @@ based on the specific appointment*/
         @{
             var appt = context as SchedulerAppointment;            
             <div class="custom-appointment"
-                 style="background-color:@appt.BackgroundColor; color:@appt.Color">
+                 style="background-color: @appt.BackgroundColor; color: @appt.Color">
                  @appt.Title                
             </div>
         }
