@@ -10,7 +10,7 @@ position: 5
 
 # Frozen Columns
 
-The Grid lets you freeze one or more columns. This will allow the user to [scroll]({%slug components/grid/overview%}#scrolling) horizontally through the Grid, but still be able to keep some important columns visible at all times (such as ID or command column).
+The Grid lets you freeze one or more columns. This will allow the user to scroll horizontally through the Grid, but still be able to keep some important columns visible at all times (such as ID or command column).
 
 To enable the column freezing, set the `Locked` parameter of the column to `true`.
 

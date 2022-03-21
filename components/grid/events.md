@@ -1044,7 +1044,7 @@ Make sure to update the current page size when using the event.
 
 ## See Also
 
-  * [Grid Overview]({%slug components/grid/overview%})
+  * [Grid Overview]({%slug grid-overview%})
   * [Grid Editing Overview]({%slug components/grid/editing/overview%})
   * [Grid Column Events]({%slug grid-column-events%})
   * [Manual Data Source Operations]({%slug components/grid/manual-operations%})

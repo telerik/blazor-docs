@@ -8,25 +8,30 @@ published: True
 position: 0
 ---
 
-# Blazor Grid CRUD Operations Overview
+# Blazor Grid CRUD Operations
 
-CRUD operations with the Grid for Blazor support validation and are done through the dedicated CRUD events it exposes for data editing. You can use them to transfer the changes to the underlying data source (for example, call a service that will actually work with the database, and not only with the view data).
+The Blazor Grid supports CRUD operations and validation. Use the CRUD events to transfer the changes to the underlying data source (for example, call a service to update the database, and not only with the view data).
 
-To enable Grid editing, set the [`EditMode` attribute]({%slug components/grid/overview%}#editing) to the desired edit mode.
+This page explains how to enable editing, use the relevant events and command buttons. There is also a runnable code example.
 
-Sections in this article:
+#### In this article:
 
 - [Basics](#basics)
+- [Events](#events)
 - [Customize The Editor Fields](#customize-the-editor-fields)
 - [Example](#example)
 - [Notes](#notes)
 
-
 ## Basics
 
-This section explains the available events and command buttons that you need to use for editing records in a grid. After that, you will find a code example.
+The Grid offers several editing modes with different user experience. Set the `EditMode` property to a member of the `GridEditMode` enum:
 
-List of the available events:
+* `None` - the default `GridEditMode` value. The built-in [`Add` and `Edit` commands]({%slug components/grid/columns/command%}#built-in-commands) don't work in this mode.
+* `Incell` - [edit a single cell]({%slug components/grid/editing/incell%}) by clicking on it or tabbing
+* `Inline` - [edit a row]({%slug components/grid/editing/inline%}) by clicking on an [Edit command button]({%slug components/grid/columns/command%})
+* `Popup` - [edit a row in a popup form]({%slug components/grid/editing/popup%}) by clicking on an Edit button
+
+## Events
 
 * `OnAdd` - fires when the `Add` [command button]({%slug components/grid/columns/command%}) for a newly added item is clicked. The event is cancellable.
 * `OnCreate` - fires when the `Save` [command button]({%slug components/grid/columns/command%}) for a newly added item is clicked. Cancellable (cancelling it keeps the grid in Insert mode).
@@ -423,7 +428,7 @@ There are a few considerations to keep in mind with the CUD operations of the gr
     1. Apply all the changes you need to it one by one - assign the values of all of its properties - `dbObject.Property1 = argsItem.Property1...`
     1. Call `dbContext.SaveChanges()`
 
-* The validation the grid provides is based on the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#validator-components" target="_blank">`DataAnnotationValidator`</a> and creates its own `EditContext` for a row that is in edit/insert mode. When the row is not in edit/insert mode, the `EditContext` is `null`. The `EditContext` is a cascading parameter and overrides any cascading parameters from parent components (such as an `<EditForm>` that may wrap the grid).
+* The [Grid validation]({%slug grid-editing-validation%}) is based on the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#validator-components" target="_blank">`DataAnnotationValidator`</a> and creates its own `EditContext` for a row that is in edit/insert mode. When the row is not in edit/insert mode, the `EditContext` is `null`. The `EditContext` is a cascading parameter and overrides any cascading parameters from parent components (such as an `<EditForm>` that may wrap the grid).
 
     * The validation will not be enabled for Grids bound to Expando objects or Dictionaries (such as DataTable).
 
