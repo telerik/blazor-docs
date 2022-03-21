@@ -88,7 +88,7 @@ In the event handlers, get the [Grid State]({%slug grid-state%}) and modify its 
     private List<MainModel> GenerateData()
     {
         List<MainModel> data = new List<MainModel>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 1; i <= 5; i++)
         {
             MainModel mdl = new MainModel { Id = i, Name = $"Name {i}" };
             mdl.Orders = Enumerable.Range(1, 15).Select(x => new DetailsModel { OrderId = x, DealSize = x^i }).ToList();
