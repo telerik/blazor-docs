@@ -20,7 +20,11 @@ The Stepper provides several features out of the box, including the ability to d
 
 1. Add the `TelerikStepper` tag to add the component to your razor page.
 
-1. Under its `StepperSteps` tag include and configure the desired [`Steps`]({%slug  stepper-steps-overview%}).
+2. Set the `Value` (one-way data binding) or the `bind-Value` (two-way data binding) property.
+
+3. Under its `StepperSteps` tag include and configure the desired [`Steps`]({%slug  stepper-steps-overview%}).
+
+4. (optional) Set the `Icon` and `Label` `StepperStep` properties.
 
 >caption Simple setup of a Stepper component.
 
@@ -71,6 +75,12 @@ The Blazor Stepper generates events that you can handle and further customize it
 
 The Blazor Stepper provides various parameters that allow you to configure the component:
 
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
 | `Value` | `int` | Defines the current step index. |
@@ -80,14 +90,14 @@ The Blazor Stepper provides various parameters that allow you to configure the c
 
 ## Next Steps
 
-[Using Stepper Templates]({%slug step-template%})
+* [Using Stepper Templates]({%slug step-template%})
 
-[Configure Steps]({%slug stepper-steps-overview%})
+* [Configure Steps]({%slug stepper-steps-overview%})
 
-[Explore the Stepper Display modes]({%slug stepper-display-modes%})
-
-[Explore the Stepper Events]({%slug stepper-events%})
+* [Explore the Stepper Events]({%slug stepper-events%})
 
 ## See Also
 
-  * [Live Demo: Stepper Overview](https://demos.telerik.com/blazor-ui/stepper/overview)
+  * [Live Stepper Demos](https://demos.telerik.com/blazor-ui/stepper/overview)
+
+  * [Stepper API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikStepper)
