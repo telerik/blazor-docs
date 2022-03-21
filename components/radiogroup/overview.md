@@ -16,9 +16,11 @@ The <a href="https://www.telerik.com/blazor-ui/radiogroup" target="_blank">Blazo
 
 1. Add the `<TelerikRadioGroup>` tag to add the component to your razor page.
 
-1. Populate its `Data` property with the collection of items you want in the list.
+2. Populate its `Data` property with the collection of items you want in the list.
 
-1. Set the `TextField` and `ValueField` properties to point to the corresponding names of the model.
+3. Set the `Value` parameter. It supports one-way and two-way binding.
+
+4. Set the `TextField` and `ValueField` properties to point to the corresponding names of the model.
 
 >caption Basic Radio Button Group configuration.
 
@@ -77,7 +79,13 @@ The Blazor RadioGroup generates events that you can handle and further customize
 
 The Blazor RadioGroup provides various parameters that allow you to configure the component:
 
-| Parameter | Type | Description |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the component. |
 | `Enabled` | `bool` | Whether the component is enabled. |
@@ -87,27 +95,21 @@ The Blazor RadioGroup provides various parameters that allow you to configure th
 | `Name` | `string` | Lets you choose your own `name` attribute for the underying `<input type=radio>` elements. |
 | `TItem` | `object` | The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
 | `TValue` | `object` | The type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
-| `TextField` | `string` | The name of the field from the model that will be shown to the user. Defaults to `Text`. |
-| `ValueField` | `string` | The name of the field from the model that will populate the underlying `Value`. Defaults to `Value`. |
+| `TextField` | `string` <br /> `Text` | The name of the field from the model that will be shown to the user. |
+| `ValueField` | `string` <br /> `Value` | The name of the field from the model that will populate the underlying `Value`. |
 | `Value` | `object` | Get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. |
-
-
-## RadioGroup Reference and Validation
-
-See the [Component Reference]({%slug radiogroup-databind%}#component-reference) section in the Data Binding article for details and examples.
 
 See the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
 ## Next Steps
 
-[Binding the RadioGroup to Data]({%slug radiogroup-databind%})
+* [Bind the RadioGroup to Data]({%slug radiogroup-databind%})
 
-[Explore the RadioGroup Layouts]({%slug radiogroup-layout%})
+* [Explore the RadioGroup Layouts]({%slug radiogroup-layout%})
 
-[Explore the RadioGroup Events]({%slug radiogroup-events%})
+* [Handle the RadioGroup Events]({%slug radiogroup-events%})
 
 ## See Also
 
-  * [Data Binding]({%slug radiogroup-databind%})
-  * [Live Demo: RadioGroup](https://demos.telerik.com/blazor-ui/radiogroup/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikRadioGroup-2)
+  * [Live RadioGroup Demos](https://demos.telerik.com/blazor-ui/radiogroup/overview)
+  * [RadioGroup API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikRadioGroup-2)

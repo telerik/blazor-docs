@@ -19,6 +19,12 @@ You can control the appearance of the RadioButtonGroup button by setting the fol
 
 You can increase or decrease the size of the button by setting the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.Button.Size` class:
 
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
 | Class members | Manual declarations |
 |---------------|--------|
 |`Small`|`sm`|
