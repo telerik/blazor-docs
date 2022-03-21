@@ -17,18 +17,16 @@ You can customize the files exported to Excel and CSV by using the [OnBeforeExpo
 * [OnBeforeExport](#onbeforeexport)
     * [For Excel Export](#for-excel-export)
     * [For CSV export](#for-csv-export)
-    * [Examples](#examples)
 
 * [OnAfterExport](#onafterexport)
     * [For Excel Export](#for-excel-export)
     * [For CSV export](#for-csv-export)
-    * [Examples](#examples)
 
 ## OnBeforeExport
 
 The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `CsvExport` buttons, or by [programmatically invoking the export]({%slug grid-export-excel%}#programmatic-export-from-code). The event handler receives a `GridBeforeExcelExportEventArgs` and `GridBeforeCsvExportEventArgs` object, depending on the type of export, which provides the following fields:
 
-## For Excel Export
+### For Excel Export
 
 * `Columns` - `List<ExcelExportableColumns` - a collection of all exportable columns in the Grid (the columns that have a defined `Field` and are visible). You can customize the following attributes of the Grid column before exporting it into Excel:
 
@@ -37,30 +35,22 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
     * `NumberFormat` - provide an Excel-compatible number/date format
     * `Field` - set the data bound field of the column.
     
+To export a hidden (the Visible attribute set to `false`) column you can manually define an instance of the `ExcelExportableColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
+    
     
 * `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to Excel, for example only the selected items in the Grid. 
 
 * `isCancelled` -  `bool` - cancel the OnBeforeExcel event by setting the `isCancelled` property to `true`.
 
-
-### For CSV Export
-
-* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to CSV, for example only the selected items in the Grid. 
-
-* `isCancelled` -  `bool` - you can cancel the OnBeforeExcel event by setting the `isCancelled` field to `true`.
-
->note Unlike Excel, the CSV files do not have defined columns, so the `args.Columns` field will not be applicable when exporting the Grid to CSV.
-
-
-### Examples
-
-<div class="skip-repl"></div>
-````Excel
+````CSHTML
 @* This example shows the capabilities of the OnBeforeExport event when exporting the Grid to excel. *@
 
 @using Telerik.Documents.SpreadsheetStreaming
 
-<TelerikGrid Data="@GridData" Pageable="true" Sortable="true" 
+@*This using is for the ExcelExportableColumn in the OnExcelBeforeExport method*@
+@using Telerik.Blazor.Common.Export.Excel
+
+<TelerikGrid Data="@GridData" Pageable="true" Sortable="true"
              @bind-SelectedItems="@SelectedItems"
              SelectionMode="@GridSelectionMode.Multiple"
              Resizable="true" Reorderable="true"
@@ -76,7 +66,9 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
     </GridExport>
 
     <GridColumns>
-        <GridColumn Field="@nameof(SampleData.ProductId)" Title="ID" Width="100px" />
+        <GridColumn Field="@nameof(SampleData.ProductId)" Title="ID"
+                    Visible="false"
+                    Width="100px" />
         <GridColumn Field="@nameof(SampleData.ProductName)" Title="Product Name" Width="300px" />
         <GridColumn Field="@nameof(SampleData.UnitsInStock)" Title="In stock" Width="100px" />
         <GridColumn Field="@nameof(SampleData.Price)" Title="Unit Price" Width="200px" />
@@ -86,24 +78,34 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
 </TelerikGrid>
 
 @code {
-        private async Task OnExcelBeforeExport(GridBeforeExcelExportEventArgs args)
+    private async Task OnExcelBeforeExport(GridBeforeExcelExportEventArgs args)
+    {
+        //export a hidden column (Visible set to false)
+
+        var exportableHiddenColumn = new ExcelExportableColumn()
         {
-            //customize the width of the first column when exporting
-            args.Columns[0].Width = "200px";
+            Title = "Product Id",
+            Field = nameof(SampleData.ProductId)
+        };
 
-            //change the format of the exported column
-            //the BuiltInNumberFormats is part of the Telerik.Documents.SpreadsheetStreaming namespace
-            args.Columns[3].NumberFormat = BuiltInNumberFormats.GetCurrency2();
-    
-            //export only the first 4 columns in the Grid
-            args.Columns = (args.Columns.Take(4)).ToList();
+        args.Columns.Insert(0, exportableHiddenColumn);
 
-            //export the SelectedItems
-            args.Data = SelectedItems;
+        //customize the width of the first column when exporting
+        args.Columns[0].Width = "200px";
 
-            //set the IsCancelled flag to true if you want to cancel the OnBeforeExport event
-            args.IsCancelled = false;
-        }
+        //change the format of the exported column
+        //the BuiltInNumberFormats is part of the Telerik.Documents.SpreadsheetStreaming namespace
+        args.Columns[3].NumberFormat = BuiltInNumberFormats.GetCurrency2();
+
+        //export only the first 4 columns in the Grid
+        args.Columns = (args.Columns.Take(4)).ToList();
+
+        //export the SelectedItems
+        args.Data = SelectedItems;
+
+        //set the IsCancelled flag to true if you want to cancel the OnBeforeExport event
+        args.IsCancelled = false;
+    }
 
     private IEnumerable<object> SelectedItems = Enumerable.Empty<object>();
 
@@ -134,8 +136,29 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
     }
 }
 ````
-````CSV
+
+### For CSV Export
+
+* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to CSV, for example only the selected items in the Grid. 
+
+* `Columns` - `List<ExcelExportableColumns` - a collection of all exportable columns in the Grid (the columns that have a defined `Field` and are visible). You can customize the following attributes of the Grid column before exporting it into Excel:
+
+    * `Width` - define the width of the column **in pixels**.
+    * `Title` - define the column title to be shown in the Excel file header. 
+    * `NumberFormat` - provide an Excel-compatible number/date format
+    * `Field` - set the data bound field of the column.
+    
+To export a hidden (the Visible attribute set to `false`) column you can manually define an instance of the `ExcelExportableColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
+
+* `isCancelled` -  `bool` - you can cancel the OnBeforeExcel event by setting the `isCancelled` field to `true`.
+
+````CSHTML
 @* This example showcases the capabilities of the OnBeforeExport event when exporting the Grid to CSV file. *@
+
+@using Telerik.Documents.SpreadsheetStreaming
+
+@*This using is for the ExcelExportableColumn in the OnExcelBeforeExport method*@
+@using Telerik.Blazor.Common.Export.Excel
 
 <TelerikGrid Data="@GridData" Pageable="true" Sortable="true"
              @bind-SelectedItems="@SelectedItems"
@@ -153,7 +176,10 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
     </GridExport>
 
     <GridColumns>
-        <GridColumn Field="@nameof(SampleData.ProductId)" Title="ID" Width="100px" />
+        <GridColumn Field="@nameof(SampleData.ProductId)" 
+                    Title="ID"
+                    Visible="false"
+                    Width="100px" />
         <GridColumn Field="@nameof(SampleData.ProductName)" Title="Product Name" Width="300px" />
         <GridColumn Field="@nameof(SampleData.UnitsInStock)" Title="In stock" Width="100px" />
         <GridColumn Field="@nameof(SampleData.Price)" Title="Unit Price" Width="200px" />
@@ -165,7 +191,21 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
 @code {
     private async Task OnBeforeCsvExport(GridBeforeCsvExportEventArgs args)
     {
+        //export the SelectedItems
+
         args.Data = SelectedItems;
+
+        //export a hidden column (Visible set to false)
+
+        var exportableHiddenColumn = new ExcelExportableColumn()
+        {
+            Title = "Id",
+            Field = nameof(SampleData.ProductId)
+        };
+
+        args.Columns.Insert(0, exportableHiddenColumn);
+
+        //set the IsCancelled flag to true if you want to cancel the OnBeforeExport event
 
         args.IsCancelled = false;
     }
@@ -208,13 +248,6 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 
 * `Stream` - `MemoryStream` - The output of the Excel export as a memory stream. 
 
-### For CSV Export
-
-* `Stream` - `MemoryStream` - The output of the CSV export as a memory stream. 
-
-### Examples
-
-<div class="skip-repl"></div>
 ````Excel
 @* Get the output of the excel export as a memory stream *@
 
@@ -284,6 +317,11 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
     }
 }
 ````
+
+### For CSV Export
+
+* `Stream` - `MemoryStream` - The output of the CSV export as a memory stream. 
+
 ````CSV
 @* Get the output of the CSV export as a memory stream *@
 
@@ -354,9 +392,8 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 }
 ````
 
+
 ## See Also
 
-  * [Grid Excel Export]({%slug grid-export-excel%})
-  * [Grid CSV Export]({%slug grid-export-csv%})
-  
-   
+* [Grid Excel Export]({%slug grid-export-excel%})
+* [Grid CSV Export]({%slug grid-export-csv%})
