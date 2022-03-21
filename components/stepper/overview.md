@@ -57,7 +57,7 @@ The Stepper component provides horizontal and vertical orientations. [Read more 
 
 ## Display Modes
 
-The Stepper component provides different display modes. [Read more about the Blazor Stepper display modes]({%slug stepper-display-modes%}).
+The Stepper steps can display labels and icons. [Read more about the Blazor Stepper display modes]({%slug stepper-display-modes%}).
 
 ## Linear Flow
 
