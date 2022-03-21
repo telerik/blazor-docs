@@ -18,6 +18,8 @@ The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor
 
 1. Populate it with [Built-In Tools]({%slug toolbar-built-in-tools%}) or [Custom Tools]({%slug toolbar-templated-item%}).
 
+3. (optional) Add the `<ToolBarToggleButton>` to the `<TelerikToolBar>`. The toolbar toggle button can toggle between normal and selected states through two-way binding or an event.
+
 1. Handle their respective events so your application can respond to the user actions.
 
 >caption Basic Telerik Toolbar.
@@ -83,7 +85,13 @@ The Blazor ToolBar fires events that you can handle and further customize its be
 
 The Blazor ToolBar provides various parameters that allow you to configure the component:
 
-| Parameter | Type | Description |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolBar component. You could use that class to control the size of the component through CSS. |
 | `ToolBarButton` | `RenderFragment` | Renders a button in the ToolBar. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbarbutton) article. |
@@ -93,35 +101,15 @@ The Blazor ToolBar provides various parameters that allow you to configure the c
 | `ToolBarSeparator` | `RenderFragment` | Adds a line that separates items in the ToolBar. You can find more information in the [Separators]({%slug toolbar-separators%}) article. |
 | `ToolBarSpacer` | `RenderFragment` | Adds empty space that separates the items into different groups. You can find more information in the [Separators]({%slug toolbar-separators%}) article. |
 
-## ToolBar Reference
-
->caption Components namespace and reference.
-
-````CSHTML
-@*Component namespace and reference*@
-
-<TelerikToolBar @ref="@ToolbarReference">
-    <ToolBarToggleButton @bind-Selected="@Selected">Toggle Button</ToolBarToggleButton>
-
-    <ToolBarButton Icon="undo">Undo</ToolBarButton>
-</TelerikToolBar>
-
-@code {
-    public Telerik.Blazor.Components.TelerikToolBar ToolbarReference { get; set; }
-
-    public bool Selected { get; set; } = true;
-}
-````
-
 ## Next Steps
 
-[Explore the ToolBar Built-in Tools]({%slug toolbar-built-in-tools%})
+* [Explore the ToolBar Built-in Tools]({%slug toolbar-built-in-tools%})
 
-[Explore the ToolBar Separators]({%slug toolbar-separators%})
+* [Use the ToolBar Separators]({%slug toolbar-separators%})
 
-[Explore the ToolBar Events]({%slug toolbar-events%})
+* [Handle the ToolBar Events]({%slug toolbar-events%})
 
 ## See Also
 
-* [Live Demo: ToolBar Overview](https://demos.telerik.com/blazor-ui/toolbar/overview)
-* [Live Demo: ToolBar Tools](https://demos.telerik.com/blazor-ui/toolbar/tools)
+* [Live ToolBar Demos](https://demos.telerik.com/blazor-ui/toolbar/overview)
+* [ToolBar API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ToolBarToolsFactory)
