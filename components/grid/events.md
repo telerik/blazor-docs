@@ -66,7 +66,14 @@ The command buttons of a grid provide an `OnClick` event before firing their bui
 
 ### Export Events
 
-When exporting the content of the grid, it will fire events like `OnBeforeExport` and `OnAfterExport`. They allow you to get or modify the columns and their settings, provide custom data, to cancel the export, and to also get the final file output. You can read more about them and find code examples in the [Grid Export Events]({%slug grid-export-events%}) article.
+During export, the Grid will fire events like `OnBeforeExport` and `OnAfterExport`. They allow you to:
+
+* Get or modify the columns and their settings;
+* Provide custom data;
+* Cancel the export;
+* Get the final file output;
+
+Read more about them and find code examples in the [Grid Export Events]({%slug grid-export-events%}) article.
 
 ### SelectedItemsChanged
 
