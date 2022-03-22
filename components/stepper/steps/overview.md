@@ -16,8 +16,55 @@ The whole rendering of the steps can also be customized with a [Step Template]({
 
 >caption In this article:
 
+* [Steps Parameters](#parameters)
 * [Steps Declaration](#steps-declaration)
-* [Steps Features](#features)
+
+## Parameters
+
+The `StepperStep` exposes the following parameters which allow you to configure their appearance:
+
+* [Indicators]({%slug stepper-indicators%}) - the visual indicators of the steps can include the content below.
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| ----------- | ----------- | ----------- |
+| `Text` | `string` | Specifies the step indicator text. |
+| `Icon` | `string` | The icon which will be rendered inside the step indicator. |
+| `IconClass` | `string` | The icon class which will be rendered inside the step indicator. |
+| `ImageUrl` | `string` | The image which will be rendered inside the step indicator. |
+| `SpriteClass` | `string` | The Sprite class which will be rendered inside the step indicator. |
+
+* [State]({%slug stepper-state%}) - the steps can have one of the states below.
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| ----------- | ----------- | ----------- |
+| `Disabled` | `bool` <br /> `false` | Specifies if the step is disabled. |
+| `Optional` | `bool` <br /> `false` | Specifies if the step is optional. |
+
+* Other parameters
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| ----------- | ----------- | ----------- |
+| `Label` | `string` | Specifies the [label text]({%slug stepper-labels%}) that will be rendered under the corresponding step indicator. |
+| `Valid` | `bool?` <br /> `null` | Specifies if the step is [valid]({%slug stepper-steps-validation%}) or not. |
+| `Class` | `string` | CSS class for the current step. |
 
 ## Steps Declaration
 
@@ -85,53 +132,6 @@ To include the desired steps for the Stepper component, you can either manually 
     }
 }
 ````
-
-## Parameters
-
-The `StepperStep` exposes the following parameters which allow you to configure their appearance:
-
-* [Indicators]({%slug stepper-indicators%}) - the visual indicators of the steps can include the content below.
-
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
-| Parameter | Type and Default Value | Description |
-| ----------- | ----------- | ----------- |
-| `Text` | `string` | Specifies the step indicator text. |
-| `Icon` | `string` | The icon which will be rendered inside the step indicator. |
-| `IconClass` | `string` | The icon class which will be rendered inside the step indicator. |
-| `ImageUrl` | `string` | The image which will be rendered inside the step indicator. |
-| `SpriteClass` | `string` | The Sprite class which will be rendered inside the step indicator. |
-
-* [State]({%slug stepper-state%}) - the steps can have one of the states below.
-
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
-| Parameter | Type and Default Value | Description |
-| ----------- | ----------- | ----------- |
-| `Disabled` | `bool` <br /> `false` | Specifies if the step is disabled. |
-| `Optional` | `bool` <br /> `false` | Specifies if the step is optional. |
-
-* Other parameters
-
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
-| Parameter | Type and Default Value | Description |
-| ----------- | ----------- | ----------- |
-| `Label` | `string` | Specifies the [label text]({%slug stepper-labels%}) that will be rendered under the corresponding step indicator. |
-| `Valid` | `bool?` <br /> `null` | Specifies if the step is [valid]({%slug stepper-steps-validation%}) or not. |
-| `Class` | `string` | CSS class for the current step. |
 
 ## See Also
 
