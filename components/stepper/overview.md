@@ -71,7 +71,7 @@ You can use the functionality of the built-in templates and customize what is re
 
 The Blazor Stepper generates events that you can handle and further customize its behavior. [Read more about the Blazor Stepper events]({%slug stepper-events%}).
 
-## Parameters
+## Stepper Parameters
 
 The Blazor Stepper provides various parameters that allow you to configure the component:
 
@@ -84,9 +84,9 @@ The Blazor Stepper provides various parameters that allow you to configure the c
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Value` | `int` | Defines the current step index. |
-| `Orientation` | `StepperOrientation` enum <br /> `Horizontal` | Defines the orientation of the Stepper. You can read more on how to configure it in the [Orientation]({%slug stepper-orientation%}) article. |
+| `Orientation` | `StepperOrientation` enum <br /> (`Horizontal`) | Defines the orientation of the Stepper. You can read more on how to configure it in the [Orientation]({%slug stepper-orientation%}) article. |
 | `Linear` | `bool` | Enables/disables [linear flow]({%slug stepper-linear-flow%}). |
-| `StepType` | `StepperStepType` enum <br /> `Steps` | Defines the display mode of the Stepper. You can read more on how to configure it in the [Display modes]({%slug stepper-display-modes%}) article. |
+| `StepType` | `StepperStepType` enum <br /> (`Steps`) | Defines the display mode of the Stepper. You can read more on how to configure it in the [Display modes]({%slug stepper-display-modes%}) article. |
 
 ## Next Steps
 

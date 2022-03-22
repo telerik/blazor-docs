@@ -19,7 +19,7 @@ The whole rendering of the steps can also be customized with a [Step Template]({
 * [Steps Parameters](#parameters)
 * [Steps Declaration](#steps-declaration)
 
-## Parameters
+## Steps Parameters
 
 The `StepperStep` exposes the following parameters which allow you to configure their appearance:
 
@@ -49,8 +49,8 @@ The `StepperStep` exposes the following parameters which allow you to configure 
 </style>
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
-| `Disabled` | `bool` <br /> `false` | Specifies if the step is disabled. |
-| `Optional` | `bool` <br /> `false` | Specifies if the step is optional. |
+| `Disabled` | `bool` <br /> (`false`) | Specifies if the step is disabled. |
+| `Optional` | `bool` <br /> (`false`) | Specifies if the step is optional. |
 
 * Other parameters
 
@@ -63,7 +63,7 @@ The `StepperStep` exposes the following parameters which allow you to configure 
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Label` | `string` | Specifies the [label text]({%slug stepper-labels%}) that will be rendered under the corresponding step indicator. |
-| `Valid` | `bool?` <br /> `null` | Specifies if the step is [valid]({%slug stepper-steps-validation%}) or not. |
+| `Valid` | `bool?` <br /> (`null`) | Specifies if the step is [valid]({%slug stepper-steps-validation%}) or not. |
 | `Class` | `string` | CSS class for the current step. |
 
 ## Steps Declaration
