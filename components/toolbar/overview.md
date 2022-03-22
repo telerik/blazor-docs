@@ -14,76 +14,69 @@ The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor
 
 ## Creating Blazor ToolBar
 
-1. Add the `<TelerikToolBar>` tag to add the component to your razor page.
+1. Add the `<TelerikToolBar>` tag to a Razor file.
+2. Use child tags to add [tools]({%slug toolbar-built-in-tools%}) such as `<ToolBarButton>` or `<ToolBarToggleButton>`. Set button text as child content. Optionally, set [`Icon`]({%slug general-information/font-icons%}#icons-list).
+3. Define `OnClick` handlers for the tools.
+4. Set the `Selected` parameter of the `ToogleButton`s. It supports two-way binding.
+5. (optional) Place related buttons in a `<ToolBarButtonGroup>` to display them together.
 
-2. Populate it with [Built-In Tools]({%slug toolbar-built-in-tools%}) or [Custom Tools]({%slug toolbar-templated-item%}).
-
-3. (optional) Add the `<ToolBarToggleButton>` to the `<TelerikToolBar>`. The toolbar toggle button can toggle between normal and selected states through two-way binding or an event.
-
-4. Handle their respective events so your application can respond to the user actions.
-
->caption Basic Telerik Toolbar.
+>caption Basic Telerik Toolbar
 
 ````CSHTML
-@*Add a basic Telerik ToolBar to your page with a few built-in buttons.*@
-
 <TelerikToolBar>
     <ToolBarButtonGroup>
         <ToolBarButton Icon="bold" OnClick="@OnBold">Bold</ToolBarButton>
         <ToolBarButton Icon="italic" OnClick="@OnItalic">Italic</ToolBarButton>
-        <ToolBarButton Icon="underline" OnClick="@OnUnderline">Underline</ToolBarButton>
     </ToolBarButtonGroup>
 
     <ToolBarToggleButton @bind-Selected="@Selected">Toggle Button</ToolBarToggleButton>
 
-    <ToolBarButton Icon="undo">Undo</ToolBarButton>
+    <ToolBarButton Icon="undo" OnClick="@OnUndo">Undo</ToolBarButton>
 </TelerikToolBar>
 
-<br />
-
-@Result
+<p> Last clicked button: @LastClicked </p>
+<p> The Toggle button's selected state is @Selected.ToString() </p>
 
 @code {
-    public bool Selected { get; set; } = true;
+    bool Selected { get; set; } = true;
+    string LastClicked { get; set; }
 
-    public string Result { get; set; }
-
-    public void OnBold()
+    void OnBold()
     {
-        Result = "The user clicked on the bold button";
+        LastClicked = "Bold";
     }
 
-    public void OnItalic()
+    void OnItalic()
     {
-        Result = "The user clicked on the italic button";
+        LastClicked = "Italic";
     }
 
-    public void OnUnderline()
+    void OnUndo()
     {
-        Result = "The user clicked on the underline button";
+        LastClicked = "Undo";
     }
 }
 ````
 
 ## Built-in Tools
 
-The ToolBar component allows you to use built-in buttons and button groups or add a custom tool. [Read more about the Blazor ToolBar built-in tools]({%slug toolbar-built-in-tools%}).
+The ToolBar component can include built-in tools such as buttons, toggle buttons and button groups. [Read more about the Blazor ToolBar built-in tools]({%slug toolbar-built-in-tools%}).
 
 ## Separators
 
-You can visually separate the items in the ToolBar. [Read more about the supported Blazor ToolBar separators]({%slug toolbar-separators%}).
+The Toolbar features separators and spacers that can visually divide the component items. [Read more about the Blazor ToolBar separators and spacers.]({%slug toolbar-separators%}).
 
 ## Custom Items
 
-The ToolBar component allows you to add a custom element. You can use that item to add complex toolbars to your application, which have dropdowns, inputs and other components. [Read more about the Blazor ToolBar item customization]({%slug toolbar-templated-item%}).
+The ToolBar component supports template items. Use them to create complex toolbars with dropdowns, inputs and other custom content. [Read more about Blazor ToolBar item customization]({%slug toolbar-templated-item%}).
 
 ## Events
 
-The Blazor ToolBar fires events that you can handle and further customize its behavior. [Read more about the Blazor ToolBar events]({%slug toolbar-events%}).
+The Blazor ToolBar fires click and selection events. Handle those events to respond to user actions. [Read more about the Blazor ToolBar events]({%slug toolbar-events%}).
 
-## Parameters
+## ToolBar Parameters
 
-The Blazor ToolBar provides various parameters that allow you to configure the component:
+The Blazor ToolBar provides parameters and child tags to configure the component:
 
 <style>
     article style + table {
@@ -91,23 +84,37 @@ The Blazor ToolBar provides various parameters that allow you to configure the c
         word-break: normal;
     }
 </style>
-| Parameter | Type and Default Value | Description |
+
+| Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolBar component. You could use that class to control the size of the component through CSS. |
-| `ToolBarButton` | `RenderFragment` | Renders a button in the ToolBar. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbarbutton) article. |
-| `ToolBarToggleButton` | `RenderFragment` | Renders a toggle button in the ToolBar. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbartogglebutton) article. |
-| `ToolBarButtonGroup` | `RenderFragment` | Creates a group of buttons in the component. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbarbuttongroup) article. |
-| `ToolBarTemplateItem` | `RenderFragment` | Allows you to create a custom item for the ToolBar. You can read more about this in the [Templated Item]({%slug toolbar-templated-item%}) article. |
-| `ToolBarSeparator` | `RenderFragment` | Adds a line that separates items in the ToolBar. You can find more information in the [Separators]({%slug toolbar-separators%}) article. |
-| `ToolBarSpacer` | `RenderFragment` | Adds empty space that separates the items into different groups. You can find more information in the [Separators]({%slug toolbar-separators%}) article. |
+| `Class` | `string` | The CSS class to be rendered on the main wrapping element of the ToolBar component, which is `<div class="k-toolbar">`. Use for [styling customizations]({%slug themes-override%}). |
+
+### Child Tags
+
+Child tags define Toolbar tools. All of them are `RenderFragment`s.
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+
+| Tag Name | Description |
+| --- | --- |
+| `ToolBarButton` | Renders a button in the ToolBar. See [ToolBar Buttons]({%slug toolbar-built-in-tools%}#toolbarbutton) for more information and examples. |
+| `ToolBarButtonGroup` | Creates a group of buttons. See [ToolBar ButtonGroup]({%slug toolbar-built-in-tools%}#toolbarbuttongroup). |
+| `ToolBarTemplateItem` | Create a custom item. See [Templated Items]({%slug toolbar-templated-item%}). |
+| `ToolBarToggleButton` | Renders a toggle button with a selected state. See [Toggle Buttons]({%slug toolbar-built-in-tools%}#toolbartogglebutton). |
+| `ToolBarSeparator` | Adds a vertical line that separates items in the ToolBar. Learn more in the [Separators]({%slug toolbar-separators%}) article. |
+| `ToolBarSpacer` | Adds [empty space between Toolbar items]({%slug toolbar-separators%}). |
 
 ## Next Steps
 
-* [Explore the ToolBar Built-in Tools]({%slug toolbar-built-in-tools%})
-
-* [Use the ToolBar Separators]({%slug toolbar-separators%})
-
+* [Explore the ToolBar built-in tools]({%slug toolbar-built-in-tools%})
 * [Handle the ToolBar Events]({%slug toolbar-events%})
+* [Use the ToolBar Separators]({%slug toolbar-separators%})
+* [Implement custom ToolBar tools]({%slug toolbar-built-in-tools%})
 
 ## See Also
 
