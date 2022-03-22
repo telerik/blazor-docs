@@ -1,22 +1,38 @@
 ---
 title: Hide the Upload File List
-description: How to remove, hide or disable the filename list below the FileSelect / Upload button? How to resize or remove the frame around the FileSelect / Upload button?
+description: How to remove, hide or disable the selected files list below the FileSelect / Upload button? How to resize or remove the frame around the FileSelect / Upload button?
 type: how-to
 page_title: How to Hide the FileSelect / Upload Filename List
 slug: fileselect-upload-kb-hide-file-list
 position:
 tags: fileselect, upload, hide, file list
-ticketid: 1555847
+ticketid: 1555847, 1558501
 res_type: kb
 ---
+
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
+                FileSelect for Blazor, <br />
+                Upload for Blazor <br />
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 
 ## Description
 
 How to apply custom CSS styles to the FileSelect and Upload components?
 
-How to remove, hide or disable the filename list below the "Select Files" button?
+How to hide the selected files list? How to remove, hide or disable the filename list below the "Select Files" button?
 
 How to resize or remove the frame around the FileSelect and Upload button?
+
 
 ## Solution
 
