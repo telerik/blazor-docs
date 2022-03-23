@@ -10,106 +10,93 @@ position: 0
 
 # Blazor ToolBar Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor ToolBar component</a> is a container for buttons or other application-specifc tools. This article explains the available features.
+The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor ToolBar component</a> is a container for buttons or other application-specific tools. This article explains the available features.
 
-#### In This Article
+## Creating Blazor ToolBar
 
-* [Basics](#basics)
-* [Features](#features)
-
-## Basics
-
-To use the Telerik Toolbar component:
-
-1. Add the `<TelerikToolBar>` tag to your page.
-1. Populate it with [Built-In Tools]({%slug toolbar-built-in-tools%}) or [Custom Tools]({%slug toolbar-templated-item%}).
-1. Handle their respective events so your application can respond to the user actions.
+1. Add the `<TelerikToolBar>` tag to a Razor file.
+2. Use child tags to add [tools]({%slug toolbar-built-in-tools%}) such as `<ToolBarButton>` or `<ToolBarToggleButton>`. Set button text as child content. Optionally, set [`Icon`]({%slug general-information/font-icons%}#icons-list).
+3. Define `OnClick` handlers for the buttons.
+4. Set the `Selected` parameter of the toggle buttons. It supports two-way binding.
+5. (optional) Place related buttons in a `<ToolBarButtonGroup>` to display them together.
 
 >caption Basic Telerik Toolbar
 
-![basic toolbar screenshot](images/basic-toolbar-screenshot.png)
-
 ````CSHTML
-@*Add a basic Telerik ToolBar to your page with a few built-in buttons.*@
-
 <TelerikToolBar>
     <ToolBarButtonGroup>
         <ToolBarButton Icon="bold" OnClick="@OnBold">Bold</ToolBarButton>
         <ToolBarButton Icon="italic" OnClick="@OnItalic">Italic</ToolBarButton>
-        <ToolBarButton Icon="underline" OnClick="@OnUnderline">Underline</ToolBarButton>
     </ToolBarButtonGroup>
 
     <ToolBarToggleButton @bind-Selected="@Selected">Toggle Button</ToolBarToggleButton>
 
-    <ToolBarButton Icon="undo">Undo</ToolBarButton>
+    <ToolBarButton Icon="undo" OnClick="@OnUndo">Undo</ToolBarButton>
 </TelerikToolBar>
 
-<br />
-
-@Result
+<p> Last clicked button: @LastClicked </p>
+<p> The Toggle button's selected state is @Selected.ToString() </p>
 
 @code {
-    public bool Selected { get; set; } = true;
+    bool Selected { get; set; } = true;
+    string LastClicked { get; set; }
 
-    public string Result { get; set; }
-
-    public void OnBold()
+    void OnBold()
     {
-        Result = "The user clicked on the bold button";
+        LastClicked = "Bold";
     }
 
-    public void OnItalic()
+    void OnItalic()
     {
-        Result = "The user clicked on the italic button";
+        LastClicked = "Italic";
     }
 
-    public void OnUnderline()
+    void OnUndo()
     {
-        Result = "The user clicked on the underline button";
+        LastClicked = "Undo";
     }
 }
 ````
 
+## Built-in Tools
 
->caption Components namespace and reference
+The ToolBar component can include built-in tools such as buttons, toggle buttons and button groups. [Read more about the Blazor ToolBar built-in tools]({%slug toolbar-built-in-tools%}).
 
-````CSHTML
-@*Component namespace and reference*@
+## Separators
 
-<TelerikToolBar @ref="@ToolbarReference">
-    <ToolBarToggleButton @bind-Selected="@Selected">Toggle Button</ToolBarToggleButton>
+The Toolbar features separators and spacers that can visually divide the component items. [Read more about the Blazor ToolBar separators and spacers.]({%slug toolbar-separators%}).
 
-    <ToolBarButton Icon="undo">Undo</ToolBarButton>
-</TelerikToolBar>
+## Custom Items
 
-@code {
-    public Telerik.Blazor.Components.TelerikToolBar ToolbarReference { get; set; }
+The ToolBar component supports template items. Use them to create complex toolbars with dropdowns, inputs and other custom content. [Read more about Blazor ToolBar item customization]({%slug toolbar-templated-item%}).
 
-    public bool Selected { get; set; } = true;
-}
-````
+## Events
 
-## Features
+The Blazor ToolBar fires click and selection events. Handle those events to respond to user actions. [Read more about the Blazor ToolBar events]({%slug toolbar-events%}).
 
->caption The ToolBar provides the following features:
+## ToolBar Parameters
 
-* `Class` - `string` - the CSS class that will be rendered on the main wrapping element of the ToolBar component. You could use that class to control the size of the component through CSS.
+The Blazor ToolBar provides parameters to configure the component:
 
-* `ToolBarButton` - renders a button in the ToolBar. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbarbutton) article.
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
 
-* `ToolBarToggleButton` - renders a toggle button in the ToolBar. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbartogglebutton) article.
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Class` | `string` | The CSS class to be rendered on the main wrapping element of the ToolBar component, which is `<div class="k-toolbar">`. Use for [styling customizations]({%slug themes-override%}). |
 
-* `ToolBarButtonGroup` - creates a group of buttons in the component. You can find more information and examples in the [Built-In Tools]({%slug toolbar-built-in-tools%}#toolbarbuttongroup) article.
+## Next Steps
 
-* `ToolBarTemplateItem` - allows you to create a custom item for the ToolBar. You can read more about this in the [Templated Item]({%slug toolbar-templated-item%}) article.
-
-* `ToolBarSeparator` - adds a line that separates items in the ToolBar. You can find more information in the [Separators]({%slug toolbar-separators%}) article.
-
-* `ToolBarSpacer` - adds empty space that separates the items into different groups. You can find more information in the [Separators]({%slug toolbar-separators%}) article.
-
-
+* [Explore the ToolBar built-in tools]({%slug toolbar-built-in-tools%})
+* [Handle the ToolBar Events]({%slug toolbar-events%})
+* [Use the ToolBar Separators]({%slug toolbar-separators%})
+* [Implement custom ToolBar tools]({%slug toolbar-built-in-tools%})
 
 ## See Also
 
-* [Live Demo: ToolBar Overview](https://demos.telerik.com/blazor-ui/toolbar/overview)
-* [Live Demo: ToolBar Tools](https://demos.telerik.com/blazor-ui/toolbar/tools)
+* [Live ToolBar Demos](https://demos.telerik.com/blazor-ui/toolbar/overview)
+* [ToolBar API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ToolBarToolsFactory)
