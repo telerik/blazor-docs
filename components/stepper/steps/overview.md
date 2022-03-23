@@ -17,7 +17,7 @@ The whole rendering of the steps can also be customized with a [Step Template]({
 >caption In this article:
 
 * [Steps Parameters](#parameters)
-* [Steps Declaration](#steps-declaration)
+* [Steps Example](#steps-example)
 
 ## Steps Parameters
 
