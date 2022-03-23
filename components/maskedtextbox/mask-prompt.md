@@ -18,19 +18,19 @@ This article contains the following sections:
 	* [Rules](#rules)
 	* [Literals](#literals)
 	* [Include Literals in the Value](#include-literals-in-the-value)
-	* [Mask on Focus, Label and Placeholder](#mask-on-focus-label-and-placeholder)
+	* [Mask on Focus, FloatingLabel and Placeholder](#mask-on-focus-floatinglabel-and-placeholder)
 * [Prompt](#prompt)
 
 ## Mask
 
-The `Mask` is the main feature of the component. It defines what input is allowed from the user at what positions so they must obey those requirements. By default, the mask is constantly shown, but you can change that to also show a label or placeholder.
+The `Mask` is the main feature of the component. It defines what input is allowed from the user at what positions so they must obey those requirements. By default, the mask is constantly shown, but you can change that to also show a [FloatingLabel]({%slug floatinglabel-overview%}) or `Placeholder`.
 
 You can use special characters called `Rules` in the Mask to define its behavior. The other characters that have no special meaning but are always shown and the user cannot change them are called `Literal` characters.
 
 * [Rules](#rules)
 * [Literals](#literals)
 * [Include Literals in the Value](#include-literals-in-the-value)
-* [Mask on Focus, Label and Placeholder](#mask-on-focus-label-and-placeholder)
+* [Mask on Focus, FloatingLabel and Placeholder](#mask-on-focus-floatinglabel-and-placeholder)
 
 ### Rules
 
@@ -97,27 +97,30 @@ By default, the `Value` of the component only includes the rules from the mask. 
 }
 ````
 
-### Mask on Focus, Label and Placeholder
+### Mask on Focus, FloatingLabel and Placeholder
 
-The `MaskOnFocus` parameter lets you instruct the component to show the mask only when the user is about to type in the input - when it is focused. This lets you show the `Label` or `Placeholder` that you can set so you can provide an easier to read prompt first, before you show the actual format to your users.
+The `MaskOnFocus` parameter lets you instruct the component to show the mask only when the user is about to type in the input - when it is focused. This lets you show the [FloatingLabel]({%slug floatinglabel-overview%}) or `Placeholder` that you can set so you can provide an easier to read prompt first, before you show the actual format to your users.
 
-The `Label` will be rendered over the `Placeholder` and neither will be shown if there is a `Value` already. You should use the `Placeholder` over the `Label` if you do not want the animated effect or the increased height it causes.
-
-If `MaskOnFocus` is set to `false` (its default value), the `Label` will always be above the input and never inside (over) the input itself - the mask takes precedence - and the "floating" feature of the label will not be available.
+The [FloatingLabel]({%slug floatinglabel-overview%}) will take precedense over the `Placeholder` if the MaskedTextBox is not focused. Neither will be shown if there is a `Value` already. You should use the `Placeholder` over the [FloatingLabel]({%slug floatinglabel-overview%}) if you do not want the animated effect or the increased height it causes.
 
 >caption Showing the mask on focus only
 
 ![Show mask only when the input is focused](images/show-mask-on-focus-only.gif)
 
 ````CSHTML
-@* This is the non-default behavior where the user first sees the Label or Placeholder if there is no value *@
+@* This is the non-default behavior where the user first sees the FloatingLabel or Placeholder if there is no value *@
 
 @TheValue
 <br />
-<TelerikMaskedTextBox MaskOnFocus="true"
-                      Mask="0000-0000-0000-0000" @bind-Value="@TheValue">
-</TelerikMaskedTextBox>
-@code{
+
+<TelerikFloatingLabel Text="Credit Card Number:">
+    <TelerikMaskedTextBox MaskOnFocus="true"
+                          Mask="0000-0000-0000-0000" 
+                          @bind-Value="@TheValue">
+    </TelerikMaskedTextBox>
+</TelerikFloatingLabel>
+
+@code {
     string TheValue { get; set; }
 }
 ````
