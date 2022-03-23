@@ -19,7 +19,7 @@ The whole rendering of the steps can also be customized with a [Step Template]({
 * [Step Parameters](#step-parameters)
 * [Steps Example](#steps-example)
 
-## Steps Parameters
+## Step Parameters
 
 The `StepperStep` exposes the following parameters which allow you to configure their appearance:
 
