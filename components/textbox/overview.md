@@ -101,7 +101,7 @@ TextBox value: @StringValue
 
 * `Password` - when set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Live Demo: Password Textbox](https://demos.telerik.com/blazor-ui/textbox/password)
 
-* `PlaceHolder` - a `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused.
+* `PlaceHolder` - a `string` that maps to the `placeholder` attribute of the HTML element. If a [FloatingLabel]({%slug floatinglabel-overview%}) is used, it will be shown instead of the placeholder when the input is not focused.
 
 * `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
 

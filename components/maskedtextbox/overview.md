@@ -12,7 +12,7 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/maskedtextbox" target="_blank">Blazor Masked Textbox component</a> provides a mask and prompts the user to enter the data in the required format, and it prevents input that does not match the mask. You can use it to show the user the format the need to write things like phone numbers, credit card numbers, ZIP codes, IP addresses, percentage values and so on.
 
-You can also add an animated floating Label, a custom CSS class or control various attributes of the `input` element such as the `name`, `placeholder`, `tabindex`, and [more](#features) and also respond to [events]({%slug maskedtextbox-events%}).
+You can also add a custom CSS class or control various attributes of the `input` element such as the `name`, `placeholder`, `tabindex`, and [more](#features) and also respond to [events]({%slug maskedtextbox-events%}).
 
 ## Basics
 
@@ -56,15 +56,13 @@ To use a Telerik MaskedTextbox for Blazor:
 
 * `IncludeLiterals` (defaults to `false`) - whether the literal characters from the mask (those characters that don't carry a special meaning such as brackets or dashes) are included in the `Value`. Read more in the [Mask and Prompt]({%slug maskedtextbox-mask-prompt%}) article.
 
-* `Label` - the `label` element rendered next to the `input` to provide the user with information on its purpose. It covers the input in a fashion similar to a placeholder, and animates up on focus. If you don't want this effect or the height increase it causes, use the `Id` parameter to attach your own `<label>` tag. See also the `MaskOnFocus` parameter.
-
 * `Mask` - the mask (pattern) that the user has to follow. Shown by default. Read more about its features in the [Mask and Prompt]({%slug maskedtextbox-mask-prompt%}) article.
 
-* `MaskOnFocus` (defaults to `false`) - whether the mask will be shown to the user only while the input is focused. When set to `true`, the user will see the `Label` or `Placeholder` instead of the mask in case the textbox is empty. When there is some value in the input, the mask and input will be shown.
+* `MaskOnFocus` (defaults to `false`) - whether the mask will be shown to the user only while the input is focused. When set to `true`, the user will see the [FloatingLabel]({%slug floatinglabel-overview%}) (if used) or `Placeholder` (if present) instead of the mask in case the textbox is empty. When there is some value in the input, the mask and input will be shown.
 
 * `Name` - the `name` attribute of the HTML element.
 
-* `PlaceHolder` - a `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. See also the `MaskOnFocus` parameter.
+* `PlaceHolder` - a `string` that maps to the `placeholder` attribute of the HTML element. If a [FloatingLabel]({%slug floatinglabel-overview%}) is used, it will be shown instead of the placeholder when the input is not focused. See also the `MaskOnFocus` parameter.
 
 * `Prompt` - (`char`) - the prompt character the user will see in the mask where there is no user value already. Defaults to an underscore `_`. Read more in the [Mask and Prompt]({%slug maskedtextbox-mask-prompt%}) article.
 
@@ -193,4 +191,5 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
   * [Live Demo: MaskedTextbox](https://demos.telerik.com/blazor-ui/maskedtextbox/overview)
   * [Live Demo: MaskedTextbox Validation](https://demos.telerik.com/blazor-ui/maskedtextbox/validation)
   * [Input Validation]({%slug common-features/input-validation%})
+  * [Add Floating Label]({%slug inputs-kb-floating-label%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMaskedTextBox)
