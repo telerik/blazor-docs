@@ -101,7 +101,7 @@ By default, the `Value` of the component only includes the rules from the mask. 
 
 The `MaskOnFocus` parameter lets you instruct the component to show the mask only when the user is about to type in the input - when it is focused. This lets you show the [FloatingLabel]({%slug floatinglabel-overview%}) or `Placeholder` that you can set so you can provide an easier to read prompt first, before you show the actual format to your users.
 
-The [FloatingLabel]({%slug floatinglabel-overview%}) will take precedense over the `Placeholder` if the MaskedTextBox is not focused. Neither will be shown if there is a `Value` already. You should use the `Placeholder` over the [FloatingLabel]({%slug floatinglabel-overview%}) if you do not want the animated effect or the increased height it causes.
+The [FloatingLabel]({%slug floatinglabel-overview%}) will take precedence over the `Placeholder` if the MaskedTextBox is not focused. Neither will be shown if there is a `Value` already. You should use the `Placeholder` instead of a [FloatingLabel]({%slug floatinglabel-overview%}) if you do not want the animated effect or the increased height it causes.
 
 >caption Showing the mask on focus only
 
