@@ -76,7 +76,7 @@ The Blazor ToolBar fires click and selection events. Handle those events to resp
 
 ## ToolBar Parameters
 
-The Blazor ToolBar provides parameters and child tags to configure the component:
+The Blazor ToolBar provides parameters to configure the component:
 
 <style>
     article style + table {
@@ -88,26 +88,6 @@ The Blazor ToolBar provides parameters and child tags to configure the component
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class to be rendered on the main wrapping element of the ToolBar component, which is `<div class="k-toolbar">`. Use for [styling customizations]({%slug themes-override%}). |
-
-### Child Tags
-
-Child tags define Toolbar tools. All of them are `RenderFragment`s.
-
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
-
-| Tag Name | Description |
-| --- | --- |
-| `ToolBarButton` | Renders a button in the ToolBar. See [ToolBar Buttons]({%slug toolbar-built-in-tools%}#toolbarbutton) for more information and examples. |
-| `ToolBarButtonGroup` | Creates a group of buttons. See [ToolBar ButtonGroup]({%slug toolbar-built-in-tools%}#toolbarbuttongroup). |
-| `ToolBarTemplateItem` | Create a custom item. See [Templated Items]({%slug toolbar-templated-item%}). |
-| `ToolBarToggleButton` | Renders a toggle button with a selected state. See [Toggle Buttons]({%slug toolbar-built-in-tools%}#toolbartogglebutton). |
-| `ToolBarSeparator` | Adds a vertical line that separates items in the ToolBar. Learn more in the [Separators]({%slug toolbar-separators%}) article. |
-| `ToolBarSpacer` | Adds [empty space between Toolbar items]({%slug toolbar-separators%}). |
 
 ## Next Steps
 
