@@ -97,6 +97,8 @@ The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` 
 </TelerikCard>
 ````
 
+>tip Icon buttons in the CardActions area will expand horizontally and vertically, if the `Layout` is `Stretched` or if the `Orientation` is `Vertical`. If this is not desired, check this knowledge base article: [CardAction Icon Buttons Are Too Big]({%slug card-kb-icon-buttons-too-large%}).
+
 ## See Also
   
   * [Live Demo: Card](https://demos.telerik.com/blazor-ui/card/actions)
