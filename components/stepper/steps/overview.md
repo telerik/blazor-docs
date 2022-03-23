@@ -23,7 +23,9 @@ The whole rendering of the steps can also be customized with a [Step Template]({
 
 The `StepperStep` exposes the following parameters which allow you to configure their appearance:
 
-* [Indicators]({%slug stepper-indicators%}) - the visual indicators of the steps can include the content below.
+### Indicators 
+
+The [visual indicators]({%slug stepper-indicators%}) of the steps can include the content below.
 
 <style>
     article style + table {
@@ -39,7 +41,9 @@ The `StepperStep` exposes the following parameters which allow you to configure 
 | `ImageUrl` | `string` | The image which will be rendered inside the step indicator. |
 | `SpriteClass` | `string` | The Sprite class which will be rendered inside the step indicator. |
 
-* [State]({%slug stepper-state%}) - the steps can have one of the states below.
+### State
+
+The steps can have one of the [states]({%slug stepper-state%}) below.
 
 <style>
     article style + table {
@@ -52,7 +56,7 @@ The `StepperStep` exposes the following parameters which allow you to configure 
 | `Disabled` | `bool` <br /> (`false`) | Specifies if the step is disabled. |
 | `Optional` | `bool` <br /> (`false`) | Specifies if the step is optional. |
 
-* Other parameters
+### Other parameters
 
 <style>
     article style + table {

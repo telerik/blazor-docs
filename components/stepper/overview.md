@@ -20,9 +20,9 @@ The Stepper provides several features out of the box, including the ability to d
 
 1. Add the `TelerikStepper` tag to add the component to your razor page.
 
-2. Set the `Value` parameter. It supports one-way and two-way binding.
+2. Set the `Value` parameter (`int`) to define the current step index. It supports one-way and two-way binding.
 
-3. Configure the [`StepperStep` instances]({%slug  stepper-steps-overview%}) inside the `StepperSteps` tag.
+3. Add [`StepperStep` instances]({%slug  stepper-steps-overview%}) inside the `StepperSteps` tag.
 
 4. (optional) Set the `Icon` and `Label` `StepperStep` properties.
 
