@@ -12,7 +12,10 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/numeric-textbox" target="_blank">Blazor Numeric Textbox component</a> allows the user to enter decimal values and no text. The developer can control minimum, maximum values, steps and other elements of the UX.
 
-#### To use a Telerik Numeric Textbox for Blazor, add the `TelerikNumericTextBox` tag.
+## Creating Blazor DateTimePicker
+
+1. Add the `TelerikNumericTextBox` tag to your razor page.
+1. Bind a numeric data type to the component
 
 >caption Basic numeric textbox with its key features
 
@@ -44,33 +47,23 @@ The numeric textbox component is generic, meaning that it takes the type of its 
 }
 ````
 
-The numeric textbox provides the following features:
+## Features
 
-* `Arrows` - whether the up/down spinner arrows (buttons) will be shown. Defaults to `true`.
-
-* `Decimals` - how many decimal places will be allowed while the user is typing a new value. Takes effect only while the input is focused. The default value is set from the specified culture.
-
-* `Format` - the format with which the number is presented when the input is not focused. Read more in the [Standard Numeric Format Strings in .NET](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) article.
-
-* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
-
-* `Max` - the maximum decimal value the input can take. Must be of the same type as the `Value`.
-
-* `Min` - the minimum decimal value the input can take. Must be of the same type as the `Value`.
-
-* `Placeholder` - `string` - maps to the `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to **nullable** value type and there is no value set. 
-
-* `Step` - the decimal value of the step with which the value changes when the arrows are used. Must be of the same type as the `Value`.
-
-* `Value` - to get/set the value of the input.
-
-* `Width` - the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article.
-
-* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
-
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
-
-* `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
+| Attribute | Type | Description |
+|-----------|------|-------------|
+|`Arrows`|`bool`<br/> Defaults to `true`|Whether the up/down spinner arrows (buttons) will be shown|
+|`Decimals`|`int`|Specifies how many decimal places will be allowed while the user is typing a new value. Takes effect only while the input is focused. The default value is set from the specified culture.|
+|`Format`|`string`|The format with which the number is presented when the input is not focused. Read more in the [Standard Numeric Format Strings in .NET](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) article|
+|`Id`|`string`|renders as the `id` attribute on the `<input />` element|
+|`Max`|Numeric data type|the maximum decimal value the input can take. Must be of the same type as the `Value`|
+|`Min`|Numeric data type|The minimum decimal value the input can take. Must be of the same type as the `Value`|
+|`Placeholder`|`string`|maps to the `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to **nullable** value type and there is no value set. |
+|`Step`|Numeric data type|the decimal value of the step with which the value changes when the arrows are used. Must be of the same type as the `Value`.|
+|`Value`|`T` - expects numeric data type|Get/set the value of the input|
+|`Width`|`string`|the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article|
+|`TabIndex`|`int`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key|
+|`ValidateOn`|`ValidationEvent` enum|Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs)|
+|Validation|Validation article|See the [Input Validation]({%slug common-features/input-validation%}) article|
 
 >caption Example of using a custom format strings
 
