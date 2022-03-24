@@ -89,7 +89,7 @@ The ListView can refresh its data manually so the component can react to changes
 
 ## Events
 
-The CRUD operations happen through dedicated events, and there is also an option for [load-on-demand for the data]({%slug listview-manual-operations%}), which provides you with full control over the data operations and not only the rendering. [Read more about the Blazor ListView events]({%slug listview-events%}).
+The ListView provides events related to editing, and there is also an option for [loading data on demand]({%slug listview-manual-operations%}). [Read more about the Blazor ListView events]({%slug listview-events%}).
 
 ## Next Steps
 
