@@ -8,13 +8,14 @@ published: True
 position: 0
 ---
 
-# Blazor Date Input Overview
+# Blazor DateInput Overview
 
 The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazor Date Input component</a> allows the user to enter a date. The developer can control the format of the date. If the user input does not match the desired pattern, the value is not accepted. If the input can be parsed, it will be corrected automatically.
 
-## Basics
+## Creating Blazor DateInput
 
-#### To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
+1. Add the `TelerikDateInput` tag to your razor page.
+1. Bind a `DateTime` object to the component
 
 >caption Basic date input with namespace and reference
 
@@ -34,33 +35,23 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/date-input-first-look.png)
-
 ## Features
 
-The date input provides the following features:
+<style> article style + table { table-layout: auto; word-break: normal; } </style>
 
-* `Class` - the CSS class that will be rendered on the `input` element.
+| Attribute | Type | Description |
+|----------|----------|
+|`Class`| `string` |The CSS class that will be rendered on the `input` element|
+|`Enabled`| `bool` |Defines if the `DateInput` is enabled|
+|`Format`|`string`|The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.|
+|`Id`|`string`|Maps to the `id` HTML attribute of the `input`|
+|`Value`|`T` - expects a `DateTime` object|The value of the `DateInput`|
+|`Width`|`string`|The width of the `DateInput`|
+|`TabIndex`|`int`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
+|`Placeholder`|`string`|maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in|
+|`ValidateOn`||`ValidationEvent` enum||`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs)|
+|`Validation`||See the [Input Validation]({%slug common-features/input-validation%}) article.|
 
-* `Enabled` - whether the `input` is enabled.
-
-* `Format` - the date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.
-
-* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
-
-* `Value` - get/set the value of the input, can be used for binding.
-
-* `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
-
-* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
-
-* `Placeholder` - `string` - maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in.
-
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
-
-* `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
