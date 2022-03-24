@@ -12,7 +12,10 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/datetimepicker" target="_blank">Blazor DateTime Picker component</a> allows the user to choose both a date and a time from a visual list in a dropdown, or to type it into a [date input]({%slug components/dateinput/overview%}) that can accept only DateTime values. You can control the date and time format of the input, and respond to [events]({%slug components/datetimepicker/events %}).
 
-#### To use a Telerik DateTime Picker for Blazor, add the `TelerikDateTimePicker` tag.
+## Creating Blazor DateTimePicker
+
+1. Add the `TelerikDateTimePicker` tag to your razor page.
+1. Bind a `DateTime` object to the component
 
 >caption Basic datetime picker with custom format, min and max
 
@@ -30,10 +33,6 @@ Selected time: @selectedTime
 }
 ````
 
->caption The result of the snippet above and the behavior of the component
-
-![](images/date-time-picker-overview.gif)
-
 >caption Component namespace and reference
 
 ````CSHTML
@@ -48,33 +47,26 @@ Selected time: @selectedTime
 }
 ````
 
-The DateTimePicker component exposes the following features:
+## Features
 
-* `Class` - the custom CSS class rendered on the wrapping element.
+<style> article style + table { table-layout: auto; word-break: normal; } </style>
 
-* `PopupClass` - additional CSS class to customize the appearance of the DateTimePicker's dropdown.
+| Attribute | Type | Description |
+|----------|----------|
+|`Class`| `string` |The CSS class that will be rendered on the `input` element|
+|`PopupClass`|`string`|Additional CSS class to customize the appearance of the DateTimePicker's dropdown|
+|`Enabled`| `bool` |Defines if the `DateTimePicker` is enabled|
+|`Format`|`string`|The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.|
+|`Id`|`string`|Maps to the `id` HTML attribute of the `input`|
+|`Value`|`T` - expects a `DateTime` object|The value of the `DateTimePicker`|
+|`Min`|`DateTime`|The earliest date and time that the user can select|
+|`Max`|`DateTime`|The latest date and time that the user can select|
+|`Width`|`string`|The width of the `DateTimePicker`|
+|`TabIndex`|`int`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
+|`Placeholder`|`string`|maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in|
+|`ValidateOn`|`ValidationEvent` enum|`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs)|
+|`Validation`|Validation Article|See the [Input Validation]({%slug common-features/input-validation%}) article|
 
-* `Enabled` - Specifies whether typing in the input and opening the dropdown are allowed.
-
-* `Format` - Specifies the format of the DateInput of the DateTimePicker. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.
-
-* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
-
-* `Min` - The earliest date and time that the user can select.
-
-* `Max` - The latest date and time that the user can select.
-
-* `Value` - The current value of the input. Can be used for binding.
-
-* `Width` - Defines the width of the DateTimePicker.
-
-* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
-
-* `Placeholder` - `string` - maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to **nullable** DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in.
-
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
-
-* `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
 
 When using the dropdown to edit dates, you must click the "Set" button to commit the date. It is located in the Time portion of the dropdown (you will be navigated to it automatically upon selecting a date). Clicking "Cancel", or outside of the dropdown without clicking "Set", will revert the time to the original value. You can also commit a date by clicking the "NOW" button which will choose the current time.
 
