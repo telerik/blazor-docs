@@ -21,6 +21,12 @@ You can control the appearance of the TextArea button by setting the following a
 
 You can increase or decrease the size of the TextArea by setting the `Size` attribute to a member of the `Telerik.Blazor.ThemeConstants.TextArea.Size` class:
 
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
 | Class members | Manual declarations |
 |------------|--------|
 |`Small` |`sm`|
@@ -56,6 +62,12 @@ You can increase or decrease the size of the TextArea by setting the `Size` attr
 
 The `Rounded` attribute applies the `border-radius` CSS rule to the TextArea to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.TextArea.Rounded` class:
 
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
 | Class members | Manual declarations |
 |------------|--------|
 |`Small` |`sm`|
@@ -94,6 +106,12 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the TextArea to 
 
 The `FillMode` controls how the TelerikTextArea is filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.TextArea.FillMode` class:
 
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
 | Class members | Result |
 |------------|--------|
 |`Solid` <br /> default value|`solid`|

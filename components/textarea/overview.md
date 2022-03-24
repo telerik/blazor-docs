@@ -14,11 +14,11 @@ The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank
 
 ## Creating Blazor TextArea
 
-1. Add the `<TelerikTextArea>` tag to add the component to your razor page.
+1. Add the `<TelerikTextArea>` tag to a Razor file.
 
-2. Set the `Value` parameter. It supports one-way and two-way binding.
+2. Set the `Value` parameter to the desired `string`. It supports one-way and two-way binding.
 
-3. (optional) Set the `Label` and `AutoSize` properties.
+3. (optional) Set the `Label` and `AutoSize` properties to adjust the TextArea height based on the user input.
 
 >caption Basic TextArea with two-way value binding.
 
@@ -43,11 +43,11 @@ The TextArea component provides settings to control its appearance. [Read more a
 
 ## Events
 
-The Blazor TextArea generates events that you can handle and further customize its behavior. [Read more about the Blazor TextArea events]({%slug textarea-events%}).
+The Blazor TextArea fires blur and value change events for further customizing its behavior. [Read more about the Blazor TextArea events]({%slug textarea-events%}).
 
-## Parameters
+## TextArea Parameters
 
-The Blazor TextArea provides various parameters that allow you to configure the component:
+The Blazor TextArea provides various parameters to configure the component:
 
 <style>
     article style + table {
@@ -76,9 +76,9 @@ See the [Input Validation]({%slug common-features/input-validation%}) article.
 
 ## Next Steps
 
-* [Explore the TextArea Appearance Settings]({%slug TextArea-appearance%})
-
 * [Handle the TextArea Events]({%slug textarea-events%})
+
+* [Explore the TextArea Appearance Settings]({%slug TextArea-appearance%})
 
 ## See Also
 

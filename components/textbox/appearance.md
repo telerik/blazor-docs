@@ -21,6 +21,12 @@ You can control the appearance of the TextBox button by setting the following at
 
 You can increase or decrease the size of the TextBox by setting the `Size` attribute to a member of the `Telerik.Blazor.ThemeConstants.TextBox.Size` class:
 
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
 | Class members | Manual declarations |
 |------------|--------|
 |`Small` |`sm`|
@@ -56,6 +62,12 @@ You can increase or decrease the size of the TextBox by setting the `Size` attri
 
 The `Rounded` attribute applies the `border-radius` CSS rule to the textbox to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.TextBox.Rounded` class:
 
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
 | Class members | Manual declarations |
 |------------|--------|
 |`Small` |`sm`|
@@ -94,6 +106,12 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the textbox to a
 
 The `FillMode` controls how the TelerikTextBox is filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.TextBox.FillMode` class:
 
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
 | Class members | Result |
 |------------|--------|
 |`Solid` <br /> default value|`solid`|
