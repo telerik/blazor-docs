@@ -73,7 +73,7 @@ the rest of the features the component provides further in this article *@
 
 ## Templates
 
-The ListView component can fully control the rendering of the items and their layout. It has a header, footer, and template for editing items. [Read more about the Blazor ListView templates]({%slug listview-templates%}).
+The ListView allows full control of the item rendering and layout. The component has a header, footer, and template for editing items. [Read more about the Blazor ListView templates]({%slug listview-templates%}).
 
 ## Editing
 
