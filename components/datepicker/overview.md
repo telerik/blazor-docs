@@ -45,7 +45,7 @@ The Date Picker enables the end users to change the selected value by clicking t
 
 ## Events
 
-The Blazor Date Picker generates events that you can handle and further customize its behavior. [Read more about the Blazor Button events...]({%slug components/datepicker/events%}).
+The Blazor Date Picker generates events that you can handle and further customize its behavior. [Read more about the Blazor Date Picker events...]({%slug components/datepicker/events%}).
 
 ## Validation
 

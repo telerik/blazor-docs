@@ -34,6 +34,18 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 }
 ````
 
+## Increment Steps
+
+The Date Input enables the end users to change the selected value by clicking the rendered arrows. You can set the increment and decrement steps through the nested `DateInputSteps` tag and its parameters. [Read more about the Blazor Date Input increment steps...]({%slug dateinput-steps%})
+
+## Events
+
+The Blazor Date Input generates events that you can handle and further customize its behavior. [Read more about the Blazor Date Input events...]({%slug components/dateinput/events%}).
+
+## Validation
+
+You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...]({%slug common-features/input-validation%}).
+
 ## Parameters
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
@@ -64,9 +76,6 @@ You can find more options for customizing the AutoComplete styling in the [Appea
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
-## Validation
-
-You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...]({%slug common-features/input-validation%}).
 
 ## DateTime and Nullable DateTime
 
