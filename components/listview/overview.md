@@ -14,15 +14,15 @@ The <a href="https://www.telerik.com/blazor-ui/listview" target="_blank">Blazor 
 
 ## Creating Blazor ListView
 
-1. Add the `TelerikListView` tag to add the component to your razor page.
+1. Add the `TelerikListView` tag to a Razor file.
 
 2. Populate its `Data` property with the collection of items you want the user to see.
 
-3. Define the `Template` for the items and add the relevant styles to your app.
+3. Define the `Template` to style the items layout.
 
-4. (optional) Define the `HeaderTemplate`.
+4. (optional) Define the `HeaderTemplate` to style the list header.
 
-5. (optional) Enable paging and set dimensions to the component.
+5. (optional) Set the `Pageable` property to enable paging and set dimensions to the component.
 
 >caption ListView in read mode with paging enabled.
 
@@ -73,19 +73,19 @@ the rest of the features the component provides further in this article *@
 
 ## Templates
 
-You fully control the rendering of the items and their layout. You can add header, footer, and a template for editing items. [Read more about the Blazor ListView templates]({%slug listview-templates%}).
+The ListView component can fully control the rendering of the items and their layout. It has a header, footer, and template for editing items. [Read more about the Blazor ListView templates]({%slug listview-templates%}).
 
 ## Editing
 
-The ListView component allows you to define a template for an item in edit mode and add command buttons for the user to edit, delete and insert items. [Read more about the Blazor ListView editing]({%slug listview-editing%}).
+The ListView component has functionality to put the items in edit/insert mode, as well as delete items through dedicated command buttons. [Read more about the Blazor ListView editing]({%slug listview-editing%}).
 
 ## Paging
 
-You can enable automatic paging of the provided data so the user has less scrolling to do and the list can fit better in your layout. [Read more about the Blazor ListView paging]({%slug listview-paging%}).
+The ListView supports automatic paging of the provided data, so the user has less scrolling to do. The list also fits better in the layout. [Read more about the Blazor ListView paging]({%slug listview-paging%}).
 
 ## Refresh Data
 
-The ListView allows you to refresh its data manually so the component can react to changes in the collection. [Read more about the Blazor ListView data refresh]({%slug listview-refresh-data%}).
+The ListView can refresh its data manually so the component can react to changes in the collection. [Read more about the Blazor ListView data refresh]({%slug listview-refresh-data%}).
 
 ## Events
 
@@ -93,9 +93,9 @@ The CRUD operations happen through dedicated events, and there is also an option
 
 ## Next Steps
 
-* [Use ListView Templates]({%slug listview-templates%})
+* [Use the ListView Templates]({%slug listview-templates%})
 
-* [Use ListView Editing]({%slug listview-editing%})
+* [Use the ListView Editing]({%slug listview-editing%})
 
 * [Explore the ListView Events]({%slug listview-events%})
 
