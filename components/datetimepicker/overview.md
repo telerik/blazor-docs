@@ -33,7 +33,49 @@ Selected time: @selectedTime
 }
 ````
 
->caption Component namespace and reference
+## Parameters
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+|`Enabled`| `bool` |Defines if the `DateTimePicker` is enabled|
+|`Format`|`string`|The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.|
+|`Id`|`string`|Maps to the `id` HTML attribute of the `input`|
+|`Value`|`T` - expects a `DateTime` object|The value of the `DateTimePicker`|
+|`Min`|`DateTime`|The earliest date and time that the user can select|
+|`Max`|`DateTime`|The latest date and time that the user can select|
+|`TabIndex`|`int`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
+|`Placeholder`|`string`|maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in|
+|`ValidateOn`|`ValidationEvent` enum|`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs)|
+|`Validation`|Validation Article|See the [Input Validation]({%slug common-features/input-validation%}) article|
+
+### Styling and Appearance
+
+The following parameters enable you to customize the appearance of the Blazor DateTimePicker:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+|`Class`| `string` |The CSS class that will be rendered on the `input` element|
+|`PopupClass`|`string`|Additional CSS class to customize the appearance of the DateTimePicker's dropdown|
+|`Width`|`string`|The width of the `DateTimePicker`|
+
+You can find more options for customizing the DateTimePicker styling in the [Appearance article]({%slug datetimepicker-appearance%}).
+
+
+## Action Buttons
+
+When using the dropdown to edit dates, you must click the "Set" button to commit the date. It is located in the Time portion of the dropdown (you will be navigated to it automatically upon selecting a date). Clicking "Cancel", or outside of the dropdown without clicking "Set", will revert the time to the original value. You can also commit a date by clicking the "NOW" button which will choose the current time.
+
+## Format
+
+The time format specifiers in the `Format` control the tumblers available in the dropdown. For example, the `HH` specifier will result in a hour selector in a 24 hour format. If you also add the `tt` specifier, you will also get the AM/PM tumbler, but the 24 hour format will still be used. This means that you can also add several tumblers for the same time portion if the format string repeats them.
+
+@[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
+
+## Component Reference
 
 ````CSHTML
 @using Telerik.Blazor.Components
@@ -47,32 +89,9 @@ Selected time: @selectedTime
 }
 ````
 
-## Features
+## Next Steps
 
-<style> article style + table { table-layout: auto; word-break: normal; } </style>
-
-| Attribute | Type | Description |
-|----------|----------|
-|`Class`| `string` |The CSS class that will be rendered on the `input` element|
-|`PopupClass`|`string`|Additional CSS class to customize the appearance of the DateTimePicker's dropdown|
-|`Enabled`| `bool` |Defines if the `DateTimePicker` is enabled|
-|`Format`|`string`|The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.|
-|`Id`|`string`|Maps to the `id` HTML attribute of the `input`|
-|`Value`|`T` - expects a `DateTime` object|The value of the `DateTimePicker`|
-|`Min`|`DateTime`|The earliest date and time that the user can select|
-|`Max`|`DateTime`|The latest date and time that the user can select|
-|`Width`|`string`|The width of the `DateTimePicker`|
-|`TabIndex`|`int`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
-|`Placeholder`|`string`|maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in|
-|`ValidateOn`|`ValidationEvent` enum|`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs)|
-|`Validation`|Validation Article|See the [Input Validation]({%slug common-features/input-validation%}) article|
-
-
-When using the dropdown to edit dates, you must click the "Set" button to commit the date. It is located in the Time portion of the dropdown (you will be navigated to it automatically upon selecting a date). Clicking "Cancel", or outside of the dropdown without clicking "Set", will revert the time to the original value. You can also commit a date by clicking the "NOW" button which will choose the current time.
-
-The time format specifiers in the `Format` control the tumblers available in the dropdown. For example, the `HH` specifier will result in a hour selector in a 24 hour format. If you also add the `tt` specifier, you will also get the AM/PM tumbler, but the 24 hour format will still be used. This means that you can also add several tumblers for the same time portion if the format string repeats them.
-
-@[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
+* [DateTimePicker Events]({%slug components/datetimepicker/events%})
 
 
 ## See Also
