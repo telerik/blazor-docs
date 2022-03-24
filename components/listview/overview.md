@@ -93,7 +93,7 @@ The ListView provides events related to editing and [loading data on demand]({%s
 
 ## Next Steps
 
-* [Use the ListView Templates]({%slug listview-templates%})
+* [Implement ListView Templates]({%slug listview-templates%})
 
 * [Use the ListView Editing]({%slug listview-editing%})
 
