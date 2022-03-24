@@ -42,7 +42,7 @@ Selected time: @selectedTime
 |`Enabled`| `bool` |Defines if the `DateTimePicker` is enabled|
 |`Format`|`string`|The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.|
 |`Id`|`string`|Maps to the `id` HTML attribute of the `input`|
-|`Value`|`T` - expects a `DateTime` object|The value of the `DateTimePicker`|
+|`Value`|`T` | expects a `DateTime` object|The value of the `DateTimePicker`|
 |`Min`|`DateTime`|The earliest date and time that the user can select|
 |`Max`|`DateTime`|The latest date and time that the user can select|
 |`TabIndex`|`int`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|

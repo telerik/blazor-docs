@@ -19,50 +19,57 @@ The <a href="https://www.telerik.com/blazor-ui/datepicker" target="_blank">Blazo
 
 1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a collection of the same type as the collection that you bound through the `Data` property.
 
-1. Optionally, create a reference to an instance of the Blazor Date Picker by providing the component's namespace. 
+1. Optionally, provide custom `Format`, `Min` and `Max` values 
 
->caption Basic Date Picker with namespace and reference
+>caption Basic Date Picker with custom format, min and max
 
 ````CSHTML
 The selected date is: @datePickerValue.ToShortDateString()
 <br />
 
-<TelerikDatePicker @bind-Value="datePickerValue" @ref="theDatePicker"></TelerikDatePicker>
+<TelerikDatePicker @bind-Value="datePickerValue"
+                   Format="dd MMMM yyyy"
+                   Min="@Min" Max="@Max">
+</TelerikDatePicker>
 
-@code  {
+@code {
     DateTime datePickerValue { get; set; } = DateTime.Now;
-
-    Telerik.Blazor.Components.TelerikDatePicker<DateTime> theDatePicker;
-    // The type of the component depends on the type of the value.
+    public DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
+    public DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
 }
 ````
 
 ## Increment Steps
 
 The Date Picker enables the end users to change the selected value by clicking the rendered arrows. You can set the increment and decrement steps through the nested `DatePickerSteps` tag and its parameters. [Read more about the Blazor Date Picker increment steps...]({%slug datepicker-steps%})
+
 ## Events
 
 The Blazor Date Picker generates events that you can handle and further customize its behavior. [Read more about the Blazor Button events...]({%slug components/datepicker/events%}).
+
+## Validation
+
+You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...]({%slug common-features/input-validation%}).
+
 ## Parameters
 
 The Blazor Date Picker provides various parameters that allow you to configure the component:
 
-| Parameter      | Description |
-| ----------- | ----------- |
-| `BottomView` | Defines the bottommost view in the popup calendar to which the user can navigate to. Defaults to `CalendarView.Month`. |
-| `DisabledDates` | Specifies a list of dates that can not be selected. |
-| `Enabled` | Specifies whether typing in the input is allowed. |
-| `Format` | Specifies the format of the DateInput of the DatePicker. [Read more about supported data formats in Telerik DateInput for Blazor UI]({%slug components/dateinput/supported-formats%}) article. |
-| `Id` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
-| `Min` | The earliest date that the user can select. |
-| `Max` | The latest date that the user can select. |
-| `PopupHeight` | Defines the height of the DatePicker's Popup. Defaults to `auto`. |
-| `PopupWidth` | Defines the width of the DatePicker's Popup. Defaults to the width of the datepicker input. |
-| `Value` | The current value of the input. Can be used for binding. |
-| `View` | Specifies the current view that will be displayed in the popup calendar. |
-| `TabIndex` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
-| `Placeholder` | Accepts `string` value and maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to a **nullable** DateTime object - `DateTime?`. It will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
-| Validation | See the [Input Validation]({%slug common-features/input-validation%}) article. |
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+| `BottomView` | ` CalendarView` <br/> `CalendarView.Month` | Defines the bottommost view in the popup calendar to which the user can navigate to. |
+| `DisabledDates` | `List<DateTime>` | Specifies a list of dates that can not be selected. |
+| `Enabled` | `bool` | Specifies whether typing in the input is allowed. |
+| `Format` | `string` | Specifies the format of the DateInput of the DatePicker. [Read more about supported data formats in Telerik DateInput for Blazor UI]({%slug components/dateinput/supported-formats%}) article. |
+| `Id` | `string`| Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
+| `Min` | `DateTime` | The earliest date that the user can select. |
+| `Max` | `DateTime`| The latest date that the user can select. |
+| `Value` | `T` | The current value of the input. Can be used for binding. |
+| `View` | ` CalendarView` | Specifies the current view that will be displayed in the popup calendar. |
+| `TabIndex` | `int?` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
+| `Placeholder` | `string` | Maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to a **nullable** DateTime object - `DateTime?`. It will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
 | `ValidateOn` | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
 
 The date picker is, essentially, a [date input]({%slug components/dateinput/overview%}) and a [calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
@@ -71,19 +78,36 @@ The date picker is, essentially, a [date input]({%slug components/dateinput/over
 
 The following parameters enable you to customize the appearance of the Blazor Date Picker:
 
-| Parameter      | Description |
-| ----------- | ----------- |
-| `Class` | The custom CSS class rendered on the wrapping element. |
-| `PopupClass` | An additional CSS class to customize the appearance of the Date Picker's dropdown. |
-| `PopupHeight` | Defines the height of the DatePicker's Popup. Defaults to `auto`. |
-| `PopupWidth` | Defines the width of the DatePicker's Popup. Defaults to `auto`. |
-| `Width` | Defines the width of the DatePicker. Defaults to `280px`. |
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+| `Class` | `string` | The custom CSS class rendered on the wrapping element. |
+| `PopupClass` | `string` | An additional CSS class to customize the appearance of the Date Picker's dropdown.|
+| `PopupHeight` | `string` | Defines the height of the DatePicker's Popup. Defaults to `auto`. |
+| `PopupWidth` | `string` | Defines the width of the DatePicker's Popup. Defaults to `auto`. |
+| `Width` | `string` | Defines the width of the DatePicker. Defaults to `280px`. |
+
+You can find more options for customizing the AutoComplete styling in the [Appearance article]({%slug datepicker-appearance%}).
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
-## Date Picker Reference
+## Component Reference
 
 Add a reference to the Date Picker instance to use its methods.
+
+````CSHTML
+@using Telerik.Blazor.Components
+
+<TelerikDatePicker @ref="theDatePicker" @bind-Value="datePickerValue"></TelerikDatePicker>
+
+@code  {
+    DateTime datePickerValue { get; set; } = DateTime.Now;
+
+    Telerik.Blazor.Components.TelerikDatePicker<DateTime> theDatePicker;
+    // The type of the component depends on the type of the value.
+}
+````
 
 ## Next Steps
 
