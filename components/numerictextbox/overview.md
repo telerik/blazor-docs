@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/numeric-textbox" target="_blank">Blazor Numeric Textbox component</a> allows the user to enter decimal values and no text. The developer can control minimum, maximum values, steps and other elements of the UX.
 
-## Creating Blazor DateTimePicker
+## Creating Blazor Numeric Textbox
 
 1. Add the `TelerikNumericTextBox` tag to your razor page.
 1. Bind a numeric data type to the component
@@ -29,9 +29,9 @@ The new value is: @theValue
 }
 ````
 
-The numeric textbox component is generic, meaning that it takes the type of its value parameter as an argument. It can take `int`, `long`, `float`, `double` and `decimal` values. Therefore, the values for the `Min`, `Max` and `Step` properties must be of the same type as the `Value`, and the `ValueChanged` handler must also accommodate the corresponding value type.
+The Numeric TextBox component is generic, meaning that it takes the type of its value parameter as an argument. It can take `int`, `long`, `float`, `double` and `decimal` values. Therefore, the values for the `Min`, `Max` and `Step` properties must be of the same type as the `Value`, and the `ValueChanged` handler must also accommodate the corresponding value type.
 
->caption Component namespace and reference
+## Component namespace and reference
 
 ````CSHTML
 @using Telerik.Blazor.Components
@@ -48,6 +48,8 @@ The numeric textbox component is generic, meaning that it takes the type of its 
 ````
 
 ## Features
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
@@ -96,7 +98,6 @@ The numeric textbox component is generic, meaning that it takes the type of its 
 ````
 
 ## Notes
-
 
 
 * If you want to use a currency format, you must specify the culture for your app thread, so .NET knows what symbol to render. If you don't do that, you may see an unexpected/incorrect symbol or format. The Telerik Numeric Textbox uses the thread culture for currency signs and decimalr separators (more on [globalization in the Telerik components]({%slug globalization-overview%})).
