@@ -18,13 +18,12 @@ The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank
 
 2. Set the `Value` parameter to the desired `string`. It supports one-way and two-way binding.
 
-3. (optional) Set the `Label` and `AutoSize` properties to adjust the TextArea height based on the user input.
+3. (optional) Set the `AutoSize` property to adjust the TextArea height based on the user input.
 
 >caption Basic TextArea with two-way value binding.
 
 ````CSHTML
 <TelerikTextArea @bind-Value="@TextAreaValue" 
-                 Label="Enter Information" 
                  AutoSize="true">
 </TelerikTextArea>
 
@@ -69,7 +68,7 @@ The Blazor TextArea provides various parameters to configure the component:
 | `PlaceHolder` | `string` | A `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. |
 | `TabIndex` | `Nullable<int>` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}). |
-| `ValidateOn` | `ValidationEvent` | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
+| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
 | `Width` | `string` | The width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article for more information. |
 
 See the [Input Validation]({%slug common-features/input-validation%}) article.
