@@ -10,7 +10,7 @@ position: 0
 
 # Blazor TextArea Overview
 
-The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank">Blazor TextArea component</a> is a highly customizable multi-line text input area. It provides features like auto resizing based on the user input, floating label functionality and [events]({%slug textarea-events%}) to respond to user actions.
+The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank">Blazor TextArea component</a> is a highly customizable multi-line text input area. It provides features like auto resizing based on the user input and [events]({%slug textarea-events%}) to respond to user actions.
 
 ## Creating Blazor TextArea
 
