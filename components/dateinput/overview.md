@@ -8,61 +8,74 @@ published: True
 position: 0
 ---
 
-# Blazor Date Input Overview
+# Blazor DateInput Overview
 
 The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazor Date Input component</a> allows the user to enter a date. The developer can control the format of the date. If the user input does not match the desired pattern, the value is not accepted. If the input can be parsed, it will be corrected automatically.
 
-## Basics
+## Creating Blazor DateInput
 
-#### To use a Telerik Date Input for Blazor, add the `TelerikDateInput` tag.
+1. Add the `TelerikDateInput` tag to your razor page.
+1. Bind a `DateTime` object to the component
 
->caption Basic date input with namespace and reference
+>caption Basic DateInput with custom format, min and max
 
 ````CSHTML
 @dateInputValue
 <br />
 
-<TelerikDateInput @bind-Value="@dateInputValue" Format="dd MMMM yyyy" @ref="theDateInput">
+<TelerikDateInput @bind-Value="@dateInputValue" Format="dd MMMM yyyy"
+                  Min="@Min" Max="@Max">
 </TelerikDateInput>
 
 @code {
     DateTime dateInputValue { get; set; } = DateTime.Now;
-
-    Telerik.Blazor.Components.TelerikDateInput<DateTime> theDateInput;
-    // the type of the component depends on the type of the value
-    // in this case it is DateTime, but it could be DateTime?
+    public DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
+    public DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
 }
 ````
 
->caption The result from the code snippet above
+## Increment Steps
 
-![](images/date-input-first-look.png)
+The Date Input enables the end users to change the selected value by clicking the rendered arrows. You can set the increment and decrement steps through the nested `DateInputSteps` tag and its parameters. [Read more about the Blazor Date Input increment steps...]({%slug dateinput-steps%})
 
-## Features
+## Events
 
-The date input provides the following features:
+The Blazor Date Input generates events that you can handle and further customize its behavior. [Read more about the Blazor Date Input events...]({%slug components/dateinput/events%}).
 
-* `Class` - the CSS class that will be rendered on the `input` element.
+## Validation
 
-* `Enabled` - whether the `input` is enabled.
+You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...]({%slug common-features/input-validation%}).
 
-* `Format` - the date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.
+## Parameters
 
-* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* `Value` - get/set the value of the input, can be used for binding.
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+|`Enabled`| `bool` |Defines if the `DateInput` is enabled|
+|`Format`|`string`|The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.|
+|`Id`|`string`|Maps to the `id` HTML attribute of the `input`|
+|`Value`|`T` - expects a `DateTime` object|The value of the `DateInput`|
+|`TabIndex`|`int`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
+|`Placeholder`|`string`|maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in|
+|`ValidateOn`||`ValidationEvent` enum||`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs)|
 
-* `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
 
-* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
+### Styling and Appearance
 
-* `Placeholder` - `string` - maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in.
+The following parameters enable you to customize the appearance of the Blazor DateInput:
 
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+|`Class`| `string` |The CSS class that will be rendered on the `input` element|
+|`Width`|`string`|The width of the `DateInput`|
+
+You can find more options for customizing the AutoComplete styling in the [Appearance article]({%slug dateinput-appearance%}).
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
+
 
 ## DateTime and Nullable DateTime
 
@@ -77,7 +90,6 @@ The behavior of the component will depend on the type of field it is bound to, a
 * When inside an `EditForm`, if no attributes are present on the field, and the value is deleted, no validation error is shown.
 
 
-
 ##### Bound to a Non-Nullabe DateTime
 
 * When the value is undefined, it defaults to `0001-01-01`, so the component has it as a value.
@@ -87,79 +99,27 @@ The behavior of the component will depend on the type of field it is bound to, a
 * When inside an `EditForm`, if no attributes are present on the field, and the value is deleted, a validation error is shown.
 
 
-## Efficient Keyboard Input
-
-The Telerik date inputs take into account what you are typing in order to let you input data quickly and efficiently.
-
-The input focuses the next date segment automatically when the input for the current segment uniquely and successfully identifies the value current segment. 
-
-You can change the focused segment through entering:
-
-* `LeftArrow` or `RightArrow`
-
-* the `value` of the input (for example, entering `12` for the month number)
-
-* the `separator` of the date segments.
-    * The supported separators in the Telerik date editors - `TelerikDateInput`, `TelerikDatePicker`, `TelerikDateTimePicker`, and the `TelerikTimePicker`, are the forward-slash `/`, the comma `,`, and the dot `.`. 
-
-
->caption Example scenarios when and how focus moves between date segments
-
-In the example below, we will use the `M/d/yyyy` date format and take the `month` segment specifically to illustrate the component behavior.
-
-* When the user inputs a `valid value` - a digit or two digits that can successfully and uniquely form the month of the year.
-
-    * If the input is `two` (`2`), the focus will automatically shift to the next date segment (the day), because there are no months with two digits that start with `two` (`2`).
-    
-    * If the value is `one` (`1`), the focus will **not** automatically shift to the next date segment (the day), because there are months with two digits that start with `one` (`1`) - such as January (1), October (10), November (11), and December (12). 
-    
-* By typing the `separator` in the input (`/` in this example), or by using the `LeftArrow` / `RightArrow` keys on the keyboard.
-
-    * This allows the user to quickly submit `one` (`1`) as a valid month without having to type `01` for January or wondering how to avoid typing a second digit because they don't want to enter `10`, `11` or `12`.
-    
-    * Providing a `separator` is an alternative to using the `left` / `right` arrows on the keyboard. This is useful when the user utilizes a numeric keyboard on a mobile device where no arrows are available.
-
-
-This behavior allows the application users to quickly input a date in the editor, for example:
-
-* writing `21/2021` will be automatically formatted to a valid `DateTime` object - `February 1, 2021` - the number `2` is a unique month and you don't have to do anything to move to the next segment, inputting the separator means you don't have to provide a two-digit date.
-
-* writing `1/2/2021` will be recognized as `January 2, 2021` - inputting a first separators means you don't have to write a two-digit month or date.
-
-* writing `5222021` will be recognized as `May 22, 2021` - inputting `5` uniquely identifies the month, and `22` uniquely identifies a date.
-
-We recognize that there are many user experience patterns and ways that people want to write input, especially dates, considering that there are many formats for them. We chose the user experience described above because we believe it is the best common ground between automation, efficiency and control over the input. Unfortunately, there may be some users in your user base that seek a slightly different experience, and it is impossible for such a simple component to provide different ways for different users to interact with it - there would be no UI for the user to set their preferences, and if there were, it would make the UX too complicated for real world usage. Thus, we chose what we believe will work best for the majority of people.
-
-## Validation
-
-
->caption Example of using validation to prompt the user for certain input
+## Component Reference
 
 ````CSHTML
-@using System.ComponentModel.DataAnnotations
+@using Telerik.Blazor.Components
 
-<EditForm Model="@person">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-    <TelerikDateInput @bind-Value="person.Birthday" Format="dd/MMMM/yyyy">
-    </TelerikDateInput>
-    <ValidationMessage For="@(() => person.Birthday)"></ValidationMessage>
-    <button type="submit">submit</button>
-</EditForm>
+<TelerikDateInput @ref="theDateInput" @bind-Value="@dateInputValue"></TelerikDateInput>
 
-@code{
-    //in a real case, the model will usually be in a separate file
-    public class Person
-    {
-        [Required]
-        [Range(typeof(DateTime), "1/1/1900", "1/12/2000",
-            ErrorMessage = "Value for {0} must be between {1:dd MMM yyyy} and {2:dd MMM yyyy}")]
-        public DateTime Birthday { get; set; }
-    }
+@code {
+    DateTime dateInputValue { get; set; } = DateTime.Now;
 
-    Person person = new Person();
+    // the type of the component depends on the type of the value
+    // in this case it is DateTime, but it could be DateTime?
+    Telerik.Blazor.Components.TelerikDateInput<DateTime> theDateInput;
 }
 ````
+
+## Next Steps
+
+* [Efficient Keyboard Input]({%slug dateinput-efficient-keyboard-input%})
+* [DateTimeInput Events]({%slug components/dateinput/events%})
+
 
 ## See Also
 

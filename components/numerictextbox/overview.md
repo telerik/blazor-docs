@@ -12,7 +12,11 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/numeric-textbox" target="_blank">Blazor Numeric Textbox component</a> allows the user to enter decimal values and no text. The developer can control minimum, maximum values, steps and other elements of the UX.
 
-#### To use a Telerik Numeric Textbox for Blazor, add the `TelerikNumericTextBox` tag.
+## Creating Blazor Numeric Textbox
+
+1. Add the `TelerikNumericTextBox` tag to your razor page.
+1. Bind a numeric data type to the component
+1. Optionally, set custom `Format`, `Min`, `Max` and `Step` values
 
 >caption Basic numeric textbox with its key features
 
@@ -26,53 +30,19 @@ The new value is: @theValue
 }
 ````
 
-The numeric textbox component is generic, meaning that it takes the type of its value parameter as an argument. It can take `int`, `long`, `float`, `double` and `decimal` values. Therefore, the values for the `Min`, `Max` and `Step` properties must be of the same type as the `Value`, and the `ValueChanged` handler must also accommodate the corresponding value type.
+The Numeric TextBox component is generic, meaning that it takes the type of its value parameter as an argument. It can take `int`, `long`, `float`, `double` and `decimal` values. Therefore, the values for the `Min`, `Max` and `Step` properties must be of the same type as the `Value`, and the `ValueChanged` handler must also accommodate the corresponding value type.
 
->caption Component namespace and reference
+## Events
 
-````CSHTML
-@using Telerik.Blazor.Components
+The Blazor Numeric TextBox generates events that you can handle and further customize its behavior. [Read more about the Blazor Numeric TextBox events...]({%slug components/numerictextbox/events%}).
 
-<TelerikNumericTextBox @ref="myNumericTextboxRef" @bind-Value="CurrentValue"></TelerikNumericTextBox>
+## Validation
 
-@code {
-	//determines the type of the component
-	private int CurrentValue { get; set; }
-	
-	//the type of the value variable determines the type of the reference
-	private Telerik.Blazor.Components.TelerikNumericTextBox<int> myNumericTextboxRef;
-}
-````
+You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...]({%slug common-features/input-validation%}).
 
-The numeric textbox provides the following features:
+## Custom Format Strings
 
-* `Arrows` - whether the up/down spinner arrows (buttons) will be shown. Defaults to `true`.
-
-* `Decimals` - how many decimal places will be allowed while the user is typing a new value. Takes effect only while the input is focused. The default value is set from the specified culture.
-
-* `Format` - the format with which the number is presented when the input is not focused. Read more in the [Standard Numeric Format Strings in .NET](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) article.
-
-* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
-
-* `Max` - the maximum decimal value the input can take. Must be of the same type as the `Value`.
-
-* `Min` - the minimum decimal value the input can take. Must be of the same type as the `Value`.
-
-* `Placeholder` - `string` - maps to the `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to **nullable** value type and there is no value set. 
-
-* `Step` - the decimal value of the step with which the value changes when the arrows are used. Must be of the same type as the `Value`.
-
-* `Value` - to get/set the value of the input.
-
-* `Width` - the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article.
-
-* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
-
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
-
-* `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
-
->caption Example of using a custom format strings
+The Blazor Numeric TextBox allows you to define your desired custom format throu its `Format` parameter. Here are some examples of using custom format strings.
 
 ````CSHTML
 @Weight
@@ -102,9 +72,54 @@ The numeric textbox provides the following features:
 }
 ````
 
+## Parameters
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Attribute | Type and Default Value | Description |
+|-----------|------|-------------|
+|`Arrows`|`bool`<br/> Defaults to `true`|Whether the up/down spinner arrows (buttons) will be shown.|
+|`Decimals`|`int`|Specifies how many decimal places will be allowed while the user is typing a new value. Takes effect only while the input is focused. The default value is set from the specified culture.|
+|`Format`|`string`|The format with which the number is presented when the input is not focused. Read more in the [Standard Numeric Format Strings in .NET](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) article.|
+|`Id`|`string`|renders as the `id` attribute on the `<input />` element.|
+|`Max`|Numeric data type|the maximum decimal value the input can take. Must be of the same type as the `Value`.|
+|`Min`|Numeric data type|The minimum decimal value the input can take. Must be of the same type as the `Value`.|
+|`Placeholder`|`string`|maps to the `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to **nullable** value type and there is no value set. |
+|`Step`|Numeric data type|the decimal value of the step with which the value changes when the arrows are used. Must be of the same type as the `Value`.|
+|`Value`|`T` - expects numeric data type|Get/set the value of the input.|
+|`TabIndex`|`int`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
+|`ValidateOn`|`ValidationEvent` enum|Configures the event that will trigger validation (if validation is enabled). Read more at [Validastion Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).|
+
+### Styling and Appearance
+
+The following parameters enable you to customize the appearance of the Blazor Numeric TextBox:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+|`Class`| `string` |The CSS class that will be rendered on the topmost wrapping elementof teh component.|
+|`Width`|`string`|the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article.|
+
+You can find more options for customizing the Numeric TextBox styling in the [Appearance article]({%slug numerictextbox-appearance%}).
+
+## Component Reference
+
+````CSHTML
+@using Telerik.Blazor.Components
+
+<TelerikNumericTextBox @ref="myNumericTextboxRef" @bind-Value="CurrentValue"></TelerikNumericTextBox>
+
+@code {
+	//determines the type of the component
+	private int CurrentValue { get; set; }
+	
+	//the type of the value variable determines the type of the reference
+	private Telerik.Blazor.Components.TelerikNumericTextBox<int> myNumericTextboxRef;
+}
+````
+
 ## Notes
-
-
 
 * If you want to use a currency format, you must specify the culture for your app thread, so .NET knows what symbol to render. If you don't do that, you may see an unexpected/incorrect symbol or format. The Telerik Numeric Textbox uses the thread culture for currency signs and decimalr separators (more on [globalization in the Telerik components]({%slug globalization-overview%})).
 
@@ -125,6 +140,10 @@ The numeric textbox provides the following features:
         @code {
             decimal DecimalValue = 12.3m;
         }
+
+## Next Steps
+
+* [Using the Numeric Textbox Events]({%slug components/numerictextbox/events%})
 
 
 ## See Also
