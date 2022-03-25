@@ -58,6 +58,8 @@ To see the behavior, you can resize the browsers window*@
 
         //Alternatively, you can use the CollapseAsync() method
         //exposed on the TelerikDrawer @ref
+
+        //await DrawerRef.CollapseAsync();
     }
 
 
