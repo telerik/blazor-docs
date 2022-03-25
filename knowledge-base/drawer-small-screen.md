@@ -7,6 +7,7 @@ slug: drawer-kb-minimode-smallscreens
 position:
 tags:
 res_type: kb
+ticketid: 1558952
 ---
 
 ## Environment
@@ -34,7 +35,7 @@ I would like to put the Drawer in [MiniMode]({%slug drawer-mini-mode%}) on small
 
 ````CSHTML
 @* This example assumes that a max-width of 767px as a suitable match for a small screen size. You can adjust that value as needed in your application.
-To see the behavior, you can resize the browsers window*@
+To see the behavior, resize the browsers window*@
 
 <TelerikMediaQuery Media="(max-width: 767px)" 
                    OnChange="@OnChangeSmallScreenHandler">
