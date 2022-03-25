@@ -16,6 +16,7 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 
 1. Add the `TelerikDateInput` tag to your razor page.
 1. Bind a `DateTime` object to the component
+1. Optionally, provide custom `Format`, `Min` and `Max` values
 
 >caption Basic DateInput with custom format, min and max
 
@@ -72,7 +73,7 @@ The following parameters enable you to customize the appearance of the Blazor Da
 |`Class`| `string` |The CSS class that will be rendered on the `input` element|
 |`Width`|`string`|The width of the `DateInput`|
 
-You can find more options for customizing the AutoComplete styling in the [Appearance article]({%slug dateinput-appearance%}).
+You can find more options for customizing the Date Input styling in the [Appearance article]({%slug dateinput-appearance%}).
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
