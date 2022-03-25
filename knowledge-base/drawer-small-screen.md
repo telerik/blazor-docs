@@ -37,7 +37,7 @@ I would like to put the Drawer in [MiniMode]({%slug drawer-mini-mode%}) on small
 To see the behavior, you can resize the browsers window*@
 
 <TelerikMediaQuery Media="(max-width: 767px)" 
-                   OnChange="@((bool doesMatch) => OnChangeSmallScreenHandler(doesMatch))">
+                   OnChange="@OnChangeSmallScreenHandler">
 </TelerikMediaQuery>
 
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
