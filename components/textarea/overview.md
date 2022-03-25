@@ -43,7 +43,7 @@ The TextArea component provides settings to control its appearance. [Read more a
 
 ## Events
 
-The Blazor TextArea fires blur and value change events for further customizing its behavior. [Read more about the Blazor TextArea events]({%slug textarea-events%}).
+The Blazor TextArea fires **blur** and value **change** events to respond to user actions. [Read more about the Blazor TextArea events]({%slug textarea-events%}).
 
 ## TextArea Parameters
 
