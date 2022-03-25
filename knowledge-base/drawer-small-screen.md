@@ -6,8 +6,8 @@ page_title: Put the Drawer in MiniMode on small screens
 slug: drawer-kb-minimode-smallscreens
 position:
 tags:
-res_type: kb
 ticketid: 1558952
+res_type: kb
 ---
 
 ## Environment
