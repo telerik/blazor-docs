@@ -27,13 +27,13 @@ I would like to put the Drawer in [MiniMode]({%slug drawer-mini-mode%}) on small
 
 ## Solution
 
-1. The Blazor application has to be aware of the current browser width and you can use the [TelerikMediaQuery]({%slug mediaquery-overview%}) to achieve the desired behavior.
-2. In the OnChange event handler you can put the Drawer in MiniMode.
+1. The Blazor application has to be aware of the current browser width. One way to achieve this is to use the [TelerikMediaQuery component]({%slug mediaquery-overview%}).
+2. Use the MedidQuery `[OnChange event]({%slug mediaquery-events%})` to put the Drawer in MiniMode.
 
 >caption Put the Drawer in MiniMode on small screens
 
 ````CSHTML
-@* This example assumes that a max-width of 767px would be a suitable match for a small screen size. You can adjust that value as needed in your application.
+@* This example assumes that a max-width of 767px as a suitable match for a small screen size. You can adjust that value as needed in your application.
 To see the behavior, you can resize the browsers window*@
 
 <TelerikMediaQuery Media="(max-width: 767px)" 
