@@ -28,9 +28,11 @@ In this article:
 ````CSHTML
 @* Define the Timeline view. *@
 
-<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px">
+<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Width="1000px">
     <SchedulerViews>
-        <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" />
+        <SchedulerTimelineView StartTime="@DayStart" EndTime="@DayEnd"
+                               WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" 
+                               ColumnWidth="50"/>
     </SchedulerViews>
 </TelerikScheduler>
 
@@ -89,6 +91,8 @@ In this article:
 ````
 
 @[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
+| `ColumnWidth` | `decimal` | The width of each time column in pixels.
+| `NumberOfDays` | `int` <br/> `1` | How many days will be shown side by side in the view.
 
 @[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
 
