@@ -3,17 +3,16 @@
 
 Generally, the views are designed around the timeframe that they show and the day-based views share some common properties that you will likely have to set to provide a good user experience for the user:
 
-* `StartTime` - this is the first hour that is shown in the view. Defaults to midnight, so if you do not set it to a value close to the start of the working day, the user is likely to see only blank spaces before they scroll down.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* `WorkDayStart` - this is when the working day starts. The work hours have a different background than non-working hours so the user can distinguish them easily. This parameter also influences the "Show Business Hours" toggle.
-
-* `EndTime` - the counterpart to `StartTime` - defines when the full day ends. Defaults to midnight. If you have the day end earlier you can reduce the amount of elements that render, but the user may not see some late appointments.
-
-* `WorkDayEnd` - the counterpart to `WorkDayStart` - defines when the working day ends.
-
-* `SlotDuration` - the time span of each major time slot in minutes.
-
-* `SlotDivisions` - the number of partitions in each major time slot.
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+| `StartTime` | `DateTime` | This is the first hour that is shown in the view. Defaults to midnight, so if you do not set it to a value close to the start of the working day, the user is likely to see only blank spaces before they scroll down.
+| `WorkDayStart` | `DateTime` | This is when the working day starts. The work hours have a different background than non-working hours so the user can distinguish them easily. This parameter also influences the "Show Business Hours" toggle.
+| `EndTime` | `DateTime` | The counterpart to `StartTime` - defines when the full day ends. Defaults to midnight. If you have the day end earlier you can reduce the amount of elements that render, but the user may not see some late appointments.
+|`WorkDayEnd` | `DateTime` | The counterpart to `WorkDayStart` - defines when the working day ends.
+| `SlotDuration` | `int` | The time span of each major time slot in minutes.
+| `SlotDivisions` |`int` | The number of partitions in each major time slot.
 #end
 
 #visible-times-tip
