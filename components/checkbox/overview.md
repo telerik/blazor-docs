@@ -14,10 +14,11 @@ The <a href="https://www.telerik.com/blazor-ui/checkbox" target="_blank">Blazor 
 
 ## Creating Blazor Checkbox
 
-1. Add the `TelerikCheckBox` tag to add the component to your razor page.
+1. Add the `TelerikCheckBox` tag to a Razor file.
 
-1. Set the `Value` parameter. It supports one-way and two-way binding.
+2. Set the `Value` parameter to a `bool` object. It supports one-way and two-way binding.
 
+3. (optional) Set the `Id` parameter to attach a `<label>` to the checkbox.
 
 >caption Basic setup of the Telerik CheckBox using two-way data binding.
 
@@ -38,7 +39,32 @@ In addition to checked and unchecked basic states, the Blazor CheckBox has a thi
 
 ## Appearance
 
-The Checkbox component provides settings to control its appearance. [Read more about the Blazor Checkbox appearance settings]({%slug checkbox-appearance%}).
+The Checkbox component provides size and border settings to control its appearance. [Read more about the Blazor Checkbox appearance settings]({%slug checkbox-appearance%}).
+
+## Events
+
+The Blazor Checkbox fires value change, focus and state change events that you can handle and further customize its behavior. [Read more about the Blazor Checkbox events]({%slug checkbox-events%}).
+
+## Checkbox Parameters
+
+The Blazor CheckBox provides various parameters that allow you to configure the component:
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| ----------- | ----------- | ----------- |
+| `Value` | `bool` | Mapped to the `Checked` property of the normal HTML checkbox. |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the CheckBox. |
+| `Enabled` | `bool` | Whether the component is enabled. |
+| `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to it. |
+| `TabIndex` | `Nullable<int>` | The `tabindex` attribute rendered on the CheckBox. |
+| `Indeterminate` | `bool` | See the [Indeterminate state]({%slug checkbox-indeterminate-state%}) article for more information and examples. |
+
+See also the [Input Validation]({%slug common-features/input-validation%}) article.
 
 ## Common Example
 
@@ -62,36 +88,10 @@ else
 <TelerikCheckBox Id="myCheckBox" @bind-Value="@hasAgreed" />
 <label for="myCheckBox">I agree to the terms and conditions</label>
 
-
 @code {
     private bool hasAgreed { get; set; }
 }
 ````
-
-## Events
-
-The Blazor Checkbox generates events that you can handle and further customize its behavior. [Read more about the Blazor Checkbox events]({%slug checkbox-events%}).
-
-## Parameters
-
-The Blazor CheckBox provides various parameters that allow you to configure the component:
-
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
-| Parameter | Type and Default Value | Description |
-| ----------- | ----------- | ----------- |
-| `Value` | `bool` | Mapped to the `Checked` property of the normal HTML checkbox. |
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the CheckBox. |
-| `Enabled` | `bool` | Whether the component is enabled. |
-| `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to it. |
-| `TabIndex` | `Nullable<int>` | The `tabindex` attribute rendered on the CheckBox. |
-| `Indeterminate` | `bool` | See the [Indeterminate state]({%slug checkbox-indeterminate-state%}) article for more information and examples. |
-
-See also the [Input Validation]({%slug common-features/input-validation%}) article.
 
 ## Next Steps
 
