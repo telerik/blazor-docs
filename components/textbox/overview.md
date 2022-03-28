@@ -17,19 +17,17 @@ You can control [various attributes](#features) of the `input` element and turn 
 ## Creating Blazor TextBox
 
 1. Add the `<TelerikTextBox>` tag to a Razor file.
+2. Set the `Value` parameter to a `string` object. It supports one-way and two-way binding.
 
-2. Set the `Value` parameter to the desired `string`. It supports one-way and two-way binding.
-
->caption Basic textbox with two-way value binding
+>caption Basic TextBox with two-way value binding
 
 ````CSHTML
-@theTbValue
-<br />
+<p>TextBox value: @StringValue</p>
 
-<TelerikTextBox @bind-Value="theTbValue"></TelerikTextBox>
+<TelerikTextBox @bind-Value="@StringValue" />
 
 @code {
-    string theTbValue { get; set; } = "lorem ipsum";
+    string StringValue { get; set; }
 }
 ````
 
@@ -55,7 +53,7 @@ The Blazor TextBox provides various parameters to configure the component:
 | ----------- | ----------- | ----------- |
 | `Value` | `string` | Get/set the value of the input, can be used for binding. |
 | `AutoComplete` | `string` | A `string` that maps to the [`autocomplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) attribute of the HTML element. You can use it to instruct the browser to turn `off` its autocompletion or to use specific settings for it (such as `new-password`). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates. |
-| `Class` | `string` | The CSS class that will be rendered on the `input` element. |
+| `Class` | `string` | The custom CSS class to be rendered on the `<span class="k-textbox">` element. |
 | `DebounceDelay` | `int` | Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms. |
 | `Enabled` | `bool` <br /> `true` | Whether the `input` is enabled. |
 | `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
@@ -66,7 +64,7 @@ The Blazor TextBox provides various parameters to configure the component:
 | `TabIndex` | ``Nullable<int>`` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}). |
 | `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
-| `Width` | `string` | The width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article. |
+| `Width` | `string` | The component width. See [Dimensions]({%slug common-features/dimensions%}). The `Width` parameter has no default value, but the theme applies a `width: 100%` style. |
 
 See also the [Input Validation]({%slug common-features/input-validation%}) article.
 
@@ -91,8 +89,9 @@ for example: https://demos.telerik.com/blazor-ui/textbox/password
 
 <TelerikTextBox Password="true"
                 @bind-Value="@ThePassword"
-                AutoComplete="current-password" Name="password" Id="password">
-</TelerikTextBox>
+                AutoComplete="current-password"
+                Name="password" Id="password" />
+
 @code {
     // in a real case you should have a form, a model, and validation
     // the form may also need autocomplete attribute and other corresponding inputs to enable autocompletion
