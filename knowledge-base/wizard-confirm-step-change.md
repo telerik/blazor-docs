@@ -22,7 +22,7 @@ res_type: kb
 
 
 ## Description
-When a user wants to move to the next step, I need to confirm the move (e.g. show them a warning for some situations), and if they choose to "continue" take them to the next step as normal, not back to the current step.
+When a user wants to move to the next step, I need to confirm the move and show them a popup warning for some situations. If they choose to "continue", take them to the next step as normal, otherwise back to the current step.
 
 ## Solution
 Use the [OnChange]({%slug wizard-events%}#onchange) event of the originating step to show a [confirm dialog]({%slug dialog-predefined%}#confirm) and cancel the event if the user does not confirm.
