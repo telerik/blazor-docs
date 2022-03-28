@@ -15,21 +15,16 @@ The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank
 ## Creating Blazor TextArea
 
 1. Add the `<TelerikTextArea>` tag to a Razor file.
-
-2. Set the `Value` parameter to the desired `string`. It supports one-way and two-way binding.
-
+2. Set the `Value` parameter to a `string` object. It supports one-way and two-way binding.
 3. (optional) Set the `AutoSize` property to adjust the TextArea height based on the user input.
 
->caption Basic TextArea with two-way value binding.
+>caption Basic TextArea with two-way value binding
 
 ````CSHTML
 <TelerikTextArea @bind-Value="@TextAreaValue" 
-                 AutoSize="true">
-</TelerikTextArea>
+                 AutoSize="true" />
 
-<br />
-
-@TextAreaValue
+<p>TextArea value: @TextAreaValue</p>
 
 @code {
     public string TextAreaValue { get; set; }
@@ -58,7 +53,7 @@ The Blazor TextArea provides various parameters to configure the component:
 | ----------- | ----------- | ----------- |
 | `Value` | `string` | Get/set the value of the input, can be used for binding. |
 | `AutoComplete` | `bool` | Maps to the autocomplete attribute of the HTML `<textarea>`. |
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element. |
+| `Class` | `string` | The custom CSS class to be rendered on the `<span class="k-textarea">` element. |
 | `AutoSize` | `bool` | Specifies if the TextArea will adjust its height based on the user input. |
 | `DebounceDelay` | `int` | Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms. |
 | `Enabled` | `bool` <br /> `true` | Whether the TextArea is enabled. |
@@ -69,14 +64,13 @@ The Blazor TextArea provides various parameters to configure the component:
 | `TabIndex` | `Nullable<int>` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}). |
 | `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
-| `Width` | `string` | The width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article for more information. |
+| `Width` | `string` | The component width. See [Dimensions]({%slug common-features/dimensions%}). The `Width` parameter has no default value, but the theme applies a `width: 100%` style. |
 
 See the [Input Validation]({%slug common-features/input-validation%}) article.
 
 ## Next Steps
 
 * [Handle the TextArea Events]({%slug textarea-events%})
-
 * [Explore the TextArea Appearance Settings]({%slug TextArea-appearance%})
 
 ## See Also
