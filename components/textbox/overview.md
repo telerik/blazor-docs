@@ -16,9 +16,9 @@ You can control [various attributes](#features) of the `input` element and turn 
 
 ## Creating Blazor TextBox
 
-1. Add the `<TelerikTextBox>` tag to add the component to your razor page.
+1. Add the `<TelerikTextBox>` tag to a Razor file.
 
-2. Set the `Value` parameter. It supports one-way and two-way binding.
+2. Set the `Value` parameter to the desired `string`. It supports one-way and two-way binding.
 
 >caption Basic textbox with two-way value binding
 
@@ -32,6 +32,45 @@ You can control [various attributes](#features) of the `input` element and turn 
     string theTbValue { get; set; } = "lorem ipsum";
 }
 ````
+
+## Appearance
+
+The TextBox component provides settings to control its appearance. [Read more about the Blazor TextBox appearance settings]({%slug textbox-appearance%}).
+
+## Events
+
+The Blazor TextBox generates blur and value change events for further customizing its behavior. [Read more about the Blazor TextBox events]({%slug components/textbox/events%}).
+
+## TextBox Parameters
+
+The Blazor TextBox provides various parameters to configure the component:
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| ----------- | ----------- | ----------- |
+| `Value` | `string` | Get/set the value of the input, can be used for binding. |
+| `AutoComplete` | `string` | A `string` that maps to the [`autocomplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) attribute of the HTML element. You can use it to instruct the browser to turn `off` its autocompletion or to use specific settings for it (such as `new-password`). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates. |
+| `Class` | `string` | The CSS class that will be rendered on the `input` element. |
+| `DebounceDelay` | `int` | Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms. |
+| `Enabled` | `bool` <br /> `true` | Whether the `input` is enabled. |
+| `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
+| `InputMode` | `string` | A `string` that maps to the [`inputmode`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) attribute of the HTML element. You can use it to instruct the rendering device to show a suitable virtual keyboard (for example, one optimized for entering an URL or an email). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates. |
+| `Name` | `string` | The `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser. |
+| `Password` | `bool` | When set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Live Demo: Password Textbox](https://demos.telerik.com/blazor-ui/textbox/password) |
+| `PlaceHolder` | `string` | A `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. |
+| `TabIndex` | ``Nullable<int>`` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
+| `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}). |
+| `ValidateOn` | `ValidationEvent` | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
+| `Width` | `string` | The width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article. |
+
+See also the [Input Validation]({%slug common-features/input-validation%}) article.
+
+## Examples
 
 >caption Customized textbox with input attributes
 
