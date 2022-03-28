@@ -14,21 +14,61 @@ The <a href="https://www.telerik.com/blazor-ui/textbox" target="_blank">Blazor T
 
 You can control [various attributes](#features) of the `input` element and turn the Textbox into a password box, for example. You can also configure this component to respond to [events]({%slug components/textbox/events%}).
 
-#### To use a Telerik Textbox for Blazor, add the `TelerikTextBox` tag.
+## Creating Blazor TextBox
 
->caption Basic textbox with two-way value binding
+1. Add the `<TelerikTextBox>` tag to a Razor file.
+2. Set the `Value` parameter to a `string` object. It supports one-way and two-way binding.
+
+>caption Basic TextBox with two-way value binding
 
 ````CSHTML
-@theTbValue
-<br />
+<p>TextBox value: @StringValue</p>
 
-<TelerikTextBox @bind-Value="theTbValue"></TelerikTextBox>
+<TelerikTextBox @bind-Value="@StringValue" />
 
 @code {
-    string theTbValue { get; set; } = "lorem ipsum";
+    string StringValue { get; set; }
 }
 ````
 
+## Appearance
+
+The TextBox component provides settings to control its appearance. [Read more about the Blazor TextBox appearance settings]({%slug textbox-appearance%}).
+
+## Events
+
+The Blazor TextBox generates blur and value change events for further customizing its behavior. [Read more about the Blazor TextBox events]({%slug components/textbox/events%}).
+
+## TextBox Parameters
+
+The Blazor TextBox provides various parameters to configure the component:
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| ----------- | ----------- | ----------- |
+| `Value` | `string` | Get/set the value of the input, can be used for binding. |
+| `AutoComplete` | `string` | A `string` that maps to the [`autocomplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) attribute of the HTML element. You can use it to instruct the browser to turn `off` its autocompletion or to use specific settings for it (such as `new-password`). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates. |
+| `Class` | `string` | The custom CSS class to be rendered on the `<span class="k-textbox">` element. |
+| `DebounceDelay` | `int` | Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms. |
+| `Enabled` | `bool` <br /> `true` | Whether the `input` is enabled. |
+| `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
+| `InputMode` | `string` | A `string` that maps to the [`inputmode`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) attribute of the HTML element. You can use it to instruct the rendering device to show a suitable virtual keyboard (for example, one optimized for entering an URL or an email). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates. |
+| `Name` | `string` | The `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser. |
+| `Password` | `bool` | When set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Live Demo: Password Textbox](https://demos.telerik.com/blazor-ui/textbox/password) |
+| `PlaceHolder` | `string` | A `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. |
+| `TabIndex` | ``Nullable<int>`` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
+| `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}). |
+| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
+| `Width` | `string` | The component width. See [Dimensions]({%slug common-features/dimensions%}). The `Width` parameter has no default value, but the theme applies a `width: 100%` style. |
+
+See also the [Input Validation]({%slug common-features/input-validation%}) article.
+
+## Examples
 
 >caption Customized textbox with input attributes
 
@@ -40,7 +80,6 @@ You can control [various attributes](#features) of the `input` element and turn 
 </TelerikTextBox>
 ````
 
-
 >caption Password type textbox
 
 ````CSHTML
@@ -50,8 +89,9 @@ for example: https://demos.telerik.com/blazor-ui/textbox/password
 
 <TelerikTextBox Password="true"
                 @bind-Value="@ThePassword"
-                AutoComplete="current-password" Name="password" Id="password">
-</TelerikTextBox>
+                AutoComplete="current-password"
+                Name="password" Id="password" />
+
 @code {
     // in a real case you should have a form, a model, and validation
     // the form may also need autocomplete attribute and other corresponding inputs to enable autocompletion
@@ -81,44 +121,13 @@ TextBox value: @StringValue
 }
 ````
 
-## Features
+## Next Steps
 
->caption The textbox provides the following features:
+* [Explore the TextBox Appearance Settings]({%slug textbox-appearance%})
 
-* `AutoComplete` - a `string` that maps to the [`autocomplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) attribute of the HTML element. You can use it to instruct the browser to turn `off` its autocompletion or to use specific settings for it (such as `new-password`). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates.
-
-* `Class` - the CSS class that will be rendered on the `input` element.
-
-* `DebounceDelay` - `int` - Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms.
-
-* `Enabled` - whether the `input` is enabled.
-
-* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
-
-* `InputMode` - a `string` that maps to the [`inputmode`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) attribute of the HTML element. You can use it to instruct the rendering device to show a suitable virtual keyboard (for example, one optimized for entering an URL or an email). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates.
-
-* `Name` - the `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser.
-
-* `Password` - when set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Live Demo: Password Textbox](https://demos.telerik.com/blazor-ui/textbox/password)
-
-* `PlaceHolder` - a `string` that maps to the `placeholder` attribute of the HTML element. If a [FloatingLabel]({%slug floatinglabel-overview%}) is used, it will be shown instead of the placeholder when the input is not focused.
-
-* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
-
-* `Title` - maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}).
-
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
-
-* `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
-
-* `Value` - get/set the value of the input, can be used for binding.
-
-* `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
+* [Handle the TextBox Events]({%slug components/textbox/events%})
 
 ## See Also
 
-  * [Live Demo: Textbox](https://demos.telerik.com/blazor-ui/textbox/index)
-  * [Live Demo: Textbox Validation](https://demos.telerik.com/blazor-ui/textbox/validation)
-  * [Input Validation]({%slug common-features/input-validation%})
-  * [Add Floating Label]({%slug inputs-kb-floating-label%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)
+  * [Live TextBox Demos](https://demos.telerik.com/blazor-ui/textbox/index)
+  * [TextBox API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)
