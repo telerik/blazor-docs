@@ -20,7 +20,7 @@ The Pager provides the UI for the user to change the page. To the developer, it 
 
 2. Set the `Total` property to the number of items in the data source.
 
-3. Set the `PageSize` parameter value to extract and render the desired subset of data.
+3. Set the `PageSize` parameter to determine the desired subset of data. It supports two-way binding.
 
 4. Set the `Page` (one-way or two-way binding) parameter to an `int` object. The page indexes are 1-based.
 
