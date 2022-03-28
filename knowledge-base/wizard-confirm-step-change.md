@@ -27,7 +27,7 @@ When a user wants to move to the next step, I need to confirm the move and show 
 ## Solution
 Use the [`OnChange` event]({%slug wizard-events%}#onchange) of the originating step to show a [confirm Dialog]({%slug dialog-predefined%}#confirm). Cancel the event if the user does not confirm. It is also possible to use a Window component, but a confirmation Dialog is likely more suitable.
 
-This example shows confirmation when moving away from step 1, you can extend it for more/other steps. You can also add a lambda expression in the handler on each step to provide some more metadata to the method - for example, to form a more meaningful message for the step, to discern steps more easily, or any other business need.
+This example shows confirmation when moving away from step 1. You can extend it for other steps. You can also add a lambda expression in the handler on each step to provide more data to the method - for example, to form a more meaningful message for the step or to distinguish steps more easily.
 
 ````CSHTML
 @* Moving away from step 1 will be confirmed. You can attach the handler to more than one step and raise flags whether to require confirmation as per the business logic *@
