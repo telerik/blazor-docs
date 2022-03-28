@@ -20,60 +20,49 @@ The Pager provides the UI for the user to change the page. To the developer, it 
 
 1. Set the `Total` property to the number of items in the data source.
 
-1. Use the values of its `Page` (one-way or two-way binding) and `PageSize` parameters to extract and render the desired subset of data.
+1. Set the `PageSize` and `Page` (one-way or two-way binding) parameters values to extract and render the desired subset of data. The page indexes are 1-based.
 
 >caption Use the TelerikPager to paginate your own data and content.
 
 ````CSHTML
+<TelerikPager Total="@Games.Count" PageSize="@PageSize" @bind-Page="@Page"></TelerikPager>
+
 @{
     // take and render the relevant data portion based on the pager info
     var pageData = Games.Skip((Page - 1) * PageSize).Take(PageSize).ToList();
 
-    <div class="card-deck mb-2">
-        @foreach (Game game in pageData)
-        {
-            <div class="card">
-                <div class="card-body">
-                    <h5>@game.GameName</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">@game.GameId</h6>
-                    <p class="card-text">
-                        Released on: @game.ReleaseDate.ToShortDateString()
-                    </p>
-                </div>
-            </div>
-        }
-    </div>
+    @foreach (Game game in pageData)
+    {
+        <div style="display: inline-block;border: solid;padding: 10px;margin: 10px">
+            <h5>@game.GameName</h5>
+            <h6>@game.GameId</h6>
+        </div>
+    }
 }
-
-<TelerikPager Total="@Games.Count" PageSize="@PageSize" @bind-Page="@Page"></TelerikPager>
 
 @code {
     public int PageSize { get; set; } = 3;
-    public int Page { get; set; } = 1; // the page indexes are 1-based
+    public int Page { get; set; } = 1;
 
     public List<Game> Games { get; set; }
 
-    // Generate sample data
     protected override void OnInitialized()
     {
         Games = new List<Game>();
         for (int i = 1; i < 20; i++)
         {
             Games.Add(new Game()
-            {
-                GameName = $"Game {i}",
-                GameId = i,
-                ReleaseDate = DateTime.Now.AddDays(-i)
-            });
+                {
+                    GameName = $"Game {i}",
+                    GameId = i,
+                });
         }
     }
 
-    // In real-case scenario this model should be in a separate file
     public class Game
     {
         public int GameId { get; set; }
         public string GameName { get; set; }
-        public DateTime ReleaseDate { get; set; }
     }
 }
 ````
