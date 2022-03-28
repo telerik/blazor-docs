@@ -1,5 +1,5 @@
 ---
-title: How do I pop up a confirmation window or dialog between Wizard steps?
+title: Confirm navigation between Wizard steps
 description: How to show a dialog confirming the change of the wizard steps
 type: how-to
 page_title: Confirm between Wizard steps
