@@ -17,10 +17,13 @@ You can control [various attributes](#features) of the `input` element and turn 
 ## Creating Blazor TextBox
 
 1. Add the `<TelerikTextBox>` tag to a Razor file.
+<<<<<<< HEAD
 
 2. Set the `Value` parameter to the desired `string`. It supports one-way and two-way binding.
+=======
+>>>>>>> 2d916e71 (docs(textbox): changed sections)
 
-2. Set the `Value` parameter. It supports one-way and two-way binding.
+2. Set the `Value` parameter to the desired `string`. It supports one-way and two-way binding.
 
 >caption Basic textbox with two-way value binding
 
@@ -125,6 +128,7 @@ TextBox value: @StringValue
 }
 ````
 
+<<<<<<< HEAD
 ## Appearance
 
 The TextBox component provides settings to control its appearance. [Read more about the Blazor TextBox appearance settings]({%slug textbox-appearance%}).
@@ -163,6 +167,8 @@ The Blazor TextBox provides various parameters that allow you to configure the c
 
 See also the [Input Validation]({%slug common-features/input-validation%}) article.
 
+=======
+>>>>>>> 2d916e71 (docs(textbox): changed sections)
 ## Next Steps
 
 * [Explore the TextBox Appearance Settings]({%slug textbox-appearance%})
