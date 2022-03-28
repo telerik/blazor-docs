@@ -1,6 +1,6 @@
 ---
 title: Confirm navigation between Wizard steps
-description: How to show a dialog confirming the change of the wizard steps
+description: How to show a popup dialog or window to confirm the change of the current Wizard step.
 type: how-to
 page_title: Confirm between Wizard steps
 slug: wizard-kb-confirm-step-change
