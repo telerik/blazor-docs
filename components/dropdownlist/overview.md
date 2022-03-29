@@ -91,6 +91,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 | `DefaultText` | `string` | simple hint to be displayed when no item is selected yet. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. See the first example in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article.
 | `Enabled` | `bool` | whether the component is enabled.
 |`Filterable` | `bool` | whether [filtering]({%slug components/dropdownlist/filter%}) is enabled for the end user.
+| `FilterDebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the updating of the filter input value. Applicable to filtering only.
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`)| the method of [filtering]({%slug components/dropdownlist/filter%}) the items.
 | `Id` | `string` | renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it.
 | `TItem` | `Type`| the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
