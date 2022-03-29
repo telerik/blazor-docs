@@ -67,7 +67,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the checkbox to 
         word-break: normal;
     }
 </style>
-| Class members | Manual declarations |
+| Class member | Manual declaration |
 |------------|--------|
 |`Small` |`sm`|
 |`Medium`|`md`|
