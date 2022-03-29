@@ -53,6 +53,7 @@ You can ensure that the component value is acceptable by using the built-in vali
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
+| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the firing of the internal oninput event.
 |`Enabled`| `bool` |Defines if the `DateInput` is enabled|
 |`Format`|`string`|The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.|
 |`Id`|`string`|Maps to the `id` HTML attribute of the `input`|

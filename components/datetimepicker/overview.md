@@ -60,6 +60,7 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
+| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the firing of the internal oninput event.
 |`Enabled`| `bool` |Defines if the `DateTimePicker` is enabled|
 |`Format`|`string`|The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.|
 |`Id`|`string`|Maps to the `id` HTML attribute of the `input`|

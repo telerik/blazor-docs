@@ -69,6 +69,7 @@ The Blazor Time Picker component provides various parameters that allow you to c
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
+| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the firing of the internal oninput event.
 | `Enabled` | `bool` | Specifies whether typing in the input and opening the dropdown are allowed.
 | `Format` | `string` | Specifies the format of the DateInput of the TimePicker. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. Note that format specifiers for non-time portions will only be editable in the input and will not have a representation in the time picker dropdown.
 | `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.

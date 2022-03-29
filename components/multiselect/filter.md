@@ -18,6 +18,8 @@ Filtering ignores casing and the default filter operator is `starts with`. You c
 
 To control when the filter list appears, set the `MinLength` parameter. This can be useful if you have a very large list of data.
 
+By default, the filtering will be debounced with 150ms. You can configure that through the [`DebounceDelay`]({%slug multiselect-overview%}#parameters) parameter of the component.
+
 You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug multiselect-events%}#onread).
 
 >caption Filtering in the MultiSelect
