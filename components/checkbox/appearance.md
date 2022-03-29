@@ -26,7 +26,7 @@ You can increase or decrease the size of the CheckBox by setting the `Size` attr
         word-break: normal;
     }
 </style>
-| Class members | Manual declarations |
+| Class member | Manual declaration |
 |------------|--------|
 |`Small` |`sm`|
 |`Medium`|`md`|
