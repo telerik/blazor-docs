@@ -18,7 +18,7 @@ This article provides examples that show how to:
 * [Implement a Custom Panel](#implement-a-custom-panel)
 
 
-### Create a Custom LoaderContainer
+## Create a Custom LoaderContainer
 
 This example shows how to change the contents of the loading text and animation that are shown by default. Once you set the template up, the default white background of that container will be gone so you can have full control over its appearance.
 
@@ -76,7 +76,7 @@ This example shows how to change the contents of the loading text and animation 
 
 ![](images/loadercontainer-template-basic.png)
 
-### Implement a Custom Panel
+## Implement a Custom Panel
 
 You can use CSS to target the DOM elements that create the Panel around the template so you can style them as required. By default, the Panel is white to contrast with the default dark overlay. This example shows how you can customize its color and content.
 
