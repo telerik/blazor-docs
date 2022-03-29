@@ -2,7 +2,7 @@
 title: Telerik UI for Blazor Code Snippets
 page_title: Telerik UI for Blazor Code Snippets - Visual Studio Code Integration
 description: Learn how to add a new component  Templates.
-slug: getting-started-vs-code-integration-new-project
+slug: code-snippets-vs-code
 position: 15
 ---
 
@@ -104,5 +104,3 @@ To use the **Telerik UI for Blazor Code Snippets**, install the Telerik UI for B
 | tb-upload                  | [Upload]({%slug upload-overview%})       |
 | tb-window                  | [Window]({%slug components/window/overview%}) |
 | tb-wizard                  | [Wizard]({%slug wizard-overview%})       |
-
-
