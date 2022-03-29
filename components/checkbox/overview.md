@@ -55,14 +55,14 @@ The Blazor CheckBox provides various parameters that allow you to configure the 
         word-break: normal;
     }
 </style>
-| Parameter | Type and Default Value | Description |
+| Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Value` | `bool` | Mapped to the `Checked` property of the normal HTML checkbox. |
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the CheckBox. |
+| `Class` | `string` | Renders a custom CSS class to the `<input class="k-checkbox">` element. |
 | `Enabled` | `bool` | Whether the component is enabled. |
 | `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to it. |
+| `Indeterminate` | `bool` | Puts the CheckBox in its third state - Indeterminate. See the [Indeterminate state]({%slug checkbox-indeterminate-state%}) article for more information and examples. |
 | `TabIndex` | `Nullable<int>` | The `tabindex` attribute rendered on the CheckBox. |
-| `Indeterminate` | `bool` | See the [Indeterminate state]({%slug checkbox-indeterminate-state%}) article for more information and examples. |
+| `Value` | `bool` | Mapped to the `Checked` property of the normal HTML checkbox. |
 
 See also the [Input Validation]({%slug common-features/input-validation%}) article.
 
