@@ -1,7 +1,7 @@
 ---
 title: Telerik UI for Blazor Code Snippets
 page_title: Telerik UI for Blazor Code Snippets - Visual Studio Code Integration
-description: Learn how to add a new component  Templates.
+description: Learn how to add a new component in Visual Studio Code via code snippet templates.
 slug: code-snippets-vs-code
 position: 15
 ---
@@ -18,8 +18,8 @@ To use the **Telerik UI for Blazor Code Snippets**, install the Telerik UI for B
 ## Add a Code Snippet to a .razor page
 
 1. Use the `tb` shortcut that stands for Telerik Blazor and select a snippet from the dropdown menu.
-    1. Alternatively, you can type the name of the component and the available snippets will appear in a dropdown menu. 
-1. Use a `Tab` sequence to populate the available attributes of the component
+    1. Alternatively, type the component name and the available snippets will appear in a dropdown menu. 
+1. Use a `Tab` sequence to populate the available attributes of the component.
 
 >caption Add a code snippet to your .razor page
 
