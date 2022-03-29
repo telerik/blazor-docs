@@ -17,7 +17,7 @@ The <a href="https://www.telerik.com/blazor-ui/datepicker" target="_blank">Blazo
 
 1. Use the `TelerikDatePicker` tag to add the component to your razor page.
 
-1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a collection of the same type as the collection that you bound through the `Data` property.
+1. Bind a `DateTime` object to the component
 
 1. Optionally, provide custom `Format`, `Min` and `Max` values 
 
@@ -70,7 +70,7 @@ The Blazor Date Picker provides various parameters that allow you to configure t
 | `View` | ` CalendarView` | Specifies the current view that will be displayed in the popup calendar. |
 | `TabIndex` | `int?` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `Placeholder` | `string` | Maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to a **nullable** DateTime object - `DateTime?`. It will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
-| `ValidateOn` | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
+| `ValidateOn` |`ValidationEvent` enum <br/> `ValidationEvent.Input` | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
 
 The date picker is, essentially, a [date input]({%slug components/dateinput/overview%}) and a [calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
 
@@ -88,7 +88,7 @@ The following parameters enable you to customize the appearance of the Blazor Da
 | `PopupWidth` | `string` | Defines the width of the DatePicker's Popup. Defaults to `auto`. |
 | `Width` | `string` | Defines the width of the DatePicker. Defaults to `280px`. |
 
-You can find more options for customizing the AutoComplete styling in the [Appearance article]({%slug datepicker-appearance%}).
+You can find more options for customizing the Date Picker styling in the [Appearance article]({%slug datepicker-appearance%}).
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 

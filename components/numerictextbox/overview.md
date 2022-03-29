@@ -87,8 +87,8 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 |`Placeholder`|`string`|maps to the `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to **nullable** value type and there is no value set. |
 |`Step`|Numeric data type|the decimal value of the step with which the value changes when the arrows are used. Must be of the same type as the `Value`.|
 |`Value`|`T` - expects numeric data type|Get/set the value of the input.|
-|`TabIndex`|`int`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
-|`ValidateOn`|`ValidationEvent` enum|Configures the event that will trigger validation (if validation is enabled). Read more at [Validastion Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).|
+|`TabIndex`|`int?`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
+|`ValidateOn`|`ValidationEvent` enum <br/> `ValidationEvent.Input` |Configures the event that will trigger validation (if validation is enabled). Read more at [Validastion Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).|
 
 ### Styling and Appearance
 

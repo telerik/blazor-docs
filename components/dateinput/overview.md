@@ -16,6 +16,7 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 
 1. Add the `TelerikDateInput` tag to your razor page.
 1. Bind a `DateTime` object to the component
+1. Optionally, provide custom `Format`, `Min` and `Max` values
 
 >caption Basic DateInput with custom format, min and max
 
@@ -58,7 +59,7 @@ You can ensure that the component value is acceptable by using the built-in vali
 |`Value`|`T` - expects a `DateTime` object|The value of the `DateInput`|
 |`TabIndex`|`int`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
 |`Placeholder`|`string`|maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in|
-|`ValidateOn`||`ValidationEvent` enum||`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs)|
+|`ValidateOn`|`ValidationEvent` enum <br/> `ValidationEvent.Input` | configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs)|
 
 
 ### Styling and Appearance
@@ -72,7 +73,7 @@ The following parameters enable you to customize the appearance of the Blazor Da
 |`Class`| `string` |The CSS class that will be rendered on the `input` element|
 |`Width`|`string`|The width of the `DateInput`|
 
-You can find more options for customizing the AutoComplete styling in the [Appearance article]({%slug dateinput-appearance%}).
+You can find more options for customizing the Date Input styling in the [Appearance article]({%slug dateinput-appearance%}).
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 

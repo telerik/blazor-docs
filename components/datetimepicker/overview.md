@@ -66,9 +66,9 @@ The time format specifiers in the `Format` control the tumblers available in the
 |`Value`|`T` | expects a `DateTime` object|The value of the `DateTimePicker`|
 |`Min`|`DateTime`|The earliest date and time that the user can select|
 |`Max`|`DateTime`|The latest date and time that the user can select|
-|`TabIndex`|`int`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
+|`TabIndex`|`int?`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
 |`Placeholder`|`string`|maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in|
-|`ValidateOn`|`ValidationEvent` enum|`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs)|
+|`ValidateOn`|`ValidationEvent` enum <br/> `ValidationEvent.Input` |`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs)|
 
 ### Styling and Appearance
 
