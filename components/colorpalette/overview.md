@@ -16,9 +16,9 @@ If unlimited choice of colors is preferred, consider the [ColorGradient componen
 
 ## Creating Blazor RadioGroup
 
-1. Add the `<TelerikColorPalette>` tag to add the component to your razor page.
+1. Add the `<TelerikColorPalette>` tag to a Razor file.
 
-1. Set the `Value` parameter to the `string` you want to get out of it. It supports one-way and two-way binding.
+1. Set the `Value` parameter to a `string` object. It supports one-way and two-way binding.
 
 >caption Basic color palette with two-way value binding and a default predefined palette.
 
@@ -36,15 +36,43 @@ If unlimited choice of colors is preferred, consider the [ColorGradient componen
 
 ## Predefined Colors
 
-The ColorPalette component comes with a set of predefined color sets that you can show to the users. [Read more about the available ColorPallete predefined colors]({%slug colorpalette-presets%}).
+The ColorPalette component comes with a set of predefined colors that are shown to the users. [Read more about the available ColorPallete predefined colors]({%slug colorpalette-presets%}).
 
 ## Custom Colors
 
-You can provide your own set of colors to the Blazor Color Palette component. [Read more about the Blazor ColorPallete custom colors setup]({%slug colorpalette-custom-colors%}).
+The ColorPallete can work with your own set of colors. [Read more about the Blazor ColorPallete custom colors setup]({%slug colorpalette-custom-colors%}).
 
-## Appearance
+## Events
 
-You can control the appearane of the component not only through the lists of `Colors` you provide to it, but also its size through the `Columns`, `TileWidth` and `TileHeight` parameters.
+The Blazor ColorPalette fires value change and blur events that you can handle and further customize its behavior. [Read more about the Blazor Dialog events]({%slug colorpalette-events%}).
+
+## ColorPalette Parameters
+
+The Blazor ColorPalette provides various parameters to configure the component:
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| ----------- | ----------- | ----------- |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-colorpalette">` element. |
+| `Colors` | `IEnumerable<string>` <br /> (`Office`) | The collection of colors the user can choose from. Can be one of the [presets that come with the component]({%slug colorpalette-presets%}), or [a custom list]({%slug colorpalette-custom-colors%}). |
+| `Columns` | `int` <br /> (`10`) | The number of columns to use when rendering the Colors list. Determines the size of the component together with the `TileHeight` and `TileWidth`. |
+| `Enabled` | `bool` | Whether the component is enabled. |
+| `Id` | `string` | Renders as the `id` attribute to the `<div class="k-colorpalette">` element. |
+| `TabIndex` | `Nullable<int>` | Maps to the `tabindex` attribute to the `<div class="k-colorpalette">` element. You can use it to customize the order in which the elements in your page focus with the `Tab` key. |
+| `TileHeight` | `string` | The height of each individual color item. Determines the size of the component together with the `Columns` and `TileWidth`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings  |
+| `TileWidth` | `string` | The width of each individual color item. Determines the size of the component together with the `Columns` and `TileHeight`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings  |
+| `Value` | `string` | Get/set the value of the input, can be used for binding. Can take any string that can be a [CSS background-color string](https://css-tricks.com/almanac/properties/b/background-color/). The presets we provide use hex format (`#123abc`). |
+
+See the [Input Validation]({%slug common-features/input-validation%}) article.
+
+## Example
+
+The Blazor ColorPallete provides appearance settings. Control the size of the component through the `Columns`, `TileWidth` and `TileHeight` parameters.
 
 >caption Make a large color palette with few columns
 
@@ -57,34 +85,6 @@ You can control the appearane of the component not only through the lists of `Co
     string SelectedColor { get; set; }
 }
 ````
-
-## Events
-
-The Blazor ColorPalette generates events that you can handle and further customize its behavior. [Read more about the Blazor Dialog events]({%slug colorpalette-events%}).
-
-## Parameters
-
-The Blazor ColorPalette provides various parameters that allow you to configure the component:
-
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
-| Parameter | Type and Default Value | Description |
-| ----------- | ----------- | ----------- |
-| `Value` | `string` | Get/set the value of the input, can be used for binding. Can take any string that can be a [CSS background-color string](https://css-tricks.com/almanac/properties/b/background-color/). The presets we provide use hex format (`#123abc`). |
-| `Class` | `string` | The CSS class that will be rendered on the wrapping element of the component. |
-| `Colors` | `IEnumerable<string>` <br /> `Office` | The collection of colors the user can choose from. Can be one of the [presets that come with the component]({%slug colorpalette-presets%}), or [a custom list]({%slug colorpalette-custom-colors%}). |
-| `Columns` | `int` <br /> `10` | The number of columns to use when rendering the Colors list. Determines the size of the component together with the `TileHeight` and `TileWidth`. |
-| `Enabled` | `bool` | Whether the component is enabled. |
-| `Id` | `string` | Renders as the `id` attribute on the wrapping element of the component. |
-| `TabIndex` | `Nullable<int>` | Maps to the `tabindex` attribute of the main HTML element. You can use it to customize the order in which the elements in your page focus with the `Tab` key. |
-| `TileHeight` | `string` | The height of each individual color item. Determines the size of the component together with the `Columns` and `TileWidth`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings  |
-| `TileWidth` | `string` | The width of each individual color item. Determines the size of the component together with the `Columns` and `TileHeight`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings  |
-
-See the [Input Validation]({%slug common-features/input-validation%}) article.
 
 ## Next Steps
 
