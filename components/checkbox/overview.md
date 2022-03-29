@@ -35,7 +35,7 @@ The <a href="https://www.telerik.com/blazor-ui/checkbox" target="_blank">Blazor 
 
 ## Indeterminate State
 
-In addition to checked and unchecked basic states, the Blazor CheckBox has a third state - Indeterminate. [Read more about the Blazor Checkbox third state]({%slug checkbox-indeterminate-state%}).
+In addition to basic *checked* and *unchecked* states, the Blazor CheckBox has a third state - *indeterminate*. [Read more about the Blazor Checkbox indeterminate state]({%slug checkbox-indeterminate-state%}).
 
 ## Appearance
 
