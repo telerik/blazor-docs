@@ -33,7 +33,7 @@ To use the **Telerik UI for Blazor Code Snippets**, install the Telerik UI for B
 | tb-autocomplete-filterable | [AutoComplete with Filtering]({%slug autocomplete-filter%}) |
 | tb-barcode                 | [Barcode]({%slug barcode-overview%})     |
 | tb-breadcrumb              | [Breadcrumb]({%slug breadcrumb-overview%}) |
-| tb-button                  | [Button]({%slug components/button/overview<br>%}) |
+| tb-button                  | [Button]({%slug components/button/overview%}) |
 | tb-button-settings         | [Button with Appearance Settings]({%slug button-appearance%}) |
 | tb-calendar                | [Calendar]({%slug components/calendar/overview%}) |
 | tb-carousel                | [Carousel]({%slug carousel-overview%})   |
@@ -41,7 +41,7 @@ To use the **Telerik UI for Blazor Code Snippets**, install the Telerik UI for B
 | tb-checkbox-tristate       | [Checkbox in Indeterminate State]({%slug checkbox-indeterminate-state%}) |
 | tb-chunkprogressbar        | [ChunkProgressBar]({%slug chunkprogressbar-overview%}) |
 | tb-colorgradient           | [ColorGradient]({%slug colorgradient-overview%}) |
-| tb-colorpalette            | [ColorPalette]({%slug colorpalette%})    |
+| tb-colorpalette            | [ColorPalette]({%slug colorpalette-overview%})    |
 | tb-colorpicker             | [ColorPicker]({%slug colorpicker-overview%}) |
 | tb-combobox                | [ComboBox]({%slug components/combobox/overview%}) |
 | tb-combobox-filterable     | [ComboBox with Filtering]({%slug components/combobox/filter%}) |
@@ -64,7 +64,7 @@ To use the **Telerik UI for Blazor Code Snippets**, install the Telerik UI for B
 | tb-ganttcolumn             | [Gantt - Databound Column]({%slug gantt-columns-bound%}) |
 | tb-grid                    | [Grid]({%slug grid-overview%})           |
 | tb-grid-editable           | [Grid with Editing]({%slug components/grid/editing/overview%}) |
-| tb-gridcolumn              | [Grid - Databound Column]({%slug components/grid/columns/bound<br>%}) |
+| tb-gridcolumn              | [Grid - Databound Column]({%slug components/grid/columns/bound%}) |
 | tb-gridcolumn-locked       | [Grid with Frozen Column]({%slug grid-columns-frozen%}) |
 | tb-gridlayout              | [GridLayout]({%slug gridlayout-overview%}) |
 | tb-listview                | [ListView]({%slug listview-overview%})   |
