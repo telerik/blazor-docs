@@ -10,40 +10,66 @@ position: 0
 
 # Blazor Color Palette Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/colorpalette" target="_blank">Blazor Color Palette component</a> provides a list of color tiles for the user to pick a color from by clicking or tapping. You can choose a [predefined list of colors]({%slug colorpalette-presets%}), or [create your own]({%slug colorpalette-custom-colors%}). Two-way binding and [events]({%slug colorpalette-events%}) let you react to the user choice.
+The <a href = "https://www.telerik.com/blazor-ui/colorpalette" target="_blank">Blazor Color Palette component</a> provides a list of color tiles for the user to pick a color by clicking or tapping. You can choose a [predefined list of colors]({%slug colorpalette-presets%}), or [create your own]({%slug colorpalette-custom-colors%}). Two-way binding and [events]({%slug colorpalette-events%}) let you react to the user choice.
 
 If unlimited choice of colors is preferred, consider the [ColorGradient component]({%slug colorgradient-overview%}) instead.
 
-## Basics
+## Creating Blazor RadioGroup
 
-To use a Telerik Color Palette for Blazor:
+1. Add the `<TelerikColorPalette>` tag to a Razor file.
+1. Set the `Value` parameter to a `string` object. It supports one-way and two-way binding.
 
-1. Add the `<TelerikColorPalette>` tag.
-1. Bind its `Value` to the `string` you want to get out of it.
-1. Optionally, choose a list of `Colors` to show the user (one of the [presets we provide]({%slug colorpalette-presets%}), or a set of [custom colors]({%slug colorpalette-custom-colors%})).
-    * If you do not provide a value for the `Colors`, it will default to the `Office` [preset]({%slug colorpalette-presets%}).
-
->caption Basic color palette with two-way value binding and a default predefined palette
+>caption Basic color palette with two-way value binding and a default predefined palette.
 
 ````CSHTML
-<span style="color: @MyColor">@MyColor</span>
-<br />
+<TelerikColorPalette @bind-Value="@MyColor" />
 
-<TelerikColorPalette @bind-Value="@MyColor">
-</TelerikColorPalette>
+<p>Selected color: <span style="color: @MyColor">@MyColor</span></p>
 
 @code {
-    public string MyColor { get; set; }
+    string MyColor { get; set; }
 }
 ````
 
->caption The result from the code snippet above after selecting a color
+## Predefined Colors
 
-![Color Palette first look](images/color-palette-first-look.png)
+The ColorPalette component comes with multiple sets of predefined colors that are shown to the users. [Read more about the available predefined ColorPallete colors]({%slug colorpalette-presets%}).
 
-## Appearance
+## Custom Colors
 
-You can control the appearane of the component not only through the lists of `Colors` you provide to it, but also its size through the `Columns`, `TileWidth` and `TileHeight` parameters.
+The ColorPallete can work with your own set of colors. [Read more about the Blazor ColorPallete custom colors setup]({%slug colorpalette-custom-colors%}).
+
+## Events
+
+The Blazor ColorPalette fires value change and blur events that you can handle and further customize its behavior. [Read more about the Blazor Dialog events]({%slug colorpalette-events%}).
+
+## ColorPalette Parameters
+
+The Blazor ColorPalette provides various parameters to configure the component. Also check the [ColorPalette public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPalette).
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-colorpalette">` element. |
+| `Colors` | `IEnumerable<string>` <br /> (`Office`) | The collection of colors for the user to choose from. Can be one of the [built-in preset palettes]({%slug colorpalette-presets%}), or [a custom list of colors]({%slug colorpalette-custom-colors%}). |
+| `Columns` | `int` <br /> (`10`) | The number of columns to use when rendering the Colors list. Determines the size of the component together with the `TileHeight` and `TileWidth`. |
+| `Enabled` | `bool` <br /> (`true`) | Whether the component is enabled. |
+| `Id` | `string` | Renders as an `id` attribute of the `<div class="k-colorpalette">` element. |
+| `TabIndex` | `Nullable<int>` | Maps to the `tabindex` attribute of the `<div class="k-colorpalette">` element. Use it to customize the tabbing focus order on the page. |
+| `TileHeight` | `string` | The height of each individual color item. Determines the size of the component together with the `Columns` and `TileWidth`. Accepts [CSS dimension]({%slug common-features/dimensions%}) strings.  |
+| `TileWidth` | `string` | The width of each individual color item. Determines the size of the component together with the `Columns` and `TileHeight`. Accepts [CSS dimension]({%slug common-features/dimensions%}) strings. |
+| `Value` | `string` | Sets the value of the input, can be used for binding. Accepts any valid [CSS `background-color` string](https://css-tricks.com/almanac/properties/b/background-color/). The preset palettes use HEX format (`#123abc`). |
+
+See the [Input Validation]({%slug common-features/input-validation%}) article.
+
+## Example
+
+The Blazor ColorPallete provides appearance settings. Control the size of the component through the `Columns`, `TileWidth` and `TileHeight` parameters.
 
 >caption Make a large color palette with few columns
 
@@ -57,55 +83,12 @@ You can control the appearane of the component not only through the lists of `Co
 }
 ````
 
->caption Theresult from the code snippet above
+## Next Steps
 
-![color palette appearance and size customization](images/large-size-few-columns.png)
-
-
-
-## Component Reference
-
-````CSHTML
-<TelerikColorPalette @ref="@TheColorPaletteRef"></TelerikColorPalette>
-
-@code{
-    Telerik.Blazor.Components.TelerikColorPalette TheColorPaletteRef { get; set; }
-}
-````
-
-## Features
-
->caption The Color Palette provides the following features:
-
-* `Class` - the CSS class that will be rendered on the wrapping element of the component.
-
-* `Colors` - the collection of colors the user can choose from. Can be one of the [presets that come with the component]({%slug colorpalette-presets%}), or [a custom list]({%slug colorpalette-custom-colors%}).
-
-* `Columns` - the number of columns to use when rendering the Colors list. Determines the size of the component together with the `TileHeight` and `TileWidth`.
-
-* `Enabled` - whether the component is enabled.
-
-* `Id` - renders as the `id` attribute on the wrapping element of the component.
-
-* `TabIndex` - maps to the `tabindex` attribute of the main HTML element. You can use it to customize the order in which the elements in your page focus with the `Tab` key.
-
-* `TileHeight` - the height of each individual color item. Determines the size of the component together with the `Columns` and `TileWidth`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings 
-
-* `TileWidth`- the width of each individual color item. Determines the size of the component together with the `Columns` and `TileHeight`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings 
-
-* `Value` - get/set the value of the input, can be used for binding. Can take any string that can be a [CSS background-color string](https://css-tricks.com/almanac/properties/b/background-color/). The presets we provide use hex format (`#123abc`).
-
-* [Events]({%slug colorpalette-events%}) to let you react to the user actions.
-
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
-
-
-
-
+* [Explore the ColorPallete predefined colors]({%slug colorpalette-presets%})
+* [Handle the ColorPallete events]({%slug colorpalette-events%})
 
 ## See Also
 
-  * [Live Demo: Color Palette](https://demos.telerik.com/blazor-ui/colorpalette/overview)
-  * [Color Presets]({%slug colorpalette-presets%})
-  * [Custom Color Collections]({%slug colorpalette-custom-colors%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPalette)
+* [Live ColorPalette Demos](https://demos.telerik.com/blazor-ui/colorpalette/overview)
+* [ColorPalette API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPalette)
