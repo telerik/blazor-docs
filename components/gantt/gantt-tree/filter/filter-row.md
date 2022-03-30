@@ -32,8 +32,8 @@ The Gantt Chart will render a row below the column headers in the Gantt Tree wit
               Width="100%"
               Height="600px"
               IdField="Id"
-              FilterMode="@GanttFilterMode.FilterRow"
-              ParentIdField="ParentId">
+              ParentIdField="ParentId"
+              FilterMode="@GanttFilterMode.FilterRow">
     <GanttViews>
         <GanttDayView></GanttDayView>
         <GanttWeekView></GanttWeekView>
@@ -122,6 +122,14 @@ The Gantt Chart will render a row below the column headers in the Gantt Tree wit
 
 ## Customization
 
+The Gantt allows you to customize the default behavior of the Filter Row in a couple ways:
+
+### Debouncing the Filtering
+
+@[template](/_contentTemplates/common/filtering.md#filter-debounce-delay-customization)
+
+### Configuring the Filter Row
+
 You can customize the default Filter Row behavior for each Gantt Tree column through the following properties the `GanttColumn` exposes:
 
 @[template](/_contentTemplates/common/filtering.md#filter-row-customization-properties)
@@ -136,6 +144,7 @@ You can customize the default Filter Row behavior for each Gantt Tree column thr
 <TelerikGantt Data="@Data"
               @bind-View="@SelectedView"
               FilterMode="@GanttFilterMode.FilterRow"
+              FilterRowDebounceDelay="200"
               Width="1000px"
               Height="600px"
               IdField="Id"

@@ -118,6 +118,10 @@ You can set the TreeList filters from your code through the component [state]({%
 
 The TreeList allows you to customize the default behavior of the Filter Row in a couple ways:
 
+### Debouncing the Filtering
+
+@[template](/_contentTemplates/common/filtering.md#filter-debounce-delay-customization)
+
 ### Configuring the Filter Row
 
 You can override the default Filter Row behavior for each column through the following properties the `TreeListColumn` exposes:
@@ -135,7 +139,10 @@ You can override the default Filter Row behavior for each column through the fol
                  IdField="Id"
                  ParentIdField="ParentId"
                  FilterMode="@TreeListFilterMode.FilterRow"
-                 Pageable="true" Width="850px" Height="400px">
+                 FilterRowDebounceDelay="200"
+                 Pageable="true"
+                 Width="850px"
+                 Height="400px">
     <TreeListColumns>
         <TreeListColumn DefaultFilterOperator="FilterOperator.StartsWith"
                         ShowFilterCellButtons="false"
