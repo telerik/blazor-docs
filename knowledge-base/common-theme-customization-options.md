@@ -1,12 +1,12 @@
 ---
 title: Blazor Theme Customization Options
-description: Icon names list to migrate from the obsolete `IconName` class.
+description: How to customize or override the Telerik Blazor CSS themes. What is the best approach for each development scenario.
 type: how-to
 page_title: Blazor Theme Customization Options
 slug: common-kb-theme-customization-options
 position: 
 tags: themes, styling, css
-ticketid: 1545598, 1557991
+ticketid: 1545598, 1557991, 1559673
 res_type: kb
 category: knowledge-base
 ---
