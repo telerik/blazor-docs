@@ -16,7 +16,7 @@ To enable filtering, set the `Filterable` parameter to `true`.
 
 Filtering ignores casing and the default filter operator is `starts with`. Filtering looks in the `TextField`, and the filter is reset when the dropdown closes. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
 
-By default, the filtering will be debounced with 150ms. You can configure that through the [`DebounceDelay`]({%slug components/combobox/overview%}#parameters) parameter of the component.
+By default, the filtering will be debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug components/combobox/overview%}#parameters) parameter of the component.
 
 You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug components/combobox/events%}#onread).
 

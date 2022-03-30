@@ -91,12 +91,14 @@ The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#grou
 
 The Blazor MultiSelect provides various parameters that allow you to configure the component:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter    | Type  | Description |
 | ----------- | ----------- | ------ |
 | `AutoClose` | `bool` <br /> (`true`) | Defines whether the dropdown list containing the items for the MultiSelect will automatically close after each user selection. |
 | `ClearButton` | `bool` | Whether the user will have the option to clear the selected items with a button on the input. When it is clicked, the `Value` will be updated to an empty list. |
 | `Data` | `IEnumerable<TItem>` | Allows you to provide the data source. Required. |
-| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the firing of the internal oninput event. Applies to the filtering as well since it occurs upon user input.|
+| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries.|
 | `Enabled` | `bool` | Whether the component is enabled. |
 | `Filterable` | `bool` | Whether [filtering]({%slug multiselect-filter%}) is enabled for the end user (suggestions will get narrowed down as they type). |
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | The string operation that will be used for [filtering]({%slug multiselect-filter%}). |

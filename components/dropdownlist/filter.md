@@ -18,7 +18,7 @@ Filtering ignores casing and the default filter operator is `starts with`. Filte
 
 You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
 
-By default, the filtering will be debounced with 150ms. You can configure that through the [`FilterDebounceDelay`]({%slug components/dropdownlist/overview%}#parameters) parameter of the component.
+By default, the filtering will be debounced with 150ms. Configure that with the [`FilterDebounceDelay`]({%slug components/dropdownlist/overview%}#parameters) parameter of the component.
 
 You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug components/dropdownlist/events%}#onread).
 
