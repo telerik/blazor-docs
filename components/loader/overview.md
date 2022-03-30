@@ -77,7 +77,7 @@ The following table lists the Loader parameters. Also check the [Loader API Refe
 | `Size` | `string`<br />(`"md"`) | Sets the [size of the animated graphic]({%slug loader-appearance%}#size). For convenience, use the members of the static class [`ThemeConstants.Loader.Size`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Loader.Size). |
 | `ThemeColor` | `string`<br />(`"primary"`) | Sets the [color of the animated graphic]({%slug loader-appearance%}#themecolor). For convenience, use the members of the static class [`ThemeConstants.Loader.ThemeColor`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Loader.ThemeColor). |
 | `Type`| `LoaderType` enum<br />(`Pulsing`) | Defines the [loading animation shape]({%slug loader-appearance%}#type). |
-| `Visible` | `bool` | Sets if the Loader is rendered on the page. |
+| `Visible` | `bool`<br /> (`true`) | Sets if the Loader is rendered on the page. |
 
 
 ## Next Steps
