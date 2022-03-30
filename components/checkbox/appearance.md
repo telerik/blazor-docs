@@ -20,7 +20,13 @@ You can control the appearance of the CheckBox button by setting the following a
 
 You can increase or decrease the size of the CheckBox by setting the `Size` attribute to a member of the `Telerik.Blazor.ThemeConstants.CheckBox.Size` class:
 
-| Class members | Manual declarations |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Class member | Manual declaration |
 |------------|--------|
 |`Small` |`sm`|
 |`Medium`|`md`|
@@ -55,7 +61,13 @@ You can increase or decrease the size of the CheckBox by setting the `Size` attr
 
 The `Rounded` attribute applies the `border-radius` CSS rule to the checkbox to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.CheckBox.Rounded` class:
 
-| Class members | Manual declarations |
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Class member | Manual declaration |
 |------------|--------|
 |`Small` |`sm`|
 |`Medium`|`md`|
