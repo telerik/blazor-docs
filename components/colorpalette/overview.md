@@ -58,7 +58,7 @@ The Blazor ColorPalette provides various parameters to configure the component. 
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-colorpalette">` element. |
 | `Colors` | `IEnumerable<string>` <br /> (`Office`) | The collection of colors for the user to choose from. Can be one of the [built-in preset palettes]({%slug colorpalette-presets%}), or [a custom list of colors]({%slug colorpalette-custom-colors%}). |
 | `Columns` | `int` <br /> (`10`) | The number of columns to use when rendering the Colors list. Determines the size of the component together with the `TileHeight` and `TileWidth`. |
-| `Enabled` | `bool` | Whether the component is enabled. |
+| `Enabled` | `bool` <br /> (`true`) | Whether the component is enabled. |
 | `Id` | `string` | Renders as the `id` attribute to the `<div class="k-colorpalette">` element. |
 | `TabIndex` | `Nullable<int>` | Maps to the `tabindex` attribute to the `<div class="k-colorpalette">` element. You can use it to customize the order in which the elements in your page focus with the `Tab` key. |
 | `TileHeight` | `string` | The height of each individual color item. Determines the size of the component together with the `Columns` and `TileWidth`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings  |
