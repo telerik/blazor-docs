@@ -54,7 +54,7 @@ The Blazor ColorPalette provides various parameters to configure the component. 
     }
 </style>
 | Parameter | Type and Default Value | Description |
-| ----------- | ----------- | ----------- |
+| --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-colorpalette">` element. |
 | `Colors` | `IEnumerable<string>` <br /> (`Office`) | The collection of colors for the user to choose from. Can be one of the [built-in preset palettes]({%slug colorpalette-presets%}), or [a custom list of colors]({%slug colorpalette-custom-colors%}). |
 | `Columns` | `int` <br /> (`10`) | The number of columns to use when rendering the Colors list. Determines the size of the component together with the `TileHeight` and `TileWidth`. |
