@@ -33,7 +33,7 @@ If unlimited choice of colors is preferred, consider the [ColorGradient componen
 
 ## Predefined Colors
 
-The ColorPalette component comes with a set of predefined colors that are shown to the users. [Read more about the available ColorPallete predefined colors]({%slug colorpalette-presets%}).
+The ColorPalette component comes with multiple sets of predefined colors that are shown to the users. [Read more about the available predefined ColorPallete colors]({%slug colorpalette-presets%}).
 
 ## Custom Colors
 
