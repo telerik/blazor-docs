@@ -12,7 +12,7 @@ position: 0
 
 This article provides information about the <a href = "https://www.telerik.com/blazor-ui/loader" target="_blank">Blazor Loader component</a> and its core features.
 
-The Loader component displays an animated loading indicator, which shows users that the app is working on something and they should wait. The component provides a variety of predefined animated graphics, colors and sizes.
+The Loader component displays an animated loading indicator, which shows users that the app is working on something in the background. The component provides a variety of predefined animated graphics, colors and sizes.
 
 
 ## Comparison with the LoaderContainer
