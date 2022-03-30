@@ -10,27 +10,24 @@ position: 0
 
 # Blazor Color Palette Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/colorpalette" target="_blank">Blazor Color Palette component</a> provides a list of color tiles for the user to pick a color from by clicking or tapping. You can choose a [predefined list of colors]({%slug colorpalette-presets%}), or [create your own]({%slug colorpalette-custom-colors%}). Two-way binding and [events]({%slug colorpalette-events%}) let you react to the user choice.
+The <a href = "https://www.telerik.com/blazor-ui/colorpalette" target="_blank">Blazor Color Palette component</a> provides a list of color tiles for the user to pick a color by clicking or tapping. You can choose a [predefined list of colors]({%slug colorpalette-presets%}), or [create your own]({%slug colorpalette-custom-colors%}). Two-way binding and [events]({%slug colorpalette-events%}) let you react to the user choice.
 
 If unlimited choice of colors is preferred, consider the [ColorGradient component]({%slug colorgradient-overview%}) instead.
 
 ## Creating Blazor RadioGroup
 
 1. Add the `<TelerikColorPalette>` tag to a Razor file.
-
 1. Set the `Value` parameter to a `string` object. It supports one-way and two-way binding.
 
 >caption Basic color palette with two-way value binding and a default predefined palette.
 
 ````CSHTML
-<span style="color: @MyColor">@MyColor</span>
-<br />
+<TelerikColorPalette @bind-Value="@MyColor" />
 
-<TelerikColorPalette @bind-Value="@MyColor">
-</TelerikColorPalette>
+<p>Selected color: <span style="color: @MyColor">@MyColor</span></p>
 
 @code {
-    public string MyColor { get; set; }
+    string MyColor { get; set; }
 }
 ````
 
@@ -88,11 +85,10 @@ The Blazor ColorPallete provides appearance settings. Control the size of the co
 
 ## Next Steps
 
-* [Explore the ColorPallete Predefined Colors]({%slug colorpalette-presets%})
-
-* [Handle the ColorPallete Events]({%slug colorpalette-events%})
+* [Explore the ColorPallete predefined colors]({%slug colorpalette-presets%})
+* [Handle the ColorPallete events]({%slug colorpalette-events%})
 
 ## See Also
 
-  * [Live ColorPalette Demos](https://demos.telerik.com/blazor-ui/colorpalette/overview)
-  * [ColorPalette API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPalette)
+* [Live ColorPalette Demos](https://demos.telerik.com/blazor-ui/colorpalette/overview)
+* [ColorPalette API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPalette)
