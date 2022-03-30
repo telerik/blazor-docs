@@ -61,7 +61,7 @@ The Blazor ColorPalette provides various parameters to configure the component. 
 | `Enabled` | `bool` <br /> (`true`) | Whether the component is enabled. |
 | `Id` | `string` | Renders as an `id` attribute of the `<div class="k-colorpalette">` element. |
 | `TabIndex` | `Nullable<int>` | Maps to the `tabindex` attribute of the `<div class="k-colorpalette">` element. Use it to customize the tabbing focus order on the page. |
-| `TileHeight` | `string` | The height of each individual color item. Determines the size of the component together with the `Columns` and `TileWidth`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings  |
+| `TileHeight` | `string` | The height of each individual color item. Determines the size of the component together with the `Columns` and `TileWidth`. Accepts [CSS dimension]({%slug common-features/dimensions%}) strings.  |
 | `TileWidth` | `string` | The width of each individual color item. Determines the size of the component together with the `Columns` and `TileHeight`. Can take CSS [dimensions]({%slug common-features/dimensions%}) strings  |
 | `Value` | `string` | Get/set the value of the input, can be used for binding. Can take any string that can be a [CSS background-color string](https://css-tricks.com/almanac/properties/b/background-color/). The presets we provide use hex format (`#123abc`). |
 
