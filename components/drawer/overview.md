@@ -81,7 +81,7 @@ A Drawer is often used to list pages, views, or sections in an application so th
 
 ## Modes
 
-The Blazor Drawer provides *Push* and *Overlay* modes of expansion. [Read more about the Blazor Drawer modes]({%slug drawer-modes%}).
+The Blazor Drawer provides *Push* and *Overlay* modes of expansion. They determine if the Drawer items push the other content to the side, or cover it temporarily. [Read more about the Blazor Drawer modes]({%slug drawer-modes%}).
 
 ## Mini View
 
