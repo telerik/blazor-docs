@@ -85,7 +85,7 @@ The Blazor Drawer provides *Push* and *Overlay* modes of expansion. They determi
 
 ## Mini View
 
-The Drawer is not visible by default when it is collapsed. To leave a small hint for the user, the Drawer provides a Mini View so they can navigate with just a single action. [Read more about the Blazor Drawer mini view]({%slug drawer-mini-mode%}).
+By default, the Drawer is not visible when collapsed. To leave a small hint for the user, the Drawer provides a Mini View, so that users can navigate with just a single action, without the need to expand the Drawer items. [Read more about the Blazor Drawer mini view]({%slug drawer-mini-mode%}).
 
 ## Selection
 
