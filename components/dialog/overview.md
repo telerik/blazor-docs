@@ -14,15 +14,15 @@ The Dialog is a modal popup that brings information to the user. It provides act
 
 ## Creating Blazor Dialog
 
-1. Add the `TelerikDialog` tag to add the component to your razor page.
+1. Add the `TelerikDialog` tag to a Razor file.
 
-2. Set the `Visible` parameter. It supports one-way and two-way binding.
+2. Set the `Visible` parameter to a `bool` object. It supports one-way and two-way binding.
 
-3. Set the `Title` property.
+3. Set the `Title` property to a `string` object.
 
-4. Configure the `DialogContent` instance inside the `TelerikDialog` tag.
+4. Define the `DialogContent` inside the `TelerikDialog` tag.
 
-5. (optional) Configure the [`DialogButtons` instance]({%slug  dialog-action-buttons%}) inside the `TelerikDialog` tag.
+5. (optional) Configure the [`DialogButtons`]({%slug  dialog-action-buttons%}) inside the `TelerikDialog` tag.
 
 >caption A basic configuration of the Telerik Dialog.
 
@@ -61,11 +61,11 @@ The Dialog provides options for rendering action buttons and customizing their t
 
 ## Events
 
-The Blazor Dialog generates events that you can handle and further customize its behavior. [Read more about the Blazor Dialog events]({%slug dialog-events%}).
+The Blazor Dialog fires visible change events that you can handle and further customize its behavior. [Read more about the Blazor Dialog events]({%slug dialog-events%}).
 
-## Parameters
+## Dialog Parameters
 
-The Blazor Dialog provides various parameters that allow you to configure the component:
+The Blazor Dialog provides various parameters to configure the component. Also check the [Dialog public API](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDialog).
 
 <style>
     article style + table {
@@ -74,20 +74,17 @@ The Blazor Dialog provides various parameters that allow you to configure the co
     }
 </style>
 | Parameter | Type and Default Value | Description |
-| ----------- | ----------- | ----------- |
-| `Visible` | `bool` | Defines the Dialog visibility. |
-| `Title` | `string` | Defines the Dialog title. |
-| `DialogTitle` | `RenderFragment` | Defines the title template of the component. |
-| `DialogContent` | `RenderFragment` | Defines the content template of the component. |
-| `DialogButtons` | `RenderFragment` | Defines the actions bar template of the component. |
-| `ButtonsLayout` | `DialogButtonsLayout` enum <br /> `Stretched` | Defines the layout of the actions button in the footer. See more in the [Action Buttons article]({%slug  dialog-action-buttons%})). |
-| `ShowCloseButton` | `bool` <br /> `true` | Defines the close behavior of the component - whether the component should render close flat button in the titlebar. See more in the [Header article]({%slug  dialog-header%}). |
+| --- | --- | --- |
+| `ButtonsLayout` | `DialogButtonsLayout` enum <br /> (`Stretched`) | Defines the layout of the actions button in the footer. See more in the [Action Buttons article]({%slug  dialog-action-buttons%})). |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-window k-dialog">` element. |
 | `CloseOnOverlayClick` | `bool` | Defines whether clicking on the modal overlay should close the Dialog. |
-| `FocusedElementSelector` | `string` | Defines the CSS selector of the initially focused item on open. By default, it is the first focusable item in the dialog.
- |
-| `Class` | `string` | Defines the class of the component instance. |
-| `Width` | `string` | Defines the width of the Dialog. |
+| `FocusedElementSelector` | `string` | Defines the CSS selector of the initially focused item on open. By default, it is the first focusable item in the dialog. |
 | `Height` | `string` | Defines the height of the Dialog. |
+| `ShowCloseButton` | `bool` <br /> (`true`) | Defines the close behavior of the component - whether the component should render close flat button in the titlebar. See more in the [Header article]({%slug  dialog-header%}). |
+| `Title` | `string` | Defines the Dialog title. |
+| `Visible` | `bool` | Defines the Dialog visibility. |
+| `Width` | `string` | Defines the width of the Dialog. |
+
 
 ## Dialog Reference and Methods
 
@@ -100,7 +97,7 @@ The Dialog methods are accessible through its reference.
     }
 </style>
 | Method | Description |
-| ----------- | ----------- |
+| --- | --- |
 | `Refresh` | Redraws the component. |
 
 >caption Get a reference to the Dialog and use its methods.
