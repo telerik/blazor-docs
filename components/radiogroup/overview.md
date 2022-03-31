@@ -20,7 +20,7 @@ The <a href="https://www.telerik.com/blazor-ui/radiogroup" target="_blank">Blazo
 
 3. Set the `Value` parameter to an object. It supports one-way and two-way binding.
 
-4. Set the `TextField` and `ValueField` properties to point to the corresponding names of the model.
+4. Set the `TextField` and `ValueField` properties to point to the corresponding properties of the model.
 
 >caption Basic Radio Button Group configuration.
 
