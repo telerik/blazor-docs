@@ -179,7 +179,7 @@ The Drawer methods are accessible through it's reference. The reference exposes 
 
 * [Bind the Drawer to Data]({%slug drawer-data-binding%})
 
-* [Define the Drawer Templates]({%slug drawer-templates%})
+* [Define Drawer Templates]({%slug drawer-templates%})
 
 * [Explore the Drawer Navigation]({%slug drawer-navigation%})
 
