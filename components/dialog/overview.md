@@ -57,7 +57,7 @@ The Dialog provides header customization. [Read more about the Dialog Header]({%
 
 ## Action Buttons
 
-The Dialog provides options for rendering action buttons and customizing their text. [Read more about the Dialog Action Buttons]({%slug dialog-action-buttons%}).
+The Dialog provides options for rendering action buttons and customizing their text and layout. [Read more about the Dialog Action Buttons]({%slug dialog-action-buttons%}).
 
 ## Events
 
