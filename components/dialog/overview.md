@@ -61,7 +61,7 @@ The Dialog provides options for rendering action buttons and customizing their t
 
 ## Events
 
-The Blazor Dialog fires visible change events that you can handle and further customize its behavior. [Read more about the Blazor Dialog events]({%slug dialog-events%}).
+The Blazor Dialog fires a `VisibleChanged` event to customize the application behavior and respond to user actions. [Read more about the Blazor Dialog events]({%slug dialog-events%}).
 
 ## Dialog Parameters
 
