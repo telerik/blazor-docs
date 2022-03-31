@@ -97,7 +97,7 @@ The Blazor RadioGroup provides various parameters to configure the component. Al
 | `TValue` | `object` | The type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
 | `TextField` | `string` <br /> (`Text`) | The name of the field from the model that will be shown to the user. |
 | `ValueField` | `string` <br /> (`Value`) | The name of the field from the model that will populate the underlying `Value`. |
-| `Value` | `object` | Get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. |
+| `Value` | `object` | The value of the component. Supports one and two-way binding. If the `Value` matches a `ValueField` value in the Data, the corresponding item from the data will be pre-selected. |
 
 See the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
