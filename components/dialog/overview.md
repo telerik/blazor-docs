@@ -77,7 +77,7 @@ The Blazor Dialog provides various parameters to configure the component. Also c
 | --- | --- | --- |
 | `ButtonsLayout` | `DialogButtonsLayout` enum <br /> (`Stretched`) | Defines the layout of the actions button in the footer. See more in the [Action Buttons article]({%slug  dialog-action-buttons%})). |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-window k-dialog">` element. |
-| `CloseOnOverlayClick` | `bool` | Defines whether clicking on the modal overlay should close the Dialog. |
+| `CloseOnOverlayClick` | `bool` | Defines if clicking on the modal overlay should close the Dialog. |
 | `FocusedElementSelector` | `string` | Defines the CSS selector of the initially focused item on open. By default, it is the first focusable item in the dialog. |
 | `Height` | `string` | Defines the height of the Dialog. |
 | `ShowCloseButton` | `bool` <br /> (`true`) | Defines the close behavior of the component - whether the component should render close flat button in the titlebar. See more in the [Header article]({%slug  dialog-header%}). |
