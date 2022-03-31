@@ -72,7 +72,7 @@ The Blazor Drawer requires a data source so that it can display items to the use
 
 ## Navigation
 
-A Drawer is often used to list pages, views, or sections in an application so the user can navigate through them. To do that with a Drawer, there are two options:
+A Drawer is often used to list pages, views, or sections in an application so the user can navigate between them. To do that with a Drawer, there are two options:
 
 * Use the built-in `UrlField` in the [bound data]({%slug drawer-data-binding%}) to populate the URLs in the anchors that the Drawer will generate if you provide a URL for the given item.
 * Use a [Template]({%slug drawer-templates%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
