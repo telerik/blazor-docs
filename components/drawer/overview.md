@@ -105,7 +105,7 @@ The Drawer can refresh its interface, when the data items change. [Read more abo
 
 ## Events
 
-The Blazor Drawer fires select and expand item events. Handle those events to respond to user actions. [Read more about the Blazor Drawer events]({%slug drawer-events%}).
+The Blazor Drawer fires select and expand events. Handle those events to respond to user actions. [Read more about the Blazor Drawer events]({%slug drawer-events%}).
 
 ## Drawer Parameters
 
