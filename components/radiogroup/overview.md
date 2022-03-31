@@ -73,7 +73,7 @@ The Blazor RadioGroup has settings for customizing the button appearance. [Read 
 
 ## Events
 
-The Blazor RadioGroup fires value change and blur events that you can handle and further customize its behavior. [Read more about the Blazor RadioGroup events]({%slug radiogroup-events%}).
+The Blazor RadioGroup fires blur and value change events to respond to user actions. [Read more about the Blazor RadioGroup events]({%slug radiogroup-events%}).
 
 ## RadioGroup Parameters
 
