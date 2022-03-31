@@ -439,7 +439,7 @@ There are commands without built-in tools, but can be [executed programmatically
         </tr>
         <tr>
             <td>Insert HTML</td>
-            <td>insertHTML</td>
+            <td>insertHhtml</td>
             <td>N/A</td>
             <td>Inserts HTML at the cursor position. To insert multiple nodes, wrap them in a single element.<br />By default this is a block command that will wrap passed inline content in a <code>p</code> or <code>div</code>, depending on the context. To insert inline content, set the third argument to <code>true</code>. There are separate commands for inserting links and images.</td>
             <td>N/A</td>
