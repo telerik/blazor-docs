@@ -65,7 +65,7 @@ The RadioGroup component provides two ways to render the list of options - in a 
 
 ## Label Position
 
-The RadioGroup component provides two ways to render the labels of the radio buttons - *before* or *after* the buttons themselves. [Read more about the Blazor RadioGroup label position]({%slug radiogroup-label-position%}).
+The RadioGroup component provides two ways to render the labels of the radio buttons - *before* or *after* the radio buttons. [Read more about the Blazor RadioGroup label position]({%slug radiogroup-label-position%}).
 
 ## Appearance Settings
 
