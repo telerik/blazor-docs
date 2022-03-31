@@ -139,7 +139,7 @@ The Drawer methods are accessible through it's reference. The reference exposes 
 | Method | Description |
 | --- | --- |
 | `ExpandAsync` | Expands the Drawer. |
-| `CollapseAsync` | Allows you to change the state of the Drawer so it is collapsed. |
+| `CollapseAsync` | Collapses the Drawer. |
 | `ToggleAsync` | Expands or collapses the Drawer, depending on the current state. |
 
 >caption Get a reference to the drawer and use its methods
