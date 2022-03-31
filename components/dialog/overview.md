@@ -83,7 +83,7 @@ The Blazor Dialog provides various parameters to configure the component. Also c
 | `ShowCloseButton` | `bool` <br /> (`true`) | Defines if the component will render a Close button in the titlebar. See more in the [Header article]({%slug  dialog-header%}). |
 | `Title` | `string` | Sets the Dialog title. |
 | `Visible` | `bool` | Defines the Dialog visibility. |
-| `Width` | `string` | Defines the width of the Dialog. |
+| `Width` | `string` | Sets the width of the Dialog in any [supported CSS unit]({%slug common-features/dimensions%}). |
 
 
 ## Dialog Reference and Methods
