@@ -79,7 +79,7 @@ The Blazor Dialog provides various parameters to configure the component. Also c
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-window k-dialog">` element. |
 | `CloseOnOverlayClick` | `bool` | Defines if clicking on the modal overlay should close the Dialog. |
 | `FocusedElementSelector` | `string` | Defines the CSS selector of the initially focused item on open. By default, it is the first focusable item in the dialog. |
-| `Height` | `string` | Defines the height of the Dialog. |
+| `Height` | `string` | Sets the height of the Dialog in any [supported CSS unit]({%slug common-features/dimensions%}). |
 | `ShowCloseButton` | `bool` <br /> (`true`) | Defines if the component will render a Close button in the titlebar. See more in the [Header article]({%slug  dialog-header%}). |
 | `Title` | `string` | Sets the Dialog title. |
 | `Visible` | `bool` | Defines the Dialog visibility. |
