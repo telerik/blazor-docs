@@ -1,0 +1,144 @@
+---
+title: Overview
+page_title: SplitButton Overview
+description: Overview of the SplitButton for Blazor.
+slug: splitbutton-overview
+tags: telerik,blazor,splitbutton
+published: True
+position: 0
+---
+
+# Blazor SplitButton Overview
+
+The <a href = "https://www.telerik.com/blazor-ui/splitbutton" target="_blank">SplitButton for Blazor</a> is a combination of a button and a dropdown. It provides a collection of related user actions in compact interface. The SplitButton has one primary clickable action, which is always visible, and a list of secondary actions that are displayed in a dropdown when the user clicks on the arrow.
+
+## Creating Blazor SplitButton
+
+1. Add a `<TelerikSplitButton>` tag.
+1. Define the primary action in a child `<SplitButtonContent>` tag. Its content can be plain text, HTML or even another component.
+1. Set the `OnClick` parameter of the `<TelerikSplitButton>` tag. This will be the event handler for the primary action.
+1. Add a child `<SplitButtonItems>` tag. Insert some `<SplitButtonItem>` tags inside it.
+1. Each `<SplitButtonItem>` tag should have some content and an `OnClick` handler.
+
+>caption Basic SplitButton
+
+````CS
+<TelerikSplitButton OnClick="@OnReply">
+    <SplitButtonContent>Reply</SplitButtonContent>
+    <SplitButtonItems>
+        <SplitButtonItem OnClick="@OnReplyAll">Reply All</SplitButtonItem>
+        <SplitButtonItem OnClick="@OnForward">Forward</SplitButtonItem>
+    </SplitButtonItems>
+</TelerikSplitButton>
+
+Last action: <strong> @LastAction </strong>
+
+@code {
+    string LastAction { get; set; }
+
+    void OnReply()
+    {
+        LastAction = "Reply";
+    }
+
+    void OnReplyAll()
+    {
+        LastAction = "Reply All";
+    }
+
+    void OnForward()
+    {
+        LastAction = "Forward";
+    }
+}
+````
+
+
+## Icons
+
+The primary SplitButton action and each secondary item in the dropdown can [display a font icon or an image]({%slug splitbutton-icons%}) for better looks and user experience.
+
+
+## Apperance
+
+The SplitButton provides a [variety of settings to control its visual appearance]({%slug splitbutton-appearance%}), for example the colors, borders, shape and size. This spares the need to use custom CSS code.
+
+
+## Events
+
+Each SplitButton action [fires a separate `OnClick` event]({%slug splitbutton-events%}), so that the application can react to user behavior.
+
+
+## SplitButton Parameters
+
+The following table lists the SplitButton parameters, except those related to [built-in styling]({%slug splitbutton-appearance%}) and [icons]({%slug splitbutton-icons%}). Also check the [SplitButton API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitButton) for a full list of properties, methods and events.
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `AriaLabel` | `string` | Sets the `aria-label` attribute of the primary action element, which is `<button class="k-button">`. |
+| `Class` | `string` | Renders a custom CSS class to the main component element, which is `<div class="k-split-button">`. Use it to [override the theme styles]({%slug themes-override%}) to obtain a specific appearance, if none of the [SplitButton appearance settings]({%slug splitbutton-appearance%}) can achieve this. |
+| `Enabled` | `bool`<br />(`true`) | Enables or disables the component. |
+| `Id` | `string` | Sets the `id` attribute of the primary action element (`<button>`). |
+| `TabIndex`| `int` | Sets the `tabindex` attribute of the primary action element. |
+| `Title`| `string` | Sets the `title` attribute of the primary action element. |
+
+
+## SplitButton Reference and Methods
+
+The SplitButton exposes a `FocusAsync` method to focus it programmatically. To use it, define a reference to the component instance with the `@ref` attribute.
+
+>caption Get a reference to the SplitButton and execute methods
+
+````CS
+<TelerikSplitButton @ref="@SplitButtonRef" OnClick="@OnReply">
+    <SplitButtonContent>Reply</SplitButtonContent>
+    <SplitButtonItems>
+        <SplitButtonItem OnClick="@OnReplyAll">Reply All</SplitButtonItem>
+    </SplitButtonItems>
+</TelerikSplitButton>
+
+<TelerikButton OnClick="@FocusSplitButton">Focus SplitButton</TelerikButton>
+
+Last action clicked: <strong> @LastActionClicked </strong>
+
+@code {
+    TelerikSplitButton SplitButtonRef { get; set; }
+
+    string LastActionClicked { get; set; }
+
+    async Task FocusSplitButton()
+    {
+        await SplitButtonRef.FocusAsync();
+    }
+
+    void OnReply()
+    {
+        LastActionClicked = "Reply";
+    }
+
+    void OnReplyAll()
+    {
+        LastActionClicked = "Reply All";
+    }
+}
+````
+
+
+## Next Steps
+
+* [Handle SplitButton Events]({%slug splitbutton-events%})
+* [Add SplitButton Icons]({%slug splitbutton-icons%})
+* [Configure the SplitButton appearance]({%slug splitbutton-appearance%})
+
+
+## See Also
+
+* [SplitButton API](/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitButton)
+* [Live Demo: SplitButton](https://demos.telerik.com/blazor-ui/splitbutton/overview)

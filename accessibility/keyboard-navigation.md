@@ -90,6 +90,8 @@ The following list shows the Telerik components that support specific keyboard c
 
 * [Slider](https://demos.telerik.com/blazor-ui/slider/keyboard-navigation)
 
+* [SplitButton](https://demos.telerik.com/blazor-ui/splitbutton/keyboard-navigation)
+
 * [Splitter](https://demos.telerik.com/blazor-ui/splitter/keyboard-navigation)
 
 * StackLayout - not applicable, it is a layout container.
