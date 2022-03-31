@@ -92,7 +92,7 @@ The Blazor RadioGroup provides various parameters to configure the component. Al
 | `Id` | `string` | The `id` attribute of the main wrapping element. |
 | `LabelPosition` | `RadioGroupLabelPosition` enum <br /> (`After`) | Whether the labels render after or before the radio button itself. |
 | `Layout` | `RadioGroupLayout` enum <br /> (`Vertical`) | Whether the buttons are rendered vertically or horizontally. |
-| `Name` | `string` | Lets you choose your own `name` attribute for the underying `<input type=radio>` elements. |
+| `Name` | `string` | Sets a `name` attribute to the `<input type="radio">` elements. |
 | `TItem` | `object` | The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
 | `TValue` | `object` | The type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
 | `TextField` | `string` <br /> (`Text`) | The name of the field from the model that will be shown to the user. |
