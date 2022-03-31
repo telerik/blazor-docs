@@ -181,7 +181,7 @@ The Drawer methods are accessible through it's reference. The reference exposes 
 
 * [Define Drawer Templates]({%slug drawer-templates%})
 
-* [Explore the Drawer Navigation]({%slug drawer-navigation%})
+* [Use the Drawer for Navigation]({%slug drawer-navigation%})
 
 * [Handle the Drawer Events]({%slug drawer-events%})
 
