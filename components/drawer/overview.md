@@ -101,7 +101,7 @@ To illustrate the purpose of each Drawer item, the Blazor Drawer has the option 
 
 ## Refresh Data
 
-The Drawer can refresh its data manually so the component can react to changes in the collection. [Read more about the Blazor Drawer data refresh]({%slug drawer-refresh-data%}).
+The Drawer can refresh its interface, when the data items change. [Read more about the Blazor Drawer data refresh]({%slug drawer-refresh-data%}).
 
 ## Events
 
