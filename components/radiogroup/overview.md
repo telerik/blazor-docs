@@ -87,7 +87,7 @@ The Blazor RadioGroup provides various parameters to configure the component. Al
 </style>
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping `<ul class="k-radio-list">` element. |
+| `Class` | `string` | The custom CSS class for the main wrapping element, which is `<ul class="k-radio-list">`. |
 | `Enabled` | `bool` <br /> (`true`) | Whether the component is enabled. |
 | `Id` | `string` | Renders as the id attribute on the main wrapping `<ul class="k-radio-list">` element. |
 | `LabelPosition` | `RadioGroupLabelPosition` enum <br /> (`After`) | Whether the labels render after or before the radio button itself. |
