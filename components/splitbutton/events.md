@@ -1,7 +1,7 @@
 ---
 title: Events
 page_title: SplitButton Events
-description: Events for the SplitButton for Blazor.
+description: How to handle events with the SplitButton for Blazor.
 slug: splitbutton-events
 tags: telerik,blazor,splitbutton,events
 published: True
