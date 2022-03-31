@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: SplitButton Overview
-description: Overview of the SplitButton for Blazor.
+description: Overview of the SplitButton for Blazor. Description of the component behavior, features and benefits.
 slug: splitbutton-overview
 tags: telerik,blazor,splitbutton
 published: True
