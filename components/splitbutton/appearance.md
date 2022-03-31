@@ -70,7 +70,7 @@ The `FillMode` parameter controls if the SplitButton will have a background and 
 
 >caption SplitButton FillMode example
 
-````CS
+````CSHTML
 <p>SplitButton FillMode</p>
 
 @foreach (var item in FillModes)
@@ -112,7 +112,7 @@ The `Rounded` parameter affects the SplitButton `border-radius` CSS styles. To s
 
 >caption SplitButton Rounded example
 
-````CS
+````CSHTML
 <p>SplitButton Rounded</p>
 
 @foreach (var item in RoundedOptions)
@@ -152,7 +152,7 @@ The `Shape` parameter defines the SplitButton's geometric shape (rectangle or sq
 
 >caption SplitButton Shape example
 
-````CS
+````CSHTML
 <p>SplitButton Shape</p>
 
 @foreach (var item in Shapes)
@@ -193,7 +193,7 @@ The `Size` parameter can change some SplitButton dimensions, such as height, mar
 
 >caption SplitButton Size example
 
-````CS
+````CSHTML
 <p>SplitButton Size</p>
 
 @foreach (var item in Sizes)
@@ -242,7 +242,7 @@ The `ThemeColor` parameter sets the SplitButton's background and text color from
 
 >caption SplitButton ThemeColor example
 
-````CS
+````CSHTML
 <p>SplitButton ThemeColor</p>
 
 @foreach (var item in ThemeColors)

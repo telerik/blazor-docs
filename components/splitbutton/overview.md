@@ -22,7 +22,7 @@ The <a href = "https://www.telerik.com/blazor-ui/splitbutton" target="_blank">Sp
 
 >caption Basic SplitButton
 
-````CS
+````CSHTML
 <TelerikSplitButton OnClick="@OnReply">
     <SplitButtonContent>Reply</SplitButtonContent>
     <SplitButtonItems>
@@ -96,7 +96,7 @@ The SplitButton exposes a `FocusAsync` method to focus it programmatically. To u
 
 >caption Get a reference to the SplitButton and execute methods
 
-````CS
+````CSHTML
 <TelerikSplitButton @ref="@SplitButtonRef" OnClick="@OnReply">
     <SplitButtonContent>Reply</SplitButtonContent>
     <SplitButtonItems>
