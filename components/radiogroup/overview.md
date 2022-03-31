@@ -69,7 +69,7 @@ The RadioGroup component provides two ways to render the labels of the radio but
 
 ## Appearance Settings
 
-The Blazor RadioGroup has settings for customizing the button appearance. [Read more about the Blazor RadioGroup settings]({%slug radiogroup-appearance%}).
+The Blazor RadioGroup provides a `Size` parameter to customize the radio button dimensions. [Read more about the Blazor RadioGroup appearance settings]({%slug radiogroup-appearance%}).
 
 ## Events
 
