@@ -80,7 +80,7 @@ The Blazor Dialog provides various parameters to configure the component. Also c
 | `CloseOnOverlayClick` | `bool` | Defines if clicking on the modal overlay should close the Dialog. |
 | `FocusedElementSelector` | `string` | Defines the CSS selector of the initially focused item on open. By default, it is the first focusable item in the dialog. |
 | `Height` | `string` | Defines the height of the Dialog. |
-| `ShowCloseButton` | `bool` <br /> (`true`) | Defines the close behavior of the component - whether the component should render close flat button in the titlebar. See more in the [Header article]({%slug  dialog-header%}). |
+| `ShowCloseButton` | `bool` <br /> (`true`) | Defines if the component will render a Close button in the titlebar. See more in the [Header article]({%slug  dialog-header%}). |
 | `Title` | `string` | Defines the Dialog title. |
 | `Visible` | `bool` | Defines the Dialog visibility. |
 | `Width` | `string` | Defines the width of the Dialog. |
