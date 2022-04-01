@@ -78,7 +78,8 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 
 | Attribute | Type and Default Value | Description |
 |-----------|------|-------------|
-|`Arrows`|`bool`<br/> Defaults to `true`|Whether the up/down spinner arrows (buttons) will be shown.|
+| `Arrows` | `bool`<br /> (`true`) | Whether to show the up/down spinner arrows (buttons). |
+|`DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries.
 |`Decimals`|`int`|Specifies how many decimal places will be allowed while the user is typing a new value. Takes effect only while the input is focused. The default value is set from the specified culture.|
 |`Format`|`string`|The format with which the number is presented when the input is not focused. Read more in the [Standard Numeric Format Strings in .NET](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) article.|
 |`Id`|`string`|renders as the `id` attribute on the `<input />` element.|

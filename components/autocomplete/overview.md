@@ -86,6 +86,7 @@ The Blazor AutoComplete provides various parameters that allow you to configure 
 | Parameter    | Type  | Description |
 | ----------- | ----------- | -------|
 | `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required.
+| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries.
 | `Enabled` | `bool` | Whether the component is enabled. |
 | `Filterable` | `bool` | Whether [filtering]({%slug multiselect-filter%}) is enabled for the end user (suggestions will get narrowed down as they type). |
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | The string operation that will be used for [filtering]({%slug multiselect-filter%}). |
