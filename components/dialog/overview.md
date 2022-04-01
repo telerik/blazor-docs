@@ -12,15 +12,17 @@ position: 0
 
 The Dialog is a modal popup that brings information to the user. It provides actions through its action buttons to prompt the user for input or to ask for a decision. The component can also contain more complex UI elements that require the attention of the user. The main difference from the Window modal is the functionality for actions and predefined dialogs.
 
-## Basics
+## Creating Blazor Dialog
 
-To add a Telerik Dialog to your Blazor app:
+1. Add the `TelerikDialog` tag to a Razor file.
 
-1. Add the `TelerikDialog` tag.
-1. Set the `Visible` parameter via one-way or two-way binding.
-1. Set a `Title`.
+2. Set the `Visible` parameter to a `bool` object. It supports one-way and two-way binding.
 
-The following example demonstrates how to set up the Dialog with its default configuration.
+3. Set the `Title` property to a `string` object.
+
+4. Set the Dialog content through the `DialogContent` RenderFragment parameter
+
+5. (optional) Configure the [`DialogButtons`]({%slug  dialog-action-buttons%}) inside the `TelerikDialog` tag.
 
 >caption A basic configuration of the Telerik Dialog.
 
@@ -45,38 +47,108 @@ The following example demonstrates how to set up the Dialog with its default con
 }
 ````
 
->caption The result from the above code snippet.
+## Predefined Dialogs
 
-![](images/dialog-basic-configuration.png)
+Predefined Dialogs are styled substitutes to the standard browser dialogs - confirm, alert and prompt. [Read more about the Blazor Predefined Dialogs]({%slug dialog-predefined%}).
 
-## Features
+## Header
 
-The Dialog provides the following features:
+The Dialog allows header customization and gives the option to toggle the close button. [Read more about the Dialog Header]({%slug dialog-header%}).
 
-* `Visible` - `bool` - defines the visibility of the Dialog.
+## Action Buttons
 
-* `Title` - `string` - defines the title of the Dialog.
+The Dialog provides options for rendering action buttons and customizing their text and layout. [Read more about the Dialog Action Buttons]({%slug dialog-action-buttons%}).
 
-* `DialogTitle` - `RenderFragment` - defines the title template of the component.
+## Events
 
-* `DialogContent` - `RenderFragment` - defines the content template of the component.
+The Blazor Dialog fires a `VisibleChanged` event to customize the application behavior and respond to user actions. [Read more about the Blazor Dialog events]({%slug dialog-events%}).
 
-* `DialogButtons` - `RenderFragment` - defines the actions bar template of the component.
+## Dialog Parameters
 
-* `ButtonsLayout` - `enum`- `DialogButtonsLayout` - defines the layout of the actions button in the footer. The default layout is `DialogButtonsLayout.Stretched`. See more in the [Action Buttons article]({%slug  dialog-action-buttons%})).
+The Blazor Dialog provides various parameters to configure the component. Also check the [Dialog public API](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDialog).
 
-* `ShowCloseButton` - `bool` - defines the close behavior of the component - whether the component should render close flat button in the titlebar. Its **true** by default. See more in the [Header article]({%slug  dialog-header%}).
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| --- | --- | --- |
+| `ButtonsLayout` | `DialogButtonsLayout` enum <br /> (`Stretched`) | Defines the layout of the actions button in the footer. See more in the [Action Buttons article]({%slug  dialog-action-buttons%})). |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-window k-dialog">` element. |
+| `CloseOnOverlayClick` | `bool` | Defines if clicking on the modal overlay should close the Dialog. |
+| `FocusedElementSelector` | `string` | Defines the CSS selector of the initially focused item on open. By default, it is the first focusable item in the dialog. |
+| `Height` | `string` | Sets the height of the Dialog in any [supported CSS unit]({%slug common-features/dimensions%}). |
+| `ShowCloseButton` | `bool` <br /> (`true`) | Defines if the component will render a Close button in the titlebar. See more in the [Header article]({%slug  dialog-header%}). |
+| `Title` | `string` | Sets the Dialog title. |
+| `Visible` | `bool` | Defines the Dialog visibility. |
+| `Width` | `string` | Sets the width of the Dialog in any [supported CSS unit]({%slug common-features/dimensions%}). |
 
-* `CloseOnOverlayClick` - `bool` - defines whether clicking on the modal overlay should close the Dialog.
 
-* `FocusedElementSelector` - `string` - defines the CSS selector of the initially focused item on open. By default, it is the first focusable item in the dialog.
+## Dialog Reference and Methods
 
-* `Class` - `string` - defines the class of the component instance.
+The Dialog methods are accessible through its reference.
 
-* `Width` - `string` - defines the width of the Dialog.
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Method | Description |
+| --- | --- |
+| `Refresh` | Redraws the component. |
 
-* `Height` - `string` - defines the height of the Dialog.
+>caption Get a reference to the Dialog and use its methods.
+
+````CSHTML
+@* This code snippet showcases an example usage of the Refresh() method. *@
+
+<TelerikButton  OnClick="OpenDialog">Open Dialog</TelerikButton>
+
+<TelerikDialog @ref="DialogRef" @bind-Visible="_dialogVisible">
+    <DialogContent>
+        <p role="status">Current count: @_currentCount</p>
+    </DialogContent>
+    <DialogButtons>
+        <TelerikButton OnClick="IncrementCount">Increment Count</TelerikButton>
+        <TelerikButton OnClick="@(() => { _dialogVisible = false; })">Close</TelerikButton>
+    </DialogButtons>
+</TelerikDialog>
+
+@code {
+    TelerikDialog DialogRef;
+
+    private bool _dialogVisible;
+
+    private int _currentCount = 0;
+
+    private void IncrementCount()
+    {
+        _currentCount++;
+
+        DialogRef.Refresh(); //Need refresh to reflect the change here.
+    }
+
+    private void OpenDialog()
+    {
+        _dialogVisible = true;
+    }
+}
+````
+
+## Next Steps
+
+* [Customize the Dialog Header]({%slug dialog-header%})
+
+* [Customize the Dialog Action Buttons]({%slug dialog-action-buttons%})
+
+* [Explore the Predefined Dialogs]({%slug dialog-predefined%})
+
+* [Handle the Dialog Events]({%slug dialog-events%})
 
 ## See Also
 
-  * [Live Demo: Dialog](https://demos.telerik.com/blazor-ui/dialog/overview)
+  * [Live Dialog Demos](https://demos.telerik.com/blazor-ui/dialog/overview)
+  * [Dialog API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDialog)
