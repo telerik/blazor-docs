@@ -10,14 +10,21 @@ position: 0
 
 # Blazor Drawer Overview
 
-The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Drawer component</a> is a dismissible or permanently visible panel for [navigating]({%slug drawer-navigation%}) in responsive web applications. It allows switching the content of different sections of the page. You can customize its [templates]({%slug drawer-templates%}), [display]({%slug drawer-modes%}), behavior when [minimizing]({%slug drawer-mini-mode%}) and respond to [events]({%slug drawer-events%}).
+The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Drawer component</a> is an interactive side panel for [navigating]({%slug drawer-navigation%}) in responsive web applications. It can be always visible, or expanded and collapsed. The Drawer allows switching the content of different sections on the page. You can customize its [templates]({%slug drawer-templates%}), [expand modes]({%slug drawer-modes%}), [minimize behavior]({%slug drawer-mini-mode%}) and also respond to [events]({%slug drawer-events%}).
 
-#### To use a Telerik Drawer for Blazor
+## Creating Blazor Drawer
 
-1. Add the `TelerikDrawer` tag.
-1. Populate its `Data` property with the collection of items you want the user to see.
-1. Place the content of the Drawer in the `<DrawerContent>` tag.
-    * In this example, we keep it simple by using the selected item. See the [Navigation]({%slug drawer-navigation%}) article for a menu-like experience with links.
+1. Add the `TelerikDrawer` tag to a Razor file.
+
+1. Populate its `Data` property with the collection of items (`IEnumerable<T>`) for the user to see.
+
+3. Set the `SelectedItem` parameter to a `T` object. It supports one-way and two-way binding.
+
+4. Place the content of the current page in the `<DrawerContent>` tag.
+
+5. Set the `@ref` parameter to obtain reference to the component instance. Use this instance to toggle the Drawer.
+
+6. Add a button inside the content to toggle the Drawer.
 
 >caption Basic configuration of the Drawer.
 
@@ -25,8 +32,6 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 @* This example shows the basic configuration of the Drawer and how to expand or collapse a Drawer with a click of a button. *@
 
 <TelerikDrawer Data="@Data"
-               MiniMode="true"
-               Mode="DrawerMode.Push"
                @ref="@DrawerRef"
                @bind-SelectedItem="@SelectedItem">
     <DrawerContent>
@@ -59,51 +64,81 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 }
 ````
 
->caption The result from the code snippet above
+## Data Binding
 
-![drawer basic example](images/drawer-basic-example.gif)
+The Blazor Drawer requires a data source so that it can display items to the user. To provide a data source, use the `Data` property. [Read more about the Blazor Drawer data binding]({%slug drawer-data-binding%}).
 
+## Navigation
 
-## Features
+A Drawer is often used to list pages, views, or sections in an application so the user can navigate between them. To do that with a Drawer, there are two options:
 
->caption The Drawer provides the following features:
+* Use the built-in `UrlField` in the [bound data]({%slug drawer-data-binding%}) to populate the URLs in the anchors that the Drawer will generate if you provide a URL for the given item.
+* Use a [Template]({%slug drawer-templates%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
 
-* `Data` - a collection of flat data for all items in the Drawer. See the [Data Binding]({%slug drawer-data-binding%}) article for details.
+[Read more about the Blazor Drawer navigation]({%slug drawer-navigation%}).
 
-* `Position` - you can control the position of the Drawer, through the `DrawerPosition` enum.
-The members of the enum are:
- * `Left` - the default position
- * `Right` - the drawer item list will render on the right hand side of the `DrawerContent`
+## Modes
 
-* `Expanded` - two-way bindable property that specifies whether the Drawer is expanded or collapsed. If this parameter is used to expand or collapse the component the animations will not be available. To use animations you have to use the Drawer's [Methods](#methods). You can, however, use the value to implement custom layouts in the drawer [templates]({%slug drawer-templates%}) or in your own layout.
+The Blazor Drawer provides *Push* and *Overlay* modes of expansion. They determine if the Drawer items push the other content to the side, or cover it temporarily. [Read more about the Blazor Drawer modes]({%slug drawer-modes%}).
 
-* `Width` - the width of the Drawer when expanded.
+## Mini View
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the Drawer. You can use it to make it fit your layout (e.g., set a `height: 100%` to it, if needed).
+By default, the Drawer is not visible when collapsed. To leave a small hint for the user, the Drawer provides a Mini View, so that users can navigate with just a single action, without the need to expand the Drawer items. [Read more about the Blazor Drawer mini view]({%slug drawer-mini-mode%}).
 
-* `Mode` - controls whether the Drawer is in `Push` or `Overlay` mode. For more information read the [Display Modes]({%slug drawer-modes%}) article.
+## Selection
 
-* `MiniMode` - controls whether there is mini view when the Drawer is collapsed. For more information read the [Mini View]({%slug drawer-mini-mode%}) article.
+The Drawer component has an option to pre-select the desired item, then use the highlighted item to load/generate content, or denote the current page. [Read more about the Blazor Drawer selection]({%slug drawer-selection%}).
 
-* `DrawerContent` - the `<DrawerContent>` child tag of `<TelerikDrawer>` is a `RenderFragment` where you put a component or custom HTML as the content of the Drawer - this is what the drawer will push or overlay.
+## Templates
 
-* `SelectedItem` - two-way bindable property that contains the currently selected item in the Drawer. For more information read the [Selection]({%slug drawer-selection%}) article.
+The Blazor Drawer allows full control of the item rendering and layout. The component has an *ItemTemplate* and *Template*. [Read more about the Blazor Drawer templates]({%slug drawer-templates%}).
 
-* `Template` - define a custom template for the entire Drawer. For more information read the [Templates]({%slug drawer-templates%}) article.
+## Drawer Icons
 
-* `ItemTemplate` - define a custom template for the Items of the Drawer. For more information see the [Templates]({%slug drawer-templates%}) article.
+To illustrate the purpose of each Drawer item, the Blazor Drawer has the option to add images, icon classes, or font icons. [Read more about the Blazor Drawer icons]({%slug drawer-icons%}).
 
-* Events - you can respond to the user actions to implement your business logic. For more details see the [Events]({%slug drawer-events%}) article.
+## Refresh Data
 
-## Methods
+The Drawer can refresh its interface, when the data items change. [Read more about the Blazor Drawer data refresh]({%slug drawer-refresh-data%}).
 
-The Drawer methods are accessible through it's reference. The reference exposes several methods that enable the transition animations. These methods change the value of the `Expanded` parameter.
+## Events
 
-* `ExpandAsync` - allows you to change the state of the Drawer so it is expanded.
+The Blazor Drawer fires select and expand events. Handle those events to respond to user actions. [Read more about the Blazor Drawer events]({%slug drawer-events%}).
 
-* `CollapseAsync` - allows you to change the state of the Drawer so it is collapsed.
+## Drawer Parameters
 
-* `ToggleAsync` - allows you to expand or collapse the component depending on the current state of the Drawer.
+The Blazor Drawer provides various parameters to configure the component. Also check the [Drawer public API](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDrawer-1).
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-drawer-container">` element. |
+| `Expanded` | `bool` | Specifies whether the Drawer is expanded or collapsed. If this parameter is used to expand or collapse the component the animations will not be available. To use animations you have to use the Drawer's [Methods](#methods). It is possible, however, to use the value to implement custom layouts in the drawer [templates]({%slug drawer-templates%}) or in your own layout.|
+| `Mode` | `DrawerMode` enum <br /> (`Overlay`) | Controls whether the Drawer is in `Push` or `Overlay` mode. [Read more about the supported modes]({%slug drawer-modes%}). |
+| `MiniMode` | `bool` | Controls whether there is [mini view]({%slug drawer-mini-mode%}) when the Drawer is collapsed. |
+| `Position` | `DrawerPosition` enum <br /> (`Left`) | Determines on which side of the `DrawerContent` the item list will render. |
+| `Width` | `string` <br /> (`240px`) | The width of the Drawer when expanded. |
+
+## Drawer Reference and Methods
+
+The Drawer methods are accessible through it's reference. These methods change the value of the `Expanded` parameter.
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Method | Description |
+| --- | --- |
+| `ExpandAsync` | Expands the Drawer. |
+| `CollapseAsync` | Collapses the Drawer. |
+| `ToggleAsync` | Expands or collapses the Drawer, depending on the current state. |
 
 >caption Get a reference to the drawer and use its methods
 
@@ -138,14 +173,17 @@ The Drawer methods are accessible through it's reference. The reference exposes 
 }
 ````
 
+## Next Steps
+
+* [Bind the Drawer to Data]({%slug drawer-data-binding%})
+
+* [Define Drawer Templates]({%slug drawer-templates%})
+
+* [Use the Drawer for Navigation]({%slug drawer-navigation%})
+
+* [Handle the Drawer Events]({%slug drawer-events%})
 
 ## See Also
 
-  * [Drawer Overview Demo](https://demos.telerik.com/blazor-ui/drawer/overview)
-  * [Drawer Data Binding]({%slug drawer-data-binding%})
-  * [Drawer Navigation]({%slug drawer-navigation%})
-  * [Drawer Modes]({%slug drawer-modes%})
-  * [Drawer Events]({%slug drawer-events%})
-  * [Drawer Templates]({%slug drawer-templates%})
-  * [Drawer Selection]({%slug drawer-selection%})
-  * [Sample Project: Drawer as Side Navigation](https://github.com/telerik/blazor-ui/tree/master/drawer/sidenav)
+  * [Live Drawer Demos](https://demos.telerik.com/blazor-ui/drawer/overview)
+  * [Drawer API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDrawer-1)
