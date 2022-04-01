@@ -20,7 +20,7 @@ The Dialog is a modal popup that brings information to the user. It provides act
 
 3. Set the `Title` property to a `string` object.
 
-4. Define the `DialogContent` inside the `TelerikDialog` tag.
+4. Set the Dialog content through the `DialogContent` RenderFragment parameter
 
 5. (optional) Configure the [`DialogButtons`]({%slug  dialog-action-buttons%}) inside the `TelerikDialog` tag.
 
@@ -49,11 +49,11 @@ The Dialog is a modal popup that brings information to the user. It provides act
 
 ## Predefined Dialogs
 
-Predefined Dialogs are styled substitutes to the standard confirm, alert and prompt dialogs. They are separate from the main Dialog component. [Read more about the Blazor Predefined Dialogs]({%slug dialog-predefined%}).
+Predefined Dialogs are styled substitutes to the standard browser dialogs - confirm, alert and prompt. [Read more about the Blazor Predefined Dialogs]({%slug dialog-predefined%}).
 
 ## Header
 
-The Dialog provides header customization. [Read more about the Dialog Header]({%slug dialog-header%}).
+The Dialog allows header customization and gives the option to toggle the close button. [Read more about the Dialog Header]({%slug dialog-header%}).
 
 ## Action Buttons
 
