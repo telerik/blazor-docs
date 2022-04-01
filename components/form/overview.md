@@ -263,7 +263,7 @@ You can customize the editors further through the [form items]({%slug form-formi
 
 * `ColumnSpacing` - `string` - defines the space between the FormItems. See the [Columns]({%slug form-columns%}) article for more information.
 
-* `Id` - `string` - sets an `id` attribute to the `<form>` element. Use it in combination with the [`Form` parameter of a submit button]({%slug button-type%}). Set both parameters to the same `string` value. This allows submitting the form from a button, which is outside the form.
+* `Id` - `string` - sets an `id` attribute to the `<form>` element. Use it together with the [`Form` parameter of a submit button]({%slug button-type%}). Set both parameters to the same `string` value. This allows submitting the form from a button, which is outside the form.
 
 * `Events` - See the [Events]({%slug form-events%}) article for more information
 
