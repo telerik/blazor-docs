@@ -87,6 +87,10 @@ You can set the grid filters from your code through the grid [state]({%slug grid
 
 The Grid allows you to customize the default behavior of the Filter Row in a couple ways:
 
+### Debouncing the Filtering
+
+@[template](/_contentTemplates/common/filtering.md#filter-debounce-delay-customization)
+
 ### Configuring the Filter Row
 
 You can override the default Filter Row behavior for each column through the following properties the `GridColumn` exposes:
@@ -103,7 +107,8 @@ You can override the default Filter Row behavior for each column through the fol
 <TelerikGrid Data="@MyData"
              Height="400px"
              Pageable="true"
-             FilterMode="@GridFilterMode.FilterRow">
+             FilterMode="@GridFilterMode.FilterRow"
+             FilterRowDebounceDelay="200">
     <GridColumns>
         <GridColumn DefaultFilterOperator="FilterOperator.IsEqualTo"
                     ShowFilterCellButtons="false"
