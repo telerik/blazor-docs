@@ -46,7 +46,7 @@ To visually communicate the purpose of a button, you can add an image, sprite, o
 
 ## Type
 
-To control the submit behavior of the Blazor Button, use the `Type` attribute. Select from the following button types: `Submit`, `Reset`, and `Button`. [Read more about the Blazor Button Type...]({%slug button-type%})
+To control the submit behavior of the Blazor Button, use the `Type` attribute. Select from the following button types: `Submit`, `Reset`, and `Button`. The component also provides a `Form` parameter, which allows the user to submit a form from an external button. [Read more about the Blazor Button Type...]({%slug button-type%})
 
 ## Events
 

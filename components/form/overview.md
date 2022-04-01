@@ -251,8 +251,6 @@ You can customize the editors further through the [form items]({%slug form-formi
 
 * `ValidationMessageType` - `enum` - define the validation message type for the Form. See the [Validation]({%slug form-validation%}) article for more information.
 
-* `Width` - `string` - allows you to control the width of the Form.
-
 * `FormItems` - `RenderFragment` - allows you to use custom editors. See the [FormItems]({%slug form-formitems%}) article for more information. When a custom editor is used, no built-in editors will be generated.
 
 * `FormButtons` - `RenderFragment` - allows you to add custom buttons to the Form. You can use the `FormButtons` tag to [add a Clear button to the Form]({%slug form-formitems-buttons%}). If the `FormButtons` tag is defined there will be no default buttons in the Form. 
@@ -265,17 +263,18 @@ You can customize the editors further through the [form items]({%slug form-formi
 
 * `ColumnSpacing` - `string` - defines the space between the FormItems. See the [Columns]({%slug form-columns%}) article for more information.
 
+* `Id` - `string` - sets an `id` attribute to the `<form>` element. Use it in combination with the [`Form` parameter of a submit button]({%slug button-type%}). Set both parameters to the same `string` value. This allows submitting the form from a button, which is outside the form.
+
 * `Events` - See the [Events]({%slug form-events%}) article for more information
 
-* `Width` - the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article.
+* `Width` - `string` - the width of the Form. See the [Dimensions]({%slug common-features/dimensions%}) article.
 
 ## See Also
-  
-  * [Form Items]({%slug form-formitems%})
-  * [Form Groups]({%slug form-formgroups%})
-  * [Columns]({%slug form-columns%})
-  * [Orientation]({%slug form-orientation%})
-  * [Events]({%slug form-events%})
-  * [Live Demo: Form](https://demos.telerik.com/blazor-ui/form/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikForm)
-   
+
+* [Form Items]({%slug form-formitems%})
+* [Form Groups]({%slug form-formgroups%})
+* [Columns]({%slug form-columns%})
+* [Orientation]({%slug form-orientation%})
+* [Events]({%slug form-events%})
+* [Live Demo: Form](https://demos.telerik.com/blazor-ui/form/overview)
+* [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikForm)
