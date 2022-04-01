@@ -254,7 +254,7 @@ navigation:
         title: "ToggleButton"
      "*breadcrumb":
         title: "Breadcrumb"
-     "*button":
+     "*/button":
         title: "Button"
      "*buttongroup":
         title: "ButtonGroup"
@@ -388,6 +388,8 @@ navigation:
         title: "Slider"
      "*sortable":
         title: "Sortable"
+     "*splitbutton":
+        title: "SplitButton"
      "*splitter":
         title: "Splitter"
      "*stacklayout":
