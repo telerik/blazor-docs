@@ -19,7 +19,7 @@
 
 #filter-debounce-delay-customization
 
-By default, the filtering will be debounced with 150ms. Configure that with the following parameter the component exposes:
+By default, the filtering will be debounced with 150ms. Configure that with the following component parameter:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
