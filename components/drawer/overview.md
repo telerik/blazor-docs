@@ -16,15 +16,15 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 
 1. Add the `TelerikDrawer` tag to a Razor file.
 
-1. Populate its `Data` property with the collection of items you want the user to see.
+1. Populate its `Data` (`IEnumerable<T>`) property with the collection of items you want the user to see.
 
-3. Set the `SelectedItem` parameter. It supports one-way and two-way binding.
+3. Set the `SelectedItem` (`T`) parameter. It supports one-way and two-way binding.
 
-4. Place the content of the Drawer in the `<DrawerContent>` tag.
+4. Place the content of the current page in the `<DrawerContent>` tag.
 
-5. Set the `@ref` parameter to toggle the Drawer.
+5. Set the `@ref` parameter to obtain reference to the component instance. Use this instance to toggle the Drawer.
 
-6. (optional) Set the `MiniMode` and `Mode` properties.
+6. Add a button inside the content to toggle the Drawer.
 
 >caption Basic configuration of the Drawer.
 
@@ -32,8 +32,6 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 @* This example shows the basic configuration of the Drawer and how to expand or collapse a Drawer with a click of a button. *@
 
 <TelerikDrawer Data="@Data"
-               MiniMode="true"
-               Mode="DrawerMode.Push"
                @ref="@DrawerRef"
                @bind-SelectedItem="@SelectedItem">
     <DrawerContent>
@@ -119,16 +117,16 @@ The Blazor Drawer provides various parameters to configure the component. Also c
 </style>
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | Renders a custom CSS class to the `<div class="k-drawer-container">` element. Use it to make it fit your layout (e.g., set a `height: 100%` to it, if needed). |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-drawer-container">` element. |
 | `Expanded` | `bool` | Specifies whether the Drawer is expanded or collapsed. If this parameter is used to expand or collapse the component the animations will not be available. To use animations you have to use the Drawer's [Methods](#methods). It is possible, however, to use the value to implement custom layouts in the drawer [templates]({%slug drawer-templates%}) or in your own layout.|
-| `Mode` | `DrawerMode` enum <br /> (`Overlay`) | Controls whether the Drawer is in `Push` or `Overlay` mode. |
-| `MiniMode` | `bool` | Controls whether there is mini view when the Drawer is collapsed. |
+| `Mode` | `DrawerMode` enum <br /> (`Overlay`) | Controls whether the Drawer is in `Push` or `Overlay` mode. [Read more about the supported modes]({%slug drawer-modes%}). |
+| `MiniMode` | `bool` | Controls whether there is [mini view]({%slug drawer-mini-mode%}) when the Drawer is collapsed. |
 | `Position` | `DrawerPosition` enum <br /> (`Left`) | Determines on which side of the `DrawerContent` the item list will render. |
-| `Width` | `string` | The width of the Drawer when expanded. |
+| `Width` | `string` <br /> (`240px`) | The width of the Drawer when expanded. |
 
 ## Drawer Reference and Methods
 
-The Drawer methods are accessible through it's reference. The reference exposes several methods that enable the transition animations. These methods change the value of the `Expanded` parameter.
+The Drawer methods are accessible through it's reference. These methods change the value of the `Expanded` parameter.
 
 <style>
     article style + table {
