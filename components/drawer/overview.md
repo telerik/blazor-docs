@@ -16,7 +16,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 
 1. Add the `TelerikDrawer` tag to a Razor file.
 
-1. Populate its `Data` (`IEnumerable<T>`) property with the collection of items you want the user to see.
+1. Populate its `Data` property with the collection of items (`IEnumerable<T>`) for the user to see.
 
 3. Set the `SelectedItem` (`T`) parameter. It supports one-way and two-way binding.
 
