@@ -18,7 +18,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 
 1. Populate its `Data` property with the collection of items (`IEnumerable<T>`) for the user to see.
 
-3. Set the `SelectedItem` (`T`) parameter. It supports one-way and two-way binding.
+3. Set the `SelectedItem` parameter to a `T` object. It supports one-way and two-way binding.
 
 4. Place the content of the current page in the `<DrawerContent>` tag.
 
