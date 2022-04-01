@@ -25,5 +25,5 @@ By default, the filtering will be debounced with 150ms. Configure that with the 
 
 | Parameter      | Type and Default Value | Description
 | ----------- | ----------- | -----------|
-| `FilterRowDebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol in the input and the actual filtering. Affects how fast the component fires the `OnFilter` event. Use it to balance between client-side performance and number of database queries.
+| `FilterRowDebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol in the input and the actual filtering. Affects how fast the component initiates filtering. Use it to balance between client-side performance and number of database queries.
 #end
