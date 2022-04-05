@@ -109,3 +109,8 @@ Here is an example:
     }
 }
 ````
+
+## See Also
+
+* [Search the Grid in Numeric and Date Model Fields]({%slug grid-kb-search-numeric-fields%})
+* [Search the Grid on Button Click]({%slug grid-kb-search-button-click%})
