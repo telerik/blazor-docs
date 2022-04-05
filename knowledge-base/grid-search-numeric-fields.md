@@ -71,11 +71,12 @@ Here is an overview of the major steps in the example:
     * *string* results that *contain* the string "8"
     * *numeric* results that are *equal to* 8
     * *enums* results that are *equal to* `int` 8
-* Date search values *must fully match* date values in the Grid to return results.
-* A search value of `"8 asd"` won't return any numeric, date and boolean results, because it cannot be parsed to any of these types.
-* Generally, if the search value cannot be parsed to a certain type, it won't add filters for columns of this type.
+* Date search values *must fully match* date values in the Grid to return results. The example also shows how to search by year only.
+* If the search value cannot be parsed to a certain type, it won't add filters for columns of this type. For example, a search value of `"8 asd"` won't return any numeric, date and boolean results
 
 >tip It is possible to achieve different behavior, or to work around the above limitations, by using different business logic in the filter descriptor creation.
+
+> The example is incompatible with [regular Grid filtering]({%slug components/grid/filtering%}), because the `SetGridSearchBoxFilters` method always removes all existing filter descriptors: `state.FilterDescriptors.Clear();`
 
 
 ## Example
@@ -89,21 +90,20 @@ Here is an overview of the major steps in the example:
 
 @using Telerik.DataSource;
 
-<TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
-             Pageable="true">
+<TelerikGrid Data="@MyData" @ref="@Grid" Pageable="true" Height="400px">
     <GridToolBar>
         <GridUniversalSearchBox OnSearch="@OnSearch" T="SampleData" Fields="@SearchBoxFields" />
     </GridToolBar>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="70px" />
-        <GridColumn Field="@(nameof(SampleData.Byte))" Width="70px" />
-        <GridColumn Field="@(nameof(SampleData.Short))" Width="70px" />
-        <GridColumn Field="@(nameof(SampleData.Long))" Width="70px" />
-        <GridColumn Field="@(nameof(SampleData.Float))" Width="70px" />
-        <GridColumn Field="@(nameof(SampleData.Double))" Width="70px" />
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Byte))" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Short))" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Long))" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Float))" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Double))" Width="100px" />
         <GridColumn Field="@(nameof(SampleData.Enum))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.String))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Bool))" Width="70px" />
+        <GridColumn Field="@(nameof(SampleData.String))" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Bool))" Width="100px" />
         <GridColumn Field="@(nameof(SampleData.DateTime))" />
     </GridColumns>
 </TelerikGrid>
@@ -138,7 +138,7 @@ Here is an overview of the major steps in the example:
         Float = ((float)x) + 5.5f,
         Double = ((double)x) + 6.5,
         String = "Name " + x + 2,
-        DateTime = DateTime.Now.Date.AddDays(x),
+        DateTime = DateTime.Now.Date.AddMonths(-x),
         Bool = x % 2 == 0,
         Enum = (EnumType)(x % 3),
     });
@@ -258,12 +258,29 @@ Here is an overview of the major steps in the example:
                 }
                 else if (type == typeof(DateTime) || type == typeof(DateTime?))
                 {
+                    // search by exact DateTime
                     var culture = CultureInfo.CurrentUICulture;
                     var styles = DateTimeStyles.None;
+
                     if (DateTime.TryParse(value.ToString(), culture, styles, out var dateValue))
                     {
                         var filter = CreateFilterDescriptor(field, FilterOperator.IsEqualTo, dateValue);
                         newDescriptor.FilterDescriptors.Add(filter);
+                    }
+
+                    // search by year only
+                    if (short.TryParse(value.ToString(), out var yearValue))
+                    {
+                        if (yearValue > 1000 && yearValue < 2100)
+                        {
+                            var yearFilterDescriptor = new CompositeFilterDescriptor() { LogicalOperator = FilterCompositionLogicalOperator.And };
+                            var filter1 = CreateFilterDescriptor(field, FilterOperator.IsGreaterThanOrEqualTo, new DateTime(yearValue, 1, 1));
+                            yearFilterDescriptor.FilterDescriptors.Add(filter1);
+                            var filter2 = CreateFilterDescriptor(field, FilterOperator.IsLessThan, new DateTime(yearValue + 1, 1, 1));
+                            yearFilterDescriptor.FilterDescriptors.Add(filter2);
+
+                            newDescriptor.FilterDescriptors.Add(yearFilterDescriptor);
+                        }
                     }
                 }
                 else if (type == typeof(bool) || type == typeof(bool?))
