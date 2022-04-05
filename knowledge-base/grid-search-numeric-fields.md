@@ -76,7 +76,7 @@ Here is an overview of the major steps in the example:
 
 >tip It is possible to achieve different behavior, or to work around the above limitations, by using different business logic in the filter descriptor creation.
 
-> The example is incompatible with [regular Grid filtering]({%slug components/grid/filtering%}), because the `SetGridSearchBoxFilters` method always removes all existing filter descriptors: `state.FilterDescriptors.Clear();`
+> The example is incompatible with [regular Grid filtering]({%slug components/grid/filtering%}), because the `SetGridSearchBoxFilters` method always removes all existing filter descriptors: `state.FilterDescriptors.Clear()`. The Grid and its API does not distinguish programmatic filters and filters set by the user.
 
 
 ## Example
