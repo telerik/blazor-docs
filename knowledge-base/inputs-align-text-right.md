@@ -5,8 +5,8 @@ type: how-to
 page_title: Right-align text in the Telerik inputs
 slug: inputs-kb-align-text
 position:
-ticketid: 1560593
 tags:
+ticketid: 1560593
 res_type: kb
 ---
 
