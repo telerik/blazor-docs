@@ -5,7 +5,7 @@ description: Support for live data through observable collections and INotifyCol
 slug: common-features-observable-data
 tags: telerik,blazor,observable,data,live,INotifyCollectionChanged 
 published: True
-position: 1
+position: 10
 ---
 
 # Observable Data and Refresh Data
