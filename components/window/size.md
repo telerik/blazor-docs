@@ -14,6 +14,7 @@ The Window offers different ways for you to control its size:
 
 * [Set Width and Height](#set-width-and-height)
 * [Maximize and Minimize](#maximize-and-minimize)
+* [Resizable Window](#resizable-window)
 
 
 ## Set Width and Height
@@ -78,6 +79,38 @@ The developer can invoke those actions through binding the `State` parameter. It
 
 @code {
     public WindowState State { get; set; } = WindowState.Default;
+}
+````
+
+## Resizable Window
+
+By default the Window is resizable. It is possible to resize thw window's width and height. You can disable resize by setting its `Resizable` parameter to `false`.
+
+>caption Make the Window Resizable
+
+````CSHTML
+@* Toggle the resizable parameter through a button *@
+
+<TelerikButton OnClick="@(() => WindowResizable = !WindowResizable)">Toggle Resizable</TelerikButton>
+
+<TelerikWindow @bind-Visible="@WindowVisible"
+               Resizable="@WindowResizable">
+    <WindowTitle>
+        <strong>Lorem ipsum</strong>
+    </WindowTitle>
+    <WindowActions>
+        <WindowAction Name="Minimize"></WindowAction>
+        <WindowAction Name="Maximize"></WindowAction>
+        <WindowAction Name="Close"></WindowAction>
+    </WindowActions>
+    <WindowContent>
+        This is my window <strong>popup</strong> content.
+    </WindowContent>
+</TelerikWindow>
+
+@code {
+    public bool WindowResizable { get; set; } = true;
+    public bool WindowVisible { get; set; } = true;
 }
 ````
 

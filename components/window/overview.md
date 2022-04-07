@@ -10,7 +10,9 @@ position: 0
 
 # Blazor Window Overview
 
-This article provides basic information about the <a href="https://www.telerik.com/blazor-ui/window" target="_blank">Blazor Window component</a>.
+This article provides basic information about the <a href="https://www.telerik.com/blazor-ui/window" target="_blank">Blazor Window component</a> and its core features.
+
+The Window component displays a popup window which shows users custom content. The component provides both custom and predefined actions, custom style, position and work as a modal window.
 
 #### In this article:
 
@@ -19,20 +21,20 @@ This article provides basic information about the <a href="https://www.telerik.c
 * [Styling](#styling)
 * [Important Notes](#important-notes)
 
-## Create a Window
+## Creating Blazor Window
 
-To create a Telerik Window:
-
-1. use the `TelerikWindow` tag
-1. set its `Visible` property to `true` to see it (in the example below we will use a button to toggle it)
-1. add some content to its `WindowContent` inner tag
-1. optionally, add a title text in its `WindowTitle` tag
-1. optionally, add the built-in [actions]({%slug components/window/actions%}) to its titlebar
+1. Use the `TelerikWindow` tag.
+1. Set the `Visible` parameter to a `bool` property. (in the example below we will use a button to toggle it).
+1. Add content to its `WindowContent` child tag.
+1. (optional) Add a title text in its `WindowTitle` tag.
+1. (optional) Add the predefined [actions]({%slug components/window/actions%}) to its titlebar.
+1. (optional) Set its `PersistContent` parameter to `true` and persist the content on minimize.
 
 >caption Basic example of showing content in a Window popup and allowing built-in actions
 
 ````CSHTML
-<TelerikWindow @bind-Visible="@WindowIsVisible">
+<TelerikWindow PersistContent="true" 
+               @bind-Visible="@WindowIsVisible">
     <WindowTitle>
         <strong>The Title</strong>
     </WindowTitle>
@@ -53,11 +55,27 @@ To create a Telerik Window:
 }
 ````
 
->caption The result from the code snippet above
+## Window Responsiveness
 
-![](images/window-overview.png)
+The Window component can be fully responsive when the browser window size changes. Here is an [example that shows how to use the `Width` and `Height` parameters of the Window or through a separate CSS file.]({%slug window-kb-responsive%})
 
->caption Component namespace and reference
+## Window Parameters
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-window">` element. Use it to [override theme styles]({%slug themes-override%}). |
+| `PersistContent` | `bool`<br />(`"false"`) | Defines whether Window content should be persisted when the window is minimized. |
+| `Resizable` | `bool`<br />(`"true"`) | Defines whether the Window should be resizable by the user. |
+| `Visible` | `bool`<br />(`"false"`) | Defines if the Window is rendered on the page. |
+
+## Window Namespace and Reference
 
 ````CSHTML
 @using Telerik.Blazor.Components
@@ -88,7 +106,7 @@ The `Visible` property lets you control whether the window component is shown (a
 <button @onclick="ShowWindow">Show the Window</button>
 <button @onclick="CloseWindow">Close the Window</button>
 
-<TelerikWindow @bind-Visible="@isVisible">
+<TelerikWindow PersistContent="true" @bind-Visible="@isVisible">
     <WindowTitle>
         <strong>The Title</strong>
     </WindowTitle>

@@ -15,9 +15,9 @@ This article explains the events available in the Telerik Window for Blazor:
 
 * [VisibleChanged](#visiblechanged)
 * [StateChanged](#statechanged)
+* [WidthChanged and HeightChanged](#widthchanged-and-heightchanged)
 * [Action Click](#action-click)
 * [LeftChanged and TopChanged](#leftchanged-and-topchanged)
-
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async) 
 
 
@@ -154,6 +154,49 @@ You can use the `StateChanged` event to get notifications when the user tries to
         State = windowState; // if you don't do this, the window won't change because of the user action
 
         lastUserAction = $"last user action was: {windowState}";
+    }
+}
+````
+
+## WidthChanged and HeightChanged
+
+You can use the `WidthChanged` and `HeightChanged` events to get notifications when the user tries to resize the window. The events requires the `Resizable` parameter of the Window to be `true`.
+
+>caption React to the user actions to resizing the window
+
+````CSHTML
+<TelerikWindow Visible="true"
+               Resizable="true"
+               WidthChanged="@WidthChangedHandler"
+               HeightChanged="@HeightChangedHandler">
+    <WindowTitle>
+        <strong>Lorem ipsum</strong>
+    </WindowTitle>
+    <WindowActions>
+        <WindowAction Name="Minimize"></WindowAction>
+        <WindowAction Name="Maximize"></WindowAction>
+        <WindowAction Name="Close"></WindowAction>
+    </WindowActions>
+    <WindowContent>
+        <strong>Resize Me!</strong>        
+    </WindowContent>
+</TelerikWindow>
+
+<br />
+
+@EventLog
+
+@code {
+    public string EventLog { get; set; }
+
+    public void WidthChangedHandler()
+    {
+        EventLog = "WidthChanged event fired at: " + DateTime.Now.ToString();
+    }
+
+    public void HeightChangedHandler()
+    {
+        EventLog = "HeightChanged event fired at: " + DateTime.Now.ToString();
     }
 }
 ````
