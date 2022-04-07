@@ -15,46 +15,149 @@ This article presents the `OnRead` event and describes how to use it to data bin
 #### In this article:
 
 * [Purpose and benefits of `OnRead`](#purpose-and-benefits)
-* [Step-by-step instructions to get started](#getting-started)
 * [Which Blazor components use `OnRead`](#components-with-onread-event)
 * [Description of the `OnRead` event argument](#event-argument)
-* [How to get data with the `ToDataSourceResult` method](#todatasourceresult-method)
+* [How to return data in `OnRead` with the `ToDataSourceResult` method](#todatasourceresult-method)
+* [Example](#example)
 * [How to refresh component data when using `OnRead`](#refresh-data)
 
 
 ## Purpose and Benefits
 
-The easiest way to provide data to a component is to set its `Data` parameter to some `IEnumerable`. This is straight-forward and familiar, but not scalable.
+The easiest way to provide data to a component is to set its `Data` parameter to `IEnumerable<T>`. This allows the component to have all data items and to perform all data operations internally (filtering, paging, sorting, etc.). However, this scenario is not always the most optimal.
 
-Large amounts of data require loading in chunks and on demand. This improves the performance of the database, the backend, the network and the browser.
+There are two main reasons to use the `OnRead` event: **performance** and **customization**.
 
-<!-- 
-### Comparison with the Data Parameter
+### Performance
 
-Benefits of `Data`
+Large amounts of data require loading in chunks and on demand. This improves the performance of the database, backend, network, and the browser. When a component fires `OnRead`, it expects to receive **only the data items to render**. The exact number depends on the component's `PageSize` parameter.
 
-* Simplicity
-* The component performs all data operations internally (paging, sorting, filtering, grouping, aggregates, etc.).
+`OnRead` makes it possible to perform data operations outside the Grid, for example on the remote server. This can improve WebAssembly performance.
 
-Benefits of `OnRead`
+### Customization
 
-* Flexibility and customization
-* The component relies on the application for all data operations.
+`OnRead` allows full control over the data operations. For example, it is possible to use custom sorting and filtering algoritms, if the built-in ones do not fit a given scenario. Here are just a few examples, but there are many more possible scenarios:
 
->warning Do not use the `OnRead` and `Data` together with the same component instance. This was possible only [before UI for Blazor version 3.0]({%slug changes-in-3-0-0%}#onread).
+* [Search by multiple data fields in ComboBox and DropDownList]({%slug dropdowns-kb-search-in-multiple-fields%})
+* [Search in hidden Grid columns]({%slug grid-kb-search-in-hidden-fields%})
+* [Debounce Grid data requests]({%slug grid-kb-debounce-operations%})
+* [Debounce ComboBox filter requests]({%slug combo-kb-debounce-onread%})
 
--->
+`OnRead` enables [data binding to **OData** services]({%slug common-kb-odata%}).
 
-## Getting Started
+In general, `OnRead` allows the application to know the exact data items, which the user is currently seeing.
+
+
+## Components with OnRead Event
+
+The following Blazor components expose an `OnRead` event. All of them also feature virtualization, except the **ListView**, because it relies on custom templates for data visualization.
+
+Each link points to component-specific `OnRead` documentation and examples:
+
+* [AutoComplete]({%slug autocomplete-events%}#onread)
+* [ComboBox]({%slug components/combobox/events%}#onread)
+* [DropDownList]({%slug components/dropdownlist/events%}#onread)
+* [Grid]({%slug components/grid/manual-operations%})
+* [ListView]({%slug listview-manual-operations%})
+* [MultiSelect]({%slug multiselect-events%}#onread)
+
+Components like the [**TreeList**]({%slug treelist-data-binding-load-on-demand%}) and the [**TreeView**]({%slug components/treeview/data-binding/load-on-demand%}) don't have an `OnRead` event. Instead, they load data on demand via `OnExpand` events.
+
+
+## Event Argument
+
+The `OnRead` event handler receives an argument, which inherits from [`ReadEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.ReadEventArgs). The exact type depends on the component. For example, the Grid handler receives `GridReadEventArgs`. The ComboBox handler receives `ComboBoxReadEventArgs`, and so on.
+
+The event argument object has the following properties:
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `Request` | `DataSourceRequest` | This is the [`DataSourceRequest` object](/blazor-ui/api/Telerik.DataSource.DataSourceRequest), which carries information about the requested data items. It will reveal the page index or virtual scroll offset, the sorting and filtering state, etc. |
+| `Data` | `IEnumerable` | Set it to the **chunk** of data items, which the component will **render**. |
+| `Total` | `int` | Set it to the **total number** of items. This value will help the component generate its **pager** or **virtual scrollbar** correctly. |
+| `AggregateResults` | `IEnumerable<AggregateResult>` | This property is used only by the **Grid** and exists in the [`GridReadEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.GridReadEventArgs) type. Set it to [aggregate values](/blazor-ui/api/Telerik.DataSource.AggregateResult) for the whole data. |
+
+>caption Using DataSourceRequest properties
+
+<div class="skip-repl"></div>
+
+````CS
+async Task GridReadHandler(GridReadEventArgs args)
+{
+    // What is the new page?
+    // args.Request.Page
+
+    // What is the page size (how many items to return)?
+    // args.Request.PageSize
+
+    // How many rows the user has scrolled in virtual scenarios?
+    // args.Request.Skip
+}
+````
+
+>tip The [`DataSourceRequest` object can be serialized and sent to the remote server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server). **Use the `System.Text.Json` serializer**.
+
+
+## ToDataSourceResult Method
+
+The `DataSourceRequest` object provides information about the needed data. The question is how to retrieve this data most easily. Sometimes `OnRead` data binding is called "manual", but in most cases it doesn't have to be manual at all. The solution is **`ToDataSourceResult`**.
+
+The `ToDataSourceResult` extension method is able to extract the requested data items from `IEnumerable`, `IQueryable` and `DataTable`. The method is part of the [Telerik DataSource Extensions](/blazor-ui/api/Telerik.DataSource.Extensions.QueryableExtensions). It expects a `DataSourceRequest` argument.
+
+`ToDataSourceResult` returns a [`DataSourceResult` object](/blazor-ui/api/Telerik.DataSource.DataSourceResult). Its most important properties are:
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `Data` | `IEnumerable` | The chunk (page) of data items to render. All data operations are already applied (sorting, filtering, etc.) |
+| `Total` | `int` | The total number of items in the datasource. |
+
+The `Data` and `Total` properties of the `DataSourceRequest` and `DataSourceResult` match, and allow easy value assignment:
+
+>caption Using ToDataSourceResult
+
+<div class="skip-repl"></div>
+
+````CS
+IEnumerable<GridModel> AllGridData { get; set; }
+
+async Task GridReadHandler(GridReadEventArgs args)
+{
+    DataSourceResult result = AllGridData.ToDataSourceResult(args.Request);
+
+    args.Data = result.Data;
+    args.Total = result.Total;
+}
+````
+
+**`ToDataSourceResultAsync`** is the awaitable (asynchronous) alternative of `ToDataSourceResult`.
+
+>tip It is possible to use `DataSourceRequest`, `ToDataSourceResult` and `ToDataSourceResultAsync` in scenarios, which are not related to a specific Telerik component.
+
+
+## Example
+
+Let's imagine that our datasource contains 1,000 items, and we want to send only one page of items to a Grid.
 
 1. Import the `Telerik.DataSource.Extensions` namespace.
-1. Set the component's `TItem` parameter to the model type.
-1. Set the component's `TValue` parameter to the value type. Does not apply to the Grid and ListView.
-1. Subscribe to the `OnRead` event.
-1. In the event handler, set the `Data` property of the event argument to the data items to render.
-1. Set the `Total` property of the event argument to the total number of data items.
-
-More information about [`args.Request`](#event-argument) and [`ToDataSourceResult`](#todatasourceresult-method) is available below.
+1. Set the Grid's `TItem` parameter to the model type. (Some components require a `TValue` parameter to define the value type, but not the Grid. Use `TValue` with the AutoComplete, ComboBox, DropDownList, and MultiSelect.)
+1. Subscribe to the `OnRead` event. The event handler receives a `GridReadEventArgs` object. Let's name it `args`.
+1. Use `args.Request` and `ToDataSourceResult()` to get one page of Grid data. The data may be filtered and sorted, based on the user's actions.
+1. Set `args.Data` to the data items to render.
+1. Set `args.Total` to the total number of data items (1000).
 
 >caption Using the OnRead event
 
@@ -66,17 +169,24 @@ More information about [`args.Request`](#event-argument) and [`ToDataSourceResul
              AutoGenerateColumns="true"
              Sortable="true"
              Pageable="true"
-             FilterMode="@GridFilterMode.FilterRow" />
+             FilterMode="@GridFilterMode.FilterRow"
+             Height="400px" />
+
+<p> OnGridRead fired at: @LastOnRead </p>
 
 @code {
     List<SampleModel> GridData { get; set; }
 
+    string LastOnRead { get; set; }
+
     async Task OnGridRead(GridReadEventArgs args)
     {
         var result = GridData.ToDataSourceResult(args.Request);
-
         args.Data = result.Data;
         args.Total = result.Total;
+
+        var now = DateTime.Now;
+        LastOnRead = now.ToLongTimeString() + "." + now.Millisecond;
     }
 
     protected override void OnInitialized()
@@ -90,11 +200,9 @@ More information about [`args.Request`](#event-argument) and [`ToDataSourceResul
     {
         GridData = new List<SampleModel>();
 
-        var rnd = new Random();
-
         for (int i = 1; i <= 1000; i++)
         {
-            GridData.Add(new SampleModel() { Id = i, Text = $"Text {rnd.Next(1, 100)}" });
+            GridData.Add(new SampleModel() { Id = i, Text = $"Grid Text {i}" });
         }
     }
 
@@ -107,61 +215,13 @@ More information about [`args.Request`](#event-argument) and [`ToDataSourceResul
 ````
 
 
-## Components with OnRead Event
-
-The following Telerik Blazor components expose an `OnRead` event. All of them also feature virtualization, except the ListView, because it always relies on custom templates for data visualization.
-
-Each link points to component-specific `OnRead` documentation and examples:
-
-* [AutoComplete]({%slug autocomplete-events%}#onread)
-* [ComboBox]({%slug components/combobox/events%}#onread)
-* [DropDownList]({%slug components/dropdownlist/events%}#onread)
-* [Grid]({%slug components/grid/manual-operations%})
-* [ListView]({%slug listview-manual-operations%})
-* [MultiSelect]({%slug multiselect-events%}#onread)
-
-Components like the [**TreeList**]({%slug treelist-data-binding-load-on-demand%}) and the [**TreeView**]({%slug components/treeview/data-binding/load-on-demand%}) don't have an `OnRead` event. Instead they can load data on demand via `OnExpand` events.
-
-
-## Event Argument
-
-The `OnRead` event handler will receive an argument, which inherits from [`ReadEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.ReadEventArgs). The event argument object has the following properties:
-
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
-
-| Property Name | Type | Description |
-| --- | --- | --- |
-| `Request` | `DataSourceRequest` | This is the [`DataSourceRequest` object](/blazor-ui/api/Telerik.DataSource.DataSourceRequest), which carries information about the requested data items. It will reveal the page index or virtual scroll offset, the sorting and filtering state, etc. |
-| `Data` | `IEnumerable` | Set it to the **chunk** of data items, which the component will **render**. |
-| `Total` | `int` | Set it to the **total number** of items. This value will help the component generate its **pager** or **virtual scrollbar** correctly. |
-| `AggregateResults` | `IEnumerable<AggregateResult>` | This property is used only by the **Grid** and exists in the [`GridReadEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.GridReadEventArgs) type. Set it to [aggregate values](/blazor-ui/api/Telerik.DataSource.AggregateResult) for the whole data. |
-
->tip The [`DataSourceRequest` object can be serialized and sent to the remote server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server). **Use the `System.Text.Json` serializer**.
-
-
-## ToDataSourceResult Method
-
-The `DataSourceRequest` object provides information about the needed data. The question is how to retrieve this data most easily. Sometimes `OnRead` data binding is called "manual", but in most cases it doesn't have to be manual at all.
-
-The `ToDataSourceResult` extension method is able to extract the requested data items from `IEnumerable`, `IQueryable` and `DataTable`. The method is part of the [Telerik DataSource Extensions](/blazor-ui/api/Telerik.DataSource.Extensions.QueryableExtensions). It expects a `DataSourceRequest` argument.
-
-**`ToDataSourceResultAsync`** is the awaitable (asynchronous) alternative of `ToDataSourceResult`.
-
->tip It is possible to use `DataSourceRequest`, `ToDataSourceResult` and `ToDataSourceResultAsync` in scenarios, which are not related to a specific Telerik component.
-
-
 ## Refresh Data
 
 The components fire an `OnRead` event when the user performs an action, such as paging, sorting, virtual scrolling, etc. Calling the `OnRead` handler manually will not have effect, because the component will not be tracking the method arguments.
 
 All components with an `OnRead` event have a `Rebind` method as well. To refresh the component data programmatically, call this method. It will force the component to fire `OnRead` and receive new data.
 
->caption Rebind DropDownList and Grid via OnRead
+>caption Rebind DropDownList and Grid when using OnRead
 
 ````CSHTML
 @using Telerik.DataSource.Extensions
