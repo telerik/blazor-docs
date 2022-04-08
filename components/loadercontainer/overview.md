@@ -13,7 +13,7 @@ position: 0
 The <a href = "https://www.telerik.com/blazor-ui/loader-container" target="_blank">Blazor LoaderContainer</a> provides an animated indicator, a panel, and an overlay that can be used when the application is performing a time-consuming background operation, for example loading data.
 
 
-## Comparison with the LoaderContainer
+## Comparison with the Loader
 
 The **LoaderContainer** is designed to cover a whole component, HTML element, or the whole page. On the other hand, the [**Loader** component]({%slug loader-overview%}) is more suitable for showing a loading indicator in a smaller area of the page and without an overlay.
 
