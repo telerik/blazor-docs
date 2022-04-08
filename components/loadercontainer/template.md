@@ -14,18 +14,18 @@ The `Template` allows you to control the rendering of the LoaderContainer. When 
 
 This article provides examples that show how to:
 
-* [Create a Custom LoaderContainer](#create-a-custom-loader-container)
+* [Create a Custom LoaderContainer](#create-a-custom-loadercontainer)
 * [Implement a Custom Panel](#implement-a-custom-panel)
 
 
-### Create a Custom LoaderContainer
+## Create a Custom LoaderContainer
 
 This example shows how to change the contents of the loading text and animation that are shown by default. Once you set the template up, the default white background of that container will be gone so you can have full control over its appearance.
 
 ````CSHTML
 @* Customize the LoaderContainer content using its Template *@
 
-<TelerikLoaderContainer Visible="@true">
+<TelerikLoaderContainer Visible="@(GridData == null ? true : false)">
     <Template>
         <TelerikLoader></TelerikLoader>
         <div>
@@ -76,7 +76,7 @@ This example shows how to change the contents of the loading text and animation 
 
 ![](images/loadercontainer-template-basic.png)
 
-### Implement a Custom Panel
+## Implement a Custom Panel
 
 You can use CSS to target the DOM elements that create the Panel around the template so you can style them as required. By default, the Panel is white to contrast with the default dark overlay. This example shows how you can customize its color and content.
 
@@ -91,7 +91,7 @@ You can use CSS to target the DOM elements that create the Panel around the temp
     }
 </style>
 
-<TelerikLoaderContainer Class="my-loader-container" Visible="@true">
+<TelerikLoaderContainer Class="my-loader-container" Visible="@(GridData == null ? true : false)">
     <Template>
         <TelerikLoader ThemeColor="light"></TelerikLoader>
         <div>

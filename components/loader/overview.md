@@ -12,176 +12,80 @@ position: 0
 
 This article provides information about the <a href = "https://www.telerik.com/blazor-ui/loader" target="_blank">Blazor Loader component</a> and its core features.
 
-The Loader component provides an animated indicator that you can use to show your users that the app is working on something and they should wait.
+The Loader component displays an animated loading indicator, which shows users that the app is working on something in the background. The component provides a variety of predefined animated graphics, colors and sizes.
 
-## Basic Loading Indicator
 
-To add a Telerik Loader to your Blazor app, use the `<TelerikLoader>` tag and show it when needed by your app. You can also control its [visual appearance]({%slug loader-appearance%}) through parameters.
+## Comparison with the LoaderContainer
 
-![](images/loader-overview.gif)
+The **Loader** is placed inside another component or HTML element. Typically, it occupies a relatively small area. On the other hand, the [**LoaderContainer** component]({%slug loadercontainer-overview%}) can cover a bigger part of the page or the whole viewport with a semi-transparent overlay and a loading animation.
+
+
+## Creating Blazor Loader
+
+1. Use the `<TelerikLoader>` tag.
+1. Set the `Visible` parameter to a `bool` property.
+1. (optional) Set the `Type` parameter to a member of the `LoaderType` enum.
+1. (optional) Set the `Size` parameter to a property of the static class `ThemeConstants.Loader.Size`.
+1. (optional) Set the `ThemeColor` parameter to a property of the static class `ThemeConstants.Loader.ThemeColor`.
+
+>caption Blazor Loader with non-default appearance settings
 
 ````CSHTML
-@if (IsLoading)
-{
-    <TelerikLoader />
-}
-else
-{
-    @Data
-}
+<TelerikButton OnClick="@( _ => LoaderVisible = !LoaderVisible )">Toggle Loader</TelerikButton>
+
+<TelerikLoader Visible="@LoaderVisible"
+               Size="@ThemeConstants.Loader.Size.Large"
+               ThemeColor="@ThemeConstants.Loader.ThemeColor.Tertiary"
+               Type="@LoaderType.ConvergingSpinner" />
+
+<p>Default settings (Medium size, Primary color, Pulsing type):</p>
+
+<TelerikLoader Visible="@LoaderVisible" />
 
 @code {
-    public bool IsLoading { get; set; }
-    public string Data { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await LoadData();
-    }
-
-    async Task LoadData()
-    {
-        IsLoading = true;
-        await Task.Delay(2000);
-        IsLoading = false;
-        Data = "Your data goes here";
-    }
+    bool LoaderVisible { get; set; } = true;
 }
 ````
 
-## Visible Parameter
+> Do not show or hide the Loader programmatically in a method, which is blocking the UI thread. If this happens, the Loader may not appear when expected.
 
-You can control whether the indicator is shown through its `Visible` parameter. This can be useful for integrating it into other components and/or for shortening the razor syntax.
 
->caption Loading indicator in a single click button
+## Appearance
 
-![single click button integration](images/loader-visible-parameter-integration.gif)
+The Blazor Loader component provides [appearance settings for size, color and loading animation type]({%slug loader-appearance%}).
 
-````CSHTML
-@* Toggling the Loader and the Enabled state of the button through a single flag while working lets you implement a single-click button with a loading indicator *@
 
-<TelerikButton ThemeColor="primary" OnClick="@GenerateReport" Enabled="@(!IsGeneratingReport)">
-    <TelerikLoader Visible="@IsGeneratingReport" ThemeColor="light"></TelerikLoader>
-    @( IsGeneratingReport ? "Generating Report" : "Generate Report" )
-</TelerikButton>
+## Using In Other Components
 
-@code {
-    public bool IsGeneratingReport { get; set; }
+It is possible to place the Loader component inside another component for better user experience. Here is an [example that integrates the Loader inside a Button]({%slug loader-kb-inside-button%}).
 
-    public async Task GenerateReport()
-    {
-        IsGeneratingReport = true;
-        await Task.Delay(2000); // do actual work here
-        IsGeneratingReport = false;
-    }
-}
-````
 
-## Sample Loading Panel
+## Loader Parameters
 
-The `TelerikLoader` component is an animated icon that use can use in your apps. Sometimes, however, you may want to overlay a lot of content with a panel to show the user something is happening with it and to prevent an interaction with it. For example, while fetching data for a grid.
-
-You can devise such a loading panel as needed by your app, and place a Telerik Loading Indicator inside to show the user something is happening. An example follows.
-
->caption Sample Loading Panel used twice in bootstrap columns
-
-![sample loading panel](images/loading-panel-sample.gif)
-
-````CSHTML
-@* for a real case - adjust styling as needed, and extract into a separate component and add the CSS rules to your site stylesheet *@
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            @if (isLoadingData)
-            {
-                @* sample loading panel, styles are at the end *@
-                <div class="loading-panel-wrapper">
-                    <div class="loading-panel-overlay"></div>
-                    <TelerikLoader Size="@ThemeConstants.Loader.Size.Large" Type="@LoaderType.ConvergingSpinner" ThemeColor="@ThemeConstants.Loader.ThemeColor.Tertiary" />
-                </div>
-            }
-            <TelerikGrid Data="@GridData" Height="500px" Pageable="true" AutoGenerateColumns="true">
-            </TelerikGrid>
-        </div>
-        <div class="col">
-            @if (isLoadingData)
-            {
-                @* In a real app, you should make this a component and put its styles in the app stylesheet
-                    here we just copy it to showcase the concept of showing a loading sign *@
-                <div class="loading-panel-wrapper">
-                    <div class="loading-panel-overlay"></div>
-                    <TelerikLoader Size="@ThemeConstants.Loader.Size.Large" Type="@LoaderType.ConvergingSpinner" ThemeColor="@ThemeConstants.Loader.ThemeColor.Tertiary" />
-                </div>
-            }
-            <p>some other content</p>
-            <TelerikButton OnClick="@FetchData">Reload data</TelerikButton>
-        </div>
-    </div>
-</div>
-
-@code {
-    bool isLoadingData { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await FetchData();
-    }
-
-    async Task FetchData()
-    {
-        Console.WriteLine("called");
-        isLoadingData = true;
-        await Task.Delay(2000); // simulate long operation
-        GridData = Enumerable.Range(1, 30).Select(x => new SampleData
-        {
-            Id = x,
-            Name = "name " + x,
-            Team = "team " + x % 5,
-            HireDate = DateTime.Now.AddDays(-x).Date
-        });
-        isLoadingData = false;
-    }
-
-    public IEnumerable<SampleData> GridData { get; set; } = Enumerable.Empty<SampleData>();
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
+The following table lists the Loader parameters. Also check the [Loader API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikLoader).
 
 <style>
-    .loading-panel-wrapper {
-        /* size and appearance that try to match its container with as little CSS as possible,
-           you can alter them as necessary for your use case and as per your preferences 
-        */
-        width: 100%;
-        height: 100%;
-        min-height: 200px;
-        position: absolute;
-        z-index: 123456;
-        /* one way center the loading indicator inside */
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
     }
-
-        .loading-panel-wrapper .loading-panel-overlay {
-            background: gray;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0.5;
-        }
 </style>
-````
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-loader">` element. Use it to [override theme styles]({%slug themes-override%}). |
+| `Size` | `string`<br />(`"md"`) | Sets the [size of the animated graphic]({%slug loader-appearance%}#size). For convenience, use the members of the static class [`ThemeConstants.Loader.Size`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Loader.Size). |
+| `ThemeColor` | `string`<br />(`"primary"`) | Sets the [color of the animated graphic]({%slug loader-appearance%}#themecolor). For convenience, use the members of the static class [`ThemeConstants.Loader.ThemeColor`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Loader.ThemeColor). |
+| `Type`| `LoaderType` enum<br />(`Pulsing`) | Defines the [loading animation shape]({%slug loader-appearance%}#type). |
+| `Visible` | `bool`<br /> (`true`) | Sets if the Loader is rendered on the page. |
+
+
+## Next Steps
+
+* [Explore the Loader Appearance Settings]({%slug loader-appearance%})
+
 
 ## See Also
 
-  * [Live Demo: Loader](https://demos.telerik.com/blazor-ui/loader/overview)
-  * [Appearance Settings]({%slug loader-appearance%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikLoader)
-   
+* [Live Demo: Loader](https://demos.telerik.com/blazor-ui/loader/overview)
+* [Loader API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikLoader)

@@ -10,26 +10,28 @@ position: 5
 
 # Appearance Settings
 
-The LoaderContainer component provides the several parameters that control various aspects of its appearance - indicator size, color and position, overlay color:
+This article explains how to control the LoaderContainer look and feel.
 
-* [LoaderContainer Specific](#loadercontainer-specific)
-    * [OverlayThemeColor](#overlaythemecolor)
-    * [LoaderPosition](#loaderposition)
-* [Shared with the Loader Component](#shared-with-the-loader-component)
-    * [Type](#type)
-    * [Size](#size)
-    * [ThemeColor](#themecolor)
+The LoaderContainer component provides multiple parameters that control its appearance:
+
+* [OverlayThemeColor](#overlaythemecolor)
+* [LoaderPosition](#loaderposition)
+
+The LoaderContainer uses a nested internal [Loader component]({%slug loader-overview%}) to show the animated indicator. The LoaderContainer exposes parameters, which directly control the Loader's apparance:
+
+* [LoaderType](#loadertype)
+* [Size](#size)
+* [ThemeColor](#themecolor)
     
-You can see the appearance settings in action in the [LoaderContainer Customization](https://demos.telerik.com/blazor-ui/loadercontainer/customization) Live Demo.
+You can see the appearance settings in action in the [LoaderContainer Appearance live demo](https://demos.telerik.com/blazor-ui/loadercontainer/appearance).
 
-## LoaderContainer Specific
 
-### OverlayThemeColor
+## OverlayThemeColor
 
-The `OverlayThemeColor` parameter controls the color of the overlay for the LoaderContainer. It takes a string from the options below. If you provide a `String.Empty`, `null` or invalid option (not listed below) the color of the overlay will be `transparent`.
+The `OverlayThemeColor` parameter sets the color of the LoaderContainer's semi-transparent overlay. It takes a string from the options below. To make the overlay fully transparent, set the value to `String.Empty` or `null`.
 
-* `dark` - the default background color - black with opacity.
-* `light` - white background color with opacity
+* `"dark"` (default) - black semi-transparent background
+* `"light"` - white background color with opacity
 
 >caption Change the OverlayThemeColor
 
@@ -46,7 +48,7 @@ The `OverlayThemeColor` parameter controls the color of the overlay for the Load
             This is some text to showcase the dark overlay theme color
         </div>
     </div>
-    <div class="col-4" style="position: relative">
+    <div class="col-4" style="position: relative; height: 200px">
         <TelerikLoaderContainer OverlayThemeColor="light"></TelerikLoaderContainer>
 
         <div>
@@ -56,11 +58,11 @@ The `OverlayThemeColor` parameter controls the color of the overlay for the Load
 </div>
 ````
 
-### LoaderPosition
+## LoaderPosition
 
-The `LoaderPosition` parameter controls the position of the loading indicator against the `Text` parameter. There are three predefined options which are members of the `LoaderPosition` enum:
+The `LoaderPosition` parameter controls the position of the animated loading indicator in relation to the loading `Text`. There are three predefined options, which are members of the `LoaderPosition` enum:
 
-* `Top` - the default position - the loading animation is above the text
+* `Top` (default) - the loading animation is above the text
 * `Start` - the loading animation is to the left of the text
 * `End` - the loading animation is to the right of the text
 
@@ -73,10 +75,10 @@ The `LoaderPosition` parameter controls the position of the loading indicator ag
     <div class="col-4" style="position: relative; height: 200px">
         <TelerikLoaderContainer LoaderPosition="@LoaderPosition.Top"></TelerikLoaderContainer>
     </div>
-    <div class="col-4" style="position: relative">
+    <div class="col-4" style="position: relative; height: 200px">
         <TelerikLoaderContainer LoaderPosition="@LoaderPosition.Start"></TelerikLoaderContainer>
     </div>
-    <div class="col-4" style="position: relative"> 
+    <div class="col-4" style="position: relative; height: 200px"> 
         <TelerikLoaderContainer LoaderPosition="@LoaderPosition.End"></TelerikLoaderContainer>
     </div>
 </div>
@@ -84,43 +86,84 @@ The `LoaderPosition` parameter controls the position of the loading indicator ag
 
 ![](images/loadercontainer-loader-position.png)
 
-## Shared with the Loader Component
 
-The `LoaderContainer` utilizes the [Loader]({%slug loader-overview%}) component internally to provide the animated indicator. Because of that, the `LoaderContainer` and the `Loader` share appearance settings which you can use to style the loading indicator. 
+## LoaderType
 
+The `LoaderType` parameter of the LoaderContainer will affect the shape of animated loading indicator. The parameter works only when there is **no** [`<Template>`]({%slug loadercontainer-template%}).
 
->caption Setup the appearance settings for the LoaderContainer related to the loader animation
+See the [Loader `Type` documentation]({%slug loader-appearance%}#type) for the possible values and how the component looks.
 
-````CSHTML
-@*Customize the appearance of the LoaderContainer using the exposed parameters*@
+>caption Setting TelerikLoaderContainer LoaderType
 
-<TelerikLoaderContainer LoaderType="@LoaderType.InfiniteSpinner"
-                        LoaderPosition="@LoaderPosition.Start"
-                        Size="@ThemeConstants.Loader.Size.Small"
-                        ThemeColor="info">
-</TelerikLoaderContainer>
+````HTML
+<TelerikLoaderContainer LoaderType="@LoaderType.InfiniteSpinner" />
 ````
 
-The following parameters are shared with the Loader component and the examples below showcase their behavior in isolation:
 
-* [Type](#type)
-* [Size](#size)
-* [ThemeColor](#themecolor)
+## Size
+
+The `Size` parameter of the LoaderContainer will affect the dimensions of animated loading indicator. The parameter works only when there is **no** [`<Template>`]({%slug loadercontainer-template%}).
+
+See [Loader `Size`]({%slug loader-appearance%}#size) for a list of possible values and how to set them more easily.
+
+>caption Setting TelerikLoaderContainer Size
+
+````HTML
+<TelerikLoaderContainer Size="@ThemeConstants.Loader.Size.Large" />
+````
 
 
-### Type
+## ThemeColor
 
-@[template](/_contentTemplates/loaders/type.md#loaders-type)
+The `ThemeColor` parameter of the LoaderContainer will affect the text color and the loading indicator color. The parameter works only when there is **no** [`<Template>`]({%slug loadercontainer-template%}).
 
-### Size
+See [Loader `ThemeColor`]({%slug loader-appearance%}#themecolor) for a list of possible values and how the component looks.
 
-@[template](/_contentTemplates/loaders/size.md#loaders-size)
+>caption Setting TelerikLoaderContainer ThemeColor
 
-### ThemeColor
+````HTML
+<TelerikLoaderContainer ThemeColor="@ThemeConstants.Loader.ThemeColor.Info" />
+````
 
-@[template](/_contentTemplates/loaders/themeColor.md#loaders-theme-color)
+### Custom LoaderContainer Colors
+
+The following example shows [how to override the CSS styles in the theme]({%slug themes-override%}) and apply custom colors to all LoaderContainer elements.
+
+>caption Custom LoaderContainer colors
+
+````HTML
+<TelerikLoaderContainer Class="custom-loading-colors" />
+
+<style>
+    /* overlay */
+    .custom-loading-colors .k-loader-container-overlay {
+        background-color: yellow;
+    }
+
+    /* panel */
+    .custom-loading-colors .k-loader-container-panel {
+        background-color: pink;
+    }
+
+    /* animation */
+    .custom-loading-colors .k-loader {
+        color: blue;
+    }
+
+    /* text */
+    .custom-loading-colors .k-loader-container-label {
+        color: purple !important;
+        font-weight: bold;
+    }
+</style>
+````
+
+
+## Next Steps
+
+* [Experiment with LoaderContainer templates]({%slug loadercontainer-template%})
+
 
 ## See Also
 
-  * [Live Demo: LoaderContainer](https://demos.telerik.com/blazor-ui/loadercontainer/overview)
-  * [Live Demo: LoaderContainer Customization](https://demos.telerik.com/blazor-ui/loadercontainer/customization)
+* [Live Demo: LoaderContainer Apprearance](https://demos.telerik.com/blazor-ui/loadercontainer/appearance)

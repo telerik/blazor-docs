@@ -10,105 +10,100 @@ position: 0
 
 # Blazor LoaderContainer Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/loader-container" target="_blank">Blazor LoaderContainer</a> provides an animated indicator, a panel, and an overlay that can be used when the application is performing a time-consuming operation, for example, loading data.
+The <a href = "https://www.telerik.com/blazor-ui/loader-container" target="_blank">Blazor LoaderContainer</a> provides an animated indicator, a panel, and an overlay that can be used when the application is performing a time-consuming background operation, for example loading data.
 
-#### In This Article
 
-* [Basic Loader Container](#basic-loadercontainer)
-* [Features](#features)
-* [Examples](#examples)
-    * [Block All Content](#block-all-content)
-    * [Remove the Panel from the LoaderContainer](#remove-the-panel-from-the-loadercontainer)
-    * [Fill a Parent Container](#fill-a-parent-container)
+## Comparison with the Loader
 
-## Basic LoaderContainer
+The **LoaderContainer** is designed to cover a whole component, HTML element, or the whole page. On the other hand, the [**Loader** component]({%slug loader-overview%}) is more suitable for showing a loading indicator in a smaller area of the page and without an overlay.
 
-To add a Telerik LoaderContainer to your Blazor application, use the `<TelerikLoaderContainer>` tag and show it when needed by your app by using its `Visible` parameter. You can also control its [visual appearance]({%slug loadercontainer-appearance%}) through parameters and customize it by using the [Template]({%slug loadercontainer-template%}).
 
-![](images/loadercontainer-overview-basic-example.gif)
+## Creating LoaderContainer
+
+1. Use the `<TelerikLoaderContainer>` tag.
+1. Set the `Visible` parameter to a `bool` property or expression.
+1. (optional) Set the `Text` parameter to a `string`.
+
+>caption Basic LoaderContainer
 
 ````CSHTML
-@*Show the LoaderContainer until the initial data for the Grid is loaded. The grid has its own loading animation for subsequent slow data operations*@
+<p> Data Count: @Data?.Count </p>
 
-<TelerikLoaderContainer Visible="@(GridData == null ? true: false)"></TelerikLoaderContainer>
-
-<TelerikGrid Data="@GridData" AutoGenerateColumns="true"
-             Pageable="true" PageSize="4" Width="700px">
-</TelerikGrid>
+<TelerikLoaderContainer Visible="@( Data == null )" Text="Please wait..." />
 
 @code {
-    public List<GridDataModel> GridData { get; set; }
-    public class GridDataModel
-    {
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string EmailAddress { get; set; }
-        public DateTime? RegistrationDate { get; set; }
-        public DateTime? LocalTime { get; set; }
-    }
-
-    public List<GridDataModel> GenerateGridData()
-    {
-        var data = Enumerable.Range(1, 15).Select(i => new GridDataModel()
-        {
-            Id = i,
-            Username = $"Username {i}",
-            EmailAddress = $"user{i}@mail.com",
-            RegistrationDate = DateTime.Now.AddDays(-2),
-            LocalTime = DateTime.Now
-        }).ToList();
-
-        return data;
-    }
+    List<string> Data { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(3000); // simulate slow loading of the initial data
-        GridData = GenerateGridData();
+        await Task.Delay(3000); // simulate slow loading of data
+
+        Data = Enumerable.Range(1, 10).Select(x => $"data item {x}").ToList();
     }
 }
 ````
 
->note By default the loader container will fill up the browser viewport. If you want to hide only a specific element, see the [Fill a Parent Container](#fill-a-parent-container) section below.
+> Do not show or hide the LoaderContainer programmatically in a method, which is blocking the UI thread. If this happens, the LoaderContainer may not appear when expected.
 
-## Features
-
-The LoaderContainer provides the following features:
-
-* `Class` - `string` - the custom CSS class that will be rendered on the main wrapping element of the LoaderContainer component. You can use this parameter to make the cascading of CSS rules easier.
-
-* `Visible` - `bool`, defaults to `true` - controls whether the LoaderContainer is visible. 
-
-* `Text` - `string`, defaults to `Loading...` - the text that will appear next to the loading indicator. If this parameter is set to `null` or `String.Empty` the HTML element that hosts the string will not be rendered.
-
-* `ThemeColor` - `string` - controls the color of the loader indicator. See the [Appearance]({%slug loadercontainer-appearance%}) article for more information and examples.
-
-* `OverlayThemeColor` - `string` - configures the color of the overlay. See the [Appearance]({%slug loadercontainer-appearance%}) article for more information and examples.
-
-* `LoaderType` - `enum` - controls the shape of the loader indicator. Takes a member of the `Telerik.Blazor.Component.LoaderType` enum. See the [Appearance]({%slug loadercontainer-appearance%}) article for more information and examples.
-
-* `Size` - `string` - controls the size of the loader indicator, when a `Template` is *not* used. Use a static property from the `ThemeConstants.Loader.Size` class - `Size.Small`, `Size.Medium` (default) or `Size.Large`. See the [Appearance]({%slug loadercontainer-appearance%}) article for more information and examples.
-
-* `LoaderPosition` - `enum` - configures the position of the loader indicator against the `Text` parameter. Takes a member of the `Telerik.Blazor.Components.LoaderPosition`. You can find more information and examples in the [Appearance]({%slug loadercontainer-appearance%}) article.
+>note By default, the Loader Container will fill up the browser viewport. To overlay only a specific element, see the [Fill a Parent Container](#fill-a-parent-container) section below.
 
 
->caption Component namespace and reference
+## Appearance
 
-````CSHTML
-@*Get a reference to the LoaderContainer*@
+The Blazor LoaderContainer provides various [settings for its visual appearance]({%slug loadercontainer-appearance%}):
 
-<TelerikLoaderContainer @ref="@telerikLoaderReference"></TelerikLoaderContainer>
+* overlay color
+* graphic and text position
+* loading animation type
+* size
+* text and graphic color
 
-@code{
-    Telerik.Blazor.Components.TelerikLoaderContainer telerikLoaderReference { get; set; }
-}
+
+## Templates
+
+The LoaderContainer can display different nested content. Read more in the [LoaderContainer Template article]({%slug loadercontainer-template%}).
+
+
+## Fill a Parent Container
+
+The Blazor LoaderContainer can expand to fill only a specific parent container. To restrict the LoaderContainer within the parent's boundaries, set a `position: relative` CSS style to the parent element.
+
+>caption Use the LoaderContainer to fill a parent element
+
+````HTML
+<div style="position: relative; width: 600px; height: 400px;">
+    <TelerikLoaderContainer />
+</div>
 ````
+
+
+## LoaderContainer Parameters
+
+The following table lists the LoaderContainer parameters. Also check the [LoaderContainer API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikLoaderContainer).
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-loader-container">` element. Use it to [override theme styles]({%slug themes-override%}). See an example at [Custom LoaderContainer Colors]({%slug loadercontainer-appearance%}#custom-loadercontainer-colors). |
+| `OverlayThemeColor` | `string`<br />(`"dark"`) | Sets the [color of the semi-transparent overlay]({%slug loadercontainer-appearance%}#overlaythemecolor). Use `"light"` or ``"dark"``. |
+| `Size` | `string`<br />(`"md"`) | Sets the [size of the animated graphic]({%slug loadercontainer-appearance%}#size). For convenience, use the members of the static class [`ThemeConstants.Loader.Size`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Loader.Size). |
+| `Text` | `string`<br />(`"Loading..."`) | Sets the text below the loading animation. Set to `null` or `String.Empty` to remove the text and its containing HTML element. |
+| `ThemeColor` | `string`<br />(`"primary"`) | Sets the [color of the animated graphic and text]({%slug loadercontainer-appearance%}#themecolor). For convenience, use the members of the static class [`ThemeConstants.Loader.ThemeColor`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Loader.ThemeColor). |
+| `LoaderPosition`| `LoaderPosition` enum<br />(`Top`) | Defines the [loading animation position]({%slug loadercontainer-appearance%}#loaderposition) in relation to the loading text. |
+| `LoaderType`| `LoaderType` enum<br />(`Pulsing`) | Defines the [loading animation shape]({%slug loadercontainer-appearance%}#loadertype). |
+| `Visible` | `bool`<br />(`true`) | Controls if the LoaderContainer is rendered on the page. |
+
 
 ## Examples
 
 * [Block All Content](#block-all-content)
 * [Remove the Panel from the LoaderContainer](#remove-the-panel-from-the-loadercontainer)
-* [Fill a Parent Container](#fill-a-parent-container)
 
 ### Block All Content
 
@@ -122,91 +117,32 @@ So, if you want to make the loader container block all content on the app while 
 
 ### Remove the Panel from the LoaderContainer
 
-The panel is the white rectangular area that surrounds the loader indicator and the `Text` parameter of the component. By default, it is rendered to increase the contrast between the overlay and the rest of the component. In order to remove it, you can use some CSS rules as shown in the example below.
-
->note The panel will be rendered by default if you are using the [Template]({%slug loadercontainer-template%}).
+The panel is the white rectangular area that surrounds the animated loader indicator and the `Text`. Its purpose is to increase contrast and improve readability. To remove the white rectangle, use custom CSS code:
 
 ````CSHTML
-@*LoaderContainer with its most common features and removed panel with CSS.*@
+@* LoaderContainer with transparent panel *@
+
+<TelerikLoaderContainer Class="no-panel"
+                        ThemeColor="@ThemeConstants.Loader.ThemeColor.Dark" />
 
 <style>
-    .myLoaderContainer .k-loader-container-panel {
+    .no-panel .k-loader-container-panel {
         background-color: transparent;
-        border: 0px;
+        border-width: 0;
     }
 </style>
-
-<TelerikLoaderContainer Class="myLoaderContainer"
-                        Visible="@(GridData == null ? true: false)"
-                        Size="@ThemeConstants.Loader.Size.Large"
-                        Text="My custom loading text"
-                        ThemeColor="light">
-</TelerikLoaderContainer>
-
-<TelerikGrid Data="@GridData" AutoGenerateColumns="true"
-             Pageable="true" PageSize="4" Width="700px">
-</TelerikGrid>
-
-@code {
-    public List<GridDataModel> GridData { get; set; }
-    public class GridDataModel
-    {
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string EmailAddress { get; set; }
-        public DateTime? RegistrationDate { get; set; }
-        public DateTime? LocalTime { get; set; }
-    }
-
-    public List<GridDataModel> GenerateGridData()
-    {
-        var data = Enumerable.Range(1, 15).Select(i => new GridDataModel()
-        {
-            Id = i,
-            Username = $"Username {i}",
-            EmailAddress = $"user{i}@mail.com",
-            RegistrationDate = DateTime.Now.AddDays(-2),
-            LocalTime = DateTime.Now
-        }).ToList();
-
-        return data;
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await Task.Delay(6000);
-        GridData = GenerateGridData();
-    }
-}
 ````
 
-### Fill a Parent Container
-
-The LoaderContainer for Blazor can fill a parent container, for example a `div` or another wrapping HTML element. In order to signify to the component that it should fill its parent container you have to add the `position: relative` to the wrapping element.
-
-````CSHTML
-@*Wrap the LoaderContainer inside a div with fixed height and width*@
-
-<div style="height: 300px; width: 300px; position: relative">
-    <TelerikLoaderContainer></TelerikLoaderContainer>
-
-    The LoaderContainer will fill the parent div container
-</div>
-````
-
->caption The result from the code snippet above
-
-![](images/loadercontainer-fill-parent.png)
+>note The panel is not rendered when using a [LoaderContainer Template]({%slug loadercontainer-template%}).
 
 
+## Next Steps
 
-
-
+* [Check the LoaderContainer appearance settings]({%slug loadercontainer-appearance%})
+* [Experiment with LoaderContainer templates]({%slug loadercontainer-template%})
 
 
 ## See Also
 
-  * [Live Demo: LoaderContainer](https://demos.telerik.com/blazor-ui/loadercontainer/overview)
-  * [Appearance Settings]({%slug loadercontainer-appearance%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikLoaderContainer)
-   
+* [Live Demo: LoaderContainer](https://demos.telerik.com/blazor-ui/loadercontainer/overview)
+* [LoaderContainer API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikLoaderContainer)
