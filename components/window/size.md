@@ -14,7 +14,7 @@ The Window offers different ways for you to control its size:
 
 * [Set Width and Height](#set-width-and-height)
 * [Maximize and Minimize](#maximize-and-minimize)
-* [Resizable Window](#resizable-window)
+* [Resizing](#resizing)
 
 
 ## Set Width and Height
@@ -82,11 +82,11 @@ The developer can invoke those actions through binding the `State` parameter. It
 }
 ````
 
-## Resizable Window
+## Resizing
 
-By default the Window is resizable. It is possible to resize thw window's width and height. You can disable resize by setting its `Resizable` parameter to `false`.
+By default, the Window is resizable. To disable resizing, set the `Resizable` parameter to `false`.
 
->caption Make the Window Resizable
+>caption Window Resizing
 
 ````CSHTML
 @* Toggle the resizable parameter through a button *@
@@ -118,4 +118,4 @@ By default the Window is resizable. It is possible to resize thw window's width 
 
 ## See Also
 
-  * [Live Demo: Window Size](https://demos.telerik.com/blazor-ui/window/dimensions)
+* [Live Demo: Window Size](https://demos.telerik.com/blazor-ui/window/dimensions)

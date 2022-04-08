@@ -53,6 +53,10 @@ The Window component displays a popup window which shows users custom content. T
 }
 ````
 
+## Size
+
+The Window can occupy a predefined size on the screen, and allow the user to resize it. Learn more about the [Window features, related to size and resizing]({%slug components/window/size%}).
+
 ## Responsiveness
 
 The Window component can be fully responsive when the browser window size changes. Here is an [example that shows how to use the `Width` and `Height` parameters of the Window or through a separate CSS file.]({%slug window-kb-responsive%})
