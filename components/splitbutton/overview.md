@@ -90,6 +90,58 @@ The following table lists the SplitButton parameters, except those related to [b
 | `Title`| `string` | Sets the `title` attribute of the primary action element. |
 
 
+### Popup Settings
+
+The SplitButton exposes configuration settings for its dropdown (popup). The parameters should be set in a `<SplitButtonPopupSettings>` tag, which should be placed inside a `<SplitButtonSettings>` tag like this:
+
+<div class="skip-repl"></div>
+
+````HTML
+<TelerikSplitButton>
+    <SplitButtonSettings>
+        <SplitButtonPopupSettings Height="150px" />
+    </SplitButtonSettings>
+</TelerikSplitButton>
+````
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `AnimationDuration` | `int` <br /> (`300`) | Sets the dropdown animation duration in milliseconds. |
+| `Class` | `string` | Renders a custom CSS class to the dropdown container, which is `<div class="k-animation-container">`. |
+| `Height` | `string` <br /> (`"auto"`) | The dropdown height. If the items cannot fit, a vertical scrollbar will appear. If not set, the dropdown will expand, based on the number of items. |
+| `MaxHeight` | `string` | The maximum dropdown height, if an explicit height is not set. |
+| `MinHeight` | `string` | The minimum dropdown height, if an explicit height is not set. |
+| `Width` | `string` | The dropdown width. If not set, the dropdown will expand, based on the length of its items. |
+| `MaxWidth` | `string` | The maximum dropdown width, if an explicit width is not set. If there is a longer item, a horizontal scrollbar will show. |
+| `MinWidth` | `string` | The minimum dropdown width, if an explicit width is not set. |
+
+>tip As in standard CSS, the *min* and *max* settings take precedence over *width* and *height*.
+
+
+### Item Settings
+
+The following table lists the `SplitButtonItem` parameters, except those related to [icons]({%slug splitbutton-icons%}).
+
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders a custom CSS class to the dropdown item's element, which is `<li class="k-item k-menu-item">`. |
+| `Enabled` | `bool`<br />(`true`) | Enables or disables the item. |
+
+
 ## SplitButton Reference and Methods
 
 The SplitButton exposes a `FocusAsync` method to focus it programmatically. To use it, define a reference to the component instance with the `@ref` attribute.
