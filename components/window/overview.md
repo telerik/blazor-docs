@@ -12,16 +12,15 @@ position: 0
 
 This article provides basic information about the <a href="https://www.telerik.com/blazor-ui/window" target="_blank">Blazor Window component</a> and its core features.
 
-The Window component displays a popup window which shows users custom content. The component provides both custom and predefined actions, custom style, position and work as a modal window.
+The Window component displays a popup window, which shows users custom content. The component provides predefined titlebar actions such as close, minimize and maximize. Custom actions are also supported. Other Window features include modality, resizing, and position control.
 
 #### In this article:
 
-* [How to Create a Window](#create-a-window)
-* [Responsiveness](#responsiveness)
+* [How to create a Window](#create-a-window)
+* [Responsive example](#responsiveness)
 * [Parameters](#window-parameters)
-* [Show and Close](#show-and-close)
-* [Styling](#styling)
-* [Important Notes](#important-notes)
+* [Custom styling](#styling)
+* [Important notes](#important-notes)
 
 ## Creating Blazor Window
 
@@ -29,7 +28,7 @@ The Window component displays a popup window which shows users custom content. T
 1. Set the `Visible` parameter to a `bool` property.
 1. Add content to the `WindowContent` child tag.
 1. (optional) Add some title inside a `WindowTitle` tag. HTML markup and child components are supported too.
-1. (optional) Add the predefined [actions]({%slug components/window/actions%}) inside a `<WindowActions>` tag.
+1. (optional) Add a [`Close` action]({%slug components/window/actions%}) inside a `<WindowActions>` tag.
 
 >caption Basic Blazor Window
 
@@ -59,7 +58,7 @@ The Window can occupy a predefined size on the screen, and allow the user to res
 
 ## Responsiveness
 
-The Window component can be fully responsive when the browser window size changes. Here is an [example that shows how to use the `Width` and `Height` parameters of the Window or through a separate CSS file.]({%slug window-kb-responsive%})
+The Window component can be fully responsive when the browser window size changes. Here is an [example that shows how to achieve responsive behavior]({%slug window-kb-responsive%}). One way is to use the `Width` and `Height` parameters of the Window. Another option is to apply CSS styles.
 
 
 ## Window Parameters
@@ -79,50 +78,9 @@ The Window component can be fully responsive when the browser window size change
 | `Visible` | `bool` | Defines if the Window is rendered on the page. |
 
 
-## Show and Close
-
-The `Visible` property lets you control whether the window component is shown (and rendered).
-
->caption Bind the visibility of the window
-
-````CSHTML
-@*Use property binding to control the state of the window programmatically*@
-
-<button @onclick="ShowWindow">Show the Window</button>
-<button @onclick="CloseWindow">Close the Window</button>
-
-<TelerikWindow PersistContent="true" @bind-Visible="@isVisible">
-    <WindowTitle>
-        <strong>The Title</strong>
-    </WindowTitle>
-    <WindowContent>
-        This is my window <strong>popup</strong> content.
-    </WindowContent>
-    <WindowActions>
-        <WindowAction Name="Minimize"></WindowAction>
-        <WindowAction Name="Maximize"></WindowAction>
-        <WindowAction Name="Close"></WindowAction>
-    </WindowActions>
-</TelerikWindow>
-
-@code {
-    bool isVisible { get; set; }
-
-    public void ShowWindow()
-    {
-        isVisible = true;
-    }
-
-    public void CloseWindow()
-    {
-        isVisible = false;
-    }
-}
-````
-
 ## Styling
 
-The `Class` property lets you define a CSS class that will be rendered on the popup element so you can cascade through it in order to change the appearane of both the content, and the built-in elements of the Window.
+The `Class` property lets you define a CSS class that will be rendered on the popup element. You can cascade through it in order to change the appearane of both the content, and the built-in elements of the Window.
 
 >caption Use a Class to change the appearance and style of the Window
 
@@ -161,16 +119,18 @@ The `Class` property lets you define a CSS class that will be rendered on the po
 
 ![](images/window-custom-styling.png)
 
+
 ## Important Notes
 
-The Telerik Window component renders as a child of the `TelerikRootComponent` at the root of your app. This is required so it can show up and have correct positions without being affected and broken by parent elements and their CSS rules.
+The Telerik Window component renders as a child of the `TelerikRootComponent` at the root of the Blazor app. This is required so it can show over the other page content, and have correct position.
 
-In Blazor, however, the render tree structure may be important in some cases and the fact that the Window renders its contents in a different place may put you in one of the following situations:
+In Blazor, however, the render tree structure may be important. In some cases, the special Window placement may put you in one of the following situations:
 
-* [Returning data from a window does not update the parent]({%slug window-does-not-update-parent%})
-* [CascadingParameter Value is null in Window]({%slug window-cascading-parameter-null%})
-* [Using an EditContext for a form holding a window requires updating the EditContext]({%slug window-in-form-edit-context%})
+* [Returning data from a Window does not update the parent]({%slug window-does-not-update-parent%})
+* [CascadingParameter Value is null in the Window]({%slug window-cascading-parameter-null%})
+* [Using an EditContext for a form holding a Window requires updating the EditContext]({%slug window-in-form-edit-context%})
 * [Block all content with a Window]({%slug window-kb-block-all-content%})
+
 
 ## See Also
 

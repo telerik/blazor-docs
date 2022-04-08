@@ -1,6 +1,6 @@
 ---
 title: Size
-page_title: Window - Size
+page_title: Window Size
 description: How to control size of the Window for Blazor.
 slug: components/window/size
 tags: telerik,blazor,window,size
@@ -82,6 +82,9 @@ The developer can invoke those actions through binding the `State` parameter. It
 }
 ````
 
+>tip With a maximized window you may want to ensure all other content stays "behind" it. To do that, see the [Block all content with a Window]({%slug window-kb-block-all-content%}) article on ensuring that the CSS rules in the project can enable that.
+
+
 ## Resizing
 
 By default, the Window is resizable. To disable resizing, set the `Resizable` parameter to `false`.
@@ -114,7 +117,6 @@ By default, the Window is resizable. To disable resizing, set the `Resizable` pa
 }
 ````
 
->tip With a maximized window you may want to ensure all other content stays "behind" it. To do that, see the [Block all content with a Window]({%slug window-kb-block-all-content%}) article on ensuring that the CSS rules in the project can enable that.
 
 ## See Also
 
