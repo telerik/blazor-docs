@@ -30,11 +30,14 @@ Use your own NavLink elements for navigation instead of the built-in feature of 
             var shouldNavigate = !string.IsNullOrEmpty(item.Page);
             if (shouldNavigate)
             {
-                <NavLink href="@item.Page">@item.Section</NavLink>
+                @*k-menu-link-text will expand the NavLink to match default Menu styling*@
+                <NavLink href="@item.Page" class="k-menu-link-text">@item.Section</NavLink>
             }
             else
             {
-                <span style="font-weight: bold;">See more about our @item.Section.ToLowerInvariant()</span>
+                @*k-menu-link-text will expand the span to match default Menu styling*@
+                <span style="font-weight: bold;" class="k-menu-link-text">
+                    See more about our @item.Section.ToLowerInvariant()</span>
             }
         }
     </ItemTemplate>
@@ -53,12 +56,12 @@ Use your own NavLink elements for navigation instead of the built-in feature of 
     protected override void OnInitialized()
     {
         MenuItems = new List<MenuItem>()
-    {
+        {
             new MenuItem()
             {
                 Section = "Company",
                 SubSectionList = new List<MenuItem>()
-            {
+                {
                     new MenuItem()
                     {
                         Section = "Overview",
@@ -80,7 +83,7 @@ Use your own NavLink elements for navigation instead of the built-in feature of 
             {
                 Section = "Services",
                 SubSectionList = new List<MenuItem>()
-            {
+                {
                     new MenuItem()
                     {
                         Section = "Consulting",
@@ -110,7 +113,8 @@ Use your own NavLink elements for navigation instead of the built-in feature of 
         @{
             if (EqualityComparer<MenuItem>.Default.Equals(item, SelectedMenuItem))
             {
-                <span style="color: black; font-weight: bold">@item.Text</span>
+                @*k-menu-link-text will expand the span to match default Menu styling*@
+                <span style="color: black; font-weight: bold" class="k-menu-link-text">@item.Text</span>
             }
             else
             {
@@ -119,7 +123,8 @@ Use your own NavLink elements for navigation instead of the built-in feature of 
                 {
                     target = "_blank";
                 }
-                <NavLink target="@target" href="@item.Url" class="k-link k-menu-link">@item.Text</NavLink>
+                @*k-menu-link-text will expand the NavLink to match default Menu styling*@
+                <NavLink target="@target" href="@item.Url" class="k-menu-link-text">@item.Text</NavLink>
             }
         }
     </ItemTemplate>
@@ -194,8 +199,8 @@ Use your own NavLink elements for navigation instead of the built-in feature of 
         }
         return !(url.StartsWith("https://") || url.StartsWith("http://"));
     }
-	
-	public class MenuItem
+
+    public class MenuItem
     {
         public string Text { get; set; }
         public string Url { get; set; }
@@ -210,6 +215,5 @@ Use your own NavLink elements for navigation instead of the built-in feature of 
 
 ## See Also
 
-  * [Data Binding a Menu]({%slug components/menu/data-binding/overview%})
-  * [Live Demo: Menu Temlate](https://demos.telerik.com/blazor-ui/menu/template)
-
+* [Data Binding a Menu]({%slug components/menu/data-binding/overview%})
+* [Live Demo: Menu Temlate](https://demos.telerik.com/blazor-ui/menu/template)
