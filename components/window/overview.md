@@ -16,7 +16,9 @@ The Window component displays a popup window which shows users custom content. T
 
 #### In this article:
 
-* [Create a Window](#create-a-window)
+* [How to Create a Window](#create-a-window)
+* [Responsiveness](#responsiveness)
+* [Parameters](#window-parameters)
 * [Show and Close](#show-and-close)
 * [Styling](#styling)
 * [Important Notes](#important-notes)
@@ -24,27 +26,23 @@ The Window component displays a popup window which shows users custom content. T
 ## Creating Blazor Window
 
 1. Use the `TelerikWindow` tag.
-1. Set the `Visible` parameter to a `bool` property. (in the example below we will use a button to toggle it).
-1. Add content to its `WindowContent` child tag.
-1. (optional) Add a title text in its `WindowTitle` tag.
-1. (optional) Add the predefined [actions]({%slug components/window/actions%}) to its titlebar.
-1. (optional) Set its `PersistContent` parameter to `true` and persist the content on minimize.
+1. Set the `Visible` parameter to a `bool` property.
+1. Add content to the `WindowContent` child tag.
+1. (optional) Add some title inside a `WindowTitle` tag. HTML markup and child components are supported too.
+1. (optional) Add the predefined [actions]({%slug components/window/actions%}) inside a `<WindowActions>` tag.
 
->caption Basic example of showing content in a Window popup and allowing built-in actions
+>caption Basic Blazor Window
 
 ````CSHTML
-<TelerikWindow PersistContent="true" 
-               @bind-Visible="@WindowIsVisible">
+<TelerikWindow @bind-Visible="@WindowIsVisible">
     <WindowTitle>
-        <strong>The Title</strong>
+        Window Title
     </WindowTitle>
     <WindowContent>
-        This is my window <strong>popup</strong> content.
+        Window Content ...
     </WindowContent>
     <WindowActions>
-        <WindowAction Name="Minimize"></WindowAction>
-        <WindowAction Name="Maximize"></WindowAction>
-        <WindowAction Name="Close"></WindowAction>
+        <WindowAction Name="Close" />
     </WindowActions>
 </TelerikWindow>
 
@@ -55,9 +53,10 @@ The Window component displays a popup window which shows users custom content. T
 }
 ````
 
-## Window Responsiveness
+## Responsiveness
 
 The Window component can be fully responsive when the browser window size changes. Here is an [example that shows how to use the `Width` and `Height` parameters of the Window or through a separate CSS file.]({%slug window-kb-responsive%})
+
 
 ## Window Parameters
 
@@ -71,28 +70,10 @@ The Window component can be fully responsive when the browser window size change
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-window">` element. Use it to [override theme styles]({%slug themes-override%}). |
-| `PersistContent` | `bool`<br />(`"false"`) | Defines whether Window content should be persisted when the window is minimized. |
-| `Resizable` | `bool`<br />(`"true"`) | Defines whether the Window should be resizable by the user. |
-| `Visible` | `bool`<br />(`"false"`) | Defines if the Window is rendered on the page. |
+| `PersistContent` | `bool` | Defines if the Window content should be hidden with CSS when the Window is minimized. By default, the content is removed from the DOM. |
+| `Resizable` | `bool`<br />(`true`) | Defines if the Window should be resizable by the user. |
+| `Visible` | `bool` | Defines if the Window is rendered on the page. |
 
-## Window Namespace and Reference
-
-````CSHTML
-@using Telerik.Blazor.Components
-
-<TelerikWindow Visible="true" Centered="true" @ref="@myWindowRef">
-	<WindowTitle>
-		<strong>The Title</strong>
-	</WindowTitle>
-	<WindowContent>
-		This is my window <strong>popup</strong> content.
-	</WindowContent>
-</TelerikWindow>
-
-@code {
-    Telerik.Blazor.Components.TelerikWindow myWindowRef { get;set; }
-}
-````
 
 ## Show and Close
 
@@ -189,9 +170,9 @@ In Blazor, however, the render tree structure may be important in some cases and
 
 ## See Also
 
-  * [Live Demos: Window](https://demos.telerik.com/blazor-ui/window/index)
-  * [Window Size, Maximize, Minimize]({%slug components/window/size%})
-  * [Window Actions]({%slug components/window/actions%})
-  * [Window Events]({%slug window-events%})
-  * [Window Position]({%slug components/window/position%})
-  * [Modal Window]({%slug components/window/modal%})
+* [Live Demos: Window](https://demos.telerik.com/blazor-ui/window/index)
+* [Window Size, Maximize, Minimize]({%slug components/window/size%})
+* [Window Actions]({%slug components/window/actions%})
+* [Window Events]({%slug window-events%})
+* [Window Position]({%slug components/window/position%})
+* [Modal Window]({%slug components/window/modal%})
