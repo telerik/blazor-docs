@@ -125,7 +125,7 @@ The SplitButton exposes configuration settings for its dropdown (popup). The par
 >tip As in standard CSS, the *min* and *max* settings take precedence over *width* and *height*.
 
 
-### SplitButton Item Settings
+### Item Settings
 
 The following table lists the `SplitButtonItem` parameters, except those related to [icons]({%slug splitbutton-icons%}).
 
