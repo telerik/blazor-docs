@@ -73,7 +73,7 @@ The Window component can be fully responsive when the browser window size change
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-window">` element. Use it to [override theme styles]({%slug themes-override%}). |
-| `PersistContent` | `bool` | Defines if the Window content should be hidden with CSS when the Window is minimized. By default, the content is removed from the DOM. |
+| `PersistContent` | `bool` | Defines if the Window content should be hidden with CSS when the Window is minimized. By default, the content is disposed and removed from the DOM. |
 | `Resizable` | `bool`<br />(`true`) | Defines if the Window should be resizable by the user. |
 | `Visible` | `bool` | Defines if the Window is rendered on the page. |
 
