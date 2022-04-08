@@ -90,7 +90,7 @@ The following table lists the SplitButton parameters, except those related to [b
 | `Title`| `string` | Sets the `title` attribute of the primary action element. |
 
 
-### SplitButton Popup Settings
+### Popup Settings
 
 The SplitButton exposes configuration settings for its dropdown (popup). The parameters should be set in a `<SplitButtonPopupSettings>` tag, which should be placed inside a `<SplitButtonSettings>` tag like this:
 
