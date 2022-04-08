@@ -1,25 +1,36 @@
 ---
-title: Toolbar Searchbox
-page_title: Grid - Filtering Searchbox
-description: Enable and configure filtering Searchbox in Grid for Blazor.
+title: Toolbar SearchBox
+page_title: Grid - Filtering SearchBox
+description: Enable and configure filtering SearchBox in Grid for Blazor.
 slug: grid-searchbox
-tags: telerik,blazor,grid,filtering,filter,Searchbox
+tags: telerik,blazor,grid,filtering,filter,searchbox
 published: True
 position: 20
 ---
 
-# Grid Toolbar Searchbox
+# Grid Toolbar SearchBox
 
-In addition to the [main filtering options]({%slug components/grid/filtering%}), you can add a search box in the grid toolbar that lets the user type their query and the grid will look up all visible string columns with a case-insensitive `Contains` operator, and filter them accordingly. You can change the filter delay, and the fields the grid will use - see the [Customize the SearchBox](#customize-the-searchbox) section below.
+In addition to the [main filtering options]({%slug components/grid/filtering%}), you can add a SearchBox in the Grid Toolbar.
 
-The search box is independent from the standard filters. If you have filters applied, the searchbox will amend and respect them. Thus, you can also apply filtering to results returned from the search box.
+>caption In this article:
 
-To enable the search box, add the `<GridSearchBox>` tag in the `<GridToolBar>`.
+* [Basics](#basics)
+* [Filter From Code](#filter-from-code)
+* [Customize the SearchBox](#customize-the-searchbox)
 
->caption Search box in the Telerik grid
+
+## Basics
+
+The SearchBox lets the user type their query and the grid will look up all visible string columns with a case-insensitive `Contains` operator, and filter them accordingly. You can change the filter delay, and the fields the grid will use - see the [Customize the SearchBox](#customize-the-searchbox) section below.
+
+The SearchBox is independent from the standard filters. If you have filters applied, the SearchBox will amend and respect them. Thus, you can also apply filtering to results returned from it.
+
+To enable the SearchBox, add the `<GridSearchBox>` tag in the `<GridToolBar>`.
+
+>caption SearchBox in the Telerik Grid
 
 ````CSHTML
-@* A search panel in the grid toolbar *@
+@* A search panel in the Grid Toolbar *@
 
 <TelerikGrid Data=@GridData Pageable="true" Height="400px">
     <GridToolBar>
@@ -77,11 +88,11 @@ You can set the Grid filters programmatically through the component [state]({%sl
 
 ![](images/searchbox-filter-control.gif)
 
->caption Set programmatically Searchbox Filter.
+>caption Set programmatically SearchBox Filter.
 
 ````Razor
-@* This snippet shows how to set filtering state to the grid from your code.
-  Applies to the Searchbox filter *@
+@* This snippet shows how to set filtering state to the Grid from your code.
+  Applies to the SearchBox filter *@
 
 @using Telerik.DataSource;
 
@@ -152,20 +163,27 @@ You can set the Grid filters programmatically through the component [state]({%sl
 
 The `GridSearchBox` component offers the following settings to customize its behavior:
 
-* `DebounceDelay` - the time in `ms` with which the typing is debounced. This provides a performance optimization when using the `OnRead` event - filtering does not happen on every keystroke anymore. The default value is `300`.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* `Fields` - a `List<string>` that includes the fields names that the Grid should search in. By default, the Grid searches in all string fields, which are bound to visible columns. You can only define a subset of those fields. It is also possible to programmatically [search in string fields, which are not displayed in the Grid]({%slug grid-kb-search-in-hidden-fields%}).
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+| `Class` | `string`| a CSS class rendered on the wrapper of the searchbox so you can customize its appearance.
+| `DebounceDelay` | `int` <br/> (300) | the time in `ms` with which the typing is debounced. This provides a performance optimization when using the `OnRead` event - filtering does not happen on every keystroke anymore.
+| `Fields` |  `List<string>` | A collection of the fields names that the Grid should search in. By default, the Grid searches in all string fields, which are bound to visible columns. You can only define a subset of those fields. It is also possible to programmatically [search in string fields, which are not displayed in the Grid]({%slug grid-kb-search-in-hidden-fields%}).
+| `Placeholder` | `string` <br/> (`Search...`(localized))| Specifies the placeholder attribute of the SearchBox component.
+| `Width` | `string` | Specifies the width of the SearchBox component.
 
-* `Class` - a CSS class rendered on the wrapper of the searchbox so you can customize its appearance.
 
->caption Customize the search box to have a long filter delay and to only use certain fields
+>caption Customize the SearchBox to have a long filter delay, search in certain fields only and use a custom placeholder
 
 ````CSHTML
-@* Increased delay and a subset of the columns are allowed for filtering *@
+@* Increased delay, a subset of the columns are allowed for filtering and a custom placeholder *@
 
 <TelerikGrid Data=@GridData Pageable="true" Height="400px">
     <GridToolBar>
-         <GridSearchBox DebounceDelay="1000" Fields="@SearchableFields" />
+        <GridSearchBox DebounceDelay="1000"
+                       Fields="@SearchableFields"
+                       Placeholder="Search Team..." />
     </GridToolBar>
     <GridColumns>
         <GridColumn Field="@(nameof(Employee.EmployeeId))" />
@@ -187,12 +205,12 @@ The `GridSearchBox` component offers the following settings to customize its beh
         for (int i = 0; i < 15; i++)
         {
             GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = "Employee " + i.ToString(),
-                Team = "Team " + i % 3,
-                IsOnLeave = i % 2 == 0
-            });
+                {
+                    EmployeeId = i,
+                    Name = "Employee " + i.ToString(),
+                    Team = "Team " + i % 3,
+                    IsOnLeave = i % 2 == 0
+                });
         }
     }
 
@@ -205,7 +223,6 @@ The `GridSearchBox` component offers the following settings to customize its beh
     }
 }
 ````
-
 
 ## See Also
 
