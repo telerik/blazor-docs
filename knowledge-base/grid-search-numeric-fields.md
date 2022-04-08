@@ -48,7 +48,7 @@ The following sections discuss how to implement the desired behavior, what are t
 The solution below requires familiarity with:
 
 * [How to use Grid filter descriptors]({%slug components/grid/filtering%}#filter-descriptors)
-* [How to change the Grid state]({%slug grid-state%})
+* [How to change the Grid state]({%slug grid-state%}).
 * [How to invoke Razor component events from a child component](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/event-handling?view=aspnetcore-6.0#eventcallback).
 
 
