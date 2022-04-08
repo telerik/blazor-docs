@@ -10,7 +10,17 @@ position: 20
 
 # Grid Paging
 
-The Grid component supports paging.
+The Grid component can page the entire data source automatically. You can, alternatively, hook to an event and fetch each page of data yourself.
+
+>caption In this article:
+
+* [Basics](#basics)
+* [Related Events](#related-events)
+* [Pager Settings](#pager-settings)
+* [More Examples](#more-examples)
+
+
+## Basics
 
 * To enable paging, set the Grid `Pageable` parameter to `true`.
 * Set the number of items rendered at once with the `PageSize` parameter (defaults to 10).
@@ -33,10 +43,6 @@ Enable paging and start on the second page.
 	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/paging-overview.png)
 
 >note If you want to bind the page index to a variable, you must use two-way binding - the `@bind-Page="@MyPageIndexVariable"` syntax. If you only use one-way binding -  `Page="@MyPageIndexVariable"` - the grid will reset to the value of that parameter on every re-render. If you choose to use one-way binding, you must update the field value in the [`PageChanged` event]({%slug grid-events%}#pagechanged) to avoid that.
 
@@ -81,29 +87,43 @@ Dynamic page size change
 }
 ````
 
-## Pager Settings
+## Related Events
+
+The Grid exposes several relevant events. You can find related examples in the [Events]({%slug grid-events%}) article.
+
+* `PageChanged` - you can use this to react to the user changing the page.
+* `PageSizeChanged` - fires when the user changes the page size via the pager DropDownList.
+* `OnRead` - you can use this to perform the read operation yourself on demand, instead of providing the entire data source at once. You can read more about this in the [Manual Data Source Operations]({%slug components/grid/manual-operations%}) article.
+
+## Pager Settings  
 
 In addition to `Page` and `PageSize`, the Grid provides advanced pager configuration options via the `GridPagerSettings` tag, which is nested inside `GridSettings`. These configuration attributes include:
 
 @[template](/_contentTemplates/common/pager-settings.md#pager-settings)
 
 ````CSHTML
+@*Configure the Pager Settings*@
+
 <TelerikGrid Data="@MyData" Pageable="true" @bind-PageSize="@PageSize" @bind-Page="@CurrentPage">
-	<GridSettings>
-		<GridPagerSettings InputType="PagerInputType.Input" PageSizes="@PageSizes" ButtonCount="5" />
-	</GridSettings>
-	<GridColumns>
-		<GridColumn Field="ID"></GridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-	</GridColumns>
+    <GridSettings>
+        <GridPagerSettings InputType="PagerInputType.Input"
+                           PageSizes="@PageSizes"
+                           ButtonCount="5"
+                           Adaptive="true">
+        </GridPagerSettings>
+    </GridSettings>
+    <GridColumns>
+        <GridColumn Field="ID"></GridColumn>
+        <GridColumn Field="TheName" Title="Employee Name"></GridColumn>
+    </GridColumns>
 </TelerikGrid>
 
 @code {
-	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
+    public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
 
-	int PageSize { get; set; } = 15;
-	int CurrentPage { get; set; } = 3;
-	protected List<int?> PageSizes { get; set; } = new List<int?> { 15, 30, null };
+    int PageSize { get; set; } = 15;
+    int CurrentPage { get; set; } = 3;
+    protected List<int?> PageSizes { get; set; } = new List<int?> { 15, 30, null };
 }
 ````
 
