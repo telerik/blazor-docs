@@ -26,33 +26,38 @@ In this article:
 * [Code Example](#example)
 
 
-## Features
+## Command Column Parameters
 
-This section describes the available features and their use.
+The Blazor Gantt Command Column provides various parameters to configure the component. Also check the [Gantt public API](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1).
 
 ### The GanttCommandButton Tag
 
-The `GanttCommandButton` tag offers the following features:
+| Parameter | Description |
+| --- | --- |
+| `Command` | The command that will be invoked. Can be one of the built-in commands (see below), or a custom command name. |
+| `ShowInEdit` | A parameter indicating whether the button is only visible while the user is editing/inserting data. |
+| `ChildContent` | The text the button will render. You can also place it between the command button's opening and closing tags. |
 
-* `Command` - the command that will be invoked. Can be one of the built-in commands (see below), or a custom command name.
-* `ShowInEdit` - a `boolean` property indicating whether the button is only visible while the user is editing/inserting data.
-* `ChildContent` - the text the button will render. You can also place it between the command button's opening and closing tags.
-* Appearance properties like `Icon`, `Class`, `Enabled` that are come from the underlying [Button Component features]({%slug components/button/overview%}).
+See also Appearance properties like `Icon`, `Class`, `Enabled` that are coming from the underlying [Button Component features]({%slug components/button/overview%}).
 
 ### Built-in Commands
 
-There are two built-in commands:
+Built-in commands:
 
-* `Add` - initiates the creation of a new item. Can apply to rows as well, to create a child element for the current row.
-* `Delete` - initiates the deletion of an existing item.
+| Command | Description |
+| --- | --- |
+| `Add` | Initiates the creation of a new item. Can apply to rows as well, to create a child element for the current row. |
+| `Delete` | Initiates the deletion of an existing item. |
 
 ### OnClick handler
 
-The `OnClick` handler of the commands receives an argument of type `GanttTaskCommandEventArgs` that exposes the following properties:
+The `OnClick` handler of the commands receives an argument of type `GanttTaskCommandEventArgs` that exposes the following parameters:
 
-* `IsCancelled` - set this to `true` to prevent the operation if the business logic requires it.
-* `Item` - the model item of the Gantt row. You can use it to access the model fields and perform the actual data source operations. This property is applicable only for command buttons that are inside a Gantt row, not the toolbar.
-* `IsNew` - a boolean field indicating whether the item was just added through the Gantt interface.
+| Parameter | Description |
+| --- | --- |
+| `IsCancelled` | Set this to `true` to prevent the operation if the business logic requires it. |
+| `Item` | The model item of the Gantt row. Use it to access the model fields and perform the actual data source operations. This property is applicable only for command buttons that are inside a Gantt row, not the toolbar. |
+| `IsNew` | A boolean field indicating whether the item was just added through the Gantt interface. |
 
 >tip For handling CRUD operations we recommend that you use the Gantt events (`OnEdit`, `OnUpdate`, `OnCancel`, `OnCreate`). The `OnClick` handler is available for the built-in commands to provide consistency of the API.
 

@@ -21,9 +21,8 @@ The Telerik Gantt for Blazor allows you define dependencies, which are rendered 
 
 ## Gantt Dependencies Features:
 
-* Data Binding - You can provide a collection of dependencies to the Gantt Chart for Blazor. For more information read the [Data Binding]({%slug gantt-dependencies-databind%}) article.
-
-* `TypeField` - `string` - Defines the dependency type. For more information read the [Types]({%slug gantt-dependencies-types%}) article. 
-
-* `Editing` - You can allow the user edit the dependencies. For more information read the [Editing]({%slug gantt-dependencies-editing%}) article.
-
+| Feature | Description |
+| --- | --- |
+| `Data Binding` | Provide a collection of dependencies to the Gantt Chart for Blazor. For more information read the [Data Binding]({%slug gantt-dependencies-databind%}) article. |
+| `TypeField` | Defines the dependency type. For more information read the [Types]({%slug gantt-dependencies-types%}) article.  |
+| `Editing` | Allow the user to edit the dependencies. For more information read the [Editing]({%slug gantt-dependencies-editing%}) article. |

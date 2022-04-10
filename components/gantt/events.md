@@ -23,6 +23,9 @@ The `OnEdit` event lets you respond to user actions when they want to edit an it
 
 You can read more about the CUD events in the [Gantt Tree Editing Overview]({%slug gantt-tree-editing%}) article.
 
+## TreeListWidthChanged
+
+The `TreeListWidthChanged` event fires as a response to the user changing the width of the TreeList pane in the splitter.
 
 ## OnExpand and OnCollapse
 
