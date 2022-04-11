@@ -169,7 +169,7 @@ The `GridSearchBox` component offers the following settings to customize its beh
 |----------|----------|----------|
 | `Class` | `string`| a CSS class rendered on the wrapper of the searchbox so you can customize its appearance.
 | `DebounceDelay` | `int` <br/> (300) | the time in milliseconds with which searching is debounced. This provides a performance optimization when using the `OnRead` event - filtering does not happen on every keystroke during fast typing.
-| `Fields` |  `List<string>` | A collection of the fields names that the Grid should search in. By default, the Grid searches in all string fields, which are bound to visible columns. You can only define a subset of those fields. It is also possible to programmatically [search in string fields, which are not displayed in the Grid]({%slug grid-kb-search-in-hidden-fields%}).
+| `Fields` |  `List<string>` | The collection of fields to search in. By default, the Grid searches in all string fields, which are bound to visible columns. You can only define a subset of those fields. It is also possible to programmatically [search in string fields, which are not displayed in the Grid]({%slug grid-kb-search-in-hidden-fields%}).
 | `Placeholder` | `string` <br/> (`Search...`(localized))| Specifies the placeholder attribute of the SearchBox component.
 | `Width` | `string` | Specifies the width of the SearchBox component.
 
