@@ -47,8 +47,8 @@ The following sections discuss how to implement the desired behavior, what are t
 
 The solution below requires familiarity with:
 
-* [How to use Grid filter descriptors]({%slug components/grid/filtering%}#filter-descriptors).
-* [How to change the Grid state]({%slug grid-state%}).
+* [How to use Grid filter descriptors]({%slug components/grid/filtering%}#filter-descriptors)
+* [How to change the Grid state]({%slug grid-state%})
 * [How to invoke Razor component events from a child component](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/event-handling?view=aspnetcore-6.0#eventcallback).
 
 
@@ -56,13 +56,13 @@ The solution below requires familiarity with:
 
 Here is an overview of the major steps in the example:
 
-1. Add a search textbox to the [Grid toolbar]({%slug components/grid/features/toolbar%}) or outside the Grid. Do not use the default [`GridSearchBox` component]({%slug grid-searchbox%}), as it searches inside string only.
+1. Add a search textbox to the [Grid toolbar]({%slug components/grid/features/toolbar%}) or outside the Grid. Do not use the default [`GridSearchBox` component]({%slug grid-searchbox%}), as it searches inside string fields only.
 1. Handle the `oninput` event of the search textbox. Alternatively, use a search button with an `onclick` handler.
 1. Use the event handler to:
     * Create a new `CompositeFilterDescriptor`.
     * Iterate all searchable fields of the Grid.
     * For each searchable field, parse the search string and convert it the field's data type. Create a child `FilterDescriptor` object, depending on the data field type and the parsed search value.
-1. Apply the filter descriptors via the Grid state.
+1. Apply the filter descriptors to the `SearchFilter` property of the Grid state.
 
 
 ## How it works
@@ -72,11 +72,9 @@ Here is an overview of the major steps in the example:
     * *numeric* results that are *equal to* 8
     * *enums* results that are *equal to* `int` 8
 * Date search values *must fully match* date values in the Grid to return results. The example also shows how to search by year only.
-* If the search value cannot be parsed to a certain type, it won't add filters for columns of this type. For example, a search value of `"8 asd"` won't return any numeric, date and boolean results
+* If the search value cannot be parsed to a specific data type (such as `"123 abc"`), then the code will not create additional non-string filters. This search value will not return any numeric, date and boolean results.
 
 >tip It is possible to achieve different behavior, or to work around the above limitations, by using different business logic in the filter descriptor creation.
-
-> The example is incompatible with [regular Grid filtering]({%slug components/grid/filtering%}). The `SetGridSearchBoxFilters` method always removes all existing filter descriptors, because the Grid and its API does not distinguish programmatic filters and filters set by the user. In addition, the total number of programmatic and user filters will exceed the abilities of the Grid filtering UI.
 
 
 ## Example
@@ -118,8 +116,7 @@ Here is an overview of the major steps in the example:
     {
         var state = Grid.GetState();
 
-        state.FilterDescriptors.Clear();
-        state.FilterDescriptors.Add(searchDescriptors);
+        state.SearchFilter = searchDescriptors;
 
         await Grid.SetState(state);
     }
