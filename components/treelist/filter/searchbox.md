@@ -10,16 +10,27 @@ position: 20
 
 # TreeList Toolbar Searchbox
 
-In addition to the [main filtering options]({%slug treelist-filtering%}), you can add a search box in the treelist toolbar that lets the user type their query and the treelist will look up all visible string columns with a case-insensitive `Contains` operator, and filter them accordingly. You can change the filter delay, and the fields the grid will use - see the [Customize the SearchBox](#customize-the-searchbox) section below.
+In addition to the [main filtering options]({%slug treelist-filtering%}), you can add a SearchBox in the TreeList Toolbar.
 
-The search box is independent from the standard filters. If you have filters applied, the searchbox will amend and respect them. Thus, you can also apply filtering to results returned from the search box.
+>caption In this article:
 
-To enable the search box, add the `<TreeListSearchBox>` tag in the `<TreeListToolBar>`.
+* [Basics](#basics)
+* [Filter From Code](#filter-from-code)
+* [Customize the SearchBox](#customize-the-searchbox)
 
->caption Search box in the Telerik treelist
+
+## Basics
+
+The SearchBox lets the user type their query and the TreeList will look up all visible string columns with a case-insensitive `Contains` operator, and filter them accordingly. You can change the filter delay, and the fields the TreeList will use - see the [Customize the SearchBox](#customize-the-searchbox) section below.
+
+The SearchBox is independent from the standard filters. If you have filters applied, the SearchBox will respect them and add additional filtering criteria. Thus, you can also apply filtering to results returned from it.
+
+To enable the SearchBox, add the `<TreeListSearchBox>` tag in the `<TreeListToolBar>`.
+
+>caption SearchBox in the Telerik TreeList
 
 ````CSHTML
-@* A search panel in the treelist toolbar *@
+@* A search panel in the TreeList Toolbar *@
 
 <TelerikTreeList Data="@Data"
                  ItemsField="@(nameof(Employee.DirectReports))"
@@ -127,7 +138,7 @@ You can set the TreeList filters programmatically through the component [state](
 
 ````Razor
 @* This snippet shows how to set filtering state to the TreeList from your code
-    Applies to the Searchbox filter *@
+    Applies to the SearchBox filter *@
 
 @using Telerik.DataSource;
 
@@ -257,22 +268,28 @@ You can set the TreeList filters programmatically through the component [state](
 
 The `TreeListSearchBox` component offers the following settings to customize its behavior:
 
-* `DebounceDelay` - the time in `ms` with which the typing is debounced. Filtering does not happen on every keystroke and that can reduce the flicker for the end user. The default value is `300`.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* `Fields` - a list of `string` that denotes the fields names that the gris should search in. By default, the treelist looks in all string fields in its currently visible columns, and you can define a subset of that.
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+| `Class` | `string` | a CSS class rendered on the wrapper of the searchbox so you can customize its appearance.
+| `DebounceDelay` | `int` <br/> (300) |the time in milliseconds with which searching is debounced. Filtering does not happen on every keystroke and that can reduce the flicker for the end user.
+| `Fields` |`List<string>` | The collection of fields to search in. By default, the component looks in all string fields in its currently visible columns, and you can define a subset of that.
+| `Placeholder` | `string` <br/> (`Search...`(localized))| Specifies the placeholder attribute of the SearchBox component.
+| `Width` | `string` | Specifies the width of the SearchBox component.
 
-* `Class` - a CSS class rendered on the wrapper of the searchbox so you can customize its appearance.
-
->caption Customize the search box to have a long filter delay and to only use certain fields
+>caption Customize the SearchBox to have a long filter delay, search in certain fields only and use a custom placeholder
 
 ````CSHTML
-@* See the TreeListSearchBox parameters *@
+@* Increased delay, a subset of the columns are allowed for filtering and a custom placeholder *@
 
 <TelerikTreeList Data="@Data"
                  ItemsField="@(nameof(Employee.DirectReports))"
                  Pageable="true">
     <TreeListToolBar>
-        <TreeListSearchBox DebounceDelay="1000" Fields="@SearchableFields"/>
+        <TreeListSearchBox DebounceDelay="1000"
+                           Fields="@SearchableFields"
+                           Placeholder="Search Name..." />
     </TreeListToolBar>
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
@@ -316,12 +333,12 @@ The `TreeListSearchBox` component offers the following settings to customize its
         for (int i = 1; i < 15; i++)
         {
             Employee root = new Employee
-            {
-                Id = LastId,
-                Name = $"root: {i}",
-                EmailAddress = $"{i}@example.com",
-                DirectReports = new List<Employee>(),
-            };
+                {
+                    Id = LastId,
+                    Name = $"root: {i}",
+                    EmailAddress = $"{i}@example.com",
+                    DirectReports = new List<Employee>(),
+                };
             data.Add(root);
             LastId++;
 
@@ -329,12 +346,12 @@ The `TreeListSearchBox` component offers the following settings to customize its
             {
                 int currId = LastId;
                 Employee firstLevelChild = new Employee
-                {
-                    Id = currId,
-                    Name = $"first level child {j} of {i}",
-                    EmailAddress = $"{currId}@example.com",
-                    DirectReports = new List<Employee>(),
-                };
+                    {
+                        Id = currId,
+                        Name = $"first level child {j} of {i}",
+                        EmailAddress = $"{currId}@example.com",
+                        DirectReports = new List<Employee>(),
+                    };
                 root.DirectReports.Add(firstLevelChild);
                 LastId++;
 
@@ -342,11 +359,11 @@ The `TreeListSearchBox` component offers the following settings to customize its
                 {
                     int nestedId = LastId;
                     firstLevelChild.DirectReports.Add(new Employee
-                    {
-                        Id = LastId,
-                        Name = $"second level child {k} of {j} and {i}",
-                        EmailAddress = $"{nestedId}@example.com",
-                    }); ;
+                        {
+                            Id = LastId,
+                            Name = $"second level child {k} of {j} and {i}",
+                            EmailAddress = $"{nestedId}@example.com",
+                        }); ;
                     LastId++;
                 }
             }
