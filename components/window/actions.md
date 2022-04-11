@@ -20,14 +20,17 @@ The Window offers action buttons in its titlebar:
 
 To define action buttons, populate the `WindowActions` tag of the Window with `WindowAction` instances.
 
+## Action Parameters
+
 Action buttons expose the following properties:
 
 * `Name` - the name of the action. Can be one of the built-in actions (see above), or a custom action name.
-* `Hidden` - a boolean property indicating whether the action button is rendered. Do not use for `Minimize` and `Maximize` actions - the Window manages their visibility internallty, based on the component state. Check the example below for a possible alternative.
-* `OnClick` - event handler so you can respond to custom action clicks.
-* `Icon` - the CSS class name of the icon that will be rendered. You can use the [Telerik font icons]({%slug general-information/font-icons%}) directly, or your own font icon font class.
-* `Title` - the `title` attribute of the action button.
+* `Hidden` - a boolean property indicating whether the action button is rendered. Do not use for `Minimize` and `Maximize` actions - the Window manages their visibility internally, based on the component state. Check the example below for a possible alternative.
+* `OnClick` - event handler to respond to custom action clicks.
+* `Icon` - the CSS class name of the icon that will be rendered. Use with the [Telerik font icons]({%slug general-information/font-icons%}) directly, or set your own font icon class.
+* `Title` - the `title` HTML attribute of the action button.
 
+## Built-in Actions
 
 >caption The built-in actions of a Window
 
@@ -59,6 +62,8 @@ Action buttons expose the following properties:
 >caption The result from the code snippet above
 
 ![](images/built-in-actions.png)
+
+## Custom Actions
 
 You can create a custom action icon and you must provide its `OnClick` handler.
 
@@ -92,6 +97,8 @@ Custom actions can call C# directly
 >caption The result from the code snippet above
 
 ![](images/custom-action.png)
+
+## Using Both Action Types
 
 You can mix custom actions with built-in actions, and you do not have to define all of the available ones.
 

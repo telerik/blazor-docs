@@ -2,7 +2,7 @@
 title: Overview
 page_title: Window Overview
 description: Overview of the Window for Blazor.
-slug: components/window/overview
+slug: window-overview
 tags: telerik,blazor,window,overview
 published: True
 position: 0
@@ -19,13 +19,12 @@ The Window component displays a popup window, which shows users custom content. 
 * [How to create a Window](#create-a-window)
 * [Responsive example](#responsiveness)
 * [Parameters](#window-parameters)
-* [Custom styling](#styling)
 * [Important notes](#important-notes)
 
 ## Creating Blazor Window
 
 1. Use the `TelerikWindow` tag.
-1. Set the `Visible` parameter to a `bool` property.
+1. Bind the `Visible` parameter to a `bool` property. It support one-way and two-way binding.
 1. Add content to the `WindowContent` child tag.
 1. (optional) Add some title inside a `WindowTitle` tag. HTML markup and child components are supported too.
 1. (optional) Add a [`Close` action]({%slug components/window/actions%}) inside a `<WindowActions>` tag.
@@ -54,14 +53,22 @@ The Window component displays a popup window, which shows users custom content. 
 
 ## Size
 
-The Window can occupy a predefined size on the screen, and allow the user to resize it. Learn more about the [Window features, related to size and resizing]({%slug components/window/size%}).
+The Window can occupy a predefined size on the screen, or expand automatically, based on the content. By default, users can resize the Window. Learn more about the [Window features, related to size and resizing]({%slug components/window/size%}).
+
+
+## Dragging
+
+By default, users can move the Window on the page by dragging its titlebar. Learn more about how to use the [Window's `Draggable` feature]({%slug window-draggable%}).
+
 
 ## Responsiveness
 
-The Window component can be fully responsive when the browser window size changes. Here is an [example that shows how to achieve responsive behavior]({%slug window-kb-responsive%}). One way is to use the `Width` and `Height` parameters of the Window. Another option is to apply CSS styles.
+The Window component can be responsive when the browser window size changes. Here is an [example how to achieve responsive Window behavior]({%slug window-kb-responsive%}). One way is to use the `Width` and `Height` parameters of the Window. Another option is to apply CSS styles.
 
 
 ## Window Parameters
+
+The following table lists the Window parameters, which are not discussed elsewhere in the component documentation. Also check the [Window API](/blazor-ui/api/Telerik.Blazor.Components.TelerikWindow) for a full list of parameters and events.
 
 <style>
     article style + table {
@@ -72,57 +79,14 @@ The Window component can be fully responsive when the browser window size change
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | Renders a custom CSS class to the `<div class="k-window">` element. Use it to [override theme styles]({%slug themes-override%}). |
-| `PersistContent` | `bool` | Defines if the Window content should be hidden with CSS when the Window is minimized. By default, the content is disposed and removed from the DOM. |
-| `Resizable` | `bool`<br />(`true`) | Defines if the Window should be resizable by the user. |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-window">` element. Use it to [override theme styles]({%slug themes-override%}). Here is a [custom Window styling example]({%slug window-kb-custom-css-styling%}). |
+| `Size` | `string` | Sets a predefined Window **width**. Use the string members of the static class `ThemeConstants.Window.Size` - `Small`, `Medium`, and `Large`. They translate to widths of `300px`, `800px` and `1200px`, respectively. If set, the `Width` parameter will take precedence over `Size`. |
 | `Visible` | `bool` | Defines if the Window is rendered on the page. |
-
-
-## Styling
-
-The `Class` property lets you define a CSS class that will be rendered on the popup element. You can cascade through it in order to change the appearane of both the content, and the built-in elements of the Window.
-
->caption Use a Class to change the appearance and style of the Window
-
-````CSHTML
-@* Use CSS selectors with high specifity to customize the looks of the window *@
-
-<TelerikWindow Class="MyClass" Visible="true">
-    <WindowTitle>
-        <strong>The Title</strong>
-    </WindowTitle>
-    <WindowContent>
-        This is my window <strong>popup</strong> content.
-    </WindowContent>
-</TelerikWindow>
-
-<style>
-    div.k-window.MyClass { /* targets the entire popup element */
-        border: 5px solid red;
-    }
-
-        .MyClass .k-window-content.k-content.k-dialog-content { /* targets the content element */
-            background: yellow;
-        }
-
-        .MyClass .k-window-title.k-dialog-title { /* targets the title container */
-            color: blue;
-        }
-
-    .MyClass .k-dialog-titlebar.k-header.k-window-titlebar { /* targets the entire titlebar */
-        background: gold;
-    }
-</style>
-````
-
->caption The result from the code snippet above
-
-![](images/window-custom-styling.png)
 
 
 ## Important Notes
 
-The Telerik Window component renders as a child of the `TelerikRootComponent` at the root of the Blazor app. This is required so it can show over the other page content, and have correct position.
+The Telerik Window component renders as a child of the `TelerikRootComponent` at the root of the Blazor app. This is required, so it can show over the other page content, and have correct position.
 
 In Blazor, however, the render tree structure may be important. In some cases, the special Window placement may put you in one of the following situations:
 

@@ -102,5 +102,5 @@ To use the **Telerik UI for Blazor Code Snippets**, install the Telerik UI for B
 | tb-treelistcolumn-locked   | [TreeList with Frozen Column]({%slug treelist-columns-frozen%}) |
 | tb-treeview                | [TreeView]({%slug treeview-overview%})   |
 | tb-upload                  | [Upload]({%slug upload-overview%})       |
-| tb-window                  | [Window]({%slug components/window/overview%}) |
+| tb-window                  | [Window]({%slug window-overview%}) |
 | tb-wizard                  | [Wizard]({%slug wizard-overview%})       |

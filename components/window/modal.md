@@ -14,19 +14,21 @@ The Window for Blazor can be modal so that the user is unable to interact with t
 
 To make a modal window, set its `Modal` property to `true`.
 
-````CSHTML
-@* Open and close a modal window *@
+It is possible for users to close a modal Window by clicking on the modal background around it. To allow this behavior, set `CloseOnOverlayClick` to `true`.
 
-<TelerikWindow Modal="true" @bind-Visible="@isModalVisible">
+>caption Open and close a modal Window
+
+````CSHTML
+<TelerikWindow Modal="true"
+               @bind-Visible="@isModalVisible"
+               CloseOnOverlayClick="true">
     <WindowTitle>
-        <strong>The Title</strong>
+        Window Title
     </WindowTitle>
     <WindowContent>
-        I am modal so the page behind me is not available to the user.
+        I am modal, so the page content behind me is not accessible to the user.
     </WindowContent>
     <WindowActions>
-        <WindowAction Name="Minimize" />
-        <WindowAction Name="Maximize" />
         <WindowAction Name="Close" />
     </WindowActions>
 </TelerikWindow>
@@ -38,8 +40,6 @@ To make a modal window, set its `Modal` property to `true`.
 }
 ````
 
->note A modal window is centered.
-
 ## See Also
 
-  * [Live Demo: Modal Window Size](https://demos.telerik.com/blazor-ui/window/modal)
+* [Live Demo: Modal Window](https://demos.telerik.com/blazor-ui/window/modal)

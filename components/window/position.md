@@ -12,7 +12,7 @@ position: 2
 
 The Window offers two ways for you to control its position:
 
-* the `Top` and `Left` properties (read more in the [Dimensions]({%slug common-features/dimensions%}) article)
+* the `Top` and `Left` properties (read more about the possible values in the [Dimensions]({%slug common-features/dimensions%}) article)
 * the `Centered` boolean property
 
 >caption Set Top and Left offset to the Window
@@ -30,7 +30,7 @@ The Window offers two ways for you to control its position:
 
 The `Centered` property adds a CSS class that sets the window position to `top: 50%; left: 50%; transform: translate(-50%, -50%);`. This keep is it centered if the viewport size changes.
 
-If the `Top` and/or `Left` properties are set, they will take precedence, because they render as rules in an inline `style` attribute.
+If the `Top` or `Left` properties are set, they will take precedence, because they render as rules in an inline `style` attribute.
 
 >tip The `Centered` parameter is `true` by default.
 
