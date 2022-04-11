@@ -99,6 +99,11 @@ The Blazor Toolbar has an option for adaptiveness. This option allows you to hid
 >caption Responsive Overflow Popup
 
 ````CSHTML
+<TelerikButton OnClick="ChangeWidth">Change Width!</TelerikButton>
+
+<br />
+<br />
+
 <div class="toolbar-wrapper">    
     <TelerikToolBar Adaptive="@ToolBarAdaptive">
         <ToolBarButton Icon="undo">Undo</ToolBarButton>
@@ -119,6 +124,11 @@ The Blazor Toolbar has an option for adaptiveness. This option allows you to hid
 </div>
 
 @code {
+    void ChangeWidth()
+    {
+        Width = 40;
+    }
+
     public double Width { get; set; } = 100;
     public bool ToolBarAdaptive { get; set; } = true;
 }

@@ -40,7 +40,7 @@ The nested `ToolBarButton` tag exposes parameters that allow you to customize th
 | `IconClass` | `string` | Allows you to set a CSS class that provides the required font name, font size and content for the `::before` pseudo-element. |
 | `ImageURL` | `string` | Adds an image to the button. You can provide an image url to this parameter. |
 | `SpriteClass` | `string` | Add a sprite class image to the button. Set this attribute to `k-icon MySpriteClass` where `MySpriteClass` defines the CSS rules for the sprite. |
-| `Overflow` | `ToolBarItemOverflow` enum <br /> (`Auto`) | Sets the item overflow. |
+| `Overflow` | `ToolBarItemOverflow` enum <br /> (`Auto`) | Specifies whether the item will be hidden when the ToolBar is resized. |
 | `OverflowText` | `string` | If not specified, it will get the normal text of the item. (not valid for Separators) |
 | `Title` | `string` | Maps to the `title` HTML attribute for the `<button>`. |
 | `Visible` | `bool` <br /> `true` | Specifies if the button will be visible in the toolbar. |
@@ -101,7 +101,7 @@ The nested `ToolBarToggleButton` tag exposes parameters that allow you to custom
 | `ImageURL` | `string` | Adds an image to the button. You can provide an image url to this parameter. |
 | `Selected` | `bool` | Specifies whether the button is in selected state. You can use it with one and two-way data binding with the `SelectedChanged` event. For more information on how to handle the `SelectedChanged` event see the [Events]({%slug toolbar-events%}) article. |
 | `SpriteClass` | `string` | Add a sprite class image to the button. Set this attribute to `k-icon MySpriteClass` where `MySpriteClass` defines the CSS rules for the sprite. |
-| `Overflow` | `ToolBarItemOverflow` enum <br /> (`Auto`) | Sets the item overflow. |
+| `Overflow` | `ToolBarItemOverflow` enum <br /> (`Auto`) | Specifies whether the item will be hidden when the ToolBar is resized. |
 | `OverflowText` | `string` | If not specified, it will get the normal text of the item. (not valid for Separators) |
 | `Title` | `string` | Maps to the `title` HTML attribute for the `<button>`. |
 | `Visible` | `bool` <br /> `true` | Specifies if the button will be visible in the toolbar. |
@@ -161,7 +161,7 @@ The nested `ToolBarButtonGroup` tag exposes parameters that allow you to customi
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolBarButtonGroup. You could use that class to cascade styles. |
 | `Enabled` | `bool` <br /> `true` | Specifies if the group is clickable. |
 | `SelectionMode` | `ButtonGroupSelectionMode` enum <br /> `Single` | Specifies whether you can select one or multiple buttons from the group at the same time (applicable for `ToolBarToggleButton` instances inside it). |
-| `Overflow` | `ToolBarItemOverflow` enum <br /> (`Auto`) | Sets the item overflow. |
+| `Overflow` | `ToolBarItemOverflow` enum <br /> (`Auto`) | Specifies whether the item will be hidden when the ToolBar is resized. |
 | `OverflowText` | `string` | If not specified, it will get the normal text of the item. (not valid for Separators) |
 | `Visible` | `bool` <br /> `true` | Specifies if the group will be visible in the toolbar. |
 | `Width` | `string` | Allows you to control the width of the group. |
