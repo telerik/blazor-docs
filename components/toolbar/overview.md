@@ -87,7 +87,52 @@ The Blazor ToolBar provides parameters to configure the component:
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
+| `Adaptive ` | `bool` | Toggles the overflow popup of the toolbar. Consistent with the chosen name for the pager. |
 | `Class` | `string` | The CSS class to be rendered on the main wrapping element of the ToolBar component, which is `<div class="k-toolbar">`. Use for [styling customizations]({%slug themes-override%}). |
+
+## Example
+
+The Blazor Toolbar has an option for adaptiveness. This option allows you to hide the items overflowing in a popup.
+
+>We do **not** recommend using `ToolBarTemplateItem` with the responsive overflow popup as there is a high chance of breaking the popup. 
+
+>caption Responsive Overflow Popup
+
+````CSHTML
+<div class="toolbar-wrapper">    
+    <TelerikToolBar Adaptive="@ToolBarAdaptive">
+        <ToolBarButton Icon="undo">Undo</ToolBarButton>
+        <ToolBarButton Icon="redo">Redo</ToolBarButton>
+        <ToolBarButton Icon="image" Overflow="ToolBarItemOverflow.Always">Image</ToolBarButton>
+        <ToolBarSeparator></ToolBarSeparator>
+        <ToolBarToggleButton Icon="apply-format"></ToolBarToggleButton>
+        <ToolBarSeparator></ToolBarSeparator>
+        <ToolBarButton Icon="copy" Overflow="ToolBarItemOverflow.Never">Copy</ToolBarButton>
+        <ToolBarButton Icon="paste" Overflow="ToolBarItemOverflow.Never">Paste</ToolBarButton>
+        <ToolBarSeparator></ToolBarSeparator>
+    <ToolBarButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
+        <ToolBarToggleButton Icon="align-left" OverflowText="Left"></ToolBarToggleButton>
+        <ToolBarToggleButton Icon="align-center" OverflowText="Center"></ToolBarToggleButton>
+        <ToolBarToggleButton Icon="align-right" OverflowText="Right"></ToolBarToggleButton>
+    </ToolBarButtonGroup>
+    </TelerikToolBar>
+</div>
+
+@code {
+    public double Width { get; set; } = 100;
+    public bool ToolBarAdaptive { get; set; } = true;
+}
+
+<style>
+    .toolbar-wrapper{
+        width: @(Width.ToString() + "%");
+    }
+
+    .toolbar-slider {
+        padding: 0px 16px;
+    }
+</style>
+````
 
 ## Next Steps
 
