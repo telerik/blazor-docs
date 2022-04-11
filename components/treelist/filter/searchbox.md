@@ -23,7 +23,7 @@ In addition to the [main filtering options]({%slug treelist-filtering%}), you ca
 
 The SearchBox lets the user type their query and the TreeList will look up all visible string columns with a case-insensitive `Contains` operator, and filter them accordingly. You can change the filter delay, and the fields the TreeList will use - see the [Customize the SearchBox](#customize-the-searchbox) section below.
 
-The SearchBox is independent from the standard filters. If you have filters applied, the SearchBox will amend and respect them. Thus, you can also apply filtering to results returned from it.
+The SearchBox is independent from the standard filters. If you have filters applied, the SearchBox will respect them and add additional filtering criteria. Thus, you can also apply filtering to results returned from it.
 
 To enable the SearchBox, add the `<TreeListSearchBox>` tag in the `<TreeListToolBar>`.
 
@@ -273,8 +273,8 @@ The `TreeListSearchBox` component offers the following settings to customize its
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
 | `Class` | `string` | a CSS class rendered on the wrapper of the searchbox so you can customize its appearance.
-| `DebounceDelay` | `int` <br/> (300) |the time in `ms` with which the typing is debounced. Filtering does not happen on every keystroke and that can reduce the flicker for the end user.
-| `Fields` |`List<string>` | A collection of the fields names that the TreeList should search in. By default, the component looks in all string fields in its currently visible columns, and you can define a subset of that.
+| `DebounceDelay` | `int` <br/> (300) |the time in milliseconds with which searching is debounced. Filtering does not happen on every keystroke and that can reduce the flicker for the end user.
+| `Fields` |`List<string>` | The collection of fields to search in. By default, the component looks in all string fields in its currently visible columns, and you can define a subset of that.
 | `Placeholder` | `string` <br/> (`Search...`(localized))| Specifies the placeholder attribute of the SearchBox component.
 | `Width` | `string` | Specifies the width of the SearchBox component.
 
