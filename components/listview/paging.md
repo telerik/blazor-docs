@@ -10,7 +10,7 @@ position: 4
 
 # ListView Paging
 
-The ListView component can page the entire data source automatically. You can, alternatively, hook to an event and fetch each page of data yourself.
+The ListView component can page the entire data source automatically. Alternatively, you can hook to an event and fetch each page of data yourself.
 
 >caption In this article:
 
