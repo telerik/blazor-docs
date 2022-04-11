@@ -81,7 +81,7 @@ The following table lists the Window parameters, which are not discussed elsewhe
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-window">` element. Use it to [override theme styles]({%slug themes-override%}). Here is a [custom Window styling example]({%slug window-kb-custom-css-styling%}). |
 | `Size` | `string` | Sets a predefined Window **width**. Use the string members of the static class `ThemeConstants.Window.Size` - `Small`, `Medium`, and `Large`. They translate to widths of `300px`, `800px` and `1200px`, respectively. If set, the `Width` parameter will take precedence over `Size`. |
-| `Visible` | `bool` | Defines if the Window is rendered on the page. |
+| `Visible` | `bool` | Defines if the Window is rendered and visible on the page. |
 
 
 ## Important Notes

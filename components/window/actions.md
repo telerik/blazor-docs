@@ -59,9 +59,6 @@ Action buttons expose the following properties:
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/built-in-actions.png)
 
 ## Custom Actions
 
@@ -94,9 +91,6 @@ Custom actions can call C# directly
 }
 ````
 
->caption The result from the code snippet above
-
-![](images/custom-action.png)
 
 ## Using Both Action Types
 
@@ -136,10 +130,6 @@ You can mix custom actions with built-in actions, and you do not have to define 
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![](images/mixed-actions.png)
 
 
 ## See Also
