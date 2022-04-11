@@ -8,14 +8,14 @@ published: True
 position: 20
 ---
 
-# TreeList Paging
+# TreeList Paging 
 
 The TreeList component offers support for paging.
 
 >caption In this article:
 
 * [Basics](#basics)
-* [Related Events](#related-events)
+* [Events](#events)
 * [Pager Settings](#pager-settings)
 
 
@@ -199,7 +199,7 @@ Dynamic page size change
 }
 ````
 
-## Related Events
+## Events
 
 The TreeList exposes several relevant events. You can find related examples in the [Events]({%slug treelist-events%}) article.
 

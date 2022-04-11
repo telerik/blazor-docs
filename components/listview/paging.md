@@ -15,7 +15,7 @@ The ListView component can page the entire data source automatically. You can, a
 >caption In this article:
 
 * [Basics](#basics)
-* [Related Events](#related-events)
+* [Events](#events)
 * [Pager Settings](#pager-settings)
 
 ## Basics
@@ -53,7 +53,7 @@ The ListView component can page the entire data source automatically. You can, a
 }
 ````
 
-## Related Events
+## Events
 
 The ListView exposes three relevant events. You can find related examples in the [Events]({%slug listview-events%}) article.
 
