@@ -8,7 +8,6 @@ position:
 tags: grid, search, gridsearchbox
 ticketid: 1558540
 res_type: kb
-category: knowledge-base
 ---
 
 ## Environment
