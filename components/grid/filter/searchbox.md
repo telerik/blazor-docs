@@ -23,7 +23,7 @@ In addition to the [main filtering options]({%slug components/grid/filtering%}),
 
 The SearchBox lets the user type their query and the grid will look up all visible string columns with a case-insensitive `Contains` operator, and filter them accordingly. You can change the filter delay, and the fields the grid will use - see the [Customize the SearchBox](#customize-the-searchbox) section below.
 
-The SearchBox is independent from the standard filters. If you have filters applied, the SearchBox will amend and respect them. Thus, you can also apply filtering to results returned from it.
+The SearchBox is independent from the standard filters. If you have filters applied, the SearchBox will respect them and add additional filtering criteria. Thus, you can also apply filtering to results returned from it.
 
 To enable the SearchBox, add the `<GridSearchBox>` tag in the `<GridToolBar>`.
 
