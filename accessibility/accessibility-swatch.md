@@ -14,7 +14,7 @@ The [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG21/) sectio
 
 You can test the accessibility swatch in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview) - it is initially selected in the `Change Theme` menu.
 
-Telerik UI for Blazor distributes the Default Ocean Blue theme swatch via several resources. Read more in the [Swatch Distribution]({%slug swatch-distribution%}) article.
+Telerik UI for Blazor distributes the Default Ocean Blue theme swatch via several resources. Read more in the [Swatch Distribution]({%slug themes-swatch-distribution%}) article.
 
 In addition, it is also available in:
 

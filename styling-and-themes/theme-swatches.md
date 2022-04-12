@@ -27,14 +27,14 @@ You can find the built-in themes and all their swatches in the following resourc
 
 * [kendo-themes repository](https://github.com/telerik/kendo-themes) - the repository for all themes and swatches that are used across Telerik and Kendo web components.
 
-In addition, Telerik UI for Blazor distributes the most commonly used swatches via several other resources. Read more in the [Swatch Distribution]({%slug swatch-distribution%}) article.
+In addition, Telerik UI for Blazor distributes the most commonly used swatches via several other resources. Read more in the [Swatch Distribution]({%slug themes-swatch-distribution%}) article.
 
 
 ## Built-in themes and swatches list
 
 Here is a complete list of the base themes, all available swatches and their CDN URLs in a dedicated Themes CDN.
 
-* [Default](#default) - These are the mostly ported swatches from our [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui). Main swatch is the [accessibility compliant Ocean Blue swatch]({%slug accessibility-swatch%}) of the "Default" base theme.
+* [Default](#default) - These are the mostly ported swatches from our [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui).
 
 * [Bootstrap](#bootstrap) - Main swatch is the current "[Bootstrap]({%slug general-information/themes%}#bootstrap-notes)" theme, which is built on Bootstrap 5. As the other names suggest, Bootstrap 3 and Bootstrap 4 swatches are color swatches adapted to look like the respective versions.
 
@@ -42,7 +42,7 @@ Here is a complete list of the base themes, all available swatches and their CDN
 
 >important Make sure that the theme version in the CDN URL is compatible with the UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide theme compatibility information for each UI for Blazor version. You can also use a [newer theme version](https://github.com/telerik/kendo-themes/releases), if it doesn't contain breaking changes and has a fix that you need. 
 
->tip We distribute the most commonly used swatches in a separate [Telerik Blazor CDN]({%slug swatch-distribution%}#telerik-blazor-cdn). The CDN URLs contain the Telerik UI for Blazor version. Thus, you do not need to manually track the theme compatibility, just make sure to use the CDN URL including your UI for Blazor version.
+>tip We distribute the most commonly used swatches in a separate [Telerik Blazor CDN]({%slug themes-swatch-distribution%}#telerik-blazor-cdn). The CDN URLs contain the Telerik UI for Blazor version. Thus, you do not need to manually track the theme compatibility, just make sure to use the CDN URL including your UI for Blazor version.
 
 
 ### Default
@@ -53,7 +53,7 @@ Here is a complete list of the base themes, all available swatches and their CDN
 | ----------- | ----------- |
 | Default Main | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-main.css
 | Default Main Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-main-dark.css
-| [Default Ocean Blue]({%slug accessibility-swatch%}) | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-ocean-blue.css
+| [Default Ocean Blue]({%slug themes-accessibility-swatch%}) | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-ocean-blue.css
 | Default Blue | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-blue.css
 | Default Green | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-green.css
 | Default Nordic | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-nordic.css

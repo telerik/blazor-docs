@@ -21,3 +21,4 @@ Accessibility consists of several aspects:
 ## See Also
 
   * [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%})
+  * [Default Ocean Blue Accessibility Swatch]({%slug themes-accessibility-swatch%})
