@@ -162,7 +162,7 @@ The nested `ToolBarButtonGroup` tag exposes parameters that allow you to customi
 | `Enabled` | `bool` <br /> `true` | Specifies if the group is clickable. |
 | `SelectionMode` | `ButtonGroupSelectionMode` enum <br /> `Single` | Specifies whether you can select one or multiple buttons from the group at the same time (applicable for `ToolBarToggleButton` instances inside it). |
 | `Overflow` | `ToolBarItemOverflow` enum <br /> (`Auto`) | Specifies whether the item will be hidden when the ToolBar is resized. |
-| `OverflowText` | `string` | Defines the buttons text that will be shown only in the overflow popup. If not specified, it will get the default text of the item. (not valid for Separators) |
+| `OverflowText` | `string` | Defines the button text that will be shown only in the overflow popup. If not specified, it will get the default text of the item. (not valid for Separators) |
 | `Visible` | `bool` <br /> `true` | Specifies if the group will be visible in the toolbar. |
 | `Width` | `string` | Allows you to control the width of the group. |
 
