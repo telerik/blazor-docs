@@ -46,7 +46,7 @@ The above listed swatches are distributed in several ways:
 
 A dedicated Telerik UI for Blazor CDN hosts them in the `swatches` folder of the corresponding base theme. Below you will find a list of the distributed swatches and their CDN URLs.
 
-The CDN URLs contain the Telerik UI for Blazor version. Thus, you do not need to manually track the theme compatibility, just make sure to use the CDN including your UI for Blazor version.
+The CDN URLs contain the Telerik UI for Blazor version. Thus, you do not need to manually track the theme compatibility. Just make sure to use your UI for Blazor version in the URL.
 
 #### Default
 
