@@ -12,6 +12,8 @@ position: 5
 
 The Gantt Timeline provides four predefined views, which dictate how much time a single time slot represents:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | View | Description |
 | --- | --- |
 | `DayView` | Each slot is a single hour. Main Header row shows the day, and the secondary row shows each hour slot. |
