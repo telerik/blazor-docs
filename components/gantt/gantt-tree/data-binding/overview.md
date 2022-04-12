@@ -27,19 +27,20 @@ There are two modes of providing data to a Gantt Tree, and they all use the item
 
 ## Gantt Tree Item Features
 
-The Gantt Tree items provide the following features that you can control through the corresponding fields in their data binding:
+The Blazor Gantt Tree provides various parameters to configure its items. Also check the [Gantt public API](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1).
 
-* `Items` - the collection of child items that will be rendered under the current item. Required only when binding to hierarchical data.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* `Id` - a unique identifier for the item. Required only for binding to flat data.
-
-* `ParentId` - identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, `ParentId` must be `null`. There must be at least one node with a `null` value for the `ParentId`.
-
-* `HasChildren` - whether the item has children. Determines whether an expand arrow is rendered next to the item in an Expandable column. Required for loading data on-demand - if you don't set it to `true`, there will be no expand arrow and so there will be no way for the user to expand the item and load its children. With hierarchical data, the Gantt Tree will render the icon based on the existence of child items, but `HasChildren` will take precedence. You do not have to set or use its field unless you want to load data on demand, or override the arrow for some items.
+| Parameter | Description |
+| --- | --- |
+| `Items` | The collection of child items that will be rendered under the current item. Required only when binding to hierarchical data. |
+| `Id` | A unique identifier for the item. Required only for binding to flat data. |
+| `ParentId` | Identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, `ParentId` needs to be `null`. There needs to be at least one node with a `null` value for the `ParentId`. |
+| `HasChildren` | Whether the item has children. Determines whether an expand arrow is rendered next to the item in an Expandable column. Required for loading data on-demand - if you don't set it to `true`, there will be no expand arrow and so there will be no way for the user to expand the item and load its children. With hierarchical data, the Gantt Tree will render the icon based on the existence of child items, but `HasChildren` will take precedence. You do not have to set or use its field unless you want to load data on demand, or override the arrow for some items. |
 
 ## Data Bindings
 
-The properties of a Gantt Tree item match directly to a field of the model the treelist is bound to. You provide that relationship by providing the name of the field from which the corresponding information is to be taken. To do this, in the main `TelerikGantt` tag, use the parameters described below:
+The properties of a Gantt Tree item match directly to a field of the model the treelist is bound to. Provide that relationship by providing the name of the field from which the corresponding information is to be taken. To do this, in the main `TelerikGantt` tag, use the parameters described below:
 
 * IdField => Id
 * ParentIdField => ParentId

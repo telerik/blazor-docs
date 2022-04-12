@@ -127,22 +127,30 @@ You can read more details on how to tie the Gantt to your data fields and child 
 
 ## Gantt Bound Column Parameters
 
-You can use the following properties on bound columns:
+The Blazor Gantt Bound Column provides various parameters to configure the component. Also check the [Gantt public API](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1).
 
 ### Data Binding
 
-* `Expandable` - (defaults to `false`) - when set to true, the column shows an expand/collapse arrow in front of the value and denotes hierarchy be intending it. You should set this to at least one column of your treelist to showcase the hierarchical nature of the data.
-* `Field` - (defaults to `null`) - the name of the field in the data source that the column will render as a string (case-sensitive). You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeFIeld)`).
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Expandable` | `bool` | When set to true, the column shows an expand/collapse arrow in front of the value and denotes hierarchy be intending it. Set this to at least one column of your treelist to showcase the hierarchical nature of the data. |
+| `Field` | `string` | The name of the field in the data source that the column will render as a string (case-sensitive). Set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeFIeld)`). |
 
 ### Appearance
 
-* `Title` - the text that is rendered in the column header. See the Notes below for its behavior.
-* `DisplayFormat` - the C# format string that is used to render the field value in the cell when the grid is in display mode. Read more in the [Column Display Format]({%slug treelist-columns-displayformat%}) article.
-* `TextAlign` - specifies the horizontal alignment of the cell text. For example, you can use this property to right-align numeric columns. The property accepts `ColumnTextAlign` enum values (`Left`, `Right` or `Center`). If not set, the text alignment will depend on existing styles on the page, default browser behavior and the text direction.
-* `Width` -  (defaults to `null`) - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article for information about the supported formats. See [Gantt Column Width Behavior]({%slug gantt-columns-width%}) for detailed information about the Gantt behavior with different column width configurations.
-* `MinResizableWidth` - (defaults to `30` and ignores smaller values) - the minimum allowed column width during [user resizing]({%slug gantt-columns-resize%}). Unlike the string `Width` property, this one is decimal and expects pixel values.
-* `MaxResizableWidth` - (defaults to `0`) - the maximum allowed column width during [user resizing]({%slug gantt-columns-resize%}). Unlike the string `Width` property, this one is decimal and expects pixel values.
-* `Visible` - (defaults to `null`) - if this parameter is set to `false` it hides the column from the Gantt Tree. Accepts both `bool` and `bool?` types, and `null` is treated like `true`.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default Value | Description |
+| --- | --- | --- |
+| `Title` | `string` | The text that is rendered in the column header. See the Notes below for its behavior. |
+| `DisplayFormat` | `string` | The C# format string that is used to render the field value in the cell when the grid is in display mode. Read more in the [Column Display Format]({%slug treelist-columns-displayformat%}) article. |
+| `TextAlign` | `ColumnTextAlign` enum <br /> (`Left`) | Specifies the horizontal alignment of the cell text. |
+| `Width` | `string` | The width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article for information about the supported formats. See [Gantt Column Width Behavior]({%slug gantt-columns-width%}) for detailed information about the Gantt behavior with different column width configurations. |
+| `MinResizableWidth` | `int` <br /> (`30`) | The minimum allowed column width during [user resizing]({%slug gantt-columns-resize%}). Unlike the string `Width` property, this one is decimal and expects pixel values. |
+| `MaxResizableWidth` | `int` | The maximum allowed column width during [user resizing]({%slug gantt-columns-resize%}). Unlike the string `Width` property, this one is decimal and expects pixel values. |
+| `Visible` | `bool?` <br /> (`null`) | If this parameter is set to `false`, it hides the column from the Gantt Tree. Accepts both `bool` and `bool?` types, and `null` is treated like `true`. |
 
 ## Notes
 

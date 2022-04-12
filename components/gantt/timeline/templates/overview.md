@@ -10,16 +10,17 @@ position: 0
 
 # Templates for the Gantt Timeline
 
-You can customize the appearance of the Gantt Timeline through the templates it provides, so you can add more details for your users and have full control over how they are rendered.
+Customize the appearance of the Gantt Timeline through its templates. They will enable you to add more details for the users and have full control over the rendering.
 
-This article showcases the available templates for the [Timeline]({%slug gantt-timeline%}):
+Available templates for the [Timeline]({%slug gantt-timeline%}):
 
-* [TaskTemplate]({%slug gantt-task-template%}) - allows you to customize the rendering of the tasks in the Timeline.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* [TooltipTemplate]({%slug gantt-tooltip-template%}) - allows you to customize the rendering of the ToolTip in the Timeline.
-
-* [Date Header Templates]({%slug gantt-dateheader-template%}) - allows you to customize the rendering of major and minor slot header for each view in the Timeline.
-
+| Template | Description |
+| --- | --- |
+| [TaskTemplate]({%slug gantt-task-template%}) | Allows you to customize the rendering of the tasks in the Timeline. |
+| [TooltipTemplate]({%slug gantt-tooltip-template%}) | Allows you to customize the rendering of the ToolTip in the Timeline. |
+| [Date Header Templates]({%slug gantt-dateheader-template%}) | Allows you to customize the rendering of major and minor slot header for each view in the Timeline. |
 
 ## See Also
 
