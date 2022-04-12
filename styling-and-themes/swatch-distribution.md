@@ -95,7 +95,7 @@ One of the ways to install Telerik UI for Blazor is to use the ZIP Archive. Its 
 
 You can use the Telerik Blazor Extensions to easily create a new project pre-configured to use the Telerik UI for Blazor components or convert your existing one to add them. Telerik Blazor Extensions are available for Visual Studio and Visual Studio Code.
 
-The **Create New Project** wizard for [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-new-project%}) allows you to also select the desired theme/swatch for your application. It provides the above list of the most commonly used swatches you can choose from.
+The **Create New Project** wizards for [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-new-project%}) allow you to select the desired theme/swatch for your application. The wizards provide the above list of common swatches.
 
 Once you've created the project, the selected theme will be distributed as static asset. You can find it in the `wwwroot/lib/blazor-ui/styles` folder of the application.
 
