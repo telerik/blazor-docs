@@ -2,7 +2,7 @@
 title: Ocean Blue Accessibility Swatch
 page_title: Ocean Blue Accessibility Swatch
 description: Ocean Blue Accessibility Swatch in the Telerik UI for Blazor suite.
-slug: accessibility-swatch
+slug: themes-accessibility-swatch
 tags: telerik,blazor,accessibility,swatch,theme,ocean,blue,default
 published: True
 position: 7
