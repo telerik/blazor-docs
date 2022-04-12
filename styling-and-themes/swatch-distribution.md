@@ -1,0 +1,101 @@
+---
+title: Swatch Distribution
+page_title: Swatch Distribution
+description: The UI for Blazor suite distributes most commonly used swatches. Explore how you can access them.
+slug: swatch-distribution
+tags: telerik,blazor,theme,swatch,distribution
+published: True
+position: 2
+---
+
+# Swatch Distribution
+
+Telerik UI for Blazor distributes the most commonly used swatches. While it is possiblle to get them from the [Themes CDN]({%slug themes-swatches%}#buit-in-themes-and-swatches-list), the [Sass Theme Builder]({%slug themes-custom%}#using-the-sass-theme-builder) or the [kendo-themes repository](https://github.com/telerik/kendo-themes), this article lists a couple other ways of distribution.
+
+>caption In this article:
+
+* [Distributed Swatches](#distributed-swatches)
+* [Distribution Options](#distribution-options)
+    * [Telerik Blazor CDN](#telerik-blazor-cdn)
+    * [ZIP archive](#zip-archive)
+    * [VS and VS Code Wizard](#vs-and-vs-code-wizard)
+
+# Distributed Swatches
+
+The following swatches are statistically most used, so we've included them in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview) to allow easy testing. In addition, we are also distributing them via [several resources](#distribution-options).
+
+Telerik UI for Blazor distributed swatches:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Default    | Bootstrap  | Material |
+| ----------- | ----------- | -------|
+| Main | Main | Main
+| Main Dark | Main Dark | Arctic
+| [Ocean Blue]({%slug accessibility-swatch%}) | Nordic | Nova 
+| Nordic | Urban | Lime Dark
+| Purple | Vintage | Main Dark
+| Turquoise 
+
+
+## Distribution Options
+
+The above listed swatches are distributed in several ways:
+
+### Telerik Blazor CDN
+
+A dedicated Telerik UI for Blazor CDN hosts them in the `swatches` folder of the corresponding base theme. Below you will find a list of the distributed swatches and their CDN URLs.
+
+The CDN URLs contain the Telerik UI for Blazor version. Thus, you do not need to manually track the theme compatibility, just make sure to use the CDN including your UI for Blazor version.
+
+#### Default
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+Swatch | CDN |
+| ----------- | ----------- |
+| Main | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-main.css
+| Main Dark | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-main-dark.css
+| [Ocean Blue]({%slug accessibility-swatch%}) | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-ocean-blue.css
+| Nordic | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-nordic.css
+| Purple | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-purple.css
+| Turquoise | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-turquoise.css
+
+
+#### Bootstrap
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+Swatch | CDN |
+| ----------- | ----------- |
+| Main | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/swatches/bootstrap-main.css
+| Main Dark | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/swatches/bootstrap-main-dark.css
+| Nordic | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/swatches/bootstrap-nordic.css
+| Urban | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/swatches/bootstrap-urban.css
+| Vintage | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/swatches/bootstrap-vintage.css
+
+#### Material
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+Swatch | CDN |
+| ----------- | ----------- |
+| Main | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/swatches/material-main.css
+| Arctic | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/swatches/material-arctic.css
+| Nova | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/swatches/material-nova.css
+| Lime Dark | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/swatches/material-lime-dark.css
+| Main Dark | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/swatches/material-main-dark.css
+
+
+### ZIP archive
+
+One of the ways to install Telerik UI for Blazor is to use the ZIP Archive. Its `styles` folder contains all of the above listed swtaches. You can download it from your [Telerik account](https://www.telerik.com/account/). [Read more for the ZIP Archive]({%slug installation/zip%})...
+
+### VS and VS Code Wizard
+
+You can use the Telerik Blazor Extensions to easily create a new project pre-configured to use the Telerik UI for Blazor components or convert your existing one to add them. Telerik Blazor Extensions are available for Visual Studio and Visual Studio Code.
+
+The **Create New Project** wizard for [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-new-project}) allows you to also select the desired theme/swatch for your application. It provides the above list of the most commonly used swatches you can choose from.
+
+Once you've created the project, the selected theme will be distributed as static asset. You can find it in the `wwwroot/lib/blazor-ui/styles` folder of the application.
+
