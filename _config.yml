@@ -570,11 +570,11 @@ baseurl: /blazor-ui
 enable_blazorRepl: true
 
 ## Latest UI for Blazor version. Used in some articles
-uiForBlazorLatestVersion: "3.1.0"
+uiForBlazorLatestVersion: "3.2.0"
 supportedFrameworkVersion: ".NET Core 3.1.11, .NET 5 and .NET 6"
 
 ## Compatible theme version for CDN URLs
-themeCdnVersion: "5.2.0"
+themeCdnVersion: "5.3.0"
 
 ## The Kendo UI version used
 cdnVersion: "2019.1.115"
