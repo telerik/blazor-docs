@@ -21,6 +21,8 @@ The Telerik Gantt for Blazor allows you define dependencies, which are rendered 
 
 ## Gantt Dependencies Features:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Feature | Description |
 | --- | --- |
 | `Data Binding` | Provide a collection of dependencies to the Gantt Chart for Blazor. For more information read the [Data Binding]({%slug gantt-dependencies-databind%}) article. |

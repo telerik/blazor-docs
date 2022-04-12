@@ -14,6 +14,8 @@ The Gantt Tree is the left part of the [Gantt Chart]({%slug gantt-overview%}). I
 
 ## List of available features for the Gantt Tree
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Feature | Type and Default Value | Description |
 | --- | --- | --- |
 | `TreeListWidth` | `string` <br /> (`30%`) | The width of the TreeList pane in the splitter. It can be in pixels or percent. |

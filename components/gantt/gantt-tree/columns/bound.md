@@ -131,12 +131,16 @@ The Blazor Gantt Bound Column provides various parameters to configure the compo
 
 ### Data Binding
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
 | `Expandable` | `bool` | When set to true, the column shows an expand/collapse arrow in front of the value and denotes hierarchy be intending it. Set this to at least one column of your treelist to showcase the hierarchical nature of the data. |
 | `Field` | `string` <br /> (`null`) | The name of the field in the data source that the column will render as a string (case-sensitive). Set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeFIeld)`). |
 
 ### Appearance
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |

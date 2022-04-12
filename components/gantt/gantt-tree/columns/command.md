@@ -32,6 +32,8 @@ The Blazor Gantt Command Column provides various parameters to configure the com
 
 ### The GanttCommandButton Tag
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Description |
 | --- | --- |
 | `Command` | The command that will be invoked. Can be one of the built-in commands (see below), or a custom command name. |
@@ -44,6 +46,8 @@ See also Appearance properties like `Icon`, `Class`, `Enabled` that are coming f
 
 Built-in commands:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Command | Description |
 | --- | --- |
 | `Add` | Initiates the creation of a new item. Can apply to rows as well, to create a child element for the current row. |
@@ -52,6 +56,8 @@ Built-in commands:
 ### OnClick handler
 
 The `OnClick` handler of the commands receives an argument of type `GanttTaskCommandEventArgs` that exposes the following parameters:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Description |
 | --- | --- |

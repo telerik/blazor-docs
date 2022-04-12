@@ -14,6 +14,8 @@ Customize the appearance of the Gantt Timeline through the templates it provides
 
 Available templates for the [Timeline]({%slug gantt-timeline%}):
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Template | Description |
 | --- | --- |
 | [TaskTemplate]({%slug gantt-task-template%}) | Allows you to customize the rendering of the tasks in the Timeline. |

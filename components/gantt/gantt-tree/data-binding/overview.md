@@ -29,6 +29,8 @@ There are two modes of providing data to a Gantt Tree, and they all use the item
 
 The Blazor Gantt Tree provides various parameters to configure its items. Also check the [Gantt public API](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1).
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Description |
 | --- | --- |
 | `Items` | The collection of child items that will be rendered under the current item. Required only when binding to hierarchical data. |

@@ -14,6 +14,8 @@ To bind a collection of dependencies to the Gantt Chart you should use the `Data
 
 ## Gantt Dependencies Features:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Feature | Type | Description |
 | --- | --- | --- |
 | `Data` | `IEnumerable<Object>` | Pass the collection of dependencies you would like to see rendered to the Data parameter. |
