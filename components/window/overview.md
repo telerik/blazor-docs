@@ -16,7 +16,7 @@ The Window component displays a popup window, which shows users custom content. 
 
 #### In this article:
 
-* [Creating a Window](#creating-blazor-window)
+* [How to create a Window](#creating-blazor-window)
 * [Responsive example](#responsiveness)
 * [Parameters](#window-parameters)
 * [Important notes](#important-notes)

@@ -20,15 +20,26 @@ The Window offers action buttons in its titlebar:
 
 To define action buttons, populate the `WindowActions` tag of the Window with `WindowAction` instances.
 
+
 ## Action Parameters
 
 Action buttons expose the following properties:
 
-* `Name` - the name of the action. Can be one of the built-in actions (see above), or a custom action name.
-* `Hidden` - a boolean property indicating whether the action button is rendered. Do not use for `Minimize` and `Maximize` actions - the Window manages their visibility internally, based on the component state. Check the example below for a possible alternative.
-* `OnClick` - event handler to respond to custom action clicks.
-* `Icon` - the CSS class name of the icon that will be rendered. Use with the [Telerik font icons]({%slug general-information/font-icons%}) directly, or set your own font icon class.
-* `Title` - the `title` HTML attribute of the action button.
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Name` | `string` | The name of the action. Can be one of the built-in actions (see above), or a custom action name. |
+| `Hidden` | `bool` | Sets if the action button is rendered. Do not use for `Minimize` and `Maximize` actions - the Window manages their visibility internally, based on the component state. Check the example below for a possible alternative. |
+| `OnClick` | `EventCallback<MouseEventArgs>` | An event handler to respond to custom action clicks. |
+| `Icon` | `string` | The CSS class of the icon to be rendered. Use with the [Telerik font icons]({%slug general-information/font-icons%}), or set your own font icon class. |
+| `Title` | `string` | The `title` HTML attribute of the action button. |
+
 
 ## Built-in Actions
 
@@ -134,4 +145,4 @@ You can mix custom actions with built-in actions, and you do not have to define 
 
 ## See Also
 
-  * [Live Demo: Window Actions](https://demos.telerik.com/blazor-ui/window/actions)
+* [Live Demo: Window Actions](https://demos.telerik.com/blazor-ui/window/actions)
