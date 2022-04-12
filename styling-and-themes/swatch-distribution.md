@@ -89,7 +89,7 @@ Swatch | CDN |
 
 ### ZIP archive
 
-One of the ways to install Telerik UI for Blazor is to use the ZIP Archive. Its `styles` folder contains all of the above listed swtaches. You can download it from your [Telerik account](https://www.telerik.com/account/). [Read more for the ZIP Archive]({%slug installation/zip%})...
+One of the ways to install Telerik UI for Blazor is to use the ZIP Archive. Its `styles` folder contains all the above swatches. You can [download it from your Telerik account](https://www.telerik.com/account/downloads). Here is [more information about the ZIP Archive]({%slug installation/zip%})...
 
 ### VS and VS Code Wizard
 
