@@ -36,9 +36,9 @@ There are two different cases:
 
 ### Automatic operations
 
-For general cases, to change the data that is rendered in the grid from an external source, use an `ObservableCollection`: [https://demos.telerik.com/blazor-ui/grid/observable-data](https://demos.telerik.com/blazor-ui/grid/observable-data). To change the entire data collection, `.Clear()` the collection first to notify the grid that this old data is gone, then create a new one with the new data.
+For general cases, to refresh the rendeded data in the Grid, [use an `ObservableCollection`](https://demos.telerik.com/blazor-ui/grid/observable-data). To change the entire data collection, `.Clear()` the collection first to notify the grid that this old data is gone, then create a new one with the new data.
 
-If you don't use an `ObservableCollection`, you can create a `new` instance of the collection and set it to the `Data` parameter. A `new` instance provides a new reference, which fires the `OnParametersSet` event from the framework which lets the grid redraw. If you only add/remove items from the same collection, the reference to the entire data collection stays the same and the grid is not notified of the change.
+If you don't use an `ObservableCollection`, then [create a `new` instance of the collection and set it to the `Data` parameter]({%slug grid-refresh-data%}#new-collection-reference). A `new` instance provides a new reference, which fires the `OnParametersSet` event from the framework. This lets the Grid redraw. If you only add/remove items from the same collection, the reference to the entire data collection stays the same and the Grid is not notified of the change.
 
 >caption Refresh grid data with automatic data source operations
 
@@ -98,4 +98,4 @@ If you don't use an `ObservableCollection`, you can create a `new` instance of t
 
 ### Manual operations
 
-When using manual operations through the [OnRead event](https://docs.telerik.com/blazor-ui/components/grid/manual-operations), the general pattern is to [store the last `DataSourceRequest`]({%slug components/grid/manual-operations%}#cache-data-request) so you can repeat it over a [new `OnRead` call]({%slug grid-refresh-data%}#call-onread).
+When using manual operations through the [OnRead event](https://docs.telerik.com/blazor-ui/components/grid/manual-operations), call the component's [`Rebind()` method]({%slug grid-refresh-data%}#rebind-method). This will force the component to fire its `OnRead` event.
