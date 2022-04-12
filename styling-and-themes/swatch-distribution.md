@@ -2,7 +2,7 @@
 title: Swatch Distribution
 page_title: Swatch Distribution
 description: The UI for Blazor suite distributes most commonly used swatches. Explore how you can access them.
-slug: swatch-distribution
+slug: themes-swatch-distribution
 tags: telerik,blazor,theme,swatch,distribution
 published: True
 position: 2
