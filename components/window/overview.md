@@ -24,7 +24,7 @@ The Window component displays a popup window, which shows users custom content. 
 ## Creating Blazor Window
 
 1. Use the `TelerikWindow` tag.
-1. Bind the `Visible` parameter to a `bool` property. It support one-way and two-way binding.
+1. Bind the `Visible` parameter to a `bool` property. It supports one-way and two-way binding.
 1. Add content to the `WindowContent` child tag.
 1. (optional) Add some title inside a `WindowTitle` tag. HTML markup and child components are supported too.
 1. (optional) Add a [`Close` action]({%slug components/window/actions%}) inside a `<WindowActions>` tag.
