@@ -18,7 +18,7 @@ Telerik UI for Blazor distributes the most commonly used swatches. While it is p
 * [Distribution Options](#distribution-options)
     * [Telerik Blazor CDN](#telerik-blazor-cdn)
     * [ZIP archive](#zip-archive)
-    * [VS and VS Code Wizard](#vs-and-vs-code-wizard)
+    * [Visual Studio and Visual Studio Code Wizards](#visual-studio-and-visual-studio-code-wizard)
 
 # Distributed Swatches
 
@@ -32,7 +32,7 @@ Telerik UI for Blazor distributed swatches:
 | ----------- | ----------- | -------|
 | Main | Main | Main
 | Main Dark | Main Dark | Arctic
-| [Ocean Blue]({%slug accessibility-swatch%}) | Nordic | Nova 
+| [Ocean Blue]({%slug themes-accessibility-swatch%}) | Nordic | Nova 
 | Nordic | Urban | Lime Dark
 | Purple | Vintage | Main Dark
 | Turquoise 
@@ -56,7 +56,7 @@ Swatch | CDN |
 | ----------- | ----------- |
 | Main | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-main.css
 | Main Dark | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-main-dark.css
-| [Ocean Blue]({%slug accessibility-swatch%}) | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-ocean-blue.css
+| [Ocean Blue]({%slug themes-accessibility-swatch%}) | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-ocean-blue.css
 | Nordic | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-nordic.css
 | Purple | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-purple.css
 | Turquoise | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-turquoise.css
@@ -91,11 +91,11 @@ Swatch | CDN |
 
 One of the ways to install Telerik UI for Blazor is to use the ZIP Archive. Its `styles` folder contains all the above swatches. You can [download it from your Telerik account](https://www.telerik.com/account/downloads). Here is [more information about the ZIP Archive]({%slug installation/zip%})...
 
-### VS and VS Code Wizard
+### Visual Studio and Visual Studio Code Wizards
 
 You can use the Telerik Blazor Extensions to easily create a new project pre-configured to use the Telerik UI for Blazor components or convert your existing one to add them. Telerik Blazor Extensions are available for Visual Studio and Visual Studio Code.
 
 The **Create New Project** wizards for [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-new-project%}) allow you to select the desired theme/swatch for your application. The wizards provide the above list of common swatches.
 
-Once you've created the project, the selected theme will be distributed as static asset. You can find it in the `wwwroot/lib/blazor-ui/styles` folder of the application.
+Once you've created the project, the selected theme will be locally saved in the `wwwroot/lib/blazor-ui/styles` folder of the application. Whith this congiguration, upgrading UI for Blazor requires manually replacing the CSS file.
 
