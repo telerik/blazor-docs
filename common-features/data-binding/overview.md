@@ -12,6 +12,11 @@ position: 0
 
 This article describes the fundamentals of data binding the Telerik Blazor components. For the sake of clarity, also check article [Value Binding vs Data Binding]({%slug get-started-value-vs-data-binding%}).
 
+* [Data binding options](#how-to-provide-data)
+* [Supported data types](#data-type)
+* [Model property names can matter](#model-property-names)
+* [How to refresh the component data](#refresh-data)
+
 
 ## How to Provide Data
 

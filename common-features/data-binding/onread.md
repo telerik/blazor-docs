@@ -12,14 +12,12 @@ position: 5
 
 This article presents the `OnRead` event and describes how to use it to data bind Telerik Blazor components.
 
-#### In this article:
-
 * [Purpose and benefits of `OnRead`](#purpose-and-benefits)
 * [Which Blazor components use `OnRead`](#components-with-onread-event)
 * [Description of the `OnRead` event argument](#event-argument)
 * [How to return data in `OnRead` with the `ToDataSourceResult` method](#todatasourceresult-method)
 * [Example](#example)
-* [How to refresh component data when using `OnRead`](#refresh-data)
+* [How to refresh the component data when using `OnRead`](#refresh-data)
 
 
 ## Purpose and Benefits
