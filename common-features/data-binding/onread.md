@@ -1,6 +1,6 @@
 ---
 title: OnRead Event
-page_title: Databind using the OnRead Event
+page_title: Databind with the OnRead Event
 description: How to data bind Telerik Blazor components with the OnRead event. How to load data on demand.
 slug: common-features-data-binding-onread
 tags: telerik,blazor,binding,databinding,onread
