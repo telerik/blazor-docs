@@ -76,6 +76,56 @@ If the component `Data` is not set initially, set the `TItem` parameter to point
 Some components handle properties with specific names in a predefined way. For example, the Menu will automatically render the `Text` property of its items. If the property names are different, the component will expect additional configuration. All these specifics are described in each component documentation.
 
 
+## Refresh Data
+
+This section applies **only** if the `Data` parameter is set. Also check [how to refresh the data when using the `OnRead` event]({%slug common-features-data-binding-onread%}#refresh-data).
+
+There are two ways to refresh the component data:
+
+* [Bind the component to Observable data]({%slug common-features-observable-data%}). In this case, the component will refresh automatically when items are added or removed.
+* Reset the `Data` parameter reference. In some specific scenarios, you may also need to call `StateHasChanged()`.
+
+### Reset the Collection Reference
+
+The Blazor framework will fire `OnParametersSet` of a component only when it detects a change in the component's parameter values (such as `Data`). The change detection works like this:
+
+* For primitive types (numbers, strings, booleans), the detection occurs happens when the **value** changes.
+* For complex types (such as `IEnumerable` and any application-specific objects), the detection occurs when the **object reference** changes.
+
+Thus, you will usually need to create a new reference for `Data` value in order to refresh the component.
+
+>caption Create new Data reference
+
+<div class="skip-repl"></div>
+
+````CSHTML
+<TelerikGrid Data="@GridData" />
+
+@code {
+    List<SampleModel> GridData { get; set; }
+
+    void RefreshGridData()
+    {
+        // if the new items are not in GridData yet
+        GridData = new List<SampleModel>();
+        // manipulate GridData here...
+
+        // if the new items are already in GridData
+        GridData = new List<SampleModel>(GridData);
+
+        // call only if necessary
+        StateHasChanged();
+    }
+
+    public class SampleModel
+    {
+        public int Id { get; set; }
+        public int Text { get; set; }
+    }
+}
+````
+
+
 ## Next Steps
 
 * [Data Binding with the OnRead event]({%slug common-features-data-binding-onread%})
