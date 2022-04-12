@@ -87,14 +87,14 @@ The Blazor ToolBar provides parameters to configure the component:
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Adaptive ` | `bool` | Toggles the overflow popup of the toolbar. Consistent with the chosen name for the pager. |
+| `Adaptive ` | `bool` | Toggles the overflow popup of the toolbar. Displays an additional anchor on the right of the toolbar, where it places all items which overflow from the toolbar. |
 | `Class` | `string` | The CSS class to be rendered on the main wrapping element of the ToolBar component, which is `<div class="k-toolbar">`. Use for [styling customizations]({%slug themes-override%}). |
 
 ## Example
 
 The Blazor Toolbar has an option for adaptiveness. This option allows you to hide the items overflowing in a popup.
 
->We do **not** recommend using `ToolBarTemplateItem` with the responsive overflow popup as there is a high chance of breaking the popup. 
+>When using `ToolBarTemplateItem` with the responsive overflow popup, the template inherits automatically `Overflow` - `ToolBarItemOverflow.Never` behavior.
 
 >caption Responsive Overflow Popup
 
@@ -136,10 +136,6 @@ The Blazor Toolbar has an option for adaptiveness. This option allows you to hid
 <style>
     .toolbar-wrapper{
         width: @(Width.ToString() + "%");
-    }
-
-    .toolbar-slider {
-        padding: 0px 16px;
     }
 </style>
 ````

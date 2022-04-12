@@ -12,7 +12,7 @@ position: 5
 
 You can visually separate the items in the Telerik ToolBar for Blazor. Depending on the needs of your application you can use of the following, or a combination of them:
 
-* `ToolBarSeparator` - to separate two items with a solid line, add the `<ToolBarSeparator>` tag between them. 
+* `ToolBarSeparator` - to separate two items with a solid line, add the `<ToolBarSeparator>` tag between them. The separator exposes an `Overflow` parameter to specify whether the separator will be hidden when the adaptive ToolBar is resized. Its type is `ToolBarItemOverflow` enum and the default value is `Auto`.
 
 * `ToolBarSpacer` - defines empty space in the toolbar which separates the items. The space between the items is automatically calculated to fit the width of the ToolBar. For example, one spacer in the middle of the items will push the second part of items to the right-hand side of the toolbar.
 
@@ -37,7 +37,6 @@ You can visually separate the items in the Telerik ToolBar for Blazor. Depending
     <ToolBarSeparator />
     <ToolBarButton Icon="undo">Undo</ToolBarButton>
 </TelerikToolBar>
-
 
 @code {
     public bool Selected { get; set; } = true;
