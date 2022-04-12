@@ -36,9 +36,9 @@ The Blazor Gantt Command Column provides various parameters to configure the com
 
 | Parameter | Description |
 | --- | --- |
-| `Command` | The command that will be invoked. Can be one of the built-in commands (see below), or a custom command name. |
-| `ShowInEdit` | A parameter indicating whether the button is only visible while the user is editing/inserting data. |
-| `ChildContent` | The text the button will render. You can also place it between the command button's opening and closing tags. |
+| `Command` | The command to invoke. Can be one of the built-in commands ([see below](#built-in-commands)), or a custom command name. |
+| `ShowInEdit` | Defines if the button is visible only when the user is editing or inserting data. |
+| `ChildContent` | The text of the button. You can also place it between the command button's opening and closing tags. |
 
 See also Appearance properties like `Icon`, `Class`, `Enabled` that are coming from the underlying [Button Component features]({%slug components/button/overview%}).
 

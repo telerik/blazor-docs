@@ -18,7 +18,7 @@ To bind a collection of dependencies to the Gantt Chart you should use the `Data
 
 | Feature | Type | Description |
 | --- | --- | --- |
-| `Data` | `IEnumerable<Object>` | Pass the collection of dependencies you would like to see rendered to the Data parameter. |
+| `Data` | `IEnumerable<Object>` | The collection of dependencies. |
 | `IdField` | `string` | Unique identifier for each task. Use it for editing and hierarchy. |
 | `PredecessorField` | `string` | Points to the predecessor task. |
 | `SuccessorField` | `string` | Points to the successor task. |

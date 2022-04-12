@@ -14,12 +14,12 @@ The Gantt Timeline provides four predefined views, which dictate how much time a
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| View | Description |
-| --- | --- |
-| `DayView` | Each slot is a single hour. Main Header row shows the day, and the secondary row shows each hour slot. |
-| `WeekView` | Each slot is a single day. Main Header row shows the week, and the secondary row shows each day slot. |
-| `MonthView` | Each slot is a whole week. Main Header row shows the month, and the secondary row shows each week slot. |
-| `YearView` | Each slot is whole month. Main Header row shows the year, and the secondary row shows each month slot. |
+| View | One Slot Is | Main Header Shows | Secondary Header Shows |
+| --- | --- | --- | --- |
+| `DayView` | 1 Hour | Day | Hours |
+| `WeekView` | 1 Day | Week | Days |
+| `MonthView` | 1 Week | Month | Weeks |
+| `YearView` | 1 Month | Year | Months |
 
 ## Basics
 
@@ -176,9 +176,9 @@ The Gantt Timeline provides four predefined views, which dictate how much time a
 ````
 
 
-## Views Parameters
+## View Parameters
 
-| Parameter | Type and Default Value | Description |
+| Parameter | Type | Description |
 | --- | --- | --- |
 | `SlotWidth` | `double` | The width of each individual slot in pixels. |
 | `RangeStart` | `DateTime` | Determines where the view should start. If not provided, the value is calculated based on the data source. If no data is present `DateTime.Now` is used, and the view shows a single major time slot (a day in `DayView`, month in `MonthView` and so on). |
