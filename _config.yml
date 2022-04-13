@@ -460,6 +460,7 @@ intro_columns:
       "Pager": "pager-overview"
       "ToolBar": "toolbar-overview"
       "PanelBar": "panelbar-overview"
+      "SplitButton" : "splitbutton-overview"
       "Stepper" : "stepper-overview"
 
   -
@@ -496,11 +497,15 @@ intro_columns:
       "Slider": "slider-overview"
       "RangeSlider": "rangeslider-overview"
       "Color Palette": "colorpalette-overview"
+  -
+    title: "Labels"
+    items:
+      "FloatingLabel": "floatinglabel-overview"
 
 -
   categories:
   -
-    title: "Data Visualization"
+    title: "Charts"
     items:
       "Charts Overview": "components/chart/overview"
       "Area Charts": "components/chart/types/area"
@@ -518,15 +523,26 @@ intro_columns:
       "Radar Column Charts": "chart-types-radarcolumn"
       "Radar Line Charts": "chart-types-radarline"
       "Stock Chart": "stockchart-overview"
+  -
+    title: "Gauges"
+    items:
       "Linear Gauge": "linear-gauge-overview"
       "Radial Gauge": "radial-gauge-overview"
       "Arc Gauge": "arc-gauge-overview"
       "Circular Gauge": "circular-gauge-overview"
-
+  -
+    title: "Maps"
+    items:
+      "Map": "components/map/overview"
   -
 
 -
   categories:
+  -
+    title: "Scheduling"
+    items:
+      "Scheduler": "scheduler-overview"
+      "Calendar": "components/calendar/overview"
   -
     title: "Files"
     items:
@@ -552,15 +568,10 @@ intro_columns:
       "Validation Tools": "validation-tools-overview"
       "Media Query": "mediaquery-overview"
       "Card": "card-overview"
+      "Carousel": "carousel-overview"
       "Stack Layout": "stacklayout-overview"
       "Grid Layout": "gridlayout-overview"
       "Wizard": "wizard-overview"
-  -
-    title: "Scheduling"
-    items:
-      "Scheduler": "scheduler-overview"
-      "Calendar": "components/calendar/overview"
-
 
 
 ## The application virtual path
