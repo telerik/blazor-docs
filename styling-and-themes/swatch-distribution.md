@@ -97,5 +97,5 @@ You can use the Telerik Blazor Extensions to easily create a new project pre-con
 
 The **Create New Project** wizards for [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-new-project%}) allow you to select the desired theme/swatch for your application. The wizards provide the above list of common swatches.
 
-Once you've created the project, the selected theme will be locally saved in the `wwwroot/lib/blazor-ui/styles` folder of the application. Whith this congiguration, upgrading UI for Blazor requires manually replacing the CSS file.
+Once you've created the project, the selected theme will be saved locally in the `wwwroot/lib/blazor-ui/styles` folder of the application. With this configuration, **upgrading UI for Blazor requires you to replace this CSS file manually**.
 
