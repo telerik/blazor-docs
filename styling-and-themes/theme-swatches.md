@@ -19,16 +19,11 @@ Telerik UI for Blazor comes with three [built-in (base) themes]({%slug general-i
 
 ## Basics
 
-The theme swatches are different color variations of the base themes. While they use the same variables as the built-in theme they accompany, they have different color values to deliver a variety of shades for the Telerik components. Any of the base themes and their swatches can be easily customized as desired - read more about that in the [Custom Themes article]({%slug themes-custom%}).
+The theme swatches are different color variations of the base themes. While they use the same variables as the built-in theme they accompany, they have different color values to deliver a variety of shades for the Telerik components.
 
-You can find the built-in themes and all their swatches in the following resources:
+You can explore the swatches in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview). The `Change Theme` dropdown provides a list of the most common swatches. To test how all the available swatches affect the appearance of the Telerik UI for Blazor components, you might check the [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui). It also provides option for [customizing the existing themes]({%slug themes-custom%}) if needed.
 
-* [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui) - it is a web application that enables you to [create new or customize existing themes]({%slug themes-custom%}). You can use it to explore how certain theme/swatch will affect the appearance of the Telerik UI for Blazor components.
-
-* [kendo-themes repository](https://github.com/telerik/kendo-themes) - the repository for all themes and swatches that are used across Telerik and Kendo web components.
-
-In addition, Telerik UI for Blazor distributes the most commonly used swatches via several other resources. Read more in the [Swatch Distribution]({%slug themes-swatch-distribution%}) article.
-
+In addition, Telerik UI for Blazor distributes some swatches via several other resources. Read more in the [Swatch Distribution]({%slug themes-swatch-distribution%}) article.
 
 ## Built-in themes and swatches list
 
