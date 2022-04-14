@@ -12,6 +12,8 @@ position: 0
 
 This article describes the fundamentals of data binding the Telerik Blazor components. For the sake of clarity, also check article [Value Binding vs Data Binding]({%slug get-started-value-vs-data-binding%}).
 
+#### In This Article
+
 * [Data binding options](#how-to-provide-data)
 * [Supported data types](#data-type)
 * [Model property names can matter](#model-property-names)
@@ -34,22 +36,29 @@ Hierarchy components like the TreeList and the TreeView don't have an `OnRead` e
 
 ## Data Type
 
-All databound Telerik Blazor components expect their data to be `IEnumerable<T>`.
+All databound Telerik Blazor components expect their data to be `IEnumerable<T>`, where `T` can be any object type.
 
-All databound components are generic and their type depends on the model type. This is important when you need to define a component reference:
+### Component Type
+
+All databound components are generic and their type depends on the model type `T`. This is important when you need to define a component reference with the `@ref` directive:
 
 >caption Defining reference to a databound component
 
 <div class="skip-repl"></div>
 
-````CS
+````CSHTML
+<TelerikGrid @ref="@Grid1" />
+<TelerikComboBox @ref="@Combo1" />
+
+@code {
     // incorrect
     private TelerikGrid Grid1 { get; set; }
     private TelerikComboBox Combo1 { get; set; }
 
     // correct
-    private TelerikGrid<SampleModel> Grid2 { get; set; }
-    private TelerikComboBox<SampleModel, int?> Combo2 { get; set; }
+    private TelerikGrid<SampleModel> Grid1 { get; set; }
+    private TelerikComboBox<SampleModel, int?> Combo1 { get; set; }
+}
 ````
 
 If the component `Data` is not set initially, set the `TItem` parameter to point to the model type. If the component has a `Value` parameter, then set `TValue` in this case as well.
@@ -83,12 +92,13 @@ Some components handle properties with specific names in a predefined way. For e
 
 ## Refresh Data
 
-This section applies **only** if the `Data` parameter is set. Also check [how to refresh the data when using the `OnRead` event]({%slug common-features-data-binding-onread%}#refresh-data).
+There are three ways to refresh the component data:
 
-There are two ways to refresh the component data:
-
-* [Bind the component to Observable data]({%slug common-features-observable-data%}). In this case, the component will refresh automatically when items are added or removed.
+* [Bind the component to Observable data]({%slug common-features-observable-data%}). **This option applies only** if the `Data` parameter is set. The component will refresh automatically when items are **added or removed**.
+* Call the component's `Rebind()` method, [if the component has it]({%slug common-features-data-binding-onread%}#components-with-onread-event). This method was implemented to be [used together with the `OnRead` event]({%slug common-features-data-binding-onread%}#refresh-data), but it works with `Data` too.
 * Reset the `Data` parameter reference. In some specific scenarios, you may also need to call `StateHasChanged()`.
+
+The [example below](#example) demonstrates the second and third option.
 
 ### Reset the Collection Reference
 
@@ -99,33 +109,67 @@ The Blazor framework will fire `OnParametersSet` of a component only when it det
 
 Thus, you will usually need to create a new reference for `Data` value in order to refresh the component.
 
->caption Create new Data reference
+### Example
+
+>caption Call `Rebind()` or create new Data reference
 
 <div class="skip-repl"></div>
 
 ````CSHTML
-<TelerikGrid Data="@GridData" />
+<p>
+    <TelerikButton OnClick="@RefreshGridData">Refresh Grid Data</TelerikButton>
+</p>
+
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             AutoGenerateColumns="true" />
 
 @code {
+    TelerikGrid<SampleModel> GridRef { get; set; }
     List<SampleModel> GridData { get; set; }
 
     void RefreshGridData()
     {
-        // if the new items are not in GridData yet
-        GridData = new List<SampleModel>();
-        // manipulate GridData here...
+        var newId = GridData.Count + 1;
 
-        // if the new items are already in GridData
+        GridData.FirstOrDefault().Text = DateTime.Now.Ticks.ToString();
+
+        GridData.Add(new SampleModel() {
+            Id = newId,
+            Text = "Text " + newId
+        });
+
+        // components with an OnRead event have Rebind method:
+        //GridRef.Rebind();
+
+        // OR
+
+        // all databound components can use a new data reference:
         GridData = new List<SampleModel>(GridData);
 
         // call only if necessary
-        StateHasChanged();
+        //StateHasChanged();
+    }
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<SampleModel>();
+
+        for (int i = 1; i <= 3; i++)
+        {
+            GridData.Add(new SampleModel() {
+                Id = i,
+                Text = "Text " + i
+            });
+        }
+
+        base.OnInitialized();
     }
 
     public class SampleModel
     {
         public int Id { get; set; }
-        public int Text { get; set; }
+        public string Text { get; set; }
     }
 }
 ````
