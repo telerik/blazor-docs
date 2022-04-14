@@ -130,6 +130,14 @@ The [FloatingLabel]({%slug floatinglabel-overview%}) will take precedence over t
 
 The prompt characters are the hints that the user sees in the mask where they have not written values yet. By default, they are underscores `_`. You can change it by setting the `Prompt` parameter to the desired `char`.
 
+To make the `Prompt` character invisible, set it to a space like this:
+
+<div class="skip-repl"></div>
+
+````HTML
+<TelerikMaskedTextBox Prompt="' '" />
+````
+
 When the user has not filled in all the blank spaces in the mask, the Telerik Masked Textbox will replace them with the `PromptPlaceholder` in the `Value` that it will set in the view-model. By default, the `char` that is used is a simple space (` `). If you don't want such characters in the `Value`, set `PromptPlaceholder="null"`. Note that HTML rendering combines spaces into one by default.
 
 The `PromptPlaceholder` is useful when you need to process the user input at a later stage. For example, when you can have input that can vary in length like a phone country code (that can be one to three digits and the rest can be empty or spaces). For such cases, the masked textbox provides you with the value where places where the user did not input anything are replaced with the `PromptPlaceholder` to facilitate post-processing and parsing. For example, with the default space for a placeholder, you could remove all spaces from the input to get only the meaningful digits of the phone number.
