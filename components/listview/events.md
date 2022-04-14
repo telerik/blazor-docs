@@ -29,7 +29,7 @@ You can read more about the CUD events in the [ListView Editing]({%slug listview
 
 ## Read Event
 
-In the common case, you provide all the data to the listview's Data collection and the listview performs paging on it for you. In some cases you may want to do this with your own code (for example, to retrieve only a small number of items in order to improve the backend performance). You can do this by attaching to the `OnRead` event where you can perform all the data read operations in the listview. You can read more about it in the [Manual Data Source Operations]({%slug listview-manual-operations%}) article.
+In the common case, you provide all the data to the listview's Data collection and the listview performs paging on it for you. In some cases you may want to do this with your own code (for example, to retrieve only a small number of items in order to improve the backend performance). You can do this by attaching to the [`OnRead` event]({%slug common-features-data-binding-onread%}) where you can perform all the data read operations in the listview. You can read more about it in the [Manual Data Source Operations]({%slug listview-manual-operations%}) article.
 
 ### OnModelInit
 
