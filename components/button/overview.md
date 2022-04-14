@@ -62,7 +62,7 @@ To customize the style and the appearance of the Blazor Button, you can use the 
 
 ## Button Reference
 
-Add a reference to the Button instance to use its methods (for example - `FocusAsync()`).
+Add a reference to the Button instance to use its methods (for example - `FocusAsync()`). Be aware of the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#notes).
 
 >caption Component namespace and reference
 
