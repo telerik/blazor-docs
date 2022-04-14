@@ -13,7 +13,7 @@ position: 0
 
 The UI for Blazor suite comes with a set of built-in themes that you can choose from to alter the visual appearance of the Telerik components (you can test them in our [live demos](https://demos.telerik.com/blazor-ui/)):
 
-* **Default** - our own neutral styling that suits most cases.
+* **Default** - our own neutral styling that suits most cases. Includes the [Ocean Blue accessibility swatch]({%slug themes-accessibility-swatch%}).
 * **Bootstrap** - a theme that matches the Bootstrap styling. Read more in the [Bootstrap Notes](#bootstrap-notes) section.
 * **Material** - implements the [Material Design Guidelines](https://material.io/design/). Read more in the [Material Notes](#material-notes) section.
 

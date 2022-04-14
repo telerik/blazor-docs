@@ -14,76 +14,87 @@ Telerik UI for Blazor comes with three [built-in (base) themes]({%slug general-i
 
 #### In this article:
    * [Basics](#basics)
-   * [Buit-in themes and swatches list](#buit-in-themes-and-swatches-list)
+   * [Built-in themes and swatches list](#built-in-themes-and-swatches-list)
 
 
 ## Basics
 
-The theme swatches are different color variations of the base themes. While they use the same variables as the built-in theme they accompany, they have different color values to deliver a variety of shades for the Telerik components. Any of the base themes and their swatches can be easily customized as desired - read more about that in the [Custom Themes article]({%slug themes-custom%}).
+The theme swatches are different color variations of the base themes. While they use the same variables as the built-in theme they accompany, they have different color values to deliver a variety of shades for the Telerik components.
 
-You can find the built-in themes and their swatches in the following resources:
+You can explore the swatches in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview). The `Change Theme` dropdown provides a list of the most common swatches. To test how all the available swatches affect the appearance of the Telerik UI for Blazor components, you might check the [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui). It also provides option for [customizing the existing themes]({%slug themes-custom%}) if needed.
 
-* [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui) - it is a web application that enables you to [create new or customize existing themes]({%slug themes-custom%}). You can use it to explore how certain theme/swatch will affect the appearance of the Telerik UI for Blazor components.
+In addition, Telerik UI for Blazor distributes some swatches via several other resources. Read more in the [Swatch Distribution]({%slug themes-swatch-distribution%}) article.
 
-* [kendo-themes repository](https://github.com/telerik/kendo-themes) - the repository for all themes and swatches that are used across Telerik and Kendo web components.
+## Built-in themes and swatches list
 
-* ZIP archive for Telerik UI for Blazor - the `styles` folder contains the base themes and a some of their most commonly used swatches. The [ZIP Archive]({%slug installation/zip%}) article provides more details on how to get the archive.
+Here is a complete list of the base themes, all available swatches and their CDN URLs in a dedicated Themes CDN.
 
-
-## Buit-in themes and swatches list
-
-Here is a complete list of the base themes, all available swatches and their CDN URLs.
-
-* [Default](#default) - These are the mostly ported swatches from our [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui). Main swatch is the current "Default" theme.
+* [Default](#default) - These are the mostly ported swatches from our [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui).
 
 * [Bootstrap](#bootstrap) - Main swatch is the current "[Bootstrap]({%slug general-information/themes%}#bootstrap-notes)" theme, which is built on Bootstrap 5. As the other names suggest, Bootstrap 3 and Bootstrap 4 swatches are color swatches adapted to look like the respective versions.
 
 * [Material](#material) - Based on Material Design. Main is our "[Material]({%slug general-information/themes%}#material-notes)" theme, which itself is built around the initial theme of <a href = "https://material.angular.io/" target = "_blank">material.angular.io</a>.
 
->important Make sure that the theme version in the CDN URL is compatible with the UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide theme compatibility information for each UI for Blazor version. You can also use a [newer theme version](https://github.com/telerik/kendo-themes/releases), if it doesn't contain breaking changes and has a fix that you need.
+>important Make sure that the theme version in the CDN URL is compatible with the UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide theme compatibility information for each UI for Blazor version. You can also use a [newer theme version](https://github.com/telerik/kendo-themes/releases), if it doesn't contain breaking changes and has a fix that you need. 
+
+>tip We distribute the most commonly used swatches in a separate [Telerik Blazor CDN]({%slug themes-swatch-distribution%}#telerik-blazor-cdn). The CDN URLs contain the Telerik UI for Blazor version. Thus, you do not need to manually track the theme compatibility, just make sure to use the CDN URL including your UI for Blazor version.
 
 
 ### Default
 
-* Default Main - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-main.css
-* Default Main Dark - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-main-dark.css
-* Default Blue - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-blue.css
-* Default Green - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-green.css
-* Default Nordic - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-nordic.css
-* Default Orange - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-orange.css
-* Default Purple - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-purple.css
-* Default Turquoise - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-turquoise.css
-* Default Urban - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-urban.css
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Swatch | CDN |
+| ----------- | ----------- |
+| Default Main | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-main.css
+| Default Main Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-main-dark.css
+| [Default Ocean Blue]({%slug themes-accessibility-swatch%}) | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-ocean-blue.css
+| Default Blue | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-blue.css
+| Default Green | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-green.css
+| Default Nordic | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-nordic.css
+| Default Orange | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-orange.css
+| Default Purple | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-purple.css
+| Default Turquoise | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-turquoise.css
+| Default Urban | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-urban.css
 
 
 ### Bootstrap
 
-* Bootstrap Main - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-main.css
-* Bootstrap Main Dark - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-main-dark.css
-* Bootstrap 3 - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-3.css
-* Bootstrap 3 Dark - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-3-dark.css
-* Bootstrap 4 - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-4.css
-* Bootstrap 4 Dark - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-4-dark.css
-* Bootstrap Nordic - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-nordic.css
-* Bootstrap Turquoise - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-turquoise.css
-* Bootstrap Turquoise Dark - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-turquoise-dark.css
-* Bootstrap Urban - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-urban.css
-* Bootstrap Vintage - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-vintage.css
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Swatch | CDN |
+| ----------- | ----------- |
+| Bootstrap Main | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-main.css
+| Bootstrap Main Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-main-dark.css
+| Bootstrap 3 | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-3.css
+| Bootstrap 3 Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-3-dark.css
+| Bootstrap 4 | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-4.css
+| Bootstrap 4 Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-4-dark.css
+| Bootstrap Nordic | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-nordic.css
+| Bootstrap Turquoise | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-turquoise.css
+| Bootstrap Turquoise Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-turquoise-dark.css
+| Bootstrap Urban | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-urban.css
+| Bootstrap Vintage | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-vintage.css
 
 
 ### Material
 
-* Material Main - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-main.css
-* Material Main Dark - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-main-dark.css
-* Material Aqua Dark - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-aqua-dark.css
-* Material Arctic - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-arctic.css
-* Material Burnt Teal - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-burnt-teal.css
-* Material Eggplant - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-eggplant.css
-* Material Lime - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-lime.css
-* Material Lime Dark - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-lime-dark.css
-* Material Nova - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-nova.css
-* Material Pacific - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-pacific.css
-* Material Pacific Dark - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-pacific-dark.css
-* Material Sky - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-sky.css
-* Material Sky Dark - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-sky-dark.css
-* Material Smoke - https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-smoke.css
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Swatch | CDN |
+| ----------- | ----------- |
+| Material Main | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-main.css
+| Material Main Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-main-dark.css
+| Material Aqua Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-aqua-dark.css
+| Material Arctic | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-arctic.css
+| Material Burnt Teal | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-burnt-teal.css
+| Material Eggplant | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-eggplant.css
+| Material Lime | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-lime.css
+| Material Lime Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-lime-dark.css
+| Material Nova | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-nova.css
+| Material Pacific | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-pacific.css
+| Material Pacific Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-pacific-dark.css
+| Material Sky | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-sky.css
+| Material Sky Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-sky-dark.css
+| Material Smoke | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-smoke.css
+
