@@ -82,7 +82,6 @@ The event argument object has the following properties:
 | `Request` | [`DataSourceRequest`](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) | This object carries information about the requested data items. It will reveal the page index or virtual scroll offset, the sorting and filtering state, etc. |
 | `Data` | `IEnumerable` | Set it to the **chunk** of data items, which the component will **render**. |
 | `Total` | `int` | Set it to the **total number** of items. This value will help the component generate its **pager** or **virtual scrollbar** correctly. |
-| `AggregateResults` | [`IEnumerable<AggregateResult>`](/blazor-ui/api/Telerik.DataSource.AggregateResult) | This property exists only in the [`GridReadEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.GridReadEventArgs) type for the Grid. Set it to aggregate values for the whole data. |
 
 >caption Using DataSourceRequest properties
 
