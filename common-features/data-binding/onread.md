@@ -30,7 +30,7 @@ There are two main reasons to use the `OnRead` event: **performance** and **cust
 
 Large amounts of data require loading in chunks and on demand. This improves the performance of the database, backend, network, and the browser. When a component fires `OnRead`, it expects to receive **only the data items to render**. The exact number depends on the component's `PageSize` parameter.
 
-`OnRead` makes it possible to perform data operations outside the Grid, for example on the remote server. This can improve WebAssembly performance.
+`OnRead` also offloads data operations outside the component, for example on the remote server. This can improve WebAssembly application performance.
 
 ### Customization
 
@@ -48,16 +48,18 @@ In general, `OnRead` allows the application to know the exact data items, which 
 
 ## Components with OnRead Event
 
-The following Blazor components expose an `OnRead` event. All of them also feature virtualization, except the **ListView**, because it relies on custom templates for data visualization.
+The following Blazor components expose an `OnRead` event. To gain **performance** benefits, use the event together with **paging** or **virtualization** (also called virtual scrolling).
 
-Each link points to component-specific `OnRead` documentation and examples:
+Each component name points to component-specific `OnRead` documentation and examples:
 
-* [AutoComplete]({%slug autocomplete-events%}#onread)
-* [ComboBox]({%slug components/combobox/events%}#onread)
-* [DropDownList]({%slug components/dropdownlist/events%}#onread)
-* [Grid]({%slug components/grid/manual-operations%})
-* [ListView]({%slug listview-manual-operations%})
-* [MultiSelect]({%slug multiselect-events%}#onread)
+| Component | Supports Paging | Supports Virtualization |
+| --- | --- | --- |
+| [AutoComplete]({%slug autocomplete-events%}#onread) | - | [AutoComplete virtualization]({%slug autocomplete-virtualization%}) |
+| [ComboBox]({%slug components/combobox/events%}#onread) | - | [ComboBox virtualization]({%slug combobox-virtualization%}) |
+| [DropDownList]({%slug components/dropdownlist/events%}#onread) | - | [DropDownList virtualization]({%slug dropdownlist-virtualization%}) |
+| [Grid]({%slug components/grid/manual-operations%}) | [Grid paging]({%slug components/grid/features/paging%}) | [Grid row virtualization]({%slug components/grid/virtual-scrolling%}) |
+| [ListView]({%slug listview-manual-operations%}) | [ListView paging]({%slug listview-paging%}) | - |
+| [MultiSelect]({%slug multiselect-events%}#onread) | - | [MultiSelect virtualization]({%slug multiselect-virtualization%}) |
 
 Components like the [**TreeList**]({%slug treelist-data-binding-load-on-demand%}) and the [**TreeView**]({%slug components/treeview/data-binding/load-on-demand%}) don't have an `OnRead` event. Instead, they load data on demand via `OnExpand` events.
 
@@ -77,10 +79,10 @@ The event argument object has the following properties:
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `Request` | `DataSourceRequest` | This is the [`DataSourceRequest` object](/blazor-ui/api/Telerik.DataSource.DataSourceRequest), which carries information about the requested data items. It will reveal the page index or virtual scroll offset, the sorting and filtering state, etc. |
+| `Request` | [`DataSourceRequest`](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) | This object carries information about the requested data items. It will reveal the page index or virtual scroll offset, the sorting and filtering state, etc. |
 | `Data` | `IEnumerable` | Set it to the **chunk** of data items, which the component will **render**. |
 | `Total` | `int` | Set it to the **total number** of items. This value will help the component generate its **pager** or **virtual scrollbar** correctly. |
-| `AggregateResults` | `IEnumerable<AggregateResult>` | This property is used only by the **Grid** and exists in the [`GridReadEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.GridReadEventArgs) type. Set it to [aggregate values](/blazor-ui/api/Telerik.DataSource.AggregateResult) for the whole data. |
+| `AggregateResults` | [`IEnumerable<AggregateResult>`](/blazor-ui/api/Telerik.DataSource.AggregateResult) | This property exists only in the [`GridReadEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.GridReadEventArgs) type for the Grid. Set it to aggregate values for the whole data. |
 
 >caption Using DataSourceRequest properties
 
@@ -105,7 +107,7 @@ async Task GridReadHandler(GridReadEventArgs args)
 
 ## ToDataSourceResult Method
 
-The `DataSourceRequest` object provides information about the needed data. The question is how to retrieve this data most easily. Sometimes `OnRead` data binding is called "manual", but in most cases it doesn't have to be manual at all. The solution is **`ToDataSourceResult`**.
+The [`DataSourceRequest` object](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) provides information about the needed data. The question is how to retrieve this data most easily. Sometimes `OnRead` data binding is called "manual", but in most cases it doesn't have to be manual at all. The solution is **`ToDataSourceResult`**.
 
 The `ToDataSourceResult` extension method is able to extract the requested data items from `IEnumerable`, `IQueryable` and `DataTable`. The method is part of the [Telerik DataSource Extensions](/blazor-ui/api/Telerik.DataSource.Extensions.QueryableExtensions). It expects a `DataSourceRequest` argument.
 
@@ -138,6 +140,7 @@ async Task GridReadHandler(GridReadEventArgs args)
 
     args.Data = result.Data;
     args.Total = result.Total;
+    args.AggregateResults = result.AggregateResults; // Grid only
 }
 ````
 
