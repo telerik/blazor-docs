@@ -1,9 +1,9 @@
 ---
-title: Use RadSpreadProcessing for custom cell formatting of the exported file
-description: Use RadSpreadProcessing for custom cell formatting of the exported file
+title: Custom cell formatting of the exported file with RadSpreadProcessing
+description: How to format the cells of the exported file with RadSpreadProcessing?
 type: how-to
-page_title: Use RadSpreadProcessing for custom cell formatting of the exported file
-slug: grid-kb-custom-cell-formatting-with-radspreadprocessing 
+page_title: Custom cell formatting of the exported file with RadSpreadProcessing
+slug: grid-kb-custom-cell-formatting-with-radspreadprocessing
 position: 
 tags: grid, custom, cell, format, radspreadprocessing
 ticketid: 1559794
