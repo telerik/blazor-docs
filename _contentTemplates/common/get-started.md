@@ -128,7 +128,7 @@ Next, you can explore the [live demos](https://demos.telerik.com/blazor-ui/) and
 
 Many applications have a data grid component, and you can get started with the full-featured Telerik Grid by visiting the [Grid Overview]({%slug grid-overview%}) article.
 
-We recommend to get familiar with the [fundametals of data binding our components]({%slug common-features-data-binding-overview}). This information is applicable for all databound components.
+We recommend to get familiar with the [fundametals of data binding our components]({%slug common-features-data-binding-overview%}). This information is applicable for all databound components.
 
 Finally, you can explore the [List of Components]({%slug blazor-overview%}#list-of-components) and pick the ones you are interested in.
 #end
