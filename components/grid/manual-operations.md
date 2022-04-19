@@ -14,7 +14,7 @@ By default, the grid will receive the entire collection of data, and it will per
 
 >tip This article describes how you can load data on demand and implement filtering, paging, sorting on the server.
 >
-> Detailed examples showcase the functionality of the `OnRead` event that you need to use.
+> Detailed examples showcase the functionality of the [`OnRead` event]({%slug common-features-data-binding-onread%}) that you need to use.
 >
 > You can also find runnable sample apps in the [Serialize the DataSoureRequest to the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server) repo.
 
