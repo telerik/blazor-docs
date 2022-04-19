@@ -58,7 +58,7 @@ from the model: @MySelectedItem
 
 The `ValueChanged` event fires upon every change of the user selection.
 
-The examples below use [binding]({%slug components/dropdownlist/databind%}) to primitive types for brevity, you can use full models as well.
+The examples below use [binding]({%slug components/dropdownlist/databind%}) to primitive types for brevity, you can use full models as well. The type of the argument in the lambda expression must match the `Value` type of the component, and the `ValueField` type (if `ValueField` is set).
 
 >caption Handle ValueChanged
 
