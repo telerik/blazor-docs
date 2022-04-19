@@ -34,7 +34,7 @@ Large amounts of data require loading in chunks and on demand. This improves the
 
 ### Customization
 
-`OnRead` allows full control over the data operations. For example, it is possible to use custom sorting and filtering algoritms, if the built-in ones do not fit a given scenario. Here are just a few examples, but there are many more possible scenarios:
+`OnRead` allows full control over the data operations. For example, it is possible to use custom sorting and filtering algorithms, if the built-in ones do not fit a given scenario. Here are just a few examples, but there are many more possible scenarios:
 
 * [Search by multiple data fields in ComboBox and DropDownList]({%slug dropdowns-kb-search-in-multiple-fields%})
 * [Search in hidden Grid columns]({%slug grid-kb-search-in-hidden-fields%})
