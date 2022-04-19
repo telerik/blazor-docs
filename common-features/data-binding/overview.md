@@ -139,7 +139,7 @@ Thus, you will usually need to create a new reference for `Data` value in order 
             Text = "Text " + newId
         });
 
-        // components with an OnRead event have Rebind method:
+        // components with an OnRead event have a Rebind method:
         //GridRef.Rebind();
 
         // OR
