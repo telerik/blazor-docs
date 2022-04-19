@@ -204,7 +204,7 @@ See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%
 
 ## OnRead
 
-You can use the `OnRead` event to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug combobox-virtualization%})). The event fires when:
+You can use the [`OnRead` event]({%slug common-features-data-binding-onread%}) to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug combobox-virtualization%})). The event fires when:
 
 * the component initializes
 * the user [filters]({%slug components/combobox/filter%})

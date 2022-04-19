@@ -33,6 +33,9 @@ navigation:
      "common-features":
         title: "Common Features"
         position: 15
+     "common-features/data-binding":
+        title: "Data Binding"
+        position: 0
      "globalization":
         title: "Globalization"
         position: 16
@@ -650,6 +653,12 @@ defaults:
         title_prefix_separator: " "
 -
     scope:
+        path: "common-features/data-binding"
+    values:
+        title_prefix: ""
+        title_prefix_separator: ""
+-
+    scope:
         path: "globalization"
     values:
         title_prefix: "Blazor"
@@ -674,7 +683,7 @@ defaults:
         category: "default"
         product: "blazor"
         editable: true
-        description_suffix: "Read more in our Blazor Knowledgebase articles."
+        description_suffix: "Read more in our Blazor Knowledge Base articles."
 
 #- 
 #    scope:

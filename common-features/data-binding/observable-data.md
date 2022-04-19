@@ -1,11 +1,11 @@
 ---
 title: Observable Data
-page_title: Observable Collection
+page_title: Databind to Observable Collection
 description: Support for live data through observable collections and INotifyCollectionChanged in Telerik UI for Blazor.
 slug: common-features-observable-data
 tags: telerik,blazor,observable,data,live,INotifyCollectionChanged 
 published: True
-position: 1
+position: 10
 ---
 
 # Observable Data and Refresh Data
@@ -30,7 +30,7 @@ In this article:
 
 ## Telerik components that support Observable Data
 
-The following components support observable data for their `Data` parameter. Note that obserable data is not supported with manual data binding via the `OnRead` event.
+The following components support observable data for their `Data` parameter. Note that observable data is not supported with manual data binding via the `OnRead` event.
 
 * [AutoComplete]({%slug autocomplete-refresh-data%})
 
