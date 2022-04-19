@@ -43,7 +43,7 @@ Large amounts of data require loading in chunks and on demand. This improves the
 
 `OnRead` enables [data binding to **OData** services]({%slug common-kb-odata%}).
 
-In general, `OnRead` allows the application to know the exact data items, which the user is currently seeing.
+`OnRead` also allows the application to know the exact data items, which the user is currently seeing.
 
 
 ## Components with OnRead Event
