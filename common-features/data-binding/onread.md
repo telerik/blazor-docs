@@ -68,7 +68,7 @@ Components like the [**TreeList**]({%slug treelist-data-binding-load-on-demand%}
 
 The `OnRead` event handler receives an argument, which inherits from [`ReadEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.ReadEventArgs). The exact type depends on the component. For example, the Grid handler receives `GridReadEventArgs`. The ComboBox handler receives `ComboBoxReadEventArgs`, and so on.
 
-The event argument object has the following properties:
+The following properties of the event argument object are common for all [components with an `OnRead` event](#components-with-onread-event). Other properties are discussed in component-specific articles.
 
 <style>
     article style + table {
