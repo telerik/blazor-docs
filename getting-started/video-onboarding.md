@@ -3,6 +3,7 @@ title: Video Onboarding
 page_title: Video Onboarding
 description: "Get started with Telerik UI for Blazor by following a step-by-step video tutorial that helps you develop a real-life project."
 slug: getting-started/video-onboarding
+previous_url: /online-technical-training
 tags: get,started,video,onboarding,classroom,course,learning
 published: true
 position: 50
