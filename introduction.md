@@ -89,7 +89,7 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 
 * <a href="https://www.telerik.com/support/blazor-ui" target="_blank">Blazor UI Support and Learning Resources</a> - a hub with links to all resources such as blogs, videos, repos, docs and so on.
 
-* [Online Technical Training]({%slug online-technical-training-vc%}) - through the Telerik Virtual Classroom, you can watch videos and learn how to build a Blazor app at your leisure.
+* [Video Onboarding Course]({%slug getting-started/video-onboarding%}) - through the Telerik Virtual Classroom, you can watch videos and learn how to build a Blazor app at your leisure.
 
 
 ## Next Steps
