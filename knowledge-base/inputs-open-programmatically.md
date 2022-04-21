@@ -12,14 +12,14 @@ res_type: kb
 
 ## Environment
 <table>
-	<tbody>
-		<tr>
-			<td>Product Version</td>
-			<td><strong>2.25</strong> and later</td>
-		</tr>
-		<tr>
-			<td>Product</td>
-			<td>
+    <tbody>
+        <tr>
+            <td>Product Version</td>
+            <td><strong>2.25</strong> and later</td>
+        </tr>
+        <tr>
+            <td>Product</td>
+            <td>
                 AutoComplete <br />
                 ComboBox <br />
                 DatePicker <br />
@@ -28,8 +28,8 @@ res_type: kb
                 MultiSelect <br />
                 TimePicker <br />
             </td>
-		</tr>
-	</tbody>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
@@ -62,7 +62,8 @@ Note that the Date/Time Pickers move focus to their popup once it is opened. Thi
 @inject IJSRuntime js
 @* Open dropdown on click, tab and FocusAsync *@
 
-<!-- allow the script tag to be in the Razor file -->
+<!-- suppress-error allows the script tag to be in the Razor file for this example -->
+<!-- move this script to a JS file in a production app -->
 <script suppress-error="BL9992">//
     // The DropDownList and MultiSelect can use a simpler approach to open their dropdowns.
     // Call this openDropdown function after FocusAsync.
@@ -83,7 +84,7 @@ Note that the Date/Time Pickers move focus to their popup once it is opened. Thi
                     "key": "ArrowDown",
                     "keyCode": 40
                 });
-                if ((componentClass == ".k-multiselect" && (!event.relatedTarget || event.relatedTarget != element.parentNode.parentNode))
+                if ((componentClass == ".k-multiselect" && (event.relatedTarget && event.relatedTarget != element.parentNode.parentNode))
                     || (componentClass != undefined && componentClass != ".k-multiselect")) {
                     // AutoComplete, ComboBox, DatePicker, TimePicker - tab, click, FocusAsync
                     // MultiSelect - tab, FocusAsync
@@ -115,7 +116,8 @@ AutoComplete:
                      Id="AC1"
                      Data="@ValueCollection"
                      ValueField="@nameof(Product.Name)"
-                     @bind-Value="@StringValue" />
+                     @bind-Value="@StringValue"
+                     Width="300px" />
 <br />
 <br />
 ComboBox:
@@ -124,8 +126,8 @@ ComboBox:
                  Data="@ValueCollection"
                  TextField="@nameof(Product.Name)"
                  ValueField="@nameof(Product.ID)"
-                 @bind-Value="@IntValue" />
-
+                 @bind-Value="@IntValue"
+                 Width="300px" />
 <br />
 <br />
 DropDownList:
@@ -134,8 +136,8 @@ DropDownList:
                      Data="@ValueCollection"
                      TextField="@nameof(Product.Name)"
                      ValueField="@nameof(Product.ID)"
-                     @bind-Value="@IntValue" />
-
+                     @bind-Value="@IntValue"
+                     Width="300px" />
 <br />
 <br />
 MultiSelect:
@@ -145,24 +147,21 @@ MultiSelect:
                     TextField="@nameof(Product.Name)"
                     ValueField="@nameof(Product.ID)"
                     @bind-Value="@MultiValues"
-                    Width="350px" AutoClose="false">
-</TelerikMultiSelect>
-
+                    Width="350px" />
 <br />
 <br />
 DatePicker:
 <TelerikDatePicker @ref="@DatePickerRef"
                    Id="DP1"
-                   @bind-Value="@DateValue">
-</TelerikDatePicker>
-
+                   @bind-Value="@DateValue"
+                   Width="300px" />
 <br />
 <br />
 TimePicker:
 <TelerikTimePicker @ref="@TimePickerRef"
                    Id="TP1"
-                   @bind-Value="@DateValue">
-</TelerikTimePicker>
+                   @bind-Value="@DateValue"
+                   Width="300px" />
 
 @code {
     List<Product> ValueCollection { get; set; } = new();
@@ -210,9 +209,7 @@ TimePicker:
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await base.OnAfterRenderAsync(firstRender);
-
-        if (firstRender)
+        if (false && firstRender)
         {
             // open on tab, click, FocusAsync:
             await js.InvokeVoidAsync("attachFocusHandler", AutoCompleteRef.Id, ".k-autocomplete");
@@ -223,9 +220,9 @@ TimePicker:
             // open on tab, FocusAsync:
             await js.InvokeVoidAsync("attachFocusHandler", DropDownListRef.Id);
             await js.InvokeVoidAsync("attachFocusHandler", MultiSelectRef.Id, ".k-multiselect");
-
-            await OpenMultiSelect();
         }
+
+        await base.OnAfterRenderAsync(firstRender);
     }
 
     protected override void OnInitialized()
@@ -246,6 +243,37 @@ TimePicker:
     {
         public int ID { get; set; }
         public string Name { get; set; }
+    }
+}
+````
+
+### Older Versions
+
+[UI for Blazor versions 2.25 - 2.30 have different HTML rendering for the input components]({%slug changes-in-3-0-0%}). Use this `attachFocusHandler` code instead:
+
+````JS
+function attachFocusHandler(id, componentClass) {
+    var element = document.getElementById(id);
+    if (element) {
+        element.addEventListener("focus", (event) => {
+            var keyEvent = new KeyboardEvent("keydown", {
+                "altKey": true,
+                "code": "ArrowDown",
+                "key": "ArrowDown",
+                "keyCode": 40
+            });
+            if ((componentClass == ".k-multiselect" && (!event.relatedTarget || event.relatedTarget != element.parentNode.parentNode))
+                || (componentClass != undefined && componentClass != ".k-multiselect")) {
+                // AutoComplete, ComboBox, DatePicker, TimePicker - tab, click, FocusAsync
+                // MultiSelect - tab, FocusAsync
+                // element is an input, so we go up the DOM tree to find the component root
+                element.closest(componentClass).dispatchEvent(keyEvent);
+            } else {
+                // DropDownList - tab, FocusAsync
+                // element is a span and this is the component root
+                element.dispatchEvent(keyEvent);
+            }
+        });
     }
 }
 ````
