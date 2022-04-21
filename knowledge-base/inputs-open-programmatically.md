@@ -209,7 +209,7 @@ TimePicker:
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (false && firstRender)
+        if (firstRender)
         {
             // open on tab, click, FocusAsync:
             await js.InvokeVoidAsync("attachFocusHandler", AutoCompleteRef.Id, ".k-autocomplete");
