@@ -6,7 +6,7 @@ page_title: Open Input Dropdown Programmatically on Focus
 slug: inputs-kb-open-programmatically
 position: 
 tags: autocomplete,combobox,datepicker,datetimepicker,dropdown,dropdownlist,multiselect,timepicker,focus,open
-ticketid: 1526273, 1539587, 1547004
+ticketid: 1526273, 1539587, 1547004, 1562064
 res_type: kb
 ---
 
@@ -247,7 +247,7 @@ TimePicker:
 }
 ````
 
-### Older Versions
+## Versions Before 3.0
 
 [UI for Blazor versions 2.25 - 2.30 have different HTML rendering for the input components]({%slug changes-in-3-0-0%}). Use this `attachFocusHandler` code instead:
 
