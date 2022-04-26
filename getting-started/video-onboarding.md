@@ -11,7 +11,12 @@ position: 50
 
 # Video Onboarding
 
-Telerik UI for Blazor has its own [video getting started course](https://learn.telerik.com/learn/course/internal/view/elearning/27/telerik-ui-for-blazor) available to both active trial users and active license holders in [Virtual Classroom](https://learn.telerik.com/learn). The training course is developed to help you get started with the Telerik UI for Blazor components and features. It aims to put you in the shoes of an engineer who adds new features to an existing application.
+All users with an active trial or commercial license have access to a [Telerik UI for Blazor getting started video course](https://learn.telerik.com/learn/course/internal/view/elearning/27/telerik-ui-for-blazor) available in [Telerik's Virtual Classroom](https://learn.telerik.com/learn).
+The training course is developed to help you get started with the Telerik UI for Blazor components and features. It aims to put you in the shoes of an engineer who adds new features to an existing application.
+
+{% if site.has_cta_panels == true %}
+{% include cta-panel-introduction.html %}
+{% endif %}
 
 The course starts with an introduction to the Blazor framework: the Server and WebAssembly hosting models, Blazor components basics&mdash;life cycle, data binding, different types of project creation, and using code-behind approach to component creation.
 
