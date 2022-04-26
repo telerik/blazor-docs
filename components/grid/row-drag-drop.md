@@ -133,7 +133,7 @@ This section contains the following examples:
 
 ### Drag and Drop a Row between Grids
 
-When you drap and drop items from one instance of the Grid to another, the `OnRowDrop` event fires for both instances of the Grid so you can update both their data sources. All instances must be bound to the same model.  
+When you drap and drop items from one Grid to another, the `OnRowDrop` event fires for both Grid instances, so you can update their data sources. All Grid instances must be bound to the same model. It is also possible to [bind the Grids to different models, but they must be derived from the same interface]({%slug grid-kb-drag-drop-different-models%}).
 
 ````CSHTML
 @* Drag a row from one Grid and Drop it in the other *@ 
