@@ -301,7 +301,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
 
     public List<TreeViewModel> TreeViewData { get; set; }
 
-    protected overrCoide void OnInitialized()
+    protected override void OnInitialized()
     {
         GenerateData();
     }
