@@ -55,7 +55,7 @@ Steps 2 and 3 are optional, but strongly recommended.
 
 This section applies only to Blazor **Server** apps. Blazor **WebAssembly** apps do not require additional configuration for the FileSelect to work with large files.
 
-In Blazor **Server** apps, the FileSelect uses the **SignalR WebSocket**, which has a default maximum message size of **32 KB**. To work with larger files, [increase the max WebSocket message size](http://barwicktechnology.com/2020/03/23/signalr-modify-the-max-websocket-message-size/) for the Blazor application. Also see these Microsoft articles:
+In Blazor **Server** apps, the FileSelect uses the **SignalR WebSocket**, which has a default maximum message size of **32 KB**. To work with larger files, increase the max WebSocket message size for the Blazor application. See these Microsoft articles:
 
 * [ASP.NET Core SignalR configuration](https://docs.microsoft.com/en-us/aspnet/core/signalr/configuration)
 * [SignalR Buffer management](https://docs.microsoft.com/en-us/aspnet/core/signalr/security?view=aspnetcore-6.0#buffer-management).
