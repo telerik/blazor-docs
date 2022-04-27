@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I want to format the cells of the exported file. For example, set background color. How to achieve this?
+I want to format the cells of the exported Excel file. For example, set background color. How to achieve this?
 
 ## Solution
 
