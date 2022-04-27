@@ -246,7 +246,7 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 
 ### For Excel Export
 
-* `Stream` - `MemoryStream` - The output of the Excel export as a memory stream. 
+* `Stream` - `MemoryStream` - The output of the Excel export as a memory stream. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
 ````Excel
 @* Get the output of the excel export as a memory stream *@
@@ -265,9 +265,9 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
     </GridToolBar>
 
     <GridExport>
-        <GridExcelExport FileName="telerik-grid-export" 
+        <GridExcelExport FileName="telerik-grid-export"
                          AllPages="@ExportAllPages"
-                         OnAfterExport="@OnExcelAfterExport"/>
+                         OnAfterExport="@OnExcelAfterExport" />
     </GridExport>
 
     <GridColumns>
@@ -283,7 +283,8 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 @code {
     private async Task OnExcelAfterExport(GridAfterExcelExportEventArgs args)
     {
-        excelStream = args.Stream;
+        var bytes = args.Stream.ToArray();
+        var excelStream = new MemoryStream(bytes);        
     }
 
     private MemoryStream excelStream { get; set; }
@@ -296,14 +297,14 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
     protected override void OnInitialized()
     {
         GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-        {
-            ProductId = x,
-            ProductName = $"Product {x}",
-            UnitsInStock = x * 2,
-            Price = 3.14159m * x,
-            Discontinued = x % 4 == 0,
-            FirstReleaseDate = DateTime.Now.AddDays(-x)
-        }).ToList();
+            {
+                ProductId = x,
+                ProductName = $"Product {x}",
+                UnitsInStock = x * 2,
+                Price = 3.14159m * x,
+                Discontinued = x % 4 == 0,
+                FirstReleaseDate = DateTime.Now.AddDays(-x)
+            }).ToList();
     }
 
     public class SampleData
@@ -320,7 +321,7 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 
 ### For CSV Export
 
-* `Stream` - `MemoryStream` - The output of the CSV export as a memory stream. 
+* `Stream` - `MemoryStream` - The output of the CSV export as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
 ````CSV
 @* Get the output of the CSV export as a memory stream *@
@@ -339,8 +340,8 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
     </GridToolBar>
 
     <GridExport>
-        <GridCsvExport FileName="telerik-grid-export" 
-                       AllPages="@ExportAllPages" 
+        <GridCsvExport FileName="telerik-grid-export"
+                       AllPages="@ExportAllPages"
                        OnAfterExport="@OnCSVAfterExport" />
     </GridExport>
 
@@ -357,7 +358,8 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 @code {
     private async Task OnCSVAfterExport(GridAfterCsvExportEventArgs args)
     {
-        csvStream = args.Stream;
+        var bytes = args.Stream.ToArray();
+        var excelStream = new MemoryStream(bytes);       
     }
 
     private MemoryStream csvStream { get; set; }
@@ -370,14 +372,14 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
     protected override void OnInitialized()
     {
         GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-        {
-            ProductId = x,
-            ProductName = $"Product {x}",
-            UnitsInStock = x * 2,
-            Price = 3.14159m * x,
-            Discontinued = x % 4 == 0,
-            FirstReleaseDate = DateTime.Now.AddDays(-x)
-        }).ToList();
+            {
+                ProductId = x,
+                ProductName = $"Product {x}",
+                UnitsInStock = x * 2,
+                Price = 3.14159m * x,
+                Discontinued = x % 4 == 0,
+                FirstReleaseDate = DateTime.Now.AddDays(-x)
+            }).ToList();
     }
 
     public class SampleData
@@ -397,3 +399,4 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 
 * [Grid Excel Export]({%slug grid-export-excel%})
 * [Grid CSV Export]({%slug grid-export-csv%})
+* [Custom cell formatting of the exported file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%})
