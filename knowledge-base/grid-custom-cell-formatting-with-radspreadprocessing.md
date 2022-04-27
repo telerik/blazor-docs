@@ -29,7 +29,7 @@ I want to format the cells of the exported file. For example, set background col
 
 Handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid. It fires before the actual file is provided to the user. The `Stream` field of its event argument contains the output of the export as a `MemoryStream`.
 
-You can copy the bytes from this stream and import them in a `RadSpreadProcessing` [workbook](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-workbooks/working-with-workbooks-what-is-workbook) to access and modify the file cells as needed.
+You can copy the bytes from this stream and import them in a [`RadSpreadProcessing` workbook](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-workbooks/working-with-workbooks-what-is-workbook) to access and modify the cells.
 
 [`RadSpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) is a powerful library that allows you to create spreadsheets from scratch, modify existing documents or convert between the most common spreadsheet formats. In this case, we will focus on the file modification.
 
