@@ -2,7 +2,7 @@
 title: Custom cell formatting of the exported file with RadSpreadProcessing
 description: How to format the cells of the exported file with RadSpreadProcessing?
 type: how-to
-page_title: Custom cell formatting of the exported file with RadSpreadProcessing
+page_title: Custom cell formatting of exported Excel files with RadSpreadProcessing
 slug: grid-kb-custom-cell-formatting-with-radspreadprocessing
 position: 
 tags: grid, custom, cell, format, radspreadprocessing
