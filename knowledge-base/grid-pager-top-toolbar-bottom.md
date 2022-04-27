@@ -41,7 +41,7 @@ If, however, you also want to have a Toolbar for some actions, do the following:
 * [Integrate Pager in the Grid Toolbar on top of the Grid](https://demos.telerik.com/blazor-ui/pager/integration)
 * Hide the built-in Pager at the bottom of the Grid with some custom CSS
 * Add a container below the Grid to serve as a Toolbar - place your desired custom Toolbar actions in it
-* Add the "k-toolbar" and "k-grid-toolbar" classes to this container to inherit the Grid Toolbar classes
+* Add the "k-toolbar" and "k-grid-toolbar" classes to this container to inherit the Grid Toolbar styles
 * Add your custom class as well, so you can target this container and style it separately from the built-in Toolbar if needed
 
 ````CSHTML
