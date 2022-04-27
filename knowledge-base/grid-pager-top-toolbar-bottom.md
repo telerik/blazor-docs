@@ -86,7 +86,7 @@ If, however, you also want to have a Toolbar for some actions, do the following:
     <TelerikButton>Add</TelerikButton>
 
     @*some custom action button*@
-    <TelerikButton>Cutom action</TelerikButton>
+    <TelerikButton>Custom action</TelerikButton>
 
     @*spacer*@
     <span class="k-toolbar-spacer"></span>
