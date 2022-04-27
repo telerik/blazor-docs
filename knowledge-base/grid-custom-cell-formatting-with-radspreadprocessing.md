@@ -97,7 +97,7 @@ To customize the cell format of the exported file before it reaches the client, 
         //import the stream to a workbook
         Workbook workbook = formatProvider.Import(excelStream);
 
-        //create cell selection
+        //select a range of cells
         CellSelection selection = workbook.Worksheets[0].Cells[0, 0, 0, 5];
 
         //add the desired modifications to the selection. Here we are creatin a solid fill pattern to add some background to the selected cells
