@@ -29,7 +29,7 @@ I want to format the cells of the exported Excel file. For example, set backgrou
 
 Handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid. It fires before the actual file is provided to the user. The `Stream` field of its event argument contains the output of the export as a `MemoryStream`.
 
-You can copy the bytes from this stream and import them in a [`RadSpreadProcessing` workbook](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-workbooks/working-with-workbooks-what-is-workbook) to access and modify the cells.
+You can copy the bytes from this stream and import them in a [`RadSpreadProcessing workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-workbooks/working-with-workbooks-what-is-workbook) to access and modify the cells.
 
 [`RadSpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) is a powerful library that allows you to create spreadsheets from scratch, modify existing documents or convert between the most common spreadsheet formats. In this case, we will focus on the file modification.
 
@@ -37,19 +37,19 @@ The example below targets Excel file export and customization. Same approach can
 
 To customize the cell format of the exported file before it reaches the client, do the following:
 
-* Install `Telerik.Documents.Spreadsheet.FormatProviders.Xls` package for the `workbook` import.
+1. Install `Telerik.Documents.Spreadsheet.FormatProviders.Xls` package for the `workbook` import.
 
-* Handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
+1. Handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
 
-* [Import the new `MemoryStream` in a `workbook`](https://docs.telerik.com/devtools/document-processing/knowledge-base/import-export-save-load-workbook#load-workbook-from-file-as-filestream-or-memorystream).
+1. [Import the new `MemoryStream` in a `workbook`](https://docs.telerik.com/devtools/document-processing/knowledge-base/import-export-save-load-workbook#load-workbook-from-file-as-filestream-or-memorystream).
 
-* Select the desired cells - create a [CellSelection](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/accessing-cells-of-worksheet).
+1. Select the desired cells - create a [CellSelection](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/accessing-cells-of-worksheet).
 
-* Add your desired cell modifications to the selected cells. The example below demonstrates adding cell fill, you can modify different [cell properties](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/get-set-clear-properties#cell-properties) based on the result you want to achieve.
+1. Add your desired cell modifications to the selected cells. The example below demonstrates adding cell fill, you can modify different [cell properties](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/get-set-clear-properties#cell-properties) based on the result you want to achieve.
 
-* [Export the modified `workbook` to a `MemoryStream`](https://docs.telerik.com/devtools/document-processing/knowledge-base/import-export-save-load-workbook#save-workbook-to-filestream-or-memorystream).
+1. [Export the modified `workbook` to a `MemoryStream`](https://docs.telerik.com/devtools/document-processing/knowledge-base/import-export-save-load-workbook#save-workbook-to-filestream-or-memorystream).
 
-* Pass that `MemoryStream` to the `args.Stream` of the `GridAfterExcelExportEventArgs`, so that the modifications can be saved to the actual exported file.
+1. Pass that `MemoryStream` to the `args.Stream` of the `GridAfterExcelExportEventArgs`, so that the modifications can be saved to the actual exported file.
 
 ````CSHTML
 @*Use RadSpreadProcessing to set background to table headers*@
@@ -86,7 +86,7 @@ To customize the cell format of the exported file before it reaches the client, 
 @code {
     private async Task OnExcelAfterExport(GridAfterExcelExportEventArgs args)
     {
-        //and and copy the bytes to a new MemoryStream
+        //args.Stream is finalized. The Import() method of the XlsxFormatProvider requires a readable stream, so you should copy the stream bytes to a new MemoryStream instance which will be used for the import.
         var bytes = args.Stream.ToArray();
 
         var excelStream = new MemoryStream(bytes);

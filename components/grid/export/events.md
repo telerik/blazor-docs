@@ -246,7 +246,7 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 
 ### For Excel Export
 
-* `Stream` - `MemoryStream` - The output of the Excel export as a memory stream. The stream itself is finalized, so that the resource does not leak. It can be read from its available binary data.
+* `Stream` - `MemoryStream` - The output of the Excel export as a memory stream. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
 ````Excel
 @* Get the output of the excel export as a memory stream *@
@@ -284,13 +284,7 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
     private async Task OnExcelAfterExport(GridAfterExcelExportEventArgs args)
     {
         var bytes = args.Stream.ToArray();
-        var excelStream = new MemoryStream(bytes);
-
-        //or
-
-        //var bytes = new byte[args.Stream.Length];
-        //var stream = new MemoryStream();
-        //stream.Write(bytes, 0, bytes.Length);
+        var excelStream = new MemoryStream(bytes);        
     }
 
     private MemoryStream excelStream { get; set; }
@@ -327,7 +321,7 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 
 ### For CSV Export
 
-* `Stream` - `MemoryStream` - The output of the CSV export as a memory stream. The stream itself is finalized, so that the resource does not leak. It can be read from its available binary data.
+* `Stream` - `MemoryStream` - The output of the CSV export as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
 ````CSV
 @* Get the output of the CSV export as a memory stream *@
@@ -365,13 +359,7 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
     private async Task OnCSVAfterExport(GridAfterCsvExportEventArgs args)
     {
         var bytes = args.Stream.ToArray();
-        var excelStream = new MemoryStream(bytes);
-
-        //or
-
-        //var bytes = new byte[args.Stream.Length];
-        //var stream = new MemoryStream();
-        //stream.Write(bytes, 0, bytes.Length);
+        var excelStream = new MemoryStream(bytes);       
     }
 
     private MemoryStream csvStream { get; set; }
