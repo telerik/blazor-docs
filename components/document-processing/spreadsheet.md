@@ -83,5 +83,5 @@ This library enables you to work with spreadsheet documents – create ones from
 ## See Also
 
 * [Getting Started](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/getting-started)
-* [What is a Workbook](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-workbooks/working-wtih-workbooks-what-is-workbook)
+* [What is a Workbook](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-workbooks/working-with-workbooks-what-is-workbook)
 * [What is a Worksheet](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-worksheets/what-is-worksheet)
