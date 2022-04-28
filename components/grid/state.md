@@ -486,7 +486,7 @@ If you want the grid to start with certain settings for your end users, you can 
 
 ### Get and Override User Action That Changes The Grid
 
-Sometimes you may want to know what the user changed in the grid (e.g., when they filter, sort and so on) and even override those operations. One way to do that is to monitor the [`OnRead`]({%slug components/grid/manual-operations%}#cache-data-request) event, cache the previous `DataSourceRequest`, compare against it, alter it if needed, and implement the operations yourself. Another is to use the `OnStateChanged` event.
+Sometimes you may want to know what the user changed in the grid (e.g., when they filter, sort and so on) and even override those operations. One way to do that is to monitor the [`OnRead` event]({%slug common-features-data-binding-onread}), cache the previous [`DataSourceRequest` argument]({%slug common-features-data-binding-onread}#event-argument), compare against it, alter it if needed, and implement the operations yourself. Another is to use the `OnStateChanged` event.
 
 The example below shows the latter. Review the code comments to see how it works and to make sure you don't get issues. You can find another example of overriding the user actions in the [Static Grid Group]({%slug grid-kb-static-group%}) Knowledge Base article.
 
