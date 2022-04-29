@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: TabStrip Overview
-description: Overview of the TabStrip for Blazor.
+description: Discover the Blazor TabStrip. Explore the features and examples.
 slug: components/tabstrip/overview
 tags: telerik,blazor,tab,strip,tabstrip,overview
 published: True
@@ -13,18 +13,18 @@ position: 0
 This article provides information about the <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Blazor TabStrip component</a> and its core features.
 
 >caption In this article:
-* [Basics](#basics)
+* [Creating Blazor TabStrip](#creating-blazor-tabstrip)
 * [Features](#features)
 * [Example](#example)
 
-## Basics
+## Creating Blazor TabStrip
 
 To use a Telerik TabStrip for Blazor:
 
-1. Use the `<TelerikTabStrip>` tag
-1. Add a nested `<TabStripTab>` tag for each tab you want to include in the component
-1. Set tab titles through the `Title` parameter of the `<TabStripTab>` tags. You can additionally configure the tabs as desired - read more in the [Tabs Configuration]({%slug tabstrip-tabs-configuration%}) article
-1. Place the desired content in the tabs - it can be any content, including other components
+1. Use the `<TelerikTabStrip>` tag.
+1. Add a nested `<TabStripTab>` tag for each tab you want to include in the component.
+1. Set tab titles through the `Title` parameter of the `<TabStripTab>` tags. You can additionally configure the tabs as desired - read more in the [Tabs Configuration]({%slug tabstrip-tabs-configuration%}) article.
+1. Place the desired content in the tabs - it can be any content, including other components.
 
 >caption A Telerik TabStrip with example reference, tab position and disabled tab
 
@@ -55,10 +55,35 @@ To use a Telerik TabStrip for Blazor:
 
 ## Features
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the component.
-* `ActiveTabIndex` - allows you get and set the currently shown tab index through two-way binding, and also provides an event for the tab change. To deactivate all tabs, set it to `-1`.
-* `TabPosition` - allows you to set the desired position of the tab headers. Read more in [Tabs - Position]({%slug tabstrip-tabs-position%}) article.
-* `PersistTabContent` - defines whether the tab content will remain in the DOM when the tab is inactive (`false` by default). Read more in the [Persist Content]({%slug tabstrip-persist-content%}) article.
+The Blazor TabStrip provides various parameters that allow you to configure the component. 
+
+### Position of the Tabs
+
+The Blazor TabStrip component allows you to control the position of the tabs. [Read more about the Tabs Position...]({%slug tabstrip-tabs-position%})
+
+### Persist Content
+
+The Blazor TabStrip component can persist the content of the tabs. [Read more about the Persist Content...]({%slug tabstrip-persist-content%})
+
+### Scrollable Tabs
+
+The Blazor TabStrip allows you to scroll only its tabs. This is useful for scenarious where a lot of tabs are defined. [Read more about the Scrollable Tabs...]({%slug tabstrip-scroll-tabs%})
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter        | Type  | Header 2                                 |
+|------------------|-------|------------------------------------------|
+| `ActiveTabIndex` | `int` | Allows you to get and set the currently shown tab index through two-way binding, and also provides an event for the tab change (`ActiveTabIndexChanged`). To deactivate all tabs, se the `ActiveTabIndex` parameter to `-1`. |
+
+### Styling and Appearance
+
+The following parameters enable you to customize the appearance of the Blazor TabStrip:.
+
+| Parameter | Type     | Description                              |
+|-----------|----------|------------------------------------------|
+| `Class`   | `string` | the CSS class that will be rendered on the main wrapping element of the component. |
+| `Width`   | `string` | The width of the component. You can set the Width parameter to any of the [supported units]({%slug common-features/dimensions%}). |
+| `Height`  | `string` | The height of the Component. You can set the `Height` parameter to any of the [supported units]({%slug common-features/dimensions%}). |
 
 
 ## Example
