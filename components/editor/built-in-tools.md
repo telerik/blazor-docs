@@ -412,7 +412,7 @@ The `Table` tools add an HTML `<table>` or control its rendering, like adding co
 
 #### Table Resizing
 
-You can resize the table, its column, and its rows. To render the resize handlers, hover on the column and row borders. 
+You can resize the tables, their columns, and rows. To grab the resize handles, hover on the column or row borders. 
 
 ### Commands Without Built-in Tools
 
