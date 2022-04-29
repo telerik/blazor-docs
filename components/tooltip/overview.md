@@ -48,7 +48,7 @@ The <a href="https://www.telerik.com/blazor-ui/tooltip" target="_blank">Blazor T
 
 >caption The Tooltip provides the following features:
 
-* `Class` - the CSS class of the **tooltip container**. You can use it to customize the tooltip appearance (such as color, font, elements in your template, and so on). To apply custom styles to the tooltip element itself, use a [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator), for example:
+* `Class` - the CSS class of the **tooltip container**. You can use it to [customize the tooltip appearance]({%slug tooltip-kb-custom-styles%}) (such as color, font, elements in your template, and so on). To apply custom styles to the tooltip element itself, use a [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator), for example:
 
         <TelerikTooltip Class="my-class" />
 
