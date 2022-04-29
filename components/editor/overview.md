@@ -101,6 +101,18 @@ You can use the following features to get or set the editor content:
 
 @[template](/_contentTemplates/editor/general.md#content-size-signalr)
 
+## Resizing
+
+The Editor allows you to resize:
+
+#### Tables
+
+Tables, their columns, and rows in the content area of Editor are resizable. To grab the resize handles, hover on the column or row borders. 
+
+#### Images
+
+Images in the content area of the Editor are resizable. To grab the resize handles, hover on the borders of the image.
+
 ## Methods
 
 The editor [reference](#component-reference) exposes the `ExecuteAsync` method which lets you call programmatically the tools and commands of the editor (such as the Bold too, or a Back Color tool, or inserting HTML).
