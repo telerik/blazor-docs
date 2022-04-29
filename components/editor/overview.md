@@ -107,11 +107,11 @@ The Editor allows you to resize:
 
 #### Tables
 
-You can resize the tables, their columns, and rows. To grab the resize handles, hover on the column or row borders. 
+Tables, their columns, and rows in the content area of Editor are resizable. To grab the resize handles, hover on the column or row borders. 
 
 #### Images
 
-You can resize the images in the content area of the Editor. To To grab the resize handles, hover on the borders of the image.
+Images in the content area of the Editor are resizable. To grab the resize handles, hover on the borders of the image.
 
 ## Methods
 
