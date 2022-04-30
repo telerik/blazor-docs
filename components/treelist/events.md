@@ -54,10 +54,8 @@ The `OnCollapse` event fires when the user collapses an expanded row through the
 
 <TelerikTreeList Data="@Data"
                  ItemsField="@(nameof(Employee.DirectReports))"
-
-                 OnExpand="@((TreeListExpandEventArgs<Employee> args) => OnExpand(args))"
-                 OnCollapse="@((TreeListCollapseEventArgs<Employee> args) => OnCollapse(args))"
-
+                 OnExpand="@OnExpand"
+                 OnCollapse="@OnCollapse"
                  Pageable="true" Width="850px">
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
@@ -73,16 +71,16 @@ The `OnCollapse` event fires when the user collapses an expanded row through the
     string lastAction { get; set; }
 
     // get when the user expands an item
-    async Task OnExpand(TreeListExpandEventArgs<Employee> args)
+    void OnExpand(TreeListExpandEventArgs args)
     {
-        Employee currRow = args.Item;
+        Employee currRow = args.Item as Employee;
         lastAction = $"The user expanded {currRow.Name} with ID {currRow.Id}";
     }
 
     // get when the user collapses an item
-    async Task OnCollapse(TreeListCollapseEventArgs<Employee> args)
+    void OnCollapse(TreeListCollapseEventArgs args)
     {
-        Employee currRow = args.Item;
+        Employee currRow = args.Item as Employee;
         lastAction = $"The user collapsed {currRow.Name} with ID {currRow.Id}";
     }
 
