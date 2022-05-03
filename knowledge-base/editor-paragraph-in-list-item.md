@@ -4,7 +4,7 @@ description: How to remove extra white space in the Editor, which is caused by p
 type: troubleshooting
 page_title: Paragraphs in List Items Cause Extra White Space in the Blazor Editor
 slug: editor-kb-paragraph-in-list-item
-position: 
+position:
 tags: editor, styling
 ticketid: 1551863, 1563286
 res_type: kb
@@ -105,7 +105,7 @@ Here are the possible workarounds to remove extra empty space between list items
 }
 ````
 
-## Notes 
+## Notes
 
 It is possible to [hack the ProseMirror engine and disable usage of `p` inside `li`](https://www.telerik.com/forums/remove-outer-p-tag-from-editor#5264679). However, this will break other features and is not recommended.
 
