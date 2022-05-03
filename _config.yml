@@ -317,6 +317,8 @@ navigation:
         title: "Editor"
      "*fileselect":
         title: "FileSelect"
+     "*filemanager":
+        title: "FileManager"
      "*filter":
         title: "Filter"
      "*fields":
