@@ -37,3 +37,7 @@ To see what CSS styles are applied on an HTML element, use the browser's develop
 * There are two cases when CSS isolation may not work with UI for Blazor components. We explain the reasons and suggest workarounds in [this knowledge base article]({%slug common-kb-css-isolation%}). The two cases are:
    * Using isolated styles with a component `Class`.
    * Using isolated styles for popups (Window, Dialog).
+
+## See Also
+
+* [How to customize the look of Telerik Blazor components]({%slug common-kb-theme-customization-options%})
