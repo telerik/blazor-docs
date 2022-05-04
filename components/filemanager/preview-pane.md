@@ -5,5 +5,5 @@ description: Preview Page in the FileManager for Blazor.
 slug: filemanager-preview-page
 tags: telerik,blazor,filemanager,preview,pane
 published: True
-position: 7
+position: 9
 ---
