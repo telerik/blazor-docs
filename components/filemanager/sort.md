@@ -7,3 +7,15 @@ tags: telerik,blazor,filemanager,sort
 published: True
 position: 13
 ---
+
+## FileManager Sort
+
+The `FileManager` provides an inbuilt Sort functionality that allows you to sort the files and folders in the current folder.
+
+The dropdown in the toolbar exposes several options to sort by:
+
+* Name
+* Type (extension)
+* File Size
+* Date Created
+* Date Modified
