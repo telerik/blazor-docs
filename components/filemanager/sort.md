@@ -19,3 +19,12 @@ The dropdown in the toolbar exposes several options to sort by:
 * File Size
 * Date Created
 * Date Modified
+
+>caption Choose a Sort option from the toolbar dropdown.
+
+````CSHTML
+````
+
+## See Also
+
+  * [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)
