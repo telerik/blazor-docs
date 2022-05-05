@@ -46,9 +46,9 @@ The above model properties have the following meaning for the FileManager:
 | `Extension` | The extension of the file.
 | `IsDirectory` | Whether the item is a directory. If its value is `false` the item is considered a file and not a directory.
 | `DateCreated` | The creation date of the file.
-| `DateCreateUtc` | The creation date of the file in UTC.
+| `DateCreateUtc` | The creation date of the file in UTC. Required.
 | `DateModified` | The modification date of the file.
-| `DateModifiedUtc` | The modification date of the file in UTC.
+| `DateModifiedUtc` | The modification date of the file in UTC. Required.
 | **Item relations** | |
 | `Id `| The unique identifier of the file. Required for [**binding to flat data**]({%slug filemanager-data-binding-flat-data%}).
 | `ParentId` | Identifies the file's parent. Required for [**binding to flat data**]({%slug filemanager-data-binding-flat-data%}). Set to `null` for root items. Do *not* use `ParentId` with hierarhical data.
