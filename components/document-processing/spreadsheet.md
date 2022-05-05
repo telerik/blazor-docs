@@ -21,11 +21,11 @@ This library enables you to work with spreadsheet documents – create ones from
 
 * [**Shapes and Images**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/shapes-and-images): API for insertion, positioning and deletion of images in worksheets.		
 
-* [**Conditional Formatting**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/conditional-formatting): Make it easy to analyze data, find critical issues, patterns and trends by representing the data inside in a user-friendly manner. 
+* [**Conditional Formatting**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/conditional-formatting): Make it easy to analyze data, find critical issues, patterns and trends by representing the data inside in a user-friendly manner.
 
 * [**Hyperlinks**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/hyperlink): The API enables you to add, remove, edit and search for hyperlinks in the worksheets of the document.
 
-* [**Workbook Protection**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/protection/workbook): Prevents the users from modifying the workbook by adding, removing, renaming or reordering sheets.	
+* [**Workbook Protection**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/protection/workbook): Prevents the users from modifying the workbook by adding, removing, renaming or reordering sheets.
 
 * [**Worksheet protection**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/protection/worksheet): Restricts the user from modifying the content and structure of the worksheet. Additionally, the model offers protection options that let you choose a set of commands that will be available to the user when protection is enabled.
 
@@ -47,38 +47,42 @@ This library enables you to work with spreadsheet documents – create ones from
 
 * [**Data Validation**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/data-validation): Enables you to control the type of data or the values that users enter into a cell. Different data validation rules are available, including list, number, date, text length or custom rules.
 
-* [**Filtering**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/filtering) worksheet data.		
+* [**Filtering**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/filtering) worksheet data.
 
-* [**Sorting**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/sorting) the data in the worksheet.	
+* [**Sorting**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/sorting) the data in the worksheet.
 
 * [**Find and replace data**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/find-and-replace).
 
 * [**Freeze Panes**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/freeze-panes): Keep part of the worksheet visible at all times when scrolling.
 
 * [**Hidden rows and columns**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-rows-and-columns/hidden-rows-columns): The API of the workbook model allows you to set the hidden state of each row or column.
-		
+
 * [**Merge and unmerge cells**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/merge-unmerge-cells): You have the ability to merge two or more adjacent cells into a single cell that spans over multiple rows and columns.
 
-* **[Auto fill](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/fill-data-automatically/repeat-values) and [Series](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/fill-data-automatically/series)**: Fill cells automatically with data following a specific pattern.	
+* **[Auto fill](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/fill-data-automatically/repeat-values) and [Series](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/fill-data-automatically/series)**: Fill cells automatically with data following a specific pattern.
 
-* [**Page Setup**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/worksheetpagesetup): Set and get header and footer settings and apply various page setup options like paper size, orientation, scaling, margins, breaks, etc. Apply print settings.		
+* [**Page Setup**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/worksheetpagesetup): Set and get header and footer settings and apply various page setup options like paper size, orientation, scaling, margins, breaks, etc. Apply print settings.
 
 * [**History**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/history): The document model provides the possibility to maintain a history stack that tracks all changes to the content of the workbook. Each worksheet has its own history stack.
 
-## Supported formats: 
+* [**Comments**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/comments): You can leave comments and replies on cells, which allows for easier team communication.
+
+* [**Notes**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/notes): Note important information in your worksheet.
+
+## Supported formats:
 
 * [**XLSX**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/xlsx/xlsxformatprovider)
 
 * [**XLS**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/xls/xls) - See the [supported features](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/xls/features).
 
-* [**CSV**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider) 
+* [**CSV**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider)
 
-* [**Plain text**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/txt/txtformatprovider) 
+* [**Plain text**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/txt/txtformatprovider)
 
-* [**PDF**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/pdf/pdfformatprovider) (export only), 
+* [**PDF**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/pdf/pdfformatprovider) (export only)
 
 * [**DataTable**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/data-table/using-data-table-format-provider)
- 
+
 
 ## See Also
 
