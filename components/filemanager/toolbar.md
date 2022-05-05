@@ -3,7 +3,7 @@ title: Toolbar
 page_title: FileManager Toolbar
 description: Toolbar of the FileManager for Blazor.
 slug: filemanager-toolbar
-tags: telerik,blazor,filemanager,toolbar
+tags: telerik,blazor,filemanager,toolbar, commands
 published: True
 position: 15
 ---
@@ -29,16 +29,16 @@ The Upload button allows updloading of new files. Clicking the button will open 
 
 ## Sort
 
-FileManager allows sorting of the files in the current location. The sorting direction (ascending or descending) is controlled through dedicated buttons in the Toolbar. The `SortBy` dropdown provides option to select the desired sort member to sort by. Read more in the [FileManager - Sort]({%slug %}) article.
+FileManager allows sorting of the files in the current location. The sorting direction (ascending or descending) is controlled through dedicated buttons in the Toolbar. The `SortBy` dropdown provides option to select the desired sort member to sort by. Read more in the [FileManager - Sort]({%slug filemanager-sort%}) article.
 
 
 ## Views
 
-The `Views` button group allows you to control how the content of the selected directory will be visualized. The users can choose between two options. Read more in the [FileManager - Views]({%slug %}) article.
+The `Views` button group allows you to control how the content of the selected directory will be visualized. The users can choose between two options. Read more in the [FileManager - Views]({%slug filemanager-views%}) article.
 
-# View Details
+## View Details
 
-The `View Details` toggles the visibility of the [Preview Pane]({%slug %}). By default is is `Off` and you can enable it to see the selected file details.
+The `View Details` toggles the visibility of the [Preview Pane]({%slug filemanager-preview-pane%}). By default is is `Off` and you can enable it to see the selected file details.
 
 ## Search
 
