@@ -25,7 +25,7 @@ The `New Folder` button allows creating of a new folder in the current location.
 
 ## Upload
 
-The Upload button allows updloading of new files. Clicking the button will open a dialog with integrated [Upload component]({%slug upload-overview%}). Read more in the [FileManager - Upload]({%slug %}) article.
+The Upload button allows updloading of new files. Clicking the button will open a dialog with integrated [Upload component]({%slug upload-overview%}). Read more in the [FileManager - Upload]({%slug filemanager-upload%}) article.
 
 ## Sort
 
