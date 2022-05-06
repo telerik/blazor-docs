@@ -14,7 +14,7 @@ This article explains the events available in the Telerik FileManager for Blazor
 
 * [OnRead](#onread)
 * [OnCreate](#oncreate)
-* [OnEdit](#fileselectfileinfo)
+* [OnEdit](#onedit)
 * [OnUpdate ](#onupdate)
 * [OnDelete](#ondelete)
 * [OnModelInit](#onmodelinit)
