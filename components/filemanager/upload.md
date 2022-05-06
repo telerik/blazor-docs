@@ -43,10 +43,245 @@ The available settings are inherited from the Upload features and events. Here i
 | `OnProgress` | Triggered when the progress of the file upload is changed.
 
 
->caption Handle sucessful upload in the FileManager
+## Example
+
+The example below demonstrates how to handle successful upload on the FileManager. To actually upload the file, you must configure an appropriate controller similar to the []({%slug upload-overview%}#implement-controller-methods).
 
 ````CSHTML
+<TelerikFileManager Data="@Data"
+                    @bind-Path="@DirectoryPath"                    
+                    Height="400px">
+    <FileManagerSettings>
+        <FileManagerUploadSettings SaveUrl="api/filemanager/save"
+                                   RemoveUrl="/api/filemanager/remove"
+                                   OnSuccess="@OnUploadSuccess">
+        </FileManagerUploadSettings>
+    </FileManagerSettings>
+</TelerikFileManager>
 
+@code {
+    public List<FlatFileEntry> Data = new List<FlatFileEntry>();
+    public string DirectoryPath { get; set; } = string.Empty;
+
+    public async Task OnUploadSuccess(UploadSuccessEventArgs args)
+    {
+        await UploadAsync(args, DirectoryPath);
+    }
+
+    async Task UploadAsync(UploadSuccessEventArgs args, string path)
+    {
+        await Task.Delay(300);
+
+        var uploadFiles = args.Files;
+
+        var files = uploadFiles
+            .Select(x => new FlatFileEntry()
+                {
+                    Name = x.Name.Substring(0, x.Name.IndexOf(".")),
+                    IsDirectory = false,
+                    HasDirectories = false,
+                    DateCreated = DateTime.Now,
+                    DateCreatedUtc = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    DateModifiedUtc = DateTime.Now,
+                    Path = Path.Combine(path, x.Name),
+                    Extension = x.Name.Substring(x.Name.IndexOf(".")),
+                    Size = x.Size
+                })
+            .ToList();
+
+        var directory = GetDirectory(path);
+        var directoryItems = Data;
+
+        for (int i = 0; i < files.Count; i++)
+        {
+            var file = files[i];
+            directoryItems.Add(file);
+        }
+
+        RefreshData();
+    }
+
+    private FlatFileEntry GetDirectory(string path)
+    {
+        var directory = Data.FirstOrDefault(x => x.IsDirectory && x.Path == path);
+
+        return directory;
+    }
+
+    private void RefreshData()
+    {
+        Data = new List<FlatFileEntry>(Data);
+    }
+
+    // fetch the FileManager data
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetFlatFileEntries();
+    }
+
+    // a model to bind the FileManager. Should usually be in its own separate location.
+    public class FlatFileEntry
+    {
+        public string Id { get; set; }
+        public string ParentId { get; set; }
+        public string Name { get; set; }
+        public long Size { get; set; }
+        public string Path { get; set; }
+        public string Extension { get; set; }
+        public bool IsDirectory { get; set; }
+        public bool HasDirectories { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateCreatedUtc { get; set; }
+        public DateTime DateModified { get; set; }
+        public DateTime DateModifiedUtc { get; set; }
+    }
+
+    // the next lines are hardcoded data generation so you can explore the FileManager freely
+
+    async Task<List<FlatFileEntry>> GetFlatFileEntries()
+    {
+
+        #region folder My Files config
+        var workFiles = new FlatFileEntry()
+            {
+                Id = "1",
+                ParentId = null,
+                Name = "Work Files",
+                IsDirectory = true,
+                HasDirectories = true,
+                DateCreated = new DateTime(2022, 1, 2),
+                DateCreatedUtc = new DateTime(2022, 1, 2),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine("files"),
+                Size = 3 * 1024 * 1024
+            };
+        #endregion
+
+
+        #region folder Documents config
+        var Documents = new FlatFileEntry()
+            {
+                Id = "2",
+                ParentId = workFiles.Id,
+                Name = "Documents",
+                IsDirectory = true,
+                HasDirectories = false,
+                DateCreated = new DateTime(2022, 1, 2),
+                DateCreatedUtc = new DateTime(2022, 1, 2),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine(workFiles.Path, "documents"),
+                Size = 1024 * 1024
+            };
+        #endregion
+
+        #region folder Images config
+        var Images = new FlatFileEntry()
+            {
+                Id = "3",
+                ParentId = workFiles.Id,
+                Name = "Images",
+                IsDirectory = true,
+                HasDirectories = false,
+                DateCreated = new DateTime(2022, 1, 2),
+                DateCreatedUtc = new DateTime(2022, 1, 2),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine(workFiles.Path, "images"),
+                Size = 2 * 1024 * 1024
+            };
+        #endregion
+
+        #region Documents files config
+        var specification = new FlatFileEntry()
+            {
+                Id = "4",
+                ParentId = Documents.Id,
+                Name = "Specification",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".docx",
+                DateCreated = new DateTime(2022, 1, 5),
+                DateCreatedUtc = new DateTime(2022, 1, 5),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine(Documents.Path, "specification.docx"),
+                Size = 462 * 1024
+            };
+
+        var report = new FlatFileEntry()
+            {
+                Id = "5",
+                ParentId = Documents.Id,
+                Name = "Monthly report",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".xlsx",
+                DateCreated = new DateTime(2022, 1, 20),
+                DateCreatedUtc = new DateTime(2022, 1, 20),
+                DateModified = new DateTime(2022, 1, 25),
+                DateModifiedUtc = new DateTime(2022, 1, 25),
+                Path = Path.Combine(Documents.Path, "monthly-report.xlsx"),
+                Size = 538 * 1024
+            };
+
+        #endregion
+
+
+        #region Images files coonfig
+        var dashboardDesign = new FlatFileEntry()
+            {
+                Id = "6",
+                ParentId = Images.Id,
+                Name = "Dashboard Design",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".png",
+                DateCreated = new DateTime(2022, 1, 10),
+                DateCreatedUtc = new DateTime(2022, 1, 10),
+                DateModified = new DateTime(2022, 2, 13),
+                DateModifiedUtc = new DateTime(2022, 2, 13),
+                Path = Path.Combine(Images.Path, "dashboard-design.png"),
+                Size = 1024
+            };
+
+        var gridDesign = new FlatFileEntry()
+            {
+                Id = "7",
+                ParentId = Images.Id,
+                Name = "Grid Design",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".jpg",
+                DateCreated = new DateTime(2022, 1, 12),
+                DateCreatedUtc = new DateTime(2022, 1, 12),
+                DateModified = new DateTime(2022, 2, 13),
+                DateModifiedUtc = new DateTime(2022, 2, 13),
+                Path = Path.Combine(Images.Path, "grid-design.jpg"),
+                Size = 1024
+            };
+
+        #endregion
+
+        var files = new List<FlatFileEntry>()
+            {
+                workFiles,
+
+                Documents,
+                specification,
+                report,
+
+                Images,
+                dashboardDesign,
+                gridDesign
+            };
+
+        return await Task.FromResult(files);
+
+    }
+}
 ````
 
 ## Next Steps

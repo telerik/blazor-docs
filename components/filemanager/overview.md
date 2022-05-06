@@ -10,58 +10,410 @@ position: 0
 
 # Blazor FileManager Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Blazor FileManager component</a> ....
+The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Blazor FileManager component</a> in an Explorer-like component enabling you to manage file and folders.
 
 
+## Creating Blazor FileManager
 
-## Creating Blazor FileSelect
+1. Add the `TelerikFileManager` tag.
+1. Set FileManager `Data` attribute to an `IEnumerable<TItem>`. [Read more for the component data binding]({%slug filemanager-data-binding-overview%}).
+1. Handle the FileManager [events]({%slug filemanager-events%}) to allow file operations such as rename, delete, create new folder.
 
-1. Add the `TelerikFileSelect` tag.
-1. Set `AllowedExtensions` to a `List<string>`.
-1. Set `MaxFileSize` in bytes.
-1. If you are using a Blazor **Server** app and `MaxFileSize` is greater than **32 KB**, [increase the maximum SignalR message size](#large-file-support).
-1. Implement an [`OnSelect` event handler]({%slug fileselect-events%}#onselect).
-
-Steps 2 and 3 are optional, but strongly recommended.
-
->caption Using FileSelect
+>caption Using FileManager
 
 ````CSHTML
+@page "/test"
 
+<h3>Context Menu sample</h3>
+
+<TelerikFileManager Data="@Data"
+                    @bind-Path="@DirectoryPath"
+                    Height="400px"
+                    OnCreate="@OnCreateHandler"
+                    OnUpdate="@OnUpdateHandler"
+                    OnModelInit="@OnModelInitHandler"
+                    OnDownload="@OnDownloadHandler"
+                    OnDelete="@OnDeleteHandler">
+</TelerikFileManager>
+
+@code {
+    public List<FlatFileEntry> Data = new List<FlatFileEntry>();
+    public string DirectoryPath { get; set; } = string.Empty;
+
+    async Task OnCreateHandler(FileManagerCreateEventArgs args)
+    {
+        var newFolder = args.Item as FlatFileEntry;
+
+        var parent = GetParent(newFolder, DirectoryPath);
+
+        newFolder.Id = "20";
+        newFolder.ParentId = parent.Id;
+        newFolder.Name = "New folder";
+        newFolder.IsDirectory = true;
+        newFolder.HasDirectories = false;
+        newFolder.DateCreated = DateTime.Now;
+        newFolder.DateCreatedUtc = DateTime.Now;
+        newFolder.DateModified = DateTime.Now;
+        newFolder.DateModifiedUtc = DateTime.Now;
+        newFolder.Path = Path.Combine(DirectoryPath, newFolder.Name);
+        newFolder.Extension = null;
+
+        var parentDirectory = GetDirectory(DirectoryPath) ?? GetParent(newFolder, DirectoryPath);
+
+        if (parentDirectory != null)
+        {
+            // simulate add in file system
+            newFolder.ParentId = parentDirectory.Id;
+            Data.Add(newFolder);
+            parentDirectory.HasDirectories = Data.Count(x => x.ParentId == parentDirectory.Id) > 0;
+        }
+        else
+        {
+            // create a folder in the root dir
+            Data.Add(newFolder);
+        }
+
+        RefreshData();
+    }
+
+    private FlatFileEntry GetDirectory(string path)
+    {
+        var directory = Data.FirstOrDefault(x => x.IsDirectory && x.Path == path);
+
+        return directory;
+    }
+
+    private FlatFileEntry GetParent(FlatFileEntry currItem, string currDirectory)
+    {
+        var parentItem = Data
+            .FirstOrDefault(x => x.IsDirectory && x.Path == currDirectory);
+
+        return parentItem;
+    }
+
+
+    async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
+    {
+        var item = args.Item as FlatFileEntry;
+
+        if (item.IsDirectory)
+        {
+            // prevent renaming of directories. If you allow that, make sure
+            //to also update the Path of the children
+        }
+        else
+        {
+            // the name prop is updated, but update the path to the file as well
+            var name = item.Name ?? string.Empty;
+            var extension = item.Extension ?? string.Empty;
+            var fullName = extension.Length > 0 && name.EndsWith(extension) ?
+                name : $"{name}{extension}";
+
+            var updatedItem = Data.FirstOrDefault(x => x.Id == item.Id);
+
+            updatedItem.Name = item.Name;
+            updatedItem.Path = Path.Combine(DirectoryPath, fullName);
+            Console.WriteLine(updatedItem.Path);
+        }
+    }
+
+    async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
+    {
+        var selectedItem = args.Item as FlatFileEntry;
+
+        //the Filemanager does not have the actual file.
+        //To download it, find the selected file through args.Item and
+        //assign the actual file to the argument as follows:
+
+        //args.Stream = the file stream of the actual selected file;
+        //args.MimeType = the mime type of the actual file, so it can be downloaded;
+        //args.FileName = allows overriding the name of the downloaded file;
+
+    }
+
+
+    async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
+    {
+        var currItem = args.Item as FlatFileEntry;
+
+        var itemToDelete = Data.FirstOrDefault(x => x.Id == currItem.Id);
+
+        Data.Remove(itemToDelete);
+
+        RefreshData();
+    }
+
+    private FlatFileEntry OnModelInitHandler()
+    {
+        var item = new FlatFileEntry();
+        item.Name = $"New folder";
+        item.Size = 0;
+        item.Path = Path.Combine(DirectoryPath, item.Name);
+        item.IsDirectory = true;
+        item.HasDirectories = false;
+        item.DateCreated = DateTime.Now;
+        item.DateCreatedUtc = DateTime.Now;
+        item.DateModified = DateTime.Now;
+        item.DateModifiedUtc = DateTime.Now;
+
+        return item;
+    }
+
+    private void RefreshData()
+    {
+        Data = new List<FlatFileEntry>(Data);
+    }
+
+    // fetch the FileManager data
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetFlatFileEntries();
+    }
+
+    // a model to bind the FileManager. Should usually be in its own separate location.
+    public class FlatFileEntry
+    {
+        public string Id { get; set; }
+        public string ParentId { get; set; }
+        public string Name { get; set; }
+        public long Size { get; set; }
+        public string Path { get; set; }
+        public string Extension { get; set; }
+        public bool IsDirectory { get; set; }
+        public bool HasDirectories { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateCreatedUtc { get; set; }
+        public DateTime DateModified { get; set; }
+        public DateTime DateModifiedUtc { get; set; }
+    }
+
+    // the next lines are hardcoded data generation so you can explore the FileManager freely
+
+    async Task<List<FlatFileEntry>> GetFlatFileEntries()
+    {
+
+        #region folder My Files config
+        var workFiles = new FlatFileEntry()
+            {
+                Id = "1",
+                ParentId = null,
+                Name = "Work Files",
+                IsDirectory = true,
+                HasDirectories = true,
+                DateCreated = new DateTime(2022, 1, 2),
+                DateCreatedUtc = new DateTime(2022, 1, 2),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine("files"),
+                Size = 3 * 1024 * 1024
+            };
+        #endregion
+
+
+        #region folder Documents config
+        var Documents = new FlatFileEntry()
+            {
+                Id = "2",
+                ParentId = workFiles.Id,
+                Name = "Documents",
+                IsDirectory = true,
+                HasDirectories = false,
+                DateCreated = new DateTime(2022, 1, 2),
+                DateCreatedUtc = new DateTime(2022, 1, 2),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine(workFiles.Path, "documents"),
+                Size = 1024 * 1024
+            };
+        #endregion
+
+        #region folder Images config
+        var Images = new FlatFileEntry()
+            {
+                Id = "3",
+                ParentId = workFiles.Id,
+                Name = "Images",
+                IsDirectory = true,
+                HasDirectories = false,
+                DateCreated = new DateTime(2022, 1, 2),
+                DateCreatedUtc = new DateTime(2022, 1, 2),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine(workFiles.Path, "images"),
+                Size = 2 * 1024 * 1024
+            };
+        #endregion
+
+        #region Documents files config
+        var specification = new FlatFileEntry()
+            {
+                Id = "4",
+                ParentId = Documents.Id,
+                Name = "Specification",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".docx",
+                DateCreated = new DateTime(2022, 1, 5),
+                DateCreatedUtc = new DateTime(2022, 1, 5),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine(Documents.Path, "specification.docx"),
+                Size = 462 * 1024
+            };
+
+        var report = new FlatFileEntry()
+            {
+                Id = "5",
+                ParentId = Documents.Id,
+                Name = "Monthly report",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".xlsx",
+                DateCreated = new DateTime(2022, 1, 20),
+                DateCreatedUtc = new DateTime(2022, 1, 20),
+                DateModified = new DateTime(2022, 1, 25),
+                DateModifiedUtc = new DateTime(2022, 1, 25),
+                Path = Path.Combine(Documents.Path, "monthly-report.xlsx"),
+                Size = 538 * 1024
+            };
+
+        #endregion
+
+
+        #region Images files coonfig
+        var dashboardDesign = new FlatFileEntry()
+            {
+                Id = "6",
+                ParentId = Images.Id,
+                Name = "Dashboard Design",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".png",
+                DateCreated = new DateTime(2022, 1, 10),
+                DateCreatedUtc = new DateTime(2022, 1, 10),
+                DateModified = new DateTime(2022, 2, 13),
+                DateModifiedUtc = new DateTime(2022, 2, 13),
+                Path = Path.Combine(Images.Path, "dashboard-design.png"),
+                Size = 1024
+            };
+
+        var gridDesign = new FlatFileEntry()
+            {
+                Id = "7",
+                ParentId = Images.Id,
+                Name = "Grid Design",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".jpg",
+                DateCreated = new DateTime(2022, 1, 12),
+                DateCreatedUtc = new DateTime(2022, 1, 12),
+                DateModified = new DateTime(2022, 2, 13),
+                DateModifiedUtc = new DateTime(2022, 2, 13),
+                Path = Path.Combine(Images.Path, "grid-design.jpg"),
+                Size = 1024
+            };
+
+        #endregion
+
+        var files = new List<FlatFileEntry>()
+            {
+                workFiles,
+
+                Documents,
+                specification,
+                report,
+
+                Images,
+                dashboardDesign,
+                gridDesign
+            };
+
+        return await Task.FromResult(files);
+
+    }
+}
 ````
 
 
-## Elements
-
 ## Data Binding
+
+The filemanager allows data binding to flat and hierarchical data. There are two alternative ways to provide data to the FileManager:
+
+* Set the FileManager Data attribute. In this case, the component will hold all the data.
+
+* Use the FileManager OnRead event and pass the data to the event argument. In this case, the FileManager will hold only the current set of data items.
+
+The following list of resources provides details and examples for data binding a FileManager in various scenarios:
+
+* General information on how data binding works - [FileManager Data Binding Overview]({%slug filemanager-data-binding-overview%}).
+
+* Binding to a self-referencing flat data source - [Bind FileManager to Flat Self-Referencing Data]({%slug filemanager-data-binding-flat-data%}).
+
+* Using hierarchical data source with item collections nested in each item - [Bind FileManager to Hierarchical Data]({%slug filemanager-data-binding-hierarchical-data%}).
+
+* Handling the OnRead event to provide only the current data - [FileManager `OnRead`]({%slug filemanager-events%}#onread).
+
 
 ## Toolbar
 
+The FileManger integrates a Toolbar with various commands. [Read more about the available FileManager Toolbar commands...]({%slug filemanager-toolbar%})
+
 ## Navigation
+
+The FileManger allows navigating through the file system in a couple ways - TreeView in a dedicated pane and a Breadcrumb. [Read more about the FileManager Navigation...]({%slug filemanager-navigation%})
 
 ## Preview Pane
 
-## Events
+A dedicated Preview Pane can be toggled to display details for the selected file or folder. Its visibility is controlled via a Switch in the Toolbar. [Read more abot the FileManager Preview Pane...]({%slug filemanager-preview-pane%})
 
-## Methods
+## Context Menu
 
-Rebind ()
+The FileManaged displays a Context Menu on right click of an item. The menu provides several built-in commands. [Read more about the Context Menu options...]({%slug filemanager-context-menu%})
 
+
+## Reference and Methods
+
+To use the FileManager methods, define a reference to the component instance with the `@ref` attribute (example below). The Filemanager is a generic component and its type comes from the model it is bound to.
+
+The available FileManager methods are:
+
+* `Rebind` - refreshes the FileManager data.
+
+````CSHTML
+<TelerikFileManager Data="@Data"
+                    @ref="@FileManagerRef" />
+
+@code{
+    TelerikFileManager<FlatFileEntry> FileManagerRef;
+}
+````
 
 
 ## FileManager Parameters
 
 The following table lists the FileManager parameters. Also check the [FileManager API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikFileManager) for a full list of properties, methods and events.
 
-
-| Parameter | Type and Default&nbsp;Value | Description |
+| Parameter | Type and &nbsp; DefaultValue | Description |
 | --- | --- | --- |
+| `Data` | `IEnumerable<TItem>` | Allows providing data source to the component. See [data bindnig]({%slug filemanager-data-binding-overview%}).
+| `EnableLoaderContainer` | `bool` |  Specifies if loader container should be shown on slow async operations
+| `Path` | `string` | The current path. Updated when the user navigates. Two-way bindale. Handle the [`PathChanged`]({%slug filemanager-events%}#pathchanged) event if you need to react to the user navigation.
 
+### Styling and Appearance
 
+The following parameters enable you to customize the appearance of the Blazor FileManager:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and &nbsp; DefaultValue | Description |
+|----------|----------|----------|
+| `Class`| `string` |The CSS class that will be rendered on the topmost wrapping element of the component.
+| `Width`|`string`|The width of the component.
+| `Height` | `string` | The height of the component.
 
 ## Next Steps
 
-* [FileManager Data Binding]({%slug filemanager-data-binding%})
+* [Data bind the FileManager]({%slug filemanager-data-binding-overview%})
 * [Explore FileManager Events]({%slug filemanager-events%})
 
 

@@ -20,15 +20,15 @@ Hierarchical data means that the collection of child items is provided in a fiel
 
 This approach of providing items lets you gather separate collections of data that may even come from different sources.
 
-
 >caption Example of hierarchical data binding
 
 ````CSHTML
+
 ````
 
 ## See Also
 
   * [FileManager Data Binding Basics]({%slug filemanager-data-binding-overview%})
   * [Binding to Flat Data]({%slug filemanager-data-binding-flat-data%})
-  * [Live Demo: FileManager Flat Data](https://demos.telerik.com/blazor-ui/treelist/flat-data)
-  * [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/blazor-ui/treelist/hierarchical-data)
+  * [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/filemanager/hierarchical-data)
+  * [Live Demo: FileManager Flat Data](https://demos.telerik.com/blazor-ui/filemanager/flat-data)
