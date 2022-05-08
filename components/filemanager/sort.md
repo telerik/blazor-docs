@@ -8,11 +8,11 @@ published: True
 position: 13
 ---
 
-## FileManager Sort
+# FileManager Sort
 
-The `FileManager` provides an inbuilt Sort functionality that allows you to sort the files and folders in the current folder.
+The `FileManager` provides an inbuilt Sort functionality that allows you to sort the files and folders in the current folder. The main options are Ascending and Descending.
 
-The dropdown in the toolbar exposes several options to sort by:
+The dropdown in the toolbar exposes several more options to sort by:
 
 * Name
 * Type (extension)

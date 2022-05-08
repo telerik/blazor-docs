@@ -10,7 +10,7 @@ position: 0
 
 # Blazor FileManager Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Blazor FileManager component</a> in an Explorer-like component enabling you to manage file and folders.
+The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Blazor FileManager component</a> is an Explorer-like component enabling you to manage file and folders.
 
 
 ## Creating Blazor FileManager

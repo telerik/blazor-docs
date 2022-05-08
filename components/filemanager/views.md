@@ -8,7 +8,7 @@ published: True
 position: 5
 ---
 
-## FileManager Views
+# FileManager Views
 
 The `FileManager` provides two inbuilt views for content visualization - `Grid` and `List View`.
 

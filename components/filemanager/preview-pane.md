@@ -8,7 +8,7 @@ published: True
 position: 9
 ---
 
-## FileManager Preview Pane
+# FileManager Preview Pane
 
 The Preview Pane shows additional information about the selected file or folder in the view.
 

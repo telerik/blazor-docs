@@ -8,7 +8,7 @@ published: True
 position: 7
 ---
 
-## FileManager Navigation
+# FileManager Navigation
 
 The navigation within the file structure of the `FileManager` is achieved with the help of an inbuilt `TreeView` and `Breadcrumb` components.
 

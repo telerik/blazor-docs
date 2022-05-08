@@ -21,7 +21,7 @@ First, review:
 
 There are two modes of providing data to a FileManager, and they both use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
 
-* [Flat data] - a collection of self-referencing items with parent-child relationships See the `Id` and `ParentId` settings.
+* [Flat data]({%slug filemanager-data-binding-flat-data%}) - a collection of self-referencing items with parent-child relationships See the `Id` and `ParentId` settings.
 
 * [Hierarchical data]({%slug filemanager-data-binding-hierarchical-data%}) - each item holds its children in a nested property. See the `Directories` setting.
 
