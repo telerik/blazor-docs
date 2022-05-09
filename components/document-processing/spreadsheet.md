@@ -67,7 +67,7 @@ This library enables you to work with spreadsheet documents – create ones from
 
 * [**Comments**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/comments): Leave comments and replies on cells, which enables easier team communication.
 
-* [**Notes**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/notes): Note important information in your worksheet.
+* [**Notes**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/notes): Annotate and clarify information in worksheet cells.
 
 ## Supported formats:
 
