@@ -9,7 +9,7 @@ position: 20
 
 # Scaffolders
 
-The Telerik Visual Studio Code extension provides a handy feature for increased developer productivity – scaffolders. They allow you to quickly add component pages to your application and setup the parameters of the component through an UI.
+The Telerik Visual Studio Code extension provides scaffolders for increased developer productivity. They allow you to quickly add component pages to your application and setup the parameters of the component through an UI.
 
 ## Get the Extension
 
