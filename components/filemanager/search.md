@@ -51,7 +51,6 @@ The `FileManager` provides an inbuilt Search functionality that allows you to fi
     // the next lines are hardcoded data generation so you can explore the FileManager freely
     async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
-        #region folder My Files config
         var workFiles = new FlatFileEntry()
             {
                 Id = "1",
@@ -66,9 +65,7 @@ The `FileManager` provides an inbuilt Search functionality that allows you to fi
                 Path = Path.Combine("files"),
                 Size = 3 * 1024 * 1024
             };
-        #endregion
  
-        #region folder Documents config
         var Documents = new FlatFileEntry()
             {
                 Id = "2",
@@ -83,9 +80,7 @@ The `FileManager` provides an inbuilt Search functionality that allows you to fi
                 Path = Path.Combine(workFiles.Path, "documents"),
                 Size = 1024 * 1024
             };
-        #endregion
  
-        #region folder Images config
         var Images = new FlatFileEntry()
             {
                 Id = "3",
@@ -100,9 +95,7 @@ The `FileManager` provides an inbuilt Search functionality that allows you to fi
                 Path = Path.Combine(workFiles.Path, "images"),
                 Size = 2 * 1024 * 1024
             };
-        #endregion
  
-        #region Documents files config
         var specification = new FlatFileEntry()
             {
                 Id = "4",
@@ -134,9 +127,7 @@ The `FileManager` provides an inbuilt Search functionality that allows you to fi
                 Path = Path.Combine(Documents.Path, "monthly-report.xlsx"),
                 Size = 538 * 1024
             };
-        #endregion
  
-        #region Images files coonfig
         var dashboardDesign = new FlatFileEntry()
             {
                 Id = "6",
@@ -168,7 +159,6 @@ The `FileManager` provides an inbuilt Search functionality that allows you to fi
                 Path = Path.Combine(Images.Path, "grid-design.jpg"),
                 Size = 1024
             };
-        #endregion
  
         var files = new List<FlatFileEntry>()
             {

@@ -10,22 +10,20 @@ position: 0
 
 # Blazor FileManager Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Blazor FileManager component</a> is an Explorer-like component enabling you to manage file and folders.
+The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Blazor FileManager component</a> is an Explorer-like component that enables you to [upload]({%slug filemanager-upload%}), [download]({%slug filemanager-context-menu%}), [rename]({%slug filemanager-context-menu%}) and manage file and folders.
 
 
 ## Creating Blazor FileManager
 
 1. Add the `TelerikFileManager` tag.
-1. Set FileManager `Data` attribute to an `IEnumerable<TItem>`. [Read more for the component data binding]({%slug filemanager-data-binding-overview%}).
-1. Handle the FileManager [events]({%slug filemanager-events%}) to allow file operations such as rename, delete, create new folder.
+2. Set FileManager `Data` attribute to an `IEnumerable<TItem>`. [Read more for the component data binding]({%slug filemanager-data-binding-overview%}).
+3. Set the `Path` parameter via one-way or two-way binding.
+4. Handle the FileManager [events]({%slug filemanager-events%}) ([OnModelInit]({%slug filemanager-events%}#onmodelinit), [OnCreate]({%slug filemanager-events%}#oncreate)
+, [OnUpdate]({%slug filemanager-events%}#onupdate), [OnDelete]({%slug filemanager-events%}#ondelete), [OnDownload]({%slug filemanager-events%}#ondownload)) to allow file operations such as rename, delete, create new folder.
 
 >caption Using FileManager
 
 ````CSHTML
-@page "/test"
-
-<h3>Context Menu sample</h3>
-
 <TelerikFileManager Data="@Data"
                     @bind-Path="@DirectoryPath"
                     Height="400px"
@@ -42,11 +40,12 @@ The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Bl
 
     async Task OnCreateHandler(FileManagerCreateEventArgs args)
     {
+        //the new item data is hardcoded for the purpose of the example
         var newFolder = args.Item as FlatFileEntry;
 
         var parent = GetParent(newFolder, DirectoryPath);
 
-        newFolder.Id = "20";
+        newFolder.Id = DirectoryPath + newFolder.Name.ToString();
         newFolder.ParentId = parent.Id;
         newFolder.Name = "New folder";
         newFolder.IsDirectory = true;
@@ -86,7 +85,7 @@ The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Bl
     private FlatFileEntry GetParent(FlatFileEntry currItem, string currDirectory)
     {
         var parentItem = Data
-            .FirstOrDefault(x => x.IsDirectory && x.Path == currDirectory);
+            .FirstOrDefault(x => x.IsDirectory == true && x.Path == currDirectory);
 
         return parentItem;
     }
@@ -192,7 +191,6 @@ The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Bl
     async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
 
-        #region folder My Files config
         var workFiles = new FlatFileEntry()
             {
                 Id = "1",
@@ -207,10 +205,7 @@ The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Bl
                 Path = Path.Combine("files"),
                 Size = 3 * 1024 * 1024
             };
-        #endregion
 
-
-        #region folder Documents config
         var Documents = new FlatFileEntry()
             {
                 Id = "2",
@@ -225,9 +220,7 @@ The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Bl
                 Path = Path.Combine(workFiles.Path, "documents"),
                 Size = 1024 * 1024
             };
-        #endregion
 
-        #region folder Images config
         var Images = new FlatFileEntry()
             {
                 Id = "3",
@@ -242,9 +235,7 @@ The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Bl
                 Path = Path.Combine(workFiles.Path, "images"),
                 Size = 2 * 1024 * 1024
             };
-        #endregion
 
-        #region Documents files config
         var specification = new FlatFileEntry()
             {
                 Id = "4",
@@ -277,10 +268,6 @@ The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Bl
                 Size = 538 * 1024
             };
 
-        #endregion
-
-
-        #region Images files coonfig
         var dashboardDesign = new FlatFileEntry()
             {
                 Id = "6",
@@ -313,8 +300,6 @@ The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Bl
                 Size = 1024
             };
 
-        #endregion
-
         var files = new List<FlatFileEntry>()
             {
                 workFiles,
@@ -329,7 +314,6 @@ The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Bl
             };
 
         return await Task.FromResult(files);
-
     }
 }
 ````
@@ -339,9 +323,9 @@ The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Bl
 
 The filemanager allows data binding to flat and hierarchical data. There are two alternative ways to provide data to the FileManager:
 
-* Set the FileManager Data attribute. In this case, the component will hold all the data.
+* Set the FileManager `Data` attribute. In this case, the component will hold all the data.
 
-* Use the FileManager OnRead event and pass the data to the event argument. In this case, the FileManager will hold only the current set of data items.
+* Use the FileManager `OnRead` event and pass the data to the event argument. In this case, the FileManager will hold only the data items for the current folder.
 
 The following list of resources provides details and examples for data binding a FileManager in various scenarios:
 
@@ -351,7 +335,7 @@ The following list of resources provides details and examples for data binding a
 
 * Using hierarchical data source with item collections nested in each item - [Bind FileManager to Hierarchical Data]({%slug filemanager-data-binding-hierarchical-data%}).
 
-* Handling the OnRead event to provide only the current data - [FileManager `OnRead`]({%slug filemanager-events%}#onread).
+* Handling the `OnRead` event to provide only the current folder data - [FileManager `OnRead`]({%slug filemanager-events%}#onread).
 
 
 ## Toolbar

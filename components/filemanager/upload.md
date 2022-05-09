@@ -142,7 +142,6 @@ The example below demonstrates how to handle successful upload on the FileManage
     async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
 
-        #region folder My Files config
         var workFiles = new FlatFileEntry()
             {
                 Id = "1",
@@ -157,10 +156,7 @@ The example below demonstrates how to handle successful upload on the FileManage
                 Path = Path.Combine("files"),
                 Size = 3 * 1024 * 1024
             };
-        #endregion
 
-
-        #region folder Documents config
         var Documents = new FlatFileEntry()
             {
                 Id = "2",
@@ -175,9 +171,7 @@ The example below demonstrates how to handle successful upload on the FileManage
                 Path = Path.Combine(workFiles.Path, "documents"),
                 Size = 1024 * 1024
             };
-        #endregion
 
-        #region folder Images config
         var Images = new FlatFileEntry()
             {
                 Id = "3",
@@ -192,9 +186,7 @@ The example below demonstrates how to handle successful upload on the FileManage
                 Path = Path.Combine(workFiles.Path, "images"),
                 Size = 2 * 1024 * 1024
             };
-        #endregion
 
-        #region Documents files config
         var specification = new FlatFileEntry()
             {
                 Id = "4",
@@ -227,10 +219,6 @@ The example below demonstrates how to handle successful upload on the FileManage
                 Size = 538 * 1024
             };
 
-        #endregion
-
-
-        #region Images files coonfig
         var dashboardDesign = new FlatFileEntry()
             {
                 Id = "6",
@@ -262,8 +250,6 @@ The example below demonstrates how to handle successful upload on the FileManage
                 Path = Path.Combine(Images.Path, "grid-design.jpg"),
                 Size = 1024
             };
-
-        #endregion
 
         var files = new List<FlatFileEntry>()
             {

@@ -3,14 +3,14 @@ title: Overview
 page_title: FileManager - Data Binding Overview
 description: Data Binding basics in the FileManager for Blazor.
 slug: filemanager-data-binding-overview
-tags: telerik,blazor,treelist,data,bind,databind,databinding,basics
+tags: telerik,blazor,treeview,data,bind,databind,databinding,basics
 published: True
 position: 0
 ---
 
 # FileManager Data Binding Basics
 
-This article explains the different ways to provide data to a FileManager component and the properties related to data binding. Reviewing this article will explain the basics of how you can describe the hierarchy of items in your data source to the treelist component so they can render.
+This article explains the different ways to provide data to a FileManager component and the properties related to data binding. Reviewing this article will explain the basics of how you can describe the hierarchy of items in your data source to the treeview component so they can render.
 
 @[template](/_contentTemplates/common/general-info.md#valuebind-vs-databind-link)
 
@@ -30,6 +30,178 @@ There are two modes of providing data to a FileManager, and they both use the it
 The FileManager has features that map to properties in the model. The following model uses property names that will work automatically, with no additional FileManager configuration:
 
 ````CSHTML
+<TelerikFileManager Data="@Data"
+                    @bind-Path="@DirectoryPath"
+                    Height="400px"
+                    IdField="MyModelId"
+                    NameField="Name"
+                    SizeField="Size"
+                    PathField="Path"
+                    ExtensionField="Extension"
+                    IsDirectoryField="IsDirectory"
+                    HasDirectoriesField="HasDirectories"
+                    ParentIdField="ParentId"
+                    DateCreatedField="DateCreated"
+                    DateCreatedUtcField="DateCreatedUtc"
+                    DateModifiedField="DateModified"
+                    DateModifiedUtcField="DateModifiedUtc"/>
+@code {
+    public List<FlatFileEntry> Data = new List<FlatFileEntry>();
+    public string DirectoryPath { get; set; } = string.Empty;
+
+    // fetch the FileManager data
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetFlatFileEntries();
+    }
+
+    // a model to bind the FileManager. Should usually be in its own separate location.
+    public class FlatFileEntry
+    {
+        public string MyModelId { get; set; }
+        public string ParentId { get; set; }
+        public string Name { get; set; }
+        public long Size { get; set; }
+        public string Path { get; set; }
+        public string Extension { get; set; }
+        public bool IsDirectory { get; set; }
+        public bool HasDirectories { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateCreatedUtc { get; set; }
+        public DateTime DateModified { get; set; }
+        public DateTime DateModifiedUtc { get; set; }
+    }
+
+    // the next lines are hardcoded data generation so you can explore the FileManager freely
+
+    async Task<List<FlatFileEntry>> GetFlatFileEntries()
+    {
+
+        var workFiles = new FlatFileEntry()
+            {
+                MyModelId = "1",
+                ParentId = null,
+                Name = "Work Files",
+                IsDirectory = true,
+                HasDirectories = true,
+                DateCreated = new DateTime(2022, 1, 2),
+                DateCreatedUtc = new DateTime(2022, 1, 2),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine("files"),
+                Size = 3 * 1024 * 1024
+            };
+
+        var Documents = new FlatFileEntry()
+            {
+                MyModelId = "2",
+                ParentId = workFiles.MyModelId,
+                Name = "Documents",
+                IsDirectory = true,
+                HasDirectories = false,
+                DateCreated = new DateTime(2022, 1, 2),
+                DateCreatedUtc = new DateTime(2022, 1, 2),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine(workFiles.Path, "documents"),
+                Size = 1024 * 1024
+            };
+
+        var Images = new FlatFileEntry()
+            {
+                MyModelId = "3",
+                ParentId = workFiles.MyModelId,
+                Name = "Images",
+                IsDirectory = true,
+                HasDirectories = false,
+                DateCreated = new DateTime(2022, 1, 2),
+                DateCreatedUtc = new DateTime(2022, 1, 2),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine(workFiles.Path, "images"),
+                Size = 2 * 1024 * 1024
+            };
+
+        var specification = new FlatFileEntry()
+            {
+                MyModelId = "4",
+                ParentId = Documents.MyModelId,
+                Name = "Specification",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".docx",
+                DateCreated = new DateTime(2022, 1, 5),
+                DateCreatedUtc = new DateTime(2022, 1, 5),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine(Documents.Path, "specification.docx"),
+                Size = 462 * 1024
+            };
+
+        var report = new FlatFileEntry()
+            {
+                MyModelId = "5",
+                ParentId = Documents.MyModelId,
+                Name = "Monthly report",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".xlsx",
+                DateCreated = new DateTime(2022, 1, 20),
+                DateCreatedUtc = new DateTime(2022, 1, 20),
+                DateModified = new DateTime(2022, 1, 25),
+                DateModifiedUtc = new DateTime(2022, 1, 25),
+                Path = Path.Combine(Documents.Path, "monthly-report.xlsx"),
+                Size = 538 * 1024
+            };
+
+        var dashboardDesign = new FlatFileEntry()
+            {
+                MyModelId = "6",
+                ParentId = Images.MyModelId,
+                Name = "Dashboard Design",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".png",
+                DateCreated = new DateTime(2022, 1, 10),
+                DateCreatedUtc = new DateTime(2022, 1, 10),
+                DateModified = new DateTime(2022, 2, 13),
+                DateModifiedUtc = new DateTime(2022, 2, 13),
+                Path = Path.Combine(Images.Path, "dashboard-design.png"),
+                Size = 1024
+            };
+
+        var gridDesign = new FlatFileEntry()
+            {
+                MyModelId = "7",
+                ParentId = Images.MyModelId,
+                Name = "Grid Design",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".png",
+                DateCreated = new DateTime(2022, 1, 12),
+                DateCreatedUtc = new DateTime(2022, 1, 12),
+                DateModified = new DateTime(2022, 2, 13),
+                DateModifiedUtc = new DateTime(2022, 2, 13),
+                Path = Path.Combine(Images.Path, "grid-design.jpg"),
+                Size = 1024
+            };
+
+        var files = new List<FlatFileEntry>()
+            {
+                workFiles,
+
+                Documents,
+                specification,
+                report,
+
+                Images,
+                dashboardDesign,
+                gridDesign
+            };
+
+        return await Task.FromResult(files);
+    }
+}
 ````
 
 The above model properties have the following meaning for the FileManager:
@@ -58,7 +230,7 @@ The above model properties have the following meaning for the FileManager:
 
 ## Data Bindings
 
-All [FileManager item features](#fileManager-item-features) map to model properties.  The properties of a treelist item match directly to a field of the model the treelist is bound to. You provide that relationship by providing the name of the field from which the corresponding information is to be taken. To do this, in the main `TelerikFileManager` tag, use the parameters described below:
+All [FileManager item features](#fileManager-item-features) map to model properties.  The properties of a treeview item match directly to a field of the model the treeview is bound to. You provide that relationship by providing the name of the field from which the corresponding information is to be taken. To do this, in the main `TelerikFileManager` tag, use the parameters described below:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -95,5 +267,5 @@ Learn the different ways to provide data to a TreeView:
 
   * [Binding to Flat Data]({%slug filemanager-data-binding-flat-data%})
   * [Binding to Hierarchical Data]({%slug filemanager-data-binding-hierarchical-data%})
-  * [Live Demo: FileManager Flat Data](https://demos.telerik.com/blazor-ui/treelist/flat-data)
-  * [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/blazor-ui/treelist/hierarchical-data)
+  * [Live Demo: FileManager Flat Data](https://demos.telerik.com/blazor-ui/filemanager/flat-data)
+  * [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/blazor-ui/filemanager/hierarchical-data)

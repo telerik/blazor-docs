@@ -8,7 +8,7 @@ published: True
 position: 15
 ---
 
-# Toolbar
+# FileManager Toolbar
 
 The Toolbar of the FileManager provides the following built-in commands:
 

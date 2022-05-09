@@ -48,9 +48,273 @@ The `OnDelete` event fires when a file is deleted. Its event handler receives th
 
 In the common case, all the data is provided to the filemanager's `Data` collection and the `FileManager` performs the operations on it for you. In some cases, you may want to do this programmatically (for example, to retrieve only a small number of items to improve the backend performance). Attach the `OnRead` event to perform all the data read operations programmatically in the `FileManager`.
 
-### OnRead
-
 The `OnRead` event fires when the data source is read. Its event handler receives the updated `FileManagerReadEventArgs` as an argument.
+
+>caption Handle OnRead.
+
+````CSHTML
+<TelerikFileManager Data="@Data"
+                    @bind-Path="@DirectoryPath"
+                    Height="400px"
+                    IdField="MyModelId"
+                    NameField="Name"
+                    SizeField="Size"
+                    PathField="Path"
+                    ExtensionField="Extension"
+                    IsDirectoryField="IsDirectory"
+                    HasDirectoriesField="HasDirectories"
+                    ParentIdField="ParentId"
+                    DateCreatedField="DateCreated"
+                    DateCreatedUtcField="DateCreatedUtc"
+                    DateModifiedField="DateModified"
+                    DateModifiedUtcField="DateModifiedUtc"
+                    OnRead="@OnRead"
+                    OnUpdate="@OnUpdateHandler"
+                    OnModelInit="@OnModelInitHandler"
+                    OnDownload="@OnDownloadHandler"
+                    OnDelete="@OnDeleteHandler">
+</TelerikFileManager>
+
+@code {
+    public List<FlatFileEntry> Data = new List<FlatFileEntry>();
+    public string DirectoryPath { get; set; } = string.Empty;
+
+    public async Task OnRead(FileManagerReadEventArgs args)
+    {
+        await GetFlatFileEntries();
+
+        args.Data = Data;
+        args.Total = Data.Count;
+
+        await Task.Yield();
+    }
+
+    async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
+    {
+        var item = args.Item as FlatFileEntry;
+
+        if (item.IsDirectory)
+        {
+            // prevent renaming of directories. If you allow that, make sure
+            //to also update the Path of the children
+        }
+        else
+        {
+            // simulate update of the file name and path
+            var name = item.Name ?? string.Empty;
+            var extension = item.Extension ?? string.Empty;
+            var fullName = extension.Length > 0 && name.EndsWith(extension) ?
+                name : $"{name}{extension}";
+
+            var updatedItem = Data.FirstOrDefault(x => x.MyModelId == item.MyModelId);
+
+            updatedItem.Name = item.Name;
+            updatedItem.Path = Path.Combine(DirectoryPath, fullName);
+        }
+    }
+
+    async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
+    {
+        var selectedItem = args.Item as FlatFileEntry;
+
+        //the FileManager does not have the actual file.
+        //To download it, find the actual file in the datasource  
+        //based on the selected file (args.Item) and
+        //assign the following data to the argument:
+
+        //args.Stream = the file stream of the actual selected file;
+        //args.MimeType = the mime type of the actual file, so it can be downloaded;
+        //args.FileName = allows overriding the name of the downloaded file;
+    }
+
+
+    async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
+    {
+        var currItem = args.Item as FlatFileEntry;
+
+        var itemToDelete = Data.FirstOrDefault(x => x.MyModelId == currItem.MyModelId);
+
+        //simulate item deletion
+        Data.Remove(itemToDelete);
+
+        RefreshData();
+    }
+
+    private FlatFileEntry OnModelInitHandler()
+    {
+        var item = new FlatFileEntry();
+        item.Name = $"New folder";
+        item.Size = 0;
+        item.Path = Path.Combine(DirectoryPath, item.Name);
+        item.IsDirectory = true;
+        item.HasDirectories = false;
+        item.DateCreated = DateTime.Now;
+        item.DateCreatedUtc = DateTime.Now;
+        item.DateModified = DateTime.Now;
+        item.DateModifiedUtc = DateTime.Now;
+
+        return item;
+    }
+
+    private void RefreshData()
+    {
+        Data = new List<FlatFileEntry>(Data);
+    }
+
+    // fetch the FileManager data
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetFlatFileEntries();
+    }
+
+    // a model to bind the FileManager. Should usually be in its own separate location.
+    public class FlatFileEntry
+    {
+        public string MyModelId { get; set; }
+        public string ParentId { get; set; }
+        public string Name { get; set; }
+        public long Size { get; set; }
+        public string Path { get; set; }
+        public string Extension { get; set; }
+        public bool IsDirectory { get; set; }
+        public bool HasDirectories { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateCreatedUtc { get; set; }
+        public DateTime DateModified { get; set; }
+        public DateTime DateModifiedUtc { get; set; }
+    }
+
+    // the next lines are hardcoded data generation so you can explore the FileManager freely
+
+    async Task<List<FlatFileEntry>> GetFlatFileEntries()
+    {
+
+        var workFiles = new FlatFileEntry()
+            {
+                MyModelId = "1",
+                ParentId = null,
+                Name = "Work Files",
+                IsDirectory = true,
+                HasDirectories = true,
+                DateCreated = new DateTime(2022, 1, 2),
+                DateCreatedUtc = new DateTime(2022, 1, 2),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine("files"),
+                Size = 3 * 1024 * 1024
+            };
+
+        var Documents = new FlatFileEntry()
+            {
+                MyModelId = "2",
+                ParentId = workFiles.MyModelId,
+                Name = "Documents",
+                IsDirectory = true,
+                HasDirectories = false,
+                DateCreated = new DateTime(2022, 1, 2),
+                DateCreatedUtc = new DateTime(2022, 1, 2),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine(workFiles.Path, "documents"),
+                Size = 1024 * 1024
+            };
+
+        var Images = new FlatFileEntry()
+            {
+                MyModelId = "3",
+                ParentId = workFiles.MyModelId,
+                Name = "Images",
+                IsDirectory = true,
+                HasDirectories = false,
+                DateCreated = new DateTime(2022, 1, 2),
+                DateCreatedUtc = new DateTime(2022, 1, 2),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine(workFiles.Path, "images"),
+                Size = 2 * 1024 * 1024
+            };
+
+        var specification = new FlatFileEntry()
+            {
+                MyModelId = "4",
+                ParentId = Documents.MyModelId,
+                Name = "Specification",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".docx",
+                DateCreated = new DateTime(2022, 1, 5),
+                DateCreatedUtc = new DateTime(2022, 1, 5),
+                DateModified = new DateTime(2022, 2, 3),
+                DateModifiedUtc = new DateTime(2022, 2, 3),
+                Path = Path.Combine(Documents.Path, "specification.docx"),
+                Size = 462 * 1024
+            };
+
+        var report = new FlatFileEntry()
+            {
+                MyModelId = "5",
+                ParentId = Documents.MyModelId,
+                Name = "Monthly report",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".xlsx",
+                DateCreated = new DateTime(2022, 1, 20),
+                DateCreatedUtc = new DateTime(2022, 1, 20),
+                DateModified = new DateTime(2022, 1, 25),
+                DateModifiedUtc = new DateTime(2022, 1, 25),
+                Path = Path.Combine(Documents.Path, "monthly-report.xlsx"),
+                Size = 538 * 1024
+            };
+
+        var dashboardDesign = new FlatFileEntry()
+            {
+                MyModelId = "6",
+                ParentId = Images.MyModelId,
+                Name = "Dashboard Design",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".png",
+                DateCreated = new DateTime(2022, 1, 10),
+                DateCreatedUtc = new DateTime(2022, 1, 10),
+                DateModified = new DateTime(2022, 2, 13),
+                DateModifiedUtc = new DateTime(2022, 2, 13),
+                Path = Path.Combine(Images.Path, "dashboard-design.png"),
+                Size = 1024
+            };
+
+        var gridDesign = new FlatFileEntry()
+            {
+                MyModelId = "7",
+                ParentId = Images.MyModelId,
+                Name = "Grid Design",
+                IsDirectory = false,
+                HasDirectories = false,
+                Extension = ".jpg",
+                DateCreated = new DateTime(2022, 1, 12),
+                DateCreatedUtc = new DateTime(2022, 1, 12),
+                DateModified = new DateTime(2022, 2, 13),
+                DateModifiedUtc = new DateTime(2022, 2, 13),
+                Path = Path.Combine(Images.Path, "grid-design.jpg"),
+                Size = 1024
+            };
+
+        var files = new List<FlatFileEntry>()
+            {
+                workFiles,
+
+                Documents,
+                specification,
+                report,
+
+                Images,
+                dashboardDesign,
+                gridDesign
+            };
+
+        return await Task.FromResult(files);
+    }
+}
+````
 
 ## Other Events
 
@@ -233,7 +497,6 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
     async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
 
-        #region folder My Files config
         var workFiles = new FlatFileEntry()
             {
                 Id = "1",
@@ -248,10 +511,7 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
                 Path = Path.Combine("files"),
                 Size = 3 * 1024 * 1024
             };
-        #endregion
 
-
-        #region folder Documents config
         var Documents = new FlatFileEntry()
             {
                 Id = "2",
@@ -266,9 +526,7 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
                 Path = Path.Combine(workFiles.Path, "documents"),
                 Size = 1024 * 1024
             };
-        #endregion
 
-        #region folder Images config
         var Images = new FlatFileEntry()
             {
                 Id = "3",
@@ -283,9 +541,7 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
                 Path = Path.Combine(workFiles.Path, "images"),
                 Size = 2 * 1024 * 1024
             };
-        #endregion
 
-        #region Documents files config
         var specification = new FlatFileEntry()
             {
                 Id = "4",
@@ -318,10 +574,6 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
                 Size = 538 * 1024
             };
 
-        #endregion
-
-
-        #region Images files coonfig
         var dashboardDesign = new FlatFileEntry()
             {
                 Id = "6",
@@ -353,8 +605,6 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
                 Path = Path.Combine(Images.Path, "grid-design.jpg"),
                 Size = 1024
             };
-
-        #endregion
 
         var files = new List<FlatFileEntry>()
             {

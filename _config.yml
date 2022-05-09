@@ -211,6 +211,9 @@ navigation:
      "*components/wizard/structure":
         title: "Structure"
         position: 3
+     "*components/filemanager/data-binding":
+        title: "Data Binding"
+        position: 2
 
 ## List helpers directory names and order here, like this:
      "*appearance":
@@ -315,10 +318,10 @@ navigation:
         title: "DropDownTree"
      "*editor":
         title: "Editor"
-     "*fileselect":
-        title: "FileSelect"
      "*filemanager":
         title: "FileManager"
+     "*fileselect":
+        title: "FileSelect"
      "*filter":
         title: "Filter"
      "*fields":

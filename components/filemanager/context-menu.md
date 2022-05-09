@@ -25,7 +25,7 @@ The `Rename` command of the FileManager ContextMenu allows renaming the selected
 
 Clicking the command will fire the [`OnEdit`]({%slug filemanager-events%}#onedit) event. An input with the file/folder name will be rendered, so the user can edit it. Pressing `Enter` or bluring the input will fire the [`OnUpdate`]({%slug filemanager-events%}#onupdate) event allowing you can handle the name update of the actual item in your data source.
 
-When an item is renamed, make sure to also update its `Path`. Renaming a directory that has children will require updating their `Path` as well.
+When an item is renamed, make sure to also update its `Path`. Renaming a directory that has children will require updating their `Path` as well. If the actual file system is modified, then this will be handled out of the box.
 
 ## Download
 
@@ -33,10 +33,10 @@ The `Download` command of the FileManager ContextMenu allows downloading of the 
 
 Clicking the command will fire the [`OnDownload`]({%slug filemanager-events%}#ondownload) event, so you can handle the actual download.
 
-The component does not have the actual files, so the `Item` field of the `FileManagerDownloadEventArgs` just provide metadata of the selected file. Based on that, you shold find the actual in the data source and provide the following data to the arguments, so the download can be performed:
+The component does not have the actual files, so the `Item` field of the `FileManagerDownloadEventArgs` just provide metadata of the selected file. Based on that, you should find the actual in the file system you are using and provide the following data to the arguments, so the download can be performed:
 
 * `args.Stream` - the `MemoryStream` of the actual selected file.
-* `args.MimeType` = the `MimeType` of the actual file.
+* `args.MimeType` - the `MimeType` of the actual file, e.g. "image/png".
 
 In addition, you can also provide a custom file name through the `FileName` field of the `FileManagerDownloadEventArgs`.
 
@@ -54,6 +54,18 @@ The following example demonstrates handling of the ContextMenu commends.
 <TelerikFileManager Data="@Data"
                     @bind-Path="@DirectoryPath"
                     Height="400px"
+                    IdField="MyModelId"
+                    NameField="Name"
+                    SizeField="Size"
+                    PathField="Path"
+                    ExtensionField="Extension"
+                    IsDirectoryField="IsDirectory"
+                    HasDirectoriesField="HasDirectories"
+                    ParentIdField="ParentId"
+                    DateCreatedField="DateCreated"
+                    DateCreatedUtcField="DateCreatedUtc"
+                    DateModifiedField="DateModified"
+                    DateModifiedUtcField="DateModifiedUtc"
                     OnUpdate="@OnUpdateHandler"
                     OnModelInit="@OnModelInitHandler"
                     OnDownload="@OnDownloadHandler"
@@ -81,7 +93,7 @@ The following example demonstrates handling of the ContextMenu commends.
             var fullName = extension.Length > 0 && name.EndsWith(extension) ?
                 name : $"{name}{extension}";
 
-            var updatedItem = Data.FirstOrDefault(x => x.Id == item.Id);
+            var updatedItem = Data.FirstOrDefault(x => x.MyModelId == item.MyModelId);
 
             updatedItem.Name = item.Name;
             updatedItem.Path = Path.Combine(DirectoryPath, fullName);
@@ -107,7 +119,7 @@ The following example demonstrates handling of the ContextMenu commends.
     {
         var currItem = args.Item as FlatFileEntry;
 
-        var itemToDelete = Data.FirstOrDefault(x => x.Id == currItem.Id);
+        var itemToDelete = Data.FirstOrDefault(x => x.MyModelId == currItem.MyModelId);
 
         //simulate item deletion
         Data.Remove(itemToDelete);
@@ -145,7 +157,7 @@ The following example demonstrates handling of the ContextMenu commends.
     // a model to bind the FileManager. Should usually be in its own separate location.
     public class FlatFileEntry
     {
-        public string Id { get; set; }
+        public string MyModelId { get; set; }
         public string ParentId { get; set; }
         public string Name { get; set; }
         public long Size { get; set; }
@@ -164,10 +176,9 @@ The following example demonstrates handling of the ContextMenu commends.
     async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
 
-        #region folder My Files config
         var workFiles = new FlatFileEntry()
             {
-                Id = "1",
+                MyModelId = "1",
                 ParentId = null,
                 Name = "Work Files",
                 IsDirectory = true,
@@ -179,14 +190,11 @@ The following example demonstrates handling of the ContextMenu commends.
                 Path = Path.Combine("files"),
                 Size = 3 * 1024 * 1024
             };
-        #endregion
 
-
-        #region folder Documents config
         var Documents = new FlatFileEntry()
             {
-                Id = "2",
-                ParentId = workFiles.Id,
+                MyModelId = "2",
+                ParentId = workFiles.MyModelId,
                 Name = "Documents",
                 IsDirectory = true,
                 HasDirectories = false,
@@ -197,13 +205,11 @@ The following example demonstrates handling of the ContextMenu commends.
                 Path = Path.Combine(workFiles.Path, "documents"),
                 Size = 1024 * 1024
             };
-        #endregion
 
-        #region folder Images config
         var Images = new FlatFileEntry()
             {
-                Id = "3",
-                ParentId = workFiles.Id,
+                MyModelId = "3",
+                ParentId = workFiles.MyModelId,
                 Name = "Images",
                 IsDirectory = true,
                 HasDirectories = false,
@@ -214,13 +220,11 @@ The following example demonstrates handling of the ContextMenu commends.
                 Path = Path.Combine(workFiles.Path, "images"),
                 Size = 2 * 1024 * 1024
             };
-        #endregion
 
-        #region Documents files config
         var specification = new FlatFileEntry()
             {
-                Id = "4",
-                ParentId = Documents.Id,
+                MyModelId = "4",
+                ParentId = Documents.MyModelId,
                 Name = "Specification",
                 IsDirectory = false,
                 HasDirectories = false,
@@ -235,8 +239,8 @@ The following example demonstrates handling of the ContextMenu commends.
 
         var report = new FlatFileEntry()
             {
-                Id = "5",
-                ParentId = Documents.Id,
+                MyModelId = "5",
+                ParentId = Documents.MyModelId,
                 Name = "Monthly report",
                 IsDirectory = false,
                 HasDirectories = false,
@@ -249,14 +253,10 @@ The following example demonstrates handling of the ContextMenu commends.
                 Size = 538 * 1024
             };
 
-        #endregion
-
-
-        #region Images files coonfig
         var dashboardDesign = new FlatFileEntry()
             {
-                Id = "6",
-                ParentId = Images.Id,
+                MyModelId = "6",
+                ParentId = Images.MyModelId,
                 Name = "Dashboard Design",
                 IsDirectory = false,
                 HasDirectories = false,
@@ -271,8 +271,8 @@ The following example demonstrates handling of the ContextMenu commends.
 
         var gridDesign = new FlatFileEntry()
             {
-                Id = "7",
-                ParentId = Images.Id,
+                MyModelId = "7",
+                ParentId = Images.MyModelId,
                 Name = "Grid Design",
                 IsDirectory = false,
                 HasDirectories = false,
@@ -284,8 +284,6 @@ The following example demonstrates handling of the ContextMenu commends.
                 Path = Path.Combine(Images.Path, "grid-design.jpg"),
                 Size = 1024
             };
-
-        #endregion
 
         var files = new List<FlatFileEntry>()
             {
@@ -301,7 +299,6 @@ The following example demonstrates handling of the ContextMenu commends.
             };
 
         return await Task.FromResult(files);
-
     }
 }
 ````

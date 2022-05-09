@@ -21,12 +21,21 @@ You must also provide the correct value for the `HasDirectories` field - for the
 >caption Example of flat data in a FileManager
 
 ````CSHTML
-@page "/"
-
 <TelerikFileManager Data="@Data"
                     @bind-Path="@DirectoryPath"
-                    Height="400px" />
-
+                    Height="400px"
+                    IdField="MyModelId"
+                    NameField="Name"
+                    SizeField="Size"
+                    PathField="Path"
+                    ExtensionField="Extension"
+                    IsDirectoryField="IsDirectory"
+                    HasDirectoriesField="HasDirectories"
+                    ParentIdField="ParentId"
+                    DateCreatedField="DateCreated"
+                    DateCreatedUtcField="DateCreatedUtc"
+                    DateModifiedField="DateModified"
+                    DateModifiedUtcField="DateModifiedUtc"/>
 @code {
     public List<FlatFileEntry> Data = new List<FlatFileEntry>();
     public string DirectoryPath { get; set; } = string.Empty;
@@ -40,7 +49,7 @@ You must also provide the correct value for the `HasDirectories` field - for the
     // a model to bind the FileManager. Should usually be in its own separate location.
     public class FlatFileEntry
     {
-        public string Id { get; set; }
+        public string MyModelId { get; set; }
         public string ParentId { get; set; }
         public string Name { get; set; }
         public long Size { get; set; }
@@ -59,10 +68,9 @@ You must also provide the correct value for the `HasDirectories` field - for the
     async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
 
-        #region folder My Files config
         var workFiles = new FlatFileEntry()
             {
-                Id = "1",
+                MyModelId = "1",
                 ParentId = null,
                 Name = "Work Files",
                 IsDirectory = true,
@@ -74,14 +82,11 @@ You must also provide the correct value for the `HasDirectories` field - for the
                 Path = Path.Combine("files"),
                 Size = 3 * 1024 * 1024
             };
-        #endregion
 
-
-        #region folder Documents config
         var Documents = new FlatFileEntry()
             {
-                Id = "2",
-                ParentId = workFiles.Id,
+                MyModelId = "2",
+                ParentId = workFiles.MyModelId,
                 Name = "Documents",
                 IsDirectory = true,
                 HasDirectories = false,
@@ -92,13 +97,11 @@ You must also provide the correct value for the `HasDirectories` field - for the
                 Path = Path.Combine(workFiles.Path, "documents"),
                 Size = 1024 * 1024
             };
-        #endregion
 
-        #region folder Images config
         var Images = new FlatFileEntry()
             {
-                Id = "3",
-                ParentId = workFiles.Id,
+                MyModelId = "3",
+                ParentId = workFiles.MyModelId,
                 Name = "Images",
                 IsDirectory = true,
                 HasDirectories = false,
@@ -109,13 +112,11 @@ You must also provide the correct value for the `HasDirectories` field - for the
                 Path = Path.Combine(workFiles.Path, "images"),
                 Size = 2 * 1024 * 1024
             };
-        #endregion
 
-        #region Documents files config
         var specification = new FlatFileEntry()
             {
-                Id = "4",
-                ParentId = Documents.Id,
+                MyModelId = "4",
+                ParentId = Documents.MyModelId,
                 Name = "Specification",
                 IsDirectory = false,
                 HasDirectories = false,
@@ -130,8 +131,8 @@ You must also provide the correct value for the `HasDirectories` field - for the
 
         var report = new FlatFileEntry()
             {
-                Id = "5",
-                ParentId = Documents.Id,
+                MyModelId = "5",
+                ParentId = Documents.MyModelId,
                 Name = "Monthly report",
                 IsDirectory = false,
                 HasDirectories = false,
@@ -144,14 +145,10 @@ You must also provide the correct value for the `HasDirectories` field - for the
                 Size = 538 * 1024
             };
 
-        #endregion
-
-
-        #region Images files coonfig
         var dashboardDesign = new FlatFileEntry()
             {
-                Id = "6",
-                ParentId = Images.Id,
+                MyModelId = "6",
+                ParentId = Images.MyModelId,
                 Name = "Dashboard Design",
                 IsDirectory = false,
                 HasDirectories = false,
@@ -166,8 +163,8 @@ You must also provide the correct value for the `HasDirectories` field - for the
 
         var gridDesign = new FlatFileEntry()
             {
-                Id = "7",
-                ParentId = Images.Id,
+                MyModelId = "7",
+                ParentId = Images.MyModelId,
                 Name = "Grid Design",
                 IsDirectory = false,
                 HasDirectories = false,
@@ -179,8 +176,6 @@ You must also provide the correct value for the `HasDirectories` field - for the
                 Path = Path.Combine(Images.Path, "grid-design.jpg"),
                 Size = 1024
             };
-
-        #endregion
 
         var files = new List<FlatFileEntry>()
             {

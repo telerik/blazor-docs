@@ -1,7 +1,7 @@
 ---
-title: Preview Page
-page_title: FileManager Preview Page
-description: Preview Page in the FileManager for Blazor.
+title: Preview Pane
+page_title: FileManager Preview Pane
+description: Preview Pane in the FileManager for Blazor.
 slug: filemanager-preview-pane
 tags: telerik,blazor,filemanager,preview,pane
 published: True
@@ -15,7 +15,7 @@ The Preview Pane shows additional information about the selected file or folder 
 The preview pane visibility toggles by the Switch Tool in the FileManager Toolbar. By default, it shows the following information about the selected file or folder:
 
 * Thumbnail, representing the file
-* File extension
+* File Type Category
 * File size
 * Date created
 * Date modified
@@ -59,7 +59,6 @@ The preview pane visibility toggles by the Switch Tool in the FileManager Toolba
     // the next lines are hardcoded data generation so you can explore the FileManager freely
     async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
-        #region folder My Files config
         var workFiles = new FlatFileEntry()
             {
                 Id = "1",
@@ -74,9 +73,7 @@ The preview pane visibility toggles by the Switch Tool in the FileManager Toolba
                 Path = Path.Combine("files"),
                 Size = 3 * 1024 * 1024
             };
-        #endregion
  
-        #region folder Documents config
         var Documents = new FlatFileEntry()
             {
                 Id = "2",
@@ -91,9 +88,7 @@ The preview pane visibility toggles by the Switch Tool in the FileManager Toolba
                 Path = Path.Combine(workFiles.Path, "documents"),
                 Size = 1024 * 1024
             };
-        #endregion
  
-        #region folder Images config
         var Images = new FlatFileEntry()
             {
                 Id = "3",
@@ -108,9 +103,7 @@ The preview pane visibility toggles by the Switch Tool in the FileManager Toolba
                 Path = Path.Combine(workFiles.Path, "images"),
                 Size = 2 * 1024 * 1024
             };
-        #endregion
  
-        #region Documents files config
         var specification = new FlatFileEntry()
             {
                 Id = "4",
@@ -142,9 +135,7 @@ The preview pane visibility toggles by the Switch Tool in the FileManager Toolba
                 Path = Path.Combine(Documents.Path, "monthly-report.xlsx"),
                 Size = 538 * 1024
             };
-        #endregion
  
-        #region Images files coonfig
         var dashboardDesign = new FlatFileEntry()
             {
                 Id = "6",
@@ -176,7 +167,6 @@ The preview pane visibility toggles by the Switch Tool in the FileManager Toolba
                 Path = Path.Combine(Images.Path, "grid-design.jpg"),
                 Size = 1024
             };
-        #endregion
  
         var files = new List<FlatFileEntry>()
             {
