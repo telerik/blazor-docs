@@ -13,9 +13,16 @@ position: 0
 This article provides information about the <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Blazor TabStrip component</a> and its core features.
 
 >caption In this article:
+<!-- Start Document Outline -->
 * [Creating Blazor TabStrip](#creating-blazor-tabstrip)
-* [Features](#features)
+	* [Position of the Tabs](#position-of-the-tabs)
+	* [Persist Content](#persist-content)
+	* [Scrollable Tabs](#scrollable-tabs)
+	* [Styling and Appearance](#styling-and-appearance)
 * [Example](#example)
+* [See Also](#see-also)
+
+<!-- End Document Outline -->---
 
 ## Creating Blazor TabStrip
 
@@ -52,10 +59,6 @@ To use a Telerik TabStrip for Blazor:
 
 ![](images/tabstrip-left.png)
 
-
-## Features
-
-The Blazor TabStrip provides various parameters that allow you to configure the component. 
 
 ### Position of the Tabs
 
