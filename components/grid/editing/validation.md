@@ -180,7 +180,7 @@ To disable the built-in validation, add a `<GridValidationSettings>` tag to the 
 
 You can validate the Grid with any validator that uses the `EditContext`. To change the default validator, add a `<ValidatorTemplate>` tag in `<GridValidationSettings>`. Define the custom validator in the `ValidatorTemplate`. 
 
->note Such third party tools are not included with the Telerik UI for Blazor package. Your project must reference their NuGet packages explicitly. The code snippet below will not run unless you install the an appropriate package first. You can find some in <a href="https://docs.fluentvalidation.net/en/latest/blazor.html" target="_blank">their official documentation</a>.
+>note Such third party tools are not included in the Telerik UI for Blazor package. Your project must reference their NuGet packages explicitly. The code snippet below will not run unless you install an appropriate package first. You can find such in the <a href="https://docs.fluentvalidation.net/en/latest/blazor.html" target="_blank">official FluentValidation documentation</a>.
 
 
 ````CSHTML
