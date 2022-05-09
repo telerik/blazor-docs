@@ -65,7 +65,7 @@ This library enables you to work with spreadsheet documents – create ones from
 
 * [**History**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/history): The document model provides the possibility to maintain a history stack that tracks all changes to the content of the workbook. Each worksheet has its own history stack.
 
-* [**Comments**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/comments): You can leave comments and replies on cells, which allows for easier team communication.
+* [**Comments**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/comments): Leave comments and replies on cells, which enables easier team communication.
 
 * [**Notes**](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/notes): Note important information in your worksheet.
 
