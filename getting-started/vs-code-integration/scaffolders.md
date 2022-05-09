@@ -18,8 +18,9 @@ To use the **Telerik UI for Blazor Scaffolders**, install the Telerik UI for Bla
 ## Add a new component page
 
 1. Right-click on the name of the solution
-1. From the popup menu select the ``
+1. From the popup menu select the `Telerik UI for Blazor Project Item`
 1. From the UI form, select the desired component and set the available parameters
+2. The scaffolded page will be added in the `Pages` folder
 
 >caption Add a new component page
 
