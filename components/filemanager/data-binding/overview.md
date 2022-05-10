@@ -16,7 +16,7 @@ This article explains the different ways to provide data to a FileManager compon
 
 First, review:
 
-* The available (bindable) [features of a FileManager items](#fileManager-item-features).
+* The available (bindable) [features of a FileManager items](#filemanager-item-features).
 * How to match fields in the model with the FileManager item [data bindings](#data-bindings).
 
 There are two modes of providing data to a FileManager, and they both use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:

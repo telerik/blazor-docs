@@ -10,7 +10,7 @@ position: 0
 
 # Blazor FileManager Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Blazor FileManager component</a> is an Explorer-like component that enables you to [upload]({%slug filemanager-upload%}), [download]({%slug filemanager-context-menu%}), [rename]({%slug filemanager-context-menu%}) and manage file and folders.
+The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Blazor FileManager component</a> is an Explorer-like component that enables you to [upload]({%slug filemanager-upload%}), [download]({%slug filemanager-context-menu%}#download), [rename]({%slug filemanager-context-menu%}#rename) and manage file and folders.
 
 
 ## Creating Blazor FileManager
@@ -40,7 +40,7 @@ The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Bl
 
     async Task OnCreateHandler(FileManagerCreateEventArgs args)
     {
-        //the new item data is hardcoded for the purpose of the example
+        // the new item data is hardcoded for the purpose of the example
         var newFolder = args.Item as FlatFileEntry;
 
         var parent = GetParent(newFolder, DirectoryPath);
@@ -98,7 +98,7 @@ The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Bl
         if (item.IsDirectory)
         {
             // prevent renaming of directories. If you allow that, make sure
-            //to also update the Path of the children
+            // to also update the Path of the children
         }
         else
         {
@@ -321,7 +321,7 @@ The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Bl
 
 ## Data Binding
 
-The filemanager allows data binding to flat and hierarchical data. There are two alternative ways to provide data to the FileManager:
+The FileManager allows data binding to flat and hierarchical data. There are two alternative ways to provide data to the FileManager:
 
 * Set the FileManager `Data` attribute. In this case, the component will hold all the data.
 

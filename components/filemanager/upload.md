@@ -29,7 +29,6 @@ The available settings are inherited from the Upload features and events. Here i
 | `RemoveField`| Sets the FormData key which contains the list of file names that are submitted to removeUrl.
 | `WithCredentials`| Configures whether credentials (cookies, headers) will be sent for cross-site requests.
 | **File validation** (also check [Upload - Validation]({%slug upload-validation%}))| |
-| `Multiple` | Enables the selection of multiple files. If set to false, only one file can be selected at a time.
 | `AllowedExtensions` | The list of the allowed file extensions.
 | `MinFileSize` | Defines the minimum file size in bytes.
 | `MaxFileSize` | Defines the maximum file size in bytes.
