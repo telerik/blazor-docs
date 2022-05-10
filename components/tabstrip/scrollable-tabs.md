@@ -2,7 +2,7 @@
 title: Scrollable Tabs
 page_title: TabStrip Scrollable Tabs
 description: Scrollable Tabs in the TabStrip for Blazor.
-slug: tabstrip-scrollalbe-tabs
+slug: tabstrip-scroll-tabs
 tags: telerik,blazor,tab,strip,tabstrip,scroll,tabs
 published: True
 position: 15
