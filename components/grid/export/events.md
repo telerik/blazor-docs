@@ -24,7 +24,7 @@ You can customize the files exported to Excel and CSV by using the [OnBeforeExpo
 
 ## OnBeforeExport
 
-The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `CsvExport` buttons, or by [programmatically invoking the export]({%slug grid-export-excel%}#programmatic-export-from-code). The event handler receives a `GridBeforeExcelExportEventArgs` and `GridBeforeCsvExportEventArgs` object, depending on the type of export, which provides the following fields:
+The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `CsvExport` buttons. The event handler receives a `GridBeforeExcelExportEventArgs` and `GridBeforeCsvExportEventArgs` object, depending on the type of export, which provides the following fields:
 
 ### For Excel Export
 
