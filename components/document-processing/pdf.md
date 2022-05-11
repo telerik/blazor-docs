@@ -41,7 +41,7 @@ The document model of the library provides support for:
 
 * [**Colors and Color Spaces**](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/concepts/colors-and-color-spaces): Support for different types of both.
 
-* [**Fonts**](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/concepts/fonts): Support for the standard PDF fonts, Type0, Type1, CIDFontType2, TrueType and more.
+* [**Fonts**](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/concepts/fonts): Support for the standard PDF fonts, Type0, Type1, Type3, CIDFontType2, TrueType and more.
 
 * [**Text and Graphic properties**](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/editing/text-and-graphic-properties): Provide options for changing the properties of the different elements in the document elements so you can achieve a unique look.
 
