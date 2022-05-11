@@ -285,7 +285,9 @@ This section demonstrates two example usages of the Editor Template:
 
 * As of version 2.23.0 of Telerik UI for Blazor the Grid row creates `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the **Notes** section of the [Editing Overview]({%slug components/grid/editing/overview%}#notes) article.
 
-* We recommend casting the Editor Template context to your model and storing it in a global or local variable. Directly casting the context results in data binding not working properly.
+* We recommend casting the Editor Template context to your model and storing it in a local or a dedicated global variable. If a global variable is used, it should not be shared/assigned within multiple Templates, like Column (Cell) for example, as it may lead to unexpected behavior.
+
+* Directly casting the context results in data binding not working properly.
 
 
 >caption Not recommended approach: direct casting - binding does not work properly
