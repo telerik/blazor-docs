@@ -183,5 +183,5 @@ This approach of providing items lets you gather separate collections of data th
 
   * [FileManager Data Binding Basics]({%slug filemanager-data-binding-overview%})
   * [Binding to Flat Data]({%slug filemanager-data-binding-flat-data%})
-  * [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/filemanager/hierarchical-data)
+  * [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/blazor-ui/filemanager/hierarchical-data)
   * [Live Demo: FileManager Flat Data](https://demos.telerik.com/blazor-ui/filemanager/flat-data)
