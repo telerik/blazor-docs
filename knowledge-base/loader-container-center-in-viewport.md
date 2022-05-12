@@ -1,0 +1,57 @@
+---
+title: Center LoaderContainer in viewport
+description: How to center the LoaderContainer in viewport
+type: how-to
+page_title: Center LoaderContainer in viewport
+slug: loader-container-kb-center-in-viewport
+position: 
+tags: loadercontainer, center, viewport, long, page
+ticketid: 1564614
+res_type: kb
+---
+
+## Environment
+<table>
+	<tbody>
+		<tr>
+			<td>Product</td>
+			<td>LoaderContainer for Blazor</td>
+		</tr>
+	</tbody>
+</table>
+
+
+## Description
+
+We use the TelerikLoaderContainer component on our pages to let the user know that we're doing something in the background. Some of our pages are twice or three times the height of the user's viewport in their browser. When the user takes an action that could take some length of time we display the TelerikLoaderContainer but it always displays in the center of the page as a whole, not in the center of the browser's viewport. So, if the user is at the top or bottom of the page they won't see the loader animation.
+
+How to display the LoaderContainer in the center of the viewport?
+<br/>
+How to center the LoaderContainer in the viewport regardless of how long the page actually is?
+
+## Solution
+
+You can achieve that by using some custom CSS to modify the LoaderContainer position to "fixed". This will center the component in respect to the whole page width.
+
+In addition, you may also adjust the position of the inner container - the one that holds the text and the animation. Thus, you can center it in respect to the "main" element and not the whole page.
+
+The example below demonstrates the suggested approach. Uncomment the second styles portion to see the difference.
+
+````CSHTML
+@*Center the LoaderContainer in the viewport*@
+
+<style>
+    .customized-loader-container.k-loader-container{
+        position: fixed;
+    }
+
+/*    .customized-loader-container .k-loader-container-inner{
+        left: 7%;
+    }*/
+</style>
+
+<div style="height:2000px; background-color:beige;"> Some long div </div>
+
+<TelerikLoaderContainer Class="customized-loader-container" Visible="true" Text="Please wait..." />
+````
+
