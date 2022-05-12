@@ -10,7 +10,7 @@ position: 0
 
 # Blazor FileManager Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/filemanager" target="_blank">Blazor FileManager component</a> is an Explorer-like component that enables you to [upload]({%slug filemanager-upload%}), [download]({%slug filemanager-context-menu%}#download), [rename]({%slug filemanager-context-menu%}#rename) and manage file and folders.
+The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">Blazor FileManager component</a> is an Explorer-like component that enables you to [upload]({%slug filemanager-upload%}), [download]({%slug filemanager-context-menu%}#download), [rename]({%slug filemanager-context-menu%}#rename) and manage file and folders.
 
 
 ## Creating Blazor FileManager
@@ -375,7 +375,7 @@ The available FileManager methods are:
 
 ## FileManager Parameters
 
-The following table lists the FileManager parameters. Also check the [FileManager API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikFileManager) for a full list of properties, methods and events.
+The following table lists the FileManager parameters. Also check the [FileManager API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikFileManager-1) for a full list of properties, methods and events.
 
 | Parameter | Type and &nbsp; DefaultValue | Description |
 | --- | --- | --- |
@@ -403,5 +403,5 @@ The following parameters enable you to customize the appearance of the Blazor Fi
 
 ## See Also
 
-* [FileManager API](/blazor-ui/api/Telerik.Blazor.Components.TelerikFileManager)
+* [FileManager API](/blazor-ui/api/Telerik.Blazor.Components.TelerikFileManager-1)
 * [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)
