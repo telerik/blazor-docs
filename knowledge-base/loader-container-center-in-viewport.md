@@ -37,7 +37,7 @@ In addition, you may also adjust the position of the inner container - the one t
 The example below demonstrates the suggested approach. Uncomment the second styles portion to see the difference.
 
 ````CSHTML
-@*Center the LoaderContainer in the viewport*@
+@* Center the LoaderContainer in the viewport *@
 
 <style>
     .customized-loader-container.k-loader-container{
