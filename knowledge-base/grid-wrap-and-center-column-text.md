@@ -32,25 +32,24 @@ You can use some custom CSS that aligns text in the center and enables text wrap
 @* You can also use the Class parameter of the grid to cascade these rules through a selector so it only affects certain grid instances and not all grids on your app *@
 
 <style>
-    .k-grid .k-grid-header th .k-cell-inner,
-    .k-grid .k-grid-header th .k-cell-inner > .k-link {
-        display: block; /*defaults to flex which makes aligning text harder in it*/
-        text-align: center;
-        white-space: normal;
+    .k-grid .k-link {
+        justify-content: center;
     }
 
-    .k-column-title {
+    .k-grid .k-link .k-column-title {
         white-space: normal;
+        text-align: center;
     }
 </style>
 
-<TelerikGrid Data="@MyData" Height="400px"
-             Pageable="true" Sortable="true" Groupable="true"
-             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-             Resizable="true" Reorderable="true">
+<TelerikGrid Data="@MyData"
+             Groupable="true" ShowColumnMenu="true" Resizable="true" Reorderable="true"
+             PageSize="5"
+             FilterMode="@GridFilterMode.FilterMenu"
+             Sortable="true">
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Width="120px" Title="Employee Name" Groupable="false" />
         <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
         <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
     </GridColumns>
@@ -58,12 +57,12 @@ You can use some custom CSS that aligns text in the center and enables text wrap
 
 @code {
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+        {
+            Id = x,
+            Name = "name " + x,
+            Team = "team " + x % 5,
+            HireDate = DateTime.Now.AddDays(-x).Date
+        });
 
     public class SampleData
     {
