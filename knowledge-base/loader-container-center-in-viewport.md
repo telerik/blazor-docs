@@ -40,7 +40,7 @@ The example below demonstrates the suggested approach. Uncomment the second styl
 @* Center the LoaderContainer in the viewport *@
 
 <style>
-    .customized-loader-container.k-loader-container{
+    .customized-loader-container.k-loader-container {
         position: fixed;
     }
 
