@@ -77,6 +77,7 @@ This approach of providing items lets you gather separate collections of data th
                 MyModelId = "1",
                 Name = "Work Files",
                 IsDirectory = true,
+                HasDirectories = true,
                 DateCreated = new DateTime(2022, 1, 2),
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
