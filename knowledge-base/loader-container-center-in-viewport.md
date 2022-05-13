@@ -1,5 +1,5 @@
 ---
-title: Center LoaderContainer in viewport
+title: Center LoaderContainer in Viewport
 description: How to center the LoaderContainer in viewport
 type: how-to
 page_title: Center LoaderContainer in viewport
