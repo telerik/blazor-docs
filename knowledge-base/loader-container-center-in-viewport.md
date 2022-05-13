@@ -44,7 +44,7 @@ The example below demonstrates the suggested approach. Uncomment the second styl
         position: fixed;
     }
 
-/*    .customized-loader-container .k-loader-container-inner{
+    /* .customized-loader-container .k-loader-container-inner {
         left: 7%;
     }*/
 </style>
