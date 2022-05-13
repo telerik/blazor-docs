@@ -30,7 +30,7 @@ How to center the LoaderContainer in the viewport regardless of how long the pag
 
 ## Solution
 
-You can achieve that by using some custom CSS to modify the LoaderContainer position to "fixed". This will center the component in respect to the whole page width.
+Use custom CSS to override the LoaderContainer `position` style to `fixed`. This will center the component in respect to the whole page width.
 
 In addition, you may also adjust the position of the inner container - the one that holds the text and the animation. Thus, you can center it in respect to the "main" element and not the whole page.
 
