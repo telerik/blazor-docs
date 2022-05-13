@@ -2,7 +2,7 @@
 title: Center LoaderContainer in Viewport
 description: How to center the LoaderContainer in viewport
 type: how-to
-page_title: Center LoaderContainer in viewport
+page_title: Center LoaderContainer in the Browser Viewport
 slug: loader-container-kb-center-in-viewport
 position: 
 tags: loadercontainer, center, viewport, long, page
