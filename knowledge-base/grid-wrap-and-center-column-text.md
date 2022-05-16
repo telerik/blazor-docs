@@ -32,7 +32,7 @@ You can use some custom CSS that aligns text in the center and enables text wrap
 @* You can also use the Class parameter of the grid to cascade these rules through a selector so it only affects certain grid instances and not all grids on your app *@
 
 <style>
-    .k-grid .k-link {
+    .k-grid th.k-header {
         justify-content: center;
     }
 
