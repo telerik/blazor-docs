@@ -36,7 +36,7 @@ You can use some custom CSS that aligns text in the center and enables text wrap
         justify-content: center;
     }
 
-    .k-grid .k-link .k-column-title {
+    .k-grid th.k-header .k-column-title {
         white-space: normal;
         text-align: center;
     }
