@@ -105,3 +105,7 @@ How to change the Grid font size? How to set custom font styles?
     }
 }
 ````
+
+## See Also
+
+* [Change Inputs and Buttons Font Size]({%slug inputs-kb-change-font-size%})
