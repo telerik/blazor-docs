@@ -12,7 +12,7 @@ namespace RemoveHtmlExtensionFromApiRefSitemap
             {
                 throw new ArgumentNullException("You must provide a path to the drop folder of the API reference so we can alter the sitemap.xml file in it.");
             }
-            string pathToApiRefSitemap = Path.Combine(args[1], "sitemap.xml");
+            string pathToApiRefSitemap = Path.Combine(args[0], "sitemap.xml");
             if (!File.Exists(pathToApiRefSitemap))
             {
                 throw new FileNotFoundException("API Ref sitemap file not found in the target folder");
