@@ -451,60 +451,67 @@ intro_columns:
   -
     title: "Data Management"
     items:
+      "Filter": "filter-overview"
       "Grid": "grid-overview"
-      "TreeList": "treelist-overview"
       "ListView": "listview-overview"
-
+      "Pager": "pager-overview"
+      "TreeList": "treelist-overview"
+  -
+    title: "File Management"
+    items:
+      "FileManager": "filemanager-overview"
+      "FileSelect": "fileselect-overview"
+      "Upload": "upload-overview"
   -
     title: "Navigation"
     items:
       "Button": "components/button/overview"
-      "Toggle Button": "togglebutton-overview"
       "Button Group" : "buttongroup-overview"
+      "Toggle Button": "togglebutton-overview"
+      "Breadcrumb": "breadcrumb-overview"
       "Menu": "components/menu/overview"
       "Context Menu": "contextmenu-overview"
-      "Tab Strip": "components/tabstrip/overview"
-      "TreeView": "treeview-overview"
-      "Pager": "pager-overview"
-      "ToolBar": "toolbar-overview"
       "PanelBar": "panelbar-overview"
       "SplitButton" : "splitbutton-overview"
       "Stepper" : "stepper-overview"
-
+      "Tab Strip": "components/tabstrip/overview"
+      "ToolBar": "toolbar-overview"
+      "TreeView": "treeview-overview"
+      "Wizard": "wizard-overview"
   -
-    title: "Interactivity and UX"
+    title: "Maps"
     items:
-      "Loader": "loader-overview"
-      "LoaderContainer": "loadercontainer-overview"
-      "Progress Bar": "progressbar-overview"
-      "Chunk Progress Bar": "chunkprogressbar-overview"
-
+      "Map": "components/map/overview"
 
 -
   categories:
   -
     title: "Editors"
     items:
-      "Textbox": "components/textbox/overview"
-      "TextArea": "textarea-overview"
-      "Numeric Textbox": "components/numerictextbox/overview"
+      "AutoComplete": "autocomplete-overview"
+      "CheckBox": "checkbox-overview"
+      "Color Gradient": "colorgradient-overview"
+      "Color Palette": "colorpalette-overview"
+      "Color Picker": "colorpicker-overview"
+      "Flat Color Picker": "flatcolorpicker-overview"
+      "ComboBox": "components/combobox/overview"
       "Date Input": "components/dateinput/overview"
       "Date Picker": "components/datepicker/overview"
       "Time Picker": "components/timepicker/overview"
       "DateTime Picker": "components/datetimepicker/overview"
       "DateRange Picker": "daterangepicker-overview"
       "DropDownList": "components/dropdownlist/overview"
-      "ComboBox": "components/combobox/overview"
-      "AutoComplete": "autocomplete-overview"
+      "HTML Editor": "editor-overview"
       "Masked Textbox": "maskedtextbox-overview"
       "MultiSelect": "multiselect-overview"
-      "CheckBox": "checkbox-overview"
-      "Switch": "switch-overview"
+      "Numeric Textbox": "components/numerictextbox/overview"
       "Radio Button Group" : "radiogroup-overview"
-      "HTML Editor": "editor-overview"
-      "Slider": "slider-overview"
       "RangeSlider": "rangeslider-overview"
-      "Color Palette": "colorpalette-overview"
+      "Slider": "slider-overview"
+      "Switch": "switch-overview"
+      "TextArea": "textarea-overview"
+      "TextBox": "components/textbox/overview"
+      "Validation Tools": "validation-tools-overview"
   -
     title: "Labels"
     items:
@@ -513,73 +520,80 @@ intro_columns:
 -
   categories:
   -
+    title: "Scheduling"
+    items:
+      "Calendar": "components/calendar/overview"
+      "Gantt": "gantt-overview"
+      "Scheduler": "scheduler-overview"
+  -
     title: "Charts"
     items:
       "Charts Overview": "components/chart/overview"
       "Area Charts": "components/chart/types/area"
-      "Column Charts": "components/chart/types/column"
       "Bar Charts": "components/chart/types/bar"
-      "Line Charts": "components/chart/types/line"
-      "Pie Charts": "components/chart/types/pie"
-      "Donut Charts": "components/chart/types/donut"
       "Bubble Charts": "components/chart/types/bubble"
-      "Scatter Charts": "components/chart/types/scatter"
-      "Scatter Line Charts": "components/chart/types/scatterline"
       "Candlestick Charts": "chart-types-candlestick"
+      "Column Charts": "components/chart/types/column"
+      "Donut Charts": "components/chart/types/donut"
+      "Heatmap Charts": "chart-types-heatmap"
+      "Line Charts": "components/chart/types/line"
       "OHLC Charts": "chart-types-ohlc"
+      "Pie Charts": "components/chart/types/pie"
       "Radar Area Charts": "chart-types-radararea"
       "Radar Column Charts": "chart-types-radarcolumn"
       "Radar Line Charts": "chart-types-radarline"
+      "Scatter Charts": "components/chart/types/scatter"
+      "Scatter Line Charts": "components/chart/types/scatterline"
       "Stock Chart": "stockchart-overview"
   -
     title: "Gauges"
     items:
-      "Linear Gauge": "linear-gauge-overview"
-      "Radial Gauge": "radial-gauge-overview"
       "Arc Gauge": "arc-gauge-overview"
       "Circular Gauge": "circular-gauge-overview"
+      "Linear Gauge": "linear-gauge-overview"
+      "Radial Gauge": "radial-gauge-overview"
   -
-    title: "Maps"
+    title: "Barcodes"
     items:
-      "Map": "components/map/overview"
+      "Barcode": "barcode-overview"
+      "QR Code": "qrcode-overview"
   -
 
 -
   categories:
   -
-    title: "Scheduling"
+    title: "Layout"
     items:
-      "Scheduler": "scheduler-overview"
-      "Calendar": "components/calendar/overview"
+      "Animation Container": "components/animationcontainer/overview"
+      "Card": "card-overview"
+      "Carousel": "carousel-overview"
+      "Dialog": "dialog-overview"
+      "Drawer": "drawer-overview"
+      "Form": "form-overview"
+      "Grid Layout": "gridlayout-overview"
+      "Media Query": "mediaquery-overview"
+      "Tile Layout": "tilelayout-overview"
+      "Splitter": "splitter-overview"
+      "Stack Layout": "stacklayout-overview"
+      "Window": "window-overview"
   -
-    title: "Files"
+    title: "Interactivity and UX"
     items:
-      "File Upload": "upload-overview"
+      "Loader": "loader-overview"
+      "LoaderContainer": "loadercontainer-overview"
+      "Notification": "notification-overview"
+      "Progress Bar": "progressbar-overview"
+      "Chunk Progress Bar": "chunkprogressbar-overview"
+      "Tooltip": "tooltip-overview"
+  -
+    title: "Documents"
+    items:
       "Document Processing": "common-features-dpl"
       "PdfProcessing": "pdfprocessing-overview"
       "SpreadProcessing": "spreadprocessing-overview"
       "SpreadStreamProcessing": "spreadstreamprocessing-overview"
       "WordsProcessing": "wordsprocessing-overview"
       "ZipLibrary": "ziplibrary-overview"
-  -
-    title: "Layout"
-    items:
-      "Window": "window-overview"
-      "Predefined Dialogs": "dialog-predefined"
-      "Animation Container": "components/animationcontainer/overview"
-      "Tooltip": "tooltip-overview"
-      "Drawer": "drawer-overview"
-      "Tile Layout": "tilelayout-overview"
-      "Notification": "notification-overview"
-      "Splitter": "splitter-overview"
-      "Form": "form-overview"
-      "Validation Tools": "validation-tools-overview"
-      "Media Query": "mediaquery-overview"
-      "Card": "card-overview"
-      "Carousel": "carousel-overview"
-      "Stack Layout": "stacklayout-overview"
-      "Grid Layout": "gridlayout-overview"
-      "Wizard": "wizard-overview"
 
 
 ## The application virtual path
