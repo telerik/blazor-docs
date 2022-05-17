@@ -1,6 +1,6 @@
 ---
 title: Plot Bands
-page_title: Plot Bands
+page_title: Chart Plot Bands
 description: Plot Bands in the Charts for Blazor.
 slug: chart-plot-bands
 tags: telerik,blazor,chart,plot,bands,plotbands
