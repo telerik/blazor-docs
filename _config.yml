@@ -465,10 +465,10 @@ intro_columns:
   -
     title: "Navigation"
     items:
+      "Breadcrumb": "breadcrumb-overview"
       "Button": "components/button/overview"
       "Button Group": "buttongroup-overview"
       "Toggle Button": "togglebutton-overview"
-      "Breadcrumb": "breadcrumb-overview"
       "Menu": "components/menu/overview"
       "Context Menu": "contextmenu-overview"
       "PanelBar": "panelbar-overview"
