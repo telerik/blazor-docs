@@ -17,7 +17,7 @@ The plot bands appear on the chart as colored areas that fill the entire space b
 
 ## Creating Plot Bands
 
-1. Add instances of the `PlotBand` items to the `PlotBands` collection of the X or Y axes. 
+1. Add `PlotBand` instances inside the `PlotBands` collection of the X or Y axes.
 1. Set a value to the `From` and `To` parameters.
 1. Provide a valid CSS color to the `Color` parameter.
 1. (Optional) Customize the plot band further by providing values to the other exposed parameters.
