@@ -10,7 +10,7 @@ position: 45
 
 # Plot Bands
 
-Plot Bands are colored ranges in the Telerik UI for Blazor Chart, the purpose of which is to highlight areas of the chart by changing its background in a predefined axis range.
+Plot Bands are colored ranges in the Telerik UI for Blazor Chart. Their purpose is to highlight areas of the chart by changing the background in a predefined axis range.
 
 The plot bands appear on the chart as colored areas that fill the entire space between two grid lines on the x-axis or on the y-axis.
 
