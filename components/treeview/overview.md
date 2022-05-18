@@ -91,7 +91,90 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
     }
 }
 ````
+>caption Expand specific nodes programmatically
 
+````CSHTML
+@*To expand a specific node, the parent of this node needs to be expanded as well.*@
+
+<TelerikButton OnClick="ExpandSpecificNode">Expand Specific Node</TelerikButton>
+
+<TelerikTreeView Data="@FlatData"
+                 @bind-ExpandedItems="@ExpandedItems" />
+
+@code {
+    IEnumerable<TreeItem> FlatData { get; set; }
+    IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+
+    void ExpandSpecificNode()
+    {
+        FlatData = FlatData.Where(x => x.ParentId == null || x.Id == 4 || x.Id == 2).ToList();
+
+        ExpandedItems = FlatData;
+    }
+
+    protected override void OnInitialized()
+    {
+        FlatData = GetFlatData();
+
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
+    }
+
+    List<TreeItem> GetFlatData()
+    {
+        List<TreeItem> items = new List<TreeItem>();
+
+        items.Add(new TreeItem()
+            {
+                Id = 1,
+                Text = "wwwroot",
+                ParentId = null,
+                HasChildren = true,
+                Icon = "folder"
+            });
+        items.Add(new TreeItem()
+            {
+                Id = 2,
+                Text = "css",
+                ParentId = 1,
+                HasChildren = true,
+                Icon = "folder"
+            });
+        items.Add(new TreeItem()
+            {
+                Id = 3,
+                Text = "js",
+                ParentId = 1,
+                HasChildren = true,
+                Icon = "folder"
+            });
+        items.Add(new TreeItem()
+            {
+                Id = 4,
+                Text = "site.css",
+                ParentId = 2,
+                Icon = "css"
+            });
+        items.Add(new TreeItem()
+            {
+                Id = 5,
+                Text = "scripts.js",
+                ParentId = 3,
+                Icon = "js"
+            });
+
+        return items;
+    }
+
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public int? ParentId { get; set; }
+        public bool HasChildren { get; set; }
+        public string Icon { get; set; }
+    }
+}
+````
 
 ## Data Binding
 
