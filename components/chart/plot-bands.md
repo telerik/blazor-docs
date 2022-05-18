@@ -108,7 +108,7 @@ You can render plot bands for `Categorical` (like column, bar, area, line, candl
     }
 
     public List<ModelData> Series1Data = new List<ModelData>()
-{
+    {
        new ModelData { Strength = -82, Errors = 15  },
        new ModelData { Strength = -79, Errors = 13  },
        new ModelData { Strength = -77, Errors = 10  },
