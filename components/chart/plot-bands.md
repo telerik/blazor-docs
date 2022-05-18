@@ -130,6 +130,45 @@ You can render plot bands for `Categorical` (like column, bar, area, line, candl
     };
 }
 ````
+
+### Plot bands on the category/X axis
+
+The category and X axes support the usage of plot bands to highlight parts of the Chart. They are defined between two major grid lines, and the `From` and `To` parameters take the indexes of those major grid lines.
+
+````CSHTML
+@* Plot bands on the category axis *@ 
+
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@series2Data">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@xAxisItems">
+            <ChartCategoryAxisPlotBands>
+                <ChartCategoryAxisPlotBand From="2" To="3" Color="red" Opacity="0.4">
+
+                </ChartCategoryAxisPlotBand>
+            </ChartCategoryAxisPlotBands>
+        </ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
+
+    <ChartLegend Position="ChartLegendPosition.Right">
+    </ChartLegend>
+</TelerikChart>
+
+@code {
+    public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
+    public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
+    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+}
+````
+
 ## See Also
 
 * [Live Demo: Chart Plot Bands](https://demos.telerik.com/blazor-ui/chart/plot-bands)
