@@ -127,4 +127,4 @@ The properties of a Breadcrumb item map directly to fields from the Breadcrumb m
 
 ## See Also
 
-* [Live Demo: Breadcrumb Data Binding](https://demos.telerik.com/blazor-ui/breadcrumb/data-binding)
+* [Live Demo: Breadcrumb Overview](https://demos.telerik.com/blazor-ui/breadcrumb/overview)

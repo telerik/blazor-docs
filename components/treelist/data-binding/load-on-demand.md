@@ -252,7 +252,7 @@ Below you will find two examples - for [hierarchical](#load-hierarchical-data-on
 ## See Also
 
   * [TreeList Data Binding Basics]({%slug treelist-data-binding-overview%})
-  * [Live Demo: TreeList Load on Demand](https://demos.telerik.com/blazor-ui/treelist/lazy-loading)
+  * [Live Demo: TreeList Load on Demand](https://demos.telerik.com/blazor-ui/treelist/load-on-demand)
   * [Binding to Flat Data]({%slug treelist-data-binding-flat-data%})
   * [Binding to Hierarchical Data]({%slug treelist-data-binding-hierarchical-data%})
 

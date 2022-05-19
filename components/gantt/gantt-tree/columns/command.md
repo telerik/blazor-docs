@@ -335,4 +335,4 @@ The following code example demonstrates declarations and handling of the built-i
 
 ## See Also
 
-  * [Live Demo: TreeList Command Column](https://demos.telerik.com/blazor-ui/treelist/inlineediting)
+  * [Live Demo: Gantt Tree Command Column](https://demos.telerik.com/blazor-ui/gantt/editing-inline)
