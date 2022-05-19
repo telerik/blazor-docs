@@ -159,6 +159,7 @@ The `Visible` (`bool`) parameter controls wether the labels will be rendered.
 
 ## See Also
 
+* [Live Demo: Linear Gauge](https://demos.telerik.com/blazor-ui/lineargauge/overview)
 * [Linear Gauge: Overview]({%slug linear-gauge-overview%})
 * [Linear Gauge: Scale]({%slug linear-gauge-scale%})
 * [Linear Gauge: Ranges]({%slug linear-gauge-ranges%})

@@ -181,7 +181,9 @@ You can remove the MinorUnit ticks from the rendering of the scale by using the 
 
 ## See Also
 
-* [Radial Gauge: Live Demo](https://demos.telerik.com/blazor-ui/radial-gauge)
+* [Live Demo: Radial Gauge](https://demos.telerik.com/blazor-ui/radialgauge/overview)
+* [Live Demo: Radial Gauge - Scale Ranges](https://demos.telerik.com/blazor-ui/radialgauge/scale-ranges)
+* [Live Demo: Radial Gauge - Scale Options](https://demos.telerik.com/blazor-ui/radialgauge/scale-options)
 * [Radial Gauge: Overview]({%slug radial-gauge-overview%})
 * [Radial Gauge: Pointers]({%slug radial-gauge-pointers%})
 * [Radial Gauge: Labels]({%slug radial-gauge-labels%})

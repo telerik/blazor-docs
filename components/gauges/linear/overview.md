@@ -104,6 +104,6 @@ The Linear Gauge reference exposes the `Refresh` method which allows you to prog
 
 ## See Also
 
-* [Linear Gauge: Live Demo](https://demos.telerik.com/blazor-ui/linear-gauge)
+* [Live Demo: Linear Gauge](https://demos.telerik.com/blazor-ui/lineargauge/overview)
 * [Linear Gauge: Scale]({%slug linear-gauge-scale%})
 * [Linear Gauge: Pointers]({%slug linear-gauge-pointers%})
