@@ -206,5 +206,4 @@ public class ContextMenuItem
 
   * [Binding to Flat Data]({%slug contextmenu-data-binding-flat-data%})
   * [Binding to Hierarchical Data]({%slug contextmenu-data-binding-hierarchical-data%})
-  * [Live Demo: Context Menu Flat Data](https://demos.telerik.com/blazor-ui/contextmenu/flat-data)
-  * [Live Demo: Context Menu Hierarchical Data](https://demos.telerik.com/blazor-ui/contextmenu/hierarchical-data)
+  * [Live Demo: Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/overview)

@@ -103,6 +103,6 @@ The Arc Gauge reference exposes the `Refresh` method which allows you to program
 
 ## See Also
 
-* [Arc Gauge: Live Demo](https://demos.telerik.com/blazor-ui/arc-gauge)
+* [Live Demo: Arc Gauge](https://demos.telerik.com/blazor-ui/arcgauge/overview)
 * [Arc Gauge: Scale]({%slug arc-gauge-scale%})
 * [Arc Gauge: Pointers]({%slug arc-gauge-pointers%})
