@@ -86,5 +86,5 @@ When the grid is grouped, the top row above the group provides information about
 ## See Also
 
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
- * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/customeditor)
+ * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
 
