@@ -195,6 +195,7 @@ You can utilize the Form Columns to fit the contents of the Telerik Form to a sm
 
 ## See Also
   
+  * [Live Demo: MediaQuery - Grid Integration](https://demos.telerik.com/blazor-ui/mediaquery/grid-integration)
   * [Overview]({%slug mediaquery-overview%})
   * [Events]({%slug mediaquery-events%})
 
