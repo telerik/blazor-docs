@@ -146,9 +146,8 @@ The category and X axes support the usage of plot bands to highlight parts of th
     <ChartCategoryAxes>
         <ChartCategoryAxis Categories="@xAxisItems">
             <ChartCategoryAxisPlotBands>
-                <ChartCategoryAxisPlotBand From="2" To="3" Color="red" Opacity="0.4">
-
-                </ChartCategoryAxisPlotBand>
+                <ChartCategoryAxisPlotBand From="0" To="1" Color="red" Opacity="0.2" />
+                <ChartCategoryAxisPlotBand From="2" To="3" Color="red" Opacity="0.2" />
             </ChartCategoryAxisPlotBands>
         </ChartCategoryAxis>
     </ChartCategoryAxes>
