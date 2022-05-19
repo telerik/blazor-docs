@@ -175,5 +175,7 @@ The `Margin` (`double`) parameter controls the margin between the [Scale]({%slug
 
 ## See Also
 
+* [Live Demo: Linear Gauge](https://demos.telerik.com/blazor-ui/lineargauge/overview)
+* [Live Demo: Linear Gauge - Multiple Pointers](https://demos.telerik.com/blazor-ui/lineargauge/multiple-pointers)
 * [Linear Gauge: Overview]({%slug linear-gauge-overview%})
 * [Linear Gauge: Scale]({%slug linear-gauge-scale%})

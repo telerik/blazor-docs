@@ -138,7 +138,7 @@ The `Visible` (`bool`) parameter controls wether the labels will be rendered.
 
 ## See Also
 
-* [Radial Gauge: Live Demo](https://demos.telerik.com/blazor-ui/radial-gauge)
+* [Live Demo: Radial Gauge](https://demos.telerik.com/blazor-ui/radialgauge/overview)
 * [Radial Gauge: Overview]({%slug radial-gauge-overview%})
 * [Radial Gauge: Scale]({%slug radial-gauge-scale%})
 * [Radial Gauge: Pointers]({%slug radial-gauge-pointers%})

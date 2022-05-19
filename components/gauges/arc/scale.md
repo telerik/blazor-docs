@@ -175,5 +175,7 @@ You can enable the MinorUnit ticks on the scale by using the `<ArcGaugeScaleMino
 
 ## See Also
 
+* [Live Demo: Arc Gauge](https://demos.telerik.com/blazor-ui/arcgauge/overview)
+* [Live Demo: Arc Gauge - Scale Options](https://demos.telerik.com/blazor-ui/arcgauge/scale-options)
 * [Arc Gauge: Overview]({%slug arc-gauge-overview%})
 * [Arc Gauge: Pointers]({%slug arc-gauge-pointers%})

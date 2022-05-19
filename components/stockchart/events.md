@@ -277,4 +277,4 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 
 ## See Also
 
-* [Live Demo: Stock Chart Events](https://demos.telerik.com/blazor-ui/stockchart/events)
+* [Live Demo: Stock Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)

@@ -80,5 +80,5 @@ Cell template that renders an image based on model data
 ## See Also
 
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
- * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/customeditor)
+ * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
 

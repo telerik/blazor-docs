@@ -112,4 +112,4 @@ Cell template that renders an image based on model data
 ## See Also
 
  * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
- 
+ * [Live Demo: TreeList Custom Editor Template](https://demos.telerik.com/blazor-ui/treelist/custom-editor)

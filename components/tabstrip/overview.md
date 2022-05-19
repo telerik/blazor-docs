@@ -123,6 +123,6 @@ Active Tab Index: @ActiveTabIndex
 ## See Also
 
   * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/index)
-  * [Live Demo: Tab Position](https://demos.telerik.com/blazor-ui/tabstrip/tabposition)
+  * [Live Demo: Tab Positions](https://demos.telerik.com/blazor-ui/tabstrip/tab-positions)
   * [Events]({%slug tabstrip-events%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTabStrip)

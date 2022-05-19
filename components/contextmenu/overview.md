@@ -235,5 +235,5 @@ The ContextMenu methods are accessible through it's reference:
 ## See Also
 
   * [Data Binding a Context Menu]({%slug contextmenu-data-binding-overview%})
-  * [Live Demo: Context Menu](https://demos.telerik.com/blazor-ui/context menu/index)
+  * [Live Demo: Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/overview)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikContextMenu-1)

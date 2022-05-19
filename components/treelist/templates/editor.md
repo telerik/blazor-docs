@@ -217,5 +217,5 @@ If you need to perform logic more complex than simple data binding, use the chan
 
  * [TreeList Editing]({%slug treelist-editing-overview%})
  * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
- * [Live Demo: TreeList Custom Editor Template](https://demos.telerik.com/blazor-ui/treelist/customeditor)
+ * [Live Demo: TreeList Custom Editor Template](https://demos.telerik.com/blazor-ui/treelist/custom-editor)
 

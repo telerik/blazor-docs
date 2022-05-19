@@ -192,5 +192,7 @@ You can remove the MinorUnit ticks from the rendering of the scale by using the 
 
 ## See Also
 
+* [Live Demo: Linear Gauge](https://demos.telerik.com/blazor-ui/lineargauge/overview)
+* [Live Demo: Linear Gauge - Scale Options](https://demos.telerik.com/blazor-ui/lineargauge/scale-options)
 * [Linear Gauge: Overview]({%slug linear-gauge-overview%})
 * [Linear Gauge: Pointers]({%slug linear-gauge-pointers%})

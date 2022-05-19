@@ -180,6 +180,8 @@ The `Visible` (`bool`) parameter controls wether the labels will be rendered. By
 
 ## See Also
 
+* [Live Demo: Arc Gauge](https://demos.telerik.com/blazor-ui/arcgauge/overview)
+* [Live Demo: Arc Gauge - Center Template](https://demos.telerik.com/blazor-ui/arcgauge/center-template)
 * [Arc Gauge: Overview]({%slug arc-gauge-overview%})
 * [Arc Gauge: Scale]({%slug arc-gauge-scale%})
 * [Arc Gauge: Pointers]({%slug arc-gauge-pointers%})
