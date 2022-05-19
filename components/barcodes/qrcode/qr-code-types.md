@@ -67,4 +67,3 @@ The following implementation demonstrates the code needed for the Image Type:
 ## See Also
 
   * [Live Demo: QRCode](https://demos.telerik.com/blazor-ui/qrcode/overview)
-  * [Live Demo: QRCode Encoding](https://demos.telerik.com/blazor-ui/barcode/qrcode/encoding)

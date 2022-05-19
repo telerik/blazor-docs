@@ -203,6 +203,6 @@ NOTE: this simple logic is best suited for plain CSS
   * [Integration]({%slug mediaquery-integration%})
   * [Events]({%slug mediaquery-events%})
   * [Live Demo: MediaQuery](https://demos.telerik.com/blazor-ui/mediaquery/overview)
-  * [Live Demo: MediaQuery - Grid Integration](https://demos.telerik.com/blazor-ui/grid-integration)
+  * [Live Demo: MediaQuery - Grid Integration](https://demos.telerik.com/blazor-ui/mediaquery/grid-integration)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMediaQuery)
    

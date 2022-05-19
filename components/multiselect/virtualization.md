@@ -177,6 +177,5 @@ Number of selected items: @SelectedValues?.Count
 
 ## See Also
 
-  * [Live Demo: MultiSelect Virtualization](https://demos.telerik.com/blazor-ui/multieselect/virtualization)
-   
-  
+  * [Live Demo: MultiSelect Virtualization](https://demos.telerik.com/blazor-ui/multiselect/virtualization)
+

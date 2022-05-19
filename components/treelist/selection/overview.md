@@ -299,6 +299,6 @@ When the treelist `Data` collection changes, the `SelectedItems` collection has 
 ## See Also
 
   * [Live Demo: TreeList Selection](https://demos.telerik.com/blazor-ui/treelist/selection)
-  * [Live Demo: TreeList Checkbox Selection](https://demos.telerik.com/blazor-ui/treelist/checkbox-selection)
+  * [Live Demo: TreeList Checkbox Selection](https://demos.telerik.com/blazor-ui/treelist/checkbox-only-selection)
   * [Single Selection]({%slug treelist-selection-single%})
   * [Multiple Selection]({%slug treelist-selection-multiple%})
