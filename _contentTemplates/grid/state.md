@@ -557,5 +557,5 @@ public static class FilterExtensions
 
 
 #statechanged-possible-prop-values
-The possible values for the `PropertyName` are `SortDescriptors`, `FilterDescriptors`, `GroupDescriptors`, `Page`, `Skip`, `CollapsedGroups`, `ColumnStates`, `ExpandedItems`, `InsertedItem`, `OriginalEditItem`, `EditItem`.
+The possible values for the `PropertyName` are `SortDescriptors`, `FilterDescriptors`, `SearchFilter`, `GroupDescriptors`, `Page`, `Skip`, `CollapsedGroups`, `ColumnStates`, `ExpandedItems`, `InsertedItem`, `OriginalEditItem`, `EditItem`.
 #end
