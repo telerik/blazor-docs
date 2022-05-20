@@ -185,7 +185,8 @@ The `Visible` (`bool`) parameter controls wether the labels will be rendered. It
 
 ## See Also
 
-* [Circular Gauge: Live Demo](https://demos.telerik.com/blazor-ui/circular-gauge)
+* [Live Demo: Circular Gauge](https://demos.telerik.com/blazor-ui/circulargauge/overview)
+* [Live Demo: Circular Gauge - Center Template](https://demos.telerik.com/blazor-ui/circulargauge/center-template)
 * [Circular Gauge: Overview]({%slug circular-gauge-overview%})
 * [Circular Gauge: Scale]({%slug circular-gauge-scale%})
 * [Circular Gauge: Pointers]({%slug circular-gauge-pointers%})

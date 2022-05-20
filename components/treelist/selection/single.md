@@ -403,5 +403,5 @@ You can predefine the selected item for your users through the two-way binding o
 ## See Also
 
   * [Live Demo: TreeList Selection](https://demos.telerik.com/blazor-ui/treelist/selection)
-  * [Live Demo: TreeList Checkbox Selection](https://demos.telerik.com/blazor-ui/treelist/checkbox-selection)
+  * [Live Demo: TreeList Checkbox Selection](https://demos.telerik.com/blazor-ui/treelist/checkbox-only-selection)
   * [Multiple Selection]({%slug treelist-selection-multiple%})

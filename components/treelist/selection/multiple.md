@@ -418,6 +418,6 @@ You can predefine the selected items for your users through the two-way binding 
 ## See Also
 
   * [Live Demo: TreeList Selection](https://demos.telerik.com/blazor-ui/treelist/selection)
-  * [Live Demo: TreeList Checkbox Selection](https://demos.telerik.com/blazor-ui/treelist/checkbox-selection)
+  * [Live Demo: TreeList Checkbox Selection](https://demos.telerik.com/blazor-ui/treelist/checkbox-only-selection)
   * [Single Selection]({%slug treelist-selection-single%})
  

@@ -103,4 +103,4 @@ The `ValueChanged` event fires when the value has changed. Its event handler rec
 
 ## See Also
 
-  * [Live Demo: Filter](https://demos.telerik.com/blazor-ui/filter/events)
+  * [Live Demo: Filter](https://demos.telerik.com/blazor-ui/filter/overview)

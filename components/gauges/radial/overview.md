@@ -106,7 +106,7 @@ The Radial Gauge reference exposes the `Refresh` method which allows you to prog
 
 ## See Also
 
-* [Radial Gauge: Live Demo](https://demos.telerik.com/blazor-ui/radial-gauge)
+* [Live Demo: Radial Gauge](https://demos.telerik.com/blazor-ui/radialgauge/overview)
 * [Radial Gauge: Scale]({%slug radial-gauge-scale%})
 * [Radial Gauge: Pointers]({%slug radial-gauge-pointers%})
 * [Radial Gauge: Ranges]({%slug radial-gauge-ranges%})

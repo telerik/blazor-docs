@@ -95,4 +95,3 @@ The nested `QRCodeBorder` tag exposes parameters that enable you to customize th
 ## See Also
 
   * [Live Demo: QRCode](https://demos.telerik.com/blazor-ui/qrcode/overview)
-  * [Live Demo: QRCode Encoding](https://demos.telerik.com/blazor-ui/barcode/qrcode/encoding)
