@@ -23,10 +23,9 @@ res_type: kb
 
 ## Description
 
-We use the TelerikLoaderContainer component on our pages to let the user know that we're doing something in the background. Some of our pages are twice or three times the height of the user's viewport in their browser. When the user takes an action that could take some length of time we display the TelerikLoaderContainer but it always displays in the center of the page as a whole, not in the center of the browser's viewport. So, if the user is at the top or bottom of the page they won't see the loader animation.
+When the page is longer than the viewport, the TelerikLoaderContainer is not always visible. It is displayed in the center of the page as a whole, not in the center of the browser's viewport. So, if the user is at the top or bottom of the page they won't see the loader animation.
 
 How to display the LoaderContainer in the center of the viewport?
-How to center the LoaderContainer in the viewport regardless of how long the page actually is?
 
 ## Solution
 
