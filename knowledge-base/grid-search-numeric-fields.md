@@ -312,3 +312,4 @@ Here is an overview of the major steps in the example:
 
 * [Search the Grid on Button Click]({%slug grid-kb-search-button-click%})
 * [Search the Grid in Hidden Fields]({%slug grid-kb-search-in-hidden-fields%})
+* [Search the Grid with a `StartsWith` operator]({%slug grid-kb-search-startswith%})
