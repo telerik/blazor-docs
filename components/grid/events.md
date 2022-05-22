@@ -903,70 +903,14 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
 >caption Use the OnRowRender event to apply custom format to Grid rows based on certain condition
 
 ````CSHTML
-@* Conditional styling/formatting for a row. *@
+@* Conditional styling/formatting for rows (including locked/frozen columns). *@
 
 <style>
-    .k-grid tr.myCustomRowFormatting,
-    .k-grid tr.myCustomRowFormatting:hover {
-        background-color: blue;
-        color: white;
-        font-size: 10px;
-        font-weight: bold;
-    }
-</style>
-
-<TelerikGrid Data="@MyData"
-             Height="400px"
-             Pageable="true"
-             Width="750px"
-             OnRowRender="@OnRowRenderHandler">
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    void OnRowRenderHandler(GridRowRenderEventArgs args)
-    {
-        var item = args.Item as SampleData;
-
-        if (item.Name.Contains("5"))
-        {
-            args.Class = "myCustomRowFormatting";
-        }
-    }
-
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
-
-![](images/grid-onrowrender-event-example.png)
-
->caption OnRowRender example with Locked Columns
-
-````CSHTML
-@* Conditional styling/formatting for a rows (including locked/frozen columns). *@
-
-<style>
+    /*the first two selectors are needed when you have locked/frozen columns*/
+    /*===*/
     .k-grid .k-master-row.myCustomRowFormatting .k-grid-content-sticky,
     .k-grid .k-master-row.myCustomRowFormatting.k-alt .k-grid-content-sticky,
+    /*===*/
     .k-grid .k-master-row.k-state-selected > td,
     .k-grid .k-master-row.k-state-selected:hover > td {
         background-color: inherit;
