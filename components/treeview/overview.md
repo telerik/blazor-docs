@@ -91,78 +91,112 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
     }
 }
 ````
->caption Expand specific nodes programmatically
+>caption Expand nodes programmatically
 
 ````CSHTML
 @*To expand a specific node, the parent of this node needs to be expanded as well.*@
 
-<TelerikButton OnClick="ExpandSpecificNode">Expand Specific Node</TelerikButton>
+<p>
+    <label>Item Id: <TelerikNumericTextBox @bind-Value="@ItemToExpand" Width="80px" /></label>
+    <TelerikButton OnClick="@ExpandItem">Expand Item @ItemToExpand</TelerikButton>
+</p>
+<p>
+    <TelerikButton OnClick="@ExpandRoot">Expand Root Items</TelerikButton>
+    <TelerikButton OnClick="@ExpandAll">Expand All</TelerikButton>
+    <TelerikButton OnClick="@CollapseAll">Collapse All</TelerikButton>
+</p>
 
 <TelerikTreeView Data="@FlatData"
-                 @bind-ExpandedItems="@ExpandedItems" />
+                 @bind-ExpandedItems="@ExpandedItems"
+                 @bind-SelectedItems="@SelectedItems"
+                 SelectionMode="@TreeViewSelectionMode.Single" />
 
 @code {
-    IEnumerable<TreeItem> FlatData { get; set; }
-    IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+    public IEnumerable<TreeItem> FlatData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+    public IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
 
-    void ExpandSpecificNode()
+    int ItemToExpand { get; set; }
+    Random rnd { get; set; } = new Random();
+
+    void ExpandItem()
     {
-        FlatData = FlatData.Where(x => x.ParentId == null || x.Id == 4 || x.Id == 2).ToList();
+        var allItemsToExpand = new List<TreeItem>();
+        var leafItem = FlatData.Where(x => x.Id == ItemToExpand).FirstOrDefault();
+        int? parentId = null;
 
-        ExpandedItems = FlatData;
+        if (leafItem != null)
+        {
+            // item selection is not required for expanding
+            SelectedItems = new List<TreeItem>() { leafItem };
+
+            allItemsToExpand.Add(leafItem);
+            parentId = leafItem.ParentId;
+            while (parentId != null)
+            {
+                var parentItem = FlatData.Where(x => x.Id == parentId).FirstOrDefault();
+                allItemsToExpand.Add(parentItem);
+                parentId = parentItem.ParentId;
+            }
+        }
+
+        ExpandedItems = allItemsToExpand;
+    }
+
+    void ExpandRoot()
+    {
+        ExpandedItems = FlatData.Where(x => x.ParentId == null && x.HasChildren == true);
+    }
+
+    void ExpandAll()
+    {
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true);
+    }
+
+    void CollapseAll()
+    {
+        ExpandedItems = new List<TreeItem>();
+        SelectedItems = new List<TreeItem>();
     }
 
     protected override void OnInitialized()
     {
-        FlatData = GetFlatData();
+        FlatData = LoadFlat();
 
-        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
+        ItemToExpand = rnd.Next(1, FlatData.Count() + 1);
     }
 
-    List<TreeItem> GetFlatData()
+    int TreeLevels { get; set; } = 3;
+    int ItemsPerLevel { get; set; } = 3;
+    int IdCounter { get; set; } = 1;
+
+    List<TreeItem> LoadFlat()
     {
         List<TreeItem> items = new List<TreeItem>();
 
-        items.Add(new TreeItem()
-            {
-                Id = 1,
-                Text = "wwwroot",
-                ParentId = null,
-                HasChildren = true,
-                Icon = "folder"
-            });
-        items.Add(new TreeItem()
-            {
-                Id = 2,
-                Text = "css",
-                ParentId = 1,
-                HasChildren = true,
-                Icon = "folder"
-            });
-        items.Add(new TreeItem()
-            {
-                Id = 3,
-                Text = "js",
-                ParentId = 1,
-                HasChildren = true,
-                Icon = "folder"
-            });
-        items.Add(new TreeItem()
-            {
-                Id = 4,
-                Text = "site.css",
-                ParentId = 2,
-                Icon = "css"
-            });
-        items.Add(new TreeItem()
-            {
-                Id = 5,
-                Text = "scripts.js",
-                ParentId = 3,
-                Icon = "js"
-            });
+        PopulateTreeItems(items, null, 1);
 
         return items;
+    }
+
+    void PopulateTreeItems(List<TreeItem> items, int? parentId, int level)
+    {
+        for (int i = 1; i <= ItemsPerLevel; i++)
+        {
+            var itemId = IdCounter++;
+            items.Add(new TreeItem()
+                {
+                    Id = itemId,
+                    Text = $"Level {level} Item {i} Id {itemId}",
+                    ParentId = parentId,
+                    HasChildren = level < TreeLevels
+                });
+
+            if (level < TreeLevels)
+            {
+                PopulateTreeItems(items, itemId, level + 1);
+            }
+        }
     }
 
     public class TreeItem
@@ -171,7 +205,6 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
         public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
     }
 }
 ````
