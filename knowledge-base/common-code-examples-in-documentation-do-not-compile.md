@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I am trying to run the code snippets im the documentation but they do not compile. The `Preview` tab of the examples throws an error.
+I am trying to run the code snippets in the documentation but they do not compile. The `Preview` tab of the examples throws an error.
 
 
 ## Error Message
