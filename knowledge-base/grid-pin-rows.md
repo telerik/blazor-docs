@@ -5,7 +5,7 @@ type: how-to
 page_title: Pin rows on top of the Grid 
 slug: grid-pin-rows
 position: 
-tags: grid, pin, rows
+tags: grid, pin, rows, sticky, frozen, locked
 res_type: kb
 ---
 
@@ -22,6 +22,7 @@ To achieve the desired behavior you can:
 * Dynamically calculate the `top` CSS rule with JavaScript.
 * Register the JavaScript file. 
 
+<div class="skip-repl"></div>
 ````C#
 @* Pin rows to the Grid *@
 
