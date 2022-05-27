@@ -923,18 +923,12 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
     .k-grid tr.myCustomRowFormatting {
         background-color: #90EE90;
     }
-
-    .k-grid tr.myCustomRowFormatting.k-state-selected,
-    .k-grid tr.myCustomRowFormatting.k-state-selected:hover {
-        background-color: gold;
-    }
 </style>
 
 <TelerikGrid Data="@MyData"
              Height="446px"
              Pageable="true"
              Width="450px"
-             SelectionMode="GridSelectionMode.Multiple"
              OnRowRender="@OnRowRenderHandler">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" Locked="true" />
