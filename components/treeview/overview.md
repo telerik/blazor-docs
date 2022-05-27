@@ -116,7 +116,7 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
     public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
     public IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
 
-    int ItemToExpand { get; set; }
+    int? ItemToExpand { get; set; }
     Random rnd { get; set; } = new Random();
 
     void ExpandItem()
