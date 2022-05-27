@@ -16,7 +16,7 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
 
 1. Use the `TelerikTreeView` tag.
 1. Set the TreeView `Data` attribute to an `IEnumerable<T>`. The TreeView will automatically recognize property names like `Id`, `ParentId`, `Text` and a few others. Otherwise, [use bindings to configure custom property names]({%slug components/treeview/data-binding/overview%}#treeview-bindings).
-1. (optional) Set the `ExpandedItems` attribute to a **non-null** `IEnumerable<object>`. Use it expand or collapse items programmatically.
+1. (optional) Set the `ExpandedItems` attribute to a **non-null** `IEnumerable<object>`. Use it to expand or collapse items programmatically. [Read more about Blazor TreeView expanding items]({%slug treeview-expand-items%}).
 
 >caption TreeView with flat self-referencing data and icons
 
@@ -88,123 +88,6 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
         public string Icon { get; set; }
-    }
-}
-````
->caption Expand nodes programmatically
-
-````CSHTML
-@*To expand a specific node, the parent of this node needs to be expanded as well.*@
-
-<p>
-    <label>Item Id: <TelerikNumericTextBox @bind-Value="@ItemToExpand" Width="80px" /></label>
-    <TelerikButton OnClick="@ExpandItem">Expand Item @ItemToExpand</TelerikButton>
-</p>
-<p>
-    <TelerikButton OnClick="@ExpandRoot">Expand Root Items</TelerikButton>
-    <TelerikButton OnClick="@ExpandAll">Expand All</TelerikButton>
-    <TelerikButton OnClick="@CollapseAll">Collapse All</TelerikButton>
-</p>
-
-<TelerikTreeView Data="@FlatData"
-                 @bind-ExpandedItems="@ExpandedItems"
-                 @bind-SelectedItems="@SelectedItems"
-                 SelectionMode="@TreeViewSelectionMode.Single" />
-
-@code {
-    public IEnumerable<TreeItem> FlatData { get; set; }
-    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
-    public IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
-
-    int? ItemToExpand { get; set; }
-    Random rnd { get; set; } = new Random();
-
-    void ExpandItem()
-    {
-        var allItemsToExpand = new List<TreeItem>();
-        var leafItem = FlatData.Where(x => x.Id == ItemToExpand).FirstOrDefault();
-        int? parentId = null;
-
-        if (leafItem != null)
-        {
-            // item selection is not required for expanding
-            SelectedItems = new List<TreeItem>() { leafItem };
-
-            allItemsToExpand.Add(leafItem);
-            parentId = leafItem.ParentId;
-            while (parentId != null)
-            {
-                var parentItem = FlatData.Where(x => x.Id == parentId).FirstOrDefault();
-                allItemsToExpand.Add(parentItem);
-                parentId = parentItem.ParentId;
-            }
-        }
-
-        ExpandedItems = allItemsToExpand;
-    }
-
-    void ExpandRoot()
-    {
-        ExpandedItems = FlatData.Where(x => x.ParentId == null && x.HasChildren == true);
-    }
-
-    void ExpandAll()
-    {
-        ExpandedItems = FlatData.Where(x => x.HasChildren == true);
-    }
-
-    void CollapseAll()
-    {
-        ExpandedItems = new List<TreeItem>();
-        SelectedItems = new List<TreeItem>();
-    }
-
-    protected override void OnInitialized()
-    {
-        FlatData = LoadFlat();
-
-        ItemToExpand = rnd.Next(1, FlatData.Count() + 1);
-    }
-
-    int TreeLevels { get; set; } = 3;
-    int ItemsPerLevel { get; set; } = 3;
-    int IdCounter { get; set; } = 1;
-
-    List<TreeItem> LoadFlat()
-    {
-        List<TreeItem> items = new List<TreeItem>();
-
-        PopulateTreeItems(items, null, 1);
-
-        return items;
-    }
-
-    void PopulateTreeItems(List<TreeItem> items, int? parentId, int level)
-    {
-        for (int i = 1; i <= ItemsPerLevel; i++)
-        {
-            var itemId = IdCounter++;
-            items.Add(new TreeItem()
-                {
-                    Id = itemId,
-                    Text = $"Level {level} Item {i} Id {itemId}",
-                    ParentId = parentId,
-                    HasChildren = level < TreeLevels
-                });
-
-            if (level < TreeLevels)
-            {
-                PopulateTreeItems(items, itemId, level + 1);
-            }
-        }
-    }
-
-    public class TreeItem
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-        public int? ParentId { get; set; }
-        public bool HasChildren { get; set; }
     }
 }
 ````
