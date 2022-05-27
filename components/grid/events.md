@@ -916,12 +916,12 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
         background-color: inherit;
     }
 
-    .k-grid tr.myCustomRowFormatting {
-        background-color: #90EE90;
+    .k-grid tr.myCustomRowFormatting:hover {
+        background-color: red !important;
     }
 
-    .k-grid tr.myCustomRowFormatting:hover {
-        background-color: red;
+    .k-grid tr.myCustomRowFormatting {
+        background-color: #90EE90;
     }
 
     .k-grid tr.myCustomRowFormatting.k-state-selected,
@@ -948,7 +948,15 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
     {
         var item = args.Item as SampleData;
 
-        args.Class = "myCustomRowFormatting";
+        //conditional applying Class
+        if (item.Name.Contains("5") || item.Name.Contains("6"))
+        {
+            args.Class = "myCustomRowFormatting";
+        }
+        if (item.Id < 2)
+        {
+            args.Class = "myCustomRowFormatting";
+        }
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
