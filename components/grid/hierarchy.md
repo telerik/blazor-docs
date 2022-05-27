@@ -84,7 +84,7 @@ Click the + icon to expand the row details
 
 >caption The result of the code snippet above, after expanding the second row
 
-![](images/hierarchy-grid-in-grid.png)
+![Blazor Hierarchy Grid In Grid](images/hierarchy-grid-in-grid.png)
 
 >tip To have more levels, simply nest more grids and name the `context` variables. You can find an example in the [Multi-Level Hierarchy]({%slug grid-three-level-hierarchy%}) KB article.
 

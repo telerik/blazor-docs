@@ -91,7 +91,7 @@ The Markers in Map are two types - **Pin** and **PinTarget**. They can be define
 
 >caption Different Marker Shapes.
 
-![](../images/marker-shapes.png)
+![Blazor Map Marker Shapes](../images/marker-shapes.png)
 
 >caption The example for the above result.
 
@@ -158,7 +158,7 @@ The `MapLayerMarkerSettingsTooltip` tag allows you to fine tune the tooltips con
 
 >caption Marker Tooltip Template.
 
-![](../images/marker-tooltip-settings.png)
+![Blazor Map Marker ToolTip](../images/marker-tooltip-settings.png)
 
 >caption The example for the above result.
 

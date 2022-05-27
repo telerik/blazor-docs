@@ -26,7 +26,7 @@ The List view is achieved with the help of the [Blazor ListView]({%slug listview
 
 >caption FileManager change views using the Toolbar buttons.
 
-![](images/filemanager-views.png)
+![Blazor Filemanager Views](images/filemanager-views.png)
 
 ````CSHTML
 <TelerikFileManager Data="@Data"

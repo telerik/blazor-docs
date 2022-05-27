@@ -102,5 +102,5 @@ Put nested `<TelerikGrid>` instances in the `DetailTemplate` of their parents. T
 }
 ````
 
-![](images/three-level-hierarchy-grid.png)
+![Blazor Three Level Hierarchy Grid](images/three-level-hierarchy-grid.png)
 

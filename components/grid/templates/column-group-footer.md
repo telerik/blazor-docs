@@ -77,7 +77,7 @@ When the grid is grouped, the columns can display a footer with information abou
 
 >caption The result from the code snippet above after grouping by the `Team` column
 
-![](images/column-group-footer-template.png)
+![Blazor Grid Column Group Footer Template](images/column-group-footer-template.png)
 
 
 ## See Also

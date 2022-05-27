@@ -74,7 +74,7 @@ This example shows how to change the contents of the loading text and animation 
 
 >caption The result from the code snippet above
 
-![](images/loadercontainer-template-basic.png)
+![Blazor Loadercontainer Template Basic](images/loadercontainer-template-basic.png)
 
 ## Implement a Custom Panel
 
@@ -140,7 +140,7 @@ You can use CSS to target the DOM elements that create the Panel around the temp
 
 >caption The result from the code snippet above
 
-![](images/loadercontainer-template-custom-panel.png)
+![Blazor Loadercontainer Template Custom Panel](images/loadercontainer-template-custom-panel.png)
 
 ## See Also
 

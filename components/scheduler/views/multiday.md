@@ -23,7 +23,7 @@ In this article:
 
 >caption Figure: MultiDay View in the scheduler
 
-![](images/multiday-view-sample.png)
+![Blazor Multiday View Sample](images/multiday-view-sample.png)
 
 ## Example
 
@@ -109,7 +109,7 @@ You can configure the MultiDay view to display events that are [grouped by a res
 
 >caption The result from the code snippet below.
 
-![](images/scheduler-resource-grouping-multiday-view.png)
+![Blazor Scheduler Resource Grouping MultyDay View](images/scheduler-resource-grouping-multiday-view.png)
 
 >caption Resource Grouping in a MultiDay view.
 

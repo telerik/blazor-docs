@@ -46,7 +46,7 @@ Click a column header to sort by its data
 
 >caption The result from the code snippet above, after the user clicked on the "Employee Name" header to sort
 
-![](images/basic-sorting.png)
+![Blazor Grid Basic Sorting](images/basic-sorting.png)
 
 You can sort this grid on the different columns to see the results. The `Name` column is a string, and sorting is done according to the rules for strings, while the `ID` column sorts acording to rules for integers.
 

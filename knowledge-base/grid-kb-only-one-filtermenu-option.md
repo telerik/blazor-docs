@@ -26,7 +26,7 @@ I want simple filtering options in the Grid filter menu - both for my uses and m
 
 >caption Before and after results
 
-![](images/grid-kb-only-one-filtermenu-option-result.png)
+![Blazor Grid One FilterMenu Result](images/grid-kb-only-one-filtermenu-option-result.png)
 
 ## Solution
 

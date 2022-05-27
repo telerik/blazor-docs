@@ -47,7 +47,7 @@ The nested `ToolBarButton` tag exposes parameters that allow you to customize th
 
 >caption The Telerik ToolBar with ToolBarButtons
 
-![](images/toolbar-toolbarbutton-example.png)
+![Blazor Toolbar Toolbarbutton Example](images/toolbar-toolbarbutton-example.png)
 
 ````CSHTML
 @*This example shows the TelerikToolBar with ToolBarButtons and their features*@
@@ -108,7 +108,7 @@ The nested `ToolBarToggleButton` tag exposes parameters that allow you to custom
 
 >caption The Telerik ToolBar with ToolBarToggleButtons
 
-![](images/toolbar-togglebutton-example.png)
+![Blazor Toolbar Togglebutton Example](images/toolbar-togglebutton-example.png)
 
 ````CSHTML
 @*This example shows the TelerikToolBar with ToolBarToggleButton and its available features*@
@@ -168,7 +168,7 @@ The nested `ToolBarButtonGroup` tag exposes parameters that allow you to customi
 
 >caption The Telerik ToolBar with grouped buttons
 
-![](images/toolbar-grouped-buttons.png)
+![Blazor Toolbar Grouped Buttons](images/toolbar-grouped-buttons.png)
 
 ````CSHTML
 @*This example shows the TelerikToolBar with grouped ToolBarButtons*@

@@ -75,7 +75,7 @@ Cell template that renders an image based on model data
 
 >caption The result from the code snippet above
 
-![](images/cell-template.png)
+![Blazor Grid Cell Template](images/cell-template.png)
 
 ## See Also
 

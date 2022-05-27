@@ -97,7 +97,7 @@ Using a self-referencing flat data source for the menu
 
 >caption The result from the code snippet above, after hovering the "Roadmap" item
 
-![](images/menu-flat-data-overview.png)
+![Blazor Menu Flat Data Overview](images/menu-flat-data-overview.png)
 
 
 ## See Also

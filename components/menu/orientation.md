@@ -16,7 +16,7 @@ The default orientation is horizontal.
 
 >caption Changing the orientation of a menu
 
-![](images/menu-change-orientation.gif)
+![Blazor Menu Change Orientation](images/menu-change-orientation.gif)
 
 >caption Set orientation
 

@@ -79,7 +79,7 @@ This event fires upon the rendering of the Grids columns. It receives an argumen
 }
 ````
 
-![](images/events-oncellrender-example.png)
+![Blazor Grid Events Oncellrender Example](images/events-oncellrender-example.png)
 
 
 >tip You can also pass lambda expressions to the OnCellRender parameter. Thus, you can provide additional meta data to the OnCellRender handler ( for example column title ) apart from the `GridCellRenderEventArgs` that it receives by default.
@@ -142,7 +142,7 @@ This event fires upon the rendering of the Grids columns. It receives an argumen
 }
 ````
 
-![](images/events-oncellrender-example-with-lambda.png)
+![Blazor Grid Events OnCellRender](images/events-oncellrender-example-with-lambda.png)
 
 ## See Also
 

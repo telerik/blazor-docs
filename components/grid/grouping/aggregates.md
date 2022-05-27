@@ -150,7 +150,7 @@ Enable and use aggregates. To see the full effect, group by a column - "Team" an
 
 >caption The result of the code snippet above after the grid has been grouped by the `Team` and `Active Projects` columns
 
-![](images/grid-aggregates-overview.png)
+![Blazor Grid Aggregates Overview](images/grid-aggregates-overview.png)
 
 
 

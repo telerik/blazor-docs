@@ -115,4 +115,4 @@ The following example demonstrates how to configure the Map Bubble Layer.
 
 >caption The result from the above code snippet.
 
-![](../images/bubble-layer.png)
+![Blazor Map Bubble Layer](../images/bubble-layer.png)

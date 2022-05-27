@@ -98,7 +98,7 @@ This approach of providing nodes lets you gather separate collections of data fo
 
 >caption The result from the code snippet above, after hovering the "Company" item
 
-![](images/menu-hierarchical-data-overview.png)
+![Blazor Menu Hierarchical Data Overview](images/menu-hierarchical-data-overview.png)
 
 
 ## See Also

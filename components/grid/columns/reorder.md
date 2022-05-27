@@ -67,7 +67,7 @@ To prevent the user from moving a certain column, set its own parameter `Reordar
 
 >caption How column reordering works in the Telerik grid
 
-![](images/column-reorder-preview.gif)
+![Blazor Grid Column Reorder Preview](images/column-reorder-preview.gif)
 
 ## See Also
 

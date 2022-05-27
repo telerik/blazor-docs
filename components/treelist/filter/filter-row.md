@@ -96,9 +96,9 @@ The treelist will render a row below the column headers with UI that you can use
 
 >caption The result from the code snippet above, after filtering ID with ">= 5000"
 
-![](images/filter-row-choose-operator.png)
+![Blazor TreeList Filter Row Choose Operator](images/filter-row-choose-operator.png)
 
-![](images/filter-row-clear.png)
+![Blazor TreeList Filter Row Clear](images/filter-row-clear.png)
 
 
 

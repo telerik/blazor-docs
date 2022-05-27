@@ -159,7 +159,7 @@ To setup a local NuGet package source, so you can install the Telerik components
 
     For example:
 
-    ![](images/create-local-nuget-feed.png)
+    ![Blazor Create Local Nuget Feed](images/create-local-nuget-feed.png)
 #end
 
 
