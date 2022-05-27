@@ -60,7 +60,7 @@ Render the entire row with your own code and logic
 
 >caption The result from the code snippet above
 
-![](images/row-template.png)
+![Blazor Grid Row Template](images/row-template.png)
 
 
 ## See Also

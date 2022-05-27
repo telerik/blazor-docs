@@ -109,7 +109,7 @@ You are *not* required to provide a value for the `HasChildren` field. @[templat
 
 >caption The result from the code snippet above, after hovering the "Roadmap" item
 
-![](images/context-menu-flat-data-overview.png)
+![Blazor Context Menu Flat Data Overview](images/context-menu-flat-data-overview.png)
 
 
 ## See Also

@@ -50,4 +50,4 @@ The following example demonstrates how to configure the Map Tile Layer.
 
 >caption The result from the above code snippet.
 
-![](../images/tile-layer.png)
+![Blazor Tile Layer](../images/tile-layer.png)

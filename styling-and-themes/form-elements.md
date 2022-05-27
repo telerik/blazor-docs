@@ -37,7 +37,7 @@ A specific CSS class applied to a `label` element can give you a checkbox that l
 
 >tip You can use the [TelerikCheckBox]({%slug checkbox-overview%}) component instead. It offers a few extra features and events.
 
-![](images/style-checkbox.png)
+![Blazor Form Elements Style Checkbox](images/style-checkbox.png)
 
 >caption Checkboxes with Telerik Theme styling
 
@@ -58,7 +58,7 @@ A specific CSS class applied to a `label` element can give you a radio buttons t
 
 >note Blazor cannot yet handle binding radio buttons. You can find more details in [this issue](https://github.com/aspnet/AspNetCore/issues/5579).
 
-![](images/style-radio.png)
+![Blazor Style Radio](images/style-radio.png)
 
 >caption Radio Buttons with Telerik Theme styling
 
@@ -79,7 +79,7 @@ You can match standard `input`(`textbox`) elements with the styling of a Telerik
 
 >tip Telerik provides the majority of necessary inputs - [textbox](../components/textbox/overview), [numeric](../components/numerictextbox/overview) textbox, [date](../components/datepicker/overview) and [time](../components/timepicker/overview) pickers, [password](../components/textbox/overview) input, various [dropdowns](../components/combobox/overview).
 
-![](images/style-input.png)
+![Blazor Style Input](images/style-input.png)
 
 >caption Textbox with Telerik Theme styling
 
@@ -94,7 +94,7 @@ You can match standard `input`(`textbox`) elements with the styling of a Telerik
 
 You can match standard `button` and `a` elements with the styling of a Telerik Button. Note that other CSS rules from libraries like Bootstrap may interfere.
 
-![](images/style-buttons.png)
+![Blazor Style Buttons](images/style-buttons.png)
 
 >caption Button with Telerik Theme styling
 

@@ -34,7 +34,7 @@ To pre-select checkbox filter in the Grid using a filter descriptor:
 
 >caption The result from the code snippet below.
 
-![](images/grid-pre-select-checkbox-filter-screenshot.PNG)
+![Blazor Grid Pre-select Checkbox Filter](images/grid-pre-select-checkbox-filter-screenshot.PNG)
 
 ````Razor
 @*Grid with pre-set checkbox filter on initial load.*@

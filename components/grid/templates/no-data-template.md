@@ -15,7 +15,7 @@ The `NoDataTemplate` allows you to define custom content when the Grid has no da
 
 >caption Custom content for an empty Grid
 
-![](images/grid-no-data-template.gif)
+![Blazor Grid No Data Template](images/grid-no-data-template.gif)
 
 >caption Use the NoDataTemplate to override the message shown while the data is still loading or when you try to filter a non-existing item
 

@@ -27,7 +27,7 @@ The Telerik UI for Blazor VS extensions support Visual Studio 2019. @[template](
 
 To access the VS extensions, go to the **Extensions** > **Telerik** > **Telerik UI for Blazor** menu.
 
-![](images/open-vs-extensions.png)
+![Blazor Open Vs Extensions](images/open-vs-extensions.png)
 
 
 

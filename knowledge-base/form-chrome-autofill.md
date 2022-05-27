@@ -25,7 +25,7 @@ I am using the Telerik Form for Blazor. When the application is rendered in Chro
 
 #### Problematic display
 
-![](images/problematic-example-chrome-form-autofill.png)
+![Blazor Chrome AutoFill Problematic Example](images/problematic-example-chrome-form-autofill.png)
 
 ## Cause of the Problem
 

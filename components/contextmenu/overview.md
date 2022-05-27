@@ -98,7 +98,7 @@ In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%
 
 >caption The result from the snippet above, after right clicking the yellow target and hovering the "Advanced" item
 
-![](images/context-menu-overview.png)
+![Blazor Context Menu Overview](images/context-menu-overview.png)
 
 >caption Component namespace and reference
 

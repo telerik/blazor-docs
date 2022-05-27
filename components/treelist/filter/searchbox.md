@@ -132,7 +132,7 @@ You can set the TreeList filters programmatically through the component [state](
 
 >caption The result from the code snippet below.
 
-![](images/searchbox-filter-control.gif)
+![Blazor TreeList Searchbox Filter Control](images/searchbox-filter-control.gif)
 
 >caption Set programmatically Searchbox Filter.
 

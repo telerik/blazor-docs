@@ -14,7 +14,7 @@ A **Candlestick** chart shows data for the movement of the price of a financial 
 
 >caption Candlestick series in a stock chart. Results from the first code snippet below.
 
-![](images/basic-candlestick-chart.png)
+![Blazor Basic Candlestick Chart](images/basic-candlestick-chart.png)
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 

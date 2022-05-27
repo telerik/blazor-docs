@@ -19,7 +19,7 @@ You can render several instances of the current calendar view next to each other
 </TelerikCalendar>
 ````
 
-![](images/calendar-multiple-views.png)
+![Blazor Calendar Multiple Views](images/calendar-multiple-views.png)
 
 >tip You can still use the other features of the calendar like setting a starting `Date` and [Selection](selection), or the `Min` and `Max` constraints.
 

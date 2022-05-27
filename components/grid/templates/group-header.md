@@ -81,7 +81,7 @@ When the grid is grouped, the top row above the group provides information about
 
 >caption The result from the code snippet above after grouping by the `Team` and `Active Projects` columns
 
-![](images/group-header-template.png)
+![Blazor Grid Group Header Template](images/group-header-template.png)
 
 ## See Also
 

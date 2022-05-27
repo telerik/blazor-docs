@@ -307,7 +307,7 @@ Editing is cancelled for the first record.
 
 >caption The result from the code snippet above, after the Edit button was clicked on the row with ID 4, and validation errors are made
 
-![](images/popup-editing.png)
+![Blazor TreeList Popup Editing](images/popup-editing.png)
 
 >note It is up to the data access logic to save the data once it is changed in the data collection, or to revert changes. The example above showcases the events that allow you to do that. In a real application, the code for handling data operations may be entirely different.
 

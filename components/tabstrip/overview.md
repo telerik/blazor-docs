@@ -57,7 +57,7 @@ To use a Telerik TabStrip for Blazor:
 
 >caption The result from the code snippet above
 
-![](images/tabstrip-left.png)
+![Blazor Tabstrip Left](images/tabstrip-left.png)
 
 
 ### Position of the Tabs

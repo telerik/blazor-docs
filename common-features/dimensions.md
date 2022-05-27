@@ -40,7 +40,7 @@ The examples here showcase different units and examples of using them to set dim
 </div>
 ````
 
-![](images/basic-width-settings.png)
+![Blazor Basic Width Settings](images/basic-width-settings.png)
 
 
 >caption Using auto width to have an element adjust to its contents
@@ -66,7 +66,7 @@ The examples here showcase different units and examples of using them to set dim
 }
 ````
 
-![](images/auto-size-for-dropdown.png)
+![Blazor Auto Size For Dropdown](images/auto-size-for-dropdown.png)
 
 
 
@@ -86,5 +86,5 @@ The examples here showcase different units and examples of using them to set dim
 ````
 
 
-![](images/parent-element-offset.png)
+![Blazor Parent Element Offset](images/parent-element-offset.png)
 

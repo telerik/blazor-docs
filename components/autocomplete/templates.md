@@ -45,7 +45,7 @@ The Item template determines how the individual items are rendered in the dropdo
 
 >caption The result from the code snippet above
 
-![](images/autocomplete-item-template.png)
+![Blazor Autocomplete Item Template](images/autocomplete-item-template.png)
 
 ## Header
 
@@ -73,7 +73,7 @@ The header is content that you can place above the list of items inside the drop
 
 >caption The result from the code snippet above
 
-![](images/autocomplete-header-template.png)
+![Blazor Autocomplete Header Template](images/autocomplete-header-template.png)
 
 ## Footer
 
@@ -101,7 +101,7 @@ The footer is content that you can place below the list of items inside the drop
 
 >caption The result from the code snippet above
 
-![](images/autocomplete-footer-template.png)
+![Blazor Autocomplete Footer Template](images/autocomplete-footer-template.png)
 
 ## See Also
 

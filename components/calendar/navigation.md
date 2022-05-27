@@ -35,7 +35,7 @@ The user starts in April 2019 and can navigate between January 2019 and July 201
 
 >caption The result from the code snippet above
 
-![](images/prev-next-navigation.png)
+![Blazor Prev Next Navigation](images/prev-next-navigation.png)
 
 ## Toggle View Details Up and Down
 
@@ -80,7 +80,7 @@ The user starts in the Decade view and can only go down to years.
 
 >caption The behavior of the code snippet above
 
-![](images/up-down-navigation.gif)
+![Blazor Up Down Navigation](images/up-down-navigation.gif)
 
 ## Programmatic Navigation
 

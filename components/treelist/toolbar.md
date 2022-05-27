@@ -142,7 +142,7 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 
 >caption The result from the code snippet above, after the custom command button in the toolbar was clicked
 
-![](images/custom-command-toolbar.png)
+![Blazor TreeList Custom Command Toolbar](images/custom-command-toolbar.png)
 
 ## Custom Layout
 
@@ -274,7 +274,7 @@ You can add your own HTML and components to create a more complex layout in the 
 
 >caption The result from the code snippet above, after changing the dropdown and clicking the custom button.
 
-![](images/custom-toolbar-layout.png)
+![Blazor Custom Toolbar Layout](images/custom-toolbar-layout.png)
 
 ## See Also
 

@@ -69,7 +69,7 @@ The Item template determines how the individual items are rendered in the dropdo
 
 >caption The result from the code snippet above
 
-![](images/combo-item-template.png)
+![Blazor Combo Item Template](images/combo-item-template.png)
 
 ## Header
 
@@ -121,7 +121,7 @@ The header is content that you can place above the list of items inside the drop
 
 >caption The result from the code snippet above
 
-![](images/combo-header-template.png)
+![Blazor Combo Header Template](images/combo-header-template.png)
 
 ## Footer
 
@@ -173,7 +173,7 @@ The footer is content that you can place below the list of items inside the drop
 
 >caption The result from the code snippet above
 
-![](images/combo-footer-template.png)
+![Blazor Combo Footer Template](images/combo-footer-template.png)
 
 ## See Also
 

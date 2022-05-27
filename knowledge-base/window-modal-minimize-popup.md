@@ -33,11 +33,11 @@ To implement a responsible popup that can be minimized to the bottom of the page
 
 >caption The result from the code snippet below on a big screen.
 
-![](images/window-big-screen.gif)
+![Blazor Window Big Screen](images/window-big-screen.gif)
 
 >caption The result from the code snippet below on a small screen.
 
-![](images/window-small-screen.gif)
+![Blazor Window Small Screen](images/window-small-screen.gif)
 
 ````Razor
 @*Responsive minimizable popup.*@
