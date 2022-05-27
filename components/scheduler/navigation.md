@@ -28,7 +28,7 @@ The UI of the scheduler provides several navigation features for the user so the
 1. `Views` - the list of available views shows the current view and lets you select a different one.
 1. `Show business hours` - a toggle that lets you see only the business portion of the day instead of the entire day, and vice-versa. 
 
-![](images/scheduler-user-navigation.png)
+![Blazor Scheduler User Navigation](images/scheduler-user-navigation.png)
 
 ## Navigation From Code
 

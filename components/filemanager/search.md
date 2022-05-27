@@ -14,7 +14,7 @@ The `FileManager` provides an inbuilt Search functionality that allows you to fi
 
 >caption Search for a file in the FileManager Toolbar input box.
 
-![](images/filemanager-search.png)
+![Blazor Filemanager Search](images/filemanager-search.png)
 
 ````CSHTML
 <TelerikFileManager Data="@Data"

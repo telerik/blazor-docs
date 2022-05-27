@@ -13,7 +13,7 @@ The delete confirmation dialog triggers before item deletion. You can enable it 
 
 >caption Delete Confirmation dialog
 
-![](../images/treelist-delete-confirmation.gif)
+![Blazor TreeList Delete Confirmation](../images/treelist-delete-confirmation.gif)
 
 >caption Enabling of the Delete Confirmation Dialog
 

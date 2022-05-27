@@ -14,7 +14,7 @@ A **Line** chart displays data as continuous lines that pass through points defi
 
 >caption Line series in a stock chart. Results from the first code snippet below.
 
-![](images/stockchart-basic-line-chart.png)
+![Blazor Stockchart Basic Line Chart](images/stockchart-basic-line-chart.png)
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 

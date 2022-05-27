@@ -197,6 +197,6 @@ The color of a series is controlled through the `Color` property that can take a
 ````
 
 >caption The result from the code snippet above
-![](images/area-chart-customization.png)
+![Blazor Area Chart Customization](images/area-chart-customization.png)
 
 

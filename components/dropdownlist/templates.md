@@ -57,7 +57,7 @@ Change what renders in the main element
 
 >caption The result from the code snippet above
 
-![](images/ddl-value-template.jpg)
+![Blazor Ddl Value Template](images/ddl-value-template.jpg)
 
 ## Item Template
 
@@ -96,7 +96,7 @@ Define what renders for the items in the dropdown
 
 >caption The result from the code snippet above
 
-![](images/ddl-item-template.jpg)
+![Blazor Ddl Item Template](images/ddl-item-template.jpg)
 
 ## Header
 
@@ -131,7 +131,7 @@ Define a header in the dropdown
 
 >caption The result from the code snippet above
 
-![](images/ddl-header-template.jpg)
+![Blazor Ddl Header Template](images/ddl-header-template.jpg)
 
 ## Footer
 
@@ -166,7 +166,7 @@ Define dropdown footer
 
 >caption The result from the code snippet above
 
-![](images/ddl-footer-template.jpg)
+![Blazor Ddl Footer Template](images/ddl-footer-template.jpg)
 
 ## See Also
 

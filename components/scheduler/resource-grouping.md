@@ -49,7 +49,7 @@ The examples below showcase [resource grouping by one resource](#resource-groupi
 
 >caption The result from the code snippet below.
 
-![](images/scheduler-resource-grouping.png)
+![Blazor Scheduler Resource Grouping](images/scheduler-resource-grouping.png)
 
 @[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
 
@@ -57,7 +57,7 @@ The examples below showcase [resource grouping by one resource](#resource-groupi
 
 >caption The result from the code snippet below.
 
-![](images/scheduler-multiple-resource-grouping.png)
+![Blazor Scheduler Multiple Resource Grouping](images/scheduler-multiple-resource-grouping.png)
 
 >caption Declare multiple resources.
 

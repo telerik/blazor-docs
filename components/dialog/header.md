@@ -28,7 +28,7 @@ The following example demonstrates how to set up the title through a template. T
 
 >caption The result from the code snippet.
 
-![](images/dialog-header.png)
+![Blazor Dialog Header](images/dialog-header.png)
 
 >caption Title template and no close button in the Telerik Dialog.
 

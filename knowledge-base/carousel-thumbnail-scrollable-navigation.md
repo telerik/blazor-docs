@@ -32,7 +32,7 @@ To add a thumbnail scrollable navigation:
 3. Inside the `<div>`, loop through all the images in `Carousel` and define them in a smaller size.
 4. Optionally, use a javascript function that keeps the synchronization of the `AutomaticPageChange` and the thumbnail.
 
-![](images/carousel-thumbnail-navigation.png)
+![Blazor Carousel Thumbnail Navigation](images/carousel-thumbnail-navigation.png)
 
 >caption Component
 

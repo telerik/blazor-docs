@@ -957,7 +957,7 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
 }
 ````
 
-![](images/grid-onrowrender-event-example.png)
+![Blazor Grid Onrowrender Event Example](images/grid-onrowrender-event-example.png)
 
 
 ### OnRowDrop

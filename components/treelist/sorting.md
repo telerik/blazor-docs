@@ -96,7 +96,7 @@ Click a column header to sort by its data
 
 >caption The result from the code snippet above, after the user clicked twice on the "ID" header to sort it in descending order
 
-![](images/basic-sorting.png)
+![Blazor TreeList Basic Sorting](images/basic-sorting.png)
 
 You can sort the TreeList from your own code through its [state]({%slug treelist-state%}).
 

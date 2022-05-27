@@ -18,7 +18,7 @@ The following example demonstrates all supported layout options for the action b
 
 >caption The result from the code snippet.
 
-![](images/dialog-action-buttons.gif)
+![Blazor Dialog Action Buttons](images/dialog-action-buttons.gif)
 
 >caption The supported layouts for the action buttons in the Telerik Dialog.
 

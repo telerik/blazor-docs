@@ -139,7 +139,7 @@ With this, the items from the series will be matched to the items (categories) o
 
 >caption The result from the code snippet above
 
-![](images/stockchart-databind-candlestick-chart.png)
+![Blazor Stockchart Databind Candlestick Chart](images/stockchart-databind-candlestick-chart.png)
 
 
 >caption Bind a Column Stock Chart to a model
@@ -224,7 +224,7 @@ With this, the items from the series will be matched to the items (categories) o
 
 >caption The result from the code snippet above
 
-![](images/stockchart-databind-column-chart.png)
+![Blazor Stockchart Databind Column Chart](images/stockchart-databind-column-chart.png)
 
 
 ## See Also

@@ -102,7 +102,7 @@ Render the entire row with your own code and logic
 
 >caption The result from the code snippet above - the treelist looks like a grid and does not showcase the records hierarchy
 
-![](images/row-template.png)
+![Blazor Row Template](images/row-template.png)
 
 
 ## See Also
