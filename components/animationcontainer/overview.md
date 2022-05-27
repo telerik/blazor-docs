@@ -44,7 +44,7 @@ The <a href="https://www.telerik.com/blazor-ui/animation-container" target="_bla
 
 >caption The result from the code snippet above
 
-![](images/animation-container-overview.gif)
+![Blazor Animation Container Overview](images/animation-container-overview.gif)
 
 >note The component renderes in its place of declaration and has `position: absolute`. Parent elements in the DOM with special positioning can affect its position and the calculation of the `Top` and `Left` offsets.
 >

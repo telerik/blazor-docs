@@ -131,7 +131,7 @@ This event fires upon the rendering of the TreeLists columns. It receives an arg
 
 >caption The result from the code snippet above
 
-![](images/oncellrender-event-example.png)
+![Blazor TreeList Oncellrender Event Example](images/oncellrender-event-example.png)
 
 ## See Also
 

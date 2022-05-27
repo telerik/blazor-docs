@@ -37,7 +37,7 @@ To enable data navigation you have to:
 
 >caption Data Navigation in a stock chart. Results from the first code snippet below.
 
-![](images/navigator-basic-explanation.png)
+![Blazor Navigator Basic Explanation](images/navigator-basic-explanation.png)
 
 ````CSHTML
 @* Navigator basic setup *@
@@ -155,7 +155,7 @@ To enable data navigation you have to:
 
 >caption The result from the code snippet above
 
-![](images/navigator-basic-example.gif)
+![Blazor Navigator Basic Example](images/navigator-basic-example.gif)
 
 ## Navigator Settings
  

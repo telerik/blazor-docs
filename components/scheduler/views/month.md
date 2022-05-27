@@ -23,7 +23,7 @@ In this article:
 
 >caption Figure: Month View in the scheduler
 
-![](images/month-view-sample.png)
+![Blazor Month View Sample](images/month-view-sample.png)
 
 ## Example
 
@@ -106,7 +106,7 @@ You can configure the Month view to display events that are [grouped by a resour
 
 >caption The result from the code snippet below.
 
-![](images/scheduler-resource-grouping-month-view.png)
+![Blazor Scheduler Resource Grouping Month View](images/scheduler-resource-grouping-month-view.png)
 
 >caption Resource Grouping in a Month view.
 

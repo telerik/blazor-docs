@@ -34,4 +34,4 @@ The following example demonstrates how to enable and disable the Button.
 
 >caption Comparison between disabled and enabled button
 
-![](images/disabled-button.png)
+![Blazor Disabled Button](images/disabled-button.png)

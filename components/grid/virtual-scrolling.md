@@ -76,7 +76,7 @@ To enable virtual scrolling:
 
 >caption How virtual scrolling looks like (deliberately slowed down to showcase the loading placeholders)
 
-![](images/virtual-scrolling-overview.gif)
+![Blazor Grid Virtual Scrolling Overview](images/virtual-scrolling-overview.gif)
 
 >tip The column where long text is expected (the `Hire Date` in this example) has a width set so that the text does not break into multiple lines and increase the height of the row. See the notes below for more details.
 

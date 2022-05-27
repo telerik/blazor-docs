@@ -104,7 +104,7 @@ You can configure the Timeline view to display events that are [grouped by a res
 
 >caption The result from the code snippet below.
 
-![](images/scheduler-resource-grouping-timeline-view.png)
+![Blazor Scheduler Resource Grouping TimeLine View](images/scheduler-resource-grouping-timeline-view.png)
 
 >caption Resource Grouping in a Timeline view.
 

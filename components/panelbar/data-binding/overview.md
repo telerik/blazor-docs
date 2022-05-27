@@ -186,7 +186,7 @@ The following **Example** shows how to define simple binding to match item field
 
 >caption The result from the snippet above
 
-![](../images/panelbar-data-binding-basic-example.png)
+![Blazor PanelBar Data Binding](../images/panelbar-data-binding-basic-example.png)
 
 ### Multiple Level Bindings
 

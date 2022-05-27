@@ -1402,7 +1402,7 @@ This event fires upon the rendering of the TreeList rows. It receives an argumen
 
 >caption The result from the code snippet above
 
-![](images/treelist-onrowrender-event-example.png)
+![Blazor Treelist Onrowrender Event Example](images/treelist-onrowrender-event-example.png)
 
 ### OnRowDrop
 

@@ -46,7 +46,7 @@ Telerik UI for Blazor comes with the `TelerikIcon` component that you can use to
 
 >caption The result from the snippet above
 
-![](images/standalone-font-icons.png)
+![Blazor Standalone Font Icons](images/standalone-font-icons.png)
 
 ## Icon Parameters - Order of Precedence
 
@@ -71,7 +71,7 @@ Some Telerik components expose icon features out-of-the box. These parameters ma
 
 >caption The result from the code snippet above
 
-![](images/telerik-button-with-icon.png)
+![Blazor Telerik Button With Icon](images/telerik-button-with-icon.png)
 
 
 

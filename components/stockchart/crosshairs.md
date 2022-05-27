@@ -345,7 +345,7 @@ For the `Category` axis the `FormattedValue` represents the labels of the catego
 }
 ````
 
-![](images/crosshairs-tooltip-example.gif)
+![Blazor Crosshairs Tooltip Example](images/crosshairs-tooltip-example.gif)
 
 ## See Also
 

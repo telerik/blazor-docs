@@ -76,7 +76,7 @@ The <a href="https://www.telerik.com/blazor-ui/scheduler" target="_blank">Blazor
 
 >caption The result from the code snippet above
 
-![](images/scheduler-basic-screenshot.png)
+![Blazor Scheduler Basic Screenshot](images/scheduler-basic-screenshot.png)
 
 >caption Component namespace and reference
 

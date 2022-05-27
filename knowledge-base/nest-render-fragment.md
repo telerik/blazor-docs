@@ -20,7 +20,7 @@ or
 
 > `The child content element 'DetailTemplate' of component 'TelerikGrid' uses the same parameter name ('context') as enclosing child content element 'DetailTemplate' of component 'TelerikGrid'. Specify the parameter name like: '<DetailTemplate Context="another_name"> to resolve the ambiguity`
 
-![](images/nested-render-fragment-error.png)
+![Blazor Nested Render Fragment Error](images/nested-render-fragment-error.png)
 
 You may also see the following error:
 

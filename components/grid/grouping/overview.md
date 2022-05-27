@@ -77,7 +77,7 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
 
 >caption How grouping works in the Telerik grid
 
-![](images/grouping-overview.gif)
+![Blazor Grid Grouping Overview](images/grouping-overview.gif)
 
 ## Aggregates
 

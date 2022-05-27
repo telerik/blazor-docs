@@ -13,7 +13,7 @@ The delete confirmation dialog triggers before item deletion. You can enable it 
 
 >caption Delete Confirmation dialog
 
-![](../images/grid-delete-confirmation.gif)
+![Blazor Grid Delete Confirmation](../images/grid-delete-confirmation.gif)
 
 >caption Enabling of the Delete Confirmation Dialog
 

@@ -29,7 +29,7 @@ Views that show hours let you control their precision through the `SlotDuration`
 
 >caption Figure: Slots explanation
 
-![](images/slot-example.png)
+![Blazor Slot Example](images/slot-example.png)
 #end
 
 #resource-grouping-code-snippet-for-examples

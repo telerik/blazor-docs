@@ -86,7 +86,7 @@ You can set the Grid filters programmatically through the component [state]({%sl
 
 >caption The result from the code snippet below.
 
-![](images/searchbox-filter-control.gif)
+![Blazor Grid Searchbox Filter Control](images/searchbox-filter-control.gif)
 
 >caption Set programmatically SearchBox Filter.
 

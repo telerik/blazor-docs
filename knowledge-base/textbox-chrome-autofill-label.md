@@ -26,7 +26,7 @@ When the browser autofills a textbox, the label is not moved from the input - it
 
 >caption A short video of the browser behavior and how the Blazor model data is only updated when some other action happens - a click somewhere or you typing in the input
 
-![](images/chrome-autofill-does-not-update-value.gif)
+![Blazor Chrome AutoFill Does Not Update Value](images/chrome-autofill-does-not-update-value.gif)
 
 ## Steps to Reproduce
 Create a simple form with a textbox and a password box. Click its Submit button and when Chrome prompts you to Save the user-password, Save them. Refresh the page. The browser autofills the form.

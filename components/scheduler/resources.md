@@ -60,7 +60,7 @@ The field names used for the resource model (`Text`, `Value` and `Color`) are th
 
 >caption The result from the example below
 
-![](images/resources-overview.png)
+![Blazor Resources Overview](images/resources-overview.png)
 
 
 ````CSHTML
@@ -168,7 +168,7 @@ The field names used for the resource model (`Name`, `Id` and `Shade`) are diffe
 
 >caption The result from the example below
 
-![](images/resources-overview.png)
+![Blazor Resources Overview](images/resources-overview.png)
 
 
 ````CSHTML
@@ -276,7 +276,7 @@ The field names used for the resource model (`Name`, `Id` and `Shade`) are diffe
 
 >caption The result of the example below
 
-![](images/multiple-resources.png)
+![Blazor Multiple Resources](images/multiple-resources.png)
 
 >caption Declare multiple resources
 

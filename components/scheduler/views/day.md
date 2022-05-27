@@ -23,7 +23,7 @@ In this article:
 
 >caption Figure: Day View in the scheduler
 
-![](images/day-view-sample.png)
+![Blazor Day View Sample](images/day-view-sample.png)
 
 ## Example
 
@@ -106,7 +106,7 @@ You can configure the Day view to display events that are [grouped by a resource
 
 >caption The result from the code snippet below.
 
-![](images/scheduler-resource-grouping-day-view.png)
+![Blazor Scheduler Resource Grouping Day View](images/scheduler-resource-grouping-day-view.png)
 
 >caption Resource Grouping in a Day view.
 

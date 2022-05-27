@@ -49,7 +49,7 @@ Programmatic autofitting works even if column resizing is disabled.
 
 >caption How column resizing works in the Telerik TreeList
 
-![](images/column-resize-preview.gif)
+![Blazor TreeList Column Resize Preview](images/column-resize-preview.gif)
 
 
 >caption TreeList Column Resizing and Autofitting

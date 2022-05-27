@@ -15,7 +15,7 @@ The `NoDataTemplate` allows you to define custom content when the TreeList has n
 
 >caption Custom content for an empty TreeList
 
-![](images/treelist-no-data-template.gif)
+![Blazor Treelist No Data Template](images/treelist-no-data-template.gif)
 
 >caption Use the NoDataTemplate to override the message shown while the data is still loading or when you try to filter a non-existing item
 

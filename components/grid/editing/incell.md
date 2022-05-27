@@ -189,7 +189,7 @@ Click a cell, edit it and click outside of the grid to see the change. You can a
 
 >caption InCell editing behavior
 
-![](images/incell-editing.gif)
+![Blazor Grid Incell Editing](images/incell-editing.gif)
 
 
 ## Event Sequence

@@ -288,7 +288,7 @@ The `OnClick` handler of the commands receives an argument of type `TreeListComm
 
 >caption The result from the code snippet above, after the custom command was clicked for the second row, and after the user tried to edit the first row to put the letter "a" in the Name column.
 
-![](images/command-column-result.png)
+![Blazor TreeList Command Column Result](images/command-column-result.png)
 
 ## See Also
 

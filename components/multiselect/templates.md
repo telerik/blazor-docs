@@ -45,7 +45,7 @@ The Item template determines how the individual items are rendered in the dropdo
 
 >caption The result from the code snippet above
 
-![](images/multiselect-item-template.png)
+![Blazor Multiselect Item Template](images/multiselect-item-template.png)
 
 ## Header
 
@@ -73,7 +73,7 @@ The header is content that you can place above the list of items inside the drop
 
 >caption The result from the code snippet above
 
-![](images/multiselect-header-template.png)
+![Blazor Multiselect Header Template](images/multiselect-header-template.png)
 
 ## Footer
 
@@ -101,7 +101,7 @@ The footer is content that you can place below the list of items inside the drop
 
 >caption The result from the code snippet above
 
-![](images/multiselect-footer-template.png)
+![Blazor Multiselect Footer Template](images/multiselect-footer-template.png)
 
 ## See Also
 

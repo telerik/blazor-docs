@@ -87,7 +87,7 @@ When the `Max` and `ChunkCount` parameters match in value, the `Value` parameter
 
 >caption The result from the code snippet above
 
-![](images/chunkprogressbar-matching-values-example.png)
+![Blazor Chunkprogressbar Matching Values Example](images/chunkprogressbar-matching-values-example.png)
 
 ### Non-matching Value for the Max and ChunkCount Parameters
 
