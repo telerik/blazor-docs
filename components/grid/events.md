@@ -906,13 +906,12 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
 @* Conditional styling/formatting for rows (including locked/frozen columns). *@
 
 <style>
-    /*the first two selectors are needed when you have locked/frozen columns*/
+    /*the following selectors target the locked/frozen columns*/
     /*===*/
     .k-grid .k-master-row.myCustomRowFormatting .k-grid-content-sticky,
-    .k-grid .k-master-row.myCustomRowFormatting.k-alt .k-grid-content-sticky,
+    .k-grid .k-master-row.myCustomRowFormatting.k-alt .k-grid-content-sticky
     /*===*/
-    .k-grid .k-master-row.k-state-selected > td,
-    .k-grid .k-master-row.k-state-selected:hover > td {
+    {
         background-color: inherit;
     }
 
