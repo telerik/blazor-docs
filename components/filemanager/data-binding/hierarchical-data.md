@@ -82,7 +82,7 @@ This approach of providing items lets you gather separate collections of data th
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine("files"),
+                Path = Path.Combine("Work Files"),
                 Size = 3 * 1024 * 1024,
             };
 
@@ -95,7 +95,7 @@ This approach of providing items lets you gather separate collections of data th
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(root.Path, "documents"),
+                Path = Path.Combine(root.Path, "Documents"),
                 Size = 1024 * 1024
             };
 
@@ -109,21 +109,21 @@ This approach of providing items lets you gather separate collections of data th
                 DateCreatedUtc = new DateTime(2022, 1, 5),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(Documents.Path, "specification.docx"),
+                Path = Path.Combine(Documents.Path, "Specification.docx"),
                 Size = 462 * 1024
             };
 
         var report = new HierarchicalFileEntry()
             {
                 MyModelId = "4",
-                Name = "Monthly report",
+                Name = "Report",
                 IsDirectory = false,
                 Extension = ".xlsx",
                 DateCreated = new DateTime(2022, 1, 20),
                 DateCreatedUtc = new DateTime(2022, 1, 20),
                 DateModified = new DateTime(2022, 1, 25),
                 DateModifiedUtc = new DateTime(2022, 1, 25),
-                Path = Path.Combine(Documents.Path, "monthly-report.xlsx"),
+                Path = Path.Combine(Documents.Path, "Report.xlsx"),
                 Size = 538 * 1024
             };
 
@@ -136,42 +136,44 @@ This approach of providing items lets you gather separate collections of data th
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(root.Path, "images"),
+                Path = Path.Combine(root.Path, "Images"),
                 Size = 2 * 1024 * 1024
             };
 
         var dashboardDesign = new HierarchicalFileEntry()
             {
                 MyModelId = "6",
-                Name = "Dashboard Design",
+                Name = "Dashboard",
                 IsDirectory = false,
                 Extension = ".png",
                 DateCreated = new DateTime(2022, 1, 10),
                 DateCreatedUtc = new DateTime(2022, 1, 10),
                 DateModified = new DateTime(2022, 2, 13),
                 DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "dashboard-design.png"),
+                Path = Path.Combine(Images.Path, "Dashboard.png"),
                 Size = 1024
             };
 
         var gridDesign = new HierarchicalFileEntry()
             {
                 MyModelId = "7",
-                Name = "Grid Design",
+                Name = "Design",
                 IsDirectory = false,
                 Extension = ".png",
                 DateCreated = new DateTime(2022, 1, 12),
                 DateCreatedUtc = new DateTime(2022, 1, 12),
                 DateModified = new DateTime(2022, 2, 13),
                 DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "grid-design.jpg"),
+                Path = Path.Combine(Images.Path, "Design.png"),
                 Size = 1024
             };
 
-        root.MyDirectories = new List<HierarchicalFileEntry>() { Documents, Images };
+
 
         Documents.Items = new List<HierarchicalFileEntry>() { specification, report };
         Images.Items = new List<HierarchicalFileEntry>() { dashboardDesign, gridDesign };
+        root.MyDirectories = new List<HierarchicalFileEntry>() { Documents, Images };
+        root.Items = new List<HierarchicalFileEntry>() { Documents, Images };
 
         List<HierarchicalFileEntry> files = new List<HierarchicalFileEntry>() { root };
 
