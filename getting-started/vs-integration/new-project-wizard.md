@@ -39,7 +39,7 @@ The **Create New Project** wizard presents two screens:
 
 1. On the first screen, you can select a location and name for your app.
 
-1. On the second screen, you can choose:
+2. On the second screen, you can choose:
 
    * A WebAssembly or server-side Blazor app.
    * The .NET version you want to use.
@@ -54,9 +54,17 @@ The following project templates are available:
 
 * **Dashboard** - A basic dashboard layout that uses the TileLayout component for customizable dashboards and showcases several ways individual blocks (tiles) can fetch data.
 
-![The Create New Project Wizard Templates Options](images/new-project-wizard-templates-options.png)
+* **Admin** - A small app that shows a dashboard for admin. The app uses some of the main Telerik components like [Grid]({%slug grid-overview%}), [Chart]({%slug components/chart/overview%}), [TileLayout]({%slug tilelayout-overview%}), [Form]({%slug form-overview%}), etc.
 
+![The Create New Project Wizard Templates Options](images/vsx-extension-base.png)
 
+3. On the third screen, you can choose from different [themes]({%slug general-information/themes%}).
+
+![The Create New Project Wizard Themes Options](images/vsx-extension-theme.png)
+
+4. On the last screen, you can choose whether to have localization applied by default in the project.
+
+![The Create New Project Wizard Localization Option](images/vsx-extension-localization.png)
 
 The wizard automates several steps for you that you can also perform manually. To get a better understanding of what the wizard does for you, see either of the following articles (they provide the same information in different formats):
 
