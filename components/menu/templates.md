@@ -211,7 +211,7 @@ Use your own NavLink elements for navigation instead of the built-in feature of 
 
 >caption The result from the snippet above, asuming the current page URL is `/counter`
 
-![](images/menu-template-distinguish-item.png)
+![Blazor Menu Template Distinguish Item](images/menu-template-distinguish-item.png)
 
 ## See Also
 

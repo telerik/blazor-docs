@@ -153,7 +153,7 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
 
 >caption The result from the code snippet above, after the built-in Create button in the toolbar was clicked
 
-![](images/create-toolbar-button.png)
+![Blazor Create Toolbar Button](images/create-toolbar-button.png)
 
 ## Custom Commands
 
@@ -205,7 +205,7 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 
 >caption The result from the code snippet above, after the custom command button in the toolbar was clicked
 
-![](images/custom-command-toolbar.png)
+![Blazor Custom Command Toolbar](images/custom-command-toolbar.png)
 
 ## Custom Layout
 
@@ -283,7 +283,7 @@ You can add your own HTML and components to create a more complex layout in the 
 
 >caption The result from the code snippet above, after adding a row, changing the dropdown and clicking the custom button.
 
-![](images/custom-toolbar-layout.png)
+![Blazor Custom Toolbar Layout](images/custom-toolbar-layout.png)
 
 ## See Also
 

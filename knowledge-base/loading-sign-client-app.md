@@ -14,7 +14,7 @@ res_type: kb
 
 While the client-side Blazor app is loading and spinning up, you may want to show a beautiful loading message to your users so they know something is happening.
 
-![](images/loading-sign-result.gif)
+![Blazor Loading Sign Result](images/loading-sign-result.gif)
 
 ## Solution
 

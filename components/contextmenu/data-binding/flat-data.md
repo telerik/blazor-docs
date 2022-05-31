@@ -109,12 +109,12 @@ You are *not* required to provide a value for the `HasChildren` field. @[templat
 
 >caption The result from the code snippet above, after hovering the "Roadmap" item
 
-![](images/context-menu-flat-data-overview.png)
+![Blazor Context Menu Flat Data Overview](images/context-menu-flat-data-overview.png)
 
 
 ## See Also
 
   * [Menu Data Binding Basics]({%slug components/menu/data-binding/overview%})
-  * [Live Demo: Menu Flat Data](https://demos.telerik.com/blazor-ui/menu/flat-data)
+  * [Live Demo: Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/overview)
   * [Binding to Hierarchical Data]({%slug components/menu/data-binding/hierarchical-data%})
 

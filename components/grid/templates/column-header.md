@@ -84,11 +84,11 @@ Bound columns render the name of the field or their `Title` in their header. Thr
 
 >caption The result from the code snippet above
 
-![](images/header-template.png)
+![Blazor Grid Header Template](images/header-template.png)
 
 >note Header Templates are not available for the `GridCheckboxColumn` and the `GridCommandColumn`.
 
 ## See Also
 
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
- * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/customeditor)
+ * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)

@@ -35,7 +35,7 @@ The `OverlayThemeColor` parameter sets the color of the LoaderContainer's semi-t
 
 >caption Change the OverlayThemeColor
 
-![](images/loadercontainer-overlaythemecolor-light-screenshot.png)
+![Blazor Loadercontainer Overlaythemecolor Light Screenshot](images/loadercontainer-overlaythemecolor-light-screenshot.png)
 
 ````CSHTML
 @*This example shows the difference between the light and dark overlay theme colors*@
@@ -84,7 +84,7 @@ The `LoaderPosition` parameter controls the position of the animated loading ind
 </div>
 ````
 
-![](images/loadercontainer-loader-position.png)
+![Blazor Loadercontainer Loader Position](images/loadercontainer-loader-position.png)
 
 
 ## LoaderType

@@ -211,11 +211,11 @@ If you need to perform logic more complex than simple data binding, use the chan
 
 >caption The result from the code snippet above, after Edit was clicked on the row with ID 4, and the user expanded the dropdown from the template
 
-![](images/edit-template.png)
+![Blazor Edit Template](images/edit-template.png)
 
 ## See Also
 
  * [TreeList Editing]({%slug treelist-editing-overview%})
  * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
- * [Live Demo: TreeList Custom Editor Template](https://demos.telerik.com/blazor-ui/treelist/customeditor)
+ * [Live Demo: TreeList Custom Editor Template](https://demos.telerik.com/blazor-ui/treelist/custom-editor)
 

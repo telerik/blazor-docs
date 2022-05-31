@@ -87,7 +87,7 @@ When the `Max` and `ChunkCount` parameters match in value, the `Value` parameter
 
 >caption The result from the code snippet above
 
-![](images/chunkprogressbar-matching-values-example.png)
+![Blazor Chunkprogressbar Matching Values Example](images/chunkprogressbar-matching-values-example.png)
 
 ### Non-matching Value for the Max and ChunkCount Parameters
 
@@ -127,7 +127,7 @@ In the example below each chunk is "worth" `10 / 4 = 2.5`. The `Value` is `3` so
 
 ## See Also
 
-  * [Live Demo: ChunkProgressBar](https://demos.telerik.com/blazor-ui/TODO)
+  * [Live Demo: ChunkProgressBar](https://demos.telerik.com/blazor-ui/chunkprogressbar/overview)
   * [Indeterminate state]({%slug chunkprogressbar-indeterminate-state%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikChunkProgressBar)
    

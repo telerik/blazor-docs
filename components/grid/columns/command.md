@@ -207,8 +207,8 @@ The following code example demonstrates declarations and handling.
 
 >caption The result from the code snippet above, after the custom command button was clicked on the first row, and after the user tried to edit the second row to put the number "3" in the Name column.
 
-![](images/command-column-result.png)
+![Blazor Grid Command Column Result](images/command-column-result.png)
 
 ## See Also
 
-  * [Live Demo: Grid Command Column](https://demos.telerik.com/blazor-ui/grid/inlineediting)
+  * [Live Demo: Grid Command Column](https://demos.telerik.com/blazor-ui/grid/editing-inline)

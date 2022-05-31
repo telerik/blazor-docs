@@ -75,4 +75,4 @@ The following example demonstrates how to configure the Map Shape Layer.
 
 >caption The result from the above code snippet.
 
-![](../images/shape-layer.png)
+![Blazor Map Shape Layer](../images/shape-layer.png)

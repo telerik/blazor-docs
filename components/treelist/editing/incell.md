@@ -310,7 +310,7 @@ Editing is cancelled for the first record.
 
 >caption The result from the code snippet above, after the user clicks in the Name column of the row with ID 4
 
-![](images/incell-editing.png)
+![Blazor TreeList Incell Editing](images/incell-editing.png)
 
 
 ## Event Sequence

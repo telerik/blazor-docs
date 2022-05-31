@@ -74,7 +74,7 @@ The filter is applied only upon a button click, not upon input change. This may 
 
 >caption The result from the code snippet above, after the "Age" column has been filtered with <= 30 operator.
 
-![](images/filter-menu-1.png)
+![Blazor Grid Filter Menu](images/filter-menu-1.png)
 
 
 ## Filter From Code

@@ -142,7 +142,7 @@ Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-bg
 
 >caption The result from the code snippet above
 
-![](images/standard-format-strings.png)
+![Blazor Standard Format Strings](images/standard-format-strings.png)
 
 
 
@@ -173,7 +173,7 @@ Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-bg
 
 >caption The result from the code snippet above
 
-![](images/custom-date-formats.png)
+![Blazor Custom Date Formats](images/custom-date-formats.png)
 
 
 

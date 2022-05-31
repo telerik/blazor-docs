@@ -196,7 +196,8 @@ If you set the `Reverse` (`bool`) parameter to `true` the scale direction will b
 
 ## See Also
 
-* [Circular Gauge: Live Demo](https://demos.telerik.com/blazor-ui/circular-gauge)
+* [Live Demo: Circular Gauge](https://demos.telerik.com/blazor-ui/circulargauge/overview)
+* [Live Demo: Circular Gauge - Scale Options](https://demos.telerik.com/blazor-ui/circulargauge/scale-options)
 * [Circular Gauge: Overview]({%slug circular-gauge-overview%})
 * [Circular Gauge: Pointers]({%slug circular-gauge-pointers%})
 * [Circular Gauge: Labels]({%slug circular-gauge-labels%})

@@ -20,5 +20,5 @@ The Context Menu component provides templates you can use to customize its appea
 ## See Also
 
   * [Data Binding a Context Menu]({%slug contextmenu-data-binding-overview%})
-  * [Live Demo: Context Menu Temlate](https://demos.telerik.com/blazor-ui/contextmenu/template)
+  * [Live Demo: Context Menu Templates](https://demos.telerik.com/blazor-ui/contextmenu/templates)
 

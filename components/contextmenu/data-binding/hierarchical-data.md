@@ -110,12 +110,12 @@ This approach of providing nodes lets you gather separate collections of data fo
 
 >caption The result from the code snippet above, after hovering the "Company" item
 
-![](images/context-menu-hierarchical-data-overview.png)
+![Blazor Context Menu Hierarchical Data](images/context-menu-hierarchical-data-overview.png)
 
 
 ## See Also
 
   * [Context Menu Data Binding Basics]({%slug contextmenu-data-binding-overview%})
-  * [Live Demo: Context Menu Hierarchical Data](https://demos.telerik.com/blazor-ui/contextmenu/hierarchical-data)
+  * [Live Demo: Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/overview)
   * [Binding to Flat Data]({%slug contextmenu-data-binding-flat-data%})
 

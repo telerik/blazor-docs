@@ -30,9 +30,16 @@ By virtualizing the elements in the dropdown, you can use huge data sources with
 #end
 
 #popup-settings
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter      | Type | Description
 | ----------- | ----------- | -----------|
-| `Class` | `string` | additional CSS class to customize the appearance of the dropdown.
-| `Height` | `string` | the height of the expanded dropdown list element.
-| `Width` | `string` | the width of the expanded dropdown list element. If you don't specify a value, the dropdown width will match the main element which can help with responsive layouts and 100% widths.
+| `AnimationDuration` | `int` | the animation duration of the popup.
+| `Class` | `string` | additional CSS class to customize the appearance of the popup.
+| `Height` | `string` | the height of the popup.
+| `MinHeight`| `string` | the minimum height of the popup.
+| `MaxHeight` | `string` | the maximum height of the popup.
+| `Width` | `string` | the width of the popup. If you don't specify a value, the dropdown width will match the anchor element width which can help with responsive layouts and 100% widths.
+| `MinWidth` | `string` | the minimum width of the popup.
+| `MaxWidth` | `string` | the maximum width of the popup.
 #end

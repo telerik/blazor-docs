@@ -80,7 +80,7 @@ You can use [aggregates]({%slug grid-aggregates%}) for the current field directl
 
 >caption The result from the code snippet above
 
-![](images/footer-template.png)
+![Blazor Grid Footer Template](images/footer-template.png)
 
 
 ## Notes

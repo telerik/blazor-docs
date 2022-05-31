@@ -580,7 +580,7 @@ To do so, use the [OnCellRender]({%slug treelist-column-events%}#oncellrender) a
 }
 ````
 
-![](images/treelist-styling-conditional-formatting-example.png)
+![Blazor TreeList Conditional Formatting](images/treelist-styling-conditional-formatting-example.png)
 
 ### Elastic Design
 

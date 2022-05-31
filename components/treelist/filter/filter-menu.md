@@ -98,7 +98,7 @@ A key difference in the behavior from the [filter row]({%slug treelist-filter-ro
 
 >caption The result from the code snippet above, after the "Name" column has been filtered with "does not contain" "1" operator.
 
-![](images/filter-menu.png)
+![Blazor TreeList Filter Menu](images/filter-menu.png)
 
 
 ## Filter From Code

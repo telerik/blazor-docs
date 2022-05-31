@@ -61,7 +61,7 @@ List of the known limitations of the AutoFit Columns feature:
 
 >caption How Column Resizing Works in the Telerik Grid
 
-![](images/column-resize-preview.gif)
+![Blazor Grid Column Resize Preview](images/column-resize-preview.gif)
 
 >caption Grid Column Resizing and Autofitting
 

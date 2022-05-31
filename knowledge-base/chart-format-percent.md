@@ -26,7 +26,7 @@ When you use templates to customize the appearance of the labels, you may need t
 
 This article shows how to format the percent in a label for a pie or donut chart to have a desired number of decimals and to be a number between 0 and 100, instead of the default number between 0 and 1 that has many decimal places:
 
-![](images/pie-chart-formatted-percent.png)
+![Blazor Pie Chart Formatted Percent](images/pie-chart-formatted-percent.png)
 
 ## Solution
 To customize the percentage display, you need to

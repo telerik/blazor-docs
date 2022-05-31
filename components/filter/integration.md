@@ -178,7 +178,7 @@ This article contains the following sections:
 ````
 >caption The result from the above code snippet.
 
-![](images/filter-grid-integration.gif)
+![Blazor Filter Grid Integration](images/filter-grid-integration.gif)
 
 ## Filter for a TreeView
 
@@ -326,7 +326,7 @@ This article contains the following sections:
 ````
 >caption The result from the above code snippet.
 
-![](images/filter-treeview-integration.gif)
+![Blazor Filter Treeview Integration](images/filter-treeview-integration.gif)
 
 ## Filter for a TreeList
 
@@ -435,7 +435,7 @@ This article contains the following sections:
 ````
 >caption The result from the above code snippet.
 
-![](images/filter-treelist-integration.gif)
+![Blazor Filter Treelist Integration](images/filter-treelist-integration.gif)
 
 ## Filter for a ListView
 
@@ -511,7 +511,7 @@ This article contains the following sections:
 ````
 >caption The result from the above code snippet.
 
-![](images/filter-listview-integration.gif)
+![Blazor Filter Listview Integration](images/filter-listview-integration.gif)
 
 ## Filter for a Chart
 
@@ -617,4 +617,4 @@ This article contains the following sections:
 ````
 >caption The result from the above code snippet.
 
-![](images/filter-chart-integration.gif)
+![Blazor Filter Chart Integration](images/filter-chart-integration.gif)

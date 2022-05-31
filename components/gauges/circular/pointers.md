@@ -140,7 +140,7 @@ The `Size` (`double`) parameter controls the size of the pointer.
 
 ## See Also
 
-* [Circular Gauge: Live Demo](https://demos.telerik.com/blazor-ui/circular-gauge)
+* [Live Demo: Circular Gauge](https://demos.telerik.com/blazor-ui/circulargauge/overview)
 * [Circular Gauge: Overview]({%slug circular-gauge-overview%})
 * [Circular Gauge: Scale]({%slug circular-gauge-scale%})
 * [Circular Gauge: Labels]({%slug circular-gauge-labels%})

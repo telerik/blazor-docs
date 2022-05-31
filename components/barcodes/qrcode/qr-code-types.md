@@ -42,7 +42,7 @@ The following implementation demonstrates the code needed for the Swiss Type:
 
 >caption The result from the above code snippet
 
-![](images/qrcode-swiss-type.png)
+![Blazor Qrcode Swiss Type](images/qrcode-swiss-type.png)
 
 ## Image QRCode Type
 The image type of the overlay is adding an image in the QR Code.
@@ -62,9 +62,8 @@ The following implementation demonstrates the code needed for the Image Type:
 
 >caption The result from the above code snippet
 
-![](images/qrcode-image-type.png)
+![Blazor Qrcode Image Type](images/qrcode-image-type.png)
 
 ## See Also
 
   * [Live Demo: QRCode](https://demos.telerik.com/blazor-ui/qrcode/overview)
-  * [Live Demo: QRCode Encoding](https://demos.telerik.com/blazor-ui/barcode/qrcode/encoding)

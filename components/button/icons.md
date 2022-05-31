@@ -41,7 +41,7 @@ The following example shows how to use an image from a URL, a sprite image, and 
 
 >caption The result from the code snippet above
 
-![](images/icon-buttons.png)
+![Blazor Icon Buttons](images/icon-buttons.png)
 
 >tip You can use relative paths to your images in the `wwwroot` folder. The example above uses absolute paths to make it easy for you to see the results without preparing images.
 

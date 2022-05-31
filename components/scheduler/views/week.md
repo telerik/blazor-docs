@@ -23,7 +23,7 @@ In this article:
 
 >caption Figure: Week View in the scheduler
 
-![](images/week-view-sample.png)
+![Blazor Week View Sample](images/week-view-sample.png)
 
 ## Example
 
@@ -107,7 +107,7 @@ You can configure the Week view to display events that are [grouped by a resourc
 
 >caption The result from the code snippet below.
 
-![](images/scheduler-resource-grouping-week-view.png)
+![Blazor Scheduler Resource Grouping Week View](images/scheduler-resource-grouping-week-view.png)
 
 >caption Resource Grouping in a Week view.
 
