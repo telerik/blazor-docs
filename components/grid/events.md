@@ -903,28 +903,36 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
 >caption Use the OnRowRender event to apply custom format to Grid rows based on certain condition
 
 ````CSHTML
-@* Conditional styling/formatting for a row *@
+@* Conditional styling/formatting for rows (including locked/frozen columns). *@
 
 <style>
-    .k-grid tr.myCustomRowFormatting,
+    /*the following selectors target the locked/frozen columns*/
+    /*===*/
+    .k-grid .k-master-row.myCustomRowFormatting .k-grid-content-sticky,
+    .k-grid .k-master-row.myCustomRowFormatting.k-alt .k-grid-content-sticky
+    /*===*/
+    {
+        background-color: inherit;
+    }
+
     .k-grid tr.myCustomRowFormatting:hover {
-        background-color: blue;
-        color: white;
-        font-size: 10px;
-        font-weight: bold;
+        background-color: red !important;
+    }
+
+    .k-grid tr.myCustomRowFormatting {
+        background-color: #90EE90;
     }
 </style>
 
 <TelerikGrid Data="@MyData"
-             Height="400px"
+             Height="446px"
              Pageable="true"
-             Width="750px"
+             Width="450px"
              OnRowRender="@OnRowRenderHandler">
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" Locked="true" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Width="200px" Title="Employee Name" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Width="200px" Title="Team" />
     </GridColumns>
 </TelerikGrid>
 
@@ -933,7 +941,12 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
     {
         var item = args.Item as SampleData;
 
-        if (item.Name.Contains("5"))
+        //conditional applying Class
+        if (item.Name.Contains("5") || item.Name.Contains("6"))
+        {
+            args.Class = "myCustomRowFormatting";
+        }
+        if (item.Id < 2)
         {
             args.Class = "myCustomRowFormatting";
         }
@@ -943,8 +956,7 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
     {
         Id = x,
         Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
+        Team = "team " + x % 5
     });
 
     public class SampleData
@@ -952,13 +964,9 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
         public int Id { get; set; }
         public string Name { get; set; }
         public string Team { get; set; }
-        public DateTime HireDate { get; set; }
     }
 }
 ````
-
-![Blazor Grid Onrowrender Event Example](images/grid-onrowrender-event-example.png)
-
 
 ### OnRowDrop
 
