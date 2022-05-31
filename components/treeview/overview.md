@@ -16,7 +16,7 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
 
 1. Use the `TelerikTreeView` tag.
 1. Set the TreeView `Data` attribute to an `IEnumerable<T>`. The TreeView will automatically recognize property names like `Id`, `ParentId`, `Text` and a few others. Otherwise, [use bindings to configure custom property names]({%slug components/treeview/data-binding/overview%}#treeview-bindings).
-1. (optional) Set the `ExpandedItems` attribute to a **non-null** `IEnumerable<object>`. Use it to expand or collapse items programmatically. [Read more about Blazor TreeView expanding items]({%slug treeview-expand-items%}).
+1. (optional) Set the [`ExpandedItems`]({%slug treeview-expand-items%}) attribute to a **non-null** `IEnumerable<object>`. Use it to [expand or collapse items programmatically]({%slug treeview-expand-items%}#programmatically-expand-and-collapse-items).
 
 >caption TreeView with flat self-referencing data and icons
 

@@ -10,11 +10,11 @@ position: 4
 
 # TreeView Expanded Items
 
-The TreeView component allows you to expand multiple items. It gives also the option pre-expand a desired item.
+TreeView lets the user expand multiple items. It also gives the option to pre-expand a specific item.
 
-To use the item expansion, use the `ExpandedItems` parameter. It allows two-way binding (`@bind-ExpandedItems`) and one-way binding + [ExpandedItemsChanged]({%slug treeview-events%}#expandeditemschanged) event.
+To use the item expansion, set the `ExpandedItems` parameter. It allows two-way binding (`@bind-ExpandedItems`) and one-way binding + [ExpandedItemsChanged]({%slug treeview-events%}#expandeditemschanged) event.
 
-The ExpandedItems collection is of type `IEnumerable<object>`.
+The `ExpandedItems` collection is of type `IEnumerable<object>`.
 
 ## Programmatically Expand and Collapse Items
 
