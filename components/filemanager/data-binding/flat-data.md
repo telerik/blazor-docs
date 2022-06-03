@@ -21,6 +21,8 @@ You must also provide the correct value for the `HasDirectories` field - for the
 >caption Example of flat data in a FileManager
 
 ````CSHTML
+@using System.IO
+
 <TelerikFileManager Data="@Data"
                     @bind-Path="@DirectoryPath"
                     Height="400px"
@@ -198,7 +200,7 @@ You must also provide the correct value for the `HasDirectories` field - for the
 
 ## See Also
 
-  * [FileManager Data Binding Basics]({%slug filemanager-data-binding-overview%})
-  * [Binding to Hierarchical Data]({%slug filemanager-data-binding-hierarchical-data%})
-  * [Live Demo: FileManager Flat Data](https://demos.telerik.com/blazor-ui/filemanager/flat-data)
-  * [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/blazor-ui/filemanager/hierarchical-data)
+* [FileManager Data Binding Basics]({%slug filemanager-data-binding-overview%})
+* [Binding to Hierarchical Data]({%slug filemanager-data-binding-hierarchical-data%})
+* [Live Demo: FileManager Flat Data](https://demos.telerik.com/blazor-ui/filemanager/flat-data)
+* [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/blazor-ui/filemanager/hierarchical-data)
