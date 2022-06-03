@@ -17,6 +17,8 @@ The `FileManager` provides an inbuilt Search functionality that allows you to fi
 ![Blazor Filemanager Search](images/filemanager-search.png)
 
 ````CSHTML
+@using System.IO
+
 <TelerikFileManager Data="@Data"
                     @bind-Path="@DirectoryPath"
                     Height="400px" />
@@ -180,4 +182,4 @@ The `FileManager` provides an inbuilt Search functionality that allows you to fi
 
 ## See Also
 
-  * [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)
+* [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)

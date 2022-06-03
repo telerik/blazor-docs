@@ -22,4 +22,4 @@ On the right side of the `TreeView`, there is a [Blazor UI Breadcrumb]({%slug br
 
 ## See Also
 
-  * [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)
+* [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)
