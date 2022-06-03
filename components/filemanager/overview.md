@@ -24,6 +24,8 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
 >caption Using FileManager
 
 ````CSHTML
+@using System.IO
+
 <TelerikFileManager Data="@Data"
                     @bind-Path="@DirectoryPath"
                     Height="400px"

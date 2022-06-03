@@ -53,6 +53,8 @@ The `OnRead` event fires when the data source is read. Its event handler receive
 >caption Handle OnRead.
 
 ````CSHTML
+@using System.IO
+
 <TelerikFileManager Data="@Data"
                     @bind-Path="@DirectoryPath"
                     Height="400px"
@@ -331,6 +333,8 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
 >caption Handle FileManager events.
 
 ````CSHTML
+@using System.IO
+
 <TelerikFileManager Data="@Data"
                     @bind-Path="@DirectoryPath"
                     Height="400px"

@@ -29,6 +29,8 @@ The List view is achieved with the help of the [Blazor ListView]({%slug listview
 ![Blazor Filemanager Views](images/filemanager-views.png)
 
 ````CSHTML
+@using System.IO
+
 <TelerikFileManager Data="@Data"
                     @bind-Path="@DirectoryPath"
                     Height="400px" />
@@ -192,6 +194,6 @@ The List view is achieved with the help of the [Blazor ListView]({%slug listview
 
 ## See Also
 
-  * [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)
-  * [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview)
-  * [Blazor ListView](https://demos.telerik.com/blazor-ui/listview/overview)
+* [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)
+* [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview)
+* [Blazor ListView](https://demos.telerik.com/blazor-ui/listview/overview)

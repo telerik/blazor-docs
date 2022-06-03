@@ -47,6 +47,8 @@ The available settings are inherited from the Upload features and events. Here i
 The example below demonstrates how to handle successful upload on the FileManager. To actually upload the file, you must configure an appropriate controller similar to the []({%slug upload-overview%}#implement-controller-methods).
 
 ````CSHTML
+@using System.IO
+
 <TelerikFileManager Data="@Data"
                     @bind-Path="@DirectoryPath"                    
                     Height="400px">
