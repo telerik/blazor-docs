@@ -30,6 +30,8 @@ There are two modes of providing data to a FileManager, and they both use the it
 The FileManager has features that map to properties in the model. The following model uses property names that will work automatically, with no additional FileManager configuration:
 
 ````CSHTML
+@using System.IO
+
 <TelerikFileManager Data="@Data"
                     @bind-Path="@DirectoryPath"
                     Height="400px"
@@ -265,7 +267,7 @@ Learn the different ways to provide data to a TreeView:
 
 ## See Also
 
-  * [Binding to Flat Data]({%slug filemanager-data-binding-flat-data%})
-  * [Binding to Hierarchical Data]({%slug filemanager-data-binding-hierarchical-data%})
-  * [Live Demo: FileManager Flat Data](https://demos.telerik.com/blazor-ui/filemanager/flat-data)
-  * [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/blazor-ui/filemanager/hierarchical-data)
+* [Binding to Flat Data]({%slug filemanager-data-binding-flat-data%})
+* [Binding to Hierarchical Data]({%slug filemanager-data-binding-hierarchical-data%})
+* [Live Demo: FileManager Flat Data](https://demos.telerik.com/blazor-ui/filemanager/flat-data)
+* [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/blazor-ui/filemanager/hierarchical-data)

@@ -25,6 +25,8 @@ The preview pane visibility toggles by the Switch Tool in the FileManager Toolba
 ![Blazor Filemanager Preview Pane](images/filemanager-preview-pane.png)
 
 ````CSHTML
+@using System.IO
+
 <TelerikFileManager Data="@Data"
                     @bind-Path="@DirectoryPath"
                     Height="400px" />
@@ -188,4 +190,4 @@ The preview pane visibility toggles by the Switch Tool in the FileManager Toolba
 
 ## See Also
 
-  * [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)
+* [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)

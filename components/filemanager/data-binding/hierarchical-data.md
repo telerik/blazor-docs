@@ -23,6 +23,8 @@ This approach of providing items lets you gather separate collections of data th
 >caption Example of hierarchical data binding
 
 ````CSHTML
+@using System.IO
+
 <TelerikFileManager Data="@Data"
                     Height="400px"
                     @bind-Path="@DirectoryPath"
@@ -184,7 +186,7 @@ This approach of providing items lets you gather separate collections of data th
 
 ## See Also
 
-  * [FileManager Data Binding Basics]({%slug filemanager-data-binding-overview%})
-  * [Binding to Flat Data]({%slug filemanager-data-binding-flat-data%})
-  * [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/blazor-ui/filemanager/hierarchical-data)
-  * [Live Demo: FileManager Flat Data](https://demos.telerik.com/blazor-ui/filemanager/flat-data)
+* [FileManager Data Binding Basics]({%slug filemanager-data-binding-overview%})
+* [Binding to Flat Data]({%slug filemanager-data-binding-flat-data%})
+* [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/blazor-ui/filemanager/hierarchical-data)
+* [Live Demo: FileManager Flat Data](https://demos.telerik.com/blazor-ui/filemanager/flat-data)
