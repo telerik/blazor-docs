@@ -45,6 +45,6 @@ The Azure Blob Service does not expose such HTTP endpoint. Do the following:
 
 1. [Implement a `Save` controller action method]({%slug upload-overview%}#implement-controller-methods) in the Blazor app.
 1. Set the action method URL as a `SaveUrl` in the Upload.
-1. Send the uploaded file to the blob service from the `Save` action method.
+1. Send the uploaded file to the blob service after you obtain it in the `Save` action method.
 
 In this way, the file will go to your Blazor app server first, then to the Azure storage.
