@@ -24,7 +24,7 @@ res_type: kb
 
 ## Description
 
-How to upload files to Microsoft Azure Blob Storage?
+How to upload files to Microsoft Azure Blob Storage by using Telerik Blazor components?
 
 Can I upload files directly to Azure Blob Storage?
 
