@@ -9,7 +9,7 @@ position: 0
 ---
 
 # Blazor Filter Overview
-The Filter serves as a complementary addition to a data-bound component that does not have built-in filtering options.
+The <a href="https://www.telerik.com/blazor-ui/filter" target="_blank">Blazo Filter component</a> serves as a complementary addition to a data-bound component that does not have built-in filtering options.
 
 The component gives a unified way to build filter descriptors using its [fields]({%slug filter-fields%}). You can also define different [operators]({%slug filter-operators%}) and use these filter descriptors to filter data.
 
