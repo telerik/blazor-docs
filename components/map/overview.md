@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Map Overview
 
-The Map displays geospatial information organized in layers.
+The <a href="https://www.telerik.com/blazor-ui/map" target="_blank">Blazor Map component</a> displays geospatial information organized in layers.
 
 The component provides [tile layers]({%slug components/map/layers/tile%}), [shape (vector) layers]({%slug components/map/layers/shape%}), [bubble layers]({%slug components/map/layers/bubble%}), and [marker layers]({%slug components/map/layers/marker%}).
 

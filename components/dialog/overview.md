@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Dialog Overview
 
-The Dialog is a modal popup that brings information to the user. It provides actions through its action buttons to prompt the user for input or to ask for a decision. The component can also contain more complex UI elements that require the attention of the user. The main difference from the Window modal is the functionality for actions and predefined dialogs.
+The <a href="https://www.telerik.com/blazor-ui/dialog" target="_blank">Blazor Dialog component</a> is a modal popup that brings information to the user. It provides actions through its action buttons to prompt the user for input or to ask for a decision. The component can also contain more complex UI elements that require the attention of the user. The main difference from the Window modal is the functionality for actions and predefined dialogs.
 
 ## Creating Blazor Dialog
 

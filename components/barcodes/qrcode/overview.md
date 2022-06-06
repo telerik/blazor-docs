@@ -10,7 +10,7 @@ position: 0
 
 # Blazor QRCode Overview
 
-The QRCode generates **Canvas** and **SVG** images that represent Quick Response (QR) codes.
+The <a href="https://www.telerik.com/blazor-ui/qr-code" target="_blank">Blazor QRCode component</a> generates **Canvas** and **SVG** images that represent Quick Response (QR) codes.
 
 The generated image from the component is a machine-readable label that contains information about data for a locator, identifier, or tracker that points to a website or application.
 
