@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Skeleton Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/skeleton" target="_blank">Blazor Skeleton</a> is a loading container mainly used for indicating to users that the page content is currently loading. What separates it from the conventional loaders is that it mimics the page layout by showing its elements in a shape similar to the actual content as it loads. 
+The <a href = "https://www.telerik.com/blazor-ui/skeleton" target="_blank">Blazor Skeleton</a> is a loading indicator. What separates it from conventional loaders is that it mimics the page layout by showing elements in a similar shape as the actual content that will appear after loading.
 
 
 
