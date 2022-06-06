@@ -14,7 +14,7 @@ The <a href = "https://www.telerik.com/blazor-ui/skeleton" target="_blank">Blazo
 
 
 
-## Creating Skeleton
+## Creating Blazor Skeleton
 
 1. Use the `<TelerikSkeleton>` tag.
 1. Set the `Visible` parameter to a `bool` property or expression.
