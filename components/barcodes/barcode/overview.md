@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Barcode Overview
 
-The <a href="https://www.telerik.com/blazor-ui/barcode" target="_blank">Blazor Barcode component</a> represents data in a machine-readable format. You can choose from several supported standards.
+The <a href="https://www.telerik.com/blazor-ui/barcode" target="_blank">Blazor Barcode component</a> represents data in a machine-readable format. It supports several different encoding standards.
 
 All graphics are rendered on the client by using [Scalable Vector Graphics (SVG)](https://www.w3.org/Graphics/SVG/).
 
