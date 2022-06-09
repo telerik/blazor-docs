@@ -59,6 +59,9 @@ navigation:
      "getting-started/vs-code-integration":
         title: "Visual Studio Code Integration"
         position: 26
+     "getting-started/repl":
+        title: "Telerik REPL for Blazor"
+        position: 35
      "backwards-compatibility":
         title: "Breaking Changes"
         position: 30
