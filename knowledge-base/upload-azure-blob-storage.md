@@ -51,4 +51,4 @@ In this way, the file will go to your Blazor app server first, then to the Azure
 
 ### Security
 
-No matter which component you use, we recommend sending the file to the Blazor application server first. This will spare the need to expose sensitive authentication information about the blob storage to the client, especially in FileSelect + WebAssembly scenarios.
+No matter which component you use, we recommend sending the file to the Blazor application server first. This will spare the need to expose sensitive authentication information about the blob storage to the client.
