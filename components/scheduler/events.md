@@ -788,7 +788,7 @@ It provides a `SchedulerItemContextMenuEventArgs` object to the event handler an
         {
             Console.WriteLine($"The user clicked {keyboardEventArgs.Key} on item {currentItem.Description}");
         }
-        else if(args.EventArgs is MouseEventArgs mouseEventArgs)
+        else if (args.EventArgs is MouseEventArgs mouseEventArgs)
         {
             Console.WriteLine($"The user clicked on {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} - item {currentItem.Description}");
         }
