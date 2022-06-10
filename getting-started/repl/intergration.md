@@ -14,11 +14,11 @@ Telerik REPL for Blazor is integrated in our resources (documentation and demos)
 
 In this article:
 
-* [Telerik UI for Blazor documentation Integration](#telerik-ui-for-blazor-documentation-integration)
-* [Telerik UI for Blazor demos Integration](#telerik-ui-for-blazor-demos-integration)
+* [Documentation Integration](#documentation-integration)
+* [Demos Integration](#demos-integration)
 * [Visual Studio and Visual Studio Code Integration](#visual-studio-and-visual-studio-code-integration)
 
-## Telerik UI for Blazor Documentation Integration
+## Documentation Integration
 
 Most code examples in the Telerik UI for Blazor documentation are directly runnable in Telerik REPL for Blazor. This provides interactive experience, as the snippets are easy to test and edit. The toolbar above each runnable code snippet contains the following options:
 
@@ -30,9 +30,9 @@ Most code examples in the Telerik UI for Blazor documentation are directly runna
 ![Documentation Integration](../images/repl-docs-integration.png)
 
 
-## Telerik UI for Blazor Demos Integration
+## Demos Integration
 
-The Telerik UI for Blazor demos support integration with the Telerik REPL for Blazor. In the demo window toolbar, along with the "Example" and "View Source" tabs, you will find a tab with dropdown that provides option for editing the demo in Telerik REPL for Blazor. Once you select that option, you will be redirected to the Telerik REPL for Blazor and its editor will contain the source code of the current demo, so you can directly edit and test it.
+[The Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui) support integration with the Telerik REPL for Blazor. The demo window toolbar provides option for editing the demo in Telerik REPL for Blazor. Once you select that option, you will be redirected to the Telerik REPL for Blazor and its editor will contain the source code of the current demo, so you can directly edit and test it.
 
 ![Demos Integration](../images/repl-demos-integration.png)
 
@@ -47,13 +47,19 @@ If no selection is made, the whole file will be shared to Telerik REPL for Blazo
 
 The `Share to Telerik REPL for Blazor` command can be accessed as follows:
 
-#### Visual Studio (you can get the extension [here](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions)):
-* Context Menu option - select a section that you want to share, right click on it to open the context menu and click "Share to Telerik REPL for Blazor" option.
+### Visual Studio
+
+Get the extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions). 
+
+Access the command through the Context Menu - select a section that you want to share, right click on it to open the context menu and click "Share to Telerik REPL for Blazor" option.
     
 ![VS - Share to Telerik REPL for Blazor](../images/vs-extension-share-to-repl.png)
 
 
-#### Visual Studio Code (you can get the extension [here](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard)):
+
+### Visual Studio Code
+
+Get the extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard). Access the command using one of the following:
 
 * Context Menu option - select a section that you want to share, right click on it to open the context menu and click "Share to Telerik REPL for Blazor" option.`
 
