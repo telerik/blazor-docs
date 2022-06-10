@@ -27,7 +27,7 @@ REPL for Blazor allows you to add the snippets in several ways:
 
 ### Add button
 
-Next to each snippet listed in the `Snippets and Scaffolders` menu, you will find a `+` button. Clicking it will automatically add the snippet in the REPL editor. The snippet will be inserted where the cursor is placed. You can then additionally configure the component as desired and add the code block for the `C#` part.
+There is a `+` button next to each snippet in the `Snippets and Scaffolders` menu. Clicking it will automatically add the snippet at the current cursor position in the REPL editor. Then you can additionally configure the component and add the code block for the `C#` part.
 
 ### Drag the component
 
