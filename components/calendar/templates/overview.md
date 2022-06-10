@@ -22,7 +22,7 @@ The Calendar component provides templates for:
 
 * [Century Cell]({%slug calendar-templates-century%}) - the rendering of each cell in the Century view.
 
-
+* [Header Template]({%slug calendar-templates-header%}) - the header segment of the Calendar.
 
 ## See Also
 
