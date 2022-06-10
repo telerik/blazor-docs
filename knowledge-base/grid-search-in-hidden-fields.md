@@ -115,3 +115,4 @@ Here is an example:
 * [Search the Grid in Numeric and Date Model Fields]({%slug grid-kb-search-numeric-fields%})
 * [Search the Grid on Button Click]({%slug grid-kb-search-button-click%})
 * [Search the Grid with a `StartsWith` operator]({%slug grid-kb-search-startswith%})
+* [Format or Bold Search Results in the Grid]({%slug grid-kb-search-highlight-results%})
