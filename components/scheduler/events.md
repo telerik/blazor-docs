@@ -784,7 +784,7 @@ It provides a `SchedulerItemContextMenuEventArgs` object to the event handler an
 
         args.ShouldRender = false;
 
-        if(args.EventArgs is KeyboardEventArgs keyboardEventArgs)
+        if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
         {
             Console.WriteLine($"The user clicked {keyboardEventArgs.Key} on item {currentItem.Description}");
         }
