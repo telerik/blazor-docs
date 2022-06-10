@@ -44,7 +44,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         isVisible = true;
-        await Task.Delay(1000);
+        await Task.Delay(2000);
 
         Text = "Button";
 
