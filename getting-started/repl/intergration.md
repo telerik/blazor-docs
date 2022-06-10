@@ -20,7 +20,7 @@ In this article:
 
 ## Telerik UI for Blazor Documentation Integration
 
-The Telerik UI for Blazor documentation supports integration with the Telerik REPL for Blazor. This provides interactive experience and easy to test snippets for the various components and scenarios. Above the code snippets listed in the documentation articles you will find a toolbar with the following options:
+Most code examples in the Telerik UI for Blazor documentation are directly runnable in Telerik REPL for Blazor. This provides interactive experience, as the snippets are easy to test and edit. The toolbar above each runnable code snippet contains the following options:
 
 * `Edit` - click to open the source in the integrated the Telerik REPL for Blazor Editor.
 
