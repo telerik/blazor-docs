@@ -19,7 +19,7 @@ Telerik REPL for Blazor supports the following features for increased developer 
 
 Telerik REPL for Blazor provides a list of predefined code snippets for fast UI component reference and configuration.
 
-The basic snippets are listed in the `Snippets and Scaffolders` section of the REPL Sidebar. You can browse to find the desired snippet or search for it in the integrated Seacrhbox.
+The basic snippets are listed in the `Snippets and Scaffolders` section of the REPL Sidebar. You can browse to find the desired snippet or search for it in the integrated search box.
 
 A complete list of the snippets for a specific component will be displayed in a popup once you start typing the component name in the editor.
 
