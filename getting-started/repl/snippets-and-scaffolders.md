@@ -31,7 +31,7 @@ There is a `+` button next to each snippet in the `Snippets and Scaffolders` men
 
 ### Drag the component
 
-You can drag the component name from the `Snippets and Scaffolders` menu to directly add its basic snippet into the REPL editor. The snippet will be inserted where the cursor is placed. You can then additionally configure the component as desired and add the code block for the `C#` part.
+You can drag the component name from the `Snippets and Scaffolders` menu to directly add its basic snippet into the REPL editor. The snippet will be inserted where the cursor is placed. Then you can then additionally configure the component and add the code block for the `C#` part.
 
 ### Type in the editor
 
