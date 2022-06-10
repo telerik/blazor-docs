@@ -63,7 +63,7 @@ The following approach is valid for both the Grid and the TreeList.
                 @{
                     GridModel item = context as GridModel;
 
-                    if (!String.IsNullOrWhiteSpace(SearchBoxValue))
+                    if (!String.IsNullOrEmpty(SearchBoxValue))
                     {
                         @(new MarkupString(item.Text1.Replace(SearchBoxValue,
                             $"<strong>{SearchBoxValue}</strong>",
@@ -81,7 +81,7 @@ The following approach is valid for both the Grid and the TreeList.
                 @{
                     GridModel item = context as GridModel;
 
-                    if (!String.IsNullOrWhiteSpace(SearchBoxValue))
+                    if (!String.IsNullOrEmpty(SearchBoxValue))
                     {
                         @(new MarkupString(item.Text2.Replace(SearchBoxValue,
                             $"<strong>{SearchBoxValue.ToUpperInvariant()}</strong>",
