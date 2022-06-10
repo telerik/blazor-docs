@@ -764,11 +764,11 @@ It provides a `SchedulerItemContextMenuEventArgs` object to the event handler an
 ````CSHTML
 @* You can react to user right clicking on a Scheduler item by using the OnItemContextMenu event *@
 
-<TelerikScheduler Data="@Appointments" 
+<TelerikScheduler Data="@Appointments"
                   @bind-Date="@StartDate"
                   OnItemContextMenu="@OnItemContextMenu"
-                  @bind-View="@CurrView" 
-                  Height="600px" 
+                  @bind-View="@CurrView"
+                  Height="600px"
                   Width="800px">
     <SchedulerViews>
         <SchedulerDayView StartTime="@DayStart" />
@@ -783,13 +783,25 @@ It provides a `SchedulerItemContextMenuEventArgs` object to the event handler an
         var currentItem = args.Item as SchedulerAppointment;
 
         args.ShouldRender = false;
+
+        if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
+        {
+            Console.WriteLine($"The user clicked {keyboardEventArgs.Key} on item {currentItem.Description}");
+        }
+        else if (args.EventArgs is MouseEventArgs mouseEventArgs)
+        {
+            Console.WriteLine($"The user clicked on {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} - item {currentItem.Description}");
+        }
     }
 
     public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
+
     public SchedulerView CurrView { get; set; } = SchedulerView.Week;
+
     public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
+
     List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-{
+    {
             new SchedulerAppointment
             {
                 Title = "Vet visit",
