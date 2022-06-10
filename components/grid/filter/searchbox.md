@@ -226,6 +226,10 @@ The `GridSearchBox` component offers the following settings to customize its beh
 
 ## See Also
 
-  * [Grid Filtering Overview]({%slug components/grid/filtering%})
-  * [Live Demo: Grid Filter Searchbox](https://demos.telerik.com/blazor-ui/grid/searchbox)
-
+* [Live Demo: Grid Filter Searchbox](https://demos.telerik.com/blazor-ui/grid/searchbox)
+* [Format or Bold Search Results in the Grid]({%slug grid-kb-search-highlight-results%})
+* [Search the Grid in Numeric and Date Model Fields]({%slug grid-kb-search-numeric-fields%})
+* [Search the Grid in Hidden Fields]({%slug grid-kb-search-in-hidden-fields%})
+* [Search the Grid with a `StartsWith` operator]({%slug grid-kb-search-startswith%})
+* [Search the Grid on Button Click]({%slug grid-kb-search-button-click%})
+* [Grid Filtering Overview]({%slug components/grid/filtering%})
