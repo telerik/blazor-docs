@@ -12,7 +12,7 @@ position: 5
 
 Telerik REPL for Blazor supports the following features for increased developer productivity:
 
-* [Snippets](#snippets) 
+* [Snippets](#snippets)
 * [Scaffolders](#scaffolders)
 
 ## Snippets
@@ -31,11 +31,12 @@ There is a `+` button next to each snippet in the `Snippets and Scaffolders` men
 
 ### Drag the component
 
-You can drag the component name from the `Snippets and Scaffolders` menu to directly add its basic snippet into the REPL editor. The snippet will be inserted where the cursor is placed. Then you can then additionally configure the component and add the code block for the `C#` part.
+You can drag the component name from the `Snippets and Scaffolders` menu to directly add its basic snippet into the REPL editor. The snippet will be inserted at the current cursor position. Then you can additionally configure the component and add the code block for the `C#` part.
 
 ### Type in the editor
 
 While typing a component name in the editor, you will see a list of suggestions including all available snippets for the specific component. To add the snippet:
+
 * Navigate through the list to select the desired snippet and press `Enter` or `Tab`. 
 * Single click on the desired snippet in the list.
 
@@ -47,7 +48,7 @@ Telerik REPL for Blazor provides scaffolders for a variety of components. They a
 To use the scaffolders:
 
 1. Open the `Snippets and Scaffolders` menu in the REPL for Blazor Sidebar
-1. Scroll to the desired component or look for it through the Searchbox
+1. Scroll to the desired component or look for it through the search box
 1. Click the `Settings` button to open the configuration options
 1. Define your desired configuration
 1. Click the `Scaffold` button to add the scaffolder to the editor
