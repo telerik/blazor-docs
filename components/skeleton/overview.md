@@ -13,7 +13,6 @@ position: 0
 The <a href = "https://www.telerik.com/blazor-ui/skeleton" target="_blank">Blazor Skeleton</a> is a loading indicator. What separates it from conventional loaders is that it mimics the page layout by showing elements in a similar shape as the actual content that will appear after loading.
 
 
-
 ## Creating Blazor Skeleton
 
 1. Use the `<TelerikSkeleton>` tag.
