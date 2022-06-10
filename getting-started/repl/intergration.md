@@ -43,7 +43,7 @@ Telerik Extensions for [Visual Studio]({%slug getting-started-vs-integration-ove
 
 The command can be used if more than 10 symbols are selected. Otherwise Visual Studio will disable the command, and Visual Studio Code will show an error message ("Expected at least 10 characters"). In case of multiple selection every new piece will be concatenated on a new line.
 
-If no selection is made, the whole file will be shared to Telerik REPL for Blazor. Only single files can be shared per command and not the whole application. Once the share to REPL process is triggered, notifications will appear in the bottom right corner for about 2 to 3 seconds to indicate the status, after that the default browser opens with the uploaded snippet.
+If no selection is made, the whole file will be shared to Telerik REPL for Blazor. Only single files can be shared per command and not the whole application. Once the share to REPL process is triggered, status notifications will appear in the bottom-right corner for a few seconds. After that, the default browser will open with the uploaded snippet.
 
 The `Share to Telerik REPL for Blazor` command can be accessed as follows:
 
