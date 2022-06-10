@@ -397,6 +397,8 @@ navigation:
         title: "ScrollView"
      "*slider":
         title: "Slider"
+     "*skeleton":
+        title: "Skeleton"
      "*sortable":
         title: "Sortable"
      "*splitbutton":
@@ -584,6 +586,7 @@ intro_columns:
     items:
       "Loader": "loader-overview"
       "LoaderContainer": "loadercontainer-overview"
+      "Skeleton": "skeleton-overview"
       "Notification": "notification-overview"
       "Progress Bar": "progressbar-overview"
       "Chunk Progress Bar": "chunkprogressbar-overview"
