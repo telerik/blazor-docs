@@ -47,11 +47,11 @@ Telerik REPL for Blazor provides scaffolders for a variety of components. They a
 
 To use the scaffolders:
 
-1. Open the `Snippets and Scaffolders` menu in the REPL for Blazor Sidebar
-1. Scroll to the desired component or look for it through the search box
-1. Click the `Settings` button to open the configuration options
-1. Define your desired configuration
-1. Click the `Scaffold` button to add the scaffolder to the editor
+1. Open the `Snippets and Scaffolders` menu in the REPL for Blazor Sidebar.
+1. Scroll to the desired component or look for it through the search box.
+1. Click the `Settings` button to open the configuration options.
+1. Define your desired configuration.
+1. Click the `Scaffold` button to add the scaffolder to the editor.
 
-Telerik REPL for Blazor allows using one scaffolder per `.razor` file. When you scaffold a component, it will override the current code in the edited file.
 
+Telerik REPL for Blazor allows using one scaffolder at a time. By defaut, the scaffolder will always be added to the `__Main.razor` file as this is the entry `@page` of the application. When you scaffold a component, it will override the current code in the `__Main.razor` file.
