@@ -376,6 +376,10 @@ The `TreeListSearchBox` component offers the following settings to customize its
 
 ## See Also
 
-  * [Treelist Filtering Overview]({%slug treelist-filtering%})
-  * [Live Demo: TreeList SearchBox](https://demos.telerik.com/blazor-ui/treelist/searchbox)
-
+* [Live Demo: TreeList SearchBox](https://demos.telerik.com/blazor-ui/treelist/searchbox)
+* [Format or Bold Search Results in the TreeList]({%slug grid-kb-search-highlight-results%})
+* [Search the TreeList in Numeric and Date Model Fields]({%slug grid-kb-search-numeric-fields%})
+* [Search the TreeList in Hidden Fields]({%slug grid-kb-search-in-hidden-fields%})
+* [Search the TreeList with a `StartsWith` operator]({%slug grid-kb-search-startswith%})
+* [Search the TreeList on Button Click]({%slug grid-kb-search-button-click%})
+* [Treelist Filtering Overview]({%slug treelist-filtering%})

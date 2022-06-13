@@ -139,3 +139,4 @@ Also see the [Filter Descriptors documentation]({%slug components/grid/filtering
 * [Search the Grid in Numeric and Date Model Fields]({%slug grid-kb-search-numeric-fields%})
 * [Search the Grid in Hidden Fields]({%slug grid-kb-search-in-hidden-fields%})
 * [Search the Grid with a `StartsWith` operator]({%slug grid-kb-search-startswith%})
+* [Format or Bold Search Results in the Grid]({%slug grid-kb-search-highlight-results%})

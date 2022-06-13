@@ -176,3 +176,4 @@ By default, the [`GridSearchBox` searches in **string** values with a **`contain
 * [Search the Grid in Numeric and Date Model Fields]({%slug grid-kb-search-numeric-fields%})
 * [Search the Grid in Hidden Fields]({%slug grid-kb-search-in-hidden-fields%})
 * [Search the Grid on Button Click]({%slug grid-kb-search-button-click%})
+* [Format or Bold Search Results in the Grid]({%slug grid-kb-search-highlight-results%})
