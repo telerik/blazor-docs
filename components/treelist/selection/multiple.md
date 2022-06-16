@@ -38,19 +38,7 @@ In Multiple SelectionMode, selection could be made using the following approache
 
 ## Checkbox Selection
 
-To add checkboxes in each row that the user can use for selection, add a `TreeListCheckboxColumn` in the `TreeListColumns` collection of the treelist.
-
-You can force selection to happen only through the checkboxes by setting the `CheckBoxOnlySelection` parameter of the `TreeListCheckboxColumn` to `true`.
-
-The treelist allows selection and deselection via the `SelectAll` property. Setting this property to `true` (its default value) will render a checkbox in the treelist header.
-
-You can add a `SelectAllMode` parameter, which supports the following options:
-* `Current` - selects all rows on the current page. This also applies to filtered, sorted, etc. This is the default value of the `SelectAllMode`. Will not select the children of collapsed items - they are not part of the [current Page]({%slug treelist-paging%}) data.
-* `All` - selects all the data in the treelist.
-  * If IQueriable collections are used, using the header checkbox with in this mode will immediately execute the query over all the data which may be a performance hit.
-
-
-The selection column also exposes the `SelectChildren` parameter. It controls whether selecting a row with the checkbox will also select its child items. It defaults to `false`
+To add checkboxes in each row that the user can use for selection, add a [`TreeListCheckboxColumn`]({%slug treelist-columns-checkbox%}) in the `TreeListColumns` collection of the treelist. The column provides [additional configuration settings related to selection]({%slug treelist-columns-checkbox%}#parameters).
 
 **Usage:**
 
