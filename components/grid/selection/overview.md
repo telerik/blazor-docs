@@ -37,11 +37,7 @@ You can configure the selection behavior by setting `SelectionMode` to a member 
 
 To select a row, click on it. To select multiple rows, hold down the `Ctrl` or `Shift` key to extend the selection.
 
-You can also use a checkbox column to select rows. To use it, add a `GridCheckboxColumn` in the `GridColumns` collection of the grid. It works with both selection modes.  With multiple selection mode, the checkbox column offers [additional functionality]({%slug components/grid/selection/multiple%}#checkbox-selection).
-
-By default, clicking anywhere on the row will select it, but you can require the user to activate the checkbox in the select column to select the row by setting its `CheckBoxOnlySelection` parameter to `true`.
-
-It is also possible to [center the checkboxes in the `GridCheckboxColumn`]({%slug grid-kb-center-checkbox-column%}).
+You can also use a checkbox column to select rows. To use it, add a [`GridCheckboxColumn`]({%slug components/grid/columns/checkbox%}) in the `GridColumns` collection of the grid. It works with both selection modes.  With multiple selection mode, the checkbox column offers [additional functionality]({%slug components/grid/selection/multiple%}#checkbox-selection).
 
 You can get or set the selected items through the `SelectedItems` property. It is a collection of items from the Grid's `Data`.
 
@@ -144,7 +140,7 @@ See how the row selection modes work
 
 #### InCell Edit Mode
 
-In the [Incell EditMode]({%slug components/grid/editing/incell%}) selection can be applied only via a checkbox column (`<GridCheckboxColumn />`). This is required due to the overlapping action that triggers selection and InCell editing (clicking in the row) - if row click selection was enabled with InCell editing, each attempt to select a row would put a cell in edit mode; and each attempt to edit a cell would select a new row. Such user experience is confusing, and so selection will only work through the row selection checkbox.
+In the [Incell EditMode]({%slug components/grid/editing/incell%}) selection can be applied only via a [checkbox column]({%slug components/grid/columns/checkbox%}) (`<GridCheckboxColumn />`). This is required due to the overlapping action that triggers selection and InCell editing (clicking in the row) - if row click selection was enabled with InCell editing, each attempt to select a row would put a cell in edit mode; and each attempt to edit a cell would select a new row. Such user experience is confusing, and so selection will only work through the row selection checkbox.
 
 To see how to select the row that is being edited in InCell edit mode without using a `<GridCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode]({%slug grid-kb-row-select-incell-edit%}) Knowledge Base article.
 
