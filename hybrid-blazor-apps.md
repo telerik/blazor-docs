@@ -66,10 +66,6 @@ You can set the project to recognize all Telerik components without explicit `@u
 You must add a `TelerikRootComponent` component as a top-level component in the app to make sure it wraps all the content. At the time of writing, custom layouts are not supported, so you can add it to the:
 
 * `Shared/MainLayout.razor` for MAUI apps
-
-You must add a `TelerikRootComponent` component as a top-level component in the app to make sure it wraps all the content. At the time of writing, custom layouts are not supported, so you can add it to the:
-
-* `Shared/MainLayout.razor` for MAUI apps
 * `Main.razor` for WPF and WinForms apps
 
 Make sure that the `TelerikRootComponent` matches the webview viewport. You might need to remove the default margin and padding from the body to ensure the content matches the viewport.
