@@ -88,8 +88,8 @@ You can use the following properties on bound columns:
 * `DisplayFormat` - the C# format string that is used to render the field value in the cell when the grid is in display mode. Read more in the [Column Display Format]({%slug grid-columns-displayformat%}) article.
 * `TextAlign` - specifies the horizontal alignment of the cell text. For example, you can use this property to right-align numeric columns. The property accepts `ColumnTextAlign` enum values (`Left`, `Right` or `Center`). If not set, the text alignment will depend on existing styles on the page, default browser behavior and the text direction.
 * `OnCellRender` - an event that fires upon the rendering of the Grids columns. For more information read the columns [events]({%slug grid-column-events%}#oncellrender) article.
-* `Reorderable` - (defaults to `true`) - whether the user can [drag to reorder]({%slug components/grid/columns/reorder%}) this column.
 * `HeaderClass` - `string` - adds a custom CSS class to the header cell of the column. Use it to apply custom styles or [override the default Grid styles]({%slug themes-override%}).
+* `Reorderable` - (defaults to `true`) - whether the user can [drag to reorder]({%slug components/grid/columns/reorder%}) this column.
 * `Resizable` - (defaults to `true`) - whether the user can [resize]({%slug components/grid/columns/resize%}) this column.
 * `Width` - (defaults to `null`) - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article for information about the supported formats. See [Grid Column Width Behavior]({%slug grid-columns-width%}) for detailed information about the Grid behavior with different column width configurations.
 * `MinResizableWidth` - (defaults to `30` and ignores smaller values) - the minimum allowed column width during [user resizing]({%slug components/grid/columns/resize%}). Unlike the `Width` string property, this one is decimal and expects pixel values.
