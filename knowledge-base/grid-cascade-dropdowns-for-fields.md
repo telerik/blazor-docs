@@ -29,14 +29,15 @@ There are two approaches you can take:
 
 * For full freedom, implement a custom edit form (here are examples for <a href="https://demos.telerik.com/blazor-ui/grid/editing-custom-form" target="_blank">inline</a>, and <a href="https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form" target="_blank">popup</a>)
 
-* Implement the general approach for [cascading dropdowns]({%slug dropdown-kb-cascading%}) in the [editor templates]() of those fields. a key thing is to create new data collections, and to use the OnChange event.
+* Implement the general approach for [cascading dropdowns]({%slug dropdown-kb-cascading%}) in the [editor templates]({%slug grid-templates-editor%}) of those fields. a key thing is to create new data collections, and to use the OnChange event. You may also want to handle the `OnEdit` event of the grid to provide initial data for the second column.
 
 >caption Example of cascading dropdowns in grid editor templates in popup edit mode (works for inline mode too)
 
 ````CSHTML
 @* Field 1 determines what you see in the cascaded field. The code comments offer some more details *@
 
-<TelerikGrid Data=@GridData EditMode="@GridEditMode.Popup" Pageable="true" Height="300px" OnUpdate="@UpdateHandler">
+<TelerikGrid Data=@GridData EditMode="@GridEditMode.Popup" Pageable="true" Height="300px"
+            OnUpdate="@UpdateHandler" OnEdit="@EditHandler">
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="ID" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
@@ -77,6 +78,11 @@ There are two approaches you can take:
     public List<SampleData> GridData { get; set; }
     public List<string> SecondFieldData { get; set; }
 
+    // These two event handlers implement loading data on demand to cascade the value of the second
+    // column through the value of the first. The OnEdit handler is to pre-load data for the second column
+    // when there is already data for the first one, but none for the second
+    // Modify the logic and use appropriate services in an actual application, this is just a basic example
+
     async Task CascadeSecondList(object newVal)
     {
         await Task.Delay(300); // simulate service/data call, remove in real app
@@ -84,13 +90,26 @@ There are two approaches you can take:
         // "load" data - in this case just show some relation to the first field
         List<string> theNewData = Enumerable.Range(1, 5).Select(x => $"option {x} for {CurrentlyEditedEmployee.Field1}").ToList();
         // add the current value so that it is found in the data source and the drodown does not revert to the default value of the type
-        if (!string.IsNullOrEmpty(CurrentlyEditedEmployee.Field2))
+        Console.WriteLine(theNewData.IndexOf(CurrentlyEditedEmployee.Field2));
+        if (!string.IsNullOrEmpty(CurrentlyEditedEmployee.Field2) &&
+            theNewData.IndexOf(CurrentlyEditedEmployee.Field2) == -1 // don't add the existing item a second time
+            )
         {
             theNewData.Add(CurrentlyEditedEmployee.Field2);
         }
         // update the data source, a key thing is to uise a new reference (new collection) and not to Add/Remove items from an existing one
         SecondFieldData = theNewData;
     }
+
+    async Task EditHandler(GridCommandEventArgs args)
+    {
+        if(CurrentlyEditedEmployee is null)
+        {
+            CurrentlyEditedEmployee = args.Item as SampleData;
+        }
+        await CascadeSecondList(null);
+    }
+
 
     // sample data to get the thing running
 
