@@ -48,11 +48,9 @@ The calendar offers several views that show the user different periods of time:
 
 The user can click on an item in the current view to go to the more detailed view. They can click the current range at the top to navigate to the larger view where navigating bigger portions of time is easier (for example, years, or even decades).
 
-You can control the initial view by setting the `View` property to a member of the `Telerik.Blazor.CalendarView` enum as listed above.
+To control the initial view, set the `View` property to a member of the `Telerik.Blazor.CalendarView` enum as listed above.
 
-You can control how much detail the user can go into by setting the `BottomView` and the `TopView` property to the same enum. Once the user reaches this top or bottom view, clicking the items selects them and does not navigate to a more detailed view. 
-
-The `TopView` cannot be more detailed than the `BottomView`.
+To control how much detail the user can go into, set the [`BottomView` and the `TopView`](#topview-and-bottomview) property to the same enum. 
 
 >caption Control current view and how deep the user can go
 
@@ -79,6 +77,12 @@ The user can only go down to years on both - TopView and BottomView.
     }
 }
 ````
+
+## TopView and BottomView
+
+`BottomView` sets the greatest level of detail the user can navigate. Its default value is `CalendarView.Month`. If `View` is not set, the Calendar will initially display its `BottomView`.
+
+`TopView` sets the least level of detail (i.e. greatest level of date aggregation). Its default value is `CalendarView.Century`.
 
 ## Programmatic Navigation
 
