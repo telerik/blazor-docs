@@ -25,11 +25,14 @@ res_type: kb
 I want to have the options for one of the fields in the grid to depend on the choice of another. In other words, to cascade one dropdown from the other in the grid columns.
 
 ## Solution
-There are two approaches you can take:
+There are three approaches you can take:
 
 * For full freedom, implement a custom edit form (here are examples for <a href="https://demos.telerik.com/blazor-ui/grid/editing-custom-form" target="_blank">inline</a>, and <a href="https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form" target="_blank">popup</a>)
 
 * Implement the general approach for [cascading dropdowns]({%slug dropdown-kb-cascading%}) in the [editor templates]({%slug grid-templates-editor%}) of those fields. a key thing is to create new data collections, and to use the OnChange event. You may also want to handle the `OnEdit` event of the grid to provide initial data for the second column.
+
+* Use load on demand for the dropdowns themselves (their `OnRead` event) so that when they initialize, they will fire the event, and you can load the data there. The component fires the event when needed and you can use the currently edited item you store in the view-model to provide more information to your service.
+
 
 >caption Example of cascading dropdowns in grid editor templates in popup edit mode (works for inline mode too)
 
