@@ -46,6 +46,8 @@ The properties of a drawer item match directly to a field of the model the drawe
 
 >caption Default field names for drawer item bindings. If you use these, you don't have to specify them in the `TelerikDrawer` tag explicitly.
 
+<div class="skip-repl"></div>
+
 ````CSHTML
 public class DrawerItem
 {
