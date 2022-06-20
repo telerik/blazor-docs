@@ -82,6 +82,10 @@ The client-side (WebAssembly) flavor of Blazor is a set of separate NuGet packag
 | preview 1 (3.1.0-preview1.19506.1)   | 2.2.0, 2.2.1                  |
 
 
+## Previw .NET Versions
+
+Telerik UI for Blazor is committed to the currently supported official versions of .NET. We evaluate the compatibility with preview .NET versions on a regular basis and provide support for new .NET versions after their official release becomes available.
+
 
 ## See Also
 
