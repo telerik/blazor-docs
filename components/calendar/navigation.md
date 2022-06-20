@@ -50,7 +50,7 @@ The user can click on an item in the current view to go to the more detailed vie
 
 To control the initial view, set the `View` property to a member of the `Telerik.Blazor.CalendarView` enum as listed above.
 
-To control how much detail the user can go into, set the [`BottomView` and the `TopView`](#topview-and-bottomview) property to the same enum. 
+To control how much detail the user can go into, set the [`BottomView` and `TopView`](#topview-and-bottomview) parameters to a member of the same enum. 
 
 >caption Control current view and how deep the user can go
 
