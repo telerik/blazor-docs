@@ -23,4 +23,4 @@ The following parameters enable you to customize the appearance of the Blazor Fi
 | `Label` | `string` | Specifies the string displayed for the given field. |
 | `Name` | `string` | Specifies the field to be used when filtering. |
 | `Operators` | `IEnumerable<FilterListOperator>` | Specifies the [available filter operators]({%slug filter-operators%}#supported-fields-operators). If not defined, a default list of available operators given the field type will be used. |
-| `Type` | `Type` | Specifies the type of the field for the filtering, based on which an editor will be created.|
+| `Type` | `Type` | Specifies the field type. This will determine the filter value editor. |
