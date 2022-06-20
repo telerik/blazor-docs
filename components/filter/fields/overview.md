@@ -21,6 +21,6 @@ The following parameters enable you to customize the appearance of the Blazor Fi
 | ----------- | ----------- | ----------- |
 | `DefaultFilterOperator` | `FilterOperator` | Sets the default filter operator for the Field. Accepts a member of the `FilterOperator` enum. The selected operator must be applicable for the specific data type. Check the supported options in the [Filter Operators]({%slug common-features-filter-operators%}) article.
 | `Label` | `string` | Specifies the string displayed for the given field. |
-| `Name` | `string` | Specifies the name of the field which will be used when filtering. |
+| `Name` | `string` | Specifies the field to be used when filtering. |
 | `Operators` | `IEnumerable<FilterListOperator>` | Specifies the [available filter operators]({%slug filter-operators%}#supported-fields-operators). If not defined, a default list of available operators given the field type will be used. |
 | `Type` | `Type` | Specifies the type of the field for the filtering, based on which an editor will be created.|
