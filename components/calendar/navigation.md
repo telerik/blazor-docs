@@ -48,17 +48,17 @@ The calendar offers several views that show the user different periods of time:
 
 The user can click on an item in the current view to go to the more detailed view. They can click the current range at the top to navigate to the larger view where navigating bigger portions of time is easier (for example, years, or even decades).
 
-You can control the initial view by setting the `View` property to a member of the `Telerik.Blazor.CalendarView` enum as listed above.
+To control the initial view, set the `View` property to a member of the `Telerik.Blazor.CalendarView` enum, as listed above.
 
-You can control how much detail the user can go into by setting the `BottomView` property to the same enum. Once the user reaches this bottom view, clicking the items selects them and does not navigate to a more detailed view.
+To control how much detail the user can go into, set the [`BottomView` and `TopView`](#topview-and-bottomview) parameters to a member of the same enum. 
 
 >caption Control current view and how deep the user can go
 
 ````CSHTML
-The user starts in the Decade view and can only go down to years.
+The user can only go down to years on both - TopView and BottomView.
 <br />
 
-<TelerikCalendar BottomView="@CalendarView.Year" @bind-View="@SelectedView"
+<TelerikCalendar TopView="@CalendarView.Year" BottomView="@CalendarView.Year" @bind-View="@SelectedView"
                  Min="@min" Max="@max" ValueChanged="@MyValueChangeHandler">
 </TelerikCalendar>
 
@@ -78,13 +78,15 @@ The user starts in the Decade view and can only go down to years.
 }
 ````
 
->caption The behavior of the code snippet above
+## TopView and BottomView
 
-![Blazor Up Down Navigation](images/up-down-navigation.gif)
+`BottomView` sets the greatest level of detail the user can navigate. Its default value is `CalendarView.Month`. If `View` is not set, the Calendar will initially display its `BottomView`.
+
+`TopView` sets the least level of detail (i.e. greatest level of date aggregation). Its default value is `CalendarView.Century`.
 
 ## Programmatic Navigation
 
-You can make the Calendar component move to a certain date and view through its `Date` and `View` parameters that support two-way binding. The constraints of the min/max and bottom view apply to programmatic navigation as well as to user navigation.
+You can make the Calendar component move to a certain date and view through its `Date` and `View` parameters that support two-way binding. The constraints of the min/max and top/bottom view apply to programmatic navigation as well as to user navigation.
 
 >caption Navigate the Calendar to a date and view programmatically
 
