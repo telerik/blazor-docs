@@ -93,5 +93,5 @@ You can now run the application in the expected for the technology stack way, fo
 
 >caption Known issues:
 
-* Running MAUI apps might require developer mode to be [enabled](https://stackoverflow.com/questions/36324300/ensure-that-target-device-has-developer-mode-enabled-could-not-obtain-a-develop).
+* Running MAUI apps may require [developer mode to be enabled](https://stackoverflow.com/questions/36324300/ensure-that-target-device-has-developer-mode-enabled-could-not-obtain-a-develop).
 * You can’t currently run the app for [iOS or Mac Catalyst from a Windows development environment](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-net-6-preview-4/#ios-and-mac-catalyst).
