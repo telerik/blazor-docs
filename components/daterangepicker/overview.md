@@ -96,6 +96,8 @@ You can find more options for customizing the Date Range Picker styling in the [
 
 Add a reference to the component instance to use the [Date Range Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1).
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Method | Description |
 | --- | --- |
 | `Close` | Closes the Calendar popup. |
