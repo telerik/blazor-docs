@@ -14,7 +14,7 @@ The [WebView](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-net-
 
 This article provides details on how to setup the apps to use the Telerik UI for Blazor components.
 
->tip Explore the [Hybrid Blazor Sample Apps - Blazor Web Apps running in WinForms, WPF, MAUI](https://github.com/telerik/blazor-ui/tree/master/common/hybrid-blazor-apps).
+>tip Explore the [Hybrid Blazor Sample Apps - Blazor Web Apps running in WinForms, WPF, and MAUI](https://github.com/telerik/blazor-ui/tree/master/common/hybrid-blazor-apps).
 
 
 >caption In this article:
