@@ -27,7 +27,7 @@ This article provides details on how to setup the apps to use the Telerik UI for
 
 ## Prerequisites
 
-Prior to adding the Telerik components, you need to make sure you can run the corresponding technology stack and the basic Hybrid Blazor WebView in it.
+Prior to adding the Telerik components, ensure the corresponding technology stack is setup and the basic Hybrid Blazor WebView runs as expected in it.
 
 You need the following prerequisites:
 
