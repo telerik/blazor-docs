@@ -51,6 +51,10 @@ The Blazor Date Picker generates events that you can handle and further customiz
 
 You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...]({%slug common-features/input-validation%}).
 
+## Header Template
+
+The DatePicker allows you to customize the rendering of the Calendar popup header. Learn more from the [Header Template article]({%slug datepicker-header-template%}).
+
 ## Parameters
 
 The Blazor Date Picker provides various parameters that allow you to configure the component:
@@ -95,7 +99,7 @@ You can find more options for customizing the Date Picker styling in the [Appear
 
 ## Component Reference
 
-Add a reference to the Date Picker instance to use its methods.
+Add a reference to the component instance to use the [Date Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDatePicker-1).
 
 ````CSHTML
 @using Telerik.Blazor.Components

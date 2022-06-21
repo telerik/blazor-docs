@@ -59,6 +59,10 @@ The Calendar navigation allows the user to navigate through several views that r
 
 The Calendar allows you to configure every aspect of the date selection. You can control whether the user can select only one or more dates. You can create a collection of disabled dates so that the user cannot select from them or define selectable ranges of days. [Read more about the Calendar selection...]({%slug components/calendar/selection%})
 
+## Templates
+
+The Calendar provides different types of templates to customize the component's content and styling. These include [month cell, year cell, decade cell, century cell and header templates]({%slug calendar-templates-overview%}).
+
 ## Multiple Views
 
 You can display a wider range of dates by rendering multiple instances of the Calendar so that the users can find the desired date easier. [Read more about the multiple views in the Calendar...]({%slug components/calendar/multiview%})

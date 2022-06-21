@@ -50,9 +50,13 @@ You can ensure that the component value is acceptable by using the built-in vali
 
 To restrict the user from writing dates in the input so that the end is after the start, you must implement a custom data annotation attribute (you can find an example in the article linked above). The DateRangePicker component does not do this out-of-the-box in order to provide smooth user experience - the code cannot know what the user intent is and they might fix the range if they are given the chance, so correcting the input immediately may prevent them from using it comfortably. The component can fully control the user experience in the popup calendar and it ensures there that the range values are valid (start is before the end). If the user chooses an end date before the start, this date becomes the new start and they can choose the end again.
 
+## Header Template
+
+The DateRangePicker allows you to customize the rendering of the Calendar popup header. Learn more from the [Header Template article]({%slug daterangepicker-header-template%}).
+
 ## Parameters
 
-The Blazor Date Range Picker provides various parameters that allow you to configure the component:
+The Blazor Date Range Picker provides various parameters that allow you to configure the component. Also check the [DateRangePicker's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -90,7 +94,7 @@ You can find more options for customizing the Date Range Picker styling in the [
 
 ## Component Reference
 
-Add a reference to the Date Range Picker instance to use its methods.
+Add a reference to the component instance to use the [Date Range Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1).
 
 ````CSHTML
 @using Telerik.Blazor.Components

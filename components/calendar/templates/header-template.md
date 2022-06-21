@@ -10,43 +10,47 @@ position: 10
 
 # Header Template
 
-@[template](/_contentTemplates/common/calendar-header-template.md#header-template)
+The `<HeaderTemplate>` allows you to customize the header of the calendar. If the application defines this template, the component will not render any of the built-in buttons and labels in the header area.
 
 >caption Use custom rendering in the Calendar header
 
-
 ````CSHTML
-@* This example uses custom rendering in the Calendar header *@
-
-<TelerikCalendar @bind-View="@theView" @bind-Date="@theDate">
+<TelerikCalendar @bind-Value="@CalendarValue" @bind-Date="@CalendarDate">
     <HeaderTemplate>
-        <TelerikButton OnClick="@OnClickHandler">Today</TelerikButton>
-        <span style="padding-left: 10px;">
-            <TelerikIcon Icon="calendar" /> View: @context.View
-        </span>
-        <span style="padding-left: 10px;">
-            <TelerikIcon Icon="parameter-date-time" /> Bound date: @context.Date.ToShortDateString()
-        </span>
+
+        <TelerikButton OnClick="@GoToPrevious" Icon="arrow-60-left" Title="Go to Previous Month"></TelerikButton>
+        <TelerikButton OnClick="@SelectToday">Today</TelerikButton>
+        <TelerikButton OnClick="@GoToNext" Icon="arrow-60-right" Title="Go to Next Month"></TelerikButton>
+
+        <TelerikIcon Icon="parameter-date-time" /> @CalendarValue.ToShortDateString()
+
     </HeaderTemplate>
 </TelerikCalendar>
 
 @code {
+    private DateTime CalendarValue { get; set; } = DateTime.Now;
+    private DateTime CalendarDate { get; set; } = DateTime.Now;
 
-    private void OnClickHandler()
+    private void GoToPrevious()
     {
-        theView = CalendarView.Month;
-        theDate = DateTime.Today;
+        CalendarDate = CalendarDate.AddMonths(-1);
     }
 
-    private CalendarView theView { get; set; } = CalendarView.Year;
-    private DateTime theDate { get; set; }
+    private void SelectToday()
+    {
+        CalendarValue = DateTime.Today;
+        CalendarDate = DateTime.Today;
+    }
+
+    private void GoToNext()
+    {
+        CalendarDate = CalendarDate.AddMonths(1);
+    }
 }
 ````
 
 
 ## See Also
 
- * [Calendar Templates Overview]({%slug calendar-templates-overview%})
- * [Live Demo: Calendar Templates](https://demos.telerik.com/blazor-ui/calendar/templates)
- 
-
+* [Calendar Templates Overview]({%slug calendar-templates-overview%})
+* [Live Demo: Calendar Templates](https://demos.telerik.com/blazor-ui/calendar/templates)
