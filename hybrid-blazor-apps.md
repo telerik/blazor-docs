@@ -73,7 +73,7 @@ Once custom layouts are supported, you will be able to configure a Telerik layou
 
 #### 5. Add the UI for Blazor components
 
-After completing the above steps, you will be able to add your desired Telerik Blazor components in the app as in a native Blazor app. Explore the available UI for Blazor components and their features in our [live demos](https://demos.telerik.com/blazor-ui).
+Add your desired Telerik Blazor components in the app as in a native Blazor app. Explore the available UI for Blazor components and their features in our [live demos](https://demos.telerik.com/blazor-ui).
 
 
 ## Run the apps
