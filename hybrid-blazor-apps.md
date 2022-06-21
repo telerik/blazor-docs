@@ -78,7 +78,7 @@ Add your desired Telerik Blazor components in the app as in a native Blazor app.
 
 ## Run the apps
 
-You can now run the application in the expected for the technology stack way, following the corresponding instructions for how to run the app. Here are the related resources for ease of access:
+You can now run the hybrid application. Refer to the following resources for each technology stack:
 
 * [MAUI](https://docs.microsoft.com/en-us/dotnet/maui/get-started/first-app?pivots=devices-android)
 * [WinForms](https://docs.microsoft.com/en-us/visualstudio/ide/create-csharp-winform-visual-studio?view=vs-2022#run-the-application)
