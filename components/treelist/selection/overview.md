@@ -35,13 +35,9 @@ You can configure the selection behavior by setting `SelectionMode` to a member 
 
 To select a row, click on it. To select multiple rows, hold down the `Ctrl` or `Shift` key to extend the selection.
 
-You can also use a checkbox column to select rows. To use it, add a `TreeListCheckboxColumn` in the `TreeListColumns` collection of the treelist. It works with both selection modes. With multiple selection mode, the checkbox column offers [additional functionality]({%slug treelist-selection-multiple%}#checkbox-selection).
-
-By default, clicking anywhere on the row will select it, but you can require the user to activate the checkbox in the select column to select the row by setting its `CheckBoxOnlySelection` parameter to `true`.
+You can also use a checkbox column to select rows. To use it, add a [`TreeListCheckboxColumn`]({%slug treelist-columns-checkbox%}) in the `TreeListColumns` collection of the treelist. It works with both selection modes. With multiple selection mode, the checkbox column offers [additional functionality]({%slug treelist-selection-multiple%}#checkbox-selection).
 
 You can get or set the selected items through the `SelectedItems` property. It is a collection of items from the treelist's `Data`.
-
-It is also possible to [center the checkboxes in the `GridCheckboxColumn`]({%slug grid-kb-center-checkbox-column%}).
 
 The [single selection]({%slug treelist-selection-single%}) and [multiple selection]({%slug treelist-selection-multiple%}) articles provide more examples and details on using the treelist features.
 
@@ -251,7 +247,7 @@ The [single selection]({%slug treelist-selection-single%}) and [multiple selecti
 
 #### InCell Edit Mode
 
-In the [Incell EditMode]({%slug treelist-editing-incell%}) selection can be applied only via a checkbox column (`<TreeListCheckboxColumn />`). This is required due to the overlapping action that triggers selection and InCell editing (clicking in the row) - if row click selection was enabled with InCell editing, each attempt to select a row would put a cell in edit mode; and each attempt to edit a cell would select a new row. Such user experience is confusing, and so selection will only work through the row selection checkbox.
+In the [Incell EditMode]({%slug treelist-editing-incell%}) selection can be applied only via a [checkbox column]({%slug treelist-columns-checkbox%}) (`<TreeListCheckboxColumn />`). This is required due to the overlapping action that triggers selection and InCell editing (clicking in the row) - if row click selection was enabled with InCell editing, each attempt to select a row would put a cell in edit mode; and each attempt to edit a cell would select a new row. Such user experience is confusing, and so selection will only work through the row selection checkbox.
 
 To see how to select the row that is being edited in InCell edit mode without using a `<TreeListCheckboxColumn />` check out the [Grid Row Selection in Edit with InCell EditMode]({%slug grid-kb-row-select-incell-edit%}) Knowledge Base article - it is for the Grid component, but the concept is the same.
 
@@ -298,7 +294,7 @@ When the treelist `Data` collection changes, the `SelectedItems` collection has 
 
 ## See Also
 
-  * [Live Demo: TreeList Selection](https://demos.telerik.com/blazor-ui/treelist/selection)
-  * [Live Demo: TreeList Checkbox Selection](https://demos.telerik.com/blazor-ui/treelist/checkbox-only-selection)
-  * [Single Selection]({%slug treelist-selection-single%})
-  * [Multiple Selection]({%slug treelist-selection-multiple%})
+* [Live Demo: TreeList Selection](https://demos.telerik.com/blazor-ui/treelist/selection)
+* [Live Demo: TreeList Checkbox Selection](https://demos.telerik.com/blazor-ui/treelist/checkbox-only-selection)
+* [Single Selection]({%slug treelist-selection-single%})
+* [Multiple Selection]({%slug treelist-selection-multiple%})

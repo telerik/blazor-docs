@@ -38,23 +38,7 @@ In Multiple SelectionMode, you can select rows through the following approaches:
 
 ## Checkbox Selection
 
-To add checkboxes in each row, add a `GridCheckboxColumn` in the `GridColumns` collection of the grid. The user can select the desired rows through the checkboxes.
-
-You can force selection to happen only through the checkboxes by setting the `CheckBoxOnlySelection` parameter of the `GridCheckboxColumn` to `true`.
-
-The Grid allows selection and deselection via the `SelectAll` property. Setting this property to `true` (its default value) will render a checkbox in the grid header.
-
-You can add a `SelectAllMode` parameter, which supports the following options:
-* `Current` - selects all rows on the current page. This also applies to filtered, sorted, etc. This is the default value of the `SelectAllMode`. If the filtered/sorted rows exceed the page size, the  `Current` mode will select only the filtered/sorted rows on the current page.
-* `All` - selects all the data in the Grid.
-    >note  If IQueriable collections are used, using the header checkbox with an `All` option will immediately execute the query over all the data. This may be a performance hit.
-
-`SelectAllMode` behavior with [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}):
-* No `OnRead` configured (the default state):
-  * `Current` - current `PageSize` items will be selected
-  * `All` - all items in the Data will be selected
-* `OnRead` configured:
-  * `Current` and `All` will share the same behavior - the current data set (page) will be selected only, as this is the only available data.
+To add row selection checkboxes in each row, add a [`GridCheckboxColumn`]({%slug components/grid/columns/checkbox%}) in the `GridColumns` collection of the grid. The user can select the desired rows through the checkboxes. The column provides [additional configuration settings related to selection]({%slug components/grid/columns/checkbox%}#parameters).
 
 **Usage:**
 

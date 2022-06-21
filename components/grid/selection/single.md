@@ -34,11 +34,9 @@ To un-select the item, click its checkbox again, or hold the `Ctrl` key and clic
 
 ## Checkbox Selection
 
-In Single SelectionMode, selection is applied with a click on a row, or by clicking a checkbox if the `GridCheckboxColumn` is present in the `GridColumns` collection of the grid.
+In `Single` `SelectionMode`, selection is applied with a click on a row, or by clicking a checkbox in the [`GridCheckboxColumn`]({%slug components/grid/columns/checkbox%}).
 
 Only one row can be selected at a time, even with checkboxes enabled, so the last one that is clicked will be selected.
-
-You can force selection to happen only through the checkboxes by setting the `CheckBoxOnlySelection` parameter of the `GridCheckboxColumn` to `true`.
 
 If you add a checkbox column, you should set its `SelectAll` parameter to `false` to disable the header checkbox that will select all rows.
 
