@@ -14,7 +14,7 @@ The [WebView](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-net-
 
 This article provides details on how to setup the apps to use the Telerik UI for Blazor components.
 
->tip Explore the [Hybrid Blazor Apps (Blazor Web apps running in WinForms, WPF, MAUI)](https://github.com/telerik/blazor-ui/tree/master/common/hybrid-blazor-apps) sample app.
+>tip Explore the [Hybrid Blazor Sample Apps - Blazor Web Apps running in WinForms, WPF, and MAUI](https://github.com/telerik/blazor-ui/tree/master/common/hybrid-blazor-apps).
 
 
 >caption In this article:
@@ -40,17 +40,17 @@ Prior to adding the Telerik components, ensure the corresponding technology stac
 
 The process for adding Telerik UI for Blazor in the WinForms/WPF/MAUI app is similar to including the components in a native Blazor app.
 
-#### 1. Get the `Telerik UI for Blazor` package
+### 1. Get the `Telerik UI for Blazor` package
 
 To use the  UI for Blazor components you need to install the `Telerik.UI.for.Blazor` package and include its reference in the `.csproj` file of the app. [Read more on where to get the `Telerik.UI.for.Blazor` package...]({%slug getting-started/what-you-need%}#get-the-telerik-packages)
 
-#### 2. Add the Telerik client assets
+### 2. Add the Telerik client assets
 
 To have the Telerik Blazor components look and behave as expected, you need the Telerik [CSS and JavaScript assets]({%slug getting-started/what-you-need%}#client-assets). Include the assets inside the `<head>` of the `wwwroot/index.html` file.
 
 You may add the Telerik resources as [static assets]({%slug getting-started/what-you-need%}#static-assets) or reference them from a [cloud CDN]({%slug getting-started/what-you-need%}#cdn).
 
-#### 3. Include `@using` statements 
+### 3. Include `@using` statements 
 
 You can set the project to recognize all Telerik components without explicit `@using `statements on every `.razor` file. To achieve this, add the following to your `~/_Imports.razor`file:
 
@@ -60,7 +60,7 @@ You can set the project to recognize all Telerik components without explicit `@u
 @using Telerik.Blazor.Services
 ````
 
-#### 4. Add the `TelerikRootComponent`
+### 4. Add the `TelerikRootComponent`
 
 You must add a `TelerikRootComponent` component as a top-level component in the app to make sure it wraps all the content. At the time of writing, custom layouts are not supported, so you can add it to the:
 
@@ -71,7 +71,7 @@ Make sure that the `TelerikRootComponent` matches the webview viewport. Remove t
 
 Once custom layouts are supported, you will be able to configure a Telerik layout in the same way as with regular Blazor web apps (check [Common Configuration]({%slug getting-started/what-you-need%}#common-configuration)).
 
-#### 5. Add the UI for Blazor components
+### 5. Add the UI for Blazor components
 
 Add your desired Telerik Blazor components in the app as in a native Blazor app. Explore the available UI for Blazor components and their features in our [live demos](https://demos.telerik.com/blazor-ui).
 
@@ -87,7 +87,7 @@ You can now run the hybrid application. Refer to the following resources for eac
 
 ## Notes
 
-* There is no debugging protocol exposed for the webview, so inspecting content and debugging is difficult.
+* There is no debugging protocol exposed for the WebView.
 * The Blazor web app code cannot make calls to native APIs. This feature is yet to be exposed by the framework. At the moment, you have to write your own calls to services and native app code that you need to explicitly expose.
 * The WebView is not on the [list of officially supported browsers by Telerik UI for Blazor]({%slug browser-support%}). It has its specifics and differences from a standalone browser. The hybrid Blazor app integration should be considered a proof-of-concept for the time being. We will monitor the framework maturity and consider adding the webview to the list of supported environments.
 
