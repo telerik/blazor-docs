@@ -10,7 +10,7 @@ position: 270
 
 # UI for Blazor in Hybrid Apps
 
-The [WebView](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-net-6-preview-3/#blazorwebview-controls-for-wpf-windows-forms) feature available as of .NET 6.0 now allows you to embed Blazor components into native MAUI, WPF and WinForms apps.
+The [WebView](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-net-6-preview-3/#blazorwebview-controls-for-wpf-windows-forms) feature available since .NET 6.0 allows you to embed Blazor components in native MAUI, WPF and WinForms apps.
 
 This article provides details on how to setup the apps to use the Telerik UI for Blazor components.
 
