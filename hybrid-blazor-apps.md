@@ -67,7 +67,7 @@ You must add a `TelerikRootComponent` component as a top-level component in the 
 * `Shared/MainLayout.razor` for MAUI apps
 * `Main.razor` for WPF and WinForms apps
 
-Make sure that the `TelerikRootComponent` matches the webview viewport. You might need to remove the default margin and padding from the body to ensure the content matches the viewport.
+Make sure that the `TelerikRootComponent` matches the webview viewport. Remove the default margin of the `<body>` HTML element.
 
 Once custom layouts are supported, you will be able to configure a Telerik layout in the same way as with regular Blazor web apps (check [Common Configuration]({%slug getting-started/what-you-need%}#common-configuration)).
 
