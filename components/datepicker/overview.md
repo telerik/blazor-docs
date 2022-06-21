@@ -101,16 +101,39 @@ You can find more options for customizing the Date Picker styling in the [Appear
 
 Add a reference to the component instance to use the [Date Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDatePicker-1).
 
-````CSHTML
-@using Telerik.Blazor.Components
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-<TelerikDatePicker @ref="theDatePicker" @bind-Value="datePickerValue"></TelerikDatePicker>
+| Method | Description |
+| --- | --- |
+| `Close` | Closes the Calendar popup. |
+| `FocusAsync` | Focuses the Date Picker textbox. |
+| `NavigateTo` | Navigates to a specified date and view. The method expects a `DateTime` and `CalendarView` arguments. |
+| `Open` | Opens the Calendar popup. |
+| `Refresh` | Re-renders the Calendar popup. |
+
+````CSHTML
+<TelerikDatePicker @ref="@Picker"
+                   @bind-Value="@PickerValue"
+                   Width="200px" />
+
+<TelerikButton OnClick="@FocusPicker">Focus DatePicker</TelerikButton>
+<TelerikButton OnClick="@OpenPicker">Open DatePicker</TelerikButton>
 
 @code  {
-    DateTime datePickerValue { get; set; } = DateTime.Now;
+    DateTime PickerValue { get; set; } = DateTime.Now;
 
-    Telerik.Blazor.Components.TelerikDatePicker<DateTime> theDatePicker;
-    // The type of the component depends on the type of the value.
+    // the component type depends on the value type
+    TelerikDatePicker<DateTime> Picker { get; set; }
+
+    async Task FocusPicker()
+    {
+        await Picker.FocusAsync();
+    }
+
+    void OpenPicker()
+    {
+        Picker.Open();
+    }
 }
 ````
 

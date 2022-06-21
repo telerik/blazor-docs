@@ -12,6 +12,8 @@ position: 15
 
 The `<HeaderTemplate>` allows you to customize the header of the calendar popup. If the application defines this template, the component will not render any of the built-in buttons and labels in the calendar header area.
 
+The example below is using a [DatePicker reference and methods]({%slug components/datepicker/overview%}#component-reference).
+
 >caption Header template with custom content in the DatePicker Calendar header
 
 ````CSHTML

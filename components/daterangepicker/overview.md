@@ -96,21 +96,46 @@ You can find more options for customizing the Date Range Picker styling in the [
 
 Add a reference to the component instance to use the [Date Range Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1).
 
-````CSHTML
-@using Telerik.Blazor.Components
+| Method | Description |
+| --- | --- |
+| `Close` | Closes the Calendar popup. |
+| `FocusStartAsync` | Focuses the Date Range Picker start value textbox. |
+| `FocusEndAsync` | Focuses the Date Range Picker end value textbox. |
+| `NavigateTo` | Navigates to a specified date and view. The method expects a `DateTime` and `CalendarView` arguments. |
+| `Open` | Opens the Calendar popup. |
+| `Refresh` | Re-renders the Calendar popup. |
 
-<TelerikDateRangePicker @ref="theDateRangePicker"
+
+````CSHTML
+<TelerikButton OnClick="@FocusStart">Focus Start TextBox</TelerikButton>
+<TelerikButton OnClick="@FocusEnd">Focus End TextBox</TelerikButton>
+<TelerikButton OnClick="@OpenPicker">Open DateRangePicker</TelerikButton>
+
+<TelerikDateRangePicker @ref="@Picker"
                         @bind-StartValue="@StartValue"
-                        @bind-EndValue="@EndValue">
-</TelerikDateRangePicker>
+                        @bind-EndValue="@EndValue" />
 
 @code {
-    public DateTime StartValue { get; set; } = DateTime.Now;
-    public DateTime EndValue { get; set; } = DateTime.Now.AddDays(10);
+    DateTime StartValue { get; set; } = DateTime.Now;
+    DateTime EndValue { get; set; } = DateTime.Now.AddDays(10);
 
-    // the type of the component depends on the type of the value
-    // in this case it is DateTime, but it could be DateTime?
-    Telerik.Blazor.Components.TelerikDateRangePicker<DateTime> theDateRangePicker;
+    // the component type depends on the value type, could be also DateTime?
+    TelerikDateRangePicker<DateTime> Picker { get; set; }
+
+    async Task FocusStart()
+    {
+        await Picker.FocusStartAsync();
+    }
+
+    async Task FocusEnd()
+    {
+        await Picker.FocusEndAsync();
+    }
+
+    void OpenPicker()
+    {
+        Picker.Open();
+    }
 }
 ````
 
