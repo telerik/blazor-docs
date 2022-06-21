@@ -92,7 +92,7 @@ You can find more options for customizing the Date Range Picker styling in the [
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
-## Component Reference
+## DateRangePicker Reference and Methods
 
 Add a reference to the component instance to use the [Date Range Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1).
 

@@ -97,7 +97,7 @@ You can find more options for customizing the Date Picker styling in the [Appear
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
-## Component Reference
+## DatePicker Reference and Methods
 
 Add a reference to the component instance to use the [Date Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDatePicker-1).
 

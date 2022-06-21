@@ -12,6 +12,8 @@ position: 10
 
 The `<HeaderTemplate>` allows you to customize the header of the calendar. If the application defines this template, the component will not render any of the built-in buttons and labels in the header area.
 
+The example below is using a [Calendar reference and methods]({%slug components/calendar/overview%}#calendar-reference-and-methods).
+
 >caption Use custom rendering in the Calendar header
 
 ````CSHTML

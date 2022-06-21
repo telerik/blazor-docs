@@ -71,20 +71,44 @@ You can display a wider range of dates by rendering multiple instances of the Ca
 
 The Calendar generates events that you can handle and further customize ist behavior. [Read more about the Blazor Calendar events...]({%slug components/calendar/events%}).
 
-## Calendar Reference
+## Calendar Reference and Methods
 
-Add a reference to an instance of the Blazor Calendar to use its methods.
+Add a reference to the component instance to use the [Calendar methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `NavigateTo` | Navigates to a specified date and view. The method expects a `DateTime` and `CalendarView` arguments. |
+| `Refresh` | Re-renders the Calendar. |
 
 ````CSHTML
-@using Telerik.Blazor.Components
+<p>
+    <TelerikButton OnClick="@GoToPreviousMonth">Go To Previous Month</TelerikButton>
+    <TelerikButton OnClick="@GoToNextMonth">Go To Next Month</TelerikButton>
+</p>
 
-<TelerikCalendar @ref="myCalendarReference">
-</TelerikCalendar>
+<TelerikCalendar @ref="@Calendar"
+                 @bind-Value="@CalendarValue"
+                 @bind-Date="@CalendarDate" />
 
 @code {
-    Telerik.Blazor.Components.TelerikCalendar myCalendarReference;
+    TelerikCalendar Calendar { get; set; }
+    DateTime CalendarValue { get; set; } = DateTime.Now;
+    DateTime CalendarDate { get; set; } = DateTime.Now;
+
+    void GoToPreviousMonth()
+    {
+        Calendar.NavigateTo(CalendarDate.AddMonths(-1), CalendarView.Month);
+    }
+
+    void GoToNextMonth()
+    {
+        Calendar.NavigateTo(CalendarDate.AddMonths(1), CalendarView.Month);
+    }
 }
 ````
+
 ## Next Steps
 
 * [Configuring the Date Selection]({%slug components/calendar/selection%})
