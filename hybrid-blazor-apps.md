@@ -29,7 +29,6 @@ This article provides details on how to setup the apps to use the Telerik UI for
 
 Prior to adding the Telerik components, ensure the corresponding technology stack is setup and the basic Hybrid Blazor WebView runs as expected in it.
 
-You need the following prerequisites:
 
 1. Install the latest version of [.NET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0). It requires [Visual Studio 2022 Preview for Windows](https://visualstudio.microsoft.com/vs/preview/) or for [Mac](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2019-mac-preview-relnotes).
 
