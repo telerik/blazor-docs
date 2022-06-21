@@ -30,23 +30,23 @@ The `<HeaderTemplate>` allows you to customize the header of the calendar popup.
 </TelerikDatePicker>
 
 @code {
-    private TelerikDatePicker<DateTime> Picker { get; set; }
-    private DateTime PickerValue { get; set; } = DateTime.Now.AddMonths(-2);
-    private DateTime ViewDate { get; set; } = DateTime.Now.AddMonths(-2);
+    TelerikDatePicker<DateTime> Picker { get; set; }
+    DateTime PickerValue { get; set; } = DateTime.Now.AddMonths(-2);
+    DateTime ViewDate { get; set; } = DateTime.Now.AddMonths(-2);
 
-    private void GoToPrevious()
+    void GoToPrevious()
     {
         ViewDate = ViewDate.AddMonths(-1);
         Picker.NavigateTo(ViewDate, CalendarView.Month);
     }
 
-    private void SelectToday()
+    void SelectToday()
     {
         PickerValue = DateTime.Today;
         Picker.Close();
     }
 
-    private void GoToNext()
+    void GoToNext()
     {
         ViewDate = ViewDate.AddMonths(1);
         Picker.NavigateTo(ViewDate, CalendarView.Month);

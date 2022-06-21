@@ -28,21 +28,21 @@ The `<HeaderTemplate>` allows you to customize the header of the calendar. If th
 </TelerikCalendar>
 
 @code {
-    private DateTime CalendarValue { get; set; } = DateTime.Now;
-    private DateTime CalendarDate { get; set; } = DateTime.Now;
+    DateTime CalendarValue { get; set; } = DateTime.Now;
+    DateTime CalendarDate { get; set; } = DateTime.Now;
 
-    private void GoToPrevious()
+    void GoToPrevious()
     {
         CalendarDate = CalendarDate.AddMonths(-1);
     }
 
-    private void SelectToday()
+    void SelectToday()
     {
         CalendarValue = DateTime.Today;
         CalendarDate = DateTime.Today;
     }
 
-    private void GoToNext()
+    void GoToNext()
     {
         CalendarDate = CalendarDate.AddMonths(1);
     }
