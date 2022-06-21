@@ -50,9 +50,13 @@ You can ensure that the component value is acceptable by using the built-in vali
 
 To restrict the user from writing dates in the input so that the end is after the start, you must implement a custom data annotation attribute (you can find an example in the article linked above). The DateRangePicker component does not do this out-of-the-box in order to provide smooth user experience - the code cannot know what the user intent is and they might fix the range if they are given the chance, so correcting the input immediately may prevent them from using it comfortably. The component can fully control the user experience in the popup calendar and it ensures there that the range values are valid (start is before the end). If the user chooses an end date before the start, this date becomes the new start and they can choose the end again.
 
+## Header Template
+
+The DateRangePicker allows you to customize the rendering of the Calendar popup header. Learn more from the [Header Template article]({%slug daterangepicker-header-template%}).
+
 ## Parameters
 
-The Blazor Date Range Picker provides various parameters that allow you to configure the component:
+The Blazor Date Range Picker provides various parameters that allow you to configure the component. Also check the [DateRangePicker's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -88,25 +92,52 @@ You can find more options for customizing the Date Range Picker styling in the [
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
-## Component Reference
+## DateRangePicker Reference and Methods
 
-Add a reference to the Date Range Picker instance to use its methods.
+Add a reference to the component instance to use the [Date Range Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `Close` | Closes the Calendar popup. |
+| `FocusStartAsync` | Focuses the Date Range Picker start value textbox. |
+| `FocusEndAsync` | Focuses the Date Range Picker end value textbox. |
+| `NavigateTo` | Navigates to a specified date and view. The method expects a `DateTime` and `CalendarView` arguments. |
+| `Open` | Opens the Calendar popup. |
+| `Refresh` | Re-renders the Calendar popup. |
+
 
 ````CSHTML
-@using Telerik.Blazor.Components
+<TelerikButton OnClick="@FocusStart">Focus Start TextBox</TelerikButton>
+<TelerikButton OnClick="@FocusEnd">Focus End TextBox</TelerikButton>
+<TelerikButton OnClick="@OpenPicker">Open DateRangePicker</TelerikButton>
 
-<TelerikDateRangePicker @ref="theDateRangePicker"
+<TelerikDateRangePicker @ref="@Picker"
                         @bind-StartValue="@StartValue"
-                        @bind-EndValue="@EndValue">
-</TelerikDateRangePicker>
+                        @bind-EndValue="@EndValue" />
 
 @code {
-    public DateTime StartValue { get; set; } = DateTime.Now;
-    public DateTime EndValue { get; set; } = DateTime.Now.AddDays(10);
+    DateTime StartValue { get; set; } = DateTime.Now;
+    DateTime EndValue { get; set; } = DateTime.Now.AddDays(10);
 
-    // the type of the component depends on the type of the value
-    // in this case it is DateTime, but it could be DateTime?
-    Telerik.Blazor.Components.TelerikDateRangePicker<DateTime> theDateRangePicker;
+    // the component type depends on the value type, could be also DateTime?
+    TelerikDateRangePicker<DateTime> Picker { get; set; }
+
+    async Task FocusStart()
+    {
+        await Picker.FocusStartAsync();
+    }
+
+    async Task FocusEnd()
+    {
+        await Picker.FocusEndAsync();
+    }
+
+    void OpenPicker()
+    {
+        Picker.Open();
+    }
 }
 ````
 

@@ -51,6 +51,10 @@ The Blazor Date Picker generates events that you can handle and further customiz
 
 You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...]({%slug common-features/input-validation%}).
 
+## Header Template
+
+The DatePicker allows you to customize the rendering of the Calendar popup header. Learn more from the [Header Template article]({%slug datepicker-header-template%}).
+
 ## Parameters
 
 The Blazor Date Picker provides various parameters that allow you to configure the component:
@@ -93,20 +97,43 @@ You can find more options for customizing the Date Picker styling in the [Appear
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
-## Component Reference
+## DatePicker Reference and Methods
 
-Add a reference to the Date Picker instance to use its methods.
+Add a reference to the component instance to use the [Date Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDatePicker-1).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `Close` | Closes the Calendar popup. |
+| `FocusAsync` | Focuses the Date Picker textbox. |
+| `NavigateTo` | Navigates to a specified date and view. The method expects a `DateTime` and `CalendarView` arguments. |
+| `Open` | Opens the Calendar popup. |
+| `Refresh` | Re-renders the Calendar popup. |
 
 ````CSHTML
-@using Telerik.Blazor.Components
+<TelerikDatePicker @ref="@Picker"
+                   @bind-Value="@PickerValue"
+                   Width="200px" />
 
-<TelerikDatePicker @ref="theDatePicker" @bind-Value="datePickerValue"></TelerikDatePicker>
+<TelerikButton OnClick="@FocusPicker">Focus DatePicker</TelerikButton>
+<TelerikButton OnClick="@OpenPicker">Open DatePicker</TelerikButton>
 
 @code  {
-    DateTime datePickerValue { get; set; } = DateTime.Now;
+    DateTime PickerValue { get; set; } = DateTime.Now;
 
-    Telerik.Blazor.Components.TelerikDatePicker<DateTime> theDatePicker;
-    // The type of the component depends on the type of the value.
+    // the component type depends on the value type
+    TelerikDatePicker<DateTime> Picker { get; set; }
+
+    async Task FocusPicker()
+    {
+        await Picker.FocusAsync();
+    }
+
+    void OpenPicker()
+    {
+        Picker.Open();
+    }
 }
 ````
 

@@ -59,6 +59,10 @@ The Calendar navigation allows the user to navigate through several views that r
 
 The Calendar allows you to configure every aspect of the date selection. You can control whether the user can select only one or more dates. You can create a collection of disabled dates so that the user cannot select from them or define selectable ranges of days. [Read more about the Calendar selection...]({%slug components/calendar/selection%})
 
+## Templates
+
+The Calendar provides different types of templates to customize the component's content and styling. These include [month cell, year cell, decade cell, century cell and header templates]({%slug calendar-templates-overview%}).
+
 ## Multiple Views
 
 You can display a wider range of dates by rendering multiple instances of the Calendar so that the users can find the desired date easier. [Read more about the multiple views in the Calendar...]({%slug components/calendar/multiview%})
@@ -67,20 +71,44 @@ You can display a wider range of dates by rendering multiple instances of the Ca
 
 The Calendar generates events that you can handle and further customize ist behavior. [Read more about the Blazor Calendar events...]({%slug components/calendar/events%}).
 
-## Calendar Reference
+## Calendar Reference and Methods
 
-Add a reference to an instance of the Blazor Calendar to use its methods.
+Add a reference to the component instance to use the [Calendar methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `NavigateTo` | Navigates to a specified date and view. The method expects a `DateTime` and `CalendarView` arguments. |
+| `Refresh` | Re-renders the Calendar. |
 
 ````CSHTML
-@using Telerik.Blazor.Components
+<p>
+    <TelerikButton OnClick="@GoToPreviousMonth">Go To Previous Month</TelerikButton>
+    <TelerikButton OnClick="@GoToNextMonth">Go To Next Month</TelerikButton>
+</p>
 
-<TelerikCalendar @ref="myCalendarReference">
-</TelerikCalendar>
+<TelerikCalendar @ref="@Calendar"
+                 @bind-Value="@CalendarValue"
+                 @bind-Date="@CalendarDate" />
 
 @code {
-    Telerik.Blazor.Components.TelerikCalendar myCalendarReference;
+    TelerikCalendar Calendar { get; set; }
+    DateTime CalendarValue { get; set; } = DateTime.Now;
+    DateTime CalendarDate { get; set; } = DateTime.Now;
+
+    void GoToPreviousMonth()
+    {
+        Calendar.NavigateTo(CalendarDate.AddMonths(-1), CalendarView.Month);
+    }
+
+    void GoToNextMonth()
+    {
+        Calendar.NavigateTo(CalendarDate.AddMonths(1), CalendarView.Month);
+    }
 }
 ````
+
 ## Next Steps
 
 * [Configuring the Date Selection]({%slug components/calendar/selection%})

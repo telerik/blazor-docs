@@ -5,7 +5,7 @@ description: Steps for changing the value in the Date Picker for Blazor.
 slug: datepicker-steps
 tags: telerik,blazor,Datepicker,step
 published: true
-position: 15
+position: 10
 ---
 
 # Steps
