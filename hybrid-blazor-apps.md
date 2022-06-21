@@ -89,7 +89,7 @@ You can now run the application in the expected for the technology stack way, fo
 
 * There is no debugging protocol exposed for the webview, so inspecting content and debugging is difficult.
 * The Blazor web app code cannot make calls to native APIs. This feature is yet to be exposed by the framework. At the moment, you have to write your own calls to services and native app code that you need to explicitly expose.
-* The WebView is not on the [list of officially supported browsers by Telerik UI for Blazor]({%slug browser-support%}). It has its specifics and differences from a standalone browser, and the hybrid blazor app integration should be considered a proof-of-concept for the time being. As the technology and framework matures, we will be monitoring it and we will consider adding it to the list of officially supported environments.
+* The WebView is not on the [list of officially supported browsers by Telerik UI for Blazor]({%slug browser-support%}). It has its specifics and differences from a standalone browser. The hybrid Blazor app integration should be considered a proof-of-concept for the time being. We will monitor the framework maturity and consider adding the webview to the list of supported environments.
 
 >caption Known issues:
 
