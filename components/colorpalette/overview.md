@@ -14,7 +14,7 @@ The <a href = "https://www.telerik.com/blazor-ui/colorpalette" target="_blank">B
 
 If unlimited choice of colors is preferred, consider the [ColorGradient component]({%slug colorgradient-overview%}) instead.
 
-## Creating Blazor RadioGroup
+## Creating Blazor ColorPalette
 
 1. Add the `<TelerikColorPalette>` tag to a Razor file.
 1. Set the `Value` parameter to a `string` object. It supports one-way and two-way binding.
