@@ -77,4 +77,4 @@ This JavaScript error may occur after UI for Blazor update in WebAssembly (WASM)
 
 ## Object doesn't support property or method 'assign'
 
-Under IE, you may get errors similar to `Object doesn't support property or method 'assign'` or errors that relate other modern JS features that are not supported under IE. The reason is that we use modern code that may not work under IE - it is not one of the [browsers we support]({%slug browser-support%}), and WebAssembly does not work on it anyway, so modern Blazor apps won't run on IE regardless.
+Under IE, you may get errors similar to `Object doesn't support property or method 'assign'` or errors that relate other modern JS features that are not supported under IE. The reason is that we use modern code that may not work under IE - it is not one of the [browsers we support]({%slug system-requirements%}#browser-support), and WebAssembly does not work on it anyway, so modern Blazor apps won't run on IE regardless.
