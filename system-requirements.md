@@ -52,6 +52,8 @@ A **compatible .NET version** is one that is *no longer* (or *not yet*) official
 | .NET 5 | 2.19.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET Code 3.1 | 2.5.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 
+>warning We recommend using **supported** .NET versions in production applications. This guarantees stability, maintenance, and security patches.
+
 ### Preview .NET Versions
 
 Telerik UI for Blazor is committed to the currently supported official versions of .NET. We evaluate the compatibility with preview .NET versions on a regular basis and provide support for new .NET versions after their official release becomes available.
