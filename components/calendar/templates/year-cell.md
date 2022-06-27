@@ -21,7 +21,7 @@ The template receives the `DateTime` corresponding to its cell.
 ````CSHTML
 @* This example adds an icon for certain months *@
 
-<TelerikCalendar Date="@startDate" @bind-View="@theView">
+<TelerikCalendar @bind-Date="@startDate" @bind-View="@theView">
     <YearCellTemplate>
         @if (monthsWithEvents.Contains(context.Month))
         {

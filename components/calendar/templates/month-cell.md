@@ -21,7 +21,7 @@ The template receives the `DateTime` corresponding to its cell.
 ````CSHTML
 @* This example adds an icon for certain days *@
 
-<TelerikCalendar Date="@startDate">
+<TelerikCalendar @bind-Date="@startDate">
     <MonthCellTemplate>
         @if (IsSpecialDay(context))
         {
