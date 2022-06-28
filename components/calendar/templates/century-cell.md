@@ -21,7 +21,7 @@ The template receives the `DateTime` corresponding to its cell start year.
 ````CSHTML
 @* This example highlights certain decades *@
 
-<TelerikCalendar Date="@startDate" @bind-View="@theView">
+<TelerikCalendar @bind-Date="@startDate" @bind-View="@theView">
     <CenturyCellTemplate>
         <span style="color: @( ShouldHighlight(context.Year) ? "red" : "inherit" )">
             @(context.Year)s

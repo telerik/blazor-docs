@@ -56,7 +56,7 @@ You can find examples of both below.
 ````CSHTML
 @* With single selection, you can use two-way binding of the selected date *@
 
-<TelerikCalendar Date="@startDate"
+<TelerikCalendar @bind-Date="@startDate"
                  @bind-Value="@SelectedDate"
                  SelectionMode="@CalendarSelectionMode.Single">
 </TelerikCalendar>
@@ -76,7 +76,7 @@ You can find examples of both below.
 ````CSHTML
 @* This example shows how to handle Single selection *@
 
-<TelerikCalendar Date="@startDate"
+<TelerikCalendar @bind-Date="@startDate"
                  SelectionMode="@CalendarSelectionMode.Single"
                  ValueChanged="SelectionHandler">
 </TelerikCalendar>
