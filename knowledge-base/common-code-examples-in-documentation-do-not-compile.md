@@ -39,5 +39,6 @@ To solve this, clean the site data:
 1. Go to `Application` tab
 1. Select `Storage`
 1. Click the `Clear site data` button
+1. Refresh the page
 
 ![](images/clear-site-data.png)
