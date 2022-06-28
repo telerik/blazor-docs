@@ -31,7 +31,7 @@ When handling the `DateChanged` event, you cannot use two-way binding for the `D
 ````CSHTML
 @result
 <br />
-<TelerikCalendar Min="@min" Max="@max" Date="@initialDate" DateChanged="@DateChangedHandler">
+<TelerikCalendar Min="@min" Max="@max" @bind-Date="@initialDate" DateChanged="@DateChangedHandler">
 </TelerikCalendar>
 
 @code {
