@@ -50,7 +50,6 @@ A **compatible .NET version** is one that is *no longer* (or *not yet*) official
 | --- | --- | --- |
 | .NET 7 Preview ([see below](#preview-net-versions)) | 3.3.0 | N/A |
 | .NET 5 | 2.19.0 | {{site.uiForBlazorLatestVersion}} (current official) |
-| .NET Core 3.1 | 2.5.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 
 >warning We recommend using only **supported** .NET versions in production applications. This enables stability, maintenance, security patches and performance improvements.
 
