@@ -27,7 +27,7 @@ Razor Class Libraries may target `netstandard2.0` by default, so you need to upd
 
 ### Supported .NET Versions
 
-A **supported .NET version** is one that will successfully run our NuGet package and Telerik Blazor components. We don't expect any .NET-related issues, but if such issues occur, we will resolve them.
+A **supported .NET version** is one that is [officially supported by Microsoft](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core). It will successfully run our NuGet package and Telerik Blazor components. We don't expect any .NET-related issues, but if such issues occur, we will resolve them.
 
 >caption .NET versions that are supported by Telerik UI for Blazor
 
