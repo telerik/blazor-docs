@@ -36,7 +36,7 @@ A **supported .NET version** is one that will successfully run our NuGet package
 | .NET version | First UI for Blazor Version | Last UI for Blazor Version |
 | --- | --- | --- |
 | .NET 6 | 2.29.0 | {{site.uiForBlazorLatestVersion}} (current official) |
-| .NET Code 3.1 | 2.5.0 | {{site.uiForBlazorLatestVersion}} (current official) |
+| .NET Core 3.1 | 2.5.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 
 ### Compatible .NET Versions
 
