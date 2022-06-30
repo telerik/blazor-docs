@@ -30,9 +30,11 @@ I want a close button on my tabs so the use can remove (close) them. When that h
 
 1. Have conditional logic to display only the tab you want (for example, loop over a collection of tab descriptor classes, see an example in <a href="https://github.com/telerik/blazor-ui/tree/master/tabstrip/DynamicTabs" target="_blank">this sample project</a>).
 
+1. Stop the propagation of the `@onclick` event on the custom button. 
+
 1. Handle the [`ActiveTabIndexChanged` event]({%slug tabstrip-events%}) explicitly to update the selected tab index
 
-1. In the Close button click handler, raise a flag to suppress the view-model update by the `ActiveTabIndexChanged` event handler - the TabStrip component will raise this event with an index of `-1` when you remove a tab because it will no longer have a selected tab
+1. In the Close button click handler use the [`Visible` parameter]({%slug tabstrip-tabs-configuration%}#visible) to hide the tab.
 
 >caption Close button on a tab
 
@@ -46,10 +48,14 @@ Currently active tab index: @ActiveTabIndex
     @{
         foreach (TabModel tab in Tabs)
         {
-            <TabStripTab Title="@tab.Title">
+            <TabStripTab Title="@tab.Title" Visible="@tab.isVisibleTab">
                 <HeaderTemplate>
                     <strong>@tab.Title</strong>
-                    <button type="button" class="close ml-1" aria-label="Close" @onclick="@( () => CloseTab(tab))">
+                    <button type="button"
+                    class="close ml-1"
+                    aria-label="Close"
+                        @onclick:stopPropagation
+                        @onclick="@( () => CloseTab(tab))">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </HeaderTemplate>
@@ -61,45 +67,37 @@ Currently active tab index: @ActiveTabIndex
     }
 </TelerikTabStrip>
 
-@code{
+@code {
     int ActiveTabIndex { get; set; } // we use it to set the new index we want active
-    bool suppressActiveIndexChange { get; set; } // the flag to suppress the view-model update
-    
+
     // sample collection of tab descriptors
     List<TabModel> Tabs = new List<TabModel>()
     {
-        new TabModel { Title = "One" },
-        new TabModel { Title = "Two" },
-        new TabModel { Title = "Three" }
+        new TabModel { Title = "One", isVisibleTab = true },
+        new TabModel { Title = "Two", isVisibleTab = true },
+        new TabModel { Title = "Three", isVisibleTab = true }
     };
 
     protected void CloseTab(TabModel tab)
     {
-        // use a flag to avoid the automatic change that will happen
-        suppressActiveIndexChange = true;
-        
         // update the active tab index only if needed - closing tabs to the right will not affect the current index
         if (Tabs.IndexOf(tab) <= ActiveTabIndex)
         {
             ActiveTabIndex = ActiveTabIndex > 0 ? ActiveTabIndex - 1 : 0;
         }
 
-        Tabs.Remove(tab);
+        tab.isVisibleTab = false;
     }
 
     void TabIndexChangedHandler(int currIndex)
     {
-        if (!suppressActiveIndexChange)
-        {
-            ActiveTabIndex = currIndex;
-        }
-        suppressActiveIndexChange = false;
+        ActiveTabIndex = currIndex;
     }
 
     public class TabModel
     {
         public string Title { get; set; }
-        // add more fields here to use in a more complex layout and child components
+        public bool isVisibleTab { get; set; }
     }
 }
 ````
