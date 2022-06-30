@@ -12,9 +12,7 @@ position: 3
 
 The `Content` of the Wizard is a `ChildContent` of the `WizardStep`. While it is a common use case to integrate a Form in the Wizard Content, it can also contain any type of HTML content including various Telerik components as needed to cover your desired scenario.
 
->caption Include your desired content in the Wizard Content tag. The result from the snippet.
-
-![Wizard content](images/wizard-content-example.gif)
+>caption Wizard step content example
 
 ````CSHTML
 @* Include the desired content for the Wizard Steps *@
@@ -63,4 +61,4 @@ The `Content` of the Wizard is a `ChildContent` of the `WizardStep`. While it is
 
 ## See Also
 
-  * [Live Demos: Wizard Overview](https://demos.telerik.com/blazor-ui/wizard/overview)
+* [Live Demos: Wizard Overview](https://demos.telerik.com/blazor-ui/wizard/overview)

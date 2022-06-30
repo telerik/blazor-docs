@@ -17,9 +17,7 @@ The Wizard component allows you to control its layout. By default, the internal 
 * `Left`
 * `Right`
 
->caption Customize the Wizard layout. The result from the snippet below.
-
-![Wizard layout](images/wizard-layout-example.png)
+>caption Customize the Wizard layout
 
 ````CSHTML
 @* Change the position of the internal Stepper to Left *@
@@ -55,4 +53,4 @@ The Wizard component allows you to control its layout. By default, the internal 
 
 ## See Also
 
-  * [Live Demos: Wizard Configuration](https://demos.telerik.com/blazor-ui/wizard/configuration)
+* [Live Demos: Wizard Configuration](https://demos.telerik.com/blazor-ui/wizard/configuration)

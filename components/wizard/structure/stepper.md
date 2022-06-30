@@ -27,7 +27,7 @@ You can use the parameters the `WizardStep` exposes to customize the following p
     * [Valid](#valid)
 
 
-## General Stepper settings
+## General Stepper Settings
 
 You can set the desired general settings of the internal Stepper through the parameters of the `WizardStepperSettings` tag under the `WizardSettings` tag including `StepType` and `Linear` flow.
 
@@ -35,17 +35,12 @@ You can set the desired general settings of the internal Stepper through the par
 
 Much like the Stepper component, the internal Stepper of the Wizard provides two [display modes]({%slug stepper-display-modes%}) for the steps. You can configure the desired display mode through the `StepType` parameter of the `WizardStepperSettings` which takes a member of the `StepperStepType` enum:
 
-* `Steps` (the default) - the Stepper will render both indicators and labels
+* `Steps` (default) - the Stepper will render both indicators and labels
 * `Labels` - the Stepper will render only labels
 
->caption Set up the display mode:Labels. The result from the snippet below.
-
-![StepType](images/steptype-example.png)
-
+>caption Set up the Wizard to display step labels only
 
 ````CSHTML
-@* Configure the StepType of the Wizard to display only labels *@
-
 <div style="text-align:center">
     <TelerikWizard Width="600px" Height="250px">
         <WizardSettings>
@@ -114,8 +109,7 @@ You can enable/disable the Linear flow of the Wizard Stepper through the `Linear
 </div>
 ````
 
-
-## Individual Stepper settings
+## Individual Stepper Settings
 
 ### Indicators
 
@@ -128,10 +122,7 @@ You can configure the content that will be rendered in the step indicators of th
 
 The priority and rules applied for their rendering is the same as for the [Stepper component indicators]({%slug stepper-indicators%}).
 
->caption Set up the desired content for the Wizard Stepper indicators. The result from the snippet below.
-
-![Wizard Stepper Indicators](images/wizard-stepper-indicators-example.png)
-
+>caption Set up the desired content for the Wizard Stepper indicators.
 
 ````CSHTML
 @* Configure the indicators of the Wizard Stepper *@
@@ -168,11 +159,7 @@ The priority and rules applied for their rendering is the same as for the [Stepp
 
 The Wizard Stepper allows you to set labels for the corresponding step indicators following the [Stepper component Labels]({%slug stepper-labels%}) practice. You can define the desired labels through the `Label` parameter the `WizardStep` exposes. If you don't set value to the `Label` parameter, no label will be rendered for the corresponding step indicator.
 
-
->caption Set up the desired labels for the Wizard Stepper steps. The result from the snippet below.
-
-![Wizard Stepper Labels](images/wizard-stepper-labels-example.png)
-
+>caption Set up the desired labels for the Wizard Stepper steps.
 
 ````CSHTML
 @* Configure the labels of the Wizard Stepper *@
@@ -206,9 +193,7 @@ Likewise the [Stepper component Optional property]({%slug stepper-state%}#option
 
 To mark a Wizard step as optional, set the `Optional` parameter of the `WizardStep` to `true` (its default value is `false`). This configuration strives to visually notify the user that a certain step is not required by rendering "(Optional)" text underneath the corresponding step. It doesn't come with a built-in functionality to skip the Wizard step if a [linear flow](#linear-flow) is enabled.
 
->caption Set an optional step in the Wizard Stepper. The result from the snippet below.
-
-![Wizard Stepper Optional step](images/wizard-stepper-optional-step-example.png)
+>caption Set an optional step in the Wizard Stepper
 
 ````CSHTML
 @* Set up an optional Wizard step *@
@@ -363,4 +348,4 @@ You can toggle the `Valid` parameter value based on your application logic to ac
 
 ## See Also
 
-  * [Live Demos: Wizard Configuration](https://demos.telerik.com/blazor-ui/wizard/configuration)
+* [Live Demos: Wizard Configuration](https://demos.telerik.com/blazor-ui/wizard/configuration)
