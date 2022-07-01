@@ -57,7 +57,6 @@ You can set the project to recognize all Telerik components without explicit `@u
 ````
 @using Telerik.Blazor
 @using Telerik.Blazor.Components
-@using Telerik.Blazor.Services
 ````
 
 ### 4. Add the `TelerikRootComponent`
@@ -70,6 +69,44 @@ You must add a `TelerikRootComponent` component as a top-level component in the 
 Make sure that the `TelerikRootComponent` matches the webview viewport. Remove the default margin of the `<body>` HTML element.
 
 Once custom layouts are supported, you will be able to configure a Telerik layout in the same way as with regular Blazor web apps (check [Common Configuration]({%slug getting-started/what-you-need%}#common-configuration)).
+
+### 5. Register the Telerik Services
+
+The final step is to register the Telerik services. Add the Telerik services in accordance to the practice your native app requires.
+
+For example, in MAUI app, you register services in the `MauiProgram.cs`:
+
+````CSHTML
+namespace MyBlazorMauiAppName
+{
+    public static class MauiProgram
+    {
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .ConfigureFonts(fonts =>
+                {
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                });
+
+            builder.Services.AddMauiBlazorWebView();
+
+            // register the Telerik services
+            builder.Services.AddTelerikBlazor();
+
+#if DEBUG
+            builder.Services.AddBlazorWebViewDeveloperTools();
+#endif
+
+            builder.Services.AddSingleton<WeatherForecastService>();
+
+            return builder.Build();
+        }
+    }
+}
+````
 
 ### 5. Add the UI for Blazor components
 
@@ -87,7 +124,7 @@ You can now run the hybrid application. Refer to the following resources for eac
 
 ## Notes
 
-* There is no debugging protocol exposed for the WebView.
+* The hybrid MAUI Blazor apps allow using browser developer tools. [Learn how to enable and use them...](https://docs.microsoft.com/en-us/aspnet/core/blazor/hybrid/developer-tools?view=aspnetcore-6.0&pivots=windows)
 * The Blazor web app code cannot make calls to native APIs. This feature is yet to be exposed by the framework. At the moment, you have to write your own calls to services and native app code that you need to explicitly expose.
 * The WebView is not on the [list of officially supported browsers by Telerik UI for Blazor]({%slug browser-support%}). It has its specifics and differences from a standalone browser. The hybrid Blazor app integration should be considered a proof-of-concept for the time being. We will monitor the framework maturity and consider adding the webview to the list of supported environments.
 
