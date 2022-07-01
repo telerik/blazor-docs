@@ -266,7 +266,7 @@ This approach is suitable for both filter menu and filter row modes. It has the 
             {
                 Id = i,
                 TaskName = "Task Name " + i,
-                TaskStart = DateTime.Now.AddDays(-i).AddHours(-i).AddMinutes(-i * 5)
+                TaskStart = DateTime.Now.AddDays(-i / 2).AddHours(-i).AddMinutes(-i * 5)
             });
         }
 
