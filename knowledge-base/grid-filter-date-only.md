@@ -194,7 +194,7 @@ This approach is suitable for [`FilterRow` filter mode]({%slug grid-filter-row%}
             {
                 Id = i,
                 TaskName = "Task Name " + i,
-                TaskStart = DateTime.Now.AddDays(-i).AddHours(-i).AddMinutes(-i * 5)
+                TaskStart = DateTime.Now.AddDays(-i / 2).AddHours(-i).AddMinutes(-i * 5)
             });
         }
 
