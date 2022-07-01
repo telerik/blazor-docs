@@ -45,7 +45,7 @@ To download the automated `msi` (for Windows) or `pkg` (for Mac) installer:
 
 Once the download completes, run the downloaded file and follow the instructions.
 
->important The default installation path is `C:\Program Files (x86)\Progress\Telerik UI for Blazor <VERSION>\`. If you are **not** administrator of your machine, you might want to choose installation path to which you have full access (for example, Documents or Desktop folder). Thus, you will be able to successfully run and explore the offline version of our live demos that comes with the installer.
+>important The default installation path on Windows is `C:\Program Files (x86)\Progress\Telerik UI for Blazor <VERSION>\`. If you are **not** administrator of your machine, you might want to choose installation path to which you have full access (for example, the Documents or Desktop folder). Thus, you will be able to successfully run and explore the offline version of our live demos that comes with the installer.
 
 @[template](/_contentTemplates/common/get-started.md#setup-local-feed-vs)
 
