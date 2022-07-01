@@ -24,7 +24,7 @@ This article contains the following examples for generating the tooltip content:
 
 * [Separate component consumes the metadata and can even load content on demand](#separate-component-and-load-on-demand) from a database or other service. Load on demand is not mantadory, you can simply use the metadata in a fashion similar to the two other examples.
 
-## Basic example - inline markup
+## Basic Example - Inline Markup
 
 >caption Different content for different targets, generated from the same tooltip
 
@@ -56,8 +56,7 @@ This article contains the following examples for generating the tooltip content:
 </p>
 ````
 
-
-## Markup from generated string
+## Markup from Generated String
 
 >caption Generate tooltip content based on target metadata through a method
 
@@ -96,8 +95,7 @@ This article contains the following examples for generating the tooltip content:
 </p>
 ````
 
-
-## Separate component and load on demand
+## Separate Component and Load on Demand
 
 This examle shows how you can use a standalone component to generate the tooltip contents. It can also be used to load content on demand and you can find a more complete example in the [Tooltips with Load-on-demand in a Grid Row](https://github.com/telerik/blazor-ui/tree/master/tooltip/in-grid) sample project.
 
@@ -173,9 +171,7 @@ else
 }
 ````
 
-
 ## See Also
 
 * [Tooltip Overview]({%slug tooltip-overview%})
 * [Live Demo: Tooltip Template](https://demos.telerik.com/blazor-ui/tooltip/template)
-
