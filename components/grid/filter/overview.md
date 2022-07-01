@@ -127,5 +127,6 @@ The following articles and sample projects can be helpful when implementing filt
 
 ## See Also
 
-  * [Live Demo: Grid Filter Row](https://demos.telerik.com/blazor-ui/grid/filter-row)
-  * [Live Demo: Grid Filter Menu](https://demos.telerik.com/blazor-ui/grid/filter-menu)
+* [Live Demo: Grid Filter Row](https://demos.telerik.com/blazor-ui/grid/filter-row)
+* [Live Demo: Grid Filter Menu](https://demos.telerik.com/blazor-ui/grid/filter-menu)
+* [Filter the Grid by date only]({%slug grid-kb-filter-date-only%})
