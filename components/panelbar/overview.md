@@ -12,18 +12,8 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/panelbar" target="_blank">Blazor PanelBar component</a> displays [data]({%slug panelbar-data-binding-overview%}) ([flat]({%slug panelbar-data-binding-flat%}) or [hierarchical]({%slug panelbar-data-binding-hierarchical%})) in an accordion type structure. In addition to built-in [navigation capabilities]({%slug panelbar-navigation%}), you can navigate through the items and their children, define [templates]({%slug panelbar-templates%}), render text and [icons/images]({%slug panelbar-icons%}), and respond to [events]({%slug panelbar-events%}).
 
-
-
-#### In this article:
-
-* [Basics](#basics)
-
-* [Elements of a PanelBar Item](#elements-of-a-panelbar-item)
-
-
-## Basics
-
-To use a Telerik PanelBar for Blazor:
+ 
+## Creating Blazor PanelBar
 
 1. Add the `TelerikPanelBar` tag
 1. Provide a collection of models to its `Data` parameter (read more in the [Data Binding article]({%slug panelbar-data-binding-overview%}))
@@ -121,22 +111,9 @@ To use a Telerik PanelBar for Blazor:
 }
 ````
 
->caption The result from the snippet above
+## Data Binding
 
-![Basic example of panelbar](images/panelbar-basic-example.png)
-
->caption Component namespace and reference
-
-````CSHTML
-@* Get a reference to the PanelBar *@
-
-<TelerikPanelBar @ref="@PanelBarReference">
-</TelerikPanelBar>
-
-@code {
-    private Telerik.Blazor.Components.TelerikPanelBar PanelBarReference { get; set; }
-}
-````
+To show any items, the Blazor PanelBar requires a data source that you can provide through the `Data` property. The PanelBar allows you to display the items both as flat data and hierarchically. [Read more about the Blazor PanelBar data binding...]({%slug panelbar-data-binding-overview%})
 
 ## Elements of a PanelBar Item
 
@@ -147,6 +124,24 @@ You can customize their rendering through the corresponding [Header Template]({%
 The content represents the items in the hierarchy that do not have children. If the items have children and the ContentTemplate is defined, the template will not render. The header contains the Text of the correponding data item (model).
 
 ![panelbar parts](images/panelbar-parts-overview.png)
+
+## Navigation
+
+The PanelBar can be used to navigate between different pages in the application. [Read more about the Blazor PanelBar navigation...]({%slug panelbar-navigation%})
+
+## Icons
+
+To illustrate the purpose of each item, the Blazor PanelBar allows you to add images, icon classes, or font icons. [Read more about the Blazor PanelBar icons...]({%slug panelbar-icons%})
+
+## Events
+
+The Blazor PanelBar generates events that you can handle to respond to the user action. [Read more about the Blazor PanelBar events...]({%slug panelbar-events%})
+
+## Next Steps
+
+* [Binding PanelBar PanelBar to Data]({%slug panelbar-data-binding-overview%})
+
+* [Using the PanelBar to Navigate between Pages]({%slug panelbar-navigation%})
 
 
 ## See Also
