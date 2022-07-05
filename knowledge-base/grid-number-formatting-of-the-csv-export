@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I want to format numeric and date data of the exported CSV file. For example, set set specific currency format. How to achieve this?
+I want to format numbers and detes in the exported CSV file. For example, set specific currency format. How to achieve this?
 
 ## Solution
 
@@ -39,11 +39,11 @@ To format numeric and date cells of the exported file before it reaches the clie
 
 1. Handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
 
-1. [Import the new `MemoryStream` in a `workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider#import).
+1. Use a `CsvFormatProvider` instance to [import the new `MemoryStream` in a `workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider#import).
 
-1. Specify your desired [numeric formats](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/number-formats).
+1. Specify your preferred [numeric formats](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/number-formats).
 
-1. Select the desired cells - you can create a [CellSelection](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/accessing-cells-of-worksheet) or target whole columns.
+1. Select the desired cells - you can create a [CellSelection](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/accessing-cells-of-worksheet) or target whole columns by their index.
 
 1. [Apply the specified number formats](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/number-formats#applying-a-number-format) to the selected cells/columns
 
