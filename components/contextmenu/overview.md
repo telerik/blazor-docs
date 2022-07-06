@@ -17,9 +17,8 @@ In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%
 ## Creating Context Menu
 
 1. Add the `TelerikContextMenu` tag and set its `Selector` parameter to a CSS selector that will match the element(s) you want to attach the context menu to.
-1. Provide a collection of models to its `Data` property (read more in the [Data Binding article]({%slug contextmenu-data-binding-overview%}))
-1. Match the fields in the models with the binding schema for the nodes
-1. Handle the [`OnClick` event]({%slug contextmenu-events%}#onclick) to respond to user actions
+1. Provide a collection of models to its `Data` property. The Context Menu will automatically recognize property names like `Id`, `ParentId`, `Text` and a few others. Otherwise, [use bindings to configure custom property names]({%slug contextmenu-data-binding-overview%}#data-bindings).
+1. Handle the [`OnClick` event]({%slug contextmenu-events%}#onclick) to respond to user actions.
 
 >caption Basic context menu with hierarchical data binding and OnClick event handler
 
@@ -30,8 +29,7 @@ In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%
     Right click (or tap-and-hold on a touch device) for a context menu.
 </div>
 
-<TelerikContextMenu Selector=".context-menu-target" Data="@MenuItems"
-                    TextField="Text" SeparatorField="Separator" IconField="Icon"
+<TelerikContextMenu Selector=".context-menu-target" Data="@MenuItems"                       
                     OnClick="@( (ContextMenuItem itm) => ClickHandler(itm) )">
 </TelerikContextMenu>
 
@@ -96,6 +94,14 @@ In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%
 }
 ````
 
+## Data Binding
+
+To show any items, the Blazor Context Menu requires a data source that you can provide through the `Data` property. The Context Menu allows you to display the items both as flat data and hierarchically. [Read more about the Blazor Context Menu data binding...]({%slug contextmenu-data-binding-overview%})
+
+## Customize per Target
+
+The same context menu can easily be attached to many targets, or you can use its `ShowAsync(x, y)` method to show it explicitly based on your business logic needs, data and events. Read more in the [Integration]({%slug contextmenu-integration%}) article.
+
 ## Navigate Views
 
 A menu is often used to list pages, views or sections in an application so the user can navigate through them. To do that with a menu, you have two options:
@@ -105,25 +111,26 @@ A menu is often used to list pages, views or sections in an application so the u
 
 [Read more about the Blazor Context Menu navigation...]({%slug contextmenu-navigation%})
 
-## Customize per Target
+## Icons
 
-The same context menu can easily be attached to many targets, or you can use its `ShowAsync(x, y)` method to show it explicitly based on your business logic needs, data and events. Read more in the [Integration]({%slug contextmenu-integration%}) article.
-
-## Events
-
-The Context Menu generates events that you can handle and further customize its behavior. [Read more about the Blazor Context Menu events...]({%slug contextmenu-events%})
+To illustrate the purpose of each menu item, the Blazor Context Menu allows you to add images, icon classes, or font icons. [Read more about the Blazor Menu icons...]({%slug contextmenu-icons%})
 
 ## Templates
 
 You can use the functionality of the built-in templates and customize what is rendered in the items. [Read more about the Blazor Context Menu templates...]({%slug contextmenu-templates-overview%})
 
-## Data Binding
+## Events
 
-To show any items, the Blazor Context Menu requires a data source that you can provide through the `Data` property. The Context Menu allows you to display the items both as flat data and hierarchically. [Read more about the Blazor Context Menu data binding...]({%slug contextmenu-data-binding-overview%})
+The Context Menu generates events that you can handle and further customize its behavior. [Read more about the Blazor Context Menu events...]({%slug contextmenu-events%})
 
-## Icons
+## Context Menu Parameters
 
-To illustrate the purpose of each menu item, the Blazor Context Menu allows you to add images, icon classes, or font icons. [Read more about the Blazor Menu icons...]({%slug contextmenu-icons%})
+The following table lists Context Menu parameters, which are not related to other features on this page. Check the [Context Menu API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikContextMenu-1) for a full list of properties, methods and events.
+
+| Attribute | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders additional CSS class to the `div.k-treeview` element. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
+| `Selector` | `string` | CSS selector of the target elements where the Context Menu will be shown.|
 
 ## Context Menu Reference and Methods
 
