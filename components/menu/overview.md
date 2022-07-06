@@ -16,71 +16,65 @@ The <a href="https://www.telerik.com/blazor-ui/menu" target="_blank">Blazor Menu
 
 1. Use the `TelerikMenu` tag to add the component to your razor page.
 
-1. Populate the `Data` property with the collection of items that you want to appear in the menu.
+1. Populate the `Data` property with the collection of items that you want to appear in the menu. The Menu will automatically recognize property names like `Id`, `ParentId`, `Text` and a few others. Otherwise, [use bindings to configure custom property names]({%slug components/menu/data-binding/overview%}#data-bindings).
 
-1. Match the fields in the models with the binding schema for the nodes.
-
->caption Basic menu with hierarchical data binding and built-in navigation
+>caption Basic Menu with hierarchical data binding and built-in navigation
 
 ````CSHTML
-Use a menu to navigate between views
+@*Use a Menu to navigate between views*@
 
-<TelerikMenu Data="@MenuItems"
-             UrlField="@nameof(MenuItem.Page)"
-             ItemsField="@nameof(MenuItem.SubSectionList)"
-             TextField="@nameof(MenuItem.Section)">
-</TelerikMenu>
+<TelerikMenu Data="@MenuItems"/>
 
 @code {
     public List<MenuItem> MenuItems { get; set; }
-    
+
     public class MenuItem
     {
-        public string Section { get; set; }
-        public string Page { get; set; }
-        public List<MenuItem> SubSectionList { get; set; }
+        public string Text { get; set; }
+        public string Url { get; set; }
+        public List<MenuItem> Items { get; set; }
     }
-    
+
     protected override void OnInitialized()
     {
         MenuItems = new List<MenuItem>()
         {
             new MenuItem()
             {
-                Section = "Company", // items that don't have a URL will not render links
-                SubSectionList = new List<MenuItem>()
+                Text = "Company", // items that don't have a URL will not render links
+                Items = new List<MenuItem>()
                 {
                     new MenuItem()
                     {
-                        Section = "Overview",
-                        Page = "company/overview"
+                        Text = "Overview",
+                        Url = "company/overview"
                     },
                     new MenuItem()
                     {
-                        Section = "Events",
-                        Page = "company/events"
+                        Text = "Events",
+                        Url = "company/events"
                     },
                     new MenuItem()
                     {
-                        Section = "Careers",
-                        Page = "company/careers"
+                        Text = "Careers",
+                        Url = "company/careers"
                     }
                 }
             },
             new MenuItem()
             {
-                Section = "Services",
-                SubSectionList = new List<MenuItem>()
+                Text = "Services",
+                Items = new List<MenuItem>()
                 {
                     new MenuItem()
                     {
-                        Section = "Consulting",
-                        Page = "consultingservices"
+                        Text = "Consulting",
+                        Url = "consultingservices"
                     },
                     new MenuItem()
                     {
-                        Section = "Education",
-                        Page = "education"
+                        Text = "Education",
+                        Url = "education"
                     }
                 }
             }
@@ -91,6 +85,10 @@ Use a menu to navigate between views
 }
 ````
 
+## Data Binding
+
+To show any items, the Blazor Menu requires a data source that you can provide through the `Data` property. The Menu allows you to display the items both as flat data and hierarchically. [Read more about the Blazor Menu data binding...]({%slug components/menu/data-binding/overview%})
+
 ## Navigate Views
 
 A menu is often used to list pages, views, or sections in an application so the user can navigate through them. To do that with a menu, you have two options:
@@ -100,48 +98,31 @@ A menu is often used to list pages, views, or sections in an application so the 
 
 [Read more about the Blazor Menu navigation...]({%slug menu-navigation%})
 
-## Events
+## Orientation
 
-The Blazor Menu generates events that you can handle and further customize its behavior. [Read more about the Blazor Menu events...]({%slug components/menu/events%})
+The Blazor Menu allows you to control its orientation and display the items horizontally or vertically. [Read more about the Blazor Menu orientation...]({%slug components/menu/orientation%})
 
 ## Templates
 
 You can use the functionality of the built-in templates and customize what is rendered in the items. [Read more about the Blazor Menu templates...]({%slug components/menu/templates%})
 
-## Data Binding
-
-To show any items, the Blazor Menu requires a data source that you can provide through the `Data` property. The Menu allows you to display the items both as flat data and hierarchically. [Read more about the Blazor Menu data binding...]({%slug components/menu/data-binding/overview%})
-
-## Orientation
-
-The Blazor Menu allows you to control its orientation and display the items horizontally or vertically. [Read more about the Blazor Menu orientation...]({%slug components/menu/orientation%})
-
 ## Menu Icons
 
 To illustrate the purpose of each menu item, the Blazor Menu allows you to add images, icon classes, or font icons. [Read more about the Blazor Menu icons...]({%slug menu-icons%})
 
-## Menu Reference
+## Events
 
-The Menu is a generic component and its type depends on the type of the model that you use as its data source.
+The Blazor Menu generates events that you can handle and further customize its behavior. [Read more about the Blazor Menu events...]({%slug components/menu/events%})
 
-````CSHTML
-@using Telerik.Blazor.Components
+## Menu Parameters
 
-<TelerikMenu @ref="theMenu" Data="@menuData" TextField="Page" UrlField="Page">
-</TelerikMenu>
+The following table lists Context Menu parameters, which are not related to other features on this page. Check the [Context Menu API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikContextMenu-1) for a full list of properties, methods and events.
 
-@code {
-    // the menu is a generic component and its type depends on the model it binds to
-    Telerik.Blazor.Components.TelerikMenu<MenuItem> theMenu;
+| Attribute | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders additional CSS class to the main wrapping element of the component. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
+| `CloseOnClick` - `bool` | Determines whether the Menu popups should close when they are clicked.
 
-    List<MenuItem> menuData = Enumerable.Range(1, 3).Select(x => new MenuItem { Page = $"page{x}" }).ToList();
-
-    public class MenuItem
-    {
-        public string Page { get; set; }
-    }
-}
-````
 
 ## Next Steps
 

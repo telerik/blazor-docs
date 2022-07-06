@@ -129,7 +129,7 @@ The following table lists Context Menu parameters, which are not related to othe
 
 | Attribute | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | Renders additional CSS class to the `div.k-treeview` element. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
+| `Class` | `string` | Renders additional CSS class to the main wrapping element of the component. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
 | `Selector` | `string` | CSS selector of the target elements where the Context Menu will be shown.|
 
 ## Context Menu Reference and Methods
