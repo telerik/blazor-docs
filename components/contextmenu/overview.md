@@ -19,7 +19,7 @@ In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%
 1. Add the `TelerikContextMenu` tag and set its `Selector` parameter to a CSS selector that will match the element(s) you want to attach the context menu to.
 1. Provide a collection of models to its `Data` property (read more in the [Data Binding article]({%slug contextmenu-data-binding-overview%}))
 1. Match the fields in the models with the binding schema for the nodes
-1. Handle the [`OnClick` event]({%slug contextmenu-events%}#onclick) to respond to the user action
+1. Handle the [`OnClick` event]({%slug contextmenu-events%}#onclick) to respond to user actions
 
 >caption Basic context menu with hierarchical data binding and OnClick event handler
 
