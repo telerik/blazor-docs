@@ -22,60 +22,91 @@ res_type: kb
 
 
 ## Description
-Could you please tell me how I can have the GridColumn title text wrap around and be centered?
+
+How to make the GridColumn title text wrap around and be centered?
 
 ## Solution
 
-You can use some custom CSS that aligns text in the center and enables text wrapping as per the example below:
+Use [custom CSS to override the default Grid styles]({%slug themes-override%}). Since [version 3.4.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-3-4-0), the [Grid columns provide a `HeaderClass` parameter]({%slug components/grid/columns/bound%}) that can help to target specific columns.
+
+The custom CSS should align headaer text to the center and enable text wrapping.
+
+For older product versions, or to target all columns, use `.k-header` instead of a custom CSS class.
+
+>caption Grid with centered and wrapping column header content
 
 ````CSHTML
-@* You can also use the Class parameter of the grid to cascade these rules through a selector so it only affects certain grid instances and not all grids on your app *@
+<p>Shrink the browser window if necessary:</p>
 
-<style>
-    .k-grid th.k-header {
-        justify-content: center;
-    }
-
-    .k-grid th.k-header .k-column-title {
-        white-space: normal;
-        text-align: center;
-    }
-</style>
-
-<TelerikGrid Data="@MyData"
-             Groupable="true" ShowColumnMenu="true" Resizable="true" Reorderable="true"
-             PageSize="5"
-             FilterMode="@GridFilterMode.FilterMenu"
-             Sortable="true">
+<TelerikGrid Data="@GridData"
+             TItem="@Product"
+             Pageable="true"
+             Sortable="true"
+             FilterMode="GridFilterMode.FilterMenu">
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Width="120px" Title="Employee Name" Groupable="false" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+
+        <GridColumn Title="Center Center Center Center Center" HeaderClass="center-wrap" TextAlign="@ColumnTextAlign.Center" />
+        <GridColumn Field="@nameof(Product.Price)" Title="Sorting Sorting Sorting Sorting Sorting" Filterable="false"
+                    HeaderClass="center-wrap" TextAlign="@ColumnTextAlign.Center" />
+        <GridColumn Field="@nameof(Product.Price)" Title="Filtering Filtering Filtering Filtering Filtering" Sortable="false"
+                    HeaderClass="center-wrap" TextAlign="@ColumnTextAlign.Center" />
+        <GridColumn Field="@nameof(Product.Price)" Title="Both Both Both Both Both Both" HeaderClass="center-wrap"
+                    TextAlign="@ColumnTextAlign.Center" />
+
     </GridColumns>
 </TelerikGrid>
 
-@code {
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-        {
-            Id = x,
-            Name = "name " + x,
-            Team = "team " + x % 5,
-            HireDate = DateTime.Now.AddDays(-x).Date
-        });
+<style>
+    .k-grid th.center-wrap {
+        justify-content: center;
+        text-align: center;
+        white-space: normal;
+        vertical-align: middle;
+    }
 
-    public class SampleData
+    .k-grid th.center-wrap .k-column-title {
+        white-space: normal;
+    }
+</style>
+
+@code {
+    List<Product> GridData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<Product>();
+        var rnd = new Random();
+
+        for (int i = 1; i <= 7; i++)
+        {
+            GridData.Add(new Product()
+            {
+                Id = i,
+                Name = "Product " + i.ToString(),
+                Price = (decimal)rnd.Next(1, 100),
+                ReleaseDate = DateTime.Now.AddDays(-rnd.Next(60, 1000)),
+                Active = i % 3 == 0
+            });
+        }
+    }
+
+    public class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
+        public decimal Price { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public bool Active { get; set; }
     }
 }
 ````
 
 ## Notes
 
-* If you only need to center the header text content, you can try the approach demonstrated in this knowledge base article - [Center Grid Column Header content]({%slug grid-kb-center-column-header-content%}). This will keep the preset `display: flex` style of the cells.
+* If you only need to center or right-align the header text, use the approach from [Center Grid Column Header Content]({%slug grid-kb-center-column-header-content%}). This will keep the preset `display: flex` style of the cells.
 
 * If you want full control over the header text contents and rendering, you can use the [column header template]({%slug grid-templates-column-header%}).
+
+## See Also
+
+* [Center or Right-Align Grid Column Headers]({%slug grid-kb-center-column-header-content%})
