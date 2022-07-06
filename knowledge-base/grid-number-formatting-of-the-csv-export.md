@@ -35,17 +35,17 @@ You can copy the bytes from this stream and import them in a [`RadSpreadProcessi
 
 To format numeric and date cells of the exported file before it reaches the client, do the following:
 
-1. Install `Telerik.Documents.Spreadsheet.FormatProviders.Xls` package for the `workbook` import.
+1. Install `Telerik.Documents.Spreadsheet.FormatProviders.Xls` package for the `workbook` import, so you can then access tha data of the exported CSV file and modify its format.
 
 1. Handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
 
 1. Use a `CsvFormatProvider` instance to [import the new `MemoryStream` in a `workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider#import).
 
-1. Specify your preferred [numeric formats](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/number-formats).
+1. Create an instance of [CellValueFormat](https://docs.telerik.com/devtools/document-processing/api/telerik.windows.documents.spreadsheet.model.cellvalueformat) for each desired format you want to use. [Read more for the available numeric formats...](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/number-formats).
 
 1. Select the desired cells - you can create a [CellSelection](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/accessing-cells-of-worksheet) or target whole columns by their index.
 
-1. [Apply the specified number formats](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/number-formats#applying-a-number-format) to the selected cells/columns
+1. [Apply the created number formats](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/number-formats#applying-a-number-format) to the selected cells/columns
 
 1. [Export the modified `workbook` to a `MemoryStream`](https://docs.telerik.com/devtools/document-processing/knowledge-base/import-export-save-load-workbook#save-workbook-to-filestream-or-memorystream).
 
