@@ -35,7 +35,7 @@ What CSS class to change the Switch background color when it has focus?
 
 Add custom CSS rules to the app, which [override the default styles]({%slug themes-override%}) and apply custom background color for on, off, focused and hover state.
 
-To target all Switch instances on the page or in the app, remove the `.my-switch` class from the CSS code.
+The example below uses a `Class` parameter to render a custom CSS class to one of the Switches. To target all Switch instances on the page or in the app, remove the `.my-switch` class from the component declaration and the CSS code.
 
 >caption Blazor Switch with custom background styles
 
