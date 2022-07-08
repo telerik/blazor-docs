@@ -1,18 +1,18 @@
 ---
 title: Overview
-page_title: Editor Overview
-description: Overview of the Editor for Blazor.
+page_title: Rich Text Editor Overview
+description: Overview of the Blazor Rich Text Editor.
 slug: editor-overview
 tags: telerik,blazor,editor
 published: True
 position: 0
 ---
 
-# Blazor Editor Overview
+# Blazor Rich Text Editor Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor HTML Editor component</a> enables your users to create rich textual content through a What-You-See-Is-What-You-Get (WYSIWYG) interface and delivers a set of tools for creating, editing, and formatting text, paragraphs, lists, and other HTML elements.
+The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor Rich Text Editor component</a> enables your users to create rich textual content through a What-You-See-Is-What-You-Get (WYSIWYG) interface and delivers a set of tools for creating, editing, and formatting text, paragraphs, lists, and other HTML elements.
 
-#### To use the Telerik Editor for Blazor:
+#### To use the Blazor Rich Text Editor:
 
 1. Add the `<TelerikEditor>` tag.
 1. Bind its `Value` to the `string` field you want to get the HTML content in.
@@ -29,7 +29,7 @@ The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor 
     {
         TheEditorValue = @"
             <p>
-                The Blazor Editor allows your users to edit HTML in a familiar, user-friendly way. Your users do not have to understand HTML in order to create it.
+                The Blazor Text Editor allows your users to edit HTML in a familiar, user-friendly way. Your users do not have to understand HTML in order to create it.
             </p>
             <p>
                 The widget <strong>outputs identical HTML</strong> across all major browsers, follows
@@ -76,7 +76,7 @@ You can use the component reference to call its [Methods](#methods), especially 
 
 Authoring HTML content happens in the browser and relies on the browser HTML editing engine (see the [contenteditable](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content) attribute). Thus, an HTML Editor component must rely on that and use JavaScript.
 
-The Telerik UI for Blazor Editor uses the ProseMirror engine and it depends on it. You do not need to add any extra assets or references yourself, though, we have taken care of everything internally.
+The Telerik UI for Blazor Text Editor uses the ProseMirror engine and it depends on it. You do not need to add any extra assets or references yourself, though, we have taken care of everything internally.
 
 <!-- the Editor registers them for you when it initializes, and it takes points them to the static assets of the Telerik UI for Blazor package. This approach improves the initial load time of your app and removes the dependency management task from you.
 
@@ -84,7 +84,7 @@ The Telerik UI for Blazor Editor uses the ProseMirror engine and it depends on i
 
 ## Get/Set Content
 
-The Blazor HTML Editor interacts with its content (value) like all standard components - through its `Value` parameter. You can use it to get and set the HTML string the editor will work with. You can read more about value binding and data binding [here]({%slug get-started-value-vs-data-binding%}).
+The Blazor Rich Text Editor interacts with its content (value) like all standard components - through its `Value` parameter. You can use it to get and set the HTML string the editor will work with. You can read more about value binding and data binding [here]({%slug get-started-value-vs-data-binding%}).
 
 You can use the following features to get or set the editor content:
 
@@ -103,7 +103,7 @@ You can use the following features to get or set the editor content:
 
 ## Resizing
 
-The Editor allows you to resize:
+The Blazor Text Editor allows you to resize:
 
 #### Tables
 
