@@ -41,7 +41,7 @@ The <a href = "https://www.telerik.com/blazor-ui/switch" target="_blank">Blazor 
 
 The Switch provides the following features:
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the Switch.
+* `Class` - the CSS class that will be rendered on the main wrapping element of the Switch. Use it to [customize the Switch background color and other styles]({%slug switch-kb-change-background-color%})
 
 * `Enabled` - whether the component is enabled.
 
