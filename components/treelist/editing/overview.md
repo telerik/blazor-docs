@@ -18,15 +18,24 @@ To enable TreeList editing, set the [`EditMode` attribute]({%slug treelist-overv
 Sections in this article:
 
 * [Basics](#basics)
+* [Events](#events)
 * [Customize The Editor Fields](#customize-the-editor-fields)
 * [Example](#example)
 * [Notes](#notes)
 
 ## Basics
 
-This section explains the available events and command buttons that you need to use for editing records in a treelist. After that, you will find a code example.
+The TreeList offers several editing modes with different user experience through the `EditMode` property that is a member of the `TreeListEditMode` enum:
 
-List of the available events:
+* `None` - the default `TreeListEditMode` value. The built-in [`Add` and `Edit` commands]({%slug treelist-columns-command%}#built-in-commands) don't work in this mode.
+* `Incell` - editing is done [in the current cell]({%slug treelist-editing-incell%}) with a double click
+* `Inline` - editing is done for the [entire row]({%slug treelist-editing-inline%}) with an [Edit Command Button]({%slug treelist-columns-command%})
+* `Popup` - editing is done in a [popup]({%slug treelist-editing-popup%}) for the entire row with an [Edit Command Button]({%slug treelist-columns-command%}), and model Validation through Data Annotation attributes is available.
+
+
+## Events
+
+Here are the available events and command buttons that you need to use for editing records in a TreeList.
 
 * `OnAdd` - fires when the `Add` [command button]({%slug treelist-columns-command%}) for a newly added item is clicked. Cancellable.
 * `OnCreate` - fires when the `Save` [command button]({%slug treelist-columns-command%}) for a newly added item is clicked. Cancellable.
@@ -34,7 +43,6 @@ List of the available events:
 * `OnDelete` - fires when the `Delete` command button is clicked. The event is cancellable, and you can also display a [delete confirmation dialog]({%slug treelist-delete-confirmation%}) before the deletion.
 * `OnEdit` - fires when the user is about to enter edit mode for an existing row. Cancellable.
 * `OnCancel` - fires when the user clicks the `Cancel` command button. Allows you to undo the changes to the data in the view data. Cancellable.
-
 
 The CUD event handlers receive an argument of type `TreeListCommandEventArgs` that exposes the following fields:
 
@@ -44,7 +52,6 @@ The CUD event handlers receive an argument of type `TreeListCommandEventArgs` th
 * `ParentItem` - an object you can cast to your model class to obtain the parent of current data item. Will be `null` if the current item is at the root level.
 * `Field` - specific to [InCell editing]({%slug treelist-editing-incell%}) - indicates which is the model field the user changed when updating data.
 * `Value` - specific to [InCell editing]({%slug treelist-editing-incell%}) - indicates what is the new value the user changed when updating data.
-
 
 You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the treelist, or components in a column template) through the [treelist state]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item).
 
