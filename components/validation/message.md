@@ -10,26 +10,23 @@ position: 15
 
 # Telerik Validation Message for Blazor
 
-The <a href = "https://www.telerik.com/blazor-ui/validation-message" target="_blank">Telerik Validation Message for Blazor</a> adds customization options on top of the standard <a href="https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.html.validationextensions.validationmessage?view=aspnet-mvc-5.2" target="_blank">ValidationMessage</a> provided by the framework such as a [Template](#template) or cascading CSS rules from the custom CSS class in the [Class](#class) parameter.
+The <a href = "https://www.telerik.com/blazor-ui/validation-message" target="_blank">Telerik Validation Message for Blazor</a> adds customization options on top of the standard <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.validationmessage-1" target="_blank">.NET ValidationMessage</a>, such as [`Template`](#template) and [`Class`](#class) parameters.
 
-This article is separated in the following sections:
+## Using Validation Message with TelerikForm
 
-* [Basics](#basics)
-* [Template](#template)
-* [Class](#class)
+To enable Telerik Validation Messages for a form field:
 
-## Basics
+1. Add a `<TelerikValidationMessage>` tag near the respective `<FormItem>` tag, or [inside a form item `<Template>`]({%slug form-formitems-template%}).
+1. Provide a lambda expression in the `For` parameter that sets the associated property of the model, just like with the standard Blazor `ValidationMessage` component.
+1. (optional) Disable the built-in validation messages of the Telerik Form to avoid repetition. Set `ValidationMessageType="@FormValidationMessageType.None"`.
 
-To enable Telerik Validation Messages for a field in the form you should provide a lambda expression in the `For` parameter that notifies the component for which property of the model the validation messages should render, just like with the standard `ValidationMessage` component.
-
->caption Enable Telerik Validation Message in a Form
+>caption Use Telerik Validation Message in a TelerikForm
 
 ````CSHTML
-@* Use the TelerikValidationMessage component to render validation messages and disable the built-in validation messages from the Telerik Form*@
-
 @using System.ComponentModel.DataAnnotations
 
-<TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
+<TelerikForm Model="@customer" Width="600px"
+             ValidationMessageType="@FormValidationMessageType.None">
     <FormValidation>
         <DataAnnotationsValidator />
     </FormValidation>
@@ -66,15 +63,14 @@ To enable Telerik Validation Messages for a field in the form you should provide
 }
 ````
 
->caption The result from the code snippet above
+## Using Validation Message with EditForm
 
-![Messages Basic Example](images/messages-example.png)
+1. Replace the `<ValidationMessage>` tags with `<TelerikValidationMessage>` tags.
+1. Provide a lambda expression in the `For` parameter that sets the associated property of the model, just like with the standard Blazor `ValidationMessage` component.
 
->caption Enable Telerik Validation Message in an EditForm
+>caption Use Telerik ValidationMessage in an EditForm
 
 ````CSHTML
-@* Enable the Telerik Validation Message in the standard EditForm *@
-
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@customer" width="600px">
@@ -110,20 +106,14 @@ To enable Telerik Validation Messages for a field in the form you should provide
         public string EmailAddress { get; set; }
     }
 }
-
 ````
-
->caption The result from the code snippet above
-
-![Summary Basic Example](images/validation-message-in-editform.png)
-
 
 ## Template
 
-Allows you to control the rendering of the validation messages. The `context` represents an `IEnumerable<string>` collection of all messages for the property.
+The `TelerikValidationMessage` allows you to control its rendering via a nested `<Template>` tag. The `context` represents an `IEnumerable<string>` collection of all messages for this model property.
 
 ````CSHTML
-@* Use the Template to customize the rendering of the validation message *@
+@using System.ComponentModel.DataAnnotations
 
 <style>
     .custom-validation-message {
@@ -132,9 +122,8 @@ Allows you to control the rendering of the validation messages. The `context` re
     }
 </style>
 
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
+<TelerikForm Model="@customer" Width="600px"
+             ValidationMessageType="@FormValidationMessageType.None">
     <FormValidation>
         <DataAnnotationsValidator />
     </FormValidation>
@@ -184,18 +173,15 @@ Allows you to control the rendering of the validation messages. The `context` re
     }
 }
 ````
->caption The result from the code snippet above
-
-![Messages Template example](images/messages-template-example.png)
 
 ## Class
 
-You can use the `Class` parameter to add a custom CSS class to the `k-form-error` span, that wraps the validation message.
+Use the `Class` parameter of the Validation Message to add a custom CSS class to the `span.k-form-error`. This element holds the validation message.
 
-This example adds a custom class and styling to the third message - for the Email Address.
+>caption Using TelerikValidationMessage Class for EmailAddress.
 
 ````CSHTML
-@* Use the Class parameter to change the font of the validation message *@
+@using System.ComponentModel.DataAnnotations
 
 <style>
     .my-email-message {
@@ -205,9 +191,8 @@ This example adds a custom class and styling to the third message - for the Emai
     }
 </style>
 
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
+<TelerikForm Model="@customer" Width="600px"
+             ValidationMessageType="@FormValidationMessageType.None">
     <FormValidation>
         <DataAnnotationsValidator />
     </FormValidation>
@@ -244,9 +229,9 @@ This example adds a custom class and styling to the third message - for the Emai
 }
 ````
 
->caption The result from the code snippet above
+## Next Steps
 
-![Messages Class example](images/messages-class-example.png)
+* Explore [TelerikValidationTooltip]({%slug validation-tools-tooltip%})
 
 ## See Also
 
@@ -254,4 +239,3 @@ This example adds a custom class and styling to the third message - for the Emai
 * [TelerikValidationSummary]({%slug validation-tools-summary%})
 * [TelerikValidationTooltip]({%slug validation-tools-tooltip%})
 * [Form Component]({%slug form-overview%})
-
