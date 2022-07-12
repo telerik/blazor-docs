@@ -3,7 +3,7 @@ title: Overview
 page_title: Arc Gauge Overview
 description: Overview of the Arc Gauge for Blazor.
 slug: arc-gauge-overview
-tags: telerik,blazor,arc,gauge,overview
+tags: telerik,blazor,arcgauge,arc,gauge,overview
 published: True
 position: 0
 ---
@@ -12,17 +12,7 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/arc-gauge" target="_blank">Telerik Arc Gauge for Blazor</a> represents [numerical values]({%slug arc-gauge-pointers%}) on an arc [scale]({%slug arc-gauge-scale%}).
 
-#### This article is separated in the following sections: 
-
-* [Basics](#basics)
-
-* [Features](#features)
-
-* [Methods](#methods)
-
-## Basics
-
->caption To add a Telerik Arc Gauge for Blazor to your application:
+## Creating Blazor Arc Gauge
 
 1. Add the `<TelerikArcGauge>` tag.
 
@@ -30,7 +20,7 @@ The <a href = "https://www.telerik.com/blazor-ui/arc-gauge" target="_blank">Tele
 
 1. Provide a `Value` for the `<ArcGaugePointer>`.
 
-1. Add a [Center Label Template]({%slug arc-gauge-labels%}#center-template) (optional)
+1. (optional) Add a [Center Label Template]({%slug arc-gauge-labels%}#center-template)
 
 >caption Basic Telerik Arc Gauge for Blazor.
 
@@ -46,33 +36,51 @@ The <a href = "https://www.telerik.com/blazor-ui/arc-gauge" target="_blank">Tele
 </TelerikArcGauge>
 ````
 
-## Features
+## Scale
 
-The Telerik Arc Gauge for Blazor exposes the following features:
+The scale of the arc gauge renders the values of the [pointers]({%slug arc-gauge-pointers%}) and [labels]({%slug arc-gauge-labels%}). See the [Scale]({%slug arc-gauge-scale%}) article for more information on how to customize the scale of the component.
+
+## Pointers
+
+The pointers indicate the values on the scale of the component. See the [Pointers]({%slug arc-gauge-pointers%}) article for more information on how to customize the pointers of the component.
+
+## Labels
+
+The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug arc-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
 
 #### Arc Gauge Size
 
-* `Width` - `string` - controls the width of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
-
-* `Height` - `string` - controls the height of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+* `Height` - `string` - 
 
 You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
 
-#### Other Feautres
+## Arc Gauge Parameters
 
-* `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-arcgauge">` element. |
+| `Width` | `string` | Controls the width of the Arc Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article.|
+| `Height` | `string` | Controls the height of the Arc Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article. |
 
-* Scale - The scale of the arc gauge renders the values of the [pointers]({%slug arc-gauge-pointers%}) and [labels]({%slug arc-gauge-labels%}). See the [Scale]({%slug arc-gauge-scale%}) article for more information on how to customize the scale of the component.
+## Arc Gauge Reference and Methods
 
-* Labels - The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug arc-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Method | Description |
+| --- | --- |
+| `Refresh` | Programatically re-render the Arc Gauge. |
 
-* Pointers - The pointers indicate the values on the scale of the component. See the [Pointers]({%slug arc-gauge-pointers%}) article for more information on how to customize the pointers of the component.
-
-## Methods
-
-The Arc Gauge reference exposes the `Refresh` method which allows you to programatically re-render the component. 
-
->caption Get a component reference and use the Refresh method
+>caption Get a reference to the Arc Gauge and use the Refresh method
 
 ````CSHTML
 @* Change the Width of the component *@
