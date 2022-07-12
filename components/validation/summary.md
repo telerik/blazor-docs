@@ -10,26 +10,20 @@ position: 5
 
 # Telerik Validation Summary for Blazor
 
-The <a href = "https://www.telerik.com/blazor-ui/validationsummary" target="_blank">Telerik Validation Summary for Blazor</a> adds customization options on top of the standard <a href="https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.webcontrols.validationsummary?view=netframework-4.8" target="_blank">ValidationSummary</a> provided by the framework such as a [Template](#template) or cascading CSS rules from the custom CSS class in the [Class](#class) parameter.
+The <a href = "https://www.telerik.com/blazor-ui/validationsummary" target="_blank">Telerik Validation Summary for Blazor</a> adds customization options on top of the standard <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.validationsummary" target="_blank">.NET ValidationSummary</a>, such as [`Template`](#template) and [`Class`](#class) parameters.
 
-This article is separated in the following sections:
+## Using Validation Summary with TelerikForm
 
-* [Basics](#basics)
-* [Template](#template)
-* [Class](#class)
+1. Add the `<TelerikValidationSummary>` tag inside the `<FormValidation>` child tag of the `<TelerikForm>`.
+1. (optional) Disable the built-in validation messages of the Telerik Form to avoid repetition. Set `ValidationMessageType="@FormValidationMessageType.None"`.
 
-## Basics
-
-To enable Telerik Validation Summary in the form you should add the `<TelerikValidationSummary>` to the validation configuration part. You can also add it directly to the standard `EditForm` component instead of the built-in `<ValidationSummary>` component.
-
->caption Enable Telerik Validation Summary in a Telerik Form
+>caption Use Telerik ValidationSummary in a Telerik Form
 
 ````CSHTML
-@* Enable the Telerik Validation Summary in the Telerik Form *@
-
 @using System.ComponentModel.DataAnnotations
 
-<TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
+<TelerikForm Model="@customer" Width="600px"
+             ValidationMessageType="@FormValidationMessageType.None">
     <FormValidation>
         <DataAnnotationsValidator />
         <TelerikValidationSummary />
@@ -56,15 +50,13 @@ To enable Telerik Validation Summary in the form you should add the `<TelerikVal
 }
 ````
 
->caption The result from the code snippet above
+## Using Validation Summary with EditForm
 
-![Summary Basic Example](images/summary-example.png)
+Use the `<TelerikValidationSummary>` tag instead of `<ValidationSummary>` directly in the Blazor `EditForm` component.
 
->caption Enable Telerik Validation Summary in an EditForm
+>caption Use Telerik ValidationSummary in an EditForm
 
 ````CSHTML
-@* Enable the Telerik Validation Summary in the standard EditForm *@
-
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@customer" width="600px">
@@ -99,18 +91,13 @@ To enable Telerik Validation Summary in the form you should add the `<TelerikVal
 }
 ````
 
->caption The result from the code snippet above
-
-![Summary Basic Example](images/summary-example-editform.png)
-
-
 ## Template
 
-Allows you to control the rendering of the validation summary. The `context` represents an `IEnumerable<string>` collection of all error messages for the form.
+The `TelerikValidationSummary` allows you to control its rendering via a nested `<Template>` tag. The `context` is an `IEnumerable<string>` collection of all error messages for the form.
+
+>caption Using TelerikValidationSummary Template
 
 ````CSHTML
-@* Use the Template to customize the rendering of the validation summary *@
-
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
@@ -154,23 +141,13 @@ Allows you to control the rendering of the validation summary. The `context` rep
 }
 ````
 
->caption The result from the code snippet above
-
-![Summary Template example](images/summary-template-example.png)
-
 ## Class
 
-You can use the `Class` parameter to add a custom CSS class to the `k-validation-summary` div, that wraps the validation summary.
+Use the `Class` parameter of the Validation Summary component to add a custom CSS class to the `div.k-validation-summary`. This element wraps the validation summary content.
+
+>caption Using TelerikValidationSummary Class
 
 ````CSHTML
-@* Use the Class parameter to change the background color of the validation summary *@
-
-<style>
-    .validation-summary-class {
-        background-color: lightblue;
-    }
-</style>
-
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
@@ -179,6 +156,12 @@ You can use the `Class` parameter to add a custom CSS class to the `k-validation
         <TelerikValidationSummary Class="validation-summary-class" />
     </FormValidation>
 </TelerikForm>
+
+<style>
+    .validation-summary-class {
+        background-color: lightblue;
+    }
+</style>
 
 @code {
     private Customer customer = new Customer();
@@ -200,14 +183,12 @@ You can use the `Class` parameter to add a custom CSS class to the `k-validation
 }
 ````
 
->caption The result from the code snippet above
+## Next Steps
 
-![Summary Class example](images/summary-class-example.png)
+* Use [TelerikValidationMessage]({%slug validation-tools-message%})
+* Try [TelerikValidationTooltip]({%slug validation-tools-tooltip%})
 
 ## See Also
 
 * [Live Demo: Validation](https://demos.telerik.com/blazor-ui/validation/overview)
-* [TelerikValidationMessage]({%slug validation-tools-message%})
-* [TelerikValidationTooltip]({%slug validation-tools-tooltip%})
 * [Form Component]({%slug form-overview%})
-
