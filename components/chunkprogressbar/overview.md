@@ -13,11 +13,11 @@ position: 0
 The <a href = "https://www.telerik.com/blazor-ui/chunkprogressbar" target = "_blank">Blazor ChunkProgressBar component</a> tracks the execution of operations and displays what portion of it is completed in predefined number of sections (chunks). For very long tasks, you can also make it [indeterminate]({%slug chunkprogressbar-indeterminate-state%}) while waiting for an update.
 
 
-## Basic ChunkProgressBar
+## Creating Blazor ChunkProgressBar
 
-To use the Telerik ChunkProgressBar in your Blazor application:
-* add the `<TelerikChunkProgressBar>` tag.
-* set its `Value` and `Max` parameters to denote how much is completed.
+1. Add the `<TelerikChunkProgressBar>` tag.
+
+1. Set its `Value` and `Max` parameters to denote the completed progress.
     * You can read more about the relationship between them in the [Chunk Count, Value and MaxValue](#chunk-count-value-and-maxvalue) section.
 
 ![chunkprogress-bar basic configuration example](images/chunkprogressbar-basic-config-example.png)
@@ -47,18 +47,23 @@ To use the Telerik ChunkProgressBar in your Blazor application:
 }
 ````
 
-## Features
+## ChunkProgressBar Parameters
 
-The ChunkProgressBar provides the following features:
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-progressbar">` element. |
+| `Max` | `double` <br /> `100`| The maximum value of the ChunkProgressBar. It must be greater than `0`. |
+| `Value` | `double` | The value of the ChunkProgressBar. This value indicates the progress of the tracked process and is distributed in the chunks (sections) of the ChunkProgressBar. It is a fraction of the `Max`. Read mode in the [Chunk Count, Value and MaxValue](#chunk-count-value-and-maxvalue) section. |
+| `ChunkCount` | `unsigned int` <br /> `5` | The number of chunks the ChunkProgressBar will be separated into. |
+| `Orientation` | `ProgressBarOrientation` <br /> `Horizontal` | Controls the orientation of the Chunk Progress Bar. |
+| `Indeterminate` | `bool` <br /> `true` | Controls if the Chunk Progress Bar is in indeterminate state. Read the [Indeterminate]({%slug chunkprogressbar-indeterminate-state%}) article for more information. |
 
-* `Class` - the CSS class that will be rendered on the main wrapping element. You can use it to cascade styles more easily.
-* `Max` - `double`, defaults to `100` - the maximum value of the ChunkProgressBar. It must be greater than `0`.
-* `Value` - `double` - the value of the ChunkProgressBar. This value indicates the progress of the tracked process and is distributed in the chunks (sections) of the ChunkProgressBar. It is a fraction of the `Max`. Read mode in the [Chunk Count, Value and MaxValue](#chunk-count-value-and-maxvalue) section.
-* `ChunkCount` - `unsigned int`, defaults to `5` - the number of chunks the ChunkProgressBar will be separated into.
-* `Orientation` - you can control the orientation of the Progress Bar, through the `ProgressBarOrientation` enum, with members:
-    * `Horizontal` - this is the default value
-    * `Vertical`
-* `Indeterminate` - `bool`, defaults to `false` - see the [Indeterminate]({%slug chunkprogressbar-indeterminate-state%}) article for more information.
 
 ## Chunk Count, Value and MaxValue
 
@@ -74,7 +79,7 @@ The following examples explain how the three parameters of the component tie tog
     - [Responsive ProgressBar](#responsive-progressbar)
   - [See Also](#see-also)
 
-### Matching Values for the Max and ChunkCount Parameters
+## Matching Values for the Max and ChunkCount Parameters
 
 When the `Max` and `ChunkCount` parameters match in value, the `Value` parameter represents the number of chunks that are hightlighted.
 
@@ -89,7 +94,7 @@ When the `Max` and `ChunkCount` parameters match in value, the `Value` parameter
 
 ![Blazor Chunkprogressbar Matching Values Example](images/chunkprogressbar-matching-values-example.png)
 
-### Non-matching Value for the Max and ChunkCount Parameters
+## Non-matching Value for the Max and ChunkCount Parameters
 
 Each chunk (section) represents an equal part of the maximum value (`Max/ChunkCount`). So, when the `Max` and `ChunkCount` parameters do not match in value, the `Value` parameter highlights the number of chunks that is less than or equal (`<=`) to the full fractions that it represents.
 
