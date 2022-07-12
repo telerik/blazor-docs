@@ -48,13 +48,7 @@ The pointers indicate the values on the scale of the component. See the [Pointer
 
 The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug arc-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
 
-#### Arc Gauge Size
-
-* `Height` - `string` - 
-
-You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
-
-## Arc Gauge Parameters
+## Arc Gauge Size
 
 <style>
     article style + table {
@@ -67,6 +61,8 @@ You can also set the Gauge size in percentage values so it occupies its containe
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-arcgauge">` element. |
 | `Width` | `string` | Controls the width of the Arc Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article.|
 | `Height` | `string` | Controls the height of the Arc Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article. |
+
+You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
 
 ## Arc Gauge Reference and Methods
 
