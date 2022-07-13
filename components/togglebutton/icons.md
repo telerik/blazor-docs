@@ -11,16 +11,20 @@ position: 2
 
 # ToggleButton Icons
 
-You can put an image, sprite or a font icon in the toggle button to illustrate its purpose for your end users. To apply them, use the following properties:
+You can put an image, sprite or a font icon in the toggle button to illustrate its purpose for your end users. To apply them, use the parameters below.
 
-* for a [Telerik font icon]({%slug general-information/font-icons%}), use the `Icon` attribute to set the font icon class.
+## Parameters
 
-* for a raster image, use the `ImageUrl` attribute to provide the URL to the icon (relative or absolute).
+All parameters are of type `string`.
 
-* for a custom font icon class, set the `IconClass` parameter of the component to the desired CSS class list which provides the required rules (like font name and glyph symbol). Make sure to also reference the desired font in your app and to use its own recommendations.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* for a sprite, set the `SpriteClass` attribute to `k-icon MySpriteClass` where `MySpriteClass` defines the CSS rules for the sprite.
-
+| Parameter | Description |
+|---|---|
+| `Icon` | Use it to display a [Telerik font icon]({%slug general-information/font-icons%}). |
+| `IconClass` | Use it render custom font icon class(es), which apply the required styles (like font name and glyph symbol). Make sure to reference the required third-party font and stylesheets. `IconClass="foo"` will render as `<span class="foo">` inside the Toggle Button. |
+| `SpriteClass` | Use it for CSS sprites. `SpriteClass="foo"` will render as `<span class="k-sprite k-icon foo">` inside the Toggle Button. |
+| `ImageUrl` | Use it to render an `<img>` tag with the specified relative or absolute URL. |
 
 The following example shows how to use an image from a URL, a sprite image, and the built-in font icons.
 
@@ -37,7 +41,7 @@ It also shows how to use telerik icons, raster icons and sprite images*@
 <TelerikToggleButton ImageUrl="@RasterIconUrl" @bind-Selected="@RasterSelected">Image URL</TelerikToggleButton>
 
 <style>
-    /* the sprite for the first button is defined through a CSS rule matchin its Class */
+    /* the sprite for the first button is defined through a CSS rule matching its Class */
     .flag {
         background-image: url("https://docs.telerik.com/blazor-ui/images/flags.png");
     }
@@ -60,21 +64,19 @@ It also shows how to use telerik icons, raster icons and sprite images*@
 }
 ````
 
->caption The result from the code snippet above
-
-![Icons in Toggle Buttons](images/toggle-button-images.png)
-
 >tip You can use relative paths to your images in the `wwwroot` folder. The example above uses absolute paths to make it easy for you to see the results without preparing images.
 
 >tip If you don't add text to the button, the button will center the icon on all sides.
 
->note Images used as icons should generally be small enough to fit in a line of text - the button is an inline element and is not designed for large images. If you want to use big icon buttons, consider one of the following options:
->
-> * defining a `Class` on the button that provides `height` and `width`. The width and height can be set in `px` sufficient to accommodate the icon or to `auto`,
-> * or attaching an `@onclick` handler to an icon/`span`/`img` element instead of using a button,
-> * or adding your own HTML inside the button, something like: `<TelerikButton><img style="width: 400px; height: 400px;" src="my-icon.svg" />some text</TelerikButton>`
+## Icon Size
 
+Images and icons should generally be small enough to fit in a line of text - the button is an inline element and is not designed for large images. If you want to use big icon buttons, consider one of the following options:
+
+* Define a `Class` for the Toggle Button that set `height` and `width` styles. The width and height can be set in `px` sufficient to accommodate the icon or to `auto`;
+* Attach an `@onclick` handler to a `span` or `img` element instead of using a button;
+* Add your own HTML inside the button, something like:
+    `<TelerikButton><img style="width: 400px; height: 400px;" src="my-icon.svg" />some text</TelerikButton>`
 
 ## See Also
 
-  * [ToggleButton Overview]({%slug togglebutton-overview%})
+* [ToggleButton Overview]({%slug togglebutton-overview%})
