@@ -10,77 +10,72 @@ position: 20
 
 # ToggleButton Events
 
-This article explains the events available in the Telerik ToggleButton for Blazor:
+This article describes the events of the Telerik ToggleButton for Blazor:
 
-* [SelectedChanged](#selectedchanged)
 * [OnClick](#onclick)
- 
+* [SelectedChanged](#selectedchanged)
 
-## SelectedChanged
-
-The `SelectedChanged` fires when the user changes the state of the button by clicking it (or by using `Space` or `Enter`). You can use it to call local view-model logic. To fetch data or perform async operations, use the [OnClick](#onclick) event.
-
->caption Handle the SelectedChanged event
-
-````CSHTML
-@* If you do not update the view-model in the handler, you can effectively cancel the event *@
-
-<TelerikToggleButton Selected="@IsSelected" SelectedChanged="@MySelectedChangedHandler">
-    Selected: @IsSelected
-</TelerikToggleButton>
-
-@code {
-    bool IsSelected { get; set; }
-
-    void MySelectedChangedHandler(bool currSelectedState)
-    {
-        IsSelected = currSelectedState;
-        //you have to update the model manually because handling the SelectedChanged event does not let you use @bind-Selected
-
-        Console.WriteLine($"Current state is {IsSelected}");
-    }
-}
-````
-
+The `OnClick` event fires before `SelectedChanged`.
 
 ## OnClick 
 
-The `OnClick` event fires when the user clicks or taps the button. You can use it to invoke async logic such as fetching data or calling a service.
+The `OnClick` event fires when the user clicks or taps the button, or presses `Enter` or `Space` while the button is focused. You can use the event to invoke `async` logic such as fetching data or calling a service.
 
-It receives argument of type [MouseEventArgs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs?view=aspnetcore-5.0).
+The event handler receives argument of type [MouseEventArgs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs).
+
+The `OnClick` event fires before `SelectedChanged`.
 
 >caption Handle the Toggle Button OnClick event
 
 ````CSHTML
-@result
-<br />
-@moreInfo
-<br />
-
-<TelerikToggleButton @bind-Selected="@IsSelected" OnClick="@ToggleButtonClickHandler">
-    Selected: &nbsp; <strong>@IsSelected</strong>
+<TelerikToggleButton @bind-Selected="@IsSelected"
+                     OnClick="@OnToggleButtonClick">
+    Toggle Button
 </TelerikToggleButton>
+
+<p> @result </p>
 
 @code {
     bool IsSelected { get; set; } = true;
 
     string result { get; set; }
 
-    string moreInfo { get; set; }
-
-    async Task ToggleButtonClickHandler(MouseEventArgs args)
+    async Task OnToggleButtonClick(MouseEventArgs args)
     {
-        await Task.Delay(500); // simulate a service call
-        string currState = IsSelected ? "ON" : "OFF";
-        result = $"The user clicked the {currState} state.";
-        moreInfo = "The user pressed Ctrl: " + args.CtrlKey;
+        await Task.Delay(300); // simulate async operation
+        result = $"The user clicked at {DateTime.Now.ToLongTimeString()}.{DateTime.Now.Millisecond}";
     }
 }
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
+## SelectedChanged
+
+The `SelectedChanged` event fires when the user changes the button state by clicking, tapping, hitting `Space` or `Enter`. Use it to call local view-model logic. To fetch data or perform async operations, use the [OnClick](#onclick) event.
+
+The event handler receives a `bool` argument. Use it to update the `Selected` parameter value. If you don't do this, you will effectively cancel the event.
+
+The `SelectedChanged` event fires after `OnClick`.
+
+>caption Handle the SelectedChanged event
+
+````CSHTML
+<TelerikToggleButton Selected="@IsSelected"
+                     SelectedChanged="@MySelectedChangedHandler">
+    Toggle Button
+</TelerikToggleButton>
+
+@code {
+    bool IsSelected { get; set; }
+
+    void MySelectedChangedHandler(bool newSelected)
+    {
+        IsSelected = newSelected;
+    }
+}
+````
 
 ## See Also
 
-  * [ToggleButton Overview]({%slug togglebutton-overview%})
+* [ToggleButton Overview]({%slug togglebutton-overview%})
