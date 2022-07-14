@@ -78,7 +78,7 @@ The example below demonstrates how to handle successful upload on the FileManage
         var files = uploadFiles
             .Select(x => new FlatFileEntry()
                 {
-                    Name = x.Name.Substring(0, x.Name.IndexOf(".")),
+                    Name = Path.GetFileNameWithoutExtension(x.Name),
                     IsDirectory = false,
                     HasDirectories = false,
                     DateCreated = DateTime.Now,
