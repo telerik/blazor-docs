@@ -35,9 +35,7 @@ The Wizard provides the following default buttons:
 
 * `Done` - allows the user to complete the wizard. Invokes the [OnFinish]({%slug wizard-events%}#onfinish) event.
 
->caption Wizard with the default buttons. The result from the snippet.
-
-![Default buttons](images/default-buttons-example.gif)
+>caption Wizard with default buttons
 
 ````CSHTML
 @* Wizard with default buttons *@
@@ -269,4 +267,4 @@ else
 
 ## See Also
 
-  * [Live Demos: Wizard Buttons](https://demos.telerik.com/blazor-ui/wizard/buttons)
+* [Live Demos: Wizard Buttons](https://demos.telerik.com/blazor-ui/wizard/buttons)

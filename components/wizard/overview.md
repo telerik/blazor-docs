@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Wizard Overview
-description: Overview of the Wizard for Blazor.
+description: Overview of the Wizard for Blazor. Description of the Wizard features.
 slug: wizard-overview
 tags: telerik,blazor,wizard,overview
 published: True
@@ -10,173 +10,98 @@ position: 0
 
 # Blazor Wizard Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/wizard" target="_blank">Wizard for Blazor component</a> displays content in sequential, stepwise order. Each step of the Wizard has `Content` (`RenderFragment`), which can contain any type of HTML content including a [Form]({%slug form-overview%}) component.
+The <a href = "https://www.telerik.com/blazor-ui/wizard" target="_blank">Wizard for Blazor component</a> displays content in sequential, stepwise order. Each Wizard step can display any HTML or child components. The Wizard provides flexible layout, form integration and can prevent or allow users to skip steps.
 
->caption The Wizard is separated into 3 main sections:
-* [Stepper]({%slug wizard-structure-stepper%})
-* [Content]({%slug wizard-structure-content%})
-* [Buttons]({%slug wizard-structure-buttons%})
+The Wizard uses a [Stepper component]({%slug stepper-overview%}) internally, so knowledge about the Stepper will be a plus, although not required.
 
->caption In this article:
-
-* [Basics](#basics)
-* [Features](#features)
-
-## Basics
-
-#### To create a basic Telerik Wizard:
+## Creating Blazor Wizard
 
 1. Use the `TelerikWizard` tag
-1. under its `WizardSteps` tag, set and configure the desired `WizardStep` instances and include the desired content in their `Content` tag
+1. Set the `Value` parameter to an `int`. The parameter supports one-way and two-way binding.
+1. Add some `WizardStep` instances inside a `WizardSteps` tag.
+1. Each `WizardStep` can define a `Label` and an [`Icon`]({%slug general-information/font-icons%}). Additional [stepper image or text indicators]({%slug wizard-structure-stepper%}#indicators) are discussed later.
 
->caption Set up a basic Telerik Wizard. The result from the snippet below.
-
-![Basic Wizard](images/basic-wizard-example.png)
+>caption Basic Telerik Wizard
 
 ````CSHTML
-@* Telerik Wizard with its most common features *@
-
-@using System.ComponentModel.DataAnnotations
-
-@if (ShowWizard)
-{
-    <TelerikWizard @bind-Value="@Value" OnFinish="@OnFinishHandler" Width="700px">
-        <WizardSteps>
-            <WizardStep Label="Personal Details" Icon="user" OnChange="@OnRegistrationStepChange">
-                <Content>
-                    <TelerikForm Model="@UserModel"
-                                 @ref="@RegisterForm">
-                        <FormValidation>
-                            <DataAnnotationsValidator></DataAnnotationsValidator>
-                        </FormValidation>
-                        <FormItems>
-                            <FormItem LabelText="First Name*:" Field="@nameof(User.FirstName)"></FormItem>
-                            <FormItem LabelText="Last Name*:" Field="@nameof(User.LastName)"></FormItem>
-                            <FormItem Field="@nameof(User.Email)">
-                                <Template>
-                                    <label for="mail" class="k-label k-form-label">Email*:</label>
-                                    <TelerikTextBox Id="mail" @bind-Value="@UserModel.Email" InputMode="email" PlaceHolder="example@domain.com"></TelerikTextBox>
-                                    <TelerikValidationMessage For="@(() => UserModel.Email)"></TelerikValidationMessage>
-                                </Template>
-                            </FormItem>
-                            <FormItem Field="@nameof(User.Password)">
-                                <Template>
-                                    <label for="pass" class="k-label k-form-label">Password*:</label>
-                                    <TelerikTextBox Id="pass" @bind-Value="@UserModel.Password" Password="true"></TelerikTextBox>
-                                    <TelerikValidationMessage For="@(() => UserModel.Password)"></TelerikValidationMessage>
-                                </Template>
-                            </FormItem>
-                            <FormItem Field="@nameof(User.AcceptTerms)" />
-                        </FormItems>
-                        <FormButtons></FormButtons>
-                    </TelerikForm>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Attachments" Icon="paperclip">
-                <Content>
-                    @* No Upload functionality is included for brevity. If needed, it can be additionally set up. *@
-                    <TelerikUpload AllowedExtensions="@( new List<string>() { ".pdf", ".docx" } )" />
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Confirmation" Icon="check">
-                <Content>
-                    <h2>Registration completed.</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-    </TelerikWizard>
-}
-
-@code {
-
-    public bool ShowWizard { get; set; } = true;
-
-    public int Value { get; set; }
-
-    public TelerikForm RegisterForm { get; set; }
-    public User UserModel { get; set; } = new User();
-
-    public void OnRegistrationStepChange(WizardStepChangeEventArgs args)
-    {
-        var isFormValid = RegisterForm.IsValid();
-        if (!isFormValid)
-        {
-            args.IsCancelled = true;
-        }
-    }
-
-    public void OnFinishHandler()
-    {
-        ShowWizard = false;
-    }
-
-    public class User
-    {
-        [Required]
-        public string FirstName { get; set; } = "John";
-
-        [Required]
-        public string LastName { get; set; } = "Smith";
-
-        [Required]
-        public string Email { get; set; } = "email@domain.com";
-
-        [MinLength(3, ErrorMessage = "The password should be at least 3 characters.")]
-        [Required]
-        public string Password { get; set; }
-
-        public DateTime? BirthDate { get; set; }
-
-        [Range(typeof(bool), "true", "true", ErrorMessage = "You must agree with the terms.")]
-        [Display(Name = "Accept Terms and Conditions")]
-        public bool AcceptTerms { get; set; }
-    }
-}
-````
-
-
->caption Component namespace and reference
-
-````CSHTMl
-@* Telerik Wizard namespace and reference *@
-
-<TelerikWizard @ref="@MyWizardRef">
+<TelerikWizard @bind-Value="@WizardValue">
     <WizardSteps>
-        <WizardStep Text="1">
+        <WizardStep Label="Start" Icon="gear">
             <Content>
-                <h2>Content for Wizard Step 1</h2>
+                <p>Welcome to the Wizard!</p>
             </Content>
         </WizardStep>
-        <WizardStep Text="2">
+        <WizardStep Label="Survey" Icon="pencil">
             <Content>
-                <h2>Content for Wizard Step 2</h2>
+                <p>The user is performing some actions...</p>
+            </Content>
+        </WizardStep>
+        <WizardStep Label="Finish" Icon="check">
+            <Content>
+                <p>Thank you!</p>
             </Content>
         </WizardStep>
     </WizardSteps>
 </TelerikWizard>
 
-@code{
+<p><strong>Wizard Value: @WizardValue</strong></p>
 
-    Telerik.Blazor.Components.TelerikWizard MyWizardRef { get; set; }
-
+@code {
+    int WizardValue { get; set; }
 }
 ````
 
+## Stepper
 
-## Features
+The [Wizard Stepper]({%slug wizard-structure-stepper%}) is the area, which shows the user the overall progress. The Stepper can also allow the user to skip steps, if this is enabled explicitly. [Read more about the Wizard Stepper]({%slug wizard-structure-stepper%}).
 
-* `StepperPosition` - `WizardStepperPosition` - Specify where the stepper is rendered against the wizard content. The default is `Top`. See the [Layout]({%slug wizard-layout%}) article for more information.
+## Content
 
-* Value - `int` - Specifies the current step index.
+The [`<Content>` tag inside each `WizardStep`]({%slug wizard-structure-content%}) is a standard Blazor `RenderFragment`, which allows any child content.
 
-* Width - `string` - Specifies the width of the Wizard.
+## Buttons
 
-* Height - `string` - Specifies the height of the Wizard.
+The [Wizard Buttons]({%slug wizard-structure-buttons%}) enable the user to move forward and backward through the Wizard Steps. The Wizard provides the ability to use the built-in buttons or custom buttons. [Read more about the Wizard Buttons]({%slug wizard-structure-buttons%}).
 
-* `ShowPager` - `bool` - Specifies if the pager text should be shown.
+## Form Integration
 
-* `Class` - CSS class that will be rendered on the main wrapping element of the Wizard.
+The [Wizard can contain a Form component with validation]({%slug form-overview%}). In such scenarios, the Wizard Stepper can enhance the form's user experience by changing the step's icon to show the current form validation state.
+
+## Events
+
+The [Wizard component fires events]({%slug wizard-events%}) when the current step changes or when the user completes all steps. Step changes can be cancelled.
+
+## Layout
+
+The [Wizard can display its Stepper on either side of the component]({%slug wizard-layout%}) - top (defaut) or bottom, left or right.
+
+## Wizard Parameters
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-wizard">` element. Use it to [override theme styles]({%slug themes-override%}). |
+| `Height` | `string` | Applies a height style in [any supported unit]({%slug common-features/dimensions%}). |
+| `ShowPager` | `bool` <br /> (`true`) | Renders a "Step X of Y" label at the bottom of the component. |
+| `StepperPosition` | `WizardStepperPosition` enum <br /> (`Top`) | Defines the [Wizard layout and the Stepper position]({%slug wizard-layout%}) with regard to the step content. |
+| `Value` | `int` | Sets the **zero-based** index of the current step. Supports two-way binding. |
+| `Width` | `string` | Applies a width style in [any supported unit]({%slug common-features/dimensions%}). |
+
+### WizardStepperSettings Parameters
+
+See section [General Stepper Settings]({%slug wizard-structure-stepper%}#general-stepper-settings).
+
+### WizardStep Parameters
+
+See section [Individual Stepper Settings]({%slug wizard-structure-stepper%}#individual-stepper-settings).
+
+## Next Steps
+
+* [Explore the Wizard Stepper settings]({%slug wizard-structure-stepper%})
+* [Handle Wizard events]({%slug wizard-events%})
+* [Integrate the Wizard with a Form]({%slug form-overview%})
 
 ## See Also
 
-  * [Live Demos: Wizard Overview](https://demos.telerik.com/blazor-ui/wizard/overview)
+* [Live Demos: Wizard Overview](https://demos.telerik.com/blazor-ui/wizard/overview)

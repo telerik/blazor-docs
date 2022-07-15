@@ -130,8 +130,6 @@ The `OnFinish` event fires when the **Done** button of the Wizard is clicked.
 
 >caption Handle the `OnFinish` event of the Wizard (code snippet below)
 
-![OnFinish](images/onfinish-example.gif)
-
 ````CSHTML
 @* Handle the OnFinish event of the Wizard *@
 
@@ -172,4 +170,4 @@ The `OnFinish` event fires when the **Done** button of the Wizard is clicked.
 
 ## See Also
 
-  * [Live Demos: Wizard Events](https://demos.telerik.com/blazor-ui/wizard/events)
+* [Live Demos: Wizard Events](https://demos.telerik.com/blazor-ui/wizard/events)
