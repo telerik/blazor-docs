@@ -321,6 +321,8 @@ The `TreeListPopupEditSettings` nested tag exposes the following parameters to a
 
 @[template](/_contentTemplates/common/popup-edit-customization.md#popup-settings)
 
+For example, here is [how to set the TreeList popup edit form's title, so that it matches a property value of the edited data item]({%slug grid-kb-popup-edit-title%}).
+
 ### Edit Form Customization
 
 The `TreeListPopupEditFormSettings` nested tag exposes the following parameters to allow edit form customization:
