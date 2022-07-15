@@ -1,7 +1,7 @@
 ---
 title: Built-in Tools
-page_title: Editor - Built-in Tools
-description: Built-in Tools in the Editor for Blazor.
+page_title: Editor - Built-in Tools and Commands
+description: Built-in Tools and commands in the Editor for Blazor.
 slug: editor-built-in-tools
 tags: telerik,blazor,built-in,tools
 published: True
@@ -11,11 +11,11 @@ position: 40
 
 # Editor Built-in Tools
 
-This article explains which are the built-in tools of the `Editor`, how to invoke them programatically and what functionality they offer. 
+This article explains which are the built-in tools and commands of the `Editor`, how to invoke them programatically and what functionality they offer. 
 
 In this article:
 
-* [Built-in Tools](#built-in-tools)
+* [Built-in Tools and Commands](#built-in-tools)
 	* [Inline Tools](#inline-tools)
 	* [Color Tool Customization](#color-tool-customization)
 	* [Block Tools](#block-tools)
