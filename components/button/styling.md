@@ -1,6 +1,6 @@
 ---
 title: Styling
-page_title: Styling
+page_title: Button Styling
 description: Learn how to apply styles to the Blazor Button component by Telerik UI.
 slug: button-styling
 tags: telerik,blazor,button,styling,
