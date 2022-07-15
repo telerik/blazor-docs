@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Tooltip Overview
-description: Overview of the Tooltip for Blazor.
+description: Overview of the Tooltip for Blazor. Description of features, basic examples.
 slug: tooltip-overview
 tags: telerik,blazor,tooltip,overview
 published: True
@@ -10,69 +10,74 @@ position: 0
 
 # Blazor Tooltip Overview
 
-The <a href="https://www.telerik.com/blazor-ui/tooltip" target="_blank">Blazor Tooltip component</a> replaces the default browser tooltip to show the `title` or `alt` attribute of its target in a beautiful, cross-browser popup. You can specify a CSS selector to attach it to multiple targets, the tooltip size, and [customize its content]({%slug tooltip-template%}) according to the current target through a template, which lets you also load content on demand. You can also choose a [position]({%slug tooltip-position%}) relative to the target and the [event on which it shows]({%slug tooltip-show-event%}).
+The <a href="https://www.telerik.com/blazor-ui/tooltip" target="_blank">Blazor Tooltip component</a> enhances the default browser tooltips in a beautiful, cross-browser popup. The Tooltip component allows customization of its size, content, position and show event. Attach a single Tooltip instance to multiple targets to optimize the performance.
 
-#### To use a Telerik Tooltip for Blazor
+## Creating Blazor Tooltip
 
-1. Add the `TelerikTooltip` tag and set its `TargetSelector` parameter to a CSS selector that will match the element(s) you want to attach the tooltip to.
-1. Add elements to act as targets and set their `title` attribute.
+The Tooltip will automatically display the value of `title` and `alt` attributes of HTML elements. The example below demonstrates this scenario, but it's also possible to [define custom content in a template](#template).
 
->caption Basic Tooltip attached to anchors inside paragraphs to show their titles
+1. Use the `TelerikTooltip` tag.
+1. Set the Tooltip's `TargetSelector` parameter to a `string` that is a [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) or [CSS combinator](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators). It should point to the HTML element(s) that will trigger a tooltip.
+1. (optional) Set the Tooltip's [`Width`, `Height`](#tooltip-parameters) or [`Position`]({%slug tooltip-position%}) parameters. They will depend mostly on the Tooltip content and the targets' position on the page.
 
-````CSHTML
-<TelerikTooltip TargetSelector="p a[title]">
-</TelerikTooltip>
-
-<p>
-    <a title="what is 'lorem ipsum'?" href="https://lipsum.com/">lorem</a>
-    ipsum dolor
-    <a title="is this a real word?" href="https://en.wikipedia.org/wiki/SIT">sit</a>
-    amet.
-</p>
-````
-
->caption The result from the code snippet above after hovering the "lorem" link
-
-![tooltip first look](images/tooltip-first-look.png)
-
->caption Component namespace and reference
+>caption Basic Tooltip attached to multiple targets
 
 ````CSHTML
-<TelerikTooltip @ref="@theTooltipRef" TargetSelector=".someTarget">
-</TelerikTooltip>
+<TelerikTooltip TargetSelector=".tooltip-target" />
 
-@code{
-    Telerik.Blazor.Components.TelerikTooltip theTooltipRef { get; set; }
-}
+<div style="padding: 5em;">
+    Hover the button ...
+
+    <TelerikButton Icon="eye" Title="Hello world!" Class="tooltip-target" />
+
+    ... and the question mark:
+
+    <span title="I am a Telerik Blazor Tooltip." class="tooltip-target">
+        <TelerikIcon Icon="question-circle" />
+    </span>
+</div>
 ````
 
->caption The Tooltip provides the following features:
+>tip For better performance, use one single Tooltip instance for multiple targets, especially if the targets are similar and a lot in number.
 
-* `Class` - the CSS class of the **tooltip container**. You can use it to [customize the tooltip appearance]({%slug tooltip-kb-custom-styles%}) (such as color, font, elements in your template, and so on). To apply custom styles to the tooltip element itself, use a [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator), for example:
+## Position
 
-        <TelerikTooltip Class="my-class" />
+The Tooltip normally appears above its target, but can show on all four sides. If there is not enough space, the component will shift or flip its position automatically. Learn how to [control the Tooltip position]({%slug tooltip-position%}).
 
-        <style>
-        .my-class .k-tooltip {
-            padding: 0;
-        }
-        <style>
+## Show Event
 
-* `Height`- the height of the tooltip. @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior)
-* `Id` - the `id` attribute of the tooltip. Can be useful so you can point an `aria-described-by` attribute of your target to the tooltip ID for the benefit of screen readers.
-* `Position` - where the tooltip shows up in comparison to its target element. See more at the [Position]({%slug tooltip-position%}) article.
-* `ShowOn` - what triggers the tooltip to show up. See more at the [Show Event]({%slug tooltip-show-event%}) article.
-* `TargetSelector` - the CSS selector that controls which elements the Tooltip component will associate itself with. It can be a single element (e.g., an ID selector such as `#myTarget`), or a broader selector that targets a number of elements at the same time (such as `p.specialParagraph a` to target all anchors in a special paragraph).
-* `Template` - a `RenderFragment` that lets you generate content for the tooltip based on metadata for the target. You can also fetch data on demand for the tooltip content through that. You can see examples in the [Tooltip Template]({%slug tooltip-template%}) article.
-* `Width` - The width of the tooltip. @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior)
+By default, the Tooltip displays on mouse over, but it is possible to [configure it to show on click or tap]({%slug tooltip-show-event%}).
 
->tip To have the tooltip stretch according to your content, you should leave _both_ the `Width` and `Height` parameters empty. If one of them has a value, the HTML element will have some layout and you may get unexpected results in terms of size and position.
+## Template
+
+The Tooltip accepts a nested `<Template>` tag, which is a standard Blazor `RenderFragment`. It lets you generate content for the Tooltip based on meta data from the target. You can also fetch data on demand for the Tooltip content through that. See [examples in the Tooltip Template article]({%slug tooltip-template%}).
+
+## Tooltip Parameters
+
+The Tooltip provides the following configuration parameters. Also check the [Tooltip component API](/blazor-ui/api/Telerik.Blazor.Components.TelerikTooltip).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-animation-container">` element, which is an ancestor (but not parent) of the `<div class="k-tooltip>` element. The former element is responsible for the Tooltip's `position` and `z-index` styles. The latter element applies the theme styling (borders, background, etc.). Use a CSS class to [override theme styles]({%slug themes-override%}). Here is a [custom Tooltip styling example]({%slug tooltip-kb-custom-styles%}). |
+| `Height` | `string` | Applies a height style in [any supported unit]({%slug common-features/dimensions%}). @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior) |
+| `Id` | `string` | Renders an `id` attribute to the `<div class="k-tooltip>` element. To improve accessibility and screen reader behavior, set the same string as Tooltip `Id` and `aria-described-by` attribute of all Tooltip targets. |
+| `Position` | `TooltipPosition` enum <br /> (`Top`) | Sets the [Tooltip popup direction]({%slug tooltip-position%}), with regard to its target. |
+| `ShowOn` | `TooltipShowEvent` enum <br /> (`Hover`) | Sets the [browser event, which will trigger the Tooltip to display]({%slug tooltip-show-event%}). |
+| `TargetSelector` | `string` | The CSS [selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) or [combinator](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators), which points to one or multiple Tooltip targets. |
+| `Width` | `string` | Applies a width style in [any supported unit]({%slug common-features/dimensions%}). @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior) |
+
+>tip To have the tooltip stretch according to its content, leave **both** the `Width` and `Height` parameters empty. If one of them has a value, the HTML element will have some layout and you may get unexpected results in terms of size and position.
 >
 > If you will be [loading large content on demand]({%slug tooltip-template%}#separate-component-and-load-on-demand), you should set dimensions that will accommodate the expected content and layout.
 
+## Next Steps
+
+* [Experiment with Tooltip Position]({%slug tooltip-position%})
+* [Choose a Tooltip Show Event]({%slug tooltip-show-event%})
+* [Explore ToolTip Templates]({%slug tooltip-template%})
+
 ## See Also
 
-  * [Position]({%slug tooltip-position%})
-  * [Show Event]({%slug tooltip-show-event%})
-  * [Template]({%slug tooltip-template%})
-  * [Live Demo: Tooltip](https://demos.telerik.com/blazor-ui/tooltip/overview)
+* [Live Demo: Tooltip](https://demos.telerik.com/blazor-ui/tooltip/overview)
