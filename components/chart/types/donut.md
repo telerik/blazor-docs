@@ -14,12 +14,12 @@ The <a href="https://www.telerik.com/blazor-ui/donut-chart" target="_blank">Blaz
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-#### To create a donut chart:
+## Creating Donut Chart
 
-1. add a `ChartSeries` to the `ChartSeriesItems` collection
-2. set its `Type` property to `ChartSeriesType.Donut`
-3. provide a data model collection to its `Data` property
-4. set the `Field` and `CategoryField` properties to the corresponding fields in the model that carry the values and names that will be shown in the legend
+1. Add a `ChartSeries` to the `ChartSeriesItems` collection
+2. Set its `Type` property to `ChartSeriesType.Donut`
+3. Provide a data model collection to its `Data` property
+4. Set the `Field` and `CategoryField` properties to the corresponding fields in the model that carry the values and names that will be shown in the legend
 
 If you use [simple data binding]({%slug components/chart/databind%}#independent-series-binding) and only provide values, the chart will not render a legend.
 
