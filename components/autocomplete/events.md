@@ -255,3 +255,5 @@ The `OnBlur` event fires when the component loses focus.
 
 * [ValueChanged and Validation]({%slug value-changed-validation-model%})
 * [Fire OnChange Only Once]({%slug ddl-kb-onchange-fires-twice%})
+* [Filter AutoComplete Items]({%slug autocomplete-filter%})
+* [Refresh AutoComplete Data]({%slug autocomplete-refresh-data%})
