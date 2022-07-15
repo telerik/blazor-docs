@@ -6,7 +6,7 @@ page_title: Hide DatePicker Input
 slug: datepicker-kb-hide-input
 position: 
 tags: 
-ticketid: 1504648, 1557843
+ticketid: 1504648, 1557843, 1572315
 res_type: kb
 ---
 
@@ -33,11 +33,11 @@ Is there a way to hide the input portion of the DatePicker and leave only the se
 
 ## Solution
 
-Use custom CSS to hide the textbox and leave only the button and icon.
+Use [custom CSS]({%slug themes-override%}) to hide the textbox and leave only the button and icon.
 
 To customize only specific Date/Time Pickers, use their Class parameter.
 
-This technique prevent automatic closing of the DatePicker popup after the user selects a date. To hide the popup, call JavaScript from the ValueChanged event handler. This workaround is not necessary for DateTimePickers and TimePickers.
+This technique prevents automatic closing of the DatePicker popup after the user selects a date. To hide the popup, call JavaScript from the [`ValueChanged` event handler]({%slug components/datepicker/events%}#valuechanged). This workaround is not necessary for DateTimePickers and TimePickers.
 
 >caption Hide Date/Time Picker TextBox
 
@@ -61,20 +61,29 @@ TimePicker:
                    @bind-Value="@DatePickerValue" />
 
 <style>
+    /* remove default 100% width */
     .date-picker-only-icon.k-input {
         width: auto;
     }
 
-    .date-picker-only-icon .k-dateinput {
+    /* hide textbox */
+    .date-picker-only-icon .k-input-inner {
         display: none;
+    }
+
+    /* remove button left border */
+    .date-picker-only-icon .k-input-button {
+        border-left-width: 0;
     }
 </style>
 
 @* Move this script outside the Razor component *@
 <script suppress-error="BL9992">
+
     function closePickerPopup(pickerId) {
         document.getElementById(pickerId).dispatchEvent(new Event("focus"));
     }
+
 </script>
 
 @code  {
@@ -84,7 +93,7 @@ TimePicker:
     {
         DatePickerValue = newValue;
 
-        // close the DatePicker popup automatically
+        // close the DatePicker popup
         await js.InvokeVoidAsync("closePickerPopup", pickerId);
     }
 }

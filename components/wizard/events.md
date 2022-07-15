@@ -81,46 +81,44 @@ Next targeted step index: @TargetIndex
 
 ## ValueChanged
 
-The `ValueChanged` event fires after the [`OnChange`](#onchange) event is triggered and the Step has been changed.
+The `ValueChanged` event fires after the [`OnChange`](#onchange) event, if the latter has not been cancelled. The handler receives the new Wizard value (step index) as an event argument. Make sure to set it to the `Value` parameter, so that the new step content is rendered.
 
 >caption Handle the `ValueChanged` event of the Wizard
 
 ````CSHTML
-@* Handle the ValueChanged event of the Wizard *@
+<TelerikWizard ValueChanged="@ValueChangedHandler" Value="@WizardValue">
+    <WizardSteps>
+        <WizardStep Text="1">
+            <Content>
+                <h2>Content for Wizard Step 1</h2>
+            </Content>
+        </WizardStep>
+        <WizardStep Text="2">
+            <Content>
+                <h2>Content for Wizard Step 2</h2>
+            </Content>
+        </WizardStep>
+        <WizardStep Text="3">
+            <Content>
+                <h2>Content for Wizard Step 3</h2>
+            </Content>
+        </WizardStep>
+    </WizardSteps>
+</TelerikWizard>
 
-@Logger
-
-<div style="text-align:center">
-    <TelerikWizard ValueChanged="@ValueChangedHandler" Width="600px" Height="300px">
-        <WizardSteps>
-            <WizardStep Text="1">
-                <Content>
-                    <h2>Content for Wizard Step 1</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Text="2">
-                <Content>
-                    <h2>Content for Wizard Step 2</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Text="3">
-                <Content>
-                    <h2>Content for Wizard Step 3</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-    </TelerikWizard>
-</div>
+<p>ValueChanged log: @Logger </p>
 
 @code{
 
-    public string Logger { get; set; }
+    string Logger { get; set; }
 
-    void ValueChangedHandler()
+    int WizardValue { get; set; }
+
+    void ValueChangedHandler(int newValue)
     {
-        Logger = "ValueChanged fired. You can perform the desired logic here.";
+        WizardValue = newValue;
+        Logger = "ValueChanged fired, the new Wizard Step index is " + WizardValue;
     }
-
 }
 ````
 

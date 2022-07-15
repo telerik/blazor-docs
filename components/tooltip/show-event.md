@@ -19,7 +19,9 @@ It takes a member of the `Telerik.Blazor.TooltipShowEvent` enum:
 
 By default, the tooltip shows on hover (mouseover) of its target, just like the browser tooltips that the Tooltip component replaces.
 
->caption Explore the show events of the tooltip
+> Changing the `ShowEvent` dynamically at runtime is not supported at this stage.
+
+>caption Explore the show events of the Tooltip
 
 ````CSHTML
 @* Setting a show event is not mandatory, it defaults to Hover *@
@@ -62,13 +64,11 @@ By default, the tooltip shows on hover (mouseover) of its target, just like the 
 </style>
 ````
 
-## Notes
+## Next Steps
 
-Changing the `ShowEvent` dynamically at runtime is not supported at this stage.
-
+* [Explore ToolTip Templates]({%slug tooltip-template%})
 
 ## See Also
 
 * [Tooltip Overview]({%slug tooltip-overview%})
 * [Live Demo: Tooltip Show Event](https://demos.telerik.com/blazor-ui/tooltip/show-event)
-

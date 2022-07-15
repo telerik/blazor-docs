@@ -49,8 +49,9 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
 ````CSHTML
 @*Edit the SelectedItem with buttons located in the GridToolBar*@
 
-<TelerikGrid Data=@GridData
-             SelectionMode="GridSelectionMode.Single"
+<TelerikGrid Data="@GridData"
+             EditMode="@GridEditMode.Inline"
+             SelectionMode="@GridSelectionMode.Single"
              SelectedItemsChanged="@((IEnumerable<Employee> employeeList) => OnSelect(employeeList))"
              SelectedItems="@SelectedItems"
              OnRowClick="@OnRowClickHandler"

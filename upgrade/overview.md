@@ -53,6 +53,8 @@ To upgrade the Telerik UI for Blazor components used in your project, perform th
         
         <script src="https://blazor.cdn.telerik.com/blazor/<VERSION NUMBER>/telerik-blazor.min.js" defer></script>
 
+1. If the application is localized, [update the Telerik localization (`.resx`) files]({%slug globalization-localization%}#how-localization-works-in-the-telerik-components). Otherwise you may see [exceptions related to missing localization strings]({%slug common-kb-null-value-parameter-format%}).
+
 ## Upgrade from Trial to Commercial
 
 If you have just purchased a license and you need to migrate from the trial package to the licensed version, perform the following steps:

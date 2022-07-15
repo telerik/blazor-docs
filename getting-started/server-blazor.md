@@ -47,7 +47,7 @@ To create a server-side Blazor app, use a **Blazor Server App** project:
 
 1\. Manage NuGet Packages
 
-Right-click the project in the solution and select `Manage NuGet Packages`:
+Right-click the Blazor Server project in the solution and select `Manage NuGet Packages`:
 
 ![Manage NuGet Packages](images/manage-nuget-packages-for-server-app.png)
 
@@ -69,7 +69,7 @@ Add the `telerik-blazor.js` file to your main index file:
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
 
-To enable the use of static assets in your project, add the following line to the startup file of your **Server** project:
+To enable the use of static assets in your project, add the following line to the startup file of your **Blazor Server** project:
 
  * `Startup.cs` for .NET 3.x and .NET 5
  * `Program.cs` for .NET 6
@@ -88,7 +88,7 @@ Register the [Theme stylesheet]({%slug general-information/themes%}) in your mai
 
 5\. Register the Telerik Blazor Service
 
-Open the startup file of your **Server** project and register the Telerik Blazor service:
+Open the startup file of your **Blazor Server** project and register the Telerik Blazor service:
 
 * `Startup.cs` for .NET 3.x and .NET 5
 * `Program.cs` for .NET 6
@@ -112,7 +112,7 @@ Add the following to your **`~/_Imports.razor`** file so the project recognizes 
 
 
     
-Now your project can use the Telerik UI for Blazor components.
+Now your Blazor Server project can use the Telerik UI for Blazor components.
 
 ## Step 3 - Add a Telerik Component to a View
 

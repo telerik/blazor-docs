@@ -1,5 +1,5 @@
 ---
-title: How can I add an icon to a TextBox?
+title: How to Add Icon to TextBox
 description: How to add an icon or button in the textbox.
 type: how-to
 page_title: How to add icon to the textbox
@@ -22,18 +22,76 @@ res_type: kb
 
 
 ## Description
+
 I would like to add a icon in the TextBox, like a search icon, or email or phone. 
 
 Is there anyway to do an 'addon' button with the TelerikTextBox?
 
 ## Solution
-You simply need to add the desired icon and HTML, and to style them so they fit your needs. Libraries like Bootstrap offer design patterns for this, or you could apply your own styling over your own elements.
 
-The example below showcases both approaches and here is the outcome from it:
+TextBoxes (`<input>` elements) can only hold plain text. It is possible to render an icon next to the textbox and position it over the textbox. The `<input>` element itself will need some left padding to free space for the icon.
+
+>caption Display icon over TextBox input
+
+````CSHTML
+<p>
+    <label>
+        Fixed Label
+        <span class="tb-icon-container">
+            <TelerikIcon Icon="zoom" />
+            <TelerikTextBox @bind-Value="@StringValue" Width="200px" />
+        </span>
+    </label>
+</p>
+
+<p>
+    <span class="tb-icon-container with-label">
+        <TelerikIcon Icon="zoom" />
+        <TelerikFloatingLabel Text="Floating Label">
+            <TelerikTextBox @bind-Value="@StringValue" Width="200px" />
+        </TelerikFloatingLabel>
+    </span>
+</p>
+
+<style>
+    /* enable absolute position for the icon */
+    .tb-icon-container {
+        position: relative;
+    }
+
+    /* position icon over textbox */
+    .tb-icon-container .k-icon {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0.5em;
+    }
+
+    /* add space to textbox without floating label */
+    .tb-icon-container .k-textbox input,
+    /* add space to floating label over the textbox */
+    .k-floating-label-container.k-empty:not(.k-focus) .k-label {
+        padding-left: 2em;
+    }
+
+    /* icon with floating label */
+    .tb-icon-container.with-label .k-icon {
+        top: 0.7em;
+    }
+</style>
+
+@code{
+    string StringValue { get; set; } = "lorem ipsum";
+}
+````
+
+### Version 2.30 and Older
+
+[UI for Blazor 3.0 changed the HTML rendering of input components]({%slug changes-in-3-0-0%}#rendering-and-themes). For older versions use the code below.
 
 ![add icon to the textbox - result](images/textbox-icon-example.png)
 
->caption How to add icons to the textbox
+>caption How to add icon to the textbox
 
 ````CSHTML
 <h3>Bootstrap prepend or append approach</h3>

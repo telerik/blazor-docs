@@ -78,7 +78,10 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
         {
             if (!file.InvalidExtension)
             {
+	        // save to local file system
                 await UploadFile(file);
+		// or read file in-memory
+		//await ReadFile(file);
             }
         }
     }
@@ -89,6 +92,14 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
         var path = Path.Combine(HostingEnvironment?.WebRootPath, file.Name);
         await using FileStream fs = new FileStream(path, FileMode.Create);
         await file.Stream.CopyToAsync(fs, Tokens[file.Id].Token);
+    }
+    
+    private async Task ReadFile(FileSelectFileInfo file)
+    {
+        Tokens.Add(file.Id, new CancellationTokenSource());
+        var byteArray = new byte[file.Size];
+        await using MemoryStream ms = new MemoryStream(byteArray);
+        await file.Stream.CopyToAsync(ms, Tokens[file.Id].Token);
     }
 }
 ````
