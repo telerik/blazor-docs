@@ -14,14 +14,13 @@ The <a href="https://www.telerik.com/blazor-ui/context-menu" target="_blank">Bla
 
 In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%}), you can browse through the items and their children, define [templates]({%slug contextmenu-templates-overview%}) for the individual nodes, render text and icons/images, and respond to [events]({%slug contextmenu-events%}).
 
-#### To use a Telerik Context Menu for Blazor:
+## Creating Context Menu
 
-1. add the `TelerikContextMenu` tag and set its `Selector` parameter to a CSS selector that will match the element(s) you want to attach the context menu to.
-1. provide a collection of models to its `Data` property (read more in the [Data Binding article]({%slug contextmenu-data-binding-overview%}))
-1. match the fields in the models with the binding schema for the nodes
-1. handle the `OnClick` [event]({%slug contextmenu-events%}) to respond to the user action
+1. Add the `TelerikContextMenu` tag and set its `Selector` parameter to a CSS selector that will match the element(s) you want to attach the context menu to.
+1. Provide a collection of models to its `Data` property. The Context Menu will automatically recognize property names like `Id`, `ParentId`, `Text` and a few others. Otherwise, [use bindings to configure custom property names]({%slug contextmenu-data-binding-overview%}#data-bindings).
+1. Handle the [`OnClick` event]({%slug contextmenu-events%}#onclick) to respond to user actions.
 
->caption Basic context menu with hierarchical data binding and click event handler
+>caption Basic context menu with hierarchical data binding and OnClick event handler
 
 ````CSHTML
 @* Use a context menu to perform actions *@
@@ -30,8 +29,7 @@ In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%
     Right click (or tap-and-hold on a touch device) for a context menu.
 </div>
 
-<TelerikContextMenu Selector=".context-menu-target" Data="@MenuItems"
-                    TextField="Text" SeparatorField="Separator" IconField="Icon"
+<TelerikContextMenu Selector=".context-menu-target" Data="@MenuItems"                       
                     OnClick="@( (ContextMenuItem itm) => ClickHandler(itm) )">
 </TelerikContextMenu>
 
@@ -96,50 +94,13 @@ In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%
 }
 ````
 
->caption The result from the snippet above, after right clicking the yellow target and hovering the "Advanced" item
+## Data Binding
 
-![Blazor Context Menu Overview](images/context-menu-overview.png)
+To show any items, the Blazor Context Menu requires a data source that you can provide through the `Data` property. The Context Menu allows you to display the items both as flat data and hierarchically. [Read more about the Blazor Context Menu data binding...]({%slug contextmenu-data-binding-overview%})
 
->caption Component namespace and reference
+## Customize per Target
 
-````CSHTML
-@using Telerik.Blazor.Components
-
-<TelerikContextMenu Data="@MenuItems" @ref="@TheContextMenu">
-</TelerikContextMenu>
-
-@code {
-    // the context menu is a generic component and its type depends on the model it binds to
-    TelerikContextMenu<ContextMenuItem> TheContextMenu { get; set; }
-
-    List<ContextMenuItem> MenuItems { get; set; }
-
-    protected override void OnInitialized()
-    {
-
-        MenuItems = new List<ContextMenuItem>()
-        {
-            new ContextMenuItem
-            {
-                Text = "Item 1"
-            },
-            new ContextMenuItem
-            {
-                Text = "Item 2"
-            }
-        };
-
-        base.OnInitialized();
-    }
-
-    public class ContextMenuItem
-    {
-        public string Text { get; set; }
-        public List<ContextMenuItem> Items { get; set; }
-    }
-}
-````
-
+The same context menu can easily be attached to many targets, or you can use its `ShowAsync(x, y)` method to show it explicitly based on your business logic needs, data and events. Read more in the [Integration]({%slug contextmenu-integration%}) article.
 
 ## Navigate Views
 
@@ -148,18 +109,39 @@ A menu is often used to list pages, views or sections in an application so the u
 * Use the built-in `UrlField` in the [bound data]({%slug contextmenu-data-binding-overview%}) to populate the URLs in the anchors the menu will generate for you if an URL is provided for the given item. An example is available in the beginning of this article.
 * Use a [Template]({%slug contextmenu-templates-overview%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
 
->tip You can find an example of a menu used to navigate between pages in an app in the [Navigation]({%slug contextmenu-navigation%}) article.
+[Read more about the Blazor Context Menu navigation...]({%slug contextmenu-navigation%})
 
+## Icons
 
-## Customize per Target
+To illustrate the purpose of each menu item, the Blazor Context Menu allows you to add images, icon classes, or font icons. [Read more about the Blazor Menu icons...]({%slug contextmenu-icons%})
 
-The same context menu can easily be attached to many targets, or you can use its `ShowAsync(x, y)` method to show it explicitly based on your business logic needs, data and events. Read more in the [Integration]({%slug contextmenu-integration%}) article.
+## Templates
 
-## Methods
+You can use the functionality of the built-in templates and customize what is rendered in the items. [Read more about the Blazor Context Menu templates...]({%slug contextmenu-templates-overview%})
 
-The ContextMenu methods are accessible through it's reference:
-* `ShowAsync` - programmatically shows the ContextMenu 
-* `HideAsync` - programmatically hides the ContextMenu
+## Events
+
+The Context Menu generates events that you can handle and further customize its behavior. [Read more about the Blazor Context Menu events...]({%slug contextmenu-events%})
+
+## Context Menu Parameters
+
+The following table lists Context Menu parameters, which are not related to other features on this page. Check the [Context Menu API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikContextMenu-1) for a full list of properties, methods and events.
+
+| Attribute | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders additional CSS class to the main wrapping element of the component. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
+| `Selector` | `string` | CSS selector of the target elements where the Context Menu will be shown.|
+
+## Context Menu Reference and Methods
+
+Add a reference to the component instance to use the [Context Menu methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikContextMenu-1).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `ShowAsync` | programmatically shows the ContextMenu 
+| `HideAsync` | programmatically hides the ContextMenu
 
 ````CSHTML
 @* Open and close the ContextMenu programmatically *@
@@ -189,6 +171,8 @@ The ContextMenu methods are accessible through it's reference:
 
 @code {
     public List<ContextMenuItem> MenuItems { get; set; }
+
+    // the context menu is a generic component and its type depends on the model it binds to
     TelerikContextMenu<ContextMenuItem> TheContextMenu { get; set; }
 
     async Task ShowContextMenu(MouseEventArgs e, bool IsSpecial)
@@ -231,6 +215,12 @@ The ContextMenu methods are accessible through it's reference:
     }
 </style>
 ````
+
+## Next Steps
+
+* [Binding the Context Menu to Data]({%slug contextmenu-data-binding-overview%})
+
+* Handle the [`OnClick` event]({%slug contextmenu-events%}#onclick) of the Context Menu to respond to the user action
 
 ## See Also
 
