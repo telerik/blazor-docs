@@ -5,7 +5,7 @@ description: Resize items in the TileLayout for Blazor.
 slug: tilelayout-resize
 tags: telerik,blazor,tile,layout,dashboard,resize
 published: True
-position: 5
+position: 15
 ---
 
 # TileLayout Resize
@@ -46,9 +46,14 @@ Resizing a tile fires the [OnResize event]({%slug tilelayout-events%}#onresize).
 ````
 
 
+## Next Steps
+
+* Enable [tile reordering]({%slug tilelayout-reorder%}).
+* [Handle Tile Layout events]({%slug tilelayout-events%}).
+* [Manage the Tile Layout state]({%slug tilelayout-state%}).
+
+
 ## See Also
 
-  * [Overview]({%slug tilelayout-overview%})
-  * [State]({%slug tilelayout-state%})
-  * [Events]({%slug tilelayout-events%})
-  * [Live Demo: TileLayout Resizing](https://demos.telerik.com/blazor-ui/tilelayout/resizing)
+* [Overview]({%slug tilelayout-overview%})
+* [Live Demo: TileLayout Resizing](https://demos.telerik.com/blazor-ui/tilelayout/resizing)

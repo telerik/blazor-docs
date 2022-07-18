@@ -5,7 +5,7 @@ description: Control, save and load the state of the TileLayout for Blazor.
 slug: tilelayout-state
 tags: telerik,blazor,tile,layout,dashboard,state
 published: True
-position: 15
+position: 25
 ---
 
 # TileLayout State
