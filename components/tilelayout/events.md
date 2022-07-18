@@ -5,7 +5,7 @@ description: Events of the TileLayout for Blazor.
 slug: tilelayout-events
 tags: telerik,blazor,tile,layout,dashboard,events
 published: True
-position: 20
+position: 30
 ---
 
 # TileLayout Events
@@ -126,8 +126,11 @@ The `OnReorder` event provides an argument of type `TileLayoutReorderEventArgs`.
 }
 ````
 
+## Next Steps
+
+* [Manage the Tile Layout state]({%slug tilelayout-state%}).
+
 
 ## See Also
 
-  * [TileLayout Overview]({%slug tilelayout-overview%})
-  * [State]({%slug tilelayout-state%})
+* [TileLayout Overview]({%slug tilelayout-overview%})
