@@ -41,14 +41,16 @@ When I switch the number of dynamic columns or the column definitions, the comma
 <TelerikRadioGroup Data="@ColumnOptions"
                    Value="@CurrentColumns"
                    Layout="@RadioGroupLayout.Horizontal"
-                   OnChange="@( (object newValue) => ChangeGridColumns((int)newValue) )" />
+                   OnChange="@( (object newValue) => ChangeGridColumns((int)newValue) )">
+</TelerikRadioGroup>
 
-<TelerikGrid TItem="@GridItem" @ref="@GridRef"
-             OnRead="@OnGridRead">
+<TelerikGrid @ref="@GridRef"
+             OnRead="@OnGridRead"
+             TItem="@GridItem">
     <GridColumns>
         @for (int i = 1; i <= CurrentColumns; i++)
         {
-            <GridColumn Field="Text" Title="@( $"Dynamic column {i}" )" />
+            <GridColumn Field="@($"Text{i}")" Title="@( $"Dynamic column {i}" )" />
         }
         <GridCommandColumn Title="Static column" Width="200px">
             <strong style="color:#f00;">Should be last</strong>
@@ -57,32 +59,36 @@ When I switch the number of dynamic columns or the column definitions, the comma
 </TelerikGrid>
 
 @code {
-    TelerikGrid<GridItem> GridRef { get; set; }
+    private TelerikGrid<GridItem> GridRef { get; set; }
 
-    IEnumerable<RadioItem> ColumnOptions { get; set; } = new List<RadioItem>()
+    private IEnumerable<RadioItem> ColumnOptions { get; set; } = new List<RadioItem>()
     {
         new RadioItem() { Text = "1 dynamic column", Value = 1 },
         new RadioItem() { Text = "2 dynamic columns", Value = 2 }
     };
 
-    int CurrentColumns { get; set; } = 1;
+    private int CurrentColumns { get; set; } = 1;
 
-    void ChangeGridColumns(int newValue)
+    private void ChangeGridColumns(int newValue)
     {
         CurrentColumns = newValue;
         GridRef.Rebind();
     }
 
-    void OnGridRead(GridReadEventArgs args)
+    private void OnGridRead(GridReadEventArgs args)
     {
-        args.Data = new List<GridItem>() { new GridItem() { Id = 1, Text = "Text" } };
+        args.Data = new List<GridItem>()
+        {
+            new GridItem() { Id = 1, Text1 = "Text 1", Text2 = "Text 2" }
+        };
         args.Total = 1;
     }
 
     public class GridItem
     {
         public int Id { get; set; }
-        public string Text { get; set; }
+        public string Text1 { get; set; }
+        public string Text2 { get; set; }
     }
 
     public class RadioItem
@@ -105,7 +111,7 @@ Typical scenarios that can exhibit such column position change are binding to `D
 
 To make a specific Grid column appear always last:
 
-* Set the [`@key`](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-6.0#use-key-to-control-the-preservation-of-elements-and-components) directive of all columns to a unique value. This will help the Blazor framework distinguish the columns and their client-side rendering.
+* Set the [`@key`](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-6.0#use-key-to-control-the-preservation-of-elements-and-components) directive of all columns to a unique value. This will help the Blazor framework distinguish the columns and their client-side rendering. Note that the `@key` of the command column should not remain the same when the number of dynamic columns changes.
 * (optional) Define the "static" column together with all "dynamic" columns inside a single loop.
 
 >caption Static Grid column will remain last when adding new columns
@@ -114,48 +120,55 @@ To make a specific Grid column appear always last:
 <TelerikRadioGroup Data="@ColumnOptions"
                    Value="@CurrentColumns"
                    Layout="@RadioGroupLayout.Horizontal"
-                   OnChange="@( (object newValue) => ChangeGridColumns((int)newValue) )" />
+                   OnChange="@( (object newValue) => ChangeGridColumns((int)newValue) )">
+</TelerikRadioGroup>
 
-<TelerikGrid TItem="@GridItem" @ref="@GridRef"
-             OnRead="@OnGridRead">
+<TelerikGrid @ref="@GridRef"
+             OnRead="@OnGridRead"
+             TItem="@GridItem">
     <GridColumns>
         @for (int i = 1; i <= CurrentColumns; i++)
         {
-            <GridColumn Field="Text" Title="@( $"Dynamic column {i}" )" @key="@i" />
+            @* using the field name as unique key *@
+            <GridColumn Field="@($"Text{i}")" Title="@( $"Dynamic column {i}" )" @key="@($"Text{i}")" />
         }
-        <GridCommandColumn Title="Static column" Width="200px" @key="@(CurrentColumns + 1)">
+        <GridCommandColumn Title="Static column" Width="200px" @key="@($"command{CurrentColumns + 1}")">
             <strong style="color:#f00;">Should be last</strong>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    TelerikGrid<GridItem> GridRef { get; set; }
+    private TelerikGrid<GridItem> GridRef { get; set; }
 
-    IEnumerable<RadioItem> ColumnOptions { get; set; } = new List<RadioItem>()
+    private IEnumerable<RadioItem> ColumnOptions { get; set; } = new List<RadioItem>()
     {
         new RadioItem() { Text = "1 dynamic column", Value = 1 },
         new RadioItem() { Text = "2 dynamic columns", Value = 2 }
     };
 
-    int CurrentColumns { get; set; } = 1;
+    private int CurrentColumns { get; set; } = 1;
 
-    void ChangeGridColumns(int newValue)
+    private void ChangeGridColumns(int newValue)
     {
         CurrentColumns = newValue;
         GridRef.Rebind();
     }
 
-    void OnGridRead(GridReadEventArgs args)
+    private void OnGridRead(GridReadEventArgs args)
     {
-        args.Data = new List<GridItem>() { new GridItem() { Id = 1, Text = "Text" } };
+        args.Data = new List<GridItem>()
+        {
+            new GridItem() { Id = 1, Text1 = "Text 1", Text2 = "Text 2" }
+        };
         args.Total = 1;
     }
 
     public class GridItem
     {
         public int Id { get; set; }
-        public string Text { get; set; }
+        public string Text1 { get; set; }
+        public string Text2 { get; set; }
     }
 
     public class RadioItem
