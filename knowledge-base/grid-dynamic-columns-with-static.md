@@ -111,7 +111,7 @@ Typical scenarios that can exhibit such column position change are binding to `D
 
 To make a specific Grid column appear always last:
 
-* Set the [`@key`](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-6.0#use-key-to-control-the-preservation-of-elements-and-components) directive of all columns to a unique value. This will help the Blazor framework distinguish the columns and their client-side rendering. Note that the `@key` of the command column should not remain the same when the number of dynamic columns changes.
+* Set the [`@key`](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-6.0#use-key-to-control-the-preservation-of-elements-and-components) directive of all columns to a unique value. This will help the Blazor framework distinguish the columns and their client-side rendering. Note that the `@key` of the command column must not remain the same when the number of dynamic columns changes.
 * (optional) Define the "static" column together with all "dynamic" columns inside a single loop.
 
 >caption Static Grid column will remain last when adding new columns
