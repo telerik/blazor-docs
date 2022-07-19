@@ -177,4 +177,4 @@ Thus, you will usually need to create a new reference for `Data` value in order 
 
 * [Data Binding with the OnRead event]({%slug common-features-data-binding-onread%})
 * [Data Binding to Observable Data]({%slug common-features-observable-data%})
-* [Data Binding to cloud data services]({%slug common-features-cloud-services%})
+* [Data Binding to cloud data services]({%slug common-features-data-binding-cloud%})
