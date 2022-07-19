@@ -17,7 +17,7 @@ The <a href = "https://www.telerik.com/blazor-ui/tilelayout" target="_blank">Bla
 1. Use the `TelerikTileLayout` tag.
 1. Set the desired number of `Columns` for the layout.
 1. (optional) Configure the `Width`, `Height`, `ColumnWidth` or `RowHeight` to [define the desired dimensions of the layout]({%slug tilelayout-layout%}) and the base size of the individual tiles.
-1. (optional) set the `Resizable` and `Reorderable` parameters to `true` to allow the user to alter the layout.
+1. (optional) set the [`Resizable`]({%slug tilelayout-resize%}) and [`Reorderable`]({%slug tilelayout-reorder%}) parameters to `true` to allow the user to alter the layout.
 1. Add `<TileLayoutItem>` instances inside a `<TileLayoutItems>` tag. Set the `HeaderText` parameter of each tile, and add a nested `<Content>` tag for the [tile content]({%slug tilelayout-tile-content%}).
 1. (optional) Set the `RowSpan` and `ColSpan` parameters of the tiles to values larger than `1` to increase their size in the grid.
 
@@ -30,7 +30,7 @@ The <a href = "https://www.telerik.com/blazor-ui/tilelayout" target="_blank">Bla
                    Reorderable="true">
     <TileLayoutItems>
         <TileLayoutItem HeaderText="Tile 1">
-            <Content>Regular sized first tile.</Content>
+            <Content>Regular-sized first tile.</Content>
         </TileLayoutItem>
         <TileLayoutItem HeaderText="Tile 2">
             <Content>You can put components in the tiles too.</Content>
@@ -57,17 +57,17 @@ Each tile (`<TileLayoutItem>`) in the TileLayout provides a few configuration op
 
 ## Resizing
 
-Users can [resize individual tiles]({%slug tilelayout-resize}) for better user experience and content visibility.
+Users can [resize individual tiles]({%slug tilelayout-resize%}) for better user experience and content visibility.
 
 
 ## Reordering
 
-Users can also [rearrange tiles]({%slug tilelayout-resize}), according to their preferences.
+Users can also [rearrange tiles]({%slug tilelayout-resize%}), according to their preferences.
 
 
 ## State
 
-The Tile Layout allows getting and setting its state. The [TileLayout state]({%slug tilelayout-state%}) contains information about the tiles' order, column span and row span.
+The [Tile Layout allows getting and setting its state]({%slug tilelayout-state%}). The TileLayout state contains information about the tiles' order, column span and row span.
 
 
 ## Events
@@ -77,7 +77,7 @@ The Tile Layout fires [events when the user resizes or rearranges tiles]({%slug 
 
 ## TileLayout Parameters
 
-The following table lists Tile Layout parameters. Also check the [TileLayout API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTileLayout) for a full list of all properties, methods and events.
+The following table lists the Tile Layout parameters. Also check the [TileLayout API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTileLayout) for a full list of all properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -85,7 +85,7 @@ The following table lists Tile Layout parameters. Also check the [TileLayout API
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-tilelayout">` element. Use it to [override theme styles]({%slug themes-override%}). |
 | `ColumnSpacing` | `string` <br /> (`"16px"`) | Defines the empty space between columns. |
-| `Columns` | `int?` | Sets the number of columns in the Tile Layout. |
+| `Columns` | `int` | Sets the number of columns in the Tile Layout. |
 | `ColumnWidth` | `string` | Sets the width of one tile. If not set, the tile widths will distribute evenly. |
 | `Height` | `string` | Sets the Tile Layout height. If not set, the component will expand automatically to fit all rows. |
 | `RowHeight` | `string` | Sets the height of one tile. If not set, the base tile height will be set by the component, based on the highest tile. |
