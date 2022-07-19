@@ -71,7 +71,7 @@ This blog post is focused on how to data bind Telerik Blazor components to Googl
 * [Google Cloud Functions compatibility with .NET](https://www.telerik.com/blogs/building-serverless-web-apps-blazor-chart-5-google-cloud-functions-api#google-cloud-functions-.net-runtime) and also [prerequisites related to using Google Cloud](https://www.telerik.com/blogs/building-serverless-web-apps-blazor-chart-5-google-cloud-functions-api#requirements-for-this-article)
 * [Generate a new Google Cloud Function project via CLI](https://www.telerik.com/blogs/building-serverless-web-apps-blazor-chart-5-google-cloud-functions-api#use-the-cli-to-generate-a-new-google-cloud-function-project)
 * [Modify the Google Cloud Function To return a dataset](https://www.telerik.com/blogs/building-serverless-web-apps-blazor-chart-5-google-cloud-functions-api#modifying-the-google-cloud-function-to-return-a-dataset)
-* [Add a CORS policy to the local Blazor app](https://www.telerik.com/blogs/building-serverless-web-apps-blazor-chart-5-google-cloud-functions-api#)
+* [Add a CORS policy to the local Blazor app](https://www.telerik.com/blogs/building-serverless-web-apps-blazor-chart-5-google-cloud-functions-api#adding-in-a-cors-policy-locally)
 * [Create and configure Google Cloud resources](https://www.telerik.com/blogs/building-serverless-web-apps-blazor-chart-5-google-cloud-functions-api#create-and-configure-google-cloud-resources)
 
 
