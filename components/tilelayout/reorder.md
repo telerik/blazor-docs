@@ -18,11 +18,11 @@ To be able to drag and reorder a tile, it must have some [content]({%slug tilela
 
 @[template](/_contentTemplates/tilelayout/basics.md#resizing-reordering-logic)
 
+> When the tile layout allows reordering, it captures mouse events in the tile headers. Thus, if you put components in the `HeaderTemplate` of the tiles, they may not function as expected. For example, you may not be able to focus inputs with the mouse. The header is designed for presentation purposes and to allow dragging. We recommend putting editors or complex content in the `Content` of the tiles.
+
 Reordering a tile fires the [OnReorder event]({%slug tilelayout-events%}#onreorder).
 
 >caption Reordering tiles in the TileLayout
-
-![reorder tiles](images/tilelayout-reordering-overview.gif)
 
 ````CSHTML
 <TelerikTileLayout ColumnWidth="200px"
@@ -47,7 +47,7 @@ Reordering a tile fires the [OnReorder event]({%slug tilelayout-events%}#onreord
 </TelerikTileLayout>
 ````
 
->note When the tile layout has reordering enabled, it captures mouse events in its header. Thus, if you put components in the `HeaderTemplate` of `TileLayoutItem` instances, they may not function as expected. For example, you may not be able to focus inputs with the mouse. The header is designed for presentation purposes and to allow dragging, and we recommend you consider putting editors or complex content in the `Content` of the tiles.
+![reorder tiles](images/tilelayout-reordering-overview.gif)
 
 
 ## Next Steps

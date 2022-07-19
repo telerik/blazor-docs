@@ -10,7 +10,7 @@ position: 15
 
 # TileLayout Resize
 
-You can resize the tiles by dragging their bottom and right-hand side borders to change the dashboard to your liking.
+Resize tiles by dragging their bottom and right borders to change the dashboard to your liking.
 
 To enable resizing, set the `Resizable` parameter of the main `TelerikTileLayout` tag to `true`.
 
@@ -19,8 +19,6 @@ To enable resizing, set the `Resizable` parameter of the main `TelerikTileLayout
 Resizing a tile fires the [OnResize event]({%slug tilelayout-events%}#onresize).
 
 >caption Resizing tiles in the TileLayout
-
-![resize tiles](images/tilelayout-resizing-overview.gif)
 
 ````CSHTML
 <TelerikTileLayout ColumnWidth="200px"
@@ -44,6 +42,8 @@ Resizing a tile fires the [OnResize event]({%slug tilelayout-events%}#onresize).
     </TileLayoutItems>
 </TelerikTileLayout>
 ````
+
+![resize tiles](images/tilelayout-resizing-overview.gif)
 
 
 ## Next Steps

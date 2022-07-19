@@ -10,14 +10,13 @@ position: 5
 
 # TileLayout Appearance
 
-This article describes how the TileLayout constructs its layout, and what are the parameters that affect its appearance.
-
-We recommend that you get familiar with the concept of [CSS Grid Layout](https://css-tricks.com/snippets/css/complete-guide-grid/) first. The TileLayout component is based on it as underlying implementation and core properties.
+This article describes how the TileLayout constructs its layout, and what are the parameters that affect its appearance. To understand the component behavior in more depth, get familiar with the concept of [CSS Grid Layout](https://css-tricks.com/snippets/css/complete-guide-grid/) first. The TileLayout component is based on it as underlying implementation and core properties.
 
 The TileLayout component exposes parameters that control its layout at two levels:
 
 * [Main Element](#main-element)
 * [Individual Tiles](#individual-tiles)
+
 
 ## Main Element
 
@@ -41,11 +40,12 @@ There are two other settings you should take into account if you set explicit di
 
 Lastly, you can also set the `Class` parameter that renders at the main wrapping element of the tile layout so you can cascade custom CSS rules through it.
 
+
 ## Individual Tiles
 
 Each tile provides settings that define how many columns and rows its takes up - the `ColSpan` and `RowSpan` parameters. It also provides a `Class` parameter so you can cascade CSS rules through it.
 
-The largest `ColSpan` any tile has determines the lowest number of `Columns` the entire layout will actually have - for example, if you have a tile with `ColSpan=2` and `Columns=1`, there will still be two columns.
+`ColSpan` can affect the actual number of `Columns` of the entire layout. For example, if you have a tile with `ColSpan="2"` and `Columns="1"`, the TileLayout will still have two columns.
 
 @[template](/_contentTemplates/tilelayout/basics.md#resizing-reordering-logic)
 

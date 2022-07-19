@@ -8,7 +8,7 @@ published: True
 position: 10
 ---
 
-# Tile Content
+# Tile Layout Content
 
 This article describes how to set the content of each TileLayout tile.
 
@@ -20,9 +20,9 @@ To set the tile contents, you have the following options:
 
 * The `HeaderTemplate` tag lets you define custom content, including components, in the header portion of the tile.
 
-* The `Content` is a `RenderFragment` where you put the content of the tiles - it can range from simple text, to comlex components.
+* The `Content` is a `RenderFragment` where you put the content of the tiles - it can range from simple text, to complex components.
 
->caption Examples of setting content in tiles
+>caption Set header and content of tiles
 
 ````CSHTML
 <TelerikTileLayout ColumnWidth="200px"
@@ -52,7 +52,7 @@ To set the tile contents, you have the following options:
 
 The Tile Layout component targets modern web development and thus - responsive dimensions for the content. Therefore, we expect that most content will have `width: 100%; height: 100%;` so that it can stretch according to the size of the tile that the end user chooses.
 
-If you want to change that (for example, because you have certain content that requires dimensions set in `px`), you can use the `Class` of the individual tile and choose the required setting for the `overflow` CSS rule of the `.k-card-body` element in that particular tile.
+If you want to change that (for example, because you have certain content that requires dimensions set in `px`), you can use the `Class` of the individual tile and choose the required setting for the `overflow` CSS rule of the `div.k-tilelayout-item-body` element in that particular tile.
 
 >caption Content scrollbars and overflow behavior in the Tile Layout
 
@@ -65,25 +65,25 @@ If you want to change that (for example, because you have certain content that r
     <TileLayoutItems>
         <TileLayoutItem HeaderText="Responsive Content">
             <Content>
-                <div style="width: 100%; height: 100%; background: cyan;">Resize this tile - my size fits it</div>
+                <div style="width: 100%; height: 100%; background: lime;">My size fits</div>
             </Content>
         </TileLayoutItem>
         <TileLayoutItem HeaderText="Static Content">
             <Content>
-                <div style="width: 300px; height: 300px; background: yellow;">I will be cut off by default</div>
+                <div style="width: 600px; height: 300px; background: yellow;">I will be cut off by default. I will be cut off by default. I will be cut off by default.</div>
             </Content>
         </TileLayoutItem>
         <TileLayoutItem HeaderText="Custom Scrollbars" Class="tile-with-overflow">
             <Content>
-                <div style="width: 300px; height: 300px; background: yellow;">I am contained in the tile and produce scrollbars</div>
+                <div style="width: 600px; height: 300px; background: cyan;">I produce scrollbars</div>
             </Content>
         </TileLayoutItem>
     </TileLayoutItems>
 </TelerikTileLayout>
 
 <style>
-    .tile-with-overflow .k-card-body {
-        overflow: scroll !important; /* choose a value that fits your needs */
+    .tile-with-overflow .k-tilelayout-item-body {
+        overflow: auto;
     }
 </style>
 ````
