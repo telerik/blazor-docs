@@ -47,7 +47,7 @@ The Blazor Switch generates events that you can handle and further customize its
 
 ## Validation
 
-You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation....]({%slug common-features/input-validation%})
+You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation....]({%slug common-features/input-validation%}) 
 
 ## Switch Parameters
 
@@ -57,15 +57,25 @@ The Switch provides the following features to allow further customization of its
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-|   `Class` | `string` | the CSS class that will be rendered on the main wrapping element of the Switch. Use it to [customize the Switch background color and other styles]({%slug switch-kb-change-background-color%})
 | `Enabled` | `bool` | whether the component is enabled.
 | `Id` | `string` | renders as the `id` attribute on the wrapping `<span>` element of the component.
-| `Width` | `string` | the width of the component.
 | `TabIndex` | `int` | the `tabindex` attribute rendered on the Switch.
 | `Value` and `bind-Value` | `bool` or `bool?`| the value of the Switch.
 | `OnLabel` | `string` | the label of the component when the `Value` is `true`.
 | `OffLabel` | `string` | the label of the component when the `Value` is `false`.
 
+### Styling and Appearance
+
+The following parameters enable you to customize the appearance of the Blazor Switch:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+| `Class` | `string` | the CSS class that will be rendered on the main wrapping element of the Switch. Use it to [customize the Switch background color and other styles]({%slug switch-kb-change-background-color%})
+| `Width` | `string` | the width of the component.
+
+You can find more options for customizing the Switch styling in the [Appearance article]({%slug switch-appearance%}).
 
 ## Switch Reference and Methods
 
