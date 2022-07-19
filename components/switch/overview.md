@@ -12,10 +12,10 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/switch" target="_blank">Blazor Switch component</a> allows the user to toggle between checked and unchecked states.
 
-#### To use a Telerik Switch for Blazor
+## Creating Switch for Blazor
 
-1. add the `TelerikSwitch` tag
-1. provide `Value` (one-way data binding) or `bind-Value` (two-way data binding) property
+1. Use the `TelerikSwitch` tag
+1. Provide `Value` (one-way data binding) or `bind-Value` (two-way data binding) property
 
 
 >caption Basic setup of the Telerik Switch using two-way data binding
@@ -37,116 +37,68 @@ The <a href = "https://www.telerik.com/blazor-ui/switch" target="_blank">Blazor 
 
 ![Telerik Switch Component](images/swtich-first-look.gif)
 
-## Features
+## Labels
 
-The Switch provides the following features:
+The Switch has dedicated `On` and `Off` labels serving as text representation of the component value. [Read more about the Switch labels....]({%slug switch-labels%})
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the Switch. Use it to [customize the Switch background color and other styles]({%slug switch-kb-change-background-color%})
+## Events
 
-* `Enabled` - whether the component is enabled.
+The Blazor Switch generates events that you can handle and further customize its behavior. [Read more about the Switch events....]({%slug switch-events%})
 
-* `Id` - renders as the `id` attribute on the wrapping `<span>` element of the component.
+## Validation
 
-* `Width` - the width of the component.
+You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation....]({%slug common-features/input-validation%})
 
-* `TabIndex` - the `tabindex` attribute rendered on the Switch.
+## Switch Parameters
 
-* `Value` and `bind-Value` -  accept `bool` and `bool?` data types.
+The Switch provides the following features to allow further customization of its behavior:
 
-* `OnLabel` - the label of the component when the `Value` is `true`.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* `OffLabel` - the label of the component when the `Value` is `false`.
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+|   `Class` | `string` | the CSS class that will be rendered on the main wrapping element of the Switch. Use it to [customize the Switch background color and other styles]({%slug switch-kb-change-background-color%})
+| `Enabled` | `bool` | whether the component is enabled.
+| `Id` | `string` | renders as the `id` attribute on the wrapping `<span>` element of the component.
+| `Width` | `string` | the width of the component.
+| `TabIndex` | `int` | the `tabindex` attribute rendered on the Switch.
+| `Value` and `bind-Value` | `bool` or `bool?`| the value of the Switch.
+| `OnLabel` | `string` | the label of the component when the `Value` is `true`.
+| `OffLabel` | `string` | the label of the component when the `Value` is `false`.
 
-* Events - see the [Switch events]({%slug switch-events%}) article for more information and examples.
 
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article for more details.
+## Switch Reference and Methods
 
-## Component Reference
+The Switch is a generic component and its type comes from the model field it is bound to - it is either `bool` or `bool?` (a `null` value is treated as `false`). Add a reference to the component instance to use the [Switch methods](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSwitch-1#methods).
 
-The Switch is a generic component and its type comes from the model field it is bound to - it is either `bool` or `bool?` (a `null` value is treated as `false`).
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
->caption Switch Reference
+| Method | Description |
+| --- | --- |
+| `FocusAsync ` | programmatically focuses the Switch 
 
 ````CSHTML
-@* The Switch reference type comes from its Value type *@
+@* Use the Switch reference to programmatically focus the component *@
+
+<TelerikButton OnClick="@FocusSwitch">Focus Switch</TelerikButton>
 
 <TelerikSwitch @bind-Value="@toggleSwitch" @ref="@TheSwitchRef" />
 
-@code{
+@code {
     bool toggleSwitch { get; set; } // the type of this field determines the type of the reference
     TelerikSwitch<bool> TheSwitchRef { get; set; }
+
+    void FocusSwitch()
+    {
+        TheSwitchRef.FocusAsync();
+    }
 }
 ````
 
-## Examples
+## Next Steps
 
-This section shows the following two examples
-
-* [Remove Labels](#remove-labels)
-* [Custom Labels and Size](#custom-labels-and-size)
-
-
-### Remove Labels
-
->caption Switch without labels
-
-````CSHTML
-@* Use a blank space to remove visible labels *@
-
-<TelerikSwitch @bind-Value="@isSelected" OnLabel=" " OffLabel=" " />
-
-@code {
-    private bool isSelected { get; set; }
-}
-````
-
-### Custom Labels and Size
-
-The example below shows how to:
-
-* Bind the switch to a value
-* Set custom labels for its On and Off states
-* Use the `Width` parameter to control the size of the component
-
->caption Example that showcases the "I agree to the terms and conditions" basic scenario
-
-````CSHTML
-@* Use the OnLabel and OffLabel to customize the labels of the Switch. Use the Width parameter to manipulate the width of the component. *@ 
-
-<h2 class="text-info">Terms and conditions</h2>
-
-@if (hasAgreed)
-{
-    <div class="alert alert-success w-50">
-        Thank you for agreeing to our terms and conditions!
-    </div>
-}
-else
-{
-    <p class="w-50 text-justify">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi lectus, ultrices sed libero et, tempor rutrum mauris. Praesent sit amet suscipit leo, ut hendrerit lacus. Mauris posuere, mi in elementum pretium, sem elit maximus mauris, ac tempus turpis nunc sed orci. Nunc velit lacus, rutrum et dui mattis, condimentum fermentum velit. Pellentesque et elit rhoncus, sodales nibh ac, faucibus tellus. Vestibulum vitae tempor tellus. Sed maximus sem quis est posuere, efficitur porttitor augue tincidunt. Sed viverra dapibus ullamcorper. Vestibulum ex arcu, molestie sed quam vulputate, aliquet cursus lectus. Aenean sollicitudin condimentum fringilla. Integer arcu justo, sollicitudin ut libero ut, posuere finibus sapien. Suspendisse hendrerit convallis urna.
-        Donec eu sodales dui, et consequat massa. Integer vitae euismod dui, id rhoncus tellus. Ut luctus leo eget sapien eleifend facilisis. Duis sed maximus tortor. Ut nunc nibh, pulvinar a enim eget, mattis sagittis sem. Mauris odio nibh, aliquet a erat sit amet.
-    </p>
-}
-
-<TelerikSwitch @bind-Value="@hasAgreed"
-               Id="mySwitch"
-               OnLabel="@myOnLabel"
-               OffLabel="@myOffLabel"
-               Width="100px">
-</TelerikSwitch>
-I agree to the terms and conditions
-
-@code {
-    public bool hasAgreed { get; set; }
-    public string myOnLabel { get; set; } = "Agree";
-    public string myOffLabel { get; set; } = "Disagree";
-}
-````
->caption The result from the code snippet above
-
-![agree to terms and conditions](images/switch-terms-and-conditions-example.gif)
-
+* [Customize the Switch labels]({%slug switch-labels%})
+* [Handle the Switch events]({%slug switch-events%})
 
 ## See Also
 * [Live Demo: Switch](https://demos.telerik.com/blazor-ui/switch/overview)
