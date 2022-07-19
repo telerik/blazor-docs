@@ -12,8 +12,6 @@ position: 0
 
 This article describes the fundamentals of data binding the Telerik Blazor components. For the sake of clarity, also check article [Value Binding vs Data Binding]({%slug get-started-value-vs-data-binding%}).
 
-#### In This Article
-
 * [Data binding options](#how-to-provide-data)
 * [Supported data types](#data-type)
 * [Model property names can matter](#model-property-names)
@@ -179,3 +177,4 @@ Thus, you will usually need to create a new reference for `Data` value in order 
 
 * [Data Binding with the OnRead event]({%slug common-features-data-binding-onread%})
 * [Data Binding to Observable Data]({%slug common-features-observable-data%})
+* [Data Binding to cloud data services]({%slug common-features-cloud-services%})
