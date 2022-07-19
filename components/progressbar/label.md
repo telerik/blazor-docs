@@ -60,6 +60,6 @@ The `Template` allows you to control the entire rendering of the label for the P
 
 ## See Also
 
-  * [Live Demo: ProgressBar Overview](https://demos.telerik.com/blazor-ui/progressbar/overview)
+  * [Live Demo: ProgressBar Label](https://demos.telerik.com/blazor-ui/progressbar/label)
   * [Overview]({%slug progressbar-overview%})
   * [Indeterminate state]({%slug progressbar-indeterminate-state%})
