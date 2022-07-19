@@ -43,7 +43,7 @@ The <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Bla
 
 ## Active Tab Index
 
-By default, the initially selected tab is the first one. You can programmatically control the selected tab throuh the `ActiveTabIndex` parameter. [Read more about the `ActiveTabIndex`...]({%slug tabstrip-activetabindex%})
+By default, the initially selected tab is the first one. You can programmatically control the selected tab through the `ActiveTabIndex` parameter. [Read more about the `ActiveTabIndex`...]({%slug tabstrip-activetabindex%})
 
 ## Tabs Configuration
 
