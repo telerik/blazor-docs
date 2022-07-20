@@ -14,7 +14,7 @@ The Splitter respects the dimensions you set to its `Width` and `Height` paramet
 
 If you set the `Width` and `Height` in percent, make sure that the parent element provides the desires dimensions and layout first.
 
-The individual panes use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis" target="_blank">CSS flex-basis</a> to set their dimensions and by default they have `flex: 1 1 auto` so they distribute the space evenly if there are no other settings.
+The individual panes use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis" target="_blank">CSS flex-basis</a> to set their dimensions and by default they have `flex: 1 1 auto` so they distribute the space evenly if there are no other settings.
 
 If the `Size` of a pane is set to a larger value than `Max`, the pane cannot be resized even if its `Resizable` parameter is set to `true`.
 
