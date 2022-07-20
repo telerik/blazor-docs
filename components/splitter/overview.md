@@ -131,7 +131,7 @@ Add a reference to the component instance to use the [Splitter methods](https://
 
 ## Next Steps
 
-* [Explore the various Splitter Panes options]({%slug splitter-panes%})
+* [Explore the various Splitter Pane options]({%slug splitter-panes%})
 * [Configure the Splitter Size]({%slug splitter-size%})
 
 ## See Also
