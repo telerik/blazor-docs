@@ -15,7 +15,7 @@ The <a href = "https://www.telerik.com/blazor-ui/switch" target="_blank">Blazor 
 ## Creating Blazor Switch
 
 1. Use the `TelerikSwitch` tag
-1. Provide `Value` (one-way data binding) or `bind-Value` (two-way data binding) property
+1. Provide a `Value` (one-way binding) or `@bind-Value` (two-way binding)
 
 
 >caption Basic setup of the Telerik Switch using two-way data binding
