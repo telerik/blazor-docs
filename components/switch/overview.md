@@ -14,7 +14,7 @@ The <a href = "https://www.telerik.com/blazor-ui/switch" target="_blank">Blazor 
 
 ## Creating Blazor Switch
 
-1. Use the `TelerikSwitch` tag
+1. Use the `<TelerikSwitch>` tag
 1. Provide a `Value` (one-way binding) or `@bind-Value` (two-way binding)
 
 
@@ -51,7 +51,7 @@ You can ensure that the component value is acceptable by using the built-in vali
 
 ## Switch Parameters
 
-The Switch provides the following features to allow further customization of its behavior:
+The following table lists the Switch parameters. Also check the [Switch API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSwitch-1) for a full list of all properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -60,7 +60,7 @@ The Switch provides the following features to allow further customization of its
 | `Enabled` | `bool` | whether the component is enabled.
 | `Id` | `string` | renders as the `id` attribute on the wrapping `<span>` element of the component.
 | `TabIndex` | `int` | the `tabindex` attribute rendered on the Switch.
-| `Value` and `bind-Value` | `bool` or `bool?`| the value of the Switch.
+| `Value` | `bool` or `bool?`| the value of the Switch. Supports two-way binding.
 | `OnLabel` | `string` | the label of the component when the `Value` is `true`.
 | `OffLabel` | `string` | the label of the component when the `Value` is `false`.
 
@@ -92,15 +92,15 @@ The Switch is a generic component and its type comes from the model field it is 
 
 <TelerikButton OnClick="@FocusSwitch">Focus Switch</TelerikButton>
 
-<TelerikSwitch @bind-Value="@toggleSwitch" @ref="@TheSwitchRef" />
+<TelerikSwitch @bind-Value="@toggleSwitch" @ref="@SwitchRef" />
 
 @code {
     bool toggleSwitch { get; set; } // the type of this field determines the type of the reference
-    TelerikSwitch<bool> TheSwitchRef { get; set; }
+    TelerikSwitch<bool> SwitchRef { get; set; }
 
     void FocusSwitch()
     {
-        TheSwitchRef.FocusAsync();
+        SwitchRef.FocusAsync();
     }
 }
 ````
@@ -113,4 +113,4 @@ The Switch is a generic component and its type comes from the model field it is 
 ## See Also
 * [Live Demo: Switch](https://demos.telerik.com/blazor-ui/switch/overview)
 * [Switch Events]({%slug switch-events%})
-
+* [Switch API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSwitch-1)
