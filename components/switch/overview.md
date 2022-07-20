@@ -12,7 +12,7 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/switch" target="_blank">Blazor Switch component</a> allows the user to toggle between checked and unchecked states.
 
-## Creating Switch for Blazor
+## Creating Blazor Switch
 
 1. Use the `TelerikSwitch` tag
 1. Provide `Value` (one-way data binding) or `bind-Value` (two-way data binding) property
