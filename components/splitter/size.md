@@ -10,7 +10,7 @@ position: 6
 
 # Splitter and Panes Size
 
-The Splitter respects the dimensions you set to its `Width` and `Height` parameters, and distributes the available space according to the `Size` set to individual panes inside.
+The Splitter respects the dimensions you set to its `Width` and `Height` parameters, and distributes the available space according to the `Size` of the individual panes.
 
 If you set the `Width` and `Height` in percent, make sure that the parent element provides the desires dimensions and layout first.
 
