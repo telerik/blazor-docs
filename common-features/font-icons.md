@@ -244,7 +244,7 @@ For example, the `TelerikIcon` component and the `TelerikButton` component can t
        
         $.getJSON(iconsListJson, function (data) {
 
-            var iconsList = data.list;
+            var iconsList = data;
             var iconsToRender = [];
             
             $.each(iconsList, function (index, iconName) {
