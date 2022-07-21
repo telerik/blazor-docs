@@ -141,13 +141,13 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
 
 * `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to CSV, for example only the selected items in the Grid. 
 
-* `Columns` - `List<ExcelExportableColumns` - a collection of all exportable columns in the Grid (the columns that have a defined `Field` and are visible). You can customize the following attributes of the Grid column before exporting it into Excel:
+* `Columns` - `List<ExcelExportableColumns>` - a collection of all exportable columns in the Grid (the columns that have a defined `Field` and are visible). You can customize the following attributes of the Grid column before exporting it into Excel:
 
-    * `Width` - define the width of the column **in pixels**.
-    * `Title` - define the column title to be shown in the Excel file header. 
-    * `NumberFormat` - provide an Excel-compatible number/date format
+    * `Title` - define the column title to be shown in the Excel file header.
     * `Field` - set the data bound field of the column.
     
+>important `Width` and `NumberFormat` properties are not applicable for CSV export and will be removed in **UI for Blazor 4.0**. For CSV formatting see [Format numbers and dates in the exported CSV file from the Grid]({%slug grid-kb-number-formatting-of-the-csv-export%}).
+
 To export a hidden (the Visible attribute set to `false`) column you can manually define an instance of the `ExcelExportableColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
 
 * `isCancelled` -  `bool` - you can cancel the OnBeforeExcel event by setting the `isCancelled` field to `true`.
@@ -400,3 +400,4 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 * [Grid Excel Export]({%slug grid-export-excel%})
 * [Grid CSV Export]({%slug grid-export-csv%})
 * [Custom cell formatting of the exported file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%})
+* [Format numbers and dates in the exported CSV file from the Grid]({%slug grid-kb-number-formatting-of-the-csv-export%})
