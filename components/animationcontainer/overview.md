@@ -10,7 +10,9 @@ position: 0
 
 # Blazor Animation Container
 
-The <a href="https://www.telerik.com/blazor-ui/animation-container" target="_blank">Blazor Animation Container component</a> enables you to create messages and popups such as [notifications](https://demos.telerik.com/blazor-ui/animationcontainer/notification) or expandable containers, even [tooltips](https://demos.telerik.com/blazor-ui/animationcontainer/tooltip). It lets you define its animation, size and position, and arbitrary content.
+The <a href="https://www.telerik.com/blazor-ui/animation-container" target="_blank">Blazor Animation Container component</a> enables you to create messages and popups or expandable containers. It lets you define its animation, size and position, and arbitrary content.
+
+>tip If you are looking for an option to create [Notification]({%slug notification-overview%}), [Tooltip]({%slug tooltip-overview%}) or expandable container such as [Drawer]({%slug drawer-overview%}), you may use the dedicated components.
 
 #### To use the animation container, add the `TelerikAnimationContainer` tag.
 
