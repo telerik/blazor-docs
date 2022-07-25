@@ -57,12 +57,12 @@ The following table lists the Switch parameters. Also check the [Switch API Refe
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `Enabled` | `bool` | whether the component is enabled.
-| `Id` | `string` | renders as the `id` attribute on the wrapping `<span>` element of the component.
-| `TabIndex` | `int` | the `tabindex` attribute rendered on the Switch.
-| `Value` | `bool` or `bool?`| the value of the Switch. Supports two-way binding.
-| `OnLabel` | `string` | the label of the component when the `Value` is `true`.
-| `OffLabel` | `string` | the label of the component when the `Value` is `false`.
+| `Enabled` | `bool` | Whether the component is enabled.
+| `Id` | `string` | Renders as the `id` attribute on the wrapping `<span>` element of the component.
+| `TabIndex` | `int` | The `tabindex` attribute rendered on the Switch.
+| `Value` | `bool` or `bool?`| The value of the Switch. Supports two-way binding.
+| `OnLabel` | `string` | The label of the component when the `Value` is `true`.
+| `OffLabel` | `string` | The label of the component when the `Value` is `false`.
 
 ### Styling and Appearance
 
@@ -72,8 +72,8 @@ The following parameters enable you to customize the appearance of the Blazor Sw
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `Class` | `string` | the CSS class that will be rendered on the main wrapping element of the Switch. Use it to [customize the Switch background color and other styles]({%slug switch-kb-change-background-color%})
-| `Width` | `string` | the width of the component.
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Switch. Use it to [customize the Switch background color and other styles]({%slug switch-kb-change-background-color%})
+| `Width` | `string` | The width of the component. You can set the Width parameter to any of the [supported units]({%slug common-features/dimensions%}).
 
 You can find more options for customizing the Switch styling in the [Appearance article]({%slug switch-appearance%}).
 
@@ -85,7 +85,7 @@ The Switch is a generic component and its type comes from the model field it is 
 
 | Method | Description |
 | --- | --- |
-| `FocusAsync ` | programmatically focuses the Switch 
+| `FocusAsync ` | programmatically focuses the Switch.
 
 ````CSHTML
 @* Use the Switch reference to programmatically focus the component *@
