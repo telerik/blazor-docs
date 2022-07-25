@@ -15,7 +15,7 @@ The <a href = "https://www.telerik.com/blazor-ui/progressbar" target = "_blank">
 ## Creating Blazor ProgressBar
 
 1. Use the `<TelerikProgressBar>` tag.
-1. Set its `Value` parameter to denote how much is completed.
+1. Set its `Value` parameter to a `double` to denote how much is completed.
 
 >caption ProgressBar with maximum and initial values
 
@@ -63,11 +63,10 @@ The ProgressBar provides the following features to further customize its behavio
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `Class` | `string` | the CSS class that will be rendered on the main wrapping element. You can use it to cascade styles more easily.
-| `Max` | `double` <br/> 100 | the maximum value of the ProgressBar. It must be greater than `0`.
-| `Value` | `double` | the value of the ProgressBar. This value indicates the progress of the tracked process. It is a fraction of the `Max`.
-| `Orientation` | `ProgressBarOrientation` enum <br/> `ProgressBarOrientation.Horizontal` | controls the orientation of the ProgressBar. Takes a member of the `ProgressBarOrientation` enum - `Horizontal` or `Vertical`.
-| `Indeterminate` | `bool` <br/> `false` | see the [Indeterminate]({%slug progressbar-indeterminate-state%}) article for more information.
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element. You can use it to cascade styles more easily.
+| `Max` | `double` <br/> 100 | The maximum value of the ProgressBar. It must be greater than `0`.
+| `Value` | `double` | The value of the ProgressBar. This value indicates the progress of the tracked process. It is a fraction of the `Max`.
+| `Orientation` | `ProgressBarOrientation` enum <br/> (`ProgressBarOrientation.Horizontal`) | The orientation of the ProgressBar. Takes a member of the `ProgressBarOrientation` enum - `Horizontal` or `Vertical`.
 
 ## Next Steps
 
