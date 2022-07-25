@@ -12,7 +12,7 @@ position: 6
 
 The Splitter respects the dimensions you set to its `Width` and `Height` parameters, and distributes the available space according to the `Size` of the individual panes.
 
-If you set the `Width` and `Height` in percent, make sure that the parent element provides the desires dimensions and layout first.
+If you set the `Width` and `Height` in percent, make sure that the parent element provides the desired dimensions and layout first.
 
 The individual panes use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis" target="_blank">CSS flex-basis</a> to set their dimensions and by default they have `flex: 1 1 auto` so they distribute the space evenly if there are no other settings.
 
