@@ -65,7 +65,7 @@ The TabStrip provides the following features to allow further customization of i
 | Parameter        | Type  | Header 2                                 |
 |------------------|-------|------------------------------------------|
 | `ActiveTabIndex` | `int` | The index of the currently shown tab. Supports two-way binding.
-|`PersistTabContent` | `bool` | Whether the tabs content will be persisted when switching the tabs. See [Persist Content]({%slug tabstrip-persist-content%})
+|`PersistTabContent` | `bool` | Whether to remove the content of inactive tabs from the DOM (if `false`), or just hide it with CSS (if `true`). See [Persist Content]({%slug tabstrip-persist-content%})
 | `Scrollable` | `bool` | Whether the tabs will be scrollable. See [Scrollable Tabs]({%slug tabstrip-scroll-tabs%})
 | `TabPosition` | `TabPosition` enum <br/> (`TabPosition.Top`)| Controls the position of the tabs.
 
