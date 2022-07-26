@@ -10,32 +10,24 @@ position: 20
 
 # Telerik Validation Tooltip for Blazor
 
-The <a href = "https://www.telerik.com/blazor-ui/validationtooltip" target="_blank">Telerik Validation Tooltip for Blazor</a> can render the validation errors as tooltips pointing to the problematic input when you hover it. It acts like the ValidationMessage, but is a popup and not an inline element, so it takes up less space.
+The <a href = "https://www.telerik.com/blazor-ui/validationtooltip" target="_blank">Telerik Validation Tooltip for Blazor</a> displays validation errors as tooltips that point to the problematic input component. The tooltips show on hover. Validaton Tooltips serve the same purpose as Validation Messages, but as popups, they don't take up space on the page.
 
-This article is separated in the following sections:
+## Using Validation Tooltip with TelerikForm
 
-* [Basics](#basics)
-* [Position](#position)
-* [Template](#template)
-* [Class](#class)
+To enable Telerik Validation Tooltip for a field in the Telerik Form:
 
-## Basics
+1. Add a `<TelerikValidationTooltip>` tag inside the TelerikForm `<FormItems>` tag, or [inside a form item `<Template>`]({%slug form-formitems-template%}).
+1. Provide a lambda expression in the `For` parameter that sets the associated property of the model, just like with the standard Blazor `ValidationMessage`.
+1. Set the `TargetSelector` parameter to a CSS selector that points to the element(s) the Tooltip will associate itself with.
+1. (optional) Disable the built-in validation messages of the Telerik Form to avoid repetition. Set `ValidationMessageType="@FormValidationMessageType.None"`.
 
-To enable Telerik Validation Tooltip for a field in the form you should:
-
-1. Provide a lambda expression in the `For` parameter that notifies the component for which property of the model the validation messages should render, just like the standard `ValidationMessage`.
-1. Populate the `TargetSelector` with a CSS selector that controls which element(s) the Tooltip will associate itself with.
-
->caption Enable Telerik Validation Tooltip in a Telerik Form
-
->tip The Telerik Form can provide tooltips out-of-the-box with a single setting - see the [Form Validation - Validation Message Type]({%slug form-validation%}#validation-message-type) section. The example below shows more advanced customizations.
+>caption Use Telerik Validation Tooltip in a Telerik Form
 
 ````CSHTML
-@* Use the TelerikValidationTooltip component to render validation messages and disable the built-in validation messages from the Telerik Form*@
-
 @using System.ComponentModel.DataAnnotations
 
-<TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
+<TelerikForm Model="@customer" Width="600px"
+             ValidationMessageType="@FormValidationMessageType.None">
     <FormValidation>
         <DataAnnotationsValidator />
     </FormValidation>
@@ -72,12 +64,15 @@ To enable Telerik Validation Tooltip for a field in the form you should:
 }
 ````
 
->caption The result from the code snippet above
+>tip The Telerik Form can provide tooltips out-of-the-box with a single setting - see [Form Validation - Validation Message Type]({%slug form-validation%}#validation-message-type). Use standalone validation tooltips only to make more advanced customizations such as the ones in this article.
 
-![Tooltip Basic Example](images/tooltip-example.png)
+## Using Validation Tooltip with EditForm
 
+1. Add a `<TelerikValidationTooltip>` tag inside the `EditForm`.
+1. Provide a lambda expression in the `For` parameter that sets the associated property of the model, just like with the standard Blazor `ValidationMessage`.
+1. Set the `TargetSelector` parameter to a CSS selector that points to the element(s) the Tooltip will associate itself with.
 
->caption Enable Telerik Validation Tooltip in an EditForm
+>caption Use Telerik Validation Tooltip in an EditForm
 
 ````CSHTML
 @using System.ComponentModel.DataAnnotations
@@ -117,22 +112,16 @@ To enable Telerik Validation Tooltip for a field in the form you should:
 }
 ````
 
->caption The result from the code snippet above
-
-![Tooltip Basic Example](images/tooltip-example-editform.png)
-
 ## Position
 
-You can control the position of the validation tooltip through the `Position` parameter. It takes a member of the `TooltipPosition` enum:
+Control the position of the validation tooltips through their `Position` parameter. It takes a member of the `TooltipPosition` enum:
 
-* `Top` - by default the validation tooltip will render on top of the editor
+* `Top` (default)
 * `Bottom`
 * `Right`
 * `Left`
 
 ````CSHTML
-@* Change the rendering position of the validation tooltip *@ 
-
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
@@ -172,18 +161,13 @@ You can control the position of the validation tooltip through the `Position` pa
 }
 ````
 
->caption The result from the code snippet above
-
-![Tooltip Position example](images/tooltip-position-example.png)
-
 ## Template
 
-Allows you to control the rendering of the validation tooltip. The `context` represents an `IEnumerable<string>` collection of all messages for the property.
+The `ValidationTooltip` allows you to control its rendering via a nested `<Template>` tag. The `context` is an `IEnumerable<string>` collection of all messages for the property.
 
 ````CSHTML
-@* Use the Template to customize the rendering of the validation tooltip *@
-
-<TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
+<TelerikForm Model="@customer" Width="600px"
+             ValidationMessageType="@FormValidationMessageType.None">
     <FormValidation>
         <DataAnnotationsValidator />
     </FormValidation>
@@ -234,26 +218,22 @@ Allows you to control the rendering of the validation tooltip. The `context` rep
 }
 ````
 
->caption The result from the code snippet above
-
-![Messages Template example](images/tooltip-template-example.png)
-
 ## Class
 
-You can use the `Class` parameter to add a custom CSS class to the validation tooltip.
+Use the `Class` parameter of the Validation Tooltip to add a custom CSS class to `div.k-animation-container`. This element wraps the `div.k-tooltip` element.
 
 ````CSHTML
-@* Use the Class parameter to underline the font of the validation message *@
-
 <style>
-    .my-custom-tooltip-class {
+    .my-custom-tooltip-class .k-tooltip {
+        color: #f00;
         text-decoration: underline;
     }
 </style>
 
 @using System.ComponentModel.DataAnnotations
 
-<TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
+<TelerikForm Model="@customer" Width="600px"
+             ValidationMessageType="@FormValidationMessageType.None">
     <FormValidation>
         <DataAnnotationsValidator />
     </FormValidation>
@@ -290,14 +270,9 @@ You can use the `Class` parameter to add a custom CSS class to the validation to
 }
 ````
 
->caption The result from the code snippet above
-
-![Messages Class example](images/tooltip-class-example.png)
-
 ## See Also
 
 * [Live Demo: Validation](https://demos.telerik.com/blazor-ui/validation/overview)
 * [TelerikValidationSummary]({%slug validation-tools-summary%})
 * [TelerikValidationTooltip]({%slug validation-tools-message%})
 * [Form Component]({%slug form-overview%})
-
