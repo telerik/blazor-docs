@@ -10,7 +10,9 @@ position: 5
 
 # Label for the ProgressBar
 
-The label for the ProgressBar is a text representation of the completion of the task. By default the value of completion is shown as percent `%`. This article explains how to customize the label for the `<TelerikProgressBar>`. 
+The label for the ProgressBar is a text representation of the completion of the task. By default the value of completion is shown as percent `%` since the default value for the `Max` parameter is 100. If you are using different value for the `Max` parameter, you might need to override the default label - percent value in this scenario will not be accurate.
+
+This article explains how to customize the ProgressBar label position and content.
 
 To access the customization settings use the `<ProgressBarLabel>`. It provides a `Context` which exposes a `Value` parameter which is representation of the current value of the component.
 
