@@ -108,8 +108,10 @@ You can use the following properties on bound columns:
 
 ### Data Operations
 
-* `Editable` - (defaults to `true`) - you can set this property to `true` or `false` to allow or prevent [editing]({%slug components/grid/editing/overview%}) of this field. To edit data, you also need a [CommandColumn]({%slug components/grid/columns/command%}).
-* `Filterable` - (defaults to `true`) - you can set this to `false` so a [filterable]({%slug components/grid/filtering%}) grid will not let the user filter that particular column.
+* `Editable` - (defaults to `true`) - set it to `true` or `false` to allow or prevent [editing]({%slug components/grid/editing/overview%}) of this field. To edit data, you also need a [CommandColumn]({%slug components/grid/columns/command%}).
+* `Filterable` - (defaults to `true`) - set this to `false` so a [filterable]({%slug components/grid/filtering%}) Grid will not let the user filter that particular column.
+* `FilterEditorType` - (defaults to `GridFilterEditorType.DatePicker`) - determines if the default filtering component of a `DateTime` column will be a DatePicker or a DateTimePicker.
+* `FilterEditorFormat` - sets the `Format` of the filtering component as a `string`. Works for DateTime and numeric columns. Do not use a placeholder (e.g. set `"D"`, not `"{0:D}"`).
 * `Sortable` - (defaults to `true`) - set it to `false` so the user cannot [sort]({%slug components/grid/features/sorting%}) this column.
 * `Groupable` - (defaults to `true`) - whether the user can [group]({%slug components/grid/features/grouping%}) the grid by this column.
 

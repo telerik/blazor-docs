@@ -51,29 +51,32 @@ There are two approaches to customize the grid filtering behavior, and you can u
 * Customize the appearance and behavior of the filters - for that, use the [Filter Templates]({%slug grid-templates-filter%}) the grid provides.
 
 
-### Customize The Filtering Fields
+### Customize The Filter Editors
 
-You can customize the filter editors rendered in the Grid by providing the `FilterEditorType` attribute, exposed on the `<GridColumn>`, or by utilizing the points above. The `FilterEditorType` attribute accepts a member of the `GridFilterEditorType` enum:
+You can customize the filter editors declaratively for some data types. It is possible to change the editor component or the editor format.
 
-| Field data type | GridFilterEditorType enum members              |
-|-----------------|------------------------------------------|
-| **DateTime**    | `GridFilterEditorType.DatePicker`<br> `GridFilterEditorType.DateTimePicker` |
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
+| GridColumn Parameter | Type | Works for | Description |
+|---|---|---|---|
+| `FilterEditorType` | `GridFilterEditorType` enum | `DateTime` columns | The component, which the Grid will render for filtering (DatePicker or DateTimePicker). |
+| `FilterEditorFormat` | `string` | `DateTime` and numeric columns | The `Format` of the filtering component. Do not use a placeholder (e.g. set `"D"`, not `"{0:D}"`). |
 
 ````CSHTML
-@* The usage of the FilterEditorType parameter *@
+@* Using FilterEditorType and FilterEditorFormat parameters *@
 
 <TelerikGrid Data=@GridData 
              FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu"
              Pageable="true" 
              Height="400px">
     <GridColumns>
-        <GridColumn Field=@nameof(Employee.Name) />
-        <GridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />
-        <GridColumn Field=@nameof(Employee.HireDate) 
+        <GridColumn Field="@nameof(Employee.Name)" />
+        <GridColumn Field="@nameof(Employee.AgeInYears)" Title="Age" />
+        <GridColumn Field="@nameof(Employee.HireDate)" 
                     FilterEditorType="@GridFilterEditorType.DateTimePicker"
+                    FilterEditorFormat="yyyy-MM-dd HH:mm"
                     Title="Hire Date" />
-        <GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
+        <GridColumn Field="@nameof(Employee.IsOnLeave)" Title="On Vacation" />
     </GridColumns>
 </TelerikGrid>
 
