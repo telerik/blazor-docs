@@ -16,10 +16,9 @@ The <a href="https://www.telerik.com/blazor-ui/panelbar" target="_blank">Blazor 
 ## Creating Blazor PanelBar
 
 1. Add the `TelerikPanelBar` tag
-1. Provide a collection of models to its `Data` parameter (read more in the [Data Binding article]({%slug panelbar-data-binding-overview%}))
-1. Match the fields in the models with the binding schema for the nodes
+1. Populate the `Data` property with the collection of items that you want to appear in the PanelBar. The component will automatically recognize property names like `Id`, `ParentId`, `Text` and a few others. Otherwise, [use bindings to configure custom property names]({%slug panelbar-data-binding-overview%}#data-bindings).
 
->caption Basic PanelBar with flat data binding and built-in icons 
+>caption Basic PanelBar with hierarchical data binding
 
 ````CSHTML
 @* Provide a flat collection of models to the PanelBar *@
@@ -119,11 +118,13 @@ To show any items, the Blazor PanelBar requires a data source that you can provi
 
 Each item in the PanelBar consists of a `Header` and `Content`. The image below illustrates the concept.
 
-You can customize their rendering through the corresponding [Header Template]({%slug panelbar-templates-header%}) and [Content Template]({%slug panelbar-templates-content%}).
-
-The content represents the items in the hierarchy that do not have children. If the items have children and the ContentTemplate is defined, the template will not render. The header contains the Text of the correponding data item (model).
+The `Header` contains the Text of the correponding data item (model). The `Content` represents the items in the hierarchy that do not have children.
 
 ![panelbar parts](images/panelbar-parts-overview.png)
+
+## Templates
+
+The PanelBar allows customizing of its item elements. Use [Header Template]({%slug panelbar-templates-header%}) and [Content Template]({%slug panelbar-templates-content%}) to override the default rendering. A `ContentTemplate` displays like a child item. It is rendered only for the items, which have no children.
 
 ## Navigation
 
@@ -136,6 +137,19 @@ To illustrate the purpose of each item, the Blazor PanelBar allows you to add im
 ## Events
 
 The Blazor PanelBar generates events that you can handle to respond to the user action. [Read more about the Blazor PanelBar events...]({%slug panelbar-events%})
+
+## PanelBar Parameters
+
+The following table lists PanelBar parameters, which are not related to other features on this page. Check the [PanelBar API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikPanelBar) for a full list of properties, methods and events.
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+|`Class`| `string` |The CSS class that will be rendered on the main wrapping element of the component.|
+|`ExpandedItems`| `IEnumerable<Object>` | A collection of the expanded PanelBar items. Supports two-way binding. Read more in the [ExpandedItems]({%slug panelbar-expand-items%}) article.|
+|`ExpandMode`| `PanelBarExpandMode` enum <br/> (`PanelBarExpandMode.Multiple`) | Whether the PanelBar will allow single or multiple items to be expanded at a time. Read more in the [ExpandMode]({%slug panelbar-expand-items%}#expandmode) section. |
+
 
 ## Next Steps
 
