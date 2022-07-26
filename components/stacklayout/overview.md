@@ -10,24 +10,19 @@ position: 0
 
 # Blazor StackLayout Overview
 
-The <a href="https://www.telerik.com/blazor-ui/stacklayout" target="_blank">Blazor StackLayout component</a> allows you to easily align multiple elements in a vertical or horizontal order. 
+The <a href="https://www.telerik.com/blazor-ui/stacklayout" target="_blank">StackLayout for Blazor</a> is a component that easily allows aligning multiple elements in a vertical or horizontal order.
 
-#### In This Article:
+## Creating Blazor StackLayout
 
+1. Use the `<TelerikStackLayout>` tag to add the component to your razor page.
 
-* [Basics](#basics)
-* [Features](#features)
-* [Nested StackLayouts](#nested-stacklayouts)
+2. Inside the `<TelerikStackLayout>` tag, add the desired custom elements.
 
-## Basics
+3. Set `Width` and `Height`.
 
-#### To use a Telerik StackLayout for Blazor
+4. (optionally) Set the `Orientation` parameter.
 
-1. Declare the `<TelerikStackLayout>` tag 
-
-1. Inside the `<TelerikStackLayout>` tag, add the desired elements.
-
->caption StackLayout with its most common features
+>caption StackLayout basic configuration.
 
 ````CSHTML
 @* This example showcases how the StackLayout fills the entire parent container and some of its core features. *@
@@ -57,58 +52,35 @@ The <a href="https://www.telerik.com/blazor-ui/stacklayout" target="_blank">Blaz
 </div>
 ````
 
->caption The result from the code snippet above
+## Layout
 
-![overview of the StackLayout functionality](images/stacklayout-overview-basic-example.png)
+The layout is the building block of the StackLayout component. Control its appearance via different parameters. [Read more about the Blazor StackLayout layout]({%slug stacklayout-layout%}).
 
+## StackLayout Parameters
 
->caption Component namespace and reference
+The Blazor StackLayout provides various parameters that allow you to configure the component:
 
-````CSHTML
-<TelerikStackLayout Orientation="@StackLayoutOrientation.Horizontal"
-                    Width="100%"
-                    Height="100%"
-                    @ref="StackLayoutRef">
-    <div style="background-color: aqua;">
-        Aqua colored stack item
-    </div>
-    <div style="background-color: cornflowerblue;">
-        Cornflowerblue colored stack item
-    </div>
-    <div style="background-color: blue;">
-        Blue colored stack item
-    </div>
-</TelerikStackLayout>
-
-@code {
-    Telerik.Blazor.Components.TelerikStackLayout StackLayoutRef { get; set; }
-}
-````
-
-
-## Features
-
-The StackLayout offers the following features:
-
-* `Class` - the CSS class that renders on the main wrapping element of the component.
-
-* `Height` - takes a CSS unit that determines how tall the StackLayout is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
-
-* `Width`- takes a CSS unit that determines how wide the StackLayout is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
-
-* `Orientation` - whether the content will be aligned horizontally or vertically. Takes a member of the `StackLayoutOrientation` enum and defaults to `Horizontal`. See the [Layout]({%slug stacklayout-layout%}) article for more information.
-
-* `Spacing` - the space between the elements in the StackLayout. See the [Layout]({%slug stacklayout-layout%}) article for more information.
-
-* `HorizontalAlign` - controls the alignment of the items in the StackLayout based on the X axis. Takes a member of the `StackLayoutHorizontalAlign` enum. See the [Layout]({%slug stacklayout-layout%}) article for more information.
-
-* `VerticalAlign` - controls the alignment of the items in the StackLayout based on the Y axis. Takes a member of the `StackLayoutVerticalAlign` enum. See the [Layout]({%slug stacklayout-layout%}) article for more information.
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Parameter | Type and Default Value | Description |
+| ----------- | ----------- | ----------- |
+| `Class` | `string` | The CSS class to be rendered on the main wrapping element of the ToolBar component, which is `<div class="k-stack-layout">`. Use for [styling customizations]({%slug themes-override%}). |
+| `Height` | `string` | Takes a CSS unit that determines how tall the StackLayout is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work. |
+| `Width` | `string` | Takes a CSS unit that determines how wide the StackLayout is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work. |
+| `Orientation` | `StackLayoutOrientation` enum <br/> (`StackLayoutOrientation.Horizontal`) | Whether the content will be aligned horizontally or vertically. See the [Layout Orientation]({%slug stacklayout-layout%}#orientation) article for more information. |
+| `Spacing` | `string` | The space between the elements in the StackLayout. See the [Layout Spacing]({%slug stacklayout-layout%}#spacing) article for more information. |
+| `HorizontalAlign` | `StackLayoutHorizontalAlign` enum <br/> (`StackLayoutHorizontalAlign.Stretch`) | Controls the alignment of the items in the StackLayout based on the X axis. See the [Layout HorizontalAlign]({%slug stacklayout-layout%}#horizontalalign) article for more information. |
+| `VerticalAlign` | `StackLayoutVerticalAlign` enum <br/> (`StackLayoutVerticalAlign.Stretch`) | Controls the alignment of the items in the StackLayout based on the Y axis. See the [Layout VerticalAlign]({%slug stacklayout-layout%}#verticalalign) article for more information. |
 
 ## Nested StackLayouts
 
-Sometimes you need to create a more complex layout that includes both horizontal and vertical items. To do that, you can nest TelerikStackLayout components inside one another.
+Sometimes you may need to create a more complex layout that includes both horizontal and vertical items. To do that, nest `TelerikStackLayout` components inside one another.
 
->caption Use nested StackLayout to create a page layout
+>caption Use nested StackLayout to create a page layout.
 
 ````CSHTML
 <TelerikStackLayout Orientation="StackLayoutOrientation.Vertical" Height="100%">
@@ -162,12 +134,11 @@ Sometimes you need to create a more complex layout that includes both horizontal
 </style>
 ````
 
->caption The result from the code snippet above
+## Next Steps
 
-![Nested StackLayouts can create complex layout](images/stacklayout-overview-nested-stacklayouts-example.png)
+* [Configure Layout]({%slug stacklayout-layout%})
 
 ## See Also
 
-  * [Live Demo: StackLayout](https://demos.telerik.com/blazor-ui/stacklayout/overview)
-  * [Layout]({%slug stacklayout-layout%})
+  * [Live StackLayout Demos](https://demos.telerik.com/blazor-ui/stacklayout/overview)
   * [StackLayout API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikStackLayout)
