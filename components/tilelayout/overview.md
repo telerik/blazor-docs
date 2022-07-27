@@ -62,7 +62,7 @@ Users can [resize individual tiles]({%slug tilelayout-resize%}) for better user 
 
 ## Reordering
 
-Users can also [rearrange tiles]({%slug tilelayout-resize%}), according to their preferences.
+Users can also [rearrange tiles]({%slug tilelayout-reorder%}), according to their preferences.
 
 
 ## State
