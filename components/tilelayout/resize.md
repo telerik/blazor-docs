@@ -5,12 +5,12 @@ description: Resize items in the TileLayout for Blazor.
 slug: tilelayout-resize
 tags: telerik,blazor,tile,layout,dashboard,resize
 published: True
-position: 5
+position: 15
 ---
 
 # TileLayout Resize
 
-You can resize the tiles by dragging their bottom and right-hand side borders to change the dashboard to your liking.
+Resize tiles by dragging their bottom and right borders to change the dashboard to your liking.
 
 To enable resizing, set the `Resizable` parameter of the main `TelerikTileLayout` tag to `true`.
 
@@ -19,8 +19,6 @@ To enable resizing, set the `Resizable` parameter of the main `TelerikTileLayout
 Resizing a tile fires the [OnResize event]({%slug tilelayout-events%}#onresize).
 
 >caption Resizing tiles in the TileLayout
-
-![resize tiles](images/tilelayout-resizing-overview.gif)
 
 ````CSHTML
 <TelerikTileLayout ColumnWidth="200px"
@@ -45,10 +43,17 @@ Resizing a tile fires the [OnResize event]({%slug tilelayout-events%}#onresize).
 </TelerikTileLayout>
 ````
 
+![resize tiles](images/tilelayout-resizing-overview.gif)
+
+
+## Next Steps
+
+* Enable [tile reordering]({%slug tilelayout-reorder%}).
+* [Handle Tile Layout events]({%slug tilelayout-events%}).
+* [Manage the Tile Layout state]({%slug tilelayout-state%}).
+
 
 ## See Also
 
-  * [Overview]({%slug tilelayout-overview%})
-  * [State]({%slug tilelayout-state%})
-  * [Events]({%slug tilelayout-events%})
-  * [Live Demo: TileLayout Resizing](https://demos.telerik.com/blazor-ui/tilelayout/resizing)
+* [Overview]({%slug tilelayout-overview%})
+* [Live Demo: TileLayout Resizing](https://demos.telerik.com/blazor-ui/tilelayout/resizing)
