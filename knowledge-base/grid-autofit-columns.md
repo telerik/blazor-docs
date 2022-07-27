@@ -6,6 +6,7 @@ page_title: Autofit all Grid columns on initial page load
 slug: grid-autofit-columns-on-initial-load
 position: 
 tags: grid, autofit, columns
+ticketid: 1568815
 res_type: kb
 ---
 
