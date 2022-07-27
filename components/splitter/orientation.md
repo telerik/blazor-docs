@@ -18,19 +18,47 @@ You can customize the Splitter orientation through the its `Orientation` paramet
 >caption Splitter with vertical orientation
 
 ````CSHTML
-@*Configure the Splitter Orientation*@
+<p>
+    Configure the Splitter Orientation:
 
-<TelerikSplitter Orientation="@SplitterOrientation.Vertical"
+    <TelerikRadioGroup Data="@OrientationOptions" Layout="RadioGroupLayout.Horizontal"
+                       @bind-Value="@SelectedSplitterOrientation.Value" />
+</p>
+
+<TelerikSplitter Orientation="@SelectedSplitterOrientation.Value"
                  Width="400px" Height="200px">
     <SplitterPanes>
         <SplitterPane>
-            <div>Top Pane content</div>
+            <div>First Pane content</div>
         </SplitterPane>
         <SplitterPane>
-            <div>Bottom Pane content</div>
+            <div>Second Pane content</div>
         </SplitterPane>
     </SplitterPanes>
 </TelerikSplitter>
+
+@code {
+    public Orientation SelectedSplitterOrientation { get; set; }
+
+    protected override void OnInitialized()
+    {
+        SelectedSplitterOrientation = OrientationOptions[0];
+        base.OnInitialized();
+    }
+
+    public List<Orientation> OrientationOptions { get; set; } = new List<Orientation>()
+    {
+        new Orientation() { Text = "Horizontal", Value = SplitterOrientation.Horizontal },
+        new Orientation() { Text = "Vertical", Value = SplitterOrientation.Vertical},
+    };
+
+    public class Orientation
+    {
+        public string Text { get; set; }
+        public SplitterOrientation Value { get; set; }
+    }
+
+}
 ````
 
 ## Nested Splitters With Different Orientation

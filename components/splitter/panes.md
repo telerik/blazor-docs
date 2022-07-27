@@ -18,14 +18,14 @@ Each Splitter Pane (section) is individually configured and offers the following
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `ChildContent` | `RenderFragment` | the standard `RenderFragment` for Blazor that lets you define your content directly between the opening and closing tags of the pane.
-| `Class` | `string` | the CSS class that renders on the top element of the pane. Lets you apply styling such as changing the `overflow` for the content.
-| `Collapsed` | `bool` <br/> `false` | whether the pane will be collapsed (not visible). Supports two-way binding.
-| `Collapsible` | `bool` <br/> `false`| whether the user can collapse (hide) the pane to provide more room for other panes. When enabled, the adjacent splitbar (the drag handle between the panes) will offer a collapse button for the pane.
-| `Max` | `string` | the maximum size the pane can have in pixels or percentages. When it is reached, the user cannot expand its size further.
-| `Min` | `string` |  the minimum size the pane can have in pixels or percentages. When it is reached, the user cannot reduce its size further.
-| `Resizable` | `bool` <br/> `true`| whether the user can resize the pane by dragging the resize handle (splitbar) between two panes. Resizing means that the adjacent pane will take up the difference in size.
-| `Size` | `string`  | the size the pane in pixels or percentages. Must be between `Min` and `Max`. Supports two-way binding.
+| `ChildContent` | `RenderFragment` | The standard `RenderFragment` for Blazor that lets you define your content directly between the opening and closing tags of the pane.
+| `Class` | `string` | The CSS class that renders on the `<div class="k-pane">` element of the pane. Lets you apply styling such as changing the `overflow` for the content.
+| `Collapsed` | `bool` | Whether the pane will be collapsed (not visible). Supports two-way binding.
+| `Collapsible` | `bool` | Whether the user can collapse (hide) the pane to provide more room for other panes. When enabled, the adjacent splitbar (the drag handle between the panes) will offer a collapse button for the pane.
+| `Max` | `string` | The maximum size the pane can have in pixels or percentages. When it is reached, the user cannot expand its size further.
+| `Min` | `string` |  The minimum size the pane can have in pixels or percentages. When it is reached, the user cannot reduce its size further.
+| `Resizable` | `bool` <br/> (`true`) | Whether the user can resize the pane by dragging the resize handle (splitbar) between two panes. Resizing means that the adjacent pane will take up the difference in size.
+| `Size` | `string`  | The size the pane in pixels or percentages. Must be between `Min` and `Max`. Supports two-way binding.
 
 ````CSHTML
 @*Configure the Splitter Panes*@

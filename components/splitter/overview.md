@@ -14,7 +14,9 @@ The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor 
 
 ## Creating Splitter for Blazor
 
-1. Declare the `<TelerikSplitter>` tag and set its `Width` and `Height` parameters to the desired values.
+1. Declare the `<TelerikSplitter>` tag
+
+1. Optionally, set the `Width` and `Height` parameters to the desired values. Otherwise, the component size will be controlled by the content and [size]({%slug splitter-size%}) of the panes.
 
     * You can use values in percent (setting them to `100%` is very common) so that the splitter will take up the entire size of its container. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
 
@@ -88,7 +90,7 @@ Check the [Splitter API Reference ](https://docs.telerik.com/blazor-ui/api/Teler
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
 |  `Class` | `string` | The CSS class that renders on the main wrapping element of the component.
-|  `Height` | `string` |The height of the Splitter. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
+|  `Height` | `string` | The height of the Splitter. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
 |  `Orientation` | `SplitterOrientation` enum <br/> (`SplitterOrientation.Horizontal`) | Whether the content will be split up (how the panes will stack) horizontally or vertically.
 |  `Width`| `string` | The width of the Splitter. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
 
