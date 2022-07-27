@@ -5,7 +5,7 @@ description: Reorder tiles in the TileLayout for Blazor.
 slug: tilelayout-reorder
 tags: telerik,blazor,tile,layout,dashboard,reorder
 published: True
-position: 10
+position: 20
 ---
 
 # TileLayout Reorder
@@ -20,9 +20,9 @@ To be able to drag and reorder a tile, it must have some [content]({%slug tilela
 
 Reordering a tile fires the [OnReorder event]({%slug tilelayout-events%}#onreorder).
 
->caption Reordering tiles in the TileLayout
+> When the tile layout allows reordering, it captures mouse events in the tile headers. Thus, if you put components in the `HeaderTemplate` of the tiles, they may not function as expected. For example, you may not be able to focus inputs with the mouse. The header is designed for presentation purposes and to allow dragging. We recommend putting editors or complex content in the `Content` of the tiles.
 
-![reorder tiles](images/tilelayout-reordering-overview.gif)
+>caption Reordering tiles in the TileLayout
 
 ````CSHTML
 <TelerikTileLayout ColumnWidth="200px"
@@ -47,11 +47,16 @@ Reordering a tile fires the [OnReorder event]({%slug tilelayout-events%}#onreord
 </TelerikTileLayout>
 ````
 
->note When the tile layout has reordering enabled, it captures mouse events in its header. Thus, if you put components in the `HeaderTemplate` of `TileLayoutItem` instances, they may not function as expected. For example, you may not be able to focus inputs with the mouse. The header is designed for presentation purposes and to allow dragging, and we recommend you consider putting editors or complex content in the `Content` of the tiles.
+![reorder tiles](images/tilelayout-reordering-overview.gif)
+
+
+## Next Steps
+
+* [Handle Tile Layout events]({%slug tilelayout-events%}).
+* [Manage the Tile Layout state]({%slug tilelayout-state%}).
+
 
 ## See Also
 
-  * [Overview]({%slug tilelayout-overview%})
-  * [State]({%slug tilelayout-state%})
-  * [Events]({%slug tilelayout-events%})
-  * [Live Demo: TileLayout Reordering](https://demos.telerik.com/blazor-ui/tilelayout/reordering)
+* [Overview]({%slug tilelayout-overview%})
+* [Live Demo: TileLayout Reordering](https://demos.telerik.com/blazor-ui/tilelayout/reordering)
