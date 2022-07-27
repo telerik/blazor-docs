@@ -8,7 +8,7 @@ published: True
 position: 6
 ---
 
-# Splitter and Panes Size
+# Splitter and Pane Size
 
 The Splitter respects the dimensions you set to its `Width` and `Height` parameters, and distributes the available space according to the `Size` of the individual panes.
 
