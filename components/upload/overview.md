@@ -116,7 +116,7 @@ namespace MyBlazorApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Remove(string files) // must match RemoveField
+        public ActionResult Remove([FromForm] string files) // must match RemoveField
         {
             if (files != null)
             {
