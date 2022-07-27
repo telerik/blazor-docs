@@ -145,10 +145,10 @@ The following table lists PanelBar parameters, which are not related to other fe
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Attribute | Type and Default Value | Description |
-|----------|----------|----------|
-|`Class`| `string` |The CSS class that will be rendered on the main wrapping element of the component.|
-|`ExpandedItems`| `IEnumerable<Object>` | A collection of the expanded PanelBar items. Supports two-way binding. Read more in the [ExpandedItems]({%slug panelbar-expand-items%}) article.|
-|`ExpandMode`| `PanelBarExpandMode` enum <br/> (`PanelBarExpandMode.Multiple`) | Whether the PanelBar will allow single or multiple items to be expanded at a time. Read more in the [ExpandMode]({%slug panelbar-expand-items%}#expandmode) section. |
+|---|---|---|
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the component.|
+| `ExpandedItems` | `IEnumerable<Object>` | A collection of the expanded PanelBar items. Supports two-way binding. Read more in the [ExpandedItems]({%slug panelbar-expand-items%}) article. |
+| `ExpandMode` | `PanelBarExpandMode` enum <br/> (`PanelBarExpandMode.Multiple`) | Whether the PanelBar will allow single or multiple items to be expanded at a time. Read more in the [ExpandMode]({%slug panelbar-expand-items%}#expandmode) section. |
 
 
 ## Next Steps
