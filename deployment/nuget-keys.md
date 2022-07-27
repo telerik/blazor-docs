@@ -1,14 +1,14 @@
 ---
 title: Restoring NuGet Packages in CI
 page_title: Restoring NuGet Packages in CI
-description: "Get started with Telerik UI for Blazor and use NuGet Keys to authenticate with the Telerik NuGet server and restore packages in your CI or desktop environment."
+description: Get started with Telerik UI for Blazor and use NuGet Keys to authenticate with the Telerik NuGet server and restore packages in your CI or desktop environment.
 slug: installation/nuget-keys
 position: 7
 ---
 
 # Restoring NuGet Packages in Your CI Workflow
 
-This article provides an overview of the most popular approaches for using token-based authentication to restore Telerik NuGet packages in your CI (Continuous Integration) workflow.
+This article provides an overview of the most popular ways for using token-based authentication to restore Telerik NuGet packages in your Continuous Integration (CI) workflow.
 
 The Telerik NuGet server allows you to authenticate by using two methods:
 
@@ -25,7 +25,7 @@ Unlike your Telerik credentials, a NuGet Key has a limited scope and can be used
 
     ![Manage NuGet Keys](../deployment/images/manage-nuget-keys.png)
 
-1. To create a new key, select the **Generate New Key** button.
+1. To create a new key, click on the **Generate New Key** button.
 
 1. Enter a name for the NuGet Key, and then select **Generate Key**.
 
