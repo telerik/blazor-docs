@@ -83,16 +83,16 @@ The following table lists the Tile Layout parameters. Also check the [TileLayout
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | Renders a custom CSS class to the `<div class="k-tilelayout">` element. Use it to [override theme styles]({%slug themes-override%}). |
-| `ColumnSpacing` | `string` <br /> (`"16px"`) | Defines the empty space between columns. |
-| `Columns` | `int` | Sets the number of columns in the Tile Layout. |
-| `ColumnWidth` | `string` | Sets the width of one tile. If not set, the tile widths will distribute evenly. |
-| `Height` | `string` | Sets the Tile Layout height. If not set, the component will expand automatically to fit all rows. |
-| `RowHeight` | `string` | Sets the height of one tile. If not set, the base tile height will be set by the component, based on the highest tile. |
-| `RowSpacing` | `string` <br /> (`"16px"`) | Defines the empty space between rows. |
-| `Reorderable` | `string` | Enables tile reordering. |
+| `Class` | `string` | The custom CSS class of the `<div class="k-tilelayout">` element. Use it to [override theme styles]({%slug themes-override%}). |
+| `ColumnSpacing` | `string` <br /> (`"16px"`) | The empty space between columns. |
+| `Columns` | `int` | The number of columns in the Tile Layout. |
+| `ColumnWidth` | `string` | The width of one tile. If not set, the tile widths will distribute evenly. |
+| `Height` | `string` | The Tile Layout height. If not set, the component will expand automatically to fit all rows. |
+| `RowHeight` | `string` | The height of one tile. If not set, the base tile height will be set by the component, based on the highest tile. |
+| `RowSpacing` | `string` <br /> (`"16px"`) | The empty space between rows. |
+| `Reorderable` | `bool` | Enables tile reordering. |
 | `Resizable` | `bool` | Enables tile resizing. |
-| `Width` | `string` | Sets the Tile Layout width. If not set, the component will expand horizontally to fill its parent. |
+| `Width` | `string` | The Tile Layout width. If not set, the component will expand horizontally to fill its parent. |
 
 ### TileLayoutItem Parameters
 
@@ -100,16 +100,23 @@ The following table lists the Tile Layout parameters. Also check the [TileLayout
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | Renders a custom CSS class to the `<div class="k-tilelayout-item">` element. Use it to [override theme styles]({%slug themes-override%}). |
-| `ColSpan` | `int` <br /> (`1`) | Defines how many columns a tile will span over. |
-| `HeaderText` | `string` | Sets the tile header as plain text. For rich text, use a nested `<HeaderTemplate>` tag. |
+| `Class` | `string` | The custom CSS class of the `<div class="k-tilelayout-item">` element. Use it to [override theme styles]({%slug themes-override%}). |
+| `ColSpan` | `int` <br /> (`1`) | How many columns a tile will span over. |
+| `HeaderText` | `string` | The tile header as plain text. For rich text, use a nested `<HeaderTemplate>` tag. |
 | `Id` | `string` | Tile IDs are not rendered in the HTML markup. The component provides them in the [`OnReorder` and `OnResize` event arguments]({%slug tilelayout-events%}). |
-| `RowSpan` | `int` <br /> (`1`) | Defines how many rows a tile will span over. |
+| `RowSpan` | `int` <br /> (`1`) | How many rows a tile will span over. |
 
 
 ## TileLayout Reference
 
-Use the component reference to [get or set the TileLayout state]({%slug tilelayout-state%}).
+Use the component reference to execute methods and [get or set the TileLayout state]({%slug tilelayout-state%}).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `GetState` | Returns the current state of the Tile Layout as a [`TileLayoutState` object](/blazor-ui/api/Telerik.Blazor.Components.TileLayoutState). |
+| `SetState` | Applies the provided `TileLayoutState` argument as a new state of the Tile Layout. |
 
 <div class="skip-repl"></div>
 
