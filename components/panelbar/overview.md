@@ -154,7 +154,6 @@ The following table lists PanelBar parameters, which are not related to other fe
 ## Next Steps
 
 * [Binding PanelBar PanelBar to Data]({%slug panelbar-data-binding-overview%})
-
 * [Using the PanelBar to Navigate between Pages]({%slug panelbar-navigation%})
 
 
