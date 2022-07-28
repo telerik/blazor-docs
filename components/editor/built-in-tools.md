@@ -18,7 +18,7 @@ This article explains which are the built-in tools and commands of the Editor, h
 
 This article describes the Editor *tools* and *commands*.
 
-An Editor *tool* is the visible interface for a given action. For example, the button that bolds text is a tool. Built-in  tools can render as buttons, color pickers or dropdown lists. The Editor supports custom tools with custom rendering.
+An Editor *tool* is the visible interface for a given action. For example, the button that bolds text is a tool. Built-in  tools can render as buttons, color pickers or dropdown lists. The Editor also supports [custom tools with custom rendering]({%slug editor-custom-tools%}).
 
 An Editor *command* is the action, which modifies the HTML value in some way. Each built-in Editor tool has an associated command. Custom tools can execute business logic or invoke built-in commands.
 
