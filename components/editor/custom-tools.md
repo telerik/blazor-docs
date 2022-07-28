@@ -1,15 +1,16 @@
 ---
-title: Custom Tool
-page_title: Editor - Custom Tool
-description: How to make a custom Tool in the Editor for Blazor.
-slug: editor-custom-tool
+title: Custom Tools
+page_title: Custom Editor Tools
+description: How to make a custom tool in the Editor for Blazor.
+slug: editor-custom-tools
 tags: telerik,blazor,custom,tool
 published: True
 position: 60
+previous_url: /components/editor/custom-tool
 ---
 
 
-# Editor Custom Tool
+# Editor Custom Tools
 
 The Blazor Editor component lets you add custom tools to its [toolbar]({%slug editor-toolbars%}). In those tools, you can use both the [built-in tools and commands]({%slug editor-built-in-tools%}) the editor provides, and also your own custom logic.
 

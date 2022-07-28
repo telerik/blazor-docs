@@ -57,7 +57,7 @@ The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor 
 
 ## Component Reference
 
-You can use the component reference to call its [Methods](#methods), especially when creating [custom tools]({%slug editor-custom-tool%}). This snippet shows how to obtain a reference and its namespace.
+You can use the component reference to call its [Methods](#methods), especially when creating [custom tools]({%slug editor-custom-tools%}). This snippet shows how to obtain a reference and its namespace.
 
 
 ````CSHTML
@@ -153,7 +153,7 @@ consider - maybe link toolbars, import/export, custom commands, events, validati
 
   * [Toolbar]({%slug editor-toolbars%})
   * [Built-in Tools and Commands]({%slug editor-built-in-tools%})
-  * [Custom Tools]({%slug editor-custom-tool%})
+  * [Custom Tools]({%slug editor-custom-tools%})
   * [Import and Export]({%slug editor-import-export%})
   * [Events]({%slug editor-events%})
   * [Live Demo: Editor](https://demos.telerik.com/blazor-ui/editor/overview)
