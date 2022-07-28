@@ -43,18 +43,19 @@ In addition to the two main filtering modes, the treelist offers two more featur
 * You can customize the appearance and behavior of the filters through the [filter templates]({%slug treelist-templates-filter%}).
 
 
-### Customize The Filtering Fields
+### Customize The Filter Editors
 
-You can customize the filter editors rendered in the TreeList
-by providing the `FilterEditorType` attribute, exposed on the `<TreeListColumn>`, or by utilizing the points above. The `FilterEditorType` attribute accepts a member of the `TreeListFilterEditorType` enum:
+You can customize the filter editors declaratively for some data types. It is possible to change the editor component or the editor format.
 
-| Field data type | TreeListFilterEditorType enum members              |
-|-----------------|------------------------------------------|
-| **DateTime**  | `TreeListFilterEditorType.DatePicker`<br> `TreeListFilterEditorType.DateTimePicker` |
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
+| TreeListColumn Parameter | Type | Works for | Description |
+|---|---|---|---|
+| `FilterEditorType` | `TreeListFilterEditorType` enum | `DateTime` columns | The component, which the TreeList will render for filtering (DatePicker or DateTimePicker). |
+| `FilterEditorFormat` | `string` | `DateTime` and numeric columns | The `Format` of the filtering component. Do not use a placeholder (e.g. set `"D"`, not `"{0:D}"`). |
 
 ````CSHTML
-@* The usage of the FilterEditorType parameter *@
+@* Using FilterEditorType and FilterEditorFormat parameters *@
 
 <TelerikTreeList Data="@Data" 
                  FilterMode="@TreeListFilterMode.FilterMenu"
@@ -65,7 +66,9 @@ by providing the `FilterEditorType` attribute, exposed on the `<TreeListColumn>`
         <TreeListColumn Field="Name" Expandable="true" Width="320px"></TreeListColumn>
         <TreeListColumn Field="Id"></TreeListColumn>
         <TreeListColumn Field="@(nameof(Employee.HireDate))"
-                        FilterEditorType="@TreeListFilterEditorType.DateTimePicker">
+                        FilterEditorType="@TreeListFilterEditorType.DateTimePicker"
+                        FilterEditorFormat="yyyy-MM-dd HH:mm"
+                        Title="Hire Date">
         </TreeListColumn>
     </TreeListColumns>
 </TelerikTreeList>
