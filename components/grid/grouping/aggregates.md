@@ -15,7 +15,6 @@ The Grid component provides built-in aggregates for column values based on [grou
 
 #### In this article:
 
-
 * [Available Aggregate Functions](#available-aggregate-functions)
 * [Where You Can Use Aggregates](#where-you-can-use-aggregates)
 * [How to Enable Aggregates](#how-to-enable-aggregates)
@@ -153,7 +152,6 @@ Enable and use aggregates. To see the full effect, group by a column - "Team" an
 ![Blazor Grid Aggregates Overview](images/grid-aggregates-overview.png)
 
 
-
 ## Notes 
 
 * You should define only aggregates that you will use to avoid unnecessary calculations that may be noticeable on large data sets.
@@ -162,11 +160,22 @@ Enable and use aggregates. To see the full effect, group by a column - "Team" an
 
 * If you update a field of a model the `Data` collection in the view-model, aggregates will not be updated automatically - the grid needs to re-evaluate that data first, and since this is an expensive operation a UI render does not trigger it. You can [update the data collection]({%slug grid-refresh-data%}) yourself, or fetching it anew from the service (example [here]({%slug components/grid/editing/overview%}), see how the Create/Update/Delete events fetch data anew).
 
-* If you use [`OnRead`]({%slug components/grid/manual-operations%}), the Grid will calculate aggregates from the data on the current page only. It is still possible to [calculate and display aggregates, which are based on all the data]({%slug grid-templates-column-footer%}#notes).
+* If you [bind the Grid via `OnRead` event]({%slug components/grid/manual-operations%}), make sure to set `AggregateResults` in the `GridReadEventArgs` event argument object. Otherwise the Grid will calculate aggregates from the data on the current page only.
+
+<div class="skip-repl"></div>
+
+```CS
+private async Task OnGridRead(GridReadEventArgs args)
+{
+    DataSourceResult result = AllGridData.ToDataSourceResult(args.Request);
+
+    args.Data = result.Data;
+    args.Total = result.Total;
+    args.AggregateResults = result.AggregateResults;
+}
+```
 
 
 ## See Also
 
-  * [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
-   
-  
+* [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)

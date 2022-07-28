@@ -10,23 +10,12 @@ position: 55
 
 # Manual Data Source Operations
 
-By default, the grid will receive the entire collection of data, and it will perform the necessary operations (like [paging]({%slug components/grid/features/paging%}), [sorting]({%slug components/grid/features/sorting%}), [filtering]({%slug components/grid/filtering%})) internally to it. You can perform these operations yourself by handling the `OnRead` event of the grid as shown in the example below. The data source will be read after each [CUD operation]({%slug components/grid/editing/overview%}) as well, to ensure fresh data.
+By default, the Grid will receive the entire collection of data, and it will perform the necessary operations (like [paging]({%slug components/grid/features/paging%}), [sorting]({%slug components/grid/features/sorting%}), [filtering]({%slug components/grid/filtering%})) internally.
 
->tip This article describes how you can load data on demand and implement filtering, paging, sorting on the server.
->
-> Detailed examples showcase the functionality of the [`OnRead` event]({%slug common-features-data-binding-onread%}) that you need to use.
->
-> You can also find runnable sample apps in the [Serialize the DataSoureRequest to the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server) repo.
+You can perform all data operations yourself (e.g. on the server) and load data on demand by using the `OnRead` event of the Grid. The data source will be read after each [CUD operation]({%slug components/grid/editing/overview%}) as well, to ensure fresh data.
 
-The parameter of type `DataSourceRequest` exposes information about the desired paging, filtering and sorting so you can, for example, call your remote endpoint with appropriate parameters so its performance is optimized and it fetches only the relevant data. 
+>tip Make sure to get familiar with all the general [`OnRead` event documentation]({%slug common-features-data-binding-onread%}) first.
 
-When the `OnRead` event is used, the internal operations are disabled and you must perform them all in the `OnRead` event. You must set:
-
-* the data to `args.Data`
-* the total number of items (if there is no paging) to `args.Total`
-* the Grid itself should set the `TItem` attribute to the model type
-
-The event arguments of `OnRead` will receive the `Page` that comes from the application. For example, if you load the grid [state]({%slug grid-state%}), or you set the parameter value yourself, that value will be passed to the event handler. If it is out of the range of the available data, it will be up to the application to handle that discrepancy.
 
 ## Examples
 
@@ -39,6 +28,7 @@ Examples:
 * [Custom paging with a remote service](#custom-paging-with-a-remote-service)
 * [Telerik .ToDataSourceResult(request)](#telerik-todatasourceresultrequest)
 * [Grouping with OnRead](#grouping-with-onread)
+* [Aggregates with OnRead](#aggregates-with-onread)
 * [Get Information From the DataSourceRequest](#get-information-from-the-datasourcerequest)
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
 * [Serialize the DataSoureRequest to the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
@@ -256,6 +246,7 @@ This sample shows how to set up the grid to use grouping with manual data source
         args.Data = datasourceResult.Data.Cast<object>().ToList();
 
         args.Total = datasourceResult.Total;
+        args.AggregateResults = datasourceResult.AggregateResults;
     }
 
     protected override void OnInitialized()
@@ -296,6 +287,24 @@ This sample shows how to set up the grid to use grouping with manual data source
 >note Since the grid does not have the type of the data models (it is bound to `IEnumerable<object>`), it uses the first item in the available data to infer the type. If there is no data, this type will be unavailable and the grid will be unable to create an item to insert. The filters can get the proper operators list from the `FieldType`, but an entire model cannot be constructed by the grid. 
 >
 > Thus, clicking the built-in Add command button on its toolbar when there is no data will produce a `null` item and if you have editor templates, there may be null reference errors (the `context` will be `null`). To avoid that, you can [initiate insertion of items through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) in order to ensure a model reference exists.
+
+
+## Aggregates with OnRead
+
+When using [aggregates]({%slug grid-aggregates%}) with `OnRead`, the Grid expects you to set one more property of the `GridReadEventArgs` object - `AggregateResults`. Otherwise the component will show aggregate values for the current page only.
+
+<div class="skip-repl"></div>
+
+```CS
+private async Task OnGridRead(GridReadEventArgs args)
+{
+    DataSourceResult result = AllGridData.ToDataSourceResult(args.Request);
+
+    args.Data = result.Data;
+    args.Total = result.Total;
+    args.AggregateResults = result.AggregateResults;
+}
+```
 
 
 ## Get Information From the DataSourceRequest
@@ -390,9 +399,9 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 
 ## See Also
 
-  * [CRUD Operations Overview]({%slug components/grid/editing/overview%})
-  * [Live Demo: Manual Data Source Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
-  * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
-  * [Custom Server Operations](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
-  * [DataSourceRequest Object API](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.DataSourceRequest)
-  * [DataSourceResult Object API](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.DataSourceResult)
+* [CRUD Operations Overview]({%slug components/grid/editing/overview%})
+* [Live Demo: Manual Data Source Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
+* [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
+* [Custom Server Operations](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
+* [DataSourceRequest Object API](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.DataSourceRequest)
+* [DataSourceResult Object API](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.DataSourceResult)
