@@ -11,7 +11,7 @@ position: 20
 
 # Editor Toolbar
 
-The toolbar of the editor is where it command buttons reside and they let the end user apply various formatting and styling - from bold and italic words, to creating lists, tables, inserting images or [custom tools]({%slug editor-custom-tool%}) you can define.
+The toolbar of the editor is where it command buttons reside and they let the end user apply various formatting and styling - from bold and italic words, to creating lists, tables, inserting images or [custom tools]({%slug editor-custom-tools%}) you can define.
 
 ![The Editor Toolbar](images/editor-toolbar-overview.png)
 
@@ -52,7 +52,7 @@ If you do not apply any settings, the `Default` list of tools will be used.
 
 ## Choose Toolbar Items
 
-To define your own customized collection of tools, you use the `Tools` parameter of the Editor component and populate it with the commands you want available. They can include [custom tools]({%slug editor-custom-tool%}).
+To define your own customized collection of tools, you use the `Tools` parameter of the Editor component and populate it with the commands you want available. They can include [custom tools]({%slug editor-custom-tools%}).
 
 The `Tools` collection is a `List<IEditorTool>`.
 
