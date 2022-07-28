@@ -20,6 +20,9 @@ The `TooltipTemplate` receives a context of type `object`, that can be cast to `
         <h5>Percent Complete: @(((TooltipTemplateContext)context).DataAttributes["percent"])%</h5>
         <h5>Start: @(((TooltipTemplateContext)context).DataAttributes["start"])</h5>
         <h5>End: @(((TooltipTemplateContext)context).DataAttributes["end"])</h5>
+        @*The "startDate" and "endDate" properties below are parsable to DateTime object.*@
+        <h5>StartDate: @(DateTime.Parse(((TooltipTemplateContext)context).DataAttributes["startDate"]).Day)</h5>
+        <h5>EndDate: @(DateTime.Parse(((TooltipTemplateContext)context).DataAttributes["endDate"]).Day)</h5>
     </TooltipTemplate>
 ````
 
