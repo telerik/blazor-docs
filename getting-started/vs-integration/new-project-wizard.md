@@ -14,7 +14,7 @@ To create a new Telerik UI for Blazor application, use the **Create New Project*
 
 ## Get the Wizard
 
-To use the **Create New Telerik Project** wizard, install the Telerik UI for Blazor Visual Studio Extensions. @[template](/_contentTemplates/common/general-info.md#vsx-download)
+To use the **Create New Telerik Project** wizard, install the Telerik UI for Blazor Visual Studio Extension. @[template](/_contentTemplates/common/general-info.md#vsx-download)
 
 
 ## Start the Wizard
