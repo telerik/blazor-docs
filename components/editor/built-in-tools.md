@@ -210,7 +210,7 @@ The `ForeColor` and `BackgroundColor` tools expose a `Colors` property that acce
 
 ## Block Tools
 
-The `Block` tools add or work with block HTML elements, like `<h1>`, `<h2>`, `<p>` and `<ul>`.
+The block tools add or work with block HTML elements, like `<h1>`, `<h2>`, `<p>` and `<ul>`.
 
 All tools in the table below are *buttons*, except `Format`, which is a *dropdown*.
 
