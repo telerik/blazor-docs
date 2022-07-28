@@ -10,17 +10,17 @@ position: 0
 
 # Blazor StackLayout Overview
 
-The <a href="https://www.telerik.com/blazor-ui/stacklayout" target="_blank">StackLayout for Blazor</a> is a component that easily allows aligning multiple elements in a vertical or horizontal order.
+The <a href="https://www.telerik.com/blazor-ui/stacklayout" target="_blank">StackLayout for Blazor</a> is a component that easily aligns multiple elements in a vertical or horizontal order.
 
 ## Creating Blazor StackLayout
 
 1. Use the `<TelerikStackLayout>` tag to add the component to your razor page.
 
-2. Inside the `<TelerikStackLayout>` tag, add the desired custom elements.
+2. Inside the `<TelerikStackLayout>` tag, add the desired HTML containers (e.g. `<div>`) or components. Each immediate child element will represent one stack layout item.
 
 3. Set `Width` and `Height`.
 
-4. (optionally) Set the `Orientation` parameter.
+4. (optional) Set the `Orientation` parameter to determine the layouts direction.
 
 >caption StackLayout basic configuration.
 
@@ -68,13 +68,13 @@ The Blazor StackLayout provides various parameters that allow you to configure t
 </style>
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
-| `Class` | `string` | The CSS class to be rendered on the main wrapping element of the ToolBar component, which is `<div class="k-stack-layout">`. Use for [styling customizations]({%slug themes-override%}). |
-| `Height` | `string` | Takes a CSS unit that determines how tall the StackLayout is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work. |
-| `Width` | `string` | Takes a CSS unit that determines how wide the StackLayout is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work. |
+| `Class` | `string` | The CSS class to be rendered on the main wrapping element of the StackLayout component, which is `<div class="k-stack-layout">`. Use for [styling customizations]({%slug themes-override%}). |
+| `Height` | `string` | The StackLayout height as a CSS unit. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how percentage dimensions work. |
+| `Width` | `string` | The StackLayout width as a CSS unit. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how percentage dimensions work. |
 | `Orientation` | `StackLayoutOrientation` enum <br/> (`StackLayoutOrientation.Horizontal`) | Whether the content will be aligned horizontally or vertically. See the [Layout Orientation]({%slug stacklayout-layout%}#orientation) article for more information. |
 | `Spacing` | `string` | The space between the elements in the StackLayout. See the [Layout Spacing]({%slug stacklayout-layout%}#spacing) article for more information. |
-| `HorizontalAlign` | `StackLayoutHorizontalAlign` enum <br/> (`StackLayoutHorizontalAlign.Stretch`) | Controls the alignment of the items in the StackLayout based on the X axis. See the [Layout HorizontalAlign]({%slug stacklayout-layout%}#horizontalalign) article for more information. |
-| `VerticalAlign` | `StackLayoutVerticalAlign` enum <br/> (`StackLayoutVerticalAlign.Stretch`) | Controls the alignment of the items in the StackLayout based on the Y axis. See the [Layout VerticalAlign]({%slug stacklayout-layout%}#verticalalign) article for more information. |
+| `HorizontalAlign` | `StackLayoutHorizontalAlign` enum <br/> (`StackLayoutHorizontalAlign.Stretch`) | The StackLayout items alignment based on the X axis. See the [Layout HorizontalAlign]({%slug stacklayout-layout%}#horizontalalign) article for more information. |
+| `VerticalAlign` | `StackLayoutVerticalAlign` enum <br/> (`StackLayoutVerticalAlign.Stretch`) | The StackLayout items alignment based on the Y axis. See the [Layout VerticalAlign]({%slug stacklayout-layout%}#verticalalign) article for more information. |
 
 ## Nested StackLayouts
 
@@ -136,7 +136,7 @@ Sometimes you may need to create a more complex layout that includes both horizo
 
 ## Next Steps
 
-* [Configure Layout]({%slug stacklayout-layout%})
+* [Configure StackLayout orientation, spacing and alignment]({%slug stacklayout-layout%})
 
 ## See Also
 
