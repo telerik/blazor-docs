@@ -1,8 +1,8 @@
 # Telerik® UI for Blazor Components Documentation 
 
-Welcome to the GitHub repo for the [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui) documentation. This repository contains the source content — written in Markdown — that we use to power Telerik® UI for Blazor Documentation at [http://docs.telerik.com/blazor-ui/introduction](http://docs.telerik.com/blazor-ui/introduction?utm_medium=referral&utm_source=github&utm_campaign=blazor-ui-trial-gh-public-readme).
+Welcome to the GitHub repo for the [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github) documentation. This repository contains the source content — written in Markdown — that we use to power Telerik® UI for Blazor Documentation at [http://docs.telerik.com/blazor-ui/introduction](http://docs.telerik.com/blazor-ui/introduction?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github).
 
-If you've arrived here wanting to search and peruse our docs, you'd be better served heading over to the officially published [UI for Blazor components documentation](http://docs.telerik.com/blazor-ui/introduction?utm_medium=referral&utm_source=github&utm_campaign=blazor-ui-trial-gh-public-readme) where our content is prettified and searchable.
+If you've arrived here wanting to search and peruse our docs, you'd be better served heading over to the officially published [UI for Blazor components documentation](http://docs.telerik.com/blazor-ui/introduction?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github) where our content is prettified and searchable.
 
 ## Contribution
 
@@ -24,19 +24,19 @@ If you want to keep the local documentation alive after closing the prompt, you 
 ## Useful Links
 
 * Browse all [UI for Blazor component demos live](https://demos.telerik.com/blazor-ui)
-* Browse [the Telerik UI for Blazor documentation](https://docs.telerik.com/blazor-ui/introduction?utm_medium=referral&utm_source=github&utm_campaign=blazor-ui-trial-gh-public-readme)
-* Follow this link to [report bugs and add feature requests](https://feedback.telerik.com/blazor?utm_medium=referral&utm_source=github&utm_campaign=blazor-ui-trial-gh-public-readme)
+* Browse [the Telerik UI for Blazor documentation](https://docs.telerik.com/blazor-ui/introduction?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github)
+* Follow this link to [report bugs and add feature requests](https://feedback.telerik.com/blazor?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github)
 * Browse or contribute to [localization texts](https://github.com/telerik/blazor-ui-messages) used in the samples
-* Create, run, share and test Blazor code snippets directly in the browser in our [Blazor REPL code runner](https://blazorrepl.telerik.com/?utm_medium=referral&utm_source=github&utm_campaign=blazor-ui-trial-gh-public-readme)
+* Create, run, share and test Blazor code snippets directly in the browser in our [Blazor REPL code runner](https://blazorrepl.telerik.com/?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github)
 
 ## License
 
 The Telerik® UI for Blazor Documentation is licensed under an MIT license. This license applies to the markdown (.md) files in this site **ONLY**, and does not convey, override or modify any existing licenses covering the runtime source and components of Telerik® UI for Blazor. For information about available licenses for the Telerik® UI for Blazor click [here](https://www.telerik.com/purchase/license-agreement/blazor-ui).
 
-If you don't have a license, [start a free trial](https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor?utm_medium=referral&utm_source=github&utm_campaign=blazor-ui-trial-gh-public-readme) and then follow the first steps articles for:
+If you don't have a license, [start a free trial](https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github) and then follow the first steps articles for:
 
-* [Client-side Blazor](https://docs.telerik.com/blazor-ui/getting-started/client-blazor?utm_medium=referral&utm_source=github&utm_campaign=blazor-ui-trial-gh-public-readme)
-* [Server-side Blazor](https://docs.telerik.com/blazor-ui/getting-started/server-blazor?utm_medium=referral&utm_source=github&utm_campaign=blazor-ui-trial-gh-public-readme)
+* [Client-side Blazor](https://docs.telerik.com/blazor-ui/getting-started/client-blazor?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github)
+* [Server-side Blazor](https://docs.telerik.com/blazor-ui/getting-started/server-blazor?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github)
 
 ### MIT License
 
