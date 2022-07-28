@@ -43,28 +43,28 @@ Here is a simple example that demonstrates how to use class names, command names
 
 <TelerikButton OnClick="@InsertParagraph">Insert Paragraph in the Editor</TelerikButton>
 
-<TelerikEditor @ref="Editor"
+<TelerikEditor @ref="EditorRef"
                Tools="@EditorTools"
-               @bind-Value="@Value">
+               @bind-Value="@EditorValue">
 </TelerikEditor>
 
 @code {
-    public TelerikEditor Editor { get; set; }
+    private TelerikEditor EditorRef { get; set; }
+
+    private string EditorValue { get; set; } = @"<p>foo</p><p>bar</p>";
 
     // "Bold", "Italic" and "Underline" are class names
-    public List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>() {
+    private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>() {
         new Bold(),
         new Italic(),
         new Underline()
     };
 
-    public string Value { get; set; } = @"<p>foo</p><p>bar</p>";
-
     private async Task InsertParagraph()
     {
         // "insertHtml" is a command name
         // HtmlCommandArgs is the ExecuteAsync argument
-        await Editor.ExecuteAsync(new HtmlCommandArgs("insertHtml", $"<p>baz {DateTime.Now.Millisecond}</p>"));
+        await EditorRef.ExecuteAsync(new HtmlCommandArgs("insertHtml", $"<p>baz {DateTime.Now.Millisecond}</p>"));
     }
 }
 ````
