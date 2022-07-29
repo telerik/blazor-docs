@@ -2,6 +2,8 @@
 
 Welcome to the GitHub repo for the [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github) documentation. This repository contains the source content — written in Markdown — that we use to power Telerik® UI for Blazor Documentation at [http://docs.telerik.com/blazor-ui/introduction](http://docs.telerik.com/blazor-ui/introduction?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github).
 
+[![Telerik UI for Blazor Documentation](images/Telerik-UI-for-Blazor-Official-Documentation-830x230-RITM0168127.png)](http://docs.telerik.com/blazor-ui/introduction?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github)
+
 If you've arrived here wanting to search and peruse our docs, you'd be better served heading over to the officially published [UI for Blazor components documentation](http://docs.telerik.com/blazor-ui/introduction?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github) where our content is prettified and searchable.
 
 ## Contribution
