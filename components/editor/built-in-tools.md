@@ -28,7 +28,7 @@ The information about the Editor tools and commands is organized in tables below
 
 * `Command Name` - use it to [execute the command programmatically](#programmatic-execution). In this case, also use the syntax from the `Argument` column.
 
-* `Tool Type` - a tool can be a button, a dropdown list or a color picker. Only buttons can be added to tool groups in the [toolbar]({%slug editor-toolbars%}).
+* `Tool Type` - a tool can be a [button](/blazor-ui/api/Telerik.Blazor.Components.Editor.ButtonTool), a [dropdown list](/blazor-ui/api/Telerik.Blazor.Components.Editor.DropDownListTool) or a [color picker](/blazor-ui/api/Telerik.Blazor.Components.Editor.ColorTool). Each of these three types exposes some customization options. See the examples for the [color tools](#color-tool-customization), [font tools](#font-tool-customization) and the [Format tool](#format-tool-customization). Only *buttons* can be added to tool groups in the [toolbar]({%slug editor-toolbars%}).
 
 * `Description` - information about what the tool and command do.
 
@@ -74,7 +74,9 @@ Here is a simple example that demonstrates how to use class names, command names
 
 * [Inline Tools](#inline-tools)
     * [Color Tool Customization](#color-tool-customization)
+    * [Font Tool Customization](#font-tool-customization)
 * [Block Tools](#block-tools)
+    * [Format Tool Customization](#format-tool-customization)
 * [Table Tools](#table-tools)
 * [Commands Without Built-in Tools](#commands-without-built-in-tools)
 * [Programmatic Command Execution](#programmatic-execution)
@@ -128,14 +130,14 @@ The inline tools add or work with inline HTML elements. For example, such elemen
             <td>new LinkCommandArgs(string href, string text, string target, string title, null)</td>
         </tr>
         <tr>
-            <td>FontFamily</td>
+            <td><a href="#font-tool-customization">FontFamily</a></td>
             <td>fontFamily</td>
             <td>dropdown</td>
             <td>Sets the font typeface</td>
             <td>new FormatCommandArgs(string commandName, string Value)</td>
         </tr>
         <tr>
-            <td>FontSize</td>
+            <td><a href="#font-tool-customization">FontSize</a></td>
             <td>fontSize</td>
             <td>dropdown</td>
             <td>Sets the text font size</td>
@@ -189,20 +191,70 @@ The inline tools add or work with inline HTML elements. For example, such elemen
 
 ### Color Tool Customization
 
-The `ForeColor` and `BackgroundColor` tools expose a `Colors` property that accepts a color collection as `IEnumerable<string>`. You can provide a member of [`ColorPalettePresets`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.ColorPalettePresets), or a custom list of [RGB(A) or HEX colors in different supported formats]({%slug colorpicker-overview%}#supported-value-formats).
+The `ForeColor` and `BackgroundColor` tools expose a `Colors` property that accepts a color collection as `IEnumerable<string>`. You can provide a member of [`ColorPalettePresets`](/blazor-ui/api/Telerik.Blazor.ColorPalettePresets), or a custom list of [RGB(A) or HEX colors in different supported formats]({%slug colorpicker-overview%}#supported-value-formats). It is also possible to change the tooltips via `Title`.
 
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
 
-<TelerikEditor Tools="@Tools"
-               @bind-Value="@Value"></TelerikEditor>
+<TelerikEditor Tools="@EditorTools"
+               @bind-Value="@EditorValue">
+</TelerikEditor>
 
 @code {
-    string Value { get; set; }
+    private string EditorValue { get; set; }
 
-    List<IEditorTool> Tools { get; set; } = new List<IEditorTool>() {
-        new ForeColor() { Colors = new List<string> { "#f00", "#ff9900", "rgb(0, 128, 0)", "rgba(0, 0, 255, .8)" } },
-        new BackgroundColor() { Colors = ColorPalettePresets.Basic }
+    private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>()
+    {
+        new ForeColor()
+        {
+            Title = "Text Color",
+            Colors = new List<string> { "#f00", "#ff9900", "rgb(0, 128, 0)", "rgba(0, 0, 255, .8)" }
+        },
+        new BackgroundColor()
+        {
+            Title = "Background Color",
+            Colors = ColorPalettePresets.Basic
+        }
+    };
+}
+````
+
+
+### Font Tool Customization
+
+The [`FontFamily`](/blazor-ui/api/Telerik.Blazor.Components.Editor.FontFamily) and [`FontSize`](/blazor-ui/api/Telerik.Blazor.Components.Editor.FontSize) tools have a `Data` property that accepts a `List<EditorDropDownListItem>`. Use it to customize the available options in these dropdowns. You can also change the dropdown label via `DefaultText`.
+
+````CSHTML
+@using Telerik.Blazor.Components.Editor
+
+<TelerikEditor @bind-Value="@EditorValue"
+               Tools="@EditorTools">
+</TelerikEditor>
+
+@code {
+    private string EditorValue { get; set; }
+
+    private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>()
+    {
+        new FontFamily()
+        {
+            DefaultText = "Font Family",
+            Data = new List<EditorDropDownListItem>()
+            {
+                new EditorDropDownListItem("Georgia", "georgia"),
+                new EditorDropDownListItem("Lucida Console", "'lucida console'")
+            }
+        },
+        new FontSize()
+        {
+            DefaultText = "Text Size",
+            Data = new List<EditorDropDownListItem>()
+            {
+                new EditorDropDownListItem("Small", "12px"),
+                new EditorDropDownListItem("Medium", "16px"),
+                new EditorDropDownListItem("Large", "24px")
+            }
+        }
     };
 }
 ````
@@ -253,7 +305,7 @@ All tools in the table below are *buttons*, except `Format`, which is a *dropdow
             <td>new ToolCommandArgs(string commandName)</td>
         </tr>
         <tr>
-            <td>Format</td>
+            <td><a href="#format-tool-customization">Format</a></td>
             <td>format</td>
             <td>Applies standard formatting to the selected text like Heading 1, Paragraph and so on. Unlike the other tools in this table, this one is a dropdown.</td>
             <td>new FormatCommandArgs(string commandName, string Value)</td>
@@ -308,6 +360,34 @@ All tools in the table below are *buttons*, except `Format`, which is a *dropdow
         </tr>
     </tbody>
 </table>
+
+### Format Tool Customization
+
+The [`Format` tool exposes a `Data` property](/blazor-ui/api/Telerik.Blazor.Components.Editor.Format) that accepts a `List<EditorDropDownListItem>`. Use it to reduce or reorder the items in the dropdown list.
+
+````CSHTML
+@using Telerik.Blazor.Components.Editor
+
+<TelerikEditor @bind-Value="@EditorValue"
+               Tools="@EditorTools">
+</TelerikEditor>
+
+@code {
+    private string EditorValue { get; set; }
+
+    private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>()
+    {
+        new Format()
+        {
+            Data = new List<EditorDropDownListItem>()
+            {
+                new EditorDropDownListItem("Paragraph", "p"),
+                new EditorDropDownListItem("Heading 1", "h1")
+            }
+        }
+    };
+}
+````
 
 
 ## Table Tools
