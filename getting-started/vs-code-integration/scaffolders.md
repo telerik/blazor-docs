@@ -20,23 +20,21 @@ To use the **Telerik UI for Blazor Scaffolders**, install the Telerik UI for Bla
 1. Right-click on the name of the solution
 1. From the popup menu select the `Telerik UI for Blazor Project Item`
 1. From the UI form, select the desired component and set the available parameters
-2. The scaffolded page will be added in the `Pages` folder
+2. The scaffolded page will be added to the `Pages` folder
 
 >caption Add a new component page
 
 ## Available Scaffolded Components
 
-| Component |
-|-----------|
-| [Grid]({%slug grid-overview%})      |
-| [TreeList]({%slug treelist-overview%}) |
-| [Scheduler]({%slug scheduler-overview%}) |
-| [Chart]({%slug components/chart/overview%}) |
-| [ListView]({%slug listview-overview%})  |
-| [Gantt]({%slug gantt-overview%})  |
-| [Form]({%slug form-overview%}) |
-| [Button]({%slug components/button/overview%}) |
-| [Drawer]({%slug drawer-overview%})   |
-| [Menu]({%slug components/menu/overview%}) |
-| [DropDownList]({%slug components/dropdownlist/overview%}) |
-| [ComboBox]({%slug components/combobox/overview%}) |
+* [Grid]({%slug grid-overview%})
+* [TreeList]({%slug treelist-overview%})
+* [Scheduler]({%slug scheduler-overview%})
+* [Chart]({%slug components/chart/overview%})
+* [ListView]({%slug listview-overview%})
+* [Gantt]({%slug gantt-overview%})
+* [Form]({%slug form-overview%})
+* [Button]({%slug components/button/overview%})
+* [Drawer]({%slug drawer-overview%})
+* [Menu]({%slug components/menu/overview%})
+* [DropDownList]({%slug components/dropdownlist/overview%})
+* [ComboBox]({%slug components/combobox/overview%})
