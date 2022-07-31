@@ -1,16 +1,16 @@
 ---
 title: Virtualization
-page_title: ComboBox - Virtualization
-description: UI virtualization to allow large data sources in the ComboBox for Blazor.
+page_title: MultiColumnComboBox - Virtualization
+description: UI virtualization to allow large data sources in the MultiColumnComboBox for Blazor.
 slug: combobox-virtualization
 tags: telerik,blazor,combo,combobox,virtualization
 published: True
 position: 30
 ---
 
-# ComboBox Virtualization
+# MultiColumnComboBox Virtualization
 
-The ComboBox @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-proposition)
+The MultiColumnComboBox @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-proposition)
 
 #### In This Article
 
@@ -18,14 +18,20 @@ The ComboBox @[template](/_contentTemplates/common/dropdowns-virtualization.md#v
 * [Local Data Example](#local-data-example)
 * [Remote Data Example](#remote-data-example)
 
->caption Display, scroll and filter over 10k records in the combobox without delays and performance issues
-
-![Virtual Scrolling of large local data](images/combobox-virtual-scrolling-local.gif)
-
 ## Basics
 
-@[template](/_contentTemplates/common/dropdowns-virtualization.md#basics-core)
+This section will explain the parameters and behaviors that are related to the virtualization feature so you can set it up.
 
+>caption To enable UI virtualization, you need to set the following parameters of the component:
+
+* `ScrollMode` - `Telerik.Blazor.DropDownScrollMode` - set it to `DropDownScrollMode.Virtual`. It defaults to the "regular" scrolling.
+* `ListHeight` - `string` - [set the height]({%slug common-features/dimensions%}) of the dropdown. It must **not** be a `null/empty` string.
+* `ItemHeight` - `decimal` - set it to the height each individual item will have in the dropdown. Make sure to accommodate the content your items will have and any item template.
+* `PageSize` - `int` - defines how many items will actually be rendered and reused. The value determines how many items are loaded on each scroll. The number of items must be large enough according to the `ItemHeight` and popup `ListHeight`, so that there are more items than the dropdown so there is a scrollbar.
+
+You can find a basic example in the [Local Data](#local-data-example) section below.
+
+>caption For working with [remote data](#remote-data-example), you also need:
 
 * `ValueMapper` - `Func<TValue, Task<TItem>>` - @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-mapper-text)
 
@@ -40,20 +46,22 @@ The ComboBox @[template](/_contentTemplates/common/dropdowns-virtualization.md#v
 ````CSHTML
 @SelectedValue
 <br />
-<TelerikComboBox Data="@Data"
-
-                 ScrollMode="@DropDownScrollMode.Virtual"
-                 ItemHeight="30"
-                 PageSize="20"
-
-                 TextField="@nameof(Person.Name)"
-                 ValueField="@nameof(Person.Id)"
-                 @bind-Value="@SelectedValue"
-                 Filterable="true" FilterOperator="@StringFilterOperator.Contains">
-    <ComboBoxSettings>
-        <ComboBoxPopupSettings Height="200px" />
-    </ComboBoxSettings>
-</TelerikComboBox>
+<TelerikMultiColumnComboBox Data="@Data"
+                            TItem="Person"
+                            TValue="int"
+                            TextField="@nameof(Person.Id)"
+                            ValueField="@nameof(Person.Name)"
+                            Filterable="false"
+                            @bind-Value="@SelectedValue"
+                            ItemHeight="30"
+                            ListHeight="300px"
+                            PageSize="10"
+                            ScrollMode="@DropDownScrollMode.Virtual">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(Person.Id)" Width="200px" />
+        <MultiColumnComboBoxColumn Field="@nameof(Person.Name)" Width="200px" />
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
     int SelectedValue { get; set; }
@@ -86,83 +94,70 @@ Run this and see how you can display, scroll and filter over 10k records in the 
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-<p>@SelectedValue</p>
+<TelerikMultiColumnComboBox TItem="Person"
+                            TValue="int"
+                            TextField="@TextField"
+                            ValueField="@ValueField"
+                            Filterable="false"
+                            @bind-Value="@SelectedValue"
+                            ItemHeight="@ItemHeight"
+                            ListHeight="@ListHeight"
+                            PageSize="@PageSize"
+                            ScrollMode="@DropDownScrollMode.Virtual"
+                            OnRead="@ReadItems"
+                            ValueMapper="@ConvertValue">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(Person.EmployeeId)" Width="200px" />
+        <MultiColumnComboBoxColumn Field="@nameof(Person.Name)" Width="200px" />
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
-<TelerikComboBox TItem="@Person" TValue="@int"
-                 ScrollMode="@DropDownScrollMode.Virtual"
-                 OnRead="@GetRemoteData"
-                 ValueMapper="@GetModelFromValue"
-                 ItemHeight="30"
-                 PageSize="20"
-                 TextField="@nameof(Person.Name)"
-                 ValueField="@nameof(Person.Id)"
-                 @bind-Value="@SelectedValue"
-                 Filterable="true" FilterOperator="@StringFilterOperator.Contains">
-    <ComboBoxSettings>
-        <ComboBoxPopupSettings Height="200px" />
-    </ComboBoxSettings>    
-</TelerikComboBox>
+@code {
+    public string TextField { get; set; } = "Name";
+    public string ValueField { get; set; } = "EmployeeId";
+    public string ListHeight { get; set; } = "260px";
+    public int ItemHeight { get; set; } = 28;
+    public int PageSize { get; set; } = 10;
+    public int SelectedValue { get; set; } = 145;
+    public string SelectedValueCustom { get; set; } = "Employee 145";
 
-@code{
-    int SelectedValue { get; set; } = 1234; // pre-select an item to showcase the value mapper
+    public List<Person> AllData { get; set; }
 
-    async Task GetRemoteData(ComboBoxReadEventArgs args)
+    protected Task<Person> ConvertValue(int selectedValue)
     {
-        DataEnvelope<Person> result = await MyService.GetItems(args.Request);
+        return Task.FromResult(AllData.FirstOrDefault(x => selectedValue == x.EmployeeId));
+    }
 
-        // set the Data and the TotalItems to the current page of data and total number of items
+    protected Task<Person> ConvertValueCustom(string selectedValue)
+    {
+        return Task.FromResult(AllData.FirstOrDefault(x => selectedValue == x.Name));
+    }
+
+    protected async Task ReadItems(MultiColumnComboBoxReadEventArgs args)
+    {
+        await LoadData();
+
+        var result = AllData.ToDataSourceResult(args.Request);
         args.Data = result.Data;
         args.Total = result.Total;
     }
 
-    async Task<Person> GetModelFromValue(int selectedValue)
+    // sample Read operation
+    private async Task LoadData()
     {
-        // return a model that matches the selected value so the component can get its text
-        return await MyService.GetItemFromValue(selectedValue);
-    }
-
-    // mimics a real service in terms of API appearance, refactor as necessary for your app
-    public static class MyService
-    {
-        static List<Person> AllData { get; set; }
-
-        public static async Task<DataEnvelope<Person>> GetItems(DataSourceRequest request)
+        if (AllData == null)
         {
-            if (AllData == null)
+            AllData = Enumerable.Range(0, 12345).Select(x => new Person
             {
-                AllData = Enumerable.Range(1, 12345).Select(x => new Person { Id = x, Name = $"Name {x}" }).ToList();
-            }
-
-            await Task.Delay(400); // simulate real network and database delays. Remove in a real app
-
-            var result = await AllData.ToDataSourceResultAsync(request);
-            DataEnvelope<Person> dataToReturn = new DataEnvelope<Person>
-            {
-                Data = result.Data.Cast<Person>().ToList(),
-                Total = result.Total
-            };
-
-            return await Task.FromResult(dataToReturn);
+                EmployeeId = x,
+                Name = $"Name {x}"
+            }).ToList();
         }
-
-        public static async Task<Person> GetItemFromValue(int selectedValue)
-        {
-            await Task.Delay(400); // simulate real network and database delays. Remove in a real app
-
-            return await Task.FromResult(AllData.FirstOrDefault(x => selectedValue == x.Id));
-        }
-    }
-
-    // used to showcase how you could simplify the return of more than one value from the service
-    public class DataEnvelope<T>
-    {
-        public int Total { get; set; }
-        public List<T> Data { get; set; }
     }
 
     public class Person
     {
-        public int Id { get; set; }
+        public int EmployeeId { get; set; }
         public string Name { get; set; }
     }
 }
@@ -171,6 +166,6 @@ Run this and see how you can display, scroll and filter over 10k records in the 
 
 ## See Also
 
-  * [Live Demo: ComboBox Virtualization](https://demos.telerik.com/blazor-ui/combobox/virtualization)
+  * [Live Demo: MultiColumnComboBox Virtualization](https://demos.telerik.com/blazor-ui/multicolumncombobox/virtualization)
    
   
