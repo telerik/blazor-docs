@@ -1,16 +1,16 @@
 ---
 title: Custom Value
-page_title: ComboBox - Custom Value
-description: Custom values and user input in the ComboBox for Blazor.
-slug: components/combobox/custom-value
-tags: telerik,blazor,combo,combobox,custom,value,input
+page_title: MultiColumnComboBox - Custom Value
+description: Custom values and user input in the MultiColumnComboBox for Blazor.
+slug: multicolumncombobox-custom-value
+tags: telerik,blazor,multicolumncombobox,combobox,custom,value,input
 published: True
 position: 20
 ---
 
-# ComboBox Custom Values
+# MultiColumnComboBox Custom Values
 
-The ComboBox component allows the user to type in their own value that is not a part of the predefined set of options that the developer provided.
+The MultiColumnComboBox component allows the user to type in their own value that is not a part of the predefined set of options that the developer provided.
 
 The text entered by the user can still go into the field the combo box is bound to through two-way binding.
 
@@ -18,9 +18,9 @@ To enable custom user input set the `AllowCustom` parameter to `true`.
 
 >note When custom values are enabled, the `TextField`, `ValueField` and the `Value` must be of type `string`. Otherwise an exception will be thrown. Strings are required because the user input can take any form and may not be parsable to other types (such as numbers or GUID).
 
-When custom input is allowed, the [ValueChanged event]({%slug components/combobox/events%}) fires on every keystroke, and not when an item is selected, because the ComboBox component acts as a text input.
+When custom input is allowed, the [ValueChanged event]({%slug multicolumncombobox-events%}) fires on every keystroke, and not when an item is selected, because the ComboBox component acts as a text input.
 
-When custom values are typed in, there may be no selected item in the ComboBox. See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%}#selected-item) article for details on when how item selection and `Value` work together.
+When custom values are typed in, there may be no selected item in the ComboBox. See the [ComboBox Overview - Selected Item]({%slug multicolumncombobox-overview%}#selected-item) article for details on when how item selection and `Value` work together.
 
 >caption Allow custom user input in the combo box
 
@@ -28,10 +28,14 @@ When custom values are typed in, there may be no selected item in the ComboBox. 
 Selected value: @selectedValue
 <br />
 
-<TelerikComboBox Data="@myComboData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue"
+<TelerikMultiColumnComboBox Data="@myComboData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue"
                  AllowCustom="true"
                  Placeholder="select an item or type your own">
-</TelerikComboBox>
+                 <MultiColumnComboBoxColumns>
+                     <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyValueField)" Title="Unique Identifier"></MultiColumnComboBoxColumn>
+                     <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyTextField)" Title="Human-readable text"></MultiColumnComboBoxColumn>
+                 </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
     IEnumerable<MyDdlModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x.ToString() });
@@ -53,11 +57,15 @@ Selected value: @selectedValue
 
 @ComboValue
 <br />
-<TelerikComboBox Data="@Data" @bind-Value="@ComboValue"
+<TelerikMultiColumnComboBox Data="@Data" @bind-Value="@ComboValue"
                     OnChange="@((object value) => AddItem(value))"
                     TextField="ProductName" ValueField="ProductName"
                     AllowCustom="true" Filterable="true" Placeholder="SELECT A PRODUCT">
-</TelerikComboBox>
+                    <MultiColumnComboBoxColumns>
+                        <MultiColumnComboBoxColumn Field="@nameof(Product.ProductId)"></MultiColumnComboBoxColumn>
+                        <MultiColumnComboBoxColumn Field="@nameof(Product.ProductName)"></MultiColumnComboBoxColumn>
+                    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
     public List<Product> Data { get; set; }
@@ -105,6 +113,6 @@ Selected value: @selectedValue
 
 ## See Also
 
-  * [Live Demo: ComboBox Custom Values](https://demos.telerik.com/blazor-ui/combobox/custom-values)
+  * [Live Demo: ComboBox Custom Values](https://demos.telerik.com/blazor-ui/multicolumncombobox/custom-values)
    
   
