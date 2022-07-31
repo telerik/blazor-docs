@@ -67,7 +67,7 @@ The Blazor MultiColumnComboBox allows you to define one or more columns in the d
 
 ## Filtering
 
-The Blazor MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor ComboBox filter...]({% slug cmulticolumncombobox-filter %}).
+The Blazor MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor ComboBox filter...]({% slug multicolumncombobox-filter %}).
 
 ## Grouping
 
@@ -88,7 +88,7 @@ The Blazor MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features
 
 ## Parameters
 
->caption The ComboBox provides various parameters that allow you to configure the component:
+>caption The MultiColumnComboBox provides various parameters that allow you to configure the component:
 
 <style>
     article style + table {
@@ -98,13 +98,13 @@ The Blazor MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features
 </style>
 | Parameter      | Type | Description
 | ----------- | ----------- | -----------|
-| `AllowCustom` | `bool` | whether the user can enter [custom values]({%slug components/combobox/custom-value%}). If enabled, the `ValueField` must be a `string`.
+| `AllowCustom` | `bool` | whether the user can enter [custom values]({%slug multicolumncombobox-custom-value%}). If enabled, the `ValueField` must be a `string`.
 | `ClearButton` | `bool` | whether the user will have the option to clear the selected value. When it is clicked, the `Value` will be updated to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, clearing the value will lead to a `0` `Value`, so if there is an Item with `0` in its `ValueField` - issues may arise with its selection. This feature can often go together with `AllowCustom`.
 | `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required.
 | `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries.
 | `Enabled` | `bool` | whether the component is enabled.
-|`Filterable` | `bool` | whether [filtering]({%slug components/combobox/filter%}) is enabled for the end user.
-| `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | the method of [filtering]({%slug components/combobox/filter%}) the items.
+|`Filterable` | `bool` | whether [filtering]({% slug multicolumncombobox-filter %}) is enabled for the end user.
+| `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | the method of [filtering]({% slug multicolumncombobox-filter %}) the items.
 | `Id` | `string` | renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
 | `Placeholder` | `string` | the text the user sees as a hint when no item is selected. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source.
 | `TItem` | `Type` | the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
@@ -116,11 +116,11 @@ The Blazor MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the appearance of the Blazor ComboBox:
+The following parameters enable you to customize the appearance of the Blazor MultiColumnComboBox:
 
 @[template](/_contentTemplates/dropdowns/features.md#styling)
 
-You can find more options for customizing the ComboBox styling in the [Appearance article]({%slug combobox-appearance%}).
+You can find more options for customizing the MultiColumnComboBox styling in the [Appearance article]({%slug multicolumncombobox-appearance%}).
 
 
 ### Popup settings
@@ -129,27 +129,27 @@ The popup of the component can be additionally customized via nested tags:
 
 ````
 <div class="skip-repl"></div>
-<TelerikComboBox>
-    <ComboBoxSettings>
-        <ComboBoxPopupSettings Height="..." />
-    </ComboBoxSettings>
-</TelerikComboBox>
+<TelerikMultiColumnComboBox>
+    <MultiColumnComboBoxSettings>
+        <MultiColumnComboBoxPopupSettings Height="..." />
+    </MultiColumnComboBoxSettings>
+</TelerikMultiColumnComboBox>
 ````
 
-The ComboBox provides the following popup settings:
+The MultiColumnComboBox provides the following popup settings:
 
 @[template](/_contentTemplates/dropdowns/features.md#popup-settings)
 
 
 ## Selected Item
 
-By default, if no `Value` is provided, the ComboBox will appear empty, or will display the `Placeholder` defined. If a `Value` is provided and `AllowCustom` is *not* set to `true`, the `Value` should match an item in the data source (see more in the [Value Out of Range]({%slug components/combobox/databind%}#value-out-of-range) section).
+By default, if no `Value` is provided, the MultiColumnComboBox will appear empty, or will display the `Placeholder` defined. If a `Value` is provided and `AllowCustom` is *not* set to `true`, the `Value` should match an item in the data source (see more in the [Value Out of Range]({%slug multicolumncombobox-data-binding%}#value-out-of-range) section. 
 
-The ComboBox will not always have a selected item, however, because it can act as an input. There will be no selected item in the following cases that depend on the settings of the component that the developer can control:
+The MultiColumnComboBox will not always have a selected item, however, because it can act as an input. There will be no selected item in the following cases that depend on the settings of the component that the developer can control:
 
 * the user clears the value through the Clear button,
 * the user clears the value with `Backspace` or `Del` keys,
-* `AllowCustom="false"` - when a custom value is typed, the ComboBox input value will be automatically cleared on the change event (`blur` of the input or `Enter` keypress). See the table below.
+* `AllowCustom="false"` - when a custom value is typed, the MultiColumnComboBox input value will be automatically cleared on the change event (`blur` of the input or `Enter` keypress). See the table below.
 * `AllowCustom="true"` - when the user starts typing a custom value.
 
 
@@ -169,14 +169,11 @@ Missing selection is most common when the initial value is `null` as data source
 
 ## Next Steps
 
-* [Binding the ComboBox to Data]({%slug components/combobox/databind%})
-
-* [Pre-Selecting Items for the User]({% slug  combobox-pre-select-item %})
+* [Binding the MultiColumnComboBox to Data]({%slug multicolumncombobox-data-binding%})
 
 ## See Also
 
-  * [Data Binding]({%slug components/combobox/databind%})
-  * [Live Demo: ComboBox](https://demos.telerik.com/blazor-ui/combobox/overview)
-  * [Live Demo: ComboBox Validation](https://demos.telerik.com/blazor-ui/combobox/validation)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikComboBox-2)
+  * [Data Binding]({% slug multicolumncombobox-data-binding %})
+  * [Live Demo: MultiColumnComboBox](https://demos.telerik.com/blazor-ui/multicolumncombobox/overview)
+  * [Live Demo: MultiColumnComboBox Validation](https://demos.telerik.com/blazor-ui/multicolumncombobox/validation)
 
