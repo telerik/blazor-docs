@@ -25,7 +25,7 @@ List of the available templates:
 | [`Header`](#header) | Controls the rendering of the element above the list of items in the dropdown. |
 | [`Footer`](#footer) | Controls the rendering of the element below the list of items in the dropdown. |
 
->note To customize the rendering of the items in dropdown you can use the [Column Template]({%multicolumncombobob-column-template%}).
+>note To customize the rendering of the items in dropdown you can use the [Column Template]({%multicolumncombobob-templates%}#template).
 
 ## Header
 
