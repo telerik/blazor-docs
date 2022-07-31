@@ -1,16 +1,16 @@
 ---
 title: Appearance
-page_title: ComboBox Appearance
-description: Appearance settings of the ComboBox for Blazor.
-slug: combobox-appearance
-tags: telerik,blazor,combobox,appearance
+page_title: MultiColumnComboBox Appearance
+description: Appearance settings of the MultiColumnComboBox for Blazor.
+slug: multicolumncombobox-appearance
+tags: telerik,blazor,multicolumncombobox,combobox,appearance
 published: True
 position: 65
 ---
 
 # Appearance Settings
 
-You can control the appearance of the ComboBox by setting the following attribute:
+You can control the appearance of the MultiColumnComboBox by setting the following attributes:
 
 * [Size](#size)
 * [Rounded](#rounded)
@@ -19,7 +19,7 @@ You can control the appearance of the ComboBox by setting the following attribut
 
 ## Size
 
-You can increase or decrease the size of the ComboBox by setting the `Size` attribute to a member of the `Telerik.Blazor.ThemeConstants.ComboBox.Size` class:
+You can increase or decrease the size of the MultiColumnComboBox by setting the `Size` attribute to a member of the `Telerik.Blazor.ThemeConstants.ComboBox.Size` class:
 
 | Class members | Manual declarations |
 |------------|--------|
@@ -41,15 +41,19 @@ You can increase or decrease the size of the ComboBox by setting the `Size` attr
         string size = field.GetValue(null).ToString();
 
         <div style="float:left; margin: 20px;">
-            <TelerikComboBox Data="@myComboData"
-                             Size="@size"
-                             TextField="MyTextField" 
-                             ValueField="MyValueField" 
-                             @bind-Value="selectedValue"
-                             Placeholder="Select an item..." 
-                             ClearButton="true" 
-                             Filterable="true">
-            </TelerikComboBox>
+            <TelerikMultiColumnComboBox Data="@myComboData"
+                                Size="@size"
+                                TextField="MyTextField"
+                                ValueField="MyValueField"
+                                    @bind-Value="selectedValue"
+                                Placeholder="Select an item..."
+                                ClearButton="true"
+                                Filterable="true">
+                <MultiColumnComboBoxColumns>
+                    <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyTextField)"></MultiColumnComboBoxColumn>
+                    <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyValueField)"></MultiColumnComboBoxColumn>
+                </MultiColumnComboBoxColumns>
+            </TelerikMultiColumnComboBox>
         </div>
     }
 }
@@ -74,7 +78,7 @@ You can increase or decrease the size of the ComboBox by setting the `Size` attr
 
 ## Rounded
 
-The `Rounded` attribute applies the `border-radius` CSS rule to the ComboBox to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.ComboBox.Rounded` class:
+The `Rounded` attribute applies the `border-radius` CSS rule to the MultiColumnComboBox to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.ComboBox.Rounded` class:
 
 | Class members | Manual declarations |
 |------------|--------|
@@ -99,15 +103,19 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the ComboBox to 
         string rounded = field.GetValue(null).ToString();
 
         <div style="float:left; margin: 20px;">
-            <TelerikComboBox Data="@myComboData"
-                             Rounded="@rounded"
-                             TextField="MyTextField" 
-                             ValueField="MyValueField" 
-                             @bind-Value="selectedValue"
-                             Placeholder="Select an item..." 
-                             ClearButton="true" 
-                             Filterable="true">
-            </TelerikComboBox>
+            <TelerikMultiColumnComboBox Data="@myComboData"
+                                Rounded="@rounded"
+                                TextField="MyTextField"
+                                ValueField="MyValueField"
+                                @bind-Value="selectedValue"
+                                Placeholder="Select an item..."
+                                ClearButton="true"
+                                Filterable="true">
+                <MultiColumnComboBoxColumns>
+                    <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyTextField)"></MultiColumnComboBoxColumn>
+                    <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyValueField)"></MultiColumnComboBoxColumn>
+                </MultiColumnComboBoxColumns>
+            </TelerikMultiColumnComboBox>
         </div>
     }
 }
@@ -132,7 +140,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the ComboBox to 
 
 ## FillMode
 
-The `FillMode` controls how the TelerikComboBox is filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.ComboBox.FillMode` class:
+The `FillMode` controls how the TelerikMultiColumnComboBox is filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.ComboBox.FillMode` class:
 
 | Class members | Result |
 |------------|--------|
@@ -156,15 +164,19 @@ The `FillMode` controls how the TelerikComboBox is filled. You can set it to a m
         string fillMode = field.GetValue(null).ToString();
 
         <div style="float:left; margin: 20px;">
-            <TelerikComboBox Data="@myComboData"
-                             FillMode="@fillMode"
-                             TextField="MyTextField" 
-                             ValueField="MyValueField" 
-                             @bind-Value="selectedValue"
-                             Placeholder="Select an item..." 
-                             ClearButton="true" 
-                             Filterable="true">
-            </TelerikComboBox>
+            <TelerikMultiColumnComboBox Data="@myComboData"
+                                FillMode="@fillMode"
+                                TextField="MyTextField"
+                                ValueField="MyValueField"
+                                @bind-Value="selectedValue"
+                                Placeholder="Select an item..."
+                                ClearButton="true"
+                                Filterable="true">
+                <MultiColumnComboBoxColumns>
+                    <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyTextField)"></MultiColumnComboBoxColumn>
+                    <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyValueField)"></MultiColumnComboBoxColumn>
+                </MultiColumnComboBoxColumns>
+            </TelerikMultiColumnComboBox>
         </div>
     }
 }
