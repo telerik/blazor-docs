@@ -1,65 +1,107 @@
 ---
 title: Events
-page_title: ComboBox - Events
+page_title: MultiColumnComboBox - Events
 description: Events in the ComboBox for Blazor.
-slug: components/combobox/events
-tags: telerik,blazor,combobox,combo,events
+slug: multicolumncombobox-events
+tags: telerik,blazor,multicolumncombobox,combobox,combo,events
 published: true
 position: 40
 ---
 
-# ComboBox Events
+# MultiColumnComboBox Events
 
-This article explains the events available in the Telerik ComboBox for Blazor:
+This article explains the events available in the Telerik MultiColumnComboBox for Blazor:
 
-* [ValueChanged](#valuechanged)
-* [OnChange](#onchange)
-* [OnRead](#onread)
-* [OnBlur](#onblur)
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
+    }
+</style>
+| Event | Fire Condition |
+| --- | --- |
+| [`ValueChanged`](#valuechanged) | Fires upon a change of the user selection. If [custom values]({%slug multicolumncombobox-custom-value%}) are enabled, it fires upon every keystroke, like in a regular `<input>` element. |
+| [`OnChange`](#onchange) | Fires when the user presses `Enter` in the input, or blurs the input (for example, clicks outside of the component). The event also fires when the user selects an item from the dropdown. |
+| [`OnRead`](#onread) | Fires when the component initializes, the user [filters]({%slug multicolumncombobox-filter%}), or scrolls with [virtualization]({%slug multicolumncombobox-virtualization%}) enabled. |
+| [`OnBlur`](#onblur) | Fires when the component loses focus. |
+
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every change of the user selection. When [custom values]({%slug components/combobox/custom-value%}) are enabled, it fires upon every keystroke, like in a regular `<input>` element.
+The `ValueChanged` event fires upon every change of the user selection. When [custom values]({%slug multicolumncombobox-custom-value%}) are enabled, it fires upon every keystroke, like in a regular `<input>` element.
 
-The examples below use binding to primitive types for brevity, you can use [full models]({%slug components/combobox/databind%}) as well. Make sure to review the [Data Binding - Missing Value or Data]({%slug components/combobox/databind%}#missing-value-or-data) section to provide all necessary parameters to the component if you do so. The type of the argument in the lambda expression must match the `Value` type of the component, and the `ValueField` type (if `ValueField` is set).
+The type of the argument in the lambda expression must match the `Value` type of the component, and the `ValueField` type (if `ValueField` is set).
 
 >caption Handle ValueChanged
 
 ````CSHTML
-@result
-<br />
-<TelerikComboBox Data="@MyList" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
-</TelerikComboBox>
+<TelerikMultiColumnComboBox Data="@MultiComboData"
+                            Value="@BoundValue"
+                            ValueChanged="@((int value) => ValueChangedHandler(value))"
+                            ValueField="@nameof(SampleData.Id)"
+                            TextField="@nameof(SampleData.Name)">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)" Title="The id" ></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)" Title="The name"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
-    string result;
-
-    private void MyValueChangeHandler(string theUserChoice)
+    private void ValueChangedHandler(int value)
     {
-        result = string.Format("The user chose: {0}", theUserChoice);
+        BoundValue = value;
     }
 
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+    public int BoundValue { get; set; }
+
+    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
+    {
+        Id = x,
+        Name = "Name " + x
+    }).ToList();
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
 }
 ````
 
 >caption Handle ValueChanged with custom values - the event fires on every keystroke
 
 ````CSHTML
-@result
-<br />
-<TelerikComboBox Data="@MyList" AllowCustom="true" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
-</TelerikComboBox>
+<TelerikMultiColumnComboBox Data="@MultiComboData"
+                            AllowCustom="true"
+                            Value="@BoundValue"
+                            ValueChanged="@((string value) => ValueChangedHandler(value))"
+                            ValueField="@nameof(SampleData.Id)"
+                            TextField="@nameof(SampleData.Name)">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)" Title="The id"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)" Title="The name"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
-    string result;
-
-    private void MyValueChangeHandler(string theUserChoice)
+    private void ValueChangedHandler(string value)
     {
-        result = string.Format("The user chose: {0}", theUserChoice);
+        BoundValue = value;
     }
 
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+    public string BoundValue { get; set; }
+
+    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
+        {
+            Id = x.ToString(),
+            Name = "Name " + x
+        }).ToList();
+
+    public class SampleData
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+    }
 }
 ````
 
@@ -67,105 +109,52 @@ The examples below use binding to primitive types for brevity, you can use [full
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
->caption Handle ValueChanged and provide initial value (it is *not* required to enable custom values)
-
-````CSHTML
-@result
-<br />
-from model: @MyItem
-<br />
-<br />
-<TelerikComboBox Data="@MyList" Value="@MyItem" AllowCustom="true" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
-</TelerikComboBox>
-
-@code {
-    string result;
-
-    private void MyValueChangeHandler(string theUserChoice)
-    {
-        result = string.Format("The user chose: {0}", theUserChoice);
-
-        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        MyItem = theUserChoice;
-    }
-
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
-
-    protected string MyItem { get; set; } = "second";
-}
-````
-
->caption Get selected item - check if the new value is present in the data source
-
-````CSHTML
-@result
-<br />
-Is selection from dropdown: @isLastSelectionInData
-<br />
-from model: @MyItem
-<br />
-<br />
-<TelerikComboBox Data="@MyList" Value="@MyItem" AllowCustom="true" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
-</TelerikComboBox>
-
-@code {
-    string result;
-    bool isLastSelectionInData { get; set; } = true;//default to true as the default in this sample is from the predefined data
-
-    private void MyValueChangeHandler(string theUserChoice)
-    {
-        isLastSelectionInData = MyList.Contains(theUserChoice); //adapt to your actual data source
-
-        result = string.Format("The user chose: {0}", theUserChoice);
-
-        MyItem = theUserChoice;
-    }
-
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
-
-    protected string MyItem { get; set; } = "second";
-}
-````
-
-
 ## OnChange
 
-The `OnChange` event represents a user action - confirmation of the current value/item. It is suitable for handling custom values the user can enter as if the combo box were an input. The key differences with `ValueChanged` are:
+The `OnChange` event represents a user action - confirmation of the current value/item. It is suitable for handling custom values the user can enter as if the MultiColumnComboBox was an input. The key differences with `ValueChanged` are:
 
 * `OnChange` does not prevent two-way binding (the `@bind-Value` syntax)
 * `OnChange` fires when the user presses `Enter` in the input, or blurs the input (for example, clicks outside of the combo box). It does not fire on every keystroke, even when `AllowCustom="true"`, but it fires when an item is selected from the dropdown. To get the selected item, you can check if the new value is present in the data source.
 
-See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%}#selected-item) article for details on when the event fires and how item selection and `Value` work.
+See the [MultiColumnComboBox Overview - Selected Item]({%slug multicolumncombobox-overview%}#selected-item) article for details on when the event fires and how item selection and `Value` work.
 
 >caption Handle OnChange without custom values - to get a value from the list, you must write text that will match the text of an item (e.g, "item 5").
 
 ````CSHTML
 @result
-<br />
-@selectedValue
-<br /><br />
-<TelerikComboBox Data="@myComboData" TextField="MyTextField" ValueField="MyValueField"
-                 @bind-Value="@selectedValue" OnChange="@MyOnChangeHandler">
-</TelerikComboBox>
+
+<TelerikMultiColumnComboBox Data="@MultiComboData"
+                            @bind-Value="@BoundValue"
+                            OnChange="@OnChangeHandler"
+                            ValueField="@nameof(SampleData.Id)"
+                            TextField="@nameof(SampleData.Name)">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)" Title="The id"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)" Title="The name"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
-    string result;
-    int selectedValue { get; set; } = 3;
+    private string result;
 
-    private void MyOnChangeHandler(object theUserInput)
+    private void OnChangeHandler(object theUserInput)
     {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0}", (int)theUserInput);
+        result = $"The user entered: {(int)theUserInput}";
     }
 
-    public class MyComboModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
+    public int BoundValue { get; set; }
 
-    IEnumerable<MyComboModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyComboModel { MyTextField = "item " + x, MyValueField = x });
+    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
+        {
+            Id = x,
+            Name = "Name " + x
+        }).ToList();
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
 }
 ````
 
@@ -173,42 +162,51 @@ See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%
 
 ````CSHTML
 @result
-<br />
-@selectedValue
-<br /><br />
-<TelerikComboBox Data="@myComboData" TextField="MyTextField" ValueField="MyValueField"
-                 @bind-Value="@selectedValue" OnChange="@MyOnChangeHandler" AllowCustom="true">
-</TelerikComboBox>
+
+<TelerikMultiColumnComboBox Data="@MultiComboData"
+                            AllowCustom="true"
+                            @bind-Value="@BoundValue"
+                            OnChange="@OnChangeHandler"
+                            ValueField="@nameof(SampleData.Id)"
+                            TextField="@nameof(SampleData.Name)">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)" Title="The id"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)" Title="The name"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
-    string result;
-    string selectedValue { get; set; } = "3";
+    private string result;
 
-    private void MyOnChangeHandler(object theUserInput)
+    private void OnChangeHandler(object theUserInput)
     {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0}", (string)theUserInput);
+        result = $"The user entered: {(string)theUserInput}";
     }
 
-    public class MyComboModel
-    {
-        public string MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
+    public string BoundValue { get; set; }
 
-    IEnumerable<MyComboModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyComboModel { MyTextField = "item " + x, MyValueField = x.ToString() });
+    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
+        {
+            Id = x.ToString(),
+            Name = "Name " + x
+        }).ToList();
+
+    public class SampleData
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+    }
 }
 ````
 
 
 ## OnRead
 
-You can use the [`OnRead` event]({%slug common-features-data-binding-onread%}) to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug combobox-virtualization%})). The event fires when:
+You can use the [`OnRead` event]({%slug common-features-data-binding-onread%}) to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug multicolumncombobox-virtualization%})). The event fires when:
 
 * the component initializes
-* the user [filters]({%slug components/combobox/filter%})
-* the user scrolls with [virtualization]({%slug combobox-virtualization%}) enabled
+* the user [filters]({%slug multicolumncombobox-filter%})
+* the user scrolls with [virtualization]({%slug multicolumncombobox-virtualization%}) enabled
 
 You can also call remote data through `async` operations.
 
@@ -224,17 +222,23 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 ````CSHTML
 <p>@SelectedValue</p>
 
-<TelerikComboBox TItem="@String" TValue="@String"
-                     OnRead="@ReadItems"
-                     @bind-Value="@SelectedValue"
-                     Filterable="true"
-                     Placeholder="Type anything">
-</TelerikComboBox>
+<TelerikMultiColumnComboBox TItem="@SuggestionsModel" TValue="int"
+                            OnRead="@ReadItems"
+                            ValueField="@nameof(SuggestionsModel.SuggestionId)"
+                            TextField="@nameof(SuggestionsModel.SuggestionText)"
+                            @bind-Value="@SelectedValue"
+                            Filterable="true"
+                            Placeholder="Type anything">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(SuggestionsModel.SuggestionId)"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(SuggestionsModel.SuggestionText)"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
-    public string SelectedValue { get; set; }
+    public int SelectedValue { get; set; }
 
-    async Task ReadItems(ComboBoxReadEventArgs args)
+    async Task ReadItems(MultiColumnComboBoxReadEventArgs args)
     {
         if (args.Request.Filters.Count > 0) // wait for user input to load data
         {
@@ -250,85 +254,128 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
             // when there is no user input you may still want to provide data
             // in this example we just hardcode a few items, you can either fetch all the data
             // or you can provide some subset of most common items, or something based on the business logic
-            args.Data = new List<string>() { "one", "two", "three" }; 
+            args.Data = new List<SuggestionsModel>()
+            {
+                new SuggestionsModel()
+                {
+                    SuggestionId = 1,
+                    SuggestionText = "option 1"
+                },
+                new SuggestionsModel()
+                {
+                    SuggestionId = 2,
+                    SuggestionText = "option 2"
+                },
+                new SuggestionsModel()
+                {
+                    SuggestionId = 3,
+                    SuggestionText = "option 3"
+                },
+
+            };
         }
     }
 
-    async Task<List<string>> GetOptions(string userInput, string filterOperator)
+    async Task<List<SuggestionsModel>> GetOptions(string userInput, string filterOperator)
     {
         await Task.Delay(500); // simulate network delay, remove it for a real app
 
         //dummy suggestions
         //for brevity, this example does not use the filter operator, but your actual service can
-        List<string> optionsData = new List<string>();
+        List<SuggestionsModel> optionsData = new List<SuggestionsModel>();
         for (int i = 1; i <= 5; i++)
         {
-            optionsData.Add($"option {i} for input {userInput}");
+            optionsData.Add(new SuggestionsModel()
+            {
+                SuggestionId = i,
+                SuggestionText = $"Option for user input {userInput}"
+            });
         }
 
         return optionsData;
     }
+
+    public class SuggestionsModel
+    {
+        public int SuggestionId { get; set; }
+        public string SuggestionText { get; set; }
+    }
 }
 ````
 
->tip This example uses plain strings for brevity, you can use full models - see the [data binding](data-bind) article for examples. You can also use [custom values](custom-value).
 
-
->caption Filter large local data through the Telerik DataSource extensions
+>caption Custom sort of grouped data with OnRead
 
 ````CSHTML
 @using Telerik.DataSource.Extensions
+@using Telerik.DataSource
 
-<p>Selected Id: @SelectedValue</p>
+<TelerikMultiColumnComboBox TItem="Car" TValue="int"
+                            TextField="Model"
+                            ValueField="Id"
+                            GroupField="Make"
+                            Filterable="true"
+                            @bind-Value="@Value"
+                            OnRead="@ReadItems">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(Car.Id)" Width="200px" />
+        <MultiColumnComboBoxColumn Field="@nameof(Car.Model)" Width="200px" />
+        <MultiColumnComboBoxColumn Field="@nameof(Car.Make)" Title="Manufacturer" Width="200px" />
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
-<TelerikComboBox TItem="@Car" TValue="@(int?)"
-                 OnRead="@ReadItems"
-                 ValueField="@nameof(Car.Id)"
-                 TextField="@nameof(Car.Make)"
-                 @bind-Value="@SelectedValue"
-                 Filterable="true"
-                 Placeholder="Type a car brand">
-</TelerikComboBox>
 
 @code {
-    public int? SelectedValue { get; set; }
-    List<Car> AllOptions { get; set; }
-
-    protected async Task ReadItems(ComboBoxReadEventArgs args)
+    int Value { get; set; }
+    List<Car> SourceData { get; set; } = new List<Car>
     {
-        //using Telerik extension methods to filter the data
-        var datasourceResult = AllOptions.ToDataSourceResult(args.Request);
-        args.Data = (datasourceResult.Data as IEnumerable<Car>).ToList();
-    }
+        new Car { Id = 1, Make = "Audi", Model="A1" },
+        new Car { Id = 2, Make = "Audi", Model="A2" },
+        new Car { Id = 3, Make = "Audi", Model="A3" },
+        new Car { Id = 4, Make = "Audi", Model="A4" },
+        new Car { Id = 5, Make = "Audi", Model="A5" },
+        new Car { Id = 6, Make = "Audi", Model="A6" },
+        new Car { Id = 7, Make = "BMW", Model="1" },
+        new Car { Id = 8, Make = "BMW", Model="2" },
+        new Car { Id = 9, Make = "BMW", Model="3" },
+        new Car { Id = 10, Make = "BMW", Model="5" },
+        new Car { Id = 11, Make = "Mercedes", Model="A" },
+        new Car { Id = 12, Make = "Mercedes", Model="C" },
+        new Car { Id = 13, Make = "Mercedes", Model="S" },
+        new Car { Id = 14, Make = "Mercedes", Model="E" },
+        new Car { Id = 15, Make = "Mercedes", Model="AMG" },
+        new Car { Id = 16, Make = "Mercedes", Model="CLA" }
+    };
 
-    protected override void OnInitialized()
+    protected async Task ReadItems(MultiColumnComboBoxReadEventArgs args)
     {
-        AllOptions = new List<Car> {
-            new Car { Id = 1, Make = "Honda" },
-            new Car { Id = 2, Make = "Opel" },
-            new Car { Id = 3, Make = "Audi" },
-            new Car { Id = 4, Make = "Lancia" },
-            new Car { Id = 5, Make = "BMW" },
-            new Car { Id = 6, Make = "Mercedes" },
-            new Car { Id = 7, Make = "Tesla" },
-            new Car { Id = 8, Make = "Vw" },
-            new Car { Id = 9, Make = "Alpha Romeo" },
-            new Car { Id = 10, Make = "Chevrolet" },
-            new Car { Id = 11, Make = "Ford" },
-            new Car { Id = 12, Make = "Cadillac" },
-            new Car { Id = 13, Make = "Dodge" },
-            new Car { Id = 14, Make = "Jeep" },
-            new Car { Id = 15, Make = "Chrysler" },
-            new Car { Id = 16, Make = "Lincoln" }
-        };
+        await Task.Delay(200);
 
-        base.OnInitialized();
+        var datasourceResult = SourceData.ToDataSourceResult(args.Request);
+
+        //custom sorting section
+        var sortedData = datasourceResult.Data.Cast<AggregateFunctionsGroup>().ToList();
+
+        sortedData.Sort((a, b) =>
+        {
+            if (a.Key.ToString() == "Audi" && b.Key.ToString() == "BMW")
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        });
+
+        args.Data = sortedData;
     }
 
     public class Car
     {
         public int Id { get; set; }
         public string Make { get; set; }
+        public string Model { get; set; }
     }
 }
 ````
@@ -341,20 +388,40 @@ The `OnBlur` event fires when the component loses focus.
 >caption Handle the OnBlur event
 
 ````CSHTML
-@* You do not have to use OnChange to react to loss of focus *@
+@result
 
-<TelerikComboBox @bind-Value="@TheValue" Data="@Suggestions"
-                     OnBlur="@OnBlurHandler">
-</TelerikComboBox>
+<TelerikMultiColumnComboBox Data="@MultiComboData"
+                            @bind-Value="@BoundValue"
+                            OnBlur="@OnBlurHandler"
+                            ValueField="@nameof(SampleData.Id)"
+                            TextField="@nameof(SampleData.Name)">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)" Title="The id"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)" Title="The name"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
-@code{
-    async Task OnBlurHandler()
+@code {
+    private string result;
+
+    private void OnBlurHandler()
     {
-        Console.WriteLine($"BLUR fired, current value is {TheValue}.");
+        result = $"The user entered: {(int)BoundValue}";
     }
 
-    string TheValue { get; set; }
-    List<string> Suggestions { get; set; } = new List<string> { "one", "two", "three" };
+    public int BoundValue { get; set; }
+
+    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
+        {
+            Id = x,
+            Name = "Name " + x
+        }).ToList();
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
 }
 ````
 
