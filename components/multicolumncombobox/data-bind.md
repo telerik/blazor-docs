@@ -1,97 +1,70 @@
 ---
 title: Data Binding
-page_title: ComboBox - Data Binding
-description: Data Binding the ComboBox for Blazor.
-slug: components/combobox/databind
-tags: telerik,blazor,combobox,combo,data,bind,binding,databind
+page_title: MultiColumnComboBox - Data Binding
+description: Data Binding the MultiColumnComboBox for Blazor.
+slug: multicolumncombobox-data-binding
+tags: telerik,blazor,multicolumncombobox,combo,data,bind,binding,databind
 published: True
 position: 5
 ---
 
 # ComboBox Data Binding
 
-This article explains the different ways to provide data to a ComboBox component, the properties related to data binding and their results.
+This article explains how to provide data to the MultiColumnComboBox component, the properties related to data binding and their results.
 
 @[template](/_contentTemplates/common/general-info.md#valuebind-vs-databind-link)
 
-There are two key ways to bind data:
 
-* [Primitive Types](#primitive-types)
-* [Model](#bind-to-a-model)
-
-and some considerations you may find useful, such as showing the `Placeholder` when the value is out of the data source range:
+There are some considerations you may find useful, such as showing the `Placeholder` when the value is out of the data source range:
 
 * [Considerations](#considerations)
 	* [Value Out of Range](#value-out-of-range)
 	* [Component Reference](#component-reference)
 	* [Missing Value or Data](#missing-value-or-data)
 
-## Primitive Types
-
-You can data bind the ComboBox to a simple collection of data. When you have a concrete list of options for the user to choose from, their string representation is often suitable for display and you do not need special models. 
-
-To bind the combobox to a primitive type (like `int`, `string`, `double`), you need to
-
-1. provide an `IEnumerable<TItem>` of the desired type to its `Data` property
-1. set a corresponding `Value`. If the `Value` is `null`, it will be populated with the first item from the data source.
-
->caption Data binding a ComboBox to a primitive type
-
-````CSHTML
-@*Bind to a List of a primitive type (string, int,...)*@
-
-<TelerikComboBox Data="@MyList" @bind-Value="MyItem">
-</TelerikComboBox>
-
-@code {
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
-
-    protected string MyItem { get; set; }
-
-    //Define a preselected value when the component initializes
-    protected override void OnInitialized()
-    {
-        MyItem = "second";
-    }
-}
-````
-
 ## Bind to a Model
 
-You can bind the ComboBox to a model in your application. This is useful when you have a numerical representation of a finite list (for example, departments in a company), and you want the user to choose them based on a friendly text name.
+You can bind the MultiColumnComboBox to a model in your application. This is useful when you have a numerical representation of a finite list (for example, departments in a company), and you want the user to choose them based on a friendly text name.
 
-To bind the ComboBox to a model:
+To bind the MultiColumnComboBox to a model:
 
 1. populate its `Data` property with the collection of items you want in the dropdown
 1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
-1. set the `Value` property to the intial value of the model. If not set, it will be populated with the first item in the data source.
+1. set the `Value` property to the initial value of the model. If not set, it will be populated with the first item in the data source.
+1. define a list of [columns]({%slug multicolumncombobox-columns-overview%}) that will render in the dropdown
 
->caption Data binding a ComboBox to a model
+>note The MultiColumnComboBox must be bound to a collection of models. This is required because the columns cannot render properly if the component is bound to a collection of primitive types such as string and numbers. 
+
+>caption Data binding a MultiColumnComboBox to a model
 
 ````CSHTML
-@selectedValue
+Selected value: @BoundValue
+<br />
 
-<TelerikComboBox Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue">
-</TelerikComboBox>
+<TelerikMultiColumnComboBox Data="@MultiComboData"
+                            @bind-Value="@BoundValue"
+                            ValueField="@nameof(SampleData.Id)"
+                            TextField="@nameof(SampleData.Name)">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)" Title="The id" ></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)" Title="The name"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
-    //in a real case, the model is usually in a separate file
-    //the model type and value field type must be provided to the dropdpownlist
-    public class MyDdlModel
+    public int BoundValue { get; set; }
+
+    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
     {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
+        Id = x,
+        Name = "Name " + x
+    }).ToList();
 
-    int selectedValue { get; set; }
-
-    //Define a preselected value when the component initializes
-    protected override void OnInitialized()
+    public class SampleData
     {
-        selectedValue = 3;
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
-
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 }
 ````
 
@@ -99,13 +72,13 @@ To bind the ComboBox to a model:
 
 ## Considerations
 
-The ComboBox component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](#component-reference) and what happens [if you can't provide data or a value](#missing-value-or-data). Providing a [value that is not in the data source](#value-out-of-range) needs to be taken into account be the app, because the component will not change it.
+The MultiColumnCombobox component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](#component-reference) and what happens [if you can't provide data or a value](#missing-value-or-data). Providing a [value that is not in the data source](#value-out-of-range) needs to be taken into account be the application, because the component will not change it.
 
 ### Value Out of Range
 
-This specific is applicable for the case when [custom value input]({%slug components/combobox/custom-value%}) is disabled (`AllowCustom="false"` which is its default value).
+This specific is applicable for the case when [custom value input]({%slug multicolumncombobox-custom-value%}) is disabled (`AllowCustom="false"` which is its default value).
 
-When the `Value` the application provides does not match any of the values present in the `ValueField` of the `Data` collection, the ComboBox component will not change the `Value` or select a new item. In the common case, it will show up blank to indicate there is nothing selected from its data.
+When the `Value` the application provides does not match any of the values present in the `ValueField` of the `Data` collection, the MultiColumnCombobox component will not change the `Value` or select a new item. In the common case, it will show up blank to indicate there is nothing selected from its data.
 
 If you have set the `Placeholder` and the `Value` matches the `default` value of the type (for example, `0` for an `int` or `null` for an `int?` or `string`), you will see the `Placeholder`. A `Value` that is non-`default` will not show the `Placeholder`.
 
@@ -113,47 +86,73 @@ Handling such "unexpected" values is up to the application - for example, throug
 
 When `AllowCustom="true"`, what the user types in the input will be set to the `Value` of the component regardless of the data source.
 
-### Component Reference
+### Component Reference and Methods
 
-The ComboBox is a generic component and its type comes from the model it is bound to and from the value field type. When bound to a primitive type, the reference is of that primitive type only.
+The TelerikMultiColumnComboBox is a generic component and its type comes from the model it is bound to and from the value field type.
 
-<div class="skip-repl"></div>
-````Primitive
-@*Reference type when binding to primitive values*@
+#### Methods
 
-<TelerikComboBox @ref="myComboRef" Data="@MyList" Value="@initialValue">
-</TelerikComboBox>
+The MultiColumnComboBox methods are accessible through it's reference.
 
-@code {
-    //the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
-    Telerik.Blazor.Components.TelerikComboBox<string, string> myComboRef;
-
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
-
-    string initialValue { get; set; }
-
-    //Define a preselected value when the component initializes
-    protected override void OnInitialized()
-    {
-        initialValue = "third";
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
     }
-}
-````
-````Model
-@*Reference when binding to model collections*@
+</style>
+| Method | Description |
+| --- | --- |
+| `Rebind` | Fires the [`OnRead`]({%slug multicolumncombobox-events%}#onread) event of the MultiColumnCombox. If you definded the event manually, calling the `Rebind` method will also execute the business logic in the OnRead event handler. |
 
-<TelerikComboBox @ref="@myComboRef" Data="@myComboData" TextField="MyTextField" ValueField="MyValueField" Value="3">
-</TelerikComboBox>
+
+````CSHTML
+@* Get a reference to the MultiColumnComboBox and use the Rebind method *@
+
+Selected value: @BoundValue
+<br />
+
+<TelerikButton OnClick="@RebindMultiColumnComboBox">Rebind the Component</TelerikButton>
+
+<TelerikMultiColumnComboBox Data="@MultiComboData"
+                            @bind-Value="@BoundValue"
+                            ValueField="@nameof(SampleData.Id)"
+                            TextField="@nameof(SampleData.Name)" @ref="@MultiColumnComboReference">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)" Title="The id"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)" Title="The name"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
+
 @code {
-    //the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
-    Telerik.Blazor.Components.TelerikComboBox<MyDdlModel, int> myComboRef;
+    private TelerikMultiColumnComboBox<SampleData, int> MultiColumnComboReference { get; set; }
 
-    IEnumerable<MyDdlModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-
-    public class MyDdlModel
+    private void RebindMultiColumnComboBox()
     {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
+        var itemToBeAdded = new SampleData()
+            {
+                Id = 100,
+                Name = "Added From Code"
+            };
+
+        MultiComboData.Add(itemToBeAdded);
+
+        BoundValue = 100;
+
+        MultiColumnComboReference.Rebind();
+    }
+
+    public int BoundValue { get; set; }
+
+    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
+        {
+            Id = x,
+            Name = "Name " + x
+        }).ToList();
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
 ````
@@ -162,13 +161,21 @@ The ComboBox is a generic component and its type comes from the model it is boun
 
  In case you cannot provide either of a `Value`, or `Data`, or both when the component initializes, you need to set the corresponding type properties to the `TItem` and `TValue` properties as shown below.
 
->caption ComboBox configuration if you cannot provide Value or Data
+>caption MultiColumnComboBox configuration if you cannot provide Value or Data
 
 ````CSHTML
-@*How to declare the combobox if no Value or Data are provided*@
+@*How to declare the MultiColumnComboBox if no Value or Data are provided*@
 
-<TelerikComboBox Data="@myComboData" TextField="MyTextField" ValueField="MyValueField" TValue="int" TItem="MyDdlModel">
-</TelerikComboBox>
+<TelerikMultiColumnComboBox Data="@myComboData"
+                            TextField="MyTextField"
+                            ValueField="MyValueField"
+                            TValue="int"
+                            TItem="MyDdlModel">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyValueField)"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyTextField)"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
     public class MyDdlModel //TItem matches the type of the model
@@ -186,5 +193,5 @@ The ComboBox is a generic component and its type comes from the model it is boun
 
 ## See Also
 
-  * [ComboBox Overview]({%slug components/combobox/overview%})
-  * [Live Demo: ComboBox](https://demos.telerik.com/blazor-ui/combobox/overview)
+  * [ComboBox Overview]({%slug multicolumncombobox-overview%})
+  * [Live Demo: ComboBox](https://demos.telerik.com/blazor-ui/multicolumncombobox/overview)
