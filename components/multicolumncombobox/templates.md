@@ -1,6 +1,6 @@
 ---
 title: Templates
-page_title: ComboBox - Templates
+page_title: MultiColumnComboBox - Templates
 description: Templates in the ComboBox for Blazor.
 slug: components/combobox/templates
 tags: telerik,blazor,combo,combobox,templates
@@ -8,120 +8,61 @@ published: True
 position: 25
 ---
 
-# ComboBox Templates
+# MultiColumnComboBox Templates
 
-The ComboBox component allows you to change what is rendered in its items, header and footer through templates.
+The MultiColumnComboBox component allows you to change what is rendered in its header and footer through templates.
 
 List of the available templates:
 
-* [Item Template](#item-template)
-* [Header](#header)
-* [Footer](#footer)
-
-
-## Item Template
-
-The Item template determines how the individual items are rendered in the dropdown element of the component. By default, the text from the model is rendered.
-
->caption Item Template Example
-
-````CSHTML
-@* Define what renders for the items in the dropdown *@
-
-<TelerikComboBox @bind-Value=@SelectedValue
-                 Data="@ComboBoxData"
-                 ValueField="ProductId"
-                 TextField="ProductName">
-    <ItemTemplate>
-        <strong>@((context as Product).ProductName) - @(String.Format("{0:C2}", (context as Product).UnitPrice))</strong>
-    </ItemTemplate>
-</TelerikComboBox>
-
-@code {
-    public IEnumerable<Product> ComboBoxData { get; set; }
-    public int SelectedValue { get; set; } = 2;
-
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i < 10; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                UnitPrice = (decimal)(i * 3.14)
-            });
-        }
-
-        ComboBoxData = products;
-        base.OnInitialized();
+<style>
+    article style + table {
+        table-layout: auto;
+        word-break: normal;
     }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Combo Item Template](images/combo-item-template.png)
+</style>
+| Template | Description |
+| --- | --- |
+| [`Header`](#header) | Controls the rendering of the element above the list of items in the dropdown. |
+| [`Footer`](#footer) | Controls the rendering of the element below the list of items in the dropdown. |
 
 ## Header
 
-The header is content that you can place above the list of items inside the dropdown element. It is always visible when the combobox is expanded. By default it is empty.
+The header is content that you can place above the list of items inside the dropdown element. It is always visible when the MultiColumnComboBox is expanded. By default it is empty.
 
 >caption Header Example
 
 ````CSHTML
 @* Define a header in the dropdown *@
 
-<TelerikComboBox @bind-Value=@SelectedValue
-                 Data="@ComboBoxData"
-                 ValueField="ProductId"
-                 TextField="ProductName">
+<TelerikMultiColumnComboBox Data="@MultiComboData"
+                            @bind-Value="@BoundValue"
+                            ValueField="@nameof(SampleData.Id)"
+                            TextField="@nameof(SampleData.Name)">
     <HeaderTemplate>
-        <div class="k-header" style="margin-top: 10px; padding-bottom: 10px">Header</div>
+        <div style="font-weight: bold">Header</div>
     </HeaderTemplate>
-</TelerikComboBox>
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)" Title="The id"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)" Title="The name"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
-    public IEnumerable<Product> ComboBoxData { get; set; }
-    public int SelectedValue { get; set; } = 2;
+    public int BoundValue { get; set; }
 
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i < 10; i++)
+    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
         {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                UnitPrice = (decimal)(i * 3.14)
-            });
-        }
+            Id = x,
+            Name = "Name " + x
+        }).ToList();
 
-        ComboBoxData = products;
-        base.OnInitialized();
-    }
-
-    public class Product
+    public class SampleData
     {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![Blazor Combo Header Template](images/combo-header-template.png)
 
 ## Footer
 
@@ -132,51 +73,38 @@ The footer is content that you can place below the list of items inside the drop
 ````CSHTML
 @* Define dropdown footer *@
 
-<TelerikComboBox @bind-Value=@SelectedValue
-                 Data="@ComboBoxData"
-                 ValueField="ProductId"
-                 TextField="ProductName">
+<TelerikMultiColumnComboBox Data="@MultiComboData"
+                            @bind-Value="@BoundValue"
+                            ValueField="@nameof(SampleData.Id)"
+                            TextField="@nameof(SampleData.Name)">
     <FooterTemplate>
-        <div class="k-footer" style="margin-top: 10px">A total of @ComboBoxData.Count() items</div>
+        <div style="font-weight: bold">Footer</div>
     </FooterTemplate>
-</TelerikComboBox>
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)" Title="The id"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)" Title="The name"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
-    public IEnumerable<Product> ComboBoxData { get; set; }
-    public int SelectedValue { get; set; } = 2;
+    public int BoundValue { get; set; }
 
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i < 10; i++)
+    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
         {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                UnitPrice = (decimal)(i * 3.14)
-            });
-        }
+            Id = x,
+            Name = "Name " + x
+        }).ToList();
 
-        ComboBoxData = products;
-        base.OnInitialized();
-    }
-
-    public class Product
+    public class SampleData
     {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
 ````
 
->caption The result from the code snippet above
-
-![Blazor Combo Footer Template](images/combo-footer-template.png)
-
 ## See Also
 
-  * [Live Demo: ComboBox Templates](https://demos.telerik.com/blazor-ui/combobox/templates)
+  * [Live Demo: MultiColumnComboBox Templates](https://demos.telerik.com/blazor-ui/multicolumncombobox/templates)
    
   
