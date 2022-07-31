@@ -103,6 +103,6 @@ By default, the filtering will be debounced with 150ms. Configure that with the 
 
 ## See Also
 
-  * [Live Demo: ComboBox Filtering](https://demos.telerik.com/blazor-ui/multicolumncombobox/filtering)
+  * [Live Demo: MultiColumnComboBox Filtering](https://demos.telerik.com/blazor-ui/multicolumncombobox/filtering)
    
   
