@@ -24,6 +24,7 @@ List of the available templates:
 | --- | --- |
 | [`Header`](#header) | Controls the rendering of the element above the list of items in the dropdown. |
 | [`Footer`](#footer) | Controls the rendering of the element below the list of items in the dropdown. |
+| [`Row`](#row) | Controls the rendering of the entire row in the dropdown. |
 
 >note To customize the rendering of the items in dropdown you can use the [Column Template]({%multicolumncombobob-templates%}#template).
 
@@ -85,6 +86,54 @@ The footer is content that you can place below the list of items inside the drop
     <MultiColumnComboBoxColumns>
         <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)" Title="The id"></MultiColumnComboBoxColumn>
         <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)" Title="The name"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
+
+@code {
+    public int BoundValue { get; set; }
+
+    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
+        {
+            Id = x,
+            Name = "Name " + x
+        }).ToList();
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+}
+````
+
+## Row
+
+The `RowTemplate` allows you to control the rendering of each row in the dropdown. You can access the `context` object and cast it to the bound model to employ some custom business logic. The `contenxt` represents the current data item for the row.
+
+>caption Use the RowTemplate to custome the rendering of the rows in the dropdown
+
+````CSHTML
+<TelerikMultiColumnComboBox Data="@MultiComboData"
+                            @bind-Value="@BoundValue"
+                            ValueField="@nameof(SampleData.Id)"
+                            TextField="@nameof(SampleData.Name)"
+                            Width="300px">
+
+    <RowTemplate Context="currentRow">
+        @{
+            <td>
+                <strong>@currentRow.Id</strong>
+            </td>
+            <td>
+                <span style="font-style:italic">@currentRow.Name</span>
+            </td>
+        }
+    </RowTemplate>
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)">
+        </MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)">
+        </MultiColumnComboBoxColumn>
     </MultiColumnComboBoxColumns>
 </TelerikMultiColumnComboBox>
 
