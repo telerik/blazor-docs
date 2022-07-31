@@ -1,63 +1,52 @@
 ---
 title: Filter
-page_title: ComboBox - Filter
-description: Filtering in the ComboBox for Blazor.
-slug: components/combobox/filter
-tags: telerik,blazor,combo,combobox,filter
+page_title: MultiColumnComboBox - Filter
+description: Filtering in the MultiColumnComboBox for Blazor.
+slug: multicolumncombobox-filter
+tags: telerik,blazor,multicolumncombobox.combo,combobox,filter
 published: True
 position: 10
 ---
 
-# ComboBox Filter
+# MultiColumnComboBox Filter
 
-The ComboBox component allows the user to filter the available items by their text, so they can find the one they need faster.
+The MultiColumnComboBox component allows the user to filter the available items by their text, so they can find the one they need faster.
 
 To enable filtering, set the `Filterable` parameter to `true`.
 
 Filtering ignores casing and the default filter operator is `starts with`. Filtering looks in the `TextField`, and the filter is reset when the dropdown closes. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
 
-By default, the filtering will be debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug components/combobox/overview%}#parameters) parameter of the component.
+By default, the filtering will be debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug multicolumncombobox-overview%}#parameters) parameter of the component.
 
-You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug components/combobox/events%}#onread).
-
->caption Filtering in the ComboBox
+>caption Filtering in the MultiColumnComboBox
 
 ````CSHTML
-@* Type something in the input to see items whose text contains only the typed string, for example "uct 2" *@
+@* Type something in the input to see items whose text contains only the typed string, for example "me 2" *@
 
-@SelectedValue
-<br />
-
-<TelerikComboBox Data="@Data"
-                 Filterable="true"
-                 Placeholder="Find product by typing part of its name"
-                 @bind-Value="@SelectedValue" TextField="ProductName" ValueField="ProductId">
-</TelerikComboBox>
+<TelerikMultiColumnComboBox Data="@MultiComboData"
+                            @bind-Value="@BoundValue"
+                            Filterable="true"
+                            ValueField="@nameof(SampleData.Id)"
+                            TextField="@nameof(SampleData.Name)">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)" Title="The id"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)" Title="The name"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
-    public List<Product> Data { get; set; }
-    public int? SelectedValue { get; set; }
+    public int BoundValue { get; set; }
 
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 0; i < 20; i++)
+    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
         {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}"
-            });
-        }
+            Id = x,
+            Name = "Name " + x
+        }).ToList();
 
-        Data = products;
-        base.OnInitialized();
-    }
-
-    public class Product
+    public class SampleData
     {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
 ````
@@ -67,61 +56,53 @@ You can also implement custom (server) filtering and set a data source dynamical
 ````CSHTML
 @* Type something in the input to see items filtered. Choose a new filter operator and repeat *@
 
-<label for="filterOperatorChoice">
-    Choose filter operator:
-    <select @bind="@filterOperator" class="form-control" style="width: 130px;margin-bottom:1rem;"
-            id="filterOperatorChoice">
-        @foreach (var possibleFilter in Enum.GetValues(typeof(StringFilterOperator)))
-        {
-            <option value="@possibleFilter">@possibleFilter</option>
-        }
-    </select>
-</label>
+<TelerikDropDownList Data="@AvailableFilterOperators" @bind-Value=@filterOperator />
 
-@SelectedValue
-<br />
-
-<TelerikComboBox Data="@Data"
-                 Filterable="true" FilterOperator="@filterOperator"
-                 Placeholder="Find a car by typing part of its make"
-                 @bind-Value="@SelectedValue" TextField="Make" ValueField="Id">
-</TelerikComboBox>
+<TelerikMultiColumnComboBox Data="@MultiComboData"
+                            @bind-Value="@BoundValue"
+                            Filterable="true"
+                            FilterOperator="@filterOperator"
+                            ValueField="@nameof(SampleData.Id)"
+                            TextField="@nameof(SampleData.Name)">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)" Title="The id"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)" Title="The name"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
 @code {
-    StringFilterOperator filterOperator { get; set; } = StringFilterOperator.Contains;
-    List<Car> Data { get; set; } = new List<Car>
+    public StringFilterOperator filterOperator { get; set; }
+
+    public List<StringFilterOperator> AvailableFilterOperators { get; set; } = new List<StringFilterOperator>()
     {
-        new Car { Id = 1, Make = "Honda" },
-        new Car { Id = 2, Make = "Opel" },
-        new Car { Id = 3, Make = "Audi" },
-        new Car { Id = 4, Make = "Lancia" },
-        new Car { Id = 5, Make = "BMW" },
-        new Car { Id = 6, Make = "Mercedes" },
-        new Car { Id = 7, Make = "Tesla" },
-        new Car { Id = 8, Make = "Vw" },
-        new Car { Id = 9, Make = "Alpha Romeo" },
-        new Car { Id = 10, Make = "Chevrolet" },
-        new Car { Id = 11, Make = "Ford" },
-        new Car { Id = 12, Make = "Cadillac" },
-        new Car { Id = 13, Make = "Dodge" },
-        new Car { Id = 14, Make = "Jeep" },
-        new Car { Id = 15, Make = "Chrysler" },
-        new Car { Id = 16, Make = "Lincoln" }
+        Telerik.Blazor.StringFilterOperator.Contains,
+        Telerik.Blazor.StringFilterOperator.DoesNotContain,
+        Telerik.Blazor.StringFilterOperator.EndsWith,
+        Telerik.Blazor.StringFilterOperator.IsContainedIn,
+        Telerik.Blazor.StringFilterOperator.StartsWith,
+
     };
 
-    int? SelectedValue { get; set; }
+    public int BoundValue { get; set; }
 
-    public class Car
+    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
+        {
+            Id = x,
+            Name = "Name " + x
+        }).ToList();
+
+    public class SampleData
     {
         public int Id { get; set; }
-        public string Make { get; set; }
+        public string Name { get; set; }
     }
 }
+
 ````
 
 
 ## See Also
 
-  * [Live Demo: ComboBox Filtering](https://demos.telerik.com/blazor-ui/combobox/filtering)
+  * [Live Demo: ComboBox Filtering](https://demos.telerik.com/blazor-ui/multicolumncombobox/filtering)
    
   
