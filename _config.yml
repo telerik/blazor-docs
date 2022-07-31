@@ -127,6 +127,9 @@ navigation:
      "*components/grid/selection":
         title: "Selection"
         position: 35
+     "*components/multicolumncombobox/columns":
+        title: "Selection"
+        position: 7
      "*components/treelist/data-binding":
         title: "Data Binding"
         position: 2
@@ -501,6 +504,7 @@ intro_columns:
       "Color Picker": "colorpicker-overview"
       "Flat Color Picker": "flatcolorpicker-overview"
       "ComboBox": "components/combobox/overview"
+      "MultiColumnComboBox": "multicolumncombobox-overview"
       "Date Input": "components/dateinput/overview"
       "Date Picker": "components/datepicker/overview"
       "Time Picker": "components/timepicker/overview"
