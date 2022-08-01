@@ -50,7 +50,7 @@ All available swatches are distributed via dedicated Themes CDN. The following s
 
 
 #vsx-download
-You can get them from:
+You can get the extension from:
 
 * The [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions) (for Windows).
 * The [Telerik UI for Blazor automated installer]({%slug installation/msi%}) (for Windows and Mac).
