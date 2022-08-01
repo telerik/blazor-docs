@@ -10,7 +10,8 @@
               Sortable="true"
               IdField="Id"
               ParentIdField="ParentId"
-              TreeListWidth="50%"
+              @bind-View="@SelectedView"
+              @bind-TreeListWidth="@TreeListWidth"
               Width="1000px"
               Height="600px"
               OnUpdate="@UpdateItem"
@@ -44,18 +45,19 @@
 @code {
     TelerikGantt<GanttTask> GanttRef;
     List<GanttTask> Data { get; set; }
+    public string TreeListWidth { get; set; } = "50%";
+    public GanttView SelectedView { get; set; } = GanttView.Week;
 
     async Task SetGanttSort()
     {
-        GanttState<GanttTask> desiredState = new GanttState<GanttTask>()
-            {
-                SortDescriptors = new List<SortDescriptor>()
-                {
-                new SortDescriptor { Member = "PercentComplete", SortDirection = ListSortDirection.Ascending }
-                }
-            };
+        GanttState<GanttTask> currState = GanttRef.GetState();
 
-        await GanttRef.SetStateAsync(desiredState);
+        currState.SortDescriptors = new List<SortDescriptor>()
+        {
+            new SortDescriptor { Member = "PercentComplete", SortDirection = ListSortDirection.Ascending }
+        };
+            
+        await GanttRef.SetStateAsync(currState);
     }
 
     //Gantt model, dummy data generation and sample CRUD operations
@@ -158,7 +160,8 @@
               FilterMode="@GanttFilterMode.FilterRow"
               IdField="Id"
               ParentIdField="ParentId"
-              TreeListWidth="50%"
+              @bind-View="@SelectedView"
+              @bind-TreeListWidth="@TreeListWidth"
               Width="1000px"
               Height="600px"
               OnUpdate="@UpdateItem"
@@ -189,24 +192,26 @@
     </GanttViews>
 </TelerikGantt>
 
-@code {
+@code {    
     TelerikGantt<GanttTask> GanttRef;
     List<GanttTask> Data { get; set; }
+    public string TreeListWidth { get; set; } = "50%";
+    public GanttView SelectedView { get; set; } = GanttView.Week;
 
     async Task SetGanttFilter()
     {
         var filterDescriptorCollection = new FilterDescriptorCollection();
+
         filterDescriptorCollection.Add(new FilterDescriptor(nameof(GanttTask.Title), FilterOperator.Contains, "Task 2") { MemberType = typeof(string) });
 
-        GanttState<GanttTask> desiredState = new GanttState<GanttTask>()
-            {
-                FilterDescriptors = new List<IFilterDescriptor>()
-                {
-                    new CompositeFilterDescriptor() { FilterDescriptors = filterDescriptorCollection }
-                }
-            };
+        GanttState<GanttTask> currState = GanttRef.GetState();
 
-        await GanttRef.SetStateAsync(desiredState);
+        currState.FilterDescriptors = new List<IFilterDescriptor>()
+        {
+            new CompositeFilterDescriptor() { FilterDescriptors = filterDescriptorCollection }
+        };
+
+        await GanttRef.SetStateAsync(currState);
     }
 
     //Gantt model, dummy data generation and sample CRUD operations
@@ -310,7 +315,8 @@
               FilterMode="@GanttFilterMode.FilterMenu"
               IdField="Id"
               ParentIdField="ParentId"
-              TreeListWidth="50%"
+              @bind-View="@SelectedView"
+              @bind-TreeListWidth="@TreeListWidth"
               Width="1000px"
               Height="600px"
               OnUpdate="@UpdateItem"
@@ -344,6 +350,8 @@
 @code {
     TelerikGantt<GanttTask> GanttRef;
     List<GanttTask> Data { get; set; }
+    public string TreeListWidth { get; set; } = "50%";
+    public GanttView SelectedView { get; set; } = GanttView.Week;
 
     async Task SetGanttFilter()
     {
@@ -353,18 +361,17 @@
             new FilterDescriptor(nameof(GanttTask.Title), FilterOperator.Contains, "Task 5") { MemberType = typeof(string) }
         };
 
-        GanttState<GanttTask> desiredState = new GanttState<GanttTask>()
-            {
-                FilterDescriptors = new List<IFilterDescriptor>()
-                {
-                    new CompositeFilterDescriptor() {
-                        FilterDescriptors = filterDescriptorCollection,
-                        LogicalOperator=FilterCompositionLogicalOperator.Or
-                    }
-                }
-            };
+        GanttState<GanttTask> currState = GanttRef.GetState();
 
-        await GanttRef.SetStateAsync(desiredState);
+        currState.FilterDescriptors = new List<IFilterDescriptor>()
+        {
+            new CompositeFilterDescriptor() {
+                FilterDescriptors = filterDescriptorCollection,
+                LogicalOperator=FilterCompositionLogicalOperator.Or
+            }
+        };
+
+        await GanttRef.SetStateAsync(currState);
     }
 
     //Gantt model, dummy data generation and sample CRUD operations
@@ -465,7 +472,8 @@
               FilterMode="@GanttFilterMode.FilterRow"
               IdField="Id"
               ParentIdField="ParentId"
-              TreeListWidth="50%"
+              @bind-View="@SelectedView"
+              @bind-TreeListWidth="@TreeListWidth"
               Width="1000px"
               Height="600px"
               OnUpdate="@UpdateItem"
@@ -499,15 +507,16 @@
 @code {
     TelerikGantt<GanttTask> GanttRef;
     List<GanttTask> Data { get; set; }
+    public string TreeListWidth { get; set; } = "50%";
+    public GanttView SelectedView { get; set; } = GanttView.Week;
 
     async Task SetExpandedItems()
     {
-        GanttState<GanttTask> desiredState = new GanttState<GanttTask>()
-            {
-                ExpandedItems= new List<GanttTask>(){Data.FirstOrDefault()}
-            };
+        GanttState<GanttTask> currState = GanttRef.GetState();
 
-        await GanttRef.SetStateAsync(desiredState);
+        currState.ExpandedItems = new List<GanttTask>() { Data.FirstOrDefault() };
+
+        await GanttRef.SetStateAsync(currState);
     }
 
     //Gantt model, dummy data generation and sample CRUD operations

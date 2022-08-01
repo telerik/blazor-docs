@@ -1,7 +1,7 @@
 ---
 title: State
 page_title: Gantt - State
-description: Save, load, change the Gantt for Blazor state - grouping, sorting, filtering and so on.
+description: Save, load, change the Gantt for Blazor state - sorting, filtering and so on.
 slug: Gantt-state
 tags: telerik,blazor,Gantt,state,save,load,layout,set,change,management
 published: True
@@ -10,7 +10,7 @@ position: 50
 
 # Gantt State
 
-The Gantt lets you save, load and change its current state through code. The state management includes all the user-configurable elements of the Gantt - such as sorting, filtering, paging, grouping, edited items, selection, column size and order.
+The Gantt lets you save, load and change its current state through code. The state management includes all the user-configurable elements of the Gantt - such as sorting, filtering, edited items, column size and order.
 
 You can see this feature in the [Live Demo: Gantt State](https://demos.telerik.com/blazor-ui/Gantt/persist-state).
 
@@ -52,7 +52,7 @@ The `OnStateInit` and `OnStateChanged` events are raised by the Gantt so you can
 
 * `OnStateInit` fires when the Gantt is initializing and you can provide the state you load from your storage to the `State` field of its event arguments.
 
-* `OnStateChanged` fires when the user makes a change to the Gantt state (such as paging, sorting, grouping, filtering, editing, selecting and so on). The `State` field of the event argument provides the current Gantt state so you can store it. The `PropertyName` field of the event arguments indicates what is the aspect that changed.
+* `OnStateChanged` fires when the user makes a change to the Gantt state (such as paging, sorting, filtering, editing, selecting and so on). The `State` field of the event argument provides the current Gantt state so you can store it. The `PropertyName` field of the event arguments indicates what is the aspect that changed.
     * @[template](/_contentTemplates/Gantt/state.md#statechanged-possible-prop-values)
     * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete.
     * Filtering always resets the current page to 1, so the `OnStateChanged` event will fire twice. First, `PropertyName` will be equal to `"Page"`, and the second time it will be `"FilterDescriptors"`. However, the `State` field of the event argument will provide correct information about the overall Gantt state in both event handler executions.
@@ -65,7 +65,7 @@ The `GetState` and `SetState` instance methods provide flexibility for your busi
 
 * `GetState` returns the Gantt state so you can store it only on a certain condition - for example, you may want to save the Gantt layout only on a button click, and not on every user interaction with the Gantt. You can also use it to get information about the current state of the filters, sorts and so on, if you are not using the OnRead event.
 
-* `SetState` takes an instance of a Gantt state so you can use your own code to alter the Gantt layout and state. For example, you can have a button that puts the Gantt in a certain configuration that helps your users review data (like certain filters, sorts, groups, expanded detail templates, initiate item editing or inserting, etc.).
+* `SetState` takes an instance of a Gantt state so you can use your own code to alter the Gantt layout and state. For example, you can have a button that puts the Gantt in a certain configuration that helps your users review data (like certain filters, sorts, expanded items, initiate item editing or inserting, etc.).
 
 If you want to make changes on the current Gantt state, first get it from the Gantt through the `GetState` method, then apply the modifications on the object you got and pass it to `SetState`.
 
@@ -84,10 +84,6 @@ The following information is present in the Gantt state:
 * **Filtering** - filter descriptors (fields by which the Gantt is filtered, the operator and value).
 
 * **SearchFilter** - filter descriptor specific to the GanttSearchBox.
-
-* **Grouping** - group descriptors (fields by which the Gantt is grouped), collapsed group indexes.
-
-* **Paging** - page index, offset (skip) for virtual scrolling.
 
 * **Rows** - list of expanded items.
 
@@ -362,9 +358,9 @@ The [knowledge base article for saving the Gantt state in a WASM application]({%
 
 ### Set Gantt Options Through State
 
-The Gantt state allows you to control the behavior of the Gantt programmatically - you can, for example, set sorts, filteres, expand hierarhical rows, collapse groups.
+The Gantt state allows you to control the behavior of the Gantt programmatically - you can, for example, set sorts, filteres, expand hierarhical items.
 
->tip The individual tabs below show how you can use the state to programmatically set the Gantt filtering, sorting, grouping and other features.
+>tip The individual tabs below show how you can use the state to programmatically set the Gantt filtering, sorting and other features.
 
 @[template](/_contentTemplates/Gantt/state.md#initial-state)
 
@@ -558,8 +554,6 @@ Find out what the user changed in the Gantt through the `PropertyName` of the `G
 >caption Know when the Gantt state changes, which parameter changes, and amend the change
 
 ````CSHTML
-@page "/"
-
 @*This example does the following:
     * Logs to the console what changed in the Gantt
     * If the user changes the Title column filtering, the filter is always overriden to "Contains" and its value to "Task 1"
@@ -1010,6 +1004,8 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
               @ref="@GanttRef"
               IdField="Id"
               ParentIdField="ParentId"
+              ColumnResizable="true"
+              ColumnReorderable="true"
               TreeListWidth="50%"
               Width="1000px"
               Height="500px"
@@ -1030,7 +1026,7 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
                      Width="100px"
                      DisplayFormat="{0:d}">
         </GanttColumn>
-        <GanttColumn Field="End"  
+        <GanttColumn Field="End"
                      Width="100px"
                      DisplayFormat="{0:d}">
         </GanttColumn>
@@ -1047,7 +1043,7 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
 @code {
     TelerikGantt<GanttTask> GanttRef;
     List<GanttTask> Data { get; set; }
-    string ColumnsLog { get; set; } 
+    string ColumnsLog { get; set; }
 
     private void GetCurrentColumnsState()
     {
@@ -1063,7 +1059,7 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
             var visible = columnState.Visible != false;
 
             string log = $"<p>Column: <strong>{columnState.Field}</strong> | Index in state:{columnState.Index} | Visible: {visible} | Width: {columnState.Width}</p>";
-            
+
             ColumnsLog += log;
         }
     }
@@ -1155,8 +1151,6 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
     }
 }
 ````
-
-
 
 
 ## See Also
