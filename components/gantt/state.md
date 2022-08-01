@@ -125,14 +125,240 @@ The following example shows one way you can store the Gantt state - through a cu
 
 <div class="skip-repl"></div>
 ````Component
+@inject LocalStorage LocalStorage
+@inject IJSRuntime JsInterop
 
+Change something in the Gantt (like sort, filter, resize TreeList width, expand/collapse tasks etc.). Then reload the page to see the Gantt state fetched from the browser local storage.
+<br />
+
+<TelerikButton OnClick="@ReloadPage">Reload the page to see the current grid state preserved</TelerikButton>
+<TelerikButton OnClick="@ResetState">Reset the state</TelerikButton>
+
+<TelerikGantt Data="@Data"
+              @ref="@GanttRef"
+              OnStateInit="@((GanttStateEventArgs<GanttTask> args) => OnStateInitHandler(args))"
+              OnStateChanged="@((GanttStateEventArgs<GanttTask> args) => OnStateChangedHandler(args))"
+              Sortable="true" 
+              FilterMode="@GanttFilterMode.FilterRow"
+              @bind-View="@SelectedView"
+              IdField="Id"
+              ParentIdField="ParentId"
+              @bind-TreeListWidth="@TreeListWidth"
+              Width="1000px"
+              Height="600px"
+              OnUpdate="@UpdateItem"
+              OnDelete="@DeleteItem">
+    <GanttColumns>
+        <GanttColumn Field="Title"
+                     Expandable="true"
+                     Width="160px"
+                     Title="Task Title">
+        </GanttColumn>
+        <GanttColumn Field="PercentComplete"
+                     Title="Status"
+                     Width="60px">
+        </GanttColumn>
+        <GanttColumn Field="Start"
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+        <GanttColumn Field="End"
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+    </GanttColumns>
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+    </GanttViews>
+</TelerikGantt>
+
+@code {
+    public string TreeListWidth { get; set; } = "50%";
+    TelerikGantt<GanttTask> GanttRef;
+    public GanttView SelectedView { get; set; } = GanttView.Week;
+    List<GanttTask> Data { get; set; }
+    string UniqueStorageKey = "SampleGanttStateStorageThatShouldBeUnique";
+
+    // Load and Save the state through the Gantt events
+    async Task OnStateInitHandler(GanttStateEventArgs<GanttTask> args)
+    {
+        try
+        {
+            var state = await LocalStorage.GetItem<GanttState<GanttTask>>(UniqueStorageKey);
+            if (state != null)
+            {
+                args.State = state;
+            }
+
+        }
+        catch (InvalidOperationException e)
+        {
+            // the JS Interop for the local storage cannot be used during pre-rendering
+            // so the code above will throw. Once the app initializes, it will work fine
+        }
+    }
+
+    async void OnStateChangedHandler(GanttStateEventArgs<GanttTask> args)
+    {
+        await LocalStorage.SetItem(UniqueStorageKey, args.State);
+    }
+
+    async Task ResetState()
+    {
+        // clean up the storage
+        await LocalStorage.RemoveItem(UniqueStorageKey);
+
+        await GanttRef.SetStateAsync(null); // pass null to reset the state
+    }
+
+    void ReloadPage()
+    {
+        JsInterop.InvokeVoidAsync("window.location.reload");
+    }
+
+    //Gantt model, dummy data generation and sample CRUD operations
+    class GanttTask
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var model = obj as GanttTask;
+
+            return model?.Id == Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
+    }
+
+    public int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        Data = new List<GanttTask>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new GanttTask()
+                {
+                    Id = LastId,
+                    Title = "Task  " + i.ToString(),
+                    Start = new DateTime(2021, 7, 5 + i),
+                    End = new DateTime(2021, 7, 11 + i),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                };
+
+            Data.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                Data.Add(new GanttTask()
+                    {
+                        Id = LastId,
+                        ParentId = parentId,
+                        Title = "    Task " + i + " : " + j.ToString(),
+                        Start = new DateTime(2021, 7, 5 + j),
+                        End = new DateTime(2021, 7, 6 + i + j),
+                        PercentComplete = Math.Round(random.NextDouble(), 2)
+                    });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    private void UpdateItem(GanttUpdateEventArgs args)
+    {
+        var item = args.Item as GanttTask;
+
+        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+
+        if (foundItem != null)
+        {
+            foundItem.Title = item.Title;
+            foundItem.Start = item.Start;
+            foundItem.End = item.End;
+            foundItem.PercentComplete = item.PercentComplete;
+        }
+    }
+
+    private void DeleteItem(GanttDeleteEventArgs args)
+    {
+        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+
+        RemoveChildRecursive(item);
+    }
+
+    private void RemoveChildRecursive(GanttTask item)
+    {
+        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+
+        foreach (var child in children)
+        {
+            RemoveChildRecursive(child);
+        }
+
+        Data.Remove(item);
+    }
+}
 ````
 ````Service
+using Microsoft.JSInterop;
+using System.Text.Json;
+public class LocalStorage
+{
+    protected IJSRuntime JSRuntimeInstance { get; set; }
 
+    public LocalStorage(IJSRuntime jsRuntime)
+    {
+        JSRuntimeInstance = jsRuntime;
+    }
+
+    public ValueTask SetItem(string key, object data)
+    {
+        return JSRuntimeInstance.InvokeVoidAsync(
+            "localStorage.setItem",
+            new object[] {
+                key,
+                JsonSerializer.Serialize(data)
+            });
+    }
+
+    public async Task<T> GetItem<T>(string key)
+    {
+        var data = await JSRuntimeInstance.InvokeAsync<string>("localStorage.getItem", key);
+        if (!string.IsNullOrEmpty(data))
+        {
+            return JsonSerializer.Deserialize<T>(data);
+        }
+
+        return default;
+    }
+
+    public ValueTask RemoveItem(string key)
+    {
+        return JSRuntimeInstance.InvokeVoidAsync("localStorage.removeItem", key);
+    }
+}
 ````
 
-### Save and Load Gantt State in a WebAssembly application
-The [knowledge base article for saving the Gantt state in a WASM application]({%slug Gantt-kb-save-state-in-webassembly%}) explains two ways of storing the `Gantt` state - through a custom controller and a custom service that calls the browser's LocalStorage.
+<!-- ### Save and Load Gantt State in a WebAssembly application
+The [knowledge base article for saving the Gantt state in a WASM application]({%slug Gantt-kb-save-state-in-webassembly%}) explains two ways of storing the `Gantt` state - through a custom controller and a custom service that calls the browser's LocalStorage. -->
 
 ### Set Gantt Options Through State
 
@@ -144,22 +370,19 @@ The Gantt state allows you to control the behavior of the Gantt programmatically
 
 <div class="skip-repl"></div>
 ````Sorting
-@[template](/_contentTemplates/Gantt/state.md#set-sort-from-code)
+@[template](/_contentTemplates/gantt/state.md#set-sort-from-code)
 ````
 ````FilterRow
-@[template](/_contentTemplates/Gantt/state.md#filter-row-from-code)
+@[template](/_contentTemplates/gantt/state.md#filter-row-from-code)
 ````
 ````FilterMenu
-@[template](/_contentTemplates/Gantt/state.md#filter-menu-from-code)
-````
-````Grouping
-@[template](/_contentTemplates/Gantt/state.md#group-from-code)
+@[template](/_contentTemplates/gantt/state.md#filter-menu-from-code)
 ````
 ````Hierarchy
-@[template](/_contentTemplates/Gantt/state.md#expand-hierarchy-from-code)
-````
+@[template](/_contentTemplates/gantt/state.md#expand-hierarchy-from-code)
+```` -->
 
-@[template](/_contentTemplates/Gantt/state.md#filter-menu-default-filters)
+<!-- @[template](/_contentTemplates/gantt/state.md#filter-menu-default-filters) -->
 
 
 ### Set Default (Initial) State
@@ -169,7 +392,161 @@ If you want the Gantt to start with certain settings for your end users, you can
 >caption Choose a default state of the Gantt for your users
 
 ````CSHTML
+@*Set initial Gantt state*@
 
+@using Telerik.DataSource
+
+<TelerikGantt Data="@Data"
+              @ref="@GanttRef"
+              OnStateInit="@((GanttStateEventArgs<GanttTask> args) => OnStateInitHandler(args))"
+              Sortable="true"
+              FilterMode="@GanttFilterMode.FilterRow"
+              IdField="Id"
+              ParentIdField="ParentId"
+              TreeListWidth="50%"
+              Width="1000px"
+              Height="600px"
+              OnUpdate="@UpdateItem"
+              OnDelete="@DeleteItem">
+    <GanttColumns>
+        <GanttColumn Field="Title"
+                     Expandable="true"
+                     Width="160px"
+                     Title="Task Title">
+        </GanttColumn>
+        <GanttColumn Field="PercentComplete"
+                     Title="Status"
+                     Width="100px">
+        </GanttColumn>
+        <GanttColumn Field="Start"
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+        <GanttColumn Field="End"
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+    </GanttColumns>
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+    </GanttViews>
+</TelerikGantt>
+
+@code {
+    TelerikGantt<GanttTask> GanttRef;
+    List<GanttTask> Data { get; set; }
+
+    async Task OnStateInitHandler(GanttStateEventArgs<GanttTask> args)
+    {
+        var filterDescriptorCollection = new FilterDescriptorCollection();
+        filterDescriptorCollection.Add(new FilterDescriptor(nameof(GanttTask.PercentComplete), FilterOperator.IsLessThan, 0.5) { MemberType = typeof(double) });
+
+        var state = new GanttState<GanttTask>
+            {
+                SortDescriptors = new List<Telerik.DataSource.SortDescriptor>
+                {
+                new Telerik.DataSource.SortDescriptor{ Member = "End", SortDirection = Telerik.DataSource.ListSortDirection.Ascending }
+                },
+
+                FilterDescriptors = new List<IFilterDescriptor>()
+                {
+                    new CompositeFilterDescriptor() { FilterDescriptors = filterDescriptorCollection }
+                },
+
+                View = GanttView.Week,
+            };
+
+        args.State = state;
+    }
+
+    //Gantt model, dummy data generation and sample CRUD operations
+    class GanttTask
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    public int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        Data = new List<GanttTask>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new GanttTask()
+                {
+                    Id = LastId,
+                    Title = "Task  " + i.ToString(),
+                    Start = new DateTime(2021, 7, 5 + i),
+                    End = new DateTime(2021, 7, 11 + i),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                };
+
+            Data.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                Data.Add(new GanttTask()
+                    {
+                        Id = LastId,
+                        ParentId = parentId,
+                        Title = "    Task " + i + " : " + j.ToString(),
+                        Start = new DateTime(2021, 7, 5 + j),
+                        End = new DateTime(2021, 7, 6 + i + j),
+                        PercentComplete = Math.Round(random.NextDouble(), 2)
+                    });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    private void UpdateItem(GanttUpdateEventArgs args)
+    {
+        var item = args.Item as GanttTask;
+
+        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+
+        if (foundItem != null)
+        {
+            foundItem.Title = item.Title;
+            foundItem.Start = item.Start;
+            foundItem.End = item.End;
+            foundItem.PercentComplete = item.PercentComplete;
+        }
+    }
+
+    private void DeleteItem(GanttDeleteEventArgs args)
+    {
+        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+
+        RemoveChildRecursive(item);
+    }
+
+    private void RemoveChildRecursive(GanttTask item)
+    {
+        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+
+        foreach (var child in children)
+        {
+            RemoveChildRecursive(child);
+        }
+
+        Data.Remove(item);
+    }
+}
 ````
 
 ### Get and Override User Action That Changes The Gantt
