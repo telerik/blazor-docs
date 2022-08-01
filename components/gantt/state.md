@@ -551,14 +551,175 @@ If you want the Gantt to start with certain settings for your end users, you can
 
 ### Get and Override User Action That Changes The Gantt
 
-Sometimes you may want to know what the user changed in the Gantt (e.g., when they filter, sort and so on) and even override those operations. One way to do that is to monitor the [`OnRead` event]({%slug common-features-data-binding-onread%}), cache the previous [`DataSourceRequest` argument]({%slug common-features-data-binding-onread%}#event-argument), compare against it, alter it if needed, and implement the operations yourself. Another is to use the `OnStateChanged` event.
+Sometimes you may want to know what the user changed in the Gantt (e.g., when they filter, sort and so on) and even override those operations. You can achieve that by handling the `OnStateChanged` event.
 
-The example below shows the latter. Review the code comments to see how it works and to make sure you don't get issues. You can find another example of overriding the user actions in the [Static Gantt Group]({%slug Gantt-kb-static-group%}) Knowledge Base article.
+Find out what the user changed in the Gantt through the `PropertyName` of the `GanttStateEventArgs`. Override the user action by changing and then setting your desired state.
 
 >caption Know when the Gantt state changes, which parameter changes, and amend the change
 
 ````CSHTML
+@page "/"
 
+@*This example does the following:
+    * Logs to the console what changed in the Gantt
+    * If the user changes the Title column filtering, the filter is always overriden to "Contains" and its value to "Task 1"
+To test it out, try filtering the Title column
+*@
+
+@using Telerik.DataSource
+
+<TelerikGantt Data="@Data"
+              @ref="@GanttRef"
+              FilterMode="@GanttFilterMode.FilterRow"
+              OnStateChanged="@((GanttStateEventArgs<GanttTask> args) => OnStateChangedHandler(args))"
+              IdField="Id"
+              ParentIdField="ParentId"
+              TreeListWidth="50%"
+              Width="1000px"
+              Height="500px"
+              OnUpdate="@UpdateItem"
+              OnDelete="@DeleteItem">
+    <GanttColumns>
+        <GanttColumn Field="Title"
+                     Expandable="true"
+                     Width="160px"
+                     Title="Task Title">
+        </GanttColumn>
+        <GanttColumn Field="PercentComplete"
+                     Title="Status"
+                     Width="100px">
+        </GanttColumn>
+        <GanttColumn Field="Start"
+                     Visible="false"
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+        <GanttColumn Field="End"  
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+    </GanttColumns>
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+    </GanttViews>
+</TelerikGantt>
+
+
+@code {
+    TelerikGantt<GanttTask> GanttRef;
+    List<GanttTask> Data { get; set; }
+
+    async void OnStateChangedHandler(GanttStateEventArgs<GanttTask> args)
+    {
+        Console.WriteLine("User changed: " + args.PropertyName); // get the setting that was just changed (paging, sorting,...)
+
+        if (args.PropertyName == "FilterDescriptors") // filtering changed for our example
+        {
+            foreach (FilterDescriptor item in args.State.FilterDescriptors)
+            {
+                // you could override a user action as well - change settings on the corresponding parameter
+                // make sure that the .SetState() method of the Gantt is always called if you do that
+                if (item.Member == "Title")
+                {
+                    item.Value = "Task 1";
+                    item.Operator = FilterOperator.Contains;
+                }
+            }
+          
+            // needed only if you will be overriding user actions or amending them
+            // if you only need to be notified of changes, you should not call this method
+            await GanttRef.SetStateAsync(args.State);
+        }
+    }
+
+    //Gantt model, dummy data generation and sample CRUD operations
+    class GanttTask
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    public int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        Data = new List<GanttTask>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new GanttTask()
+                {
+                    Id = LastId,
+                    Title = "Task  " + i.ToString(),
+                    Start = new DateTime(2021, 7, 5 + i),
+                    End = new DateTime(2021, 7, 11 + i),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                };
+
+            Data.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                Data.Add(new GanttTask()
+                    {
+                        Id = LastId,
+                        ParentId = parentId,
+                        Title = "    Task " + i + " : " + j.ToString(),
+                        Start = new DateTime(2021, 7, 5 + j),
+                        End = new DateTime(2021, 7, 6 + i + j),
+                        PercentComplete = Math.Round(random.NextDouble(), 2)
+                    });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    private void UpdateItem(GanttUpdateEventArgs args)
+    {
+        var item = args.Item as GanttTask;
+
+        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+
+        if (foundItem != null)
+        {
+            foundItem.Title = item.Title;
+            foundItem.Start = item.Start;
+            foundItem.End = item.End;
+            foundItem.PercentComplete = item.PercentComplete;
+        }
+    }
+
+    private void DeleteItem(GanttDeleteEventArgs args)
+    {
+        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+
+        RemoveChildRecursive(item);
+    }
+
+    private void RemoveChildRecursive(GanttTask item)
+    {
+        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+
+        foreach (var child in children)
+        {
+            RemoveChildRecursive(child);
+        }
+
+        Data.Remove(item);
+    }
+}
 ````
 
 ### Initiate Editing or Inserting of an Item
@@ -570,7 +731,256 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 >caption Put and item in Edit mode or start Inserting a new item
 
 ````CSHTML
+@*Programmatically initiate editing and inserting of items through the Gantt state*@
 
+<TelerikButton OnClick="@StartInsert">Start Insert operation on root level</TelerikButton>
+<TelerikButton OnClick="@EditTaskOne">Put first task in Edit mode</TelerikButton>
+
+<TelerikGantt Data="@Data"
+              @ref="@GanttRef"
+              FilterMode="@GanttFilterMode.FilterRow"
+              TreeListEditMode="@GanttTreeListEditMode.Inline"
+              IdField="Id"
+              ParentIdField="ParentId"
+              TreeListWidth="60%"
+              Width="1000px"
+              Height="600px"
+              OnCreate="@CreateItem"
+              OnUpdate="@UpdateItem"
+              OnDelete="@DeleteItem">
+    <GanttColumns>
+        <GanttCommandColumn Width="120px">
+            <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>
+            <GanttCommandButton Command="Edit" Icon="edit"></GanttCommandButton>
+            <GanttCommandButton Command="Save" Icon="save" ShowInEdit="true"></GanttCommandButton>
+            <GanttCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon="delete"></GanttCommandButton>
+        </GanttCommandColumn>
+        <GanttColumn Field="Title"
+                     Expandable="true"
+                     Width="160px"
+                     Title="Task Title">
+        </GanttColumn>
+        <GanttColumn Field="PercentComplete"
+                     Title="Status"
+                     Width="100px">
+        </GanttColumn>
+        <GanttColumn Field="Start"
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+        <GanttColumn Field="End"
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+    </GanttColumns>
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+    </GanttViews>
+</TelerikGantt>
+
+@code {
+    TelerikGantt<GanttTask> GanttRef;
+    List<GanttTask> Data { get; set; }
+
+    async Task StartInsert()
+    {
+        var currState = GanttRef.GetState();
+
+        // reset any current editing. Not mandatory.
+        currState.EditItem = null;
+        currState.OriginalEditItem = null;
+
+        // add new inserted item to the state, then set it to the Gantt
+        // you can predefine values here as well (not mandatory)
+        currState.InsertedItem = new GanttTask() { 
+            Title = "some predefined value",
+            Start = new DateTime(2021, 7, 1),
+            End = new DateTime(2021, 7, 10)
+        };
+        await GanttRef.SetStateAsync(currState);
+
+        // note: possible only for Inline and Popup edit modes, with InCell there is never an inserted item, only edited items
+    }
+
+    async Task EditTaskOne()
+    {
+        var currState = GanttRef.GetState();
+
+        // reset any current insertion and any old edited items. Not mandatory.
+        currState.InsertedItem = null;
+
+        var itemToEdit = Data.FirstOrDefault();
+
+        currState.EditItem = new GanttTask()
+            {
+                Id = itemToEdit.Id,
+                ParentId = itemToEdit.ParentId,
+                Title = itemToEdit.Title,
+                PercentComplete = itemToEdit.PercentComplete,
+                Start = itemToEdit.Start,
+                End = itemToEdit.End
+            };
+
+        currState.OriginalEditItem = itemToEdit;
+
+        // for InCell editing, you can use the EditField property instead
+
+        await GanttRef.SetStateAsync(currState);
+    }
+
+    //Gantt model, dummy data generation and sample CRUD operations
+    class GanttTask
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    public int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        Data = new List<GanttTask>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new GanttTask()
+                {
+                    Id = LastId,
+                    Title = "Task  " + i.ToString(),
+                    Start = new DateTime(2021, 7, 5 + i),
+                    End = new DateTime(2021, 7, 11 + i),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                };
+
+            Data.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                Data.Add(new GanttTask()
+                    {
+                        Id = LastId,
+                        ParentId = parentId,
+                        Title = "    Task " + i + " : " + j.ToString(),
+                        Start = new DateTime(2021, 7, 5 + j),
+                        End = new DateTime(2021, 7, 6 + i + j),
+                        PercentComplete = Math.Round(random.NextDouble(), 2)
+                    });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    private void CreateItem(GanttCreateEventArgs args)
+    {
+        var item = args.Item as GanttTask;
+
+        item.Id = LastId++;
+
+        if (args.ParentItem != null)
+        {
+            var parent = (GanttTask)args.ParentItem;
+
+            item.ParentId = parent.Id;
+        }
+
+        Data.Insert(0, item);
+
+        CalculateParentPercentRecursive(item);
+        CalculateParentRangeRecursive(item);
+    }
+
+    private void UpdateItem(GanttUpdateEventArgs args)
+    {
+        var item = args.Item as GanttTask;
+
+        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+
+        if (foundItem != null)
+        {
+            foundItem.Title = item.Title;
+            foundItem.Start = item.Start;
+            foundItem.End = item.End;
+            foundItem.PercentComplete = item.PercentComplete;
+        }
+    }
+
+    private void DeleteItem(GanttDeleteEventArgs args)
+    {
+        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+
+        RemoveChildRecursive(item);
+    }
+
+    private void RemoveChildRecursive(GanttTask item)
+    {
+        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+
+        foreach (var child in children)
+        {
+            RemoveChildRecursive(child);
+        }
+
+        Data.Remove(item);
+    }
+
+    private void CalculateParentPercentRecursive(GanttTask item)
+    {
+        if (item.ParentId != null)
+        {
+            var parent = GetParent(item);
+
+            var children = GetChildren(parent);
+
+            if (children.Any())
+            {
+                parent.PercentComplete = children.Average(i => i.PercentComplete);
+
+                CalculateParentPercentRecursive(parent);
+            }
+        }
+    }
+
+    private void CalculateParentRangeRecursive(GanttTask item)
+    {
+        if (item.ParentId != null)
+        {
+            var parent = GetParent(item);
+
+            var children = GetChildren(parent);
+
+            if (children.Any())
+            {
+                parent.Start = children.Min(i => i.Start);
+                parent.End = children.Max(i => i.End);
+
+                CalculateParentRangeRecursive(parent);
+            }
+        }
+    }
+
+    private GanttTask GetParent(GanttTask item)
+    {
+        return Data.FirstOrDefault(i => i.Id.Equals(item.ParentId));
+    }
+
+    private IEnumerable<GanttTask> GetChildren(GanttTask item)
+    {
+        return Data.Where(i => item.Id.Equals(i.ParentId));
+    }
+}
 ````
 
 
@@ -585,15 +995,165 @@ Field | Type | Description
  `Id` | `string` | the Id of the column if it is set
  `Field` | `string` | the field of the column
  `Visible` | `bool?` | whether the column is hidden or not
- `Locked` | `bool` | whether the column is locked or not
  `Width` | `string` | the width of the column if it is set
 
 By looping over the `ColumnStates` collection you can know what the user sees. By default, the order of the columns in the state collection will remain the same but their `Index` value will be changed to indicate their position. You can, for example, sort by the index and filter by the visibility of the columns to get the approximate view the user sees.
 
->caption Obtain the current columns visibility, rendering order, locked state and field name
+>caption Obtain the current columns visibility, rendering order, field name and width
 
 ````CSHTML
+@*Get column states from code*@
 
+<TelerikButton OnClick="@GetCurrentColumnsState">Get Columns order and parameters</TelerikButton>
+
+<TelerikGantt Data="@Data"
+              @ref="@GanttRef"
+              IdField="Id"
+              ParentIdField="ParentId"
+              TreeListWidth="50%"
+              Width="1000px"
+              Height="500px"
+              OnUpdate="@UpdateItem"
+              OnDelete="@DeleteItem">
+    <GanttColumns>
+        <GanttColumn Field="Title"
+                     Expandable="true"
+                     Width="160px"
+                     Title="Task Title">
+        </GanttColumn>
+        <GanttColumn Field="PercentComplete"
+                     Title="Status"
+                     Width="100px">
+        </GanttColumn>
+        <GanttColumn Field="Start"
+                     Visible="false"
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+        <GanttColumn Field="End"  
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+    </GanttColumns>
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+    </GanttViews>
+</TelerikGantt>
+
+@(new MarkupString(ColumnsLog))
+
+@code {
+    TelerikGantt<GanttTask> GanttRef;
+    List<GanttTask> Data { get; set; }
+    string ColumnsLog { get; set; } 
+
+    private void GetCurrentColumnsState()
+    {
+        var currState = GanttRef.GetState();
+
+        ColumnsLog = string.Empty;
+
+        var columnsState = currState.ColumnStates;
+
+        foreach (var columnState in columnsState)
+        {
+            // human readable info for visibility information
+            var visible = columnState.Visible != false;
+
+            string log = $"<p>Column: <strong>{columnState.Field}</strong> | Index in state:{columnState.Index} | Visible: {visible} | Width: {columnState.Width}</p>";
+            
+            ColumnsLog += log;
+        }
+    }
+
+    //Gantt model, dummy data generation and sample CRUD operations
+    class GanttTask
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    public int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        Data = new List<GanttTask>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new GanttTask()
+                {
+                    Id = LastId,
+                    Title = "Task  " + i.ToString(),
+                    Start = new DateTime(2021, 7, 5 + i),
+                    End = new DateTime(2021, 7, 11 + i),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                };
+
+            Data.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                Data.Add(new GanttTask()
+                    {
+                        Id = LastId,
+                        ParentId = parentId,
+                        Title = "    Task " + i + " : " + j.ToString(),
+                        Start = new DateTime(2021, 7, 5 + j),
+                        End = new DateTime(2021, 7, 6 + i + j),
+                        PercentComplete = Math.Round(random.NextDouble(), 2)
+                    });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    private void UpdateItem(GanttUpdateEventArgs args)
+    {
+        var item = args.Item as GanttTask;
+
+        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+
+        if (foundItem != null)
+        {
+            foundItem.Title = item.Title;
+            foundItem.Start = item.Start;
+            foundItem.End = item.End;
+            foundItem.PercentComplete = item.PercentComplete;
+        }
+    }
+
+    private void DeleteItem(GanttDeleteEventArgs args)
+    {
+        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+
+        RemoveChildRecursive(item);
+    }
+
+    private void RemoveChildRecursive(GanttTask item)
+    {
+        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+
+        foreach (var child in children)
+        {
+            RemoveChildRecursive(child);
+        }
+
+        Data.Remove(item);
+    }
+}
 ````
 
 
