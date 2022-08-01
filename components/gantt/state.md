@@ -1,16 +1,16 @@
 ---
 title: State
 page_title: Gantt - State
-description: Save, load, change the Gantt for Blazor state - sorting, filtering and so on.
-slug: Gantt-state
-tags: telerik,blazor,Gantt,state,save,load,layout,set,change,management
+description: Save, load, change the state of the Gantt for Blazor - sorting, filtering and more.
+slug: gantt-state
+tags: telerik,blazor,gantt,state,save,load,layout,get,set,change
 published: True
-position: 50
+position: 15
 ---
 
 # Gantt State
 
-The Gantt lets you save, load and change its current state through code. The state management includes all the user-configurable elements of the Gantt - such as sorting, filtering, edited items, column size and order.
+The Gantt lets you save, load and change its current state through code. The state management includes all the user-configurable elements of the Gantt - such as sorting, filtering, edited items, TreeList width, column size and order.
 
 You can see this feature in the [Live Demo: Gantt State](https://demos.telerik.com/blazor-ui/Gantt/persist-state).
 
@@ -21,13 +21,12 @@ This article contains the following sections:
 * [Basics](#basics)
 	* [Events](#events)
 	* [Methods](#methods)
-* [Information in the Gantt State](#information-in-the-Gantt-state)
+* [Information in the Gantt State](#information-in-the-gantt-state)
 * [Examples](#examples)
-	* [Save and Load Gantt State from Browser LocalStorage](#save-and-load-Gantt-state-from-browser-localstorage)
-    * [Save and Load Gantt State in a WebAssembly application](#save-and-load-Gantt-state-in-a-webassembly-application)
-	* [Set Gantt Options Through State](#set-Gantt-options-through-state)
+	* [Save and Load Gantt State from Browser LocalStorage](#save-and-load-gantt-state-from-browser-localstorage)
+	* [Set Gantt Options Through State](#set-gantt-options-through-state)
 	* [Set Default (Initial) State](#set-default-initial-state)
-	* [Get and Override User Action That Changes The Gantt](#get-and-override-user-action-that-changes-the-Gantt)
+	* [Get and Override User Action That Changes The Gantt](#get-and-override-user-action-that-changes-the-gantt)
 	* [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
 	* [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
 
@@ -38,7 +37,7 @@ This article contains the following sections:
 
 The Gantt state is a generic class whose type is determined by the type of the model you use for the Gantt. It contains fields that correspond to the Gantt behaviors which you can use to save, load and modify the Gantt state.
 
-Fields that pertain to model data (such as edited item, inserted item, selected items) are also typed according to the Gantt model. If you restore such data, make sure to implement appropriate comparison checks - by default the `.Equals `check for a class (model) is a reference check and the reference from the storage is unlikely to match the reference from the Gantt `Data`. Thus, you may want to override the `.Equals` method of the model you use so it compares by an ID, for example, or otherwise (in the app logic) re-populate the models in the state object with the new model references from the Gantt data source.
+Fields that pertain to model data (such as edited item, inserted item, expanded items) are also typed according to the Gantt model. If you restore such data, make sure to implement appropriate comparison checks - by default the `.Equals `check for a class (model) is a reference check and the reference from the storage is unlikely to match the reference from the Gantt `Data`. Thus, you may want to override the `.Equals` method of the model you use so it compares by an ID, for example, or otherwise (in the app logic) re-populate the models in the state object with the new model references from the Gantt data source.
 
 The Gantt offers two events and two methods to allow flexible operations over its state:
 
@@ -52,7 +51,7 @@ The `OnStateInit` and `OnStateChanged` events are raised by the Gantt so you can
 
 * `OnStateInit` fires when the Gantt is initializing and you can provide the state you load from your storage to the `State` field of its event arguments.
 
-* `OnStateChanged` fires when the user makes a change to the Gantt state (such as paging, sorting, filtering, editing, selecting and so on). The `State` field of the event argument provides the current Gantt state so you can store it. The `PropertyName` field of the event arguments indicates what is the aspect that changed.
+* `OnStateChanged` fires when the user makes a change to the Gantt state (such as sorting, filtering, editing, expanding parents and so on). The `State` field of the event argument provides the current Gantt state so you can store it. The `PropertyName` field of the event arguments indicates what is the aspect that changed.
     * @[template](/_contentTemplates/Gantt/state.md#statechanged-possible-prop-values)
     * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete.
     * Filtering always resets the current page to 1, so the `OnStateChanged` event will fire twice. First, `PropertyName` will be equal to `"Page"`, and the second time it will be `"FilterDescriptors"`. However, the `State` field of the event argument will provide correct information about the overall Gantt state in both event handler executions.
@@ -61,19 +60,19 @@ By using the `OnStateChanged` and `OnStateInit` events, you can save and restore
 
 ### Methods
 
-The `GetState` and `SetState` instance methods provide flexibility for your business logic. They let you get and set the current Gantt state on demand outside of the Gantt events.
+The `GetState` and `SetStateAsync` instance methods provide flexibility for your business logic. They let you get and set the current Gantt state on demand outside of the Gantt events.
 
-* `GetState` returns the Gantt state so you can store it only on a certain condition - for example, you may want to save the Gantt layout only on a button click, and not on every user interaction with the Gantt. You can also use it to get information about the current state of the filters, sorts and so on, if you are not using the OnRead event.
+* `GetState` returns the Gantt state so you can store it only on a certain condition - for example, you may want to save the Gantt layout only on a button click, and not on every user interaction with the Gantt. You can also use it to get information about the current state of the filters, sorts and so on.
 
-* `SetState` takes an instance of a Gantt state so you can use your own code to alter the Gantt layout and state. For example, you can have a button that puts the Gantt in a certain configuration that helps your users review data (like certain filters, sorts, expanded items, initiate item editing or inserting, etc.).
+* `SetStateAsync` takes an instance of a Gantt state so you can use your own code to alter the Gantt layout and state. For example, you can have a button that puts the Gantt in a certain configuration that helps your users review data (like certain filters, sorts, expanded items, initiate item editing or inserting, etc.).
 
-If you want to make changes on the current Gantt state, first get it from the Gantt through the `GetState` method, then apply the modifications on the object you got and pass it to `SetState`.
+If you want to make changes on the current Gantt state, first get it from the Gantt through the `GetState` method, then apply the modifications on the object you got and pass it to `SetStateAsync`. This will allow you preserving the current component options such as TreeListWidth, Timeline View, sorts, filters etc. 
 
-If you want to put the Gantt in a certain configuration without preserving the old one, create a `new GanttState<T>()` and apply the settings there, then pass it to `SetState`.
+If you want to put the Gantt in a certain configuration without preserving the old one, create a `new GanttState<T>()` and apply the settings there, then pass it to `SetStateAsync`. Thus, any previously applied settings will be lost and the component options will be reset to their default state if not explicitly set through the `GanttState`.
 
-To reset the Gantt state, call `SetState(null)`.
+To reset the Gantt state, call `SetStateAsync(null)`.
 
-You should avoid calling `SetState` in the Gantt [CRUD methods]({%slug components/Gantt/editing/overview%}) (such as [OnRead]({%slug components/Gantt/manual-operations%}), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the Gantt has more logic to execute after the event.
+You should avoid calling `SetStateAsync` in the Gantt [CRUD methods]({%slug gantt-tree-editing%}#events) (such as `OnUpdate`, `OnEdit`, `OnCreate`). Doing so may lead to unexpected results because the Gantt has more logic to execute after the event.
 
 ## Information in the Gantt State
 
@@ -83,15 +82,15 @@ The following information is present in the Gantt state:
 
 * **Filtering** - filter descriptors (fields by which the Gantt is filtered, the operator and value).
 
-* **SearchFilter** - filter descriptor specific to the GanttSearchBox.
-
-* **Rows** - list of expanded items.
-
 * **Sorting** - sort descriptors (fields by which the Gantt is sorted, and the direction).
 
-* **Selection** - list of selected items.
+* **Expanded Items** - list of expanded parent items.
 
-* **Columns** - Visible, Width, Index (order) of the column that the user sees, Locked (pinned).
+* **View** - the current [`GanttView`]({%slug gantt-timeline-views%})
+
+* **TreeList Width** - the width of the Gantt TreeList.
+
+* **TreeList Columns** - Field, Visible, Width, Index (order) of the column that the user sees.
 
     * The Gantt matches the columns from its markup sequentially (in the same order) with the columns list in the state object. So, when you restore/set the state, the Gantt must initialize with the same collection of columns that were used to save the state.
     
@@ -354,7 +353,7 @@ public class LocalStorage
 ````
 
 <!-- ### Save and Load Gantt State in a WebAssembly application
-The [knowledge base article for saving the Gantt state in a WASM application]({%slug Gantt-kb-save-state-in-webassembly%}) explains two ways of storing the `Gantt` state - through a custom controller and a custom service that calls the browser's LocalStorage. -->
+The [knowledge base article for saving the Gantt state in a WASM application] explains two ways of storing the `Gantt` state - through a custom controller and a custom service that calls the browser's LocalStorage. -->
 
 ### Set Gantt Options Through State
 
@@ -362,7 +361,7 @@ The Gantt state allows you to control the behavior of the Gantt programmatically
 
 >tip The individual tabs below show how you can use the state to programmatically set the Gantt filtering, sorting and other features.
 
-@[template](/_contentTemplates/Gantt/state.md#initial-state)
+>tip If you want to set an initial state to the Gantt, use a similar snippet, but in the `OnStateInit` event.
 
 <div class="skip-repl"></div>
 ````Sorting
@@ -376,9 +375,9 @@ The Gantt state allows you to control the behavior of the Gantt programmatically
 ````
 ````Hierarchy
 @[template](/_contentTemplates/gantt/state.md#expand-hierarchy-from-code)
-```` -->
+````
 
-<!-- @[template](/_contentTemplates/gantt/state.md#filter-menu-default-filters) -->
+@[template](/_contentTemplates/gantt/state.md#filter-menu-default-filters)
 
 
 ### Set Default (Initial) State
@@ -614,7 +613,7 @@ To test it out, try filtering the Title column
             foreach (FilterDescriptor item in args.State.FilterDescriptors)
             {
                 // you could override a user action as well - change settings on the corresponding parameter
-                // make sure that the .SetState() method of the Gantt is always called if you do that
+                // make sure that the .SetStateAsync() method of the Gantt is always called if you do that
                 if (item.Member == "Title")
                 {
                     item.Value = "Task 1";
@@ -718,9 +717,9 @@ To test it out, try filtering the Title column
 
 ### Initiate Editing or Inserting of an Item
 
-The Gantt state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the Gantt state. If you want to save on every keystroke instead of on `OnChange` - use a custom editor template and update the `EditItem` or `InsertedItem` of the state object as required, then save the state into your service.
+The Gantt state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the Gantt state. If you want to save on every keystroke instead of on `OnChange` - use a custom [EditorTemplate]({%slug gantt-templates-editor%}) and update the `EditItem` or `InsertedItem` of the state object as required, then save the state into your service.
 
-In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `InsertItem` fields of the state object to put the Gantt in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug components/Gantt/columns/command%}).
+In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `InsertItem` and `ParentItem` fields of the state object to put the Gantt in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug gantt-columns-command%}).
 
 >caption Put and item in Edit mode or start Inserting a new item
 
@@ -980,7 +979,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 
 ### Get Current Columns Visibility, Order, Field
 
-The `ColumnStates` property of the GanttState object provides you with information about the current state of the Gantt columns. It contains the following properties:
+The `ColumnStates` property of the `GanttState` object provides you with information about the current state of the Gantt columns. It contains the following properties:
 
 
 Field | Type | Description
