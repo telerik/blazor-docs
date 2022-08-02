@@ -14,8 +14,8 @@
               @bind-TreeListWidth="@TreeListWidth"
               Width="1000px"
               Height="600px"
-              OnUpdate="@UpdateItem"
-              OnDelete="@DeleteItem">
+              OnUpdate="@OnGanttUpdate"
+              OnDelete="@OnGanttDelete">
     <GanttColumns>
         <GanttColumn Field="Title"
                      Expandable="true"
@@ -65,7 +65,7 @@
 
     #region Gantt model, dummy data generation and sample CRUD operations
 
-    private void UpdateItem(GanttUpdateEventArgs args)
+    private void OnGanttUpdate(GanttUpdateEventArgs args)
     {
         var item = args.Item as GanttTask;
 
@@ -80,7 +80,7 @@
         }
     }
 
-    private void DeleteItem(GanttDeleteEventArgs args)
+    private void OnGanttDelete(GanttDeleteEventArgs args)
     {
         var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
@@ -170,8 +170,8 @@
               @bind-TreeListWidth="@TreeListWidth"
               Width="1000px"
               Height="600px"
-              OnUpdate="@UpdateItem"
-              OnDelete="@DeleteItem">
+              OnUpdate="@OnGanttUpdate"
+              OnDelete="@OnGanttDelete">
     <GanttColumns>
         <GanttColumn Field="Title"
                      Expandable="true"
@@ -225,7 +225,7 @@
 
     #region Gantt model, dummy data generation and sample CRUD operations
 
-    private void UpdateItem(GanttUpdateEventArgs args)
+    private void OnGanttUpdate(GanttUpdateEventArgs args)
     {
         var item = args.Item as GanttTask;
 
@@ -240,7 +240,7 @@
         }
     }
 
-    private void DeleteItem(GanttDeleteEventArgs args)
+    private void OnGanttDelete(GanttDeleteEventArgs args)
     {
         var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
@@ -331,8 +331,8 @@
               @bind-TreeListWidth="@TreeListWidth"
               Width="1000px"
               Height="600px"
-              OnUpdate="@UpdateItem"
-              OnDelete="@DeleteItem">
+              OnUpdate="@OnGanttUpdate"
+              OnDelete="@OnGanttDelete">
     <GanttColumns>
         <GanttColumn Field="Title"
                      Expandable="true"
@@ -391,7 +391,7 @@
 
     #region Gantt model, dummy data generation and sample CRUD operations
 
-    private void UpdateItem(GanttUpdateEventArgs args)
+    private void OnGanttUpdate(GanttUpdateEventArgs args)
     {
         var item = args.Item as GanttTask;
 
@@ -406,7 +406,7 @@
         }
     }
 
-    private void DeleteItem(GanttDeleteEventArgs args)
+    private void OnGanttDelete(GanttDeleteEventArgs args)
     {
         var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
@@ -494,8 +494,8 @@
               @bind-TreeListWidth="@TreeListWidth"
               Width="1000px"
               Height="600px"
-              OnUpdate="@UpdateItem"
-              OnDelete="@DeleteItem">
+              OnUpdate="@OnGanttUpdate"
+              OnDelete="@OnGanttDelete">
     <GanttColumns>
         <GanttColumn Field="Title"
                      Expandable="true"
@@ -542,7 +542,7 @@
 
     #region Gantt model, dummy data generation and sample CRUD operations
 
-    private void UpdateItem(GanttUpdateEventArgs args)
+    private void OnGanttUpdate(GanttUpdateEventArgs args)
     {
         var item = args.Item as GanttTask;
 
@@ -557,7 +557,7 @@
         }
     }
 
-    private void DeleteItem(GanttDeleteEventArgs args)
+    private void OnGanttDelete(GanttDeleteEventArgs args)
     {
         var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
