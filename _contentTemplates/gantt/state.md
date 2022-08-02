@@ -3,14 +3,14 @@
 
 @using Telerik.DataSource
 
-<TelerikButton OnClick="@SetGanttSort">Sort from code</TelerikButton>
+<TelerikButton OnClick="@SetGanttSort">Sort Gantt by Status</TelerikButton>
 
 <TelerikGantt @ref="@GanttRef"
-              Data="@Data"
+              Data="@GanttData"
               Sortable="true"
               IdField="Id"
               ParentIdField="ParentId"
-              @bind-View="@SelectedView"
+              @bind-View="@GanttView"
               @bind-TreeListWidth="@TreeListWidth"
               Width="1000px"
               Height="600px"
@@ -43,12 +43,15 @@
 </TelerikGantt>
 
 @code {
-    TelerikGantt<GanttTask> GanttRef;
-    List<GanttTask> Data { get; set; }
-    public string TreeListWidth { get; set; } = "50%";
-    public GanttView SelectedView { get; set; } = GanttView.Week;
+    private TelerikGantt<GanttTask> GanttRef;
 
-    async Task SetGanttSort()
+    private List<GanttTask> GanttData { get; set; }
+
+    private string TreeListWidth { get; set; } = "50%";
+
+    private GanttView GanttView { get; set; } = GanttView.Week;
+
+    private async Task SetGanttSort()
     {
         GanttState<GanttTask> currState = GanttRef.GetState();
 
@@ -56,67 +59,17 @@
         {
             new SortDescriptor { Member = "PercentComplete", SortDirection = ListSortDirection.Ascending }
         };
-            
+
         await GanttRef.SetStateAsync(currState);
     }
 
-    //Gantt model, dummy data generation and sample CRUD operations
-    class GanttTask
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Title { get; set; }
-        public double PercentComplete { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-    }
-
-    public int LastId { get; set; } = 1;
-
-    protected override void OnInitialized()
-    {
-        Data = new List<GanttTask>();
-        var random = new Random();
-
-        for (int i = 1; i < 6; i++)
-        {
-            var newItem = new GanttTask()
-                {
-                    Id = LastId,
-                    Title = "Task  " + i.ToString(),
-                    Start = new DateTime(2021, 7, 5 + i),
-                    End = new DateTime(2021, 7, 11 + i),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                };
-
-            Data.Add(newItem);
-            var parentId = LastId;
-            LastId++;
-
-            for (int j = 0; j < 5; j++)
-            {
-                Data.Add(new GanttTask()
-                    {
-                        Id = LastId,
-                        ParentId = parentId,
-                        Title = "    Task " + i + " : " + j.ToString(),
-                        Start = new DateTime(2021, 7, 5 + j),
-                        End = new DateTime(2021, 7, 6 + i + j),
-                        PercentComplete = Math.Round(random.NextDouble(), 2)
-                    });
-
-                LastId++;
-            }
-        }
-
-        base.OnInitialized();
-    }
+    #region Gantt model, dummy data generation and sample CRUD operations
 
     private void UpdateItem(GanttUpdateEventArgs args)
     {
         var item = args.Item as GanttTask;
 
-        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+        var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
         if (foundItem != null)
         {
@@ -129,22 +82,75 @@
 
     private void DeleteItem(GanttDeleteEventArgs args)
     {
-        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
         RemoveChildRecursive(item);
     }
 
     private void RemoveChildRecursive(GanttTask item)
     {
-        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+        var children = GanttData.Where(i => item.Id.Equals(i.ParentId)).ToList();
 
         foreach (var child in children)
         {
             RemoveChildRecursive(child);
         }
 
-        Data.Remove(item);
+        GanttData.Remove(item);
     }
+
+    private int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        GanttData = new List<GanttTask>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new GanttTask()
+            {
+                Id = LastId,
+                Title = "Task  " + i.ToString(),
+                Start = new DateTime(2021, 7, 5 + i),
+                End = new DateTime(2021, 7, 11 + i),
+                PercentComplete = Math.Round(random.NextDouble(), 2)
+            };
+
+            GanttData.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                GanttData.Add(new GanttTask()
+                {
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Task " + i + " : " + j.ToString(),
+                    Start = new DateTime(2021, 7, 5 + j),
+                    End = new DateTime(2021, 7, 6 + i + j),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    public class GanttTask
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    #endregion
 }
 #end
 
@@ -153,14 +159,14 @@
 
 @using Telerik.DataSource
 
-<TelerikButton ThemeColor="primary" OnClick="@SetGanttFilter">Set filter from code</TelerikButton>
+<TelerikButton OnClick="@SetGanttFilter">Filter Gantt by Task 2</TelerikButton>
 
-<TelerikGantt Data="@Data"
-              @ref="@GanttRef"
+<TelerikGantt @ref="@GanttRef"
+              Data="@GanttData"
               FilterMode="@GanttFilterMode.FilterRow"
               IdField="Id"
               ParentIdField="ParentId"
-              @bind-View="@SelectedView"
+              @bind-View="@GanttView"
               @bind-TreeListWidth="@TreeListWidth"
               Width="1000px"
               Height="600px"
@@ -192,13 +198,16 @@
     </GanttViews>
 </TelerikGantt>
 
-@code {    
-    TelerikGantt<GanttTask> GanttRef;
-    List<GanttTask> Data { get; set; }
-    public string TreeListWidth { get; set; } = "50%";
-    public GanttView SelectedView { get; set; } = GanttView.Week;
+@code {
+    private TelerikGantt<GanttTask> GanttRef;
 
-    async Task SetGanttFilter()
+    private List<GanttTask> GanttData { get; set; }
+
+    private string TreeListWidth { get; set; } = "50%";
+
+    private GanttView GanttView { get; set; } = GanttView.Week;
+
+    private async Task SetGanttFilter()
     {
         var filterDescriptorCollection = new FilterDescriptorCollection();
 
@@ -214,63 +223,13 @@
         await GanttRef.SetStateAsync(currState);
     }
 
-    //Gantt model, dummy data generation and sample CRUD operations
-    class GanttTask
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Title { get; set; }
-        public double PercentComplete { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-    }
-
-    public int LastId { get; set; } = 1;
-
-    protected override void OnInitialized()
-    {
-        Data = new List<GanttTask>();
-        var random = new Random();
-
-        for (int i = 1; i < 6; i++)
-        {
-            var newItem = new GanttTask()
-                {
-                    Id = LastId,
-                    Title = "Task  " + i.ToString(),
-                    Start = new DateTime(2021, 7, 5 + i),
-                    End = new DateTime(2021, 7, 11 + i),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                };
-
-            Data.Add(newItem);
-            var parentId = LastId;
-            LastId++;
-
-            for (int j = 0; j < 5; j++)
-            {
-                Data.Add(new GanttTask()
-                    {
-                        Id = LastId,
-                        ParentId = parentId,
-                        Title = "    Task " + i + " : " + j.ToString(),
-                        Start = new DateTime(2021, 7, 5 + j),
-                        End = new DateTime(2021, 7, 6 + i + j),
-                        PercentComplete = Math.Round(random.NextDouble(), 2)
-                    });
-
-                LastId++;
-            }
-        }
-
-        base.OnInitialized();
-    }
+    #region Gantt model, dummy data generation and sample CRUD operations
 
     private void UpdateItem(GanttUpdateEventArgs args)
     {
         var item = args.Item as GanttTask;
 
-        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+        var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
         if (foundItem != null)
         {
@@ -283,39 +242,92 @@
 
     private void DeleteItem(GanttDeleteEventArgs args)
     {
-        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
         RemoveChildRecursive(item);
     }
 
     private void RemoveChildRecursive(GanttTask item)
     {
-        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+        var children = GanttData.Where(i => item.Id.Equals(i.ParentId)).ToList();
 
         foreach (var child in children)
         {
             RemoveChildRecursive(child);
         }
 
-        Data.Remove(item);
+        GanttData.Remove(item);
     }
+
+    private int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        GanttData = new List<GanttTask>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new GanttTask()
+            {
+                Id = LastId,
+                Title = "Task  " + i.ToString(),
+                Start = new DateTime(2021, 7, 5 + i),
+                End = new DateTime(2021, 7, 11 + i),
+                PercentComplete = Math.Round(random.NextDouble(), 2)
+            };
+
+            GanttData.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                GanttData.Add(new GanttTask()
+                {
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Task " + i + " : " + j.ToString(),
+                    Start = new DateTime(2021, 7, 5 + j),
+                    End = new DateTime(2021, 7, 6 + i + j),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    public class GanttTask
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    #endregion
 }
 #end
 
 
 #filter-menu-from-code
-@*Set filter from code through the Gantt state*@
+@*Filter from code through the Gantt state*@
 
 @using Telerik.DataSource
 
-<TelerikButton ThemeColor="primary" OnClick="@SetGanttFilter">Set filter from code</TelerikButton>
+<TelerikButton OnClick="@SetGanttFilter">Filter Gantt by Task 2 and 5</TelerikButton>
 
-<TelerikGantt Data="@Data"
-              @ref="@GanttRef"
+<TelerikGantt @ref="@GanttRef"
+              Data="@GanttData"
               FilterMode="@GanttFilterMode.FilterMenu"
               IdField="Id"
               ParentIdField="ParentId"
-              @bind-View="@SelectedView"
+              @bind-View="@GanttView"
               @bind-TreeListWidth="@TreeListWidth"
               Width="1000px"
               Height="600px"
@@ -348,12 +360,15 @@
 </TelerikGantt>
 
 @code {
-    TelerikGantt<GanttTask> GanttRef;
-    List<GanttTask> Data { get; set; }
-    public string TreeListWidth { get; set; } = "50%";
-    public GanttView SelectedView { get; set; } = GanttView.Week;
+    private TelerikGantt<GanttTask> GanttRef;
 
-    async Task SetGanttFilter()
+    private List<GanttTask> GanttData { get; set; }
+
+    private string TreeListWidth { get; set; } = "50%";
+
+    private GanttView GanttView { get; set; } = GanttView.Week;
+
+    private async Task SetGanttFilter()
     {
         var filterDescriptorCollection = new FilterDescriptorCollection()
         {
@@ -374,63 +389,13 @@
         await GanttRef.SetStateAsync(currState);
     }
 
-    //Gantt model, dummy data generation and sample CRUD operations
-    class GanttTask
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Title { get; set; }
-        public double PercentComplete { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-    }
-
-    public int LastId { get; set; } = 1;
-
-    protected override void OnInitialized()
-    {
-        Data = new List<GanttTask>();
-        var random = new Random();
-
-        for (int i = 1; i < 6; i++)
-        {
-            var newItem = new GanttTask()
-                {
-                    Id = LastId,
-                    Title = "Task  " + i.ToString(),
-                    Start = new DateTime(2021, 7, 5 + i),
-                    End = new DateTime(2021, 7, 11 + i),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                };
-
-            Data.Add(newItem);
-            var parentId = LastId;
-            LastId++;
-
-            for (int j = 0; j < 5; j++)
-            {
-                Data.Add(new GanttTask()
-                    {
-                        Id = LastId,
-                        ParentId = parentId,
-                        Title = "    Task " + i + " : " + j.ToString(),
-                        Start = new DateTime(2021, 7, 5 + j),
-                        End = new DateTime(2021, 7, 6 + i + j),
-                        PercentComplete = Math.Round(random.NextDouble(), 2)
-                    });
-
-                LastId++;
-            }
-        }
-
-        base.OnInitialized();
-    }
+    #region Gantt model, dummy data generation and sample CRUD operations
 
     private void UpdateItem(GanttUpdateEventArgs args)
     {
         var item = args.Item as GanttTask;
 
-        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+        var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
         if (foundItem != null)
         {
@@ -443,36 +408,89 @@
 
     private void DeleteItem(GanttDeleteEventArgs args)
     {
-        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
         RemoveChildRecursive(item);
     }
 
     private void RemoveChildRecursive(GanttTask item)
     {
-        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+        var children = GanttData.Where(i => item.Id.Equals(i.ParentId)).ToList();
 
         foreach (var child in children)
         {
             RemoveChildRecursive(child);
         }
 
-        Data.Remove(item);
+        GanttData.Remove(item);
     }
+
+    private int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        GanttData = new List<GanttTask>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new GanttTask()
+            {
+                Id = LastId,
+                Title = "Task  " + i.ToString(),
+                Start = new DateTime(2021, 7, 5 + i),
+                End = new DateTime(2021, 7, 11 + i),
+                PercentComplete = Math.Round(random.NextDouble(), 2)
+            };
+
+            GanttData.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                GanttData.Add(new GanttTask()
+                {
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Task " + i + " : " + j.ToString(),
+                    Start = new DateTime(2021, 7, 5 + j),
+                    End = new DateTime(2021, 7, 6 + i + j),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    public class GanttTask
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    #endregion
 }
 #end
 
 #expand-hierarchy-from-code
-@*Programmatically expand and collapse items through the Gantt state*@
+@*Expand and collapse items through the Gantt state*@
 
-<TelerikButton ThemeColor="primary" OnClick="@SetExpandedItems">Expand only first item and collapse the rest</TelerikButton>
+<TelerikButton OnClick="@SetExpandedItems">Expand First Task Only</TelerikButton>
 
-<TelerikGantt Data="@Data"
+<TelerikGantt Data="@GanttData"
               @ref="@GanttRef"
               FilterMode="@GanttFilterMode.FilterRow"
               IdField="Id"
               ParentIdField="ParentId"
-              @bind-View="@SelectedView"
+              @bind-View="@GanttView"
               @bind-TreeListWidth="@TreeListWidth"
               Width="1000px"
               Height="600px"
@@ -505,77 +523,30 @@
 </TelerikGantt>
 
 @code {
-    TelerikGantt<GanttTask> GanttRef;
-    List<GanttTask> Data { get; set; }
-    public string TreeListWidth { get; set; } = "50%";
-    public GanttView SelectedView { get; set; } = GanttView.Week;
+    private TelerikGantt<GanttTask> GanttRef;
+
+    private List<GanttTask> GanttData { get; set; }
+
+    private string TreeListWidth { get; set; } = "50%";
+
+    private GanttView GanttView { get; set; } = GanttView.Week;
 
     async Task SetExpandedItems()
     {
         GanttState<GanttTask> currState = GanttRef.GetState();
 
-        currState.ExpandedItems = new List<GanttTask>() { Data.FirstOrDefault() };
+        currState.ExpandedItems = new List<GanttTask>() { GanttData.FirstOrDefault() };
 
         await GanttRef.SetStateAsync(currState);
     }
 
-    //Gantt model, dummy data generation and sample CRUD operations
-    class GanttTask
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Title { get; set; }
-        public double PercentComplete { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-    }
-
-    public int LastId { get; set; } = 1;
-
-    protected override void OnInitialized()
-    {
-        Data = new List<GanttTask>();
-        var random = new Random();
-
-        for (int i = 1; i < 6; i++)
-        {
-            var newItem = new GanttTask()
-                {
-                    Id = LastId,
-                    Title = "Task  " + i.ToString(),
-                    Start = new DateTime(2021, 7, 5 + i),
-                    End = new DateTime(2021, 7, 11 + i),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                };
-
-            Data.Add(newItem);
-            var parentId = LastId;
-            LastId++;
-
-            for (int j = 0; j < 5; j++)
-            {
-                Data.Add(new GanttTask()
-                    {
-                        Id = LastId,
-                        ParentId = parentId,
-                        Title = "    Task " + i + " : " + j.ToString(),
-                        Start = new DateTime(2021, 7, 5 + j),
-                        End = new DateTime(2021, 7, 6 + i + j),
-                        PercentComplete = Math.Round(random.NextDouble(), 2)
-                    });
-
-                LastId++;
-            }
-        }
-
-        base.OnInitialized();
-    }
+    #region Gantt model, dummy data generation and sample CRUD operations
 
     private void UpdateItem(GanttUpdateEventArgs args)
     {
         var item = args.Item as GanttTask;
 
-        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+        var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
         if (foundItem != null)
         {
@@ -588,21 +559,74 @@
 
     private void DeleteItem(GanttDeleteEventArgs args)
     {
-        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
         RemoveChildRecursive(item);
     }
 
     private void RemoveChildRecursive(GanttTask item)
     {
-        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+        var children = GanttData.Where(i => item.Id.Equals(i.ParentId)).ToList();
 
         foreach (var child in children)
         {
             RemoveChildRecursive(child);
         }
 
-        Data.Remove(item);
+        GanttData.Remove(item);
     }
+
+    private int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        GanttData = new List<GanttTask>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new GanttTask()
+            {
+                Id = LastId,
+                Title = "Task  " + i.ToString(),
+                Start = new DateTime(2021, 7, 5 + i),
+                End = new DateTime(2021, 7, 11 + i),
+                PercentComplete = Math.Round(random.NextDouble(), 2)
+            };
+
+            GanttData.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                GanttData.Add(new GanttTask()
+                {
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Task " + i + " : " + j.ToString(),
+                    Start = new DateTime(2021, 7, 5 + j),
+                    End = new DateTime(2021, 7, 6 + i + j),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    public class GanttTask
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    #endregion
 }
 #end
