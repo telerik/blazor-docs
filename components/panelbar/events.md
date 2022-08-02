@@ -15,6 +15,7 @@ This article explains the events available in the Telerik TreeView for Blazor:
 * [OnItemClick](#onitemclick)
 * [ExpandedItemsChanged](#expandeditemschanged)
 * [OnItemRender](#onitemrender)
+* [OnExpand and OnCollapse](#onexpand-and-oncollapse)
 
 ## OnItemClick
 
@@ -300,6 +301,104 @@ If the item that is customized has children, they will also inherit the styles a
         Items = LoadFlatData();
 
         base.OnInitialized();
+    }
+}
+````
+
+## OnExpand and OnCollapse
+
+The `OnExpand` and `OnCollapse` events fire when the user tries to expand/collapse an item, but *before* the actual action takes place.
+
+The `OnExpand` handler receives an argument of type `PanelBarExpandEventArgs`.
+
+The `OnCollapse` handler receives an argument of type `PanelBarCollapseEventArgs`.
+
+Both event arguments expose an `Item` and `IsCancelled` properties. To cancel each event, set `args.IsCancelled` to `true`. In this case, the item will gain focus and selection, but its state will remain unchanged.
+
+>caption PanelBar OnExpand and OnCollapse Events
+
+````CSHTML
+<TelerikPanelBar Data="@PanelBarItems"
+                 OnExpand="@OnPanelBarExpand"
+                 OnCollapse="@OnPanelBarCollapse">
+</TelerikPanelBar>
+
+@code {
+    private List<PanelBarItem> PanelBarItems { get; set; }
+
+    private async Task OnPanelBarExpand(PanelBarExpandEventArgs args)
+    {
+        Console.WriteLine($"The expanded item is: {(args.Item as PanelBarItem).Text}");
+
+        // to prevent the event
+        //args.IsCancelled = true;
+    }
+
+    private async Task OnPanelBarCollapse(PanelBarCollapseEventArgs args)
+    {
+        Console.WriteLine($"The collapsed item is: {(args.Item as PanelBarItem).Text}");
+    }
+
+    protected override void OnInitialized()
+    {
+        PanelBarItems = LoadFlatData();
+
+        base.OnInitialized();
+    }
+
+    private List<PanelBarItem> LoadFlatData()
+    {
+        List<PanelBarItem> items = new List<PanelBarItem>();
+
+        items.Add(new PanelBarItem()
+        {
+            Id = 1,
+            Text = "Company",
+            ParentId = null,
+            HasChildren = false,
+        });
+
+        items.Add(new PanelBarItem()
+        {
+            Id = 2,
+            Text = "Contact us",
+            ParentId = null,
+            HasChildren = true,
+        });
+
+        items.Add(new PanelBarItem()
+        {
+            Id = 3,
+            Text = "Email",
+            ParentId = 2,
+            HasChildren = false
+        });
+
+        items.Add(new PanelBarItem()
+        {
+            Id = 4,
+            Text = "LinkedIn",
+            ParentId = 2,
+            HasChildren = false
+        });
+
+        items.Add(new PanelBarItem()
+        {
+            Id = 5,
+            Text = "Audio",
+            ParentId = null,
+            HasChildren = false
+        });
+
+        return items;
+    }
+
+    public class PanelBarItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public int? ParentId { get; set; }
+        public bool HasChildren { get; set; }
     }
 }
 ````
