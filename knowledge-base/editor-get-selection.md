@@ -45,7 +45,7 @@ At this point, you can apply changes to it with JavaScript.
 If you want to use it on the .NET (Blazor) side, you need to:
 
 1. Serialize the selection to a string so .NET can understand it, by using the `toString()` method.
-1. Call a JavaScript function from a [Custom Tool]({%slug editor-custom-tool%}) in the Editor that will return that selection.
+1. Call a JavaScript function from a [Custom Tool]({%slug editor-custom-tools%}) in the Editor that will return that selection.
 
 <div class="skip-repl"></div>
 ````Component
@@ -104,7 +104,7 @@ At this point, you can apply changes to it with JavaScript.
 If you want to use it on the .NET (Blazor) side, you need to:
 
 1. Serialize the selection to a string so .NET can understand it, by using the `toString()` method.
-1. Call a JavaScript function from a [Custom Tool]({%slug editor-custom-tool%}) in the Editor that will return that selection.
+1. Call a JavaScript function from a [Custom Tool]({%slug editor-custom-tools%}) in the Editor that will return that selection.
 
 <div class="skip-repl"></div>
 ````Component
