@@ -149,7 +149,7 @@
 #end
 
 #filter-row-from-code
-@*Set filter from code through the Gantt state*@
+@*Filter from code through the Gantt state*@
 
 @using Telerik.DataSource
 
