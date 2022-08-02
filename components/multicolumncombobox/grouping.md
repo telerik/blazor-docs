@@ -10,60 +10,66 @@ position: 15
 
 # MultiColumnComboBox Grouping
 
-The MultiColumnComboBox component allows users to see the listed items grouped in categories. This can improve the user experience and make browsing through the items faster.
+The MultiColumnComboBox component can display the listed items in groups. This can improve the user experience and make browsing the items faster.
 
 To enable MultiColumnComboBox grouping, set the `GroupField` parameter to a field name from the model. The MultiColumnComboBox will display the corresponding field values as group headers in the dropdown. Nested values of complex object properties are supported (see the example below).
 
-The group headers can stick to the top of the dropdown during scrolling. In other words, users will always know which is the group of the current topmost items in the scrollable list.
+The group headers stick to the top of the dropdown during scrolling. In other words, users will always know which is the group of the current topmost items in the scrollable list.
 
 >caption Grouping in the MultiColumnComboBox
 
 ````CSHTML
-<TelerikMultiColumnComboBox Data="@Data"
-                 @bind-Value="@SelectedValue"
-                 GroupField="Category.CategoryName"
-                 TextField="ProductName"
-                 ValueField="ProductId"
-                 Placeholder="Select a product">
-                 <MultiColumnComboBoxColumns>
-                     <MultiColumnComboBoxColumn Field="@nameof(Product.ProductId)"></MultiColumnComboBoxColumn>
-                     <MultiColumnComboBoxColumn Field="@nameof(Product.ProductName)"></MultiColumnComboBoxColumn>
-                 </MultiColumnComboBoxColumns>
+<TelerikMultiColumnComboBox Data="@MultiComboData"
+                            @bind-Value="@SelectedProduct"
+                            ValueField="@nameof(Product.Id)"
+                            TextField="@nameof(Product.Name)"
+                            GroupField="Category.Name"
+                            Width="300px">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(Product.Name)" Title="Product"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(Product.Quantity)"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
 </TelerikMultiColumnComboBox>
 
+<TelerikGrid Data="@MultiComboData" Pageable="true" Groupable="true">
+    <GridColumns>
+        <GridColumn Field="@nameof(Product.Name)"></GridColumn>
+        <GridColumn Field="Category.Name"></GridColumn>
+    </GridColumns>
+</TelerikGrid>
+
 @code {
-    public IEnumerable<Product> Data { get; set; }
-    public int SelectedValue { get; set; }
+    private List<Product> MultiComboData { get; set; }
+
+    private int SelectedProduct { get; set; }
 
     protected override void OnInitialized()
     {
-        List<Product> products = new List<Product>();
-        for (int i = 0; i < 20; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                Category = new Category() { CategoryId = i % 5, CategoryName = $"Category {i % 5}" }
-            });
-        }
+        var rnd = new Random();
 
-        Data = products;
+        MultiComboData = Enumerable.Range(1, 30).Select(x => new Product()
+        {
+            Id = x,
+            Name = $"Product {x}",
+            Category = new Category() { Id = x % 7 + 1, Name = $"Category {x % 7 + 1}" },
+            Quantity = rnd.Next(0, 30)
+        }).ToList();
 
         base.OnInitialized();
     }
 
     public class Product
     {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
         public Category Category { get; set; }
+        public int Quantity { get; set; }
     }
 
     public class Category
     {
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
 ````
@@ -71,11 +77,11 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 # Notes
 
 * One level of grouping is supported.
-* The `DefaultItem` (e.g. "Select item...") is always rendered above the sticky group header in the dropdown.
-* A grouped MultiColumnComboBox will provide a `Groups` property with a single [`GroupDescriptor`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.DataSourceRequest) argument of its [OnRead event]({%slug multicolumncombobox-events%}#onread). This will allow the developer to apply grouping with [manual data operations]({%slug components/grid/manual-operations%}).
+* The `Placeholder` (e.g. "Select item...") is always rendered above the sticky group header in the dropdown.
+* A grouped MultiColumnComboBox will provide a `Groups` property with a single [`GroupDescriptor`](/blazor-ui/api/Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) argument of its [OnRead event]({%slug multicolumncombobox-events%}#onread). This will allow the developer to apply grouping with [manual data operations]({%slug common-features-data-binding-onread%}).
 * `GroupHeaderTemplate` and `GroupItemTemplate` will be introduced in a future version. Currently there is a bug in the Blazor framework that prevents us from supporting them.
 * Virtual scrolling with grouping will be supported in a future version.
 
 ## See Also
 
-  * [Live Demo: ComboBox Grouping](https://demos.telerik.com/blazor-ui/multicolumncombobox/grouping)
+* [Live Demo: ComboBox Grouping](https://demos.telerik.com/blazor-ui/multicolumncombobox/grouping)

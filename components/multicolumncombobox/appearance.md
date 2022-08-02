@@ -5,7 +5,7 @@ description: Appearance settings of the MultiColumnComboBox for Blazor.
 slug: multicolumncombobox-appearance
 tags: telerik,blazor,multicolumncombobox,combobox,appearance
 published: True
-position: 65
+position: 40
 ---
 
 # Appearance Settings
@@ -198,4 +198,3 @@ The `FillMode` controls how the TelerikMultiColumnComboBox is filled. You can se
     }
 }
 ````
-

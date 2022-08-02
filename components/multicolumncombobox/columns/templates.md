@@ -2,7 +2,7 @@
 title: Templates
 page_title: MultiColumnComboBox Column Templates
 description: Column Templates in MultiColumnComboBox for Blazor.
-slug: multicolumncombobox-templates
+slug: multicolumncombobox-columns-templates
 tags: telerik,blazor,multicolumncombobox,combo,columns,headertemplate,celltemplate,templates
 published: True
 position: 10
@@ -13,16 +13,8 @@ position: 10
 
 This article explains the available templates for the Columns of the MultiColumnComboBox for Blazor.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
-| Template      | Description
-| ----------- | ----------- | -----------|
-| [`HeaderTemplate`](#headertemplate) | The HeaderTemplate allows you to control the rendering of the column's header cell. |
-| [`Template`](#template) | The Template allows you to control the rendering of the column's cells. |
+* [`HeaderTemplate`](#headertemplate)
+* [`Template`](#template)
 
 
 ## HeaderTemplate

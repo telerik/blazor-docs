@@ -23,23 +23,23 @@ By virtualizing the elements in the dropdown, you can use huge data sources with
 #end
 
 #styling
-| Parameter      | Type | Description
-| ----------- | ----------- | -----------|
-| `Width` | `string` | the width of the component. It will target both the dropdown and the main element if the dropdown has no specific width set. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information)
-| `Class` | `string` | the CSS class that will be rendered on the main wrapping element of the component.
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the component. Use it to [override the theme or apply custom styles]({%slug themes-override%}). |
+| `Width` | `string` | The width of the component. It will target both the dropdown and the main element if the dropdown has no specific width set. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information) |
 #end
 
 #popup-settings
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter      | Type | Description
-| ----------- | ----------- | -----------|
-| `AnimationDuration` | `int` | the animation duration of the popup.
-| `Class` | `string` | additional CSS class to customize the appearance of the popup.
-| `Height` | `string` | the height of the popup.
-| `MinHeight`| `string` | the minimum height of the popup.
-| `MaxHeight` | `string` | the maximum height of the popup.
-| `Width` | `string` | the width of the popup. If you don't specify a value, the dropdown width will match the anchor element width which can help with responsive layouts and 100% widths.
-| `MinWidth` | `string` | the minimum width of the popup.
-| `MaxWidth` | `string` | the maximum width of the popup.
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `AnimationDuration` | `int` | The animation duration of the popup in milliseconds. |
+| `Class` | `string` | Additional CSS class to customize the appearance of the popup. |
+| `Height` | `string` | The height of the popup. |
+| `MinHeight`| `string` | The minimum height of the popup. |
+| `MinWidth` | `string` | The minimum width of the popup. |
+| `MaxHeight` | `string` | The maximum height of the popup. |
+| `MaxWidth` | `string` | The maximum width of the popup. |
+| `Width` | `string` | The width of the popup. If you don't specify a value, the dropdown width will match the anchor element width which can help with responsive layouts and 100% widths. |
 #end

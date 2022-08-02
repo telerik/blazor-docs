@@ -1,33 +1,29 @@
 ---
-title: Bound Column
-page_title: MultiColumnComboBox Bound Column
+title: Overview
+page_title: MultiColumnComboBox Columns
 description: Data binding and bound column properties in MultiColumnComboBox for Blazor.
-slug: multicolumncombobox-bound-column
+slug: multicolumncombobox-columns-overview
 tags: telerik,blazor,multicolumncombobox,combo,columns,bound,column,databind
 published: True
 position: 0
 ---
 
-# MultiColumnComboBox Bound Column
+# MultiColumnComboBox Columns
 
 This article explains how to show data in the dropdown columns of the MultiColumnComboBox.
 
 ## Bind Data To The Columns
 
-To bind data to the `<MultiColumnComboBoxColumn>` you can use the `Field`. This parameter points to the name of field in the data source that the column will render as a string (case-sensitive). You can set it in plain text (Field="SomeField") or let .NET extract the field name from the model (Field="@nameof(MyModelClass.Field)").
+To bind data to the `<MultiColumnComboBoxColumn>` you can use the `Field`. This parameter points to the (case-sensitive) name of field in the data source that the column will render as a string. You can set it in plain text (`Field="SomeField"`) or let .NET extract the field name from the model (`Field="@nameof(MyModelClass.Field)"`).
 
 ## Parameters
 
 >caption The MultiColumnComboBox provides various parameters that allow you to configure the component:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
-| Parameter      | Type | Description
-| ----------- | ----------- | -----------|
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type | Description |
+| --- | --- | --- |
 | `Field` | `string` | Points to the name of field in the data source that the column will render as a string (case-sensitive). |
 | `Width` | `string` | Defines the width of the MultiColumnComboBoxColumn. |
 | `Class` | `string` | The CSS class that will be rendered on the column's content cells. |
