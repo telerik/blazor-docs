@@ -315,7 +315,7 @@ The `OnCollapse` handler receives an argument of type `PanelBarCollapseEventArgs
 
 Both event arguments expose an `Item` and `IsCancelled` properties. To cancel each event, set `args.IsCancelled` to `true`. In this case, the item will gain focus and selection, but its state will remain unchanged.
 
->caption PanelBar OnExpand and OnCollapseEvents
+>caption PanelBar OnExpand and OnCollapse Events
 
 ````CSHTML
 <TelerikPanelBar Data="@PanelBarItems"
