@@ -3,7 +3,7 @@
 
 @using Telerik.DataSource
 
-<TelerikButton ThemeColor="primary" OnClick="@SetGanttSort">Set sort from code</TelerikButton>
+<TelerikButton OnClick="@SetGanttSort">Sort from code</TelerikButton>
 
 <TelerikGantt Data="@Data"
               @ref="@GanttRef"
