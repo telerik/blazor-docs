@@ -37,7 +37,7 @@ This article contains the following sections:
 
 `GanttState<TItem>` is a generic class whose type is determined by the type of the model you use for the Gantt. The state object contains properties that correspond to the Gantt behaviors. You can modify, save and load the Gantt state.
 
-Fields that pertain to model data (such as edited item, inserted item, expanded items) are also typed according to the Gantt model. If you restore such data, make sure to implement appropriate comparison checks - by default the `.Equals `check for a class (model) is a reference check and the reference from the storage is unlikely to match the reference from the Gantt `Data`. Thus, you may want to override the `.Equals` method of the model you use so it compares by an ID, for example, or otherwise (in the app logic) re-populate the models in the state object with the new model references from the Gantt data source.
+State properties that relate to model data (such as edited item, inserted item, expanded items) are also typed according to the Gantt model. If you restore such data, make sure to implement appropriate comparison checks - by default the `.Equals()` check for a class (model) is a reference check and the reference from the storage will not match the reference from the Gantt `Data`. Thus, you may want to override the `Equals` method of the model, so it compares by an ID. Otherwise re-populate the data items in the state object with the new references from the Gantt data source.
 
 The Gantt offers two events and two methods to allow flexible operations over its state:
 
