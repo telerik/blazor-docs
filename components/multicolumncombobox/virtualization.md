@@ -2,7 +2,7 @@
 title: Virtualization
 page_title: MultiColumnComboBox - Virtualization
 description: UI virtualization to allow large data sources in the MultiColumnComboBox for Blazor.
-slug: combobox-virtualization
+slug: multicolumncombobox-virtualization
 tags: telerik,blazor,combo,combobox,virtualization
 published: True
 position: 30

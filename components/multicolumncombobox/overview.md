@@ -10,113 +10,128 @@ position: 0
 
 # Blazor MultiColumnComboBox Overview
 
-The <a href="https://www.telerik.com/blazor-ui/multicolumn-combobox" target="_blank">Blazor MultiColumnComboBox</a> allows the user to choose an option from a [predefined set of choices]({%slug multicolumncombobox-data-binding%}) in a dropdown grid structure. You can also allow them to enter [custom values]({%slug multicolumncombobox-custom-value%}), [filter]({%slug multicolumncombobox-filter%}) the available items, and [group]({%slug multicolumncombobox-group%}) the listed items in common categories. 
+The <a href="https://www.telerik.com/blazor-ui/multicolumn-combobox" target="_blank">Blazor MultiColumnComboBox</a> enables users to select an option from a [predefined set of choices]({%slug multicolumncombobox-data-binding%}) in a dropdown grid layout. Users can also [filter]({%slug multicolumncombobox-filter%}) or [group]({%slug multicolumncombobox-grouping%}) the available items, or enter [custom values]({%slug multicolumncombobox-custom-value%}).
+
 
 ## Creating MultiColumnComboBox
 
-1. Use the `TelerikMultiColumnComboBox` tag to add the component to your razor page.
-1. Populate the `Data` property with the collection of items that you want to appear in the dropdown.
-1. Set the `TextField` and `ValueField` properties to point to the corresponding names of the model
-1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
-1. Add `MultiColumnComboBoxColumn` instances under the `MultiColumnComboBoxColumns` tag. Each column, the `Field` must point to a property in the bound model property. Use `nameof()` or the plain field name.
+1. Use the `<TelerikMultiColumnComboBox>` tag.
+1. Populate the `Data` parameter with the collection that you want to appear in the dropdown.
+1. Set the `TextField` and `ValueField` parameters to point to the corresponding property names of the model.
+1. [Bind the component `Value`]({%slug get-started-value-vs-data-binding %}#value-binding) to a variable of the same type as the one of the `ValueField`.
+1. Add `MultiColumnComboBoxColumn` instances under the `MultiColumnComboBoxColumns` tag. The `Field` parameter of each column must point to a property in the model.
 
 >caption MultiColumnComboBox data binding with two-way value binding
 
 ````CSHTML
-Selected value: @BoundValue
-<br />
-
 <TelerikMultiColumnComboBox Data="@MultiComboData"
-                            @bind-Value="@BoundValue"
-                            ValueField="@nameof(SampleData.Id)"
-                            TextField="@nameof(SampleData.Name)">
+                            @bind-Value="@SelectedProduct"
+                            ValueField="@nameof(Product.Id)"
+                            TextField="@nameof(Product.Name)"
+                            Width="300px">
     <MultiColumnComboBoxColumns>
-        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)" Title="The id" ></MultiColumnComboBoxColumn>
-        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)" Title="The name"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(Product.Name)" Title="Product Name"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(Product.Quantity)" Title="In Stock"></MultiColumnComboBoxColumn>
     </MultiColumnComboBoxColumns>
 </TelerikMultiColumnComboBox>
 
+<p>Selected product Id: @SelectedProduct</p>
+
 @code {
-    public int BoundValue { get; set; }
+    private List<Product> MultiComboData { get; set; }
 
-    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
+    private int SelectedProduct { get; set; }
+
+    protected override void OnInitialized()
     {
-        Id = x,
-        Name = "Name " + x
-    }).ToList();
+        var rnd = new Random();
 
-    public class SampleData
+        MultiComboData = Enumerable.Range(1, 30).Select(x => new Product()
+        {
+            Id = x,
+            Name = $"Product {x}",
+            Quantity = rnd.Next(0, 30)
+        }).ToList();
+
+        base.OnInitialized();
+    }
+
+    public class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public int Quantity { get; set; }
     }
 }
 ````
 
-## Component Reference
-
-The MultiColumnComboBox is a generic component and its type is determined by the type of the model you pass to it, and the type of its value field. You can find examples in the [Data Bind - Considerations]({%slug multicolumncombobox-data-binding%}#considerations) article.
 
 ## Data Binding
 
 The Blazor MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor MultiColumnComboBox data binding...]({% slug multicolumncombobox-data-binding %}).
 
+The linked article also explains how the component behaves when the current value is not present in the data.
+
+
 ## Columns
 
-The Blazor MultiColumnComboBox allows you to define one or more columns in the dropdown. [Read more about the Blazor MultiColumnComboBox columns...]({%slug multicolumncombobox-column-overview%})
+The MultiColumnComboBox renders its dropdown items in a grid-like column layout. [Learn how to define and configure the Blazor MultiColumnComboBox columns...]({%slug multicolumncombobox-columns-overview%})
+
 
 ## Filtering
 
-The Blazor MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor ComboBox filter...]({% slug multicolumncombobox-filter %}).
+The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor MultiComboBoxComboBox filtering...]({% slug multicolumncombobox-filter %}).
+
 
 ## Grouping
 
-The Blazor MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor MultiColumnComboBox grouping...]({% slug multicolumncombobox-group %}).
+The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor MultiColumnComboBox grouping...]({% slug multicolumncombobox-grouping %}).
+
 
 ## Templates
 
 @[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor MultiColumnComboBox templates...]({% slug multicolumncombobox-templates %}).
 
+
 ## Validation
 
 @[template](/_contentTemplates/dropdowns/features.md#validation)
+
 
 ## Virtualization
 
 @[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor MultiColumnComboBox virtualization...]({% slug multicolumncombobox-virtualization %})
 
 
-## Parameters
+## MultiColumnComboBox Parameters
 
 >caption The MultiColumnComboBox provides various parameters that allow you to configure the component:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
-| Parameter      | Type | Description
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default&nbsp;Value | Description
 | ----------- | ----------- | -----------|
-| `AllowCustom` | `bool` | whether the user can enter [custom values]({%slug multicolumncombobox-custom-value%}). If enabled, the `ValueField` must be a `string`.
-| `ClearButton` | `bool` | whether the user will have the option to clear the selected value. When it is clicked, the `Value` will be updated to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, clearing the value will lead to a `0` `Value`, so if there is an Item with `0` in its `ValueField` - issues may arise with its selection. This feature can often go together with `AllowCustom`.
-| `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required.
-| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries.
-| `Enabled` | `bool` | whether the component is enabled.
-|`Filterable` | `bool` | whether [filtering]({% slug multicolumncombobox-filter %}) is enabled for the end user.
-| `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | the method of [filtering]({% slug multicolumncombobox-filter %}) the items.
-| `Id` | `string` | renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
-| `Placeholder` | `string` | the text the user sees as a hint when no item is selected. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source.
-| `TItem` | `Type` | the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
-| `TValue` | `Type` | the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum`|
-| `TextField` | `string` <br /> (`Text`)| the name of the field from the model that will be shown to the user.
-| `ValueField` | `string` <br /> (`Value`) | the name of the field from the model that will be the underlying `value`.
-| `Value` and `bind-Value` | `TValue` | get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
-| `TabIndex` | `int?` | maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
+| `AllowCustom` | `bool` | Determines if the user can enter [custom values]({%slug multicolumncombobox-custom-value%}). If enabled, the `ValueField` must be a `string`. |
+| `ClearButton` | `bool` | Displays a clear button inside the input. When it is clicked, the `Value` will change to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, there should be no data item with `0` in its `ValueField`, otherwise selection issues may occur. |
+| `Data` | `IEnumerable<TItem>` | The component data. |
+| `DebounceDelay` | `int` <br/> (`150`) | The time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries. |
+| `Enabled` | `bool` | Whether the user can interact with the component. |
+| `Filterable` | `bool` | Enables [filtering]({% slug multicolumncombobox-filter %}) for the end user. |
+| `FilterOperator` | `StringFilterOperator` enum <br /> (`StartsWith`) | The [filtering method]({% slug multicolumncombobox-filter %}). |
+| `Id` | `string` | The `id` attribute of the `<input class="k-input-inner" />` element. Use it to attach a `<label for="...">` to the input. |
+| `Placeholder` | `string` | The hint text the user sees when no item is selected. The placeholder will shown when the `Value` is set to the default value of the `ValueField` type. For example, `0` for `int`, and `null` for `int?` or `string`. |
+| `TItem` | `Type` | The type of the model. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
+| `TValue` | `Type` | The type of the `ValueField` from the model. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (`int`, `double`, etc.)<br /> - `string`<br /> - `Guid`<br /> - `Enum` |
+| `TextField` | `string` <br /> (`Text`) | The name of the model property that will be shown to the user. |
+| `ValueField` | `string` <br /> (`Value`) | The name of the model property that will be the underlying component `Value`. |
+| `Value` | `TValue` | The value of the component. Use the `@bind-Value` syntax for two-way binding. |
+| `TabIndex` | `int?` | The `tabindex` attribute of the `<input class="k-input-inner" />` element. Use it to customize the tabbing (focus) order on the page. |
 
 ### Styling and Appearance
 
 The following parameters enable you to customize the appearance of the Blazor MultiColumnComboBox:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 @[template](/_contentTemplates/dropdowns/features.md#styling)
 
@@ -127,8 +142,9 @@ You can find more options for customizing the MultiColumnComboBox styling in the
 
 The popup of the component can be additionally customized via nested tags:
 
-````
 <div class="skip-repl"></div>
+
+````
 <TelerikMultiColumnComboBox>
     <MultiColumnComboBoxSettings>
         <MultiColumnComboBoxPopupSettings Height="..." />
@@ -140,40 +156,84 @@ The MultiColumnComboBox provides the following popup settings:
 
 @[template](/_contentTemplates/dropdowns/features.md#popup-settings)
 
+## Component Reference and Methods
 
-## Selected Item
+To execute MultiColumnComboBox methods, obtain reference to the component instance via `@ref`.
 
-By default, if no `Value` is provided, the MultiColumnComboBox will appear empty, or will display the `Placeholder` defined. If a `Value` is provided and `AllowCustom` is *not* set to `true`, the `Value` should match an item in the data source (see more in the [Value Out of Range]({%slug multicolumncombobox-data-binding%}#value-out-of-range) section. 
+The MultiColumnComboBox is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters]({%slug common-features-data-binding-overview%}#component-type).
 
-The MultiColumnComboBox will not always have a selected item, however, because it can act as an input. There will be no selected item in the following cases that depend on the settings of the component that the developer can control:
+The table below lists the MultiComboBox methods. Also consult the [MultiColumnComboBox API](/blazor-ui/api/Telerik.Blazor.Components.TelerikMultiColumnComboBox-2).
 
-* the user clears the value through the Clear button,
-* the user clears the value with `Backspace` or `Del` keys,
-* `AllowCustom="false"` - when a custom value is typed, the MultiColumnComboBox input value will be automatically cleared on the change event (`blur` of the input or `Enter` keypress). See the table below.
-* `AllowCustom="true"` - when the user starts typing a custom value.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
+| Method | Description |
+| --- | --- |
+| `Close` | Closes the component dropdown. |
+| `FocusAsync` | Focuses the component textbox. |
+| `Open` | Opens the component dropdown. |
+| `Rebind` | [Refreshes the component data]({%slug common-features-data-binding-overview%}#refresh-data). |
 
-Missing selection is most common when the initial value is `null` as data sources rarely have items with a `null` value, and/or when you want to let your users type in values that are not in your predefined set of options.
+>caption Using MultiColumnComboBox methods
 
->caption If the user types text in the input, selection behaves according to the following table:
+````CSHTML
+<TelerikButton OnClick="@Open">Open MultiColumnComboBox</TelerikButton>
 
+<TelerikMultiColumnComboBox @ref="@MultiColumnComboRef"
+                            Data="@Products"
+                            @bind-Value="@SelectedProduct"
+                            ValueField="@nameof(Product.Id)"
+                            TextField="@nameof(Product.Name)"
+                            Width="300px">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(Product.Name)" Title="Product Name"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(Product.Quantity)" Title="In Stock"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 
-| User input matches | AllowCustom=`true`   | AllowCustom=`false`                      |
-|----------------------------|----------------------|------------------------------------------|
-|  The `TextField` of an item | Matched item is selected. The `Value` is taken from the item. | Matched item is selected. The `Value` is taken from the item. |
-| The `ValueField` of an item | No item is selected. `Value` is updated to the custom one. | No item is selected. `Value` is updated to `default(typeof(Value))`. The `OnChange` event does not fire for the value clearing. |
-| No match | No item is selected. `Value` is updated to the custom one. | No item is selected. `Value` is updated to `default(typeof(Value))`. The `OnChange` event does not fire for the value clearing. |
+@code {
+    private TelerikMultiColumnComboBox<Product, int> MultiColumnComboRef { get; set; }
 
+    private List<Product> Products { get; set; }
 
-@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
+    private int SelectedProduct { get; set; }
+
+    private void Open()
+    {
+        MultiColumnComboRef.Open();
+    }
+
+    protected override void OnInitialized()
+    {
+        var rnd = new Random();
+
+        Products = Enumerable.Range(1, 30).Select(x => new Product()
+        {
+            Id = x,
+            Name = $"Product {x}",
+            Quantity = rnd.Next(0, 30)
+        }).ToList();
+
+        base.OnInitialized();
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Quantity { get; set; }
+    }
+}
+````
+
 
 ## Next Steps
 
-* [Binding the MultiColumnComboBox to Data]({%slug multicolumncombobox-data-binding%})
+* [Bind the MultiColumnComboBox to data]({%slug multicolumncombobox-data-binding%})
+* [Enable MultiColumnComboBox filtering]({%slug multicolumncombobox-filter%})
+* [Allow custom MultiColumnComboBox value]({%slug multicolumncombobox-custom-value%})
+
 
 ## See Also
 
-  * [Data Binding]({% slug multicolumncombobox-data-binding %})
-  * [Live Demo: MultiColumnComboBox](https://demos.telerik.com/blazor-ui/multicolumncombobox/overview)
-  * [Live Demo: MultiColumnComboBox Validation](https://demos.telerik.com/blazor-ui/multicolumncombobox/validation)
-
+* [Live Demo: MultiColumnComboBox](https://demos.telerik.com/blazor-ui/multicolumncombobox/overview)
+* [Live Demo: MultiColumnComboBox Validation](https://demos.telerik.com/blazor-ui/multicolumncombobox/validation)

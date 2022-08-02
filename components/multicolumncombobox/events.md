@@ -5,25 +5,17 @@ description: Events in the ComboBox for Blazor.
 slug: multicolumncombobox-events
 tags: telerik,blazor,multicolumncombobox,combobox,combo,events
 published: true
-position: 40
+position: 50
 ---
 
 # MultiColumnComboBox Events
 
-This article explains the events available in the Telerik MultiColumnComboBox for Blazor:
+This article describes the events of the Telerik MultiColumnComboBox for Blazor.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
-| Event | Fire Condition |
-| --- | --- |
-| [`ValueChanged`](#valuechanged) | Fires upon a change of the user selection. If [custom values]({%slug multicolumncombobox-custom-value%}) are enabled, it fires upon every keystroke, like in a regular `<input>` element. |
-| [`OnChange`](#onchange) | Fires when the user presses `Enter` in the input, or blurs the input (for example, clicks outside of the component). The event also fires when the user selects an item from the dropdown. |
-| [`OnRead`](#onread) | Fires when the component initializes, the user [filters]({%slug multicolumncombobox-filter%}), or scrolls with [virtualization]({%slug multicolumncombobox-virtualization%}) enabled. |
-| [`OnBlur`](#onblur) | Fires when the component loses focus. |
+* [`ValueChanged`](#valuechanged)
+* [`OnChange`](#onchange)
+* [`OnRead`](#onread)
+* [`OnBlur`](#onblur)
 
 
 ## ValueChanged
@@ -202,7 +194,9 @@ See the [MultiColumnComboBox Overview - Selected Item]({%slug multicolumncombobo
 
 ## OnRead
 
-You can use the [`OnRead` event]({%slug common-features-data-binding-onread%}) to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug multicolumncombobox-virtualization%})). The event fires when:
+>tip Get familiar with the [common `OnRead` event documentation]({%slug common-features-data-binding-onread%}) first.
+
+You can use the `OnRead` event to provide data to the component according to some custom logic, the user input, or the current [virtual scroll]({%slug multicolumncombobox-virtualization%}) position. The event fires when:
 
 * the component initializes
 * the user [filters]({%slug multicolumncombobox-filter%})
@@ -212,12 +206,11 @@ You can also call remote data through `async` operations.
 
 When using `OnRead`, make sure to set `TItem` and `TValue`.
 
->caption Custom Data according to the user input in the ComboBox
-
 >tip You can also [debounce the service calls and implement minimum filter length]({%slug combo-kb-debounce-onread%}).
 
-@[template](/_contentTemplates/common/dropdowns-virtualization.md#value-in-onread)
+>caption Custom Data according to the user input in the ComboBox
 
+@[template](/_contentTemplates/common/dropdowns-virtualization.md#value-in-onread)
 
 ````CSHTML
 <p>@SelectedValue</p>

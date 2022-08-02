@@ -128,7 +128,7 @@ navigation:
         title: "Selection"
         position: 35
      "*components/multicolumncombobox/columns":
-        title: "Selection"
+        title: "Columns"
         position: 7
      "*components/treelist/data-binding":
         title: "Data Binding"
