@@ -23,9 +23,9 @@ This article contains the following sections:
 	* [Methods](#methods)
 * [Information in the Gantt State](#information-in-the-gantt-state)
 * [Examples](#examples)
+    * [Set Default (Initial) State](#set-default-initial-state)
 	* [Save and Load Gantt State from Browser LocalStorage](#save-and-load-gantt-state-from-browser-localstorage)
-	* [Set Gantt Options Through State](#set-gantt-options-through-state)
-	* [Set Default (Initial) State](#set-default-initial-state)
+	* [Set Gantt Options Through State](#set-gantt-options-through-state)	
 	* [Get and Override User Action That Changes The Gantt](#get-and-override-user-action-that-changes-the-gantt)
 	* [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
 	* [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
@@ -97,6 +97,7 @@ The following information is present in the Gantt state:
     
         If you want to change the visibility of columns, we recommend you use their `Visible` parameter rather than conditional markup - this parameter will be present in the state and will not change the columns collection count which makes it easier to reconcile changes.
 
+>tip Check the [Gantt State API Reference](/blazor-ui/api/Telerik.Blazor.Components.GanttState-1) for a full list of the properties available in the state.
 
 ## Examples
 
@@ -108,6 +109,174 @@ You can find the following examples in this section:
 * [Get and Override User Action That Changes The Gantt](#get-and-override-user-action-that-changes-the-Gantt)
 * [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
 * [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
+
+### Set Default (Initial) State
+
+If you want the Gantt to start with certain settings for your end users, you can pre-define them in the `OnStateInit event`.
+
+>caption Choose a default state of the Gantt for your users
+
+````CSHTML
+@*Set initial Gantt state*@
+
+@using Telerik.DataSource
+
+<TelerikGantt @ref="@GanttRef"
+              Data="@GanttData"
+              OnStateInit="@( (GanttStateEventArgs<GanttTask> args) => OnStateInitHandler(args) )"
+              Sortable="true"
+              FilterMode="@GanttFilterMode.FilterRow"
+              IdField="Id"
+              ParentIdField="ParentId"
+              ColumnResizable="true"
+              TreeListWidth="50%"
+              Width="1000px"
+              Height="600px"
+              OnUpdate="@OnTaskUpdate"
+              OnDelete="@OnTaskDelete">
+    <GanttColumns>
+        <GanttColumn Field="Title"
+                     Expandable="true"
+                     Width="160px"
+                     Title="Task Title">
+        </GanttColumn>
+        <GanttColumn Field="PercentComplete"
+                     Title="Status"
+                     Width="100px">
+        </GanttColumn>
+        <GanttColumn Field="Start"
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+        <GanttColumn Field="End"
+                     Width="100px"
+                     DisplayFormat="{0:d}">
+        </GanttColumn>
+    </GanttColumns>
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+    </GanttViews>
+</TelerikGantt>
+
+@code {
+    private TelerikGantt<GanttTask> GanttRef;
+
+    private List<GanttTask> GanttData { get; set; }
+
+    private async Task OnStateInitHandler(GanttStateEventArgs<GanttTask> args)
+    {
+        var filterDescriptorCollection = new FilterDescriptorCollection();
+
+        filterDescriptorCollection.Add(new FilterDescriptor(nameof(GanttTask.PercentComplete), FilterOperator.IsLessThan, 0.5) { MemberType = typeof(double) });
+
+        var state = new GanttState<GanttTask>
+            {
+                SortDescriptors = new List<Telerik.DataSource.SortDescriptor>
+                {
+                new Telerik.DataSource.SortDescriptor{ Member = "End", SortDirection = Telerik.DataSource.ListSortDirection.Ascending }
+                },
+
+                FilterDescriptors = new List<IFilterDescriptor>()
+                {
+                    new CompositeFilterDescriptor() { FilterDescriptors = filterDescriptorCollection }
+                },
+
+                View = GanttView.Week,
+            };
+
+        args.State = state;
+    }
+
+    //Gantt model, dummy data generation and sample CRUD operations
+    class GanttTask
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    private int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        GanttData = new List<GanttTask>();
+
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new GanttTask()
+                {
+                    Id = LastId,
+                    Title = "Task  " + i.ToString(),
+                    Start = new DateTime(2021, 7, 5 + i),
+                    End = new DateTime(2021, 7, 11 + i),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                };
+
+            GanttData.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                GanttData.Add(new GanttTask()
+                    {
+                        Id = LastId,
+                        ParentId = parentId,
+                        Title = "    Task " + i + " : " + j.ToString(),
+                        Start = new DateTime(2021, 7, 5 + j),
+                        End = new DateTime(2021, 7, 6 + i + j),
+                        PercentComplete = Math.Round(random.NextDouble(), 2)
+                    });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    private void OnTaskUpdate(GanttUpdateEventArgs args)
+    {
+        var item = args.Item as GanttTask;
+
+        var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
+
+        if (foundItem != null)
+        {
+            foundItem.Title = item.Title;
+            foundItem.Start = item.Start;
+            foundItem.End = item.End;
+            foundItem.PercentComplete = item.PercentComplete;
+        }
+    }
+
+    private void OnTaskDelete(GanttDeleteEventArgs args)
+    {
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+
+        RemoveChildRecursive(item);
+    }
+
+    private void RemoveChildRecursive(GanttTask item)
+    {
+        var children = GanttData.Where(i => item.Id.Equals(i.ParentId)).ToList();
+
+        foreach (var child in children)
+        {
+            RemoveChildRecursive(child);
+        }
+
+        GanttData.Remove(item);
+    }
+}
+````
 
 ### Save and Load Gantt State from Browser LocalStorage
 
@@ -381,175 +550,6 @@ The Gantt state allows you to control the behavior of the Gantt programmatically
 ````
 
 @[template](/_contentTemplates/gantt/state.md#filter-menu-default-filters)
-
-
-### Set Default (Initial) State
-
-If you want the Gantt to start with certain settings for your end users, you can pre-define them in the `OnStateInit event`.
-
->caption Choose a default state of the Gantt for your users
-
-````CSHTML
-@*Set initial Gantt state*@
-
-@using Telerik.DataSource
-
-<TelerikGantt @ref="@GanttRef"
-              Data="@GanttData"
-              OnStateInit="@( (GanttStateEventArgs<GanttTask> args) => OnStateInitHandler(args) )"
-              Sortable="true"
-              FilterMode="@GanttFilterMode.FilterRow"
-              IdField="Id"
-              ParentIdField="ParentId"
-              ColumnResizable="true"
-              TreeListWidth="50%"
-              Width="1000px"
-              Height="600px"
-              OnUpdate="@OnTaskUpdate"
-              OnDelete="@OnTaskDelete">
-    <GanttColumns>
-        <GanttColumn Field="Title"
-                     Expandable="true"
-                     Width="160px"
-                     Title="Task Title">
-        </GanttColumn>
-        <GanttColumn Field="PercentComplete"
-                     Title="Status"
-                     Width="100px">
-        </GanttColumn>
-        <GanttColumn Field="Start"
-                     Width="100px"
-                     DisplayFormat="{0:d}">
-        </GanttColumn>
-        <GanttColumn Field="End"
-                     Width="100px"
-                     DisplayFormat="{0:d}">
-        </GanttColumn>
-    </GanttColumns>
-    <GanttViews>
-        <GanttDayView></GanttDayView>
-        <GanttWeekView></GanttWeekView>
-        <GanttMonthView></GanttMonthView>
-    </GanttViews>
-</TelerikGantt>
-
-@code {
-    private TelerikGantt<GanttTask> GanttRef;
-
-    private List<GanttTask> GanttData { get; set; }
-
-    private async Task OnStateInitHandler(GanttStateEventArgs<GanttTask> args)
-    {
-        var filterDescriptorCollection = new FilterDescriptorCollection();
-
-        filterDescriptorCollection.Add(new FilterDescriptor(nameof(GanttTask.PercentComplete), FilterOperator.IsLessThan, 0.5) { MemberType = typeof(double) });
-
-        var state = new GanttState<GanttTask>
-            {
-                SortDescriptors = new List<Telerik.DataSource.SortDescriptor>
-                {
-                new Telerik.DataSource.SortDescriptor{ Member = "End", SortDirection = Telerik.DataSource.ListSortDirection.Ascending }
-                },
-
-                FilterDescriptors = new List<IFilterDescriptor>()
-                {
-                    new CompositeFilterDescriptor() { FilterDescriptors = filterDescriptorCollection }
-                },
-
-                View = GanttView.Week,
-            };
-
-        args.State = state;
-    }
-
-    //Gantt model, dummy data generation and sample CRUD operations
-    class GanttTask
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Title { get; set; }
-        public double PercentComplete { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-    }
-
-    private int LastId { get; set; } = 1;
-
-    protected override void OnInitialized()
-    {
-        GanttData = new List<GanttTask>();
-
-        var random = new Random();
-
-        for (int i = 1; i < 6; i++)
-        {
-            var newItem = new GanttTask()
-                {
-                    Id = LastId,
-                    Title = "Task  " + i.ToString(),
-                    Start = new DateTime(2021, 7, 5 + i),
-                    End = new DateTime(2021, 7, 11 + i),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                };
-
-            GanttData.Add(newItem);
-            var parentId = LastId;
-            LastId++;
-
-            for (int j = 0; j < 5; j++)
-            {
-                GanttData.Add(new GanttTask()
-                    {
-                        Id = LastId,
-                        ParentId = parentId,
-                        Title = "    Task " + i + " : " + j.ToString(),
-                        Start = new DateTime(2021, 7, 5 + j),
-                        End = new DateTime(2021, 7, 6 + i + j),
-                        PercentComplete = Math.Round(random.NextDouble(), 2)
-                    });
-
-                LastId++;
-            }
-        }
-
-        base.OnInitialized();
-    }
-
-    private void OnTaskUpdate(GanttUpdateEventArgs args)
-    {
-        var item = args.Item as GanttTask;
-
-        var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
-
-        if (foundItem != null)
-        {
-            foundItem.Title = item.Title;
-            foundItem.Start = item.Start;
-            foundItem.End = item.End;
-            foundItem.PercentComplete = item.PercentComplete;
-        }
-    }
-
-    private void OnTaskDelete(GanttDeleteEventArgs args)
-    {
-        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
-
-        RemoveChildRecursive(item);
-    }
-
-    private void RemoveChildRecursive(GanttTask item)
-    {
-        var children = GanttData.Where(i => item.Id.Equals(i.ParentId)).ToList();
-
-        foreach (var child in children)
-        {
-            RemoveChildRecursive(child);
-        }
-
-        GanttData.Remove(item);
-    }
-}
-````
 
 ### Get and Override User Action That Changes The Gantt
 
