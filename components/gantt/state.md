@@ -47,7 +47,7 @@ The Gantt offers two events and two methods to allow flexible operations over it
 
 ### Events
 
-The `OnStateInit` and `OnStateChanged` events are raised by the Gantt so you can have an easy to use hook for loading and saving state, respectively.
+The `OnStateInit` and `OnStateChanged` events are raised by the Gantt so you can have easy-to-use hooks for loading and saving state, respectively.
 
 * `OnStateInit` fires when the Gantt is initializing and you can provide the state you load from your storage to the `State` field of its event arguments.
 
