@@ -128,11 +128,11 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
 <TelerikButton OnClick="@ReloadPage">Reload the page to see the current grid state preserved</TelerikButton>
 <TelerikButton OnClick="@ResetState">Reset the state</TelerikButton>
 
-<TelerikGantt Data="@Data"
-              @ref="@GanttRef"
-              OnStateInit="@((GanttStateEventArgs<GanttTask> args) => OnStateInitHandler(args))"
-              OnStateChanged="@((GanttStateEventArgs<GanttTask> args) => OnStateChangedHandler(args))"
-              Sortable="true" 
+<TelerikGantt @ref="@GanttRef"
+              Data="@GanttData"
+              OnStateInit="@( (GanttStateEventArgs<GanttTask> args) => OnStateInitHandler(args) )"
+              OnStateChanged="@( (GanttStateEventArgs<GanttTask> args) => OnStateChangedHandler(args) )"
+              Sortable="true"
               FilterMode="@GanttFilterMode.FilterRow"
               @bind-View="@SelectedView"
               IdField="Id"
@@ -140,8 +140,8 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
               @bind-TreeListWidth="@TreeListWidth"
               Width="1000px"
               Height="600px"
-              OnUpdate="@UpdateItem"
-              OnDelete="@DeleteItem">
+              OnUpdate="@OnTaskUpdate"
+              OnDelete="@OnTaskDelete">
     <GanttColumns>
         <GanttColumn Field="Title"
                      Expandable="true"
@@ -169,14 +169,18 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
 </TelerikGantt>
 
 @code {
-    public string TreeListWidth { get; set; } = "50%";
-    TelerikGantt<GanttTask> GanttRef;
-    public GanttView SelectedView { get; set; } = GanttView.Week;
-    List<GanttTask> Data { get; set; }
-    string UniqueStorageKey = "SampleGanttStateStorageThatShouldBeUnique";
+    private TelerikGantt<GanttTask> GanttRef;
+
+    private List<GanttTask> GanttData { get; set; }
+
+    private GanttView SelectedView { get; set; } = GanttView.Week;
+
+    private string TreeListWidth { get; set; } = "50%";
+
+    private string UniqueStorageKey = "SampleGanttStateStorageThatShouldBeUnique";
 
     // Load and Save the state through the Gantt events
-    async Task OnStateInitHandler(GanttStateEventArgs<GanttTask> args)
+    private async Task OnStateInitHandler(GanttStateEventArgs<GanttTask> args)
     {
         try
         {
@@ -194,12 +198,12 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
         }
     }
 
-    async void OnStateChangedHandler(GanttStateEventArgs<GanttTask> args)
+    private async void OnStateChangedHandler(GanttStateEventArgs<GanttTask> args)
     {
         await LocalStorage.SetItem(UniqueStorageKey, args.State);
     }
 
-    async Task ResetState()
+    private async void ResetState()
     {
         // clean up the storage
         await LocalStorage.RemoveItem(UniqueStorageKey);
@@ -207,12 +211,12 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
         await GanttRef.SetStateAsync(null); // pass null to reset the state
     }
 
-    void ReloadPage()
+    private async void ReloadPage()
     {
         JsInterop.InvokeVoidAsync("window.location.reload");
     }
 
-    //Gantt model, dummy data generation and sample CRUD operations
+    //Gantt model, dummy GanttData generation and sample CRUD operations
     class GanttTask
     {
         public int Id { get; set; }
@@ -235,11 +239,11 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
         }
     }
 
-    public int LastId { get; set; } = 1;
+    private int LastId { get; set; } = 1;
 
     protected override void OnInitialized()
     {
-        Data = new List<GanttTask>();
+        GanttData = new List<GanttTask>();
         var random = new Random();
 
         for (int i = 1; i < 6; i++)
@@ -253,13 +257,13 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
                     PercentComplete = Math.Round(random.NextDouble(), 2)
                 };
 
-            Data.Add(newItem);
+            GanttData.Add(newItem);
             var parentId = LastId;
             LastId++;
 
             for (int j = 0; j < 5; j++)
             {
-                Data.Add(new GanttTask()
+                GanttData.Add(new GanttTask()
                     {
                         Id = LastId,
                         ParentId = parentId,
@@ -276,11 +280,11 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
         base.OnInitialized();
     }
 
-    private void UpdateItem(GanttUpdateEventArgs args)
+    private void OnTaskUpdate(GanttUpdateEventArgs args)
     {
         var item = args.Item as GanttTask;
 
-        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+        var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
         if (foundItem != null)
         {
@@ -291,23 +295,23 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
         }
     }
 
-    private void DeleteItem(GanttDeleteEventArgs args)
+    private void OnTaskDelete(GanttDeleteEventArgs args)
     {
-        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
         RemoveChildRecursive(item);
     }
 
     private void RemoveChildRecursive(GanttTask item)
     {
-        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+        var children = GanttData.Where(i => item.Id.Equals(i.ParentId)).ToList();
 
         foreach (var child in children)
         {
             RemoveChildRecursive(child);
         }
 
-        Data.Remove(item);
+        GanttData.Remove(item);
     }
 }
 ````
@@ -390,18 +394,19 @@ If you want the Gantt to start with certain settings for your end users, you can
 
 @using Telerik.DataSource
 
-<TelerikGantt Data="@Data"
-              @ref="@GanttRef"
-              OnStateInit="@((GanttStateEventArgs<GanttTask> args) => OnStateInitHandler(args))"
+<TelerikGantt @ref="@GanttRef"
+              Data="@GanttData"
+              OnStateInit="@( (GanttStateEventArgs<GanttTask> args) => OnStateInitHandler(args) )"
               Sortable="true"
               FilterMode="@GanttFilterMode.FilterRow"
               IdField="Id"
               ParentIdField="ParentId"
+              ColumnResizable="true"
               TreeListWidth="50%"
               Width="1000px"
               Height="600px"
-              OnUpdate="@UpdateItem"
-              OnDelete="@DeleteItem">
+              OnUpdate="@OnTaskUpdate"
+              OnDelete="@OnTaskDelete">
     <GanttColumns>
         <GanttColumn Field="Title"
                      Expandable="true"
@@ -429,12 +434,14 @@ If you want the Gantt to start with certain settings for your end users, you can
 </TelerikGantt>
 
 @code {
-    TelerikGantt<GanttTask> GanttRef;
-    List<GanttTask> Data { get; set; }
+    private TelerikGantt<GanttTask> GanttRef;
 
-    async Task OnStateInitHandler(GanttStateEventArgs<GanttTask> args)
+    private List<GanttTask> GanttData { get; set; }
+
+    private async Task OnStateInitHandler(GanttStateEventArgs<GanttTask> args)
     {
         var filterDescriptorCollection = new FilterDescriptorCollection();
+
         filterDescriptorCollection.Add(new FilterDescriptor(nameof(GanttTask.PercentComplete), FilterOperator.IsLessThan, 0.5) { MemberType = typeof(double) });
 
         var state = new GanttState<GanttTask>
@@ -466,11 +473,12 @@ If you want the Gantt to start with certain settings for your end users, you can
         public DateTime End { get; set; }
     }
 
-    public int LastId { get; set; } = 1;
+    private int LastId { get; set; } = 1;
 
     protected override void OnInitialized()
     {
-        Data = new List<GanttTask>();
+        GanttData = new List<GanttTask>();
+
         var random = new Random();
 
         for (int i = 1; i < 6; i++)
@@ -484,13 +492,13 @@ If you want the Gantt to start with certain settings for your end users, you can
                     PercentComplete = Math.Round(random.NextDouble(), 2)
                 };
 
-            Data.Add(newItem);
+            GanttData.Add(newItem);
             var parentId = LastId;
             LastId++;
 
             for (int j = 0; j < 5; j++)
             {
-                Data.Add(new GanttTask()
+                GanttData.Add(new GanttTask()
                     {
                         Id = LastId,
                         ParentId = parentId,
@@ -507,11 +515,11 @@ If you want the Gantt to start with certain settings for your end users, you can
         base.OnInitialized();
     }
 
-    private void UpdateItem(GanttUpdateEventArgs args)
+    private void OnTaskUpdate(GanttUpdateEventArgs args)
     {
         var item = args.Item as GanttTask;
 
-        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+        var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
         if (foundItem != null)
         {
@@ -522,23 +530,23 @@ If you want the Gantt to start with certain settings for your end users, you can
         }
     }
 
-    private void DeleteItem(GanttDeleteEventArgs args)
+    private void OnTaskDelete(GanttDeleteEventArgs args)
     {
-        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
         RemoveChildRecursive(item);
     }
 
     private void RemoveChildRecursive(GanttTask item)
     {
-        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+        var children = GanttData.Where(i => item.Id.Equals(i.ParentId)).ToList();
 
         foreach (var child in children)
         {
             RemoveChildRecursive(child);
         }
 
-        Data.Remove(item);
+        GanttData.Remove(item);
     }
 }
 ````
@@ -560,17 +568,17 @@ To test it out, try filtering the Title column
 
 @using Telerik.DataSource
 
-<TelerikGantt Data="@Data"
-              @ref="@GanttRef"
+<TelerikGantt @ref="@GanttRef"
+              Data="@GanttData"
               FilterMode="@GanttFilterMode.FilterRow"
-              OnStateChanged="@((GanttStateEventArgs<GanttTask> args) => OnStateChangedHandler(args))"
+              OnStateChanged="@( (GanttStateEventArgs<GanttTask> args) => OnStateChangedHandler(args) )"
               IdField="Id"
               ParentIdField="ParentId"
               TreeListWidth="50%"
               Width="1000px"
               Height="500px"
-              OnUpdate="@UpdateItem"
-              OnDelete="@DeleteItem">
+              OnUpdate="@OnTaskUpdate"
+              OnDelete="@OnTaskDelete">
     <GanttColumns>
         <GanttColumn Field="Title"
                      Expandable="true"
@@ -600,8 +608,9 @@ To test it out, try filtering the Title column
 
 
 @code {
-    TelerikGantt<GanttTask> GanttRef;
-    List<GanttTask> Data { get; set; }
+    private TelerikGantt<GanttTask> GanttRef;
+
+    private List<GanttTask> GanttData { get; set; }
 
     async void OnStateChangedHandler(GanttStateEventArgs<GanttTask> args)
     {
@@ -637,11 +646,11 @@ To test it out, try filtering the Title column
         public DateTime End { get; set; }
     }
 
-    public int LastId { get; set; } = 1;
+    private int LastId { get; set; } = 1;
 
     protected override void OnInitialized()
     {
-        Data = new List<GanttTask>();
+        GanttData = new List<GanttTask>();
         var random = new Random();
 
         for (int i = 1; i < 6; i++)
@@ -655,13 +664,13 @@ To test it out, try filtering the Title column
                     PercentComplete = Math.Round(random.NextDouble(), 2)
                 };
 
-            Data.Add(newItem);
+            GanttData.Add(newItem);
             var parentId = LastId;
             LastId++;
 
             for (int j = 0; j < 5; j++)
             {
-                Data.Add(new GanttTask()
+                GanttData.Add(new GanttTask()
                     {
                         Id = LastId,
                         ParentId = parentId,
@@ -678,11 +687,11 @@ To test it out, try filtering the Title column
         base.OnInitialized();
     }
 
-    private void UpdateItem(GanttUpdateEventArgs args)
+    private void OnTaskUpdate(GanttUpdateEventArgs args)
     {
         var item = args.Item as GanttTask;
 
-        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+        var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
         if (foundItem != null)
         {
@@ -693,23 +702,23 @@ To test it out, try filtering the Title column
         }
     }
 
-    private void DeleteItem(GanttDeleteEventArgs args)
+    private void OnTaskDelete(GanttDeleteEventArgs args)
     {
-        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
         RemoveChildRecursive(item);
     }
 
     private void RemoveChildRecursive(GanttTask item)
     {
-        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+        var children = GanttData.Where(i => item.Id.Equals(i.ParentId)).ToList();
 
         foreach (var child in children)
         {
             RemoveChildRecursive(child);
         }
 
-        Data.Remove(item);
+        GanttData.Remove(item);
     }
 }
 ````
