@@ -729,16 +729,17 @@ The Gantt state lets you store the item that the user is currently working on - 
 
 In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `InsertItem` and `ParentItem` fields of the state object to put the Gantt in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug gantt-columns-command%}).
 
->caption Put and item in Edit mode or start Inserting a new item
+>caption Start Gantt Editing or Insertion Programmatically
 
 ````CSHTML
-@*Programmatically initiate editing and inserting of items through the Gantt state*@
+@*Initiate editing and inserting of items through the Gantt state*@
 
-<TelerikButton OnClick="@StartInsert">Start Insert operation on root level</TelerikButton>
-<TelerikButton OnClick="@EditTaskOne">Put first task in Edit mode</TelerikButton>
+<TelerikButton OnClick="@StartInsert">Insert at Root Level</TelerikButton>
+<TelerikButton OnClick="@EditTaskOne">Edit First Task</TelerikButton>
+<TelerikButton OnClick="@ExitEditMode">Exit Edit Mode</TelerikButton>
 
-<TelerikGantt Data="@Data"
-              @ref="@GanttRef"
+<TelerikGantt @ref="@GanttRef"
+              Data="@GanttData"
               FilterMode="@GanttFilterMode.FilterRow"
               TreeListEditMode="@GanttTreeListEditMode.Inline"
               IdField="Id"
@@ -783,10 +784,11 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
 </TelerikGantt>
 
 @code {
-    TelerikGantt<GanttTask> GanttRef;
-    List<GanttTask> Data { get; set; }
+    private TelerikGantt<GanttTask> GanttRef;
 
-    async Task StartInsert()
+    private List<GanttTask> GanttData { get; set; }
+
+    private async Task StartInsert()
     {
         var currState = GanttRef.GetState();
 
@@ -796,7 +798,8 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
 
         // add new inserted item to the state, then set it to the Gantt
         // you can predefine values here as well (not mandatory)
-        currState.InsertedItem = new GanttTask() { 
+        currState.InsertedItem = new GanttTask()
+        {
             Title = "some predefined value",
             Start = new DateTime(2021, 7, 1),
             End = new DateTime(2021, 7, 10)
@@ -806,24 +809,24 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
         // note: possible only for Inline and Popup edit modes, with InCell there is never an inserted item, only edited items
     }
 
-    async Task EditTaskOne()
+    private async Task EditTaskOne()
     {
         var currState = GanttRef.GetState();
 
         // reset any current insertion and any old edited items. Not mandatory.
         currState.InsertedItem = null;
 
-        var itemToEdit = Data.FirstOrDefault();
+        var itemToEdit = GanttData.FirstOrDefault();
 
         currState.EditItem = new GanttTask()
-            {
-                Id = itemToEdit.Id,
-                ParentId = itemToEdit.ParentId,
-                Title = itemToEdit.Title,
-                PercentComplete = itemToEdit.PercentComplete,
-                Start = itemToEdit.Start,
-                End = itemToEdit.End
-            };
+        {
+            Id = itemToEdit.Id,
+            ParentId = itemToEdit.ParentId,
+            Title = itemToEdit.Title,
+            PercentComplete = itemToEdit.PercentComplete,
+            Start = itemToEdit.Start,
+            End = itemToEdit.End
+        };
 
         currState.OriginalEditItem = itemToEdit;
 
@@ -832,57 +835,18 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
         await GanttRef.SetStateAsync(currState);
     }
 
-    //Gantt model, dummy data generation and sample CRUD operations
-    class GanttTask
+    private async Task ExitEditMode()
     {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Title { get; set; }
-        public double PercentComplete { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
+        var currState = GanttRef.GetState();
+        currState.OriginalEditItem = null;
+        currState.InsertedItem = null;
+        currState.EditItem = null;
+        currState.EditField = null;
+
+        await GanttRef.SetStateAsync(currState);
     }
 
-    public int LastId { get; set; } = 1;
-
-    protected override void OnInitialized()
-    {
-        Data = new List<GanttTask>();
-        var random = new Random();
-
-        for (int i = 1; i < 6; i++)
-        {
-            var newItem = new GanttTask()
-                {
-                    Id = LastId,
-                    Title = "Task  " + i.ToString(),
-                    Start = new DateTime(2021, 7, 5 + i),
-                    End = new DateTime(2021, 7, 11 + i),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                };
-
-            Data.Add(newItem);
-            var parentId = LastId;
-            LastId++;
-
-            for (int j = 0; j < 5; j++)
-            {
-                Data.Add(new GanttTask()
-                    {
-                        Id = LastId,
-                        ParentId = parentId,
-                        Title = "    Task " + i + " : " + j.ToString(),
-                        Start = new DateTime(2021, 7, 5 + j),
-                        End = new DateTime(2021, 7, 6 + i + j),
-                        PercentComplete = Math.Round(random.NextDouble(), 2)
-                    });
-
-                LastId++;
-            }
-        }
-
-        base.OnInitialized();
-    }
+    #region Gantt model, dummy data generation and sample CRUD operations
 
     private void CreateItem(GanttCreateEventArgs args)
     {
@@ -897,7 +861,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
             item.ParentId = parent.Id;
         }
 
-        Data.Insert(0, item);
+        GanttData.Insert(0, item);
 
         CalculateParentPercentRecursive(item);
         CalculateParentRangeRecursive(item);
@@ -907,7 +871,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
     {
         var item = args.Item as GanttTask;
 
-        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+        var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
         if (foundItem != null)
         {
@@ -920,21 +884,21 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
 
     private void DeleteItem(GanttDeleteEventArgs args)
     {
-        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
         RemoveChildRecursive(item);
     }
 
     private void RemoveChildRecursive(GanttTask item)
     {
-        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+        var children = GanttData.Where(i => item.Id.Equals(i.ParentId)).ToList();
 
         foreach (var child in children)
         {
             RemoveChildRecursive(child);
         }
 
-        Data.Remove(item);
+        GanttData.Remove(item);
     }
 
     private void CalculateParentPercentRecursive(GanttTask item)
@@ -974,13 +938,66 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
 
     private GanttTask GetParent(GanttTask item)
     {
-        return Data.FirstOrDefault(i => i.Id.Equals(item.ParentId));
+        return GanttData.FirstOrDefault(i => i.Id.Equals(item.ParentId));
     }
 
     private IEnumerable<GanttTask> GetChildren(GanttTask item)
     {
-        return Data.Where(i => item.Id.Equals(i.ParentId));
+        return GanttData.Where(i => item.Id.Equals(i.ParentId));
     }
+
+    private int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        GanttData = new List<GanttTask>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new GanttTask()
+            {
+                Id = LastId,
+                Title = "Task  " + i.ToString(),
+                Start = new DateTime(2021, 7, 5 + i),
+                End = new DateTime(2021, 7, 11 + i),
+                PercentComplete = Math.Round(random.NextDouble(), 2)
+            };
+
+            GanttData.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                GanttData.Add(new GanttTask()
+                {
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Task " + i + " : " + j.ToString(),
+                    Start = new DateTime(2021, 7, 5 + j),
+                    End = new DateTime(2021, 7, 6 + i + j),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    public class GanttTask
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    #endregion
 }
 ````
 
@@ -990,25 +1007,25 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
 The `ColumnStates` property of the `GanttState` object provides you with information about the current state of the Gantt columns. It contains the following properties:
 
 
-Field | Type | Description
----------|----------|---------
- `Index` | `int` | the current index of the column based on the position the user chose
- `Id` | `string` | the Id of the column if it is set
- `Field` | `string` | the field of the column
- `Visible` | `bool?` | whether the column is hidden or not
- `Width` | `string` | the width of the column if it is set
+| Field | Type | Description |
+| --- | --- | --- |
+| `Index` | `int` | the current index of the column based on the position the user chose |
+| `Id` | `string` | the Id of the column if it is set |
+| `Field` | `string` | the field of the column |
+| `Visible` | `bool?` | whether the column is hidden or not |
+| `Width` | `string` | the width of the column if it is set |
 
 By looping over the `ColumnStates` collection you can know what the user sees. By default, the order of the columns in the state collection will remain the same but their `Index` value will change to indicate their position. You can, for example, sort by the index and filter by the visibility of the columns to get the approximate view the user sees.
 
 >caption Obtain the current columns visibility, rendering order, field name and width
 
 ````CSHTML
-@*Get column states from code*@
+@*Get Gantt column state from code*@
 
-<TelerikButton OnClick="@GetCurrentColumnsState">Get Columns order and parameters</TelerikButton>
+<TelerikButton OnClick="@GetCurrentColumnsState">Get Column State</TelerikButton>
 
-<TelerikGantt Data="@Data"
-              @ref="@GanttRef"
+<TelerikGantt @ref="@GanttRef"
+              Data="@GanttData"              
               IdField="Id"
               ParentIdField="ParentId"
               ColumnResizable="true"
@@ -1048,9 +1065,11 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
 @(new MarkupString(ColumnsLog))
 
 @code {
-    TelerikGantt<GanttTask> GanttRef;
-    List<GanttTask> Data { get; set; }
-    string ColumnsLog { get; set; }
+    private TelerikGantt<GanttTask> GanttRef;
+
+    private List<GanttTask> GanttData { get; set; }
+
+    private string ColumnsLog { get; set; }
 
     private void GetCurrentColumnsState()
     {
@@ -1065,69 +1084,19 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
             // human readable info for visibility information
             var visible = columnState.Visible != false;
 
-            string log = $"<p>Column: <strong>{columnState.Field}</strong> | Index in state:{columnState.Index} | Visible: {visible} | Width: {columnState.Width}</p>";
+            string log = $"<p>Column: <strong>{columnState.Field}</strong> | Index in state: {columnState.Index} | Visible: {visible} | Width: {columnState.Width}</p>";
 
             ColumnsLog += log;
         }
     }
 
-    //Gantt model, dummy data generation and sample CRUD operations
-    class GanttTask
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Title { get; set; }
-        public double PercentComplete { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-    }
-
-    public int LastId { get; set; } = 1;
-
-    protected override void OnInitialized()
-    {
-        Data = new List<GanttTask>();
-        var random = new Random();
-
-        for (int i = 1; i < 6; i++)
-        {
-            var newItem = new GanttTask()
-                {
-                    Id = LastId,
-                    Title = "Task  " + i.ToString(),
-                    Start = new DateTime(2021, 7, 5 + i),
-                    End = new DateTime(2021, 7, 11 + i),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                };
-
-            Data.Add(newItem);
-            var parentId = LastId;
-            LastId++;
-
-            for (int j = 0; j < 5; j++)
-            {
-                Data.Add(new GanttTask()
-                    {
-                        Id = LastId,
-                        ParentId = parentId,
-                        Title = "    Task " + i + " : " + j.ToString(),
-                        Start = new DateTime(2021, 7, 5 + j),
-                        End = new DateTime(2021, 7, 6 + i + j),
-                        PercentComplete = Math.Round(random.NextDouble(), 2)
-                    });
-
-                LastId++;
-            }
-        }
-
-        base.OnInitialized();
-    }
+    #region Gantt model, dummy data generation and sample CRUD operations
 
     private void UpdateItem(GanttUpdateEventArgs args)
     {
         var item = args.Item as GanttTask;
 
-        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+        var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
         if (foundItem != null)
         {
@@ -1140,27 +1109,79 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
 
     private void DeleteItem(GanttDeleteEventArgs args)
     {
-        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
         RemoveChildRecursive(item);
     }
 
     private void RemoveChildRecursive(GanttTask item)
     {
-        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+        var children = GanttData.Where(i => item.Id.Equals(i.ParentId)).ToList();
 
         foreach (var child in children)
         {
             RemoveChildRecursive(child);
         }
 
-        Data.Remove(item);
+        GanttData.Remove(item);
     }
+
+    private int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        GanttData = new List<GanttTask>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new GanttTask()
+            {
+                Id = LastId,
+                Title = "Task  " + i.ToString(),
+                Start = new DateTime(2021, 7, 5 + i),
+                End = new DateTime(2021, 7, 11 + i),
+                PercentComplete = Math.Round(random.NextDouble(), 2)
+            };
+
+            GanttData.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                GanttData.Add(new GanttTask()
+                {
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Task " + i + " : " + j.ToString(),
+                    Start = new DateTime(2021, 7, 5 + j),
+                    End = new DateTime(2021, 7, 6 + i + j),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    public class GanttTask
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    #endregion
 }
 ````
 
 
 ## See Also
 
-  * [Live Demo: Gantt State](https://demos.telerik.com/blazor-ui/Gantt/persist-state)
-   
+* [Live Demo: Gantt State](https://demos.telerik.com/blazor-ui/Gantt/persist-state)
