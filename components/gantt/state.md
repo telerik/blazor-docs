@@ -10,7 +10,7 @@ position: 15
 
 # Gantt State
 
-The Gantt lets you save, load and change its current state through code. The state management includes all the user-configurable elements of the Gantt - such as sorting, filtering, edited items, TreeList width, column size and order.
+The Gantt lets you save, load and change its current state through code. The state management includes all the user-configurable properties of the Gantt - such as sorting, filtering, edited items, TreeList width, column size and order.
 
 You can see this feature in the [Live Demo: Gantt State](https://demos.telerik.com/blazor-ui/Gantt/persist-state).
 
