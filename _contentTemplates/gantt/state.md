@@ -5,8 +5,8 @@
 
 <TelerikButton OnClick="@SetGanttSort">Sort from code</TelerikButton>
 
-<TelerikGantt Data="@Data"
-              @ref="@GanttRef"
+<TelerikGantt @ref="@GanttRef"
+              Data="@Data"
               Sortable="true"
               IdField="Id"
               ParentIdField="ParentId"
