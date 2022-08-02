@@ -196,29 +196,20 @@ For an example with the CheckboxList Filter, see the [Custom Data]({%slug grid-c
 ````CSHTML
 @using Telerik.DataSource
 
-This custom filter menu lets you choose more than one option to match against the data source
-
-<TelerikGrid Data=@GridData FilterMode="@GridFilterMode.FilterMenu"
-             Height="400px" Width="600px" Pageable="true">
+<TelerikGrid Data="@GridData"
+             FilterMode="@GridFilterMode.FilterMenu"
+             Pageable="true"
+             Width="600px">
     <GridColumns>
-        <GridColumn Field="Id" Filterable="false" Width="80px" />
-
-        <GridColumn Field="Size">
+        <GridColumn Field="@(nameof(Product.Name))" Title="Product" Filterable="false" />
+        <GridColumn Field="@(nameof(Product.Size))">
             <FilterMenuTemplate>
-                @{
-                    // we store a reference to the filter context to use in the business logic to show we can
-                    // we could, alternatively pass it as an argument to the event handler in the lambda expression
-                    // which can be useful if you want to use the same filter for several columns
-                    // you could then pass more arguments to the business logic such as field name and so on
-                    theFilterContext = context;
-                }
-
                 @foreach (var size in Sizes)
                 {
                     <div>
                         <TelerikCheckBox Value="@(IsCheckboxInCurrentFilter(context.FilterDescriptor, size))"
                                          TValue="bool"
-                                         ValueChanged="@((value) => UpdateCheckedSizes(value, size))"
+                                         ValueChanged="@((value) => UpdateCheckedSizes(value, size, context))"
                                          Id="@($"size_{size}")">
                         </TelerikCheckBox>
                         <label for="@($"size_{size}")">
@@ -226,7 +217,7 @@ This custom filter menu lets you choose more than one option to match against th
                             {
                                 <text>Empty</text>
                             }
-                            else 
+                            else
                             {
                                 @size
                             }
@@ -235,16 +226,11 @@ This custom filter menu lets you choose more than one option to match against th
                 }
             </FilterMenuTemplate>
         </GridColumn>
-
-        <GridColumn Field="ProductName" Title="Product" Filterable="false" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    FilterMenuTemplateContext theFilterContext { get; set; }
-    public List<string> CheckedSizes { get; set; } = new List<string>();
-
-    public bool IsCheckboxInCurrentFilter(CompositeFilterDescriptor filterDescriptor, string size)
+    private bool IsCheckboxInCurrentFilter(CompositeFilterDescriptor filterDescriptor, string size)
     {
         // get all current filter descriptors and evaluate whether to select the current checkbox
         // the default value for string filter descriptors is null so it would select the null checkbox always
@@ -253,7 +239,7 @@ This custom filter menu lets you choose more than one option to match against th
         {
             foreach (FilterDescriptor item in filterDescriptor.FilterDescriptors)
             {
-                if(item.Operator == FilterOperator.IsNull)
+                if (item.Operator == FilterOperator.IsNull)
                 {
                     return true;
                 }
@@ -263,71 +249,63 @@ This custom filter menu lets you choose more than one option to match against th
         return filterDescriptor.FilterDescriptors.Select(f => (f as FilterDescriptor).Value?.ToString()).ToList().Contains(size);
     }
 
-    public void UpdateCheckedSizes(bool value, string itemValue)
+    private void UpdateCheckedSizes(bool isChecked, string itemValue, FilterMenuTemplateContext context)
     {
-        // update the list of items we want to filter by
-        var isSizeChecked = CheckedSizes.Contains(itemValue);
-        if (value && !isSizeChecked)
+        var compositeFilterDescriptor = context.FilterDescriptor;
+        compositeFilterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.Or;
+
+        if (!isChecked)
         {
-            CheckedSizes.Add(itemValue);
-        }
-
-        if (!value && isSizeChecked)
-        {
-            CheckedSizes.Remove(itemValue);
-        }
-
-        // prepare filter descriptor
-        var filterDescriptor = theFilterContext.FilterDescriptor;
-
-        filterDescriptor.FilterDescriptors.Clear();
-        // use the OR logical operator so we include all possible values
-        filterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.Or;
-        CheckedSizes.ForEach(s => {
-            // instantiate a filter descriptor for the desired field, and with the desired operator and value
-            FilterDescriptor fd = new FilterDescriptor("Size", FilterOperator.IsEqualTo, s);
-            // set its type to the field type you filter (the Size field in this example)
-            fd.MemberType = typeof(string);
-            // handle null values - use a specific filter operator that the user cannot select on their own
-            // in this custom filter template (the grid has it in a dropdown by default)
-            if(s == null)
+            // find and remove the filter descriptor for this checkbox
+            compositeFilterDescriptor.FilterDescriptors.Remove(compositeFilterDescriptor.FilterDescriptors.First(x =>
             {
-                fd.Operator = FilterOperator.IsNull;
-            }
-
-            filterDescriptor.FilterDescriptors.Add(fd);
-        });
-
-        //ensure there is at least one blank filter to avoid null reference exceptions
-        if (!filterDescriptor.FilterDescriptors.Any())
+                var fd = x as FilterDescriptor;
+                if ((fd.Operator == FilterOperator.IsNull && itemValue == null) ||
+                    (fd.Operator == FilterOperator.IsEqualTo && fd.Value?.ToString() == itemValue))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }));
+        }
+        else
         {
-            filterDescriptor.FilterDescriptors.Add(new FilterDescriptor());
+            // add a filter descriptor for this checkbox
+            compositeFilterDescriptor.FilterDescriptors.Add(new FilterDescriptor()
+            {
+                Member = nameof(Product.Size),
+                MemberType = typeof(string),
+                Operator = itemValue == null ? FilterOperator.IsNull : FilterOperator.IsEqualTo,
+                Value = itemValue
+            });
         }
     }
 
-    // sample grid data
+    private List<Product> GridData { get; set; }
 
-    public List<SampleData> GridData { get; set; }
+    private string[] Sizes = new string[] { "XS", "S", "M", "L", "XL", null };
 
     protected override void OnInitialized()
     {
-        GridData = Enumerable.Range(1, 70).Select(x => new SampleData
+        GridData = Enumerable.Range(1, 70).Select(x => new Product
         {
             Id = x,
             Size = Sizes[x % Sizes.Length],
-            ProductName = $"Product {x}"
+            Name = $"Product {x}"
         }).ToList();
+
         base.OnInitialized();
     }
 
-    public class SampleData
+    public class Product
     {
         public int Id { get; set; }
+        public string Name { get; set; }
         public string Size { get; set; }
-        public string ProductName { get; set; }
     }
-
-    public string[] Sizes = new string[] { "XS", "S", "M", "L", "XL", null };
 }
 ````
 
