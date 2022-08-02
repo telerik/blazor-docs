@@ -1,5 +1,5 @@
 #set-sort-from-code
-@*Set sorting from code through the Gantt state*@
+@*Sort from code via the Gantt state*@
 
 @using Telerik.DataSource
 
