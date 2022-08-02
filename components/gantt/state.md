@@ -42,7 +42,6 @@ State properties that relate to model data (such as edited item, inserted item, 
 The Gantt offers two events and two methods to allow flexible operations over its state:
 
 * [Events](#events)
-
 * [Methods](#methods)
 
 ### Events
