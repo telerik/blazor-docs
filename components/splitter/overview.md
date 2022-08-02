@@ -12,29 +12,19 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor Splitter component</a> lets you divide a portion of the page into several pieces that the user can resize and collapse. This provides real estate management for the app and the end user so they can focus on the content that is important in their current task. You can also [save and load its state]({%slug splitter-state%}), and respond to [events]({%slug splitter-events%}).
 
-#### In This Article
+## Creating Splitter for Blazor
 
+1. Declare the `<TelerikSplitter>` tag
 
-* [Basics](#basics)
-* [Features](#features)
-	* [Splitter](#splitter)
-	* [Pane](#pane)
-* [Splitter and Pane Size](#splitter-and-pane-size)
-* [Nested Splitters](#nested-splitters)
-
-## Basics
-
-#### To use a Telerik Splitter for Blazor
-
-1. Declare the `<TelerikSplitter>` tag and set its `Width` and `Height` parameters to the desired values.
+1. Optionally, set the `Width` and `Height` parameters to the desired values. Otherwise, the component size will be controlled by the content and [size]({%slug splitter-size%}) of the panes.
 
     * You can use values in percent (setting them to `100%` is very common) so that the splitter will take up the entire size of its container. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
 
-1. Inside the `<SplitterPanes>` child tag, add the desired `<SplitterPane>` tags to create the sections of content.
+1. Inside the `<SplitterPanes>` child tag, add the desired [`<SplitterPane>`]({%slug splitter-panes%}) tags to create the sections of content.
 
 1. Inside each `<SplitterPane>`, add the desired content - be that HTML or components.
 
-1. Optionally, set the desired settings for the individual panes - such as initial, min and max size, whether the user can collapse and resize the pane.
+1. Optionally, set the desired settings for the individual Panes - such as initial, min and max size, whether the user can collapse and resize the pane.
 
 >caption Splitter that takes 100% of its container and shows the main features of its panes
 
@@ -69,10 +59,58 @@ This example shows how the splitter can fill up the entire container (marked wit
 ![overview of the splitter functionality](images/splitter-overview.gif)
 
 
->caption Component namespace and reference
+## Panes
+
+Тhe Panes are the building blocks of the Splitter. Each Pane controls its own behaviors such as the ability to change its size and collapse. [Read more about the Splitter Panes...]({%slug splitter-panes%})
+
+## Size
+
+You can control the Splitter size through its `Width` and `Height` parameters. Additioanlly, the component allows you specify the desired size for each pane. [Read about for the Splitter sizing specifics...]({%slug splitter-size%})
+
+## Orientation
+
+The Splitter Panes can be stacked in horizontal or vertical direction. [Read more about how to configure the Splitter orientation...]({%slug splitter-orientation%})
+
+## State
+
+The Splitter allows you to save its state and programmatically control it. [Read more about the Splitter State...]({%slug splitter-state%})
+
+## Events
+
+The Splitter generates events that you can handle to further customize the component behavior and respond to the user actions. [Read more about the Blazor Menu events...]({%slug splitter-events%})
+
+## Splitter Parameters
+
+The Blazor Splitter provides various parameters for its configuration. The following table lists Splitter parameters on component level. Explore the [Splitter Panes]({%slug splitter-panes%}) article for details on the individual Panes configuration.
+
+Check the [Splitter API Reference ](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitter) for a full list of properties, methods and events.
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+|  `Class` | `string` | The CSS class that renders on the main wrapping element of the component.
+|  `Height` | `string` | The height of the Splitter. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
+|  `Orientation` | `SplitterOrientation` enum <br/> (`SplitterOrientation.Horizontal`) | Whether the content will be split up (how the panes will stack) horizontally or vertically.
+|  `Width`| `string` | The width of the Splitter. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
+
+## Splitter Reference and Methods
+
+Add a reference to the component instance to use the [Splitter methods](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitter#methods).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `GetState` | Gets the current [state]({%slug splitter-state%}) of the Splitter.
+| `SetState` | Sets the current [state]({%slug splitter-state%}) of the Splitter.
 
 ````CSHTML
-<TelerikSplitter Width="400px" Height="200px" @ref="@SplitterRef">
+<TelerikButton OnClick="@GetSplitterState">Get Splitter State</TelerikButton>
+
+<TelerikSplitter @ref="@SplitterRef"
+                 Width="400px" 
+                 Height="200px">
     <SplitterPanes>
         <SplitterPane>
             <div>left sidebar</div>
@@ -85,102 +123,18 @@ This example shows how the splitter can fill up the entire container (marked wit
 
 @code {
     Telerik.Blazor.Components.TelerikSplitter SplitterRef { get; set; }
+
+    void GetSplitterState()
+    {
+        var currState = SplitterRef.GetState();
+    }
 }
 ````
 
+## Next Steps
 
-## Features
-
-The main container is the Splitter component and its tag defines the size and layout direction of the individual sections. Each Pane (section) controls its own behaviors such as the ability to change its size and collapse.
-
-### Splitter
-
-The main tag of the splitter offers the following core features of the component:
-
-* `Class` - the CSS class that renders on the main wrapping element of the component.
-
-* `Height` - takes a CSS unit that determines how tall the splitter is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
-
-* `Orientation` - whether the content will be split up (how the panes will stack) horizontally or vertically. Takes a member of the `SplitterOrientation` enum and defaults to `Horizontal`.
-
-* `Width`- takes a CSS unit that determines how wide the splitter is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
-
-* Several [events]({%slug splitter-events%}).
-
-### Pane
-
-Each individual splitter pane (section) offers the following features:
-
-* `ChildContent` - the standard `RenderFragment` for Blazor that lets you define your content directly between the opening and closing tags of the pane.
-
-* `Class` - the CSS class that renders on the top element of the pane. Lets you apply styling such as changing the `overflow` for the content.
-
-* `Collapsed` - whether the pane will be collapsed (not visible). Defaults to `false`. Supports two-way binding.
-
-* `Collapsible` - whether the user can collapse (hide) the pane to provide more room for other panes. When enabled, the adjacent splitbar (the drag handle between the panes) will offer a collapse button for the pane. Defaults to `false`.
-
-* `Max` - the maximum size the pane can have in pixels or percentages. When it is reached, the user cannot expand its size further.
-
-* `Min` -  the minimum size the pane can have in pixels or percentages. When it is reached, the user cannot reduce its size further.
-
-* `Resizable` - whether the user can resize the pane by dragging the resize handle (splitbar) between two panes. Resizing means that the adjacent pane will take up the difference in size. Defaults to `true`.
-
-* `Size` - the size the pane in pixels or percentages. Must be between `Min` and `Max`. Supports two-way binding.
-
-## Splitter and Pane Size
-
-The splitter respects the dimensions you set to its `Width` and `Height` parameters, and distributes the available space according to the `Size` set to individual panes inside.
-
-If you set the `Width` and `Height` in percent, make sure that the parent element provides the desires dimensions and layout first.
-
-The individual panes use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis" target="_blank">CSS flex-basis</a> to set their dimensions and by default they have `flex: 1 1 auto` so they distribute the space evenly if there are no other settings.
-
-If the `Size` of a pane is set to a value larger than the `Max`, the pane cannot be resized even if its `Resizable` parameter is set to `true`.
-
->tip You must leave at least one `SplitterPane` *without* a set `Size`. This pane will absorb size changes from other panes when the user resizes them and provides you with some flexibility when defining strict sizes for the other panes so that you don't have to keep track of all the pane sizes, their sum and the container size.
-
->tip You can find a sample of creating a 100% height layout with a splitter that also offers a header, footer and sidebar in the following sample project: <a href="https://github.com/telerik/blazor-ui/tree/master/splitter/use-100-percent-viewport" target="_blank">How to make Splitter take 100% height of the viewport</a>.
-
-
-## Nested Splitters
-
-Sometimes you need to create a more complex layout that includes both horizontal and vertical panes. To do that, you can nest Telerik Splitter components inside the panes of other splitters. When you do that, set the `Class` parameter of the nested splitter to `k-pane-flex`.
-
->caption Nested splitters that create a complex layout with both horizontal and vertical panes
-
-````CSHTML
-<div style="width: 500px; height: 300px; border: 2px solid red;">
-
-    <TelerikSplitter Width="100%" Height="100%">
-        <SplitterPanes>
-            <SplitterPane Size="100px">
-                <div>left sidebar</div>
-            </SplitterPane>
-            <SplitterPane>
-
-                <TelerikSplitter Class="k-pane-flex"
-                                 Width="100%" Height="100%"
-                                 Orientation="@SplitterOrientation.Vertical">
-                    <SplitterPanes>
-                        <SplitterPane Size="20%">
-                            <div>TOP content</div>
-                        </SplitterPane>
-                        <SplitterPane>
-                            <div>Bottom content</div>
-                        </SplitterPane>
-                    </SplitterPanes>
-                </TelerikSplitter>
-
-            </SplitterPane>
-        </SplitterPanes>
-    </TelerikSplitter>
-
-</div>
-````
-
->caption The result from the code snippet above
-
-![Nested splitters can create complex layout](images/nested-splitter-result.png)
+* [Explore the various Splitter Pane options]({%slug splitter-panes%})
+* [Configure the Splitter Size]({%slug splitter-size%})
 
 ## See Also
 
