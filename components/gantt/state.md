@@ -981,25 +981,25 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
 The `ColumnStates` property of the `GanttState` object provides you with information about the current state of the Gantt columns. It contains the following properties:
 
 
-Field | Type | Description
----------|----------|---------
- `Index` | `int` | the current index of the column based on the position the user chose
- `Id` | `string` | the Id of the column if it is set
- `Field` | `string` | the field of the column
- `Visible` | `bool?` | whether the column is hidden or not
- `Width` | `string` | the width of the column if it is set
+| Field | Type | Description |
+| --- | --- | --- |
+| `Index` | `int` | the current index of the column based on the position the user chose |
+| `Id` | `string` | the Id of the column if it is set |
+| `Field` | `string` | the field of the column |
+| `Visible` | `bool?` | whether the column is hidden or not |
+| `Width` | `string` | the width of the column if it is set |
 
 By looping over the `ColumnStates` collection you can know what the user sees. By default, the order of the columns in the state collection will remain the same but their `Index` value will change to indicate their position. You can, for example, sort by the index and filter by the visibility of the columns to get the approximate view the user sees.
 
 >caption Obtain the current columns visibility, rendering order, field name and width
 
 ````CSHTML
-@*Get column states from code*@
+@*Get Gantt column state from code*@
 
-<TelerikButton OnClick="@GetCurrentColumnsState">Get Columns order and parameters</TelerikButton>
+<TelerikButton OnClick="@GetCurrentColumnsState">Get Column State</TelerikButton>
 
-<TelerikGantt Data="@Data"
-              @ref="@GanttRef"
+<TelerikGantt @ref="@GanttRef"
+              Data="@GanttData"              
               IdField="Id"
               ParentIdField="ParentId"
               ColumnResizable="true"
@@ -1039,9 +1039,11 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
 @(new MarkupString(ColumnsLog))
 
 @code {
-    TelerikGantt<GanttTask> GanttRef;
-    List<GanttTask> Data { get; set; }
-    string ColumnsLog { get; set; }
+    private TelerikGantt<GanttTask> GanttRef;
+
+    private List<GanttTask> GanttData { get; set; }
+
+    private string ColumnsLog { get; set; }
 
     private void GetCurrentColumnsState()
     {
@@ -1056,69 +1058,19 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
             // human readable info for visibility information
             var visible = columnState.Visible != false;
 
-            string log = $"<p>Column: <strong>{columnState.Field}</strong> | Index in state:{columnState.Index} | Visible: {visible} | Width: {columnState.Width}</p>";
+            string log = $"<p>Column: <strong>{columnState.Field}</strong> | Index in state: {columnState.Index} | Visible: {visible} | Width: {columnState.Width}</p>";
 
             ColumnsLog += log;
         }
     }
 
-    //Gantt model, dummy data generation and sample CRUD operations
-    class GanttTask
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Title { get; set; }
-        public double PercentComplete { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-    }
-
-    public int LastId { get; set; } = 1;
-
-    protected override void OnInitialized()
-    {
-        Data = new List<GanttTask>();
-        var random = new Random();
-
-        for (int i = 1; i < 6; i++)
-        {
-            var newItem = new GanttTask()
-                {
-                    Id = LastId,
-                    Title = "Task  " + i.ToString(),
-                    Start = new DateTime(2021, 7, 5 + i),
-                    End = new DateTime(2021, 7, 11 + i),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                };
-
-            Data.Add(newItem);
-            var parentId = LastId;
-            LastId++;
-
-            for (int j = 0; j < 5; j++)
-            {
-                Data.Add(new GanttTask()
-                    {
-                        Id = LastId,
-                        ParentId = parentId,
-                        Title = "    Task " + i + " : " + j.ToString(),
-                        Start = new DateTime(2021, 7, 5 + j),
-                        End = new DateTime(2021, 7, 6 + i + j),
-                        PercentComplete = Math.Round(random.NextDouble(), 2)
-                    });
-
-                LastId++;
-            }
-        }
-
-        base.OnInitialized();
-    }
+    #region Gantt model, dummy data generation and sample CRUD operations
 
     private void UpdateItem(GanttUpdateEventArgs args)
     {
         var item = args.Item as GanttTask;
 
-        var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
+        var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
         if (foundItem != null)
         {
@@ -1131,27 +1083,79 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
 
     private void DeleteItem(GanttDeleteEventArgs args)
     {
-        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
 
         RemoveChildRecursive(item);
     }
 
     private void RemoveChildRecursive(GanttTask item)
     {
-        var children = Data.Where(i => item.Id.Equals(i.ParentId)).ToList();
+        var children = GanttData.Where(i => item.Id.Equals(i.ParentId)).ToList();
 
         foreach (var child in children)
         {
             RemoveChildRecursive(child);
         }
 
-        Data.Remove(item);
+        GanttData.Remove(item);
     }
+
+    private int LastId { get; set; } = 1;
+
+    protected override void OnInitialized()
+    {
+        GanttData = new List<GanttTask>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new GanttTask()
+            {
+                Id = LastId,
+                Title = "Task  " + i.ToString(),
+                Start = new DateTime(2021, 7, 5 + i),
+                End = new DateTime(2021, 7, 11 + i),
+                PercentComplete = Math.Round(random.NextDouble(), 2)
+            };
+
+            GanttData.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                GanttData.Add(new GanttTask()
+                {
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Task " + i + " : " + j.ToString(),
+                    Start = new DateTime(2021, 7, 5 + j),
+                    End = new DateTime(2021, 7, 6 + i + j),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    public class GanttTask
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    #endregion
 }
 ````
 
 
 ## See Also
 
-  * [Live Demo: Gantt State](https://demos.telerik.com/blazor-ui/Gantt/persist-state)
-   
+* [Live Demo: Gantt State](https://demos.telerik.com/blazor-ui/Gantt/persist-state)
