@@ -45,10 +45,6 @@ Selected value: @selectedValue
 }
 ````
 
-## Component Reference
-
-The DropDownList is a generic component and its type comes from the model it is bound to and from the value field type. See the [Component Reference]({%slug components/dropdownlist/databind%}#component-reference) section in the Data Binding article for details and examples.
-
 ## Data Binding
 
 The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor DropDownList data binding...]({% slug components/dropdownlist/databind %}).
@@ -128,6 +124,35 @@ The DropDownList provides the following popup settings:
 
 @[template](/_contentTemplates/dropdowns/features.md#popup-settings)
 
+## DropDownList Reference and Methods
+
+The DropDownList is a generic component and its type comes from the model it is bound to and from the value field type. See the [Component Reference]({%slug components/dropdownlist/databind%}#component-reference) section in the Data Binding article for details and examples.
+
+Add a reference to the component instance to use the [DropDownList's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDropDownList-2).
+
+@[template](/_contentTemplates/dropdowns/methods#methods-list)
+
+````CSHTML
+<TelerikDropDownList @ref="@DropDownListRef"
+                     Data="@DropDownListData"
+                     @bind-Value="@DropDownListValue" 
+                     Width="300px"/>
+
+<TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
+
+@code {
+    TelerikDropDownList<string, string> DropDownListRef { get; set; }
+
+    string DropDownListValue { get; set; }
+
+    List<string> DropDownListData { get; set; } = new List<string> { "first", "second", "third" };
+
+    void OpenPopup()
+    {
+        DropDownListRef.Open();
+    }
+}
+````
 
 ## Selected Item and DefaultText
 
