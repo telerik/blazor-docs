@@ -87,17 +87,36 @@ You can find more options for customizing the DateTimePicker styling in the [App
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
-## Component Reference
+## DateTimePicker Reference and Methods
+
+Add a reference to the component instance to use the [Date Time Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateTimePicker-1).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `Close` | Closes the Calendar popup. |
+| `FocusAsync` | Focuses the DateTimePicker textbox. |
+| `Open` | Opens the Calendar popup. |
 
 ````CSHTML
-@using Telerik.Blazor.Components
+<TelerikDateTimePicker @ref="@DateTimePickerRef"
+                       @bind-Value="@DateTimePickerValue"
+                       Width="300px">
+</TelerikDateTimePicker>
 
-<TelerikDateTimePicker @ref="@theDateTimePickerRef" @bind-Value="@selectedTime"></TelerikDateTimePicker>
+<TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
 
-@code  {
-    private DateTime? selectedTime = DateTime.Now;
+@code {
+    private DateTime DateTimePickerValue = DateTime.Now;
+
     // the datetime picker is a generic component and its type comes from the value field type
-    Telerik.Blazor.Components.TelerikDateTimePicker<DateTime?> theDateTimePickerRef { get; set; }
+    TelerikDateTimePicker<DateTime> DateTimePickerRef { get; set; }
+
+    void OpenPopup()
+    {
+        DateTimePickerRef.Open();
+    }
 }
 ````
 
