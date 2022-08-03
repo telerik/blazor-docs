@@ -17,7 +17,7 @@ The individual files also carry information about their [client-side validation]
 
 
 #see-controller-sample-in-overview
-This example does not include a controller to consume the files. See [Implement controller methods](#implement-controller-methods).
+This example does not include a controller to consume the files. See [Implement controller methods]({%slug upload-overview%}#implement-controller-methods).
 #end
 
 
