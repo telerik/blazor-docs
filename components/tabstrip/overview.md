@@ -56,6 +56,10 @@ The Blazor TabStrip component can persist the content of the tabs. When the user
 
 The Blazor TabStrip allows you to scroll only its tabs. This is useful for scenarious where a lot of tabs are defined. [Read more about the Scrollable Tabs...]({%slug tabstrip-scroll-tabs%})
 
+## Events
+
+The TabStrip fires an [`ActiveTabIndexChanged` event]({%slug tabstrip-events%}) when the user clicks on a tab to select it.
+
 ## TabStrip Parameters
 
 The TabStrip provides the following features to allow further customization of its behavior:
@@ -85,7 +89,7 @@ The following parameters enable you to customize the appearance of the Blazor Ta
 
 * [Configure the Tabs]({%slug tabstrip-tabs-configuration%})
 * [Explore the supported Tab positions]({%slug tabstrip-tabs-position%})
-* [Handle the TebStrip events]({%slug tabstrip-events%})
+* [Handle the TabStrip events]({%slug tabstrip-events%})
 
 ## See Also
 
