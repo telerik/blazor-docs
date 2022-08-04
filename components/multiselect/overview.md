@@ -141,7 +141,7 @@ The MultiSelect is a generic component and its type is determined by the type of
 
 Add a reference to the component instance to use the [MultiSelect's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikMultiSelect-2).
 
-@[template](/_contentTemplates/dropdowns/methods#methods-list)
+@[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
 ````CSHTML
 <TelerikMultiSelect @ref="@MultiSelectRef"

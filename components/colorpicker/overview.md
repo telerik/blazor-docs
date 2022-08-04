@@ -97,7 +97,7 @@ Color keywords are not supported.
 
 ## ColorPicker Reference and Methods
 
-Add a reference to the component instance to use the [ColorPicker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikAutoComplete-1).
+Add a reference to the component instance to use the [ColorPicker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPicker).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
