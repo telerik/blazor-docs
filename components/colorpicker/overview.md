@@ -115,7 +115,7 @@ Add a reference to the component instance to use the [ColorPicker's methods](/bl
 
 
 @code {
-    TelerikColorPicker ColorPickerRef { get; set; }
+    private TelerikColorPicker ColorPickerRef { get; set; }
 
     private string Color { get; set; } = "rgb(40, 47, 137)";
 

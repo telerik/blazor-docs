@@ -141,11 +141,11 @@ Add a reference to the component instance to use the [DropDownList's methods](/b
 <TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
 
 @code {
-    TelerikDropDownList<string, string> DropDownListRef { get; set; }
+    private TelerikDropDownList<string, string> DropDownListRef { get; set; }
 
-    string DropDownListValue { get; set; }
+    private string DropDownListValue { get; set; }
 
-    List<string> DropDownListData { get; set; } = new List<string> { "first", "second", "third" };
+    private List<string> DropDownListData { get; set; } = new List<string> { "first", "second", "third" };
 
     void OpenPopup()
     {

@@ -107,11 +107,11 @@ Add a reference to the component instance to use the [Date Time Picker's methods
 
 <TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
 
-@code {
-    private DateTime DateTimePickerValue = DateTime.Now;
-
+@code {  
     // the datetime picker is a generic component and its type comes from the value field type
-    TelerikDateTimePicker<DateTime> DateTimePickerRef { get; set; }
+    private TelerikDateTimePicker<DateTime> DateTimePickerRef { get; set; }
+
+    private DateTime DateTimePickerValue = DateTime.Now;
 
     void OpenPopup()
     {

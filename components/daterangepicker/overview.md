@@ -113,30 +113,31 @@ Add a reference to the component instance to use the [Date Range Picker's method
 <TelerikButton OnClick="@FocusEnd">Focus End TextBox</TelerikButton>
 <TelerikButton OnClick="@OpenPicker">Open DateRangePicker</TelerikButton>
 
-<TelerikDateRangePicker @ref="@Picker"
-                        @bind-StartValue="@StartValue"
-                        @bind-EndValue="@EndValue" />
+<TelerikDateRangePicker @ref="@DateRangePickerRef"
+                        @bind-StartValue="@DateRangePickerStartValue"
+                        @bind-EndValue="@DateRangePickerEndValue" />
 
 @code {
-    DateTime StartValue { get; set; } = DateTime.Now;
-    DateTime EndValue { get; set; } = DateTime.Now.AddDays(10);
-
     // the component type depends on the value type, could be also DateTime?
-    TelerikDateRangePicker<DateTime> Picker { get; set; }
+    private TelerikDateRangePicker<DateTime> DateRangePickerRef { get; set; }
+
+    private DateTime DateRangePickerStartValue { get; set; } = DateTime.Now;
+
+    private DateTime DateRangePickerEndValue { get; set; } = DateTime.Now.AddDays(10);
 
     async Task FocusStart()
     {
-        await Picker.FocusStartAsync();
+        await DateRangePickerRef.FocusStartAsync();
     }
 
     async Task FocusEnd()
     {
-        await Picker.FocusEndAsync();
+        await DateRangePickerRef.FocusEndAsync();
     }
 
     void OpenPicker()
     {
-        Picker.Open();
+        DateRangePickerRef.Open();
     }
 }
 ````
