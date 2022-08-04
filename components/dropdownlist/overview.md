@@ -130,7 +130,7 @@ The DropDownList is a generic component and its type comes from the model it is 
 
 Add a reference to the component instance to use the [DropDownList's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDropDownList-2).
 
-@[template](/_contentTemplates/dropdowns/methods#methods-list)
+@[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
 ````CSHTML
 <TelerikDropDownList @ref="@DropDownListRef"

@@ -130,7 +130,7 @@ The AutoComplete is a generic component and its type is determined by the type o
 
 Add a reference to the component instance to use the [AutoComplete's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikAutoComplete-1).
 
-@[template](/_contentTemplates/dropdowns/methods#methods-list)
+@[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
 ````CSHTML
 <TelerikAutoComplete @ref="@AutoCompleteRef"
