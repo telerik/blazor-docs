@@ -58,8 +58,13 @@ You can define the `HeaderTemplate` with the following configuration in the `Tab
 
 >tip If you only need to add some styling to the TabStripTab header, you can use the `Class` parameter of the `TabStripTab` to define your custom CSS class instead of the Header template.
 
+
+## Next Steps
+
+* [Use TabStrip Events]({%slug tabstrip-events%})
+
+
 ## See Also
 
-  * [Live Demo: TabStrip Header Template](https://demos.telerik.com/blazor-ui/tabstrip/header-template)
-  * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/overview)
-  * [Events]({%slug tabstrip-events%})
+* [Live Demo: TabStrip Header Template](https://demos.telerik.com/blazor-ui/tabstrip/header-template)
+* [How to remove TabStrip tabs]({%slug tabstrip-kb-remove-tab%})
