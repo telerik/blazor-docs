@@ -81,7 +81,7 @@ In some cases, you may want to rename the current file when uploading it, for ex
 
 The file rename process requires two separate steps:
 
-* Use the `OnSelect` event to call the remote endpoint and check for duplicates before the actual upload process starts. If needed, generate a new name and set it to the `Name` of the file that will be uploaded. This will update the rendered file name in the Upload component UI. Note that this will not change the file name that will be sent to the endpoint, due to browser security restrictions. The endpoint will still receive the original file name from the user's file system.
+* Use the `OnSelect` event to call the remote endpoint and check for duplicates before the actual upload process starts. If needed, generate a new name and set it to the `Name` of the file that will be uploaded. This will update the rendered file name in the Upload component UI. Note that **this will not change the file name that will be sent to the endpoint**, due to browser security restrictions. The endpoint will still receive the original file name from the user's file system. You can send the new file name as [additional request data in the `OnUpload` event](#onupload).
 * Use the saving action in the remote endpoint to set the file name, as it will be saved on the server.
 
 ````CSHTML
