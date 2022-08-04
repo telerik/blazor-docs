@@ -141,11 +141,11 @@ Add a reference to the component instance to use the [AutoComplete's methods](/b
 <TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
 
 @code {
-    TelerikAutoComplete<string> AutoCompleteRef { get; set; }
+    private TelerikAutoComplete<string> AutoCompleteRef { get; set; }
 
-    string AutoCompleteValue { get; set; }
+    private string AutoCompleteValue { get; set; }
 
-    List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
+    private List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
 
     void OpenPopup()
     {

@@ -152,11 +152,11 @@ Add a reference to the component instance to use the [MultiSelect's methods](/bl
 <TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
 
 @code {
-    TelerikMultiSelect<string, string> MultiSelectRef { get; set; }
+    private TelerikMultiSelect<string, string> MultiSelectRef { get; set; }
 
-    List<string> MultiSelectValue { get; set; }
+    private List<string> MultiSelectValue { get; set; }
 
-    List<string> MultiSelectData { get; set; } = new List<string> { "first", "second", "third" };
+    private List<string> MultiSelectData { get; set; } = new List<string> { "first", "second", "third" };
 
     void OpenPopup()
     {

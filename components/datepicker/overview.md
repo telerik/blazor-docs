@@ -112,27 +112,27 @@ Add a reference to the component instance to use the [Date Picker's methods](/bl
 | `Refresh` | Re-renders the Calendar popup. |
 
 ````CSHTML
-<TelerikDatePicker @ref="@Picker"
-                   @bind-Value="@PickerValue"
+<TelerikDatePicker @ref="@DatePickerRef"
+                   @bind-Value="@DatePickerValue"
                    Width="200px" />
 
 <TelerikButton OnClick="@FocusPicker">Focus DatePicker</TelerikButton>
-<TelerikButton OnClick="@OpenPicker">Open DatePicker</TelerikButton>
+<TelerikButton OnClick="@OpenPicker">Open DatePicker Calendar</TelerikButton>
 
 @code  {
-    DateTime PickerValue { get; set; } = DateTime.Now;
-
     // the component type depends on the value type
-    TelerikDatePicker<DateTime> Picker { get; set; }
+    private TelerikDatePicker<DateTime> DatePickerRef { get; set; }
+
+    private DateTime DatePickerValue { get; set; } = DateTime.Now;
 
     async Task FocusPicker()
     {
-        await Picker.FocusAsync();
+        await DatePickerRef.FocusAsync();
     }
 
     void OpenPicker()
     {
-        Picker.Open();
+        DatePickerRef.Open();
     }
 }
 ````

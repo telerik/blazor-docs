@@ -141,11 +141,11 @@ Add a reference to the component instance to use the [ComboBox's methods](/blazo
 <TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
 
 @code {
-    TelerikComboBox<string, string> ComboBoxRef { get; set; }
+    private TelerikComboBox<string, string> ComboBoxRef { get; set; }
 
-    string ComboBoxValue { get; set; }
+    private string ComboBoxValue { get; set; }
 
-    List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
+    private List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
 
     void OpenPopup()
     {
