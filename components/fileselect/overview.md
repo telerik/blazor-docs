@@ -118,7 +118,8 @@ The following table lists the FileSelect parameters. Also check the [FileSelect 
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `AllowedExtensions` | `List<string>` | The list of allowed file types. Read more at [Validation]({%slug fileselect-validation%}). |
+| `Accept` | `string` | The [`accept` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept) of the file `<input>`. It controls what file types and MIME types the browser will allow users to select. Compare with `AllowedExtensions`. |
+| `AllowedExtensions` | `List<string>` | The list of allowed file types. The component will check if the selected files are compliant **after selection**. Compare with `Accept`. Read more at [Validation]({%slug fileselect-validation%}). |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-upload">` element. (The FileSelect reuses the Upload HTML rendering.) |
 | `Enabled` | `bool`<br />(`true`) | Enables file selection. |
 | `MinFileSize` | `int?` | Sets the minimum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
