@@ -268,10 +268,7 @@ The scheduler edit form works with an instance that that the scheduler creates f
 ````
 
 
-
 ## See Also
 
-  * [Live Demo: Scheduler](https://demos.telerik.com/blazor-ui/scheduler/overview)
-  * [Editing Appointments]({%slug scheduler-appointments-edit%})
-
-
+* [Live Demo: Scheduler](https://demos.telerik.com/blazor-ui/scheduler/overview)
+* [Editing Appointments]({%slug scheduler-appointments-edit%})
