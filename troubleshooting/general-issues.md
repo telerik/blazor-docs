@@ -117,7 +117,7 @@ When building a Blazor app, especially on the WebAssembly flavor, it is likely t
 
 There are also certain measures a web app should take to improve its performance in general. For example:
 
-* Enable [Paging]({%slug components/grid/features/paging%}) or [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}) in the grid, and use a reasonable page size (for exapmle, 10 to 20 or 40, as more than 20 items can rarely fit on a screen anyway). Also, if you have many columns, enable [Column Virtualization]({%slug grid-columns-virtual%}).
+* Enable [Paging]({%slug components/grid/features/paging%}) or [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}) in the grid, and use a reasonable page size (for example, 10 to 20 or 40, as more than 20 items can rarely fit on a screen anyway). Also, if you have many columns, enable [Column Virtualization]({%slug grid-columns-virtual%}).
 
 * Avoid loading all the data at once, only load and render relevant chunks. For example, use the [OnRead event of the Grid]({%slug components/grid/manual-operations%}) for the grid to perform all operations, and use [custom filtering in the ComboBox through its own OnRead event]({%slug components/combobox/events%}#onread). This also applies to creating lists of a lot of components in your own `foreach` loops - consider implementing your own virtual scrolling or use the [Telerik Pager]({%slug pager-overview%}) to help you separate them into smaller sets.
 
