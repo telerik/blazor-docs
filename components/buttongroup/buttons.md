@@ -19,7 +19,7 @@ You can add the desired button instances by declaring the dedicated button tags.
 
 ## ButtonGroup ToggleButton
 
-The `ButtonGroupToggleButton` becomes primary when clicked and de-selects when another one is clicked. If multiple selection is enabled, the user can select more than one `ButtonGroupToggleButton` at a time. Clicking on a selected button in this case will de-select it. Read more in the [Selection]({%slug buttongroup-selection%}) article.
+The `ButtonGroupToggleButton` becomes selected when clicked and de-selects when another one is clicked. If multiple selection is enabled, the user can select more than one `ButtonGroupToggleButton` at a time. Clicking on a selected button in this case will de-select it. Read more in the [Selection]({%slug buttongroup-selection%}) article.
 
 The `ButtonGroupToggleButton` inherits the parameters and behavior of the [`TelerikToggleButton`]({%slug togglebutton-overview%}) component.
 
