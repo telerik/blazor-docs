@@ -190,6 +190,7 @@ The following table lists the Upload parameters. Also check the [Upload API Refe
 | `AutoUpload` | `bool`<br />(`true`) | When `true`, the upload process starts automatically after file selection. When `false`, the component renders an upload button. |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-upload">` element. |
 | `Enabled` | `bool`<br />(`true`) | Enables file selection and upload. |
+| `Id` | `string` | Renders an `id` attribute to the `<input type="file" />` element. Can be used together with a `<label>`. |
 | `Multiple` | `bool`<br />(`true`) | Sets if the user can select several files at the same time. The component always uploads files one by one, and the controller method receives them separately. |
 | `RemoveField` | `string`<br />(`"files"`) | Sets the `FormData` key, which contains the file name submitted for deletion to the [`RemoveUrl` endpoint](#implement-controller-methods). The `RemoveField` value must match the delete controller method's argument name. The user triggers remove requests when clicking on the [x] buttons in the uploaded file list. |
 | `RemoveUrl` | `string` | The URL which receives the file names for deletion. |

@@ -122,6 +122,7 @@ The following table lists the FileSelect parameters. Also check the [FileSelect 
 | `AllowedExtensions` | `List<string>` | The list of allowed file types. The component will check if the selected files are compliant **after selection**. Compare with `Accept`. Read more at [Validation]({%slug fileselect-validation%}). |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-upload">` element. (The FileSelect reuses the Upload HTML rendering.) |
 | `Enabled` | `bool`<br />(`true`) | Enables file selection. |
+| `Id` | `string` | Renders an `id` attribute to the `<input type="file" />` element. Can be used together with a `<label>`. |
 | `MinFileSize` | `int?` | Sets the minimum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
 | `MaxFileSize`| `int?` | Sets the maximum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
 | `Multiple` | `bool`<br />(`true`) | Sets if the user can select several files at the same time. |
