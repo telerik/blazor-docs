@@ -21,9 +21,6 @@ In this article:
 	* [Slots](#slots)
 * [Resource Grouping](#resource-grouping-in-the-multiday-view)
 
->caption Figure: MultiDay View in the scheduler
-
-![Blazor Multiday View Sample](images/multiday-view-sample.png)
 
 ## Example
 
@@ -107,17 +104,12 @@ In this article:
 
 You can configure the MultiDay view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
 
->caption The result from the code snippet below.
-
-![Blazor Scheduler Resource Grouping MultyDay View](images/scheduler-resource-grouping-multiday-view.png)
-
 >caption Resource Grouping in a MultiDay view.
 
 @[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
 
 ## See Also
 
-  * [Views]({%slug scheduler-views-overview%})
-  * [Navigation]({%slug scheduler-navigation%})
-  * [Live Demo: Scheduler MultiDay View](https://demos.telerik.com/blazor-ui/scheduler/multiday-view)
-  
+* [Views]({%slug scheduler-views-overview%})
+* [Navigation]({%slug scheduler-navigation%})
+* [Live Demo: Scheduler MultiDay View](https://demos.telerik.com/blazor-ui/scheduler/multiday-view)

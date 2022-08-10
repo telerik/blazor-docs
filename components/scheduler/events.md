@@ -939,9 +939,6 @@ Through its event arguments you can get the `Item` to cast it to your model type
 </style>
 ````
 
->caption The result from the code snippet above
-
-![Custom appointment appearance through conditional CSS classes](images/item-render-customization.png)
 
 ## DateChanged
 
@@ -1027,9 +1024,6 @@ The `DateChanged` event fires when the user [navigates]({%slug scheduler-navigat
 
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-
-
 
 
 ## ViewChanged
@@ -1121,4 +1115,3 @@ The `ViewChanged` event fires when the user chooses a new [View]({%slug schedule
 * [Scheduler Naviation]({%slug scheduler-navigation%})
 * [Data Binding]({%slug scheduler-appointments-databinding%})
 * [Appointments Editing]({%slug scheduler-appointments-edit%})
-
