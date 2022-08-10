@@ -104,7 +104,7 @@ Add a reference to the component instance to use the [ColorPicker's methods](/bl
 | Method | Description |
 | --- | --- |
 | `Close` | Closes the component popup. |
-| `FocusAsync` | Focuses the main element of the component|
+| `FocusAsync` | Focuses the main element of the component. Always `await` this call, as it relies on `JSInterop`. |
 | `Open` | Opens the component popup. |
 
 ````CSHTML
