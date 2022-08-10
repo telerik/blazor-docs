@@ -13,7 +13,7 @@ position: 3
 
 The ButtonGroup lets you select one or more of its `ButtonGroupToggleButton` instances depending on the `SelectionMode` setting:
 
-* [Single](#single-selection) (the default) - the buttons act like radio buttons
+* [Single](#single-selection) (default) - the buttons act like radio buttons
 * [Multiple](#multiple-selection) - the buttons act like checkboxes
 
 You can control whether a button is selected (it is in its `Primary` state) through its `Selected` parameter. It offers two-way binding and an [SelectedChanged event]({%slug buttongroup-events%}) so you can respond to the user actions.
