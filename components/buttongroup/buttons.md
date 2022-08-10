@@ -5,7 +5,7 @@ description: Explore the available buttons in the ButtonGroup for Blazor.
 slug: buttongroup-buttons
 tags: telerik,blazor,toggle,button,group,type
 published: True
-position: 2
+position: 5
 ---
 
 # ButtonGroup Buttons

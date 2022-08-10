@@ -5,7 +5,7 @@ description: Selected Items in the ButtonGroup for Blazor.
 slug: buttongroup-selection
 tags: telerik,blazor,button,group,selection
 published: True
-position: 3
+position: 10
 ---
 
 
