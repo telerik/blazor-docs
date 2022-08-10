@@ -11,21 +11,20 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Drawer for Blazor</td>
-		</tr>
-		<tr>
-			<td>Product</td>
-			<td>AutoComplete for Blazor, ComboBox for Blazor, DropDownList for Blazor, MultiSelect for Blazor</td>
-		</tr>
-		<tr>
-			<td>Product</td>
-			<td>DatePicker for Blazor, DateRangePicker for Blazor, DateTimePicker for Blazor, DateTimePicker for Blazor</td>
-		</tr>
-	</tbody>
+    <tr>
+        <td>Product</td>
+        <td>Drawer for Blazor</td>
+    </tr>
+    <tr>
+        <td>Product</td>
+        <td>AutoComplete for Blazor, ComboBox for Blazor, DropDownList for Blazor, MultiSelect for Blazor</td>
+    </tr>
+    <tr>
+        <td>Product</td>
+        <td>DatePicker for Blazor, DateRangePicker for Blazor, DateTimePicker for Blazor, DateTimePicker for Blazor</td>
+    </tr>
 </table>
 
 
