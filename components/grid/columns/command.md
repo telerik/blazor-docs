@@ -97,7 +97,7 @@ The following code example demonstrates declarations and handling.
 
 @CustomCommandResult
 
-<TelerikGrid Data=@GridData EditMode="@GridEditMode.Inline" OnUpdate="@MyUpdateHandler"
+<TelerikGrid Data=@GridData EditMode="@GridEditMode.Inline" OnUpdate="@MyOnUpdateHandler"
              Pageable="true" PageSize="15" Height="500px">
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />
@@ -105,9 +105,9 @@ The following code example demonstrates declarations and handling.
         <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
         <GridCommandColumn>
             <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true" OnClick="@CustomSaveClick">Update</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true" OnClick="@CustomSaveOnClickHandler">Update</GridCommandButton>
             <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
-            <GridCommandButton Command="MyOwnCommand" Icon="information" ShowInEdit="false" OnClick="@MyCustomCommandHandler">My Command</GridCommandButton>
+            <GridCommandButton Command="MyOwnCommand" Icon="information" ShowInEdit="false" OnClick="@MyCustomCommandOnClickHandler">My Command</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
@@ -125,20 +125,20 @@ The following code example demonstrates declarations and handling.
 
     // sample custom commands handling
 
-    async Task CustomSaveClick(GridCommandEventArgs e)
+    private async Task CustomSaveOnClickHandler(GridCommandEventArgs args)
     {
-        SampleData theUpdatedItem = e.Item as SampleData;
+        SampleData theUpdatedItem = args.Item as SampleData;
         // any custom logic
         if (theUpdatedItem.Name.Contains("3"))
         {
             // prevent the operation based on a condition. Will prevent the OnUpdate event from firing
             CustomCommandResult = new MarkupString(CustomCommandResult + "<br />Update Click fired. Custom logic prevent it from continuing.");
-            e.IsCancelled = true;
+            args.IsCancelled = true;
         }
     }
 
     MarkupString CustomCommandResult;
-    async Task MyCustomCommandHandler(GridCommandEventArgs args)
+    private async Task MyCustomCommandOnClickHandler(GridCommandEventArgs args)
     {
         CustomCommandResult = new MarkupString(CustomCommandResult + string.Format("<br />Custom command triggered for item {0}", (args.Item as SampleData).ID));
 
@@ -148,7 +148,7 @@ The following code example demonstrates declarations and handling.
 
     // sample CRUD operations
 
-    private async Task MyUpdateHandler(GridCommandEventArgs args)
+    private async Task MyOnUpdateHandler(GridCommandEventArgs args)
     {
         SampleData theUpdatedItem = args.Item as SampleData;
 
@@ -159,7 +159,7 @@ The following code example demonstrates declarations and handling.
         await GetGridData();
     }
 
-    async Task GetGridData()
+    private async Task GetGridData()
     {
         GridData = await MyService.Read();
     }
