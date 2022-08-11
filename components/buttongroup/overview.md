@@ -12,30 +12,19 @@ position: 0
 
 This article provides information about the <a href="https://www.telerik.com/blazor-ui/buttongroup" target="_blank">Blazor ButtonGroup component</a> and its core features.
 
-The ButtonGroup component is a container for buttons that can be toggle buttons, and lets you [select one or more]({%slug buttongroup-selection%}), and respond to the [selection and click events]({%slug buttongroup-events%}). The buttons inside fill up the container, match the styling according to the [chosen theme]({%slug general-information/themes%}) and provide the regular button features like images and icons and the other parameters and attributes.
+The ButtonGroup component is a container for [regular and toggle buttons]({%slug buttongroup-buttons%}). Before continuing, make sure you are familiar with the differences between [regular buttons]({%slug components/button/overview%}) and [toggle buttons]({%slug togglebutton-overview%}).
 
-#### In this article:
+The ButtonGroup component lets you [select one or more toggle buttons]({%slug buttongroup-selection%}), and respond to the [selection and click events]({%slug buttongroup-events%}). The buttons inside fill up the container, match the styling according to the [chosen theme]({%slug general-information/themes%}) and provide the regular button features like images and icons and the other parameters and attributes. 
 
-* [Basic and Toggle Buttons](#basic-and-toggle-buttons)
-* [Disabled State](#disabled-state)
-* [Hide Buttons](#hide-buttons)
-* [Styling](#styling)
+## Creating Blazor ButtonGroup
 
-## Basic and Toggle Buttons
-
-To add a Telerik ButtonGroup to your Blazor app:
-
-1. Add the `TelerikButtonGroup` tag.
-1. Inside it, add `ButtonGroupToggleButton` or `ButtonGroupButton` tags that denote each button.
-    * The `ButtonGroupToggleButton` becomes primary when clicked and de-selects when another one is clicked. Read more in the [Selection]({%slug buttongroup-selection%}) article.
-    * The `ButtonGroupButton` does not change its visual state when clicked.
-1. Use the `OnClick` event of these buttons to handle the user actions. Read more in the [Events]({%slug buttongroup-events%}) article.
+1. Use the `<TelerikButtonGroup>` tag to add the component to your razor page.
+1. Inside it, add the desired [button tags]({%slug buttongroup-buttons%}) that denote each button - `<ButtonGroupToggleButton>` or `<ButtonGroupButton>`.
+1. Optionally, use the `OnClick` event of these buttons to handle the user actions. Read more in the [Events]({%slug buttongroup-events%}) article.
 
 >caption TelerikButtonGroup with regular buttons and toggle buttons, and their respective OnClick handlers
 
 ````CSHTML
-@* Each individual button lets you control its selected state, have a click handler and template, icons, text *@
-
 <TelerikButtonGroup>
     <ButtonGroupButton OnClick="@FirstClick">First button</ButtonGroupButton>
     <ButtonGroupToggleButton OnClick="@SecondClick">Second button</ButtonGroupToggleButton>
@@ -54,51 +43,41 @@ To add a Telerik ButtonGroup to your Blazor app:
 }
 ````
 
->caption The result from the code snippet above, after clicking the second button
+## Buttons
 
-![Basic ButtonGroup](images/buttongroup-overview.png)
+The ButtonGroup incorporates two types of buttons - `ButtonGroupToggleButton` and `ButtonGroupButton`. You can individually configure their settings, control their enabled/disabled state and visibility. [Read more about the Blazor ButtonGroup buttons...]({%slug buttongroup-buttons%})
 
+## Icons
 
-## Disabled State
+To visually communicate the purpose of a button, you can add an image, sprite, or font icon. You can choose between a wide range of built-in font icons or use your custom font icons. [Read more about the Blazor ButtonGroup icons...]({%slug buttongroup-icons%})
 
-To disable a button, set its `Enabled` attribute to `false`.
+## Selection
 
->caption Disabled buttons in a button group
+The ButtonGroup allows you to control the selection mode of its `ButtonGroupToggleButton` instances. The user can select single or multiple `ButtonGroupToggleButton`. [Read more about the selection in the ButtonGroup component...]({%slug buttongroup-selection%})
 
-````CSHTML
-<TelerikButtonGroup>
-    <ButtonGroupButton>Enabled</ButtonGroupButton>
-    <ButtonGroupButton Enabled="false">Disabled</ButtonGroupButton>
-    <ButtonGroupToggleButton Selected="true">Enabled</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton Enabled="false">Disabled</ButtonGroupToggleButton>
-</TelerikButtonGroup>
-````
+## Appearance
 
->caption Comparison between disabled and enabled button
+The separate button instances of the ButtonGroup provide several parameters that control their [styling and appearance, including background color, shape, rounded corners and fill]({%slug buttongroup-appearance%}).
 
-![Disabled buttons in button group](images/button-group-disabled-state.png)
+## Events
 
+The Blazor ButtonGroup fires events that you can handle and respond to user actions. [Read more about the Blazor ButtonGroup events....]({%slug buttongroup-events%})
 
-## Hide Buttons
+## ButtonGroup Parameters
 
-You can set the `Visible` parameter of individual buttons to `false` to hide them based on certain logic. This lets you maintain the same markup and toggle features on and off with simple flags without affecting indexes and event handlers.
+The following table lists ButtonGroup parameters. Check the [ButtonGroup API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikButtonGroup) for a full list of properties, methods and events.
 
->caption Hide buttons from a ButtonGroup
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-````CSHTML
-<TelerikButtonGroup>
-    <ButtonGroupButton>First</ButtonGroupButton>
-    <ButtonGroupButton Visible="false">Hidden</ButtonGroupButton>
-    <ButtonGroupButton>Third</ButtonGroupButton>
-</TelerikButtonGroup>
-````
-
->caption Only two visible buttons are rendered
-
-![Hide buttongroup buttons conditionally](images/buttongroup-hide-buttons.png)
+| Parameter | Type and Default&nbsp;Value | Description |
+|---|---|---|
+| `Class` | `string` | Additional CSS class to the `<button class="k-button">` element. Use it to apply custom styles or [override the theme]({%slug themes-override%}). See [Custom Styling](#custom-styling) below. |
+| `Enabled` | `bool` <br /> (`true`) | Whether the ButtonGroup is enabled and accepts clicks. |
+| `SelectionMode` | `ButtonGroupSelectionMode` <br /> (`ButtonGroupSelectionMode.Single`) | The [selection mode]({%slug buttongroup-selection%}) of the ButtonGroup. |
+| `Width` | `string` | The width of the ButtonGroup. |
 
 
-## Styling
+## Custom Styling
 
 You can style the individual buttons through their `Class` attribute to define your own CSS rules that apply to the HTML rendering. You may want to make them conditional based on their `Selected` state.
 
@@ -129,12 +108,10 @@ You can style the individual buttons through their `Class` attribute to define y
 </style>
 ````
 
->caption The result from the code snippet above
+## Next Steps
 
-![conditional styling of buttongroup](images/buttongroup-styling.png)
-
-
-
+* [Enhance the ButtonGroup with Icons]({%slug buttongroup-icons%})
+* [Handle ButtonGroup Events]({%slug buttongroup-buttons%})
 
 ## See Also
 
