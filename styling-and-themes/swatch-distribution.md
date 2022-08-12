@@ -18,9 +18,9 @@ Telerik UI for Blazor distributes the most commonly used swatches. While it is p
 * [Distribution Options](#distribution-options)
     * [Telerik Blazor CDN](#telerik-blazor-cdn)
     * [ZIP archive](#zip-archive)
-    * [Visual Studio and Visual Studio Code Wizards](#visual-studio-and-visual-studio-code-wizard)
+    * [Visual Studio and Visual Studio Code Wizards](#visual-studio-and-visual-studio-code-wizards)
 
-# Distributed Swatches
+## Distributed Swatches
 
 The following swatches are statistically most used, so we've included them in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview) to allow easy testing. In addition, we are also distributing them via [several resources](#distribution-options).
 
@@ -93,9 +93,6 @@ One of the ways to install Telerik UI for Blazor is to use the ZIP Archive. Its 
 
 ### Visual Studio and Visual Studio Code Wizards
 
-You can use the Telerik Blazor Extensions to easily create a new project pre-configured to use the Telerik UI for Blazor components or convert your existing one to add them. Telerik Blazor Extensions are available for Visual Studio and Visual Studio Code.
-
 The **Create New Project** wizards for [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-new-project%}) allow you to select the desired theme/swatch for your application. The wizards provide the above list of common swatches.
 
-Once you've created the project, the selected theme will be saved locally in the `wwwroot/lib/blazor-ui/styles` folder of the application. With this configuration, **upgrading UI for Blazor requires you to replace this CSS file manually**.
-
+> Once you've created the project, the selected theme will be saved locally in the `wwwroot/lib/blazor-ui/styles` folder of the application. With this configuration, upgrading UI for Blazor requires you to replace this CSS file manually.
