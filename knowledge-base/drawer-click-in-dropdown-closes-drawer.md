@@ -14,16 +14,12 @@ res_type: kb
 
 <table>
     <tr>
-        <td>Product</td>
+        <td rowspan = 3>Product</td>
         <td>Drawer for Blazor</td>
     </tr>
     <tr>
-        <td>Product</td>
-        <td>AutoComplete for Blazor, ComboBox for Blazor, DropDownList for Blazor, MultiSelect for Blazor</td>
-    </tr>
-    <tr>
-        <td>Product</td>
-        <td>DatePicker for Blazor, DateRangePicker for Blazor, DateTimePicker for Blazor, DateTimePicker for Blazor</td>
+        <td>All components that use popups or dropdowns: <br/>
+        AutoComplete, ComboBox, DropDownList, MultiSelect, DatePicker, DateRangePicker, DateTimePicker, DateTimePicker</td>
     </tr>
 </table>
 
@@ -47,6 +43,9 @@ You can verify this yourself using your dev tools to inspect the rendering. You 
 ## Solution
 
 To handle the scenario, do one of the following:
+
+* [Use the Push Drawer Mode](#use-the-push-drawer-mode)
+* [Use AnimationContainer component](#use-animationcontainer-component)
 
 ### Use the Push Drawer Mode 
 
