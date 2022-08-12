@@ -40,7 +40,7 @@ How I can prevent this? How to keep the Drawer open when selecting items in the 
 
 By design, the popup elements of our components are not rendered in their place of declaration but at root level in the Razor component tree. Thus, when you are using a [DropDownList]({%slug components/dropdownlist/overview%}), for example, its popup is not technically part of the DropDownList component, it is rendered outside of it.
 
-As the popup of the DropDownList is rendered on root level, it is practically outside of the Drawer as well. So, when you click on an item in the dropdown, you are basically clicking outside of the Drawer. By design of its [Overlay mode]({%slug drawer-modes%}#overlay-mode), clicking outside of the Drawer container is expected to close the Drawer.
+As the popup of the DropDownList is rendered at root level, it is practically outside of the Drawer as well. So, when you click on an item in the dropdown, you are basically clicking outside of the Drawer. By design in [Overlay mode]({%slug drawer-modes%}#overlay-mode), clicking outside of the Drawer container is expected to close the Drawer.
 
 You can verify this yourself using your dev tools to inspect the rendering. You can also test selecting an item from the DropDownList with keyboard navigation only (no click in the popup) - as a result, the Drawer will remain opened as you haven't clicked outside of it, in the DropDownList popup. The same behavior can be observed if you scroll without a click in the scrollbar.
 
