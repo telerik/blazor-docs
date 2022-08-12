@@ -104,3 +104,6 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
 }
 ````
 
+## See Also
+
+* [Click in dropdown closes the Drawer]({%slug drawer-kb-click-in-dropdown-closes-drawer%})
