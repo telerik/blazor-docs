@@ -53,6 +53,8 @@ To upgrade the Telerik UI for Blazor components used in your project, perform th
         
         <script src="https://blazor.cdn.telerik.com/blazor/<VERSION NUMBER>/telerik-blazor.min.js" defer></script>
 
+1. If you are using a local theme stylesheet in `wwwroot`, then replace it. This applies to scenarios with [custom themes]({%slug themes-custom%}) or [projects that were created with the Telerik&reg; UI for Blazor Visual Studio Extensions]({%slug themes-swatch-distribution%}#visual-studio-and-visual-studio-code-wizards).
+
 1. If the application is localized, [update the Telerik localization (`.resx`) files]({%slug globalization-localization%}#how-localization-works-in-the-telerik-components). Otherwise you may see [exceptions related to missing localization strings]({%slug common-kb-null-value-parameter-format%}).
 
 ## Upgrade from Trial to Commercial
