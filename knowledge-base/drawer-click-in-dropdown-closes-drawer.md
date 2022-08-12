@@ -57,7 +57,7 @@ This mode, however, introduces different appearance and positioning of the Drawe
 * Select the [Push mode]({%slug drawer-modes%}#push-mode).
 * Customize the Drawer to incorporate the styles of the Overlay mode.
 
-The exmple below demonstrates the described approach. In this case, the Drawer will not close when you click outside of it, so you may consider some UI option for that. In the sample below, the Drawer contains a close button, for instance.
+The example below demonstrates the described approach. In this case, the Drawer will not close when you click outside of it, so you may consider some UI option for that. In the sample below, the Drawer contains a close button, for instance.
 
 ````CSHTML
 <style>
