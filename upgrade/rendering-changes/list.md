@@ -19,6 +19,7 @@ As the Telerik UI for Blazor matures we will continuously optimize the rendering
 
 >caption Provide some custom CSS rules to the header of the Grid. In the `Advisable` tab you can see the good practices in action. 
 
+<div class="skip-repl"></div>
 ````Advisable
 <style>
     .custom-header-style {
