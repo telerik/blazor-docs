@@ -17,7 +17,7 @@ As the Telerik UI for Blazor matures we will continuously optimize the rendering
 
 @[template](/_contentTemplates/common/good-styling-practices.md#good-styling-practices)
 
->caption Provide some custom CSS rules to the header of the Grid. In the `Advisable` tab you can see the good practices in action. 
+>caption Provide some custom CSS rules to the header and cells of the Grid. In the `Advisable` tab you can see the good practices in action. 
 
 <div class="skip-repl"></div>
 ````Advisable
@@ -26,7 +26,14 @@ As the Telerik UI for Blazor matures we will continuously optimize the rendering
         font-weight: bold;
         color: red;
         font-style: italic;
-    }</style>
+    }
+
+    .discontinued-product {
+        color: white;
+        background-color: red;
+        font-weight: bold;
+    }
+</style>
 
 <TelerikGrid Data="@GridData"
              Pageable="true"
@@ -36,23 +43,33 @@ As the Telerik UI for Blazor matures we will continuously optimize the rendering
         <GridColumn Field="Name" Title="Product Name" HeaderClass="custom-header-style" />
         <GridColumn Field="Price" />
         <GridColumn Field="@(nameof(Product.Released))" />
-        <GridColumn Field="@(nameof(Product.Discontinued))" />
+        <GridColumn Field="@(nameof(Product.Discontinued))" OnCellRender="@OnCellRenderHandler" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
+    private void OnCellRenderHandler(GridCellRenderEventArgs args)
+    {
+        Product currentProduct = args.Item as Product;
+
+        if (currentProduct.Discontinued)
+        {
+            args.Class = "discontinued-product";
+        }
+    }
+
     List<Product> GridData { get; set; }
 
     protected override void OnInitialized()
     {
         GridData = Enumerable.Range(1, 30).Select(x => new Product
-        {
-            Id = x,
-            Name = "Product name " + x,
-            Price = (decimal)(x * 3.14),
-            Released = DateTime.Now.AddMonths(-x).Date,
-            Discontinued = x % 5 == 0
-        }).ToList();
+            {
+                Id = x,
+                Name = "Product name " + x,
+                Price = (decimal)(x * 3.14),
+                Released = DateTime.Now.AddMonths(-x).Date,
+                Discontinued = x % 5 == 0
+            }).ToList();
 
         base.OnInitialized();
     }
