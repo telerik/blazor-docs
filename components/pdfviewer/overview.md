@@ -64,6 +64,18 @@ To use a Telerik PDF Viewer for Blazor:
 }
 ````
 
+
+## Toolbar
+
+The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-toolbar%}). By default, it displays the following tools:
+
+* a pager
+* zoom buttons and a dropdown
+* search button
+* open and download buttons
+* print button
+
+
 ## PdfViewer Parameters
 
 The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPdfViewer) for all parameters, methods and events.
@@ -89,6 +101,7 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 
 ## Next Steps
 
+* [Customize the PDF Viewer toolbar]({%slug pdfviewer-toolbar%})
 * [Handle PDF Viewer events]({%slug pdfviewer-events%})
 
 

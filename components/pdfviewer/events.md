@@ -5,7 +5,7 @@ description: Events of the PDF Viewer for Blazor.
 slug: pdfviewer-events
 tags: telerik,blazor,pdf,pdfviewer
 published: True
-position: 5
+position: 50
 ---
 
 # PdfViewer Events
@@ -76,6 +76,12 @@ The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazo
     }
 }
 ````
+
+
+## Next Steps
+
+* [Customize the PDF Viewer toolbar]({%slug pdfviewer-toolbar%})
+* [Handle PDF Viewer events]({%slug pdfviewer-events%})
 
 
 ## See Also
