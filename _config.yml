@@ -374,6 +374,8 @@ navigation:
         title: "Popup"
      "*numerictextbox":
         title: "NumericTextBox"
+     "*pdfviewer":
+        title: "PDF Viewer"
      "*progressbar":
         title: "ProgressBar"
      "*qrcode":
