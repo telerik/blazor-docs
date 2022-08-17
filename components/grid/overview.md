@@ -22,7 +22,7 @@ The Telerik Blazor grid is built on native Blazor from the ground up, by a compa
 1. Use the `TelerikGrid` tag.
 1. Assign the Grid `Data` parameter to an `IEnumerable<T>` property, **or** use the [`OnRead` event]({%slug common-features-data-binding-onread%}). We'll go with `Data` this time. The [Grid Data Binding article]({%slug grid-data-binding%}) compares the two alternatives.
 1. (optional) Enable some data operations like paging, sorting or filtering.
-1. Add [`GridColumn`]({%slug components/grid/columns/bound%}) instances under the `GridColumns` tag. Each column `Field` should point to the model property to display. Use `nameof()` or the plain field name. Define user-friendly column `Title`s.
+1. Add [`GridColumn`]({%slug components/grid/columns/bound%}) instances under the `GridColumns` tag. Each column `Field` should point to the model property to display. Use `nameof()` or the plain field name. Define user-friendly column `Title`s or `DisplayFormat`.
 
 >caption Get started with the Blazor Grid
 
@@ -35,25 +35,33 @@ The Telerik Blazor grid is built on native Blazor from the ground up, by a compa
              FilterMode="@GridFilterMode.FilterRow">
     <GridColumns>
         <GridColumn Field="Name" Title="Product Name" />
-        <GridColumn Field="Price" />
-        <GridColumn Field="@(nameof(Product.Released))" />
-        <GridColumn Field="@(nameof(Product.Discontinued))" />
+        <GridColumn Field="Price" DisplayFormat="{0:C2}" />
+        <GridColumn Field="@nameof(Product.Released)" DisplayFormat="{0:D}" />
+        <GridColumn Field="@nameof(Product.Discontinued)" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    List<Product> GridData { get; set; }
+    private List<Product> GridData { get; set; }
 
     protected override void OnInitialized()
     {
-        GridData = Enumerable.Range(1, 30).Select(x => new Product
+        GridData = new List<Product>();
+
+        var rnd = new Random();
+
+        for (int i = 1; i <= 30; i++)
         {
-            Id = x,
-            Name = "Product name " + x,
-            Price = (decimal)(x * 3.14),
-            Released = DateTime.Now.AddMonths(-x).Date,
-            Discontinued = x % 5 == 0
-        }).ToList();
+            GridData.Add(new Product
+            {
+                Id = i,
+                Name = "Product name " + i,
+                Price = (decimal)(rnd.Next(1, 50) * 3.14),
+                Released = DateTime.Now.AddDays(-rnd.Next(1, 365)).AddYears(-rnd.Next(1, 10)).Date,
+                Discontinued = i % 5 == 0
+            });
+
+        }
 
         base.OnInitialized();
     }
