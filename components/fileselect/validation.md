@@ -10,14 +10,15 @@ position: 10
 
 # FileSelect - Selected Files Validation
 
-If you want to validate the files when uploading, you should implement the validation in two parts:
+If you want to validate the selected files, you should implement the validation in two parts:
 
 * client validation - performed by the Telerik FileSelect component
 * server validation - must be implemented in the application endpoints
 
 The Telerik FileSelect component offers parameters to validate the file selection on the client:
 
-* `AllowedExtensions` - `List<string>` - a list of extensions that the user can select. Choosing different files will mark them as invalid in the UI. Its default is an empty list, which allows all extensions.
+* `Accept` - `string` - not validation per se, but this parameter can [instruct the browser what file types to allow users to select](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept).
+* `AllowedExtensions` - `List<string>` - a list of valid file extensions. Choosing other file types will mark them as invalid in the UI. Its default is an empty list, which allows all extensions.
 * `MinFileSize`- `int?` - the minimum size of a file in bytes. Files with a smaller size will be marked as invalid in the UI.
 * `MaxFileSize`- `int?` - the maximum size of a file in bytes. Files with a larger size will be marked as invalid in the UI.
 
@@ -55,4 +56,3 @@ For brevity, this sample does not showcase actual upload of the files. You can f
 * [Live Demo: FileSelect Validation](https://demos.telerik.com/blazor-ui/fileselect/validation)
 * [FileSelect Overview]({%slug fileselect-overview%})
 * [FileSelect Events]({%slug fileselect-events%})
-
