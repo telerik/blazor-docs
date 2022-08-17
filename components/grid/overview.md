@@ -22,7 +22,7 @@ The Telerik Blazor grid is built on native Blazor from the ground up, by a compa
 1. Use the `TelerikGrid` tag.
 1. Assign the Grid `Data` parameter to an `IEnumerable<T>` property, **or** use the [`OnRead` event]({%slug common-features-data-binding-onread%}). We'll go with `Data` this time. The [Grid Data Binding article]({%slug grid-data-binding%}) compares the two alternatives.
 1. (optional) Enable some data operations like paging, sorting or filtering.
-1. Add [`GridColumn`]({%slug components/grid/columns/bound%}) instances under the `GridColumns` tag. Each column `Field` should point to the model property to display. Use `nameof()` or the plain field name. Define user-friendly column `Title`s or `DisplayFormat`.
+1. Add [`GridColumn`]({%slug components/grid/columns/bound%}) instances under the `GridColumns` tag. Each column `Field` should point to the model property to display. Use `nameof()` or the plain field name. Define user-friendly column `Title`s or [`DisplayFormat` for numeric and date values]({%slug grid-columns-displayformat%}).
 
 >caption Get started with the Blazor Grid
 
