@@ -12,6 +12,10 @@ position: 10
 
 Telerik Blazor Grid is data source agnostic - you can use any database and service according to your project. You only need to get the collection of data models to the Grid in the view-model of the component hosting it.
 
+The are [two main ways to provide data to the Grid - via the `Data` parameter and via the `OnRead` event]({%slug grid-overview%}#data-binding).
+
+This article dives into more specific cases related to Grid data binding.
+
 ## Data Sources and Scenarios
 
 The following list of resources provides examples for data binding a grid in various scenarios:
