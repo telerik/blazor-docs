@@ -20,7 +20,7 @@ As the Telerik UI for Blazor matures we will continuously optimize the rendering
 >caption Provide some custom CSS rules to the header and cells of the Grid. In the `Advisable` tab you can see the good practices in action. 
 
 <div class="skip-repl"></div>
-````Advisable
+````Prefer
 <style>
     .custom-header-style {
         font-weight: bold;
@@ -84,7 +84,7 @@ As the Telerik UI for Blazor matures we will continuously optimize the rendering
     }
 }
 ````
-````Inadvisable
+````Avoid
 <style>
     .k-grid .k-grid-header .k-header:first-child {
         font-weight: bold;
