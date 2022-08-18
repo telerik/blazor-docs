@@ -62,9 +62,11 @@ You can bind the DropDownList to a model in your application. This is useful whe
 
 To bind the DropDownList to a model:
 
-1. populate its `Data` property with the collection of items you want in the dropdown
-1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
-1. bind the `Value` parameter to the desired field of the view-model. It is populated from the `ValueField` so it must match the its type.
+1. Populate its `Data` parameter with the collection of items you want in the dropdown.
+1. Set the `TextField` and `ValueField` parameters to point to the corresponding property names of the model.
+1. Set the `Value` property to the intial value of the component (optional).
+
+> The `TextField` and `ValueField` parameters should point to model properties, which are of **primitive** type (`int`, `string`, etc.). The `Value` and `ValueField` types should match and also be primitive.
 
 >caption Data binding a DropDownList to a model
 
