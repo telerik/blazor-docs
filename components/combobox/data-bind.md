@@ -62,9 +62,11 @@ You can bind the ComboBox to a model in your application. This is useful when yo
 
 To bind the ComboBox to a model:
 
-1. populate its `Data` property with the collection of items you want in the dropdown
-1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
-1. set the `Value` property to the intial value of the model. If not set, it will be populated with the first item in the data source.
+1. Populate its `Data` parameter with the collection of items you want in the dropdown.
+1. Set the `TextField` and `ValueField` parameters to point to the corresponding property names of the model.
+1. Set the `Value` property to the intial value of the component (optional).
+
+> The `TextField` and `ValueField` parameters should point to model properties, which are of **primitive** type (`int`, `string`, etc.). The `Value` and `ValueField` types should match and also be primitive.
 
 >caption Data binding a ComboBox to a model
 
