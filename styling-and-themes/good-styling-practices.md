@@ -24,7 +24,8 @@ This section show to use the good styling practices to customize the appearance 
         font-weight: bold;
         color: red;
         font-style: italic;
-    }</style>
+    }
+</style>
 
 <TelerikGrid Data="@GridData"
              Pageable="true"

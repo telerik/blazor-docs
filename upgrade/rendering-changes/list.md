@@ -9,7 +9,7 @@ position: 0
 # List of Telerik UI for Blazor Versions with Rendering Changes
 
 
-As the Telerik UI for Blazor matures we will continuously optimize the rendering and the usage of CSS classes. The rendering changes will affect the styling of the components if the business application overrode the built-in CSS rules. This article will track the version where such changes are introduced.
+As the Telerik UI for Blazor components mature we will optimize the rendering and the usage of CSS classes. The rendering changes will affect the styling of the components if the application uses custom CSS that overrides the built-in styles.
 
 * [3.4.0]({%slug changes-in-3-4-0%})
 
