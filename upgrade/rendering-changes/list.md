@@ -17,7 +17,7 @@ As the Telerik UI for Blazor matures we will continuously optimize the rendering
 
 @[template](/_contentTemplates/common/good-styling-practices.md#good-styling-practices)
 
->caption Provide some custom CSS rules to the header and cells of the Grid. In the `Advisable` tab you can see the good practices in action. 
+>caption Grid Styling Comparison - Using custom CSS classes vs. overriding built-in CSS classes
 
 <div class="skip-repl"></div>
 ````Prefer
