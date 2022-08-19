@@ -121,7 +121,7 @@ You can find the following examples in this section:
 
 The following example shows one way you can store the grid state - through a custom service that calls the browser's LocalStorage. You can use your own database here, or a file, or Microsoft's ProtectedBrowserStorage package, or any other storage you prefer. This is just an example you can use as base and modify to suit your project.
 
->note We support the `System.Text.Json` serialization that is built-in in Blazor.
+>note We support the `System.Text.Json` serialization that is built-in in Blazor. Be aware of its [limitation to not serialize `Type` properties]({%slug kb-grid-json-serializer-null-membertype%}).
 
 >caption Save, Load, Reset grid state on every state change. Uses a sample LocalStorage in the browser.
 
@@ -404,6 +404,7 @@ public class LocalStorage
 ````
 
 ### Save and Load Grid State in a WebAssembly application
+
 The [knowledge base article for saving the Grid state in a WASM application]({%slug grid-kb-save-state-in-webassembly%}) explains two ways of storing the `Grid` state - through a custom controller and a custom service that calls the browser's LocalStorage.
 
 ### Set Grid Options Through State
