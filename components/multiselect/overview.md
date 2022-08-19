@@ -158,7 +158,7 @@ Add a reference to the component instance to use the [MultiSelect's methods](/bl
 
     private List<string> MultiSelectData { get; set; } = new List<string> { "first", "second", "third" };
 
-    void OpenPopup()
+   private void OpenPopup()
     {
         MultiSelectRef.Open();
     }
