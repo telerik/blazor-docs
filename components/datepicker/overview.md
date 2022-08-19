@@ -125,7 +125,7 @@ Add a reference to the component instance to use the [Date Picker's methods](/bl
 
     private DateTime DatePickerValue { get; set; } = DateTime.Now;
 
-    async Task FocusPicker()
+   private async Task FocusPicker()
     {
         await DatePickerRef.FocusAsync();
     }
