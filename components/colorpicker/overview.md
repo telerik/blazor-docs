@@ -119,7 +119,7 @@ Add a reference to the component instance to use the [ColorPicker's methods](/bl
 
     private string Color { get; set; } = "rgb(40, 47, 137)";
 
-    void OpenPopup()
+    private void OpenPopup()
     {
         ColorPickerRef.Open();
     }
