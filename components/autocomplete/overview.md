@@ -44,10 +44,6 @@ User input: @TheValue
 
 >tip If you want to get a value identifier for the items in the dropdown instead of their text, consider the [ComboBox component](../combobox/overview). The **AutoComplete** is a **free text** input that accepts any text the user writes, not just the suggestions from the dropdown. Thus, the `Value` of the AutoComplete is always a `string`, while the ComboBox can provide you with a `number` or a `Guid`, not only a `string`.
 
-## Component Reference
-
-The AutoComplete is a generic component and its type is determined by the type of the model you use as its data source. You can find examples in the [Data Bind - Considerations]({%slug autocomplete-databind%}#considerations) article.
-
 ## Data Binding
 
 The Blazor AutoComplete @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor AutoComplete data binding...]({%slug autocomplete-databind%})
@@ -127,6 +123,37 @@ The AutoComplete provides the following popup settings:
 
 
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
+
+## AutoComplete Reference and Methods
+
+The AutoComplete is a generic component and its type is determined by the type of the model you use as its data source. You can find examples in the [Data Bind - Considerations]({%slug autocomplete-databind%}#considerations) article.
+
+Add a reference to the component instance to use the [AutoComplete's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikAutoComplete-1).
+
+@[template](/_contentTemplates/dropdowns/methods.md#methods-list)
+
+````CSHTML
+<TelerikAutoComplete @ref="@AutoCompleteRef"
+                     Data="@Suggestions"
+                     @bind-Value="@AutoCompleteValue" 
+                     Width="300px"/>
+
+<TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
+
+@code {
+    private TelerikAutoComplete<string> AutoCompleteRef { get; set; }
+
+    private string AutoCompleteValue { get; set; }
+
+    private List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
+
+    private void OpenPopup()
+    {
+        AutoCompleteRef.Open();
+    }
+}
+````
+
 
 ## Next Steps
 

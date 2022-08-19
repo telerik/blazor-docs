@@ -97,21 +97,36 @@ You can find more options for customizing the Time Picker styling in the [Appear
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
 
-## Component Reference
+## TimePicker Reference and Methods
 
-Add a reference to the Time Picker instance to use its methods.
+Add a reference to the component instance to use the [Time Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikTimePicker-1).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `Close` | Closes the Calendar popup. |
+| `FocusAsync` | Focuses the Time Picker textbox. Always `await` this call, as it relies on `JSInterop`.|
+| `Open` | Opens the Calendar popup. |
 
 ````CSHTML
-@using Telerik.Blazor.Components
+<TelerikTimePicker @ref="@TimePickerRef"
+                   @bind-Value="@TimePickerValue"
+                   Width="300px">
+</TelerikTimePicker>
 
-<TelerikTimePicker @bind-Value="@theTimePickerValue"></TelerikTimePicker>
-@theTimePickerValue
+<TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
 
-@code {
-    DateTime? theTimePickerValue { get; set; }
-    
-    // the time picker is a generic component and its type comes from the value field type
-    Telerik.Blazor.Components.TelerikTimePicker<DateTime?> theTimePicker;
+@code {    
+    // the datetime picker is a generic component and its type comes from the value field type
+    private TelerikTimePicker<DateTime> TimePickerRef { get; set; }
+
+    private DateTime TimePickerValue = DateTime.Now;
+
+    private void OpenPopup()
+    {
+        TimePickerRef.Open();
+    }
 }
 ````
 

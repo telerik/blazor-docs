@@ -95,6 +95,37 @@ The ColorPicker accepts values by the application code in the following formats:
 
 Color keywords are not supported.
 
+## ColorPicker Reference and Methods
+
+Add a reference to the component instance to use the [ColorPicker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPicker).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `Close` | Closes the component popup. |
+| `FocusAsync` | Focuses the main element of the component. Always `await` this call, as it relies on `JSInterop`. |
+| `Open` | Opens the component popup. |
+
+````CSHTML
+<TelerikColorPicker @ref="@ColorPickerRef"
+                    @bind-Value="@Color" />
+
+<TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
+
+
+@code {
+    private TelerikColorPicker ColorPickerRef { get; set; }
+
+    private string Color { get; set; } = "rgb(40, 47, 137)";
+
+    private void OpenPopup()
+    {
+        ColorPickerRef.Open();
+    }
+}
+````
+
 ## See Also
 
 * [ColorPicker Views]({%slug colorpicker-views%})

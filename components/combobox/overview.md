@@ -45,10 +45,6 @@ Selected value: @selectedValue
 }
 ````
 
-## Component Reference
-
-The ComboBox is a generic component and its type is determined by the type of the model you pass to it, and the type of its value field. You can find examples in the [Data Bind - Considerations]({%slug components/combobox/databind%}#considerations) article.
-
 ## Data Binding
 
 The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor ComboBox data binding...]({% slug components/combobox/databind %}).
@@ -128,6 +124,35 @@ The ComboBox provides the following popup settings:
 
 @[template](/_contentTemplates/dropdowns/features.md#popup-settings)
 
+## ComboBox Reference and Methods
+
+The ComboBox is a generic component and its type is determined by the type of the model you pass to it, and the type of its value field. You can find examples in the [Data Bind - Considerations]({%slug components/combobox/databind%}#considerations) article.
+
+Add a reference to the component instance to use the [ComboBox's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikComboBox-2).
+
+@[template](/_contentTemplates/dropdowns/methods.md#methods-list)
+
+````CSHTML
+<TelerikComboBox @ref="@ComboBoxRef"
+                     Data="@Suggestions"
+                     @bind-Value="@ComboBoxValue" 
+                     Width="300px"/>
+
+<TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
+
+@code {
+    private TelerikComboBox<string, string> ComboBoxRef { get; set; }
+
+    private string ComboBoxValue { get; set; }
+
+    private List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
+
+    private void OpenPopup()
+    {
+        ComboBoxRef.Open();
+    }
+}
+````
 
 ## Selected Item
 

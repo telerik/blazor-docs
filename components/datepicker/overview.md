@@ -106,33 +106,33 @@ Add a reference to the component instance to use the [Date Picker's methods](/bl
 | Method | Description |
 | --- | --- |
 | `Close` | Closes the Calendar popup. |
-| `FocusAsync` | Focuses the Date Picker textbox. |
+| `FocusAsync` | Focuses the Date Picker textbox. Always `await` this call, as it relies on `JSInterop`. |
 | `NavigateTo` | Navigates to a specified date and view. The method expects a `DateTime` and `CalendarView` arguments. |
 | `Open` | Opens the Calendar popup. |
 | `Refresh` | Re-renders the Calendar popup. |
 
 ````CSHTML
-<TelerikDatePicker @ref="@Picker"
-                   @bind-Value="@PickerValue"
+<TelerikDatePicker @ref="@DatePickerRef"
+                   @bind-Value="@DatePickerValue"
                    Width="200px" />
 
 <TelerikButton OnClick="@FocusPicker">Focus DatePicker</TelerikButton>
-<TelerikButton OnClick="@OpenPicker">Open DatePicker</TelerikButton>
+<TelerikButton OnClick="@OpenPicker">Open DatePicker Calendar</TelerikButton>
 
-@code  {
-    DateTime PickerValue { get; set; } = DateTime.Now;
-
+@code {
     // the component type depends on the value type
-    TelerikDatePicker<DateTime> Picker { get; set; }
+    private TelerikDatePicker<DateTime> DatePickerRef { get; set; }
 
-    async Task FocusPicker()
+    private DateTime DatePickerValue { get; set; } = DateTime.Now;
+
+    private async Task FocusPicker()
     {
-        await Picker.FocusAsync();
+        await DatePickerRef.FocusAsync();
     }
 
-    void OpenPicker()
+    private void OpenPicker()
     {
-        Picker.Open();
+        DatePickerRef.Open();
     }
 }
 ````
