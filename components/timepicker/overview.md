@@ -123,7 +123,7 @@ Add a reference to the component instance to use the [Time Picker's methods](/bl
 
     private DateTime TimePickerValue = DateTime.Now;
 
-    void OpenPopup()
+    private void OpenPopup()
     {
         TimePickerRef.Open();
     }
