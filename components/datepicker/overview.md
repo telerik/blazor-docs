@@ -130,7 +130,7 @@ Add a reference to the component instance to use the [Date Picker's methods](/bl
         await DatePickerRef.FocusAsync();
     }
 
-    void OpenPicker()
+   private void OpenPicker()
     {
         DatePickerRef.Open();
     }
