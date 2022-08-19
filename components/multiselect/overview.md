@@ -145,9 +145,9 @@ Add a reference to the component instance to use the [MultiSelect's methods](/bl
 
 ````CSHTML
 <TelerikMultiSelect @ref="@MultiSelectRef"
-                     Data="@MultiSelectData"
-                     @bind-Value="@MultiSelectValue" 
-                     Width="300px"/>
+                    Data="@MultiSelectData"
+                    @bind-Value="@MultiSelectValue"
+                    Width="300px" />
 
 <TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
 
@@ -158,7 +158,7 @@ Add a reference to the component instance to use the [MultiSelect's methods](/bl
 
     private List<string> MultiSelectData { get; set; } = new List<string> { "first", "second", "third" };
 
-   private void OpenPopup()
+    private void OpenPopup()
     {
         MultiSelectRef.Open();
     }
