@@ -125,7 +125,7 @@ Add a reference to the component instance to use the [Date Range Picker's method
 
     private DateTime DateRangePickerEndValue { get; set; } = DateTime.Now.AddDays(10);
 
-    async Task FocusStart()
+  private async Task FocusStart()
     {
         await DateRangePickerRef.FocusStartAsync();
     }
