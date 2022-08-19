@@ -147,7 +147,7 @@ Add a reference to the component instance to use the [DropDownList's methods](/b
 
     private List<string> DropDownListData { get; set; } = new List<string> { "first", "second", "third" };
 
-    void OpenPopup()
+    private void OpenPopup()
     {
         DropDownListRef.Open();
     }
