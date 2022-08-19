@@ -12,6 +12,7 @@ position: 2
 
 @[template](/_contentTemplates/grid/common-link.md#display-format-basics)
 
+
 ## Example
 
 >caption Use C# format strings in the grid through the component markup and a data annotation attribute in the model
@@ -56,10 +57,6 @@ position: 2
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![DisplayFormat basic sample](images/display-format-basic-sample.png)
 
 
 @[template](/_contentTemplates/grid/common-link.md#display-format-notes)
