@@ -147,7 +147,7 @@ Add a reference to the component instance to use the [ComboBox's methods](/blazo
 
     private List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
 
-    void OpenPopup()
+   private void OpenPopup()
     {
         ComboBoxRef.Open();
     }
