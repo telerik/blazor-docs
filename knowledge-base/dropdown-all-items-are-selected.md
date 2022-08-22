@@ -107,6 +107,7 @@ The test page below demonstrates several incorrect and correct configurations fo
         height: 300px;
         padding: 1em;
         background: #fdd;
+        vertical-align: top;
     }
     #dropdown-container > .correct {
         background: #dfd;
