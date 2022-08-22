@@ -282,8 +282,6 @@ You can respond to the user action of selecting a new item through the `Selected
 }
 ````
 
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
 ### Two-way Binding of SelectedItems
