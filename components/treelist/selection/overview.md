@@ -275,7 +275,7 @@ If you are using the [Row Template]({%slug treelist-templates-row%}), the treeli
 
 ### Asynchronous Operations
 
-Asynchronous operations such as loading data on demand should be handled in the [`OnExpand`]({%slug treelist-data-binding-load-on-demand%}) event rather than in the [`SelectedItemsChanged`]({%slug treelist-events%}#selecteditemschanged) event. In a future version, the component may expose an event like `RowClick` for such operations.
+Asynchronous operations such as loading data on demand should be handled in the [`OnExpand`]({%slug treelist-data-binding-load-on-demand%}), [`OnRowClick`]({%slug treelist-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug treelist-events%}#onrowdoubleclick) events, rather than in the [`SelectedItemsChanged`]({%slug treelist-events%}#selecteditemschanged) event.
 
 ### Handle Data Changes
 
