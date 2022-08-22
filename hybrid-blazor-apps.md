@@ -128,11 +128,21 @@ You can now run the hybrid application. Refer to the following resources for eac
 * The Blazor web app code cannot make calls to native APIs. This feature is yet to be exposed by the framework. At the moment, you have to write your own calls to services and native app code that you need to explicitly expose.
 * The WebView is not on the [list of officially supported browsers by Telerik UI for Blazor]({%slug system-requirements%}#browser-support). It has its specifics and differences from a standalone browser. The hybrid Blazor app integration should be considered a proof-of-concept for the time being. We will monitor the framework maturity and consider adding the webview to the list of supported environments.
 
->caption Known issues:
+### Known issues
 
 * Running MAUI apps may require [developer mode to be enabled](https://stackoverflow.com/questions/36324300/ensure-that-target-device-has-developer-mode-enabled-could-not-obtain-a-develop).
 * You can’t currently run the app for [iOS or Mac Catalyst from a Windows development environment](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-net-6-preview-4/#ios-and-mac-catalyst).
-* [iOS requires ahead-of-time compilation](https://docs.microsoft.com/en-us/xamarin/ios/internals/limitations). Attempts for just-in-time (JIT) compilation may trigger errors similar to `Attempting to JIT compile method '...' while running in aot-only mode` or `Could not AOT the assembly ...`. Check [Introducing Xamarin iOS Interpreter](https://devblogs.microsoft.com/xamarin/introducing-xamarin-ios-interpreter/) and [Could not AOT Assembly on StackOverflow](https://stackoverflow.com/questions/56544520/could-not-aot-the-assembly-for-microsoft-csharp-dll-on-xamarin-ios/65809789#65809789). Add the `Telerik.UI.for.Blazor` assembly to an `MtouchExtraArgs` tag for the iOS Release configuration in the project file:
+* [iOS requires ahead-of-time compilation](https://docs.microsoft.com/en-us/xamarin/ios/internals/limitations). Attempts for just-in-time (JIT) compilation may trigger errors similar to
+    
+    `Attempting to JIT compile method '...' while running in aot-only mode`
+    
+    or
+    
+    `Could not AOT the assembly ...`.
+    
+    Check [Introducing Xamarin iOS Interpreter](https://devblogs.microsoft.com/xamarin/introducing-xamarin-ios-interpreter/) and [Could not AOT Assembly on StackOverflow](https://stackoverflow.com/questions/56544520/could-not-aot-the-assembly-for-microsoft-csharp-dll-on-xamarin-ios/65809789#65809789). Add the `Telerik.UI.for.Blazor` assembly to an `MtouchExtraArgs` tag for the iOS Release configuration in the project file:
+
+    <div class="skip-repl"></div>
     ```xml
     <PropertyGroup>
         <UseInterpreter>true</UseInterpreter>
