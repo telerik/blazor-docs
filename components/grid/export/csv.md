@@ -97,7 +97,7 @@ Optionally, you can also set the `GridCsvExport` tag settings under the `GridExp
 You can programmatically invoke the export feature of the Grid, by using the following methods exposed on the `@ref` of the Grid:
 
 * `SaveAsCsvFileAsync` - `ValueTask` - sends the exported CSV file to the browser for download
-* `ExportToCsvAsync` - `Task<MemoryStream>` - returns the exported data as a memory stream
+* `ExportToCsvAsync` - `Task<MemoryStream>` - returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
 >note The same methods are exposed for exporting an [Excel file]({%slug grid-export-excel%}#programmatic-export-from-code).
 
@@ -106,17 +106,17 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 ````CSHTML
 @* Send the exported file for download and get the exported data as a memory stream *@
 
-@using System.IO 
+@using System.IO
 
 <TelerikButton OnClick="@(async () => await GridRef.SaveAsCsvFileAsync())">Download the CSV file</TelerikButton>
 <TelerikButton OnClick="@GetTheDataAsAStream">Get the Exported Data as a MemoryStream</TelerikButton>
 
-<TelerikGrid Data="@GridData" 
-             @ref="@GridRef"
-             Pageable="true" 
-             Sortable="true" 
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             Pageable="true"
+             Sortable="true"
              Reorderable="true"
-             FilterMode="@GridFilterMode.FilterRow" 
+             FilterMode="@GridFilterMode.FilterRow"
              Groupable="true">
 
     <GridToolBar>
@@ -145,7 +145,9 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
     private async Task GetTheDataAsAStream()
     {
-        exportedCSVStream = await GridRef.ExportToCsvAsync();
+        MemoryStream finalizedStream = await GridRef.ExportToCsvAsync();
+
+        exportedCSVStream = new MemoryStream(finalizedStream.ToArray());
     }
 
     List<SampleData> GridData { get; set; }
@@ -154,14 +156,14 @@ You can programmatically invoke the export feature of the Grid, by using the fol
     protected override void OnInitialized()
     {
         GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-        {
-            ProductId = x,
-            ProductName = $"Product {x}",
-            UnitsInStock = x * 2,
-            Price = 3.14159m * x,
-            Discontinued = x % 4 == 0,
-            FirstReleaseDate = DateTime.Now.AddDays(-x)
-        }).ToList();
+            {
+                ProductId = x,
+                ProductName = $"Product {x}",
+                UnitsInStock = x * 2,
+                Price = 3.14159m * x,
+                Discontinued = x % 4 == 0,
+                FirstReleaseDate = DateTime.Now.AddDays(-x)
+            }).ToList();
     }
 
     public class SampleData

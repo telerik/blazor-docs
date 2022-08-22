@@ -18,7 +18,7 @@ When you click the Export button, your browser will receive the resulting file.
 #### In this article
 
 * [Basics](#basics)
-* [Programmatic Export From Code](#programmatic-export-from-code)
+* [Programmatic Export](#programmatic-export)
 * [Notes](#notes)
 
 ## Basics
@@ -97,8 +97,8 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 
 You can programmatically invoke the export feature of the Grid, by using the following methods exposed on the `@ref` of the Grid:
 
-* `SaveAsExcelFileAsync` - `ValueTask` - sends the exported excel file to the browser for download
-* `ExportToExcelAsync` - `Task<MemoryStream>` - returns the exported data as a memory stream
+* `SaveAsExcelFileAsync` - `ValueTask` - sends the exported excel file to the browser for download.
+* `ExportToExcelAsync` - `Task<MemoryStream>` - returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
 >note The same methods are exposed for exporting a [CSV file]({%slug grid-export-csv%}#programmatic-export-from-code).
 
@@ -107,13 +107,13 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 ````CSHTML
 @* Send the exported file for download and get the exported data as a memory stream *@
 
-@using System.IO 
+@using System.IO
 
 <TelerikButton OnClick="@(async () => await GridRef.SaveAsExcelFileAsync())">Download the excel file</TelerikButton>
 <TelerikButton OnClick="@GetTheDataAsAStream">Get the Exported Data as a MemoryStream</TelerikButton>
 
-<TelerikGrid Data="@GridData"
-             @ref="@GridRef"
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
              Pageable="true"
              Sortable="true"
              Resizable="true"
@@ -147,7 +147,9 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
     private async Task GetTheDataAsAStream()
     {
-        exportedExcelStream = await GridRef.ExportToExcelAsync();
+        MemoryStream finalizedStream = await GridRef.ExportToExcelAsync();
+
+        exportedExcelStream = new MemoryStream(finalizedStream.ToArray());
     }
 
     List<SampleData> GridData { get; set; }
@@ -156,14 +158,14 @@ You can programmatically invoke the export feature of the Grid, by using the fol
     protected override void OnInitialized()
     {
         GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-        {
-            ProductId = x,
-            ProductName = $"Product {x}",
-            UnitsInStock = x * 2,
-            Price = 3.14159m * x,
-            Discontinued = x % 4 == 0,
-            FirstReleaseDate = DateTime.Now.AddDays(-x)
-        }).ToList();
+            {
+                ProductId = x,
+                ProductName = $"Product {x}",
+                UnitsInStock = x * 2,
+                Price = 3.14159m * x,
+                Discontinued = x % 4 == 0,
+                FirstReleaseDate = DateTime.Now.AddDays(-x)
+            }).ToList();
     }
 
     public class SampleData
