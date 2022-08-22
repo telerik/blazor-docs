@@ -132,3 +132,10 @@ You can now run the hybrid application. Refer to the following resources for eac
 
 * Running MAUI apps may require [developer mode to be enabled](https://stackoverflow.com/questions/36324300/ensure-that-target-device-has-developer-mode-enabled-could-not-obtain-a-develop).
 * You can’t currently run the app for [iOS or Mac Catalyst from a Windows development environment](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-net-6-preview-4/#ios-and-mac-catalyst).
+* [iOS requires ahead-of-time compilation](https://docs.microsoft.com/en-us/xamarin/ios/internals/limitations). Attempts for just-in-time (JIT) compilation may trigger errors similar to `Attempting to JIT compile method '...' while running in aot-only mode` or `Could not AOT the assembly ...`. Check [Introducing Xamarin iOS Interpreter](https://devblogs.microsoft.com/xamarin/introducing-xamarin-ios-interpreter/) and [Could not AOT Assembly on StackOverflow](https://stackoverflow.com/questions/56544520/could-not-aot-the-assembly-for-microsoft-csharp-dll-on-xamarin-ios/65809789#65809789). Add the `Telerik.UI.for.Blazor` assembly to an `MtouchExtraArgs` tag for the iOS Release configuration in the project file:
+    ```xml
+    <PropertyGroup>
+        <UseInterpreter>true</UseInterpreter>
+        <MtouchExtraArgs>--linkskip=Telerik.UI.for.Blazor</MtouchExtraArgs>
+    </PropertyGroup>
+    ```
