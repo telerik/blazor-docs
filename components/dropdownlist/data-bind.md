@@ -66,7 +66,7 @@ To bind the DropDownList to a model:
 1. Set the `TextField` and `ValueField` parameters to point to the corresponding property names of the model.
 1. Set the `Value` property to the intial value of the component (optional).
 
-> The `TextField` and `ValueField` parameters should point to model properties, which are of **primitive** type (`int`, `string`, etc.). The `Value` and `ValueField` types should match and also be primitive.
+> The `TextField` and `ValueField` parameters must point to model properties, which are of **primitive** type (`int`, `string`, etc.). The `Value` and `ValueField` types must match and also be primitive.
 
 >caption Data binding a DropDownList to a model
 
