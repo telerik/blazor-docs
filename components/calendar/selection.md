@@ -106,10 +106,9 @@ With multiple selection mode, to get the user selection, use the `SelectedDates`
 ````CSHTML
 @* This example shows how to handle Multiple selection *@
 
-<TelerikCalendar Date="@startDate"
+<TelerikCalendar @ref="@CalendarRef"
                  SelectionMode="@CalendarSelectionMode.Multiple"
-                 ValueChanged="@SelectionHandler"
-                 @ref="@CalendarRef">
+                 ValueChanged="@OnCalendarValueChanged">
 </TelerikCalendar>
 
 @if (SelectedDates.Any())
@@ -118,23 +117,24 @@ With multiple selection mode, to get the user selection, use the `SelectedDates`
         @foreach (var date in SelectedDates)
         {
             <li>
-                @date
+                @date.ToShortDateString()
             </li>
         }
     </ul>
 }
 
 @code {
-    public List<DateTime> SelectedDates { get; set; } = new List<DateTime>();
-    private DateTime startDate = new DateTime(2019, 5, 2);
+    private List<DateTime> SelectedDates { get; set; } = new List<DateTime>();
+
     private TelerikCalendar CalendarRef { get; set; }
 
-    public void SelectionHandler()
+    public void OnCalendarValueChanged()
     {
         SelectedDates = CalendarRef.SelectedDates;
     }
 }
 ````
+
 ### Range Selection Mode
 
 With range selection mode, you have two options to get the user choice:

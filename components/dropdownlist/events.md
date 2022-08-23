@@ -58,60 +58,42 @@ from the model: @MySelectedItem
 
 The `ValueChanged` event fires upon every change of the user selection.
 
-The examples below use [binding]({%slug components/dropdownlist/databind%}) to primitive types for brevity, you can use full models as well. The type of the argument in the lambda expression must match the `Value` type of the component, and the `ValueField` type (if `ValueField` is set).
+The example below uses [binding]({%slug components/dropdownlist/databind%}) to primitive types for brevity. You can use full models as well. The type of the argument in the lambda expression must match the `Value` type of the component, and the `ValueField` type (if `ValueField` is set).
 
->caption Handle ValueChanged
+>caption Handle DropDownList ValueChanged
 
 ````CSHTML
-@result
-<br />
-<TelerikDropDownList Data="@MyList" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
+<ul>
+    <li>DropDownList Value: @DropDownValue</li>
+    <li>Event Log: @EventLog</li>
+</ul>
+
+<TelerikDropDownList Data="@DropDownData"
+                     Value="@DropDownValue"
+                     ValueChanged="@( (string newValue) => OnDropDownValueChanged(newValue) )">
 </TelerikDropDownList>
 
-@code {
-    string result;
+@code{
+    private List<string> DropDownData { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer"
+    };
 
-    private void MyValueChangeHandler(string theUserChoice)
+    private string DropDownValue { get; set; } = "Developer";
+
+    private string EventLog { get; set; }
+
+    private void OnDropDownValueChanged(string newValue)
     {
-        result = string.Format("The user chose: {0}", theUserChoice);
-    }
+        DropDownValue = newValue;
 
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+        EventLog = string.Format("The user selected: {0}", newValue);
+    }
 }
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
-
->caption Handle ValueChanged and provide initial value
-
-````CSHTML
-from the handler: @result
-<br />
-from model: @MyItem
-<br />
-<br />
-<TelerikDropDownList Data="@MyList" Value="@MyItem" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
-</TelerikDropDownList>
-
-@code {
-    string result;
-
-    private void MyValueChangeHandler(string theUserChoice)
-    {
-        result = string.Format("The user chose: {0}", theUserChoice);
-
-        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        MyItem = theUserChoice;
-    }
-
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
-
-    protected string MyItem { get; set; } = "second";
-}
-````
-
 
 ## OnRead
 
