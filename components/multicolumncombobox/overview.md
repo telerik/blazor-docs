@@ -154,7 +154,15 @@ The popup of the component can be additionally customized via nested tags:
 
 The MultiColumnComboBox provides the following popup settings:
 
-@[template](/_contentTemplates/dropdowns/features.md#popup-settings)
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `AnimationDuration` | `int` | The animation duration of the popup in milliseconds. |
+| `Class` | `string` | Additional CSS class to customize the appearance of the popup. |
+| `MinWidth` | `string` | The minimum width of the popup. |
+| `MaxWidth` | `string` | The maximum width of the popup. |
+| `Width` | `string` | The width of the popup. If you don't specify a value, the dropdown width will match the anchor element width which can help with responsive layouts and 100% widths. |
 
 ## Component Reference and Methods
 
