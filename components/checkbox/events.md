@@ -65,7 +65,7 @@ The `ValueChanged` event fires every time the `Value` parameter changes.
         }
     }
 
-    void OnCheckBoxValueChanged(bool value, string productName)
+    private void OnCheckBoxValueChanged(bool value, string productName)
     {
         var item = Deliveries.Where(x => x.ProductName == productName).First();
 
