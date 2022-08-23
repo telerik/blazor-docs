@@ -50,6 +50,8 @@ navigation:
         position: 19
      "upgrade/breaking-changes":
         title: "Breaking Changes"
+     "upgrade/rendering-changes":
+        title: "Rendering Changes"
      "how-to":
         title: "How To"
         position: 20
