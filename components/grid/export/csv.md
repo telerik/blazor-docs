@@ -191,4 +191,4 @@ The CSV export has the following specifics:
   * [Live Demo: Grid CSV Export](https://demos.telerik.com/blazor-ui/grid/export-csv)
   * [Custom cell formatting of the exported file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%})
   * [Format numbers and dates in the exported CSV file from the Grid]({%slug grid-kb-number-formatting-of-the-csv-export%})
-  * [Grid export to CSV - change the default field delimiter (comma)]({%slug grid-kb-csv-export-change-field-delimiter%})
+  * [Change the default CSV delimiter (comma) during Grid export]({%slug grid-kb-csv-export-change-field-delimiter%})
