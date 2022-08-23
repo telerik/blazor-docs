@@ -30,11 +30,9 @@ I want to use a semicolon field delimiter for the exported CSV Grid instead of c
 
 ## Solution
 
-A possible option is to manually modify the exported CSV file before it reaches the client to change the field delimiter. You may handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid. The `Stream` field of its event argument contains the output of the export as a `MemoryStream`.
+A possible option is to manually modify the exported CSV file before it reaches the client to change the field delimiter.
 
-You can copy the bytes from this stream and use the [CsvFormatProvider](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider) to import them in a [`RadSpreadProcessing workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-workbooks/working-with-workbooks-what-is-workbook).
-
-[`RadSpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) is a powerful library that allows you to create spreadsheets from scratch, modify existing documents or convert between the most common spreadsheet formats. In this case, we will focus on the [`CsvFormatProvider` which exposes setting to configure the field delimiter](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/settings).
+For that purpose use the [`RadSpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) library - it allows you to create spreadsheets from scratch, modify existing documents or convert between the most common spreadsheet formats. In this case, we will focus on the [`CsvFormatProvider` which exposes setting to configure the field delimiter](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/settings).
 
 To change the field delimiter, do the following:
 
