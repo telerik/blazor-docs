@@ -19,30 +19,31 @@ This article explains the events available in the Telerik AutoComplete for Blazo
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every keystroke the user input.
+The `ValueChanged` event fires on every user keystroke that changes the textbox value.
 
->caption Handle ValueChanged
+>caption Handle AutoComplete ValueChanged
 
 ````CSHTML
-@result
-<br />
-<TelerikAutoComplete Data="@Suggestions" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
+AutoComplete Value: @AutoCompleteValue <br />
+
+<TelerikAutoComplete Data="@AutoCompleteData"
+                     Value="@AutoCompleteValue"
+                     ValueChanged="@( (string newValue) => OnAutoCompleteValueChanged(newValue) )">
 </TelerikAutoComplete>
 
 @code{
-    string result;
-
-    private void MyValueChangeHandler(string theUserChoice)
-    {
-        result = string.Format("The user wrote: {0}", theUserChoice);
-    }
-
-    List<string> Suggestions { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    private List<string> AutoCompleteData { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer"
     };
+
+    private string AutoCompleteValue { get; set; }
+
+    private void OnAutoCompleteValueChanged(string newValue)
+    {
+        AutoCompleteValue = newValue;
+    }
 }
 ````
-
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 

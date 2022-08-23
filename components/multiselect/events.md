@@ -21,64 +21,33 @@ This article explains the events available in the Telerik MultiSelect for Blazor
 
 The `ValueChanged` event fires when the user selection changes (the user adds or removes items). The type of the argument in the lambda expression must match the `Value` type of the component.
 
->caption Handle ValueChanged
+>caption Handle MultiSelect ValueChanged
 
 ````CSHTML
-@result
-<br />
-<TelerikMultiSelect Data="@Roles" ValueChanged="@( (List<string> v) => MyValueChangeHandler(v) )" />
+Selected items count: @( MultiValues?.Count ?? 0 ) <br />
+
+<TelerikMultiSelect Data="@MultiData"
+                    Value="@MultiValues"
+                    ValueChanged="@( (List<string> newValues) => OnMultiValueChanged(newValues) )">
+</TelerikMultiSelect>
 
 @code{
-    string result { get; set; }
-    void MyValueChangeHandler(List<string> values)
-    {
-        result = $"there are now {values.Count} items selected";
-    }
-    
-    List<string> Roles { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    private List<string> MultiData { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer"
     };
+
+    private List<string> MultiValues { get; set; } = new List<string>() { "Developer" };
+
+    private void OnMultiValueChanged(List<string> newValues)
+    {
+        MultiValues = newValues;
+    }
 }
 ````
-
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
-
->caption Handle ValueChanged and provide initial value
-
-````CSHTML
-@result
-<br />
-<TelerikMultiSelect Data="@Roles" Value="@TheValues" ValueChanged="@( (List<string> v) => MyValueChangeHandler(v) )" />
-<br />
-from the model:
-<ul>
-    @foreach (var item in TheValues)
-    {
-        <li>@item</li>
-    }
-</ul>
-
-@code{
-    string result { get; set; }
-    void MyValueChangeHandler(List<string> values)
-    {
-        result = $"there are now {values.Count} items selected";
-
-        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        TheValues = values;
-    }
-
-    List<string> TheValues { get; set; } = new List<string>();
-
-    List<string> Roles { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
-}
-````
-
 
 ## OnChange
 
@@ -272,7 +241,6 @@ The `OnBlur` event fires when the component loses focus.
     List<string> Options { get; set; } = new List<string> { "one", "two", "three" };
 }
 ````
-
 
 ## See Also
 
