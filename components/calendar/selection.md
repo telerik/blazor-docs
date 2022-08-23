@@ -128,7 +128,7 @@ With multiple selection mode, to get the user selection, use the `SelectedDates`
 
     private TelerikCalendar CalendarRef { get; set; }
 
-    public void OnCalendarValueChanged()
+    private void OnCalendarValueChanged()
     {
         SelectedDates = CalendarRef.SelectedDates;
     }
