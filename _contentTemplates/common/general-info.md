@@ -52,7 +52,7 @@ All available swatches are distributed via dedicated Themes CDN. The following s
 #vsx-download
 You can get the extension from:
 
-* The [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions) (for Windows).
+* The Visual Studio Marketplace (for [Visual Studio 2019 for Windows](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions) and [Visual Studio 2022 for Windows](https://marketplace.visualstudio.com/items?itemName=TelerikInc.ProgressTelerikBlazorVSExtensions)).
 * The [Telerik UI for Blazor automated installer]({%slug installation/msi%}) (for Windows and Mac).
 * Your [Telerik.com account](https://www.telerik.com/account/product-download?product=BLAZOR) - the `.mpack` file for VS for Mac.
 
