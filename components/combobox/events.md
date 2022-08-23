@@ -23,110 +23,77 @@ The `ValueChanged` event fires upon every change of the user selection. When [cu
 
 The examples below use binding to primitive types for brevity, you can use [full models]({%slug components/combobox/databind%}) as well. Make sure to review the [Data Binding - Missing Value or Data]({%slug components/combobox/databind%}#missing-value-or-data) section to provide all necessary parameters to the component if you do so. The type of the argument in the lambda expression must match the `Value` type of the component, and the `ValueField` type (if `ValueField` is set).
 
->caption Handle ValueChanged
+>caption Handle ValueChanged with list values
 
 ````CSHTML
-@result
-<br />
-<TelerikComboBox Data="@MyList" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
+<ul>
+    <li>ComboBox Value: @ComboValue</li>
+    <li>Event Log: @EventLog</li>
+</ul>
+
+<TelerikComboBox Data="@ComboData"
+                 Value="@ComboValue"
+                 ValueChanged="@( (string newValue) => OnComboValueChanged(newValue) )">
 </TelerikComboBox>
 
-@code {
-    string result;
+@code{
+    private List<string> ComboData { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer"
+    };
 
-    private void MyValueChangeHandler(string theUserChoice)
+    private string ComboValue { get; set; }
+
+    private string EventLog { get; set; }
+
+    private void OnComboValueChanged(string newValue)
     {
-        result = string.Format("The user chose: {0}", theUserChoice);
-    }
+        ComboValue = newValue;
 
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+        EventLog = string.Format("The user selected: {0}", newValue);
+    }
 }
 ````
 
 >caption Handle ValueChanged with custom values - the event fires on every keystroke
 
 ````CSHTML
-@result
-<br />
-<TelerikComboBox Data="@MyList" AllowCustom="true" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
+<ul>
+    <li>ComboBox Value: @ComboValue</li>
+    <li>Event Log: @EventLog</li>
+    <li>Value is in the Data: @IsInDataSource</li>
+</ul>
+
+<TelerikComboBox Data="@ComboData"
+                 AllowCustom="true"
+                 Value="@ComboValue"
+                 ValueChanged="@( (string newValue) => OnComboValueChanged(newValue) )">
 </TelerikComboBox>
 
-@code {
-    string result;
+@code{
+    private List<string> ComboData { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
 
-    private void MyValueChangeHandler(string theUserChoice)
+    private string ComboValue { get; set; } = "Developer";
+
+    private string EventLog { get; set; }
+
+    private bool IsInDataSource { get; set; } = true;
+
+    private void OnComboValueChanged(string newValue)
     {
-        result = string.Format("The user chose: {0}", theUserChoice);
-    }
+        ComboValue = newValue;
 
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+        IsInDataSource = ComboData.Contains(newValue);
+
+        EventLog = string.Format("The user typed or selected: {0}", newValue);
+    }
 }
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
-
->caption Handle ValueChanged and provide initial value (it is *not* required to enable custom values)
-
-````CSHTML
-@result
-<br />
-from model: @MyItem
-<br />
-<br />
-<TelerikComboBox Data="@MyList" Value="@MyItem" AllowCustom="true" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
-</TelerikComboBox>
-
-@code {
-    string result;
-
-    private void MyValueChangeHandler(string theUserChoice)
-    {
-        result = string.Format("The user chose: {0}", theUserChoice);
-
-        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        MyItem = theUserChoice;
-    }
-
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
-
-    protected string MyItem { get; set; } = "second";
-}
-````
-
->caption Get selected item - check if the new value is present in the data source
-
-````CSHTML
-@result
-<br />
-Is selection from dropdown: @isLastSelectionInData
-<br />
-from model: @MyItem
-<br />
-<br />
-<TelerikComboBox Data="@MyList" Value="@MyItem" AllowCustom="true" ValueChanged="@( (string v) => MyValueChangeHandler(v) )">
-</TelerikComboBox>
-
-@code {
-    string result;
-    bool isLastSelectionInData { get; set; } = true;//default to true as the default in this sample is from the predefined data
-
-    private void MyValueChangeHandler(string theUserChoice)
-    {
-        isLastSelectionInData = MyList.Contains(theUserChoice); //adapt to your actual data source
-
-        result = string.Format("The user chose: {0}", theUserChoice);
-
-        MyItem = theUserChoice;
-    }
-
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
-
-    protected string MyItem { get; set; } = "second";
-}
-````
-
 
 ## OnChange
 

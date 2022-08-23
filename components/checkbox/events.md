@@ -21,19 +21,19 @@ This article showcases the available events in the Telerik CheckBox component:
 
 The `ValueChanged` event fires every time the `Value` parameter changes.
 
->caption Handle ValueChanged
+>caption Handle CheckBox ValueChanged
 
 ````CSHTML
-@*This example showcases one-way data binding by using Value and ValueChanged*@
+@* CheckBox one-way Value binding with ValueChanged *@
 
-<h4 class="text-muted">Deliveries:</h4>
+<h2>Deliveries:</h2>
 
 @foreach (var delivery in Deliveries)
 {
     <div>
-        <label class="text-muted">
+        <label>
             <TelerikCheckBox Value="@delivery.IsDelivered"
-                             ValueChanged="@((bool value) => ChangeHandler(value, delivery.ProductName))" />
+                             ValueChanged="@( (bool value) => OnCheckBoxValueChanged(value, delivery.ProductName) )" />
             @delivery.ProductName
         </label>
     </div>
@@ -41,8 +41,7 @@ The `ValueChanged` event fires every time the `Value` parameter changes.
 
 @if (AlreadyDelivered.Any())
 {
-<div>
-    <h6 class="text-info">Successfully delivered products:</h6>
+    <h2>Delivered products:</h2>
     <ul>
         @{
             foreach (var item in AlreadyDelivered)
@@ -53,12 +52,12 @@ The `ValueChanged` event fires every time the `Value` parameter changes.
             }
         }
     </ul>
-</div>   
 }
 
 @code {
-    public List<Delivery> Deliveries { get; set; }
-    public List<Delivery> AlreadyDelivered
+    private List<Delivery> Deliveries { get; set; }
+
+    private List<Delivery> AlreadyDelivered
     {
         get
         {
@@ -66,51 +65,44 @@ The `ValueChanged` event fires every time the `Value` parameter changes.
         }
     }
 
-    void ChangeHandler(bool value, string productName)
+    private void OnCheckBoxValueChanged(bool value, string productName)
     {
         var item = Deliveries.Where(x => x.ProductName == productName).First();
+
         // update the model value because the framework does not allow two-way binding when the event is used
         item.IsDelivered = value;
     }
 
-    //In real case scenarios the model will be in a separate file.
-    public class Delivery
-    {
-        public string ProductName { get; set; }
-        public bool IsDelivered { get; set; }
-    }
-
-    //Generating dummy data
     protected override void OnInitialized()
     {
-        //Make your real data generation here.
         Deliveries = new List<Delivery>();
+
         Deliveries.Add(new Delivery()
         {
             ProductName = "PC",
             IsDelivered = false
         });
-        Deliveries.Add(new Delivery()
-        {
-            ProductName = "Mobile Phone",
-            IsDelivered = false
-        });
+
         Deliveries.Add(new Delivery()
         {
             ProductName = "Headset",
             IsDelivered = false
         });
+
         Deliveries.Add(new Delivery()
         {
             ProductName = "Monitor",
             IsDelivered = false
         });
     }
+
+    public class Delivery
+    {
+        public string ProductName { get; set; }
+        public bool IsDelivered { get; set; }
+    }
 }
 ````
->caption The result from the code snippet above
-
-![screenshot to showcase checkbox with one-way data binding](images/one-way-data-binding-checkbox.jpg)
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 

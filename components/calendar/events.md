@@ -29,21 +29,28 @@ The `DateChanged` event fires when the currently shown date changes. For example
 When handling the `DateChanged` event, you cannot use two-way binding for the `Date` parameter. You should update it yourself in the model. If you do not, the currently shown range may revert to the original value set in the markup or to the default value.
 
 ````CSHTML
-@result
-<br />
-<TelerikCalendar Min="@min" Max="@max" @bind-Date="@initialDate" DateChanged="@DateChangedHandler">
+@EventLog  <br />
+
+<TelerikCalendar Min="@CalendarMin"
+                 Max="@CalendarMax"
+                 Date="@CalendarDate"
+                 DateChanged="@OnCalendarDateChanged">
 </TelerikCalendar>
 
 @code {
-    DateTime initialDate { get; set; } = DateTime.Now;
-    DateTime min = new DateTime(2015, 1, 1);
-    DateTime max = new DateTime(2025, 12, 31);
-    string result { get; set; }
+    private DateTime CalendarDate { get; set; } = DateTime.Now;
 
-    void DateChangedHandler(DateTime firstDateOfNewRange)
+    private DateTime CalendarMin { get; set; } = DateTime.Now.AddYears(-5);
+
+    private DateTime CalendarMax { get; set; } = DateTime.Now.AddYears(5);
+
+    private string EventLog { get; set; }
+
+    private void OnCalendarDateChanged(DateTime newDate)
     {
-        result = $"the user now sees a range that includes {firstDateOfNewRange}";
-        initialDate = firstDateOfNewRange; // if you don't do this, navigating adjacent ranges will be effectively disabled
+        CalendarDate = newDate;
+
+        EventLog = $"The user sees a range that includes {newDate}";
     }
 }
 ````
