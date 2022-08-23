@@ -79,6 +79,7 @@ To change the field delimiter, do the following:
         <GridColumn Field="@nameof(SampleData.Discontinued)" Title="Discontinued" Width="100px" />
         <GridColumn Field="@nameof(SampleData.FirstReleaseDate)" Title="Release Date" Width="300px" />
     </GridColumns>
+
 </TelerikGrid>
 
 @code {
