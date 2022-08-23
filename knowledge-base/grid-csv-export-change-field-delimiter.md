@@ -26,7 +26,7 @@ I want to change the default field delimiter when exporting the Grid to CSV file
 
 I want to use a semicolon field delimiter for the exported CSV Grid instead of comma. How to achieve this?
 
->tip At the time of writing (**UI for Blazor 3.5.0**), the Blazor Grid [does not expose a built-in option for configuring the field delimiter](https://feedback.telerik.com/blazor/1577167-option-to-configure-the-field-delimiter-when-exporting-to-csv). You may vote for the enhancement and follow it to get status email updates.
+>tip At the time of writing (**UI for Blazor 3.5.0**), the Blazor Grid [does not expose a built-in option for configuring the field delimiter](https://feedback.telerik.com/blazor/1577167-option-to-configure-the-field-delimiter-when-exporting-to-csv). You may vote for the enhancement and follow it to receive status updates.
 
 ## Solution
 
