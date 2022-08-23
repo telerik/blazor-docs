@@ -23,7 +23,7 @@ The Telerik Blazor Extensions provide the following advantages:
 * They notify you about [new component versions]({%slug getting-started-vs-integration-latest-version %}).
 
 
-The Telerik UI for Blazor VS extensions support Visual Studio 2019. @[template](/_contentTemplates/common/general-info.md#vsx-download)
+The Telerik UI for Blazor VS extension supports Visual Studio 2022 and 2019. @[template](/_contentTemplates/common/general-info.md#vsx-download)
 
 To access the VS extensions, go to the **Extensions** > **Telerik** > **Telerik UI for Blazor** menu.
 
