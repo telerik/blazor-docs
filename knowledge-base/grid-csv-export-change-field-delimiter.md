@@ -30,7 +30,7 @@ I want to use a semicolon field delimiter for the exported CSV Grid instead of c
 
 ## Solution
 
-A possible option is to manually modify the exported CSV file before it reaches the client to change the field delimiter. You may handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid.
+A possible option is to manually modify the exported CSV file before it reaches the client to change the field delimiter. You may handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid. The `Stream` field of its event argument contains the output of the export as a `MemoryStream`.
 
 You can copy the bytes from this stream and use the [CsvFormatProvider](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider) to import them in a [`RadSpreadProcessing workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-workbooks/working-with-workbooks-what-is-workbook).
 
