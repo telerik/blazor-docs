@@ -1,5 +1,5 @@
 ---
-title: Grid export to CSV - change the default field delimiter (comma)
+title: Grid CSV export - change the comma field delimiter
 description: How to export the Grid to CSV with a different/custom field delimiter?
 type: how-to
 page_title: Grid export to CSV - change the default field delimiter (comma)
