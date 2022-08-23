@@ -12,22 +12,12 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/form" target="_blank">Form for Blazor</a> allows you to generate a form based on your model and to manage customized forms. You can control the component through various parameters, achieve the desired layout by using the [default editor](#automatic-generation-of-fields) or add [custom ones]({%slug form-formitems%}), set the [orientation]({%slug form-orientation%}) and organize those editors in [groups]({%slug form-formgroups%}) and [columns]({%slug form-columns%}). 
 
-#### This article is separated in the following sections:
 
-
-* [Use the Telerik Form for Blazor with a model](#use-the-telerik-form-for-blazor-with-a-model)
-* [Use the Telerik Form for Blazor with an EditContext](#use-the-telerik-form-for-blazor-with-an-editcontext)
-* [Component Reference](#component-reference)
-* [Automatic Generation of fields](#automatic-generation-of-fields)
-* [Data Annotation Attributes](#data-annotation-attributes)
-* [Features](#features)
-
-
-## Use the Telerik Form for Blazor With a Model
+## Creating Blazor Form Bound to a Model
 
 To use the Form component with a model: 
 
-1. Add the `<TelerikForm>` tag.
+1. Use the `TelerikForm` tag to add the component to your razor page.
 
 1. Provide an object to the `Model` parameter of the component. 
 
@@ -74,13 +64,13 @@ To use the Form component with a model:
 
 ![Form Basic Example](images/form-basic-example.png)
 
-## Use the Telerik Form for Blazor With an EditContext
+## Creating Blazor Form Bound to an EditContext
 
 The Telerik Form for Blazor can utilize the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0">EditContext class</a>. You can use the events and methods provided by the EditContext to provide custom business logic. 
 
 To use the Form component with an EditContext: 
 
-1. Add the `<TelerikForm>` tag.
+1. 1. Use the `TelerikForm` tag to add the component to your razor page.
 
 1. Provide an object of type `EditContext` to the `EditContext` parameter of the Form. 
 
@@ -162,25 +152,39 @@ The component reference provides you with access to the `EditContext` object tha
 }
 ````
 
-## Automatic Generation of fields
+## Building Blocks
+
+### Form Items
+
+There are two ways to generate fields in the Blazor Form:
+
+* By manually defining [FormItems]({%slug form-formitems%}).
+* Allowing the Form to [automatically generate them](#automatic-generation-of-field).
+
+The Form Items allow you customize the [default editors](#automatic-generation-of-field). [See the [FormItems article for more information...]({%slug form-formitems%}).
+
+### Automatic Generation of fields
 
 The Telerik Form can generate [editors]({%slug form-formitems%}) for you based on the model fields. It can take them from both a `Model`, or the `EditContext`, whichever you provide to it. You can use the [data annotation attributes](#data-annotation-attributes) to validate the value of the fields.
 
 The following data types are supported out-of-the box and they use the following default editors:
 
-* `string` - [Telerik TextBox]({%slug components/textbox/overview%})
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* `int`, `double`, `float`, `decimal` - [Telerik NumericTextBox]({%slug components/numerictextbox/overview%})
+| Data Type | Default Editor |
+|-----------|----------|
+| `string`  | [Telerik TextBox]({%slug components/textbox/overview%}) |
+| `int`, `double`, `float`, `decimal`  | [Telerik NumericTextBox]({%slug components/numerictextbox/overview%}) |
+| `Enum`  | [Telerik DropDownList]({%slug components/dropdownlist/overview%}) |
+| `DateTime`  | [Telerik DatePicker]({%slug components/datepicker/overview%}) |
+| `bool`  | [Telerik CheckBox]({%slug checkbox-overview%}) |
 
-* `Enum` - [Telerik DropDownList]({%slug components/dropdownlist/overview%})
 
-* `DateTime` - [Telerik DatePicker]({%slug components/datepicker/overview%})
-
-* `bool` - [Telerik CheckBox]({%slug checkbox-overview%})
-
-### Customize the Automatically Generated Fields
+#### Customize the Automatically Generated Fields
 
 You can customize the automatically generated field by providing the `EditorType` attribute, exposed on the `<FormItem>`, or by using the [FormItem Template]({%slug form-formitems-template%}). The `EditorType` attribute accepts a member of the `FormEditorType` enum:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Field data type | FormEditorType enum members              |
 |-----------------|------------------------------------------|
@@ -228,8 +232,7 @@ You can customize the automatically generated field by providing the `EditorType
 }
 ````
 
-
-## Data Annotation Attributes
+### Data Annotation Attributes
 
 The Telerik Form for Blazor supports validation through the `<DataAnnotationsValidator />`. This allows you to take advantage of all validation attributes from the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0" target="_blank">data annotation attributes</a> list provided by .NET.
 
@@ -241,33 +244,45 @@ The Form also uses the the following attributes from the model:
 
 You can customize the editors further through the [form items]({%slug form-formitems%}). Explicit settings you provide through the parameters will take precedence over data annotation attributes.
 
-## Features
+### Form Buttons
 
-* `Model` - `object` - the object bound to the form. It will automatically create the `EditContext` and using the two together is not supported.
+The Form Buttons allow you to add custom buttons to the Form. You can use the `FormButtons` tag to add a Clear button to the Form. If the `FormButtons` tag is defined there will be no default buttons in the Form. [See the FormButtons article for more information...]({%slug form-formitems-buttons%})
 
-* `FormValidation` - a nested tag for the Form. You should use it to enable validation and provide validation configuration - add a validation (for example `DataAnnotationsValidator`) and provide a `ValidationSummary`.
+### Form Groups
 
-* `EditContext` - `EditContext` - the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> of the form.
+You can group Form items that are logically connected. [See the FormGroupsarticle for more information...]({%slug form-formgroups%})
 
-* `ValidationMessageType` - `enum` - define the validation message type for the Form. See the [Validation]({%slug form-validation%}) article for more information.
+### Form Events
 
-* `FormItems` - `RenderFragment` - allows you to use custom editors. See the [FormItems]({%slug form-formitems%}) article for more information. When a custom editor is used, no built-in editors will be generated.
+You can react to user interactions with the Form through the available events. [See the Events article for more information...]({%slug form-events%})
 
-* `FormButtons` - `RenderFragment` - allows you to add custom buttons to the Form. You can use the `FormButtons` tag to [add a Clear button to the Form]({%slug form-formitems-buttons%}). If the `FormButtons` tag is defined there will be no default buttons in the Form. 
+### Form Validation
 
-* `FormGroups` - lets you define Groups for the FormItems. See the [FormGroups]({%slug form-formgroups%}) article for more information.
+To validate and provide validation configuration to the Telerik Blazor Form you can use the `FormValidation` tag. [See the Validation article for more information...]({%slug form-validation%})
 
-* `Orientation` - `enum` - controls the orientation of the Form. See the [Orientation]({%slug form-orientation%}) article for more information.
-    
-* `Columns` - `int` - defines the number of columns in the Form. See the [Columns]({%slug form-columns%}) article for more information.
+## Form Layout Customization
 
-* `ColumnSpacing` - `string` - defines the space between the FormItems. See the [Columns]({%slug form-columns%}) article for more information.
+The Blazor Form exposes multiple parameters that allow you to customize its layout:
 
-* `Id` - `string` - sets an `id` attribute to the `<form>` element. It is possible to use it together with the [`Form` parameter of a submit button]({%slug button-type%}). Set both parameters to the same `string` value. This allows submitting the form from a button, which is outside the form.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* `Events` - See the [Events]({%slug form-events%}) article for more information
+| Parameter | Type and Default value | Description |
+|-----------|------------------------|-------------|
+| `Width`  | `string` | Controls the width of the Form. |
+| `Columns`  | `int` | Defines the number of columns in the Form. See the [Columns]({%slug form-columns%}) article for more information |
+| `ColumnSpacing`  | `string` | Defines the amout of vertical space between the Columns. See the [Columns]({%slug form-columns%}) article for more information. |
+| `Orientation`  | `FormOrientation` enum <br /> `Vertical` | controls the orientation of the Form. See the [Orientation]({%slug form-orientation%}) article for more information. |
 
-* `Width` - `string` - the width of the Form. See the [Dimensions]({%slug common-features/dimensions%}) article.
+## Form Parameters
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default value | Description |
+|-----------|------------------------|-------------|
+| `Model`  | `object` | The object bound to the Form. It will automatically create the `EditContext` and using the two together is not supported. |
+| `EditContext`  | `EditContext` | The <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> of the form. |
+| `ValidationMessageType`  | `FormValidationMessageType` enum <br /> `Inline` | Defines the type of the Validation messages. See the [Validation]({%slug form-validation%}) article for more information. |
+| `Id`  | `string` | Sets an `id` attribute to the `<form>` element. It is possible to use it together with the [`Form` parameter of a submit button]({%slug button-type%}). Set both parameters to the same `string` value. This allows submitting the form from a button, which is outside the form. |
 
 ## See Also
 
