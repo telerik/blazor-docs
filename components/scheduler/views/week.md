@@ -21,9 +21,6 @@ In this article:
 	* [Slots](#slots)
 * [Resource Grouping](#resource-grouping-in-the-week-view)
 
->caption Figure: Week View in the scheduler
-
-![Blazor Week View Sample](images/week-view-sample.png)
 
 ## Example
 
@@ -94,7 +91,6 @@ In this article:
 }
 ````
 
-
 @[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
 
 @[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
@@ -105,17 +101,12 @@ In this article:
 
 You can configure the Week view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
 
->caption The result from the code snippet below.
-
-![Blazor Scheduler Resource Grouping Week View](images/scheduler-resource-grouping-week-view.png)
-
 >caption Resource Grouping in a Week view.
 
 @[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
 
 ## See Also
 
-  * [Views]({%slug scheduler-views-overview%})
-  * [Navigation]({%slug scheduler-navigation%})
-  * [Live Demo: Scheduler Week View](https://demos.telerik.com/blazor-ui/scheduler/week-view)
-  
+* [Views]({%slug scheduler-views-overview%})
+* [Navigation]({%slug scheduler-navigation%})
+* [Live Demo: Scheduler Week View](https://demos.telerik.com/blazor-ui/scheduler/week-view)

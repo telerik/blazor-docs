@@ -102,17 +102,12 @@ In this article:
 
 You can configure the Timeline view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
 
->caption The result from the code snippet below.
-
-![Blazor Scheduler Resource Grouping TimeLine View](images/scheduler-resource-grouping-timeline-view.png)
-
 >caption Resource Grouping in a Timeline view.
 
 @[template](/_contentTemplates/scheduler/views.md#resource-grouping-vertical-code-snippet-for-examples)
 
 ## See Also
 
-  * [Views]({%slug scheduler-views-overview%})
-  * [Navigation]({%slug scheduler-navigation%})
-  * [Live Demo: Scheduler Timeline View](https://demos.telerik.com/blazor-ui/scheduler/timeline-view)
-  
+* [Views]({%slug scheduler-views-overview%})
+* [Navigation]({%slug scheduler-navigation%})
+* [Live Demo: Scheduler Timeline View](https://demos.telerik.com/blazor-ui/scheduler/timeline-view)
