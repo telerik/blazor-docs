@@ -10,63 +10,67 @@ position: 0
 
 # Blazor Scheduler Overview
 
-The <a href="https://www.telerik.com/blazor-ui/scheduler" target="_blank">Blazor Scheduler component</a> lets the user see, edit and add appointments so they can plan their agenda. It offers different views, control over the workday start and end, appointment editing and various other features and settings.
+The <a href="https://www.telerik.com/blazor-ui/scheduler" target="_blank">Blazor Scheduler component</a> lets users see, edit and add appointments, so they can plan their agenda. The Scheduler offers different views, control over the workday start and end, resource grouping and various other features and settings.
 
-#### To use a Telerik Scheduler for Blazor
 
-1. Add the `TelerikScheduler` tag.
-1. Populate its `Data` property with the collection of appointments/events the user needs to see. See the [Data Binding]({%slug scheduler-appointments-databinding%}) article for details on the fields.
-1. Define the Views the user can toggle between in the `SchedulerViews` collection. Optionally, set their settings (such as days start and end) and choose a default View.
+## Creating Blazor Scheduler
 
->caption Scheduler first look and main features
+1. Use the `<TelerikScheduler>` tag.
+1. Set its `Data` parameter to `IEnumerable<TItem>` to define the collection of appointments (events). The Scheduler can [detect and use some property names in the model]({%slug scheduler-appointments-databinding%}#appointment-features), such as `Title`, `Description`, `Start`, `End` and others. Alternatively, you can use different property names and configure them explicitly. See [Data Binding]({%slug scheduler-appointments-databinding%}) for more details.
+1. Define the available views that users can toggle. Each view will be a child tag inside `<SchedulerViews>`.
+1. (optional) Set `StartTime` and `EndTime` for the views, unless users should see the full 24 hours. Only the time portion of these `DateTime` objects will matter.
+1. (optional) Set the Scheduler's `Date` and `View` parameters. By default, users will see today's date and the first view. Both parameters support two-way binding.
+
+>caption Basic Scheduler
 
 ````CSHTML
-@* Fewer settings are required to get the component running, but you will usually have to set some for better UX *@
-
-<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px" Width="800px">
+<TelerikScheduler Data="@Appointments"
+                  @bind-Date="@SchedulerStartDate"
+                  @bind-View="@SchedulerCurrentView"
+                  Height="600px">
     <SchedulerViews>
-        <SchedulerDayView StartTime="@DayStart" />
-        <SchedulerWeekView StartTime="@DayStart" />
-        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
+        <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" />
+        <SchedulerWeekView StartTime="@DayStart" EndTime="@DayEnd" />
+        <SchedulerMonthView />
+        <SchedulerTimelineView StartTime="@DayStart" EndTime="@DayEnd" />
     </SchedulerViews>
 </TelerikScheduler>
 
 @code {
-    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
-    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
-    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
-    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
+    private DateTime SchedulerStartDate { get; set; } = new DateTime(2022, 7, 25);
+
+    private SchedulerView SchedulerCurrentView { get; set; } = SchedulerView.Week;
+
+    // only the time portion matters
+    private DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 6, 0, 0);
+    private DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 19, 0, 0);
+
+    private List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
     {
-            new SchedulerAppointment
-            {
-                Title = "Vet visit",
-                Description = "The cat needs vaccinations and her teeth checked.",
-                Start = new DateTime(2019, 11, 26, 11, 30, 0),
-                End = new DateTime(2019, 11, 26, 12, 0, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Planning meeting",
-                Description = "Kick off the new project.",
-                Start = new DateTime(2019, 11, 25, 9, 30, 0),
-                End = new DateTime(2019, 11, 25, 12, 45, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Trip to Hawaii",
-                Description = "An unforgettable holiday!",
-                IsAllDay = true,
-                Start = new DateTime(2019, 11, 27),
-                End = new DateTime(2019, 12, 07)
-            }
+        new SchedulerAppointment
+        {
+            Title = "Planning meeting",
+            Start = new DateTime(2022, 7, 25, 9, 30, 0),
+            End = new DateTime(2022, 7, 25, 12, 45, 0)
+        },
+        new SchedulerAppointment
+        {
+            Title = "Vet visit",
+            Start = new DateTime(2022, 7, 26, 7, 0, 0),
+            End = new DateTime(2022, 7, 26, 7, 30, 0)
+        },
+        new SchedulerAppointment
+        {
+            Title = "Trip to Hawaii",
+            IsAllDay = true,
+            Start = new DateTime(2022, 7, 27),
+            End = new DateTime(2022, 8, 07)
+        }
     };
 
     public class SchedulerAppointment
     {
         public string Title { get; set; }
-        public string Description { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public bool IsAllDay { get; set; }
@@ -74,51 +78,70 @@ The <a href="https://www.telerik.com/blazor-ui/scheduler" target="_blank">Blazor
 }
 ````
 
->caption The result from the code snippet above
 
-![Blazor Scheduler Basic Screenshot](images/scheduler-basic-screenshot.png)
+## Data Binding
 
->caption Component namespace and reference
+As a data-driven component, the Scheduler needs a collection of appointments to work with. Learn how to [data bind the Scheduler and configure model property names]({%slug scheduler-appointments-databinding%}).
 
-The Scheduler is a generic component and its type is determined by the type of the appointments model you pass to it.
 
-````CSHTML
-@* This is a bare bones example to show the relationship between the reference and the model *@
+## Views
 
-<TelerikScheduler Data="@Appointments" @ref="@SchedulerRef">
-    <SchedulerViews>
-        <SchedulerWeekView />
-    </SchedulerViews>
-</TelerikScheduler>
+The [Scheduler offers different views]({%slug scheduler-views-overview%}) that are suitable for different user needs:
 
-@code {
-    Telerik.Blazor.Components.TelerikScheduler<SchedulerAppointment> SchedulerRef { get; set; }
+* Day view
+* Multiday view
+* Week view
+* Month view
+* Timeline (agenda) view
 
-    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>();
 
-    public class SchedulerAppointment
-    {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-        public bool IsAllDay { get; set; }
-    }
-}
-````
+## Editing
 
->caption The Scheduler provides the following key features:
+Users can [create, edit and delete Scheduler appointments]({%slug scheduler-appointments-edit%}). The component provides you with the new information so you can store it to the underlying data source.
 
-* [Extensive Navigation]({%slug scheduler-navigation%}) - both programmatic, and for the end user - includes the ability to change the currently shown time range, several views to choose from, and toggling business hours only display.
 
-* [Appointment Editing]({%slug scheduler-appointments-edit%}) - the user can edit, delete and create new appointments in their calendar, and the scheduler provides you with that information so you can store it.
+## Navigation
 
-* [Appointment Templates]({%slug scheduler-templates-appointment%}) - you can customize what content the appointment renders and also style its element through the [ItemRender event]({%slug scheduler-events%}#itemrender).
+The [Scheduler features extensive navigation]({%slug scheduler-navigation%}), which can be both programmatic and managed by the end user. The component can change the currently visible time range, the current view, and toggle business hours only display.
+
+
+## Templates
+
+You can [customize the appointment appearance and content via Scheduler templates]({%slug scheduler-templates-appointment%}). Another option is to use the [Scheduler `OnItemRender` event]({%slug scheduler-events%}#itemrender).
+
+
+## Resources and Grouping
+
+[Scheduler resources]({%slug scheduler-resources%}) provide a way to associate and [group appointments]({%slug scheduler-resource-grouping%}) by certain criteria, such as a meeting room, a participating person, or used equipment.
+
+
+## Events
+
+The [Scheduler component fires events]({%slug scheduler-events%}) related to CRUD operations, item (appointment) clicks and user navigation. Use them to gain more information about user actions and enhance the component behavior.
+
+
+## Scheduler Parameters
+
+The following table lists Scheduler parameters, which are not discussed elsewhere in the component documentation. Also check the [Scheduler API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikScheduler-1) for a full list of parameters, events and methods.
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | A custom CSS class for the `<div class="k-scheduler">` element. Use it to [override theme styles]({%slug themes-override%}). |
+| `EnableLoaderContainer` | `bool` <br /> (`true`) | Determines if the Scheduler will display a loading animation for operations that take longer than 600 ms. |
+| `Height` | `string` | A `height` style in [any supported unit]({%slug common-features/dimensions%}). |
+| `Width` | `string` | A `width` style in [any supported unit]({%slug common-features/dimensions%}). |
+
+
+## Next Steps
+
+* [Bind the Scheduler to data]({%slug scheduler-appointments-databinding%})
+* [Configure Scheduler views]({%slug scheduler-views-overview%})
+* [Enable Scheduler editing]({%slug scheduler-appointments-edit%})
 
 
 ## See Also
 
-  * [Data Binding]({%slug scheduler-appointments-databinding%})
-  * [Live Demo: Scheduler](https://demos.telerik.com/blazor-ui/scheduler/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikScheduler-1)
-
+* [Live Demo: Scheduler](https://demos.telerik.com/blazor-ui/scheduler/overview)
+* [Scheduler API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikScheduler-1)

@@ -21,9 +21,6 @@ In this article:
 * [Example](#example)
 * [Resource Grouping](#resource-grouping-in-the-month-view)
 
->caption Figure: Month View in the scheduler
-
-![Blazor Month View Sample](images/month-view-sample.png)
 
 ## Example
 
@@ -104,17 +101,12 @@ In this article:
 
 You can configure the Month view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
 
->caption The result from the code snippet below.
-
-![Blazor Scheduler Resource Grouping Month View](images/scheduler-resource-grouping-month-view.png)
-
 >caption Resource Grouping in a Month view.
 
 @[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
 
 ## See Also
 
-  * [Views]({%slug scheduler-views-overview%})
-  * [Navigation]({%slug scheduler-navigation%})
-  * [Live Demo: Scheduler Month View](https://demos.telerik.com/blazor-ui/scheduler/month-view)
-  
+* [Views]({%slug scheduler-views-overview%})
+* [Navigation]({%slug scheduler-navigation%})
+* [Live Demo: Scheduler Month View](https://demos.telerik.com/blazor-ui/scheduler/month-view)

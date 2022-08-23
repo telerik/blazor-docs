@@ -58,11 +58,6 @@ The examples below showcase [single resource](#one-resource) and [multiple resou
 
 The field names used for the resource model (`Text`, `Value` and `Color`) are the default ones, so you don't need to explicitly define them in the markup.
 
->caption The result from the example below
-
-![Blazor Resources Overview](images/resources-overview.png)
-
-
 ````CSHTML
 @* This example shows how to declare a resource and to match it to appointments, and how to have an appointment that is not associated with that resource.
     Actual CRUD operations are not implemented for brevity, just the UX is enabled so you can see how the edit form looks like.*@
@@ -166,11 +161,6 @@ The field names used for the resource model (`Text`, `Value` and `Color`) are th
 
 The field names used for the resource model (`Name`, `Id` and `Shade`) are different than the default ones, therefore should be specified in the markup, so that the `TextField`, `ValueField` and `ColorField` will point to them.
 
->caption The result from the example below
-
-![Blazor Resources Overview](images/resources-overview.png)
-
-
 ````CSHTML
 
 @* This example shows how to declare a resource and to match it to appointments, and how to have an appointment that is not associated with that resource.
@@ -273,10 +263,6 @@ The field names used for the resource model (`Name`, `Id` and `Shade`) are diffe
 ````
 
 ### Multiple Resources
-
->caption The result of the example below
-
-![Blazor Multiple Resources](images/multiple-resources.png)
 
 >caption Declare multiple resources
 
@@ -416,12 +402,9 @@ Actual CRUD operations are not implemented for brevity, just the UX is enabled s
 ````
 
 
-
-
 ## See Also
 
 * [Live Demo: Scheduler Resources](https://demos.telerik.com/blazor-ui/scheduler/resources)
 * [Scheduler Overview]({%slug scheduler-overview%})
 * [Scheduler Data Binding]({%slug scheduler-appointments-databinding%})
 * [Scheduler Appointment Editing]({%slug scheduler-appointments-edit%})
-

@@ -21,9 +21,6 @@ In this article:
 	* [Slots](#slots)
 * [Resource Grouping](#resource-grouping-in-the-day-view)
 
->caption Figure: Day View in the scheduler
-
-![Blazor Day View Sample](images/day-view-sample.png)
 
 ## Example
 
@@ -48,7 +45,7 @@ In this article:
     public DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
     public DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
     List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-{
+    {
             new SchedulerAppointment
             {
                 Title = "Board meeting",
@@ -104,17 +101,12 @@ In this article:
 
 You can configure the Day view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
 
->caption The result from the code snippet below.
-
-![Blazor Scheduler Resource Grouping Day View](images/scheduler-resource-grouping-day-view.png)
-
 >caption Resource Grouping in a Day view.
 
 @[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
 
 ## See Also
 
-  * [Views]({%slug scheduler-views-overview%})
-  * [Navigation]({%slug scheduler-navigation%})
-  * [Live Demo: Scheduler Day View](https://demos.telerik.com/blazor-ui/scheduler/day-view)
-  
+* [Views]({%slug scheduler-views-overview%})
+* [Navigation]({%slug scheduler-navigation%})
+* [Live Demo: Scheduler Day View](https://demos.telerik.com/blazor-ui/scheduler/day-view)
