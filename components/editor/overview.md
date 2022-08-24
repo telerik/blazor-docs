@@ -12,9 +12,9 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor HTML Editor component</a> enables your users to create rich textual content through a What-You-See-Is-What-You-Get (WYSIWYG) interface and delivers a set of tools for creating, editing, and formatting text, paragraphs, lists, and other HTML elements.
 
-#### To use the Telerik Editor for Blazor:
+## Creating Editor
 
-1. Add the `<TelerikEditor>` tag.
+1. Use the `TelerikEditor` tag to add the component to your razor page.
 1. Bind its `Value` to the `string` field you want to get the HTML content in.
 
 ````CSHTML
@@ -55,23 +55,6 @@ The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor 
 ![Editor first look](images/editor-overview.png)
 
 
-## Component Reference
-
-You can use the component reference to call its [Methods](#methods), especially when creating [custom tools]({%slug editor-custom-tools%}). This snippet shows how to obtain a reference and its namespace.
-
-
-````CSHTML
-@using Telerik.Blazor.Components 
-
-<TelerikEditor @ref="@TheEditorReference"></TelerikEditor>
-
-@code{
-    TelerikEditor TheEditorReference { get; set; }
-}
-````
-
-
-
 ## Dependencies
 
 Authoring HTML content happens in the browser and relies on the browser HTML editing engine (see the [contenteditable](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content) attribute). Thus, an HTML Editor component must rely on that and use JavaScript.
@@ -86,15 +69,20 @@ The Telerik UI for Blazor Editor uses the ProseMirror engine and it depends on i
 
 The Blazor HTML Editor interacts with its content (value) like all standard components - through its `Value` parameter. You can use it to get and set the HTML string the editor will work with. You can read more about value binding and data binding [here]({%slug get-started-value-vs-data-binding%}).
 
-You can use the following features to get or set the editor content:
+#### You can use the following features to get or set the editor content:
 
-* `@bind-Value` - the recommended approach of using two-way binding to get and set the content of the editor. It lets your view-model provide the initial value, and it will update the view-model as the user alters the HTML.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* `DebounceDelay` - the time in milliseconds that passes between updates on the `Value`. The default is `100ms` and if that causes performance issues with many repaints on your view, you can increase it. Since the editor is expected to handle longer editing sessions and larger content than regular inputs, we added this parameter to debounce the view-model updates and events.
+| Parameter | Type and Default value | Description |
+|-----------|------------------------|-------------|
+| `@bind-Value`  | `EventCallback<string>` | The recommended approach of using two-way binding to get and set the content of the editor. It lets your view-model provide the initial value, and it will update the view-model as the user alters the HTML. |
+| `DebounceDelay`  | `int` <br /> `100ms` | The time in milliseconds that passes between updates on the `Value`. The default is `100ms` and if that causes performance issues with many repaints on your view, you can increase it. Since the editor is expected to handle longer editing sessions and larger content than regular inputs, we added this parameter to debounce the view-model updates and events. |
+| `ValueChanged`  | `EventCallback` | Allows you to receive the Editor value and act upon it. If you use the `ValueChanged` event (one-way binding), you can effectively cancel the user's input by not updating the view-model, or you can even alter it with something else. |
 
-* [Validation]({%slug common-features/input-validation%}#editor) - the standard Data Annotation attributes are supported for validation, but for the performance reasons listed above, validation happens with the `DebounceDelay` delay, not immediately on every keystroke, like simpler inputs.
+## Validation
 
-* The `ValueChanged` [event]({%slug editor-events%}) lets you receive the value and act on it. If you use the `ValueChanged` event (no two-way binding), you can effectively cancel the user's input by not updating the view-model, or you can even alter it with something else.
+You can use the standard Data Annotation attributes to validate the content of the Editor. For the performance reasons listed above, validation happens with the `DebounceDelay` delay, not immediately on every keystroke, like simpler inputs. [See the Validation article for an example on how to validate the content of the Editor,]({%slug common-features/input-validation%}#editor)
+
 
 >important @[template](/_contentTemplates/editor/general.md#app-must-sanitize-content)
 
@@ -113,9 +101,9 @@ Tables, their columns, and rows in the content area of Editor are resizable. To 
 
 Images in the content area of the Editor are resizable. To grab the resize handles, hover on the borders of the image.
 
-## Methods
+## Component Reference and Methods
 
-The editor [reference](#component-reference) exposes the `ExecuteAsync` method which lets you call programmatically the tools and commands of the editor (such as the Bold too, or a Back Color tool, or inserting HTML).
+You can use the component reference to call its `ExecuteAsync` method, especially when creating [custom tools]({%slug editor-custom-tool%}). This method allows you to call programmatically the tools and commands of the editor (such as the Bold too, or a Back Color tool, or inserting HTML).
 
 You can find the reference for the available commands and their respective arguments in the [Built-in Tools list]({%slug editor-built-in-tools%}) section of the documentation.
 
