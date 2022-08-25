@@ -13,8 +13,103 @@ position: 60
 @[template](/_contentTemplates/common/observable-data.md#intro)
 
 In this article:
+- [Rebind Method](#rebind-method)
 - [Observable Data](#observable-data)
 - [New Collection Reference](#new-collection-reference)
+
+
+## Rebind Method
+
+@[template](/_contentTemplates/common/rebind-method.md#intro)
+
+````CSHTML
+@* Add/remove item and rebind the Treelist to react to that change. *@
+
+<TelerikButton OnClick="@AddRootItem">Add root item at the end of the collection</TelerikButton>
+
+<TelerikButton OnClick="@RemoveItem">Remove last item</TelerikButton>
+
+<TelerikTreeList @ref="@TreeListRef"
+                 Data="@TreeListData"
+                 IdField="EmployeeId"
+                 ParentIdField="ReportsTo"
+                 Pageable="true">
+    <TreeListColumns>
+        <TreeListColumn Field="FirstName" Expandable="true" />
+        <TreeListColumn Field="EmployeeId" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    private TelerikTreeList<Employee> TreeListRef;
+
+    private List<Employee> TreeListData { get; set; }
+
+    private void AddRootItem()
+    {
+        var i = TreeListData.Count + 1;
+
+        TreeListData.Add(new Employee()
+            {
+                EmployeeId = i,
+                ReportsTo = null,
+                FirstName = "Employee  " + i.ToString()
+            });
+
+        TreeListRef.Rebind();
+    }
+
+    private void RemoveItem()
+    {
+        if (TreeListData.Count > 0)
+        {
+            TreeListData.RemoveAt(TreeListData.IndexOf(TreeListData.Last()));
+        }
+
+        TreeListRef.Rebind();
+    }
+
+    public class Employee
+    {
+        public int EmployeeId { get; set; }
+        public string FirstName { get; set; }
+        public int? ReportsTo { get; set; }
+    }
+
+    protected override void OnInitialized()
+    {
+        TreeListData = new List<Employee>();
+        var rand = new Random();
+        int currentId = 1;
+
+        for (int i = 1; i < 6; i++)
+        {
+            TreeListData.Add(new Employee()
+                {
+                    EmployeeId = currentId,
+                    ReportsTo = null,
+                    FirstName = "Employee  " + i.ToString()
+                });
+
+            currentId++;
+        }
+        for (int i = 1; i < 6; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                TreeListData.Add(new Employee()
+                    {
+                        EmployeeId = currentId,
+                        ReportsTo = i,
+                        FirstName = "    Employee " + i + " : " + j.ToString()
+                    });
+
+                currentId++;
+            }
+        }
+    }
+}
+````
 
 ## Observable Data
 
@@ -23,7 +118,7 @@ In this article:
 >caption Bind the TreeList to an ObservableCollection, so it can react to collection changes.
 
 ````CSHTML
-@* Add/remove item to see how the Treelist reacts to that change.*@
+@* Add/remove item to see how the Treelist reacts to that change. *@
 
 @using System.Collections.ObjectModel
 
@@ -31,25 +126,23 @@ In this article:
 
 <TelerikButton OnClick="@RemoveItem">Remove last item</TelerikButton>
 
-<br />
-
-<TelerikTreeList Data="@Data"
+<TelerikTreeList Data="@TreeListData"
                  IdField="EmployeeId"
                  ParentIdField="ReportsTo"
                  Pageable="true">
     <TreeListColumns>
-        <TreeListColumn Field="FirstName" Expandable="true"></TreeListColumn>
-        <TreeListColumn Field="EmployeeId"></TreeListColumn>
+        <TreeListColumn Field="FirstName" Expandable="true"/>
+        <TreeListColumn Field="EmployeeId"/>
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
-    public ObservableCollection<Employee> Data { get; set; }
+    private ObservableCollection<Employee> TreeListData { get; set; }
 
-    void AddRootItem()
+    private void AddRootItem()
     {
-        var i = Data.Count + 1;
-        Data.Add(new Employee()
+        var i = TreeListData.Count + 1;
+        TreeListData.Add(new Employee()
         {
             EmployeeId = i,
             ReportsTo = null,
@@ -57,11 +150,11 @@ In this article:
         });
     }
 
-    void RemoveItem()
+    private void RemoveItem()
     {
-        if (Data.Count > 0)
+        if (TreeListData.Count > 0)
         {
-            Data.RemoveAt(Data.IndexOf(Data.Last()));
+            TreeListData.RemoveAt(TreeListData.IndexOf(TreeListData.Last()));
         }
     }
 
@@ -74,13 +167,13 @@ In this article:
 
     protected override void OnInitialized()
     {
-        Data = new ObservableCollection<Employee>();
+        TreeListData = new ObservableCollection<Employee>();
         var rand = new Random();
         int currentId = 1;
 
         for (int i = 1; i < 6; i++)
         {
-            Data.Add(new Employee()
+            TreeListData.Add(new Employee()
             {
                 EmployeeId = currentId,
                 ReportsTo = null,
@@ -93,7 +186,7 @@ In this article:
         {
             for (int j = 0; j < 5; j++)
             {
-                Data.Add(new Employee()
+                TreeListData.Add(new Employee()
                 {
                     EmployeeId = currentId,
                     ReportsTo = i,
@@ -126,49 +219,47 @@ In this article:
 
 <TelerikButton OnClick="@LoadNewData">Load new data</TelerikButton>
 
-<br />
-
-<TelerikTreeList Data="@Data"
+<TelerikTreeList Data="@TreeListData"
                  IdField="EmployeeId"
                  ParentIdField="ReportsTo"
                  Pageable="true">
     <TreeListColumns>
-        <TreeListColumn Field="FirstName" Expandable="true"></TreeListColumn>
-        <TreeListColumn Field="EmployeeId"></TreeListColumn>
+        <TreeListColumn Field="FirstName" Expandable="true"/>
+        <TreeListColumn Field="EmployeeId"/>
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
-    public List<Employee> Data { get; set; }
+    private List<Employee> TreeListData { get; set; }
 
-    void AddRootItem()
+    private void AddRootItem()
     {
-        var i = Data.Count + 10;
-        Data.Add(new Employee()
+        var i = TreeListData.Count + 10;
+        TreeListData.Add(new Employee()
         {
             EmployeeId = i,
             ReportsTo = null,
             FirstName = "Employee  " + i.ToString()
         });
-        Data = new List<Employee>(Data);
+        TreeListData = new List<Employee>(TreeListData);
     }
 
-    void RemoveItem()
+    private void RemoveItem()
     {
-        if (Data.Count > 0)
+        if (TreeListData.Count > 0)
         {
-            Data.RemoveAt(Data.IndexOf(Data.Last()));
-            Data = new List<Employee>(Data);
+            TreeListData.RemoveAt(TreeListData.IndexOf(TreeListData.Last()));
+            TreeListData = new List<Employee>(TreeListData);
         }
     }
 
-    void ClearData()
+    private void ClearData()
     {
-        Data.Clear();
-        Data = new List<Employee>(Data);
+        TreeListData.Clear();
+        TreeListData = new List<Employee>(TreeListData);
     }
 
-    void LoadNewData()
+    private void LoadNewData()
     {
         var newData = new List<Employee>();
         var rand = new Random();
@@ -200,7 +291,7 @@ In this article:
             }
         }
 
-        Data = new List<Employee>(newData);
+        TreeListData = new List<Employee>(newData);
 
         Console.WriteLine("New data collection loaded.");
     }
@@ -214,13 +305,13 @@ In this article:
 
     protected override void OnInitialized()
     {
-        Data = new List<Employee>();
+        TreeListData = new List<Employee>();
         var rand = new Random();
         int currentId = 1;
 
         for (int i = 1; i < 6; i++)
         {
-            Data.Add(new Employee()
+            TreeListData.Add(new Employee()
             {
                 EmployeeId = currentId,
                 ReportsTo = null,
@@ -233,7 +324,7 @@ In this article:
         {
             for (int j = 0; j < 5; j++)
             {
-                Data.Add(new Employee()
+                TreeListData.Add(new Employee()
                 {
                     EmployeeId = currentId,
                     ReportsTo = i,
