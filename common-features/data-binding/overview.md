@@ -93,7 +93,7 @@ Some components handle properties with specific names in a predefined way. For e
 There are three ways to refresh the component data:
 
 * [Bind the component to Observable data]({%slug common-features-observable-data%}). **This option applies only** if the `Data` parameter is set. The component will refresh automatically when items are **added or removed**.
-* Call the component's `Rebind()` method. UI for Blazor version **3.3.0** exposed `Rebind()` for all databound components. Until then, the method was available only for the [components that have an `OnRead` event]({%slug common-features-data-binding-onread%}#components-with-onread-event)
+* Call the component's `Rebind()` method. UI for Blazor version **3.3.0** exposed `Rebind()` for all databound components. Until then, the method was available only for the [components that have an `OnRead` event]({%slug common-features-data-binding-onread%}#components-with-onread-event). If the component is databound via `OnRead`, the [`Rebind()` method will fire the `OnRead` event]({%slug common-features-data-binding-onread%}#refresh-data).
 * Reset the `Data` parameter reference. Sometimes, you may also need to call `StateHasChanged()` - for example, if the refreshing occurs in `OnAfterRenderAsync`.
 
 The [example below](#example) demonstrates the second and third option.
