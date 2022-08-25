@@ -18,7 +18,7 @@ The <a href = "https://www.telerik.com/blazor-ui/pdfviewer" target="_blank">Pdf 
 To use a Telerik PDF Viewer for Blazor:
 
 1. Add the `TelerikPdfViewer` tag.
-1. Set its `FileData` parameter to a byte array that will hold the PDF file contents.
+1. Set its `Data` parameter to a byte array that will hold the PDF file contents.
 1. Define the component reference via the `@ref` directive. You will need it to call the `LoadFile` method to actually display the PDF file in the component.
 1. (optional) Subscribe to the PDF Viewer's `OnOpen` event, if users will be opening files from their local devices. The event argument is a `PdfViewerOpenEventArgs` object with a `Files` property. Use `Files` in the same way as with the [`OnSelect` event of the FileSelect component]({%slug fileselect-events%}#onselect).
 1. (optional) Set `Width` and `Height` in any [supported CSS unit]({%slug common-features/dimensions%}).
@@ -27,7 +27,7 @@ To use a Telerik PDF Viewer for Blazor:
 
 ````CSHTML
 <TelerikPdfViewer @ref="@PdfViewerRef"
-                  FileData="@PdfSource"
+                  Data="@PdfSource"
                   OnOpen="@OnPdfOpen"
                   Height="600px">
 </TelerikPdfViewer>
@@ -44,7 +44,6 @@ To use a Telerik PDF Viewer for Blazor:
         await file.Stream.ReadAsync(buffer);
 
         PdfSource = buffer;
-        PdfViewerRef.LoadFile(PdfSource);
     }
 
     // automatically display the sample PDF
@@ -54,7 +53,6 @@ To use a Telerik PDF Viewer for Blazor:
         {
             await Task.Delay(100);
             PdfSource = Convert.FromBase64String(SamplePdf);
-            PdfViewerRef.LoadFile(PdfSource);
         }
 
         await base.OnAfterRenderAsync(firstRender);
@@ -85,7 +83,7 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | An additional CSS class for the `<div class="k-pdfviewer">` element. Use it to [customize the component styles and override the theme]({%slug themes-override%}). |
-| `FileData` | `byte[]` | The source of the currently displayed PDF file. |
+| `Data` | `byte[]` | The source of the currently displayed PDF file. |
 | `Height` | `string` | The PdfViewer height as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand vertically, according to its content. |
 | `Page` | `int` <br /> (`1`) | The current page of the visible PDF document. |
 | `Width` | `string` | The PdfViewer width as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand horizontally to fill its parent. |
@@ -95,8 +93,7 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 
 The PdfViewer exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute (see the [basic example above](#creating-blazor-pdfviewer)). The PdfViewer methods are:
 
-* `LoadFile` - renders the document that is passed as a `byte[]` argument.
-* `Refresh` - ???
+* `Rebind` - ???
 
 
 ## Next Steps

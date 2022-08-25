@@ -38,7 +38,7 @@ The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazo
 <p> Opened file @PdfName with size @PdfSize.ToString() bytes. </p>
 
 <TelerikPdfViewer @ref="@PdfViewerRef"
-                  FileData="@PdfSource"
+                  Data="@PdfSource"
                   OnDownload="@OnPdfDownload"
                   OnOpen="@OnPdfOpen">
 </TelerikPdfViewer>
@@ -72,7 +72,6 @@ The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazo
         await file.Stream.ReadAsync(buffer);
 
         PdfSource = buffer;
-        PdfViewerRef.LoadFile(PdfSource);
     }
 }
 ````
