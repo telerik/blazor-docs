@@ -8,23 +8,13 @@ published: True
 position: 0
 ---
 
-# Blazor Radial Gauge Overview
+# Radial Gauge Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/radial-gauge" target="_blank">Telerik Radial Gauge for Blazor</a> represents numerical values on a [scale]({%slug radial-gauge-scale%}) of ranges in a radial format.
 
-#### This article is separated in the following sections: 
+## Creating Radial Gauge
 
-* [Basics](#basics)
-
-* [Features](#features)
-
-* [Methods](#methods)
-
-## Basics
-
->caption To add a Telerik Radial Gauge for Blazor to your application:
-
-1. Add the `<TelerikRadialGauge>` tag.
+1. Add the `<TelerikRadialGauge>` tag to your razor page.
 
 1. Add one or more instances of the `<RadialGaugePointer>` to the `<RadialGaugePointers>` collection.
 
@@ -45,33 +35,42 @@ The <a href = "https://www.telerik.com/blazor-ui/radial-gauge" target="_blank">T
 </TelerikRadialGauge>
 ````
 
-## Features
+## Scale
 
-The Telerik Radial Gauge for Blazor exposes the following features:
+The scale of the Radial Gauge renders the values of the [pointers]({%slug radial-gauge-pointers%}), the [labels]({%slug radial-gauge-labels%}), and different [ranges]({%slug radial-gauge-ranges%}). [See the Scale article for more information...]({%slug radial-gauge-scale%})
 
-#### Radial Gauge Size
+## Pointers
 
-* `Width` - `string` - controls the width of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+The distinct values on the scale of the Radial Gauge. [See the Pointers article for more information...]({%slug radial-gauge-pointers%})
 
-* `Height` - `string` - controls the height of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+## Ranges
 
-You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
+You can use the ranges to visually distinguish multiple pointers from the others on the scale. [See the Ranges article for more information...]({%slug radial-gauge-ranges%})
 
-#### Other Features
+## Labels
 
-* `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
+The labels are rendered on the scale of the Radial Gauge to give inforation to the users about the value of the pointers. [See the Labels article for more information...]({%slug radial-gauge-labels%})
 
-* [Scale]({%slug radial-gauge-scale%}) - The scale of the radial gauge renders the values of the [pointers]({%slug radial-gauge-pointers%}), different [ranges]({%slug radial-gauge-ranges%}) and [labels]({%slug radial-gauge-labels%}). 
+## Radial Gauge Parameters
 
-* [Ranges]({%slug radial-gauge-ranges%}) - The ranges are used to visually distinguish particular values on the scale.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* [Labels]({%slug radial-gauge-labels%}) - The labels are rendered on the scale of the component to give information to the users.
+| Parameter | Type and Default value | Description |
+|-----------|------------------------|-------------|
+| `Width`  | `string` | Controls the width of the component. |
+| `Height`  | `string` | Controls the height of the component. |
+| `Class`  | `string` | renders a custom CSS class on the `<div class="k-gauge">` element. You can use that class to reposition the component on the page. |
 
-* [Pointers]({%slug radial-gauge-pointers%}) - The pointers indicate the values on the scale of the component. 
+## Component Reference and Methods
 
-## Methods
+To execute Radial Gauge methods, obtain reference to the component instance via `@ref`.
 
-The Radial Gauge reference exposes the `Refresh` method which allows you to programatically re-render the component. 
+ @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method  | Description |
+|---------|-------------|
+| Refresh | You can use that method to programmatically re-render the component.    |
+
 
 >caption Get a component reference and use the Refresh method
 
