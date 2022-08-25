@@ -153,11 +153,17 @@ The following table lists Tree List parameters, which are not related to other f
 | `Width` | `string` | Sets a width style in [any supported CSS unit]({%slug common-features/dimensions%}). The TreeList has no default width, but expands horizontally to fill its container. |
 
 
-## TreeList Reference
+## TreeList Reference and Methods
 
-The TreeList component has methods to [manage its state]({%slug treelist-state%}) or [resize columns programmatically]({%slug treelist-columns-resize%}). To execute these methods, get a reference to the component instance.
+The TreeList component has methods to to execute actions such as:
 
-The [TreeList is a generic component]({%slug common-features-data-binding-overview%}#component-type). To store its reference via `@ref`, use the model type:
+* [Rebind to refresh the data]({%slug treelist-refresh-data%}#rebind-method)
+* [Automatically resize columns to fit their content]({%slug treelist-columns-resize%})
+* [Get or set the TreeList configuration state]({%slug treelist-state%})
+
+To execute these methods, obtain reference to the Grid instance via `@ref`. 
+
+The TreeList is a generic component.Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters]({%slug common-features-data-binding-overview%}#component-type).
 
 >caption Store the TreeList instance reference and execute methods
 

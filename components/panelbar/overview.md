@@ -150,6 +150,20 @@ The following table lists PanelBar parameters, which are not related to other fe
 | `ExpandedItems` | `IEnumerable<Object>` | A collection of the expanded PanelBar items. Supports two-way binding. Read more in the [ExpandedItems]({%slug panelbar-expand-items%}) article. |
 | `ExpandMode` | `PanelBarExpandMode` enum <br/> (`PanelBarExpandMode.Multiple`) | Whether the PanelBar will allow single or multiple items to be expanded at a time. Read more in the [ExpandMode]({%slug panelbar-expand-items%}#expandmode) section. |
 
+## PanelBar Reference and Methods
+
+To execute PanelBar methods, obtain reference to the component instance via `@ref`.
+
+The PanelBar is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters]({%slug common-features-data-binding-overview%}#component-type).
+
+The table below lists the PanelBar methods. Also consult the [PanelBar API](/blazor-ui/api/Telerik.Blazor.Components.TelerikPanelBar).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `Rebind` | [Refreshes the component data]({%slug panelbar-refresh-data%}#rebind-method). |
+
 
 ## Next Steps
 
