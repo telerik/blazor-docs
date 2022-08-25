@@ -14,12 +14,12 @@ The <a href = "https://www.telerik.com/blazor-ui/stock-chart" target="_blank">Bl
 
 The Telerik Stock Chart provides a [Navigator]({%slug stockchart-navigator%}) to widen or shorten the defined period of time and zoom on particular part of the chart; and a [crosshair]({%slug stockchart-crosshairs%}) to see precise values in data-dense charts.
 
-#### To use the Telerik Stock Chart for Blazor: 
+## Creating Stock Chart
 
-1. add the `TelerikStockChart` tag
-2. for [`OHLC`]({%slug stockchart-ohlc%}) and [`Candlestick`]({%slug stockchart-candlestick%}) set the `DateField` parameter of the `TelerikStockChart` to the corresponding property of the model.
-3. provide data to the series as described in the [Data binding article]({%slug stockchart-data-binding%})
-4. (optional) enable the [navigator]({%slug stockchart-navigator%}) by including its `StockChartNavigator` tag and adding a series that mirrors the main chart data to it.
+1. Add the `TelerikStockChart` tag to your razor page.
+2. Set the `DateField` parameter of the `TelerikStockChart` to the corresponding property of the model for the [`OHLC`]({%slug stockchart-ohlc%}) and the [`Candlestick`]({%slug stockchart-candlestick%}) StockChart types.
+3. Provide [data]({%slug stockchart-data-binding%}) to the series.
+4. (optional) Enable the [navigator]({%slug stockchart-navigator%}) by including its `StockChartNavigator` tag and adding a series that mirrors the main chart data to it.
 
 >caption Basic configuration of a Stock Chart with common settings
 
