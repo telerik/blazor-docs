@@ -2,10 +2,10 @@
 title: Refresh Data
 page_title: Gantt Refresh Data
 description: Refresh Gantt Data using the Rebind method, Observable Data or creating a new Collection reference.
-slug: Gantt-refresh-data
+slug: gantt-refresh-data
 tags: telerik,blazor,Gantt,observable,data,new,collection
 published: True
-position: 60
+position: 20
 ---
 
 # Gantt - Refresh Data
