@@ -8,25 +8,16 @@ published: True
 position: 0
 ---
 
-# Blazor MediaQuery Overview
+# MediaQuery Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/mediaquery" target="_blank">MediaQuery component for Blazor</a> allows you to react when the user changes the size of the browser. 
 
-#### This article is separated in the following sections:
-
-* [Basics](#basics)
-* [Notes](#notes)
-* [Features](#features)
-* [Examples](#examples)
-
-## Basics
+## Creating MediaQuery
 
 >caption To use the TelerikMediaQuery on your page: 
 
-1. Add the `<TelerikMediaQuery>` tag.
-
+1. Add the `<TelerikMediaQuery>` tag to your razor page.
 1. In the `Media` parameter provide a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">CSS media query</a> to be matched. 
-
 1. Use the `OnChange` event to determine when the `Media` is matched. 
 
 
@@ -47,35 +38,23 @@ The <a href = "https://www.telerik.com/blazor-ui/mediaquery" target="_blank">Med
 } 
 ````
 
-## Notes
+## MediaQuery Parameters
 
-The MediaQuery component facilitates the usage of CSS media queries in your C# code. There are a few points to keep in mind:
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* The MediaQuery component is not a replacement for responsive design, layout and CSS. You should use them to create your responsive application layouts like with any other web application.
-
-* The MediaQuery component makes it easy to use C# logic based on the breakpoint that matches - such as changing parameter values, replacing a component with a different component or even not rendering a part of the layout (with CSS alone you can resize parts of the app or hide them visually, but they still render).
-
-* You should have default values for the flags in your application that define the preferred state or layout. Depending on the browser and the media query setup, it is possible that no `OnChange` event will fire when the app initializes, so the app should have a reasonable default state.
-
-## Features
-
-The TelerikMediaQuery provides the following features:
-
-* `Media` - `string` - the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">media query string</a> that will be matched. 
-
-* `OnChange` - `EventCallback<bool>` - This event indicates whether the media query string provided to the `Media` parameter matches the current browser size. It fires when it matches, and when it stops matching. See the [Events]({%slug mediaquery-events%}) article for more information. 
-
-* Integration - you can integrate the TelerikMediaQuery with our components. See the [Integration]({%slug mediaquery-integration%}) article for more information.
-
-## Examples
-
-This section contains two basic examples to showcase the concept of using multiple breakpoints, reusing them throughout the app, and changing the rendering with C# in response to breakpoints being hit.
-
-* [Reuse Multiple Breakpoints](#reuse-multiple-breakpoints)
-* [Change Rendering with Blazor Code](#change-rendering-with-blazor-code)
+| Parameter | Type and Default value | Description |
+|-----------|------------------------|-------------|
+| `Media`  | `string` | the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">media query string</a> that will be matched. |
+| `OnChange`  | `EventCallback<bool>` |  This event indicates whether the media query string provided to the `Media` parameter matches the current browser size. It fires when it matches, and when it stops matching. See the [Events]({%slug mediaquery-events%}) article for more information.  |
 
 
-### Reuse Multiple Breakpoints
+## Integration
+
+You can use the TelerikMediaQuery together with other Telerik UI for Blazor components.
+you can integrate the TelerikMediaQuery with our components. [See the Integration article for more information...]({%slug mediaquery-integration%})
+
+
+## Reuse Multiple Breakpoints
 
 The example below shows a few common CSS breakpoints and how you can easily extract them to a static class so you can reuse them throughout the entire application.
 
@@ -118,8 +97,7 @@ You can find more examples of common breakpoints from established design systems
 <TelerikMediaQuery Media="@WindowBreakPoints.ExtraLarge" OnChange="@( (matches) => isExtraLarge = matches )"></TelerikMediaQuery>
 ````
 
-
-### Change Rendering with Blazor Code
+## Change Rendering with Blazor Code
 
 In this simplistic example, we just switch the background of an element, in a real case you would replace entire components or change their parameters.
 
@@ -196,7 +174,15 @@ NOTE: this simple logic is best suited for plain CSS
 </style>
 ````
 
+## Notes
 
+The MediaQuery component facilitates the usage of CSS media queries in your C# code. There are a few points to keep in mind:
+
+* The MediaQuery component is not a replacement for responsive design, layout and CSS. You should use them to create your responsive application layouts like with any other web application.
+
+* The MediaQuery component makes it easy to use C# logic based on the breakpoint that matches - such as changing parameter values, replacing a component with a different component or even not rendering a part of the layout (with CSS alone you can resize parts of the app or hide them visually, but they still render).
+
+* You should have default values for the flags in your application that define the preferred state or layout. Depending on the browser and the media query setup, it is possible that no `OnChange` event will fire when the app initializes, so the app should have a reasonable default state.
 
 ## See Also
   
