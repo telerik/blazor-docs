@@ -1,7 +1,7 @@
 ---
 title: Refresh Data
 page_title: TreeView Refresh Data
-description: Refresh TreeView Data using Observable Data or creating a new Collection reference.
+description: Refresh TreeView Data using the Rebind method, Observable Data or creating a new Collection reference.
 slug: treeview-refresh-data
 tags: telerik,blazor,treeview,observable,data,new,collection
 published: True
@@ -153,6 +153,8 @@ In this article:
 >caption Bind the TreeView to an ObservableCollection, so it can react to collection changes.
 
 ````CSHTML
+@* Add/remove an item to see how the TreeView reacts to that change. *@
+
 @using System.Collections.ObjectModel
 
 <TelerikButton OnClick="@AddItem">Add item</TelerikButton>

@@ -1,7 +1,7 @@
 ---
 title: Refresh Data
 page_title: Carousel Refresh Data
-description: Refresh Carousel Data using Observable Data or creating a new Collection reference.
+description: Refresh Carousel Data using the Rebind method, Observable Data or creating a new Collection reference.
 slug: carousel-refresh-data
 tags: telerik,blazor,carousel,observable,data,new,collection
 published: True

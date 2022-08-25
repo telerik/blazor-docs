@@ -1,7 +1,7 @@
 ---
 title: Refresh Data
 page_title: TreeList Refresh Data
-description: Refresh TreeList Data using Observable Data or creating a new Collection reference.
+description: Refresh TreeList Data using the Rebind method, Observable Data or creating a new Collection reference.
 slug: treelist-refresh-data
 tags: telerik,blazor,treelist,observable,data,new,collection
 published: True

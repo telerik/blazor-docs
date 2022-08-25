@@ -5,7 +5,7 @@ description: Events of the PanelBar for Blazor.
 slug: panelbar-events
 tags: telerik,blazor,panelbar,events
 published: True
-position: 20
+position: 25
 ---
 
 # PanelBar Events
