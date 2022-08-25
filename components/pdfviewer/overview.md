@@ -18,44 +18,31 @@ The <a href = "https://www.telerik.com/blazor-ui/pdfviewer" target="_blank">Pdf 
 To use a Telerik PDF Viewer for Blazor:
 
 1. Add the `TelerikPdfViewer` tag.
-1. Set its `Data` parameter to a byte array that will hold the PDF file contents.
-1. Define the component reference via the `@ref` directive. You will need it to call the `LoadFile` method to actually display the PDF file in the component.
-1. (optional) Subscribe to the PDF Viewer's `OnOpen` event, if users will be opening files from their local devices. The event argument is a `PdfViewerOpenEventArgs` object with a `Files` property. Use `Files` in the same way as with the [`OnSelect` event of the FileSelect component]({%slug fileselect-events%}#onselect).
-1. (optional) Set `Width` and `Height` in any [supported CSS unit]({%slug common-features/dimensions%}).
+1. Set the `Data` parameter to a byte array that will hold the PDF file contents.
+1. (optional) Subscribe to the PDF Viewer's [`OnDownload`]({%slug pdfviewer-events%}#ondownload) or [`OnOpen`]({%slug pdfviewer-events%}#onopen) events, if users will be downloading or opening local files.
+1. (optional) Set [`Width` or `Height`](#pdfviewer-parameters) for the component.
 
 >caption Basic Blazor PDF Viewer
 
 ````CSHTML
-<TelerikPdfViewer @ref="@PdfViewerRef"
-                  Data="@PdfSource"
-                  OnOpen="@OnPdfOpen"
+<TelerikPdfViewer Data="@PdfSource"
+                  OnDownload="@OnPdfDownload"
                   Height="600px">
 </TelerikPdfViewer>
 
 @code {
-    private TelerikPdfViewer PdfViewerRef { get; set; }
-
     private byte[] PdfSource { get; set; }
 
-    private async Task OnPdfOpen(PdfViewerOpenEventArgs args)
+    private async Task OnPdfDownload(PdfViewerDownloadEventArgs args)
     {
-        var file = args.Files.FirstOrDefault();
-        var buffer = new byte[file.Stream.Length];
-        await file.Stream.ReadAsync(buffer);
-
-        PdfSource = buffer;
+        args.FileName = "PDF-Viewer-Download";
     }
 
-    // automatically display the sample PDF
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    protected override void OnInitialized()
     {
-        if (firstRender)
-        {
-            await Task.Delay(100);
-            PdfSource = Convert.FromBase64String(SamplePdf);
-        }
+        PdfSource = Convert.FromBase64String(SamplePdf);
 
-        await base.OnAfterRenderAsync(firstRender);
+        base.OnInitialized();
     }
 
     private string SamplePdf { get; set; } = @"JVBERi0xLjENCiXCpcKxw6sNCg0KMSAwIG9iag0KICA8PCAvVHlwZSAvQ2F0YWxvZw0KICAgICAvUGFnZXMgMiAwIFINCiAgPj4NCmVuZG9iag0KDQoyIDAgb2JqDQogIDw8IC9UeXBlIC9QYWdlcw0KICAgICAvS2lkcyBbMyAwIFJdDQogICAgIC9Db3VudCAxDQogICAgIC9NZWRpYUJveCBbMCAwIDMwMCAxNDRdDQogID4+DQplbmRvYmoNCg0KMyAwIG9iag0KICA8PCAgL1R5cGUgL1BhZ2UNCiAgICAgIC9QYXJlbnQgMiAwIFINCiAgICAgIC9SZXNvdXJjZXMNCiAgICAgICA8PCAvRm9udA0KICAgICAgICAgICA8PCAvRjENCiAgICAgICAgICAgICAgIDw8IC9UeXBlIC9Gb250DQogICAgICAgICAgICAgICAgICAvU3VidHlwZSAvVHlwZTENCiAgICAgICAgICAgICAgICAgIC9CYXNlRm9udCAvVGltZXMtUm9tYW4NCiAgICAgICAgICAgICAgID4+DQogICAgICAgICAgID4+DQogICAgICAgPj4NCiAgICAgIC9Db250ZW50cyA0IDAgUg0KICA+Pg0KZW5kb2JqDQoNCjQgMCBvYmoNCiAgPDwgL0xlbmd0aCA1OSA+Pg0Kc3RyZWFtDQogIEJUDQogICAgL0YxIDE4IFRmDQogICAgMCAwIFRkDQogICAgKFRlbGVyaWsgUGRmVmlld2VyIGZvciBCbGF6b3IpIFRqDQogIEVUDQplbmRzdHJlYW0NCmVuZG9iag0KDQp4cmVmDQowIDUNCjAwMDAwMDAwMDAgNjU1MzUgZg0KMDAwMDAwMDAyMSAwMDAwMCBuDQowMDAwMDAwMDg2IDAwMDAwIG4NCjAwMDAwMDAxOTUgMDAwMDAgbg0KMDAwMDAwMDQ5MCAwMDAwMCBuDQp0cmFpbGVyDQogIDw8ICAvUm9vdCAxIDAgUg0KICAgICAgL1NpemUgNQ0KICA+Pg0Kc3RhcnR4cmVmDQo2MDkNCiUlRU9GDQo=";
@@ -65,13 +52,15 @@ To use a Telerik PDF Viewer for Blazor:
 
 ## Toolbar
 
-The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-toolbar%}). By default, it displays the following tools:
+The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-toolbar%}). The default tools are related to the built-in features such as:
 
-* a pager
-* zoom buttons and a dropdown
-* search button
-* open and download buttons
-* print button
+* Paging
+* Zoom
+* Text selection
+* Pan
+* Search
+* Open and download
+* Print
 
 
 ## PdfViewer Parameters
@@ -82,18 +71,39 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | An additional CSS class for the `<div class="k-pdfviewer">` element. Use it to [customize the component styles and override the theme]({%slug themes-override%}). |
+| `Class` | `string` | An additional CSS class for the `<div class="k-pdf-viewer">` element. Use it to [customize the component styles and override the theme]({%slug themes-override%}). |
 | `Data` | `byte[]` | The source of the currently displayed PDF file. |
-| `Height` | `string` | The PdfViewer height as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand vertically, according to its content. |
+| `Height` | `string` | The PdfViewer height as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand vertically, based on the loaded file. `Height` is required for the component paging and scrolling to work. |
 | `Page` | `int` <br /> (`1`) | The current page of the visible PDF document. |
 | `Width` | `string` | The PdfViewer width as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand horizontally to fill its parent. |
 
 
 ## PdfViewer Reference and Methods
 
-The PdfViewer exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute (see the [basic example above](#creating-blazor-pdfviewer)). The PdfViewer methods are:
+The PdfViewer exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute. The PdfViewer methods are:
 
-* `Rebind` - ???
+* `Rebind` - Refreshes the PDF Viewer and ensures it is displaying the current file `Data`.
+
+>caption PDF Viewer reference and method usage
+
+````CSHTML
+<TelerikButton OnClick="@OnButtonClick">Rebind PDF Viewer</TelerikButton>
+
+<TelerikPdfViewer @ref="@PdfViewerRef"
+                  Data="@PdfSource">
+</TelerikPdfViewer>
+
+@code {
+    private TelerikPdfViewer PdfViewerRef { get; set; }
+
+    private byte[] PdfSource { get; set; }
+
+    private async Task OnButtonClick()
+    {
+        PdfViewerRef.Rebind();
+    }
+}
+````
 
 
 ## Next Steps

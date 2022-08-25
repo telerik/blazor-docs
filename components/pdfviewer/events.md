@@ -18,16 +18,16 @@ This article describes the Blazor PDF Viewer events.
 
 ## OnDownload
 
-The `OnDownload` event fires when the user clicks on the Download button in the PDF Viewer toolbar.
+The `OnDownload` event fires when the user clicks on the Download button in the [PDF Viewer toolbar]({%slug pdfviewer-toolbar%}).
 
-The event handler receives an argument of type [`PdfViewerDownloadEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.PdfViewerDownloadEventArgs). The event is cancellable and allows the application to set a name of the downloaded file. See [example below](#example).
+The event handler receives an argument of type [`PdfViewerDownloadEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.PdfViewerDownloadEventArgs). The event is cancellable and allows the application to set a name of the downloaded file. See the [example below](#example).
 
 
 ## OnOpen
 
-The `OnOpen` event fires when the user selects a file to open, after clicking on the Open button in the PDF Viewer toolbar.
+The `OnOpen` event fires when the user selects a file to open from the [PDF Viewer toolbar]({%slug pdfviewer-toolbar%}).
 
-The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.PdfViewerOpenEventArgs). The event is cancellable and allows the application to obtain the PDF file name, size and contents as a `Stream`. See [example below](#example).
+The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.PdfViewerOpenEventArgs). The event is cancellable and allows the application to obtain the PDF file name, size and contents as a `Stream`. See the [example below](#example).
 
 
 ## Example
@@ -35,43 +35,52 @@ The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazo
 >caption Handle Blazor PDF Viewer Events
 
 ````CSHTML
-<p> Opened file @PdfName with size @PdfSize.ToString() bytes. </p>
+<p> Last opened file by the user: @PdfName, with size @PdfSize.ToString() bytes.</p>
 
-<TelerikPdfViewer @ref="@PdfViewerRef"
-                  Data="@PdfSource"
+<p> Last event: @EventLog </p>
+
+<TelerikPdfViewer Data="@PdfSource"
                   OnDownload="@OnPdfDownload"
-                  OnOpen="@OnPdfOpen">
+                  OnOpen="@OnPdfOpen"
+                  Height="600px">
 </TelerikPdfViewer>
 
 @code {
-    private TelerikPdfViewer PdfViewerRef { get; set; }
-
     private byte[] PdfSource { get; set; }
 
     private string PdfName { get; set; } = "...";
 
     private long PdfSize { get; set; }
 
+    private string EventLog { get; set; } = "...";
+
     private async Task OnPdfDownload(PdfViewerDownloadEventArgs args)
     {
         //args.IsCancelled = true;
-
-        args.FileName = "PDF-Viewer-" + DateTime.Now.Millisecond;
+        args.FileName = "PDF-Viewer-Download";
+        EventLog = "Download successful.";
     }
 
     private async Task OnPdfOpen(PdfViewerOpenEventArgs args)
     {
-        //args.IsCancelled = true;
-
         var file = args.Files.FirstOrDefault();
 
-        PdfName = file.Name;
-        PdfSize = file.Size;
+        if (file.Size > 1_000_000)
+        {
+            args.IsCancelled = true;
+            EventLog = "Open rejected. File too large.";
+        }
+        else
+        {
+            PdfName = file.Name;
+            PdfSize = file.Size;
 
-        var buffer = new byte[file.Stream.Length];
-        await file.Stream.ReadAsync(buffer);
+            var buffer = new byte[file.Stream.Length];
+            await file.Stream.ReadAsync(buffer);
+            PdfSource = buffer;
 
-        PdfSource = buffer;
+            EventLog = "Open successful.";
+        }
     }
 }
 ````
@@ -80,7 +89,6 @@ The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazo
 ## Next Steps
 
 * [Customize the PDF Viewer toolbar]({%slug pdfviewer-toolbar%})
-* [Handle PDF Viewer events]({%slug pdfviewer-events%})
 
 
 ## See Also
