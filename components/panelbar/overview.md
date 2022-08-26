@@ -144,7 +144,7 @@ The following table lists PanelBar parameters, which are not related to other fe
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Attribute | Type and Default Value | Description |
+| Parameter | Type and Default Value | Description |
 |---|---|---|
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the component.|
 | `ExpandedItems` | `IEnumerable<Object>` | A collection of the expanded PanelBar items. Supports two-way binding. Read more in the [ExpandedItems]({%slug panelbar-expand-items%}) article. |
