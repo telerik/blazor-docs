@@ -221,6 +221,14 @@ The table below lists the MultiComboBox methods. Also consult the [Gantt API](/b
 | --- | --- |
 | `Rebind` | [Refreshes the component data]({%slug gantt-refresh-data%}#rebind-method). |
 
+````CSHTML
+<TelerikGantt @ref="@GanttRef" .../>
+
+@code{
+    private TelerikGantt<MyModel> GanttRef;
+}
+````
+
 ## Next Steps
 
 [Bind the Gantt to Data]({%slug gantt-data-binding-overview%})

@@ -164,6 +164,14 @@ The table below lists the PanelBar methods. Also consult the [PanelBar API](/bla
 | --- | --- |
 | `Rebind` | [Refreshes the component data]({%slug panelbar-refresh-data%}#rebind-method). |
 
+````CSHTML
+<TelerikPanelBar @ref="@PanelBarRef" .../>
+
+@code{
+    private TelerikPanelBar PanelBarRef;
+}
+````
+
 
 ## Next Steps
 

@@ -156,6 +156,14 @@ The table below lists the TreeView methods. Also consult the [TreeView API](/bla
 | --- | --- |
 | `Rebind` | [Refreshes the component data]({%slug treeview-refresh-data%}#rebind-method). |
 
+````CSHTML
+<TelerikTreeView @ref="@TreeViewRef" .../>
+
+@code{
+    private TelerikTreeView TreeViewRef;
+}
+````
+
 ## Next Steps
 
 * [Review TreeView data binding]({%slug components/treeview/data-binding/overview%})
