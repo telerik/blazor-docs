@@ -63,7 +63,7 @@ To display any content in the Carousel, use a [Template]({%slug carousel-templat
 
 ## Events
 
-The Blazor Carousel generates events that you can handle and further customize its behavior. [Read more about the Blazor Menu events...]({%slug carousel-events%})
+The Blazor Carousel generates events that you can handle and further customize its behavior. [Read more about the Blazor Carousel events...]({%slug carousel-events%})
 
 ## Carousel Parameters
 
@@ -73,11 +73,11 @@ The following table lists Carousel parameters. Check the [Carousel API Reference
 
 | Parameter | Type and Default Value | Description |
 |---|---|---|
-| `Arrows` | `bool` <br/> (`true`) | Whether teh navigation arrow buttons will be shown.|
+| `Arrows` | `bool` <br/> (`true`) | Whether the navigation arrow buttons will be shown.|
 | `LoopPages` | `bool` <br/> (`true`) | Whether the Carousel will switch to the first page, when the last one is reached.|
 | `Pageable` | `bool` <br/> (`true`) | Whether the overlay pager will be visible. Each page is represented by a clickable dot. The current page is represented by a colored dot. If the dots cannot fit in the available horizontal space, the pager will be scrollable.|
 | `Page` | `int` <br/> ( 1 ) | The 1-based index of content item to display. Supports two-way binding.|
-| `AutomaticPageChange` | `bool` <br/> (`true`) | Whetther the Carousel will automatically switch to the next page after a short delay.|
+| `AutomaticPageChange` | `bool` <br/> (`true`) | Whether the Carousel will automatically switch to the next page after a short delay.|
 | `AutomaticPageChangeInterval` | `int` <br/> ( 5000 )| The automatic page change delay in milliseconds.|
 | `Width` | `string` | The Carousel width. See [Dimensions]({%slug common-features/dimensions%}) for more details. The Carousel renders in a `<div>`, so it expands horizontally to 100% by default.|
 | `Height` | `string` | The Carousel height. By default and by design, the component has no height and does not expand, based on its content. *In other words, the Carousel will be zero pixels high, if height is not applied.*|
@@ -103,7 +103,12 @@ The table below lists the Carousel methods. Also consult the [Carousel API](/bla
 @code{
     private TelerikCarousel<MyModel> CarouselRef;
 }
-`````
+````
+
+## Next Steps
+
+* [Declare a Template]({%slug carousel-template%})
+* [Explore the Carousel Events]({%slug carousel-events%})
 
 ## See Also
 
