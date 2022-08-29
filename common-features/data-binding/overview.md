@@ -137,13 +137,13 @@ Thus, you will usually need to create a new reference for `Data` value in order 
             Text = "Text " + newId
         });
 
-        // components with an OnRead event have a Rebind method:
-        //GridRef.Rebind();
+        // Call Rebind...
+        GridRef.Rebind();
 
-        // OR
+        // ...OR...
 
-        // all databound components can use a new data reference:
-        GridData = new List<SampleModel>(GridData);
+        // ...reset the object reference:
+        //GridData = new List<SampleModel>(GridData);
 
         // call only if necessary
         //StateHasChanged();
