@@ -1,7 +1,7 @@
 ---
 title: Refresh Data
 page_title: TreeView Refresh Data
-description: Refresh TreeView Data using Observable Data or creating a new Collection reference.
+description: Refresh TreeView Data using the Rebind method, Observable Data or creating a new Collection reference.
 slug: treeview-refresh-data
 tags: telerik,blazor,treeview,observable,data,new,collection
 published: True
@@ -13,17 +13,16 @@ position: 17
 @[template](/_contentTemplates/common/observable-data.md#intro)
 
 In this article:
+- [Rebind Method](#rebind-method)
 - [Observable Data](#observable-data)
 - [New Collection Reference](#new-collection-reference)
 
-## Observable Data
+## Rebind Method
 
-@[template](/_contentTemplates/common/observable-data.md#observable-data)
-
->caption Bind the TreeView to an ObservableCollection, so it can react to collection changes.
+@[template](/_contentTemplates/common/rebind-method.md#intro)
 
 ````CSHTML
-@* Add/remove item to see how the TreeView reacts to that change. *@
+@* Add/remove an item and rebind the TreeView to react to that change. *@
 
 @using System.Collections.ObjectModel
 
@@ -31,43 +30,51 @@ In this article:
 
 <TelerikButton OnClick="@RemoveItem">Remove item</TelerikButton>
 
-<TelerikTreeView Data="@Items">
+<TelerikTreeView @ref="@TreeViewRef"
+                 Data="@TreeViewData">
     <TreeViewBindings>
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" TextField="Text" HasChildrenField="HasChildren" IconField="Icon" />
+        <TreeViewBinding IdField="Id"
+                         ParentIdField="ParentIdValue"
+                         TextField="Text"
+                         HasChildrenField="HasChildren"
+                         IconField="Icon">
+        </TreeViewBinding>
     </TreeViewBindings>
 </TelerikTreeView>
 
 @code {
-    void AddItem() {
-        Items.Add(
+    private TelerikTreeView TreeViewRef;
+
+    private List<TreeItem> TreeViewData { get; set; } = new List<TreeItem>();
+
+    private void AddItem()
+    {
+        TreeViewData.Add(
             new TreeItem
             {
-                Id = Items.Count + 1,
+                Id = TreeViewData.Count + 1,
                 Text = "Testing",
                 ParentIdValue = 1,
                 HasChildren = false,
                 Icon = "gears"
             });
+
+        TreeViewRef.Rebind();
     }
 
-    void RemoveItem()
+    private void RemoveItem()
     {
-        if (Items.Count > 0)
+        if (TreeViewData.Count > 0)
         {
-           Items.RemoveAt(Items.IndexOf(Items.Last()));
+            TreeViewData.RemoveAt(TreeViewData.IndexOf(TreeViewData.Last()));
         }
+
+        TreeViewRef.Rebind();
     }
 
-    public class TreeItem
+    protected override void OnInitialized()
     {
-        public int Id { get; set; }
-        public string Text { get; set; }
-        public int? ParentIdValue { get; set; }
-        public bool HasChildren { get; set; }
-        public string Icon { get; set; }
-    }
-
-    public ObservableCollection<TreeItem> Items { get; set; } = new ObservableCollection<TreeItem>() {
+        TreeViewData = new List<TreeItem>() {
 
         new TreeItem()
         {
@@ -126,6 +133,140 @@ In this article:
             Icon = "css"
         }
     };
+    }
+
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public int? ParentIdValue { get; set; }
+        public bool HasChildren { get; set; }
+        public string Icon { get; set; }
+    }
+}
+````
+
+## Observable Data
+
+@[template](/_contentTemplates/common/observable-data.md#observable-data)
+
+>caption Bind the TreeView to an ObservableCollection, so it can react to collection changes.
+
+````CSHTML
+@* Add/remove an item to see how the TreeView reacts to that change. *@
+
+@using System.Collections.ObjectModel
+
+<TelerikButton OnClick="@AddItem">Add item</TelerikButton>
+
+<TelerikButton OnClick="@RemoveItem">Remove item</TelerikButton>
+
+<TelerikTreeView Data="@TreeViewData">
+    <TreeViewBindings>
+        <TreeViewBinding IdField="Id"
+                         ParentIdField="ParentIdValue"
+                         TextField="Text"
+                         HasChildrenField="HasChildren"
+                         IconField="Icon">
+        </TreeViewBinding>
+    </TreeViewBindings>
+</TelerikTreeView>
+
+@code {
+    private ObservableCollection<TreeItem> TreeViewData { get; set; } = new ObservableCollection<TreeItem>();
+
+    private void AddItem()
+    {
+        TreeViewData.Add(
+            new TreeItem
+            {
+                Id = TreeViewData.Count + 1,
+                Text = "Testing",
+                ParentIdValue = 1,
+                HasChildren = false,
+                Icon = "gears"
+            });
+    }
+
+    private void RemoveItem()
+    {
+        if (TreeViewData.Count > 0)
+        {
+            TreeViewData.RemoveAt(TreeViewData.IndexOf(TreeViewData.Last()));
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        TreeViewData = new ObservableCollection<TreeItem>() {
+
+        new TreeItem()
+        {
+            Id = 1,
+            Text = "Project",
+            ParentIdValue = null,
+            HasChildren = true,
+            Icon = "folder"
+        },
+       new TreeItem()
+       {
+            Id = 2,
+            Text = "Design",
+            ParentIdValue = 1,
+            HasChildren = true,
+            Icon = "brush"
+        },
+        new TreeItem()
+        {
+            Id = 3,
+            Text = "Implementation",
+            ParentIdValue = 1,
+            HasChildren = true,
+            Icon = "folder"
+        },
+        new TreeItem()
+        {
+            Id = 4,
+            Text = "site.psd",
+            ParentIdValue = 2,
+            HasChildren = false,
+            Icon = "psd"
+        },
+        new TreeItem()
+        {
+            Id = 5,
+            Text = "index.js",
+            ParentIdValue = 3,
+            HasChildren = false,
+            Icon = "js"
+        },
+        new TreeItem()
+        {
+            Id = 6,
+            Text = "index.html",
+            ParentIdValue = 3,
+            HasChildren = false,
+            Icon = "html"
+        },
+        new TreeItem()
+        {
+            Id = 7,
+            Text = "styles.css",
+            ParentIdValue = 3,
+            HasChildren = false,
+            Icon = "css"
+        }
+    };
+    }
+
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public int? ParentIdValue { get; set; }
+        public bool HasChildren { get; set; }
+        public string Icon { get; set; }
+    }
 }
 ````
 
@@ -164,6 +305,7 @@ In this article:
                 HasChildren = false,
                 Icon = "gears"
             });
+
         Items = new List<TreeItem>(Items);
     }
 

@@ -5,7 +5,7 @@ description: Events of the Gantt for Blazor
 slug: gantt-events
 tags: telerik,blazor,gantt,events
 published: True
-position: 20
+position: 25
 ---
 
 # Gantt Events
