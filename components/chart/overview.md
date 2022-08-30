@@ -147,7 +147,7 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 </TelerikChart>
 
 @code {
-	Telerik.Blazor.Components.TelerikChart myChartRef;
+	public TelerikChart myChartRef;
 	
 	private void RefreshTheChart()
 	{
