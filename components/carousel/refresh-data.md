@@ -36,6 +36,15 @@ In this article:
     </Template>
 </TelerikCarousel>
 
+<style>
+    .item {
+        background: #3d57d8;
+        color: #fff;
+        font: 36px/200px sans-serif;
+        text-align: center;
+    }
+</style>
+
 @code {
     private TelerikCarousel<CarouselModel> CarouselRef;
 
@@ -45,10 +54,10 @@ In this article:
     {
         CarouselData.Add(
             new CarouselModel()
-                {
-                    ID = 4,
-                    Text = "Text 4"
-                });
+            {
+                ID = 4,
+                Text = "Text 4"
+            });
 
         CarouselRef.Rebind();
     }
@@ -76,15 +85,6 @@ In this article:
         public string Text { get; set; }
     }
 }
-
-<style>
-    .item {
-        background: #3d57d8;
-        color: #fff;
-        font: 36px/200px sans-serif;
-        text-align: center;
-    }
-</style>
 ````
 
 
@@ -110,6 +110,15 @@ In this article:
     </Template>
 </TelerikCarousel>
 
+<style>
+    .item {
+        background: #3d57d8;
+        color: #fff;
+        font: 36px/200px sans-serif;
+        text-align: center;
+    }
+</style>
+
 @code {
     private ObservableCollection<CarouselModel> CarouselData = new ObservableCollection<CarouselModel>();
 
@@ -117,10 +126,10 @@ In this article:
     {
         CarouselData.Add(
             new CarouselModel()
-                {
-                    ID = 4,
-                    Text = "Text 4"
-                });
+            {
+                ID = 4,
+                Text = "Text 4"
+            });
     }
 
     void RemoveItem()
@@ -144,16 +153,6 @@ In this article:
         public string Text { get; set; }
     }
 }
-
-<style>
-    .item {
-        background: #3d57d8;
-        color: #fff;
-        font: 36px/200px sans-serif;
-        text-align: center;
-    }
-</style>
-
 ````
 ## New Collection Reference
 
@@ -177,6 +176,15 @@ In this article:
     </Template>
 </TelerikCarousel>
 
+<style>
+    .item {
+        background: #3d57d8;
+        color: #fff;
+        font: 36px/200px sans-serif;
+        text-align: center;
+    }
+</style>
+
 @code {
     private List<CarouselModel> CarouselData = new List<CarouselModel>();
 
@@ -184,10 +192,10 @@ In this article:
     {
         CarouselData.Add(
             new CarouselModel()
-                {
-                    ID = 4,
-                    Text = "Text 4"
-                });
+            {
+                ID = 4,
+                Text = "Text 4"
+            });
 
         CarouselData = new List<CarouselModel>(CarouselData);
     }
@@ -225,15 +233,6 @@ In this article:
         public string Text { get; set; }
     }
 }
-
-<style>
-    .item {
-        background: #3d57d8;
-        color: #fff;
-        font: 36px/200px sans-serif;
-        text-align: center;
-    }
-</style>
 ````
 
 ## See Also

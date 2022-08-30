@@ -41,9 +41,9 @@ In this article:
     private void AddItem()
     {
         Items.Add(new PanelBarItem()
-            {
-                Text = "Item 4"
-            });
+        {
+            Text = "Item 4"
+        });
 
         PanelBarRef.Rebind();
     }
@@ -159,9 +159,9 @@ In this article:
     private void AddItem()
     {
         Items.Add(new PanelBarItem()
-            {
-                Text = "Item 4"
-            });
+        {
+            Text = "Item 4"
+        });
     }
 
     private void RemoveItem()
@@ -271,9 +271,9 @@ In this article:
     private void AddItem()
     {
         Items.Add(new PanelBarItem()
-            {
-                Text = "Item 4"
-            });
+        {
+            Text = "Item 4"
+        });
 
         Items = new List<PanelBarItem>(Items);
     }

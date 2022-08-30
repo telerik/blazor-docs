@@ -76,14 +76,14 @@ In this article:
         var i = GanttData.Last().Id + 1;
 
         GanttData.Insert(0,new FlatModel()
-            {
-                Id = i,
-                ParentId = null,
-                Title = "new task",
-                PercentComplete = 0,
-                Start = new DateTime(2021, 7, 5),
-                End = new DateTime(2021, 7, 15)
-            });
+        {
+            Id = i,
+            ParentId = null,
+            Title = "new task",
+            PercentComplete = 0,
+            Start = new DateTime(2021, 7, 5),
+            End = new DateTime(2021, 7, 15)
+        });
 
         GanttRef.Rebind();
     }
@@ -117,13 +117,13 @@ In this article:
         for (int i = 1; i < 6; i++)
         {
             var newItem = new FlatModel()
-                {
-                    Id = LastId,
-                    Title = "Task " + i.ToString(),
-                    Start = new DateTime(2021, 7, 5 + i),
-                    End = new DateTime(2021, 7, 11 + i),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                };
+            {
+                Id = LastId,
+                Title = "Task " + i.ToString(),
+                Start = new DateTime(2021, 7, 5 + i),
+                End = new DateTime(2021, 7, 11 + i),
+                PercentComplete = Math.Round(random.NextDouble(), 2)
+            };
 
             GanttData.Add(newItem);
             var parentId = LastId;
@@ -132,14 +132,14 @@ In this article:
             for (int j = 0; j < 5; j++)
             {
                 GanttData.Add(new FlatModel()
-                    {
-                        Id = LastId,
-                        ParentId = parentId,
-                        Title = "    Task " + i + " : " + j.ToString(),
-                        Start = new DateTime(2021, 7, 5 + j),
-                        End = new DateTime(2021, 7, 6 + i + j),
-                        PercentComplete = Math.Round(random.NextDouble(), 2)
-                    });
+                {
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Task " + i + " : " + j.ToString(),
+                    Start = new DateTime(2021, 7, 5 + j),
+                    End = new DateTime(2021, 7, 6 + i + j),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                });
 
                 LastId++;
             }
@@ -245,14 +245,14 @@ In this article:
         var i = GanttData.Last().Id + 1;
 
         GanttData.Insert(0,new FlatModel()
-            {
-                Id = i,
-                ParentId = null,
-                Title = "new task",
-                PercentComplete = 0,
-                Start = new DateTime(2021, 7, 5),
-                End = new DateTime(2021, 7, 15)
-            });
+        {
+            Id = i,
+            ParentId = null,
+            Title = "new task",
+            PercentComplete = 0,
+            Start = new DateTime(2021, 7, 5),
+            End = new DateTime(2021, 7, 15)
+        });
     }
 
     private void RemoveTask()
@@ -282,13 +282,13 @@ In this article:
         for (int i = 1; i < 6; i++)
         {
             var newItem = new FlatModel()
-                {
-                    Id = LastId,
-                    Title = "Task " + i.ToString(),
-                    Start = new DateTime(2021, 7, 5 + i),
-                    End = new DateTime(2021, 7, 11 + i),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                };
+            {
+                Id = LastId,
+                Title = "Task " + i.ToString(),
+                Start = new DateTime(2021, 7, 5 + i),
+                End = new DateTime(2021, 7, 11 + i),
+                PercentComplete = Math.Round(random.NextDouble(), 2)
+            };
 
             GanttData.Add(newItem);
             var parentId = LastId;
@@ -297,14 +297,14 @@ In this article:
             for (int j = 0; j < 5; j++)
             {
                 GanttData.Add(new FlatModel()
-                    {
-                        Id = LastId,
-                        ParentId = parentId,
-                        Title = "    Task " + i + " : " + j.ToString(),
-                        Start = new DateTime(2021, 7, 5 + j),
-                        End = new DateTime(2021, 7, 6 + i + j),
-                        PercentComplete = Math.Round(random.NextDouble(), 2)
-                    });
+                {
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Task " + i + " : " + j.ToString(),
+                    Start = new DateTime(2021, 7, 5 + j),
+                    End = new DateTime(2021, 7, 6 + i + j),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                });
 
                 LastId++;
             }
@@ -410,14 +410,14 @@ In this article:
         var i = GanttData.Last().Id + 1;
 
         GanttData.Insert(0, new FlatModel()
-            {
-                Id = i,
-                ParentId = null,
-                Title = "new task",
-                PercentComplete = 0,
-                Start = new DateTime(2021, 7, 5),
-                End = new DateTime(2021, 7, 15)
-            });
+        {
+            Id = i,
+            ParentId = null,
+            Title = "new task",
+            PercentComplete = 0,
+            Start = new DateTime(2021, 7, 5),
+            End = new DateTime(2021, 7, 15)
+        });
 
         GanttData = new List<FlatModel>(GanttData);
     }
@@ -451,13 +451,13 @@ In this article:
         for (int i = 1; i < 6; i++)
         {
             var newItem = new FlatModel()
-                {
-                    Id = LastId,
-                    Title = "Task " + i.ToString(),
-                    Start = new DateTime(2021, 7, 5 + i),
-                    End = new DateTime(2021, 7, 11 + i),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                };
+            {
+                Id = LastId,
+                Title = "Task " + i.ToString(),
+                Start = new DateTime(2021, 7, 5 + i),
+                End = new DateTime(2021, 7, 11 + i),
+                PercentComplete = Math.Round(random.NextDouble(), 2)
+            };
 
             GanttData.Add(newItem);
             var parentId = LastId;
@@ -466,14 +466,14 @@ In this article:
             for (int j = 0; j < 5; j++)
             {
                 GanttData.Add(new FlatModel()
-                    {
-                        Id = LastId,
-                        ParentId = parentId,
-                        Title = "    Task " + i + " : " + j.ToString(),
-                        Start = new DateTime(2021, 7, 5 + j),
-                        End = new DateTime(2021, 7, 6 + i + j),
-                        PercentComplete = Math.Round(random.NextDouble(), 2)
-                    });
+                {
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Task " + i + " : " + j.ToString(),
+                    Start = new DateTime(2021, 7, 5 + j),
+                    End = new DateTime(2021, 7, 6 + i + j),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                });
 
                 LastId++;
             }

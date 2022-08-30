@@ -50,11 +50,11 @@ In this article:
         var i = TreeListData.Count + 1;
 
         TreeListData.Add(new Employee()
-            {
-                EmployeeId = i,
-                ReportsTo = null,
-                FirstName = "Employee  " + i.ToString()
-            });
+        {
+            EmployeeId = i,
+            ReportsTo = null,
+            FirstName = "Employee  " + i.ToString()
+        });
 
         TreeListRef.Rebind();
     }
@@ -85,11 +85,11 @@ In this article:
         for (int i = 1; i < 6; i++)
         {
             TreeListData.Add(new Employee()
-                {
-                    EmployeeId = currentId,
-                    ReportsTo = null,
-                    FirstName = "Employee  " + i.ToString()
-                });
+            {
+                EmployeeId = currentId,
+                ReportsTo = null,
+                FirstName = "Employee  " + i.ToString()
+            });
 
             currentId++;
         }

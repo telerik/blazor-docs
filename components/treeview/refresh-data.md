@@ -51,13 +51,13 @@ In this article:
     {
         TreeViewData.Add(
             new TreeItem
-                {
-                    Id = TreeViewData.Count + 1,
-                    Text = "Testing",
-                    ParentIdValue = 1,
-                    HasChildren = false,
-                    Icon = "gears"
-                });
+            {
+                Id = TreeViewData.Count + 1,
+                Text = "Testing",
+                ParentIdValue = 1,
+                HasChildren = false,
+                Icon = "gears"
+            });
 
         TreeViewRef.Rebind();
     }
@@ -179,13 +179,13 @@ In this article:
     {
         TreeViewData.Add(
             new TreeItem
-                {
-                    Id = TreeViewData.Count + 1,
-                    Text = "Testing",
-                    ParentIdValue = 1,
-                    HasChildren = false,
-                    Icon = "gears"
-                });
+            {
+                Id = TreeViewData.Count + 1,
+                Text = "Testing",
+                ParentIdValue = 1,
+                HasChildren = false,
+                Icon = "gears"
+            });
     }
 
     private void RemoveItem()
@@ -305,6 +305,7 @@ In this article:
                 HasChildren = false,
                 Icon = "gears"
             });
+
         Items = new List<TreeItem>(Items);
     }
 
