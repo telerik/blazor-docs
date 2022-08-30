@@ -62,7 +62,7 @@ In addition to the sample below, there is a [complete runnable project in GitHub
     </GridToolBar>
     <GridColumns>
         @{
-            // dynamic columns
+            @* dynamic columns *@
 
             if (GridData != null && GridData.Any())
             {
@@ -101,17 +101,21 @@ In addition to the sample below, there is a [complete runnable project in GitHub
         var item = (IDictionary<string, object>)args.Item;
 
         // the handler shows how to update a stored data item, or find it on the fly
-        @*var originalItem = GridData.Find(x =>
-            {
-                return ((IDictionary<string, object>)x)["Id"] == item["Id"];
-            })
-                as IDictionary<string, object>;*@
+        @*IDictionary<string, object> originalItem = GridData.Find(x =>
+        {
+            return ((IDictionary<string, object>)x)["Id"] == item["Id"];
+        });*@
 
-        foreach (string key in item.Keys)
+        // incell editing - update one property
+        @*originalItem[args.Field] = item[args.Field];*@
+        GridEditItem[args.Field] = item[args.Field];
+
+        // inline or popup editing - update all properties
+        @*foreach (string key in item.Keys)
         {
             //originalItem[key] = item[key];
             GridEditItem[key] = item[key];
-        }
+        }*@
     }
 
     private async Task OnGridCreate(GridCommandEventArgs args)
