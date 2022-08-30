@@ -129,18 +129,35 @@ The TreeView can [display links to app views and external pages]({%slug treeview
 
 The following table lists TreeView parameters, which are not related to other features on this page. Check the [TreeView API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView) for a full list of properties, methods and events.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Attribute | Type and Default&nbsp;Value | Description |
+| Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | Renders additional CSS class to the `div.k-treeview` element. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
+| `Class` | `string` | The additional CSS class that will be rendered on the `div.k-treeview` element. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
 | `Size` | `string` <br /> `"md"` | Affects the TreeView layout, for example the amount of space between items. The possible valid values are `"lg"` (large), `"md"` (medium) and `"sm"` (small). For easier setting, use the predefined string properties in class [`Telerik.Blazor.ThemeConstants.TreeView.Size`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.TreeView.Size). |
 
+
+## TreeView Reference and Methods
+
+To execute TreeView methods, obtain reference to the component instance via `@ref`.
+
+The TreeView is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters]({%slug common-features-data-binding-overview%}#component-type).
+
+The table below lists the TreeView methods. Also consult the [TreeView API](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `Rebind` | [Refreshes the component data]({%slug treeview-refresh-data%}#rebind-method). |
+
+````CSHTML
+<TelerikTreeView @ref="@TreeViewRef" .../>
+
+@code{
+    private TelerikTreeView TreeViewRef;
+}
+````
 
 ## Next Steps
 
