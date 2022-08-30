@@ -28,9 +28,13 @@ The <a href = "https://www.telerik.com/blazor-ui/arc-gauge" target="_blank">Tele
 
 <TelerikArcGauge>
     <ArcGaugePointers>
-        <ArcGaugePointer Value="40" />
+        <ArcGaugePointer Value="@GaugeValue" />
     </ArcGaugePointers>
 </TelerikArcGauge>
+
+@code {
+    private double GaugeValue { get; set; } = 40;
+}
 ````
 
 ## Scale
