@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Chart component</a> allows you to visualize data to your users in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins and templates.
 
-## Creating Chart
+## Creating Blazor Chart
 
 1. Add the `<TelerikChart>` tag to your razor page.
 1. Define [Chart series](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChartSeries) and [bind them to data]({%slug components/chart/databind%}).
@@ -52,7 +52,6 @@ Basic chart and common settings/elements
 	{
 		public int SecondSeriesValue { get; set; }
 		public string ExtraData { get; set; }
-
 	}
 
 	public List<MyDataModel> modelData = new List<MyDataModel>()
@@ -129,7 +128,7 @@ You can make a responsive chart
 }
 ````
 
-## Component Reference and Methods
+## Chart Reference and Methods
 
 To execute Chart methods, obtain reference to the component instance via `@ref`.
 
