@@ -22,9 +22,6 @@ The <a href = "https://www.telerik.com/blazor-ui/arc-gauge" target="_blank">Tele
 
 1. (optional) Add a [Center Label Template]({%slug arc-gauge-labels%}#center-template)
 
->caption Basic Telerik Arc Gauge for Blazor.
-
-![Basic Arc Gauge](images/basic-arc-gauge.png)
 
 ````CSHTML
 @* Setup a basic arc gauge *@
@@ -48,7 +45,7 @@ The pointers indicate the values on the scale of the component. See the [Pointer
 
 The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug arc-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
 
-## Arc Gauge Size
+## Arc Gauge Parameters
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 | Parameter | Type and Default Value | Description |
@@ -61,12 +58,8 @@ You can also set the Gauge size in percentage values so it occupies its containe
 
 ## Arc Gauge Reference and Methods
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+ 
 | Method | Description |
 | --- | --- |
 | `Refresh` | Programatically re-render the Arc Gauge. |
