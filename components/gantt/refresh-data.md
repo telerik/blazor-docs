@@ -71,8 +71,7 @@ In this article:
     
     private GanttView SelectedView { get; set; } = GanttView.Week;
 
-
-    void AddRootTask()
+    private void AddRootTask()
     {
         var i = GanttData.Last().Id + 1;
 
