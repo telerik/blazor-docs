@@ -38,7 +38,7 @@ The <a href = "https://www.telerik.com/blazor-ui/arc-gauge" target="_blank">Tele
 
 ## Scale
 
-The scale of the arc gauge renders the values of the [pointers]({%slug arc-gauge-pointers%}) and [labels]({%slug arc-gauge-labels%}). See the [Scale]({%slug arc-gauge-scale%}) article for more information on how to customize the scale of the component.
+The scale of the Arc Gauge renders the values of the [pointers]({%slug arc-gauge-pointers%}) and [labels]({%slug arc-gauge-labels%}). See the [Scale]({%slug arc-gauge-scale%}) article for more information on how to customize the scale of the component.
 
 ## Pointers
 
