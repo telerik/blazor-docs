@@ -57,35 +57,35 @@ The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor 
 
 ## Dependencies
 
-Authoring HTML content happens in the browser and relies on the browser HTML editing engine (see the [contenteditable](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content) attribute). Thus, an HTML Editor component must rely on that and use JavaScript.
-
 The Telerik UI for Blazor Editor uses the ProseMirror engine and it depends on it. You do not need to add any extra assets or references yourself, though, we have taken care of everything internally.
-
-<!-- the Editor registers them for you when it initializes, and it takes points them to the static assets of the Telerik UI for Blazor package. This approach improves the initial load time of your app and removes the dependency management task from you.
-
--->
 
 ## Get/Set Content
 
-The Blazor HTML Editor interacts with its content (value) like all standard components - through its `Value` parameter. You can use it to get and set the HTML string the editor will work with. You can read more about value binding and data binding [here]({%slug get-started-value-vs-data-binding%}).
+The Blazor HTML Editor interacts with its content (value) like all standard components - through its `Value` parameter. You can use it to get and set the HTML string the editor will work with. [Read more about value binding and data binding...]({%slug get-started-value-vs-data-binding%})
 
-#### You can use the following features to get or set the editor content:
+>important @[template](/_contentTemplates/editor/general.md#app-must-sanitize-content)
+
+## Editor Parameters
+
+The following table lists Editor parameters, which are not discussed elsewhere in the component documentation. 
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|
-| `@bind-Value`  | `EventCallback<string>` | The recommended approach of using two-way binding to get and set the content of the editor. It lets your view-model provide the initial value, and it will update the view-model as the user alters the HTML. |
+| `Value`  | `string` | Specifies the value of the component. You can use it for `two-way binding` with the [`ValueChanged` event]({%slug editor-events%}#valuechanged). |
 | `DebounceDelay`  | `int` <br /> `100ms` | The time in milliseconds that passes between updates on the `Value`. The default is `100ms` and if that causes performance issues with many repaints on your view, you can increase it. Since the editor is expected to handle longer editing sessions and larger content than regular inputs, we added this parameter to debounce the view-model updates and events. |
-| `ValueChanged`  | `EventCallback` | Allows you to receive the Editor value and act upon it. If you use the `ValueChanged` event (one-way binding), you can effectively cancel the user's input by not updating the view-model, or you can even alter it with something else. |
+| `Adaptive`  | `bool` | Defines if the [toolbar]({%slug editor-toolbars%}) should adapt to changes in the width of the component and automatically hide and show the overflowing items in a popup. |
+| `Width`  | `string` | Defines the width of the Editor. The default width is `null` but the themes apply `100%`. |
+| `Height`  | `string` <br /> `250px` | Defines the height of the Editor. |
+| `AriaLabelledBy`  | `string` | Maps to the `area-labelledby` attribute. Use this parameter to reference another element to define its accessible name. |
+| `AriaDescribedBy`  | `string` | Maps to the `area-describedby` attribute. Use this parameter to establish a relationship between widgets or groups and the text that describes them. |
 
 ## Validation
 
 You can use the standard Data Annotation attributes to validate the content of the Editor. For the performance reasons listed above, validation happens with the `DebounceDelay` delay, not immediately on every keystroke, like simpler inputs. [See the Validation article for an example on how to validate the content of the Editor,]({%slug common-features/input-validation%}#editor)
 
-
->important @[template](/_contentTemplates/editor/general.md#app-must-sanitize-content)
-
+## Large File Support 
 
 @[template](/_contentTemplates/editor/general.md#content-size-signalr)
 
