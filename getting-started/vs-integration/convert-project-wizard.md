@@ -12,6 +12,19 @@ This article demonstrates how to enable the Progress&reg; Telerik&reg; UI for Bl
 
 To add the Telerik Components to your existing Blazor application, use the **Convert Project** wizard. The wizard detects all installed versions of Telerik UI for Blazor and lists them in the **Version** combobox&mdash;this enables you to start your project with the desired version. You can also [get the latest version]({%slug getting-started-vs-integration-latest-version%}) to make sure you are up to date.
 
+The wizard automates several steps for you that you otherwise must perform manually:
+
+   * Adding the client assets to your project:
+
+     * Adding the [Telerik stylesheet]({%slug getting-started/what-you-need%}#adding-the-client-assets).
+     * Adding the [JS Interop file]({%slug getting-started/what-you-need%}#adding-the-client-assets).
+
+   * Configuring the project to use the Telerik UI for Blazor components:
+
+     * Adding the [required `@using` directives]({%slug getting-started/what-you-need%}#common-configuration) to the `~/_Imports.razor` file.
+     * Adding the [`TelerikLayout.razor` component]({%slug getting-started/what-you-need%}#common-configuration) at the root level of the DOM.
+     * Registering the Telerik services for [client-side projects]({%slug getting-started/what-you-need%}#client-side-project-specifics) and for [server-side projects]({%slug getting-started/what-you-need%}#server-side-project-specifics).
+
 ## Get the Wizard
 
 To use the **Convert Project** wizard, install the Telerik UI for Blazor Visual Studio Extensions. @[template](/_contentTemplates/common/general-info.md#vsx-download)
@@ -64,10 +77,6 @@ The wizard provides you with the following options:
 
 
 The wizard automates several steps for you that you can also perform manually. To get a better understanding of what the wizard does for you, see either of the following articles (they provide the same information in different formats):
-
-* [Getting Started with Client-side apps]({%slug getting-started/client-side%})
-* [Getting Started with Server-side apps]({%slug getting-started/server-side%})
-* [Overview of what you need]({%slug getting-started/what-you-need%})
 
 ## Troubleshooting
 
@@ -122,5 +131,5 @@ The fix is to move the `TelerikLayout.razor` file to the original `Shared` folde
 * [Downloading the Latest Telerik UI for Blazor Versions]({% slug getting-started-vs-integration-latest-version %})
 * [Getting Started with Client-side apps]({%slug getting-started/client-side%})
 * [Getting Started with Server-side apps]({%slug getting-started/server-side%})
-* [Overview of what you need]({%slug getting-started/what-you-need%})
+* [Workflow for Using the UI Components for Blazor]({%slug getting-started/what-you-need%})
 
