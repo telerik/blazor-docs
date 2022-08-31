@@ -37,7 +37,7 @@ In this tutorial, you will use the Telerik NuGet feed to download the UI for Bla
 
   ![Add the Telerik NuGet Feed in Visual Studio](images/telerik-nuget-feed.png)
 
->tipFor alternative download approaches, check the [Workflow article].
+>tipFor alternative download approaches, check the [Workflow article]({%slug getting-started/what-you-need%}).
 
 #end
 
@@ -140,13 +140,15 @@ Next to your main layout file (by default, the `~/Shared/MainLayout.razor` file 
         
 #end
 
+
 #root-component-main-layout
-* In the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), add `@layout TelerikLayout` as the *first line* in the file. This will ensure that the `TelerikRootComponent` wraps all the content in the `MainLayout`.
+In the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), add `@layout TelerikLayout` as the *first line* in the file. This will ensure that the `TelerikRootComponent` wraps all the content in the `MainLayout`.
   
     @layout TelerikLayout
     @inherits LayoutComponentBase
 
     @* @Body and other code will be present here depending on your project *@
+
 
 >Alternatively, the `TelerikRootComponent` can reside directly in the `MainLayout`, but placing it in another file helps for a better separation of concerns.
 

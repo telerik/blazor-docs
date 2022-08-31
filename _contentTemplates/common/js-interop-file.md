@@ -1,10 +1,3 @@
-#add-blazor-js-file-to-component
-@[template](/_contentTemplates/common/js-interop-file.md#app-paths)
-
-@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
-
-#end
-
 #add-js-interop-file-to-getting-started-client
  Add the `telerik-blazor.js` file to your main index file - `wwwroot/index.html`:
 
@@ -94,16 +87,6 @@ app.UseStaticFiles();
 ````
 #end
 
-
-
-#app-paths
- Add the following to your main index file:
-
-* Client-Side Blazor app - `wwwroot/index.html`
-* Server-Side Blazor app
-    * `~/Pages/_Host.cshtml` for .NET 3.x and .NET 5
-    * `~/Pages/_Layout.cshtml` for .NET 6
-#end
 
 #register-telerik-service-server
 <div class="skip-repl"></div>
