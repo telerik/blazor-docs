@@ -64,21 +64,21 @@ The table below provides a quick overview of the mask-related parameters. You ca
 |-----------|------------------------|-------------|
 | `Class`  | `string` | Adds a custom CSS class to the `<div class="k-maskedtextbox">` element. |
 | `Width`  | `string` | Controls the width of the `<input>` element. |
-| `DebounceDelay`  | `int` <br /> `150` | Specifies the time in milliseconds between the last typed symbol and the updating of the value. |
-| `Enabled`  | `bool` <br /> `true` | Controls if the users can type in the component. |
+| `DebounceDelay`  | `int` <br /> (`150`) | Specifies the time in milliseconds between the last typed symbol and the updating of the value. |
+| `Enabled`  | `bool` <br /> (`true`) | Controls if the users can type in the component. |
 | `Id`  | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input |
 | `Name`  | `string` | Renders as the `name` attribute of the HTML element. |
 | `PlaceHolder` | `string` | Renders as the `placeholder` attribute of the HTML element. |
 | `TabIndex` | `int` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}). |
-| `ValidateOn` | `ValidationEvent` enum <br /> `Input` | configures the event that will trigger validation (if validation is enabled). See the [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) article for more information. |
+| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | configures the event that will trigger validation (if validation is enabled). See the [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) article for more information. |
 | `Value`  | `string` | Get/set the value of the input, can be used for binding. |
 
 ## Validation
 
 You can validate the content of the `TelerikMaskedTextBox` using the Data Annotation attributes. [See the Input Validation article for an example on how to validate the content of the MaskedTextBox]({%slug common-features/input-validation%}#maskedtextbox)
 
-## Some Sample Masks
+## Mask Examples
 
 The examples below demonstrates how to create a few [masks]({%slug maskedtextbox-mask-prompt%}) for commonly used input types:
 
