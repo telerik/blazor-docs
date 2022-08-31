@@ -77,16 +77,18 @@ To enable the Telerik UI for Blazor components, you must add several client-side
     
 Now your project can use the Telerik UI for Blazor components.
 
-If you prefer video instructions, you can also check the video tutorial below.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fwR8Yxe7DPQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## Step 5: Add a Component to a View
 
 The final step in this tutorial is to use a Telerik UI for Blazor component in a view and run it in the browser.
 
 1. In the `~/Pages/Index.razor` view, add a `TelerikButton` component.
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
+
+## Video Tutorial
+
+If you prefer video instructions, you can also check the video tutorial below.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fwR8Yxe7DPQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## See Also
 
