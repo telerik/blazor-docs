@@ -63,10 +63,6 @@ The <a href="https://www.telerik.com/blazor-ui/gridlayout" target="_blank">Blazo
 </TelerikGridLayout>
 ````
 
->caption The result from the code snippet above
-
-![overview of the GridLayout functionality](images/gridlayout-overview-basic-example.png)
-
 ## Rows
 
 Defining a new `GridLayoutRow` tag to the GridLayout renders a new row in the component. You can set their heights by using the `Height` paramter exposed on the `<GridLayoutRow>` tag.
@@ -91,40 +87,6 @@ The GridLayout Item defines the content of the TelerikGridLayout. [See the Items
 | `RowSpacing`  | `string` | Controls the space between the rows in the GridLayout. |
 | `HorizontalAlign`  | `GridLayoutHorizontalAlign` enum <br /> (`Stretch`) | Controls the alignment of the inner items in the GridLayout column based on the X axis. |
 | `VerticalAlign`  | `GridLayoutVerticalAlign` enum <br /> (`Stretch`) | Controls the alignment of the inner items in the GridLayout column based on the Y axis. |
-
-## Component namespace and reference
-
-````CSHTML
-<TelerikGridLayout @ref="@GridLayoutRef">
-    <GridLayoutColumns>
-        <GridLayoutColumn Width="200px"></GridLayoutColumn>
-    </GridLayoutColumns>
-    <GridLayoutRows>
-    </GridLayoutRows>
-    <GridLayoutItems>
-        <GridLayoutItem>
-            <div style="border: 1px gray solid;">
-                item 1
-            </div>
-        </GridLayoutItem>
-        <GridLayoutItem>
-            <div style="border: 1px gray solid;">
-                item 2
-            </div>
-        </GridLayoutItem>
-        <GridLayoutItem>
-            <div style="border: 1px gray solid;">
-                item 3
-            </div>
-        </GridLayoutItem>
-    </GridLayoutItems>
-</TelerikGridLayout>
-
-@code {
-    Telerik.Blazor.Components.TelerikGridLayout GridLayoutRef { get; set; }
-}
-````
-
 
 ## See Also
 
