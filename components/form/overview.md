@@ -19,12 +19,12 @@ To use the Form component with a model:
 
 1. Use the `TelerikForm` tag to add the component to your razor page.
 
-1. Provide an object to the `Model` parameter of the component. 
+1. Provide an object to the `Model` parameter of the component or an <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0">EditContext class</a> to the `EditContext` parameter. 
 
 1. Use the `<FormValidation>` tag and in it, provide a validator - like the `DataAnnotationsValidator` that comes with the framework, to enable form validation. 
 
-
-````CSHTML
+<div class="skip-repl"></div>
+````Model
 @* Provide a model to the Telerik Form *@
 
 @using System.ComponentModel.DataAnnotations
@@ -59,25 +59,7 @@ To use the Form component with a model:
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![Form Basic Example](images/form-basic-example.png)
-
-## Creating Blazor Form Bound to an EditContext
-
-The Telerik Form for Blazor can utilize the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0">EditContext class</a>. You can use the events and methods provided by the EditContext to provide custom business logic. 
-
-To use the Form component with an EditContext: 
-
-1. 1. Use the `TelerikForm` tag to add the component to your razor page.
-
-1. Provide an object of type `EditContext` to the `EditContext` parameter of the Form. 
-
-1. Use the `<FormValidation>` tag and provide a validator in it - like the `DataAnnotationsValidator` that comes with the framework, to enable form validation. 
-
-
-````CSHTML
+````EditContext
 @* Provide an EditContext to the TelerikForm *@
 
 @using System.ComponentModel.DataAnnotations
@@ -116,38 +98,6 @@ To use the Form component with an EditContext:
         [Required]
         [Display(Name = "Date of Birth")]
         public DateTime? DOB { get; set; }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![Form Basic Example](images/form-basic-example.png)
-
-
-## Component Reference
-
-The component reference provides you with access to the `EditContext` object that the form will generate when you pass a `Model` to it. It could be useful to, for example, re-attach validation when you change the model - `FormReference.EditContext.AddDataAnnotationsValidation()`.
-
->caption Get a reference to the Telerik Form for Blazor 
-
-````CSHTML
-@* Get a reference to the Form component *@
-
-<TelerikForm Model="@person" @ref="@FormReference">
-</TelerikForm>
-
-@code {
-    public Telerik.Blazor.Components.TelerikForm FormReference { get; set; }
-
-    public Person person = new Person();
-
-    public class Person
-    {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
     }
 }
 ````
@@ -260,6 +210,17 @@ You can react to user interactions with the Form through the available events. [
 
 To validate and provide validation configuration to the Telerik Blazor Form you can use the `FormValidation` tag. [See the Validation article for more information...]({%slug form-validation%})
 
+## Form Parameters
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default value | Description |
+|-----------|------------------------|-------------|
+| `Model`  | `object` | The object bound to the Form. It will automatically create the `EditContext` and using the two together is not supported. |
+| `EditContext`  | `EditContext` | The <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> of the form. |
+| `ValidationMessageType`  | `FormValidationMessageType` enum <br /> `Inline` | Defines the type of the Validation messages. See the [Validation]({%slug form-validation%}) article for more information. |
+| `Id`  | `string` | Sets an `id` attribute to the `<form>` element. It is possible to use it together with the [`Form` parameter of a submit button]({%slug button-type%}). Set both parameters to the same `string` value. This allows submitting the form from a button, which is outside the form. |
+
 ## Form Layout Customization
 
 The Blazor Form exposes multiple parameters that allow you to customize its layout:
@@ -273,16 +234,32 @@ The Blazor Form exposes multiple parameters that allow you to customize its layo
 | `ColumnSpacing`  | `string` | Defines the amout of vertical space between the Columns. See the [Columns]({%slug form-columns%}) article for more information. |
 | `Orientation`  | `FormOrientation` enum <br /> `Vertical` | controls the orientation of the Form. See the [Orientation]({%slug form-orientation%}) article for more information. |
 
-## Form Parameters
+## Component Reference
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+The component reference provides you with access to the `EditContext` object that the form will generate when you pass a `Model` to it. It could be useful to, for example, re-attach validation when you change the model - `FormReference.EditContext.AddDataAnnotationsValidation()`.
 
-| Parameter | Type and Default value | Description |
-|-----------|------------------------|-------------|
-| `Model`  | `object` | The object bound to the Form. It will automatically create the `EditContext` and using the two together is not supported. |
-| `EditContext`  | `EditContext` | The <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> of the form. |
-| `ValidationMessageType`  | `FormValidationMessageType` enum <br /> `Inline` | Defines the type of the Validation messages. See the [Validation]({%slug form-validation%}) article for more information. |
-| `Id`  | `string` | Sets an `id` attribute to the `<form>` element. It is possible to use it together with the [`Form` parameter of a submit button]({%slug button-type%}). Set both parameters to the same `string` value. This allows submitting the form from a button, which is outside the form. |
+>caption Get a reference to the Telerik Form for Blazor 
+
+````CSHTML
+@* Get a reference to the Form component *@
+
+<TelerikForm Model="@person" @ref="@FormReference">
+</TelerikForm>
+
+@code {
+    public Telerik.Blazor.Components.TelerikForm FormReference { get; set; }
+
+    public Person person = new Person();
+
+    public class Person
+    {
+        public int Id { get; set; } = 10;
+        public string FirstName { get; set; } = "John";
+        public string LastName { get; set; } = "Doe";
+        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
+    }
+}
+````
 
 ## See Also
 
