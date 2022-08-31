@@ -11,11 +11,10 @@ the `Format` is culture-specific and the same format may produce different resul
 #end
 
 #cdn
-You can reference the built-in Telerik assets from a cloud CDN instead of a local resource on your server.
+You can reference the built-in Telerik assets like the JS Interop file and the theme stylesheets from a cloud CDN instead of a local resource on your server.
 
-The Telerik Blazor CDN distributes the most common swatches of each base theme. Check out the [Telerik Blazor CDN URLs]({%slug themes-swatch-distribution%}#telerik-blazor-cdn).
-
-All available swatches are distributed via dedicated Themes CDN. The following section contains a complete list of their CDN URLs - [Built-in themes and swatches list]({%slug themes-swatches%}#built-in-themes-and-swatches-list).
+   * The [Telerik UI for Blazor CDN]({%slug themes-swatch-distribution%}#telerik-blazor-cdn) distributes the most common [swatches]({%slug themes-swatches%}) for each base theme.
+   * The additional Themes CDN distributes [all available swatches for the built-in themes]({%slug themes-swatches%}#built-in-themes-and-swatches-list).
 
 ````CSHTML
 <!DOCTYPE html>

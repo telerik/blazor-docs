@@ -42,13 +42,13 @@ The process for adding Telerik UI for Blazor in the WinForms/WPF/MAUI app is sim
 
 ### 1. Get the `Telerik UI for Blazor` package
 
-To use the  UI for Blazor components you need to install the `Telerik.UI.for.Blazor` package and include its reference in the `.csproj` file of the app. [Read more on where to get the `Telerik.UI.for.Blazor` package...]({%slug getting-started/what-you-need%}#get-the-telerik-packages)
+To use the  UI for Blazor components you need to install the `Telerik.UI.for.Blazor` package and include its reference in the `.csproj` file of the app. [Read more on where to get the `Telerik.UI.for.Blazor` package...]({%slug getting-started/what-you-need%}#getting-the-telerik-packages)
 
 ### 2. Add the Telerik client assets
 
-To have the Telerik Blazor components look and behave as expected, you need the Telerik [CSS and JavaScript assets]({%slug getting-started/what-you-need%}#client-assets). Include the assets inside the `<head>` of the `wwwroot/index.html` file.
+To have the Telerik Blazor components look and behave as expected, you need the Telerik [CSS and JavaScript assets]({%slug getting-started/what-you-need%}#adding-the-client-assets). Include the assets inside the `<head>` of the `wwwroot/index.html` file.
 
-You may add the Telerik resources as [static assets]({%slug getting-started/what-you-need%}#static-assets) or reference them from a [cloud CDN]({%slug getting-started/what-you-need%}#cdn).
+You may add the Telerik resources as [static assets]({%slug getting-started/what-you-need%}#using-static-assets) or reference them from a [cloud CDN]({%slug getting-started/what-you-need%}#using-cdn).
 
 ### 3. Include `@using` statements 
 

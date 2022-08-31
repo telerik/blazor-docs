@@ -34,11 +34,11 @@ Another common reason is the browser caching the file if it comes from the stati
 
 You can check if this is the case by inspecting the Network tab of your browser console to see if it is returning successfully. There are a few common causes for the JS Interop file to be missing:
 
-* The application is missing references to the needed [assets]({%slug getting-started/what-you-need%}#client-assets).
+* The application is missing references to the needed [assets]({%slug getting-started/what-you-need%}#adding-the-client-assets).
 
 * Network setup blocks access to the cloud, and thus, to our CDN. If this is the case, you have two options:
     * Discuss the case with your network administrators to have our CDN allowed.
-    * Use [static assets]({%slug getting-started/what-you-need%}#static-assets) from the app folder to avoid going to the cloud.
+    * Use [static assets]({%slug getting-started/what-you-need%}#using-static-assets) from the app folder to avoid going to the cloud.
 
 * The application was upgraded from a trial to a commercial license, but the path to the file was not. See the [Upgrade from Trial to Commercial]({%slug upgrade-tutorial%}#upgrade-from-trial-to-commercial) section for details.
 

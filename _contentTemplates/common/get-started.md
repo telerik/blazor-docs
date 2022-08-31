@@ -141,7 +141,7 @@ Next to your main layout file (by default, the `~/Shared/MainLayout.razor` file 
 #end
 
 #root-component-main-layout
-In the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), add `@layout TelerikLayout` as the *first line* in the file. This will ensure that the `TelerikRootComponent` wraps all the content in the `MainLayout`.
+* In the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), add `@layout TelerikLayout` as the *first line* in the file. This will ensure that the `TelerikRootComponent` wraps all the content in the `MainLayout`.
   
     @layout TelerikLayout
     @inherits LayoutComponentBase
