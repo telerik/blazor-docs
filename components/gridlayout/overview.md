@@ -67,15 +67,15 @@ The <a href="https://www.telerik.com/blazor-ui/gridlayout" target="_blank">Blazo
 
 ![overview of the GridLayout functionality](images/gridlayout-overview-basic-example.png)
 
-## GridLayout Row
+## Rows
 
 Defining a new `GridLayoutRow` tag to the GridLayout renders a new row in the component. You can set their heights by using the `Height` paramter exposed on the `<GridLayoutRow>` tag.
 
-## GridLayout Column
+## Columns
 
 Defining a new `GridLayoutColumn` tag to the GridLayout renders a new column in the component. You can set their widths by using the `Width` paramter exposed on the `<GridLayoutColumn>`.
 
-## GridLayout Item
+## Items
 
 The GridLayout Item defines the content of the TelerikGridLayout. [See the Items article for more information...]({%slug gridlayout-items%})
 
@@ -89,8 +89,8 @@ The GridLayout Item defines the content of the TelerikGridLayout. [See the Items
 | `Width`  | `string` | Controls the width of the GridLayout. |
 | `ColumnSpacing`  | `string` | Controls the space between the columns in the GridLayout. |
 | `RowSpacing`  | `string` | Controls the space between the rows in the GridLayout. |
-| `HorizontalAlign`  | `GridLayoutHorizontalAlign` enum <br /> `Stretch` | Controls the alignment of the inner items in the GridLayout column based on the X axis. |
-| `VerticalAlign`  | `GridLayoutVerticalAlign` enum <br /> `Stretch` | Controls the alignment of the inner items in the GridLayout column based on the Y axis. |
+| `HorizontalAlign`  | `GridLayoutHorizontalAlign` enum <br /> (`Stretch`) | Controls the alignment of the inner items in the GridLayout column based on the X axis. |
+| `VerticalAlign`  | `GridLayoutVerticalAlign` enum <br /> (`Stretch`) | Controls the alignment of the inner items in the GridLayout column based on the Y axis. |
 
 ## Component namespace and reference
 
