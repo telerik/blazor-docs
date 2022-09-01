@@ -21,6 +21,8 @@ This article explains the events available in the Telerik AutoComplete for Blazo
 
 The `ValueChanged` event fires on every user keystroke that changes the textbox value.
 
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#value-changed)
+
 >caption Handle AutoComplete ValueChanged
 
 ````CSHTML
