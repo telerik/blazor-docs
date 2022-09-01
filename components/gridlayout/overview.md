@@ -88,8 +88,11 @@ The GridLayout Item defines the content of the TelerikGridLayout. [See the Items
 | `HorizontalAlign`  | `GridLayoutHorizontalAlign` enum <br /> (`Stretch`) | Controls the alignment of the inner items in the GridLayout column based on the X axis. |
 | `VerticalAlign`  | `GridLayoutVerticalAlign` enum <br /> (`Stretch`) | Controls the alignment of the inner items in the GridLayout column based on the Y axis. |
 
+## Next Steps
+
+* [Explore the GridLayout Items]({%slug gridlayout-items%})
+
 ## See Also
 
   * [Live Demo: GridLayout](https://demos.telerik.com/blazor-ui/gridlayout/overview)
-  * [Items]({%slug gridlayout-items%})
-  * [StackLayout API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGridLayout)
+  * [GridLayout API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGridLayout)
