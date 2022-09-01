@@ -128,6 +128,19 @@ You can make a responsive chart
 }
 ````
 
+## Chart Parameters
+
+The following table lists Chart parameters, which are not discussed elsewhere in the component documentation.
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default value | Description |
+|-----------|------------------------|-------------|
+| `Width`  | `string` | Controls the width of the StockChart. |
+| `Height`  | `string` | Controls the height of the StockChart. |
+| `Class`  | `string` | Renders a custom CSS class on the `<div class="k-chart">` element. |
+| `Transitions` | `bool?` | Controls if the animation transitions must be rendered. |
+
 ## Chart Reference and Methods
 
 To execute Chart methods, obtain reference to the component instance via `@ref`.

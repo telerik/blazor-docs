@@ -120,7 +120,6 @@ To control the size of the StockChart, use the `Width` and the `Height` paramete
 
 You can also set the chart size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the chart's `Refresh()` C# method after the DOM has been redrawn and the new container dimensions are rendered. You can do this when you explicitly change container sizes (like in the example below), or from code that gets called by events like `window.resize`. You can find an example of making charts redraw on `window.resize` in the [Responsive Chart](https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart) sample.
 
-
 >caption Change the 100% chart size dynamically to have a responsive chart
 
 ````CSHTML
@@ -228,6 +227,19 @@ You can make a responsive chart
     }
 }
 ````
+
+## StockChart Parameters
+
+The following table lists StockChart parameters, which are not discussed elsewhere in the component documentation.
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default value | Description |
+|-----------|------------------------|-------------|
+| `Width`  | `string` | Controls the width of the StockChart. |
+| `Height`  | `string` | Controls the height of the StockChart. |
+| `Class`  | `string` | Renders a custom CSS class on the `<div class="k-stockchart">` element. |
+| `Transitions` | `bool?` | Controls if the animation transitions must be rendered. |
 
 ## Component Reference and Methods
 

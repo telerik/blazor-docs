@@ -114,9 +114,6 @@ The `NotificationModel` class is used to add new notifications to the page. You 
 | `Icon`  | `string` | Specifies the icon that will render in the component if the `ShowIcon` parameter is set to `true`. You can find more information on adding an icon to a Telerik Component in [Telerik Font Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component). |
 | `Text`  | `string` | the text that will be rendered in the Notification component. |
 
-
->tip @[template](/_contentTemplates/notification/templates.md#one-instance-per-app-link)
-
 ## Next Steps
 
 * [Learn more about the Notification Templates]({%slug notification-templates%})
