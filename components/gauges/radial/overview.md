@@ -8,16 +8,14 @@ published: True
 position: 0
 ---
 
-# Radial Gauge Overview
+# Blazor Radial Gauge Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/radial-gauge" target="_blank">Telerik Radial Gauge for Blazor</a> represents numerical values on a [scale]({%slug radial-gauge-scale%}) of ranges in a radial format.
 
 ## Creating Radial Gauge
 
 1. Add the `<TelerikRadialGauge>` tag to your razor page.
-
 1. Add one or more instances of the `<RadialGaugePointer>` to the `<RadialGaugePointers>` collection.
-
 1. Provide a `Value` for each `<RadialGaugePointer>`.
 
 >caption Basic Telerik Radial Gauge for Blazor.
@@ -61,7 +59,7 @@ The labels are rendered on the scale of the Radial Gauge to give inforation to t
 | `Height`  | `string` | Controls the height of the component. |
 | `Class`  | `string` | renders a custom CSS class on the `<div class="k-gauge">` element. You can use that class to reposition the component on the page. |
 
-## Component Reference and Methods
+## Radial Gauge Reference and Methods
 
 To execute Radial Gauge methods, obtain reference to the component instance via `@ref`.
 
@@ -106,7 +104,3 @@ To execute Radial Gauge methods, obtain reference to the component instance via 
 ## See Also
 
 * [Live Demo: Radial Gauge](https://demos.telerik.com/blazor-ui/radialgauge/overview)
-* [Radial Gauge: Scale]({%slug radial-gauge-scale%})
-* [Radial Gauge: Pointers]({%slug radial-gauge-pointers%})
-* [Radial Gauge: Ranges]({%slug radial-gauge-ranges%})
-* [Radial Gauge: Labels]({%slug radial-gauge-labels%})
