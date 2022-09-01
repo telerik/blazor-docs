@@ -15,11 +15,8 @@ The <a href = "https://www.telerik.com/blazor-ui/arc-gauge" target="_blank">Tele
 ## Creating Blazor Arc Gauge
 
 1. Add the `<TelerikArcGauge>` tag.
-
 1. Add an instance of the `<ArcGaugePointer>` to the `<ArcGaugePointers>` collection.
-
 1. Provide a `Value` for the `<ArcGaugePointer>`.
-
 1. (optional) Add a [Center Label Template]({%slug arc-gauge-labels%}#center-template)
 
 
@@ -98,8 +95,11 @@ You can also set the Gauge size in percentage values so it occupies its containe
 }
 ````
 
+## Next Steps
+
+* Explore the [Arc Gauge Scale]({%slug arc-gauge-scale%})
+* Learn more about the [Arc Gauge Pointers]({%slug arc-gauge-pointers%})
+
 ## See Also
 
 * [Live Demo: Arc Gauge](https://demos.telerik.com/blazor-ui/arcgauge/overview)
-* [Arc Gauge: Scale]({%slug arc-gauge-scale%})
-* [Arc Gauge: Pointers]({%slug arc-gauge-pointers%})

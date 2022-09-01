@@ -15,16 +15,11 @@ The <a href = "https://www.telerik.com/blazor-ui/circular-gauge" target="_blank"
 ## Creating Blazor Circular Gauge
 
 1. Add the `<TelerikCircularGauge>` tag.
-
 1. Add one or more instance of the `<CircularGaugePointer>` to the `<CircularGaugePointers>` collection.
-
 1. Provide a `Value` for each `<CircularGaugePointer>`.
-
 1. (optional) You can use the [Center Label Template]({%slug circular-gauge-labels%}#center-template) to display the value of the pointer in the center of the component.
 
 >caption Basic Telerik Circular Gauge for Blazor.
-
-![Basic Circular Gauge](images/basic-circular-gauge.png)
 
 ````CSHTML
 @* Setup a basic circular gauge with center label template *@
@@ -62,28 +57,18 @@ The labels are rendered on the scale of the component to give information to the
 
 ## Circular Gauge Size
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-circulargauge">` element. |
 | `Width` | `string` | Controls the width of the Circular Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article.|
 | `Height` | `string` | Controls the height of the Circular Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article. |
 
-You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
-
 ## Circular Gauge Reference and Methods
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Method | Description |
 | --- | --- |
 | `Refresh` | Programatically re-render the Circular Gauge. |
@@ -118,9 +103,11 @@ You can also set the Gauge size in percentage values so it occupies its containe
 }
 ````
 
+## Next Steps
+
+* Explore the [Circular Gauge Scale]({%slug circular-gauge-scale%})
+* Learn more about the [Circular Gauge Pointers]({%slug circular-gauge-pointers%})
+
 ## See Also
 
 * [Live Demo: Circular Gauge](https://demos.telerik.com/blazor-ui/circulargauge/overview)
-* [Circular Gauge: Scale]({%slug circular-gauge-scale%})
-* [Circular Gauge: Pointers]({%slug circular-gauge-pointers%})
-* [Circular Gauge: Labels]({%slug circular-gauge-labels%})
