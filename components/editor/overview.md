@@ -93,10 +93,10 @@ The following table lists Editor parameters, which are not discussed elsewhere i
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|
 | `Value`  | `string` | Specifies the value of the component. You can use it for `two-way binding` with the [`ValueChanged` event]({%slug editor-events%}#valuechanged). |
-| `DebounceDelay`  | `int` <br /> `100ms` | The time in milliseconds that passes between updates on the `Value`. The default is `100ms` and if that causes performance issues with many repaints on your view, you can increase it. Since the editor is expected to handle longer editing sessions and larger content than regular inputs, we added this parameter to debounce the view-model updates and events. |
+| `DebounceDelay`  | `int` <br /> (`100`) | The time in milliseconds that passes between updates on the `Value`. The default is `100ms` and if that causes performance issues with many repaints on your view, you can increase it. Since the editor is expected to handle longer editing sessions and larger content than regular inputs, we added this parameter to debounce the view-model updates and events. |
 | `Adaptive`  | `bool` | Defines if the [toolbar]({%slug editor-toolbars%}) should adapt to changes in the width of the component and automatically hide and show the overflowing items in a popup. |
 | `Width`  | `string` | Defines the width of the Editor. The default width is `null` but the themes apply `100%`. |
-| `Height`  | `string` <br /> `250px` | Defines the height of the Editor. |
+| `Height`  | `string` <br /> (`250px`) | Defines the height of the Editor. |
 | `AriaLabelledBy`  | `string` | Maps to the `area-labelledby` attribute. Use this parameter to reference another element to define its accessible name. |
 | `AriaDescribedBy`  | `string` | Maps to the `area-describedby` attribute. Use this parameter to establish a relationship between widgets or groups and the text that describes them. |
 
