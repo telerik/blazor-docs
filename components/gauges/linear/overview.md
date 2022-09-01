@@ -35,15 +35,15 @@ The <a href = "https://www.telerik.com/blazor-ui/linear-gauge" target="_blank">T
 
 ## Scale
 
-The scale of the Linear Gauge renders the values of the [pointers]({%slug linear-gauge-pointers%}) and [labels]({%slug linear-gauge-labels%}). See the [Scale]({%slug linear-gauge-scale%}) article for more information on how to customize the scale of the component.
+The scale of the Linear Gauge renders the values of the [pointers]({%slug linear-gauge-pointers%}) and [labels]({%slug linear-gauge-labels%}). [See the Scale article for more information on how to customize the scale of the component...]({%slug linear-gauge-scale%})
 
 ## Pointers
 
-The pointers indicate the values on the scale of the component. See the [Pointers]({%slug linear-gauge-pointers%}) article for more information on how to customize the pointers of the component.
+The pointers indicate the values on the scale of the component. [See the Pointers article for more information on how to customize the pointers of the component...]({%slug linear-gauge-pointers%})
 
 ## Labels
 
-The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug linear-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
+The labels are rendered on the scale of the component to give information to the users. [See the Labels article for more information on how to customize the labels on the scale of the component...]({%slug linear-gauge-labels%})
 
 ## Ranges
 
