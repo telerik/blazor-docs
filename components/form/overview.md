@@ -218,7 +218,7 @@ To validate and provide validation configuration to the Telerik Blazor Form you 
 |-----------|------------------------|-------------|
 | `Model`  | `object` | The object bound to the Form. It will automatically create the `EditContext` and using the two together is not supported. |
 | `EditContext`  | `EditContext` | The <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext?view=aspnetcore-5.0" target="_blank">EditContext</a> of the form. |
-| `ValidationMessageType`  | `FormValidationMessageType` enum <br /> `Inline` | Defines the type of the Validation messages. See the [Validation]({%slug form-validation%}) article for more information. |
+| `ValidationMessageType`  | `FormValidationMessageType` enum <br /> (`Inline`) | Defines the type of the Validation messages. See the [Validation]({%slug form-validation%}) article for more information. |
 | `Id`  | `string` | Sets an `id` attribute to the `<form>` element. It is possible to use it together with the [`Form` parameter of a submit button]({%slug button-type%}). Set both parameters to the same `string` value. This allows submitting the form from a button, which is outside the form. |
 
 ## Form Layout Customization
@@ -232,7 +232,7 @@ The Blazor Form exposes multiple parameters that allow you to customize its layo
 | `Width`  | `string` | Controls the width of the Form. |
 | `Columns`  | `int` | Defines the number of columns in the Form. See the [Columns]({%slug form-columns%}) article for more information |
 | `ColumnSpacing`  | `string` | Defines the amout of vertical space between the Columns. See the [Columns]({%slug form-columns%}) article for more information. |
-| `Orientation`  | `FormOrientation` enum <br /> `Vertical` | controls the orientation of the Form. See the [Orientation]({%slug form-orientation%}) article for more information. |
+| `Orientation`  | `FormOrientation` enum <br /> (`Vertical`) | controls the orientation of the Form. See the [Orientation]({%slug form-orientation%}) article for more information. |
 
 ## Component Reference
 
