@@ -64,6 +64,7 @@ The labels are rendered on the scale of the component to give information to the
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-circulargauge">` element. |
 | `Width` | `string` | Controls the width of the Circular Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article.|
 | `Height` | `string` | Controls the height of the Circular Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article. |
+| `Transitions` | `bool?` | Controls if the animation transitions must be rendered. |
 
 ## Circular Gauge Reference and Methods
 
