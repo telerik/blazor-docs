@@ -73,11 +73,11 @@ In the example below each chunk is "worth" `10 / 4 = 2.5`. The `Value` is `3` so
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-progressbar">` element. |
-| `Max` | `double` <br /> `100`| The maximum value of the ChunkProgressBar. It must be greater than `0`. |
+| `Max` | `double` <br /> (`100`) | The maximum value of the ChunkProgressBar. It must be greater than `0`. |
 | `Value` | `double` | The value of the ChunkProgressBar. This value indicates the progress of the tracked process and is distributed in the chunks (sections) of the ChunkProgressBar. It is a fraction of the `Max`. Read mode in the [Chunk Count, Value and MaxValue](#chunk-count-value-and-maxvalue) section. |
-| `ChunkCount` | `unsigned int` <br /> `5` | The number of chunks the ChunkProgressBar will be separated into. |
-| `Orientation` | `ProgressBarOrientation` <br /> `Horizontal` | Controls the orientation of the Chunk Progress Bar. |
-| `Indeterminate` | `bool` <br /> `true` | Controls if the Chunk Progress Bar is in indeterminate state. Read the [Indeterminate]({%slug chunkprogressbar-indeterminate-state%}) article for more information. |
+| `ChunkCount` | `unsigned int` <br /> (`5`) | The number of chunks the ChunkProgressBar will be separated into. |
+| `Orientation` | `ProgressBarOrientation` <br /> (`Horizontal`) | Controls the orientation of the Chunk Progress Bar. |
+| `Indeterminate` | `bool` <br /> (`true`) | Controls if the Chunk Progress Bar is in indeterminate state. Read the [Indeterminate]({%slug chunkprogressbar-indeterminate-state%}) article for more information. |
 
 ## Examples
 
