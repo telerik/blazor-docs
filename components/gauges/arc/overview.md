@@ -97,8 +97,8 @@ You can also set the Gauge size in percentage values so it occupies its containe
 
 ## Next Steps
 
-* Explore the [Arc Gauge Scale]({%slug arc-gauge-scale%})
-* Learn more about the [Arc Gauge Pointers]({%slug arc-gauge-pointers%})
+* [Explore the Arc Gauge Scale]({%slug arc-gauge-scale%})
+* [Learn more about the Arc Gauge Pointers]({%slug arc-gauge-pointers%})
 
 ## See Also
 

@@ -156,8 +156,13 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 }
 ````
 
+## Next Steps
+
+* [Data bind the Chart]({%slug components/chart/databind%})
+* [Explore the Chart events]({%slug chart-events%})
+* [Learn more about Chart Tooltips](%slug chart-tooltip-overview%)
+
 ## See Also
 
-  * [Data Binding]({%slug components/chart/databind%})
   * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikChart)

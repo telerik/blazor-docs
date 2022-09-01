@@ -105,8 +105,8 @@ The labels are rendered on the scale of the component to give information to the
 
 ## Next Steps
 
-* Explore the [Circular Gauge Scale]({%slug circular-gauge-scale%})
-* Learn more about the [Circular Gauge Pointers]({%slug circular-gauge-pointers%})
+* [Explore the Circular Gauge Scale]({%slug circular-gauge-scale%})
+* [Learn more about the Circular Gauge Pointers]({%slug circular-gauge-pointers%})
 
 ## See Also
 
