@@ -102,9 +102,7 @@ To use the Form component with a model:
 }
 ````
 
-## Building Blocks
-
-### Form Items
+## Form Items
 
 There are two ways to generate fields in the Blazor Form:
 
@@ -138,9 +136,9 @@ You can customize the automatically generated field by providing the `EditorType
 
 | Field data type | FormEditorType enum members              |
 |-----------------|------------------------------------------|
-| **String**          | `FormEditorType.TextArea`<br> `FormEditorType.TextBox` |
-| **Boolean**         | `FormEditorType.CheckBox`<br> `FormEditorType.Switch` |
-| **DateTime**        | `FormEditorType.DatePicker`<br> `FormEditorType.DateTimePicker`<br> `FormEditorType.TimePicker` |
+| **String**          | `FormEditorType.TextArea`<br /> `FormEditorType.TextBox` |
+| **Boolean**         | `FormEditorType.CheckBox`<br /> `FormEditorType.Switch` |
+| **DateTime**        | `FormEditorType.DatePicker`<br /> `FormEditorType.DateTimePicker`<br> `FormEditorType.TimePicker` |
 
 
 ````CSHTML
@@ -182,7 +180,7 @@ You can customize the automatically generated field by providing the `EditorType
 }
 ````
 
-### Data Annotation Attributes
+## Data Annotation Attributes
 
 The Telerik Form for Blazor supports validation through the `<DataAnnotationsValidator />`. This allows you to take advantage of all validation attributes from the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0" target="_blank">data annotation attributes</a> list provided by .NET.
 
@@ -193,22 +191,6 @@ The Form also uses the the following attributes from the model:
 * `[Editable(false)]` - to render the built-in editor as disabled so the user cannot change its value.
 
 You can customize the editors further through the [form items]({%slug form-formitems%}). Explicit settings you provide through the parameters will take precedence over data annotation attributes.
-
-### Form Buttons
-
-The Form Buttons allow you to add custom buttons to the Form. You can use the `FormButtons` tag to add a Clear button to the Form. If the `FormButtons` tag is defined there will be no default buttons in the Form. [See the FormButtons article for more information...]({%slug form-formitems-buttons%})
-
-### Form Groups
-
-You can group Form items that are logically connected. [See the FormGroupsarticle for more information...]({%slug form-formgroups%})
-
-### Form Events
-
-You can react to user interactions with the Form through the available events. [See the Events article for more information...]({%slug form-events%})
-
-### Form Validation
-
-To validate and provide validation configuration to the Telerik Blazor Form you can use the `FormValidation` tag. [See the Validation article for more information...]({%slug form-validation%})
 
 ## Form Parameters
 
@@ -221,7 +203,7 @@ To validate and provide validation configuration to the Telerik Blazor Form you 
 | `ValidationMessageType`  | `FormValidationMessageType` enum <br /> (`Inline`) | Defines the type of the Validation messages. See the [Validation]({%slug form-validation%}) article for more information. |
 | `Id`  | `string` | Sets an `id` attribute to the `<form>` element. It is possible to use it together with the [`Form` parameter of a submit button]({%slug button-type%}). Set both parameters to the same `string` value. This allows submitting the form from a button, which is outside the form. |
 
-## Form Layout Customization
+### Form Layout Customization
 
 The Blazor Form exposes multiple parameters that allow you to customize its layout:
 
@@ -234,9 +216,9 @@ The Blazor Form exposes multiple parameters that allow you to customize its layo
 | `ColumnSpacing`  | `string` | Defines the amout of vertical space between the Columns. See the [Columns]({%slug form-columns%}) article for more information. |
 | `Orientation`  | `FormOrientation` enum <br /> (`Vertical`) | controls the orientation of the Form. See the [Orientation]({%slug form-orientation%}) article for more information. |
 
-## Component Reference
+## Form Reference
 
-The component reference provides you with access to the `EditContext` object that the form will generate when you pass a `Model` to it. It could be useful to, for example, re-attach validation when you change the model - `FormReference.EditContext.AddDataAnnotationsValidation()`.
+Use the Form Reference to get access to the `EditContext` object that the form will generate when you pass a `Model` to it. It could be useful to, for example, re-attach validation when you change the model - `FormReference.EditContext.AddDataAnnotationsValidation()`.
 
 >caption Get a reference to the Telerik Form for Blazor 
 
@@ -248,25 +230,17 @@ The component reference provides you with access to the `EditContext` object tha
 
 @code {
     public Telerik.Blazor.Components.TelerikForm FormReference { get; set; }
-
-    public Person person = new Person();
-
-    public class Person
-    {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-    }
 }
 ````
 
+## Next Steps
+
+* [Validate the Form]({%slug form-validation%})
+* [Explore the Form events]({%slug form-events%})
+* [Learn more about the Form Buttons]({%slug form-formitems-buttons%})
+* [Group the FormItems]({%slug form-formgroups%})
+
 ## See Also
 
-* [Form Items]({%slug form-formitems%})
-* [Form Groups]({%slug form-formgroups%})
-* [Columns]({%slug form-columns%})
-* [Orientation]({%slug form-orientation%})
-* [Events]({%slug form-events%})
 * [Live Demo: Form](https://demos.telerik.com/blazor-ui/form/overview)
 * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikForm)
