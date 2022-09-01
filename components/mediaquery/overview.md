@@ -24,19 +24,43 @@ The <a href = "https://www.telerik.com/blazor-ui/mediaquery" target="_blank">Med
 ````CSHTML
 @* Resize a container based on the browser size *@
 
-<TelerikMediaQuery Media="@MediaQuery" OnChange="@((doesMatch) => IsSmallScreen = doesMatch)"></TelerikMediaQuery>
+<TelerikMediaQuery Media="@SmallScreenMediaQuery" OnChange="@((doesMatch) => IsSmallScreen = doesMatch)"></TelerikMediaQuery>
+<TelerikMediaQuery Media="@LargeScreenMediaQuery" OnChange="@((doesMatch) => isLarge = doesMatch)"></TelerikMediaQuery>
 
-<div style="width: @(IsSmallScreen ? "500px" : "100%"); height: 400px; border: 1px solid black">
-    Shrink the browser to less than 767px to resize the container.
+<div style="width:@GetContainerWidth(); height: 400px; border: 1px solid black">
+    Shrink the browser to resize the container.
 </div>
 
 
 @code {
     private bool IsSmallScreen { get; set; }
+    private bool isLarge { get; set; }
 
-    private string MediaQuery { get; set; } = "(max-width: 767px)";
+    private string SmallScreenMediaQuery { get; set; } = "(max-width: 767px)";
+    private string LargeScreenMediaQuery { get; set; } = "(min-width: 1199px)";
+
+    private string GetContainerWidth()
+    {
+        string width = "900px";
+
+        if (IsSmallScreen)
+        {
+            width = "500px";
+        }
+        if (isLarge)
+        {
+            width = "100%";
+        }
+
+        return width;
+    }
 } 
 ````
+
+## Integration
+
+You can use the TelerikMediaQuery together with other Telerik UI for Blazor components.
+you can integrate the TelerikMediaQuery with our components. [See the Integration article for more information...]({%slug mediaquery-integration%})
 
 ## MediaQuery Parameters
 
@@ -46,12 +70,6 @@ The <a href = "https://www.telerik.com/blazor-ui/mediaquery" target="_blank">Med
 |-----------|------------------------|-------------|
 | `Media`  | `string` | the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">media query string</a> that will be matched. |
 | `OnChange`  | `EventCallback<bool>` |  This event indicates whether the media query string provided to the `Media` parameter matches the current browser size. It fires when it matches, and when it stops matching. See the [Events]({%slug mediaquery-events%}) article for more information.  |
-
-
-## Integration
-
-You can use the TelerikMediaQuery together with other Telerik UI for Blazor components.
-you can integrate the TelerikMediaQuery with our components. [See the Integration article for more information...]({%slug mediaquery-integration%})
 
 
 ## Reuse Multiple Breakpoints
