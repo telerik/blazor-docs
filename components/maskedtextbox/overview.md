@@ -183,11 +183,14 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
 }
 ````
 
+## Next Steps
+
+* [Explore the behavior of the MaskedTextBox when pasting content]({%slug maskedtextbox-paste%})
+* [Learn more about the MaskedTextBox events]({%slug maskedtextbox-events%})
 
 ## See Also
 
   * [Live Demo: MaskedTextbox](https://demos.telerik.com/blazor-ui/maskedtextbox/overview)
   * [Live Demo: MaskedTextbox Validation](https://demos.telerik.com/blazor-ui/maskedtextbox/validation)
-  * [Input Validation]({%slug common-features/input-validation%})
   * [Add Floating Label]({%slug inputs-kb-floating-label%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMaskedTextBox)
