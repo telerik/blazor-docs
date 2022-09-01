@@ -35,6 +35,8 @@ Here is a complete list of the base themes, all available swatches and their CDN
 
 * [Material](#material) - Based on Material Design. Main is our "[Material]({%slug general-information/themes%}#material-notes)" theme, which itself is built around the initial theme of <a href = "https://material.angular.io/" target = "_blank">material.angular.io</a>.
 
+* [Fluent](#fluent) - Based on [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui/).
+
 >important Make sure that the theme version in the CDN URL is compatible with the UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide theme compatibility information for each UI for Blazor version. You can also use a [newer theme version](https://github.com/telerik/kendo-themes/releases), if it doesn't contain breaking changes and has a fix that you need. 
 
 >tip We distribute the most commonly used swatches in a separate [Telerik Blazor CDN]({%slug themes-swatch-distribution%}#telerik-blazor-cdn). The CDN URLs contain the Telerik UI for Blazor version. Thus, you do not need to manually track the theme compatibility, just make sure to use the CDN URL including your UI for Blazor version.
@@ -98,3 +100,10 @@ Here is a complete list of the base themes, all available swatches and their CDN
 | Material Sky Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-sky-dark.css
 | Material Smoke | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-smoke.css
 
+### Fluent
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Swatch | CDN |
+| ----------- | ----------- |
+| Fluent Main | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/fluent/fluent-main.css

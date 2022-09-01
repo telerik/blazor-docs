@@ -28,14 +28,14 @@ Telerik UI for Blazor distributed swatches:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Default    | Bootstrap  | Material |
-| ----------- | ----------- | -------|
-| Main | Main | Main
-| Main Dark | Main Dark | Arctic
-| [Ocean Blue]({%slug themes-accessibility-swatch%}) | Nordic | Nova 
-| Nordic | Urban | Lime Dark
-| Purple | Vintage | Main Dark
-| Turquoise 
+| Default | Bootstrap  | Material | Fluent |
+| --- | --- | --- | --- | 
+| Main | Main | Main | Main |
+| Main Dark | Main Dark | Arctic |
+| [Ocean Blue]({%slug themes-accessibility-swatch%}) | Nordic | Nova |
+| Nordic | Urban | Lime Dark |
+| Purple | Vintage | Main Dark |
+| Turquoise |
 
 
 ## Distribution Options
@@ -85,6 +85,15 @@ Swatch | CDN |
 | Nova | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/swatches/material-nova.css
 | Lime Dark | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/swatches/material-lime-dark.css
 | Main Dark | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/swatches/material-main-dark.css
+
+
+#### Fluent
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+Swatch | CDN |
+| ----------- | ----------- |
+| Main | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-fluent/swatches/fluent-main.css
 
 
 ### ZIP archive
