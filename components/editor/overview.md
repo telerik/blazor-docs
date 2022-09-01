@@ -129,20 +129,17 @@ You can replace that string with any other content you can generate/obtain accor
     }
 }
 ````
-<!--
 
-## Features
+## Next Steps
 
-consider - maybe link toolbars, import/export, custom commands, events, validation. There isn't much left so this may drop out.
--->
+* [Explore the Built-in Tools and Commands]({%slug editor-built-in-tools%})
+* [Create Custom Tools]({%slug editor-custom-tool%})
+* [Explore the Editor Edit Modes](editor-edit-modes-overview)
+* [Import and Export Data]({%slug editor-import-export%})
+* [Learn more about the Editor Events]({%slug editor-events%})
 
 ## See Also
 
-  * [Toolbar]({%slug editor-toolbars%})
-  * [Built-in Tools and Commands]({%slug editor-built-in-tools%})
-  * [Custom Tools]({%slug editor-custom-tools%})
-  * [Import and Export]({%slug editor-import-export%})
-  * [Events]({%slug editor-events%})
   * [Live Demo: Editor](https://demos.telerik.com/blazor-ui/editor/overview)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikEditor)
    
