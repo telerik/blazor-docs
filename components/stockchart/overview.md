@@ -112,21 +112,7 @@ The Telerik Stock Chart provides a [Navigator]({%slug stockchart-navigator%}) to
 ![stockchart basic example](images/stockchart-basic-example.png)
 
 
-
 @[template](/_contentTemplates/stockchart/link-to-basics.md#configurable-nested-chart-settings)
-
->caption Component namespace and reference
-
-````CSHTML
-@using Telerik.Blazor.Components
-
-<TelerikStockChart @ref="myStockChartRef">
-</TelerikStockChart>
-
-@code {
-	Telerik.Blazor.Components.TelerikStockChart myStockChartRef { get; set; }
-}
-````
 
 ## Stock Chart Size
 
@@ -253,10 +239,13 @@ To execute StockChart methods, obtain reference to the component instance via `@
 |---------|-------------|
 | Refresh | You can use that method to programmatically re-render the component. |
 
+## Next Steps
+
+* [Bind Data to the StockChart]({%slug stockchart-data-binding%})
+* [Explore the Navigator]({%slug stockchart-navigator%})
+* [Learn more about the Crosshair]({%slug stockchart-crosshairs%})
+
 ## See Also
 
-  * [Data Binding]({%slug stockchart-data-binding%})
-  * [Crosshair]({%slug stockchart-crosshairs%})
-  * [Navigator]({%slug stockchart-navigator%})
   * [Live Demos: Stock Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikStockChart)
