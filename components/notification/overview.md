@@ -14,14 +14,6 @@ This article provides information about the <a href = "https://www.telerik.com/b
 
 The Notification component renders a brief message to the user which holds information regarding the status of a process in the application. Using its settings you can customize its position, animation options and rendering. 
 
-#### In This Article
-
-
-- [Basics](#basics)
-- [Success, Info, Warning, Error Notifications](#success-info-warning-error-notifications)
-- [Features](#features)
-- [NotificationModel Class](#notificationmodel-class)
-- [Show Method](#show-method)
 
 ## Creating Blazor Notification
 
@@ -64,67 +56,33 @@ The Notification component renders a brief message to the user which holds infor
 
 ![notification overview](images/notification-overview-basic-example.gif)
 
-## Success, Info, Warning, Error Notifications
+## Show Method
 
-Use the [`ThemeColor`]({%slug notification-appearance%}#themecolor) parameter to add a different themes to your Telerik Notification.
+The `Show()` method is accessible through the component's reference. This method allows you to add the Notification to the page. 
+You can find more information on opening, closing and hiding the Notification in the [Open, Close and Hide]({%slug notification-open-close-hide%}) article.
 
-There are built-in themes for the most common notifications such as Success, Info, Warning, Error, that also come with predefined icons, so you don't have to set them  explicitly.
-
->caption Success, Info, Warning, Error notifications
-
-![success, info, warning, error notification themes](images/notification-success-error-info-warning.gif)
+>caption Get a reference to the Notification and use the Show method
 
 ````CSHTML
-@* This sample shows a Success, Error, Warning and Info notifications *@
+@* The fully qualified class name of the notification component so you can use its reference *@
 
-<TelerikButton OnClick="@AddNotifications">Add success, info, warning, error notification</TelerikButton>
+<TelerikButton OnClick="@AutoCloseNotification">Add auto close notification</TelerikButton>
 
-<TelerikNotification @ref="@NotificationReference" Class="MyTelerikNotification"></TelerikNotification>
+<TelerikNotification @ref="@NotificationReference"></TelerikNotification>
 
 @code {
-    public TelerikNotification NotificationReference { get; set; }
+    Telerik.Blazor.Components.TelerikNotification NotificationReference { get; set; }
 
-    public void AddNotifications()
+    void AutoCloseNotification()
     {
-        // Success
         NotificationReference.Show(new NotificationModel()
         {
-            ThemeColor = ThemeConstants.Notification.ThemeColor.Success,
-            Text = "Success",
-        });
-
-        // Info
-        NotificationReference.Show(new NotificationModel()
-        {
-            ThemeColor = ThemeConstants.Notification.ThemeColor.Info,
-            Text = "Info",
-        });
-
-        // Warning
-        NotificationReference.Show(new NotificationModel()
-        {
-            ThemeColor = ThemeConstants.Notification.ThemeColor.Warning,
-            Text = "Warning",
-        });
-
-        // Error
-        NotificationReference.Show(new NotificationModel()
-        {
-            ThemeColor = ThemeConstants.Notification.ThemeColor.Error,
-            Text = "Error",
+            Text = "Auto Closable Notification",
+            ThemeColor = "primary",
+            Closable = false
         });
     }
-}
-
-<style>
-    .MyTelerikNotification .k-notification-container .k-notification-wrap {
-        width: 300px;
-        height: 50px;
-        font-size: 1.5em;
-        text-align: center;
-        align-items: center;
-    }
-</style>
+} 
 ````
 
 ## Notification Parameters
@@ -156,51 +114,18 @@ The `NotificationModel` class is used to add new notifications to the page. You 
 | `Icon`  | `string` | Specifies the icon that will render in the component if the `ShowIcon` parameter is set to `true`. You can find more information on adding an icon to a Telerik Component in [Telerik Font Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component). |
 | `Text`  | `string` | the text that will be rendered in the Notification component. |
 
-## Show Method
-
-The `Show()` method is accessible through the component's reference. This method allows you to add the Notification to the page. 
-You can find more information on opening, closing and hiding the Notification in the [Open, Close and Hide]({%slug notification-open-close-hide%}) article.
-
->caption Get a reference to the Notification and use the Show method
-
-````CSHTML
-@* The fully qualified class name of the notification component so you can use its reference *@
-
-<TelerikButton OnClick="@AutoCloseNotification">Add auto close notification</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference"></TelerikNotification>
-
-@code {
-    Telerik.Blazor.Components.TelerikNotification NotificationReference { get; set; }
-
-    void AutoCloseNotification()
-    {
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "Auto Closable Notification",
-            ThemeColor = "primary",
-            Closable = false
-        });
-    }
-} 
-````
 
 >tip @[template](/_contentTemplates/notification/templates.md#one-instance-per-app-link)
 
-## Templates
+## Next Steps
 
-You can control the rendering of the Notification by using Templates. [See the Templates article for more information...]({%slug notification-templates%})
-
-## Styling and Appearance
-
-You can customize the styling of the Notification component to match the rest of the busines application. [See the Appearance article for more information...]({%slug notification-appearance%})
+* [Learn more about the Notification Templates]({%slug notification-templates%})
+* [Customize the Notification Appearance]({%slug notification-appearance%})
+* [Explore the Stacked Notifications]({%slug notification-stacked-notifications%})
 
 ## See Also
 
   * [Live Demo: Notification](https://demos.telerik.com/blazor-ui/notification/overview)
-  * [Appearance Settings]({%slug notification-appearance%})
-  * [Open, Close and Hide]({%slug notification-open-close-hide%})
-  * [Templates]({%slug notification-templates%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikNotification)
   * [One Notification Instance for All Components Sample Project](https://github.com/telerik/blazor-ui/tree/master/notification/single-instance-per-app)
    
