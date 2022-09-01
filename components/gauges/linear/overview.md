@@ -12,67 +12,62 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/linear-gauge" target="_blank">Telerik Linear Gauge for Blazor</a> represents [numerical values]({%slug linear-gauge-pointers%}) on a [scale]({%slug linear-gauge-scale%}) of ranges in a linear format.
 
-#### This article is separated in the following sections: 
-
-* [Basics](#basics)
-
-* [Features](#features)
-
-* [Methods](#methods)
-
-## Basics
-
->caption To add a Telerik Linear Gauge for Blazor to your application:
+## Creating Blazor Linear Gauge
 
 1. Add the `<TelerikLinearGauge>` tag.
-
-1. Add one or more instance of the `<LinearGaugePointer>` to the `<LinearGaugePointers>` collection.
-
-1. Provide a `Value` for each `<LinearGaugePointer>`.
-
->caption Basic Telerik Linear Gauge for Blazor.
-
-![Basic Linear Gauge](images/basic-linear-gauge.png)
+1. Add an instance of the `<LinearGaugePointer>` to the `<LinearGaugePointers>` collection.
+1. Provide a `Value` for the `<LinearGaugePointer>`.
 
 ````CSHTML
+
 @* Setup a basic linear gauge *@
 
 <TelerikLinearGauge>
     <LinearGaugePointers>
-        <LinearGaugePointer Value="30" />
+        <LinearGaugePointer Value="@GaugeValue" />
     </LinearGaugePointers>
 </TelerikLinearGauge>
+
+@code {
+    private double GaugeValue { get; set; } = 40;
+}
 ````
 
-## Features
+## Scale
 
-The Telerik Linear Gauge for Blazor exposes the following features:
+The scale of the Linear Gauge renders the values of the [pointers]({%slug linear-gauge-pointers%}) and [labels]({%slug linear-gauge-labels%}). See the [Scale]({%slug linear-gauge-scale%}) article for more information on how to customize the scale of the component.
 
-#### Linear Gauge Size
+## Pointers
 
-* `Width` - `string` - controls the width of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+The pointers indicate the values on the scale of the component. See the [Pointers]({%slug linear-gauge-pointers%}) article for more information on how to customize the pointers of the component.
 
-* `Height` - `string` - controls the height of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+## Labels
 
-You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
+The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug linear-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
 
-#### Other Feautres
+## Ranges
 
-* `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
+The ranges are used to visually distinguish particular values on the scale. [Read the Ranges article for more information...]({%slug linear-gauge-ranges%})
 
-* Scale - The scale of the linear gauge renders the values of the [pointers]({%slug linear-gauge-pointers%}), different [ranges]({%slug linear-gauge-ranges%}) and [labels]({%slug linear-gauge-ranges%}). See the [Scale]({%slug linear-gauge-scale%}) article for more information on how to customize the scale of the component.
+## Linear Gauge Parameters
 
-* Ranges - The ranges are used to visually distinguish particular values on the scale. See the [Ranges]({%slug linear-gauge-ranges%}) article for more information on how to provide ranges for the scale of the component.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+| Parameter | Type and Default Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-lineargauge">` element. |
+| `Width` | `string` | Controls the width of the Linear Gauge. |
+| `Height` | `string` | Controls the height of the Linear Gauge. |
+| `Transitions` | `bool?` | Controls if the animation transitions must be rendered. |
 
-* Labels - The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug linear-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
+## Linear Gauge Reference and Methods
 
-* Pointers - The pointers indicate the values on the scale of the component. See the [Pointers]({%slug linear-gauge-pointers%}) article for more information on how to customize the pointers of the component.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+ 
+| Method | Description |
+| --- | --- |
+| `Refresh` | Programatically re-render the Linear Gauge. |
 
-## Methods
-
-The Linear Gauge reference exposes the `Refresh` method which allows you to programatically re-render the component. 
-
->caption Get a component reference and use the Refresh method
+>caption Get a reference to the Linear Gauge and use the Refresh method
 
 ````CSHTML
 @* Change the Height of the component *@
@@ -102,8 +97,11 @@ The Linear Gauge reference exposes the `Refresh` method which allows you to prog
 }
 ````
 
+## Next Steps
+
+* [Explore the Linear Gauge Scale]({%slug linear-gauge-scale%})
+* [Learn more about the Linear Gauge Pointers]({%slug linear-gauge-pointers%})
+
 ## See Also
 
 * [Live Demo: Linear Gauge](https://demos.telerik.com/blazor-ui/lineargauge/overview)
-* [Linear Gauge: Scale]({%slug linear-gauge-scale%})
-* [Linear Gauge: Pointers]({%slug linear-gauge-pointers%})
