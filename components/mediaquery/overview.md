@@ -57,11 +57,6 @@ The <a href = "https://www.telerik.com/blazor-ui/mediaquery" target="_blank">Med
 } 
 ````
 
-## Integration
-
-You can use the TelerikMediaQuery together with other Telerik UI for Blazor components.
-you can integrate the TelerikMediaQuery with our components. [See the Integration article for more information...]({%slug mediaquery-integration%})
-
 ## MediaQuery Parameters
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
