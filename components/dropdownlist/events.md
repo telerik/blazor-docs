@@ -15,6 +15,7 @@ This article explains the events available in the Telerik DropDownList for Blazo
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
 * [OnRead](#onread)
+* [OnItemRender](#onitemrender)
 * [OnBlur](#onblur)
 
 The examples in this article use `string` values and simple data sources for brevity. You can use full models, see the [data binding]({%slug components/dropdownlist/databind%}) article for more details.
@@ -225,6 +226,58 @@ You can also call remote data through `async` operations.
 }
 ````
 
+## OnItemRender
+
+The `OnItemRender` event fires when each item in the collection passed to the `Data` parameter of the DropDownList renders. 
+
+The event handler receives as an argument an `DropDownListItemRenderEventArgs<TItem>` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description                              |
+|----------|------------------------------------------|
+| `Item`   | The current item that renders in the DropDownList. |
+| `Class`  | The custom CSS class that will be added to the item.     |
+
+````CSHTML
+@* Disable an item in the DropDownList *@
+
+<style>
+    .disabled-item {
+        pointer-events: none;
+        color: gray;
+    }
+</style>
+
+<TelerikDropDownList Data="@myDdlData"
+                     OnItemRender="@OnItemRenderHandler"
+                     TextField="MyTextField"
+                     ValueField="MyValueField"
+                     @bind-Value="selectedValue">
+</TelerikDropDownList>
+
+@code {
+    int selectedValue { get; set; }
+
+    public void OnItemRenderHandler(DropDownListItemRenderEventArgs<MyDdlModel> args)
+    {
+        MyDdlModel currentItem = args.Item;
+
+        if (currentItem.MyTextField == "item 4")
+        {
+            args.Class = "disabled-item";
+        }
+    }
+
+    public class MyDdlModel
+    {
+        public int MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
+
+    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+}
+````
 
 ## OnBlur
 
