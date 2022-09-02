@@ -228,54 +228,55 @@ You can also call remote data through `async` operations.
 
 ## OnItemRender
 
-The `OnItemRender` event fires when each item in the collection passed to the `Data` parameter of the DropDownList renders. 
+The `OnItemRender` event fires when each item in the DropDownList popup renders.
 
 The event handler receives as an argument an `DropDownListItemRenderEventArgs<TItem>` object that contains:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Property | Description                              |
-|----------|------------------------------------------|
-| `Item`   | The current item that renders in the DropDownList. |
-| `Class`  | The custom CSS class that will be added to the item.     |
+| Property | Description |
+| --- | --- |
+| `Item` | The current item that renders in the DropDownList. |
+| `Class` | The custom CSS class that will be added to the item.     |
 
 ````CSHTML
-@* Disable an item in the DropDownList *@
+@* Customize an item in the DropDownList *@
 
 <style>
-    .disabled-item {
-        pointer-events: none;
-        color: gray;
+    .customized-item {
+        font-weight:bold;
+        color: white;
+        background-color: blue;
     }
 </style>
 
-<TelerikDropDownList Data="@myDdlData"
+<TelerikDropDownList Data="@DropDownListData"
                      OnItemRender="@OnItemRenderHandler"
-                     TextField="MyTextField"
-                     ValueField="MyValueField"
-                     @bind-Value="selectedValue">
+                     TextField="ItemText"
+                     ValueField="ItemId"
+                     @bind-Value="DropDownListValue">
 </TelerikDropDownList>
 
 @code {
-    int selectedValue { get; set; }
+    private int DropDownListValue { get; set; }
 
-    public void OnItemRenderHandler(DropDownListItemRenderEventArgs<MyDdlModel> args)
+    private void OnItemRenderHandler(DropDownListItemRenderEventArgs<ItemDescriptor> args)
     {
-        MyDdlModel currentItem = args.Item;
+        ItemDescriptor currentItem = args.Item;
 
-        if (currentItem.MyTextField == "item 4")
+        if (currentItem.ItemText == "item 4" && currentItem.ItemId == 4)
         {
-            args.Class = "disabled-item";
+            args.Class = "customized-item";
         }
     }
 
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
+    private IEnumerable<ItemDescriptor> DropDownListData = Enumerable.Range(1, 20).Select(x => new ItemDescriptor { ItemText = "item " + x, ItemId = x });
 
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
 }
 ````
 

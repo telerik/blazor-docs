@@ -230,7 +230,7 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 
 ## OnItemRender
 
-The `OnItemRender` event fires when each item in the collection passed to the `Data` parameter of the AutoComplete renders. 
+The `OnItemRender` event fires when each item in the AutoComplete dropdown renders.
 
 The event handler receives as an argument an `AutoCompleteItemRenderEventArgs<TItem>` object that contains:
 
@@ -242,44 +242,45 @@ The event handler receives as an argument an `AutoCompleteItemRenderEventArgs<TI
 | `Class` | The custom CSS class that will be added to the item. |
 
 ````CSHTML
-@* Disable an item in the AutoComplete *@
+@* Customize an item in the AutoComplete *@
 
 <style>
-    .disabled-item{
-        pointer-events: none;
-        color: gray;
+    .customized-item{
+        font-weight:bold;
+        color: white;
+        background-color: blue;
     }
 </style>
 
 <TelerikAutoComplete Data="@Suggestions"
                      OnItemRender="@OnItemRenderHandler"
-                     ValueField="@( nameof(SuggestionsModel.Suggestion) )"
-                     @bind-Value="@TheValue" />
+                     ValueField="@(nameof(SuggestionsModel.Suggestion))"
+                     @bind-Value="@AutoCompleteValue" />
 
 @code {
-    string TheValue { get; set; }
+    private string AutoCompleteValue { get; set; }
 
-    public void OnItemRenderHandler(AutoCompleteItemRenderEventArgs<SuggestionsModel> args)
+    private void OnItemRenderHandler(AutoCompleteItemRenderEventArgs<SuggestionsModel> args)
     {
         SuggestionsModel currentItem = args.Item;
 
-        if (currentItem.Suggestion == "second")
+        if (currentItem.Suggestion == "second" && currentItem.UniqueIdentifier == 2)
         {
-            args.Class = "disabled-item";
+            args.Class = "customized-item";
         }
     }
 
     List<SuggestionsModel> Suggestions { get; set; } = new List<SuggestionsModel>
     {
-        new SuggestionsModel { Suggestion = "first", SomeOtherField = 1 },
-        new SuggestionsModel { Suggestion = "second", SomeOtherField = 2 },
-        new SuggestionsModel { Suggestion = "third", SomeOtherField = 3 }
+        new SuggestionsModel { Suggestion = "first", UniqueIdentifier = 1 },
+        new SuggestionsModel { Suggestion = "second", UniqueIdentifier = 2 },
+        new SuggestionsModel { Suggestion = "third", UniqueIdentifier = 3 }
     };
 
     public class SuggestionsModel
     {
-        public string Suggestion { get; set; }//the auto complete needs only the string field
-        public int SomeOtherField { get; set; }
+        public string Suggestion { get; set; }
+        public int UniqueIdentifier { get; set; }
     }
 }
 ````

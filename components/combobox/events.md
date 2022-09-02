@@ -303,54 +303,55 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 
 ## OnItemRender
 
-The `OnItemRender` event fires when each item in the collection passed to the `Data` parameter of the ComboBox renders. 
+The `OnItemRender` event fires when each item in the ComboBox dropdown renders.
 
 The event handler receives as an argument an `ComboBoxItemRenderEventArgs<TItem>` object that contains:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Property | Description                              |
-|----------|------------------------------------------|
-| `Item`   | The current item that renders in the ComboBox. |
-| `Class`  | The custom CSS class that will be added to the item.     |
+| Property | Description |
+| --- | --- |
+| `Item` | The current item that renders in the ComboBox. |
+| `Class` | The custom CSS class that will be added to the item. |
 
 ````CSHTML
-@* Disable an item in the ComboBox *@
+@* Customize an item in the ComboBox *@
 
 <style>
-    .disabled-item {
-        pointer-events: none;
-        color: gray;
+    .customized-item {
+        font-weight:bold;
+        color: white;
+        background-color: blue;
     }
 </style>
 
-<TelerikComboBox Data="@myDdlData"
+<TelerikComboBox Data="@ComboBoxData"
                  OnItemRender="@OnItemRenderHandler"
-                 TextField="MyTextField"
-                 ValueField="MyValueField"
-                 @bind-Value="selectedValue">
+                 TextField="ItemText"
+                 ValueField="ItemId"
+                 @bind-Value="ComboBoxValue">
 </TelerikComboBox>
 
 @code {
-    int selectedValue { get; set; }
+    private int ComboBoxValue { get; set; }
 
-    public void OnItemRenderHandler(ComboBoxItemRenderEventArgs<MyDdlModel> args)
+    public void OnItemRenderHandler(ComboBoxItemRenderEventArgs<ItemDescriptor> args)
     {
-        MyDdlModel currentItem = args.Item;
+        ItemDescriptor currentItem = args.Item;
 
-        if (currentItem.MyTextField == "item 2")
+        if (currentItem.ItemText == "item 2" && currentItem.ItemId == 2)
         {
-            args.Class = "disabled-item";
+            args.Class = "customized-item";
         }
     }
 
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
+    private IEnumerable<ItemDescriptor> ComboBoxData = Enumerable.Range(1, 20).Select(x => new ItemDescriptor { ItemText = "item " + x, ItemId = x });
 
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
 }
 ````
 

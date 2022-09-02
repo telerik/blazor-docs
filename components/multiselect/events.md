@@ -221,57 +221,58 @@ You can also call remote data through async operations.
 
 ## OnItemRender
 
-The `OnItemRender` event fires when each item in the collection passed to the `Data` parameter of the MultiSelect renders. 
+The `OnItemRender` event fires when each item in the MultiSelect dropdown renders. 
 
 The event handler receives as an argument an `MultiSelectItemRenderEventArgs<TItem>` object that contains:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Property | Description                              |
-|----------|------------------------------------------|
+| Property | Description |
+| --- | --- |
 | `Item`   | The current item that renders in the MultiSelect. |
 | `Class`  | The custom CSS class that will be added to the item.     |
 
 ````CSHTML
-@* Disable an item in the MultiSelect *@
+@* Customize an item in the MultiSelect *@
 
 <style>
-    .disabled-item {
-        pointer-events: none;
-        color: gray;
+    .customized-item {
+        font-weight:bold;
+        color: white;
+        background-color: blue;
     }
 </style>
 
 <TelerikMultiSelect Data="@Options"
                     OnItemRender="@OnItemRenderHandler"
-                    @bind-Value="@TheValues"
+                    @bind-Value="@MultiSelectValues"
                     TextField="StringRepresentation"
-                    ValueField="MyValueField" />
+                    ValueField="UniqueIdentifier" />
 
 @code {
-    List<int> TheValues { get; set; }
+    private List<int> MultiSelectValues { get; set; }
 
-    public void OnItemRenderHandler(MultiSelectItemRenderEventArgs<OptionsModel> args)
+    private void OnItemRenderHandler(MultiSelectItemRenderEventArgs<OptionsModel> args)
     {
         OptionsModel currentItem = args.Item;
 
-        if (currentItem.StringRepresentation == "third")
+        if (currentItem.StringRepresentation == "third" && currentItem.UniqueIdentifier == 3)
         {
-            args.Class = "disabled-item";
+            args.Class = "customized-item";
         }
     }
 
-    List<OptionsModel> Options { get; set; } = new List<OptionsModel>
+    private List<OptionsModel> Options { get; set; } = new List<OptionsModel>
     {
-        new OptionsModel { StringRepresentation = "first",  MyValueField = 1 },
-        new OptionsModel { StringRepresentation = "second", MyValueField = 2 },
-        new OptionsModel { StringRepresentation = "third",  MyValueField = 3 }
+        new OptionsModel { StringRepresentation = "first",  UniqueIdentifier = 1 },
+        new OptionsModel { StringRepresentation = "second", UniqueIdentifier = 2 },
+        new OptionsModel { StringRepresentation = "third",  UniqueIdentifier = 3 }
     };
 
     public class OptionsModel
     {
         public string StringRepresentation { get; set; }
-        public int MyValueField { get; set; } 
+        public int UniqueIdentifier { get; set; } 
     }
 }
 ````
