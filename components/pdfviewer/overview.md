@@ -19,6 +19,7 @@ To use a Telerik PDF Viewer for Blazor:
 
 1. Add the `TelerikPdfViewer` tag.
 1. Set the `Data` parameter to a byte array that will hold the PDF file contents.
+1. If you are developing a Blazor **Server** app, [increase the maximum SignalR message size](#large-file-support).
 1. (optional) Subscribe to the [PDF Viewer's events]({%slug pdfviewer-events%}) to enhance the user experience.
 1. (optional) Set [`Width` or `Height`](#pdfviewer-parameters) for the component.
 
@@ -89,7 +90,7 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 
 ## PdfViewer Reference and Methods
 
-The PdfViewer exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute. The PdfViewer methods are:
+The PdfViewer exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute. The PdfViewer methods are:
 
 * `Rebind` - Refreshes the PDF Viewer and ensures it is displaying the current file `Data`.
 
