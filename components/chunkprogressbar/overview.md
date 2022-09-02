@@ -34,7 +34,7 @@ The <a href = "https://www.telerik.com/blazor-ui/chunkprogressbar" target = "_bl
 
 This section explains the connection between the [ChunkCount, Value, and MaxValue parameters](#chunkprogressbar-parameters). In the [Matching Values](#matching-values) and the [Non-matching Values](#non-matching-values) sub-sections you can see how the ChunkProgressBar will render its chunks in these scenarios. 
 
-## Matching Values
+### Matching Values
 
 When the `Max` and `ChunkCount` parameters match in value, the `Value` parameter represents the number of chunks that are hightlighted.
 
@@ -49,7 +49,7 @@ When the `Max` and `ChunkCount` parameters match in value, the `Value` parameter
 
 ![Blazor Chunkprogressbar Matching Values Example](images/chunkprogressbar-matching-values-example.png)
 
-## Non-matching Value
+### Non-matching Value
 
 Each chunk (section) represents an equal part of the maximum value (`Max/ChunkCount`). So, when the `Max` and `ChunkCount` parameters do not match in value, the `Value` parameter highlights the number of chunks that is less than or equal (`<=`) to the full fractions that it represents.
 
