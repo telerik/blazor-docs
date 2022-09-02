@@ -91,26 +91,128 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 
 The PdfViewer exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute. The PdfViewer methods are:
 
-* `Rebind` - Refreshes the PDF Viewer and ensures it is displaying the current file `Data`.
+* `Rebind` - Refreshes the PDF Viewer and ensures it is displaying the latest file `Data`. Use `Rebind()` when changes to the PDF file source can occur behind the scenes and the Blazor framework does not re-render the PDF Viewer automatically. Such a scenario is simulated in the example below.
 
->caption PDF Viewer reference and method usage
+>caption PDF Viewer reference and Rebind method usage
 
 ````CSHTML
-<TelerikButton OnClick="@OnButtonClick">Rebind PDF Viewer</TelerikButton>
+@using System.Timers
+
+@implements IDisposable
 
 <TelerikPdfViewer @ref="@PdfViewerRef"
                   Data="@PdfSource">
+    <PdfViewerToolBar>
+        <PdfViewerToolBarCustomTool>
+            <TelerikButton OnClick="@OnButtonClick" Icon="refresh">Rebind PDF Viewer</TelerikButton>
+        </PdfViewerToolBarCustomTool>
+    </PdfViewerToolBar>
 </TelerikPdfViewer>
 
 @code {
     private TelerikPdfViewer PdfViewerRef { get; set; }
 
-    private byte[] PdfSource { get; set; }
-
     private async Task OnButtonClick()
     {
         PdfViewerRef.Rebind();
     }
+
+    private byte[] PdfSource
+    {
+        get
+        {
+            return System.Text.Encoding.UTF8.GetBytes(pdfSourceRaw.Replace("placeholder", "PDF file updated at " + TimeString));
+        }
+    }
+
+    private string TimeString { get; set; } = DateTime.Now.ToLongTimeString();
+
+    private const int TimerInterval = 1000;
+
+    private Timer PdfTimer { get; set; } = new Timer();
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (PdfTimer.Enabled == false)
+        {
+            PdfTimer.Interval = TimerInterval;
+            PdfTimer.Elapsed -= OnTimerElapsed;
+            PdfTimer.Elapsed += OnTimerElapsed;
+            PdfTimer.AutoReset = true;
+            PdfTimer.Start();
+        }
+    }
+
+    private void OnTimerElapsed(Object source, ElapsedEventArgs e)
+    {
+        TimeString = DateTime.Now.ToLongTimeString();
+    }
+
+    public void Dispose()
+    {
+        PdfTimer.Stop();
+        PdfTimer?.Close();
+    }
+
+    private string pdfSourceRaw = @"%PDF-1.1
+%¥±ë
+
+1 0 obj
+<< /Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<< /Type /Pages
+/Kids [3 0 R]
+/Count 1
+/MediaBox [0 0 300 144]
+>>
+endobj
+
+3 0 obj
+<<  /Type /Page
+/Parent 2 0 R
+/Resources
+<< /Font
+   << /F1
+       << /Type /Font
+          /Subtype /Type1
+          /BaseFont /Times-Roman
+       >>
+   >>
+>>
+/Contents 4 0 R
+>>
+endobj
+
+4 0 obj
+<< /Length 59 >>
+stream
+BT
+/F1 18 Tf
+0 0 Td
+(placeholder) Tj
+ET
+endstream
+endobj
+
+xref
+0 5
+0000000000 65535 f
+0000000021 00000 n
+0000000086 00000 n
+0000000195 00000 n
+0000000490 00000 n
+trailer
+<<  /Root 1 0 R
+/Size 5
+>>
+startxref
+609
+%%EOF
+";
 }
 ````
 
