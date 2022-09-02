@@ -50,10 +50,6 @@ The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor 
 }
 ````
 
->caption The result from the code snippet above
-
-![Editor first look](images/editor-overview.png)
-
 ## Get/Set Content
 
 The Blazor HTML Editor interacts with its content (value) like all standard components - through its `Value` parameter. You can use it to get and set the HTML string the editor will work with. [Read more about value binding and data binding...]({%slug get-started-value-vs-data-binding%})
