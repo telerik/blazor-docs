@@ -222,6 +222,7 @@ Use the Form Reference to get access to the `EditContext` object that the form w
 
 >caption Get a reference to the Telerik Form for Blazor 
 
+<div class="skip-repl"></div>
 ````CSHTML
 @* Get a reference to the Form component *@
 
