@@ -23,7 +23,7 @@ The Notification component renders a brief message to the user which holds infor
 - [NotificationModel Class](#notificationmodel-class)
 - [Show Method](#show-method)
 
-## Creating Notification
+## Creating Blazor Notification
 
 1. Add the `<TelerikNotification>` tag to your razor page.
 1. Obtain the component reference via `@ref`.
