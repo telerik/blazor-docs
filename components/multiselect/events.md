@@ -14,6 +14,7 @@ This article explains the events available in the Telerik MultiSelect for Blazor
 
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
+* [OnItemRender](#OnItemRender)
 * [OnRead](#onread)
 * [OnBlur](#onblur)
 
@@ -214,6 +215,63 @@ You can also call remote data through async operations.
     {
         public int Id { get; set; }
         public string Make { get; set; }
+    }
+}
+````
+
+## OnItemRender
+
+The `OnItemRender` event fires when each item in the collection passed to the `Data` parameter of the MultiSelect renders. 
+
+The event handler receives as an argument an `MultiSelectItemRenderEventArgs<TItem>` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description                              |
+|----------|------------------------------------------|
+| `Item`   | The current item that renders in the MultiSelect. |
+| `Class`  | The custom CSS class that will be added to the item.     |
+
+````CSHTML
+@* Disable an item in the MultiSelect *@
+
+<style>
+    .disabled-item {
+        pointer-events: none;
+        color: gray;
+    }
+</style>
+
+<TelerikMultiSelect Data="@Options"
+                    OnItemRender="@OnItemRenderHandler"
+                    @bind-Value="@TheValues"
+                    TextField="StringRepresentation"
+                    ValueField="MyValueField" />
+
+@code {
+    List<int> TheValues { get; set; }
+
+    public void OnItemRenderHandler(MultiSelectItemRenderEventArgs<OptionsModel> args)
+    {
+        OptionsModel currentItem = args.Item;
+
+        if (currentItem.StringRepresentation == "third")
+        {
+            args.Class = "disabled-item";
+        }
+    }
+
+    List<OptionsModel> Options { get; set; } = new List<OptionsModel>
+    {
+        new OptionsModel { StringRepresentation = "first",  MyValueField = 1 },
+        new OptionsModel { StringRepresentation = "second", MyValueField = 2 },
+        new OptionsModel { StringRepresentation = "third",  MyValueField = 3 }
+    };
+
+    public class OptionsModel
+    {
+        public string StringRepresentation { get; set; }
+        public int MyValueField { get; set; } 
     }
 }
 ````
