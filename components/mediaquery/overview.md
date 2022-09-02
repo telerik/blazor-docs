@@ -17,7 +17,7 @@ The <a href = "https://www.telerik.com/blazor-ui/mediaquery" target="_blank">Med
 >caption To use the TelerikMediaQuery on your page: 
 
 1. Add the `<TelerikMediaQuery>` tag to your razor page.
-1. In the `Media` parameter provide a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">CSS media query</a> to be matched. 
+1. Set the `Media` parameter to a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">CSS media query</a> to be matched. Use one component instance for each media query.
 1. Use the `OnChange` event to determine when the `Media` is matched. 
 
 
