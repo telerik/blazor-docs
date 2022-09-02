@@ -236,10 +236,10 @@ The event handler receives as an argument an `AutoCompleteItemRenderEventArgs<TI
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Property | Description                              |
-|----------|------------------------------------------|
-| `Item`   | The current item that renders in the AutoComplete. |
-| `Class`  | The custom CSS class that will be added to the item.     |
+| Property | Description |
+| --- | --- |
+| `Item` | The current item that renders in the AutoComplete. |
+| `Class` | The custom CSS class that will be added to the item. |
 
 ````CSHTML
 @* Disable an item in the AutoComplete *@
