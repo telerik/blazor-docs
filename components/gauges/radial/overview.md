@@ -58,7 +58,8 @@ The labels are rendered on the scale of the Radial Gauge to give inforation to t
 | `Width`  | `string` | Controls the width of the component. |
 | `Height`  | `string` | Controls the height of the component. |
 | `Class`  | `string` | renders a custom CSS class on the `<div class="k-gauge">` element. You can use that class to reposition the component on the page. |
-| `Transitions` | `bool?` | Controls if the animation transitions must be rendered. |
+| `Transitions` | `bool?` | Controls if the Radial Gauge uses animations for its value changes. |
+| `RenderAs` | `RenderingMode?` <br /> (`SVG`) | Controls if the gauge renders as `SVG` or `Canvas`. |
 
 ## Radial Gauge Reference and Methods
 

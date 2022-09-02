@@ -15,7 +15,7 @@ The <a href = "https://www.telerik.com/blazor-ui/circular-gauge" target="_blank"
 ## Creating Blazor Circular Gauge
 
 1. Add the `<TelerikCircularGauge>` tag.
-1. Add one or more instance of the `<CircularGaugePointer>` to the `<CircularGaugePointers>` collection.
+1. Add an instance of the `<CircularGaugePointer>` to the `<CircularGaugePointers>` collection.
 1. Provide a `Value` for each `<CircularGaugePointer>`.
 1. (optional) You can use the [Center Label Template]({%slug circular-gauge-labels%}#center-template) to display the value of the pointer in the center of the component.
 
@@ -55,7 +55,7 @@ The pointers indicate the values on the scale of the component. See the [Pointer
 
 The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug circular-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
 
-## Circular Gauge Size
+## Circular Gauge Parameters
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -64,7 +64,8 @@ The labels are rendered on the scale of the component to give information to the
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-circulargauge">` element. |
 | `Width` | `string` | Controls the width of the Circular Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article.|
 | `Height` | `string` | Controls the height of the Circular Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article. |
-| `Transitions` | `bool?` | Controls if the animation transitions must be rendered. |
+| `Transitions` | `bool?` | Controls if the Circular Gauge uses animations for its value changes. |
+| `RenderAs` | `RenderingMode?` <br /> (`SVG`) | Controls if the gauge renders as `SVG` or `Canvas`. |
 
 ## Circular Gauge Reference and Methods
 

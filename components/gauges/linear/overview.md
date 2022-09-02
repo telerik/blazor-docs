@@ -57,7 +57,9 @@ The ranges are used to visually distinguish particular values on the scale. [Rea
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-lineargauge">` element. |
 | `Width` | `string` | Controls the width of the Linear Gauge. |
 | `Height` | `string` | Controls the height of the Linear Gauge. |
-| `Transitions` | `bool?` | Controls if the animation transitions must be rendered. |
+| `Transitions` | `bool?` | Controls if the Linear Gauge uses animations for its value changes. |
+| `RenderAs` | `RenderingMode?` <br /> (`SVG`) | Controls if the gauge renders as `SVG` or `Canvas`. |
+
 
 ## Linear Gauge Reference and Methods
 

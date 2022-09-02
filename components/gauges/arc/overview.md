@@ -55,8 +55,7 @@ The labels are rendered on the scale of the component to give information to the
 | `Width` | `string` | Controls the width of the Arc Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article.|
 | `Height` | `string` | Controls the height of the Arc Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article. |
 | `Transitions` | `bool?` | Controls if the Arc Gauge uses animations for its value changes. |
-
-You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
+| `RenderAs` | `RenderingMode?` <br /> (`SVG`) | Controls if the gauge renders as `SVG` or `Canvas`. |
 
 ## Arc Gauge Reference and Methods
 
