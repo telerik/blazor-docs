@@ -12,7 +12,7 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/mediaquery" target="_blank">MediaQuery component for Blazor</a> allows you to react when the user changes the size of the browser. 
 
-## Creating MediaQuery
+## Creating Blazor MediaQuery
 
 >caption To use the TelerikMediaQuery on your page: 
 
