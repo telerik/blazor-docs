@@ -139,7 +139,7 @@ The following table lists Chart parameters, which are not discussed elsewhere in
 | `Width`  | `string` | Controls the width of the StockChart. |
 | `Height`  | `string` | Controls the height of the StockChart. |
 | `Class`  | `string` | Renders a custom CSS class on the `<div class="k-chart">` element. |
-| `Transitions` | `bool?` | Controls if the animation transitions must be rendered. |
+| `Transitions` | `bool?` | Controls if the Chart renders animations. |
 
 ## Chart Reference and Methods
 

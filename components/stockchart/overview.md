@@ -239,7 +239,8 @@ The following table lists StockChart parameters, which are not discussed elsewhe
 | `Width`  | `string` | Controls the width of the StockChart. |
 | `Height`  | `string` | Controls the height of the StockChart. |
 | `Class`  | `string` | Renders a custom CSS class on the `<div class="k-stockchart">` element. |
-| `Transitions` | `bool?` | Controls if the animation transitions must be rendered. |
+| `Transitions` | `bool?` | Controls if the StockChart renders animations. |
+| `RenderAs` | `RenderingMode?` <br /> (`SVG`) | Controls if the StockChart renders as `SVG` or `Canvas`. |
 
 ## Component Reference and Methods
 
