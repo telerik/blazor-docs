@@ -15,7 +15,7 @@ The PDF Viewer toolbar can render built-in and custom tools. This article descri
 
 ## Built-in Tools
 
-By default, the PDF Viewer displays all its built-in tools in the listed order below. Use the *tool tag* if you need to define a tool explicitly in a [custom toolbar configuration](#toolbar-customization).
+By default, the PDF Viewer displays all its built-in tools in the order below. Use the *tool tag* if you need to define a tool explicitly in a [custom toolbar configuration](#toolbar-customization).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -39,7 +39,7 @@ In addition to built-in tools, the PDF Viewer also supports custom tools. Use th
 
 ## Toolbar Customization
 
-Add a `<PdfViewerToolBar>` tag inside the `<TelerikPdfViewer>` tag to:
+Add a `<PdfViewerToolBar>` tag inside `<TelerikPdfViewer>` to:
 
 * Arrange the PDF Viewer tools in a specific order;
 * Remove some of the built-in tools;
