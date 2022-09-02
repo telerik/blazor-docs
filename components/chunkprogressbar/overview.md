@@ -100,7 +100,7 @@ In the example below each chunk is "worth" `10 / 4 = 2.5`. The `Value` is `3` so
 
 ## Next Steps
 
-* [Learn more about the [Indeterminate state]({%slug chunkprogressbar-indeterminate-state%})
+* [Learn more about the Indeterminate state]({%slug chunkprogressbar-indeterminate-state%})
 
 ## See Also
 
