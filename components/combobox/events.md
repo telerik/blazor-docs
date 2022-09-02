@@ -15,6 +15,7 @@ This article explains the events available in the Telerik ComboBox for Blazor:
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
 * [OnRead](#onread)
+* [OnItemRender](#onitemrender)
 * [OnBlur](#onblur)
 
 ## ValueChanged
@@ -300,6 +301,58 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 }
 ````
 
+## OnItemRender
+
+The `OnItemRender` event fires when each item in the collection passed to the `Data` parameter of the ComboBox renders. 
+
+The event handler receives as an argument an `ComboBoxItemRenderEventArgs<TItem>` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description                              |
+|----------|------------------------------------------|
+| `Item`   | The current item that renders in the ComboBox. |
+| `Class`  | The custom CSS class that will be added to the item.     |
+
+````CSHTML
+@* Disable an item in the ComboBox *@
+
+<style>
+    .disabled-item {
+        pointer-events: none;
+        color: gray;
+    }
+</style>
+
+<TelerikComboBox Data="@myDdlData"
+                 OnItemRender="@OnItemRenderHandler"
+                 TextField="MyTextField"
+                 ValueField="MyValueField"
+                 @bind-Value="selectedValue">
+</TelerikComboBox>
+
+@code {
+    int selectedValue { get; set; }
+
+    public void OnItemRenderHandler(ComboBoxItemRenderEventArgs<MyDdlModel> args)
+    {
+        MyDdlModel currentItem = args.Item;
+
+        if (currentItem.MyTextField == "item 2")
+        {
+            args.Class = "disabled-item";
+        }
+    }
+
+    public class MyDdlModel
+    {
+        public int MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
+
+    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+}
+````
 
 ## OnBlur
 
