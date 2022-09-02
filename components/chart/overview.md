@@ -136,7 +136,7 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 
 | Method  | Description |
 |---------|-------------|
-| Refresh | You can use that method to programmatically re-render the component.    |
+| Refresh | Use the method to programmatically re-render the Chart.  |
 
 ````CSHTML
 @using Telerik.Blazor.Components
