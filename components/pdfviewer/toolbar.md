@@ -48,8 +48,7 @@ Add a `<PdfViewerToolBar>` tag inside the `<TelerikPdfViewer>` tag to:
 >caption Customize the PDF Viewer toolbar
 
 ````CSHTML
-<TelerikPdfViewer Data="@PdfSource"
-                  OnDownload="@OnPdfDownload">
+<TelerikPdfViewer Data="@PdfSource">
     <PdfViewerToolBar>
         <PdfViewerToolBarCustomTool>
             <TelerikButton OnClick="@OnPdfCustomClick">Custom PDF Tool</TelerikButton>
@@ -78,11 +77,6 @@ Add a `<PdfViewerToolBar>` tag inside the `<TelerikPdfViewer>` tag to:
     private async Task OnPdfCustomClick()
     {
         // ...
-    }
-
-    private async Task OnPdfDownload(PdfViewerDownloadEventArgs args)
-    {
-        args.FileName = "PDF-Viewer-Download";
     }
 }
 ````
