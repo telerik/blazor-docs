@@ -100,7 +100,7 @@ The following table lists Editor parameters, which are not discussed elsewhere i
 | `AriaLabelledBy`  | `string` | Maps to the `area-labelledby` attribute. Use this parameter to reference another element to define its accessible name. |
 | `AriaDescribedBy`  | `string` | Maps to the `area-describedby` attribute. Use this parameter to establish a relationship between widgets or groups and the text that describes them. |
 
-## Component Reference and Methods
+## Editor Reference and Methods
 
 You can use the component reference to call its `ExecuteAsync` method, especially when creating [custom tools]({%slug editor-custom-tool%}). This method allows you to call programmatically the tools and commands of the editor (such as the Bold too, or a Back Color tool, or inserting HTML).
 
