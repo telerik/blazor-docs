@@ -229,7 +229,7 @@ Use the Form Reference to get access to the `EditContext` object that the form w
 </TelerikForm>
 
 @code {
-    public Telerik.Blazor.Components.TelerikForm FormReference { get; set; }
+    private TelerikForm FormReference { get; set; }
 }
 ````
 
