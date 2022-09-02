@@ -1,54 +1,89 @@
 ---
 title: Toolbar
-page_title: Toolbar | PdfViewer for Blazor
+page_title: PdfViewer - Toolbar
 description: Toolbar of the PDF Viewer for Blazor.
 slug: pdfviewer-toolbar
 tags: telerik,blazor,pdf,pdfviewer
 published: True
-position: 5
+position: 10
 ---
 
 # PdfViewer Toolbar
 
-The PDF Viewer toolbar can render built-in and custom tools. This article describes the built-in tools and shows how to customize the toolbar.
+The PDF Viewer toolbar can render built-in and custom tools. This article describes the built-in tools and shows how to add custom tools or customize the toolbar.
 
 
 ## Built-in Tools
 
-By default, the PDF Viewer displays the following tools:
+By default, the PDF Viewer displays all its built-in tools in the listed order below. Use the *tool tag* if you need to define a tool explicitly in a [custom toolbar configuration](#toolbar-customization).
 
-* Pager to navigate the PDF document via automatic scrolling. Paging requires the `Height` parameter to be set, otherwise the component expands and doesn't have its own scrollbar.
-* Zoom in and zoom out buttons;
-* Zooming dropdown with common options (Fit to page, Fit to width, 100%, etc.);
-* Text selection button
-* Pan button
-* Search button that opens an additional search bar. It contains a textbox and arrow buttons to navigate the search results.
-* Open button. Requires the [`OnOpen` handler]({%slug pdfviewer-events%}#onopen) to be implemented.
-* Download button. Requires the [`OnDownload` handler]({%slug pdfviewer-events%}#ondownload) to be implemented.
-* Print button;
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
->caption Customize the built-in PDF Viewer tools
+| Tool Name | Tool Tag | Description |
+| --- | --- | --- |
+| Pager | `PdfViewerToolBarPagerTool` | A pager to navigate the PDF document via automatic scrolling. Paging requires the [`Height` parameter]({%slug pdfviewer-overview%}#pdfviewer-parameters) to be set, otherwise the component expands and doesn't have its own scrollbar. |
+| Zoom | `PdfViewerToolBarZoomTool` | Zoom in and zoom out buttons with an additional dropdown with common options (Fit to page, Fit to width, 100%, etc.) |
+| Selection | `PdfViewerToolBarSelectionTool` | Two toggle buttons that enable either text selection or panning. |
+| Search | `PdfViewerToolBarSearchTool` | A search button. It opens an additional search bar that contains a textbox and arrow buttons to navigate the search results. |
+| Open | `PdfViewerToolBarOpenTool` | An open button. It fires the [`OnOpen` event]({%slug pdfviewer-events%}#onopen). |
+| Download | `PdfViewerToolBarDownloadTool` | A download button. It fires the [`OnDownload` event]({%slug pdfviewer-events%}#ondownload). |
+| Print | `PdfViewerToolBarPrintTool` | A print button. |
 
-````CSHTML
-<TelerikPdfViewer Data="@PdfSource">
-</TelerikPdfViewer>
-
-@code {
-    private byte[] PdfSource { get; set; }
-}
-````
+The default toolbar user interface also includes separators (`<PdfViewerToolBarSeparator />`) and spacers (`<PdfViewerToolBarSpacer />`). The separators render as a vertical line. Spacers consume the available empty space and push the rest of the tools next to one another.
 
 
 ## Custom Tools
 
->caption Configure a custom PDF Viewer tool
+In addition to built-in tools, the PDF Viewer also supports custom tools. Use the `<PdfViewerToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. Render the desired custom tool UI as `ChildContent` inside the tag.
+
+
+## Toolbar Customization
+
+Add a `<PdfViewerToolBar>` tag inside the `<TelerikPdfViewer>` tag to:
+
+* Arrange the PDF Viewer tools in a specific order;
+* Remove some of the built-in tools;
+* Add custom tools.
+
+>caption Customize the PDF Viewer toolbar
 
 ````CSHTML
-<TelerikPdfViewer Data="@PdfSource">
+<TelerikPdfViewer Data="@PdfSource"
+                  OnDownload="@OnPdfDownload">
+    <PdfViewerToolBar>
+        <PdfViewerToolBarCustomTool>
+            <TelerikButton OnClick="@OnPdfCustomClick">Custom PDF Tool</TelerikButton>
+        </PdfViewerToolBarCustomTool>
+
+        <PdfViewerToolBarSeparator />
+
+        <PdfViewerToolBarDownloadTool />
+        <PdfViewerToolBarOpenTool />
+
+        <PdfViewerToolBarSeparator />
+
+        <PdfViewerToolBarPagerTool />
+        <PdfViewerToolBarPrintTool />
+        <PdfViewerToolBarSearchTool />
+        <PdfViewerToolBarSelectionTool />
+        <PdfViewerToolBarSeparator />
+        <PdfViewerToolBarSpacer />
+        <PdfViewerToolBarZoomTool />
+    </PdfViewerToolBar>
 </TelerikPdfViewer>
 
 @code {
     private byte[] PdfSource { get; set; }
+
+    private async Task OnPdfCustomClick()
+    {
+        // ...
+    }
+
+    private async Task OnPdfDownload(PdfViewerDownloadEventArgs args)
+    {
+        args.FileName = "PDF-Viewer-Download";
+    }
 }
 ````
 

@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Overview | PdfViewer for Blazor
+page_title: PdfViewer - Overview
 description: Overview of the PDF Viewer for Blazor.
 slug: pdfviewer-overview
 tags: telerik,blazor,pdf,pdfviewer
@@ -63,6 +63,11 @@ The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-to
 * Print
 
 
+## Large File Support
+
+The PDF Viewer uses a [FileSelect component]({%slug fileselect-overview%}) to open files from the user device. In Blazor **Server** apps, the FileSelect uses the **SignalR WebSocket**, which has a default maximum message size of **32 KB**. To work with larger files, [increase the max WebSocket message size for the Blazor application]({%slug fileselect-overview%}#large-file-support).
+
+
 ## PdfViewer Parameters
 
 The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPdfViewer) for all parameters, methods and events.
@@ -73,9 +78,13 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 | --- | --- | --- |
 | `Class` | `string` | An additional CSS class for the `<div class="k-pdf-viewer">` element. Use it to [customize the component styles and override the theme]({%slug themes-override%}). |
 | `Data` | `byte[]` | The source of the currently displayed PDF file. |
+| `EnableLoaderContainer` | `bool` <br /> (`true`) | Determines if the PDF Viewer will show a loading animation for operations that take more than 600 ms. |
 | `Height` | `string` | The PdfViewer height as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand vertically, based on the loaded file. `Height` is required for the component paging and scrolling to work. |
-| `Page` | `int` <br /> (`1`) | The current page of the visible PDF document. |
+| `MaxZoom` | `double` <br /> (`4`) | The largest possible zoom in. The default value is 400%. |
+| `MinZoom` | `double` <br /> (`0.5`) | The largest possible zoom out. The default value is 50%. |
+| `Page` | `int` <br /> (`1`) | The current page of the loaded PDF document. |
 | `Width` | `string` | The PdfViewer width as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand horizontally to fill its parent. |
+| `ZoomRate` | `double` <br /> (`0.25`) | The zoom level change that is used by the zoom in and zoom out buttons. |
 
 
 ## PdfViewer Reference and Methods
