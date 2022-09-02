@@ -26,7 +26,7 @@ The Notification component renders a brief message to the user which holds infor
 ## Creating Notification
 
 1. Add the `<TelerikNotification>` tag to your razor page.
-1. Set the components reference (`@ref=`).
+1. Obtain the component reference via `@ref`.
 1. Setup an instance of the [`NotificationModel` class](#notificationmodel-class) (provided by the Telerik Blazor package), and pass it to the `Show()` method of the component instance.
 
 ````CSHTML
