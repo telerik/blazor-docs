@@ -19,7 +19,7 @@ To use a Telerik PDF Viewer for Blazor:
 
 1. Add the `TelerikPdfViewer` tag.
 1. Set the `Data` parameter to a byte array that will hold the PDF file contents.
-1. (optional) Subscribe to the PDF Viewer's [`OnDownload`]({%slug pdfviewer-events%}#ondownload) or [`OnOpen`]({%slug pdfviewer-events%}#onopen) events, if users will be downloading or opening local files.
+1. (optional) Subscribe to the [PDF Viewer's events]({%slug pdfviewer-events%}) to enhance the user experience.
 1. (optional) Set [`Width` or `Height`](#pdfviewer-parameters) for the component.
 
 >caption Basic Blazor PDF Viewer

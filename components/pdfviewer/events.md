@@ -21,7 +21,7 @@ This article describes the Blazor PDF Viewer events and provides a runnable exam
 
 The `OnDownload` event fires when the user clicks on the Download button in the [PDF Viewer toolbar]({%slug pdfviewer-toolbar%}).
 
-The event handler receives an argument of type [`PdfViewerDownloadEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.PdfViewerDownloadEventArgs). The event is cancellable and allows the application to set a name of the downloaded file. See the [example below](#example).
+The event handler receives an argument of type [`PdfViewerDownloadEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.PdfViewerDownloadEventArgs). The event is cancellable and allows the application to set a name of the downloaded file. Do not add the `.pdf` file extension - the component will do that. The default name of the downloaded file is `Document.pdf`. See the [example below](#example).
 
 
 ## OnError
