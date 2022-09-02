@@ -65,8 +65,10 @@ Add a `<PdfViewerToolBar>` tag inside the `<TelerikPdfViewer>` tag to:
         <PdfViewerToolBarPrintTool />
         <PdfViewerToolBarSearchTool />
         <PdfViewerToolBarSelectionTool />
+
         <PdfViewerToolBarSeparator />
         <PdfViewerToolBarSpacer />
+
         <PdfViewerToolBarZoomTool />
     </PdfViewerToolBar>
 </TelerikPdfViewer>
