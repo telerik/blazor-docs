@@ -15,6 +15,7 @@ This article explains the events available in the Telerik AutoComplete for Blazo
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
 * [OnRead](#onread)
+* [OnItemRender](#onitemrender)
 * [OnBlur](#onblur)
 
 ## ValueChanged
@@ -227,6 +228,63 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 }
 ````
 
+## OnItemRender
+
+The `OnItemRender` event fires when each item in the AutoComplete dropdown renders.
+
+The event handler receives as an argument an `AutoCompleteItemRenderEventArgs<TItem>` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `Item` | The current item that renders in the AutoComplete. |
+| `Class` | The custom CSS class that will be added to the item. |
+
+````CSHTML
+@* Customize an item in the AutoComplete *@
+
+<style>
+    .customized-item{
+        font-weight:bold;
+        color: white;
+        background-color: blue;
+    }
+</style>
+
+<TelerikAutoComplete Data="@Suggestions"
+                     OnItemRender="@OnItemRenderHandler"
+                     ValueField="@(nameof(SuggestionsModel.Suggestion))"
+                     @bind-Value="@AutoCompleteValue" />
+
+@code {
+    private string AutoCompleteValue { get; set; }
+
+    private void OnItemRenderHandler(AutoCompleteItemRenderEventArgs<SuggestionsModel> args)
+    {
+        SuggestionsModel currentItem = args.Item;
+
+        if (currentItem.Suggestion == "second" && currentItem.UniqueIdentifier == 2)
+        {
+            args.Class = "customized-item";
+        }
+    }
+
+    List<SuggestionsModel> Suggestions { get; set; } = new List<SuggestionsModel>
+    {
+        new SuggestionsModel { Suggestion = "first", UniqueIdentifier = 1 },
+        new SuggestionsModel { Suggestion = "second", UniqueIdentifier = 2 },
+        new SuggestionsModel { Suggestion = "third", UniqueIdentifier = 3 }
+    };
+
+    public class SuggestionsModel
+    {
+        public string Suggestion { get; set; }
+        public int UniqueIdentifier { get; set; }
+    }
+}
+````
+
 ## OnBlur
 
 The `OnBlur` event fires when the component loses focus.
@@ -250,7 +308,6 @@ The `OnBlur` event fires when the component loses focus.
     List<string> Suggestions { get; set; } = new List<string> { "one", "two", "three" };
 }
 ````
-
 
 ## See Also
 

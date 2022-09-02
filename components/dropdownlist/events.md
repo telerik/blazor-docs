@@ -15,6 +15,7 @@ This article explains the events available in the Telerik DropDownList for Blazo
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
 * [OnRead](#onread)
+* [OnItemRender](#onitemrender)
 * [OnBlur](#onblur)
 
 The examples in this article use `string` values and simple data sources for brevity. You can use full models, see the [data binding]({%slug components/dropdownlist/databind%}) article for more details.
@@ -225,6 +226,59 @@ You can also call remote data through `async` operations.
 }
 ````
 
+## OnItemRender
+
+The `OnItemRender` event fires when each item in the DropDownList popup renders.
+
+The event handler receives as an argument an `DropDownListItemRenderEventArgs<TItem>` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `Item` | The current item that renders in the DropDownList. |
+| `Class` | The custom CSS class that will be added to the item.     |
+
+````CSHTML
+@* Customize an item in the DropDownList *@
+
+<style>
+    .customized-item {
+        font-weight:bold;
+        color: white;
+        background-color: blue;
+    }
+</style>
+
+<TelerikDropDownList Data="@DropDownListData"
+                     OnItemRender="@OnItemRenderHandler"
+                     TextField="ItemText"
+                     ValueField="ItemId"
+                     @bind-Value="DropDownListValue">
+</TelerikDropDownList>
+
+@code {
+    private int DropDownListValue { get; set; }
+
+    private void OnItemRenderHandler(DropDownListItemRenderEventArgs<ItemDescriptor> args)
+    {
+        ItemDescriptor currentItem = args.Item;
+
+        if (currentItem.ItemText == "item 4" && currentItem.ItemId == 4)
+        {
+            args.Class = "customized-item";
+        }
+    }
+
+    private IEnumerable<ItemDescriptor> DropDownListData = Enumerable.Range(1, 20).Select(x => new ItemDescriptor { ItemText = "item " + x, ItemId = x });
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
+}
+````
 
 ## OnBlur
 
