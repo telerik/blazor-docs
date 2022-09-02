@@ -64,7 +64,7 @@ The Blazor HTML Editor interacts with its content (value) like all standard comp
 
 You can use the standard Data Annotation attributes to validate the content of the Editor. For the performance reasons listed above, validation happens with the `DebounceDelay` delay, not immediately on every keystroke, like simpler inputs. [See the Validation article for an example on how to validate the content of the Editor...]({%slug common-features/input-validation%}#editor)
 
-## Large File Support 
+## Large Content Support 
 
 @[template](/_contentTemplates/editor/general.md#content-size-signalr)
 
