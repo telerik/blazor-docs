@@ -96,16 +96,13 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 >caption PDF Viewer reference and Rebind method usage
 
 ````CSHTML
-@using System.Timers
-
-@implements IDisposable
-
 <TelerikPdfViewer @ref="@PdfViewerRef"
                   Data="@PdfSource">
     <PdfViewerToolBar>
         <PdfViewerToolBarCustomTool>
             <TelerikButton OnClick="@OnButtonClick" Icon="refresh">Rebind PDF Viewer</TelerikButton>
         </PdfViewerToolBarCustomTool>
+        <PdfViewerToolBarDownloadTool />
     </PdfViewerToolBar>
 </TelerikPdfViewer>
 
@@ -121,70 +118,40 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
     {
         get
         {
-            return System.Text.Encoding.UTF8.GetBytes(pdfSourceRaw.Replace("placeholder", "PDF file updated at " + TimeString));
+            return System.Text.Encoding.UTF8.GetBytes(
+                PdfSourceRaw.Replace("placeholder",
+                    PdfUpdateFlag ? "PDF file updated at " + DateTime.Now.ToLongTimeString() : "PDF file")
+            );
         }
     }
 
-    private string TimeString { get; set; } = DateTime.Now.ToLongTimeString();
-
-    private const int TimerInterval = 1000;
-
-    private Timer PdfTimer { get; set; } = new Timer();
-
-    protected override void OnAfterRender(bool firstRender)
+    protected override async Task OnInitializedAsync()
     {
-        if (PdfTimer.Enabled == false)
-        {
-            PdfTimer.Interval = TimerInterval;
-            PdfTimer.Elapsed -= OnTimerElapsed;
-            PdfTimer.Elapsed += OnTimerElapsed;
-            PdfTimer.AutoReset = true;
-            PdfTimer.Start();
-        }
+        await Task.Delay(1000);
+
+        PdfUpdateFlag = true;
+        PdfViewerRef.Rebind();
+
+        await base.OnInitializedAsync();
     }
 
-    private void OnTimerElapsed(Object source, ElapsedEventArgs e)
-    {
-        TimeString = DateTime.Now.ToLongTimeString();
-    }
+    private bool PdfUpdateFlag { get; set; }
 
-    public void Dispose()
-    {
-        PdfTimer.Stop();
-        PdfTimer?.Close();
-    }
-
-    private string pdfSourceRaw = @"%PDF-1.1
+    private string PdfSourceRaw = @"%PDF-1.1
 %¥±ë
 
 1 0 obj
-<< /Type /Catalog
-/Pages 2 0 R
->>
+<< /Type /Catalog /Pages 2 0 R >>
 endobj
 
 2 0 obj
-<< /Type /Pages
-/Kids [3 0 R]
-/Count 1
-/MediaBox [0 0 300 144]
->>
+<< /Type /Pages /Kids [3 0 R] /Count 1 /MediaBox [-30 -100 270 44] >>
 endobj
 
 3 0 obj
-<<  /Type /Page
-/Parent 2 0 R
-/Resources
-<< /Font
-   << /F1
-       << /Type /Font
-          /Subtype /Type1
-          /BaseFont /Times-Roman
-       >>
-   >>
->>
-/Contents 4 0 R
->>
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1
+<< /Type /Font /Subtype /Type1 /BaseFont /Arial >>
+>> >> /Contents 4 0 R >>
 endobj
 
 4 0 obj
@@ -206,9 +173,7 @@ xref
 0000000195 00000 n
 0000000490 00000 n
 trailer
-<<  /Root 1 0 R
-/Size 5
->>
+<<  /Root 1 0 R /Size 5 >>
 startxref
 609
 %%EOF
