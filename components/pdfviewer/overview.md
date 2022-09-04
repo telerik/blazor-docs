@@ -20,7 +20,7 @@ To use a Telerik PDF Viewer for Blazor:
 1. Add the `TelerikPdfViewer` tag.
 1. Set the `Data` parameter to a byte array that will hold the PDF file contents.
 1. If you are developing a Blazor **Server** app, [increase the maximum SignalR message size](#large-file-support).
-1. (optional) Subscribe to the [PDF Viewer's events]({%slug pdfviewer-events%}) to enhance the user experience.
+1. (optional) Subscribe to the [PDF Viewer's events]({%slug pdfviewer-events%}). For example, the `OnDownload` event handler sets the name of the downloaded file.
 1. (optional) Set [`Width` or `Height`](#pdfviewer-parameters) for the component.
 
 >caption Basic Blazor PDF Viewer
@@ -41,12 +41,12 @@ To use a Telerik PDF Viewer for Blazor:
 
     protected override void OnInitialized()
     {
-        PdfSource = Convert.FromBase64String(SamplePdf);
+        PdfSource = Convert.FromBase64String(PdfBase64);
 
         base.OnInitialized();
     }
 
-    private string SamplePdf { get; set; } = @"JVBERi0xLjEKMSAwIG9iajw8L1R5cGUvQ2F0YWxvZy9QYWdlcyAyIDAgUj4+ZW5kb2JqCjIgMCBvYmo8PC9UeXBlL1BhZ2VzL0tpZHNbMyAwIFJdL0NvdW50IDEvTWVkaWFCb3ggWy00MCAtNjQgMjYwIDgwXSA+PmVuZG9iagozIDAgb2JqPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9SZXNvdXJjZXM8PC9Gb250PDwvRjE8PC9UeXBlL0ZvbnQvU3VidHlwZS9UeXBlMS9CYXNlRm9udC9BcmlhbD4+ID4+ID4+L0NvbnRlbnRzIDQgMCBSPj5lbmRvYmoKNCAwIG9iajw8L0xlbmd0aCA1OT4+CnN0cmVhbQpCVAovRjEgMTggVGYKMCAwIFRkCihUZWxlcmlrIFBkZlZpZXdlciBmb3IgQmxhem9yKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDIxIDAwMDAwIG4KMDAwMDAwMDA4NiAwMDAwMCBuCjAwMDAwMDAxOTUgMDAwMDAgbgowMDAwMDAwNDkwIDAwMDAwIG4KdHJhaWxlciA8PCAgL1Jvb3QgMSAwIFIgL1NpemUgNSA+PgpzdGFydHhyZWYKNjA5CiUlRU9G";
+    private string PdfBase64 { get; set; } = @"JVBERi0xLjEKMSAwIG9iajw8L1R5cGUvQ2F0YWxvZy9QYWdlcyAyIDAgUj4+ZW5kb2JqCjIgMCBvYmo8PC9UeXBlL1BhZ2VzL0tpZHNbMyAwIFJdL0NvdW50IDEvTWVkaWFCb3ggWy00MCAtNjQgMjYwIDgwXSA+PmVuZG9iagozIDAgb2JqPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9SZXNvdXJjZXM8PC9Gb250PDwvRjE8PC9UeXBlL0ZvbnQvU3VidHlwZS9UeXBlMS9CYXNlRm9udC9BcmlhbD4+ID4+ID4+L0NvbnRlbnRzIDQgMCBSPj5lbmRvYmoKNCAwIG9iajw8L0xlbmd0aCA1OT4+CnN0cmVhbQpCVAovRjEgMTggVGYKMCAwIFRkCihUZWxlcmlrIFBkZlZpZXdlciBmb3IgQmxhem9yKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDIxIDAwMDAwIG4KMDAwMDAwMDA4NiAwMDAwMCBuCjAwMDAwMDAxOTUgMDAwMDAgbgowMDAwMDAwNDkwIDAwMDAwIG4KdHJhaWxlciA8PCAgL1Jvb3QgMSAwIFIgL1NpemUgNSA+PgpzdGFydHhyZWYKNjA5CiUlRU9G";
 }
 ````
 
@@ -79,7 +79,7 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 | --- | --- | --- |
 | `Class` | `string` | An additional CSS class for the `<div class="k-pdf-viewer">` element. Use it to [customize the component styles and override the theme]({%slug themes-override%}). |
 | `Data` | `byte[]` | The source of the currently displayed PDF file. |
-| `EnableLoaderContainer` | `bool` <br /> (`true`) | Determines if the PDF Viewer will show a loading animation for operations that take more than 600 ms. |
+| `EnableLoaderContainer` | `bool` <br /> (`true`) | Determines if the PDF Viewer will show a loading animation during opening or downloading a PDF file. |
 | `Height` | `string` | The PdfViewer height as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand vertically, based on the loaded file. `Height` is required for the component paging and scrolling to work. |
 | `MaxZoom` | `double` <br /> (`4`) | The largest possible zoom level. The default value is 400%. |
 | `MinZoom` | `double` <br /> (`0.5`) | The smallest possible zoom level. The default value is 50%. |
