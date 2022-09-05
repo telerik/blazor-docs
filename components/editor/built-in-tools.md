@@ -343,7 +343,7 @@ All tools in the table below are *buttons*, except `Format`, which is a *dropdow
         <tr>
             <td>ViewHtml</td>
             <td>setHtml</td>
-            <td>Shows the raw HTML of the Editor content</td>
+            <td>Shows and updates the raw HTML of the Editor content</td>
             <td>new HtmlCommandArgs(string commandName, string value)</td>
         </tr>
         <tr>
