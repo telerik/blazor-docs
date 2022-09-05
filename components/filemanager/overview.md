@@ -379,6 +379,8 @@ The available FileManager methods are:
 
 The following table lists the FileManager parameters. Also check the [FileManager API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikFileManager-1) for a full list of properties, methods and events.
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and &nbsp; DefaultValue | Description |
 | --- | --- | --- |
 | `Data` | `IEnumerable<TItem>` | Allows providing data source to the component. See [data bindnig]({%slug filemanager-data-binding-overview%}).
