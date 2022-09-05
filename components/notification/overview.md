@@ -91,7 +91,7 @@ Multiple Notifications can stack if they derive from different references. [Read
 
 ## Styling and Appearance
 
-You can customize the styling and the appearance of the Notification. [Read the Appearance article for more information...]({%slug notification-appearance%})
+You can [customize the styling and the appearance of the Notification]({%slug notification-appearance%}). For example, select the animation type or choose a suitable background color.
 
 ## Notification Parameters
 
