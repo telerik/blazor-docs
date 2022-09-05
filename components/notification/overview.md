@@ -85,6 +85,14 @@ You can find more information on opening, closing and hiding the Notification in
 } 
 ````
 
+## Stacked Notifications
+
+Multiple Notifications can stack if they derive from different references. [Read the Stacked Notifications article for more information...]({%slug notification-stacked-notifications%})
+
+## Styling and Appearance
+
+You can customize the styling and the appearance of the Notification. [Read the Appearance article for more information...]({%slug notification-appearance%})
+
 ## Notification Parameters
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
@@ -117,8 +125,6 @@ The `NotificationModel` class is used to add new notifications to the page. You 
 ## Next Steps
 
 * [Learn more about the Notification Templates]({%slug notification-templates%})
-* [Customize the Notification Appearance]({%slug notification-appearance%})
-* [Explore the Stacked Notifications]({%slug notification-stacked-notifications%})
 
 ## See Also
 
