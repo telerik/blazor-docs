@@ -59,7 +59,7 @@ Some of the features you can take advantage of are:
 
 ## RadSpreadStreamProcessing vs. RadSpreadProcessing
 
-Following are the main differences between the two spreadsheet processing libraries.
+The main differences between the two spreadsheet processing libraries include:
 
 * __RadSpreadStreamProcessing__ writes directly into a stream, unlike [RadSpreadProcessing](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview), which creates models for the elements in the document. This is why the memory used with the spread streaming library is significantly lower than when using __RadSpreadProcessing__.
 * __RadSpreadStreamProcessing__ does not perform any formula or other layout-related calculations, which makes its file generation performance much better compared to __RadSpreadProcessing__.
