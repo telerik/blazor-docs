@@ -33,7 +33,7 @@ Some of the features you can take advantage of are:
 
 * [Export](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/export) to XLSX or CSV files
 
-* [Import](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/import) from XLSX or CSV files
+* [Import from XLSX or CSV files](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/import)
 
 * Writing directly into a stream; or parsing required data only
 
