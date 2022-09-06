@@ -35,7 +35,7 @@ Some of the features you can take advantage of are:
 
 * [Import from XLSX or CSV files](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/import)
 
-* Writing directly into a stream; or parsing required data only
+* Write directly into a stream; or parse only required data
 
 * **Append** new worksheets to existing workbook
 
