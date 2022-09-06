@@ -68,3 +68,7 @@ The main differences between the two spreadsheet processing libraries include:
 ## When to Use RadSpreadStreamProcessing
 
 You can use the __RadSpreadStreamProcessing__ library to create or read __large amount of data__ with a low memory footprint and great performance. You can also append data to an already existing document stream. The generated document can be exported directly to a file on the file system or to a stream (for example, to send it to the client).
+
+## When to Use RadSpreadProcessing
+
+The [RadSpreadProcessing](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) library supports multiple features of the spreadsheet documents and enables you to perform different calculations on the data. To do that, the library keeps the whole document in its model in the memory of the application. If you are not dealing with huge files and the resources are not critical for the specific case, you can consider using RadSpreadProcessing as it doesn't have the limitations of the streaming model. 
