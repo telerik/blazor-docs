@@ -24,7 +24,7 @@ Spread streaming is a document processing paradigm that allows you to create or 
 
 The key for the memory efficiency is that the spread streaming library writes the spreadsheet content directly to a stream without creating and preserving the spreadsheet document model in memory. Each time an exporter object is disposed, the set values are written into the stream. This allows you to create large documents with an excellent performance.
 
-While reading, only the required chunk of information is parsed to ensure there are no application resources kept without user need.
+While reading, RadSpreadStreamProcessing parses only the required chunk of information. This ensures minimal use of application resources.
 
 ## Key Features
 
