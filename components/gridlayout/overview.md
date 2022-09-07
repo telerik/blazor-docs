@@ -8,26 +8,15 @@ published: True
 position: 0
 ---
 
-# Blazor GridLayout Overview
+# GridLayout Overview
 
 The <a href="https://www.telerik.com/blazor-ui/gridlayout" target="_blank">Blazor GridLayout component</a> allows you to arrange the contents of the component in rows and columns in a grid structure. 
 
-#### In This Article:
+## Creating GridLayout
 
-* [Basics](#basics)
-
-* [Features](#features)
-
-## Basics
-
-To use the Telerik GridLayout for Blazor:
-
-1. Declare the `<TelerikGridLayout>` tag 
-
+1. Add the `<TelerikGridLayout>` tag to your razor page. 
 1. To define columns in the GridLayout, add one or more `<GridLayoutColumn>` tags to the `<GridLayoutColumns>` collection.
-    
 1. To define rows in the GridLayout add one or more `<GridLayoutRow>` tags to the `<GridLayoutRows>` collection.
-
 1. Define one or more `<GridLayoutItem>` tags to the `<GridLayoutItems>` collection.
 
 >caption A basic configuration of the Telerik GridLayout
@@ -74,85 +63,36 @@ To use the Telerik GridLayout for Blazor:
 </TelerikGridLayout>
 ````
 
->caption The result from the code snippet above
+## Rows
 
-![overview of the GridLayout functionality](images/gridlayout-overview-basic-example.png)
+Defining a new `GridLayoutRow` tag to the GridLayout renders a new row in the component. You can set their heights by using the `Height` paramter exposed on the `<GridLayoutRow>` tag.
 
+## Columns
 
->caption Component namespace and reference
+Defining a new `GridLayoutColumn` tag to the GridLayout renders a new column in the component. You can set their widths by using the `Width` paramter exposed on the `<GridLayoutColumn>`.
 
-````CSHTML
-<TelerikGridLayout @ref="@GridLayoutRef">
-    <GridLayoutColumns>
-        <GridLayoutColumn Width="200px"></GridLayoutColumn>
-    </GridLayoutColumns>
-    <GridLayoutRows>
-    </GridLayoutRows>
-    <GridLayoutItems>
-        <GridLayoutItem>
-            <div style="border: 1px gray solid;">
-                item 1
-            </div>
-        </GridLayoutItem>
-        <GridLayoutItem>
-            <div style="border: 1px gray solid;">
-                item 2
-            </div>
-        </GridLayoutItem>
-        <GridLayoutItem>
-            <div style="border: 1px gray solid;">
-                item 3
-            </div>
-        </GridLayoutItem>
-    </GridLayoutItems>
-</TelerikGridLayout>
+## Items
 
-@code {
-    Telerik.Blazor.Components.TelerikGridLayout GridLayoutRef { get; set; }
-}
-````
+The GridLayout Item defines the content of the TelerikGridLayout. [See the Items article for more information...]({%slug gridlayout-items%})
 
+## GridLayout Parameters
 
-## Features
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-The GridLayout offers the following features:
+| Parameter | Type and Default value | Description |
+|-----------|------------------------|-------------|
+| `Class`  | `string` | Adds a custom CSS class to the `<div class="k-grid-layout">` element. |
+| `Width`  | `string` | Controls the width of the GridLayout. |
+| `ColumnSpacing`  | `string` | Controls the space between the columns in the GridLayout. |
+| `RowSpacing`  | `string` | Controls the space between the rows in the GridLayout. |
+| `HorizontalAlign`  | `GridLayoutHorizontalAlign` enum <br /> (`Stretch`) | Controls the alignment of the inner items in the GridLayout column based on the X axis. |
+| `VerticalAlign`  | `GridLayoutVerticalAlign` enum <br /> (`Stretch`) | Controls the alignment of the inner items in the GridLayout column based on the Y axis. |
 
-* `Class` - the CSS class that renders on the main wrapping element of the component.
+## Next Steps
 
-* `Width`- takes a CSS length unit that determines how wide the GridLayout is. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how dimensions in percent work.
-
-* `ColumnSpacing` - controls the space between the columns in the GridLayout. Use a CSS length unit.
-
-* `RowSpacing` - controls the space between the rows in the GridLayout. Use a CSS length unit.
-
-* `HorizontalAlign` - controls the alignment of the inner items in the GridLayout column based on the X axis. Takes a member of the `GridLayoutHorizontalAlign` enum:
-
-    * `Left`
-    
-    * `Right`
-    
-    * `Center`
-    
-    * `Stretch` - this is the default value. It streches the inner items to the available horizontal space in the column.
-
-* `VerticalAlign` - controls the alignment of the inner items in the GridLayout column based on the Y axis. Takes a member of the `GridLayoutVerticalAlign` enum:
-
-    * `Top`
-    
-    * `Bottom`
-    
-    * `Center`
-    
-    * `Stretch` - this is the default value. It stretches the inner items to the available vertical space in the column. 
-    
-* `GridLayoutItem` - define items in the GridLayout. See the [Items]({%slug gridlayout-items%}) article for more information. 
-
-* `GridLayoutColumn` - define columns in the GridLayout. You can set their widths by using the `Width` paramter exposed on the `<GridLayoutColumn>` tag.
-
-* `GridLayoutRow` - define rows in the GridLayout. You can set their heights by using the `Height` paramter exposed on the `<GridLayoutRow>` tag.
+* [Explore the GridLayout Items]({%slug gridlayout-items%})
 
 ## See Also
 
   * [Live Demo: GridLayout](https://demos.telerik.com/blazor-ui/gridlayout/overview)
-  * [Items]({%slug gridlayout-items%})
-  * [StackLayout API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGridLayout)
+  * [GridLayout API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGridLayout)

@@ -12,11 +12,9 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Chart component</a> allows you to visualize data to your users in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins and templates.
 
-## Basics
+## Creating Blazor Chart
 
-To add a Telerik Chart for Blazor:
-
-1. Use the `<TelerikChart>` tag.
+1. Add the `<TelerikChart>` tag to your razor page.
 1. Define [Chart series](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChartSeries) and [bind them to data]({%slug components/chart/databind%}).
 1. Configure the [category axis](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChartCategoryAxis) (X axis). Either set a `CategoryField` for each `<ChartSeries>`, or provide all `Categories` in bulk in a `<ChartCategoryAxis>` tag.
 1. Set a `<ChartTitle>` and the `Position` of the [`<ChartLegend>`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ChartLegend). To make the legend appear, define a `Name` for each `<ChartSeries>`.
@@ -54,7 +52,6 @@ Basic chart and common settings/elements
 	{
 		public int SecondSeriesValue { get; set; }
 		public string ExtraData { get; set; }
-
 	}
 
 	public List<MyDataModel> modelData = new List<MyDataModel>()
@@ -131,21 +128,54 @@ You can make a responsive chart
 }
 ````
 
-## Component Namespace and Reference
+## Chart Parameters
+
+The following table lists Chart parameters, which are not discussed elsewhere in the component documentation.
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default value | Description |
+|-----------|------------------------|-------------|
+| `Width`  | `string` | Controls the width of the StockChart. |
+| `Height`  | `string` | Controls the height of the StockChart. |
+| `Class`  | `string` | Renders a custom CSS class on the `<div class="k-chart">` element. |
+| `Transitions` | `bool?` | Controls if the Chart renders animations. |
+
+## Chart Reference and Methods
+
+To execute Chart methods, obtain reference to the component instance via `@ref`.
+
+ @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method  | Description |
+|---------|-------------|
+| Refresh | Use the method to programmatically re-render the Chart.  |
 
 ````CSHTML
 @using Telerik.Blazor.Components
+
+<TelerikButton OnClick="@RefreshTheChart">Refresh the Chart</TelerikButton>
 
 <TelerikChart @ref="myChartRef">
 </TelerikChart>
 
 @code {
-	Telerik.Blazor.Components.TelerikChart myChartRef;
+	public TelerikChart myChartRef;
+	
+	private void RefreshTheChart()
+	{
+	    myChartRef.Refresh();
+	}
 }
 ````
 
+## Next Steps
+
+* [Data bind the Chart]({%slug components/chart/databind%})
+* [Explore the Chart events]({%slug chart-events%})
+* [Learn more about Chart Tooltips](%slug chart-tooltip-overview%)
+
 ## See Also
 
-  * [Data Binding]({%slug components/chart/databind%})
   * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikChart)
