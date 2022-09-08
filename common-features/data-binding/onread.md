@@ -154,7 +154,7 @@ Let's imagine that our datasource contains 1,000 items, and we want to send only
 
 1. Import the `Telerik.DataSource.Extensions` namespace.
 1. Set the Grid's `TItem` parameter to the model type. (Some components require a `TValue` parameter to define the value type, but not the Grid. Use `TValue` with the AutoComplete, ComboBox, DropDownList, and MultiSelect.)
-1. Subscribe to the `OnRead` event. The event handler receives a `GridReadEventArgs` object. Let's name it `args`.
+1. Subscribe to the `OnRead` event. [**Use `async Task` and not `async void`**](https://docs.microsoft.com/en-us/archive/msdn-magazine/2013/march/async-await-best-practices-in-asynchronous-programming#avoid-async-void). The event handler receives a `GridReadEventArgs` argument. Let's name it `args`.
 1. Use `args.Request` and `ToDataSourceResult()` to get one page of Grid data. The data may be filtered and sorted, based on the user's actions.
 1. Set `args.Data` to the data items to render.
 1. Set `args.Total` to the total number of data items (1000).
@@ -175,11 +175,12 @@ Let's imagine that our datasource contains 1,000 items, and we want to send only
 <p> OnGridRead fired at: @LastOnRead </p>
 
 @code {
-    List<SampleModel> GridData { get; set; }
+    private List<SampleModel> GridData { get; set; }
 
-    string LastOnRead { get; set; }
+    private string LastOnRead { get; set; }
 
-    async Task OnGridRead(GridReadEventArgs args)
+    // always use async Task, and not async void
+    private async Task OnGridRead(GridReadEventArgs args)
     {
         var result = GridData.ToDataSourceResult(args.Request);
         args.Data = result.Data;
@@ -196,7 +197,7 @@ Let's imagine that our datasource contains 1,000 items, and we want to send only
         base.OnInitialized();
     }
 
-    void GenerateData()
+    private void GenerateData()
     {
         GridData = new List<SampleModel>();
 
