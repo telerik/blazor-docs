@@ -15,11 +15,10 @@ This article explains the events available in the Telerik DropDownList for Blazo
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
 * [OnRead](#onread)
+* [OnOpen](#onopen)
+* [OnClose](#onclose)
 * [OnItemRender](#onitemrender)
 * [OnBlur](#onblur)
-
-The examples in this article use `string` values and simple data sources for brevity. You can use full models, see the [data binding]({%slug components/dropdownlist/databind%}) article for more details.
-
 
 ## OnChange
 
@@ -222,6 +221,98 @@ You can also call remote data through `async` operations.
     {
         public int Id { get; set; }
         public string Make { get; set; }
+    }
+}
+````
+
+## OnOpen
+
+The `OnOpen` event fires before the DropDownList popup renders. 
+
+The event handler receives as an argument an `DropDownListOpenEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
+
+````CSHTML
+<TelerikDropDownList Data="@Items"
+                     OnOpen="OnDropDownListPopupOpen"
+                     ValueField="@nameof(ItemDescriptor.ItemId)"
+                     TextField="@nameof(ItemDescriptor.ItemText)"
+                     @bind-Value="@DropDownListValue">
+</TelerikDropDownList>
+
+@code {
+    private int DropDownListValue { get; set; }
+
+    private void OnDropDownListPopupOpen(DropDownListOpenEventArgs args)
+    {
+        // set the IsCancelled to true to cancel the OnOpenEvent
+
+        args.IsCancelled = false;
+    }
+
+    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
+        {
+            ItemId = x,
+            ItemText = $"Item {x}"
+        }).ToList();
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
+}
+````
+
+## OnClose
+
+The `OnClose` event fires before the DropDownList popup closes.
+
+The event handler receives as an argument an `DropDownListCloseEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
+
+````CSHTML
+@* Cancel the OnClose event based on a condition *@
+
+<TelerikDropDownList Data="@Items"
+                     OnClose="@OnDropDownListPopupClose"
+                     ValueField="@nameof(ItemDescriptor.ItemId)"
+                     TextField="@nameof(ItemDescriptor.ItemText)"
+                     @bind-Value="@DropDownListValue">
+</TelerikDropDownList>
+
+@code {
+    private int DropDownListValue { get; set; }
+
+    private void OnDropDownListPopupClose(DropDownListCloseEventArgs args)
+    {
+        // cancel the OnClose event based on a condition
+        if (DropDownListValue == 2)
+        {
+            args.IsCancelled = true;
+        }
+    }
+
+    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
+        {
+            ItemId = x,
+            ItemText = $"Item {x}"
+        }).ToList();
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
     }
 }
 ````
