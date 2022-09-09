@@ -57,10 +57,10 @@ The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-to
 
 * Paging
 * Text selection
-* Zoom and pan
 * Search
-* Open and download
 * Print
+* Zoom and pan
+* Open and download
 
 
 ## Large File Support
