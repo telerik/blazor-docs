@@ -126,7 +126,7 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 
     protected override async Task OnInitializedAsync()
     {
-        PdfSourceRaw = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(PdfSourceBase64));
+        PdfSourceRaw = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(PdfBase64));
 
         await Task.Delay(1000);
 
@@ -142,7 +142,7 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 
     private string PdfSourceRaw { get; set; }
 
-    private string PdfSourceBase64 = "JVBERi0xLjEKMSAwIG9iajw8L1R5cGUvQ2F0YWxvZy9QYWdlcyAyIDAgUj4+ZW5kb2JqCjIgMCBvYmo8PC9UeXBlL1BhZ2VzL0tpZHNbMyAwIFJdL0NvdW50IDEvTWVkaWFCb3ggWy0zMCAtNjQgMjcwIDgwXSA+PmVuZG9iagozIDAgb2JqPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9SZXNvdXJjZXM8PC9Gb250PDwvRjE8PC9UeXBlL0ZvbnQvU3VidHlwZS9UeXBlMS9CYXNlRm9udC9BcmlhbD4+ID4+ID4+L0NvbnRlbnRzIDQgMCBSPj5lbmRvYmoKNCAwIG9iajw8L0xlbmd0aCA1OT4+CnN0cmVhbQpCVAovRjEgMTggVGYKMCAwIFRkCihQREYgRmlsZSAuLi4pIFRqCkVUCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDUKMDAwMDAwMDAwMCA2NTUzNSBmCjAwMDAwMDAwMjEgMDAwMDAgbgowMDAwMDAwMDg2IDAwMDAwIG4KMDAwMDAwMDE5NSAwMDAwMCBuCjAwMDAwMDA0OTAgMDAwMDAgbgp0cmFpbGVyIDw8ICAvUm9vdCAxIDAgUiAvU2l6ZSA1ID4+CnN0YXJ0eHJlZgo2MDkKJSVFT0Y=";
+    private string PdfBase64 = "JVBERi0xLjEKMSAwIG9iajw8L1R5cGUvQ2F0YWxvZy9QYWdlcyAyIDAgUj4+ZW5kb2JqCjIgMCBvYmo8PC9UeXBlL1BhZ2VzL0tpZHNbMyAwIFJdL0NvdW50IDEvTWVkaWFCb3ggWy0zMCAtNjQgMjcwIDgwXSA+PmVuZG9iagozIDAgb2JqPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9SZXNvdXJjZXM8PC9Gb250PDwvRjE8PC9UeXBlL0ZvbnQvU3VidHlwZS9UeXBlMS9CYXNlRm9udC9BcmlhbD4+ID4+ID4+L0NvbnRlbnRzIDQgMCBSPj5lbmRvYmoKNCAwIG9iajw8L0xlbmd0aCA1OT4+CnN0cmVhbQpCVAovRjEgMTggVGYKMCAwIFRkCihQREYgRmlsZSAuLi4pIFRqCkVUCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDUKMDAwMDAwMDAwMCA2NTUzNSBmCjAwMDAwMDAwMjEgMDAwMDAgbgowMDAwMDAwMDg2IDAwMDAwIG4KMDAwMDAwMDE5NSAwMDAwMCBuCjAwMDAwMDA0OTAgMDAwMDAgbgp0cmFpbGVyIDw8ICAvUm9vdCAxIDAgUiAvU2l6ZSA1ID4+CnN0YXJ0eHJlZgo2MDkKJSVFT0Y=";
 }
 ````
 
