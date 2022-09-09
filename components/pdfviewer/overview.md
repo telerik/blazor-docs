@@ -78,7 +78,7 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 | --- | --- | --- |
 | `Class` | `string` | An additional CSS class for the `<div class="k-pdf-viewer">` element. Use it to [customize the component styles and override the theme]({%slug themes-override%}). |
 | `Data` | `byte[]` | The source of the currently displayed PDF file. |
-| `EnableLoaderContainer` | `bool` <br /> (`true`) | Determines if the PDF Viewer will show a loading animation during opening or downloading a PDF file. |
+| `EnableLoaderContainer` | `bool` <br /> (`true`) | Determines if the PDF Viewer will show a loading animation during opening, downloading or zooming a PDF file. |
 | `Height` | `string` | The PdfViewer height as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand vertically, based on the loaded file. `Height` is required for the component paging and scrolling to work. |
 | `MaxZoom` | `double` <br /> (`4`) | The largest possible zoom level. The default value is 400%. |
 | `MinZoom` | `double` <br /> (`0.5`) | The smallest possible zoom level. The default value is 50%. |
@@ -91,7 +91,7 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 
 The PdfViewer exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute. The PdfViewer methods are:
 
-* `Rebind` - Refreshes the PDF Viewer and ensures it is displaying the latest file `Data`. Use `Rebind()` when changes to the PDF file source can occur behind the scenes and the Blazor framework does not re-render the PDF Viewer automatically.
+* `Rebind` - Refreshes the PDF Viewer and ensures it is displaying the latest file `Data`. Use `Rebind()` when the PDF file source changes behind the scenes and the Blazor framework does not re-render the PDF Viewer automatically.
 
 >caption PDF Viewer reference and Rebind method usage
 
