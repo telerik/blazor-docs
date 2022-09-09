@@ -474,64 +474,6 @@ The event handler receives as an argument an `MultiColumnComboBoxCloseEventArgs`
 }
 ````
 
-## OnItemRender
-
-The `OnItemRender` event fires when each item in the MultiSelect dropdown renders. 
-
-The event handler receives as an argument an `MultiSelectItemRenderEventArgs<TItem>` object that contains:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Property | Description |
-| --- | --- |
-| `Item`   | The current item that renders in the MultiSelect. |
-| `Class`  | The custom CSS class that will be added to the item.     |
-
-````CSHTML
-@* Customize an item in the MultiSelect *@
-
-<style>
-    .customized-item {
-        font-weight:bold;
-        color: white;
-        background-color: blue;
-    }
-</style>
-
-<TelerikMultiSelect Data="@Options"
-                    OnItemRender="@OnItemRenderHandler"
-                    @bind-Value="@MultiSelectValues"
-                    TextField="StringRepresentation"
-                    ValueField="UniqueIdentifier" />
-
-@code {
-    private List<int> MultiSelectValues { get; set; }
-
-    private void OnItemRenderHandler(MultiSelectItemRenderEventArgs<OptionsModel> args)
-    {
-        OptionsModel currentItem = args.Item;
-
-        if (currentItem.StringRepresentation == "third" && currentItem.UniqueIdentifier == 3)
-        {
-            args.Class = "customized-item";
-        }
-    }
-
-    private List<OptionsModel> Options { get; set; } = new List<OptionsModel>
-    {
-        new OptionsModel { StringRepresentation = "first",  UniqueIdentifier = 1 },
-        new OptionsModel { StringRepresentation = "second", UniqueIdentifier = 2 },
-        new OptionsModel { StringRepresentation = "third",  UniqueIdentifier = 3 }
-    };
-
-    public class OptionsModel
-    {
-        public string StringRepresentation { get; set; }
-        public int UniqueIdentifier { get; set; } 
-    }
-}
-````
-
 ## OnBlur
 
 The `OnBlur` event fires when the component loses focus.
