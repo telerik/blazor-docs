@@ -78,7 +78,7 @@ Add a `<PdfViewerToolBar>` tag inside `<TelerikPdfViewer>` to configure a custom
 
     private async Task OnPdfCustomClick()
     {
-        // ...
+        Console.Writeline("Custom PDF tool clicked");
     }
 }
 ````

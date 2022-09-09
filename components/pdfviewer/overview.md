@@ -56,9 +56,8 @@ To use a Telerik PDF Viewer for Blazor:
 The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-toolbar%}). The default tools are related to the built-in features such as:
 
 * Paging
-* Zoom
 * Text selection
-* Pan
+* Zoom and pan
 * Search
 * Open and download
 * Print
@@ -127,6 +126,8 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 
     protected override async Task OnInitializedAsync()
     {
+        PdfSourceRaw = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(PdfSourceBase64));
+
         await Task.Delay(1000);
 
         // PdfUpdateFlag is used in the PdfSource getter to make the document change more obvious
@@ -139,30 +140,9 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 
     private bool PdfUpdateFlag { get; set; }
 
-    private string PdfSourceRaw = @"%PDF-1.1
-1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj
-2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1/MediaBox [-30 -64 270 80] >>endobj
-3 0 obj<</Type/Page/Parent 2 0 R/Resources<</Font<</F1<</Type/Font/Subtype/Type1/BaseFont/Arial>> >> >>/Contents 4 0 R>>endobj
-4 0 obj<</Length 59>>
-stream
-BT
-/F1 18 Tf
-0 0 Td
-(PDF File ...) Tj
-ET
-endstream
-endobj
-xref
-0 5
-0000000000 65535 f
-0000000021 00000 n
-0000000086 00000 n
-0000000195 00000 n
-0000000490 00000 n
-trailer <<  /Root 1 0 R /Size 5 >>
-startxref
-609
-%%EOF";
+    private string PdfSourceRaw { get; set; }
+
+    private string PdfSourceBase64 = "JVBERi0xLjEKMSAwIG9iajw8L1R5cGUvQ2F0YWxvZy9QYWdlcyAyIDAgUj4+ZW5kb2JqCjIgMCBvYmo8PC9UeXBlL1BhZ2VzL0tpZHNbMyAwIFJdL0NvdW50IDEvTWVkaWFCb3ggWy0zMCAtNjQgMjcwIDgwXSA+PmVuZG9iagozIDAgb2JqPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9SZXNvdXJjZXM8PC9Gb250PDwvRjE8PC9UeXBlL0ZvbnQvU3VidHlwZS9UeXBlMS9CYXNlRm9udC9BcmlhbD4+ID4+ID4+L0NvbnRlbnRzIDQgMCBSPj5lbmRvYmoKNCAwIG9iajw8L0xlbmd0aCA1OT4+CnN0cmVhbQpCVAovRjEgMTggVGYKMCAwIFRkCihQREYgRmlsZSAuLi4pIFRqCkVUCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDUKMDAwMDAwMDAwMCA2NTUzNSBmCjAwMDAwMDAwMjEgMDAwMDAgbgowMDAwMDAwMDg2IDAwMDAwIG4KMDAwMDAwMDE5NSAwMDAwMCBuCjAwMDAwMDA0OTAgMDAwMDAgbgp0cmFpbGVyIDw8ICAvUm9vdCAxIDAgUiAvU2l6ZSA1ID4+CnN0YXJ0eHJlZgo2MDkKJSVFT0Y=";
 }
 ````
 
