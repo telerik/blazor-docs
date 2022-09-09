@@ -1,7 +1,7 @@
 ---
 title: Events
 page_title: PdfViewer - Events
-description: Events of the PDF Viewer for Blazor.
+description: Events of the PDF Viewer for Blazor. How to handle events when users download, open or zoom PDF documents.
 slug: pdfviewer-events
 tags: telerik,blazor,pdf,pdfviewer
 published: True
@@ -15,6 +15,7 @@ This article describes the Blazor PDF Viewer events and provides a runnable exam
 * [`OnDownload`](#ondownload)
 * [`OnError`](#onerror)
 * [`OnOpen`](#onopen)
+* [`ZoomChanged`](#zoomchanged)
 
 
 ## OnDownload
@@ -37,6 +38,12 @@ The `OnOpen` event fires when the user selects a file to open from the [PDF View
 
 The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.PdfViewerOpenEventArgs). The event is cancellable and allows the application to obtain the PDF file name, size and contents as a `Stream`. See the [example below](#example).
 
+## ZoomChanged
+
+The `ZoomChanged` event fires when the user clicks on the zoom in/out buttons, or selects a new zoom level from the ComboBox.
+
+The event handler receives the new zoom level as an argument of type `double`. To apply the new zoom level, set it as a new `Zoom` parameter value. Not setting it will effectively cancel the event.
+
 
 ## Example
 
@@ -51,11 +58,15 @@ The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazo
                   OnDownload="@OnPdfDownload"
                   OnError="@OnPdfError"
                   OnOpen="@OnPdfOpen"
+                  Zoom="@PdfZoom"
+                  ZoomChanged="@OnPdfZoomChanged"
                   Height="600px">
 </TelerikPdfViewer>
 
 @code {
     private byte[] PdfSource { get; set; }
+
+    private double PdfZoom { get; set; } = 1.25;
 
     private string PdfName { get; set; } = "...";
 
@@ -98,6 +109,11 @@ The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazo
             EventLog = "Open successful.";
         }
     }
+
+    private async Task OnPdfZoomChanged(double newZoom)
+    {
+        PdfZoom = newZoom;
+    }
 }
 ````
 
@@ -109,5 +125,5 @@ The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazo
 
 ## See Also
 
-* [PdfViewer Live Demo](https://demos.telerik.com/blazor-ui/pdfviewer/overview)
+* [PdfViewer Events Demo](https://demos.telerik.com/blazor-ui/pdfviewer/events)
 * [PdfViewer API](/blazor-ui/api/Telerik.Blazor.Components.TelerikPdfViewer)

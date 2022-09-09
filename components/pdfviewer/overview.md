@@ -10,7 +10,7 @@ position: 0
 
 # Blazor PdfViewer Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/pdfviewer" target="_blank">Pdf Viewer for Blazor</a> allows users to open PDF files directly in the browser. The component provides all major features, such as paging, zooming and printing. In addition, users can upload and display a PDF file from their local device, or download the currently open file.
+The <a href = "https://www.telerik.com/blazor-ui/pdfviewer" target="_blank">Pdf Viewer for Blazor</a> allows users to open PDF files directly in the browser. The component provides features such as paging, zooming, printing, text selection and search. In addition, users can upload and display a PDF file from their local device, or download the currently open file.
 
 
 ## Creating Blazor PdfViewer
@@ -18,9 +18,9 @@ The <a href = "https://www.telerik.com/blazor-ui/pdfviewer" target="_blank">Pdf 
 To use a Telerik PDF Viewer for Blazor:
 
 1. Add the `TelerikPdfViewer` tag.
-1. Set the `Data` parameter to a byte array that will hold the PDF file contents.
+1. Set the `Data` parameter to a byte array `byte[]` that will hold the PDF file contents.
 1. If you are developing a Blazor **Server** app, [increase the maximum SignalR message size](#large-file-support).
-1. (optional) Subscribe to the [PDF Viewer's events]({%slug pdfviewer-events%}). For example, the `OnDownload` event handler sets the name of the downloaded file.
+1. (optional) Subscribe to the [PDF Viewer's events]({%slug pdfviewer-events%}). For example, use the `OnDownload` event to set the name of the downloaded file.
 1. (optional) Set [`Width` or `Height`](#pdfviewer-parameters) for the component.
 
 >caption Basic Blazor PDF Viewer
@@ -84,6 +84,7 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 | `MaxZoom` | `double` <br /> (`4`) | The largest possible zoom level. The default value is 400%. |
 | `MinZoom` | `double` <br /> (`0.5`) | The smallest possible zoom level. The default value is 50%. |
 | `Width` | `string` | The PdfViewer width as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand horizontally to fill its parent. |
+| `Zoom` | `double` <br /> (`1.25`) | The current zoom level. Use the parameter with two-way binding or with a [`ZoomChanged` event handler]({%slug pdfviewer-events%}#zoomchanged). |
 | `ZoomRate` | `double` <br /> (`0.25`) | The zoom level change that is used by the zoom in and zoom out buttons. |
 
 
@@ -91,7 +92,7 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 
 The PdfViewer exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute. The PdfViewer methods are:
 
-* `Rebind` - Refreshes the PDF Viewer and ensures it is displaying the latest file `Data`. Use `Rebind()` when changes to the PDF file source can occur behind the scenes and the Blazor framework does not re-render the PDF Viewer automatically. The following example simulates such scenario.
+* `Rebind` - Refreshes the PDF Viewer and ensures it is displaying the latest file `Data`. Use `Rebind()` when changes to the PDF file source can occur behind the scenes and the Blazor framework does not re-render the PDF Viewer automatically.
 
 >caption PDF Viewer reference and Rebind method usage
 
@@ -128,7 +129,9 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
     {
         await Task.Delay(1000);
 
+        // PdfUpdateFlag is used in the PdfSource getter to make the document change more obvious
         PdfUpdateFlag = true;
+
         PdfViewerRef.Rebind();
 
         await base.OnInitializedAsync();

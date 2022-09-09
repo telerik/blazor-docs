@@ -1,7 +1,7 @@
 ---
 title: Toolbar
 page_title: PdfViewer - Toolbar
-description: Toolbar of the PDF Viewer for Blazor.
+description: Toolbar of the PDF Viewer for Blazor. List of all built-in tools. How to use custom PDF Viewer tools.
 slug: pdfviewer-toolbar
 tags: telerik,blazor,pdf,pdfviewer
 published: True
@@ -15,7 +15,7 @@ The PDF Viewer toolbar can render built-in and custom tools. This article descri
 
 ## Built-in Tools
 
-By default, the PDF Viewer displays all its built-in tools in the order below. Use the *tool tag* if you need to define a tool explicitly in a [custom toolbar configuration](#toolbar-customization).
+By default, the PDF Viewer displays all its built-in tools in the order below. Use the *tool tag name* if you need to define a tool explicitly in a [custom toolbar configuration](#toolbar-configuration).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -37,9 +37,9 @@ The default toolbar user interface also includes separators (`<PdfViewerToolBarS
 In addition to built-in tools, the PDF Viewer also supports custom tools. Use the `<PdfViewerToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. Render the desired custom tool UI as `ChildContent` inside the tag.
 
 
-## Toolbar Customization
+## Toolbar Configuration
 
-Add a `<PdfViewerToolBar>` tag inside `<TelerikPdfViewer>` to:
+Add a `<PdfViewerToolBar>` tag inside `<TelerikPdfViewer>` to configure a custom toolbar, for example:
 
 * Arrange the PDF Viewer tools in a specific order;
 * Remove some of the built-in tools;
