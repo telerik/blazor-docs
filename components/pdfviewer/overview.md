@@ -53,14 +53,11 @@ To use a Telerik PDF Viewer for Blazor:
 
 ## Toolbar
 
-The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-toolbar%}). The default tools are related to the built-in features such as:
+The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-toolbar%}). The default tools enable the built-in features such as:
 
-* Paging
-* Text selection
-* Search
-* Print
-* Zoom and pan
-* Open and download
+* Page, zoom and pan documents
+* Search and select text
+* Print, download and open local PDF files
 
 
 ## Large File Support
