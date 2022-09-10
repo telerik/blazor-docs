@@ -34,7 +34,7 @@ The Toolbar of Telerik REPL for Blazor provides access to the operations that yo
 * **Get Started**&mdash;links the [Getting Started article](https://telerik.com/blazor-ui/repl/getting-started) for Telerik UI for Blazor.
 
 * **Share**&mdash;allows you to share the snippet. The menu is divided into two sections:
-    *  **Share**`&mdash;in the popup, you will find a generated public link with the snippet that you can share as desired. The menu also provides several options for direct sharing in social media.
+    *  **Share**&mdash;in the popup, you will find a generated public link with the snippet that you can share as desired. The menu also provides several options for direct sharing in social media.
     * **Embed**&mdash;generates a link which you can use to embed the snippet in blog posts and other websites. Based on your use case, you can choose whether to embed only the Editor, the Result View, the Error Console or all three. Upon selecting the desired option, you will see a preview of the embed in the popup.
     
 * **Feedback**&mdash;leads to the [public feedback portal for Telerik REPL for Blazor](https://feedback.telerik.com/repl) where you can share your enhancement requests and eventual bug reports. We use it to constantly monitor the community interest and demand and thus improve our products.
