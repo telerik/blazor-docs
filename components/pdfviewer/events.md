@@ -36,7 +36,8 @@ The event handler receives an argument of type [`PdfViewerErrorEventArgs`](/blaz
 
 The `OnOpen` event fires when the user selects a file to open from the [PDF Viewer toolbar]({%slug pdfviewer-toolbar%}).
 
-The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.PdfViewerOpenEventArgs). The event is cancellable and allows the application to obtain the PDF file name, size and contents as a `Stream`. See the [example below](#example).
+The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.PdfViewerOpenEventArgs). The event is cancellable and allows the application to obtain the PDF file name, size and contents as a `Stream`. The `OnOpen` handler is not required to open a file. See the [example below](#example).
+
 
 ## ZoomChanged
 
@@ -50,17 +51,17 @@ The event handler receives the new zoom level as an argument of type `double`. T
 >caption Handle or cancel Blazor PDF Viewer Events
 
 ````CSHTML
-<p> Last opened file by the user: @PdfName, with size @PdfSize.ToString() bytes.</p>
-
 <p> Last event: @EventLog </p>
 
+<p><label> <TelerikCheckBox @bind-Value="@AllowDownloads" /> Allow Downloads </label></p>
+
 <TelerikPdfViewer Data="@PdfSource"
+                  Height="600px"
                   OnDownload="@OnPdfDownload"
                   OnError="@OnPdfError"
                   OnOpen="@OnPdfOpen"
                   Zoom="@PdfZoom"
-                  ZoomChanged="@OnPdfZoomChanged"
-                  Height="600px">
+                  ZoomChanged="@OnPdfZoomChanged">
 </TelerikPdfViewer>
 
 @code {
@@ -68,51 +69,54 @@ The event handler receives the new zoom level as an argument of type `double`. T
 
     private double PdfZoom { get; set; } = 1.25;
 
-    private string PdfName { get; set; } = "...";
-
-    private long PdfSize { get; set; }
+    private bool AllowDownloads { get; set; } = true;
 
     private string EventLog { get; set; } = "...";
 
     private async Task OnPdfDownload(PdfViewerDownloadEventArgs args)
     {
-        //args.IsCancelled = true;
-        args.FileName = "PDF-Viewer-Download";
-        EventLog = "Download successful.";
+        if (AllowDownloads)
+        {
+            args.FileName = "PDF-Viewer-Download";
+            EventLog = $"Download {args.FileName}.pdf";
+        }
+        else
+        {
+            args.IsCancelled = true;
+            EventLog = $"Download cancelled";
+        }
     }
 
     private async Task OnPdfError(PdfViewerErrorEventArgs args)
     {
-        // Rename a random non-PDF file to error.pdf and try to open it.
-        EventLog = "Open failed. The Error message was: " + args.Message;
+        // To trigger the event, rename a random file to error.pdf and try to open it.
+        EventLog = "Error: " + args.Message;
     }
 
     private async Task OnPdfOpen(PdfViewerOpenEventArgs args)
     {
         var file = args.Files.FirstOrDefault();
 
-        if (file.Size > 1_000_000)
+        if (file.Size > 1024 * 1024)
         {
             args.IsCancelled = true;
-            EventLog = "Open rejected. File too large.";
+            EventLog = $"Open cancelled conditionally. File {file.Name} ({file.Size} bytes) is larger than 1 MB.";
         }
         else
         {
-            PdfName = file.Name;
-            PdfSize = file.Size;
-
             // Get the PDF file contents if necessary.
-            // It is not necessary to set the Data parameter value here.
             var buffer = new byte[file.Stream.Length];
             await file.Stream.ReadAsync(buffer);
 
-            EventLog = "Open successful.";
+            EventLog = $"Open {file.Name}, {file.Size} bytes";
         }
     }
 
     private async Task OnPdfZoomChanged(double newZoom)
     {
         PdfZoom = newZoom;
+
+        EventLog = "Zoom level changed.";
     }
 }
 ````

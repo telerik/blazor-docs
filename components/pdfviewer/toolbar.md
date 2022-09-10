@@ -15,7 +15,7 @@ The PDF Viewer toolbar can render built-in and custom tools. This article descri
 
 ## Built-in Tools
 
-By default, the PDF Viewer displays all its built-in tools in the order below. Use the *tool tag name* if you need to define a tool explicitly in a [custom toolbar configuration](#toolbar-configuration).
+By default, the PDF Viewer displays all its built-in tools in the order below. Use the *tool tag* if you need to define a tool explicitly in a [custom toolbar configuration](#toolbar-configuration).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -29,12 +29,12 @@ By default, the PDF Viewer displays all its built-in tools in the order below. U
 | Download | `PdfViewerToolBarDownloadTool` | A download button. It fires the [`OnDownload` event]({%slug pdfviewer-events%}#ondownload). |
 | Print | `PdfViewerToolBarPrintTool` | A print button. |
 
-The default toolbar user interface also includes separators (`<PdfViewerToolBarSeparator />`) and spacers (`<PdfViewerToolBarSpacer />`). The separators render as a vertical line. Spacers consume the available empty space and push the rest of the tools next to one another.
+By default, the toolbar also includes separators (`<PdfViewerToolBarSeparator />`) and spacers (`<PdfViewerToolBarSpacer />`). Separators render as a vertical line. Spacers consume the available empty space and push the rest of the tools next to one another.
 
 
 ## Custom Tools
 
-In addition to built-in tools, the PDF Viewer also supports custom tools. Use the `<PdfViewerToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. Render the desired custom tool UI as `ChildContent` inside the tag.
+In addition to built-in tools, the PDF Viewer also supports custom tools. Use the `<PdfViewerToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. See the example below.
 
 
 ## Toolbar Configuration
@@ -56,20 +56,19 @@ Add a `<PdfViewerToolBar>` tag inside `<TelerikPdfViewer>` to configure a custom
 
         <PdfViewerToolBarSeparator />
 
-        <PdfViewerToolBarDownloadTool />
         <PdfViewerToolBarOpenTool />
+        <PdfViewerToolBarDownloadTool />
+        <PdfViewerToolBarPrintTool />
 
-        <PdfViewerToolBarSeparator />
+        <PdfViewerToolBarSpacer />
 
         <PdfViewerToolBarPagerTool />
-        <PdfViewerToolBarPrintTool />
-        <PdfViewerToolBarSearchTool />
-        <PdfViewerToolBarSelectionTool />
 
-        <PdfViewerToolBarSeparator />
         <PdfViewerToolBarSpacer />
 
         <PdfViewerToolBarZoomTool />
+        <PdfViewerToolBarSelectionTool />
+        <PdfViewerToolBarSearchTool />
     </PdfViewerToolBar>
 </TelerikPdfViewer>
 
@@ -78,7 +77,7 @@ Add a `<PdfViewerToolBar>` tag inside `<TelerikPdfViewer>` to configure a custom
 
     private async Task OnPdfCustomClick()
     {
-        Console.Writeline("Custom PDF tool clicked");
+        Console.WriteLine("Custom PDF tool clicked");
     }
 }
 ````

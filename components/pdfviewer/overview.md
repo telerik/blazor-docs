@@ -10,7 +10,7 @@ position: 0
 
 # Blazor PdfViewer Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/pdfviewer" target="_blank">Pdf Viewer for Blazor</a> allows users to open PDF files directly in the browser. The component provides features such as paging, zooming, printing, text selection and search. In addition, users can upload and display a PDF file from their local device, or download the currently open file.
+The <a href = "https://www.telerik.com/blazor-ui/pdf-viewer" target="_blank">Pdf Viewer for Blazor</a> allows users to open PDF files directly in the browser. The component provides features such as paging, zooming, printing, text selection and search. In addition, users can upload and display a PDF file from their local device, or download the currently open file.
 
 
 ## Creating Blazor PdfViewer
@@ -18,7 +18,7 @@ The <a href = "https://www.telerik.com/blazor-ui/pdfviewer" target="_blank">Pdf 
 To use a Telerik PDF Viewer for Blazor:
 
 1. Add the `TelerikPdfViewer` tag.
-1. Set the `Data` parameter to a byte array `byte[]` that will hold the PDF file contents.
+1. Set the `Data` parameter to a byte array (`byte[]`) that holds the PDF file contents.
 1. If you are developing a Blazor **Server** app, [increase the maximum SignalR message size](#large-file-support).
 1. (optional) Subscribe to the [PDF Viewer's events]({%slug pdfviewer-events%}). For example, use the `OnDownload` event to set the name of the downloaded file.
 1. (optional) Set [`Width` or `Height`](#pdfviewer-parameters) for the component.
@@ -46,14 +46,14 @@ To use a Telerik PDF Viewer for Blazor:
         base.OnInitialized();
     }
 
-    private const string PdfBase64 = @"JVBERi0xLjEKMSAwIG9iajw8L1R5cGUvQ2F0YWxvZy9QYWdlcyAyIDAgUj4+ZW5kb2JqCjIgMCBvYmo8PC9UeXBlL1BhZ2VzL0tpZHNbMyAwIFJdL0NvdW50IDEvTWVkaWFCb3ggWy00MCAtNjQgMjYwIDgwXSA+PmVuZG9iagozIDAgb2JqPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9SZXNvdXJjZXM8PC9Gb250PDwvRjE8PC9UeXBlL0ZvbnQvU3VidHlwZS9UeXBlMS9CYXNlRm9udC9BcmlhbD4+ID4+ID4+L0NvbnRlbnRzIDQgMCBSPj5lbmRvYmoKNCAwIG9iajw8L0xlbmd0aCA1OT4+CnN0cmVhbQpCVAovRjEgMTggVGYKMCAwIFRkCihUZWxlcmlrIFBkZlZpZXdlciBmb3IgQmxhem9yKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDIxIDAwMDAwIG4KMDAwMDAwMDA4NiAwMDAwMCBuCjAwMDAwMDAxOTUgMDAwMDAgbgowMDAwMDAwNDkwIDAwMDAwIG4KdHJhaWxlciA8PCAgL1Jvb3QgMSAwIFIgL1NpemUgNSA+PgpzdGFydHhyZWYKNjA5CiUlRU9G";
+    private const string PdfBase64 = "JVBERi0xLjEKMSAwIG9iajw8L1R5cGUvQ2F0YWxvZy9QYWdlcyAyIDAgUj4+ZW5kb2JqCjIgMCBvYmo8PC9UeXBlL1BhZ2VzL0tpZHNbMyAwIFJdL0NvdW50IDEvTWVkaWFCb3ggWy00MCAtNjQgMjYwIDgwXSA+PmVuZG9iagozIDAgb2JqPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9SZXNvdXJjZXM8PC9Gb250PDwvRjE8PC9UeXBlL0ZvbnQvU3VidHlwZS9UeXBlMS9CYXNlRm9udC9BcmlhbD4+ID4+ID4+L0NvbnRlbnRzIDQgMCBSPj5lbmRvYmoKNCAwIG9iajw8L0xlbmd0aCA1OT4+CnN0cmVhbQpCVAovRjEgMTggVGYKMCAwIFRkCihUZWxlcmlrIFBkZlZpZXdlciBmb3IgQmxhem9yKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZgowMDAwMDAwMDIxIDAwMDAwIG4KMDAwMDAwMDA4NiAwMDAwMCBuCjAwMDAwMDAxOTUgMDAwMDAgbgowMDAwMDAwNDkwIDAwMDAwIG4KdHJhaWxlciA8PCAgL1Jvb3QgMSAwIFIgL1NpemUgNSA+PgpzdGFydHhyZWYKNjA5CiUlRU9G";
 }
 ````
 
 
 ## Toolbar
 
-The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-toolbar%}). The default tools enable the built-in features such as:
+The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-toolbar%}). The default tools enable built-in features such as:
 
 * Page, zoom and pan documents
 * Search and select text
@@ -86,9 +86,14 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 
 ## PdfViewer Reference and Methods
 
-The PdfViewer exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute. The PdfViewer methods are:
+The PdfViewer exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute.
 
-* `Rebind` - Refreshes the PDF Viewer and ensures it is displaying the latest file `Data`. Use `Rebind()` when the PDF file source changes behind the scenes and the Blazor framework does not re-render the PDF Viewer automatically.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `Rebind` | Refreshes the PDF Viewer and ensures it is displaying the latest file `Data`. [`Rebind` is necessary when the Blazor framework cannot re-render components automatically]({%slug common-features-data-binding-overview%}#refresh-data). |
+
 
 >caption PDF Viewer reference and Rebind method usage
 
