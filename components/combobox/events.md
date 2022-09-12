@@ -12,9 +12,13 @@ position: 40
 
 This article explains the events available in the Telerik ComboBox for Blazor:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
 * [OnRead](#onread)
+* [OnOpen](#onopen)
+* [OnClose](#onclose)
 * [OnItemRender](#onitemrender)
 * [OnBlur](#onblur)
 
@@ -169,7 +173,6 @@ See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%
 }
 ````
 
-
 ## OnRead
 
 You can use the [`OnRead` event]({%slug common-features-data-binding-onread%}) to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug combobox-virtualization%})). The event fires when:
@@ -297,6 +300,97 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
     {
         public int Id { get; set; }
         public string Make { get; set; }
+    }
+}
+````
+
+## OnOpen
+
+The `OnOpen` event fires before the ComboBox popup renders. 
+
+The event handler receives as an argument an `ComboBoxOpenEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
+
+````CSHTML
+<TelerikComboBox Data="@Items"
+                 OnOpen="@OnComboBoxPopupOpen"
+                 ValueField="@nameof(ItemDescriptor.ItemId)"
+                 TextField="@nameof(ItemDescriptor.ItemText)"
+                 @bind-Value="@ComboBoxValue">
+</TelerikComboBox>
+
+@code {
+    private int ComboBoxValue { get; set; }
+
+    private void OnComboBoxPopupOpen(ComboBoxOpenEventArgs args)
+    {
+        // cancel the OnOpen event by setting IsCancelled to true
+        args.IsCancelled = false;
+    }
+
+    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
+        {
+            ItemId = x,
+            ItemText = $"Item {x}"
+        }).ToList();
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
+}
+````
+
+## OnClose
+
+The `OnClose` event fires before the ComboBox popup closes.
+
+The event handler receives as an argument an `ComboBoxCloseEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
+
+````CSHTML
+@* Cancel the OnClose event based on a condition *@
+
+<TelerikComboBox Data="@Items"
+                 OnClose="@OnComboBoxPopupClose"
+                 ValueField="@nameof(ItemDescriptor.ItemId)"
+                 TextField="@nameof(ItemDescriptor.ItemText)"
+                 @bind-Value="@ComboBoxValue">
+</TelerikComboBox>
+
+@code {
+    private int ComboBoxValue { get; set; }
+
+    private void OnComboBoxPopupClose(ComboBoxCloseEventArgs args)
+    {
+        // cancel the OnClose event based on a condition
+        if (ComboBoxValue == 2)
+        {
+            args.IsCancelled = false;
+        }
+    }
+
+    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
+        {
+            ItemId = x,
+            ItemText = $"Item {x}"
+        }).ToList();
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
     }
 }
 ````

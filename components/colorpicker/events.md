@@ -15,6 +15,8 @@ This article describes the available events of the Telerik ColorPicker for Blazo
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
 * [ViewChanged](#viewchanged)
+* [OnOpen](#onopen)
+* [OnClose](#onclose)
 
 ## OnChange
 
@@ -85,6 +87,63 @@ The event type is `EventCallback<ColorPickerView>`. Using `ViewChanged` requires
     async Task ColorPickerViewChanged(ColorPickerView newView)
     {
         View = newView;
+    }
+}
+````
+
+## OnOpen
+
+The `OnOpen` event fires before the ColorPicker popup renders. 
+
+The event handler receives as an argument an `ColorPickerOpenEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
+
+````CSHTML
+<TelerikColorPicker @bind-Value="@Color" OnOpen="@OnColorPickerPopupOpen" />
+
+@code {
+    private string Color { get; set; } = "rgb(40, 47, 137)";
+
+    private void OnColorPickerPopupOpen(ColorPickerOpenEventArgs args)
+    {
+        //set the IsCancelled to true to cancel the OnOpen event
+        args.IsCancelled = false;
+    }
+}
+````
+
+## OnClose
+
+The `OnClose` event fires before the ColorPicker popup closes.
+
+The event handler receives as an argument an `MultiColumnComboBoxCloseEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
+
+````CSHTML
+@* Cancel the OnClose event based on a condition *@
+
+<TelerikColorPicker @bind-Value="@Color" OnClose="@OnColorPickerPopupClose" />
+
+@code {
+    private string Color { get; set; } = "rgba(40, 47, 137, 0)";
+
+    private void OnColorPickerPopupClose(ColorPickerCloseEventArgs args)
+    {
+        //cancel the OnClose event based on a condition
+        if (Color == "rgba(255, 255, 255, 0)")
+        {
+            args.IsCancelled = true;
+        }
     }
 }
 ````

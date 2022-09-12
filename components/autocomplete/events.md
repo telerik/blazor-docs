@@ -15,6 +15,8 @@ This article explains the events available in the Telerik AutoComplete for Blazo
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
 * [OnRead](#onread)
+* [OnOpen](#onopen)
+* [OnClose](#onclose)
 * [OnItemRender](#onitemrender)
 * [OnBlur](#onblur)
 
@@ -225,6 +227,75 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
         public int Id { get; set; }
         public string Make { get; set; }
     }
+}
+````
+
+## OnOpen
+
+The `OnOpen` event fires before the AutoComplete popup renders. 
+
+The event handler receives as an argument an `AutoCompleteOpenEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
+
+````CSHTML
+<TelerikAutoComplete Data="@Suggestions"
+                     @bind-Value="@AutoCompleteValue"
+                     OnOpen="@OnOpenEventHandler" />
+
+@code {
+    private string AutoCompleteValue { get; set; }
+
+    private void OnOpenEventHandler(AutoCompleteOpenEventArgs args)
+    {
+        //set the IsCancelled to true to cancel the opening of the popup.
+        args.IsCancelled = false;
+    }
+
+    private List<string> Suggestions { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
+}
+````
+
+## OnClose
+
+The `OnClose` event fires before the AutoComplete popup closes.
+
+The event handler receives as an argument an `AutoCompleteCloseEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
+
+````CSHTML
+@* Cancel the OnClose event based on a condition *@
+
+<TelerikAutoComplete Data="@Suggestions"
+                     @bind-Value="@AutoCompleteValue"
+                     OnClose="OnCloseEventHandler" />
+
+@code {
+    private string AutoCompleteValue { get; set; }
+
+    private void OnCloseEventHandler(AutoCompleteCloseEventArgs args)
+    {
+        //cancel the OnClose event based on a condition
+        if (AutoCompleteValue != "Manager")
+        {
+            args.IsCancelled = true;
+        }
+    }
+
+    private List<string> Suggestions { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
 }
 ````
 
