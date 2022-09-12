@@ -235,10 +235,10 @@ The event handler receives as an argument an `MultiSelectOpenEventArgs` object t
 
 ````CSHTML
 <TelerikMultiSelect Data="@Items"
-                    OnOpen="@OnMultiSelectPopupOpen"
+                    @bind-Value="@MultiSelectValue"
                     ValueField="@nameof(ItemDescriptor.ItemId)"
                     TextField="@nameof(ItemDescriptor.ItemText)"
-                    @bind-Value="@MultiSelectValue">
+                    OnOpen="@OnMultiSelectPopupOpen">
 </TelerikMultiSelect>
 
 @code {
