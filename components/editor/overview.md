@@ -98,7 +98,7 @@ The following table lists Editor parameters, which are not discussed elsewhere i
 
 ## Editor Reference and Methods
 
-You can use the component reference to call its `ExecuteAsync` method, especially when creating [custom tools]({%slug editor-custom-tool%}). This method allows you to call programmatically the tools and commands of the editor (such as the Bold too, or a Back Color tool, or inserting HTML).
+You can use the component reference to call its `ExecuteAsync` method, especially when creating [custom tools]({%slug editor-custom-tools%}). This method allows you to call programmatically the tools and commands of the editor (such as the Bold too, or a Back Color tool, or inserting HTML).
 
 You can find the reference for the available commands and their respective arguments in the [Built-in Tools list]({%slug editor-built-in-tools%}) section of the documentation.
 
@@ -129,7 +129,7 @@ You can replace that string with any other content you can generate/obtain accor
 ## Next Steps
 
 * [Explore the Built-in Tools and Commands]({%slug editor-built-in-tools%})
-* [Create Custom Tools]({%slug editor-custom-tool%})
+* [Create Custom Tools]({%slug editor-custom-tools%})
 * [Explore the Editor Edit Modes](editor-edit-modes-overview)
 * [Import and Export Data]({%slug editor-import-export%})
 * [Learn more about the Editor Events]({%slug editor-events%})
