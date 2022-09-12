@@ -245,7 +245,7 @@ The event handler receives as an argument an `AutoCompleteOpenEventArgs` object 
 ````CSHTML
 <TelerikAutoComplete Data="@Suggestions"
                      @bind-Value="@AutoCompleteValue"
-                     OnOpen="OnOpenEventHandler" />
+                     OnOpen="@OnOpenEventHandler" />
 
 @code {
     private string AutoCompleteValue { get; set; }
