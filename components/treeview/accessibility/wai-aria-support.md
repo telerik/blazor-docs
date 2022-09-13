@@ -61,4 +61,4 @@ The component has been extensively tested automatically with static code analyze
 
 * [Blazor TreeView Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug accessibility-swatch %})
+* [Accessibility Theme]({% slug themes-accessibility-swatch %})
