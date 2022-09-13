@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: DateInput
+from: /aria/dateinput_aria.md
+dest: ../components/dateinput/accessibility/wai-aria-support.md
+slug: dateinput-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor DateInput Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/dateinput/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug accessibility-swatch %})

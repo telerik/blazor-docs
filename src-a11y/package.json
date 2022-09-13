@@ -1,0 +1,19 @@
+{
+  "name": "blazor-src-a11y",
+  "version": "1.0.0",
+  "description": "Folder to sync a11y sepcs from @progress/wct-a11y-spec",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@progress/wct-a11y-spec": "^1.0.1",
+    "gulp": "^4.0.2",
+    "gulp-json-editor": "^2.5.6",
+    "gulp-rename": "^2.0.0",
+    "gulp-wrap": "^0.15.0",
+    "gulp-yaml": "^2.0.4",
+    "marked": "^4.0.17",
+    "yaml": "^2.1.1"
+  }
+}

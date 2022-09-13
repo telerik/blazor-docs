@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: MaskedTextBox
+from: /aria/maskedtextbox_aria.md
+dest: ../components/maskedtextbox/accessibility/wai-aria-support.md
+slug: maskedtextbox-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor MaskedTextBox Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/maskedtextbox/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug accessibility-swatch %})

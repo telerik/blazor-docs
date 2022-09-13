@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: ComboBox
+from: /aria/combobox_aria.md
+dest: ../components/combobox/accessibility/wai-aria-support.md
+slug: combobox-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor ComboBox Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/combobox/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug accessibility-swatch %})
