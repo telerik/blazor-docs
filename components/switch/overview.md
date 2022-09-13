@@ -68,8 +68,6 @@ The following table lists the Switch parameters. Also check the [Switch API Refe
 
 The following parameters enable you to customize the appearance of the Blazor Switch:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Switch. Use it to [customize the Switch background color and other styles]({%slug switch-kb-change-background-color%})
@@ -80,8 +78,6 @@ You can find more options for customizing the Switch styling in the [Appearance 
 ## Switch Reference and Methods
 
 The Switch is a generic component and its type comes from the model field it is bound to - it is either `bool` or `bool?` (a `null` value is treated as `false`). Add a reference to the component instance to use the [Switch methods](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSwitch-1#methods).
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Method | Description |
 | --- | --- |

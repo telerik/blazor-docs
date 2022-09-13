@@ -58,8 +58,6 @@ The table below provides a quick overview of the mask-related parameters. You ca
 
 ## MaskedTextBox Parameters
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|
 | `Class`  | `string` | Adds a custom CSS class to the `<div class="k-maskedtextbox">` element. |

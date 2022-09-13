@@ -132,8 +132,6 @@ The following data types are supported out-of-the box and they use the following
 
 You can customize the automatically generated field by providing the `EditorType` attribute, exposed on the `<FormItem>`, or by using the [FormItem Template]({%slug form-formitems-template%}). The `EditorType` attribute accepts a member of the `FormEditorType` enum:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Field data type | FormEditorType enum members              |
 |-----------------|------------------------------------------|
 | **String**          | `FormEditorType.TextArea`<br /> `FormEditorType.TextBox` |
@@ -194,8 +192,6 @@ You can customize the editors further through the [form items]({%slug form-formi
 
 ## Form Parameters
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|
 | `Model`  | `object` | The object bound to the Form. It will automatically create the `EditContext` and using the two together is not supported. |
@@ -206,8 +202,6 @@ You can customize the editors further through the [form items]({%slug form-formi
 ### Form Layout Customization
 
 The Blazor Form exposes multiple parameters that allow you to customize its layout:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|

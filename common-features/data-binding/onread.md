@@ -107,8 +107,6 @@ The `ToDataSourceResult` extension method is able to extract the requested data 
 
 `ToDataSourceResult` returns a [`DataSourceResult` object](/blazor-ui/api/Telerik.DataSource.DataSourceResult). Its most important properties are:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Property | Type | Description |
 | --- | --- | --- |
 | `Data` | `IEnumerable` | The chunk (page) of data items to render. All data operations are already applied (sorting, filtering, etc.) |

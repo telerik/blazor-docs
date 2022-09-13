@@ -62,8 +62,6 @@ Here is a complete list of the base themes, all available swatches and their CDN
 
 ### Bootstrap
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Swatch | CDN |
 | ----------- | ----------- |
 | Bootstrap Main | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-main.css
@@ -80,8 +78,6 @@ Here is a complete list of the base themes, all available swatches and their CDN
 
 
 ### Material
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Swatch | CDN |
 | ----------- | ----------- |
@@ -101,8 +97,6 @@ Here is a complete list of the base themes, all available swatches and their CDN
 | Material Smoke | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-smoke.css
 
 ### Fluent
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Swatch | CDN |
 | ----------- | ----------- |

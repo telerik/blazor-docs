@@ -145,8 +145,6 @@ The following table lists Chart parameters, which are not discussed elsewhere in
 
 To execute Chart methods, obtain reference to the component instance via `@ref`.
 
- @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Method  | Description |
 |---------|-------------|
 | Refresh | Use the method to programmatically re-render the Chart.  |
