@@ -59,9 +59,11 @@ Steps 4 and 5 are optional, but strongly recommended.
     * Its argument should be `IFormFile` or `IEnumerable<IFormFile>`.
     * The Upload always sends files one by one, but both argument types can work.
     * The argument name (`FormData` request key) must match the Upload [`SaveField` parameter](#upload-parameters) value. By default, that is `files`.
+    * The method name should match the last part of the `SaveUrl` value.
 * **Remove** action method
     * Its argument should be `string` or `IEnumerable<string>`.
     * The argument name (`FormData` request key) must match the Upload [`RemoveField` parameter](#upload-parameters) value. By default, that is `files`.
+    * The method name should match the last part of the `RemoveUrl` value.
 
 Both action methods should accept `POST` requests. Correct request routing depends on the application.
 
