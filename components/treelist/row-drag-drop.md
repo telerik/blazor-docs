@@ -20,6 +20,7 @@ This article contains the following sections:
 * [Examples](#examples)
     * [Drag and Drop a Row in the same TreeList](#drag-and-drop-a-row-in-the-same-treelist)
     * [Drag and Drop a Row between TreeLists](#drag-and-drop-a-row-between-treelists)
+    * [Drag and Drop between TreeList, Grid, TreeView and Scheduler](#drag-and-drop-between-treelist-grid-treeview-and-scheduler)
     * [Drag and Drop multiple Rows](#drag-and-drop-multiple-rows)
 
 ## Basics
@@ -40,18 +41,15 @@ The `OnRowDrop` event fires when the user drops a row into a new location. It al
 
 The `OnRowDrop` event provides an object of type `TreeListRowDropEventArgs<T>` to its event handler which exposes the following fields:
 
-* `Item` - an `object` that represents the dragged row. You can cast this object to your model class.
-
-* `DestinationItem` - an `object` that represents the row over which the `Item` is dropped. You can cast this object to your model class.
-
-* `Items` - `IEnumerable<T>` that represents a collection of all dragged items. 
-
-* `DropPosition` - an `enum` - its members allow you to determine the exact position of the dropped item relative to the position of the `DestinationItem`:
-    * `After`
-    * `Below`
-    * `Over`
-    
-* `DestinationTreeList` - the reference of the TreeList in which the row is dropped. This is applicable when you drag and drop rows between different TreeLists. 
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Item` | `object` | Represents the dragged row. You can cast this object to your model class. |
+| `DestinationItem` | `object` | Represents the row over which the `Item` is dropped. You can cast this object to your model class. |
+| `Items` | `object` | Represents the dragged row. You can cast this object to your model class. |
+| `DropPosition` | `enum` | Its members allow you to determine the exact position of the dropped item relative to the position of the `DestinationItem`. |
+| `DestinationGrid` | `object` | The reference of the Grid in which the row is dropped. This is applicable when you drag and drop rows between different grids. |
+| `DestinationIndex` | `string` | The index where the drop will happen in the second component. |
+| `DestinationComponentId` | `string` | The `Id` of the second component in which the drop will happen. |
 
 ## TreeListRowDraggableSettings
 
@@ -67,6 +65,7 @@ This section contains the following examples:
 
 * [Drag and Drop a Row in the same TreeList](#drag-and-drop-a-row-in-the-same-treelist)
 * [Drag and Drop a Row between TreeLists](#drag-and-drop-a-row-between-treelists)
+* [Drag and Drop between TreeList, Grid, TreeView and Scheduler](#drag-and-drop-between-treelist-grid-treeview-and-scheduler)
 * [Drag and Drop multiple Rows](#drag-and-drop-multiple-rows)
 
 ### Drag and Drop a Row in the same TreeList
@@ -587,6 +586,352 @@ public class Employee
     public DateTime HireDate { get; set; }
 }
 ````
+
+### Drag and Drop between TreeList, Grid, TreeView and Scheduler
+
+The functionality allows dragging items between TreeList, [Grid]({%slug grid-drag-drop-overview%}), [TreeView]({%slug treeview-drag-drop-overview%}), and [Scheduler]({%slug scheduler-overview%}). To achieve it, set the `Draggable`/`RowDraggable` parameter, and implement it through an event -  `OnDrop`/`OnRowDrop`.
+
+>important Drag and Drop from **Scheduler** to Grid, TreeList, TreeView is **not** yet supported. Only the reversed way.
+
+##### Drag and Drop between Grid and TreeList
+
+<div class="skip-repl"></div>
+````Index.razor
+@using System.Collections.Generic;
+@using System.Collections.ObjectModel;
+
+@inject PersonService PersonService;
+@inject TreeListService TreeService;
+
+<TelerikGrid Data="@GridData"
+             Id="Grid1"
+             Pageable="true"
+             Width="450px"
+             PageSize="10"
+             Sortable="true"
+             RowDraggable="true"
+             SelectionMode="@GridSelectionMode.Multiple"
+             @ref="@GridRef"
+             OnRowDrop="@((GridRowDropEventArgs<Person> args) => GridRowDrop(args))">
+    <GridSettings>
+        <GridRowDraggableSettings DragClueField="@nameof(Person.Name)"></GridRowDraggableSettings>
+    </GridSettings>
+    <GridColumns>
+        <GridColumn Field=@nameof(Person.EmployeeId) Editable="false" />
+        <GridColumn Field=@nameof(Person.Name) />
+    </GridColumns>
+</TelerikGrid>
+<TelerikTreeList Data="@TreeData"
+                 Id="TreeList1"
+                 ItemsField="Items"
+                 Pageable="true"
+                 Width="550px"
+                 RowDraggable="true"
+                 @ref="@TreeListRef"
+                 ParentIdField="ParentId"
+                 OnRowDrop="@((TreeListRowDropEventArgs<FlatItem> args) => TreeListDrop(args))">
+    <TreeListSettings>
+        <TreeListRowDraggableSettings DragClueField="@nameof(FlatItem.StringProp)"></TreeListRowDraggableSettings>
+    </TreeListSettings>
+    <TreeListColumns>
+        <TreeListColumn Field="Id"></TreeListColumn>
+        <TreeListColumn Field="StringProp" Expandable="true"></TreeListColumn>
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    public List<Person> GridData { get; set; }
+    public TelerikGrid<Person> GridRef { get; set; }
+    public TelerikTreeList<FlatItem> TreeListRef { get; set; }
+    public List<FlatItem> TreeData { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadData();
+    }
+    private async Task LoadData()
+    {
+        var people = await PersonService.GetPeopleAsync();
+        GridData = people.Take(10).ToList();
+        var treeListData = await TreeService.GetFlatItemsAsync();
+        TreeData = treeListData.Take(10).ToList();
+    }
+    private void GridRowDrop(GridRowDropEventArgs<Person> args)
+    {
+        foreach (var item in args.Items)
+        {
+            GridData.Remove(item);
+        }
+        if (args.DestinationComponentId == "TreeList1")
+        {
+            var destinationItem = (FlatItem)TreeListRef.GetItemFromDropIndex(args.DestinationIndex);
+            args.Items
+                .Select(item => new FlatItem() { StringProp = item.Name, Id = Guid.NewGuid() }).ToList()
+                .ForEach(item => UpdateTreeList(item, destinationItem, (TreeListRowDropPosition)(int)args.DropPosition));
+        }
+        else if (args.DestinationComponentId == "Grid1")
+        {
+            InsertItemsIntoGrid(args.Items, args.DestinationItem, args.DropPosition);
+        }
+    }
+    private void TreeListDrop(TreeListRowDropEventArgs<FlatItem> args)
+    {
+        var item = args.Item as FlatItem;
+        if (args.DestinationComponentId == "TreeList1")
+        {
+            var destinationItem = (FlatItem)TreeListRef.GetItemFromDropIndex(args.DestinationIndex);
+            UpdateTreeList(item, destinationItem, (TreeListRowDropPosition)(int)args.DropPosition);
+        }
+        else if (args.DestinationComponentId == "Grid1")
+        {
+            var sourceItems = TreeData
+            .Where(x => x.ParentId == item.Id)
+            .Select(item => new Person() { Name = item.StringProp, EmployeeId = GridData.Max(x => x.EmployeeId) + 1 });
+            TreeData.Remove(item);
+            var destinationItem = GridRef.GetItemFromDropIndex(args.DestinationIndex);
+            InsertItemsIntoGrid(sourceItems, destinationItem, (GridRowDropPosition)(int)args.DropPosition);
+            GridRef.Rebind();
+        }
+    }
+    private void InsertItemsIntoGrid(IEnumerable<Person> items, Person destinationItem, GridRowDropPosition dropPosition)
+    {
+        var destinationIndex = 0;
+        if (destinationItem != null)
+        {
+            destinationIndex = GridData.IndexOf(destinationItem);
+            if (dropPosition == GridRowDropPosition.After)
+            {
+                destinationIndex += 1;
+            }
+        }
+        GridData.InsertRange(destinationIndex, items);
+        TreeListRef.Rebind();
+    }
+    private void UpdateTreeList(FlatItem item, FlatItem destinationItem, TreeListRowDropPosition dropPosition)
+    {
+        var destinationIndex = 0;
+        if (destinationItem != null)
+        {
+            destinationIndex = TreeData.IndexOf(destinationItem);
+            if (dropPosition == TreeListRowDropPosition.Over)
+            {
+                item.ParentId = destinationItem.Id;
+            }
+            else if (dropPosition == TreeListRowDropPosition.After)
+            {
+                destinationIndex += 1;
+            }
+            else if (dropPosition == TreeListRowDropPosition.Before)
+            {
+                destinationIndex += 1;
+            }
+            TreeData.Insert(destinationIndex, item);
+        }
+        TreeData = new List<FlatItem>(TreeData);
+    }
+}
+````
+````PersonService.cs
+public class PersonService
+{
+    private List<Person> _people;
+
+    public List<Person> People
+    {
+        get
+        {
+            if (_people == null)
+            {
+                _people = GeneratePeople(30);
+            }
+
+            return _people;
+        }
+    }
+
+    public async Task<List<Person>> GetPeopleAsync()
+    {
+        await Task.Delay(50);
+
+        return People;
+    }
+
+    private List<Person> GeneratePeople(int count, int startIndex = 0)
+    {
+        List<Person> result = new List<Person>();
+
+        for (int i = startIndex; i < startIndex + count; i++)
+        {
+            result.Add(new Person()
+            {
+                EmployeeId = i,
+                Name = "Employee " + i.ToString(),
+                AgeInYears = i,
+                GraduateGrade = (i % 6) + 1,
+                HireDate = new DateTime(2020, 6, 1).Date.AddDays(count - (i % 7)),
+                MeetingDate = new DateTime(2020, 6, 1).Date.AddDays((i % 4)),
+                IsOutOfOffice = i % 3 == 0 ? true : false
+            });
+        }
+
+        return result;
+    }
+}
+````
+````Person.cs
+using System.ComponentModel.DataAnnotations;
+
+public class Person
+{
+    [Editable(false)]
+    public int? EmployeeId { get; set; }
+
+    [Required(ErrorMessage = "Enter a name")]
+    public string Name { get; set; }
+
+    [Display(Name = "Age in Years")]
+    [Required(ErrorMessage = "Enter an int age")]
+    [Range(0, 200, ErrorMessage = "Nobody is that old")]
+    public int? AgeInYears { get; set; }
+
+    [Display(Name = "Graduate Grade")]
+    [Required(ErrorMessage = "Enter a graduate grade.")]
+    [Range(1, 6, ErrorMessage = "Grades vary between 1 and 6.")]
+    public decimal? GraduateGrade { get; set; }
+
+    [Required(ErrorMessage = "Enter a hire date")]
+    [Range(typeof(DateTime), "10/10/2016", "10/10/2020", ErrorMessage = "Hire Date must be between 10/10/2016 and 10/10/2020")]
+    public DateTime HireDate { get; set; }
+
+    [Display(AutoGenerateField = false, Name = "Meeting Date")]
+    public DateTime MeetingDate { get; set; }
+
+    public bool IsOutOfOffice { get; set; }
+
+    public Person()
+    {
+        GraduateGrade = 1;
+    }
+}
+````
+````TreeListService.cs
+public class TreeListService
+    {
+        private List<FlatItem> _flatItems;
+
+        public Task<List<FlatItem>> GetFlatItemsAsync(int maxLevel = 3, int itemsPerLevel = 7, bool useCachedData = false)
+        {
+            List<FlatItem> data;
+
+            if (useCachedData)
+            {
+                if (_flatItems == null)
+                {
+                    _flatItems = GenerateFlatItems(null, 0, maxLevel, itemsPerLevel, "Item");
+                }
+
+                data = _flatItems;
+            }
+            else
+            {
+                data = GenerateFlatItems(null, 0, maxLevel, itemsPerLevel, "Item");
+            }
+
+            return Task.FromResult(data);
+        }
+
+        private List<FlatItem> GenerateFlatItems(Guid? parentId, int level, int maxLevel, int itemsPerLevel, string parentName)
+        {
+            var items = new List<FlatItem>();
+
+            for (var i = 1; i <= itemsPerLevel; i++)
+            {
+                var id = Guid.NewGuid();
+                var name = $"{parentName} : {i}";
+
+                var product = new FlatItem()
+                {
+                    Id = id,
+                    ParentId = parentId,
+                    HasChildren = level < maxLevel,
+                    StringProp = name,
+                    ShortProp = 2,
+                    IntProp = i,
+                    LongProp = 4,
+                    FloatProp = 5.1F,
+                    DoubleProp = 6.2,
+                    DecimalProp = 7.3M,
+                    BoolProp = true,
+                    DateTimeProp = new DateTime(2020, 6, 3).AddDays(i % 4),
+                    EnumProp = (ProductSize)(i % 5),
+                    ShortNullableProp = null,
+                    IntNullableProp = null,
+                    LongNullableProp = null,
+                    FloatNullableProp = null,
+                    DoubleNullableProp = null,
+                    DecimalNullableProp = null,
+                    BoolNullableProp = null,
+                    DateTimeNullableProp = null,
+                    EnumNullableProp = null
+                };
+
+                items.Add(product);
+
+                if (level < maxLevel)
+                {
+                    items.AddRange(GenerateFlatItems(id, level + 1, maxLevel, itemsPerLevel, name));
+                }
+            }
+
+            return items;
+        }
+    }
+````
+````FlatItem.cs
+public class FlatItem
+    {
+        public Guid Id { get; set; }
+        public Guid? ParentId { get; set; }
+        public bool HasChildren { get; set; }
+
+        public string StringProp { get; set; }
+
+        public short ShortProp { get; set; }
+        public int IntProp { get; set; }
+        public long LongProp { get; set; }
+        public float FloatProp { get; set; }
+        public double DoubleProp { get; set; }
+        public decimal DecimalProp { get; set; }
+        public bool BoolProp { get; set; }
+        public DateTime DateTimeProp { get; set; }
+        public ProductSize EnumProp { get; set; }
+
+        public short? ShortNullableProp { get; set; }
+        public int? IntNullableProp { get; set; }
+        public long? LongNullableProp { get; set; }
+        public float? FloatNullableProp { get; set; }
+        public double? DoubleNullableProp { get; set; }
+        public decimal? DecimalNullableProp { get; set; }
+        public bool? BoolNullableProp { get; set; }
+        public DateTime? DateTimeNullableProp { get; set; }
+        public ProductSize? EnumNullableProp { get; set; }
+    }
+````
+````ProductSize.cs
+using System.ComponentModel.DataAnnotations;
+
+public enum ProductSize
+    {
+        [Display(Name = "Extra Small Size")]
+        ExtraSmall,
+        Small,
+        Medium,
+        Large,
+        [Display(Name = "Extra Large Size")]
+        ExtraLarge
+    }
+````
+
+See more applicable examples in the [Grid Drag and Drop article]({%slug grid-drag-drop-overview%}).
 
 ### Drag and Drop multiple Rows
 
