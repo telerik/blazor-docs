@@ -1,7 +1,7 @@
 ---
 title: Custom Themes
 page_title: Custom Themes
-description: Create a custom theme for the UI for Blazor components based on the built-in ones.
+description: Learn how to create a custom theme for you Blazor application and alter the default appearance of the UI for Blazor components.
 slug: themes-custom
 tags: telerik,blazor,theme,custom
 published: True
@@ -11,15 +11,12 @@ position: 3
 
 # Custom Themes
 
-By customizing themes you can alter the default appearance of the Telerik components so they match the desired color scheme from your designers and fit with the rest of your site's coloring and style.
+By customizing themes, you can alter the default appearance of the Telerik components so they match the desired color scheme and the rest of your site's coloring and style.
 
 This article contains the following sections:
 
 * [What is the best way to customize the Telerik Blazor styles](#best-way-to-customize-the-telerik-blazor-css)
-* [Using the Sass Theme Builder](#using-the-sass-theme-builder)
-	* [Create New Theme](#create-new-theme)
-	* [Modifying Themes](#modifying-themes)
-	* [Import Custom Theme](#import-custom-theme)
+* [Using the ThemeBuilder](#using-themebuilder)
 	* [Use The Custom Theme In Your Project](#use-the-custom-theme-in-your-project)
 * [Manual Alternative](#manual-alternative)
 	* [Using the Build Process of the Application](#using-the-build-process-of-the-application)
@@ -34,85 +31,20 @@ This article contains the following sections:
 
 There are **three** ways to customize the appearance of the Telerik Blazor components. Each has pros and cons, and each is most suitable for specific scenarios and business requirements. Learn more about the [Blazor CSS theme customization alternatives]({%slug common-kb-theme-customization-options%}).
 
-## Using the Sass Theme Builder
+## Using ThemeBuilder
 
-The Progress [**Sass Theme Builder for Blazor**](https://themebuilder.telerik.com/blazor-ui) is an Angular web application that enables you to create new or customize existing themes.
+[ThemeBuilder](https://themebuilderapp.telerik.com) is a web application that enables you to create new themes and customize existing ones.
 
-This article will walk you through the tool and will explain how to use the generated custom theme.
+The tool helps you achieve a unique appearance for your Blazor apps and delivers full control over the visual elements of the Telerik UI for Blazor components. After you create or customize your theme, you can download it and integrate it in your project.
 
->caption Figure 1: The home screen of the Sass Theme Builder
 
-![Blazor Theme Builder home screen](images/theme-builder-overview.png)
+> Starting with R3 2022, ThemeBuilder is accessible from a [new URL](https://themebuilderapp.telerik.com). This new ThemeBuilder version replaces the [previous ThemeBuilder](https://themebuilder.telerik.com/) and provides more free features and also a Pro tier. All your existing custom themes will continue to work in the new ThemeBuilder.
 
-### Create New Theme
+To learn more about using ThemeBuilder, visit the [ThemeBuilder documentation portal](https://docs.telerik.com/themebuilder) where you can learn how to:
 
-To create a new theme:
-
-1. On the initial Sass Theme Builder pane, select the **Start Theming** option.
-
-1. Choose one of the existing themes to use as a base.
-
-1. Select the components which you intend to style. You can also change the selection at a later stage.
-
-    >caption Figure 2: Selecting a base theme and components
-    
-    ![Select Blazor Theme Builder theme and components](images/theme-builder-select-base-theme.gif)
-    
-1. Follow the next options in this article to customize the theme
-
-Complex Telerik UI for Blazor components, such as the Grid, rely on other components to deliver their full set of features. If you select the Grid, then all of its components dependencies styles (Button, AutoComplete, DropDownList, DatePicker, etc.) will also be included in the final bundle. The Theme Builder automatically updates the styling on all required components so that you do not need to customize each of them separately.
-
-### Modifying Themes
-
-The Sass Theme Builder supports the following options for customization:
-
-* Color pickers which customize the main aspects of the components' coloring based on your deired color scheme.
-    * For the Material theme, there are fewer options as per its guidelines - colors are derived from fewer variables.
-* Predefined color swatches - these are predefined color palettes that you can step on. They were chosen by our design team.
-    * They match known Kendo themes such as BlueOpal, Silver, Office365.
-
-The following list describes the Theme Builder UI:
-
-1. Color Swatches pane - expand it to see the available predefined palettes.
-2. Base Theme name - the name of the theme you step onto.
-3. Color pickers and other controls for customizing the theme.
-4. Link to documentation.
-5. Download the theme when you are done tweaking, so you can reference it in your project.
-6. Selected Components list - you can select which components to include in the preview and the final CSS bundle.
-
-The rest is the Preview pane where you can see the changes in real-time as you make them through the controls on the left.
-
->caption Figure 3: Theme Builder UI Explained
-
-![Blazor Theme Builder UI explained](images/theme-builder-ui-explanations.png)
-
-### Import Custom Theme
-
-You can also upload a theme you have previously worked on:
-
-1. On the initial Sass Theme Builder pane, select **Import Theme**.
-1. Upload the `theme-name.json` file, which is part of the ZIP that you have previously downloaded from the Theme Builder. If you don't have a JSON file, you can [create it from the SCSS file]({% slug common-kb-themebuilder-json-from-scss%}) or create the custom theme from scratch.
-1. The JSON file contains the list of SASS variables and their values. When it is uploaded, the selected components and styling customizations will load.
-1. Start [customizing your theme](#modifying-themes).
-
->caption Figure 4: Importing themes for customization
-
-![Importing theme in the Blazor Theme Builder](images/theme-builder-import.png)
-
-### Use The Custom Theme In Your Project
-
-When you complete the modifications and the theme is ready to be used:
-
-1. Download the theme as a ZIP archive by clicking the **Download** button.
-
-1. Add the `THEME_NAME.css` file to the `wwwroot/css/` folder your application.
-1. Include the `THEME_NAME.css` file in the `<head>` tag of your `_Host.cshtml`/`index.html` document, for example:
-    
-    `<link rel="stylesheet" href="css/THEME_NAME.css" />`
-
-1. Keep the `scss` and `json` files for future reference, when you need to re-generate the theme or customize it further.
-
->Make sure that the above CSS file is the only Telerik Theme, which is referenced in the application.
+* [Create a custom theme](https://docs.telerik.com/themebuilder/get-started/first-steps-theme-builder)
+* [Import a JSON file with an existing theme](https://docs.telerik.com/themebuilder/web-app/importing-json)
+* [Use the theme in your Blazor app](https://docs.telerik.com/themebuilder/exported-package)
 
 ## Manual Alternative
 
@@ -264,7 +196,7 @@ The following list describes the theme variables available for adjustment in the
 
 ## How to Use a Custom Theme I Have
 
-You have your custom theme - either generated through the Telerik Theme Builder tool, or one that you built yourself, or something that your organization provides.
+You have your custom theme - either generated through the Telerik ThemeBuilder tool, or one that you built yourself, or something that your organization provides.
 
 To use that, instead of one of the built-in themes, you need to:
 
@@ -291,5 +223,6 @@ To contribute to the development of the Kendo UI Default Theme, refer to the [te
 
 ## See Also
 
-  * [Blazor Theme Builder](https://themebuilder.telerik.com/blazor-ui)
+  * [Progress ThemeBuilder](https://themebuilderapp.telerik.com)
+  * [Progress ThemeBuilder Documentation](https://docs.telerik.com/themebuilder)
   * [Kendo SASS Themes](https://docs.telerik.com/kendo-ui/styles-and-layout/sass-themes)

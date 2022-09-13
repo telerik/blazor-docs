@@ -19,7 +19,7 @@ Telerik UI for Blazor distributes the Default Ocean Blue theme swatch via severa
 In addition, it is also available in:
 
 * [Themes CDN]({%slug themes-swatches%}#built-in-themes-and-swatches-list)
-* [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui) - for testing and [color customization]({%slug themes-custom%})
+* [ThemeBuilder](https://themebuilderapp.telerik.com)&mdash;for testing and [color customization]({%slug themes-custom%})
 * [kendo-themes repository](https://github.com/telerik/kendo-themes)
 
 ## See Also

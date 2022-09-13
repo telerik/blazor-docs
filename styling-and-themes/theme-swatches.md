@@ -21,7 +21,7 @@ Telerik UI for Blazor comes with three [built-in (base) themes]({%slug general-i
 
 The theme swatches are different color variations of the base themes. While they use the same variables as the built-in theme they accompany, they have different color values to deliver a variety of shades for the Telerik components.
 
-You can explore the swatches in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview). The `Change Theme` dropdown provides a list of the most common swatches. To test how all the available swatches affect the appearance of the Telerik UI for Blazor components, you might check the [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui). It also provides option for [customizing the existing themes]({%slug themes-custom%}) if needed.
+You can explore the swatches in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview). The `Change Theme` dropdown provides a list of the most common swatches. To test how all the available swatches affect the appearance of the Telerik UI for Blazor components, you might check the [ThemeBuilder](https://themebuilderapp.telerik.com). It also provides option for [customizing the existing themes]({%slug themes-custom%}) if needed.
 
 In addition, Telerik UI for Blazor distributes some swatches via several other resources. Read more in the [Swatch Distribution]({%slug themes-swatch-distribution%}) article.
 
@@ -29,7 +29,7 @@ In addition, Telerik UI for Blazor distributes some swatches via several other r
 
 Here is a complete list of the base themes, all available swatches and their CDN URLs in a dedicated Themes CDN.
 
-* [Default](#default) - These are the mostly ported swatches from our [Sass Themebuilder](https://themebuilder.telerik.com/blazor-ui).
+* [Default](#default) - These are the mostly ported swatches from our [ThemeBuilder](https://themebuilderapp.telerik.com).
 
 * [Bootstrap](#bootstrap) - Main swatch is the current "[Bootstrap]({%slug general-information/themes%}#bootstrap-notes)" theme, which is built on Bootstrap 5. As the other names suggest, Bootstrap 3 and Bootstrap 4 swatches are color swatches adapted to look like the respective versions.
 
