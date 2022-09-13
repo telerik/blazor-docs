@@ -37,9 +37,14 @@ There are **three** ways to customize the appearance of the Telerik Blazor compo
 
 The tool helps you achieve a unique appearance for your Blazor apps and delivers full control over the visual elements of the Telerik UI for Blazor components. After you create or customize your theme, you can download it and integrate it in your project.
 
-To learn more about using ThemeBuilder, visit the [ThemeBuilder documentation portal](https://docs.telerik.com/themebuilder).
 
-> Starting with R3 2022, ThemeBuilder is accessible from a [new URL](https://themebuilderapp.telerik.com). This new ThemeBuilder version replaces the [previous ThemeBuilder](https://themebuilder.telerik.com/) and provides more free features and also a Pro tier. All your existing custom themes will continue to work in the new ThemeBuilder.  
+> Starting with R3 2022, ThemeBuilder is accessible from a [new URL](https://themebuilderapp.telerik.com). This new ThemeBuilder version replaces the [previous ThemeBuilder](https://themebuilder.telerik.com/) and provides more free features and also a Pro tier. All your existing custom themes will continue to work in the new ThemeBuilder.
+
+To learn more about using ThemeBuilder, visit the [ThemeBuilder documentation portal](https://docs.telerik.com/themebuilder) where you can learn how to:
+
+* [Create a custom theme](https://docs.telerik.com/themebuilder/get-started/first-steps-theme-builder)
+* [Import a JSON file with an existing theme](https://docs.telerik.com/themebuilder/web-app/importing-json)
+* [Use the theme in your Blazor app](https://docs.telerik.com/themebuilder/exported-package)
 
 ## Manual Alternative
 
