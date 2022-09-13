@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: DatePicker
+from: /aria/datepicker_aria.md
+dest: ../components/datepicker/accessibility/wai-aria-support.md
+slug: datepicker-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor DatePicker Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/datepicker/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug accessibility-swatch %})

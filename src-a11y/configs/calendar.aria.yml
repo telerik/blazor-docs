@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Calendar
+from: /aria/calendar_aria.md
+dest: ../components/calendar/accessibility/wai-aria-support.md
+slug: calendar-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Calendar Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/calendar/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug accessibility-swatch %})
