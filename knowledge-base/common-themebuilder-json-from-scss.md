@@ -24,6 +24,8 @@ res_type: kb
 ## Description
 I have a custom theme `SCSS` (SASS) file with variables and values, which I created with the [SASS Theme Builder](https://themebuilder.telerik.com/blazor-ui). I want to import this `SCSS` file to the Theme Builder to make some changes, but the Theme Builder now requires a `JSON` file import.
 
+> Starting with R3 2022, ThemeBuilder is accessible from a [new URL](https://themebuilderapp.telerik.com). This new ThemeBuilder version replaces the [previous ThemeBuilder](https://themebuilder.telerik.com/) and provides more free features and also a Pro tier. All your existing custom themes will continue to work in the new ThemeBuilder.  
+
 ## Cause\Possible Cause(s)
 The Theme Builder used to accept an `SCSS` (SASS) file to import an existing custom theme. This caused [some issues](https://github.com/telerik/kendo-themes/issues/2043) and we decided to switch to `JSON` import instead.
 
