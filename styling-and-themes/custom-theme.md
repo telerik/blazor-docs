@@ -17,9 +17,6 @@ This article contains the following sections:
 
 * [What is the best way to customize the Telerik Blazor styles](#best-way-to-customize-the-telerik-blazor-css)
 * [Using the ThemeBuilder](#using-themebuilder)
-	* [Create New Theme](#create-new-theme)
-	* [Modifying Themes](#modifying-themes)
-	* [Import Custom Theme](#import-custom-theme)
 	* [Use The Custom Theme In Your Project](#use-the-custom-theme-in-your-project)
 * [Manual Alternative](#manual-alternative)
 	* [Using the Build Process of the Application](#using-the-build-process-of-the-application)
