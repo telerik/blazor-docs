@@ -9,6 +9,8 @@ position: 50
 
 # Blazor ComboBox Accessibility
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 
 
 The Telerik UI for Blazor ComboBox component is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
