@@ -1,0 +1,39 @@
+# Workflow that syncs a11y specs (@progress/wct-a11y-spec) after Dependabot detects a new version
+# or a human updates the src-a11y folder.
+name: Sync src-a11y
+
+on:
+pull_request:
+    paths: # You can specify more paths if you need to
+    - 'src-a11y/**/*' # The resources folder name
+
+jobs:
+sync:
+    if: github.actor != 'kendo-bot'
+
+    runs-on: ubuntu-latest
+
+    defaults:
+    run:
+        working-directory: src-a11y # The resources folder name
+
+    steps:
+    - name: Checkout branch
+        uses: actions/checkout@v2
+        with:
+        ref: ${{ github.head_ref }}
+
+    - uses: actions/setup-node@v2
+        with:
+        node-version: '14'
+
+    - name: Install
+        run: npm ci
+
+    - name: Sync Specs
+        run: npx gulp sync-specs # If you changed the main gulp task make sure to update it here
+
+    - name: Commit Syncs
+        run: |
+        bash ./commit.sh
+        git push

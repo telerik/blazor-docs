@@ -1,0 +1,12 @@
+version: 2
+updates:
+
+# Accessibility Specs /src-a11y"
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "@progress/wct-a11y-spec"
+    commit-message:
+      prefix: "chore:"
