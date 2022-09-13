@@ -43,12 +43,8 @@ The Blazor TextArea fires **blur** and value **change** events to respond to use
 
 The Blazor TextArea provides various parameters to configure the component:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Value` | `string` | Get/set the value of the input, can be used for binding. |

@@ -76,12 +76,8 @@ The Blazor Pager exposes PageChanged and PageSizeChanged events that you can han
 
 The Blazor Pager provides various parameters that allow you to configure the component:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 |`Adaptive` | `bool` | Defines whether pager elements should be changed based on the screen size. When enabled, the Pager will hide its `Pager Info` and `PageSize Dropdownlist` if they cannot fit in the available space. In the smallest resolution, the page buttons will be rendered as a select element.

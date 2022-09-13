@@ -178,12 +178,7 @@ The Upload `MaxFileSize` parameter is used only for [client-side validation]({%s
 
 The following table lists the Upload parameters. Also check the [Upload API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikUpload) for a full list of properties, methods and events.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |

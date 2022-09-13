@@ -49,12 +49,8 @@ The Blazor Checkbox fires value change, focus and state change events that you c
 
 The Blazor CheckBox provides various parameters that allow you to configure the component:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | Renders a custom CSS class to the `<input class="k-checkbox">` element. |
