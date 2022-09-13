@@ -78,12 +78,7 @@ The Blazor ToolBar fires click and selection events. Handle those events to resp
 
 The Blazor ToolBar provides parameters to configure the component:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |

@@ -70,12 +70,7 @@ The `OnRead` event handler receives an argument, which inherits from [`ReadEvent
 
 The following properties of the event argument object are common for all [components with an `OnRead` event](#components-with-onread-event). Other properties are discussed in component-specific articles.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -112,12 +107,7 @@ The `ToDataSourceResult` extension method is able to extract the requested data 
 
 `ToDataSourceResult` returns a [`DataSourceResult` object](/blazor-ui/api/Telerik.DataSource.DataSourceResult). Its most important properties are:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Property | Type | Description |
 | --- | --- | --- |

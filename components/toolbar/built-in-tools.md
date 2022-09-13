@@ -26,12 +26,8 @@ You can add multiple buttons to the Telerik Toolbar. To do that you should add t
 
 The nested `ToolBarButton` tag exposes parameters that allow you to customize the buttons:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolbarButton. You could use that class to cascade styles. |
@@ -86,12 +82,8 @@ You can add multiple toggle  buttons to the Telerik Toolbar. To do that you shou
 
 The nested `ToolBarToggleButton` tag exposes parameters that allow you to customize the buttons:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolbarButton. You could use that class to cascade styles. |
@@ -150,12 +142,8 @@ You can add one or more group of buttons to the Toolbar. To do that you should a
 
 The nested `ToolBarButtonGroup` tag exposes parameters that allow you to customize the buttons:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolBarButtonGroup. You could use that class to cascade styles. |

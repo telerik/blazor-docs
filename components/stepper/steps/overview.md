@@ -27,12 +27,8 @@ The `StepperStep` exposes the following parameters which allow you to configure 
 
 The [visual indicators]({%slug stepper-indicators%}) of the steps can include the content below.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Text` | `string` | Specifies the step indicator text. |
@@ -45,12 +41,8 @@ The [visual indicators]({%slug stepper-indicators%}) of the steps can include th
 
 The steps can have one of the [states]({%slug stepper-state%}) below.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Disabled` | `bool` <br /> (`false`) | Specifies if the step is disabled. |
@@ -58,12 +50,8 @@ The steps can have one of the [states]({%slug stepper-state%}) below.
 
 ### Other parameters
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Label` | `string` | Specifies the [label text]({%slug stepper-labels%}) that will be rendered under the corresponding step indicator. |

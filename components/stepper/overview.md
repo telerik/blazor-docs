@@ -75,12 +75,8 @@ The Blazor Stepper generates events that you can handle and further customize it
 
 The Blazor Stepper provides various parameters that allow you to configure the component:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Value` | `int` | Defines the current step index. |
