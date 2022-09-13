@@ -69,12 +69,8 @@ The Blazor Dialog fires a `VisibleChanged` event to customize the application be
 
 The Blazor Dialog provides various parameters to configure the component. Also check the [Dialog public API](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDialog).
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
 | `ButtonsLayout` | `DialogButtonsLayout` enum <br /> (`Stretched`) | Defines the layout of the actions button in the footer. See more in the [Action Buttons article]({%slug  dialog-action-buttons%})). |
@@ -92,12 +88,8 @@ The Blazor Dialog provides various parameters to configure the component. Also c
 
 The Dialog methods are accessible through its reference.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Method | Description |
 | --- | --- |
 | `Refresh` | Redraws the component. |

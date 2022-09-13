@@ -22,12 +22,7 @@ The FileSelect event handlers provide a [`FileSelectEventArgs` argument](/blazor
 
 The `FileSelectFileInfo` type contains these properties:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 Property | Type | Description
 ---------|----------|---------
