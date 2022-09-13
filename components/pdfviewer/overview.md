@@ -77,7 +77,7 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 | `Data` | `byte[]` | The source of the currently displayed PDF file. |
 | `EnableLoaderContainer` | `bool` <br /> (`true`) | Determines if the PDF Viewer will show a loading animation during opening, downloading or zooming a PDF file. |
 | `Height` | `string` | The PdfViewer height as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand vertically, based on the loaded file. `Height` is required for the component paging and scrolling to work. |
-| `MaxZoom` | `decimal` <br /> (`4m`) | The largest possible zoom level. The default value is 400%. |
+| `MaxZoom` | `decimal` <br /> (`4m`) | The largest possible zoom level. The default value allows zooming in 4 times (400%). |
 | `MinZoom` | `decimal` <br /> (`0.5m`) | The smallest possible zoom level. The default value is 50%. |
 | `Width` | `string` | The PdfViewer width as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand horizontally to fill its parent. |
 | `Zoom` | `decimal` <br /> (`1.25m`) | The current zoom level. Use the parameter with two-way binding or with a [`ZoomChanged` event handler]({%slug pdfviewer-events%}#zoomchanged). |
