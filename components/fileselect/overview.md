@@ -109,12 +109,7 @@ The FileSelect includes [built-in client-side validation]({%slug fileselect-vali
 
 The following table lists the FileSelect parameters. Also check the [FileSelect API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikFileSelect) for a full list of properties, methods and events.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |

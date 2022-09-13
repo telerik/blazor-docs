@@ -44,10 +44,9 @@ public class TreeItem
 
 The above model properties have the following meaning for the TreeView:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 <style>
-    style + table {
-        table-layout: auto;
-    }
     style + table td {
         vertical-align: top;
     }

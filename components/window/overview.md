@@ -70,12 +70,7 @@ The Window component can be responsive when the browser window size changes. Her
 
 The following table lists the Window parameters, which are not discussed elsewhere in the component documentation. Also check the [Window API](/blazor-ui/api/Telerik.Blazor.Components.TelerikWindow) for a full list of parameters and events.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
