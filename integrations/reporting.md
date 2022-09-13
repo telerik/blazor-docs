@@ -16,7 +16,7 @@ You can utilize the [Telerik Reporting](https://www.telerik.com/products/reporti
 
 ## Telerik Blazor Report Viewer
 
-The [Telerik Blazor Report Viewer Component](https://docs.telerik.com/reporting/blazor-report-viewer) enables you to embed a report preview into you app. The component is built on top of our robust and reliable HTML5 Report Viewer - a JavaScript/jQuery widget with lots of customization options. See this report viewer component into action in the [Dashboard Report Demo](https://demos.telerik.com/reporting/dashboard). This report viewer includes the following functionality:
+The [Telerik Blazor Report Viewer Component](https://docs.telerik.com/reporting/embedding-reports/display-reports-in-applications/web-application/blazor-report-viewer/overview) enables you to embed a report preview into you app. The component is built on top of our robust and reliable HTML5 Report Viewer - a JavaScript/jQuery widget with lots of customization options. See this report viewer component into action in the [Dashboard Report Demo](https://demos.telerik.com/reporting/dashboard). This report viewer includes the following functionality:
 
 * Preview the pages of the resulting report document on screen;
 * Print the report;
