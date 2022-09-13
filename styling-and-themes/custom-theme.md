@@ -36,7 +36,7 @@ There are **three** ways to customize the appearance of the Telerik Blazor compo
 
 ## Using ThemeBuilder
 
-[ThemeBuilder](https://themebuilderapp.telerik.com) is a web application that enables you to create new and customize existing themes.
+[ThemeBuilder](https://themebuilderapp.telerik.com) is a web application that enables you to create new themes and customize existing ones.
 
 The tool helps you achieve a unique appearance for your Blazor apps and delivers full control over the visual elements of the Telerik UI for Blazor components. After you create or customize your theme, you can download it and integrate it in your project.
 
