@@ -43,7 +43,7 @@ The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazo
 
 The `ZoomChanged` event fires when the user clicks on the zoom in/out buttons, or selects a new zoom level from the ComboBox.
 
-The event handler receives the new zoom level as an argument of type `double`. To apply the new zoom level, set it as a new `Zoom` parameter value. Not setting it will effectively cancel the event.
+The event handler receives the new zoom level as an argument of type `decimal`. To apply the new zoom level, set it as a new `Zoom` parameter value. Not setting it will effectively cancel the event.
 
 
 ## Example
@@ -67,7 +67,7 @@ The event handler receives the new zoom level as an argument of type `double`. T
 @code {
     private byte[] PdfSource { get; set; }
 
-    private double PdfZoom { get; set; } = 1.25;
+    private decimal PdfZoom { get; set; } = 1.25m;
 
     private bool AllowDownloads { get; set; } = true;
 
@@ -112,7 +112,7 @@ The event handler receives the new zoom level as an argument of type `double`. T
         }
     }
 
-    private async Task OnPdfZoomChanged(double newZoom)
+    private async Task OnPdfZoomChanged(decimal newZoom)
     {
         PdfZoom = newZoom;
 
