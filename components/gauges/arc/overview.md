@@ -58,8 +58,6 @@ The labels are rendered on the scale of the component to give information to the
 | `RenderAs` | `RenderingMode?` <br /> (`SVG`) | Controls if the gauge renders as `SVG` or `Canvas`. |
 
 ## Arc Gauge Reference and Methods
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
  
 | Method | Description |
 | --- | --- |

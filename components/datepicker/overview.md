@@ -83,8 +83,6 @@ The date picker is, essentially, a [date input]({%slug components/dateinput/over
 
 The following parameters enable you to customize the appearance of the Blazor Date Picker:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
 | `Class` | `string` | The custom CSS class rendered on the wrapping element. |
@@ -100,8 +98,6 @@ You can find more options for customizing the Date Picker styling in the [Appear
 ## DatePicker Reference and Methods
 
 Add a reference to the component instance to use the [Date Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDatePicker-1).
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Method | Description |
 | --- | --- |

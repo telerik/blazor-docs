@@ -50,8 +50,6 @@ The CDN URLs contain the Telerik UI for Blazor version. Thus, you do not need to
 
 #### Default
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 Swatch | CDN |
 | ----------- | ----------- |
 | Main | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-main.css
@@ -64,8 +62,6 @@ Swatch | CDN |
 
 #### Bootstrap
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 Swatch | CDN |
 | ----------- | ----------- |
 | Main | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/swatches/bootstrap-main.css
@@ -75,8 +71,6 @@ Swatch | CDN |
 | Vintage | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/swatches/bootstrap-vintage.css
 
 #### Material
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 Swatch | CDN |
 | ----------- | ----------- |
@@ -88,8 +82,6 @@ Swatch | CDN |
 
 
 #### Fluent
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 Swatch | CDN |
 | ----------- | ----------- |

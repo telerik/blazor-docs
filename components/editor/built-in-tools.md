@@ -268,8 +268,6 @@ All tools in the table below are *buttons*, except `Format`, which is a *dropdow
 
 >caption Table 2: Block Tools of the Editor
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 <table>
     <thead>
         <tr>
@@ -398,8 +396,6 @@ All tools in the table below are *buttons*.
 
 >caption Table 3: Editor Table Tools
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 <table>
     <thead>
         <tr>
@@ -479,8 +475,6 @@ All tools in the table below are *buttons*.
 Some Editor commands have no built-in tools. These commands can only be [invoked programmatically](#programmatic-execution).
 
 >caption Table 4: Editor Commands Without Tools
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 <table>
     <thead>

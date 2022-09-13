@@ -391,8 +391,6 @@ The following table lists the FileManager parameters. Also check the [FileManage
 
 The following parameters enable you to customize the appearance of the Blazor FileManager:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type and &nbsp; DefaultValue | Description |
 |----------|----------|----------|
 | `Class`| `string` |The CSS class that will be rendered on the topmost wrapping element of the component.

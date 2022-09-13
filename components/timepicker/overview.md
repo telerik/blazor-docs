@@ -85,8 +85,6 @@ The Blazor Time Picker component provides various parameters that allow you to c
 
 The following parameters enable you to customize the appearance of the Blazor Time Picker:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
 | `Class` | `string` | The custom CSS class rendered on the wrapping element.
@@ -100,8 +98,6 @@ You can find more options for customizing the Time Picker styling in the [Appear
 ## TimePicker Reference and Methods
 
 Add a reference to the component instance to use the [Time Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikTimePicker-1).
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Method | Description |
 | --- | --- |

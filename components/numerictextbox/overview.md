@@ -95,8 +95,6 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 
 The following parameters enable you to customize the appearance of the Blazor Numeric TextBox:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
 |`Class`| `string` |The CSS class that will be rendered on the topmost wrapping elementof teh component.|
