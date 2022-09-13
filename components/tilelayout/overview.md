@@ -96,8 +96,6 @@ The following table lists the Tile Layout parameters. Also check the [TileLayout
 
 ### TileLayoutItem Parameters
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | The custom CSS class of the `<div class="k-tilelayout-item">` element. Use it to [override theme styles]({%slug themes-override%}). |
@@ -110,8 +108,6 @@ The following table lists the Tile Layout parameters. Also check the [TileLayout
 ## TileLayout Reference
 
 Use the component reference to execute methods and [get or set the TileLayout state]({%slug tilelayout-state%}).
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Method | Description |
 | --- | --- |

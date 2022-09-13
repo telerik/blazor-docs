@@ -140,8 +140,6 @@ The Blazor Gantt Bound Column provides various parameters to configure the compo
 
 ### Appearance
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
 | `Title` | `string` | The text that is rendered in the column header. See the Notes below for its behavior. |

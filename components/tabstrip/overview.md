@@ -77,8 +77,6 @@ The TabStrip provides the following features to allow further customization of i
 
 The following parameters enable you to customize the appearance of the Blazor TabStrip:.
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type     | Description                              |
 |-----------|----------|------------------------------------------|
 | `Class`   | `string` | The CSS class that will be rendered on the main wrapping element of the component. |

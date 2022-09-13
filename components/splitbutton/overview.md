@@ -99,8 +99,6 @@ The SplitButton exposes configuration settings for its dropdown (popup). The par
 </TelerikSplitButton>
 ````
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `AnimationDuration` | `int` <br /> (`300`) | Sets the dropdown animation duration in milliseconds. |
@@ -118,8 +116,6 @@ The SplitButton exposes configuration settings for its dropdown (popup). The par
 ### Item Settings
 
 The following table lists the `SplitButtonItem` parameters, except those related to [icons]({%slug splitbutton-icons%}).
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |

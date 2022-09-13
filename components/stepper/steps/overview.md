@@ -41,16 +41,12 @@ The [visual indicators]({%slug stepper-indicators%}) of the steps can include th
 
 The steps can have one of the [states]({%slug stepper-state%}) below.
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Disabled` | `bool` <br /> (`false`) | Specifies if the step is disabled. |
 | `Optional` | `bool` <br /> (`false`) | Specifies if the step is optional. |
 
 ### Other parameters
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |

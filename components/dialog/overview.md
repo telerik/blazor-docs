@@ -88,8 +88,6 @@ The Blazor Dialog provides various parameters to configure the component. Also c
 
 The Dialog methods are accessible through its reference.
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Method | Description |
 | --- | --- |
 | `Refresh` | Redraws the component. |

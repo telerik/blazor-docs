@@ -69,8 +69,6 @@ The labels are rendered on the scale of the component to give information to the
 
 ## Circular Gauge Reference and Methods
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Method | Description |
 | --- | --- |
 | `Refresh` | Programatically re-render the Circular Gauge. |

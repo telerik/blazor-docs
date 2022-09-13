@@ -91,8 +91,6 @@ The Carousel is a generic component. Its type depends on the type of its model a
 
 The table below lists the Carousel methods. Also consult the [Carousel API](/blazor-ui/api/Telerik.Blazor.Components.TelerikCarousel-1).
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Method | Description |
 | --- | --- |
 | `Rebind` | [Refreshes the component data]({%slug carousel-refresh-data%}#rebind-method). |

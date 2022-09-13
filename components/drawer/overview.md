@@ -124,8 +124,6 @@ The Blazor Drawer provides various parameters to configure the component. Also c
 
 The Drawer methods are accessible through it's reference. These methods change the value of the `Expanded` parameter.
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Method | Description |
 | --- | --- |
 | `ExpandAsync` | Expands the Drawer. |

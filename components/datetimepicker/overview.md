@@ -75,8 +75,6 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 The following parameters enable you to customize the appearance of the Blazor DateTimePicker:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
 |`Class`| `string` |The CSS class that will be rendered on the `input` element|
@@ -90,8 +88,6 @@ You can find more options for customizing the DateTimePicker styling in the [App
 ## DateTimePicker Reference and Methods
 
 Add a reference to the component instance to use the [Date Time Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateTimePicker-1).
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Method | Description |
 | --- | --- |

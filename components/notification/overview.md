@@ -111,8 +111,6 @@ You can [customize the styling and the appearance of the Notification]({%slug no
 
 The `NotificationModel` class is used to add new notifications to the page. You can use it to set settings for each individual message you want to show. The class contains the following properties:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Property | Type and Default value | Description |
 |-----------|------------------------|-------------|
 | `ThemeColor`  | `string` | The color of the notification is controlled through this parameter. You can find more infomation and examples in the [Appearance]({%slug notification-appearance%}) article. |
