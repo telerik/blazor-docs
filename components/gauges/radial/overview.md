@@ -65,8 +65,6 @@ The labels are rendered on the scale of the Radial Gauge to give inforation to t
 
 To execute Radial Gauge methods, obtain reference to the component instance via `@ref`.
 
- @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Method  | Description |
 |---------|-------------|
 | Refresh | You can use that method to programmatically re-render the component.    |

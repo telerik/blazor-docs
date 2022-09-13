@@ -310,8 +310,6 @@ The `OnOpen` event fires before the ComboBox popup renders.
 
 The event handler receives as an argument an `ComboBoxOpenEventArgs` object that contains:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Property | Description |
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
@@ -352,8 +350,6 @@ The event handler receives as an argument an `ComboBoxOpenEventArgs` object that
 The `OnClose` event fires before the ComboBox popup closes.
 
 The event handler receives as an argument an `ComboBoxCloseEventArgs` object that contains:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Property | Description |
 | --- | --- |
@@ -400,8 +396,6 @@ The event handler receives as an argument an `ComboBoxCloseEventArgs` object tha
 The `OnItemRender` event fires when each item in the ComboBox dropdown renders.
 
 The event handler receives as an argument an `ComboBoxItemRenderEventArgs<TItem>` object that contains:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Property | Description |
 | --- | --- |

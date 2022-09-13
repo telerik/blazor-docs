@@ -98,8 +98,6 @@ Check the [Splitter API Reference ](https://docs.telerik.com/blazor-ui/api/Teler
 
 Add a reference to the component instance to use the [Splitter methods](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitter#methods).
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Method | Description |
 | --- | --- |
 | `GetState` | Gets the current [state]({%slug splitter-state%}) of the Splitter.

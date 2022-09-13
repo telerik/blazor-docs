@@ -81,8 +81,6 @@ The date range picker is, essentially, a [date input]({%slug components/dateinpu
 
 The following parameters enable you to customize the appearance of the Blazor Date Range Picker:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Date Range Picker
@@ -95,8 +93,6 @@ You can find more options for customizing the Date Range Picker styling in the [
 ## DateRangePicker Reference and Methods
 
 Add a reference to the component instance to use the [Date Range Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1).
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Method | Description |
 | --- | --- |

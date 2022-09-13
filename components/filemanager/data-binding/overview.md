@@ -234,8 +234,6 @@ The above model properties have the following meaning for the FileManager:
 
 All [FileManager item features](#fileManager-item-features) map to model properties.  The properties of a treeview item match directly to a field of the model the treeview is bound to. You provide that relationship by providing the name of the field from which the corresponding information is to be taken. To do this, in the main `TelerikFileManager` tag, use the parameters described below:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | FileManager Parameter | DEFAULT VALUE |
 |----------|----------|----------|
 | **Item features** | |

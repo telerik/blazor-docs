@@ -246,8 +246,6 @@ The following table lists StockChart parameters, which are not discussed elsewhe
 
 To execute StockChart methods, obtain reference to the component instance via `@ref`.
 
- @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Method  | Description |
 |---------|-------------|
 | Refresh | You can use that method to programmatically re-render the component. |

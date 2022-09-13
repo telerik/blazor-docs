@@ -123,8 +123,6 @@ The `OnClose` event fires before the ColorPicker popup closes.
 
 The event handler receives as an argument an `MultiColumnComboBoxCloseEventArgs` object that contains:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Property | Description |
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |

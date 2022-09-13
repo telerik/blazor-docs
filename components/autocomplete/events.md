@@ -268,8 +268,6 @@ The `OnClose` event fires before the AutoComplete popup closes.
 
 The event handler receives as an argument an `AutoCompleteCloseEventArgs` object that contains:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Property | Description |
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
@@ -304,8 +302,6 @@ The event handler receives as an argument an `AutoCompleteCloseEventArgs` object
 The `OnItemRender` event fires when each item in the AutoComplete dropdown renders.
 
 The event handler receives as an argument an `AutoCompleteItemRenderEventArgs<TItem>` object that contains:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Property | Description |
 | --- | --- |
