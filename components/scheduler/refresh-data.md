@@ -33,7 +33,7 @@ You can refresh the Scheduler data by using the Rebind method exposed to the ref
 
 <TelerikButton OnClick="@ChangeData">Change data</TelerikButton>
 
-<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px" Width="800px">
+<TelerikScheduler @ref="SchedulerRef" Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px" Width="800px">
     <SchedulerViews>
         <SchedulerDayView StartTime="@DayStart" />
         <SchedulerWeekView StartTime="@DayStart" />
@@ -42,6 +42,7 @@ You can refresh the Scheduler data by using the Rebind method exposed to the ref
 </TelerikScheduler>
 
 @code {
+    TelerikScheduler<SchedulerAppointment> SchedulerRef { get; set; }
     public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
 
     public SchedulerView CurrView { get; set; } = SchedulerView.Week;
@@ -58,7 +59,7 @@ You can refresh the Scheduler data by using the Rebind method exposed to the ref
                 Start = new DateTime(2019, 11, 28, 10, 0, 0),
                 End = new DateTime(2019, 11, 28, 11, 0, 0)
             });
-        Appointments = new List<SchedulerAppointment>(Appointments);
+        SchedulerRef.Rebind();
     }
 
     void RemoveAppointment()
@@ -90,7 +91,7 @@ You can refresh the Scheduler data by using the Rebind method exposed to the ref
                 End = new DateTime(2019, 11, 28, 13, 0, 0)
             }
         };
-        Appointments = new List<SchedulerAppointment>(Appointments);
+        SchedulerRef.Rebind();
     }
 
     List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()

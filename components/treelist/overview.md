@@ -160,7 +160,7 @@ The TreeList component has methods to to execute actions such as:
 * [Rebind to refresh the data]({%slug treelist-refresh-data%}#rebind-method)
 * [Automatically resize columns to fit their content]({%slug treelist-columns-resize%})
 * [Get or set the TreeList configuration state]({%slug treelist-state%})
-* get the corresponding `TItem` of the destination TreeList from the passed [`DestinationIndex`]({%slug treelist-drag-drop-overview%}#event-arguments) - `GetItemFromDropIndex(string index)`
+* [Get the dragged data item and its drop index from the destination TreeList]({%slug treelist-drag-drop-overview%})
 
 To execute these methods, obtain reference to the Grid instance via `@ref`. 
 

@@ -17,7 +17,7 @@ This article will be divided in the following sections:
 * [Basics](#basics)
 * [OnDrop Event](#ondrop-event)
 * [Examples](#examples)
-    * [Drag and Drop between TreeView, Grid, TreeList, Gantt and Scheduler](#drag-and-drop-between-treeview-grid-treelist-gantt-and-scheduler)
+    * [Drag and Drop between TreeView, Grid, TreeList and Scheduler](#drag-and-drop-between-treeview-grid-treelist-and-scheduler)
     * [Flat Data](#flat-data)
     * [Hierarchical Data](#hierarchical-data)
     * [Between Different TreeViews](#between-different-treeviews)
@@ -39,35 +39,30 @@ The `OnDrop` event fires when the user drops a node into a new location. It allo
 
 The `OnDrop` event provides an object of type `TreeViewDropEventArgs` to its event handler which exposes the following fields:
 
-* `Item` - an `object` that represents the dragged node. You can cast this object to your model class.
-
-* `DestinationItem` - an `object` that represents the node over which the `Item` is dropped to. You can cast this object to your model class.
-
-* `DropPosition` - an `enum` - its members allow you to determine the exact position of the dropped item relative to the position of the `DestinationItem`:
-    * `After`
-    * `Below`
-    * `Over`
-    
-* `DestinationTreeView` - the reference of the TreeView in which the node is dropped. This is applicable when you drag and drop nodes between different instances of the component.
-
-* `DestinationIndex` - a `string` - the index where the drop will happen in the second component.
-
-* `DestinationComponentId` - a `string` - the `Id` of the second component in which the drop will happen.
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Item` | `object` | Represents the dragged row. You can cast this object to your model class. |
+| `DestinationItem` | `object` | Represents the row over which the `Item` is dropped. You can cast this object to your model class. |
+| `Items` | `object` | Represents the dragged row. You can cast this object to your model class. |
+| `DropPosition` | `enum` | Its members allow you to determine the exact position of the dropped item relative to the position of the `DestinationItem`. |
+| `DestinationGrid` | `object` | The reference of the Grid in which the row is dropped. This is applicable when you drag and drop rows between different grids. |
+| `DestinationIndex` | `string` | The index where the drop will happen in the second component. |
+| `DestinationComponentId` | `string` | The `Id` of the second component in which the drop will happen. |
 
 ## Examples
 
-* [Drag and Drop between TreeView, Grid, TreeList, Gantt and Scheduler](#drag-and-drop-between-treeview-grid-treelist-gantt-and-scheduler)
+* [Drag and Drop between TreeView, Grid, TreeList and Scheduler](#drag-and-drop-between-treeview-grid-treelist-and-scheduler)
 * [Flat Data](#flat-data)
 * [Hierarchical Data](#hierarchical-data)
 * [Between Different TreeViews](#between-different-treeviews)
 
-### Drag and Drop between TreeView, Grid, TreeList, Gantt and Scheduler
+### Drag and Drop between TreeView, Grid, TreeList and Scheduler
 
-The functionality allows dragging items between TreeView, [Grid]({%slug grid-drag-drop-overview%}), [TreeList]({%slug treelist-drag-drop-overview%}), [Gantt]({%slug gantt-overview%}) and [Scheduler]({%slug scheduler-overview%}). To achieve it, set the `Draggable`/`RowDraggable` parameter, and implemented through an event -  `OnDrop`/`OnRowDrop`.
+The functionality allows dragging items between TreeView, [Grid]({%slug grid-drag-drop-overview%}), [TreeList]({%slug treelist-drag-drop-overview%}) and [Scheduler]({%slug scheduler-overview%}). To achieve it, set the `Draggable`/`RowDraggable` parameter, and implement it through an event -  `OnDrop`/`OnRowDrop`.
 
->important Drag and Drop from **Gantt** and **Scheduler** to Grid, TreeList, TreeView is **not** yet supported. Only the reversed way.
+>important Drag and Drop from **Scheduler** to Grid, TreeList, TreeView is **not** yet supported. Only the reversed way.
 
->caption Drag and Drop between TreeView and Grid
+##### Drag and Drop between TreeView and Grid
 
 <div class="skip-repl"></div>
 ````Index.razor
