@@ -30,7 +30,7 @@ The [Telerik Native Blazor Report Viewer Component](https://docs.telerik.com/rep
 
 ## Telerik Blazor Report Designer
 
-The [Telerik Blazor Report Designer Component](https://docs.telerik.com/reporting/how-to-blazor-web-report-designer) brings embedding of the report designer tool into your Blazor application. This empowers your trusted end-users to edit existing or create new report definitions from scratch. See the report designer into action in the [Web Report Designer Demo](https://demos.telerik.com/reporting/designer)
+The [Telerik Blazor Report Designer Component](https://docs.telerik.com/reporting/how-to-blazor-web-report-designer) enables you to embed a Report Designer tool in your Blazor application. This empowers your trusted end-users to edit existing or create new report definitions from scratch. See the Report Designer into action in the [Web Report Designer Demo](https://demos.telerik.com/reporting/designer)
 
 
 ## See Also
