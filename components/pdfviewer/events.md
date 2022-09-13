@@ -36,7 +36,9 @@ The event handler receives an argument of type [`PdfViewerErrorEventArgs`](/blaz
 
 The `OnOpen` event fires when the user selects a file to open from the [PDF Viewer toolbar]({%slug pdfviewer-toolbar%}).
 
-The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.PdfViewerOpenEventArgs). The event is cancellable and allows the application to obtain the PDF file name, size and contents as a `Stream`. The `OnOpen` handler is not required to open a file. See the [example below](#example).
+The event handler receives an argument of type [`PdfViewerOpenEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.PdfViewerOpenEventArgs). The event is cancellable and allows the application to obtain the PDF file name, size and contents as a `Stream`. To read the `Stream`, you may need to [increase the maximum SignalR message size]({%slug pdfviewer-overview%}#large-file-support).
+
+The `OnOpen` handler is *not* required to open a file. See the [example below](#example).
 
 
 ## ZoomChanged

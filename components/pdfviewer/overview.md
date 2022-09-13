@@ -62,7 +62,12 @@ The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-to
 
 ## Large File Support
 
-The PDF Viewer uses a [FileSelect component]({%slug fileselect-overview%}) to open files from the user device. In Blazor **Server** apps, the FileSelect uses the **SignalR WebSocket**, which has a default maximum message size of **32 KB**. To work with larger files, [increase the max WebSocket message size for the Blazor application]({%slug fileselect-overview%}#large-file-support).
+In Blazor **Server** apps, the PDF Viewer uses the **SignalR WebSocket** to:
+
+* Open PDF files from the server and send them to the browser.
+* Read the PDF file `Stream` from the user device in the [`OnOpen` event handler]({%slug pdfviewer-events%}#onopen). The PDF Viewer uses internally a [FileSelect component]({%slug fileselect-overview%}) to get the user file.
+
+The SignalR WebSocket has a default maximum message size of **32 KB**. To work with larger files in the above two scenarios, [increase the max WebSocket message size for the Blazor application]({%slug fileselect-overview%}#large-file-support).
 
 
 ## PdfViewer Parameters
