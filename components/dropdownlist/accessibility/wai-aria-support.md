@@ -13,7 +13,7 @@ position: 50
 
 
 
-The Telerik UI for Blazor DropDownList component is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+The Telerik UI for Blazor DropDownList is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
 
 ## Wai-Aria
 
@@ -50,7 +50,7 @@ The Telerik UI for Blazor DropDownList component is [WCAG 2.1 AAA](https://www.w
 | .k-list-ul | `aria-live=polite/off` | Assures the live updates on the selected value of the popup. |
 
 
-The ListBox placed in the Popup element of the component should implement the specification for a **PopuList** component.
+The ListBox placed in the Popup element of the component should implement the specification for a **PopupList** component.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
