@@ -130,7 +130,7 @@ You can replace that string with any other content you can generate/obtain accor
 
 * [Explore the Built-in Tools and Commands]({%slug editor-built-in-tools%})
 * [Create Custom Tools]({%slug editor-custom-tools%})
-* [Explore the Editor Edit Modes](editor-edit-modes-overview)
+* [Explore the Editor Edit Modes]({%slug editor-edit-modes-overview%})
 * [Import and Export Data]({%slug editor-import-export%})
 * [Learn more about the Editor Events]({%slug editor-events%})
 
