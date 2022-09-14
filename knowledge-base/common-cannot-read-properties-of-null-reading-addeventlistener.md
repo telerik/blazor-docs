@@ -66,4 +66,4 @@ The Blazor framework should normally take care of caching issues with static ass
 
 * [Telerik UI for Blazor version upgrade steps]({%slug upgrade-tutorial%})
 * [Troubleshooting JavaScript Errors]({%slug troubleshooting-js-errors%})
-* [Fix styling issues after component version update](%slug common-kb-upgrade-breaks-css-theme-styles%)
+* [Fix styling issues after component version update]({%slug common-kb-upgrade-breaks-css-theme-styles%})
