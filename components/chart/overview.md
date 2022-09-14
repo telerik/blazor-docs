@@ -171,7 +171,7 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 
 * [Data bind the Chart]({%slug components/chart/databind%})
 * [Explore the Chart events]({%slug chart-events%})
-* [Learn more about Chart Tooltips](%slug chart-tooltip-overview%)
+* [Learn more about Chart Tooltips]({%slug chart-tooltip-overview%})
 
 ## See Also
 
