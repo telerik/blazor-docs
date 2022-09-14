@@ -13,7 +13,7 @@ position: 50
 
 
 
-The Telerik UI for Blazor AutoComplete component is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+The Telerik UI for Blazor AutoComplete is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
 
 ## Wai-Aria
 
@@ -36,10 +36,10 @@ The Telerik UI for Blazor AutoComplete component is [WCAG 2.1 AAA](https://www.w
 |  | `tabindex=0` | The element must be focusable. |
 | .k-disabled .k-input-inner | `disabled=disabled` or `aria-disabled=true` | Attribute is rendered only when the autocomplete is disabled. |
 
-### ListBox Popup
+### Popup
 
 
-The Popup element of the component should implement the specification for a **PopuList** component.
+The Popup element of the component should implement the specification for a **PopupList** component.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
