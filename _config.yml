@@ -226,6 +226,8 @@ navigation:
 ## List helpers directory names and order here, like this:
      "*appearance":
         title: "Appearance"
+     "*accessibility":
+        title: "Accessibility"
      "*binding":
         title: "Binding"
         position: 2
