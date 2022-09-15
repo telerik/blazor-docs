@@ -75,23 +75,11 @@ The Telerik UI for Blazor components require a [Telerik stylesheet](#telerik-sty
       * `~/Pages/_Host.cshtml` for .NET 3.x
       * `~/Pages/_Layout.cshtml` for .NET 6
 
-### Telerik Stylesheet
-
-The stylesheet allows you to use one of the built-in [Themes]({%slug general-information/themes%}), for example, the Default theme:
-
-@[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
-
-
-### Telerik JS Interop File
-
-The JS Interop file provides features that cannot be implemented with native Blazor.
-
-@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
-
+To add these client assets, use either the [static assets](#using-static-assets) or the [CDN](#using-cdn) method.
 
 ### Using Static Assets
 
-You can add the [Telerik JS Interop file](#telerik-js-interop-file) as a [static asset](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-6.0&tabs=visual-studio#consume-content-from-a-referenced-rcl). Static assets (the `_content` folder) are automatically included in the solution from the NuGet package during build, so all you need is to enable static assets as shown in the snippet below. The `_content` folder is expanded by the framework into the local NuGet cache, and the project copies it from there.
+You can add the [Telerik JS Interop file](#telerik-js-interop-file) and the [Telerik Stylesheet](#telerik-stylesheet) as [static assets](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-6.0&tabs=visual-studio#consume-content-from-a-referenced-rcl). Static assets (the `_content` folder) are automatically included in the solution from the NuGet package during build, so all you need is to enable static assets as shown in the snippet below. The `_content` folder is expanded by the framework into the local NuGet cache, and the project copies it from there.
 
 To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the startup file of your **Server** project (by default, this line is already present):
 
@@ -100,6 +88,20 @@ To enable the use of static assets in your project, add the `app.UseStaticFiles(
 
 **C#**
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
+
+#### Telerik Stylesheet
+
+The stylesheet allows you to use one of the built-in [Themes]({%slug general-information/themes%}), for example, the Default theme:
+
+@[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
+
+
+#### Telerik JS Interop File
+
+The JS Interop file provides features that cannot be implemented with native Blazor.
+
+@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
+
 
 ### Using CDN
 
