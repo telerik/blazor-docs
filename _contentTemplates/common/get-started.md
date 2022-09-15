@@ -3,11 +3,11 @@
 
 ## Prerequisites
 
-To successfully complete the steps in this tutorial, make sure that you have installed the following:
+* To successfully complete the steps in this tutorial, make sure that you have installed a <a href="https://visualstudio.microsoft.com/vs/" target="_blank">current Visual Studio</a> version.
 
-* <a href="https://dotnet.microsoft.com/en-us/download/dotnet" target="_blank">.NET Core 3.1.x</a> or later
+* To learn more about the compatibility of the Telerik UI for Blazor components with different browser and .NET versions, see the [system requirements]({%slug system-requirements%}).
 
-* <a href="https://visualstudio.microsoft.com/vs/" target="_blank">Visual Studio 2019</a> or later
+
 
 >tip The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}`, and it supports `{{site.supportedFrameworkVersion}}`.
 
@@ -25,7 +25,7 @@ To successfully complete the steps in this tutorial, make sure that you have ins
 #add-nuget-feed
 ## Step 2: Add the Telerik NuGet Feed to Visual Studio
 
-In this tutorial, you will use the Telerik NuGet feed to download the UI for Blazor components. This NuGet feed is private and requires you to authenticate with your Telerik user name and password:
+In this tutorial, you will use the [Telerik NuGet feed]({%slug installation/nuget%}) to download the UI for Blazor components. This NuGet feed is private and requires you to authenticate with your Telerik user name and password:
 
 1. In Visual Studio and go to **Tools** > **NuGet Package Manager** > **Package Manager Settings**.
 

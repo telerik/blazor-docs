@@ -47,7 +47,10 @@ If no selection is made, the whole file will be shared to Telerik REPL for Blazo
 
 ### Sharing to REPL in Visual Studio
 
-1. Get the extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions). 
+1. Get the extension from the Visual Studio Marketplace:
+
+   * <a href="https://marketplace.visualstudio.com/items?itemName=TelerikInc.ProgressTelerikBlazorVSExtensions" target="_blank">Extension for Visual Studio 2022 for Windows</a>
+   * <a href="https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions" target="_blank">Extension for Visual Studio 2019 for Windows</a>
 
 1. Access the command through the Context Menu:
 
@@ -59,7 +62,7 @@ If no selection is made, the whole file will be shared to Telerik REPL for Blazo
 
 ### Sharing to REPL Visual Studio Code
 
-1. Get the extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard).
+1. [Get the Visual Studio Code extension]({%slug getting-started-vs-code-integration-overview%}) from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard).
 
 1. Access the command using either the context menu or the command palette:
 

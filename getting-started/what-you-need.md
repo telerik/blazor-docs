@@ -9,11 +9,11 @@ published: True
 position: 3
 ---
 
-# Typical Workflow for Using the UI Components
+# Typical Workflow for Using the UI for Blazor Components
 
 This article describes the steps in the typical workflow for using the Telerik UI for Blazor components&mdash;getting the Telerik UI for Blazor components and configuring your project to use them.
 
->tip The information in this article is also available in the form of step-by-step tutorials: [First Steps with Client-Side UI for Blazor](client-blazor) and [First Steps with Server-Side UI for Blazor](server-blazor).
+>tip The information in this article is also available as step-by-step tutorials for Blazor [Server]({%slug getting-started/server-side%}) and [WebAssembly]({%slug getting-started/client-side%}) apps.
 
 To use the Telerik UI for Blazor, you need to:
 
@@ -36,7 +36,7 @@ Telerik UI for Blazor is distributed through [NuGet packages]({%slug installatio
 | `Telerik.Documents.SpreadsheetStreaming` | Contains code for working with spreadsheet documents and is used for exporting. |
 | `Telerik.Zip` | Contains code for working with zip archives and excel files. Excel files are actually archives and this packages is required for exporting them. |
 
->note If you use a trial license, these package names have the `.Trial` suffix, for example `Telerik.UI.for.Blazor.Trial`, `Telerik.DataSource.Trial`, and `Telerik.Recurrence.Trial`.
+>note If you use a trial license, these package names have a `.Trial` suffix, for example `Telerik.UI.for.Blazor.Trial`, `Telerik.DataSource.Trial`, and `Telerik.Recurrence.Trial`.
 
 ## Getting the Telerik Packages
 
@@ -70,9 +70,9 @@ You can obtain the required UI for Blazor packages in four ways:
 
 For the Telerik UI for Blazor components to look and behave as expected in the browser, add the [Telerik stylesheet](#telerik-stylesheet) and the [JS Interop file](#telerik-js-interop-file) to your main index file. Depending on the Blazor hosting model and framework version, your project's main index file will differ:
 
-   * For Client-Side Blazor apps, use the `wwwroot/index.html` index file.
-   * For Server-Side Blazor apps, use one of the following index files:
-      * `~/Pages/_Host.cshtml` for .NET 3.x and .NET 5
+   * For Client-Side Blazor apps, use the `wwwroot/index.html` file.
+   * For Server-Side Blazor apps, use one of the following files:
+      * `~/Pages/_Host.cshtml` for .NET 3.x
       * `~/Pages/_Layout.cshtml` for .NET 6
 
 ### Telerik Stylesheet
@@ -91,9 +91,9 @@ The JS Interop file provides features that cannot be implemented with native Bla
 
 ### Using Static Assets
 
-You can add the [Telerik JS Interop file](#telerik-js-interop-file) as a [static asset](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-3.1&tabs=visual-studio#consume-content-from-a-referenced-rcl). Static assets (the `_content` folder) are automatically included in the solution from the NuGet package during build, so all you need is to reference the asset as shown in the snippet below. The `_content` folder is expanded by the framework into the local NuGet cache, and the project copies it from there.
+You can add the [Telerik JS Interop file](#telerik-js-interop-file) as a [static asset](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-6.0&tabs=visual-studio#consume-content-from-a-referenced-rcl). Static assets (the `_content` folder) are automatically included in the solution from the NuGet package during build, so all you need is to enable static assets as shown in the snippet below. The `_content` folder is expanded by the framework into the local NuGet cache, and the project copies it from there.
 
-To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the startup file of your **Server** project:
+To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the startup file of your **Server** project (by default, this line is already present):
 
  * `Startup.cs` for .NET 3.x and .NET 5
  * `Program.cs` for .NET 6
@@ -106,7 +106,7 @@ To enable the use of static assets in your project, add the `app.UseStaticFiles(
 @[template](/_contentTemplates/common/general-info.md#cdn)
 
 
->Telerik recommends using the [static assets](#static-assets) approach instead of a CDN. This approach relies on the static assets feature from the framework and takes the correct file from the package so you don't have to remember to update the CDN path when upgrading to a newer version.
+>Telerik recommends using [static assets](#static-assets) instead of a CDN. This approach relies on the static assets feature from the framework and takes the correct file from the package so you don't have to remember to update the CDN path when [upgrading to a newer version]({%slug upgrade-tutorial%}).
    
    
 

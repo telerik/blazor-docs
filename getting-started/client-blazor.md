@@ -46,9 +46,9 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 **HTML**
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-2\. To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the startup file of your `.Server` project:
+2\. To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the startup file of your `.Server` project (by default, this line is already present):
 
-  * Use `Startup.cs` for .NET 3.x and .NET 5
+  * Use `Startup.cs` for .NET 3.x
   * Use `Program.cs` for .NET 6
 
 **C#**  
