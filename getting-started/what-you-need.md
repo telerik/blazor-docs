@@ -68,7 +68,7 @@ You can obtain the required UI for Blazor packages in four ways:
 
 ## Adding the Client Assets
 
-For the Telerik UI for Blazor components to look and behave as expected in the browser, add the [Telerik stylesheet](#telerik-stylesheet) and the [JS Interop file](#telerik-js-interop-file) to your main index file. Depending on the Blazor hosting model and framework version, your project's main index file will differ:
+The Telerik UI for Blazor components require a [Telerik stylesheet](#telerik-stylesheet) and a [JS Interop file](#telerik-js-interop-file) in the app's main index file. Depending on the Blazor hosting model and framework version, this index file will differ:
 
    * For Client-Side Blazor apps, use the `wwwroot/index.html` file.
    * For Server-Side Blazor apps, use one of the following files:
