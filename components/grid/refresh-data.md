@@ -106,6 +106,10 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 
 ## Observable Data
 
+@[template](/_contentTemplates/common/observable-data.md#observable-data)
+
+@[template](/_contentTemplates/common/observable-data.md#observable-data-onread-note)
+
 >caption Bind the Grid to an ObservableCollection, so it can react to collection changes.
 
 ````CSHTML

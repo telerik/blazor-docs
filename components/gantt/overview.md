@@ -207,6 +207,28 @@ The Blazor Gantt allows defining dependencies, which are rendered in the [Timeli
 
 The Blazor Gantt fires CUD, expand/collapse, and TreeList pane width change events. Handle those events to respond to user actions. [Read more about the Blazor Gantt events]({%slug gantt-events%}).
 
+## Gantt Reference and Methods
+
+To execute Gantt methods, obtain reference to the component instance via `@ref`.
+
+The Gantt is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters]({%slug common-features-data-binding-overview%}#component-type).
+
+The table below lists the Gantt methods. Also consult the [Gantt API](/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `Rebind` | [Refreshes the component data]({%slug gantt-refresh-data%}#rebind-method). |
+
+````CSHTML
+<TelerikGantt @ref="@GanttRef" .../>
+
+@code{
+    private TelerikGantt<MyModel> GanttRef;
+}
+````
+
 ## Next Steps
 
 [Bind the Gantt to Data]({%slug gantt-data-binding-overview%})

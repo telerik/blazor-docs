@@ -12,9 +12,14 @@ position: 40
 
 This article explains the events available in the Telerik ComboBox for Blazor:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
 * [OnRead](#onread)
+* [OnOpen](#onopen)
+* [OnClose](#onclose)
+* [OnItemRender](#onitemrender)
 * [OnBlur](#onblur)
 
 ## ValueChanged
@@ -168,7 +173,6 @@ See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%
 }
 ````
 
-
 ## OnRead
 
 You can use the [`OnRead` event]({%slug common-features-data-binding-onread%}) to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug combobox-virtualization%})). The event fires when:
@@ -300,6 +304,144 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 }
 ````
 
+## OnOpen
+
+The `OnOpen` event fires before the ComboBox popup renders. 
+
+The event handler receives as an argument an `ComboBoxOpenEventArgs` object that contains:
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
+
+````CSHTML
+<TelerikComboBox Data="@Items"
+                 OnOpen="@OnComboBoxPopupOpen"
+                 ValueField="@nameof(ItemDescriptor.ItemId)"
+                 TextField="@nameof(ItemDescriptor.ItemText)"
+                 @bind-Value="@ComboBoxValue">
+</TelerikComboBox>
+
+@code {
+    private int ComboBoxValue { get; set; }
+
+    private void OnComboBoxPopupOpen(ComboBoxOpenEventArgs args)
+    {
+        // cancel the OnOpen event by setting IsCancelled to true
+        args.IsCancelled = false;
+    }
+
+    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
+        {
+            ItemId = x,
+            ItemText = $"Item {x}"
+        }).ToList();
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
+}
+````
+
+## OnClose
+
+The `OnClose` event fires before the ComboBox popup closes.
+
+The event handler receives as an argument an `ComboBoxCloseEventArgs` object that contains:
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
+
+````CSHTML
+@* Cancel the OnClose event based on a condition *@
+
+<TelerikComboBox Data="@Items"
+                 OnClose="@OnComboBoxPopupClose"
+                 ValueField="@nameof(ItemDescriptor.ItemId)"
+                 TextField="@nameof(ItemDescriptor.ItemText)"
+                 @bind-Value="@ComboBoxValue">
+</TelerikComboBox>
+
+@code {
+    private int ComboBoxValue { get; set; }
+
+    private void OnComboBoxPopupClose(ComboBoxCloseEventArgs args)
+    {
+        // cancel the OnClose event based on a condition
+        if (ComboBoxValue == 2)
+        {
+            args.IsCancelled = false;
+        }
+    }
+
+    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
+        {
+            ItemId = x,
+            ItemText = $"Item {x}"
+        }).ToList();
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
+}
+````
+
+## OnItemRender
+
+The `OnItemRender` event fires when each item in the ComboBox dropdown renders.
+
+The event handler receives as an argument an `ComboBoxItemRenderEventArgs<TItem>` object that contains:
+
+| Property | Description |
+| --- | --- |
+| `Item` | The current item that renders in the ComboBox. |
+| `Class` | The custom CSS class that will be added to the item. |
+
+````CSHTML
+@* Customize an item in the ComboBox *@
+
+<style>
+    .customized-item {
+        font-weight:bold;
+        color: white;
+        background-color: blue;
+    }
+</style>
+
+<TelerikComboBox Data="@ComboBoxData"
+                 OnItemRender="@OnItemRenderHandler"
+                 TextField="ItemText"
+                 ValueField="ItemId"
+                 @bind-Value="ComboBoxValue">
+</TelerikComboBox>
+
+@code {
+    private int ComboBoxValue { get; set; }
+
+    public void OnItemRenderHandler(ComboBoxItemRenderEventArgs<ItemDescriptor> args)
+    {
+        ItemDescriptor currentItem = args.Item;
+
+        if (currentItem.ItemText == "item 2" && currentItem.ItemId == 2)
+        {
+            args.Class = "customized-item";
+        }
+    }
+
+    private IEnumerable<ItemDescriptor> ComboBoxData = Enumerable.Range(1, 20).Select(x => new ItemDescriptor { ItemText = "item " + x, ItemId = x });
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
+}
+````
 
 ## OnBlur
 

@@ -73,12 +73,7 @@ Each SplitButton action [fires a separate `OnClick` event]({%slug splitbutton-ev
 
 The following table lists the SplitButton parameters, except those related to [built-in styling]({%slug splitbutton-appearance%}) and [icons]({%slug splitbutton-icons%}). Also check the [SplitButton API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitButton) for a full list of properties, methods and events.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
@@ -104,13 +99,6 @@ The SplitButton exposes configuration settings for its dropdown (popup). The par
 </TelerikSplitButton>
 ````
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
-
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `AnimationDuration` | `int` <br /> (`300`) | Sets the dropdown animation duration in milliseconds. |
@@ -128,13 +116,6 @@ The SplitButton exposes configuration settings for its dropdown (popup). The par
 ### Item Settings
 
 The following table lists the `SplitButtonItem` parameters, except those related to [icons]({%slug splitbutton-icons%}).
-
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |

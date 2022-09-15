@@ -15,6 +15,9 @@ This article explains the events available in the Telerik MultiSelect for Blazor
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
 * [OnRead](#onread)
+* [OnOpen](#onopen)
+* [OnClose](#onclose)
+* [OnItemRender](#OnItemRender)
 * [OnBlur](#onblur)
 
 ## ValueChanged
@@ -214,6 +217,151 @@ You can also call remote data through async operations.
     {
         public int Id { get; set; }
         public string Make { get; set; }
+    }
+}
+````
+
+## OnOpen
+
+The `OnOpen` event fires before the MultiSelect popup renders. 
+
+The event handler receives as an argument an `MultiSelectOpenEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
+
+````CSHTML
+<TelerikMultiSelect Data="@Items"
+                    @bind-Value="@MultiSelectValue"
+                    ValueField="@nameof(ItemDescriptor.ItemId)"
+                    TextField="@nameof(ItemDescriptor.ItemText)"
+                    OnOpen="@OnMultiSelectPopupOpen">
+</TelerikMultiSelect>
+
+@code {
+    private List<int> MultiSelectValue { get; set; } = new();
+
+    private void OnMultiSelectPopupOpen(MultiSelectOpenEventArgs args)
+    {
+        //set the IsCancelled to true to cancel the OnOpen event
+        args.IsCancelled = false;
+    }
+
+    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
+        {
+            ItemId = x,
+            ItemText = $"Item {x}"
+        }).ToList();
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
+}
+````
+
+## OnClose
+
+The `OnClose` event fires before the MultiSelect popup closes.
+
+The event handler receives as an argument an `MultiSelectCloseEventArgs` object that contains:
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
+
+````CSHTML
+@* Cancel the OnClose event based on a condition *@
+
+<TelerikMultiSelect Data="@Items"
+                    OnClose="@OnMultiSelectPopupClose"
+                    ValueField="@nameof(ItemDescriptor.ItemId)"
+                    TextField="@nameof(ItemDescriptor.ItemText)"
+                    @bind-Value="@MultiSelectValue">
+</TelerikMultiSelect>
+
+@code {
+    private List<int> MultiSelectValue { get; set; } = new();
+
+    private void OnMultiSelectPopupClose(MultiSelectCloseEventArgs args)
+    {
+        // cancel the OnClose event based on a condition
+        if (MultiSelectValue.Any(x => x == 2))
+        {
+            args.IsCancelled = true;
+        }
+    }
+
+    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
+        {
+            ItemId = x,
+            ItemText = $"Item {x}"
+        }).ToList();
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
+}
+````
+
+## OnItemRender
+
+The `OnItemRender` event fires when each item in the MultiSelect dropdown renders. 
+
+The event handler receives as an argument an `MultiSelectItemRenderEventArgs<TItem>` object that contains:
+
+| Property | Description |
+| --- | --- |
+| `Item`   | The current item that renders in the MultiSelect. |
+| `Class`  | The custom CSS class that will be added to the item.     |
+
+````CSHTML
+@* Customize an item in the MultiSelect *@
+
+<style>
+    .customized-item {
+        font-weight:bold;
+        color: white;
+        background-color: blue;
+    }
+</style>
+
+<TelerikMultiSelect Data="@Options"
+                    OnItemRender="@OnItemRenderHandler"
+                    @bind-Value="@MultiSelectValues"
+                    TextField="StringRepresentation"
+                    ValueField="UniqueIdentifier" />
+
+@code {
+    private List<int> MultiSelectValues { get; set; }
+
+    private void OnItemRenderHandler(MultiSelectItemRenderEventArgs<OptionsModel> args)
+    {
+        OptionsModel currentItem = args.Item;
+
+        if (currentItem.StringRepresentation == "third" && currentItem.UniqueIdentifier == 3)
+        {
+            args.Class = "customized-item";
+        }
+    }
+
+    private List<OptionsModel> Options { get; set; } = new List<OptionsModel>
+    {
+        new OptionsModel { StringRepresentation = "first",  UniqueIdentifier = 1 },
+        new OptionsModel { StringRepresentation = "second", UniqueIdentifier = 2 },
+        new OptionsModel { StringRepresentation = "third",  UniqueIdentifier = 3 }
+    };
+
+    public class OptionsModel
+    {
+        public string StringRepresentation { get; set; }
+        public int UniqueIdentifier { get; set; } 
     }
 }
 ````

@@ -44,8 +44,6 @@ A **compatible .NET version** is one that is *no longer* (or *not yet*) official
 
 >caption .NET versions that are compatible with Telerik UI for Blazor
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | .NET version | First UI for Blazor Version | Last UI for Blazor Version |
 | --- | --- | --- |
 | .NET 7 Preview ([see below](#preview-net-versions)) | 3.3.0 | N/A |
@@ -63,8 +61,6 @@ Telerik UI for Blazor is committed to the currently supported official versions 
 Use these browsers to access web applications with Telerik UI for Blazor.
 
 >caption Browsers supported by Telerik UI for Blazor
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Browser | Supported Versions |
 | ----------- | ----------- |

@@ -12,23 +12,14 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/carousel" target="_blank">Carousel for Blazor</a> is an interactive component that allows users to browse a collection of content items (pages) one at a time. The Carousel template supports random web content, although it is most often used to display images.
 
-#### In this article:
-   * [Basics](#basics)
-   * [Example](#example)
-   * [Features](#features)
+## Creating Blazor Carousel
 
-## Basics
-
-To use a Telerik Carousel for Blazor:
-
-1. Add the `TelerikCarousel` tag.
-1. Set the `Data` attribute to the variable that holds the component data.
-1. Add a nested [`<Template>`]({%slug carousel-template%}) tag that will define the HTML content to display.
+1. Use the `TelerikCarousel` tag to add the component to your razor page.
+1. Populate the `Data` property with your collection of items.
+1. Use the nested [`<Template>`]({%slug carousel-template%}) tag to declare the HTML content that you want to display.
 1. Set `Width` and `Height` attributes of the Carousel, according to the content to display.
 
-## Example
-
-Here is a simple Carousel that has 5 pages with some styled text.
+>caption Carousel with 5 pages and some basic content
 
 ````CSHTML
 @* Blazor Carousel *@
@@ -63,30 +54,63 @@ Here is a simple Carousel that has 5 pages with some styled text.
     }
 }
 ````
->caption The snippet will produce the following result:
-![Carousel component](images/carousel-overview.png)
 
 @[template](/_contentTemplates/carousel/general.md#carousel-item-class)
 
-## Features
+## Template
 
-The Carousel provides the following features:
+To display any content in the Carousel, use a [Template]({%slug carousel-template%}) and place your desired markup inside. If a template is not set, the Carousel will not display anything.
 
-* `Arrows` - `bool` - shows or hides the overlay arrow buttons that navigate the Carousel pages (`true` by default).
-* `LoopPages` - `bool` - enables the Carousel to switch to the first page, when the last one is reached (`true` by default).
-* `Pageable` - `bool` - shows or hides the overlay pager (`true` by default). Each page is represented by a clickable dot. The current page is represented by a colored dot. If the dots cannot fit in the available horizontal space, the pager will be scrollable.
-* `Page` - `int` - defines the 1-based index of content item to display (`1` by default). Supports two-way binding.
-* `AutomaticPageChange` - `bool` - allows the Carousel to switch the next page automatically after a short delay (`true` by default).
-* `AutomaticPageChangeInterval` - `int` - defines the automatic page change delay in milliseconds (`5000` by default).
-* `Width` - `string` - sets the Carousel width as a CSS string. See [Dimensions]({%slug common-features/dimensions%}) for more details. The Carousel renders in a `<div>`, so it expands horizontally to 100% by default.
-* `Height` - `string` - sets the Carousel height as a CSS string. By default and by design, the component has no height and does not expand, based on its content. *In other words, the Carousel will be zero pixels high, if a height is not applied.*
-* [Template]({%slug carousel-template%}) for the Carousel content
-* `Class` - `string` - sets a custom CSS class to the component. To customize the appearance of all Carousels, you can also use its default CSS class `k-scrollview`.
+## Events
 
->tip You can use `Class` to set the Carousel dimensions, instead of `Width` and `Height`.
+The Blazor Carousel generates events that you can handle and further customize its behavior. [Read more about the Blazor Carousel events...]({%slug carousel-events%})
+
+## Carousel Parameters
+
+The following table lists Carousel parameters. Check the [Carousel API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikCarousel-1) for a full list of properties, methods and events.
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default Value | Description |
+|---|---|---|
+| `Arrows` | `bool` <br/> (`true`) | Whether the navigation arrow buttons will be shown.|
+| `LoopPages` | `bool` <br/> (`true`) | Whether the Carousel will switch to the first page, when the last one is reached.|
+| `Pageable` | `bool` <br/> (`true`) | Whether the overlay pager will be visible. Each page is represented by a clickable dot. The current page is represented by a colored dot. If the dots cannot fit in the available horizontal space, the pager will be scrollable.|
+| `Page` | `int` <br/> ( 1 ) | The 1-based index of content item to display. Supports two-way binding.|
+| `AutomaticPageChange` | `bool` <br/> (`true`) | Whether the Carousel will automatically switch to the next page after a short delay.|
+| `AutomaticPageChangeInterval` | `int` <br/> ( 5000 )| The automatic page change delay in milliseconds.|
+| `Width` | `string` | The Carousel width. See [Dimensions]({%slug common-features/dimensions%}) for more details. The Carousel renders in a `<div>`, so it expands horizontally to 100% by default.|
+| `Height` | `string` | The Carousel height. By default and by design, the component has no height and does not expand, based on its content. *In other words, the Carousel will be zero pixels high, if height is not applied.*|
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the component. Use it to apply custom styles or [override the theme]({%slug themes-override%}).
+
+## Carousel Reference and Methods
+
+To execute Carousel methods, obtain reference to the component instance via `@ref`.
+
+The Carousel is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters]({%slug common-features-data-binding-overview%}#component-type).
+
+The table below lists the Carousel methods. Also consult the [Carousel API](/blazor-ui/api/Telerik.Blazor.Components.TelerikCarousel-1).
+
+| Method | Description |
+| --- | --- |
+| `Rebind` | [Refreshes the component data]({%slug carousel-refresh-data%}#rebind-method). |
+
+````CSHTML
+<TelerikCarousel @ref="@CarouselRef" .../>
+
+@code{
+    private TelerikCarousel<MyModel> CarouselRef;
+}
+````
+
+## Next Steps
+
+* [Declare a Template]({%slug carousel-template%})
+* [Explore the Carousel Events]({%slug carousel-events%})
 
 ## See Also
 
 * [Carousel Template]({%slug carousel-template%})
 * [Carousel Events]({%slug carousel-events%})
 * [Carousel Live Demo](https://demos.telerik.com/blazor-ui/carousel/overview)
+* [Carousel API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikCarousel-1)

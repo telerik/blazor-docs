@@ -46,8 +46,6 @@ See also Appearance properties like `Icon`, `Class`, `Enabled` that are coming f
 
 Built-in commands:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Command | Description |
 | --- | --- |
 | `Add` | Initiates the creation of a new item. Can apply to rows as well, to create a child element for the current row. |
@@ -56,8 +54,6 @@ Built-in commands:
 ### OnClick handler
 
 The `OnClick` handler of the commands receives an argument of type `GanttTaskCommandEventArgs` that exposes the following parameters:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Description |
 | --- | --- |

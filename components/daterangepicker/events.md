@@ -15,6 +15,8 @@ This article explains the events available in the Telerik DateRangePicker for Bl
 
 * [OnChange](#onchange)
 * [StartValueChanged and EndValueChanged](#startvaluechanged-and-endvaluechanged)
+* [OnOpen](#onopen)
+* [OnClose](#onclose)
 * [ViewChanged](#viewchanged)
 
 
@@ -110,6 +112,76 @@ When the user selects a range from the calendar popup, the first click always fi
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
+## OnOpen
+
+The `OnOpen` event fires before the DateRangePicker popup renders. 
+
+The event handler receives as an argument an `DateRangePickerOpenEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
+
+````CSHTML
+<TelerikDateRangePicker @bind-StartValue="@StartValue"
+                        @bind-EndValue="@EndValue"
+                        OnOpen="@OnDateRangePickerPopupOpen"
+                        Format="dd MMMM yyyy"
+                        Min="@Min" Max="@Max">
+</TelerikDateRangePicker>
+
+@code {
+    private DateTime? StartValue { get; set; } = DateTime.Now;
+    private DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
+    private DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
+    private DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
+
+    private void OnDateRangePickerPopupOpen(DateRangePickerOpenEventArgs args)
+    {
+        //set the IsCancelled to true to cancel the OnOpen event
+        args.IsCancelled = false;
+    }
+}
+````
+
+## OnClose
+
+The `OnClose` event fires before the DateRangePicker popup closes.
+
+The event handler receives as an argument an `DateRangePickerCloseEventArgs` object that contains:
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
+
+````CSHTML
+@* Cancel the OnClose event based on a condition *@
+
+<TelerikDateRangePicker @bind-StartValue="@StartValue"
+                        @bind-EndValue="@EndValue"
+                        OnClose="@OnDateRangePickerPopupClose"
+                        Format="dd MMMM yyyy"
+                        Min="@Min" Max="@Max">
+</TelerikDateRangePicker>
+
+@code {
+    private DateTime? StartValue { get; set; } = DateTime.Now;
+    private DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
+    private DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
+    private DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
+
+    private void OnDateRangePickerPopupClose(DateRangePickerCloseEventArgs args)
+    {
+        //cancel the OnClose event based on a condition
+        if (EndValue > DateTime.Today.AddDays(15))
+        {
+            args.IsCancelled = true;
+        }
+    }
+}
+````
 
 ## ViewChanged
 

@@ -64,12 +64,7 @@ It is possible to place the Loader component inside another component for better
 
 The following table lists the Loader parameters. Also check the [Loader API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikLoader).
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |

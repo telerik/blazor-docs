@@ -12,10 +12,12 @@ position: 50
 
 This article describes the events of the Telerik MultiColumnComboBox for Blazor.
 
-* [`ValueChanged`](#valuechanged)
-* [`OnChange`](#onchange)
-* [`OnRead`](#onread)
-* [`OnBlur`](#onblur)
+* [ValueChanged](#valuechanged)
+* [OnChange](#onchange)
+* [OnRead](#onread)
+* [OnOpen](#onopen)
+* [OnClose](#onclose)
+* [OnBlur](#onblur)
 
 
 ## ValueChanged
@@ -373,6 +375,102 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 }
 ````
 
+## OnOpen
+
+The `OnOpen` event fires before the MultiColumnComboBox popup renders. 
+
+The event handler receives as an argument an `MultiColumnComboBoxOpenEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
+
+````CSHTML
+<TelerikMultiColumnComboBox Data="@Items"
+                            OnOpen="@OnMultiColumnComboBoxPopupOpen"
+                            ValueField="@nameof(ItemDescriptor.ItemId)"
+                            TextField="@nameof(ItemDescriptor.ItemText)"
+                            @bind-Value="@MultiColumnComboBoxValue">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(ItemDescriptor.ItemId)" Title="Item Id"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(ItemDescriptor.ItemText)" Title="Text"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
+
+@code {
+    private int MultiColumnComboBoxValue { get; set; } = new();
+
+    private void OnMultiColumnComboBoxPopupOpen(MultiColumnComboBoxOpenEventArgs args)
+    {
+        //set the IsCancelled to true to cancel the OnOpen event
+        args.IsCancelled = false;
+    }
+
+    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
+        {
+            ItemId = x,
+            ItemText = $"Item {x}"
+        }).ToList();
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
+}
+````
+
+## OnClose
+
+The `OnClose` event fires before the MultiColumnComboBox popup closes.
+
+The event handler receives as an argument an `MultiColumnComboBoxCloseEventArgs` object that contains:
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
+
+````CSHTML
+@* Cancel the OnClose event based on a condition *@
+
+<TelerikMultiColumnComboBox Data="@Items"
+                            OnClose="@OnMultiColumnComboBoxPopupClose"
+                            ValueField="@nameof(ItemDescriptor.ItemId)"
+                            TextField="@nameof(ItemDescriptor.ItemText)"
+                            @bind-Value="@MultiColumnComboBoxValue">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(ItemDescriptor.ItemId)" Title="Item Id"></MultiColumnComboBoxColumn>
+        <MultiColumnComboBoxColumn Field="@nameof(ItemDescriptor.ItemText)" Title="Text"></MultiColumnComboBoxColumn>
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
+
+@code {
+    private int MultiColumnComboBoxValue { get; set; } = new();
+
+    private void OnMultiColumnComboBoxPopupClose(MultiColumnComboBoxCloseEventArgs args)
+    {
+        //cancel the OnClose event based on a condition
+        if (MultiColumnComboBoxValue == 2)
+        {
+            args.IsCancelled = true;
+        }
+    }
+
+    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
+        {
+            ItemId = x,
+            ItemText = $"Item {x}"
+        }).ToList();
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
+}
+````
 
 ## OnBlur
 

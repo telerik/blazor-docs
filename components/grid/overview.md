@@ -175,6 +175,7 @@ The Grid has methods to execute actions such as:
 * [export to Excel]({%slug grid-export-excel%}) and other formats
 * [automatically resize columns to fit their content]({%slug components/grid/columns/resize%}#autofit-columns)
 * [get or set the Grid configuration state]({%slug grid-state%})
+* [get the dragged data item and its drop index from the destination Grid instance]({%slug grid-drag-drop-overview%})
 
 To execute these methods, obtain reference to the Grid instance via `@ref`.
 

@@ -17,11 +17,14 @@ This article briefly explains the specifics of <a href = "https://www.telerik.co
 
 ![SpreadStreamProcessing Fast Export image](images/SpreadStreamProcessing-Overview_01.png)
 
+
 ## What is Spread Streaming?
 
-Spread streaming is a document processing paradigm that allows you to create big spreadsheet documents with great performance and minimal memory footprint. 
+Spread streaming is a document processing paradigm that allows you to create or read big spreadsheet documents with great performance and minimal memory footprint. 
 
 The key for the memory efficiency is that the spread streaming library writes the spreadsheet content directly to a stream without creating and preserving the spreadsheet document model in memory. Each time an exporter object is disposed, the set values are written into the stream. This allows you to create large documents with an excellent performance.
+
+While reading, RadSpreadStreamProcessing parses only the required chunk of information. This ensures minimal use of application resources.
 
 ## Key Features
 
@@ -30,7 +33,9 @@ Some of the features you can take advantage of are:
 
 * [Export](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/export) to XLSX or CSV files
 
-* Writing directly into a stream
+* [Import from XLSX or CSV files](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/import)
+
+* Write directly into a stream; or parse only required data
 
 * **Append** new worksheets to existing workbook
 
@@ -54,11 +59,16 @@ Some of the features you can take advantage of are:
 
 ## RadSpreadStreamProcessing vs. RadSpreadProcessing
 
-There are two main differences between the libraries.
-* __RadSpreadStreamProcessing__ can be used only to create documents and append data to existing ones. On the other hand you can use the __RadSpreadProcessing__ also for reading and modifying the content of documents.
-* __RadSpreadStreamProcessing__ writes directly into a stream, unlike [RadSpreadProcessing](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) which creates models for the elements in the document. This is why the memory used with the spread streaming library is significantly lower than when using __RadSpreadProcessing__.
+The main differences between the two spreadsheet processing libraries include:
+
+* __RadSpreadStreamProcessing__ writes directly into a stream, while [RadSpreadProcessing](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) creates models for the elements in the document. This is why the spread streaming library uses significantly less memory than __RadSpreadProcessing__.
+* __RadSpreadStreamProcessing__ does not perform any formula or other layout-related calculations, which makes its file generation performance much better compared to __RadSpreadProcessing__.
+
 
 ## When to Use RadSpreadStreamProcessing
 
-You can use the spread stream processing to create and export large amount of data with a low memory footprint and great performance. You can also append data to already existing document stream.
+You can use the __RadSpreadStreamProcessing__ library to create or read __large amount of data__ with a low memory footprint and great performance. You can also append data to an already existing document stream. The generated document can be exported directly to a file on the file system or to a stream (for example, to send it to the client).
 
+## When to Use RadSpreadProcessing
+
+The [RadSpreadProcessing](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) library supports multiple features of the spreadsheet documents and enables you to perform different calculations on the data. To do that, the library keeps the whole document in its model in the memory of the application. If you are not dealing with huge files and the resources are not critical for the specific case, you can consider using RadSpreadProcessing as it doesn't have the limitations of the streaming model. 

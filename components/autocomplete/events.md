@@ -15,6 +15,9 @@ This article explains the events available in the Telerik AutoComplete for Blazo
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
 * [OnRead](#onread)
+* [OnOpen](#onopen)
+* [OnClose](#onclose)
+* [OnItemRender](#onitemrender)
 * [OnBlur](#onblur)
 
 ## ValueChanged
@@ -227,6 +230,128 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 }
 ````
 
+## OnOpen
+
+The `OnOpen` event fires before the AutoComplete popup renders. 
+
+The event handler receives as an argument an `AutoCompleteOpenEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
+
+````CSHTML
+<TelerikAutoComplete Data="@Suggestions"
+                     @bind-Value="@AutoCompleteValue"
+                     OnOpen="@OnOpenEventHandler" />
+
+@code {
+    private string AutoCompleteValue { get; set; }
+
+    private void OnOpenEventHandler(AutoCompleteOpenEventArgs args)
+    {
+        //set the IsCancelled to true to cancel the opening of the popup.
+        args.IsCancelled = false;
+    }
+
+    private List<string> Suggestions { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
+}
+````
+
+## OnClose
+
+The `OnClose` event fires before the AutoComplete popup closes.
+
+The event handler receives as an argument an `AutoCompleteCloseEventArgs` object that contains:
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
+
+````CSHTML
+@* Cancel the OnClose event based on a condition *@
+
+<TelerikAutoComplete Data="@Suggestions"
+                     @bind-Value="@AutoCompleteValue"
+                     OnClose="OnCloseEventHandler" />
+
+@code {
+    private string AutoCompleteValue { get; set; }
+
+    private void OnCloseEventHandler(AutoCompleteCloseEventArgs args)
+    {
+        //cancel the OnClose event based on a condition
+        if (AutoCompleteValue != "Manager")
+        {
+            args.IsCancelled = true;
+        }
+    }
+
+    private List<string> Suggestions { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
+}
+````
+
+## OnItemRender
+
+The `OnItemRender` event fires when each item in the AutoComplete dropdown renders.
+
+The event handler receives as an argument an `AutoCompleteItemRenderEventArgs<TItem>` object that contains:
+
+| Property | Description |
+| --- | --- |
+| `Item` | The current item that renders in the AutoComplete. |
+| `Class` | The custom CSS class that will be added to the item. |
+
+````CSHTML
+@* Customize an item in the AutoComplete *@
+
+<style>
+    .customized-item{
+        font-weight:bold;
+        color: white;
+        background-color: blue;
+    }
+</style>
+
+<TelerikAutoComplete Data="@Suggestions"
+                     OnItemRender="@OnItemRenderHandler"
+                     ValueField="@(nameof(SuggestionsModel.Suggestion))"
+                     @bind-Value="@AutoCompleteValue" />
+
+@code {
+    private string AutoCompleteValue { get; set; }
+
+    private void OnItemRenderHandler(AutoCompleteItemRenderEventArgs<SuggestionsModel> args)
+    {
+        SuggestionsModel currentItem = args.Item;
+
+        if (currentItem.Suggestion == "second" && currentItem.UniqueIdentifier == 2)
+        {
+            args.Class = "customized-item";
+        }
+    }
+
+    List<SuggestionsModel> Suggestions { get; set; } = new List<SuggestionsModel>
+    {
+        new SuggestionsModel { Suggestion = "first", UniqueIdentifier = 1 },
+        new SuggestionsModel { Suggestion = "second", UniqueIdentifier = 2 },
+        new SuggestionsModel { Suggestion = "third", UniqueIdentifier = 3 }
+    };
+
+    public class SuggestionsModel
+    {
+        public string Suggestion { get; set; }
+        public int UniqueIdentifier { get; set; }
+    }
+}
+````
+
 ## OnBlur
 
 The `OnBlur` event fires when the component loses focus.
@@ -250,7 +375,6 @@ The `OnBlur` event fires when the component loses focus.
     List<string> Suggestions { get; set; } = new List<string> { "one", "two", "three" };
 }
 ````
-
 
 ## See Also
 

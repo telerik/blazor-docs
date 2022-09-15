@@ -30,6 +30,8 @@ This article contains the following sections:
 
 >caption Filter with two-way bound value in Grid. If you want to filter at the moment of change, use Filter with a one-way bound value.
 
+<div class="skip-repl"></div>
+
 ````Two-way
 @using Telerik.DataSource;
 @using Telerik.DataSource.Extensions;

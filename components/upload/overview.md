@@ -59,9 +59,11 @@ Steps 4 and 5 are optional, but strongly recommended.
     * Its argument should be `IFormFile` or `IEnumerable<IFormFile>`.
     * The Upload always sends files one by one, but both argument types can work.
     * The argument name (`FormData` request key) must match the Upload [`SaveField` parameter](#upload-parameters) value. By default, that is `files`.
+    * The method name should match the last part of the `SaveUrl` value.
 * **Remove** action method
     * Its argument should be `string` or `IEnumerable<string>`.
     * The argument name (`FormData` request key) must match the Upload [`RemoveField` parameter](#upload-parameters) value. By default, that is `files`.
+    * The method name should match the last part of the `RemoveUrl` value.
 
 Both action methods should accept `POST` requests. Correct request routing depends on the application.
 
@@ -176,18 +178,14 @@ The Upload `MaxFileSize` parameter is used only for [client-side validation]({%s
 
 The following table lists the Upload parameters. Also check the [Upload API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikUpload) for a full list of properties, methods and events.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Accept` | `string` | The [`accept` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept) of the file `<input>`. It controls what file types and MIME types the browser will allow users to select. Compare with `AllowedExtensions`. |
 | `AllowedExtensions` | `List<string>` | The list of allowed file types. The component will check if the selected files are compliant **after selection**. Compare with `Accept`. Read more at [Validation]({%slug upload-validation%}). |
 | `AutoUpload` | `bool`<br />(`true`) | When `true`, the upload process starts automatically after file selection. When `false`, the component renders an upload button. |
+| `Capture` | `string` | The [`capture` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture) of the `<input type="file" />` element. It enables users to provide a file directly from their device camera. |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-upload">` element. |
 | `Enabled` | `bool`<br />(`true`) | Enables file selection and upload. |
 | `Id` | `string` | Renders an `id` attribute to the `<input type="file" />` element. Can be used together with a `<label>`. |

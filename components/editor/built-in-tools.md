@@ -268,8 +268,6 @@ All tools in the table below are *buttons*, except `Format`, which is a *dropdow
 
 >caption Table 2: Block Tools of the Editor
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 <table>
     <thead>
         <tr>
@@ -343,7 +341,7 @@ All tools in the table below are *buttons*, except `Format`, which is a *dropdow
         <tr>
             <td>ViewHtml</td>
             <td>setHtml</td>
-            <td>Shows the raw HTML of the Editor content</td>
+            <td>Shows and updates the raw HTML of the Editor content</td>
             <td>new HtmlCommandArgs(string commandName, string value)</td>
         </tr>
         <tr>
@@ -397,8 +395,6 @@ The table tools create and manipulate HTML `<table>` elements. These tools can a
 All tools in the table below are *buttons*.
 
 >caption Table 3: Editor Table Tools
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 <table>
     <thead>
@@ -479,8 +475,6 @@ All tools in the table below are *buttons*.
 Some Editor commands have no built-in tools. These commands can only be [invoked programmatically](#programmatic-execution).
 
 >caption Table 4: Editor Commands Without Tools
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 <table>
     <thead>

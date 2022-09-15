@@ -12,29 +12,14 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/circular-gauge" target="_blank">Telerik Circular Gauge for Blazor</a> represents [numerical values]({%slug circular-gauge-pointers%}) on a circular [scale]({%slug circular-gauge-scale%}).
 
-#### This article is separated in the following sections: 
-
-* [Basics](#basics)
-
-* [Features](#features)
-
-* [Methods](#methods)
-
-## Basics
-
->caption To add a Telerik Circular Gauge for Blazor to your application:
+## Creating Blazor Circular Gauge
 
 1. Add the `<TelerikCircularGauge>` tag.
-
-1. Add one or more instance of the `<CircularGaugePointer>` to the `<CircularGaugePointers>` collection.
-
+1. Add an instance of the `<CircularGaugePointer>` to the `<CircularGaugePointers>` collection.
 1. Provide a `Value` for each `<CircularGaugePointer>`.
-
-1. (Optional) You can use the [Center Label Template]({%slug circular-gauge-labels%}#center-template) to display the value of the pointer in the center of the component.
+1. (optional) You can use the [Center Label Template]({%slug circular-gauge-labels%}#center-template) to display the value of the pointer in the center of the component.
 
 >caption Basic Telerik Circular Gauge for Blazor.
-
-![Basic Circular Gauge](images/basic-circular-gauge.png)
 
 ````CSHTML
 @* Setup a basic circular gauge with center label template *@
@@ -58,33 +43,35 @@ The <a href = "https://www.telerik.com/blazor-ui/circular-gauge" target="_blank"
 </TelerikCircularGauge>
 ````
 
-## Features
+## Scale
 
-The Telerik Circular Gauge for Blazor exposes the following features:
+The scale of the circular gauge renders the values of the [pointers]({%slug circular-gauge-pointers%}) and [labels]({%slug circular-gauge-labels%}). See the [Scale]({%slug circular-gauge-scale%}) article for more information on how to customize the scale of the component.
 
-#### Circular Gauge Size
+## Pointers
 
-* `Width` - `string` - controls the width of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+The pointers indicate the values on the scale of the component. See the [Pointers]({%slug circular-gauge-pointers%}) article for more information on how to customize the pointers of the component.
 
-* `Height` - `string` - controls the height of the component. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+## Labels
 
-You can also set the Gauge size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the gauge's `Refresh()` C# [method](#methods) after the DOM has been redrawn and the new container dimensions are rendered.
+The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug circular-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
 
-#### Other Features
+## Circular Gauge Parameters
 
-* `Class` - renders a custom CSS class on the topmost wrapping element of the component. You can use that class to reposition the component on the page.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* [Scale]({%slug circular-gauge-scale%}) - The scale of the circular gauge renders the values of the [pointers]({%slug circular-gauge-pointers%}) and [labels]({%slug circular-gauge-labels%}).
+| Parameter | Type and Default Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-circulargauge">` element. |
+| `Width` | `string` | Controls the width of the Circular Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article.|
+| `Height` | `string` | Controls the height of the Circular Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article. |
+| `Transitions` | `bool?` | Controls if the Circular Gauge uses animations for its value changes. |
+| `RenderAs` | `RenderingMode?` <br /> (`SVG`) | Controls if the gauge renders as `SVG` or `Canvas`. |
 
-* [Labels]({%slug circular-gauge-labels%}) - The labels are rendered on the scale of the component to give information to the users.
+## Circular Gauge Reference and Methods
 
-* [Pointers]({%slug circular-gauge-pointers%}) - The pointers indicate the values on the scale of the component.
-
-## Methods
-
-The Circular Gauge reference exposes the `Refresh` method which allows you to programatically re-render the component.
-
->caption Get a component reference and use the Refresh method
+| Method | Description |
+| --- | --- |
+| `Refresh` | Programatically re-render the Circular Gauge. |
 
 ````CSHTML
 @* Change the Height of the component *@
@@ -116,9 +103,11 @@ The Circular Gauge reference exposes the `Refresh` method which allows you to pr
 }
 ````
 
+## Next Steps
+
+* [Explore the Circular Gauge Scale]({%slug circular-gauge-scale%})
+* [Learn more about the Circular Gauge Pointers]({%slug circular-gauge-pointers%})
+
 ## See Also
 
 * [Live Demo: Circular Gauge](https://demos.telerik.com/blazor-ui/circulargauge/overview)
-* [Circular Gauge: Scale]({%slug circular-gauge-scale%})
-* [Circular Gauge: Pointers]({%slug circular-gauge-pointers%})
-* [Circular Gauge: Labels]({%slug circular-gauge-labels%})
