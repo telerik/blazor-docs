@@ -33,8 +33,10 @@ Bound columns render the name of the field or their `Title` in their header. Thr
         </GridColumn>
         <GridColumn Field="HireDate" Width="350px">
             <HeaderTemplate>
-                Hire date<br />
-                <TelerikButton OnClick="@DoSomething">Do something</TelerikButton>
+                <span @onclick:stopPropagation>
+                    Hire date<br />
+                    <TelerikButton OnClick="@DoSomething">Do something</TelerikButton>
+                </span>
                 <br />
                 @{
                     if (!string.IsNullOrEmpty(result))
