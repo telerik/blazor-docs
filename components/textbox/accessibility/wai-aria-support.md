@@ -55,6 +55,6 @@ The component has been extensively tested automatically with static code analyze
 
 ## See Also
 
-* [Blazor TextBox Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/textbox/keyboard-navigation)
+* [Live Demo: TextBox](https://demos.telerik.com/blazor-ui/textbox/overview)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
 * [Accessibility Theme]({% slug themes-accessibility-swatch %})
