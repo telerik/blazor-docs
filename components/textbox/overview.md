@@ -125,5 +125,5 @@ TextBox value: @StringValue
 
 ## See Also
 
-  * [Live TextBox Demos](https://demos.telerik.com/blazor-ui/textbox/index)
+  * [Live Demo: TextBox](https://demos.telerik.com/blazor-ui/textbox/overview)
   * [TextBox API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)

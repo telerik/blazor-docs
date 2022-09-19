@@ -52,6 +52,6 @@ The component has been extensively tested automatically with static code analyze
 
 ## See Also
 
-* [Blazor MaskedTextBox Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/maskedtextbox/keyboard-navigation)
+* [Live Demo: MaskedTextbox](https://demos.telerik.com/blazor-ui/maskedtextbox/overview)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
 * [Accessibility Theme]({% slug themes-accessibility-swatch %})
