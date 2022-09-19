@@ -53,7 +53,7 @@ To AutoFit the Grid columns on initial load of the component you have to use a p
     [JSInvokable]
     public async Task AutoFitAllColumns()
     {
-        await Grid.AutoFitAllColumns();
+        await Grid.AutoFitAllColumnsAsync();
  
         //from this point to the end of the method the logic is dedicated to
         //stretching the last grid column to the available horizontal space
