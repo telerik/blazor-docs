@@ -38,6 +38,7 @@ In this example we will have a model, a main component with a form, a second com
 
 >caption Model
 
+<div class="skip-repl"></div>
 ````CS
 public class MyViewModel
 {
@@ -48,6 +49,7 @@ public class MyViewModel
 
 >caption Main form
 
+<div class="skip-repl"></div>
 ````CSHTML
 @* This does not have to be a form at all. The CascadingValue is just one way to pass data to child components *@
 
@@ -77,6 +79,7 @@ public class MyViewModel
 
 >caption Nested Component with Window
 
+<div class="skip-repl"></div>
 ````CSHTML
 @* simple markup to showcase when and how the UI updates in the different components *@
 
