@@ -10,7 +10,7 @@ position: 0
 
 # Adaptive Rendering
 
-Telerik UI for Blazor supports adaptive rendering for the components that incorporate popup elements. This functionality allows the component adapt to the screen size by providing different rendering of the popup element based on the screen dimensions.
+Telerik UI for Blazor supports adaptive rendering for the components that incorporate popup elements. This functionality allows the component to adapt to the screen size by providing different rendering of the popup element based on the screen dimensions.
 
 >caption In this article:
 
@@ -20,17 +20,21 @@ Telerik UI for Blazor supports adaptive rendering for the components that incorp
 
 ## Supported components
 
-The adaptive rendering functionality is supported by the following components that incorporate popup elemens:
+The adaptive rendering functionality is supported by the following components:
 
 * [AutoComplete]({%slug autocomplete-overview%})
 * [ComboBox]({%slug components/combobox/overview%})
 * [DropDownList]({%slug components/dropdownlist/overview%})
 * [MultiColumnComboBox]({%slug multicolumncombobox-overview%})
 * [MultiSelect]({%slug multiselect-overview%})
+* [DatePicker]({%slug components/datepicker/overview%})
+* [DateRangePicker]({%slug daterangepicker-overview%})
+* [DateTimePicker]({%slug components/datetimepicker/overview%})
+* [TimePicker]({%slug components/timepicker/overview%})
 
 ## Basics
 
-To enable the adaptive rendering of the component use the `AdaptiveMode` parameter. It takes a member of the `AdaptiveMode` enum:
+To enable the adaptive rendering use the `AdaptiveMode` parameter. It takes a member of the `AdaptiveMode` enum:
 
 * `None` (default)
 * `Auto`
@@ -46,7 +50,7 @@ To enable the adaptive rendering of the component use the `AdaptiveMode` paramet
 
 # Rendering specifics
 
-When you set the `AdaptiveMode` to `Auto`, the component will take the screen size into consideration to use the appropriate rendering. The different rendering essentially targets the popup element of the component and how it will be displayed to the user.
+When you set the `AdaptiveMode` to `Auto`, the component will take the screen size into consideration to use the appropriate rendering. The different rendering targets the popup element of the component and how it will be displayed to the user.
 
 Three breakpoints define the rendering options as follows:
 
