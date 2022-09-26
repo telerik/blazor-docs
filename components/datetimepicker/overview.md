@@ -54,6 +54,10 @@ When using the dropdown to edit dates, you must click the "Set" button to commit
 
 The time format specifiers in the `Format` control the tumblers available in the dropdown. For example, the `HH` specifier will result in a hour selector in a 24 hour format. If you also add the `tt` specifier, you will also get the AM/PM tumbler, but the 24 hour format will still be used. This means that you can also add several tumblers for the same time portion if the format string repeats them.
 
+## Adaptive Rendering
+
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
+
 ## Parameters
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)

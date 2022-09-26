@@ -61,6 +61,10 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 The `Min` and `Max` properties require a `DateTime` object, but will only use the time portion from it. Thus, the date itself is not important. The hours, minutes, seconds and AM/PM portions control the range of the tumblers in the time picker dropdown. They do not impose validation/limitations on the input editing.
 
+## Adaptive Rendering
+
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
+
 ## Parameters
 
 The Blazor Time Picker component provides various parameters that allow you to configure the component:

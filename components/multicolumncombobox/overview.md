@@ -102,6 +102,9 @@ The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#gro
 
 @[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor MultiColumnComboBox virtualization...]({% slug multicolumncombobox-virtualization %})
 
+## Adaptive Rendering
+
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
 ## MultiColumnComboBox Parameters
 

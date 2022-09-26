@@ -83,6 +83,10 @@ The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#grou
 
 @[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor MultiSelect virtualization...]({% slug multiselect-virtualization %})
 
+## Adaptive Rendering
+
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
+
 ## Parameters
 
 The Blazor MultiSelect provides various parameters that allow you to configure the component:

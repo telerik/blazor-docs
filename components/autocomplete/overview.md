@@ -68,6 +68,10 @@ The Blazor AutoComplete @[template](/_contentTemplates/dropdowns/features.md#gro
 
 @[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor AutoComplete virtualization...]({% slug autocomplete-virtualization %})
 
+## Adaptive Rendering
+
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
+
 ## Parameters
 
 The Blazor AutoComplete provides various parameters that allow you to configure the component:

@@ -54,6 +54,10 @@ To restrict the user from writing dates in the input so that the end is after th
 
 The DateRangePicker allows you to customize the rendering of the Calendar popup header. Learn more from the [Header Template article]({%slug daterangepicker-header-template%}).
 
+## Adaptive Rendering
+
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
+
 ## Parameters
 
 The Blazor Date Range Picker provides various parameters that allow you to configure the component. Also check the [DateRangePicker's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1).

@@ -69,6 +69,9 @@ The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#groupin
 
 @[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor ComboBox virtualization...]({% slug combobox-virtualization %})
 
+## Adaptive Rendering
+
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
 ## Parameters
 
