@@ -87,6 +87,8 @@ The `OnChange` event represents a user action - confirmation of the current valu
 * `OnChange` does not prevent two-way binding (the `@bind-Value` syntax)
 * `OnChange` fires when the user presses `Enter` in the input, or blurs the input (for example, clicks outside of the input or dropdown). It does not fire on every keystroke, but it fires when an item is selected from the dropdown.
 
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#on-change)
+
 >caption Handle OnChange
 
 ````CSHTML

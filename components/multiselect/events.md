@@ -60,6 +60,8 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 `OnChange` fires when an item is selected from the dropdown, an item is removed from the selected list, or all items are removed from the selected list, just like `ValueChanged`.
 
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#on-change)
+
 >caption Handle OnChange
 
 ````CSHTML

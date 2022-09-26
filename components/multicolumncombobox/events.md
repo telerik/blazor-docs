@@ -112,6 +112,8 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 See the [MultiColumnComboBox Overview - Selected Item]({%slug multicolumncombobox-overview%}#selected-item) article for details on when the event fires and how item selection and `Value` work.
 
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#on-change)
+
 >caption Handle OnChange without custom values - to get a value from the list, you must write text that will match the text of an item (e.g, "item 5").
 
 ````CSHTML

@@ -68,6 +68,8 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
 
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#on-change)
+
 >caption Handle the OnChange event and use two-way binding
 
 ````CSHTML
