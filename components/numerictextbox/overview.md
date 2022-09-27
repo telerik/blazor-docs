@@ -72,51 +72,60 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 }
 ````
 
-## Parameters
+## Numeric Textbox Parameters
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Attribute | Type and Default Value | Description |
-|-----------|------|-------------|
-| `Arrows` | `bool`<br /> (`true`) | Whether to show the up/down spinner arrows (buttons). |
-|`DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries.
-|`Decimals`|`int`|Specifies how many decimal places will be allowed while the user is typing a new value. Takes effect only while the input is focused. The default value is set from the specified culture.|
-|`Format`|`string`|The format with which the number is presented when the input is not focused. Read more in the [Standard Numeric Format Strings in .NET](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) article.|
-|`Id`|`string`|renders as the `id` attribute on the `<input />` element.|
-|`Max`|Numeric data type|the maximum decimal value the input can take. Must be of the same type as the `Value`.|
-|`Min`|Numeric data type|The minimum decimal value the input can take. Must be of the same type as the `Value`.|
-|`Placeholder`|`string`|maps to the `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to **nullable** value type and there is no value set. |
-|`Step`|Numeric data type|the decimal value of the step with which the value changes when the arrows are used. Must be of the same type as the `Value`.|
-|`Value`|`T` - expects numeric data type|Get/set the value of the input.|
-|`TabIndex`|`int?`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
-|`ValidateOn`|`ValidationEvent` enum <br/> `ValidationEvent.Input` |Configures the event that will trigger validation (if validation is enabled). Read more at [Validastion Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).|
+| Attribute | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Arrows` | `bool` <br /> (`true`) | Controls the display of the up/down spinner arrows (buttons). |
+| `Autocomplete` | `string` | The [`autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) on the `<input />` element. |
+| `DebounceDelay` | `int` <br /> (`150`) | The time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
+| `Decimals` | `int` | The number of allowed decimal places during typing. Takes effect only while the input is focused. The default value depends on the culture. |
+| `Format` | `string` | The number format when the input is not focused. Read more at [Standard Numeric Format Strings in .NET](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) |
+| `Id` | `string` | The `id` attribute on the `<input />` element. |
+| `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) on the `<input />` element. |
+| `Max` | numeric type | The maximum value the input can accept. Must match the `Value` type. |
+| `Min` | numeric type | The minimum value the input can accept. Must match the `Value` type. |
+| `Placeholder` | `string` | The `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to a **nullable** value type and there is no value set. |
+| `Step` | numeric type | The decimal value with which the value changes when using the arrows. Must maatch the `Value` type. |
+| `Value` | numeric type | The component value. |
+| `TabIndex` | `int?` | The `tabindex` attribute of the `<input />` element. Use it to customize the tabbing order on your page. |
+| `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validastion Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
 
 ### Styling and Appearance
 
 The following parameters enable you to customize the appearance of the Blazor Numeric TextBox:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Attribute | Type and Default Value | Description |
-|----------|----------|----------|
-|`Class`| `string` |The CSS class that will be rendered on the topmost wrapping elementof teh component.|
-|`Width`|`string`|the width of the component. See the [Dimensions]({%slug common-features/dimensions%}) article.|
+| --- | --- | --- |
+| `Class` | `string` | The CSS class that will be rendered on the `<span class="k-numerictextbox">` element. |
+| `Width` | `string` | The width of the component in [any supported CSS unit]({%slug common-features/dimensions%}). |
 
-You can find more options for customizing the Numeric TextBox styling in the [Appearance article]({%slug numerictextbox-appearance%}).
+Find more options for customizing the Numeric TextBox styling in the [Appearance article]({%slug numerictextbox-appearance%}).
 
 ## Component Reference
 
-````CSHTML
-@using Telerik.Blazor.Components
+The NumericTextBox has a `FocusAsync` method that enables programmatic focus. To use it, obtain reference to the component instance.
 
-<TelerikNumericTextBox @ref="myNumericTextboxRef" @bind-Value="CurrentValue"></TelerikNumericTextBox>
+````CSHTML
+<TelerikButton OnClick="@FocusTextBox">Focus TextBox</TelerikButton>
+
+<TelerikNumericTextBox @ref="@NumericTextBoxRef"
+                       @bind-Value="DecimalValue"
+                       Width="200px" />
 
 @code {
-	//determines the type of the component
-	private int CurrentValue { get; set; }
-	
-	//the type of the value variable determines the type of the reference
-	private Telerik.Blazor.Components.TelerikNumericTextBox<int> myNumericTextboxRef;
+    //determines the type of the component
+    private decimal DecimalValue { get; set; }
+
+    //the Value type determines the type of the reference
+    private TelerikNumericTextBox<decimal> NumericTextBoxRef { get; set; }
+
+    async Task FocusTextBox()
+    {
+        await NumericTextBoxRef.FocusAsync();
+    }
 }
 ````
 

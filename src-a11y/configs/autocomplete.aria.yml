@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: AutoComplete
+from: /aria/autocomplete_aria.md
+dest: ../components/autocomplete/accessibility/wai-aria-support.md
+slug: autocomplete-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor AutoComplete Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/autocomplete/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

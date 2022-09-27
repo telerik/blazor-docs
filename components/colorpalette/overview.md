@@ -47,12 +47,8 @@ The Blazor ColorPalette fires value change and blur events that you can handle a
 
 The Blazor ColorPalette provides various parameters to configure the component. Also check the [ColorPalette public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPalette).
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-colorpalette">` element. |

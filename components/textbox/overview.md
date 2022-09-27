@@ -43,12 +43,8 @@ The Blazor TextBox generates blur and value change events for further customizin
 
 The Blazor TextBox provides various parameters to configure the component:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Value` | `string` | Get/set the value of the input, can be used for binding. |
@@ -129,5 +125,5 @@ TextBox value: @StringValue
 
 ## See Also
 
-  * [Live TextBox Demos](https://demos.telerik.com/blazor-ui/textbox/index)
+  * [Live Demo: TextBox](https://demos.telerik.com/blazor-ui/textbox/overview)
   * [TextBox API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)

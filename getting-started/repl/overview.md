@@ -47,7 +47,7 @@ The Sidebar provides the following functionalities:
 
 * Static Asset Manager - it allows you to add CDN URLs for your CSS or JavaScript files. Place the file URL in the input and click the download button. This will automatically add references for the corresponding files. Once the desired asset is added, you can easily enable/disable it via a switch. In case some of the installed NuGet packages include CSS/JavaScript files, they will automatically be listed in this section, so you can manage them.
 
-* Telerik UI Asset Manager - provides a summary of the installed Telerik UI package version and a dropdown for selecting one of the [built-in themes]({%slug general-information/themes%}) (Default, Material, Bootstrap) and some of their corresponding [color swatches]({%slug themes-swatches%}). By selecting different theme or swatch, you can immediately see the applied styles in the Result View.
+* Telerik UI Asset Manager - shows the Telerik.UI.for.Blazor package version and allows you to change or update it. Starting from September 14, 2022 (R3 2022), each REPL example will maintain its Telerik UI package version until changed explicitly. There is also a list of the available [built-in themes]({%slug general-information/themes%}) and their corresponding [color swatches]({%slug themes-swatches%}). When you select a different theme or swatch, you can immediately see the applied styles in the Result View.
 
 * Snippets and Scaffolders - it allows you to add predefined component snippets or scaffold some componnents defining your desired configuration. [Read more about Snippets and Scaffolders...]({%slug blazor-repl-snippets-scaffolders%})
 

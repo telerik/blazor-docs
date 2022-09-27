@@ -77,12 +77,8 @@ The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#groupin
 
 >caption The ComboBox provides various parameters that allow you to configure the component:
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter      | Type | Description
 | ----------- | ----------- | -----------|
 | `AllowCustom` | `bool` | whether the user can enter [custom values]({%slug components/combobox/custom-value%}). If enabled, the `ValueField` must be a `string`.

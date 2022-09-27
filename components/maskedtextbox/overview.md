@@ -14,11 +14,11 @@ The <a href = "https://www.telerik.com/blazor-ui/maskedtextbox" target="_blank">
 
 You can also add a custom CSS class or control various attributes of the `input` element such as the `name`, `placeholder`, `tabindex`, and [more](#features), and also respond to [events]({%slug maskedtextbox-events%}).
 
-## Basics
+## Creating MaskedTextBox
 
 To use a Telerik MaskedTextbox for Blazor:
 
-1. Add the `<TelerikMaskedTextBox>` tag.
+1. Add the `<TelerikMaskedTextBox>` tag to your razor page.
 1. Set its `Value` to the `string` you want to get out of it.
 1. Provide the desired [`Mask`]({%slug maskedtextbox-mask-prompt%}) to prompt the user.
 
@@ -42,45 +42,41 @@ To use a Telerik MaskedTextbox for Blazor:
 ![Masked Textbox first look](images/masked-textbox-first-look.png)
 
 
-## Features
+## Mask-Related Parameters
 
->caption The Masked Textbox provides the following features:
+The table below provides a quick overview of the mask-related parameters. You can see the [Mask and Prompt article for additional details.]({%slug maskedtextbox-mask-prompt%})
 
-* `Class` - the CSS class that will be rendered on the wrapping element of the component.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* `DebounceDelay` - `int` - Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms.
+| Parameter | Type and Default value | Description |
+|-----------|------------------------|-------------|
+| `IncludeLiterals`  | `bool` | Controls if the literal characters from the mask (those characters that don't carry a special meaning such as brackets or dashes) are included in the `Value`. |
+| `Mask`  | `string` | Defines the mask (pattern) that the user has to follow. |
+| `MaskOnFocus`  | `bool` | Controls if the mask will be shown to the user only while the input is focused. When set to `true`, the user will see the [FloatingLabel]({%slug floatinglabel-overview%}) (if used) or `Placeholder` (if present) instead of the mask in case the textbox is empty. When there is some value in the input, the mask and input will be shown. |
+| `Prompt`  | `char` <br /> `_` | Defines the prompt character the user will see in the mask where there is no user value already. |
+| `PromptPlaceholder`  | `char?` <br /> ` ` (empty space) | Defines the character that is added to the raw `Value` for places where there is no user input yet. |
 
-* `Enabled` - whether the `input` is enabled.
+## MaskedTextBox Parameters
 
-* `Id` - renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
+| Parameter | Type and Default value | Description |
+|-----------|------------------------|-------------|
+| `Class`  | `string` | Adds a custom CSS class to the `<div class="k-maskedtextbox">` element. |
+| `Width`  | `string` | Controls the width of the `<input>` element. |
+| `DebounceDelay`  | `int` <br /> (`150`) | Specifies the time in milliseconds between the last typed symbol and the updating of the value. |
+| `Enabled`  | `bool` <br /> (`true`) | Controls if the users can type in the component. |
+| `Id`  | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input |
+| `Name`  | `string` | Renders as the `name` attribute of the HTML element. |
+| `PlaceHolder` | `string` | Renders as the `placeholder` attribute of the HTML element. |
+| `TabIndex` | `int` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
+| `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}). |
+| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | configures the event that will trigger validation (if validation is enabled). See the [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) article for more information. |
+| `Value`  | `string` | Get/set the value of the input, can be used for binding. |
 
-* `IncludeLiterals` (defaults to `false`) - whether the literal characters from the mask (those characters that don't carry a special meaning such as brackets or dashes) are included in the `Value`. Read more in the [Mask and Prompt]({%slug maskedtextbox-mask-prompt%}) article.
+## Validation
 
-* `Mask` - the mask (pattern) that the user has to follow. Shown by default. Read more about its features in the [Mask and Prompt]({%slug maskedtextbox-mask-prompt%}) article.
+You can validate the content of the `TelerikMaskedTextBox` using the Data Annotation attributes. [See the Input Validation article for an example on how to validate the content of the MaskedTextBox]({%slug common-features/input-validation%}#maskedtextbox)
 
-* `MaskOnFocus` (defaults to `false`) - whether the mask will be shown to the user only while the input is focused. When set to `true`, the user will see the [FloatingLabel]({%slug floatinglabel-overview%}) (if used) or `Placeholder` (if present) instead of the mask in case the textbox is empty. When there is some value in the input, the mask and input will be shown.
-
-* `Name` - the `name` attribute of the HTML element.
-
-* `PlaceHolder` - a `string` that maps to the `placeholder` attribute of the HTML element. If a [FloatingLabel]({%slug floatinglabel-overview%}) is used, it will be shown instead of the placeholder when the input is not focused. See also the `MaskOnFocus` parameter.
-
-* `Prompt` - (`char`) - the prompt character the user will see in the mask where there is no user value already. Defaults to an underscore `_`. Read more in the [Mask and Prompt]({%slug maskedtextbox-mask-prompt%}) article.
-
-* `PromptPlaceholder` (`char?`) - the character that is added to the raw `Value` for places where there is no user input yet. Defaults to an empty space ` ` so the string length matches the mask length. Read more in the [Mask and Prompt]({%slug maskedtextbox-mask-prompt%}) article.
-
-* `TabIndex` - maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
-
-* `Title` - maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}).
-
-* Validation - see the [Input Validation]({%slug common-features/input-validation%}) article.
-
-* `ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
-
-* `Value` - get/set the value of the input, can be used for binding.
-
-* `Width` - the width of the `input`. See the [Dimensions]({%slug common-features/dimensions%}) article.
-
-## Some Sample Masks
+## Mask Examples
 
 The examples below demonstrates how to create a few [masks]({%slug maskedtextbox-mask-prompt%}) for commonly used input types:
 
@@ -185,11 +181,14 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
 }
 ````
 
+## Next Steps
+
+* [Explore the behavior of the MaskedTextBox when pasting content]({%slug maskedtextbox-paste%})
+* [Learn more about the MaskedTextBox events]({%slug maskedtextbox-events%})
 
 ## See Also
 
   * [Live Demo: MaskedTextbox](https://demos.telerik.com/blazor-ui/maskedtextbox/overview)
   * [Live Demo: MaskedTextbox Validation](https://demos.telerik.com/blazor-ui/maskedtextbox/validation)
-  * [Input Validation]({%slug common-features/input-validation%})
   * [Add Floating Label]({%slug inputs-kb-floating-label%})
   * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMaskedTextBox)

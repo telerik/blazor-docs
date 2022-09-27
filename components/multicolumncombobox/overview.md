@@ -134,8 +134,6 @@ The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#gro
 
 The following parameters enable you to customize the appearance of the Blazor MultiColumnComboBox:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 @[template](/_contentTemplates/dropdowns/features.md#styling)
 
 You can find more options for customizing the MultiColumnComboBox styling in the [Appearance article]({%slug multicolumncombobox-appearance%}).
@@ -157,8 +155,6 @@ The popup of the component can be additionally customized via nested tags:
 
 The MultiColumnComboBox provides the following popup settings:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type | Description |
 | --- | --- | --- |
 | `AnimationDuration` | `int` | The animation duration of the popup in milliseconds. |
@@ -174,8 +170,6 @@ To execute MultiColumnComboBox methods, obtain reference to the component instan
 The MultiColumnComboBox is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters]({%slug common-features-data-binding-overview%}#component-type).
 
 The table below lists the MultiComboBox methods. Also consult the [MultiColumnComboBox API](/blazor-ui/api/Telerik.Blazor.Components.TelerikMultiColumnComboBox-2).
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Method | Description |
 | --- | --- |

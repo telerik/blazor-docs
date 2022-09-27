@@ -158,8 +158,6 @@ The PanelBar is a generic component. Its type depends on the type of its model a
 
 The table below lists the PanelBar methods. Also consult the [PanelBar API](/blazor-ui/api/Telerik.Blazor.Components.TelerikPanelBar).
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Method | Description |
 | --- | --- |
 | `Rebind` | [Refreshes the component data]({%slug panelbar-refresh-data%}#rebind-method). |

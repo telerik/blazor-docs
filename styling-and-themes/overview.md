@@ -16,6 +16,8 @@ The UI for Blazor suite comes with a set of built-in themes that you can choose 
 * **Default** - our own neutral styling that suits most cases. Includes the [Ocean Blue accessibility swatch]({%slug themes-accessibility-swatch%}).
 * **Bootstrap** - a theme that matches the Bootstrap styling. Read more in the [Bootstrap Notes](#bootstrap-notes) section.
 * **Material** - implements the [Material Design Guidelines](https://material.io/design/). Read more in the [Material Notes](#material-notes) section.
+* **Fluent** - based on [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui/).
+
 
 The UI for Blazor suite has the same HTML rendering and SASS Theme stylesheets like other Kendo UI suites, so previous experience with them can be helpful. The components in **UI for Blazor are native components** and not wrappers over jQuery widgets, however.
 
@@ -195,9 +197,12 @@ If you do not want to use the Bootstrap framework to create your layouts, there 
 
 * Many other components help with navigation and layouts, review the [list of available components in our demos](https://demos.telerik.com/blazor-ui).
 
+## Next Steps
+
+* [Create a custom theme]({%slug themes-custom%})
+
 ## See Also
 
-  * [Custom Themes]({%slug themes-custom%})
-  * [Style Form Elements]({%slug themes-form-elements%})
-  * [Live Demos](https://demos.telerik.com/blazor-ui/)
-  * [Change Theme at Runtime]({%slug change-theme-runtime%})
+* [Style Form Elements]({%slug themes-form-elements%})
+* [Change Theme at Runtime]({%slug change-theme-runtime%})
+* [Live UI for Blazor Demos](https://demos.telerik.com/blazor-ui/)

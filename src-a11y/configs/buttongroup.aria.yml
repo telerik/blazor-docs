@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: ButtonGroup
+from: /aria/buttongroup_aria.md
+dest: ../components/buttongroup/accessibility/wai-aria-support.md
+slug: buttongroup-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor ButtonGroup Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/buttongroup/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

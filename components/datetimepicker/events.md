@@ -14,6 +14,8 @@ This article explains the events available in the Telerik DateTimePicker for Bla
 
 * [ValueChanged](#valuechanged)
 * [OnChange](#onchange)
+* [OnOpen](#onopen)
+* [OnClose](#onclose)
 * [OnBlur](#onblur)
 
 
@@ -126,6 +128,74 @@ model value: @thePickerValue
 }
 ````
 
+## OnOpen
+
+The `OnOpen` event fires before the DateTimePicker popup renders. 
+
+The event handler receives as an argument an `DateTimePickerOpenEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
+
+````CSHTML
+<TelerikDateTimePicker OnOpen="@OnDateTimePickerPopupOpen"
+                       Min="@Min"
+                       Max="@Max"
+                       @bind-Value="@DateTimePickerValue"
+                       Format="dd MMM yyyy HH:mm:ss">
+</TelerikDateTimePicker>
+
+@code {
+    private DateTime? DateTimePickerValue = DateTime.Now;
+    private DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
+    private DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
+
+    private void OnDateTimePickerPopupOpen(DateTimePickerOpenEventArgs args)
+    {
+        //set the IsCancelled to true to cancel the OnOpen event
+        args.IsCancelled = false;
+    }
+}
+````
+
+## OnClose
+
+The `OnClose` event fires before the DateTimePicker popup closes.
+
+The event handler receives as an argument an `DateTimePickerCloseEventArgs` object that contains:
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
+
+````CSHTML
+@* Cancel the OnClose event based on a condition *@
+
+<TelerikDateTimePicker OnClose="@OnDateTimePickerPopupClose"
+                       Min="@Min"
+                       Max="@Max"
+                       @bind-Value="@DateTimePickerValue"
+                       Format="dd MMM yyyy HH:mm:ss">
+</TelerikDateTimePicker>
+
+@code {
+    private DateTime? DateTimePickerValue = DateTime.Now;
+    private DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
+    private DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
+
+    private void OnDateTimePickerPopupClose(DateTimePickerCloseEventArgs args)
+    {
+        //cancel the OnClose event based on a condition
+        if (DateTimePickerValue > DateTime.Now)
+        {
+            args.IsCancelled = true;
+        }
+    }
+}
+````
 
 ## OnBlur
 

@@ -77,13 +77,8 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 >caption The DropDownList provides various parameters that allow you to configure the component:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
 | Parameter      | Type | Description
 | ----------- | ----------- | -----------|
 | `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required.

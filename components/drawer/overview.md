@@ -109,12 +109,8 @@ The Blazor Drawer fires select and expand events. Handle those events to respond
 
 The Blazor Drawer provides various parameters to configure the component. Also check the [Drawer public API](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDrawer-1).
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-drawer-container">` element. |
@@ -128,12 +124,6 @@ The Blazor Drawer provides various parameters to configure the component. Also c
 
 The Drawer methods are accessible through it's reference. These methods change the value of the `Expanded` parameter.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
 | Method | Description |
 | --- | --- |
 | `ExpandAsync` | Expands the Drawer. |

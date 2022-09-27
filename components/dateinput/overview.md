@@ -67,8 +67,6 @@ You can ensure that the component value is acceptable by using the built-in vali
 
 The following parameters enable you to customize the appearance of the Blazor DateInput:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
 |`Class`| `string` |The CSS class that will be rendered on the `input` element|

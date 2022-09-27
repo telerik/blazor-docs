@@ -81,12 +81,7 @@ The Blazor LoaderContainer can expand to fill only a specific parent container. 
 
 The following table lists the LoaderContainer parameters. Also check the [LoaderContainer API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikLoaderContainer).
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |

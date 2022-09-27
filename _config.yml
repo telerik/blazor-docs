@@ -6,7 +6,7 @@ all_pages_domain: "https://docs.telerik.com"
 capital_casing_redirects: true
 
 # Exclude files which should not be in the output
-exclude: [README.md, Gemfile, Gemfile.lock,api_sort.rb, Dockerfile, bs-config.js, build-docs.sh, copy_content.sh, copy_local.sh, docs-watcher/*, exclude_files.txt, install-npm.sh, start-docs.sh, watch.sh]
+exclude: [README.md, Gemfile, Gemfile.lock,api_sort.rb, Dockerfile, bs-config.js, build-docs.sh, copy_content.sh, copy_local.sh, docs-watcher/*, exclude_files.txt, install-npm.sh, start-docs.sh, watch.sh, src-a11y/*]
 exclude_navigation: ["knowledge-base/*"]
 navigation:
 
@@ -226,6 +226,8 @@ navigation:
 ## List helpers directory names and order here, like this:
      "*appearance":
         title: "Appearance"
+     "*accessibility":
+        title: "Accessibility"
      "*binding":
         title: "Binding"
         position: 2
@@ -376,6 +378,8 @@ navigation:
         title: "Popup"
      "*numerictextbox":
         title: "NumericTextBox"
+     "*pdfviewer":
+        title: "PDF Viewer"
      "*progressbar":
         title: "ProgressBar"
      "*qrcode":
@@ -615,11 +619,11 @@ baseurl: /blazor-ui
 enable_blazorRepl: true
 
 ## Latest UI for Blazor version. Used in some articles
-uiForBlazorLatestVersion: "3.5.0"
+uiForBlazorLatestVersion: "3.6.0"
 supportedFrameworkVersion: ".NET Core 3.1.11 and .NET 6"
 
 ## Compatible theme version for CDN URLs
-themeCdnVersion: "5.6.0"
+themeCdnVersion: "5.8.0"
 
 ## The Kendo UI version used
 cdnVersion: "2019.1.115"
@@ -636,7 +640,7 @@ has_cta_panels: true
 
 ## CTA overrides for docs-seed
 cta_panels_data_overwrites:
-   message: "professional grade UI library with 95+ native components for building modern and feature-rich applications."
+   message: "professional grade UI library with 100 native components for building modern and feature-rich applications."
 
 ## Color Scheme
 main_theme: blazor

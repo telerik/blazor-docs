@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Drawer
+from: /aria/drawer_aria.md
+dest: ../components/drawer/accessibility/wai-aria-support.md
+slug: drawer-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Drawer Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/drawer/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

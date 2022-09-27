@@ -27,59 +27,83 @@ There are two possible implementations to autofit Grid columns by default. They 
 
 To AutoFit the Grid columns on initial load of the component you have to use a provision like the `MutationObserver`. This JavaScript tool notifies about DOM changes. The code snippet below uses the MutationObserver to trigger the `AutoFitAllColumns` method when the nodes in the content of Grid have mutated (rendered in this case). 
 
-Make sure to replace `<YOUR PROJECT NAMESPACE>` in the JavaScript code. 
-
->note There will be a flicker when you use the solution below to autofit the columns on the initial load. 
 
 <div class="skip-repl"></div>
 ````C#
+@implements IDisposable
 @inject IJSRuntime js
-
+ 
 <TelerikGrid @ref="@Grid"
              Data="@GridData"
              Resizable="true"
-             Pageable="true" 
-             PageSize="10" 
-             Sortable="true" 
+             Pageable="true"
+             PageSize="10"
+             Sortable="true"
              Height="300px"
+             Width="900px"
              Class="@GridClass">
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.Id) Title="ID" Id="IDColumn" />
         <GridColumn Field=@nameof(SampleData.Name) Title="First Name" Id="NameColumn1" />
         <GridColumn Field=@nameof(SampleData.LastName) Title="Last Name" Id="NameColumn2" />
-        <GridCommandColumn Width="100px" Resizable="false">
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
-        </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
-
+ 
 @code {
     [JSInvokable]
-    public static Task AutoFitAllColumns()
+    public async Task AutoFitAllColumns()
     {
-        return Task.Run(() => Grid.AutoFitAllColumns());
+        await Grid.AutoFitAllColumnsAsync();
+ 
+        //from this point to the end of the method the logic is dedicated to
+        //stretching the last grid column to the available horizontal space
+        //this code also works even if there is no available horizontal space
+ 
+        bool hasWhiteSpace = await js.InvokeAsync<bool>("hasWhiteSpace");
+ 
+        if (hasWhiteSpace)
+        {
+            var state = Grid.GetState();
+ 
+            state.ColumnStates.LastOrDefault().Width = "";
+            state.TableWidth = null;
+ 
+            await Grid.SetState(state);
+        }
     }
-
+ 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await js.InvokeVoidAsync("observeTarget", GridClass);
-
+        if (firstRender)
+        {
+            IndexDotNetInstance = DotNetObjectReference.Create(this);
+ 
+            await js.InvokeVoidAsync("observeTarget", IndexDotNetInstance, GridClass);
+        }
+ 
         await base.OnAfterRenderAsync(firstRender);
     }
-
+ 
     private const string GridClass = "autofitter-columns";
-
-    public static TelerikGrid<SampleData> Grid { get; set; }
+ 
+    public TelerikGrid<SampleData> Grid { get; set; }
+    public DotNetObjectReference<Index> IndexDotNetInstance { get; set; }
     public List<SampleData> GridData { get; set; }
-
+ 
     protected override void OnInitialized()
     {
         GridData = GetData();
     }
-
+ 
+    public void Dispose()
+    {
+        if (IndexDotNetInstance != null)
+        {
+            IndexDotNetInstance.Dispose();
+            IndexDotNetInstance = null;
+        }
+    }
+ 
     private List<SampleData> GetData()
     {
         return Enumerable.Range(1, 50).Select(x => new SampleData
@@ -89,7 +113,7 @@ Make sure to replace `<YOUR PROJECT NAMESPACE>` in the JavaScript code.
             LastName = $"Surname {x}"
         }).ToList();
     }
-
+ 
     public class SampleData
     {
         public int Id { get; set; }
@@ -100,29 +124,38 @@ Make sure to replace `<YOUR PROJECT NAMESPACE>` in the JavaScript code.
 ````
 ````JavaScript
 let result;
-
+let dotNetInstance;
+ 
 let observer = new MutationObserver(function () {
-    return window.DotNet.invokeMethodAsync('<YOUR PROJECT NAMESPACE>', 'AutoFitAllColumns');
+    return dotNetInstance.invokeMethodAsync('AutoFitAllColumns');
 });
-
+ 
 let options = {
     childList: true,
     subtree: true
 };
-
-function observeTarget(gridClass) {
+ 
+function observeTarget(dotNetObj, gridClass) {
     result = document.querySelector(`.${gridClass} .k-grid-table:first-of-type`);
-
+    dotNetInstance = dotNetObj;
+ 
     if (!result || !window.DotNet) {
         window.setTimeout(observeTarget, 500);
         return;
     }
     observer.observe(result, options);
-
+ 
     if (window.DotNet) {
-        window.DotNet.invokeMethodAsync('<YOUR PROJECT NAMESPACE>', 'AutoFitAllColumns');
+        dotNetInstance.invokeMethodAsync('AutoFitAllColumns');
         observer.disconnect();
     }
+}
+ 
+function hasWhiteSpace() {
+    const grid = document.querySelector(".k-grid");
+    const gridTable = document.querySelector(".k-grid-table");
+ 
+    return grid.offsetWidth > gridTable.offsetWidth;
 }
 ````
 

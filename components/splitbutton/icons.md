@@ -19,12 +19,7 @@ The SplitButton provides four parameters and five different ways to add an icon 
 
 The `string` parameters below exist for both `TelerikSplitButton` and `SplitButtonItem`.
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Intended Usage |
 | --- | --- |

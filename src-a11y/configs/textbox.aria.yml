@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: TextBox
+from: /aria/textbox_aria.md
+dest: ../components/textbox/accessibility/wai-aria-support.md
+slug: textbox-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Live Demo: TextBox](https://demos.telerik.com/blazor-ui/textbox/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

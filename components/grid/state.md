@@ -437,13 +437,17 @@ The grid state allows you to control the behavior of the grid programmatically -
 
 ### Set Default (Initial) State
 
-If you want the grid to start with certain settings for your end users, you can pre-define them in the `OnStateInit event`.
+If you want the Grid to start with certain settings for your users, you can pre-define them in the `OnStateInit` event.
+
+Note that the filtering configuration depends on the `FilterMode`. [Row filtering works with `FilterDescriptor`s, while menu filtering requires `CompositeFilterDescriptor`s]({%slug components/grid/filtering%}#filter-descriptors).
 
 >caption Choose a default state of the grid for your users
 
 ````CSHTML
 @* Set default (initial) state of the grid
     In this example, the records with ID < 5 will be shown, and the Name field will be sorted descending *@
+
+@using Telerik.DataSource
 
 <TelerikGrid Data="@MyData" Sortable="true" FilterMode="@GridFilterMode.FilterRow" AutoGenerateColumns="true"
              OnStateInit="@((GridStateEventArgs<SampleData> args) => OnStateInitHandler(args))">
@@ -454,13 +458,14 @@ If you want the grid to start with certain settings for your end users, you can 
     {
         var state = new GridState<SampleData>
         {
-            SortDescriptors = new List<Telerik.DataSource.SortDescriptor>
+            SortDescriptors = new List<SortDescriptor>
             {
-                new Telerik.DataSource.SortDescriptor{ Member = "Name", SortDirection = Telerik.DataSource.ListSortDirection.Descending }
+                new SortDescriptor{ Member = "Name", SortDirection = ListSortDirection.Descending }
             },
-            FilterDescriptors = new List<Telerik.DataSource.IFilterDescriptor>()
+            FilterDescriptors = new List<IFilterDescriptor>()
             {
-                new Telerik.DataSource.FilterDescriptor() { Member = "Id", Operator = Telerik.DataSource.FilterOperator.IsLessThan, Value = 5, MemberType = typeof(int) },
+	        // use FilterDescriptor with row filtering, and CompositeFilterDescriptor with menu filtering
+                new FilterDescriptor() { Member = "Id", Operator = FilterOperator.IsLessThan, Value = 5, MemberType = typeof(int) },
             }
         };
 

@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: TreeView
+from: /aria/treeview_aria.md
+dest: ../components/treeview/accessibility/wai-aria-support.md
+slug: treeview-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor TreeView Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

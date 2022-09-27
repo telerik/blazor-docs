@@ -79,12 +79,8 @@ The Blazor RadioGroup fires blur and value change events to respond to user acti
 
 The Blazor RadioGroup provides various parameters to configure the component. Also check the [RadioGroup public API](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikRadioGroup-2).
 
-<style>
-    article style + table {
-        table-layout: auto;
-        word-break: normal;
-    }
-</style>
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | The custom CSS class for the main wrapping element, which is `<ul class="k-radio-list">`. |
