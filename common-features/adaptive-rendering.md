@@ -24,12 +24,12 @@ The adaptive rendering functionality is supported by the following components:
 
 * [AutoComplete]({%slug autocomplete-overview%})
 * [ComboBox]({%slug components/combobox/overview%})
-* [DropDownList]({%slug components/dropdownlist/overview%})
-* [MultiColumnComboBox]({%slug multicolumncombobox-overview%})
-* [MultiSelect]({%slug multiselect-overview%})
 * [DatePicker]({%slug components/datepicker/overview%})
 * [DateRangePicker]({%slug daterangepicker-overview%})
 * [DateTimePicker]({%slug components/datetimepicker/overview%})
+* [DropDownList]({%slug components/dropdownlist/overview%})
+* [MultiColumnComboBox]({%slug multicolumncombobox-overview%})
+* [MultiSelect]({%slug multiselect-overview%})
 * [TimePicker]({%slug components/timepicker/overview%})
 
 ## Basics
