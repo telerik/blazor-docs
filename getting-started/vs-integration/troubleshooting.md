@@ -10,7 +10,7 @@ position: 5
 
 This article provides solutions for common issues you may encounter while working with the Telerik UI for Blazor Visual Studio (VS) Extensions.
 
-## The Telerik sub-menu is Missing from the Extensions Menu
+## The Telerik Sub-Menu is Missing from the Extensions Menu
 
 **Cause**: The Visual Studio extensions are disabled or not correctly installed.
 

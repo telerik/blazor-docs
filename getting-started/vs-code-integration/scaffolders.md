@@ -15,7 +15,7 @@ The Telerik Visual Studio Code extension provides scaffolders for increased deve
 
 To use the **Telerik UI for Blazor Scaffolders**, install the Telerik UI for Blazor Visual Studio Code Extension. @[template](/_contentTemplates/common/general-info.md#vs-code-x-download)
 
-## Add a new component page
+## Add a New Component Page
 
 1. Right-click on the name of the solution
 1. From the popup menu select the `Telerik UI for Blazor Project Item`

@@ -1,10 +1,3 @@
-#add-blazor-js-file-to-component
-@[template](/_contentTemplates/common/js-interop-file.md#app-paths)
-
-@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
-
-#end
-
 #add-js-interop-file-to-getting-started-client
  Add the `telerik-blazor.js` file to your main index file - `wwwroot/index.html`:
 
@@ -34,7 +27,7 @@
     . . .
     <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
 
-    <!-- For Trial licenses use
+    <!-- For Trial licenses, use
       <script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>
     -->
 </head>
@@ -47,7 +40,7 @@
     . . .
     <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
 
-    <!-- For Trial licenses use
+    <!-- For Trial licenses, use
         <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" />
       -->
 </head>
@@ -73,37 +66,27 @@ namespace MyBlazorAppName
             {
                 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
                 {
-                    //more code may be present here
+                    //More code may be present here.
 
-                    //make sure this is present to enable static files from a package
+                    //To enable static files from a package, make sure this is present.
                     app.UseStaticFiles();
 
-                    //more code may be present here
+                    //More code may be present here.
                 }
             }
         }
 ````
 ````Program.cs
 
-//more code may be present here
+//More code may be present here.
 
-//make sure this is present to enable static files from a package
+//To enable static files from a package, make sure this is present.
 app.UseStaticFiles();
 
-//more code may be present here                
+//More code may be present here.              
 ````
 #end
 
-
-
-#app-paths
- Add the following to your main index file:
-
-* Client-Side Blazor app - `wwwroot/index.html`
-* Server-Side Blazor app
-    * `~/Pages/_Host.cshtml` for .NET 3.x and .NET 5
-    * `~/Pages/_Layout.cshtml` for .NET 6
-#end
 
 #register-telerik-service-server
 <div class="skip-repl"></div>
@@ -114,20 +97,20 @@ namespace MyBlazorAppName
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            //more code may be present here
+            //More code may be present here.
             services.AddTelerikBlazor();
         }
 
-        //more code may be present here
+        //More code may be present here.
     }
 }
 ````
 ````Program.cs
-//more code may be present here
+//More code may be present here.
 
 builder.Services.AddTelerikBlazor();
 
-//more code may be present here                
+//More code may be present here.                
 ````
 #end
 
@@ -140,7 +123,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System;
         
-namespace ClientBlazorProject.Client // make sure this matches your actual WASM project namespace
+namespace ClientBlazorProject.Client // Make sure this matches your actual WASM project namespace.
 {
     public class Program
     {
@@ -150,12 +133,12 @@ namespace ClientBlazorProject.Client // make sure this matches your actual WASM 
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            // there may be more code here
+            // There may be more code here.
 
-            // register the Telerik services
+            // Register the Telerik services.
             builder.Services.AddTelerikBlazor();
 
-            // there may be more code here
+            // There may be more code here.
             // sample host builder for a WASM app, yours may differ
             await builder.Build().RunAsync();
         }
@@ -174,7 +157,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-// register the Telerik services
+// Register the Telerik services.
 builder.Services.AddTelerikBlazor();
 
 await builder.Build().RunAsync();

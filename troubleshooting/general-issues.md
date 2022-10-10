@@ -27,7 +27,7 @@ This page provides solutions for common issues you may encounter while working w
 ## Popups Do Not Work
 
 There are three common reasons for this
-* Missing [`<TelerikRootComponent>`]({%slug getting-started/what-you-need%}#project-configuration) from the app.
+* Missing [`<TelerikRootComponent>`]({%slug getting-started/what-you-need%}#configuring-the-project) from the app.
 * [Missing JS Interop file]({%slug troubleshooting-js-errors%}#microsoftjsinteropjsexception-could-not-find-)
 * Special positioning on the `<app>` element.
 
@@ -54,7 +54,7 @@ app {
 
 The position of popups (Window, various dropdowns such as DropDownList, ComboBox, DatePicker) can be wrong or offset.
 
-The most common reason for such a problem is that the [`<TelerikRootComponent>`]({%slug getting-started/what-you-need%}#project-configuration) does not match the `<body>` and the browser viewport - this is required because that component is the topmost element our components can access in order to render popups/dropdowns.
+The most common reason for such a problem is that the [`<TelerikRootComponent>`]({%slug getting-started/what-you-need%}#configuring-the-project) does not match the `<body>` and the browser viewport - this is required because that component is the topmost element our components can access in order to render popups/dropdowns.
 
 There are several common cases when such a mismatch occurs:
 
@@ -99,7 +99,7 @@ If you get an error similar to this one:
 
 There can be two common causes for the problem:
 
-* The Telerik services are not registered on the app, a line similar to `services.AddTelerikBlazor();` is missing. You can read more about where you need to add that in the [What You Need - Project Configuration]({%slug getting-started/what-you-need%}#project-configuration) article section.
+* The Telerik services are not registered on the app, a line similar to `services.AddTelerikBlazor();` is missing. You can read more about where you need to add that in the [What You Need - Project Configuration]({%slug getting-started/what-you-need%}#configuring-the-project) article section.
 
 * The application uses localization, or there is a code snippet that does (e.g., a grid with custom buttons that are localized, copied over from another place), but the current app does not provide the necessary project-specific service. You can read more about implementing one in the [Localization]({%slug globalization-localization%}) article.
 
