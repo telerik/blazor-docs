@@ -8,7 +8,7 @@ position: 1
 
 # Visual Studio Integration Overview
 
-The Progress&reg; Telerik&reg; UI for Blazor Visual Studio (VS) Extensions enhance the experience in developing Blazor web applications with Telerik UI for Blazor.
+To integrate with Visual Studio, Telerik UI for Blazor provides Visual Studio (VS) Extensions. These extensions enhance the experience in developing Blazor web applications with Telerik UI for Blazor.
 
 {% if site.has_cta_panels == true %}
 {% include cta-panel-introduction.html %}
@@ -16,7 +16,7 @@ The Progress&reg; Telerik&reg; UI for Blazor Visual Studio (VS) Extensions enhan
 
 The Telerik Blazor Extensions provide the following advantages:
 
-* They facilitate the [creation of projects]({% slug getting-started-vs-integration-new-project %}). 
+* They facilitate the [creation of projects]({% slug getting-started-vs-integration-new-project %}) and enable you to create a pre-configured project from a template so you can start using the Telerik UI for Blazor components immediately without additional project setup.
 
 * They allow you to [add the Telerik Components to an existing project]({%slug getting-started-vs-integration-convert-project%}) with a few clicks.
 
