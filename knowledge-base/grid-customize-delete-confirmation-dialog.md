@@ -39,22 +39,22 @@ How to change the title and the content of the Delete Confirmation Dialog?
 
 ## Solution
 
-The built-in Delete Confirmation Dialog is designed to be enabled with minimum effort and code (only by enabling the `ConfirmDelete` parameter of the Grid). Thus, the dialog itself does not provide customization options. However, there are several options that allow you add custom text and content to the dialog.
+The built-in Delete Confirmation Dialog is designed to be enabled with minimum effort and code (only by enabling the `ConfirmDelete` parameter of the Grid). Thus, the dialog itself does not provide customization options. However, there are several approaches that you can aplly to achieve a custom Delete Confirmation Dialog.
 
-This article suggests samples for the Grid. The same approach is applicable for the Treelist and Scheduler components.
+This article lists several samples for the Grid component. The suggested solutions, however, are applicable for the Treelist and Scheduler components, too.
 
 You can use:
 
-* [Localization]() - this approach is useful if you just want to change the text of the confirm dialog elements. It does not allow adding item details to the dialog text.
-* [Predefined Dialog Component](#predefined-dialog-component) - this approach is useful if you want to just change the dialog text and include some details for the item the user tries to delete (for example, record name).
-* [Dialog Component](#dialog-component) - this approch allows you to fully customize the rendering and appearance of the dialog. You may add any desired content there, be that custom text, HTML elements or other components.
+* [Localization](#localization) - this approach is useful if you just want to change the text of the built-in Delete Confirmation Dialog elements. It does not allow adding item details to the dialog text.
+* [Predefined Dialog Component](#predefined-dialog-component) - this option is useful if you want to just change the dialog text and include some details for the item the user tries to delete (for example, record name).
+* [Dialog Component](#dialog-component) - this solution allows you to fully customize the rendering and appearance of the dialog. You may add any desired content there, be that custom text, HTML elements or other components.
 
 
 ### Localization
 
-You can encable [Localization]({%slug globalization-localization%}) in your application and provide the desired custom text for the corresponding element keys.
+You can enable [Localization]({%slug globalization-localization%}) in your application and provide the desired custom text for the corresponding element keys.
 
-The keys for the elements of the built-in delete confirmation dialog are:
+The keys for the elements of the built-in Delete Confirmation Dialog are:
 
 | Element | Key |
 | --- | --- |
@@ -63,11 +63,13 @@ The keys for the elements of the built-in delete confirmation dialog are:
 | OK button | `Grid_ConfirmDeleteOk` |
 | Cancel button | `Grid_ConfirmDeleteCancel` |
 
+>tip The keys for the Treelist and Scheduler components are the same, just change the component name before the `_` symbol.
+
 ### Predefined Dialog Component
 
-Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the desired custom text. Additionally, you may get the details for the current item and add them to the text::
+Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the desired custom text. Additionally, you may get the details for the current item and add them to the text:
 
-* Handle the `OnDelete` event of the Grid
+* Handle the [`OnDelete`]({%slug grid-events%}#cud-events) event of the Grid
 * Display the Predefined Dialog in the `OnDelete` handler
 * Cancel the event or proceed with the `OnDelete` logic depending on the user choice
 
@@ -220,10 +222,10 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
 
 ### Dialog Component
 
-Using the [Dialog component]({%slug dialog-overview%}) will let you fully cusomize the appearance and content of the delete confirmation dialog. To handle the scenario:
+Using the [Dialog component]({%slug dialog-overview%}) will let you have fully cusomized Delete Confirmation Dialog. To handle the scenario:
 
-* Declare a Dialog instance and add the desired content there.
-* Handle the `OnDelete` event of the Grid to cancel the built-in delete, show the custom Dialog and get the current item (save the current item, so you can then use its details in the dialog if needed).
+* Declare a Dialog instance and add the desired content and buttons there. Normally, you would need at least two buttons - for confirmation and cancelling the delete operation.
+* Handle the [`OnDelete`]({%slug grid-events%}#cud-events) event of the Grid to cancel the built-in delete, show the custom Dialog and get the current item (save the current item, so you can then use its details in the dialog if needed).
 * Handle the Dialog button clicks: 
 	* Proceed with the item deletion in the Confirm button click handler. 
 	* Hide the Dialog on Cancel.
