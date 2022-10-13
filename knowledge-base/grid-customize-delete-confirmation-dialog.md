@@ -14,15 +14,9 @@ res_type: kb
 <table>
 	<tbody>
 		<tr>
-			<td rowspan = 3>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-		<tr>
-			<td>TreeList for Blazor</td>
-		</tr>
-		<tr>
-			<td>Scheduler for Blazor</td>
-		</tr>				
+			<td>Product</td>
+			<td>Grid for Blazor <br/> TreeList for Blazor <br/> Scheduler for Blazor </td>
+		</tr>	
 	</tbody>
 </table>
 
@@ -77,22 +71,12 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
 <TelerikGrid Data=@GridData
              EditMode="@GridEditMode.Inline"
              Pageable="true"
-             Height="500px"
-             OnUpdate="@UpdateHandler"
-             OnDelete="@DeleteHandler"
-             OnCreate="@CreateHandler"
-             OnCancel="@CancelHandler">
-    <GridToolBar>
-        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
+             OnDelete="@DeleteHandler">
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+        <GridCommandColumn>            
             <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
@@ -117,105 +101,32 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
         {
             args.IsCancelled = true;
         }
-
-        // perform actual data source operation here through your service
-        await MyService.Delete(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
+        //delete the item if the user confirms
+        else
+        {
+            GridData.Remove(item);
+        }
     }
 
-    private async Task UpdateHandler(GridCommandEventArgs args)
+    protected override async Task OnInitializedAsync()
     {
-        SampleData item = (SampleData)args.Item;
+        GridData = new List<SampleData>();
 
-        // perform actual data source operations here through your service
-        await MyService.Update(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
+        for (int i = 0; i < 50; i++)
+        {
+            GridData.Add(new SampleData()
+                {
+                    ID = i,
+                    Name = "Name " + i.ToString()
+                });
+        }
     }
-
-    private async Task CreateHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-
-        // perform actual data source operation here through your service
-        await MyService.Create(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-    }
-
-    private async Task CancelHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-
-        // if necessary, perform actual data source operation here through your service
-
-        Console.WriteLine("Cancel event is fired.");
-    }
-
 
     // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
     public class SampleData
     {
         public int ID { get; set; }
         public string Name { get; set; }
-    }
-
-    private async Task GetGridData()
-    {
-        GridData = await MyService.Read();
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await GetGridData();
-    }
-
-    // the following static class mimics an actual data service that handles the actual data source
-    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
-    public static class MyService
-    {
-        private static List<SampleData> _data { get; set; } = new List<SampleData>();
-
-        public static async Task Create(SampleData itemToInsert)
-        {
-            itemToInsert.ID = _data.Count + 1;
-            _data.Insert(0, itemToInsert);
-        }
-
-        public static async Task<List<SampleData>> Read()
-        {
-            if (_data.Count < 1)
-            {
-                for (int i = 1; i < 50; i++)
-                {
-                    _data.Add(new SampleData()
-                        {
-                            ID = i,
-                            Name = "Name " + i.ToString()
-                        });
-                }
-            }
-
-            return await Task.FromResult(_data);
-        }
-
-        public static async Task Update(SampleData itemToUpdate)
-        {
-            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
-            if (index != -1)
-            {
-                _data[index] = itemToUpdate;
-            }
-        }
-
-        public static async Task Delete(SampleData itemToDelete)
-        {
-            _data.Remove(itemToDelete);
-        }
     }
 }
 ````
@@ -235,22 +146,12 @@ Using the [Dialog component]({%slug dialog-overview%}) will let you have fully c
              Data=@GridData
              EditMode="@GridEditMode.Inline"
              Pageable="true"
-             Height="500px"
-             OnUpdate="@UpdateHandler"
-             OnDelete="@DeleteHandler"
-             OnCreate="@CreateHandler"
-             OnCancel="@CancelHandler">
-    <GridToolBar>
-        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
+             OnDelete="@DeleteHandler">
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
             <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
@@ -294,11 +195,8 @@ Using the [Dialog component]({%slug dialog-overview%}) will let you have fully c
 
     private async Task DeleteItemFromDialog()
     {
-        // perform actual data source operation here through your service
-        await MyService.Delete(CurrentItem);
-
-        // update the local view-model data with the service data
-        await GetGridData();
+        //delete the item
+        GridData.Remove(CurrentItem);
 
         //refresh the Grid data
         GridRef.Rebind();
@@ -307,99 +205,25 @@ Using the [Dialog component]({%slug dialog-overview%}) will let you have fully c
         DialogVisible = false;
     }
 
-
-    private async Task UpdateHandler(GridCommandEventArgs args)
+    protected override async Task OnInitializedAsync()
     {
-        SampleData item = (SampleData)args.Item;
+        GridData = new List<SampleData>();
 
-        // perform actual data source operations here through your service
-        await MyService.Update(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-
+        for (int i = 0; i < 50; i++)
+        {
+            GridData.Add(new SampleData()
+                {
+                    ID = i,
+                    Name = "Name " + i.ToString()
+                });
+        }
     }
-
-    private async Task CreateHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-
-        // perform actual data source operation here through your service
-        await MyService.Create(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-    }
-
-    private async Task CancelHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-
-        // if necessary, perform actual data source operation here through your service
-
-        Console.WriteLine("Cancel event is fired.");
-    }
-
 
     // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
     public class SampleData
     {
         public int ID { get; set; }
         public string Name { get; set; }
-    }
-
-    async Task GetGridData()
-    {
-        GridData = await MyService.Read();
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await GetGridData();
-    }
-
-    // the following static class mimics an actual data service that handles the actual data source
-    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
-    public static class MyService
-    {
-        private static List<SampleData> _data { get; set; } = new List<SampleData>();
-
-        public static async Task Create(SampleData itemToInsert)
-        {
-            itemToInsert.ID = _data.Count + 1;
-            _data.Insert(0, itemToInsert);
-        }
-
-        public static async Task<List<SampleData>> Read()
-        {
-            if (_data.Count < 1)
-            {
-                for (int i = 1; i < 50; i++)
-                {
-                    _data.Add(new SampleData()
-                        {
-                            ID = i,
-                            Name = "Name " + i.ToString()
-                        });
-                }
-            }
-
-            return await Task.FromResult(_data);
-        }
-
-        public static async Task Update(SampleData itemToUpdate)
-        {
-            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
-            if (index != -1)
-            {
-                _data[index] = itemToUpdate;
-            }
-        }
-
-        public static async Task Delete(SampleData itemToDelete)
-        {
-            _data.Remove(itemToDelete);
-        }
     }
 }
 ````
