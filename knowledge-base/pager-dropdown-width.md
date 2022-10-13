@@ -1,6 +1,6 @@
 ---
 title: Change the Pager DropDown Width
-description: How to change the Grid Pager dropdown width and make it wider to fit larger page sizes?
+description: How to change the Grid Pager dropdownlist width and make it wider to fit larger page sizes?
 type: how-to
 page_title: How to Change the Pager DropDown Width?
 slug: pager-kb-dropdown-width
@@ -33,8 +33,10 @@ How to change the pager dropdown list width and make it wider? The page size num
 
 ## Solution
 
-1. Set a custom `Class` to the component.
-1. Target the `.k-pager-sizes .k-dropdownlist` elements inside the components that have the custom `Class`. See [How to override the Telerik Blazor theme]({%slug themes-override%}).
+Use [custom CSS to override the default width]({%slug themes-override%}) in the Telerik Blazor theme.
+
+1. Set a custom `Class` to the component (Pager, Grid or ListView).
+1. Target the `.k-pager-sizes .k-dropdownlist` elements inside the component(s) with this custom `Class`.
 
 >caption Change the Pager dropdown width
 
@@ -49,7 +51,7 @@ How to change the pager dropdown list width and make it wider? The page size num
         <GridPagerSettings PageSizes="@PageSizes" />
     </GridSettings>
     <GridColumns>
-        <GridColumn Field="@nameof(Product.Name)" Title="Product Name" />
+        <GridColumn Field="@nameof(Product.Name)" />
     </GridColumns>
 </TelerikGrid>
 
@@ -93,6 +95,8 @@ How to change the pager dropdown list width and make it wider? The page size num
 ````
 
 To target all pager instances in the app, you can skip the custom CSS class:
+
+>caption Change the width of all pager dropdowns
 
 ````css
 .k-pager .k-pager-sizes .k-dropdownlist {
