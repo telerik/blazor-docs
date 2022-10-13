@@ -39,7 +39,7 @@ How to change the title and the content of the Delete Confirmation Dialog?
 
 ## Solution
 
-The built-in Delete Confirmation Dialog is designed to be enabled with minimum effort and code (only by enabling the `ConfirmDelete` parameter of the Grid). Thus, the dialog itself does not provide customization options. However, there are several approaches that you can aplly to achieve a custom Delete Confirmation Dialog.
+The built-in Delete Confirmation Dialog requires minimum effort and code. It only needs the `ConfirmDelete` parameter of the Grid to be `true`. Thus, the dialog itself does not provide customization options. However, there are several ways to achieve a custom Delete Confirmation Dialog.
 
 This article lists several samples for the Grid component. The suggested solutions, however, are applicable for the Treelist and Scheduler components, too.
 
