@@ -619,7 +619,7 @@ baseurl: /blazor-ui
 enable_blazorRepl: true
 
 ## Latest UI for Blazor version. Used in some articles
-uiForBlazorLatestVersion: "3.6.0"
+uiForBlazorLatestVersion: "3.6.1"
 supportedFrameworkVersion: ".NET Core 3.1.11 and .NET 6"
 
 ## Compatible theme version for CDN URLs
