@@ -119,5 +119,5 @@ In addition to `Page` and `PageSize`, the ListView provides advanced pager confi
 * [ListView Overview]({%slug listview-overview%})
 * [Manual Data Source Operations]({%slug listview-manual-operations%})
 * [Events]({%slug listview-events%})
-* [How to increase the pager dropdownlist width]({%pager-kb-dropdown-width%})
+* [How to increase the pager dropdownlist width]({%slug pager-kb-dropdown-width%})
 * [Live Demo: ListView](https://demos.telerik.com/blazor-ui/listview/overview)
