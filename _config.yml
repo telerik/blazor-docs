@@ -620,7 +620,7 @@ enable_blazorRepl: true
 
 ## Latest UI for Blazor version. Used in some articles
 uiForBlazorLatestVersion: "3.6.1"
-supportedFrameworkVersion: ".NET Core 3.1.11 and .NET 6"
+supportedFrameworkVersion: ".NET Core 3.1.11, .NET 6 and .NET 7"
 
 ## Compatible theme version for CDN URLs
 themeCdnVersion: "5.8.0"

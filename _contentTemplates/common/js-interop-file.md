@@ -11,7 +11,7 @@
 #add-js-interop-file-to-getting-started-server
  Add the `telerik-blazor.js` file to your main index file:
  
- * `~/Pages/_Host.cshtml` for .NET 3.x - .NET 5
+ * `~/Pages/_Host.cshtml` for .NET 3.x and .NET 7
  * `~/Pages/_Layout.cshtml` for .NET 6
 
     **HTML**
@@ -59,37 +59,52 @@
 
 #enable-static-assets-snippet
 <div class="skip-repl"></div>
-````Startup.cs
-namespace MyBlazorAppName
-        {
-            public class Startup
-            {
-                public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-                {
-                    //More code may be present here.
-
-                    //To enable static files from a package, make sure this is present.
-                    app.UseStaticFiles();
-
-                    //More code may be present here.
-                }
-            }
-        }
-````
 ````Program.cs
+var app = builder.Build();
 
-//More code may be present here.
+// ...
 
 //To enable static files from a package, make sure this is present.
 app.UseStaticFiles();
 
-//More code may be present here.              
+// ...
+
+app.Run();
+````
+````Startup.cs
+namespace MyBlazorAppName
+{
+    public class Startup
+    {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            // ...
+
+            //To enable static files from a package, make sure this is present.
+            app.UseStaticFiles();
+
+            // ...
+        }
+    }
+}
 ````
 #end
 
-
 #register-telerik-service-server
 <div class="skip-repl"></div>
+````Program.cs
+// ...
+
+builder.Services.AddTelerikBlazor();
+
+// ...
+
+builder.Services.AddTelerikBlazor();
+
+// ...
+
+var app = builder.Build();
+````
 ````Startup.cs
 namespace MyBlazorAppName
 {
@@ -97,26 +112,36 @@ namespace MyBlazorAppName
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            //More code may be present here.
+            // ...
             services.AddTelerikBlazor();
         }
 
-        //More code may be present here.
+        // ...
     }
 }
-````
-````Program.cs
-//More code may be present here.
-
-builder.Services.AddTelerikBlazor();
-
-//More code may be present here.                
 ````
 #end
 
 #register-telerik-service-client
 <div class="skip-repl"></div>
-````.NET_3.x_and_.NET_5
+````.NET_6_and_.NET_7
+using ClientBlazorProject;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+
+// sample host builder for a WASM app, yours may differ
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<App>("#app");
+builder.RootComponents.Add<HeadOutlet>("head::after");
+
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+// Register the Telerik services.
+builder.Services.AddTelerikBlazor();
+
+await builder.Build().RunAsync();
+````
+````.NET_3.x
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
@@ -144,22 +169,5 @@ namespace ClientBlazorProject.Client // Make sure this matches your actual WASM 
         }
     }
 }
-````
-````.NET_6
-using ClientBlazorProject;
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-
-// sample host builder for a WASM app, yours may differ
-var builder = WebAssemblyHostBuilder.CreateDefault(args);
-builder.RootComponents.Add<App>("#app");
-builder.RootComponents.Add<HeadOutlet>("head::after");
-
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
-// Register the Telerik services.
-builder.Services.AddTelerikBlazor();
-
-await builder.Build().RunAsync();
 ````
 #end

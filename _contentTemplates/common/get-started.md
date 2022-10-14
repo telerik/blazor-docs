@@ -150,7 +150,7 @@ In the main layout file (by default, the `~/Shared/MainLayout.razor` file in the
     @* @Body and other code will be present here depending on your project *@
 
 
->Alternatively, the `TelerikRootComponent` can reside directly in the `MainLayout`, but placing it in another file helps for a better separation of concerns.
+>Alternatively, the `TelerikRootComponent` can reside directly in the `MainLayout`, but it must [wrap all the other content]({%slug troubleshooting-general-issues%}#wrong-popup-position). Placing it in a separate Razor file helps for a better separation of concerns.
 
 #end
 
