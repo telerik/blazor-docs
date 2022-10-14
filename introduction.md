@@ -28,9 +28,11 @@ To read more about the benefits of using Telerik UI for Blazor, visit the <a hre
 
 If you are new to Telerik UI for Blazor, visit the Get Started tutorials that demonstrate how to add the Telerik components to your application:
 
-* [Get Started with Client-side Blazor]({%slug getting-started/client-side%})
+* [Get Started with Client-side (WebAssembly) Blazor]({%slug getting-started/client-side%})
 
 * [Get Started with Server-side Blazor]({%slug getting-started/server-side%})
+
+>tip This online documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF documentation](#learning-resources) for the required older product version.
 
 Developers who are familiar with the IDE and Blazor could prefer the [What You Need]({%slug getting-started/what-you-need%}) article. It is a shorter, more advanced version of the getting started tutorials above and explains the basics about the Telerik UI packages and how to set up a project.
 
@@ -90,6 +92,8 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 * <a href="https://www.telerik.com/support/blazor-ui" target="_blank">Blazor UI Support and Learning Resources</a> - a hub with links to all resources such as blogs, videos, repos, docs and so on.
 
 * [Video Onboarding Course]({%slug getting-started/video-onboarding%}) - through the Telerik Virtual Classroom, you can watch videos and learn how to build a Blazor app at your leisure.
+
+* [Offline PDF documentation](https://www.telerik.com/account/downloads) for all product versions - select *Telerik UI for Blazor*, then choose a *version* from the dropdown and look for the ZIP files in the *Documentation* section.
 
 
 ## Next Steps

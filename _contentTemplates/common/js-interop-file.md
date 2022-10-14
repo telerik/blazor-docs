@@ -95,7 +95,7 @@ namespace MyBlazorAppName
 ````Program.cs
 // ...
 
-builder.Services.AddTelerikBlazor();
+var builder = WebApplication.CreateBuilder(args);
 
 // ...
 
