@@ -83,6 +83,51 @@ The following parameters enable you to customize the appearance of the Blazor Ta
 | `Width`   | `string` | The width of the component. You can set the Width parameter to any of the [supported units]({%slug common-features/dimensions%}). |
 | `Height`  | `string` | The height of the Component. You can set the `Height` parameter to any of the [supported units]({%slug common-features/dimensions%}). |
 
+## TabStrip Reference and Methods
+
+The `TabStrip` methods are accessible through its reference.
+
+| Method | Description |
+| --- | --- |
+| `Refresh` | Redraws the component. |
+
+>caption Get a reference to the TabStrip and use its methods.
+
+````Index.razor
+@* This code snippet demonstrates usage of the TabStrip Refresh() method. *@
+
+<TelerikTabStrip @ref="@TabRef">
+    <CityPopulation TabRef="TabRef" />
+</TelerikTabStrip>
+
+@code {
+    public TelerikTabStrip TabRef { get; set; }
+}
+````
+````CityPopulation.razor
+@* This code snippet demonstrates usage of the TabStrip Refresh() method. *@
+
+<TabStripTab Title="Sofia">
+    <Content>
+        <div>
+            <h2>City Population: @Count</h2>
+        </div>
+        <TelerikButton OnClick="IncreaseCount">Increase Count!</TelerikButton>
+    </Content>
+</TabStripTab>
+
+@code {
+    public int Count { get; set; } = 30;
+    [Parameter] public TelerikTabStrip TabRef { get; set; }
+
+    void IncreaseCount()
+    {
+        Count += 1;
+        TabRef.Refresh();
+    }
+}
+````
+
 ## Next Steps
 
 * [Configure the Tabs]({%slug tabstrip-tabs-configuration%})
