@@ -18,6 +18,7 @@ This article explains the events available in the Telerik Scheduler for Blazor:
 * [OnItemDoubleClick](#onitemdoubleclick)
 * [OnItemContextMenu](#onitemcontextmenu)
 * [ItemRender](#itemrender)
+* [OnCellRender](#oncellrender)
 * [DateChanged](#datechanged)
 * [ViewChanged](#viewchanged)
 
@@ -939,6 +940,98 @@ Through its event arguments you can get the `Item` to cast it to your model type
 </style>
 ````
 
+## OnCellRender
+
+The `OnCellRender` event fires upon rendering of each slot cell. It allows you set custom CSS class to the cells based on the business logic.
+
+The handler receives an argument of type `SchedulerCellRenderEventArgs` which exposes the following fields:
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `Class` | `string` | the CSS class that will be applied to the cells. The CSS rules that are set for that class will be visibly rendered on the Scheduler cells. |
+| `Date` | `DateTime` | The actual date that is associated with the cell. |
+| `IsAllDay` | `bool` | Whether the slot is inside the `AllDay` row/column.
+| `Resources` | `List<KeyValuePair<string, object>` | 
+| `SlotStartTime` | `DateTime` | The slot start time. The date will be 1/1/1900, but the essential part is the time portion. | 
+| `SlotStartTime` | `DateTime` | The slot start time. The date will be 1/1/1900, but the essential part is the time portion. |
+
+
+````CSHTML
+<style>
+    .lunch-break {
+        background-color: beige;
+    }
+
+    .lunch-break::after {
+        content: "Lunch break";
+    }
+</style>
+
+<TelerikScheduler Data="@Appointments"
+                  @bind-Date="@SchedulerStartDate"
+                  @bind-View="@SchedulerCurrentView"
+                  Height="600px" OnCellRender="@OnCellRenderHandler">
+    <SchedulerViews>
+        <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" />
+        <SchedulerWeekView StartTime="@DayStart" EndTime="@DayEnd" />
+        <SchedulerMonthView />
+        <SchedulerTimelineView StartTime="@DayStart" EndTime="@DayEnd" />
+    </SchedulerViews>
+</TelerikScheduler>
+
+@code {
+    private DateTime SchedulerStartDate { get; set; } = new DateTime(2022, 7, 25, 8, 0, 0);
+
+    private SchedulerView SchedulerCurrentView { get; set; } = SchedulerView.Week;
+
+    void OnCellRenderHandler(SchedulerCellRenderEventArgs args)
+    {
+        DateTime lunchStart = new DateTime(1900, 1, 1, 12, 0, 0);
+        DateTime lunchEnd = new DateTime(1900, 1, 1, 13, 0, 0);
+
+        if (args.SlotStartTime.Equals(lunchStart) ||
+            args.SlotEndTime.Equals(lunchEnd))
+        {
+            args.Class = "lunch-break";
+        }
+    }
+
+    // only the time portion matters
+    private DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
+    private DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 19, 0, 0);
+
+    private List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
+    {
+        new SchedulerAppointment
+        {
+            Title = "Planning meeting",
+            Start = new DateTime(2022, 7, 25, 9, 30, 0),
+            End = new DateTime(2022, 7, 25, 12, 0, 0)
+        },
+        new SchedulerAppointment
+        {
+            Title = "Vet visit",
+            Start = new DateTime(2022, 7, 26, 7, 0, 0),
+            End = new DateTime(2022, 7, 26, 7, 30, 0)
+        },
+        new SchedulerAppointment
+        {
+            Title = "Trip to Hawaii",
+            IsAllDay = true,
+            Start = new DateTime(2022, 7, 27),
+            End = new DateTime(2022, 8, 07)
+        }
+    };
+
+    public class SchedulerAppointment
+    {
+        public string Title { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
+    }
+}
+````
 
 ## DateChanged
 
