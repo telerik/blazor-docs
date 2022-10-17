@@ -224,7 +224,8 @@ In addition to `Page` and `PageSize`, the TreeList provides advanced pager confi
         <TreeListPagerSettings InputType="PagerInputType.Input"
                                PageSizes="@PageSizes"
                                ButtonCount="5"
-                               Adaptive="true">
+                               Adaptive="true"
+                               Position="PagerPosition.Top">
         </TreeListPagerSettings>
     </TreeListSettings>
     <TreeListColumns>

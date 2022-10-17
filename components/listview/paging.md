@@ -85,7 +85,8 @@ In addition to `Page` and `PageSize`, the ListView provides advanced pager confi
         <ListViewPagerSettings InputType="PagerInputType.Input"
                                PageSizes="@PageSizes"
                                ButtonCount="5"
-                               Adaptive="true">
+                               Adaptive="true"
+                               Position="PagerPosition.Top">
         </ListViewPagerSettings>
     </ListViewSettings>
     <Template>
