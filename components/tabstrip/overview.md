@@ -94,7 +94,7 @@ The `TabStrip` methods are accessible through its reference.
 >caption Get a reference to the TabStrip and use its methods.
 
 ````Index.razor
-@* This code snippet showcases an example usage of the Refresh() method. *@
+@* This code snippet demonstrates usage of the TabStrip Refresh() method. *@
 
 <TelerikTabStrip @ref="@TabRef">
     <CityPopulation TabRef="TabRef" />
@@ -105,7 +105,7 @@ The `TabStrip` methods are accessible through its reference.
 }
 ````
 ````CityPopulation.razor
-@* This code snippet showcases an example usage of the Refresh() method. *@
+@* This code snippet demonstrates usage of the TabStrip Refresh() method. *@
 
 <TabStripTab Title="Sofia">
     <Content>
