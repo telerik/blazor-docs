@@ -5,7 +5,7 @@ type: how-to
 page_title: Open Input Dropdown Programmatically on Focus
 slug: inputs-kb-open-programmatically
 position: 
-tags: autocomplete,combobox,datepicker,datetimepicker,dropdown,dropdownlist,multiselect,timepicker,focus,open
+tags: autocomplete,combobox,datepicker,datetimepicker,dropdown,dropdownlist,multicolumncombobox,multiselect,timepicker,focus,open
 ticketid: 1526273, 1539587, 1547004, 1562064, 1475760
 res_type: kb
 ---
