@@ -946,20 +946,22 @@ The `OnCellRender` event fires upon rendering of each slot cell. It allows you s
 
 The handler receives an argument of type `SchedulerCellRenderEventArgs` which exposes the following fields:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Field | Type | Description |
 | --- | --- | --- |
-| `Class` | `string` | the CSS class that will be applied to the cells. The CSS rules that are set for that class will be visibly rendered on the Scheduler cells. |
+| `Class` | `string` | The CSS class that will be applied to the cells. The CSS rules that are set for that class will be visibly rendered on the Scheduler cells. |
 | `Date` | `DateTime` | The actual date that is associated with the cell. |
 | `IsAllDay` | `bool` | Whether the slot is inside the `AllDay` row/column.
-| `Resources` | `List<KeyValuePair<string, object>` | 
-| `SlotStartTime` | `DateTime` | The slot start time. The date will be 1/1/1900, but the essential part is the time portion. | 
-| `SlotStartTime` | `DateTime` | The slot start time. The date will be 1/1/1900, but the essential part is the time portion. |
+| `Resources` | `List<KeyValuePair<string, object>` | The resources that are associated with the column/row. Applicable when the Scheduler uses both - [resources]({%slug scheduler-resources%}) and [grouping]({%slug scheduler-resource-grouping%}). Needed to differentiate between the same dates within different groups. |
+| `SlotStartTime` | `DateTime` | The slot start time. The date is 1/1/1900, but the essential part is the time portion. | 
+| `SlotEndTime` | `DateTime` | The slot end time. The date is 1/1/1900, but the essential part is the time portion. |
 
 
 ````CSHTML
 <style>
     .lunch-break {
-        background-color: beige;
+        background-color: rgba(255,124,115,0.3);
     }
 
     .lunch-break::after {
@@ -968,14 +970,14 @@ The handler receives an argument of type `SchedulerCellRenderEventArgs` which ex
 </style>
 
 <TelerikScheduler Data="@Appointments"
+                  OnCellRender="@OnCellRenderHandler"
                   @bind-Date="@SchedulerStartDate"
                   @bind-View="@SchedulerCurrentView"
-                  Height="600px" OnCellRender="@OnCellRenderHandler">
+                  Height="600px">
     <SchedulerViews>
         <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" />
         <SchedulerWeekView StartTime="@DayStart" EndTime="@DayEnd" />
         <SchedulerMonthView />
-        <SchedulerTimelineView StartTime="@DayStart" EndTime="@DayEnd" />
     </SchedulerViews>
 </TelerikScheduler>
 
@@ -984,41 +986,47 @@ The handler receives an argument of type `SchedulerCellRenderEventArgs` which ex
 
     private SchedulerView SchedulerCurrentView { get; set; } = SchedulerView.Week;
 
-    void OnCellRenderHandler(SchedulerCellRenderEventArgs args)
+    // only the time portion matters
+    private DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
+    private DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 19, 0, 0);
+
+    private void OnCellRenderHandler(SchedulerCellRenderEventArgs args)
     {
         DateTime lunchStart = new DateTime(1900, 1, 1, 12, 0, 0);
-        DateTime lunchEnd = new DateTime(1900, 1, 1, 13, 0, 0);
+        DateTime lunchEnd = new DateTime(1900, 1, 1, 12, 30, 0);
 
-        if (args.SlotStartTime.Equals(lunchStart) ||
-            args.SlotEndTime.Equals(lunchEnd))
+        if ((args.SlotStartTime.Equals(lunchStart) || args.SlotEndTime.Equals(lunchEnd)) &&
+            (args.Date.Value.DayOfWeek != DayOfWeek.Saturday && args.Date.Value.DayOfWeek != DayOfWeek.Sunday))
         {
             args.Class = "lunch-break";
         }
     }
-
-    // only the time portion matters
-    private DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
-    private DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 19, 0, 0);
 
     private List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
     {
         new SchedulerAppointment
         {
             Title = "Planning meeting",
-            Start = new DateTime(2022, 7, 25, 9, 30, 0),
-            End = new DateTime(2022, 7, 25, 12, 0, 0)
+            Start = new DateTime(2022, 7, 25, 9, 0, 0),
+            End = new DateTime(2022, 7, 25, 11, 30, 0)
         },
         new SchedulerAppointment
         {
-            Title = "Vet visit",
-            Start = new DateTime(2022, 7, 26, 7, 0, 0),
-            End = new DateTime(2022, 7, 26, 7, 30, 0)
+            Title = "Software updates",
+            Start = new DateTime(2022, 7, 26, 13, 0, 0),
+            End = new DateTime(2022, 7, 26, 14, 30, 0)
+        },
+          new SchedulerAppointment
+        {
+            Title = "Support meeting",
+            Start = new DateTime(2022, 7, 27, 8, 0, 0),
+            End = new DateTime(2022, 7, 27, 9, 30, 0)
         },
         new SchedulerAppointment
         {
             Title = "Trip to Hawaii",
             IsAllDay = true,
-            Start = new DateTime(2022, 7, 27),
+            Start = new DateTime(2022, 7, 28),
             End = new DateTime(2022, 8, 07)
         }
     };
