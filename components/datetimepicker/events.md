@@ -17,6 +17,7 @@ This article explains the events available in the Telerik DateTimePicker for Bla
 * [OnOpen](#onopen)
 * [OnClose](#onclose)
 * [OnBlur](#onblur)
+* [OnCalendarCellRender](#oncalendarcellrender)
 
 
 ## OnChange
@@ -217,6 +218,55 @@ The `OnBlur` event fires when the component loses focus.
 }
 ````
 
+## OnCalendarCellRender
+
+The `OnCalendarCellRender` event fires when each calendar cell in each view is about to render. It allows you to see which view it is in, what its date, and you can set the Class for the `<td>` element based on your business logic.
+
+The event handler receives as an argument an `DateTimePickerCalendarCellRenderEventArgs` object that contains:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `Class` | `string` | Lets you set a custom CSS class to the calendar cell DOM element. |
+| `Date` | `DateTime` | The date of the calendar cell. |
+| `View` | `CalendarView` enum <br /> `Month` | The currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on. |
+
+>caption Handle the OnCalendarCellRender event.
+
+````CSHTML
+@* Customize the calendar cells using the OnCalendarCellRender event. *@
+
+<TelerikDateTimePicker OnCalendarCellRender="@OnCalendarCellRenderHandler"
+                   @bind-Value="dateTimePickerValue"
+                   Width="295px">
+</TelerikDateTimePicker>
+
+@code {
+    DateTime dateTimePickerValue { get; set; } = DateTime.Now;
+
+    private void OnCalendarCellRenderHandler(DateTimePickerCalendarCellRenderEventArgs args)
+    {
+        if (args.View == CalendarView.Month)
+        {
+            args.Class = args.Date.Day % 3 == 0 ? "special" : "";
+        }
+        else if (args.View == CalendarView.Decade)
+        {
+            args.Class = args.Date.Year == 2020 ? "special" : "";
+        }
+    }
+}
+
+<style>
+    .special {
+        color: white;
+        background-color: greenyellow;
+        font-weight: bold;
+    }
+    /* You can inspect the built-in rendering with the browser dev tools
+        to see how to apply heavier selectors and to also use classes the DateTimePicker
+        calendar provides such as focus and selection states */
+</style>
+````
 
 ## See Also
 

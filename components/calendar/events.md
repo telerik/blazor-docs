@@ -169,9 +169,11 @@ The `CellRender` event fires when each cell in each view is about to render. It 
 
 The event arguments are of type `CalendarCellRenderEventArgs` and provide the following fields:
 
-* `Date` - `DateTime` - the date of the cell
-* `View` - `CalendarView` - the currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on.
-* `Class` - `string` - lets you set a custom CSS class to the cell DOM element.
+| Property | Type | Description |
+| --- | --- | --- |
+| `Class` | `string` | Lets you set a custom CSS class to the cell DOM element. |
+| `Date` | `DateTime` | The date of the cell |
+| `View` | `CalendarView` enum <br /> `Month` | The currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on. |
 
 You can also customize the cells through their [templates]({%slug calendar-templates-overview%}). You can use the event together with the templates.
 
