@@ -64,16 +64,18 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries.
-|`Enabled`| `bool` |Defines if the `DateTimePicker` is enabled|
-|`Format`|`string`|The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.|
-|`Id`|`string`|Maps to the `id` HTML attribute of the `input`|
-|`Value`|`T` | expects a `DateTime` object|The value of the `DateTimePicker`|
-|`Min`|`DateTime`|The earliest date and time that the user can select|
-|`Max`|`DateTime`|The latest date and time that the user can select|
-|`TabIndex`|`int?`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
-|`Placeholder`|`string`|maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in|
-|`ValidateOn`|`ValidationEvent` enum <br/> `ValidationEvent.Input` |`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs)|
+| `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
+| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
+| `Enabled` | `bool` | Defines if the `DateTimePicker` is enabled. |
+| `Format` | `string` | The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.|
+| `Id` | `string` | Maps to the `id` HTML attribute of the `input`. |
+| `Value` | `T` | expects a `DateTime` object|The value of the `DateTimePicker`. |
+| `Min` | `DateTime` | The earliest date and time that the user can select. |
+| `Max` | `DateTime` | The latest date and time that the user can select. |
+| `TabIndex` | `int?` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
+| `Title` | `string` | The title text rendered in the header of the popup(action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
+| `Placeholder` | `string` | Maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
+| `ValidateOn` | `ValidationEvent` enum <br/> `ValidationEvent.Input` |`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
 
 ### Styling and Appearance
 

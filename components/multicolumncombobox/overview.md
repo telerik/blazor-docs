@@ -114,6 +114,7 @@ The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#gro
 
 | Parameter | Type and Default&nbsp;Value | Description
 | ----------- | ----------- | -----------|
+| `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
 | `AllowCustom` | `bool` | Determines if the user can enter [custom values]({%slug multicolumncombobox-custom-value%}). If enabled, the `ValueField` must be a `string`. |
 | `ClearButton` | `bool` | Displays a clear button inside the input. When it is clicked, the `Value` will change to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, there should be no data item with `0` in its `ValueField`, otherwise selection issues may occur. |
 | `Data` | `IEnumerable<TItem>` | The component data. |
@@ -125,6 +126,7 @@ The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#gro
 | `Placeholder` | `string` | The hint text the user sees when no item is selected. The placeholder will shown when the `Value` is set to the default value of the `ValueField` type. For example, `0` for `int`, and `null` for `int?` or `string`. |
 | `TItem` | `Type` | The type of the model. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
 | `TValue` | `Type` | The type of the `ValueField` from the model. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (`int`, `double`, etc.)<br /> - `string`<br /> - `Guid`<br /> - `Enum` |
+| `Title` | `string` | The title text rendered in the header of the popup(action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
 | `TextField` | `string` <br /> (`Text`) | The name of the model property that will be shown to the user. |
 | `ValueField` | `string` <br /> (`Value`) | The name of the model property that will be the underlying component `Value`. |
 | `Value` | `TValue` | The value of the component. Use the `@bind-Value` syntax for two-way binding. |

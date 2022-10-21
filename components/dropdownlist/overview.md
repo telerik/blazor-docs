@@ -81,19 +81,21 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 | Parameter      | Type | Description
 | ----------- | ----------- | -----------|
-| `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required.
-| `DefaultText` | `string` | simple hint to be displayed when no item is selected yet. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. See the first example in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article.
-| `Enabled` | `bool` | whether the component is enabled.
-|`Filterable` | `bool` | whether [filtering]({%slug components/dropdownlist/filter%}) is enabled for the end user.
-| `FilterDebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the filter input value update. Applicable to filtering only. Use it to balance between client-side performance and number of database queries.
-| `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`)| the method of [filtering]({%slug components/dropdownlist/filter%}) the items.
-| `Id` | `string` | renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it.
-| `TItem` | `Type`| the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
-| `TValue` | `Type` | the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum`
-| `TabIndex` | `int?` | the `tabindex` attribute rendered on the dropdown.
-| `TextField` | `string` <br /> (`Text`)| the name of the field from the model that will be shown to the user.
-| `ValueField` | `string` <br /> (`Value`) | the name of the field from the model that will be the underlying `value`.
-|`Value` and `bind-Value`| `TValue` | get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
+| `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
+| `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required. |
+| `DefaultText` | `string` | simple hint to be displayed when no item is selected yet. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. See the first example in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article. |
+| `Enabled` | `bool` | whether the component is enabled. |
+|`Filterable` | `bool` | whether [filtering]({%slug components/dropdownlist/filter%}) is enabled for the end user. |
+| `FilterDebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the filter input value update. Applicable to filtering only. Use it to balance between client-side performance and number of database queries. |
+| `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`)| the method of [filtering]({%slug components/dropdownlist/filter%}) the items. |
+| `Id` | `string` | renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it. |
+| `TItem` | `Type`| the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
+| `TValue` | `Type` | the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum` |
+| `Title` | `string` | The title text rendered in the header of the popup(action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
+| `TabIndex` | `int?` | the `tabindex` attribute rendered on the dropdown. |
+| `TextField` | `string` <br /> (`Text`)| the name of the field from the model that will be shown to the user. |
+| `ValueField` | `string` <br /> (`Value`) | the name of the field from the model that will be the underlying `value`. |
+|`Value` and `bind-Value`| `TValue` | get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own. |
 
 
 ### Styling and Appearance

@@ -81,21 +81,23 @@ The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#groupin
 
 | Parameter      | Type | Description
 | ----------- | ----------- | -----------|
-| `AllowCustom` | `bool` | whether the user can enter [custom values]({%slug components/combobox/custom-value%}). If enabled, the `ValueField` must be a `string`.
-| `ClearButton` | `bool` | whether the user will have the option to clear the selected value. When it is clicked, the `Value` will be updated to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, clearing the value will lead to a `0` `Value`, so if there is an Item with `0` in its `ValueField` - issues may arise with its selection. This feature can often go together with `AllowCustom`.
-| `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required.
-| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries.
-| `Enabled` | `bool` | whether the component is enabled.
-|`Filterable` | `bool` | whether [filtering]({%slug components/combobox/filter%}) is enabled for the end user.
-| `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | the method of [filtering]({%slug components/combobox/filter%}) the items.
-| `Id` | `string` | renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
-| `Placeholder` | `string` | the text the user sees as a hint when no item is selected. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source.
-| `TItem` | `Type` | the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.
-| `TValue` | `Type` | the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum`|
-| `TextField` | `string` <br /> (`Text`)| the name of the field from the model that will be shown to the user.
-| `ValueField` | `string` <br /> (`Value`) | the name of the field from the model that will be the underlying `value`.
-| `Value` and `bind-Value` | `TValue` | get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own.
-| `TabIndex` | `int?` | maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
+| `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
+| `AllowCustom` | `bool` | whether the user can enter [custom values]({%slug components/combobox/custom-value%}). If enabled, the `ValueField` must be a `string`. |
+| `ClearButton` | `bool` | whether the user will have the option to clear the selected value. When it is clicked, the `Value` will be updated to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, clearing the value will lead to a `0` `Value`, so if there is an Item with `0` in its `ValueField` - issues may arise with its selection. This feature can often go together with `AllowCustom`. |
+| `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required. |
+| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries. |
+| `Enabled` | `bool` | whether the component is enabled. |
+|`Filterable` | `bool` | whether [filtering]({%slug components/combobox/filter%}) is enabled for the end user. |
+| `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | the method of [filtering]({%slug components/combobox/filter%}) the items. |
+| `Id` | `string` | renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
+| `Placeholder` | `string` | the text the user sees as a hint when no item is selected. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. |
+| `TItem` | `Type` | the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
+| `TValue` | `Type` | the type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum` |
+| `Title` | `string` | The title text rendered in the header of the popup(action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
+| `TextField` | `string` <br /> (`Text`)| the name of the field from the model that will be shown to the user. |
+| `ValueField` | `string` <br /> (`Value`) | the name of the field from the model that will be the underlying `value`. |
+| `Value` and `bind-Value` | `TValue` | get/set the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own. |
+| `TabIndex` | `int?` | maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 
 ### Styling and Appearance
 
