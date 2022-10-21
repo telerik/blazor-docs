@@ -20,11 +20,11 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 
 ````CSHTML
 <TelerikDropDownList Data="@Data"
-                 @bind-Value="@SelectedValue"
-                 GroupField="Category.CategoryName"
-                 TextField="ProductName"
-                 ValueField="ProductId"
-                 Placeholder="Select a product">
+                     @bind-Value="@SelectedValue"
+                     GroupField="Category.CategoryName"
+                     TextField="ProductName"
+                     ValueField="ProductId"
+                     DefaultText="Select a product">
 </TelerikDropDownList>
 
 @code {
@@ -34,13 +34,13 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
     protected override void OnInitialized()
     {
         List<Product> products = new List<Product>();
-        for (int i = 0; i < 20; i++)
+        for (int i = 1; i <= 20; i++)
         {
             products.Add(new Product()
             {
                 ProductId = i,
                 ProductName = $"Product {i}",
-                Category = new Category() { CategoryId = i % 5, CategoryName = $"Category {i % 5}" }
+                Category = new Category() { CategoryId = i % 5 + 1, CategoryName = $"Category {i % 5 + 1}" }
             });
         }
 
