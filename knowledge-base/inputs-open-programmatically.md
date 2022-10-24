@@ -5,8 +5,8 @@ type: how-to
 page_title: Open Input Dropdown Programmatically on Focus
 slug: inputs-kb-open-programmatically
 position: 
-tags: autocomplete,combobox,datepicker,datetimepicker,dropdown,dropdownlist,multiselect,timepicker,focus,open
-ticketid: 1526273, 1539587, 1547004, 1562064
+tags: autocomplete,combobox,datepicker,datetimepicker,dropdown,dropdownlist,multicolumncombobox,multiselect,timepicker,focus,open
+ticketid: 1526273, 1539587, 1547004, 1562064, 1475760
 res_type: kb
 ---
 
@@ -25,6 +25,7 @@ res_type: kb
                 DatePicker <br />
                 DateTimePicker <br />
                 DropDownList <br />
+                MultiColumnComboBox <br />
                 MultiSelect <br />
                 TimePicker <br />
             </td>
@@ -103,6 +104,7 @@ Note that the Date/Time Pickers move focus to their popup once it is opened. Thi
 <div>
     <TelerikButton OnClick="@OpenAutoComplete">Open AutoComplete</TelerikButton>
     <TelerikButton OnClick="@OpenComboBox">Open ComboBox</TelerikButton>
+    <TelerikButton OnClick="@OpenMultiComboBox">Open MultiColumnComboBox</TelerikButton>
     <TelerikButton OnClick="@OpenDropDownList">Open DropDownList</TelerikButton>
     <TelerikButton OnClick="@OpenMultiSelect">Open MultiSelect</TelerikButton>
     <TelerikButton OnClick="@OpenDatePicker">Open DatePicker</TelerikButton>
@@ -128,6 +130,21 @@ ComboBox:
                  ValueField="@nameof(Product.ID)"
                  @bind-Value="@IntValue"
                  Width="300px" />
+<br />
+<br />
+MultiColumnComboBox:
+<TelerikMultiColumnComboBox @ref="@MultiComboBoxRef"
+                            Id="MCCB1"
+                            Data="@ValueCollection"
+                            TextField="@nameof(Product.Name)"
+                            ValueField="@nameof(Product.ID)"
+                            @bind-Value="@IntValue"
+                            Width="300px">
+    <MultiColumnComboBoxColumns>
+        <MultiColumnComboBoxColumn Field="@nameof(Product.ID)" />
+        <MultiColumnComboBoxColumn Field="@nameof(Product.Name)" />
+    </MultiColumnComboBoxColumns>
+</TelerikMultiColumnComboBox>
 <br />
 <br />
 DropDownList:
@@ -173,6 +190,7 @@ TimePicker:
     TelerikMultiSelect<Product, int> MultiSelectRef { get; set; }
     TelerikAutoComplete<Product> AutoCompleteRef { get; set; }
     TelerikComboBox<Product, int> ComboBoxRef { get; set; }
+    TelerikMultiColumnComboBox<Product, int> MultiComboBoxRef { get; set; }
     TelerikDropDownList<Product, int> DropDownListRef { get; set; }
     TelerikDatePicker<DateTime> DatePickerRef { get; set; }
     TelerikTimePicker<DateTime> TimePickerRef { get; set; }
@@ -185,6 +203,11 @@ TimePicker:
     async Task OpenComboBox()
     {
         await ComboBoxRef.FocusAsync();
+    }
+
+    async Task OpenMultiComboBox()
+    {
+        await MultiComboBoxRef.FocusAsync();
     }
 
     async Task OpenDropDownList()
@@ -214,6 +237,7 @@ TimePicker:
             // open on tab, click, FocusAsync:
             await js.InvokeVoidAsync("attachFocusHandler", AutoCompleteRef.Id, ".k-autocomplete");
             await js.InvokeVoidAsync("attachFocusHandler", ComboBoxRef.Id, ".k-combobox");
+            await js.InvokeVoidAsync("attachFocusHandler", MultiComboBoxRef.Id, ".k-dropdowngrid");
             await js.InvokeVoidAsync("attachFocusHandler", DatePickerRef.Id, ".k-datepicker");
             await js.InvokeVoidAsync("attachFocusHandler", TimePickerRef.Id, ".k-timepicker");
 
