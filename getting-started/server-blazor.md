@@ -43,7 +43,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 1\. Add the `telerik-blazor.js` file to your main index file:
 
-  * `~/Pages/_Host.cshtml` for .NET 3.x
+  * `~/Pages/_Host.cshtml` for .NET 3.x and .NET 7
   * `~/Pages/_Layout.cshtml` for .NET 6
 
 **HTML**
@@ -53,7 +53,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 2\. To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the startup file of your Blazor Server project (by default, this line is already present):
 
   * Use `Startup.cs` for .NET 3.x
-  * Use `Program.cs` for .NET 6
+  * Use `Program.cs` for .NET 6 and .NET 7
 
 **C#**
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
@@ -61,7 +61,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 3\. To select the visual theme for the UI components, add the [theme stylesheet]({%slug general-information/themes%}) in you main index file:
 
- * Use the `~/Pages/_Host.cshtml` index file for .NET 3.x
+ * Use the `~/Pages/_Host.cshtml` index file for .NET 3.x and .NET 7
  * Use the `~/Pages/_Layout.cshtml` index file for .NET 6
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
@@ -69,7 +69,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 4\. In the startup file of your Blazor Server project, register the Telerik Blazor Service:
 
   * Use `Startup.cs` for .NET 3.x
-  * Use `Program.cs` for .NET 6
+  * Use `Program.cs` for .NET 6 and .NET 7
 
 **C#**
 @[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)

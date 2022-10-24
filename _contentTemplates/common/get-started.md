@@ -7,9 +7,7 @@
 
 * To learn more about the compatibility of the Telerik UI for Blazor components with different browser and .NET versions, see the [system requirements]({%slug system-requirements%}).
 
-
-
->tip The latest version of Telerik UI for Blazor is `{{site.uiForBlazorLatestVersion}}`, and it supports `{{site.supportedFrameworkVersion}}`.
+* This online documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF documentation]({%slug blazor-overview%}#learning-resources) for the required older product version.
 
 ## Step 0: Download Telerik UI for Blazor
 
@@ -37,7 +35,7 @@ In this tutorial, you will use the [Telerik NuGet feed]({%slug installation/nuge
 
   ![Add the Telerik NuGet Feed in Visual Studio](images/telerik-nuget-feed.png)
 
->tipFor alternative download approaches, check the [Workflow article]({%slug getting-started/what-you-need%}).
+>tip For alternative download options, check the [Workflow article]({%slug getting-started/what-you-need%}).
 
 #end
 
@@ -150,7 +148,7 @@ In the main layout file (by default, the `~/Shared/MainLayout.razor` file in the
     @* @Body and other code will be present here depending on your project *@
 
 
->Alternatively, the `TelerikRootComponent` can reside directly in the `MainLayout`, but placing it in another file helps for a better separation of concerns.
+>Alternatively, the `TelerikRootComponent` can reside directly in the `MainLayout`, but it must [wrap all the other content, otherwise popups may display at the wrong position]({%slug troubleshooting-general-issues%}#wrong-popup-position). Placing the `TelerikRootComponent` in a separate Razor file helps for a better separation of concerns.
 
 #end
 

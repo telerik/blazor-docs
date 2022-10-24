@@ -22,6 +22,7 @@ Telerik UI for Blazor targets `netstandard2.1`. Thus, apps and libraries that re
 * `netcoreapp3.1`
 * `net5.0`
 * `net6.0`
+* `net7.0`
 
 Razor Class Libraries may target `netstandard2.0` by default, so you need to update that.
 
@@ -35,6 +36,7 @@ A **supported .NET version** is one that is [officially supported by Microsoft](
 
 | .NET version | First UI for Blazor Version | Last UI for Blazor Version |
 | --- | --- | --- |
+| .NET 7 | 3.7.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET 6 | 2.29.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET Core 3.1 | 2.5.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 
@@ -46,7 +48,6 @@ A **compatible .NET version** is one that is *no longer* (or *not yet*) official
 
 | .NET version | First UI for Blazor Version | Last UI for Blazor Version |
 | --- | --- | --- |
-| .NET 7 Preview ([see below](#preview-net-versions)) | 3.3.0 | N/A |
 | .NET 5 | 2.19.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 
 >warning We recommend using only **supported** .NET versions in production applications. This enables stability, maintenance, security patches and performance improvements.
