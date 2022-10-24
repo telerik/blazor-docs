@@ -61,7 +61,7 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 The `Min` and `Max` properties require a `DateTime` object, but will only use the time portion from it. Thus, the date itself is not important. The hours, minutes, seconds and AM/PM portions control the range of the tumblers in the time picker dropdown. They do not impose validation/limitations on the input editing.
 
-## Parameters
+## Time Picker Parameters
 
 The Blazor Time Picker component provides various parameters that allow you to configure the component:
 
@@ -69,17 +69,17 @@ The Blazor Time Picker component provides various parameters that allow you to c
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries.
-| `Enabled` | `bool` | Specifies whether typing in the input and opening the dropdown are allowed.
-| `Format` | `string` | Specifies the format of the DateInput of the TimePicker. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. Note that format specifiers for non-time portions will only be editable in the input and will not have a representation in the time picker dropdown.
-| `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
-| `Min` | `DateTime` | The earliest time that the user can select.
-| `Max` | `DateTime` | The latest time that the user can select.
-| `Value` | `T` | The current value of the input. Can be used for binding.
-| `TabIndex` | `int?` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
-| `Placeholder` | `string` | Maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to **nullable** DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in.
-| `ValidateOn` | `ValidationEvent` enum <br/> `ValidationEvent.Input` | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs).
-
+| `AutoComplete` | `string` <br /> (`"off"`) | The `autocomplete` HTML attribute of the `input` |
+| `DebounceDelay` | `int` <br/> (`150`) | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
+| `Enabled` | `bool` | Specifies whether typing in the input and opening the dropdown are allowed. |
+| `Format` | `string` | Specifies the format of the DateInput of the TimePicker. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. Note that format specifiers for non-time portions will only be editable in the input and will not have a representation in the time picker dropdown. |
+| `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
+| `Max` | `DateTime` | The latest time that the user can select. |
+| `Min` | `DateTime` | The earliest time that the user can select. |
+| `Placeholder` | `string` | Maps to the `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to **nullable** DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
+| `TabIndex` | `int?` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
+| `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
+| `Value` | `DateTime` or `DateTime?` | The current value of the component. Supports two-way binding. |
 
 ### Styling and Appearance
 
