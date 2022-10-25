@@ -404,6 +404,8 @@ navigation:
         title: "Scheduler"
      "*scrollview":
         title: "ScrollView"
+     "*signature":
+        title: "Signature"
      "*slider":
         title: "Slider"
      "*skeleton":
@@ -523,6 +525,7 @@ intro_columns:
       "Numeric Textbox": "components/numerictextbox/overview"
       "Radio Button Group": "radiogroup-overview"
       "RangeSlider": "rangeslider-overview"
+      "Signature": "signature-overview"
       "Slider": "slider-overview"
       "Switch": "switch-overview"
       "TextArea": "textarea-overview"
