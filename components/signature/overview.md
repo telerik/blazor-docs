@@ -144,6 +144,7 @@ The Signature exposes methods for programmatic operation. To use them, define a 
 
 * [Explore the Signature Appearance Settings]({%slug signature-appearance%})
 * [Handle the Signature Events]({%slug signature-events%})
+* [Validate the Signature]({%slug common-features/input-validation%})
 
 ## See Also
 
