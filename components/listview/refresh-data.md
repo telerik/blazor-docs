@@ -45,10 +45,10 @@ To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-oper
 </div>
 
 @code {
-    public List<SampleData> SourceData { get; set; }
-    public TelerikListView<SampleData> ListViewRef { get; set; }
+    private List<SampleData> SourceData { get; set; }
+    private TelerikListView<SampleData> ListViewRef { get; set; }
 
-    protected async Task ReadItems(ListViewReadEventArgs args)
+    void ReadItems(ListViewReadEventArgs args)
     {
         if (SourceData == null)
         {
@@ -66,7 +66,7 @@ To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-oper
         args.Total = datasourceResult.Total;
     }
 
-    private void RebindListView()
+    void RebindListView()
     {
         if (SourceData.Count > 0)
         {
