@@ -86,8 +86,7 @@ The following table lists the Signature parameters. Also check the [Signature AP
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `AriaDescribedBy` | `string` | Maps to the `area-describedby` attribute. Use this parameter to establish a relationship between widgets or groups and the text that describes them.
-. |
+| `AriaDescribedBy` | `string` | Maps to the `area-describedby` attribute. Use this parameter to establish a relationship between widgets or groups and the text that describes them. |
 | `AriaLabel` | `string` | Maps to the `aria-label` attribute. Use  this parameter if the text that labels the component is not visible. |
 | `AriaLabelledBy` | `string` | Maps to the `area-labelledby` attribute. Use this parameter to reference another element to define its accessible name. |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-signature">` element. Use it to [override theme styles]({%slug themes-override%}). |
@@ -102,7 +101,7 @@ The following table lists the Signature parameters. Also check the [Signature AP
 | `Smooth` | `bool` | Use this parameter to smoothen the signature line. |
 | `StrokeWidth` | `double?` | Set the width of the signature line. |
 | `TabIndex` | `int?` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the Tab key. |
-| `ValidateOn` | `ValidationEvent` enum (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
+| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
 | `Width` | `string` | Defines the width of the component. Set the value of this parameter in `px`. |
 
 ## Signature Reference and Methods
