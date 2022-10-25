@@ -111,10 +111,33 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         <ValidationMessage For="@(() => person.SubscribeToNewsletter)"></ValidationMessage>
     </p>
 
+    <p class="signature">
+        <label>
+            Signature
+            <TelerikSignature @bind-Value="@person.PersonalSignature" Width="100px" Height="100px"></TelerikSignature>
+        </label>
+        <ValidationMessage For="@(() => person.PersonalSignature)"></ValidationMessage>
+    </p>
+
     <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
 </EditForm>
 
 @code {
+    private Person person = new Person()
+        {
+            // for time pickers, the initial date value must match the date portion of the range validation rule
+            DailyScrum = new DateTime(1900, 1, 1, 1, 1, 1),
+        };
+
+    private void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+
+    private List<string> RoleSuggestions { get; set; } = new List<string>() {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
+
     // Usually this class would be in a different file
     public class Person
     {
@@ -162,22 +185,10 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         [Required(ErrorMessage = "You should add a note.")]
         [MaxLength(300, ErrorMessage = "Your notes are too long.")]
         public string PersonalNotes { get; set; }
+
+        [Required(ErrorMessage = "You must sign the Form")]
+        public string PersonalSignature { get; set; }
     }
-
-    Person person = new Person()
-    {
-        // for time pickers, the initial date value must match the date portion of the range validation rule
-        DailyScrum = new DateTime(1900, 1, 1, 1, 1, 1),
-    };
-
-    void HandleValidSubmit()
-    {
-        Console.WriteLine("OnValidSubmit");
-    }
-
-    List<string> RoleSuggestions { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
 }
 ````
 
