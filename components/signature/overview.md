@@ -33,7 +33,7 @@ The Blazor Signature component provides an area where users can draw their signa
 
 ## Appearance
 
-The Signature component provides settings to control its appearance. [Read more about the Blazor Signature appearance settings...]({%slug signature-appearance%})
+The Signature component provides settings to control its appearance, for example colors and borders. [Read more about the Blazor Signature appearance settings...]({%slug signature-appearance%})
 
 ## Events
 
