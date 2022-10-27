@@ -135,7 +135,7 @@ The Rounded parameter applies the `border-radius` CSS style to the button to ach
 
 ## Size
 
-Use the `Size` parameter to set a value to the `min-height` CSS rule. Set the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.Signature.Size` static class:
+Use the `Size` parameter to apply the `min-height` CSS style to the `<div class="k-signature">` element. Set the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.Signature.Size` static class:
 
 | Class members | Manual declarations |
 |------------|--------|
