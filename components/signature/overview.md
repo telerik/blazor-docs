@@ -17,7 +17,7 @@ The Blazor Signature component provides an area where users can draw their signa
 ## Creating Blazor Signature
 
 1. Use the `TelerikSignature` tag to add the component to your razor page.
-1. Set the `Value` (one-way or two-way binding) parameter to a `string` property.
+1. Set the `Value` parameter to a `string` property. It supports one-way and two-way binding.
 1. Set the `Width` and `Height` parameters to `px` values.
 
 >caption Blazor Signature with basic configuration
