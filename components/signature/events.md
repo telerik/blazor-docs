@@ -72,4 +72,4 @@ The `ValueChanged` event fires when signature is fully drawn.
 
 ## See Also
 
-* [Live Demo: Signature Events](https://demos.telerik.com/blazor-ui/signature/events)
+* [Signature Overview]({%slug signature-overview%})
