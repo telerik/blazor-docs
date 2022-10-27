@@ -12,7 +12,7 @@ position: 0
 
 This article provides information about the <a href = "https://www.telerik.com/blazor-ui/signature" target="_blank">Blazor Signature component</a> and its core features.
 
-The Blazor Signature component provides an area where users can draw their signatures with the mouse, pen, or with their fingertips. You can use the component as part of any application where the users must sign a document. The Blazor Signature can be easily integrated with the [TelerikForm.]({%slug form-overview%}) The component stores the value of the signature as a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.buffers.text.base64?view=net-6.0">base64 string</a>
+The Blazor Signature component provides an area where users can draw their signatures with a mouse, pen, or with their fingertips. You can use the component in any application where the users must sign a document. The Blazor Signature integrates easily with the [TelerikForm]({%slug form-overview%}). The component stores the value of the signature as a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.buffers.text.base64?view=net-6.0">base64 string</a>
 
 ## Creating Blazor Signature
 
