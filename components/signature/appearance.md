@@ -160,4 +160,3 @@ Use the `Size` parameter to set a value to the `min-height` CSS rule. Set the `S
 ## See Also
 
 * [Live Demo: Signature Overview](https://demos.telerik.com/blazor-ui/signature/overview)
-* [Live Demo: Signature Appearance](https://demos.telerik.com/blazor-ui/signature/appearance)
