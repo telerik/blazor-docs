@@ -37,7 +37,7 @@ The Signature component provides settings to control its appearance, for example
 
 ## Events
 
-The Blazor Signature **blur** and value **change** events to respond to user actions. [Read more about the Blazor Signature events...]({%slug signature-events%})
+Use the Blazor Signature **blur** and value **change** events to respond to user actions. [Read more about the Blazor Signature events...]({%slug signature-events%})
 
 ## Large Content Support
 
