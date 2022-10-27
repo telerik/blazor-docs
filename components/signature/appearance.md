@@ -96,7 +96,7 @@ The `FillMode` parameter controls how the TelerikSignature is filled. It takes a
 
 ## Rounded
 
-The Rounded parameter applies the `border-radius` CSS rule to the button to achieve curving of the edges. It takes a member of the `Telerik.Blazor.ThemeConstants.Signature.FillMode` static class:
+The Rounded parameter applies the `border-radius` CSS style to the button to achieve curving of the edges. It takes a member of the `Telerik.Blazor.ThemeConstants.Signature.FillMode` static class:
 
 | Class members | Manual declarations |
 |------------|--------|
