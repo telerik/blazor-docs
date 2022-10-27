@@ -215,15 +215,15 @@ The `ViewChanged` event fires when the user changes the view they are seeing in 
 
 ## OnCalendarCellRender
 
-The `OnCalendarCellRender` event fires when each calendar cell in each view is about to render. It allows you to see which view it is in, what its date, and you can set the Class for the `<td>` element based on your business logic.
+The `OnCalendarCellRender` event fires when each calendar cell in each view is about to render. The event allows you to find out the current view and cell date. You can also set a custom CSS class for the `<td>` element.
 
 The event handler receives as an argument an `DateRangePickerCalendarCellRenderEventArgs` object that contains:
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `Class` | `string` | Lets you set a custom CSS class to the calendar cell DOM element. |
+| `Class` | `string` | A custom CSS class for the calendar cell DOM element. |
 | `Date` | `DateTime` | The date of the calendar cell. |
-| `View` | `CalendarView` enum <br /> `Month` | The currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on. |
+| `View` | `CalendarView` enum <br /> (`Month`) | The currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on. |
 
 >caption Handle the OnCalendarCellRender event.
 
@@ -238,10 +238,10 @@ The event handler receives as an argument an `DateRangePickerCalendarCellRenderE
 </TelerikDateRangePicker>
 
 @code {
-    public DateTime? StartValue { get; set; } = DateTime.Now;
-    public DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
-    public DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
-    public DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
+    private DateTime? StartValue { get; set; } = DateTime.Now;
+    private DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
+    private DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
+    private DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
 
     private void OnCalendarCellRenderHandler(DateRangePickerCalendarCellRenderEventArgs args)
     {
@@ -262,9 +262,6 @@ The event handler receives as an argument an `DateRangePickerCalendarCellRenderE
         background-color: greenyellow;
         font-weight: bold;
     }
-    /* You can inspect the built-in rendering with the browser dev tools
-            to see how to apply heavier selectors and to also use classes the DateRangePicker
-            calendar provides such as focus and selection states */
 </style>
 ````
 

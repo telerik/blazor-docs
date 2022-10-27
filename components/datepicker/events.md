@@ -216,15 +216,15 @@ The `OnBlur` event fires when the component loses focus.
 
 ## OnCalendarCellRender
 
-The `OnCalendarCellRender` event fires when each calendar cell in each view is about to render. It allows you to see which view it is in, what its date, and you can set the Class for the `<td>` element based on your business logic.
+The `OnCalendarCellRender` event fires when each calendar cell in each view is about to render. The event allows you to find out the current view and cell date. You can also set a custom CSS class for the `<td>` element.
 
 The event handler receives as an argument an `DatePickerCalendarCellRenderEventArgs` object that contains:
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `Class` | `string` | Lets you set a custom CSS class to the calendar cell DOM element. |
+| `Class` | `string` | A custom CSS class for the calendar cell DOM element. |
 | `Date` | `DateTime` | The date of the calendar cell. |
-| `View` | `CalendarView` enum <br /> `Month` | The currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on. |
+| `View` | `CalendarView` enum <br /> (`Month`) | The currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on. |
 
 >caption Handle the OnCalendarCellRender event.
 
@@ -232,12 +232,12 @@ The event handler receives as an argument an `DatePickerCalendarCellRenderEventA
 @* Customize the calendar cells using the OnCalendarCellRender event. *@
 
 <TelerikDatePicker OnCalendarCellRender="@OnCalendarCellRenderHandler"
-                   @bind-Value="datePickerValue"
+                   @bind-Value="DatePickerValue"
                    Width="295px">
 </TelerikDatePicker>
 
 @code {
-    DateTime datePickerValue { get; set; } = DateTime.Now;
+    private DateTime DatePickerValue { get; set; } = DateTime.Now;
 
     private void OnCalendarCellRenderHandler(DatePickerCalendarCellRenderEventArgs args)
     {
@@ -258,9 +258,6 @@ The event handler receives as an argument an `DatePickerCalendarCellRenderEventA
         background-color: greenyellow;
         font-weight: bold;
     }
-    /* You can inspect the built-in rendering with the browser dev tools
-        to see how to apply heavier selectors and to also use classes the DatePicker
-        calendar provides such as focus and selection states */
 </style>
 ````
 

@@ -165,15 +165,15 @@ When the user selects a range from the calendar, the first click always fires th
 
 ## CellRender
 
-The `CellRender` event fires when each cell in each view is about to render. It allows you to see which view it is in, what its date, and you can set the `Class` for the `<td>` element based on your business logic.
+The `CellRender` event fires when each cell in each view is about to render. The event allows you to find out the current view and cell date. You can also set a custom CSS class for the `<td>` element.
 
 The event arguments are of type `CalendarCellRenderEventArgs` and provide the following fields:
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `Class` | `string` | Lets you set a custom CSS class to the cell DOM element. |
+| `Class` | `string` | A custom CSS class for the cell DOM element. |
 | `Date` | `DateTime` | The date of the cell |
-| `View` | `CalendarView` enum <br /> `Month` | The currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on. |
+| `View` | `CalendarView` enum <br /> (`Month`) | The currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on. |
 
 You can also customize the cells through their [templates]({%slug calendar-templates-overview%}). You can use the event together with the templates.
 
@@ -208,9 +208,6 @@ Move between the calendar views to see the different behaviors in the Month and 
         background-color: purple;
         color: yellow;
     }
-    /* You can inspect the built-in rendering with the browser dev tools 
-    to see how to apply heavier selectors and to also use classes the 
-    calendar provides such as focus and selection states */
 </style>
 ````
 
