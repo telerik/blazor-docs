@@ -19,6 +19,7 @@ The Blazor Signature component provides an area where users can draw their signa
 1. Use the `TelerikSignature` tag to add the component to your razor page.
 1. Set the `Value` parameter to a `string` property. It supports one-way and two-way binding.
 1. Set the `Width` and `Height` parameters to `px` values.
+1. Increase the [SignalR Message Size](#signalr-message-size)
 
 >caption Blazor Signature with basic configuration
 
@@ -39,7 +40,7 @@ The Signature component provides settings to control its appearance, for example
 
 Use the Blazor Signature **blur** and value **change** events to respond to user actions. [Read more about the Blazor Signature events...]({%slug signature-events%})
 
-## Large Content Support
+## SignalR Message Size
 
 In **Blazor server-side applications**, the Signature uses the **SignalR WebSocket**, which has a default maximum message size of **32 KB**. To work with larger content, increase the max WebSocket message size for the Blazor application:
 
@@ -92,8 +93,8 @@ The following table lists the Signature parameters. Also check the [Signature AP
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-signature">` element. Use it to [override theme styles]({%slug themes-override%}). |
 | `DebounceDelay` | `int` <br /> `(150)` | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. |
 | `Enabled` | `bool` <br /> `(true)` | Defines if the component is enabled. |
-| `ExportScale` | `double` | The `Width` and `Height` of the component will be multiplied by the value of the `ExportScale` when converting the signature to an image. |
-| `Height` | `string` | Defines the height of the component. Set the value of this parameter in `px`. |
+| `ExportScale` | `double` <br /> `(2)` | The `Width` and `Height` of the component will be multiplied by the value of the `ExportScale` when converting the signature to an image. |
+| `Height` | `string` | Defines the height of the component. Set it in `px`. |
 | `HideLine` | `bool` | Whether the dotted line is rendered. |
 | `Maximizable` | `bool` | Whether the Signature component can be maximized. |
 | `PopupScale` | `double` | The `Width` and `Height` of the component will be multiplied by the value of the `PopupScale` when maximizing (`Maximizable="true"`) the Blazor Signature. |
@@ -102,7 +103,7 @@ The following table lists the Signature parameters. Also check the [Signature AP
 | `StrokeWidth` | `double?` | Set the width of the signature line. |
 | `TabIndex` | `int?` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the Tab key. |
 | `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
-| `Width` | `string` | Defines the width of the component. Set the value of this parameter in `px`. |
+| `Width` | `string` | Defines the width of the component. Set the it in `px`. |
 
 ## Signature Reference and Methods
 
