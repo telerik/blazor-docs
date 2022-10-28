@@ -17,6 +17,7 @@ Telerik UI for Blazor supports adaptive rendering for the components that incorp
 * [Supported components](#supported-components)
 * [Basics](#basics)
 * [Rendering specifics](#rendering-specifics)
+* [Limitations](#limitations)
 
 ## Supported components
 
@@ -62,10 +63,18 @@ Three breakpoints define the rendering options as follows:
 **Rendering** | The popup is rendered as a fullscreen action sheet. `Apply` and `Cancel` buttons are rendered at the bottom, so the user can sumbit their new selection or retract the change. Clicking on any of the buttons closes the action sheet. | The popup is rendered as an action sheet docked to the bottom of the screen. `Apply` and `Cancel` buttons are rendered at the bottom, so the user can sumbit their new selection or retract the change. Clicking on any of the buttons closes the action sheet.| The popup is rendered as an animation container docked to the main element of the component. |
 **Events Firing**| `ValueChanged` and `OnChange` events will be fired only when the user clicks `Apply`. Typing in the input, browsing through the available options in the action sheet or clicking them will **not** trigger `ValueChanged`. | `ValueChanged` and `OnChange` events will be fired only when the user clicks `Apply`.  Typing in the input, browsing through the available options in the action sheet or clicking them will **not** trigger `ValueChanged`. | `ValueChanged` event fires upon every change (for example, keystroke) in the input. `OnChange` fires in response to user confirmation of the value (for example, `Enter` press or component blur). |
 
+## Limitations
+
+* Custom values - some of the listed components allow custom values (for example, [ComboBox]({%slug components/combobox/custom-value%}), [MultiColumnComboBox]({%slug multicolumncombobox-custom-value%})). This feature is not compatible with `AdaptiveMode.Auto`.
+
 ## See also
 
-* [Live Demo: AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/overview)
-* [Live Demo: ComboBox](https://demos.telerik.com/blazor-ui/combobox/overview)
-* [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/overview)
-* [Live Demo: MultiColumnComboBox](https://demos.telerik.com/blazor-ui/multicolumncombobox/overview)
-* [Live Demo: MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/overview)
+* [Live Demo: AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/adaptive)
+* [Live Demo: ComboBox](https://demos.telerik.com/blazor-ui/combobox/adaptive)
+* [Live Demo: DatePicker](https://demos.telerik.com/blazor-ui/datepicker/adaptive)
+* [Live Demo: DateRangePicker](https://demos.telerik.com/blazor-ui/daterangepicker/adaptive)
+* [Live Demo: DateTimePicker](https://demos.telerik.com/blazor-ui/datetimepicker/adaptive)
+* [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/adaptive)
+* [Live Demo: MultiColumnComboBox](https://demos.telerik.com/blazor-ui/multicolumncombobox/adaptive)
+* [Live Demo: MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/adaptive)
+* [Live Demo: TimePicker](https://demos.telerik.com/blazor-ui/timepicker/adaptive)

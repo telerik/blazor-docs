@@ -109,6 +109,9 @@ Selected value: @selectedValue
 }
 ````
 
+## Limitations
+
+* `AllowCustom` is not compatible with [Adaptive rendering]({%slug adaptive-rendering%}). A combination of `AllowCustom = "true"` and `AdaptiveMode.Auto` will throw an error on small and medium devices.
 
 ## See Also
 
