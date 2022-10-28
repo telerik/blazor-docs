@@ -118,7 +118,7 @@ The Rounded parameter applies the `border-radius` CSS style to the button to ach
     {
         string rounded = field.GetValue(null).ToString();
 
-        <div style="float:left; margin: 20px;">
+        <div style="display: inline-block; margin: 20px;">
             <TelerikSignature @bind-Value="@SignatureValue"
                       Width="300px"
                       Height="300px"
