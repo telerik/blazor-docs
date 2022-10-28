@@ -942,7 +942,7 @@ Through its event arguments you can get the `Item` to cast it to your model type
 
 ## OnCellRender
 
-The `OnCellRender` event fires upon rendering of each slot cell. It allows you set custom CSS class to the cells based on the business logic.
+The `OnCellRender` event fires upon rendering of each slot cell. It allows you to set a custom CSS class to the cell, based on business logic.
 
 The handler receives an argument of type `SchedulerCellRenderEventArgs` which exposes the following fields:
 
