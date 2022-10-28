@@ -950,7 +950,7 @@ The handler receives an argument of type `SchedulerCellRenderEventArgs` which ex
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `Class` | `string` | The CSS class that will be applied to the cells. The CSS rules that are set for that class will be visibly rendered on the Scheduler cells. |
+| `Class` | `string` | The CSS class that will be applied to the cell. |
 | `Date` | `DateTime` | The actual date that is associated with the cell. |
 | `IsAllDay` | `bool` | Whether the slot is inside the `AllDay` row/column.
 | `Resources` | `List<KeyValuePair<string, object>` | The resources that are associated with the column/row. Applicable when the Scheduler uses both - [resources]({%slug scheduler-resources%}) and [grouping]({%slug scheduler-resource-grouping%}). Needed to differentiate between the same dates within different groups. |
