@@ -24,8 +24,6 @@ This article describes the events of the Telerik MultiColumnComboBox for Blazor.
 
 The `ValueChanged` event fires upon every change of the user selection. When [custom values]({%slug multicolumncombobox-custom-value%}) are enabled, it fires upon every keystroke, like in a regular `<input>` element.
 
-@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#value-changed)
-
 The type of the argument in the lambda expression must match the `Value` type of the component, and the `ValueField` type (if `ValueField` is set).
 
 >caption Handle ValueChanged
@@ -113,8 +111,6 @@ The `OnChange` event represents a user action - confirmation of the current valu
 * `OnChange` fires when the user presses `Enter` in the input, or blurs the input (for example, clicks outside of the combo box). It does not fire on every keystroke, even when `AllowCustom="true"`, but it fires when an item is selected from the dropdown. To get the selected item, you can check if the new value is present in the data source.
 
 See the [MultiColumnComboBox Overview - Selected Item]({%slug multicolumncombobox-overview%}#selected-item) article for details on when the event fires and how item selection and `Value` work.
-
-@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#on-change)
 
 >caption Handle OnChange without custom values - to get a value from the list, you must write text that will match the text of an item (e.g, "item 5").
 

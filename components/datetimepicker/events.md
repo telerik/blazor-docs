@@ -23,8 +23,6 @@ This article explains the events available in the Telerik DateTimePicker for Bla
 
 The `ValueChanged` event fires upon every change (for example, keystroke) in the input, and upon clicking the `Set` or `Now` buttons in the time dropdown.
 
-@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#value-changed)
-
 >caption Handle ValueChanged
 
 ````CSHTML
@@ -75,8 +73,6 @@ model value: @thePickerValue
 ## OnChange
 
 The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
-
-@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#on-change)
 
 The datetime picker is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
 

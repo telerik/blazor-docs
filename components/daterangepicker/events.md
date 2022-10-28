@@ -30,7 +30,7 @@ When the user selects a range from the calendar popup, the first click always fi
 
 >note The user can only type in the inputs and that will fire the corresponding event. Selecting from the calendar popup also fires the event. There is no way to know what the user intent is when they start modifying the values - whether they will modify one or both, so there is no definitive way to know when the user has finished using the component. Such logic is heuristic and is up to the application.
 
-> If [`AdaptiveRendering`]({%slug adaptive-rendering%}) is enabled, on small and medium devices `StartValueChanged` and `EndValueChanged` will fire only when the user clicks the `Apply` button in the popup. [Read more about the Adaptive Rendering specifics...]({%slug adaptive-rendering%}#rendering-specifics)
+> If [`AdaptiveRendering`]({%slug adaptive-rendering%}) is enabled, on small and medium devices `StartValueChanged` and `EndValueChanged` will fire only when the user clicks the confirmation button in the action sheet.
 
 >caption Handle StartValueChanged and EndValueChanged
 
@@ -81,8 +81,6 @@ When the user selects a range from the calendar popup, the first click always fi
 ## OnChange
 
 The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus. The focus will also be lost when the user starts clicking in the calendar popup.
-
-@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#on-change)
 
 >caption Handle OnChange
 

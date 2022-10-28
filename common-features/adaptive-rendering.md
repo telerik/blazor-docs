@@ -40,13 +40,15 @@ To enable the adaptive rendering use the `AdaptiveMode` parameter. It takes a me
 * `None` (default)
 * `Auto`
 
+Optionally, you may set the `Title` parameter to provide custom header text for the popup on small and medium devices.
+
 >caption Enable the adaptive rendering
 
 ````CSHTML
-// NOTE: The configurations below includeс only the DropDownList, but is applicable to all of teh above listed components
+// NOTE: The configurations below includes only the DropDownList, but it is applicable to all of the above listed components
 
 // Adapts to the screen size to use the appropriate rendering.
-<TelerikDropDownList ... AdaptiveMode="@AdaptiveMode.Auto" ... />
+<TelerikDropDownList ... AdaptiveMode="@AdaptiveMode.Auto" Title="Select item"... />
 ````
 
 # Rendering specifics
@@ -60,8 +62,7 @@ Three breakpoints define the rendering options as follows:
 || **Small** | **Medium** | **Large** |
 |-------|-------|--------|-------|
 **Dimensions** | up to 500px | 501px to 768px | over 768px |
-**Rendering** | The popup is rendered as a fullscreen action sheet. `Apply` and `Cancel` buttons are rendered at the bottom, so the user can sumbit their new selection or retract the change. Clicking on any of the buttons closes the action sheet. | The popup is rendered as an action sheet docked to the bottom of the screen. `Apply` and `Cancel` buttons are rendered at the bottom, so the user can sumbit their new selection or retract the change. Clicking on any of the buttons closes the action sheet.| The popup is rendered as an animation container docked to the main element of the component. |
-**Events Firing**| `ValueChanged` and `OnChange` events will be fired only when the user clicks `Apply`. Typing in the input, browsing through the available options in the action sheet or clicking them will **not** trigger `ValueChanged`. | `ValueChanged` and `OnChange` events will be fired only when the user clicks `Apply`.  Typing in the input, browsing through the available options in the action sheet or clicking them will **not** trigger `ValueChanged`. | `ValueChanged` event fires upon every change (for example, keystroke) in the input. `OnChange` fires in response to user confirmation of the value (for example, `Enter` press or component blur). |
+**Rendering** | The popup is rendered as a fullscreen action sheet. | The popup is rendered as an action sheet docked to the bottom of the screen. | The popup is rendered as an animation container docked to the main element of the component. |
 
 ## Limitations
 

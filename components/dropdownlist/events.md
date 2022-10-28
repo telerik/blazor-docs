@@ -26,8 +26,6 @@ The examples in this article use `string` values and simple data sources for bre
 
 The `ValueChanged` event fires upon every change of the user selection.
 
-@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#value-changed)
-
 The example below uses [binding]({%slug components/dropdownlist/databind%}) to primitive types for brevity. You can use full models as well. The type of the argument in the lambda expression must match the `Value` type of the component, and the `ValueField` type (if `ValueField` is set).
 
 >caption Handle DropDownList ValueChanged
@@ -70,8 +68,6 @@ The example below uses [binding]({%slug components/dropdownlist/databind%}) to p
 The `OnChange` event represents a user action - confirmation of the current value. In inputs, it fires when the user presses `Enter` in the input, or when the input loses focus. In the DropDownList, it fires when the user selects an item as well. See [here]({%slug ddl-kb-onchange-fires-twice%}) for sample logic on executing it only once per value selection.
 
 >tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
-
-@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#on-change)
 
 >caption Handle the OnChange event and use two-way binding
 
