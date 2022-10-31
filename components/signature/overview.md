@@ -100,7 +100,7 @@ The following table lists the Signature parameters. Also check the [Signature AP
 | `PopupScale` | `double` | The `Width` and `Height` of the component will be multiplied by the value of the `PopupScale` when maximizing (`Maximizable="true"`) the Blazor Signature. |
 | `ReadOnly` | `bool` | Maps to the `readonly` attribute. Use this parameter to put the Signature in read-only state. |
 | `Smooth` | `bool` | Use this parameter to smoothen the signature line. |
-| `StrokeWidth` | `double?` | Set the width of the signature line. |
+| `StrokeWidth` | `double?` | The drawn lines' thickness in pixels. |
 | `TabIndex` | `int?` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the Tab key. |
 | `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
 | `Width` | `string` | Defines the width of the component. Set the it in `px`. |
