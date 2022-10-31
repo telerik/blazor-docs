@@ -54,7 +54,7 @@ The `ValueChanged` event fires when signature is fully drawn.
     {
         SignatureValue = value;
 
-        EventLog = $"ValueChanged event fired";
+        EventLog = $"ValueChanged event fired at {DateTime.Now.ToLongTimeString()}";
     }
 
     private void OnSignatureBlur()
