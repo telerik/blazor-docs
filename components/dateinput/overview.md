@@ -47,21 +47,21 @@ The Blazor Date Input generates events that you can handle and further customize
 
 You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...]({%slug common-features/input-validation%}).
 
-## Parameters
+## Date Input Parameters
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Attribute | Type and Default Value | Description |
-|----------|----------|----------|
-| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries.
-|`Enabled`| `bool` |Defines if the `DateInput` is enabled|
-|`Format`|`string`|The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article.|
-|`Id`|`string`|Maps to the `id` HTML attribute of the `input`|
-|`Value`|`T` - expects a `DateTime` object|The value of the `DateInput`|
-|`TabIndex`|`int`|maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
-|`Placeholder`|`string`|maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in|
-|`ValidateOn`|`ValidationEvent` enum <br/> `ValidationEvent.Input` | configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs)|
-
+|---|---|---|
+| `AutoComplete` | `string` | The `autocomplete` HTML attribute of the `input`. |
+| `DebounceDelay` | `int` <br/> (`150`) | The time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
+| `Enabled` | `bool` | Defines if the `DateInput` is enabled |
+| `Format` | `string`| The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. |
+| `Id` | `string` | The `id` HTML attribute of the `input` |
+| `Placeholder` | `string` | The `placeholder` attribute of the `input` element. The placeholder will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
+| `TabIndex` | `int` | The `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
+| `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) |
+| `Value` | `DateTime` or `DateTime?` | The value of the `DateInput`. Supports two-way binding. |
 
 ### Styling and Appearance
 
@@ -75,7 +75,6 @@ The following parameters enable you to customize the appearance of the Blazor Da
 You can find more options for customizing the Date Input styling in the [Appearance article]({%slug dateinput-appearance%}).
 
 @[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
-
 
 ## DateTime and Nullable DateTime
 
