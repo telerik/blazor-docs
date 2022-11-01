@@ -71,6 +71,37 @@ You can display a wider range of dates by rendering multiple instances of the Ca
 
 The Calendar generates events that you can handle and further customize ist behavior. [Read more about the Blazor Calendar events...]({%slug components/calendar/events%}).
 
+## Calendar Parameters
+
+The Blazor Calendar provides various parameters that allow you to configure the component. Also check the [Calendar's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+| `BottomView` | ` CalendarView` <br/> `CalendarView.Month` | The bottommost view in the Calendar to which the user can navigate to. |
+| `Date` | `DateTime` | The date to which the user has navigated the Calendar. Supports two-way binding. |
+| `DisabledDates` | `List<DateTime>` | A list of dates that cannot be selected as the start or end of the range, see the <a href="https://demos.telerik.com/blazor-ui/calendar/disabled-dates" target="_blank">Live Demo: Calendar - Disabled Dates</a>. |
+| `Max` | `DateTime` | The latest date that the user can select. |
+| `Min` | `DateTime` | The earliest date that the user can select. |
+| `Orientation` | `CalendarOrientation` <br/> (`CalendarOrientation.Horizontal`) | The orientation of the Calendar. The available options are `Horizontal` and `Vertical`. Applicable when [more than one view]({%slug components/calendar/multiview%}) is used. |
+| `RangeStart` | `DateTime` | The selected start date when [range selection]({%slug components/calendar/selection%}#range-selection-mode) is enabled. Supports two-way binding. |
+| `RangeEnd` | `DateTime` | The selected end date when [range selection]({%slug components/calendar/selection%}#range-selection-mode) is enabled. Supports two-way binding. |
+| `SelectedDates` | `List<DateTime>` | The selected dates when [multiple selection]({%slug components/calendar/selection%}#multiple-selection-mode) is used. |
+| `SelectionMode` | `CalendarSelectionMode` <br/> (`CalendarSelectionMode.Single`) | The [selection mode]({%slug components/calendar/selection%}) of the calendar. |
+| `Value` | `DateTime` or `DateTime?` | The current value of the component when [single selection]({%slug components/calendar/selection%}#single-selection-mode) is used. Supports two-way binding. |
+| `View` | ` CalendarView` | The current view that will be displayed in the Calendar. Supports two-way binding. |
+| `Views` | ` int` <br/> (`1`) | The [number of views]({%slug components/calendar/multiview%}) that will be rendered to each other. |
+| `TopView` | ` CalendarView` <br/> (`CalendarView.Century`) | The topmost view of the Calendar to which the user can navigate. |
+
+### Styling and Appearance
+
+The following parameters enable you to customize the appearance of the Blazor Calendar:
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Calendar (`<div class="k-calendar>`). |
+
 ## Calendar Reference and Methods
 
 Add a reference to the component instance to use the [Calendar methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar).

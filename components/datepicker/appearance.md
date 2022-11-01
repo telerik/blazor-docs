@@ -124,3 +124,6 @@ The `FillMode` controls how the TelerikDatePicker is filled. You can set it to a
 }
 ````
 
+## See Also
+
+* [Live Demo: DatePicker - Appearance](https://demos.telerik.com/blazor-ui/datepicker/appearance)

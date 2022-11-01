@@ -54,7 +54,7 @@ To restrict the user from writing dates in the input so that the end is after th
 
 The DateRangePicker allows you to customize the rendering of the Calendar popup header. Learn more from the [Header Template article]({%slug daterangepicker-header-template%}).
 
-## Parameters
+## DateRangePicker Parameters
 
 The Blazor Date Range Picker provides various parameters that allow you to configure the component. Also check the [DateRangePicker's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1).
 
@@ -62,18 +62,19 @@ The Blazor Date Range Picker provides various parameters that allow you to confi
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `BottomView` | ` CalendarView` <br/> `CalendarView.Month` | Defines the bottommost view in the popup calendar to which the user can navigate to. Defaults to `CalendarView.Month`.
-| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries.
-| `DisabledDates` | `List<DateTime>` | Specifies a list of dates that can not be selected as the start or end of the range, see the <a href="https://demos.telerik.com/blazor-ui/daterangepicker/disabled-dates" target="_blank">Live Demo: Date Range Picker Disabled Dates</a>.
-| `Enabled` | `bool` | Specifies whether typing in the input is allowed.
-| `Format` | `string` | Specifies the format of the DateInputs of the DateRangePicker. [Read more about supported data formats in Telerik DateInput for Blazor UI]({%slug components/dateinput/supported-formats%}) article.
-|`EndId` and `StartId` | `string` | render as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.
-| `Min` | `DateTime` | The earliest date that the user can select.
-|`Max` | `DateTime` | The latest date that the user can select.
-| `StartValue` and `EndValue` | `T` | The current values of the inputs for start and end of the range. Can be used for two-way binding.
-| `View` | ` CalendarView` | Specifies the current view that will be displayed in the popup calendar.
-| `TabIndex` | `int?` | maps to the `tabindex` attribute of both `input` HTML elements in the component and them both will have the same `tabindex`. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.
-| `Placeholder` |`string` | maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to **nullable** DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in.
+| `BottomView` | ` CalendarView` <br/> (`CalendarView.Month`) | Defines the bottommost view in the popup calendar to which the user can navigate to. |
+| `DebounceDelay` | `int` <br/> (`150`) | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
+| `DisabledDates` | `List<DateTime>` | A list of dates that can not be selected as the start or end of the range, see the <a href="https://demos.telerik.com/blazor-ui/daterangepicker/disabled-dates" target="_blank">Live Demo: Date Range Picker Disabled Dates</a>. |
+| `Enabled` | `bool` | Whether typing in the input is allowed. |
+| `Format` | `string` | The format of the DateInputs of the DateRangePicker. [Read more about supported data formats in Telerik DateInput for Blazor UI]({%slug components/dateinput/supported-formats%}) article. |
+|`EndId` and `StartId` | `string` | The `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
+| `Min` | `DateTime` | The earliest date that the user can select. |
+| `Max` | `DateTime` | The latest date that the user can select. |
+| `Orientation` | `CalendarOrientation` <br/> (`CalendarOrientation.Horizontal`) | The orientation of the calendar popup. The available options are `Horizontal` and `Vertical`. |
+| `StartValue` and `EndValue` | `T` | The current values of the inputs for start and end of the range. Can be used for two-way binding. |
+| `View` | ` CalendarView` | The current view that will be displayed in the popup calendar. |
+| `TabIndex` | `int?` | maps to the `tabindex` attribute of both `input` HTML elements in the component and them both will have the same `tabindex`. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
+| `Placeholder` |`string` | Maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to **nullable** DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
 
 The date range picker is, essentially, a [date input]({%slug components/dateinput/overview%}) and a [calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
 
@@ -83,7 +84,7 @@ The following parameters enable you to customize the appearance of the Blazor Da
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Date Range Picker
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Date Range Picker.
 | `PopupClass` | `string` | additional CSS class to customize the appearance of the Date Range Picker's dropdown.
 
 You can find more options for customizing the Date Range Picker styling in the [Appearance article]({%slug daterangepicker-appearance%}).
