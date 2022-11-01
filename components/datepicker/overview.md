@@ -63,7 +63,7 @@ The Blazor Date Picker provides various parameters that allow you to configure t
 
 | Attribute | Type and Default Value | Description |
 |---|---|---|
-| `AutoComplete` | `string` <br /> (`"off"`) | The `autocomplete` HTML attribute of the `input` |
+| `AutoComplete` | `string` <br /> (`"off"`) | The `autocomplete` HTML attribute of the `input`. |
 | `BottomView` | ` CalendarView` enum <br/> (`Month`) | Defines the bottommost view in the popup calendar to which the user can navigate to. |
 | `DebounceDelay` | `int` <br/> (`150`) | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `DisabledDates` | `List<DateTime>` | A list of dates that cannot be selected. |
