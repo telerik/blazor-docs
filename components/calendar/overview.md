@@ -84,7 +84,7 @@ The Blazor Calendar provides various parameters that allow you to configure the 
 | `DisabledDates` | `List<DateTime>` | A list of dates that cannot be selected as the start or end of the range. See the <a href="https://demos.telerik.com/blazor-ui/calendar/disabled-dates" target="_blank">Live Demo: Calendar - Disabled Dates</a>. |
 | `Max` | `DateTime` | The latest date that the user can select. |
 | `Min` | `DateTime` | The earliest date that the user can select. |
-| `Orientation` | `CalendarOrientation` <br/> (`CalendarOrientation.Horizontal`) | The orientation of the Calendar. The available options are `Horizontal` and `Vertical`. Applicable when [more than one view]({%slug components/calendar/multiview%}) is used. |
+| `Orientation` | `CalendarOrientation` enum <br /> (`Horizontal`) | The orientation of the Calendar. The available options are `Horizontal` and `Vertical`. Applicable when using [more than one view]({%slug components/calendar/multiview%}). |
 | `RangeStart` | `DateTime` | The selected start date when [range selection]({%slug components/calendar/selection%}#range-selection-mode) is enabled. Supports two-way binding. |
 | `RangeEnd` | `DateTime` | The selected end date when [range selection]({%slug components/calendar/selection%}#range-selection-mode) is enabled. Supports two-way binding. |
 | `SelectedDates` | `List<DateTime>` | The selected dates when [multiple selection]({%slug components/calendar/selection%}#multiple-selection-mode) is used. |
