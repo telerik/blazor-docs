@@ -88,7 +88,7 @@ The Blazor Calendar provides various parameters that allow you to configure the 
 | `RangeStart` | `DateTime` | The selected start date when [range selection]({%slug components/calendar/selection%}#range-selection-mode) is enabled. Supports two-way binding. |
 | `RangeEnd` | `DateTime` | The selected end date when [range selection]({%slug components/calendar/selection%}#range-selection-mode) is enabled. Supports two-way binding. |
 | `SelectedDates` | `List<DateTime>` | The selected dates when [multiple selection]({%slug components/calendar/selection%}#multiple-selection-mode) is used. |
-| `SelectionMode` | `CalendarSelectionMode` <br/> (`CalendarSelectionMode.Single`) | The [selection mode]({%slug components/calendar/selection%}) of the calendar. |
+| `SelectionMode` | `CalendarSelectionMode` enum <br /> (`Single`) | The [selection mode]({%slug components/calendar/selection%}) of the calendar. |
 | `Value` | `DateTime` or `DateTime?` | The current value of the component when [single selection]({%slug components/calendar/selection%}#single-selection-mode) is used. Supports two-way binding. |
 | `View` | ` CalendarView` | The current view that will be displayed in the Calendar. Supports two-way binding. |
 | `Views` | ` int` <br/> (`1`) | The [number of views]({%slug components/calendar/multiview%}) that will be rendered to each other. |
