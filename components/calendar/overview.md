@@ -79,7 +79,7 @@ The Blazor Calendar provides various parameters that allow you to configure the 
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `BottomView` | ` CalendarView` <br/> `CalendarView.Month` | The bottommost view in the Calendar to which the user can navigate to. |
+| `BottomView` | `CalendarView` enum <br /> `Month` | The most detailed view of the Calendar to which the user can navigate to. |
 | `Date` | `DateTime` | The date to which the user has navigated the Calendar. Supports two-way binding. |
 | `DisabledDates` | `List<DateTime>` | A list of dates that cannot be selected as the start or end of the range, see the <a href="https://demos.telerik.com/blazor-ui/calendar/disabled-dates" target="_blank">Live Demo: Calendar - Disabled Dates</a>. |
 | `Max` | `DateTime` | The latest date that the user can select. |
