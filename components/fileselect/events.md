@@ -33,8 +33,9 @@ Property | Type | Description
 `InvalidExtension` | `bool` | a boolean flag that shows if the file type is invalid
 `InvalidMinFileSize` | `bool` | a boolean flag that shows if file size is below the minimum
 `InvalidMaxFileSize` | `bool` | a boolean flag that shows if the file size exceeds the maximum
-`Stream`| `FileInfoStream` | a [System.IO.Stream](https://docs.microsoft.com/en-us/dotnet/api/system.io.stream) that can be used to load the file to memory, file system or other. Use it to asynchronously get the file contents as byte array.
+`Stream`| `FileInfoStream` | a [System.IO.Stream](https://docs.microsoft.com/en-us/dotnet/api/system.io.stream) that can be used to load the file to memory, file system or other. Use it to **asynchronously** get the file contents as byte array.
 
+> Due to Blazor framework limitations, `FileInfoStream` does not support **synchronous** operations such as `Read`, `Seek`, `Flush` and `Write`. The methods exist, but will [throw an exception]({%slug fileselect-kb-stream-exception%}). A possible workaround is to copy the `FileInfoStream` **asynchronously** to another `Stream` via `CopyToAsync`. The `OnSelect` event example below demonstrates this.
 
 ## OnSelect
 
@@ -73,10 +74,10 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
         {
             if (!file.InvalidExtension)
             {
-	        // save to local file system
+                // save to local file system
                 await UploadFile(file);
-		// or read file in-memory
-		//await ReadFile(file);
+                // or read file in-memory
+                //await ReadFile(file);
             }
         }
     }
@@ -98,8 +99,6 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
     }
 }
 ````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 
 ## OnRemove
