@@ -70,7 +70,7 @@ The Blazor Date Range Picker provides various parameters that allow you to confi
 |`EndId` and `StartId` | `string` | The `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
 | `Min` | `DateTime` | The earliest date that the user can select. |
 | `Max` | `DateTime` | The latest date that the user can select. |
-| `Orientation` | `CalendarOrientation` <br/> (`CalendarOrientation.Horizontal`) | The orientation of the calendar popup. The available options are `Horizontal` and `Vertical`. |
+| `Orientation` | `CalendarOrientation`enum <br /> (`Horizontal`) | The orientation of the calendar popup when using multiple views. The available options are `Horizontal` and `Vertical`. |
 | `StartValue` and `EndValue` | `T` | The current values of the inputs for start and end of the range. Can be used for two-way binding. |
 | `View` | ` CalendarView` | The current view that will be displayed in the popup calendar. |
 | `TabIndex` | `int?` | maps to the `tabindex` attribute of both `input` HTML elements in the component and them both will have the same `tabindex`. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
