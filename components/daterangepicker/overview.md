@@ -65,7 +65,7 @@ The Blazor Date Range Picker provides various parameters that allow you to confi
 | `BottomView` | ` CalendarView` <br/> (`CalendarView.Month`) | Defines the bottommost view in the popup calendar to which the user can navigate to. |
 | `DebounceDelay` | `int` <br/> (`150`) | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `DisabledDates` | `List<DateTime>` | A list of dates that can not be selected as the start or end of the range, see the <a href="https://demos.telerik.com/blazor-ui/daterangepicker/disabled-dates" target="_blank">Live Demo: Date Range Picker Disabled Dates</a>. |
-| `Enabled` | `bool` | Whether typing in the input is allowed. |
+| `Enabled` | `bool` | Whether typing in the inputs is allowed. |
 | `Format` | `string` | The format of the DateInputs of the DateRangePicker. [Read more about supported data formats in Telerik DateInput for Blazor UI]({%slug components/dateinput/supported-formats%}) article. |
 |`EndId` and `StartId` | `string` | The `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
 | `Min` | `DateTime` | The earliest date that the user can select. |
