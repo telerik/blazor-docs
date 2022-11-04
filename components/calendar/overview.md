@@ -92,7 +92,7 @@ The Blazor Calendar provides various parameters that allow you to configure the 
 | `Value` | `DateTime` or `DateTime?` | The current value of the component when [single selection]({%slug components/calendar/selection%}#single-selection-mode) is used. Supports two-way binding. |
 | `View` | ` CalendarView` | The current view that will be displayed in the Calendar. Supports two-way binding. |
 | `Views` | ` int` <br/> (`1`) | The [number of views]({%slug components/calendar/multiview%}) that will be rendered to each other. |
-| `TopView` | ` CalendarView` <br/> (`CalendarView.Century`) | The topmost view of the Calendar to which the user can navigate. |
+| `TopView` | `CalendarView` enum <br /> (`Century`) | The most aggregated view of the Calendar to which the user can navigate. |
 
 ### Styling and Appearance
 
