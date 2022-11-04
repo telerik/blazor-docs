@@ -10,7 +10,7 @@ position: 30
 
 # Appearance Settings
 
-You can control the appearance of the Calendar by setting the following attribute:
+This article outlines the available Calendar parameters, which control its appearance.
 
 ## Size
 
