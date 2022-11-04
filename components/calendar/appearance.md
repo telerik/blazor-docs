@@ -17,7 +17,7 @@ You can control the appearance of the Calendar by setting the following attribut
 You can increase or decrease the size of the Calendar by setting the `Size` attribute to a member of the `Telerik.Blazor.ThemeConstants.Calendar.Size` class:
 
 | Class members | Manual declarations |
-|------------|--------|
+|---|---|
 |`Small` |`sm`|
 |`Medium`|`md`|
 |`Large`|`lg`|
