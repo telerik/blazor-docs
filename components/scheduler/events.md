@@ -951,19 +951,20 @@ The handler receives an argument of type `SchedulerCellRenderEventArgs` which ex
 | Field | Type | Description |
 | --- | --- | --- |
 | `Class` | `string` | The CSS class that will be applied to the cell. |
-| `Date` | `DateTime` | The date that is associated with the cell. |
 | `IsAllDay` | `bool` | Whether the slot is inside the `AllDay` row/column.
 | `Resources` | `List<KeyValuePair<string, object>` | The resources that are associated with the column/row. Applicable when the Scheduler uses both - [resources]({%slug scheduler-resources%}) and [grouping]({%slug scheduler-resource-grouping%}). Needed to differentiate between the same dates within different groups. |
-| `SlotStartTime` | `DateTime` | The slot start time. The date is 1/1/1900, but the essential part is the time portion. | 
-| `SlotEndTime` | `DateTime` | The slot end time. The date is 1/1/1900, but the essential part is the time portion. |
+| `Start` | `DateTime` | The slot start time. |
+| `End` | `DateTime` | The slot end time. |
 
+>caption Customize certain Scheduler slots by handling the `OnCellRender` event
 
 ````CSHTML
 <style>
     .lunch-break {
         background-color: rgba(255,124,115,0.3);
+        pointer-events:none;
     }
-
+    
     .lunch-break::after {
         content: "Lunch break";
     }
@@ -995,8 +996,9 @@ The handler receives an argument of type `SchedulerCellRenderEventArgs` which ex
         DateTime lunchStart = new DateTime(1900, 1, 1, 12, 0, 0);
         DateTime lunchEnd = new DateTime(1900, 1, 1, 12, 30, 0);
 
-        if ((args.SlotStartTime.Equals(lunchStart) || args.SlotEndTime.Equals(lunchEnd)) &&
-            (args.Date.Value.DayOfWeek != DayOfWeek.Saturday && args.Date.Value.DayOfWeek != DayOfWeek.Sunday))
+        if ((args.Start.TimeOfDay.Equals(lunchStart.TimeOfDay) || args.End.TimeOfDay.Equals(lunchEnd.TimeOfDay)) && 
+            (args.Start.DayOfWeek != DayOfWeek.Saturday && args.Start.DayOfWeek != DayOfWeek.Sunday)
+            )
         {
             args.Class = "lunch-break";
         }
