@@ -61,14 +61,19 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 The `Min` and `Max` properties require a `DateTime` object, but will only use the time portion from it. Thus, the date itself is not important. The hours, minutes, seconds and AM/PM portions control the range of the tumblers in the time picker dropdown. They do not impose validation/limitations on the input editing.
 
+## Adaptive Rendering
+
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
+
 ## Time Picker Parameters
 
-The Blazor Time Picker component provides various parameters that allow you to configure the component:
+The Blazor Time Picker component provides various parameters that allow you to configure the component. Also check the [TimePicker's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikTimePicker-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Attribute | Type and Default Value | Description |
-|----------|----------|----------|
+|---|---|---|
+| `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
 | `AutoComplete` | `string` <br /> (`"off"`) | The `autocomplete` HTML attribute of the `input`. |
 | `DebounceDelay` | `int` <br/> (`150`) | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Specifies whether typing in the input and opening the dropdown are allowed. |

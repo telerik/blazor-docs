@@ -54,12 +54,19 @@ When using the dropdown to edit dates, you must click the "Set" button to commit
 
 The time format specifiers in the `Format` control the tumblers available in the dropdown. For example, the `HH` specifier will result in a hour selector in a 24 hour format. If you also add the `tt` specifier, you will also get the AM/PM tumbler, but the 24 hour format will still be used. This means that you can also add several tumblers for the same time portion if the format string repeats them.
 
+## Adaptive Rendering
+
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
+
 ## DateTime Picker Parameters
+
+The Blazor Date Time Picker provides various parameters that allow you to configure the component. Also check the [DateTimePicker's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateTimePicker-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Attribute | Type and Default Value | Description |
 |---|---|---|
+| `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
 | `AutoComplete` | `string` <br /> (`"off"`) | The `autocomplete` HTML attribute of the `input`. |
 | `DebounceDelay` | `int` <br/> (`150`) | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Defines if the `DateTimePicker` is enabled |

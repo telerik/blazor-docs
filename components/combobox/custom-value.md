@@ -101,7 +101,9 @@ Selected value: @selectedValue
 }
 ````
 
+## Limitations
 
+* `AllowCustom` is not compatible with [Adaptive rendering]({%slug adaptive-rendering%}).
 
 ## See Also
 

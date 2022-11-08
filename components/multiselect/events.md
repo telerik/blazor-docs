@@ -24,6 +24,8 @@ This article explains the events available in the Telerik MultiSelect for Blazor
 
 The `ValueChanged` event fires when the user selection changes (the user adds or removes items). The type of the argument in the lambda expression must match the `Value` type of the component.
 
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#value-changed)
+
 >caption Handle MultiSelect ValueChanged
 
 ````CSHTML

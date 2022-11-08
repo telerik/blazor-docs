@@ -83,6 +83,10 @@ The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#grou
 
 @[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor MultiSelect virtualization...]({% slug multiselect-virtualization %})
 
+## Adaptive Rendering
+
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
+
 ## Parameters
 
 The Blazor MultiSelect provides various parameters that allow you to configure the component:
@@ -91,10 +95,11 @@ The Blazor MultiSelect provides various parameters that allow you to configure t
 
 | Parameter    | Type  | Description |
 | ----------- | ----------- | ------ |
+| `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
 | `AutoClose` | `bool` <br /> (`true`) | Defines whether the dropdown list containing the items for the MultiSelect will automatically close after each user selection. |
 | `ClearButton` | `bool` | Whether the user will have the option to clear the selected items with a button on the input. When it is clicked, the `Value` will be updated to an empty list. |
 | `Data` | `IEnumerable<TItem>` | Allows you to provide the data source. Required. |
-| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries.|
+| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Whether the component is enabled. |
 | `Filterable` | `bool` | Whether [filtering]({%slug multiselect-filter%}) is enabled for the end user (suggestions will get narrowed down as they type). |
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | The string operation that will be used for [filtering]({%slug multiselect-filter%}). |
@@ -103,7 +108,8 @@ The Blazor MultiSelect provides various parameters that allow you to configure t
 | `Placeholder` | `string` | The text the user sees as a hint when there is no selection. |
 | `TextField` | `string` <br /> (`Text`)| The field in the model from which the text of the items is taken. |
 | `TItem` | `Type` | The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
-| `TValue` | `Type` | The type of the value field in the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum`|
+| `TValue` | `Type` | The type of the value field in the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum` |
+| `Title` | `string` | The title text rendered in the header of the popup(action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
 | `Value` and `bind-Value` | `List<TValue>` | Get/set the value of the component, can be used for binding. Use the `@bind-Value` syntax for two-way binding, for example, to a variable of your own. The `Value` must be a `List<TValue>`. |
 | `ValueField` | `string`  <br /> (`Value`)| The name of the field from the model that will be used as values in the selection. |
 | `TabIndex` | `int?` | Mps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |

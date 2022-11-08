@@ -68,6 +68,10 @@ The Blazor AutoComplete @[template](/_contentTemplates/dropdowns/features.md#gro
 
 @[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor AutoComplete virtualization...]({% slug autocomplete-virtualization %})
 
+## Adaptive Rendering
+
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
+
 ## Parameters
 
 The Blazor AutoComplete provides various parameters that allow you to configure the component:
@@ -76,20 +80,22 @@ The Blazor AutoComplete provides various parameters that allow you to configure 
 
 | Parameter    | Type  | Description |
 | ----------- | ----------- | -------|
-| `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required.
-| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries.
+| `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
+| `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required. |
+| `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Whether the component is enabled. |
 | `Filterable` | `bool` | Whether [filtering]({%slug multiselect-filter%}) is enabled for the end user (suggestions will get narrowed down as they type). |
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | The string operation that will be used for [filtering]({%slug multiselect-filter%}). |
 | `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input.|
-| `TItem` | `Type`  | The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object.|
+| `TItem` | `Type`  | The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
+| `Title` | `string` | The title text rendered in the header of the popup(action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
 | `Value` and `bind-Value` | `string`  | Get/set the value of the component, can be used for binding. Use the `@bind-Value` syntax for two-way binding, for example, to a variable of your own. The `Value` must be a `string`.|
-| `ValueField` | `string` <br /> (`Value`) | The name of the field from the model that will be shown as hints to the user. Not required when binding to a simple list of strings.|
-| `TabIndex` | `int?`  | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key.|
-| `ClearButton` | `bool`  | Whether the user will have the option to clear the selected value with a button on the input. When it is clicked, the `Value` will be updated to `string.Empty`.|
-| `Enabled` | `bool`  | Use this Boolean property to render a disabled Blazor AutoComplete component until certain requirements are met.|
-| `MinLength` | `int`  | How many characters the text has to be before the suggestions list appears. Cannot be `0`. Often works together with [filtering]({%slug autocomplete-filter%}).|
-| `Placeholder` | `string` | The text the user sees as a hint when there is no text in the input. In order for it to be shown, the `Value` parameter should be set to the default value for string (`null`).|
+| `ValueField` | `string` <br /> (`Value`) | The name of the field from the model that will be shown as hints to the user. Not required when binding to a simple list of strings. |
+| `TabIndex` | `int?`  | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
+| `ClearButton` | `bool`  | Whether the user will have the option to clear the selected value with a button on the input. When it is clicked, the `Value` will be updated to `string.Empty`. |
+| `Enabled` | `bool`  | Use this Boolean property to render a disabled Blazor AutoComplete component until certain requirements are met. |
+| `MinLength` | `int`  | How many characters the text has to be before the suggestions list appears. Cannot be `0`. Often works together with [filtering]({%slug autocomplete-filter%}). |
+| `Placeholder` | `string` | The text the user sees as a hint when there is no text in the input. In order for it to be shown, the `Value` parameter should be set to the default value for string (`null`). |
 
 ### Styling and Appearance
 

@@ -12,13 +12,64 @@ position: 20
 
 This article explains the events available in the Telerik DateTimePicker for Blazor:
 
-* [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
+* [OnChange](#onchange)
 * [OnOpen](#onopen)
 * [OnClose](#onclose)
 * [OnBlur](#onblur)
 * [OnCalendarCellRender](#oncalendarcellrender)
 
+
+## ValueChanged
+
+The `ValueChanged` event fires upon every change (for example, keystroke) in the input, and upon clicking the `Set` or `Now` buttons in the time dropdown.
+
+>caption Handle ValueChanged
+
+````CSHTML
+@result
+<br />
+
+<TelerikDateTimePicker ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDateTimePicker>
+
+@code {
+    string result;
+
+    private void MyValueChangeHandler(DateTime theUserInput)
+    {
+        result = string.Format("The user entered: {0}", theUserInput);
+    }
+}
+````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
+
+>caption Handle ValueChanged and provide initial value
+
+````CSHTML
+@result
+<br />
+model value: @thePickerValue
+<br />
+
+<TelerikDateTimePicker Value="@thePickerValue" ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDateTimePicker>
+
+@code {
+    string result;
+
+    DateTime thePickerValue { get; set; } = DateTime.Now;
+
+    private void MyValueChangeHandler(DateTime theUserInput)
+    {
+        result = $"The user entered: {theUserInput}";
+
+        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
+        thePickerValue = theUserInput;
+    }
+}
+````
 
 ## OnChange
 
@@ -70,58 +121,6 @@ model value: @thePickerValue
         // the handler receives an object that you may need to cast to the type of the component
         // if you do not provide a Value, you must provide the Type parameter to the component
         result = string.Format("The user entered: {0}", (theUserInput as DateTime?).Value);
-    }
-}
-````
-
-
-## ValueChanged
-
-The `ValueChanged` event fires upon every change (for example, keystroke) in the input, and upon clicking the `Set` or `Now` buttons in the time dropdown.
-
->caption Handle ValueChanged
-
-````CSHTML
-@result
-<br />
-
-<TelerikDateTimePicker ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDateTimePicker>
-
-@code {
-    string result;
-
-    private void MyValueChangeHandler(DateTime theUserInput)
-    {
-        result = string.Format("The user entered: {0}", theUserInput);
-    }
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
-
->caption Handle ValueChanged and provide initial value
-
-````CSHTML
-@result
-<br />
-model value: @thePickerValue
-<br />
-
-<TelerikDateTimePicker Value="@thePickerValue" ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDateTimePicker>
-
-@code {
-    string result;
-
-    DateTime thePickerValue { get; set; } = DateTime.Now;
-
-    private void MyValueChangeHandler(DateTime theUserInput)
-    {
-        result = $"The user entered: {theUserInput}";
-
-        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        thePickerValue = theUserInput;
     }
 }
 ````

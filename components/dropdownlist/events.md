@@ -12,47 +12,15 @@ position: 35
 
 This article explains the events available in the Telerik DropDownList for Blazor:
 
-* [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
+* [OnChange](#onchange)
 * [OnRead](#onread)
 * [OnOpen](#onopen)
 * [OnClose](#onclose)
 * [OnItemRender](#onitemrender)
 * [OnBlur](#onblur)
 
-## OnChange
-
-The `OnChange` event represents a user action - confirmation of the current value. In inputs, it fires when the user presses `Enter` in the input, or when the input loses focus. In the DropDownList, it fires when the user selects an item as well. See [here]({%slug ddl-kb-onchange-fires-twice%}) for sample logic on executing it only once per value selection.
-
->tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
-
->caption Handle the OnChange event and use two-way binding
-
-````CSHTML
-@result
-<br />
-from the model: @MySelectedItem
-<br />
-<TelerikDropDownList Data="@MyList" OnChange="@MyOnChangeHandler" @bind-Value="@MySelectedItem">
-</TelerikDropDownList>
-
-@code {
-    string result;
-    string MySelectedItem { get; set; } = "second";
-
-    void MyOnChangeHandler(object theUserInput)
-    {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user selected: {0}", (theUserInput as string));
-    }
-
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
+The examples in this article use `string` values and simple data sources for brevity. You can use full models, see the [data binding]({%slug components/dropdownlist/databind%}) article for more details.
 
 ## ValueChanged
 
@@ -94,6 +62,39 @@ The example below uses [binding]({%slug components/dropdownlist/databind%}) to p
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
+
+## OnChange
+
+The `OnChange` event represents a user action - confirmation of the current value. In inputs, it fires when the user presses `Enter` in the input, or when the input loses focus. In the DropDownList, it fires when the user selects an item as well. See [here]({%slug ddl-kb-onchange-fires-twice%}) for sample logic on executing it only once per value selection.
+
+>tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
+
+>caption Handle the OnChange event and use two-way binding
+
+````CSHTML
+@result
+<br />
+from the model: @MySelectedItem
+<br />
+<TelerikDropDownList Data="@MyList" OnChange="@MyOnChangeHandler" @bind-Value="@MySelectedItem">
+</TelerikDropDownList>
+
+@code {
+    string result;
+    string MySelectedItem { get; set; } = "second";
+
+    void MyOnChangeHandler(object theUserInput)
+    {
+        // the handler receives an object that you may need to cast to the type of the component
+        // if you do not provide a Value, you must provide the Type parameter to the component
+        result = string.Format("The user selected: {0}", (theUserInput as string));
+    }
+
+    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+}
+````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 ## OnRead
 
