@@ -124,3 +124,6 @@ The `FillMode` controls how the TelerikTimePicker is filled. You can set it to a
 }
 ````
 
+## See Also
+
+* [Live Demo: TimePicker - Appearance](https://demos.telerik.com/blazor-ui/timepicker/appearance)

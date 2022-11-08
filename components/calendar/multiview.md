@@ -19,7 +19,16 @@ You can render several instances of the current calendar view next to each other
 </TelerikCalendar>
 ````
 
-![Blazor Calendar Multiple Views](images/calendar-multiple-views.png)
+Additionally, you may configure the orientation of the views through the `Orientation` parameter of the Calendar. It takes a member of the `CalendarOrientation` enum and defaults to `Horizontal`.
+
+>caption Render 2 months at a time with vertical orientation
+
+````CSHTML
+<TelerikCalendar Orientation="@CalendarOrientation.Vertical"
+                 Views="2"
+                 View="CalendarView.Month">
+</TelerikCalendar>
+````
 
 >tip You can still use the other features of the calendar like setting a starting `Date` and [Selection](selection), or the `Min` and `Max` constraints.
 
@@ -27,5 +36,8 @@ You can render several instances of the current calendar view next to each other
 ## See Also
 
   * [Calendar Overview]({%slug components/calendar/overview%})
-  * [Live Demo: MultiView Calendar](https://demos.telerik.com/blazor-ui/calendar/multiview)
+  * [Live Demo: Calendar - MultiView](https://demos.telerik.com/blazor-ui/calendar/multiview)
+  * [Live Demo: Calendar - Orientation](https://demos.telerik.com/blazor-ui/calendar/orientation)
+
+
   
