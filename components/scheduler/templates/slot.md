@@ -39,6 +39,8 @@ The `context` of the template is a `SchedulerSlotTemplateContext` object that co
 | `End` | `DateTime` | The slot's end time.|
 | `Resources` | `List<KeyValuePair<string, object>` | A collection of resources for which the slot is defined. The collection is populated when the [Resources]({%slug scheduler-resources%}) and [Resource Grouping]({%slug scheduler-resource-grouping%}) features are used. |
 
+>note When you use the SlotTemplate in the Timeline Scheduler view, and the content of the template is not a plain string, you must add the `!k-pos-absolute` built-in class to the custom element.
+
 ## Example
 
 ````CSHMTL
