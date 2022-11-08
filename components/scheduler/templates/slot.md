@@ -17,7 +17,7 @@ You can use the `SlotTemplate` and the `AllDaySlotTemplate` to customize the ren
 
 ## AllDaySlotTemplate
 
-Use the `AllDaySlotTemplate` to provide a custom rendering for the cells in the Telerik Scheduler for Blazor that span across a full day. This template can be defined for the [day, multiday, and week Scheduler views]({%slug scheduler-views-overview%}). 
+Use the `AllDaySlotTemplate` to provide a custom rendering for the cells in the Telerik Scheduler for Blazor that span across a full day. This template can be defined for the [Day, Multiday, and Week Scheduler views]({%slug scheduler-views-overview%}). 
 
 The `context` of the template is a `SchedulerAllDaySlotTemplateContext` object that contains:
 
@@ -29,7 +29,7 @@ The `context` of the template is a `SchedulerAllDaySlotTemplateContext` object t
 
 ## SlotTemplate
 
-Use the `SlotTemplate` to provide a custom rendering for the cells in the Telerik Scheduler for Blazor. This template can be defined for the [day, multiday, and week Scheduler views]({%slug scheduler-views-overview%}). 
+Use the `SlotTemplate` to provide a custom rendering for the cells in the Telerik Scheduler for Blazor. This template can be defined for the [Day, Multiday, Month, Timeline, and Week Scheduler views]({%slug scheduler-views-overview%}). 
 
 The `context` of the template is a `SchedulerSlotTemplateContext` object that contains:
 
