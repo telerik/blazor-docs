@@ -29,15 +29,16 @@ This article provides examples of validating the Telerik Blazor components. The 
 
 
 * [Simple Inputs](#simple-inputs)
-* [DropDownList](#dropdownlist)
-* [RadioGroup](#radiogroup)
+* [Color Palette](#color-palette)
 * [ComboBox](#combobox)
-* [MultiSelect](#multiselect)
 * [DateRangePicker](#daterangepicker)
+* [DropDownList](#dropdownlist)
 * [Editor](#editor)
 * [MaskedTextbox](#maskedtextbox)
+* [MultiSelect](#multiselect)
+* [RadioGroup](#radiogroup)
 * [Sliders](#sliders)
-* [Color Palette](#color-palette)
+
 
 >tip Telerik offers the [Form Component]({%slug form-overview%}) that lets you generate and manage forms with predefined layouts and less code.
 
@@ -110,10 +111,33 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         <ValidationMessage For="@(() => person.SubscribeToNewsletter)"></ValidationMessage>
     </p>
 
+    <p class="signature">
+        <label>
+            Signature
+            <TelerikSignature @bind-Value="@person.PersonalSignature" Width="100px" Height="100px"></TelerikSignature>
+        </label>
+        <ValidationMessage For="@(() => person.PersonalSignature)"></ValidationMessage>
+    </p>
+
     <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
 </EditForm>
 
 @code {
+    private Person person = new Person()
+        {
+            // for time pickers, the initial date value must match the date portion of the range validation rule
+            DailyScrum = new DateTime(1900, 1, 1, 1, 1, 1),
+        };
+
+    private void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+
+    private List<string> RoleSuggestions { get; set; } = new List<string>() {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
+
     // Usually this class would be in a different file
     public class Person
     {
@@ -161,143 +185,47 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
         [Required(ErrorMessage = "You should add a note.")]
         [MaxLength(300, ErrorMessage = "Your notes are too long.")]
         public string PersonalNotes { get; set; }
+
+        [Required(ErrorMessage = "You must sign the Form")]
+        public string PersonalSignature { get; set; }
     }
-
-    Person person = new Person()
-    {
-        // for time pickers, the initial date value must match the date portion of the range validation rule
-        DailyScrum = new DateTime(1900, 1, 1, 1, 1, 1),
-    };
-
-    void HandleValidSubmit()
-    {
-        Console.WriteLine("OnValidSubmit");
-    }
-
-    List<string> RoleSuggestions { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
 }
 ````
 
-### DropDownList
+### Color Palette
 
-The DropDownList always has an item selected - the first item from its data source, the item corresponding to the `Value`, or the item created from the `DefaultText` the developer provides (which has the default value for the type of the Value field - for example, `0` for an `int` and `null` for an `int?` or `string`).
-
-This means that for required field validation to work, the current item must have a `null` value. Alternatively, if you cannot alter the dropdownlist item model you already have, you can use range validation and set a value for the default item that is outside of the range of actual values.
-
->caption How to validate a dropdownlist
+The Color Palette component, while not an input, can work with validation so you can, for example, require that the user picks a color. Since it is not an input, it does not have an invalid state, but you can add validation messages around it.
 
 ````CSHTML
-@using System.ComponentModel.DataAnnotations
-@* This Using is for the model class attributes only *@
-@* The Id parameter is not mandatory for validation, ut just shows better forms integration *@
+@using System.ComponentModel.DataAnnotations @* This Using is for the model class attributes only *@
 
-<EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
+<EditForm Model="@validationModel" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
-    <p class="gender">
-        <label for="genderDropdownlist">Gender:</label>
-        <TelerikDropDownList @bind-Value="person.Gender" DefaultText="Select gender" Id="genderDropdownlist"
-                             Data="@genders" TextField="MyTextField" ValueField="MyValueField">
-        </TelerikDropDownList>
-        <ValidationMessage For="@(() => person.Gender)"></ValidationMessage>
-    </p>
+
+    <TelerikColorPalette @bind-Value="@validationModel.FavoriteColor" />
+
+    <ValidationMessage For="@(() => validationModel.FavoriteColor)" />
 
     <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
+
 </EditForm>
 
 @code {
-    // Usually the model classes would be in different files
-    public class Person
+    ColorValidationModel validationModel { get; set; } = new ColorValidationModel();
+
+    class ColorValidationModel
     {
-        [Required(ErrorMessage = "Gender is mandatory.")]//the value field in the dropdown model must be null in the default item
-        [Range(1, 3, ErrorMessage = "Please select your gender.")] //limits the fourth option just to showcase this is honored
-        public int? Gender { get; set; }
+        [Required]
+        public string FavoriteColor { get; set; }
     }
 
-    public class MyDdlModel
+    async void HandleValidSubmit()
     {
-        //nullable so the default item can allow required field validation
-        //alternatively, use a range validator and put a value out of that range for the default item
-        public int? MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-
-    Person person = new Person();
-
-    IEnumerable<MyDdlModel> genders = new List<MyDdlModel>
-    {
-        new MyDdlModel {MyTextField = "female", MyValueField = 1},
-        new MyDdlModel {MyTextField = "male", MyValueField = 2},
-        new MyDdlModel {MyTextField = "other", MyValueField = 3},
-        new MyDdlModel {MyTextField = "I'd rather not say", MyValueField = 4}
-    };
-
-    void HandleValidSubmit()
-    {
-        Console.WriteLine("OnValidSubmit");
+        Console.WriteLine("valid submit");
     }
 }
 ````
-
-### RadioGroup
-
-The radio group acts in a way similar to a dropdownlist - there is a collection of items that have values, and those values are used to populate a field in the model that is being validated. This lets you define the necessary data annottation attributes on the validated class. Note that required field validation needs nullable fields.
-
->caption Sample required and range validation in the RadioGroup
-
-````CSHTML
-@using System.ComponentModel.DataAnnotations
-@* This Using is for the model class attributes only *@
-
-<EditForm Model="@form" OnValidSubmit="@HandleValidSubmit">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-    Choose 2FA method:<br />
-
-    <TelerikRadioGroup Data="@TFAMethods"
-                       @bind-Value="@form.TwoFaMethod"
-                       ValueField="@nameof(TwoFactorAuthMethod.MethodId)"
-                       TextField="@nameof(TwoFactorAuthMethod.MethodName)">
-    </TelerikRadioGroup>
-
-    <ValidationMessage For="@( () => form.TwoFaMethod )" />
-    <br />
-    <TelerikButton ButtonType="@ButtonType.Submit" ThemeColor="primary">SUBMIT</TelerikButton>
-</EditForm>
-
-@code{
-    RegistrationFormModel form { get; set; } = new RegistrationFormModel();
-    List<TwoFactorAuthMethod> TFAMethods { get; set; } = new List<TwoFactorAuthMethod>
-    {
-        new TwoFactorAuthMethod { MethodId = 1, MethodName = "None"},
-        new TwoFactorAuthMethod { MethodId = 2, MethodName = "SMS"},
-        new TwoFactorAuthMethod { MethodId = 3, MethodName = "Mobile App"},
-        new TwoFactorAuthMethod { MethodId = 4, MethodName = "Phone"},
-    };
-
-    public class RegistrationFormModel
-    {
-        [Required(ErrorMessage = "You must select a two-factor authentication method.")]
-        [Range(2, 3, ErrorMessage = "Phone authentication is not available at this time, and you must have an authentication method.")]
-        public int? TwoFaMethod { get; set; }
-    }
-
-
-    public class TwoFactorAuthMethod
-    {
-        public int? MethodId { get; set; }
-        public string MethodName { get; set; }
-    }
-
-    void HandleValidSubmit()
-    {
-        Console.WriteLine("OnValidSubmit");
-    }
-}
-````
-
 
 ### ComboBox
 
@@ -402,56 +330,6 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
 }
 ````
 
-
-
-### MultiSelect
-
-The MultiSelect has a value that is a `List` and the validation attributes must take that into account (for example, a regular expression attribute cannot work).
-
->caption How to validate a MultiSelect
-
-````CSHTML
-@using System.ComponentModel.DataAnnotations
-@* This Using is for the model class attributes only *@
-@* The Id parameter is not mandatory for validation, ut just shows better forms integration *@
-
-<EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-    <p class="languages">
-        <label for="languagesMultiSelect">Languages:</label>
-        <TelerikMultiSelect @bind-Value="@person.DevLanguages"
-                                       Placeholder="Programming languages you know"
-                                       Data="@DevSkills"
-                                       Id="languagesMultiSelect"/>
-        <ValidationMessage For="@(() => person.DevLanguages)"></ValidationMessage>
-    </p>
-
-    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
-</EditForm>
-
-@code {
-    public class Person
-    {
-        [Required(ErrorMessage = "You must list the dev skills you have")]
-        [MinLength(3, ErrorMessage = "At least three languages are required so this application is considered")]
-        public List<string> DevLanguages { get; set; }
-    }
-
-    Person person = new Person();
-
-    List<string> DevSkills = new List<string>
-   {
-        "Blazor", "C#", "Python", "C", "C++", "Assembler", "Ruby", "Java", "JavaScript", "HTML", "CSS", "SQL", "PHP"
-    };
-
-    void HandleValidSubmit()
-    {
-        Console.WriteLine("OnValidSubmit");
-    }
-}
-````
-
 ### DateRangePicker
 
 The Date Range Picker component consists of two inputs that the user can change independently. They can choose to alter one or both, and the application cannot know their intent - they can change one to an invalid value (for example, a start date that is after the end date), but then intend to change the second input as well.
@@ -533,6 +411,66 @@ There is no built-in provision in the framework for validating a field value bas
 }
 ````
 
+### DropDownList
+
+The DropDownList always has an item selected - the first item from its data source, the item corresponding to the `Value`, or the item created from the `DefaultText` the developer provides (which has the default value for the type of the Value field - for example, `0` for an `int` and `null` for an `int?` or `string`).
+
+This means that for required field validation to work, the current item must have a `null` value. Alternatively, if you cannot alter the dropdownlist item model you already have, you can use range validation and set a value for the default item that is outside of the range of actual values.
+
+>caption How to validate a dropdownlist
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+@* The Id parameter is not mandatory for validation, ut just shows better forms integration *@
+
+<EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <p class="gender">
+        <label for="genderDropdownlist">Gender:</label>
+        <TelerikDropDownList @bind-Value="person.Gender" DefaultText="Select gender" Id="genderDropdownlist"
+                             Data="@genders" TextField="MyTextField" ValueField="MyValueField">
+        </TelerikDropDownList>
+        <ValidationMessage For="@(() => person.Gender)"></ValidationMessage>
+    </p>
+
+    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
+</EditForm>
+
+@code {
+    // Usually the model classes would be in different files
+    public class Person
+    {
+        [Required(ErrorMessage = "Gender is mandatory.")]//the value field in the dropdown model must be null in the default item
+        [Range(1, 3, ErrorMessage = "Please select your gender.")] //limits the fourth option just to showcase this is honored
+        public int? Gender { get; set; }
+    }
+
+    public class MyDdlModel
+    {
+        //nullable so the default item can allow required field validation
+        //alternatively, use a range validator and put a value out of that range for the default item
+        public int? MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
+
+    Person person = new Person();
+
+    IEnumerable<MyDdlModel> genders = new List<MyDdlModel>
+    {
+        new MyDdlModel {MyTextField = "female", MyValueField = 1},
+        new MyDdlModel {MyTextField = "male", MyValueField = 2},
+        new MyDdlModel {MyTextField = "other", MyValueField = 3},
+        new MyDdlModel {MyTextField = "I'd rather not say", MyValueField = 4}
+    };
+
+    void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+}
+````
 
 ### Editor
 
@@ -573,7 +511,6 @@ Unlike other components, the editor does not trigger form validation on every ke
     }
 }
 ````
-
 
 ### MaskedTextbox
 
@@ -650,6 +587,110 @@ You may want to set the [`IncludeLiterals`]({%slug maskedtextbox-mask-prompt%}#i
 }
 ````
 
+### MultiSelect
+
+The MultiSelect has a value that is a `List` and the validation attributes must take that into account (for example, a regular expression attribute cannot work).
+
+>caption How to validate a MultiSelect
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+@* The Id parameter is not mandatory for validation, ut just shows better forms integration *@
+
+<EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <p class="languages">
+        <label for="languagesMultiSelect">Languages:</label>
+        <TelerikMultiSelect @bind-Value="@person.DevLanguages"
+                                       Placeholder="Programming languages you know"
+                                       Data="@DevSkills"
+                                       Id="languagesMultiSelect"/>
+        <ValidationMessage For="@(() => person.DevLanguages)"></ValidationMessage>
+    </p>
+
+    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
+</EditForm>
+
+@code {
+    public class Person
+    {
+        [Required(ErrorMessage = "You must list the dev skills you have")]
+        [MinLength(3, ErrorMessage = "At least three languages are required so this application is considered")]
+        public List<string> DevLanguages { get; set; }
+    }
+
+    Person person = new Person();
+
+    List<string> DevSkills = new List<string>
+   {
+        "Blazor", "C#", "Python", "C", "C++", "Assembler", "Ruby", "Java", "JavaScript", "HTML", "CSS", "SQL", "PHP"
+    };
+
+    void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+}
+````
+
+### RadioGroup
+
+The radio group acts in a way similar to a dropdownlist - there is a collection of items that have values, and those values are used to populate a field in the model that is being validated. This lets you define the necessary data annottation attributes on the validated class. Note that required field validation needs nullable fields.
+
+>caption Sample required and range validation in the RadioGroup
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations
+@* This Using is for the model class attributes only *@
+
+<EditForm Model="@form" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    Choose 2FA method:<br />
+
+    <TelerikRadioGroup Data="@TFAMethods"
+                       @bind-Value="@form.TwoFaMethod"
+                       ValueField="@nameof(TwoFactorAuthMethod.MethodId)"
+                       TextField="@nameof(TwoFactorAuthMethod.MethodName)">
+    </TelerikRadioGroup>
+
+    <ValidationMessage For="@( () => form.TwoFaMethod )" />
+    <br />
+    <TelerikButton ButtonType="@ButtonType.Submit" ThemeColor="primary">SUBMIT</TelerikButton>
+</EditForm>
+
+@code{
+    RegistrationFormModel form { get; set; } = new RegistrationFormModel();
+    List<TwoFactorAuthMethod> TFAMethods { get; set; } = new List<TwoFactorAuthMethod>
+    {
+        new TwoFactorAuthMethod { MethodId = 1, MethodName = "None"},
+        new TwoFactorAuthMethod { MethodId = 2, MethodName = "SMS"},
+        new TwoFactorAuthMethod { MethodId = 3, MethodName = "Mobile App"},
+        new TwoFactorAuthMethod { MethodId = 4, MethodName = "Phone"},
+    };
+
+    public class RegistrationFormModel
+    {
+        [Required(ErrorMessage = "You must select a two-factor authentication method.")]
+        [Range(2, 3, ErrorMessage = "Phone authentication is not available at this time, and you must have an authentication method.")]
+        public int? TwoFaMethod { get; set; }
+    }
+
+
+    public class TwoFactorAuthMethod
+    {
+        public int? MethodId { get; set; }
+        public string MethodName { get; set; }
+    }
+
+    void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+}
+````
 
 ### Sliders
 
@@ -715,42 +756,6 @@ The sliders are, effectively, numeric inputs in terms of behavior and what data 
         [Required(ErrorMessage = "Enter price range end")]
         [Range(12.0, 20.0, ErrorMessage = "End Price Range should be between 12.0 and 20.0")]
         public double? EndPrice { get; set; }
-    }
-}
-````
-
-
-### Color Palette
-
-The Color Palette component, while not an input, can work with validation so you can, for example, require that the user picks a color. Since it is not an input, it does not have an invalid state, but you can add validation messages around it.
-
-````CSHTML
-@using System.ComponentModel.DataAnnotations @* This Using is for the model class attributes only *@
-
-<EditForm Model="@validationModel" OnValidSubmit="@HandleValidSubmit">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-
-    <TelerikColorPalette @bind-Value="@validationModel.FavoriteColor" />
-
-    <ValidationMessage For="@(() => validationModel.FavoriteColor)" />
-
-    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
-
-</EditForm>
-
-@code {
-    ColorValidationModel validationModel { get; set; } = new ColorValidationModel();
-
-    class ColorValidationModel
-    {
-        [Required]
-        public string FavoriteColor { get; set; }
-    }
-
-    async void HandleValidSubmit()
-    {
-        Console.WriteLine("valid submit");
     }
 }
 ````

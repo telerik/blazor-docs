@@ -49,8 +49,6 @@ The selected date is: @selectedDate
 
 ````
 
->tip The `Date` parameter indicates the view the user is in. You can use its `DateChanged` event to know when the user browses through the Calendar.
-
 ## Navigation
 
 The Calendar navigation allows the user to navigate through several views that represent different periods of time, for example, a month or a year. You can control the calendar level (view) at which the user starts, to what detail (view) they can go, the min, max, and current date. To make the Calendar display a specific date programmatically, you can use the `Date` and `View` parameters that support two-way binding. [Read more about the Calendar navigation...]({%slug components/calendar/navigation%}) 
@@ -70,6 +68,37 @@ You can display a wider range of dates by rendering multiple instances of the Ca
 ## Events
 
 The Calendar generates events that you can handle and further customize ist behavior. [Read more about the Blazor Calendar events...]({%slug components/calendar/events%}).
+
+## Calendar Parameters
+
+The Blazor Calendar provides various parameters that allow you to configure the component. Also check the [Calendar's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+| `BottomView` | `CalendarView` enum <br /> (`Month`) | The most detailed view of the Calendar to which the user can navigate to. |
+| `Date` | `DateTime` | The date that indicates the view the user is currently in. Supports two-way binding. |
+| `DisabledDates` | `List<DateTime>` | A list of dates that cannot be selected as the start or end of the range. See the <a href="https://demos.telerik.com/blazor-ui/calendar/disabled-dates" target="_blank">Live Demo: Calendar - Disabled Dates</a>. |
+| `Max` | `DateTime` | The latest date that the user can select. |
+| `Min` | `DateTime` | The earliest date that the user can select. |
+| `Orientation` | `CalendarOrientation` enum <br /> (`Horizontal`) | The orientation of the Calendar. The available options are `Horizontal` and `Vertical`. Applicable when using [more than one view]({%slug components/calendar/multiview%}). |
+| `RangeStart` | `DateTime` | The selected start date when [range selection]({%slug components/calendar/selection%}#range-selection-mode) is enabled. Supports two-way binding. |
+| `RangeEnd` | `DateTime` | The selected end date when [range selection]({%slug components/calendar/selection%}#range-selection-mode) is enabled. Supports two-way binding. |
+| `SelectedDates` | `List<DateTime>` | The selected dates when [multiple selection]({%slug components/calendar/selection%}#multiple-selection-mode) is used. |
+| `SelectionMode` | `CalendarSelectionMode` enum <br /> (`Single`) | The [selection mode]({%slug components/calendar/selection%}) of the calendar. |
+| `Value` | `DateTime` or `DateTime?` | The current value of the component when [single selection]({%slug components/calendar/selection%}#single-selection-mode) is used. Supports two-way binding. |
+| `View` | ` CalendarView` enum <br /> (`Month`)| The current view that will be displayed in the Calendar. Supports two-way binding. |
+| `Views` | ` int` <br/> (`1`) | The [number of views]({%slug components/calendar/multiview%}) that will be rendered to each other. |
+| `TopView` | `CalendarView` enum <br /> (`Century`) | The most aggregated view of the Calendar to which the user can navigate. |
+
+### Styling and Appearance
+
+The following parameters enable you to customize the appearance of the Blazor Calendar:
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Calendar (`<div class="k-calendar>`). |
 
 ## Calendar Reference and Methods
 

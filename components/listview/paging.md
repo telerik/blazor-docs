@@ -85,7 +85,8 @@ In addition to `Page` and `PageSize`, the ListView provides advanced pager confi
         <ListViewPagerSettings InputType="PagerInputType.Input"
                                PageSizes="@PageSizes"
                                ButtonCount="5"
-                               Adaptive="true">
+                               Adaptive="true"
+                               Position="PagerPosition.Top">
         </ListViewPagerSettings>
     </ListViewSettings>
     <Template>
@@ -116,7 +117,8 @@ In addition to `Page` and `PageSize`, the ListView provides advanced pager confi
 
 ## See Also
 
-  * [ListView Overview]({%slug listview-overview%})
-  * [Manual Data Source Operations]({%slug listview-manual-operations%})
-  * [Events]({%slug listview-events%})
-  * [Live Demo: ListView](https://demos.telerik.com/blazor-ui/listview/overview)
+* [ListView Overview]({%slug listview-overview%})
+* [Manual Data Source Operations]({%slug listview-manual-operations%})
+* [Events]({%slug listview-events%})
+* [How to increase the pager dropdownlist width]({%slug pager-kb-dropdown-width%})
+* [Live Demo: ListView](https://demos.telerik.com/blazor-ui/listview/overview)

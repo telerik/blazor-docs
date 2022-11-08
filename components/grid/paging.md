@@ -109,7 +109,8 @@ In addition to `Page` and `PageSize`, the Grid provides advanced pager configura
         <GridPagerSettings InputType="PagerInputType.Input"
                            PageSizes="@PageSizes"
                            ButtonCount="5"
-                           Adaptive="true">
+                           Adaptive="true"
+                           Position="PagerPosition.Top">
         </GridPagerSettings>
     </GridSettings>
     <GridColumns>
@@ -134,6 +135,8 @@ The following articles and sample projects can be helpful when implementing pagi
 * [Capture PageChanged event]({%slug grid-events%}#pagechanged)
 
 * [Server Paging]({%slug components/grid/manual-operations%}) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
+
+* [How to increase the pager dropdownlist width]({%slug pager-kb-dropdown-width%})
 
 ## See Also
 

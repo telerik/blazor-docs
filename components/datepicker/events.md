@@ -17,6 +17,7 @@ This article explains the events available in the Telerik DatePicker for Blazor:
 * [OnOpen](#onopen)
 * [OnClose](#onclose)
 * [OnBlur](#onblur)
+* [OnCalendarCellRender](#oncalendarcellrender)
 
 
 ## ValueChanged
@@ -212,6 +213,53 @@ The `OnBlur` event fires when the component loses focus.
 
     DateTime? TheDate { get; set; } = DateTime.Now;
 }
+````
+
+## OnCalendarCellRender
+
+The `OnCalendarCellRender` event fires when each calendar cell in each view is about to render. The event allows you to find out the current view and cell date. You can also set a custom CSS class for the `<td>` element.
+
+The event handler receives as an argument an `DatePickerCalendarCellRenderEventArgs` object that contains:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `Class` | `string` | A custom CSS class for the calendar cell DOM element. |
+| `Date` | `DateTime` | The date of the calendar cell. |
+| `View` | `CalendarView` enum <br /> (`Month`) | The currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on. |
+
+>caption Handle the OnCalendarCellRender event.
+
+````CSHTML
+@* Customize the calendar cells using the OnCalendarCellRender event. *@
+
+<TelerikDatePicker OnCalendarCellRender="@OnCalendarCellRenderHandler"
+                   @bind-Value="DatePickerValue"
+                   Width="295px">
+</TelerikDatePicker>
+
+@code {
+    private DateTime DatePickerValue { get; set; } = DateTime.Now;
+
+    private void OnCalendarCellRenderHandler(DatePickerCalendarCellRenderEventArgs args)
+    {
+        if (args.View == CalendarView.Month)
+        {
+            args.Class = args.Date.Day % 3 == 0 ? "special" : "";
+        }
+        else if (args.View == CalendarView.Decade)
+        {
+            args.Class = args.Date.Year == 2020 ? "special" : "";
+        }
+    }
+}
+
+<style>
+    .special {
+        color: white;
+        background-color: greenyellow;
+        font-weight: bold;
+    }
+</style>
 ````
 
 ## See Also

@@ -157,3 +157,5 @@ The delete confirmation dialog triggers before event deletion. You can enable it
   * [Data Binding]({%slug scheduler-appointments-databinding%})
   * [Live Demo: Appointment Editing](https://demos.telerik.com/blazor-ui/scheduler/appointment-editing)
   * [Custom Edit Form](https://github.com/telerik/blazor-ui/tree/master/scheduler/custom-edit-form)
+  * [Customize the Delete Confirmation Dialog]({%slug grid-kb-customize-delete-confirmation-dialog%})
+

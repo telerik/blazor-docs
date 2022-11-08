@@ -18,6 +18,7 @@ This article explains the events available in the Telerik Scheduler for Blazor:
 * [OnItemDoubleClick](#onitemdoubleclick)
 * [OnItemContextMenu](#onitemcontextmenu)
 * [ItemRender](#itemrender)
+* [OnCellRender](#oncellrender)
 * [DateChanged](#datechanged)
 * [ViewChanged](#viewchanged)
 
@@ -939,6 +940,108 @@ Through its event arguments you can get the `Item` to cast it to your model type
 </style>
 ````
 
+## OnCellRender
+
+The `OnCellRender` event fires upon rendering of each slot cell. It allows you to set a custom CSS class to the cell, based on business logic.
+
+The handler receives an argument of type `SchedulerCellRenderEventArgs` which exposes the following fields:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `Class` | `string` | The CSS class that will be applied to the cell. |
+| `IsAllDay` | `bool` | Whether the slot is inside the `AllDay` row/column.
+| `Resources` | `List<KeyValuePair<string, object>` | The resources that are associated with the column/row. Applicable when the Scheduler uses both - [resources]({%slug scheduler-resources%}) and [grouping]({%slug scheduler-resource-grouping%}). Needed to differentiate between the same dates within different groups. |
+| `Start` | `DateTime` | The slot start time. |
+| `End` | `DateTime` | The slot end time. |
+
+>caption Customize certain Scheduler slots by handling the `OnCellRender` event
+
+````CSHTML
+<style>
+    .lunch-break {
+        background-color: rgba(255,124,115,0.3);
+        pointer-events:none;
+    }
+    
+    .lunch-break::after {
+        content: "Lunch break";
+    }
+</style>
+
+<TelerikScheduler Data="@Appointments"
+                  OnCellRender="@OnCellRenderHandler"
+                  @bind-Date="@SchedulerStartDate"
+                  @bind-View="@SchedulerCurrentView"
+                  Height="600px">
+    <SchedulerViews>
+        <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" />
+        <SchedulerWeekView StartTime="@DayStart" EndTime="@DayEnd" />
+        <SchedulerMonthView />
+    </SchedulerViews>
+</TelerikScheduler>
+
+@code {
+    private DateTime SchedulerStartDate { get; set; } = new DateTime(2022, 7, 25, 8, 0, 0);
+
+    private SchedulerView SchedulerCurrentView { get; set; } = SchedulerView.Week;
+
+    // only the time portion matters
+    private DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
+    private DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 19, 0, 0);
+
+    private void OnCellRenderHandler(SchedulerCellRenderEventArgs args)
+    {
+        DateTime lunchStart = new DateTime(1900, 1, 1, 12, 0, 0);
+        DateTime lunchEnd = new DateTime(1900, 1, 1, 12, 30, 0);
+
+        if ((args.Start.TimeOfDay.Equals(lunchStart.TimeOfDay) || args.End.TimeOfDay.Equals(lunchEnd.TimeOfDay)) && 
+            (args.Start.DayOfWeek != DayOfWeek.Saturday && args.Start.DayOfWeek != DayOfWeek.Sunday)
+            )
+        {
+            args.Class = "lunch-break";
+        }
+    }
+
+    private List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
+    {
+        new SchedulerAppointment
+        {
+            Title = "Planning meeting",
+            Start = new DateTime(2022, 7, 25, 9, 0, 0),
+            End = new DateTime(2022, 7, 25, 11, 30, 0)
+        },
+        new SchedulerAppointment
+        {
+            Title = "Software updates",
+            Start = new DateTime(2022, 7, 26, 13, 0, 0),
+            End = new DateTime(2022, 7, 26, 14, 30, 0)
+        },
+          new SchedulerAppointment
+        {
+            Title = "Support meeting",
+            Start = new DateTime(2022, 7, 27, 8, 0, 0),
+            End = new DateTime(2022, 7, 27, 9, 30, 0)
+        },
+        new SchedulerAppointment
+        {
+            Title = "Trip to Hawaii",
+            IsAllDay = true,
+            Start = new DateTime(2022, 7, 28),
+            End = new DateTime(2022, 8, 07)
+        }
+    };
+
+    public class SchedulerAppointment
+    {
+        public string Title { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
+    }
+}
+````
 
 ## DateChanged
 

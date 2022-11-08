@@ -18,6 +18,7 @@ This article explains the events available in the Telerik DateRangePicker for Bl
 * [OnOpen](#onopen)
 * [OnClose](#onclose)
 * [ViewChanged](#viewchanged)
+* [OnCalendarCellRender](#oncalendarcellrender)
 
 
 ## StartValueChanged and EndValueChanged
@@ -210,6 +211,57 @@ The `ViewChanged` event fires when the user changes the view they are seeing in 
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
+## OnCalendarCellRender
+
+The `OnCalendarCellRender` event fires when each calendar cell in each view is about to render. The event allows you to find out the current view and cell date. You can also set a custom CSS class for the `<td>` element.
+
+The event handler receives as an argument an `DateRangePickerCalendarCellRenderEventArgs` object that contains:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `Class` | `string` | A custom CSS class for the calendar cell DOM element. |
+| `Date` | `DateTime` | The date of the calendar cell. |
+| `View` | `CalendarView` enum <br /> (`Month`) | The currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on. |
+
+>caption Handle the OnCalendarCellRender event.
+
+````CSHTML
+@* Customize the calendar cells using the OnCalendarCellRender event. *@
+
+<TelerikDateRangePicker OnCalendarCellRender="@OnCalendarCellRenderHandler"
+                        @bind-StartValue="@StartValue"
+                        @bind-EndValue="@EndValue"
+                        Format="dd MMMM yyyy"
+                        Min="@Min" Max="@Max">
+</TelerikDateRangePicker>
+
+@code {
+    private DateTime? StartValue { get; set; } = DateTime.Now;
+    private DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
+    private DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
+    private DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
+
+    private void OnCalendarCellRenderHandler(DateRangePickerCalendarCellRenderEventArgs args)
+    {
+        if (args.View == CalendarView.Month)
+        {
+            args.Class = args.Date.Day % 3 == 0 ? "special" : "";
+        }
+        else if (args.View == CalendarView.Decade)
+        {
+            args.Class = args.Date.Year == 2020 ? "special" : "";
+        }
+    }
+}
+
+<style>
+    .special {
+        color: white;
+        background-color: greenyellow;
+        font-weight: bold;
+    }
+</style>
+````
 
 ## See Also
 

@@ -404,6 +404,8 @@ navigation:
         title: "Scheduler"
      "*scrollview":
         title: "ScrollView"
+     "*signature":
+        title: "Signature"
      "*slider":
         title: "Slider"
      "*skeleton":
@@ -523,6 +525,7 @@ intro_columns:
       "Numeric Textbox": "components/numerictextbox/overview"
       "Radio Button Group": "radiogroup-overview"
       "RangeSlider": "rangeslider-overview"
+      "Signature": "signature-overview"
       "Slider": "slider-overview"
       "Switch": "switch-overview"
       "TextArea": "textarea-overview"
@@ -619,8 +622,7 @@ baseurl: /blazor-ui
 enable_blazorRepl: true
 
 ## Latest UI for Blazor version. Used in some articles
-uiForBlazorLatestVersion: "3.6.0"
-supportedFrameworkVersion: ".NET Core 3.1.11 and .NET 6"
+uiForBlazorLatestVersion: "3.6.1"
 
 ## Compatible theme version for CDN URLs
 themeCdnVersion: "5.8.0"

@@ -8,7 +8,7 @@ position: 4
 
 # Download New Versions
 
-The Progress&reg; Telerik&reg; UI for Blazor Visual Studio (VS) Extensions enable you to keep your projects updated.
+The Progress&reg; Telerik&reg; UI for Blazor Visual Studio (VS) Extensions allow you to download the latest version of the UI components without leaving Visual Studio.
 
 
 <!--
@@ -21,11 +21,9 @@ Clicking the **Update Now** button starts the Latest Version Acquirer tool which
 -->
 
 
-Clicking the **Get Latest** button in the [Create New Project]({% slug getting-started-vs-integration-new-project %}) wizard starts the Latest Version Acquirer tool. You must enter your Telerik credentials to continue. If you do not have a [www.telerik.com](https://www.telerik.com) account, select the **Create an account for free** link.
+Clicking the **Get Latest** button in the [Create New Project]({% slug getting-started-vs-integration-new-project %}) wizard starts the Latest Version Acquirer tool. The tool checks for new versions of the UI components and allows you to download them to your computer. You must enter your Telerik credentials to continue. If you do not have a [www.telerik.com](https://www.telerik.com) account, select the **Create an account for free** link.
 
 1. Log in with your Telerik credentials
-
-    >tip To avoid entering your Telerik credentials multiple times, select **Save my password**. The credentials are saved securely in a per-user context. Other users on the machine do not have access to your stored credentials.
 
     ![First, log in](images/login-vs-ext-download.png)
 
@@ -37,12 +35,10 @@ Clicking the **Get Latest** button in the [Create New Project]({% slug getting-s
 
 1. Return to the [Create New Project]({% slug getting-started-vs-integration-new-project %}) wizard and select the newly downloaded version from the dropdown menu.
 
-    >tip If you use the **Download** or **Get Latest** buttons on the **Create New Project** screen to launch the update, the wizard will return to the same screen automatically.
-
     ![The new version is now available in the New Project wizard](images/new-version-in-new-project-wizard.png)
     
     
->tip The **Latest Version Acquirer** tool downloads a `.zip` file that contains the latest Telerik UI for Blazor packages. It is saved in the `%APPDATA%\Telerik\Updates` folder by default. If the list with the offered packages gets too long and you do not need the older versions, close VS and use the Windows Explorer to delete these distributions.
+The **Latest Version Acquirer** tool downloads a `.zip` file that contains the latest Telerik UI for Blazor packages. It is saved in the `%APPDATA%\Telerik\Updates` folder by default. If the list with the offered packages gets too long and you do not need the older versions, close VS and use the Windows Explorer to delete these distributions.
 
 ## See Also
 
