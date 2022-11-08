@@ -49,8 +49,6 @@ The selected date is: @selectedDate
 
 ````
 
->tip The `Date` parameter indicates the view the user is in. You can use its `DateChanged` event to know when the user browses through the Calendar.
-
 ## Navigation
 
 The Calendar navigation allows the user to navigate through several views that represent different periods of time, for example, a month or a year. You can control the calendar level (view) at which the user starts, to what detail (view) they can go, the min, max, and current date. To make the Calendar display a specific date programmatically, you can use the `Date` and `View` parameters that support two-way binding. [Read more about the Calendar navigation...]({%slug components/calendar/navigation%}) 
@@ -79,8 +77,8 @@ The Blazor Calendar provides various parameters that allow you to configure the 
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `BottomView` | `CalendarView` enum <br /> `Month` | The most detailed view of the Calendar to which the user can navigate to. |
-| `Date` | `DateTime` | The date to which the user has navigated the Calendar. Supports two-way binding. |
+| `BottomView` | `CalendarView` enum <br /> (`Month`) | The most detailed view of the Calendar to which the user can navigate to. |
+| `Date` | `DateTime` | The date that indicates the view the user is currently in. Supports two-way binding. |
 | `DisabledDates` | `List<DateTime>` | A list of dates that cannot be selected as the start or end of the range. See the <a href="https://demos.telerik.com/blazor-ui/calendar/disabled-dates" target="_blank">Live Demo: Calendar - Disabled Dates</a>. |
 | `Max` | `DateTime` | The latest date that the user can select. |
 | `Min` | `DateTime` | The earliest date that the user can select. |
@@ -90,7 +88,7 @@ The Blazor Calendar provides various parameters that allow you to configure the 
 | `SelectedDates` | `List<DateTime>` | The selected dates when [multiple selection]({%slug components/calendar/selection%}#multiple-selection-mode) is used. |
 | `SelectionMode` | `CalendarSelectionMode` enum <br /> (`Single`) | The [selection mode]({%slug components/calendar/selection%}) of the calendar. |
 | `Value` | `DateTime` or `DateTime?` | The current value of the component when [single selection]({%slug components/calendar/selection%}#single-selection-mode) is used. Supports two-way binding. |
-| `View` | ` CalendarView` | The current view that will be displayed in the Calendar. Supports two-way binding. |
+| `View` | ` CalendarView` enum <br /> (`Month`)| The current view that will be displayed in the Calendar. Supports two-way binding. |
 | `Views` | ` int` <br/> (`1`) | The [number of views]({%slug components/calendar/multiview%}) that will be rendered to each other. |
 | `TopView` | `CalendarView` enum <br /> (`Century`) | The most aggregated view of the Calendar to which the user can navigate. |
 

@@ -22,7 +22,9 @@ You can increase or decrease the size of the Calendar by setting the `Size` attr
 |`Medium`|`md`|
 |`Large`|`lg`|
 
->caption The built-in sizes
+This configuration affects the size of the whole Calendar and its inner elements - header, navigation buttons, cells. The elements' size, padding and font-size vary depending on the selected Calendar size.
+
+>caption The built-in Calendar sizes
 
 ````CSHTML
 @{

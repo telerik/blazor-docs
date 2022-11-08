@@ -62,17 +62,17 @@ The Blazor Date Range Picker provides various parameters that allow you to confi
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `BottomView` | ` CalendarView` <br/> (`CalendarView.Month`) | Defines the bottommost view in the popup calendar to which the user can navigate to. |
+| `BottomView` | ` CalendarView` enum <br/> (`Month`) | Defines the bottommost view in the popup calendar to which the user can navigate to. |
 | `DebounceDelay` | `int` <br/> (`150`) | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
-| `DisabledDates` | `List<DateTime>` | A list of dates that can not be selected as the start or end of the range, see the <a href="https://demos.telerik.com/blazor-ui/daterangepicker/disabled-dates" target="_blank">Live Demo: Date Range Picker Disabled Dates</a>. |
+| `DisabledDates` | `List<DateTime>` | A list of dates that can not be selected as the start or end of the range. See the <a href="https://demos.telerik.com/blazor-ui/daterangepicker/disabled-dates" target="_blank">Live Demo: Date Range Picker Disabled Dates</a>. |
 | `Enabled` | `bool` | Whether typing in the inputs is allowed. |
 | `Format` | `string` | The format of the DateInputs of the DateRangePicker. [Read more about supported data formats in Telerik DateInput for Blazor UI]({%slug components/dateinput/supported-formats%}) article. |
 |`EndId` and `StartId` | `string` | The `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
 | `Min` | `DateTime` | The earliest date that the user can select. |
 | `Max` | `DateTime` | The latest date that the user can select. |
-| `Orientation` | `CalendarOrientation`enum <br /> (`Horizontal`) | The orientation of the calendar popup when using multiple views. The available options are `Horizontal` and `Vertical`. |
+| `Orientation` | `CalendarOrientation`enum <br /> (`Horizontal`) | The orientation of the calendar popup. The available options are `Horizontal` and `Vertical`. |
 | `StartValue` and `EndValue` | `T` | The current values of the inputs for start and end of the range. Can be used for two-way binding. |
-| `View` | ` CalendarView` | The current view that will be displayed in the popup calendar. |
+| `View` | ` CalendarView` enum <br/> (`Month`) | The current view that will be displayed in the popup calendar. |
 | `TabIndex` | `int?` | The `tabindex` attribute of both `input` HTML elements in the component. They both will have the same `tabindex`. Use it to customize the tabbing (focus) order of the inputs on your page. |
 | `Placeholder` |`string` | The `placeholder` attribute of the two `<input />` elements. The `Placeholder` will appear if the component is bound to **nullable** DateTime objects - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime objects. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
 
