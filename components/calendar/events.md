@@ -180,7 +180,10 @@ You can also customize the cells through their [templates]({%slug calendar-templ
 >caption Use the CellRender event to style cells based on conditions
 
 ````CSHTML
-Move between the calendar views to see the different behaviors in the Month and Decade views.
+@*
+Special cells in the month view will be red and bold.
+Special cells in the decade view will be purple and yellow on hover.
+*@
 
 <TelerikCalendar OnCellRender="@OnCellRender">
 </TelerikCalendar>
@@ -204,16 +207,13 @@ Move between the calendar views to see the different behaviors in the Month and 
         color: red;
         font-weight: bold;
     }
-    td.special:hover .k-link {
+
+    .k-calendar td.special:hover .k-link {
         background-color: purple;
         color: yellow;
     }
 </style>
 ````
-
->caption The result from the code snippet above
-
-![cell render appearance customization](images/calendar-cell-render-example.gif)
 
 ## See Also
 
