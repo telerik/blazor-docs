@@ -81,7 +81,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Signature Parameters
 
-The following table lists the Signature parameters. Also check the [Signature API Reference](/blazor-ui/api/Telerik.Blazor.Components.Signature).
+The following table lists the Signature parameters. Also check the [Signature API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSignature).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
