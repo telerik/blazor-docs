@@ -16,7 +16,7 @@ This article explains the events available in the Telerik Calendar for Blazor:
 * [DateChanged](#datechanged)
 * [ViewChanged](#viewchanged)
 * [RangeStartChanged and RangeEndChanged](#rangestartchanged-and-rangeendchanged)
-* [CellRender](#cellrender)
+* [OnCellRender](#oncellrender)
 
 ## ValueChanged
 
@@ -162,8 +162,7 @@ When the user selects a range from the calendar, the first click always fires th
 }
 ````
 
-
-## CellRender
+## OnCellRender
 
 The `CellRender` event fires when each cell in each view is about to render. The event allows you to find out the current view and cell date. You can also set a custom CSS class for the `<td>` element.
 
