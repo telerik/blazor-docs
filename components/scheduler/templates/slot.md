@@ -2,7 +2,7 @@
 title: Slot
 page_title: Scheduler - Slot Templates
 description: Use custom rendering for the slots in the Scheduler for Blazor.
-slug: scheduler-templates-dateheader
+slug: scheduler-templates-slot
 tags: telerik,blazor,scheduler,templates,slot,alldayslot,dateheader
 published: True
 position: 15
