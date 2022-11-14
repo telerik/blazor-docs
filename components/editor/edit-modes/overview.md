@@ -40,5 +40,5 @@ The key difference is that the `Iframe` mode creates a separate HTML document fo
   * [Div Mode]({%slug editor-edit-modes-div%})
   * [Iframe Mode]({%slug editor-edit-modes-iframe%})
   * [Editor Overview]({%slug editor-overview%})
-  * [Editor Toolbar]({%slug editor-toolbars%})
+  * [Editor Toolbar]({%slug editor-toolbar%})
 
