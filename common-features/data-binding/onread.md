@@ -210,6 +210,8 @@ The components fire an `OnRead` event when the user performs an action, such as 
 
 All components with an `OnRead` event have a `Rebind` method as well. To refresh the component data programmatically, call this method. It will force the component to fire `OnRead` and receive new data.
 
+Also check [how to rebind and refresh a component with a `Timer`]({%slug common-kb-rebind-timer%}).
+
 >caption Rebind DropDownList and Grid when using OnRead
 
 ````CSHTML
