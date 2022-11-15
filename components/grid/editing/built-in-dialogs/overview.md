@@ -25,4 +25,5 @@ The default texts of the dialogs are exposed in the [localization]({%slug global
 * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/editing-incell)
 * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
 * [Live Demo: Grid Custom Edit Form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form)
+* [How to show a Cancel Confirmation Dialog]({%slug grid-kb-show-confirm-cancel-dialog%})
 
