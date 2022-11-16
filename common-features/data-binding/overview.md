@@ -96,7 +96,7 @@ There are three ways to refresh the component data:
 * Call the component's `Rebind()` method. UI for Blazor version **3.3.0** exposed `Rebind()` for all databound components. Until then, the method was available only for the [components that have an `OnRead` event]({%slug common-features-data-binding-onread%}#components-with-onread-event). If the component is databound via `OnRead`, the [`Rebind()` method will fire the `OnRead` event]({%slug common-features-data-binding-onread%}#refresh-data).
 * Reset the `Data` parameter reference. Sometimes, you may also need to call `StateHasChanged()` - for example, if the refreshing occurs in `OnAfterRenderAsync`.
 
-The [example below](#example) demonstrates the second and third option.
+The [example below](#example) demonstrates the second and third option. Also check [how to rebind and refresh a component with a `Timer`]({%slug common-kb-rebind-timer%}).
 
 ### Reset the Collection Reference
 
