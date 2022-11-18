@@ -16,7 +16,7 @@ Design files for Figma&mdash;building blocks that match the Telerik UI for Blazo
 <img src="./images/ui-kits-for-figma.png" alt="Download UI Kits"/>
 </a>
 
-To enable efficient collaboration between designers and developers, we created three Telerik and Kendo UI Kits for Figma: Material, Bootstrap, and Telerik Default. Each UI kit corresponds to one of the themes that ship with the Telerik UI for Blazor components.
+To enable efficient collaboration between designers and developers, we created four Telerik and Kendo UI Kits for Figma: Material, Bootstrap, Fluent, and Default. Each UI kit corresponds to one of the themes that ship with the Telerik UI for Blazor components.
 
 These polished UI kits include pre-made, reusable design components that follow the [atomic design principles](https://atomicdesign.bradfrost.com/chapter-2/).
 
@@ -50,6 +50,8 @@ To download the Telerik and Kendo UI Design Kits for Figma, navigate to the desi
 
 - [Telerik and Kendo UI Kit Default](https://www.figma.com/community/file/971702824494731137)
 
+- [Telerik & Kendo UI Kit for MS Fluent](https://www.figma.com/community/file/1174728993763737426)
+
 ## Exploring the UI Kits' Structure
 
 The Telerik and Kendo UI Kits for Figma utilize [nested instances and base components](https://www.figma.com/best-practices/creating-and-organizing-variants/using-variants-effectively/) to provide better manageability of the components. To make them more intuitive to use, we added support for [variants](https://help.figma.com/hc/en-us/articles/360055471353-Prepare-for-variants) to some of the components, like the chip.
@@ -69,7 +71,7 @@ Each UI kit for Figma contains the following pages, most of which provide multip
 
 Most pages contain multiple frames that group similar design assets.
 
-![Telerik and Kendo UI Kit Page with Multiple Frames](./images/figma-ui-kit-frames-v1.9.png)
+![Telerik and Kendo UI Kit Page with Multiple Frames](./images/figma-ui-kit-frames-v2.2.png)
 
 ## Customizing the UI Kits
 
