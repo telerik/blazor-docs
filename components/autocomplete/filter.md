@@ -10,78 +10,75 @@ position: 10
 
 # AutoComplete Filter
 
-The AutoComplete component can filter the available suggestions according to the current user input, so they can find the one they need faster. To see the difference in behavior, visit the [Live Demo: AutoComplete Filtering](https://demos.telerik.com/blazor-ui/autocomplete/filtering) page.
+The AutoComplete component can filter the available suggestions, according to the current input. In this way users can find the desired value faster. To see the difference in behavior, visit the [Live Demo: AutoComplete Filtering](https://demos.telerik.com/blazor-ui/autocomplete/filtering) page.
 
-To enable filtering, set the `Filterable` parameter to `true`.
+To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive. You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug autocomplete-events%}#onread).
 
-Filtering ignores casing and the default filter operator is `starts with`. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
+## Filter Operator
 
-To control when the filter list appears, set the `MinLength` parameter. This can be useful if you have a very large list of data.
+The default filter operator is `starts with`. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
 
-By default, the filtering will be debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug autocomplete-overview%}#parameters) parameter of the component.
+## Minimum Length
 
-You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug autocomplete-events%}#onread).
+To control when the filter list appears, set the `MinLength` parameter. This can be useful if you have a very large list of data or a lot of similar items.
+
+## Performance
+
+By default, the filtering is debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug autocomplete-overview%}#parameters) parameter of the component.
+
+## Filtering Example
 
 >caption Filtering in the AutoComplete
 
 ````CSHTML
-@* as you type "de", you will only get "Developer" and "Designer" as suggestions instead of the full list *@
+<ul>
+    <li>
+        <label>
+            Choose filter operator:
+            <select @bind="FilterOperator">
+                @foreach (var possibleFilter in Enum.GetValues(typeof(StringFilterOperator)))
+                {
+                    <option value="@possibleFilter">@possibleFilter</option>
+                }
+            </select>
+        </label>
+    </li>
+    <li>
+        <label>
+            Minimum string length before filtering:
+            <TelerikNumericTextBox @bind-Value="@FilterMinLength" Min="0" Width="100px" />
+        </label>
+    </li>
+    <li>
+        <label>
+            Debounce delay:
+            <TelerikNumericTextBox @bind-Value="@AutoCompleteDebounceDelay" Min="0" Width="120px" />
+        </label>
+    </li>
+</ul>
 
-<TelerikAutoComplete Data="@Suggestions" @bind-Value="@TheValue"
+<br />
+
+<TelerikAutoComplete Data="@Suggestions"
+                     @bind-Value="@AutoCompleteValue"
                      Filterable="true"
-                     Placeholder="Write 'de' to see the filtering" ClearButton="true" />
+                     FilterOperator="@FilterOperator"
+                     MinLength="@FilterMinLength"
+                     DebounceDelay="@AutoCompleteDebounceDelay"
+                     Placeholder="Type 's' or 'a' to see the difference"
+                     ClearButton="true"
+                     Width="300px" />
 
 @code{
-    string TheValue { get; set; }
+    private string AutoCompleteValue { get; set; }
 
-    List<string> Suggestions { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
-}
-````
+    private StringFilterOperator FilterOperator { get; set; } = StringFilterOperator.StartsWith;
 
->caption Filtering with MinLength
+    private int FilterMinLength { get; set; } = 1;
 
-````CSHTML
-@* On the first keystroke, there will be no suggestions, then you will only get "Developer" and "Designer" as you write "de" *@
+    private int AutoCompleteDebounceDelay { get; set; } = 150;
 
-<TelerikAutoComplete Data="@Suggestions" @bind-Value="@TheValue"
-                     Filterable="true" MinLength="2"
-                     Placeholder="Write 'de' to see the filtering" ClearButton="true" />
-
-@code{
-    string TheValue { get; set; }
-
-    List<string> Suggestions { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
-}
-````
-
-
->caption Choose FilterOperator
-
-````CSHTML
-@* Type something in the input to see items filtered. Choose a new filter operator and repeat *@
-
-<label>
-    Choose filter operator:
-    <select @bind="filterOperator">
-        @foreach (var possibleFilter in Enum.GetValues(typeof(StringFilterOperator)))
-        {
-            <option value="@possibleFilter">@possibleFilter</option>
-        }
-    </select>
-</label>
-<TelerikAutoComplete Data="@Suggestions" @bind-Value="@TheValue"
-                     Filterable="true" FilterOperator="@filterOperator"
-                     Placeholder="Write 's' or 'a' to see the difference" ClearButton="true" />
-
-@code{
-    string TheValue { get; set; }
-    StringFilterOperator filterOperator { get; set; } = StringFilterOperator.StartsWith;
-
-    List<string> Suggestions { get; set; } = new List<string> {
+    private List<string> Suggestions { get; set; } = new List<string> {
         "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
     };
 }
@@ -89,6 +86,4 @@ You can also implement custom (server) filtering and set a data source dynamical
 
 ## See Also
 
-  * [Live Demo: AutoComplete Filtering](https://demos.telerik.com/blazor-ui/autocomplete/filtering)
-   
-  
+* [Live Demo: AutoComplete Filtering](https://demos.telerik.com/blazor-ui/autocomplete/filtering)

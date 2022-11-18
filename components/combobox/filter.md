@@ -12,116 +12,90 @@ position: 10
 
 The ComboBox component allows the user to filter the available items by their text, so they can find the one they need faster.
 
-To enable filtering, set the `Filterable` parameter to `true`.
+To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive. You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug components/combobox/events%}#onread).
 
-Filtering ignores casing and the default filter operator is `starts with`. Filtering looks in the `TextField`, and the filter is reset when the dropdown closes. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
+Filtering looks in the `TextField`, and the filter is reset when the dropdown closes.
 
-By default, the filtering will be debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug components/combobox/overview%}#parameters) parameter of the component.
+## Filter Operator
 
-You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug components/combobox/events%}#onread).
+The default filter operator is `starts with`. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
+
+## Performance
+
+By default, the filtering is debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug components/combobox/overview%}#parameters) parameter of the component.
+
+## Filtering Example
 
 >caption Filtering in the ComboBox
 
 ````CSHTML
-@* Type something in the input to see items whose text contains only the typed string, for example "uct 2" *@
+<ul>
+    <li>
+        <label>
+            Choose filter operator:
+            <select @bind="FilterOperator">
+                @foreach (var possibleFilter in Enum.GetValues(typeof(StringFilterOperator)))
+                {
+                    <option value="@possibleFilter">@possibleFilter</option>
+                }
+            </select>
+        </label>
+    </li>
+    <li>
+        <label>
+            Debounce delay:
+            <TelerikNumericTextBox @bind-Value="@DebounceDelay" Min="0" Width="120px" />
+        </label>
+    </li>
+</ul>
 
-@SelectedValue
 <br />
 
-<TelerikComboBox Data="@Data"
+<TelerikComboBox Data="@ProductList"
+                 @bind-Value="@SelectedProduct"
+                 TextField="@nameof(Product.Name)"
+                 ValueField="@nameof(Product.Id)"
                  Filterable="true"
-                 Placeholder="Find product by typing part of its name"
-                 @bind-Value="@SelectedValue" TextField="ProductName" ValueField="ProductId">
+                 FilterOperator="@FilterOperator"
+                 DebounceDelay="@DebounceDelay" 
+                 Placeholder="Type digits to see filtering in action"
+                 ClearButton="true"
+                 Width="300px">
 </TelerikComboBox>
 
-@code {
-    public List<Product> Data { get; set; }
-    public int? SelectedValue { get; set; }
+@code{
+    private List<Product> ProductList { get; set; }
+
+    private int? SelectedProduct { get; set; }
+
+    private StringFilterOperator FilterOperator { get; set; } = StringFilterOperator.StartsWith;
+
+    private int DebounceDelay { get; set; } = 150;
 
     protected override void OnInitialized()
     {
-        List<Product> products = new List<Product>();
-        for (int i = 0; i < 20; i++)
+        ProductList = new List<Product>();
+
+        for (int i = 1; i <= 30; i++)
         {
-            products.Add(new Product()
+            ProductList.Add(new Product()
             {
-                ProductId = i,
-                ProductName = $"Product {i}"
+                Id = i,
+                Name = $"{i} Product {i * 111}"
             });
         }
 
-        Data = products;
         base.OnInitialized();
     }
 
     public class Product
     {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-    }
-}
-````
-
->caption Choose Filter Operator
-
-````CSHTML
-@* Type something in the input to see items filtered. Choose a new filter operator and repeat *@
-
-<label for="filterOperatorChoice">
-    Choose filter operator:
-    <select @bind="@filterOperator" class="form-control" style="width: 130px;margin-bottom:1rem;"
-            id="filterOperatorChoice">
-        @foreach (var possibleFilter in Enum.GetValues(typeof(StringFilterOperator)))
-        {
-            <option value="@possibleFilter">@possibleFilter</option>
-        }
-    </select>
-</label>
-
-@SelectedValue
-<br />
-
-<TelerikComboBox Data="@Data"
-                 Filterable="true" FilterOperator="@filterOperator"
-                 Placeholder="Find a car by typing part of its make"
-                 @bind-Value="@SelectedValue" TextField="Make" ValueField="Id">
-</TelerikComboBox>
-
-@code {
-    StringFilterOperator filterOperator { get; set; } = StringFilterOperator.Contains;
-    List<Car> Data { get; set; } = new List<Car>
-    {
-        new Car { Id = 1, Make = "Honda" },
-        new Car { Id = 2, Make = "Opel" },
-        new Car { Id = 3, Make = "Audi" },
-        new Car { Id = 4, Make = "Lancia" },
-        new Car { Id = 5, Make = "BMW" },
-        new Car { Id = 6, Make = "Mercedes" },
-        new Car { Id = 7, Make = "Tesla" },
-        new Car { Id = 8, Make = "Vw" },
-        new Car { Id = 9, Make = "Alpha Romeo" },
-        new Car { Id = 10, Make = "Chevrolet" },
-        new Car { Id = 11, Make = "Ford" },
-        new Car { Id = 12, Make = "Cadillac" },
-        new Car { Id = 13, Make = "Dodge" },
-        new Car { Id = 14, Make = "Jeep" },
-        new Car { Id = 15, Make = "Chrysler" },
-        new Car { Id = 16, Make = "Lincoln" }
-    };
-
-    int? SelectedValue { get; set; }
-
-    public class Car
-    {
         public int Id { get; set; }
-        public string Make { get; set; }
+        public string Name { get; set; }
     }
 }
 ````
-
 
 ## See Also
 
-  * [Live Demo: ComboBox Filtering](https://demos.telerik.com/blazor-ui/combobox/filtering)
-   
-  
+* [Live Demo: ComboBox Filtering](https://demos.telerik.com/blazor-ui/combobox/filtering)
