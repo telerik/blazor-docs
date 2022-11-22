@@ -6,7 +6,7 @@ page_title: How to Change Grid CheckBox Values with One Click
 slug: grid-kb-checkbox-editing
 position: 
 tags: 
-ticketid: 1560276, 1562242, 1573118, 1580394
+ticketid: 1560276, 1562242, 1573118, 1580394, 1587589
 res_type: kb
 ---
 
