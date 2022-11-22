@@ -16,8 +16,9 @@ List of the available templates:
 
 * [Value Template](#value-template)
 * [Item Template](#item-template)
-* [Header](#header)
-* [Footer](#footer)
+* [Header Template](#header-template)
+* [Footer Template](#footer-template)
+* [No Data Template](#no-data-template)
 
 
 ## Value Template
@@ -98,7 +99,7 @@ Define what renders for the items in the dropdown
 
 ![Blazor Ddl Item Template](images/ddl-item-template.jpg)
 
-## Header
+## Header Template
 
 The header is content that you can place above the list of items inside the dropdownlist element. It is always visible when the dropdown is expanded. By default it is empty.
 
@@ -133,7 +134,7 @@ Define a header in the dropdown
 
 ![Blazor Ddl Header Template](images/ddl-header-template.jpg)
 
-## Footer
+## Footer Template
 
 The footer is content that you can place below the list of items inside the dropdownlist element. It is always visible when the dropdown is expanded. By default it is empty.
 
@@ -167,6 +168,29 @@ Define dropdown footer
 >caption The result from the code snippet above
 
 ![Blazor Ddl Footer Template](images/ddl-footer-template.jpg)
+
+## No Data Template
+
+@[template](/_contentTemplates/dropdowns/templates.md#no-data-template)
+
+>caption No Data Template Example
+
+````CSHTML
+<TelerikDropDownList Data="@DropDownData" @bind-Value="@DropDownValue">
+    <NoDataTemplate>
+        <div class="no-data-template">
+            <TelerikIcon Class="k-icon k-icon-lg" Icon="files-error"></TelerikIcon>
+            <p>No records available</p>
+        </div>
+    </NoDataTemplate>
+</TelerikDropDownList>
+
+@code {
+    private List<string> DropDownData { get; set; } = new List<string>();
+
+    private string DropDownValue { get; set; }
+}
+````
 
 ## See Also
 

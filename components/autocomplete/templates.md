@@ -15,8 +15,9 @@ The AutoComplete component allows you to change what is rendered in its items, h
 List of the available templates:
 
 * [Item Template](#item-template)
-* [Header](#header)
-* [Footer](#footer)
+* [Header Template](#header-template)
+* [Footer Template](#footer-template)
+* [No Data Template](#no-data-template)
 
 
 ## Item Template
@@ -47,7 +48,7 @@ The Item template determines how the individual items are rendered in the dropdo
 
 ![Blazor Autocomplete Item Template](images/autocomplete-item-template.png)
 
-## Header
+## Header Template
 
 The header is content that you can place above the list of items inside the dropdown element. It is always visible when the combobox is expanded. By default it is empty.
 
@@ -75,7 +76,7 @@ The header is content that you can place above the list of items inside the drop
 
 ![Blazor Autocomplete Header Template](images/autocomplete-header-template.png)
 
-## Footer
+## Footer Template
 
 The footer is content that you can place below the list of items inside the dropdownlist element. It is always visible when the dropdown is expanded. By default it is empty.
 
@@ -102,6 +103,29 @@ The footer is content that you can place below the list of items inside the drop
 >caption The result from the code snippet above
 
 ![Blazor Autocomplete Footer Template](images/autocomplete-footer-template.png)
+
+## No Data Template
+
+@[template](/_contentTemplates/dropdowns/templates.md#no-data-template)
+
+>caption No Data Template Example
+
+````CSHTML
+<TelerikAutoComplete Data="@AutoCompleteData" @bind-Value="@AutoCompleteValue">
+    <NoDataTemplate>
+        <div class="no-data-template">
+            <TelerikIcon Class="k-icon k-icon-lg" Icon="files-error"></TelerikIcon>
+            <p>No records available</p>
+        </div>
+    </NoDataTemplate>
+</TelerikAutoComplete>
+
+@code {
+    private List<string> AutoCompleteData { get; set; } = new List<string>();
+
+    private string AutoCompleteValue { get; set; }
+}
+````
 
 ## See Also
 

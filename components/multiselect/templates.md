@@ -15,8 +15,9 @@ The MultiSelect component allows you to change what is rendered in its items, he
 List of the available templates:
 
 * [Item Template](#item-template)
-* [Header](#header)
-* [Footer](#footer)
+* [Header Template](#header-template)
+* [Footer Template](#footer-template)
+* [No Data Template](#no-data-template)
 
 
 ## Item Template
@@ -47,7 +48,7 @@ The Item template determines how the individual items are rendered in the dropdo
 
 ![Blazor Multiselect Item Template](images/multiselect-item-template.png)
 
-## Header
+## Header Template
 
 The header is content that you can place above the list of items inside the dropdown element. It is always visible when the multiselect is expanded. By default it is empty.
 
@@ -75,7 +76,7 @@ The header is content that you can place above the list of items inside the drop
 
 ![Blazor Multiselect Header Template](images/multiselect-header-template.png)
 
-## Footer
+## Footer Template
 
 The footer is content that you can place below the list of items inside the dropdownlist element. It is always visible when the dropdown is expanded. By default it is empty.
 
@@ -102,6 +103,30 @@ The footer is content that you can place below the list of items inside the drop
 >caption The result from the code snippet above
 
 ![Blazor Multiselect Footer Template](images/multiselect-footer-template.png)
+
+
+## No Data Template
+
+@[template](/_contentTemplates/dropdowns/templates.md#no-data-template)
+
+>caption No Data Template Example
+
+````CSHTML
+<TelerikMultiSelect Data="@MultiSelectData" @bind-Value="@MultiSelectValues">
+    <NoDataTemplate>
+        <div class="no-data-template">
+            <TelerikIcon Class="k-icon k-icon-lg" Icon="files-error"></TelerikIcon>
+            <p>No records available</p>
+        </div>
+    </NoDataTemplate>
+</TelerikMultiSelect>
+
+@code {
+    private List<string> MultiSelectData { get; set; } = new List<string>();
+
+    private List<string> MultiSelectValues { get; set; } = new List<string>();
+}
+````
 
 ## See Also
 
