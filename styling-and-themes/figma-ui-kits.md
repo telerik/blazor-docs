@@ -16,7 +16,12 @@ Design files for Figma&mdash;building blocks that match the Telerik UI for Blazo
 <img src="./images/ui-kits-for-figma.png" alt="Download UI Kits"/>
 </a>
 
-To enable efficient collaboration between designers and developers, we created four Telerik and Kendo UI Kits for Figma: Material, Bootstrap, Fluent, and Default. Each UI kit corresponds to one of the themes that ship with the Telerik UI for Blazor components.
+To enable efficient collaboration between designers and developers, we created multiple Telerik and Kendo UI Kits for Figma. Each UI kit corresponds to one of the [themes that ship with the Telerik UI for Blazor components]({%slug general-information/themes%}):
+
+* Material
+* Bootstrap
+* Fluent
+* Default
 
 These polished UI kits include pre-made, reusable design components that follow the [atomic design principles](https://atomicdesign.bradfrost.com/chapter-2/).
 
