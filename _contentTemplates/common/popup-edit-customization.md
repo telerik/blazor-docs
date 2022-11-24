@@ -16,7 +16,7 @@ Parameter | Type | Description
 #edit-form-settings
 Parameter | Type | Description
 ---------|----------|---------
-`ButtonsLayout` | `FormButtonsLayout` <br/> (`End`)  | The horizontal alignment of the buttons. Takes a member of the `FormButtonsLayout` enum: <br/> - `Start` <br/> - `End` <br/> - `Center` <br/> - `Stretched`
+`ButtonsLayout` | `FormButtonsLayout` <br/> (`End`)  | The horizontal alignment of the buttons. Takes a member of the `FormButtonsLayout` enum: <br/> - `Start` <br/> - `End` <br/> - `Center` <br/> - `Stretch`
  `Columns` | `int` | The count of the columns
  `ColumnSpacing` | `int` | The column spacing 
  `Orientation` | `FormOrientation` <br/> (`Vertical`) | The orientation of the form. Takes a member of the `FormOrientation` enum: <br/> - `Horizontal` <br/> - `Vertical`
