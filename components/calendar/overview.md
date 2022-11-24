@@ -69,6 +69,10 @@ You can display a wider range of dates by rendering multiple instances of the Ca
 
 The Calendar generates events that you can handle and further customize ist behavior. [Read more about the Blazor Calendar events...]({%slug components/calendar/events%}).
 
+## Week Numbers
+
+The Calendar component can display the ISO week number on each row of date cells. See the [`WeekNumber` parameter](#calendar-parameters) below.
+
 ## Calendar Parameters
 
 The Blazor Calendar provides various parameters that allow you to configure the component. Also check the [Calendar's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar).
@@ -91,6 +95,7 @@ The Blazor Calendar provides various parameters that allow you to configure the 
 | `View` | ` CalendarView` enum <br /> (`Month`)| The current view that will be displayed in the Calendar. Supports two-way binding. |
 | `Views` | ` int` <br/> (`1`) | The [number of views]({%slug components/calendar/multiview%}) that will be rendered to each other. |
 | `TopView` | `CalendarView` enum <br /> (`Century`) | The most aggregated view of the Calendar to which the user can navigate. |
+| `WeekNumber` | `bool` | Sets if the Calendar will display week numbers, according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
 
 ### Styling and Appearance
 
