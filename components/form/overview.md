@@ -212,19 +212,44 @@ The Blazor Form exposes multiple parameters that allow you to customize its layo
 
 ## Form Reference
 
-Use the Form Reference to get access to the `EditContext` object that the form will generate when you pass a `Model` to it. It could be useful to, for example, re-attach validation when you change the model - `FormReference.EditContext.AddDataAnnotationsValidation()`.
+Use the Form reference to get access to its `EditContext`. The Form generates this object, no matter if the component uses a `Model` or an `EditContext` parameter. You can validate the `EditContext` manually or re-attach validation when you change the model - `FormReference.EditContext.AddDataAnnotationsValidation()`.
 
 >caption Get a reference to the Telerik Form for Blazor 
 
-<div class="skip-repl"></div>
 ````CSHTML
-@* Get a reference to the Form component *@
+@using System.ComponentModel.DataAnnotations
 
-<TelerikForm Model="@person" @ref="@FormReference">
+<TelerikForm Model="@TeamMate" @ref="@FormRef" Width="300px">
+    <FormValidation>
+        <DataAnnotationsValidator />
+    </FormValidation>
 </TelerikForm>
 
 @code {
-    private TelerikForm FormReference { get; set; }
+    private TelerikForm FormRef { get; set; }
+
+    private Employee TeamMate { get; set; } = new();
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            FormRef?.EditContext.Validate();
+        }
+
+        base.OnAfterRender(firstRender);
+    }
+
+    public class Employee
+    {
+        [Display(AutoGenerateField = false)]
+        public int Id { get; set; }
+        [Required]
+        [MinLength(2, ErrorMessage = "{0} should be at least {1} characters.")]
+        public string Name { get; set; }
+        [Required]
+        public DateTime? BirthDate { get; set; }
+    }
 }
 ````
 
