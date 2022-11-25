@@ -12,118 +12,83 @@ position: 20
 
 The AutoComplete component allows you to change what is rendered in its items, header and footer through templates.
 
-List of the available templates:
+>caption In this article:
 
 * [Item Template](#item-template)
 * [Header Template](#header-template)
 * [Footer Template](#footer-template)
 * [No Data Template](#no-data-template)
-
+* [Example](#example)
 
 ## Item Template
 
-The Item template determines how the individual items are rendered in the dropdown element of the component. By default, the text from the particular suggestions is rendered.
-
->caption Item Template Example
-
-````CSHTML
-@* Define what renders for the items in the dropdown *@
-
-<TelerikAutoComplete Data="@Suggestions" @bind-Value="@Role" Placeholder="Write your position">
-    <ItemTemplate>
-        Are you a&nbsp;<strong>@context</strong>
-    </ItemTemplate>
-</TelerikAutoComplete>
-
-@code{
-    string Role { get; set; }
-
-    List<string> Suggestions { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Autocomplete Item Template](images/autocomplete-item-template.png)
+@[template](/_contentTemplates/dropdowns/templates.md#item-template)
 
 ## Header Template
 
-The header is content that you can place above the list of items inside the dropdown element. It is always visible when the combobox is expanded. By default it is empty.
-
->caption Header Example
-
-````CSHTML
-@* Define a header in the dropdown *@
-
-<TelerikAutoComplete Data="@Suggestions" @bind-Value="@Role" Placeholder="Write your position">
-    <HeaderTemplate>
-        <strong>Write your own if you don't see it in the list</strong>
-    </HeaderTemplate>
-</TelerikAutoComplete>
-
-@code{
-    string Role { get; set; }
-
-    List<string> Suggestions { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Autocomplete Header Template](images/autocomplete-header-template.png)
+@[template](/_contentTemplates/dropdowns/templates.md#header-template)
 
 ## Footer Template
 
-The footer is content that you can place below the list of items inside the dropdownlist element. It is always visible when the dropdown is expanded. By default it is empty.
-
->caption Footer Example
-
-````CSHTML
-@* Define dropdown footer *@
-
-<TelerikAutoComplete Data="@Suggestions" @bind-Value="@Role" Placeholder="Write your position">
-    <FooterTemplate>
-        <h5>Total Positions: @Suggestions.Count()</h5>
-    </FooterTemplate>
-</TelerikAutoComplete>
-
-@code{
-    string Role { get; set; }
-
-    List<string> Suggestions { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Autocomplete Footer Template](images/autocomplete-footer-template.png)
+@[template](/_contentTemplates/dropdowns/templates.md#footer-template)
 
 ## No Data Template
 
 @[template](/_contentTemplates/dropdowns/templates.md#no-data-template)
 
->caption No Data Template Example
+## Example
+
+>caption Using AutoComplete Templates
 
 ````CSHTML
-<TelerikAutoComplete Data="@AutoCompleteData" @bind-Value="@AutoCompleteValue">
+@* AutoComplete component with HeaderTemplate, ItemTemplate, FooterTemplate and NoDataTemplate *@
+
+<p>
+    <TelerikCheckBox @bind-Value="@IsDataAvailable" OnChange="@OnCheckBoxChangeHandler" />
+    AutoComplete has data
+</p>
+
+<TelerikAutoComplete Data="@AutoCompleteData" @bind-Value="@Role" Placeholder="Write your position">
+    <HeaderTemplate>
+        <strong>Write your own if you don't see it in the list</strong>
+    </HeaderTemplate>
+    <ItemTemplate>
+        Are you a&nbsp;<strong>@context</strong>
+    </ItemTemplate>
+    <FooterTemplate>
+        <h6>Total Positions: @AutoCompleteData.Count()</h6>
+    </FooterTemplate>
     <NoDataTemplate>
         <div class="no-data-template">
             <TelerikIcon Class="k-icon k-icon-lg" Icon="files-error"></TelerikIcon>
-            <p>No records available</p>
+            <p>No items available</p>
         </div>
     </NoDataTemplate>
 </TelerikAutoComplete>
 
 @code {
-    private List<string> AutoCompleteData { get; set; } = new List<string>();
+    private string Role { get; set; }
 
-    private string AutoCompleteValue { get; set; }
+    private bool IsDataAvailable { get; set; } = true;
+
+    private List<string> AutoCompleteData { get; set; }
+
+    private List<string> SourceData { get; set; } = new List<string> { "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer" };
+
+    protected override void OnInitialized()
+    {
+        AutoCompleteData = SourceData;
+    }
+
+    private void OnCheckBoxChangeHandler()
+    {
+        if (IsDataAvailable)
+        {
+            AutoCompleteData = new List<string>(SourceData);
+        }else{
+            AutoCompleteData = new List<string>();
+        }
+    }
 }
 ````
 

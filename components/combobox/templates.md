@@ -12,189 +12,84 @@ position: 25
 
 The ComboBox component allows you to change what is rendered in its items, header and footer through templates.
 
-List of the available templates:
+>caption In this article:
 
 * [Item Template](#item-template)
 * [Header Template](#header-template)
 * [Footer Template](#footer-template)
 * [No Data Template](#no-data-template)
+* [Example](#example)
+
 
 ## Item Template
 
-The Item template determines how the individual items are rendered in the dropdown element of the component. By default, the text from the model is rendered.
-
->caption Item Template Example
-
-````CSHTML
-@* Define what renders for the items in the dropdown *@
-
-<TelerikComboBox @bind-Value=@SelectedValue
-                 Data="@ComboBoxData"
-                 ValueField="ProductId"
-                 TextField="ProductName">
-    <ItemTemplate>
-        <strong>@((context as Product).ProductName) - @(String.Format("{0:C2}", (context as Product).UnitPrice))</strong>
-    </ItemTemplate>
-</TelerikComboBox>
-
-@code {
-    public IEnumerable<Product> ComboBoxData { get; set; }
-    public int SelectedValue { get; set; } = 2;
-
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i < 10; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                UnitPrice = (decimal)(i * 3.14)
-            });
-        }
-
-        ComboBoxData = products;
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Combo Item Template](images/combo-item-template.png)
+@[template](/_contentTemplates/dropdowns/templates.md#item-template)
 
 ## Header Template
 
-The header is content that you can place above the list of items inside the dropdown element. It is always visible when the combobox is expanded. By default it is empty.
-
->caption Header Example
-
-````CSHTML
-@* Define a header in the dropdown *@
-
-<TelerikComboBox @bind-Value=@SelectedValue
-                 Data="@ComboBoxData"
-                 ValueField="ProductId"
-                 TextField="ProductName">
-    <HeaderTemplate>
-        <div class="k-header" style="margin-top: 10px; padding-bottom: 10px">Header</div>
-    </HeaderTemplate>
-</TelerikComboBox>
-
-@code {
-    public IEnumerable<Product> ComboBoxData { get; set; }
-    public int SelectedValue { get; set; } = 2;
-
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i < 10; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                UnitPrice = (decimal)(i * 3.14)
-            });
-        }
-
-        ComboBoxData = products;
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Combo Header Template](images/combo-header-template.png)
+@[template](/_contentTemplates/dropdowns/templates.md#header-template)
 
 ## Footer Template
 
-The footer is content that you can place below the list of items inside the dropdownlist element. It is always visible when the dropdown is expanded. By default it is empty.
-
->caption Footer Example
-
-````CSHTML
-@* Define dropdown footer *@
-
-<TelerikComboBox @bind-Value=@SelectedValue
-                 Data="@ComboBoxData"
-                 ValueField="ProductId"
-                 TextField="ProductName">
-    <FooterTemplate>
-        <div class="k-footer" style="margin-top: 10px">A total of @ComboBoxData.Count() items</div>
-    </FooterTemplate>
-</TelerikComboBox>
-
-@code {
-    public IEnumerable<Product> ComboBoxData { get; set; }
-    public int SelectedValue { get; set; } = 2;
-
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i < 10; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                UnitPrice = (decimal)(i * 3.14)
-            });
-        }
-
-        ComboBoxData = products;
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Combo Footer Template](images/combo-footer-template.png)
+@[template](/_contentTemplates/dropdowns/templates.md#footer-template)
 
 ## No Data Template
 
 @[template](/_contentTemplates/dropdowns/templates.md#no-data-template)
 
->caption No Data Template Example
+## Example
+
+>caption Using ComboBox Templates
 
 ````CSHTML
-<TelerikComboBox Data="@ComboBoxData" @bind-Value="@ComboBoxValue">
+@* ComboBox component with HeaderTemplate, ItemTemplate, FooterTemplate and NoDataTemplate *@
+
+<p>
+    <TelerikCheckBox @bind-Value="@IsDataAvailable" OnChange="@OnCheckBoxChangeHandler" />
+    ComboBox has data
+</p>
+
+<TelerikComboBox Data="@ComboBoxData" @bind-Value="@Role" Placeholder="Write your position">
+    <HeaderTemplate>
+        <strong>Select one of the following:</strong>
+    </HeaderTemplate>
+    <ItemTemplate>
+        Are you a&nbsp;<strong>@context</strong>
+    </ItemTemplate>
+    <FooterTemplate>
+        <h6>Total Positions: @ComboBoxData.Count()</h6>
+    </FooterTemplate>
     <NoDataTemplate>
         <div class="no-data-template">
             <TelerikIcon Class="k-icon k-icon-lg" Icon="files-error"></TelerikIcon>
-            <p>No records available</p>
+            <p>No items available</p>
         </div>
     </NoDataTemplate>
 </TelerikComboBox>
 
 @code {
-    private List<string> ComboBoxData { get; set; } = new List<string>();
+    private string Role { get; set; }
 
-    private string ComboBoxValue { get; set; }
+    private bool IsDataAvailable { get; set; } = true;
+
+    private List<string> ComboBoxData { get; set; }
+
+    private List<string> SourceData { get; set; } = new List<string> { "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer" };
+
+    protected override void OnInitialized()
+    {
+        ComboBoxData = SourceData;
+    }
+
+    private void OnCheckBoxChangeHandler()
+    {
+        if (IsDataAvailable)
+        {
+            ComboBoxData = new List<string>(SourceData);
+        }else{
+            ComboBoxData = new List<string>();
+        }
+    }
 }
 ````
 
