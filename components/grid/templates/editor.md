@@ -10,29 +10,149 @@ position: 15
 
 # Editor Template
 
-The column's `EditTemplate` defines the inline template or component that will be rendered when the user is [editing]({%slug components/grid/editing/overview%}) the field. It is also used when inserting a new item.
+The column's `EditorTemplate` defines the inline template or component that will be rendered when the user is [editing]({%slug components/grid/editing/overview%}) the field. It is also used when inserting a new item.
 
-You can data bind components in the editor template to the current context, which is an instance of the model the grid is bound to. You will need a global variable that is also an instance of the model to store those changes. The template receives a copy of the original model, so that changes can be cancelled with the `Cancel` command. See the **Notes** section of the [Editing Overview]({%slug components/grid/editing/overview%}#notes) article for more details on how and when that copy is created.
+You can data bind components in the editor template to the current `context`. This is the data item instance, which is bound to the currently edited Grid ow. Cast `context` to the data item type and store it in a global or local variable. Then, use this variable for one-way or two-way binding in the `EditorTemplate`.
 
-If you need to perform logic more complex than simple data binding, use the change event of the custom editor component to perform it. You can also consider using a [custom edit form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form).
+The template receives a **copy** of the original model, so that changes can be cancelled with the `Cancel` command. See the [**Notes** section in the Grid Editing Overview]({%slug components/grid/editing/overview%}#notes) for more details on how and when that copy is created.
 
-In this article:
-
-* [Examples](#examples)
-
-    * [Sample editor template for a field - limit the string input options through a select element](#sample-editor-template-for-a-field---limit-the-string-input-options-through-a-select-element)
-
-    * [Sample editor template that uses a foreign key](#sample-editor-template-that-uses-a-foreign-key)
-
-* [Notes](#notes)
+If you need more complex logic inside the editor template, compared to simple data binding, use the `change` event of the custom editor component. You can also use a [custom Grid edit form]({%slug grid-kb-custom-edit-form%}).
 
 >tip The Editor Template works in all edit modes (Inline, Popup, InCell). Before using it with InCell mode, review the [pertinent notes](../editing/incell#editor-template).
 
+**In this article:**
+
+* [Notes](#notes)
+* [Examples](#examples)
+    * [Multi-line text with HTML Editor or TextArea](#multi-line-text-with-html-editor-or-textarea)
+    * [How to limit the input options with a select element](#limit-the-input-options-with-a-select-element)
+    * [Editor template for a foreign key column](#editor-template-for-a-foreign-key-column)
+
+## Notes
+
+* As of version 2.23.0 of Telerik UI for Blazor the Grid row creates `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the **Notes** section of the [Editing Overview]({%slug components/grid/editing/overview%}#notes) article.
+
+* We recommend casting the Editor Template context to your model and storing it in a local or a dedicated global variable. Do not share a global variable within multiple templates, like column (cell) template and editor template. Variable sharing can lead to unexpected behavior.
+
+* Direct casting of the `context` can make the data binding not work properly.
+
+
+>caption Not recommended: direct casting. Binding does not work properly.
+
+<div class="skip-repl"></div>
+
+````CSHTML
+<EditorTemplate>
+    <TelerikTextArea @bind-Value="@((Product)context).Description" />
+</EditorTemplate>
+````
+
+>caption Recommended: cast the context to your model type and store it in a variable. Binding works as expected.
+
+<div class="skip-repl"></div>
+
+````CSHTML
+<EditorTemplate>
+    @{
+        EditedProduct = context as Product;
+
+        <TelerikTextArea @bind-Value="@EditedProduct.Description" />
+    }
+</EditorTemplate>
+
+@code{
+    private Product EditedProduct { get; set; }
+}
+````
+
 ## Examples
 
-This section demonstrates two example usages of the Editor Template:
+This section demonstrates different scenarios with the Editor Template:
 
-### Sample editor template for a field - limit the string input options through a select element
+## Multi-line text with HTML Editor or TextArea
+
+The Grid will save changes and close the current edit row (or edit cell) when the user hits Enter. To prevent this inside HTML Editor or TextArea components, stop the propagation of the `keydown` event:
+
+````CSHTML
+<TelerikGrid Data="@Products"
+             EditMode="@GridEditMode.Inline"
+             OnUpdate="@OnGridUpdate">
+    <GridColumns>
+        <GridColumn Field="@nameof(Product.Name)" Width="200px" />
+        <GridColumn Field="@nameof(Product.Description)" Width="200px">
+            <EditorTemplate>
+                @{
+                    var item = (Product)context;
+
+                    <div @onkeydown:stopPropagation>
+                        <TelerikTextArea @bind-Value="@item.Description"></TelerikTextArea>
+                    </div>
+                }
+            </EditorTemplate>
+        </GridColumn>
+        <GridColumn Field="@nameof(Product.HTMLDescription)">
+            <Template>
+                @{
+                    var item = (Product)context;
+
+                    @(new MarkupString(item.HTMLDescription))
+                }
+            </Template>
+            <EditorTemplate>
+                @{
+                    var item = (Product)context;
+
+                    <div @onkeydown:stopPropagation>
+                        <TelerikEditor @bind-Value="@item.HTMLDescription"></TelerikEditor>
+                    </div>
+                }
+            </EditorTemplate>
+        </GridColumn>
+        <GridCommandColumn Width="200px">
+            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Save</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+
+    private List<Product> Products { get; set; }
+
+    private async Task OnGridUpdate(GridCommandEventArgs args)
+    {
+        var item = (Product)args.Item;
+        var index = Products.FindIndex(x => x.Id == item.Id);
+
+        Products[index] = item;
+    }
+
+    protected override void OnInitialized()
+    {
+        Products = new List<Product>() {
+            new Product()
+            {
+                Name = "Product Name",
+                Description = "Description line 1\nsecond line in textarea only",
+                HTMLDescription = "<p>Description.</p><p>Second paragraph.</p>"
+            }
+        };
+
+        base.OnInitialized();
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string HTMLDescription { get; set; }
+    }
+}
+````
+
+## Limit the input options with a select element
 
 ````CSHTML
 @* This example shows how to use a simple <select> to edit strings. You can implement any desired logic instead.
@@ -143,9 +263,11 @@ This section demonstrates two example usages of the Editor Template:
 
 ![editor template for simple strings with a select element](images/edit-template-simple-string-select.png)
 
-### Sample editor template that uses a foreign key
+## Editor template for a foreign key column
 
->tip This example uses the ID that represents the foreign for the grid column `Field`. You may want to use a text field that you can add to your model (or from a [nested model]({%slug grid-use-navigation-properties%})) instead - this will change what renders in the `Template` by default, and will change the rules and operators for filtering, sorting, and so using a field with human-readable information (like strings) might provide better UX.
+This example uses an ID that represents the foreign key for the grid column `Field`. You may want to use a text field that you can add to your model (or from a [nested model]({%slug grid-use-navigation-properties%})) instead - this will change what renders in the `Template` by default, and will change the rules and operators for filtering, sorting, and so using a field with human-readable information (like strings) might provide better UX.
+
+Also check the [Grid Foreign Key Column]({%slug grids-foreign-key%}) knowledge base article.
 
 ````CSHTML
 @* This example shows one way to use a dropdownlist to edit values with a foreign key. *@
@@ -281,58 +403,7 @@ This section demonstrates two example usages of the Editor Template:
 
 ![Editor Template for a foreign key](images/edit-template-foreign-key.png)
 
-## Notes
-
-* As of version 2.23.0 of Telerik UI for Blazor the Grid row creates `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the **Notes** section of the [Editing Overview]({%slug components/grid/editing/overview%}#notes) article.
-
-* We recommend casting the Editor Template context to your model and storing it in a local or a dedicated global variable. If a global variable is used, it should not be shared/assigned within multiple Templates, like Column (Cell) for example, as it may lead to unexpected behavior.
-
-* Directly casting the context results in data binding not working properly.
-
-
->caption Not recommended approach: direct casting - binding does not work properly
-
-````CSHTML
-<EditorTemplate>   
-        <TelerikDropDownList Data="@Roles" DefaultText="Select Role"
-                             @bind-Value="@((Employee)context).RoleId"
-                             TextField="@nameof(Role.RoleName)" ValueField="@nameof(Role.RoleId)"
-                             Width="100%">
-            <DropDownListSettings>
-                <DropDownListPopupSettings Height="auto" />
-            </DropDownListSettings>
-        </TelerikDropDownList>
-</EditorTemplate>
-````
-
-<br/>
-
->caption Recommended approach: cast the context to your model and store it in a global variable - binding works as expected
-
-````CSHTML
-<EditorTemplate>
-    @{
-        CurrentlyEditedEmployee = context as Employee;
-
-        <TelerikDropDownList Data="@Roles" DefaultText="Select Role"
-                             @bind-Value="@CurrentlyEditedEmployee.RoleId"
-                             TextField="@nameof(Role.RoleName)" ValueField="@nameof(Role.RoleId)"
-                             Width="100%">
-            <DropDownListSettings>
-                <DropDownListPopupSettings Height="auto" />
-            </DropDownListSettings>
-        </TelerikDropDownList>
-    }
-</EditorTemplate>
-
-@code{
-
-    public Employee CurrentlyEditedEmployee { get; set; }
-
-}
-````
-
 ## See Also
 
- * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
- * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
+* [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
+* [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
