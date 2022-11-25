@@ -212,7 +212,7 @@ The Blazor Form exposes multiple parameters that allow you to customize its layo
 
 ## Form Reference
 
-Use the Form Reference to get access its `EditContext`. The Form generates this object, no matter if the component uses a `Model` or an `EditContext` parameter. You can validate the `EditContext` manually or re-attach validation when you change the model - `FormReference.EditContext.AddDataAnnotationsValidation()`.
+Use the Form Reference to get access to its `EditContext`. The Form generates this object, no matter if the component uses a `Model` or an `EditContext` parameter. You can validate the `EditContext` manually or re-attach validation when you change the model - `FormReference.EditContext.AddDataAnnotationsValidation()`.
 
 >caption Get a reference to the Telerik Form for Blazor 
 
