@@ -76,7 +76,7 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
 @code {
     private List<SampleData> GridData { get; set; }
 
-    private bool cancelEdit { get; set; }
+    private bool CancelEdit { get; set; }
 
     private string Title { get; set; } = "Please confirm";
 
@@ -87,9 +87,9 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
     {
         SampleData item = (SampleData)args.Item;
 
-        cancelEdit = await Dialogs.ConfirmAsync("Are you sure you want to cancel editing?", "Please confirm!");
+        CancelEdit = await Dialogs.ConfirmAsync("Are you sure you want to cancel editing?", "Please confirm!");
 
-        if (!cancelEdit)
+        if (!CancelEdit)
         {
             //stop the Cancel event to allow the user continue editing
             args.IsCancelled = true;
@@ -160,8 +160,8 @@ Using the [Dialog component]({%slug dialog-overview%}) will let you have fully c
         Are you sure you want to cancel the editing?
     </DialogContent>
     <DialogButtons>
-        <TelerikButton OnClick="@(() => CancelConfirmation("continueEdit"))">No, continue edit</TelerikButton>
-        <TelerikButton OnClick="@(() => CancelConfirmation("cancelEdit"))">Yes, cancel edit</TelerikButton>
+        <TelerikButton OnClick="@(() => CancelConfirmation(false))">No, continue edit</TelerikButton>
+        <TelerikButton OnClick="@(() => CancelConfirmation(true))">Yes, cancel edit</TelerikButton>
     </DialogButtons>
 </TelerikDialog>
 
@@ -187,24 +187,24 @@ Using the [Dialog component]({%slug dialog-overview%}) will let you have fully c
         //wait for the user choice from the dialog handled in CancelConfirmation()
         while (!ContinueEdit.HasValue)
         {
-            await Task.Delay(10);
+            await Task.Delay(50);
         }
 
         //cancel the event if the user wants to continue editing
         args.IsCancelled = ContinueEdit.Value;
     }
 
-    private async Task CancelConfirmation(string userchoice)
+    private async Task CancelConfirmation(bool CancelConfirmed)
     {
-        if (userchoice == "continueEdit")
+        if (CancelConfirmed)
         {
-            //stop the cancel event and continue edit
-            ContinueEdit = true;
+            //exit edit mode
+            ContinueEdit = false;
         }
         else
         {
-            //cancel the edit
-            ContinueEdit = false;
+            //stop the cancel event and continue edit
+            ContinueEdit = true;
         }
 
         //hide the dialog
