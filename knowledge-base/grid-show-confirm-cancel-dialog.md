@@ -121,7 +121,7 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
 
 ### Dialog Component
 
-Using the [Dialog component]({%slug dialog-overview%}) will let you have fully customized Cancel Confirmation Dialog. To handle the scenario:
+Using the [Dialog component]({%slug dialog-overview%}) will let you have fully customized confirmation Dialog. To handle the scenario:
 
 * Declare a Dialog instance and add the desired content and buttons there. Normally, you would need at least one button - for confirmation of the cancel operation.
 * Handle the [`OnCancel`]({%slug grid-events%}#cud-events) event of the Grid to show the custom Dialog.
