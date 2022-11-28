@@ -46,6 +46,8 @@ How to get a checkbox value in the Grid for update action on button click?
 1. If the updated CheckBox values require real-time synchronization with a remote data source, then use the [CheckBox `OnChange` or `ValueChanged` event]({%slug checkbox-events%}). In this case, `ValueChanged` will also require a [`ValueExpression`]({%slug common-kb-requires-valueexpression%}).
 
 ```CSHTML
+@using Telerik.DataSource.Extensions
+
 <TelerikGrid OnRead="@OnGridRead"
              TItem="@User"
              EditMode="@GridEditMode.Incell"
