@@ -96,8 +96,8 @@ The following table lists the Signature parameters. Also check the [Signature AP
 | `ExportScale` | `double` <br /> `(2)` | The `Width` and `Height` of the component will be multiplied by the value of the `ExportScale` when converting the signature to an image. |
 | `Height` | `string` | Defines the height of the component. Set it in `px`. |
 | `HideLine` | `bool` | Whether the dotted line is rendered. |
-| `Maximizable` | `bool` | Whether the Signature component can be maximized. |
-| `PopupScale` | `double` | The `Width` and `Height` of the component will be multiplied by the value of the `PopupScale` when maximizing (`Maximizable="true"`) the Blazor Signature. |
+| `Maximizable` | `bool` | Whether the Signature can be maximized via a button at the top-right corner. When maximized, the component will show a modal popup dialog. Also see `PopupScale`. |
+| `PopupScale` | `double` <br /> `(3)` | The `Width` and `Height` of the component will be multiplied by the `PopupScale` value when maximizing the Blazor Signature. Also see `Maximizable`. |
 | `ReadOnly` | `bool` | Maps to the `readonly` attribute. Use this parameter to put the Signature in read-only state. |
 | `Smooth` | `bool` | Use this parameter to smoothen the signature line. |
 | `StrokeWidth` | `double?` | The drawn lines' thickness in pixels. |
