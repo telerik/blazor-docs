@@ -45,7 +45,7 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
 
 * Handle the [`OnCancel`]({%slug grid-events%}#cud-events) event of the Grid
 * Display the Predefined Dialog in the `OnCancel` handler
-* Prevent the event or allow cancel edit/create depending on the user choice
+* Prevent the `OnCancel` event to keep the Grid in edit mode. This will cancel the other user action.
 
 ````CSHTML
 @*Only OnCancel event is handled for brevity*@
