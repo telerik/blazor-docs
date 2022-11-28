@@ -71,6 +71,10 @@ The RadioGroup component provides two ways to render the labels of the radio but
 
 The Blazor RadioGroup provides a `Size` parameter to customize the radio button dimensions. [Read more about the Blazor RadioGroup appearance settings]({%slug radiogroup-appearance%}).
 
+## Templates
+
+The [RadioGroup item template]({%slug radiogroup-templates%}) allows customization of the content of each radio item.
+
 ## Events
 
 The Blazor RadioGroup fires blur and value change events to respond to user actions. [Read more about the Blazor RadioGroup events]({%slug radiogroup-events%}).
@@ -100,12 +104,11 @@ See the [Input Validation]({%slug common-features/input-validation%}) article fo
 ## Next Steps
 
 * [Bind the RadioGroup to Data]({%slug radiogroup-databind%})
-
 * [Handle the RadioGroup Events]({%slug radiogroup-events%})
-
 * [Explore the RadioGroup Layouts]({%slug radiogroup-layout%})
+* [Customize the RadioGroup Item Rendering with Templates]({%slug radiogroup-templates%})
 
 ## See Also
 
-  * [Live RadioGroup Demos](https://demos.telerik.com/blazor-ui/radiogroup/overview)
-  * [RadioGroup API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikRadioGroup-2)
+* [Live RadioGroup Demos](https://demos.telerik.com/blazor-ui/radiogroup/overview)
+* [RadioGroup API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikRadioGroup-2)
