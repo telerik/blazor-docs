@@ -2,7 +2,7 @@
 title: Toolbar
 page_title: Editor - Toolbar
 description: Controlling the Toolbar in the Editor for Blazor - add and define buttons and tools.
-slug: editor-toolbars
+slug: editor-toolbar
 tags: telerik,blazor,toolbar
 published: True
 position: 20
