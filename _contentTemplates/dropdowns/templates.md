@@ -1,5 +1,7 @@
 #item-template
-The `ItemTemplate` determines how the individual items are rendered in the dropdown element of the component. By default, the text from the particular suggestions is rendered.
+The `ItemTemplate` determines how the individual items are rendered in the dropdown of the component. By default, the text from the particular suggestions is rendered.
+
+The `ItemTemplate` exposes a `context` which represents the data item object. Use it to render the item details.
 #end
 
 #header-template

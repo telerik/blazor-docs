@@ -54,7 +54,7 @@ The ComboBox component allows you to change what is rendered in its items, heade
         <strong>Select one of the following:</strong>
     </HeaderTemplate>
     <ItemTemplate>
-        Are you a&nbsp;<strong>@context</strong>
+        Are you a <strong>@context</strong>
     </ItemTemplate>
     <FooterTemplate>
         <h6>Total Positions: @ComboBoxData.Count()</h6>

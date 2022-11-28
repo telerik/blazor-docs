@@ -26,6 +26,8 @@ The DropDownList component allows you to change what is rendered in its items, b
 
 The `ValueTemplate` determines how the selected item renders in the main element of the dropdown list that is always visible. By default, the text from the model is rendered.
 
+The `ValueTemplate` exposes a `context` which represents the selected item object. Use it to render the selected item details.
+
 ## Item Template
 
 @[template](/_contentTemplates/dropdowns/templates.md#item-template)
@@ -62,7 +64,7 @@ The `ValueTemplate` determines how the selected item renders in the main element
         <strong>Select one of the following:</strong>
     </HeaderTemplate>
     <ItemTemplate>
-        Are you a&nbsp;<strong>@context</strong>
+        Are you a <strong>@context</strong>
     </ItemTemplate>
     <FooterTemplate>
         <h6>Total Positions: @DropDownData.Count()</h6>

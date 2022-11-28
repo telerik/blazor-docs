@@ -53,7 +53,7 @@ The AutoComplete component allows you to change what is rendered in its items, h
         <strong>Write your own if you don't see it in the list</strong>
     </HeaderTemplate>
     <ItemTemplate>
-        Are you a&nbsp;<strong>@context</strong>
+        Are you a <strong>@context</strong>
     </ItemTemplate>
     <FooterTemplate>
         <h6>Total Positions: @AutoCompleteData.Count()</h6>
