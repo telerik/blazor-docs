@@ -215,7 +215,7 @@ Using the [Dialog component]({%slug dialog-overview%}) will let you have fully c
     {
         GridData = new List<SampleData>();
 
-        for (int i = 0; i < 50; i++)
+        for (int i = 1; i <= 50; i++)
         {
             GridData.Add(new SampleData()
                 {
