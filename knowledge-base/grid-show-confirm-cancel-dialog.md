@@ -35,7 +35,7 @@ Telerik UI for Blazor provides predefined and custom Dialogs:
 
 * [Predefined Confirm Dialog](#predefined-confirm-dialog) - this option is useful if you want to have a simple dialog with plain text a single confirmation button.
 
-* [Dialog Component](#dialog-component) - this solution allows full control over the dialog rendering. You may add any desired content there such as custom text, HTML elements or other components.
+* [Dialog Component](#dialog-component) - this solution allows full control over the dialog content. You can add any custom text, HTML elements or other components.
 
 This article lists samples for the Grid component. The suggested solutions, however, are applicable for the [TreeList]({%slug treelist-overview%}), too.
 
