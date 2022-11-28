@@ -5,7 +5,7 @@ description: Events in the Radio Button Group for Blazor.
 slug: radiogroup-events
 tags: telerik,blazor,radio button group,list,dropdownlist,events
 published: true
-position: 20
+position: 25
 ---
 
 # Events
