@@ -29,7 +29,7 @@ How to prompt the user to confirm canceling the edit/create before proceeding wi
 
 ## Solution
 
-If the user tries to perform some other operation (such as sorting or filtering) while the Grid is in create or edit mode, the creating/editing will be canceled (check the last bullet of the [Editing Notes section]({%slug components/grid/editing/overview%}#notes) for more details). The `OnCancel` event will fire and you may handle it to display a Dialog to allow the user choose whether they want to cancel the editing or not.
+If the user performs another operation (such as sorting or filtering) while the Grid is in edit mode, then editing will be canceled. Check the last bullet in the [Editing Notes section]({%slug components/grid/editing/overview%}#notes) for more details. The Grid `OnCancel` event will fire and you can handle it to display a Dialog to allow the user to choose whether they want to cancel the editing or not.
 
 We provide predefined and custom dialogs and based on which one you want to proceed with, the implementation for achieving the desired scenario will be different:
 
