@@ -39,7 +39,7 @@
             }
         };
 
-        await TreeListRef.SetState(sortedState);
+        await TreeListRef.SetStateAsync(sortedState);
     }
 
     public List<Employee> Data { get; set; }
@@ -173,7 +173,7 @@
             }
         };
 
-        await TreeListRef.SetState(filteredState);
+        await TreeListRef.SetStateAsync(filteredState);
     }
 
     public List<Employee> Data { get; set; }
@@ -305,7 +305,7 @@
             }
         };
 
-        await TreeListRef.SetState(filteredState);
+        await TreeListRef.SetStateAsync(filteredState);
     }
 
     public List<Employee> Data { get; set; }
@@ -450,7 +450,7 @@
             }
         };
 
-        await TreeListRef.SetState(expandedState);
+        await TreeListRef.SetStateAsync(expandedState);
     }
 
     public List<Employee> Data { get; set; }

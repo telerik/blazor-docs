@@ -262,7 +262,7 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 
 If you are [using the `OnRead` event to optimize the data requests]({%slug components/grid/manual-operations%}), you may want to call that to fetch fresh data from the server. The Grid does that automatically after the [edit operations]({%slug components/grid/editing/overview%}), yet you may need to do it on your own.
 
-To make the Grid fire `OnRead`, execute its [`SetState` method]({%slug grid-state%})
+To make the Grid fire `OnRead`, execute its [`SetStateAsync` method]({%slug grid-state%})
 
 >caption Make the grid call OnRead by using its state
 
@@ -286,7 +286,7 @@ To make the Grid fire `OnRead`, execute its [`SetState` method]({%slug grid-stat
     TelerikGrid<Employee> GridRef { get; set; }
     async Task RefreshThroughState()
     {
-        await GridRef.SetState(GridRef.GetState());
+        await GridRef.SetStateAsync(GridRef.GetState());
     }
 
     //basic data generation follows

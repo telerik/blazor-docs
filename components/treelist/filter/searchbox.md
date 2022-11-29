@@ -171,7 +171,7 @@ You can set the TreeList filters programmatically through the component [state](
             SearchFilter = CreateSearchFilter()
         };
 
-        await TreeListRef.SetState(filteredState);
+        await TreeListRef.SetStateAsync(filteredState);
     }
 
     private IFilterDescriptor CreateSearchFilter()

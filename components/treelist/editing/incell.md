@@ -399,7 +399,7 @@ When using an [editor template]({%slug treelist-templates-editor%}), the TreeLis
                 // use the state to remove the edited item (close the editor)
                 state.EditItem = null;
                 state.OriginalEditItem = null;
-                await TreeList.SetState(state);
+                await TreeList.SetStateAsync(state);
             }
         }
 

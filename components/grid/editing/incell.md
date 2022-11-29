@@ -275,7 +275,7 @@ When using an [editor template]({%slug components/grid/features/templates%}#edit
                 // use the state to remove the edited item (close the editor)
                 state.EditItem = null;
                 state.OriginalEditItem = null;
-                await Grid.SetState(state);
+                await Grid.SetStateAsync(state);
             }
         }
 

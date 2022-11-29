@@ -120,7 +120,7 @@ You can set the Grid filters programmatically through the component [state]({%sl
             SearchFilter = CreateSearchFilter()
         };
 
-        await Grid.SetState(desiredState);
+        await Grid.SetStateAsync(desiredState);
     }
 
     private IFilterDescriptor CreateSearchFilter()
