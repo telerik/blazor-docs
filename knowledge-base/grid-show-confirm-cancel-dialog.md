@@ -100,7 +100,7 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
     {
         GridData = new List<SampleData>();
 
-        for (int i = 0; i < 50; i++)
+        for (int i = 1; i <= 50; i++)
         {
             GridData.Add(new SampleData()
                 {
