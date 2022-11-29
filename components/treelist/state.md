@@ -62,7 +62,7 @@ The `GetState` and `SetStateAsync` instance methods provide flexibility for your
 
 * `SetStateAsync` takes an instance of a TreeList state so you can use your own code to alter the component layout and state. For example, you can have a button that puts the TreeList in a certain configuration that helps your users review data (like certain filters, sorts, expanded items, initiate item editing or inserting, etc.).
 
-If you want to make changes on the current TreeList state, first get it from the component through the `GetState` method, then apply the modifications on the object you got, and pass it to `SaveState`.
+If you want to make changes on the current TreeList state, first get it from the component through the `GetState` method, then apply the modifications on the object you got, and pass it to `SetStateAsync`.
 
 If you want to put the TreeList in a certain configuration without preserving the old one, create a `new TreeListState<T>()` and apply the settings there, then pass it to `SetStateAsync`.
 
