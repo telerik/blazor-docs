@@ -18,67 +18,78 @@ The column template (the `<Template>` tag under the column definition) is what t
 
 The example below shows how to:
 
-* set the `Template` (make sure to use the capital `T`, at the time of writing the Visual Studio autocomplete tends to use the lowercase `t` which breaks the template logic and does not allow you to access the context)
-* access the `context` of the model item so you can employ your own logic
-* set HTML in the column
-* use inline or multi-line template
-* take the field name from the model
+* Set the `Template` (make sure to use the tag with a capital `T`. The Visual Studio autocomplete tends to use the lowercase `t` which breaks the template logic and does not allow you to access the context).
+* Access the `context` of the model item and employ your own logic.
+* Render HTML or nest components in the column template.
+* Use inline or multi-line template.
+* Get data item values from the model.
 
->caption Using cell (column) template
+>caption Using Grid cell (column) template
 
 ````CSHTML
-Cell template that renders an image based on model data
-
-<TelerikGrid Data="@MyData" Height="500px">
-	<GridColumns>
-		<GridColumn Field="@(nameof(SampleData.ID))" Title="Photo">
-			<Template>
-				@{
-					var employee = context as SampleData;
-					<img class="rounded" src="@($"/images/{employee.ID}.jpg")" alt="employee photo" />
-				}
-			</Template>
-		</GridColumn>
-		<GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name">
-			<Template>
-				Employee name is:
-				<br />
-				@((context as SampleData).Name)
-			</Template>
-		</GridColumn>
-		<GridColumn Field="HireDate" Title="Hire Date - Default string">
-		</GridColumn>
-		<GridColumn Field="HireDate" Title="Hire Date - Custom string">
-			<Template>
-				@((context as SampleData).HireDate.ToString("dd MMM yyyy"))
-			</Template>
-		</GridColumn>
-	</GridColumns>
+<TelerikGrid Data="@GridData" Height="400px">
+    <GridColumns>
+        <GridColumn Field="@(nameof(FoodItem.Id))" Title="Image">
+            <Template>
+                @{
+                    var item = (FoodItem)context;
+                    <img src="@($"https://demos.telerik.com/blazor-ui/images/{item.Id}.jpg")"
+                         alt="Image of @item.Name" />
+                }
+            </Template>
+        </GridColumn>
+        <GridColumn Field="@(nameof(FoodItem.Name))">
+            <Template>
+                Food item name:
+                <br />
+                <strong>@((context as FoodItem).Name)</strong>
+            </Template>
+        </GridColumn>
+        <GridColumn Field="@nameof(FoodItem.BestBefore)" Title="Date - Default format">
+        </GridColumn>
+        <GridColumn Field="@nameof(FoodItem.BestBefore)" Title="Date - Custom format string">
+            <Template>
+                @((context as FoodItem).BestBefore.ToString("dd MMM yyyy"))
+            </Template>
+        </GridColumn>
+        <GridColumn Field="@nameof(FoodItem.Organic)">
+            <Template>
+                @{
+                    var item = (FoodItem)context;
+                }
+                Read-only Checkbox:
+                <TelerikCheckBox @bind-Value="@item.Organic" Enabled="false" />
+                <br />
+                or Icon:
+                <TelerikIcon Icon="@( item.Organic ? "checkbox-checked" : "checkbox" )" />
+            </Template>
+        </GridColumn>
+    </GridColumns>
 </TelerikGrid>
 
 @code {
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-		public DateTime HireDate { get; set; }
-	}
+    private IEnumerable<FoodItem> GridData = Enumerable.Range(1, 10).Select(x => new FoodItem
+    {
+        Id = x,
+        Name = "Food Item " + x,
+        BestBefore = DateTime.Now.AddDays(x),
+        Organic = x % 2 != 0
+    });
 
-	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		ID = x,
-		Name = "name " + x,
-		HireDate = DateTime.Now.AddDays(-x)
-	});
+    public class FoodItem
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public decimal Quantity { get; set; }
+        public DateTime BestBefore { get; set; }
+        public bool Organic { get; set; }
+    }
 }
 ````
 
->caption The result from the code snippet above
-
-![Blazor Grid Cell Template](images/cell-template.png)
+>tip The above example renders read-only checkboxes to display boolean values. It is possible to [use checkboxes in display mode and directly change the underlying data source values]({%slug grid-kb-checkbox-editing%}). This can make boolean value editing faster, because the Grid doesn't go into edit mode.
 
 ## See Also
 
- * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
- * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
-
+* [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
+* [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)

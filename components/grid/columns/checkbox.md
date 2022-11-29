@@ -14,6 +14,8 @@ This article describes the configuration parameters of the Blazor `GridCheckboxC
 
 The `GridCheckboxColumn` provides an additional way for users to [select Grid rows]({%slug components/grid/selection/overview%}). By default, users can select and unselect rows by clicking anywhere on them.
 
+If you need checkboxes to display or edit boolean values, then use a [Grid column template]({%slug grid-templates-column%}) instead.
+
 ## Parameters
 
 The Grid checkbox column has the following exclusive parameters. For other available parameters, see the [appearance settings of bound columns]({%slug components/grid/columns/bound%}#appearance).
