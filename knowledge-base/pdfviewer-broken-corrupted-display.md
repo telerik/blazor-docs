@@ -43,7 +43,7 @@ The problem is related to:
 
 * Update to the latest browser version;
 * Update the graphics card driver;
-* Disable GPU hardware acceleration for 2D canvas rendering in the browser. To access the setting in Chrome, go to [`chrome://flags`](chrome://flags) and search for `"Accelerated 2D Canvas"`. In Edge, go to [`edge://settings`](edge://settings) and search for `"Use hardware acceleration"`. You may need to restart the browser after turning off the setting.
+* Disable GPU hardware acceleration for 2D canvas rendering in the browser. To access the setting in Chrome, go to `chrome://flags` and search for `"Accelerated 2D Canvas"`. In Edge, go to `edge://settings` and search for `"Use hardware acceleration"`. You may need to restart the browser after turning off the setting.
 
 ## Notes
 
