@@ -10,22 +10,41 @@ position: 10
 
 # MultiColumnComboBox Filter
 
-The MultiColumnComboBox component allows users to filter items by their text (`TextField`), so they can find the one they need faster.
+The MultiColumnComboBox component allows users to filter items by their text, so they can find the one they need faster.
 
-To enable filtering, set the `Filterable` parameter to `true`.
+To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive. You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug multicolumncombobox-events%}#onread).
 
-Filtering is case insensitive and the default filter operator is `starts with`. Filtering looks in the `TextField`, and the filter is reset when the dropdown closes. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
+Filtering looks in the `TextField`, and the filter is reset when the dropdown closes.
 
-By default, filtering will be debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug multicolumncombobox-overview%}#parameters) parameter of the component.
+## Filter Operator
+
+The default filter operator is `starts with`. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
+
+## Performance
+
+By default, the filtering is debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug multicolumncombobox-overview%}#parameters) parameter of the component.
+
+## Filtering Example
 
 >caption Filtering in the MultiColumnComboBox
 
 ````CSHTML
-Choose a filter operator:
-
-<TelerikDropDownList Data="@AvailableFilterOperators"
-                     @bind-Value="@FilterOperator"
-                     Width="200px" />
+<ul>
+    <li>
+        <label>
+            Filter operator:
+            <TelerikDropDownList @bind-Value="@FilterOperator"
+                                 Data="@FilterOperators"
+                                 Width="160px" />
+        </label>
+    </li>
+    <li>
+        <label>
+            Debounce delay:
+            <TelerikNumericTextBox @bind-Value="@DebounceDelay" Min="0" Width="120px" />
+        </label>
+    </li>
+</ul>
 
 <p>Type some digits:</p>
 
@@ -35,6 +54,7 @@ Choose a filter operator:
                             TextField="@nameof(Product.Name)"
                             Filterable="true"
                             FilterOperator="@FilterOperator"
+                            DebounceDelay="@DebounceDelay"
                             Width="400px">
     <MultiColumnComboBoxColumns>
         <MultiColumnComboBoxColumn Field="@nameof(Product.Name)" />
@@ -42,32 +62,33 @@ Choose a filter operator:
     </MultiColumnComboBoxColumns>
 </TelerikMultiColumnComboBox>
 
-@code {
+@code{
     private List<Product> MultiComboData { get; set; }
 
-    private List<StringFilterOperator> AvailableFilterOperators { get; set; } = new List<StringFilterOperator>()
-    {
-        StringFilterOperator.Contains,
-        StringFilterOperator.DoesNotContain,
-        StringFilterOperator.EndsWith,
-        StringFilterOperator.IsContainedIn,
-        StringFilterOperator.StartsWith
-    };
+    private int? SelectedProduct { get; set; }
 
-    private StringFilterOperator FilterOperator { get; set; } = StringFilterOperator.Contains;
+    private List<StringFilterOperator> FilterOperators =>
+        Enum.GetValues(typeof(StringFilterOperator)).Cast<StringFilterOperator>().ToList();
 
-    private int SelectedProduct { get; set; }
+    private StringFilterOperator FilterOperator { get; set; } = StringFilterOperator.StartsWith;
+
+    private int DebounceDelay { get; set; } = 150;
 
     protected override void OnInitialized()
     {
+        MultiComboData = new List<Product>();
+
         var rnd = new Random();
 
-        MultiComboData = Enumerable.Range(1, 30).Select(x => new Product()
+        for (int i = 1; i <= 30; i++)
         {
-            Id = x,
-            Name = $"{x * 332211} Product {x * 112233}",
-            Quantity = rnd.Next(0, 30)
-        }).ToList();
+            MultiComboData.Add(new Product()
+            {
+                Id = i,
+                Name = $"{i} Product {i * 111222}",
+                Quantity = rnd.Next(0, 30)
+            });
+        }
 
         base.OnInitialized();
     }

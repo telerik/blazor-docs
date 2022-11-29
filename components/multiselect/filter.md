@@ -36,13 +36,10 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
 <ul>
     <li>
         <label>
-            Choose filter operator:
-            <select @bind="FilterOperator">
-                @foreach (var possibleFilter in Enum.GetValues(typeof(StringFilterOperator)))
-                {
-                    <option value="@possibleFilter">@possibleFilter</option>
-                }
-            </select>
+            Filter operator:
+            <TelerikDropDownList @bind-Value="@FilterOperator"
+                                 Data="@FilterOperators"
+                                 Width="160px" />
         </label>
     </li>
     <li>
@@ -77,6 +74,9 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
     private List<Product> ProductList { get; set; }
 
     private List<int> SelectedProducts { get; set; }
+
+    private List<StringFilterOperator> FilterOperators =>
+        Enum.GetValues(typeof(StringFilterOperator)).Cast<StringFilterOperator>().ToList();
 
     private StringFilterOperator FilterOperator { get; set; } = StringFilterOperator.StartsWith;
 
