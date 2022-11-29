@@ -58,6 +58,10 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
+## Week Numbers
+
+The Calendar popup can display the ISO week number on each row of date cells. See the [`ShowWeekNumbers` parameter](#datetime-picker-parameters) below.
+
 ## DateTime Picker Parameters
 
 The Blazor Date Time Picker provides various parameters that allow you to configure the component. Also check the [DateTimePicker's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateTimePicker-1).

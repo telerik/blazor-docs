@@ -58,6 +58,10 @@ The DateRangePicker allows you to customize the rendering of the Calendar popup 
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
+## Week Numbers
+
+The Calendar popup can display the ISO week number on each row of date cells. See the [`ShowWeekNumbers` parameter](#daterangepicker-parameters) below.
+
 ## DateRangePicker Parameters
 
 The Blazor Date Range Picker provides various parameters that allow you to configure the component. Also check the [DateRangePicker's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1).

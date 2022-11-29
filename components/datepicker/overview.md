@@ -59,6 +59,10 @@ The DatePicker allows you to customize the rendering of the Calendar popup heade
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
+## Week Numbers
+
+The Calendar popup can display the ISO week number on each row of date cells. See the [`ShowWeekNumbers` parameter](#date-picker-parameters) below.
+
 ## Date Picker Parameters
 
 The Blazor Date Picker provides various parameters that allow you to configure the component:
