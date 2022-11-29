@@ -43,7 +43,7 @@ There are two CSS styles in the Telerik Blazor theme, which cause the action ico
     }
     ````
 
-1. A `Stretched` Layout or `Vertical` Orientation for the `CardActions` area will expand the action buttons **horizontally**, so they fill the Card width. However, icon buttons will also expand **vertically**, because of their square aspect ratio.
+1. A `Stretch` Layout or `Vertical` Orientation for the `CardActions` area will expand the action buttons **horizontally**, so they fill the Card width. However, icon buttons will also expand **vertically**, because of their square aspect ratio.
 
     <div class="skip-repl"></div>
     ````CSS
@@ -83,7 +83,7 @@ There are two ways to prevent icon button expansion:
         <CardTitle>Horizontal orientation / Stretched layout</CardTitle>
         <CardSubTitle>Custom CardActions Class</CardSubTitle>
     </CardHeader>
-    <CardActions Orientation="@CardOrientation.Horizontal" Layout="CardActionsLayout.Stretched" Class="no-icon-expand">
+    <CardActions Orientation="@CardOrientation.Horizontal" Layout="CardActionsLayout.Stretch" Class="no-icon-expand">
         <TelerikButton FillMode="@FlatFillMode" Icon="comment"></TelerikButton>
         <TelerikButton FillMode="@FlatFillMode" Icon="comment"></TelerikButton>
     </CardActions>

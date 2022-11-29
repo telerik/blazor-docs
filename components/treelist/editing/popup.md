@@ -345,7 +345,7 @@ The `TreeListPopupEditFormSettings` nested tag exposes the following parameters 
                                    Class="custom-popup">
         </TreeListPopupEditSettings>
         <TreeListPopupEditFormSettings Orientation="@FormOrientation.Horizontal"
-                                       ButtonsLayout="FormButtonsLayout.Stretched"
+                                       ButtonsLayout="FormButtonsLayout.Stretch"
                                        Columns="2">
         </TreeListPopupEditFormSettings>
     </TreeListSettings>
