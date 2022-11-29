@@ -16,7 +16,6 @@ The SplitButton provides the same appearance parameters, as the regular [Button 
 
 * [FillMode](#fillmode)
 * [Rounded](#rounded)
-* [Shape](#shape)
 * [Size](#size)
 * [ThemeColor](#themecolor)
 
@@ -139,47 +138,6 @@ The `Rounded` parameter affects the SplitButton `border-radius` CSS styles. To s
     }
 }
 ````
-
-
-## Shape
-
-The `Shape` parameter defines the SplitButton's geometric shape (rectangle or square). To set the value, use the `string` members of the static class `ThemeConstants.SplitButton.Shape`.
-
-| `Shape` Class Member | String Value |
-| --- | --- |
-| `Rectangle` (default) | `"rectangle"` |
-| `Square` | `"square"` |
-
->caption SplitButton Shape example
-
-````CSHTML
-<p>SplitButton Shape</p>
-
-@foreach (var item in Shapes)
-{
-    var shape = item.GetValue(null).ToString();
-
-    <TelerikSplitButton Shape="@shape">
-        <SplitButtonContent> @shape </SplitButtonContent>
-        <SplitButtonItems>
-            <SplitButtonItem> secondary </SplitButtonItem>
-        </SplitButtonItems>
-    </TelerikSplitButton>
-}
-
-@code {
-    List<System.Reflection.FieldInfo> Shapes { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Shapes = typeof(ThemeConstants.SplitButton.Shape)
-            .GetFields().ToList();
-
-        base.OnInitialized();
-    }
-}
-````
-
 
 ## Size
 
