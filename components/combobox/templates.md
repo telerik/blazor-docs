@@ -12,168 +12,86 @@ position: 25
 
 The ComboBox component allows you to change what is rendered in its items, header and footer through templates.
 
-List of the available templates:
+>caption In this article:
 
 * [Item Template](#item-template)
-* [Header](#header)
-* [Footer](#footer)
+* [Header Template](#header-template)
+* [Footer Template](#footer-template)
+* [No Data Template](#no-data-template)
+* [Example](#example)
 
 
 ## Item Template
 
-The Item template determines how the individual items are rendered in the dropdown element of the component. By default, the text from the model is rendered.
+@[template](/_contentTemplates/dropdowns/templates.md#item-template)
 
->caption Item Template Example
+## Header Template
 
-````CSHTML
-@* Define what renders for the items in the dropdown *@
+@[template](/_contentTemplates/dropdowns/templates.md#header-template)
 
-<TelerikComboBox @bind-Value=@SelectedValue
-                 Data="@ComboBoxData"
-                 ValueField="ProductId"
-                 TextField="ProductName">
-    <ItemTemplate>
-        <strong>@((context as Product).ProductName) - @(String.Format("{0:C2}", (context as Product).UnitPrice))</strong>
-    </ItemTemplate>
-</TelerikComboBox>
+## Footer Template
 
-@code {
-    public IEnumerable<Product> ComboBoxData { get; set; }
-    public int SelectedValue { get; set; } = 2;
+@[template](/_contentTemplates/dropdowns/templates.md#footer-template)
 
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i < 10; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                UnitPrice = (decimal)(i * 3.14)
-            });
-        }
+## No Data Template
 
-        ComboBoxData = products;
-        base.OnInitialized();
-    }
+@[template](/_contentTemplates/dropdowns/templates.md#no-data-template)
 
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
-    }
-}
-````
+## Example
 
->caption The result from the code snippet above
-
-![Blazor Combo Item Template](images/combo-item-template.png)
-
-## Header
-
-The header is content that you can place above the list of items inside the dropdown element. It is always visible when the combobox is expanded. By default it is empty.
-
->caption Header Example
+>caption Using ComboBox Templates
 
 ````CSHTML
-@* Define a header in the dropdown *@
+@* ComboBox component with HeaderTemplate, ItemTemplate, FooterTemplate and NoDataTemplate *@
 
-<TelerikComboBox @bind-Value=@SelectedValue
-                 Data="@ComboBoxData"
-                 ValueField="ProductId"
-                 TextField="ProductName">
+<p>
+    <TelerikCheckBox @bind-Value="@IsDataAvailable" OnChange="@OnCheckBoxChangeHandler" />
+    ComboBox has data
+</p>
+
+<TelerikComboBox Data="@ComboBoxData" @bind-Value="@Role" Placeholder="Write your position">
     <HeaderTemplate>
-        <div class="k-header" style="margin-top: 10px; padding-bottom: 10px">Header</div>
+        <strong>Select one of the following:</strong>
     </HeaderTemplate>
-</TelerikComboBox>
-
-@code {
-    public IEnumerable<Product> ComboBoxData { get; set; }
-    public int SelectedValue { get; set; } = 2;
-
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i < 10; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                UnitPrice = (decimal)(i * 3.14)
-            });
-        }
-
-        ComboBoxData = products;
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Combo Header Template](images/combo-header-template.png)
-
-## Footer
-
-The footer is content that you can place below the list of items inside the dropdownlist element. It is always visible when the dropdown is expanded. By default it is empty.
-
->caption Footer Example
-
-````CSHTML
-@* Define dropdown footer *@
-
-<TelerikComboBox @bind-Value=@SelectedValue
-                 Data="@ComboBoxData"
-                 ValueField="ProductId"
-                 TextField="ProductName">
+    <ItemTemplate>
+        Are you a <strong>@context</strong>
+    </ItemTemplate>
     <FooterTemplate>
-        <div class="k-footer" style="margin-top: 10px">A total of @ComboBoxData.Count() items</div>
+        <h6>Total Positions: @ComboBoxData.Count()</h6>
     </FooterTemplate>
+    <NoDataTemplate>
+        <div class="no-data-template">
+            <TelerikIcon Class="k-icon k-icon-lg" Icon="files-error"></TelerikIcon>
+            <p>No items available</p>
+        </div>
+    </NoDataTemplate>
 </TelerikComboBox>
 
 @code {
-    public IEnumerable<Product> ComboBoxData { get; set; }
-    public int SelectedValue { get; set; } = 2;
+    private string Role { get; set; }
+
+    private bool IsDataAvailable { get; set; } = true;
+
+    private List<string> ComboBoxData { get; set; }
+
+    private List<string> SourceData { get; set; } = new List<string> { "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer" };
 
     protected override void OnInitialized()
     {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i < 10; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                UnitPrice = (decimal)(i * 3.14)
-            });
-        }
-
-        ComboBoxData = products;
-        base.OnInitialized();
+        ComboBoxData = SourceData;
     }
 
-    public class Product
+    private void OnCheckBoxChangeHandler()
     {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
+        if (IsDataAvailable)
+        {
+            ComboBoxData = new List<string>(SourceData);
+        }else{
+            ComboBoxData = new List<string>();
+        }
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![Blazor Combo Footer Template](images/combo-footer-template.png)
 
 ## See Also
 

@@ -12,164 +12,99 @@ position: 25
 
 The DropDownList component allows you to change what is rendered in its items, body, header and footer through templates.
 
-List of the available templates:
+>caption In this article:
 
 * [Value Template](#value-template)
 * [Item Template](#item-template)
-* [Header](#header)
-* [Footer](#footer)
+* [Header Template](#header-template)
+* [Footer Template](#footer-template)
+* [No Data Template](#no-data-template)
+* [Example](#example)
 
 
 ## Value Template
 
-The Value template determines how the selected item renders in the main element of the dropdown list that is always visible. By default, the text from the model is rendered.
+The `ValueTemplate` determines how the selected item renders in the main element of the dropdown list that is always visible. By default, the text from the model is rendered.
 
->caption Value Template Example
-
-````CSHTML
-Change what renders in the main element
-
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="1">
-	<ValueTemplate>
-		<strong>@((context as MyDdlModel).ExtraField)</strong>
-	</ValueTemplate>
-</TelerikDropDownList>
-
-
-@code {
-	public class MyDdlModel
-	{
-		public int MyValueField { get; set; }
-		public string MyTextField { get; set; }
-		public string ExtraField { get; set; }
-	}
-
-	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x =>
-			new MyDdlModel
-			{
-				MyTextField = "item " + x,
-				MyValueField = x,
-				ExtraField = "more item info " + x
-			}
-		);
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Ddl Value Template](images/ddl-value-template.jpg)
+The `ValueTemplate` exposes a `context` which represents the selected item object. Use it to render the selected item details.
 
 ## Item Template
 
-The Item template determines how the individual items are rendered in the dropdown element of the component. By default, the text from the model is rendered.
+@[template](/_contentTemplates/dropdowns/templates.md#item-template)
 
->caption Item Template Example
+## Header Template
 
-````CSHTML
-Define what renders for the items in the dropdown
+@[template](/_contentTemplates/dropdowns/templates.md#header-template)
 
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="1">
-	<ItemTemplate>
-		@((context as MyDdlModel).ExtraField)
-	</ItemTemplate>
-</TelerikDropDownList>
+## Footer Template
 
+@[template](/_contentTemplates/dropdowns/templates.md#footer-template)
 
-@code {
-	public class MyDdlModel
-	{
-		public int MyValueField { get; set; }
-		public string MyTextField { get; set; }
-		public string ExtraField { get; set; }
-	}
+## No Data Template
 
-	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x =>
-			new MyDdlModel
-			{
-				MyTextField = "item " + x,
-				MyValueField = x,
-				ExtraField = "more item info " + x
-			}
-		);
-}
-````
+@[template](/_contentTemplates/dropdowns/templates.md#no-data-template)
 
->caption The result from the code snippet above
+## Example
 
-![Blazor Ddl Item Template](images/ddl-item-template.jpg)
-
-## Header
-
-The header is content that you can place above the list of items inside the dropdownlist element. It is always visible when the dropdown is expanded. By default it is empty.
-
->caption Header Example
+>caption Using AutoComplete Templates
 
 ````CSHTML
-Define a header in the dropdown
+@* DropDownList component with ValueTemplate, HeaderTemplate, ItemTemplate, FooterTemplate and NoDataTemplate *@
 
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="1">
-	<HeaderTemplate>My list header.</HeaderTemplate>
+<p>
+    <TelerikCheckBox @bind-Value="@IsDataAvailable" OnChange="@OnCheckBoxChangeHandler" />
+    DropDownList has data
+</p>
+
+<TelerikDropDownList Data="@DropDownData" @bind-Value="@Role">
+    <ValueTemplate>
+        <strong>Selected role:</strong> @context
+    </ValueTemplate>
+    <HeaderTemplate>
+        <strong>Select one of the following:</strong>
+    </HeaderTemplate>
+    <ItemTemplate>
+        Are you a <strong>@context</strong>
+    </ItemTemplate>
+    <FooterTemplate>
+        <h6>Total Positions: @DropDownData.Count()</h6>
+    </FooterTemplate>
+    <NoDataTemplate>
+        <div class="no-data-template">
+            <TelerikIcon Class="k-icon k-icon-lg" Icon="files-error"></TelerikIcon>
+            <p>No items available</p>
+        </div>
+    </NoDataTemplate>
 </TelerikDropDownList>
 
-
 @code {
-	public class MyDdlModel
-	{
-		public int MyValueField { get; set; }
-		public string MyTextField { get; set; }
-	}
+    private string Role { get; set; }
 
-	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x =>
-			new MyDdlModel
-			{
-				MyTextField = "item " + x,
-				MyValueField = x
-			}
-		);
+    private bool IsDataAvailable { get; set; } = true;
+
+    private List<string> DropDownData { get; set; }
+
+    private List<string> SourceData { get; set; } = new List<string> { "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer" };
+
+    protected override void OnInitialized()
+    {
+        DropDownData = SourceData;
+    }
+
+    private void OnCheckBoxChangeHandler()
+    {
+        if (IsDataAvailable)
+        {
+            DropDownData = new List<string>(SourceData);
+        }else{
+            DropDownData = new List<string>();
+        }
+    }
 }
 ````
-
->caption The result from the code snippet above
-
-![Blazor Ddl Header Template](images/ddl-header-template.jpg)
-
-## Footer
-
-The footer is content that you can place below the list of items inside the dropdownlist element. It is always visible when the dropdown is expanded. By default it is empty.
-
->caption Footer Example
-
-````CSHTML
-Define dropdown footer
-
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="1">
-	<FooterTemplate>My list footer.</FooterTemplate>
-</TelerikDropDownList>
-
-
-@code {
-	public class MyDdlModel
-	{
-		public int MyValueField { get; set; }
-		public string MyTextField { get; set; }
-	}
-
-	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x =>
-			new MyDdlModel
-			{
-				MyTextField = "item " + x,
-				MyValueField = x
-			}
-		);
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Ddl Footer Template](images/ddl-footer-template.jpg)
 
 ## See Also
 
-  * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor-ui/dropdownlist/validation)
+  * [Live Demo: DropDownList Templates](https://demos.telerik.com/blazor-ui/dropdownlist/templates)
    
   

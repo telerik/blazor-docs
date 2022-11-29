@@ -12,22 +12,13 @@ position: 25
 
 The MultiColumnComboBox component allows you to change what is rendered in its header and footer through templates.
 
-The available templates are:
+>caption In this article:
 
-* [`Header`](#header)
-* [`Footer`](#footer)
-* [`Row`](#row)
-
-
-## Header
-
-The header is content that you can place above the list of items inside the dropdown. It is always visible when the MultiColumnComboBox is expanded. By default it is empty.
-
-
-## Footer
-
-The footer is content that you can place below the list of items inside the dropdownlist element. It is always visible when the dropdown is expanded. By default it is empty.
-
+* [Row Template](#row-template)
+* [Header Template](#header-template)
+* [Footer Template](#footer-template)
+* [No Data Template](#no-data-template)
+* [Example](#example)
 
 ## Row
 
@@ -37,23 +28,39 @@ You can access the `context` object and cast it to the bound model to employ som
 
 > The MultiColumnComboBox items render as a list (`<ul>`), not a `<table>`. Using table cells inside the row template is possible only if you render a complete table for each item. To mimic the default component appearance, use two sibling containers inside the `<RowTemplate>` with a `k-table-td` CSS class.
 
+## Header Template
+
+@[template](/_contentTemplates/dropdowns/templates.md#header-template)
+
+## Footer Template
+
+@[template](/_contentTemplates/dropdowns/templates.md#footer-template)
+
+## No Data Template
+
+@[template](/_contentTemplates/dropdowns/templates.md#no-data-template)
 
 ## Example
 
 >caption Using MultiColumnComboBox Templates
 
 ````CSHTML
+@* MultiColumnComboBox component with RowTemplate, HeaderTemplate, ItemTemplate, FooterTemplate and NoDataTemplate *@
+
+<p>
+    <TelerikCheckBox @bind-Value="@IsDataAvailable" OnChange="@OnCheckBoxChangeHandler" />
+    MultiColumnComboBox has data
+</p>
+
+
 <TelerikMultiColumnComboBox Data="@MultiComboData"
                             @bind-Value="@SelectedProduct"
                             ValueField="@nameof(Product.Id)"
                             TextField="@nameof(Product.Name)"
                             Width="300px">
     <HeaderTemplate>
-        <div style="text-align: center; padding: .3em;"><strong>Custom Header</strong></div>
-    </HeaderTemplate>
-    <FooterTemplate>
-        <div style="text-align: center; padding: .3em;"><strong>Custom Footer</strong></div>
-    </FooterTemplate>
+        <div style="text-align: center; padding: .3em;"><strong>Select one of the following:</strong></div>
+    </HeaderTemplate>   
     <RowTemplate Context="row">
         <div class="k-table-td">
             <em>@row.Name</em>
@@ -62,6 +69,15 @@ You can access the `context` object and cast it to the bound model to employ som
             <strong>@row.Quantity</strong>
         </div>
     </RowTemplate>
+    <FooterTemplate>
+        <strong>Total items: @MultiComboData.Count()</strong>
+    </FooterTemplate>
+    <NoDataTemplate>
+        <div class="no-data-template">
+            <TelerikIcon Class="k-icon k-icon-lg" Icon="files-error"></TelerikIcon>
+            <p>No items available</p>
+        </div>
+    </NoDataTemplate>
     <MultiColumnComboBoxColumns>
         <MultiColumnComboBoxColumn Field="@nameof(Product.Name)" Title="Product Name"></MultiColumnComboBoxColumn>
         <MultiColumnComboBoxColumn Field="@nameof(Product.Quantity)" Title="In Stock"></MultiColumnComboBoxColumn>
@@ -69,22 +85,40 @@ You can access the `context` object and cast it to the bound model to employ som
 </TelerikMultiColumnComboBox>
 
 @code {
+    private int SelectedProduct { get; set; }
+
+    private bool IsDataAvailable { get; set; } = true;
+
     private List<Product> MultiComboData { get; set; }
 
-    private int SelectedProduct { get; set; }
+    private List<Product> SourceData { get; set; }
 
     protected override void OnInitialized()
     {
         var rnd = new Random();
 
-        MultiComboData = Enumerable.Range(1, 30).Select(x => new Product()
-        {
-            Id = x,
-            Name = $"Product {x}",
-            Quantity = rnd.Next(0, 30)
-        }).ToList();
+        SourceData = Enumerable.Range(1, 30).Select(x => new Product()
+            {
+                Id = x,
+                Name = $"Product {x}",
+                Quantity = rnd.Next(0, 30)
+            }).ToList();
+
+        MultiComboData = new List<Product>(SourceData);
 
         base.OnInitialized();
+    }
+
+    private void OnCheckBoxChangeHandler()
+    {
+        if (IsDataAvailable)
+        {
+            MultiComboData = new List<Product>(SourceData);
+        }
+        else
+        {
+            MultiComboData = new List<Product>();
+        }
     }
 
     public class Product
