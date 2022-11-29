@@ -115,4 +115,4 @@ There are two ways for specifying the position of the columns in the grid:
 
 * Avoid nesting components and put the grid columns directly under the grid tag.
 
-* Use the [Grid State]({%slug grid-state%}), its methods (`GetState`, `SetState`) and events (`OnStateInit`, `OnStateChanged`) to get the collection of column states and change the `Order` of the instances you want to rearrange.
+* Use the [Grid State]({%slug grid-state%}), its methods (`GetState`, `SetStateAsync`) and events (`OnStateInit`, `OnStateChanged`) to get the collection of column states and change the `Order` of the instances you want to rearrange.

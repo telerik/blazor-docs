@@ -103,7 +103,7 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
 
         currentState.OriginalEditItem = itemToEdit;
 
-        await GridRef.SetState(currentState);
+        await GridRef.SetStateAsync(currentState);
     }
 
     async Task SaveEmployee()
@@ -119,7 +119,7 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
         currentState.OriginalEditItem = default;
         currentState.EditItem = default;
 
-        await GridRef.SetState(currentState);
+        await GridRef.SetStateAsync(currentState);
 
         isInEdit = false;
     }
@@ -138,7 +138,7 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
         currentState.OriginalEditItem = default;
         currentState.EditItem = default;
 
-        await GridRef.SetState(currentState);
+        await GridRef.SetStateAsync(currentState);
 
         isInEdit = false;
     }

@@ -79,7 +79,7 @@ Ensure that you set a suitable `Skip` value, so that row placeholders don't show
         {
             var state = GridRef.GetState();
             state.Skip = skip;
-            await GridRef.SetState(state);
+            await GridRef.SetStateAsync(state);
         }
     }
 

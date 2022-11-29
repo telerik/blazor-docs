@@ -117,7 +117,7 @@ Here is an overview of the major steps in the example:
 
         state.SearchFilter = searchDescriptors;
 
-        await Grid.SetState(state);
+        await Grid.SetStateAsync(state);
     }
 
     private async Task OnSearch(CompositeFilterDescriptor value)

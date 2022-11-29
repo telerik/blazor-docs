@@ -63,7 +63,7 @@ There is a [public issue about filtering error after Grid state restore in OnSta
 
 All suggested options are demonstrated in the examples below.
 
-* Restore the Grid State later than `OnStateInit`. For example, use `OnAfterRenderAsync` and the Grid `SetState()` method instead.
+* Restore the Grid State later than `OnStateInit`. For example, use `OnAfterRenderAsync` and the Grid `SetStateAsync()` method instead.
 * Manually set the missing `MemberType` property values in the restored [filter descriptors]({%slug components/grid/filtering%}#filter-descriptors) in `OnStateInit`. There is no need to include filter descriptors for all columns in the state object.
 * Restore the Grid State in a `try {} catch() {}` block. The Grid `OnStateInit` event fires two times - [once in the prerender phase and once in the render phase](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-6.0#component-initialization-oninitializedasync). The deserialization problem will occur only if the Grid state is restored in the prerender phase. It is possible to skip state restoration during prerender with a `JSInterop` call. This is not allowed during prerender, so it will trigger an `InvalidOperationException` and `OnStateInit` execution will abort. This approach is used in example [Save and Load Grid State from Browser LocalStorage]({%slug grid-state%}#save-and-load-grid-state-from-browser-localstorage)
 
@@ -91,7 +91,7 @@ All suggested options are demonstrated in the examples below.
         if (firstRender)
         {
             var gridState = JsonSerializer.Deserialize<GridState<GridModel>>(SerializedGridState);
-            await GridRef.SetState(gridState);
+            await GridRef.SetStateAsync(gridState);
         }
 
         await base.OnAfterRenderAsync(firstRender);

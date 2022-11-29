@@ -109,7 +109,7 @@ Here is an example of the described approach.
             currState.GroupDescriptors.FirstOrDefault().SortDirection = SortDirection;
         }
 
-        await Grid.SetState(currState);
+        await Grid.SetStateAsync(currState);
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData

@@ -92,14 +92,14 @@ Also see the [Filter Descriptors documentation]({%slug components/grid/filtering
         });
 
         state.SearchFilter = cfd;
-        await GridRef.SetState(state);
+        await GridRef.SetStateAsync(state);
     }
 
     async Task ClearSearch()
     {
         var state = GridRef.GetState();
         state.SearchFilter = null;
-        await GridRef.SetState(state);
+        await GridRef.SetStateAsync(state);
 
         SearchValue = String.Empty;
     }

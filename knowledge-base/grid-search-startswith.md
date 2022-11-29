@@ -89,7 +89,7 @@ By default, the [`GridSearchBox` searches in **string** values with a **`contain
 1. Obtain the current Grid state with `GetState()`.
 1. See if the Search [`CompositeFilterDescriptor`]({%slug components/grid/filtering%}#filter-descriptors) is populated. This means the SearchBox is not empty.
 1. Iterate the search filter descriptors and change the `Operator`.
-1. Reset the Grid state with `SetState()`.
+1. Reset the Grid state with `SetStateAsync()`.
 
 >caption Search in Grid columns with a "StartsWith" operator
 
@@ -139,7 +139,7 @@ By default, the [`GridSearchBox` searches in **string** values with a **`contain
                     }
                 }
 
-                await Grid.SetState(state);
+                await Grid.SetStateAsync(state);
             }
         }
     }

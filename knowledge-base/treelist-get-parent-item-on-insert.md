@@ -96,7 +96,7 @@ The approaches to handle this would depend of the type of data the component is 
         itemToInsert.ParentId = parentId; // and/or other metadata
         var state = new TreeListState<Employee>();
         state.InsertedItem = itemToInsert;
-        TreeListRef?.SetState(state);
+        TreeListRef?.SetStateAsync(state);
     }
 
     public List<Employee> Data { get; set; }
@@ -228,7 +228,7 @@ The approaches to handle this would depend of the type of data the component is 
         itemToInsert.ParentData = $"Parent: {currItem.Name}"; // and/or other metadata
         state.ParentItem = currItem;
         state.InsertedItem = itemToInsert;
-        TreeListRef?.SetState(state);
+        TreeListRef?.SetStateAsync(state);
     }
 
     public List<Employee> Data { get; set; }
