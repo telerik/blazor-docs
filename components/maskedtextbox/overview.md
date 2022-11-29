@@ -66,7 +66,7 @@ The table below provides a quick overview of the mask-related parameters. You ca
 | `Enabled`  | `bool` <br /> (`true`) | Controls if the users can type in the component. |
 | `Id`  | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input |
 | `Name`  | `string` | Renders as the `name` attribute of the HTML element. |
-| `PlaceHolder` | `string` | Renders as the `placeholder` attribute of the HTML element. |
+| `Placeholder` | `string` | Renders as the `placeholder` attribute of the HTML element. |
 | `TabIndex` | `int` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}). |
 | `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | configures the event that will trigger validation (if validation is enabled). See the [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) article for more information. |
