@@ -109,9 +109,9 @@ There are two ways to generate fields in the Blazor Form:
 * By manually defining [FormItems]({%slug form-formitems%}).
 * Allowing the Form to [automatically generate them](#automatic-generation-of-field).
 
-The Form Items allow you customize the [default editors](#automatic-generation-of-field). [See the [FormItems article for more information...]({%slug form-formitems%}).
+The Form Items allow you customize the [default editors](#automatic-generation-of-fields). [See the [FormItems article for more information...]({%slug form-formitems%}).
 
-### Automatic Generation of fields
+### Automatic Generation of Fields
 
 The Telerik Form can generate [editors]({%slug form-formitems%}) for you based on the model fields. It can take them from both a `Model`, or the `EditContext`, whichever you provide to it. You can use the [data annotation attributes](#data-annotation-attributes) to validate the value of the fields.
 

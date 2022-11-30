@@ -13,6 +13,7 @@ position: 30
 The Form component for Blazor exposes events that allow you to respond to user actions and provide custom logic.
 
 * [OnSubmit](#onsubmit)
+* [OnUpdate](#onupdate)
 * [OnValidSubmit](#onvalidsubmit)
 * [OnInvalidSubmit](#oninvalidsubmit)
 
@@ -81,6 +82,72 @@ The `OnSubmit` event is mapped to the `OnSubmit` event of the <a target="_blank"
         public string CompanyName { get; set; }
         public DateTime HireDate { get; set; }
         public bool IsOnVacation { get; set; } = true;
+    }
+}
+````
+
+## OnUpdate
+
+The `OnUpdate` event fires when the user changes a value in the Form. The event is tied to the `FieldChanged` event of the Form's `EditContext`.
+
+By default, `OnUpdate` will fire on each keystroke for [auto-generated form items]({%slug form-overview%}#automatic-generation-of-fields) and [`FormItem` templates]({%slug form-formitems-template%}). To change this behavior, define a `FormItem` `Template` and set [`ValidateOn` to `ValidationEvent.Change`]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) for the field editor component. In this case, `OnUpdate` will fire when the user blurs the field editor or hits Enter while the editor is focused.
+
+The `OnUpdate` event argument is a [`FormUpdateEventArgs` object](/blazor-ui/api/Telerik.Blazor.Components.FormUpdateEventArgs) with the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `Model` | `object` | The Form model with the latest updated values. Cast it to the correct type to access the class members. |
+| `FieldName` | `string` | The name of the updated model property. |
+
+>caption Using the Form OnUpdate event
+
+````CSHTML
+<p>OnUpdate will fire on each key stroke that changes a form value:</p>
+
+<TelerikForm Model="@Colleague"
+             OnUpdate="@OnFormUpdate"
+             Width="300px">
+</TelerikForm>
+
+<p>OnUpdate will fire on blur or Enter keypress:</p>
+
+<TelerikForm Model="@Colleague"
+             OnUpdate="@OnFormUpdate"
+             Width="300px">
+    <FormItems>
+        <FormItem Field="@nameof(Person.FirstName)">
+            <Template>
+                FirstName
+                <br />
+                <TelerikTextBox @bind-Value="@Colleague.FirstName"
+                                ValidateOn="@ValidationEvent.Change" />
+            </Template>
+        </FormItem>
+    </FormItems>
+</TelerikForm>
+
+<p>Event Log: @EventLogger</p>
+
+@code {
+    private Person Colleague = new Person();
+
+    private string EventLogger { get; set; }
+
+    private async Task OnFormUpdate(FormUpdateEventArgs args)
+    {
+        Person updatedModel = (Person)args.Model;
+        var updatedValue = typeof(Person).GetProperty(args.FieldName).GetValue(updatedModel);
+
+        EventLogger = $"OnUpdate fired for {args.FieldName} with a new value of \"{updatedValue}\"";
+    }
+
+    public class Person
+    {
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
     }
 }
 ````
