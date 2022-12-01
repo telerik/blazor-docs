@@ -61,7 +61,7 @@ Generally, `defer` improves the performance of your app by not making the script
 >caption Remove defer and move the Telerik Blazor script tag
 
 <div class="skip-repl"></div>
-````HTML
+````CSHTML
 <head>
     <!-- <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script> -->
 <head>
@@ -70,6 +70,10 @@ Generally, `defer` improves the performance of your app by not making the script
     <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js"></script>
 </body>
 ````
+
+### Disable Blazor Autostart
+
+Instead of removing the `defer` attribute above, you can [disable the automatic client-side initialization of Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup?view=aspnetcore-7.0#initialize-blazor-when-the-document-is-ready).
 
 ### TypeScript
 
