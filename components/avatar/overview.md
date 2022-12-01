@@ -18,23 +18,26 @@ The <a href="https://www.telerik.com/blazor-ui/avatar" target="_blank">Blazor Av
 
 1. Set the desired [Avatar type]({%slug avatar-types})
 
-1. (Optional) Set the `Width` and `Height` of the Avatar
-
-1. (Optional) Configure the [`ThemeColor` and `FillMode`]({%slug avatar-appearance%}) of the Avatar
+1. (Optional) Configure the [`ThemeColor`]({%slug avatar-appearance%}) of the Avatar
 
 >caption Avatar ...
 
 ````CSHTML
+@*Basic Avatar configuration*@
 
+<TelerikAvatar Type="AvatarType.Text"
+               ThemeColor="@Telerik.Blazor.ThemeConstants.Avatar.ThemeColor.Info">
+    JD
+</TelerikAvatar>
 ````
 
 ## Types
 
-....[Avatar types]({%slug avatar-types}).
+The avatar type defines what content the component will display - it may be text, icon or image. Read more about the specifics of the [Avatar types...]({%slug avatar-types})
 
 ## Appearance
 
-...[Appearance article]({%slug avatar-appearance%}).
+The Avatar provides multiple options for configuring its look. Explore the available [Appearance settings...]({%slug avatar-appearance%})
 
 ## Parameters
 
@@ -44,22 +47,26 @@ The Blazor Avatar provides various parameters that allow you to configure the co
 
 | Parameter    | Type  | Description |
 | ----------- | ----------- | -------|
-| 
+| `Bordered` | `bool` | Whether the Avatar will have border. |
+| `Type` | `AvatarType` <br/> (`null`) | The type of the Avatar. Read more in the [Types article]({%slug avatar-types}).
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the appearance of the Blazor AutoComplete:
+The following parameters enable you to customize the appearance of the Blazor Avatar:
 
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Avatar. (`<div class="k-avatar>`) Use it to [override the theme or apply custom styles]({%slug themes-override%}). |
+| `Height` | `string` | The height of the Avatar.
+| `Width` | `string` | The width of the Avatar.
 
 You can find more options for customizing the Avatar styling in the [Appearance article]({%slug avatar-appearance%}).
 
-## Avatar Reference and Methods
-
-...
 
 ## Next Steps
 
 * [Explore the Avatar types]({%slug avatar-types%})
+* [Configure the appearance options of the Avatar]({%slug avatar-appearance%})
 
 ## See Also
 

@@ -22,7 +22,7 @@ You can use all of them together to achieve the desired appearance. This article
 
 ## Size
 
-You can increase or decrease the size of the button by setting the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.Button.Size` class:
+You can increase or decrease the size of the Avatar by setting the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.Avatar.Size` class:
 
 | Class members | Manual declarations |
 |---------------|--------|
@@ -30,11 +30,11 @@ You can increase or decrease the size of the button by setting the `Size` parame
 | `Medium`   |`md`|
 | `Large`   |`lg`|
 
->caption The built-in button sizes
+>caption The built-in Avatar sizes
 
 ````CSHTML
 @{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Button.Size)
+    var fields = typeof(Telerik.Blazor.ThemeConstants.Avatar.Size)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
         | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
@@ -44,7 +44,9 @@ You can increase or decrease the size of the button by setting the `Size` parame
         string size = field.GetValue(null).ToString();
 
         <div style="float:left; margin: 20px;">
-            <TelerikButton Size="@size">@size</TelerikButton>
+        <TelerikAvatar Size="@size" Type="AvatarType.Text">
+            JD
+        </TelerikAvatar>
         </div>
     }
 }
@@ -52,7 +54,7 @@ You can increase or decrease the size of the button by setting the `Size` parame
 
 ## Rounded
 
-The `Rounded` parameter applies the `border-radius` CSS rule to the button to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.Rounded` class:
+The `Rounded` parameter applies the `border-radius` CSS rule to the Avatar to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Avatar.Rounded` class:
 
 | Class members | Manual declarations |
 |------------|--------|
@@ -64,10 +66,10 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the button to ac
 >caption The built-in values of the Rounded attribute
 
 ````CSHTML
-@* The built-in rounded edges of the button.  *@
+@* The built-in rounded options of the Avatar.  *@
 
 @{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Button.Rounded)
+    var fields = typeof(Telerik.Blazor.ThemeConstants.Avatar.Rounded)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
         | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
@@ -77,7 +79,9 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the button to ac
         string rounded = field.GetValue(null).ToString();
 
         <div style="float:left; margin: 20px;">
-            <TelerikButton Rounded="@rounded">@rounded</TelerikButton>
+            <TelerikAvatar Rounded="@rounded" Type="AvatarType.Text">
+                JD
+            </TelerikAvatar>
         </div>
     }
 }
@@ -85,22 +89,20 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the button to ac
 
 ## FillMode
 
-The `FillMode` controls how the TelerikButton is filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.FillMode` class:
+The `FillMode` controls how the TelerikAvatar is filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Avatar.FillMode` class:
 
 | Class members | Manual declarations |
 |------------|--------|
 |`Solid` <br /> default value|`solid`|
-|`Flat`|`flat`|
 |`Outline`|`outline`|
-|`Link`|`link`|
 
 >caption The built-in Fill modes
 
 ````CSHTML
-@* These are all built-in fill modes *@
+@* These are all built-in fill modes of the Avatar*@
 
-@{ 
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Button.FillMode)
+@{
+    var fields = typeof(Telerik.Blazor.ThemeConstants.Avatar.FillMode)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
         | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
@@ -110,7 +112,9 @@ The `FillMode` controls how the TelerikButton is filled. You can set it to a mem
         string fillmode = field.GetValue(null).ToString();
 
         <div style="float:left; margin: 20px;">
-            <TelerikButton FillMode="@fillmode">@fillmode</TelerikButton>
+            <TelerikAvatar FillMode="@fillmode" Type="AvatarType.Text">
+                JD
+            </TelerikAvatar>
         </div>
     }
 }
@@ -118,7 +122,7 @@ The `FillMode` controls how the TelerikButton is filled. You can set it to a mem
 
 ## ThemeColor
 
-The color of the button is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.ThemeColor` class:
+The color of the button is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Avatar.ThemeColor` class:
 
 | Class members | Manual declarations |
 |------------|--------|
@@ -138,10 +142,10 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
 >caption The built-in ThemeColors
 
 ````CSHTML
-@* The built-in button colors *@
+@* The built-in Avatar colors *@
 
 @{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Button.ThemeColor)
+    var fields = typeof(Telerik.Blazor.ThemeConstants.Avatar.ThemeColor)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
         | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
@@ -151,17 +155,16 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
         string themeColor = field.GetValue(null).ToString();
 
         <div style="float:left; margin: 20px;">
-            <TelerikToggleButton ThemeColor="@themeColor">@themeColor</TelerikToggleButton>
+            <TelerikAvatar ThemeColor="@themeColor" Type="AvatarType.Text">
+                JD
+            </TelerikAvatar>
         </div>
     }
 }
 ````
 
-## Bordered
-
-...
 
 
 ## See Also
 
-  * [Live Demo: Avatar](https://demos.telerik.com/blazor-ui/avatar/overview)
+  * [Live Demo: Avatar Appearance](https://demos.telerik.com/blazor-ui/avatar/appearance)
