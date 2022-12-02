@@ -10,7 +10,7 @@ position: 5
 
 # Avatar Types
 
-The `Type` parameter of the Avatar for Blazor allows you to specify what kind of content will be visualized in the component.
+The `Type` parameter of the Avatar for Blazor defines what kind of content will render inside the component. The parameter allows the Avatar to adjust its styling to its content.
 
 The Avatar serves as a wrapper - you should declare the desired content inside the `<TelerikAvatar>` tag and specify the `Type` based on the content type.
 
