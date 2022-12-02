@@ -20,9 +20,9 @@ The `Type` parameter accepts a member of the `AvatarType` enum:
 * `Text`
 * `Icon`
 
-We recommend setting the correct `Type` to the Avatar depending on the content you want to display inside it. The Avatar will apply different styles to the content based on the specified `Type`.
-
 If the `Type` parameter value is not matching the type of the content, you will not get the optimal appearance of the component. For example, using `AvatarType.Image` when you render text in the component will result in misaligned, not centered text.
+
+>tip We recommend setting the correct `Type` to the Avatar depending on the content you want to display inside it. The Avatar will apply different styles to the content based on the specified `Type`.
 
 >caption Different types of Avatar content
 
@@ -45,6 +45,10 @@ If the `Type` parameter value is not matching the type of the content, you will 
 
 </TelerikAvatar>
 ````
+
+## Next Steps
+
+* [Configure the appearance options of the Avatar]({%slug avatar-appearance%})
 
 ## See Also
 

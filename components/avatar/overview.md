@@ -12,15 +12,15 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/avatar" target="_blank">Blazor Avatar component</a> is typically used to display images, icons or initials representing people or other entities.
 
-It also gives you the flexibility to customize its size, color, fill mode and more.
+You can set different [Avatar types]({%slug avatar-types%}) and customize its [size]({%slug avatar-appearance%}#size), [fill mode]({%slug avatar-appearance%}#fillmode) and more.
 
 ## Creating Blazor Avatar
 
 1. Use the `TelerikAvatar` tag to add the component to your razor page.
 
-1. Declare your desired content inside the `TelerikAvatar` tag - text, icon or image.
+1. Declare your desired content inside the `TelerikAvatar` tag - text, icon or image. This example demonstrates Avatar with initials(text).
 
-1. Set the [Avatar type]({%slug avatar-types%}) based on your content.
+1. Set the [Avatar type]({%slug avatar-types%}) to `Text`.
 
 1. (Optional) Configure the [`ThemeColor`]({%slug avatar-appearance%}) of the Avatar.
 
@@ -41,7 +41,7 @@ The Avatar `Type` defines the type of the content that the component will displa
 
 ## Appearance
 
-The Avatar provides multiple options for configuring its look. [Explore the available appearance settings...]({%slug avatar-appearance%})
+The Avatar provides multiple options for configuring its look - `ThemeColor`, `Rounded` and more. [Explore the available appearance settings...]({%slug avatar-appearance%})
 
 ## Avatar Parameters
 
@@ -52,17 +52,10 @@ The Blazor Avatar provides the following parameters that allow you to configure 
 | Parameter    | Type  | Description |
 | ----------- | ----------- | -------|
 | `Bordered` | `bool` | Whether the Avatar will have border. |
-| `Type` | `AvatarType` <br/> (`Image`) | The type of the Avatar. Read more in the [Types article]({%slug avatar-types%}). |
-
-### Styling and Appearance
-
-The following parameters enable you to customize the appearance of the Blazor Avatar:
-
-| Parameter | Type | Description |
-| --- | --- | --- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Avatar. (`<div class="k-avatar>`) Use it to [override the theme or apply custom styles]({%slug themes-override%}). |
 | `Height` | `string` | The height of the Avatar. Will be applied only if you explicitly set the [`Size`]({%slug avatar-appearance%}#size) to an empty `string`. |
 | `Width` | `string` | The width of the Avatar. Will be applied only if you explicitly set the  [`Size`]({%slug avatar-appearance%}#size) to an empty `string`. |
+| `Type` | `AvatarType` <br/> (`Image`) | The type of the Avatar. Read more in the [Types article]. |
 
 You can find more options for customizing the Avatar styling in the [Appearance article]({%slug avatar-appearance%}).
 

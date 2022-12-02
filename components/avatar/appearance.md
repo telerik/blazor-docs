@@ -10,7 +10,7 @@ position: 10
 
 # Appearance Settings
 
-You can control the appearance of the Avatar by setting the following attribute:
+You can control the appearance of the Avatar by setting the following parameters:
 
 * [Size](#size)
 * [Rounded](#rounded)
@@ -90,7 +90,7 @@ The `Rounded` parameter applies the `border-radius` CSS style to the Avatar to a
 
 ## FillMode
 
-The `FillMode` controls how the TelerikAvatar is filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Avatar.FillMode` class:
+The `FillMode` controls whether the TelerikAvatar has background or is just outlined. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Avatar.FillMode` class:
 
 | Class members | Manual declarations |
 |------------|--------|
@@ -165,6 +165,10 @@ The color of the Avatar is controlled through the `ThemeColor` parameter. You ca
     }
 }
 ````
+
+## Next Steps
+
+* [Explore the Avatar types]({%slug avatar-types%})
 
 ## See Also
 
