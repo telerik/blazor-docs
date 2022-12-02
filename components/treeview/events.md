@@ -157,11 +157,11 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
 
         if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
         {
-            //apply some business logic here
+            EventLog += $"The user clicked {keyboardEventArgs.Key} on node {node.Text}";
         }
         else if (args.EventArgs is MouseEventArgs mouseEventArgs)
         {
-            //apply some business logic here
+            EventLog += $"The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on node {node.Text}";
         }
     }
 
@@ -173,11 +173,11 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
 
         if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
         {
-            //apply some business logic here
+            EventLog += $"The user clicked {keyboardEventArgs.Key} on node {node.Text}";
         }
         else if (args.EventArgs is MouseEventArgs mouseEventArgs)
         {
-            //apply some business logic here
+            EventLog += $"The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on node {node.Text}";
         }
     }
 
@@ -189,11 +189,11 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
 
         if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
         {
-            //apply some business logic here
+            EventLog += $"The user clicked {keyboardEventArgs.Key} on node {node.Text}";
         }
         else if (args.EventArgs is MouseEventArgs mouseEventArgs)
         {
-            //apply some business logic here
+            EventLog += $"The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on node {node.Text}";
         }
     }
 
