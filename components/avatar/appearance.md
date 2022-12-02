@@ -16,7 +16,6 @@ You can control the appearance of the Avatar by setting the following attribute:
 * [Rounded](#rounded)
 * [FillMode](#fillmode)
 * [ThemeColor](#themecolor)
-* [Bordered](#bordered)
 
 You can use all of them together to achieve the desired appearance. This article will explain their effect one by one.
 
@@ -27,8 +26,10 @@ You can increase or decrease the size of the Avatar by setting the `Size` parame
 | Class members | Manual declarations |
 |---------------|--------|
 | `Small`   |`sm`|
-| `Medium`   |`md`|
+| `Medium` (default value)  |`md`|
 | `Large`   |`lg`|
+
+> The default value of the `Size` will take precedence over the values of the `Width` and `Height` parameters. Set the `Size` to an empty `string` to apply your custom `Width` and `Height`.
 
 >caption The built-in Avatar sizes
 
@@ -61,7 +62,7 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the Avatar to ac
 |`Small` |`sm`|
 |`Medium`|`md`|
 |`Large`|`lg`|
-|`Full`|`full`|
+|`Full` (default value) |`full`|
 
 >caption The built-in values of the Rounded attribute
 
@@ -93,8 +94,10 @@ The `FillMode` controls how the TelerikAvatar is filled. You can set it to a mem
 
 | Class members | Manual declarations |
 |------------|--------|
-|`Solid` <br /> default value|`solid`|
+|`Solid` (default value) |`solid`|
 |`Outline`|`outline`|
+
+>tip This setting is applicable when the `AvatarType` is set to `Text` or `Icon`. With the `Image` type, the provided image takes all the available space in the Avatar.
 
 >caption The built-in Fill modes
 
@@ -122,11 +125,11 @@ The `FillMode` controls how the TelerikAvatar is filled. You can set it to a mem
 
 ## ThemeColor
 
-The color of the button is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Avatar.ThemeColor` class:
+The color of the Avatar is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Avatar.ThemeColor` class:
 
 | Class members | Manual declarations |
 |------------|--------|
-|`Base` <br /> default value |`base`|
+|`Base` (default value) |`base`|
 |`Primary`|`primary`|
 |`Secondary`|`secondary`|
 |`Tertiary`|`tertiary`|
@@ -162,8 +165,6 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
     }
 }
 ````
-
-
 
 ## See Also
 
