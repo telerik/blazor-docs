@@ -60,7 +60,7 @@ There are two different ways to configure the `From` and `To` values. The correc
         <tr>
             <td><code>ChartCategoryAxis</code> <br> including <a href="/blazor-ui/components/chart/date-axis">date axis</a></td>
             <td>horizontal category axis</td>
-            <td><strong>Zero-based index</strong>, which corresponds to a major grid line that intersects the axis. The plot band will display <em>between the specified grid lines</em>.</td>
+            <td><strong>Zero-based index</strong>, which corresponds to a major vertical grid line that intersects the axis. The plot band will display <em>between the specified grid lines</em>.</td>
         </tr>
     </tbody>
 </table>
