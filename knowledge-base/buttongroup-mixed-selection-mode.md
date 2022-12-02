@@ -13,12 +13,12 @@ res_type: kb
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>ButtonGroup for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>ButtonGroup for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
