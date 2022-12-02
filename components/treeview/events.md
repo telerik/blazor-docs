@@ -151,49 +151,49 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
 
     private async Task OnTreeViewItemClick(TreeViewItemClickEventArgs args)
     {
-        EventLog += "<div>The <strong>OnItemClick</strong> event fired.</div>";
+        EventLog += "<div><span>The <strong>OnItemClick</strong> event fired.</span>";
 
         TreeItem node = args.Item as TreeItem;
 
         if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
         {
-            EventLog += $"The user clicked {keyboardEventArgs.Key} on node {node.Text}";
+            EventLog += $"<span>The user clicked {keyboardEventArgs.Key} on node {node.Text}</span></div>";
         }
         else if (args.EventArgs is MouseEventArgs mouseEventArgs)
         {
-            EventLog += $"The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on node {node.Text}";
+            EventLog += $"<span>The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on node {node.Text}</span></div>";
         }
     }
 
     private void OnTreeViewItemContextMenu(TreeViewItemContextMenuEventArgs args)
     {
-        EventLog += "<div>The <strong>OnItemContextMenu</strong> event fired.</div>";
+        EventLog += "<div><span>The <strong>OnItemContextMenu</strong> event fired.</span>";
 
         TreeItem node = args.Item as TreeItem;
 
         if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
         {
-            EventLog += $"The user clicked {keyboardEventArgs.Key} on node {node.Text}";
+            EventLog += $"<span>The user clicked {keyboardEventArgs.Key} on node {node.Text}</span></div>";
         }
         else if (args.EventArgs is MouseEventArgs mouseEventArgs)
         {
-            EventLog += $"The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on node {node.Text}";
+            EventLog += $"<span>The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on node {node.Text}</span></div>";
         }
     }
 
     private async Task OnTreeViewItemDoubleClick(TreeViewItemDoubleClickEventArgs args)
     {
-        EventLog += "<div>The <strong>OnItemDoubleClick</strong> event fired.</div>";
+        EventLog += "<div><span>The <strong>OnItemDoubleClick</strong> event fired.</span>";
 
         TreeItem node = args.Item as TreeItem;
 
         if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
         {
-            EventLog += $"The user clicked {keyboardEventArgs.Key} on node {node.Text}";
+            EventLog += $"<span>The user clicked {keyboardEventArgs.Key} on node {node.Text}</span></div>";
         }
         else if (args.EventArgs is MouseEventArgs mouseEventArgs)
         {
-            EventLog += $"The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on node {node.Text}";
+            EventLog += $"<span>The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on node {node.Text}</span></div>";
         }
     }
 
