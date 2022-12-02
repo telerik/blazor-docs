@@ -43,7 +43,7 @@ The Avatar `Type` defines the type of the content that the component will displa
 
 The Avatar provides multiple options for configuring its look. [Explore the available appearance settings...]({%slug avatar-appearance%})
 
-## Parameters
+## Avatar Parameters
 
 The Blazor Avatar provides the following parameters that allow you to configure the component:
 
