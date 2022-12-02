@@ -109,7 +109,7 @@ There are two ways to generate fields in the Blazor Form:
 * By manually defining [FormItems]({%slug form-formitems%}).
 * Allowing the Form to [automatically generate them](#automatic-generation-of-field).
 
-The Form Items allow you customize the [default editors](#automatic-generation-of-field). [See the [FormItems article for more information...]({%slug form-formitems%}).
+The Form Items allow you customize the [default editors](#automatic-generation-of-fields). [See the [FormItems article for more information...]({%slug form-formitems%}).
 
 ### Automatic Generation of Fields
 
