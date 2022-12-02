@@ -25,7 +25,7 @@ res_type: kb
 
 How to create a third selection mode that is a mix between `Single` and `Multiple`? How to force at least one selected ButtonGroup button?
 
-Currently, there are two possible options for the [`SelectionMode`]({%slug buttongroup-selection%}) in the ButtonGroup. The third mode needs to allow multiple selections and not allow deselecting the last standing selected item. Minimum one button needs to stay always selected.
+Currently, there are two possible options for the [`SelectionMode`]({%slug buttongroup-selection%}) in the ButtonGroup. The third mode needs to allow multiple selection and not allow deselecting the last selected item. Minimum one button needs to stay always selected.
 
 ## Solution
 
