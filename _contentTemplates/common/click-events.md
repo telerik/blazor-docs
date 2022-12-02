@@ -36,7 +36,7 @@ The event *does not fire* when the user:
 
         if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
         {
-            Console.WriteLine($"The user clicked {keyboardEventArgs.Key} on row {model.Name}");
+            Console.WriteLine($"The user pressed {keyboardEventArgs.Key} on row {model.Name}");
         }
         else if (args.EventArgs is MouseEventArgs mouseEventArgs)
         {
