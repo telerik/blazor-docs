@@ -14,7 +14,7 @@ The <a href="https://www.telerik.com/blazor-ui/avatar" target="_blank">Blazor Av
 
 It also gives you the flexibility to customize its size, color, fill mode and more.
 
-## Creating Avatar
+## Creating Blazor Avatar
 
 1. Use the `TelerikAvatar` tag to add the component to your razor page.
 
