@@ -51,7 +51,7 @@ There are two different ways to configure the `From` and `To` values. The correc
         </tr>
         <tr>
             <td><code>ChartXAxis</code></td>
-            <td>horizontal category axis</td>
+            <td>horizontal numeric axis</td>
         </tr>
         <tr>
             <td><code>ChartValueAxis</code></td>
