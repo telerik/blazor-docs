@@ -55,7 +55,7 @@ You can increase or decrease the size of the Avatar by setting the `Size` parame
 
 ## Rounded
 
-The `Rounded` parameter applies the `border-radius` CSS rule to the Avatar to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Avatar.Rounded` class:
+The `Rounded` parameter applies the `border-radius` CSS style to the Avatar to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Avatar.Rounded` class:
 
 | Class members | Manual declarations |
 |------------|--------|
