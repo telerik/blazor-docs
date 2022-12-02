@@ -12,107 +12,102 @@ position: 10
 
 The MultiSelect component can filter the available suggestions according to the current user input, so they can find the one they need faster. To see the difference in behavior, visit the [Live Demo: MultiSelect Filtering](https://demos.telerik.com/blazor-ui/multiselect/filtering) page.
 
-To enable filtering, set the `Filterable` parameter to `true`.
+To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive. You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug multiselect-events%}#onread).
 
-Filtering ignores casing and the default filter operator is `starts with`. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
+Filtering looks in the `TextField`, and the filter is reset when the dropdown closes.
 
-To control when the filter list appears, set the `MinLength` parameter. This can be useful if you have a very large list of data.
+## Filter Operator
 
-By default, the filtering will be debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug multiselect-overview%}#parameters) parameter of the component.
+The default filter operator is `starts with`. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
 
-You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug multiselect-events%}#onread).
+## Minimum Length
+
+To control when the filter list appears, set the `MinLength` parameter. This can be useful if you have a very large list of data or a lot of similar items.
+
+## Performance
+
+By default, the filtering is debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug multiselect-overview%}#parameters) parameter of the component.
+
+## Filtering Example
 
 >caption Filtering in the MultiSelect
 
 ````CSHTML
-@* as you type "de", you will only get "Developer" and "Designer" as suggestions instead of the full list *@
-
-<TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues"
-                     Filterable="true"
-                     Placeholder="Write 'de' to see the filtering" ClearButton="true" />
-
 <ul>
-    @foreach (var item in TheValues)
-    {
-        <li>@item</li>
-    }
+    <li>
+        <label>
+            Filter operator:
+            <TelerikDropDownList @bind-Value="@FilterOperator"
+                                 Data="@FilterOperators"
+                                 Width="160px" />
+        </label>
+    </li>
+    <li>
+        <label>
+            Minimum string length before filtering:
+            <TelerikNumericTextBox @bind-Value="@FilterMinLength" Min="0" Width="100px" />
+        </label>
+    </li>
+    <li>
+        <label>
+            Debounce delay:
+            <TelerikNumericTextBox @bind-Value="@DebounceDelay" Min="0" Width="120px" />
+        </label>
+    </li>
 </ul>
 
+<br />
+
+<TelerikMultiSelect Data="@ProductList"
+                    @bind-Value="@SelectedProducts"
+                    TextField="@nameof(Product.Name)"
+                    ValueField="@nameof(Product.Id)"
+                    Filterable="true"
+                    FilterOperator="@FilterOperator"
+                    MinLength="@FilterMinLength"
+                    DebounceDelay="@DebounceDelay"
+                    Placeholder="Type digits to see filtering in action"
+                    Width="600px">
+</TelerikMultiSelect>
+
 @code{
-    List<string> TheValues { get; set; } = new List<string>();
+    private List<Product> ProductList { get; set; }
 
-    List<string> Roles { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
-}
-````
+    private List<int> SelectedProducts { get; set; }
 
->caption Filtering with MinLength
+    private List<StringFilterOperator> FilterOperators =>
+        Enum.GetValues(typeof(StringFilterOperator)).Cast<StringFilterOperator>().ToList();
 
-````CSHTML
-@* On the first keystroke, there will be no suggestions, then you will only get "Developer" and "Designer" as you write "de" *@
+    private StringFilterOperator FilterOperator { get; set; } = StringFilterOperator.StartsWith;
 
-<TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues"
-                     Filterable="true" MinLength="2"
-                     Placeholder="Write 'de' to see the filtering" ClearButton="true" />
+    private int FilterMinLength { get; set; } = 1;
 
-<ul>
-    @foreach (var item in TheValues)
+    private int DebounceDelay { get; set; } = 150;
+
+    protected override void OnInitialized()
     {
-        <li>@item</li>
-    }
-</ul>
+        ProductList = new List<Product>();
 
-@code{
-    List<string> TheValues { get; set; } = new List<string>();
-
-    List<string> Roles { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
-}
-````
-
-
->caption Choose FilterOperator
-
-````CSHTML
-@* Type something in the input to see items filtered. Choose a new filter operator and repeat *@
-
-<label>
-    Choose filter operator:
-    <select @bind="@filterOperator">
-        @foreach (var possibleFilter in Enum.GetValues(typeof(StringFilterOperator)))
+        for (int i = 1; i <= 30; i++)
         {
-            <option value="@possibleFilter">@possibleFilter</option>
+            ProductList.Add(new Product()
+            {
+                Id = i,
+                Name = $"{i} Product {i * 111}"
+            });
         }
-    </select>
-</label>
 
-<TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues"
-                     Filterable="true" FilterOperator="@filterOperator"
-                     Placeholder="Write 's' or 'a' to see the difference" ClearButton="true" />
-
-<ul>
-    @foreach (var item in TheValues)
-    {
-        <li>@item</li>
+        base.OnInitialized();
     }
-</ul>
 
-@code{
-    List<string> TheValues { get; set; } = new List<string>();
-
-    StringFilterOperator filterOperator { get; set; } = StringFilterOperator.StartsWith;
-
-    List<string> Roles { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
 }
-
 ````
 
 ## See Also
 
-  * [Live Demo: MultiSelect Filtering](https://demos.telerik.com/blazor-ui/multiselect/filtering)
-   
-  
+* [Live Demo: MultiSelect Filtering](https://demos.telerik.com/blazor-ui/multiselect/filtering)
