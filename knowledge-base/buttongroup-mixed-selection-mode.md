@@ -23,68 +23,47 @@ res_type: kb
 
 ## Description
 
-How to create a third selection mode that is a mix between `Single` and `Multiple`?
+How to create a third selection mode that is a mix between `Single` and `Multiple`? How to force at least one selected ButtonGroup button?
 
-Currently, there are two possible options for the `SelectionMode` in the ButtonGroup. The third mode needs to allow multiple selections and not allow deselecting the last standing selected item. At least one button needs to stay always selected.
+Currently, there are two possible options for the [`SelectionMode`]({%slug buttongroup-selection%}) in the ButtonGroup. The third mode needs to allow multiple selections and not allow deselecting the last standing selected item. Minimum one button needs to stay always selected.
 
 ## Solution
 
-Handle the `SelectedChanged` event of each `ButtonGroupToggleButton`, and when you deselect a button, check if it was the last selected.
+Handle the [`SelectedChanged`]({%slug buttongroup-events%}#selectedchanged) event of each [`ButtonGroupToggleButton`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ButtonGroupToggleButton), and when you deselect a button, check if it was the last selected.
 
 ````CSHTML
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Multiple">
-    <ButtonGroupToggleButton Selected="@FirstSelected" SelectedChanged="@FirstSelectedChangedHandler">First</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton Selected="@SecondSelected" SelectedChanged="@SecondSelectedChangedHandler">Second</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton Selected="@ThirdSelected" SelectedChanged="@ThirdSelectedChangedHandler">Third</ButtonGroupToggleButton>
+    <ButtonGroupToggleButton Selected="@FirstSelected" SelectedChanged="@((bool currState) => SelectedChangedHandler(currState, 1))">First</ButtonGroupToggleButton>
+    <ButtonGroupToggleButton Selected="@SecondSelected" SelectedChanged="@((bool currState) => SelectedChangedHandler(currState, 2))">Second</ButtonGroupToggleButton>
+    <ButtonGroupToggleButton Selected="@ThirdSelected" SelectedChanged="@((bool currState) => SelectedChangedHandler(currState, 3))">Third</ButtonGroupToggleButton>
 </TelerikButtonGroup>
 
 @code {
-    List<string> selectedButtons { get; set; } = new List<string>();
+    List<int> selectedButtons { get; set; } = new List<int>();
 
     bool FirstSelected { get; set; }
     bool SecondSelected { get; set; }
     bool ThirdSelected { get; set; }
 
-    void FirstSelectedChangedHandler(bool currState)
+    void SelectedChangedHandler(bool currState, int btnIndex)
     {
-        if (currState && !(selectedButtons.Contains("first")))
+        if (currState && !(selectedButtons.Contains(btnIndex)))
         {
-            FirstSelected = currState;
-            selectedButtons.Add("first");
+            selectedButtons.Add(btnIndex);
         }
         else if (!currState && selectedButtons.Count > 1)
         {
-            FirstSelected = currState;
-            selectedButtons.Remove("first");
+            selectedButtons.Remove(btnIndex);
         }
-    }
 
-    void SecondSelectedChangedHandler(bool currState)
-    {
-        if (currState && !(selectedButtons.Contains("second")))
-        {
-            SecondSelected = currState;
-            selectedButtons.Add("second");
-        }
-        else if (!currState && selectedButtons.Count > 1)
-        {
-            SecondSelected = currState;
-            selectedButtons.Remove("second");
-        }
-    }
-    
-    void ThirdSelectedChangedHandler(bool currState)
-    {
-        if (currState && !(selectedButtons.Contains("third")))
-        {
-            ThirdSelected = currState;
-            selectedButtons.Add("third");
-        }
-        else if (!currState && selectedButtons.Count > 1)
-        {
-            ThirdSelected = currState;
-            selectedButtons.Remove("third");
-        }
+        FirstSelected = selectedButtons.Contains(1);
+        SecondSelected = selectedButtons.Contains(2);
+        ThirdSelected = selectedButtons.Contains(3);
     }
 }
 ````
+
+## See Also
+
+* [Explore the built-in selection modes]({%slug buttongroup-selection%})
+* [See vertical button group]({%slug buttongroup-kb-vertical%})
