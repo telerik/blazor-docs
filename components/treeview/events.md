@@ -91,15 +91,15 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
                  CheckBoxMode="@TreeViewCheckBoxMode.Single"
                  SelectionMode="@TreeViewSelectionMode.Single"
                  CheckedItems="@TreeViewCheckedItems"
+                 CheckedItemsChanged="@((IEnumerable<object> items) => TreeViewCheckedItemsChanged(items))"
                  ExpandedItems="@TreeViewExpandedItems"
-                 SelectedItems="@TreeViewSelectedItems"
-                 CheckedItemsChanged="@((IEnumerable<object> items) => TreeViewCheckedItemsChanged(items) )"
                  ExpandedItemsChanged="@TreeViewExpandedItemsChanged"
                  OnExpand="@OnTreeViewExpand"
                  OnItemClick="@OnTreeViewItemClick"
                  OnItemContextMenu="OnTreeViewItemContextMenu"
                  OnItemDoubleClick="@OnTreeViewItemDoubleClick"
                  OnItemRender="@OnTreeViewItemRender"
+                 SelectedItems="@TreeViewSelectedItems"
                  SelectedItemsChanged="@((IEnumerable<object> item) => TreeViewSelectedItemsChanged(item))">
 </TelerikTreeView>
 
@@ -115,9 +115,14 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
     </div>
 }
 
+<style>
+    .bold-text-parent-items {
+        font-weight: bold;
+    }
+</style>
+
 @code {
     private string EventLog { get; set; } = string.Empty;
-    private TreeItem ChosenItem { get; set; }
     private List<TreeItem> TreeViewData { get; set; }
     private IEnumerable<object> TreeViewCheckedItems { get; set; } = new List<object>();
     private IEnumerable<object> TreeViewExpandedItems { get; set; } = new List<TreeItem>();
@@ -150,15 +155,13 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
 
         TreeItem node = args.Item as TreeItem;
 
-        ChosenItem = node;
-
         if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
         {
-            Console.WriteLine($"The user clicked {keyboardEventArgs.Key} on node {node.Text}");
+            //apply some business logic here
         }
         else if (args.EventArgs is MouseEventArgs mouseEventArgs)
         {
-            Console.WriteLine($"The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on node {node.Text}");
+            //apply some business logic here
         }
     }
 
@@ -170,11 +173,11 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
 
         if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
         {
-            Console.WriteLine($"The user clicked {keyboardEventArgs.Key} on node {node.Text}");
+            //apply some business logic here
         }
         else if (args.EventArgs is MouseEventArgs mouseEventArgs)
         {
-            Console.WriteLine($"The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on node {node.Text}");
+            //apply some business logic here
         }
     }
 
@@ -184,15 +187,13 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
 
         TreeItem node = args.Item as TreeItem;
 
-        ChosenItem = node;
-
         if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
         {
-            Console.WriteLine($"The user clicked {keyboardEventArgs.Key} on node {node.Text}");
+            //apply some business logic here
         }
         else if (args.EventArgs is MouseEventArgs mouseEventArgs)
         {
-            Console.WriteLine($"The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on node {node.Text}");
+            //apply some business logic here
         }
     }
 
@@ -311,12 +312,6 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
     }
     #endregion
 }
-
-<style>
-    .bold-text-parent-items {
-        font-weight: bold;
-    }
-</style>
 ````
 
 ## See Also
