@@ -18,7 +18,7 @@ You can set different [Avatar types]({%slug avatar-types%}) and customize its [s
 
 1. Use the `TelerikAvatar` tag to add the component to your razor page.
 
-1. Declare your desired content (as `ChildContent`) inside the `TelerikAvatar` tag - text, icon or image. This example demonstrates Avatar with initials(text).
+1. Declare your desired content (as `ChildContent`) inside the `TelerikAvatar` tag - text, icon or image. This example demonstrates Avatar with initials (text).
 
 1. Set the [Avatar type]({%slug avatar-types%}) to `Text`.
 
