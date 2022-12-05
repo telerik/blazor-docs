@@ -18,7 +18,7 @@ You can set different [Avatar types]({%slug avatar-types%}) and customize its [s
 
 1. Use the `TelerikAvatar` tag to add the component to your razor page.
 
-1. Declare your desired content inside the `TelerikAvatar` tag - text, icon or image. This example demonstrates Avatar with initials(text).
+1. Declare your desired content (as `ChildContent`) inside the `TelerikAvatar` tag - text, icon or image. This example demonstrates Avatar with initials(text).
 
 1. Set the [Avatar type]({%slug avatar-types%}) to `Text`.
 
@@ -52,7 +52,7 @@ The Blazor Avatar provides the following parameters that allow you to configure 
 | Parameter    | Type  | Description |
 | ----------- | ----------- | -------|
 | `Bordered` | `bool` | Whether the Avatar will have border. |
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Avatar. (`<div class="k-avatar>`) Use it to [override the theme or apply custom styles]({%slug themes-override%}). |
+| `Class` | `string` | A custom CSS class that will be rendered on the main wrapping element of the Avatar. (`<div class="k-avatar>`) Use it to [override the theme or apply custom styles]({%slug themes-override%}). |
 | `Height` | `string` | The height of the Avatar. Will be applied only if you explicitly set the [`Size`]({%slug avatar-appearance%}#size) to an empty `string`. |
 | `Width` | `string` | The width of the Avatar. Will be applied only if you explicitly set the  [`Size`]({%slug avatar-appearance%}#size) to an empty `string`. |
 | `Type` | `AvatarType` <br/> (`Image`) | The type of the Avatar. Read more in the [Types article]. |
