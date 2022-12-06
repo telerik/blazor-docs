@@ -18,7 +18,7 @@ If you want to validate the selected files, you should implement the validation 
 The Telerik FileSelect component offers parameters to validate the file selection on the client:
 
 * `Accept` - `string` - not validation per se, but this parameter can [instruct the browser what file types to allow users to select](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept).
-* `AllowedExtensions` - `List<string>` - a list of valid file extensions. Choosing other file types will mark them as invalid in the UI. Its default is an empty list, which allows all extensions.
+* `AllowedExtensions` - `List<string>` - a list of valid file extensions. Choosing other file types will mark them as invalid in the UI. The default value is `null`, which allows all extensions.
 * `MinFileSize`- `int?` - the minimum size of a file in bytes. Files with a smaller size will be marked as invalid in the UI.
 * `MaxFileSize`- `int?` - the maximum size of a file in bytes. Files with a larger size will be marked as invalid in the UI.
 
