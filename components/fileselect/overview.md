@@ -55,49 +55,9 @@ Steps 2 and 3 are optional, but strongly recommended.
 
 This section applies only to Blazor **Server** apps. Blazor **WebAssembly** apps do not require additional configuration for the FileSelect to work with large files.
 
-In Blazor **Server** apps, the FileSelect uses the **SignalR WebSocket**, which has a default maximum message size of **32 KB**. To work with larger files, increase the max WebSocket message size for the Blazor application. See these Microsoft articles:
+In Blazor **Server** apps, the FileSelect uses the **SignalR WebSocket** to send files from the browser to the server .NET runtime. The default SignalR maximum message size is **32 KB**. To work with larger files, [increase the max WebSocket message size for the Blazor application]({%slug common-kb-increase-signalr-max-message-size%}).
 
-* [ASP.NET Core SignalR configuration](https://docs.microsoft.com/en-us/aspnet/core/signalr/configuration)
-* [SignalR Buffer management](https://docs.microsoft.com/en-us/aspnet/core/signalr/security?view=aspnetcore-6.0#buffer-management).
-
-Here is how to configure `MaximumReceiveMessageSize` in .NET 6 and .NET 5 apps.
-
->caption Program.cs (.NET 6)
-
-<div class="skip-repl"></div>
-
-````CS
-using Microsoft.AspNetCore.SignalR;
-
-var builder = WebApplication.CreateBuilder(args);
-
-//...
-
-// SignalR message size for FileSelect
-builder.Services.Configure<HubOptions>(options =>
-{
-    options.MaximumReceiveMessageSize = 1024 * 1024; // 1MB
-});
-````
-
->caption Startup.cs (.NET 5)
-
-<div class="skip-repl"></div>
-
-````CS
-public void ConfigureServices(IServiceCollection services)
-{
-    //...
-
-    // SignalR message size for FileSelect
-    services.Configure<HubOptions>(options =>
-    {
-        options.MaximumReceiveMessageSize = 1024 * 1024; // 1MB
-    });
-}
-````
-
->tip The maximum file size supported by the framework up till .NET 5 is 2 GB and as of .NET 6 [this limit is removed](https://github.com/dotnet/aspnetcore/pull/33900). At the time of introducing the component, Telerik UI for Blazor supports .NET versions 3.1.x - 6 and for multi-targeting purposes the FileSelect component allows maximum file size of 2 GB.
+>tip The maximum file size supported by the framework up till .NET 5 was 2 GB and .NET 6 [removed this limit](https://github.com/dotnet/aspnetcore/pull/33900). While [Telerik UI for Blazor supports .NET version 3.1]({%slug system-requirements%}), the FileSelect component will allow maximum file size of 2 GB.
 
 
 ## Validation
