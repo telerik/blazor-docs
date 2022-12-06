@@ -39,33 +39,29 @@ The `OnExpand` event fires when the user expands or collapses a node (either wit
 
 ## OnItemClick
 
-The `OnItemClick` event fires when the user clicks, presses `Enter` or taps (for mobile devices) on an node (item) of the TreeView. You can use this event to react on user clicking on a node and load data on demand for another component, for example.
+The `OnItemClick` event fires when the user clicks, taps or presses `Enter` on a TreeView node (item). For example, use this event to react to user actions and load data on demand for another component.
 
-@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
+The `OnItemClick` event handler receives a `TreeViewItemClickEventArgs` argument, which has the following properties.
 
-@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+@[template](/_contentTemplates/common/click-events.md#clickeventargs)
 
 ## OnItemContextMenu
 
-The `OnItemContextMenu` event fires when the user right-clicks on a TreeView node, presses the context menu keyboard button or taps and holds on a mobile device.
+The `OnItemContextMenu` event fires when the user right-clicks on a TreeView node, presses the context menu keyboard button, or taps-and-holds on a touch device.
 
-The event handler receives a `TreeViewItemContextMenuEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+The event handler receives a `TreeViewItemContextMenuEventArgs` argument, which has the following properties.
 
-@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
+@[template](/_contentTemplates/common/click-events.md#clickeventargs)
 
 The `OnItemContextMenu` is used to [integrate the Context menu]({%slug contextmenu-integration%}#context-menu-for-a-treeview-node) to the TreeView node.
 
-@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
-
 ## OnItemDoubleClick
 
-The `OnItemDoubleClick` event fires when the user double-clicks or double-taps (for mobile devices) a TreeView node.
+The `OnItemDoubleClick` event fires when the user double-clicks or double-taps a TreeView node.
 
-The event handler receives a `TreeViewItemDoubleClickEventArgs` object which provides the model of the clicked node in the `Item` field that you can cast to your model type.
+The event handler receives a `TreeViewItemDoubleClickEventArgs` argument, which has the following properties.
 
-@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
-
-@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+@[template](/_contentTemplates/common/click-events.md#clickeventargs)
 
 ## OnItemRender
 

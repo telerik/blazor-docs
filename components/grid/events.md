@@ -14,22 +14,21 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 
 * [CUD Events](#cud-events) - events related to Creating, Updating and Deleting items
 * [Read Event](#read-event) - event related to obtaining data
-* [Other Events](#other-events) - other events the grid provides
-    * [State Events](#state-events)
-    * [Column Events](#column-events)
-    * [Command Button Click](#command-button-click)
-    * [Export Events](#export-events)
-    * [SelectedItemsChanged](#selecteditemschanged)
-    * [OnModelInit](#onmodelinit)
-    * [OnRowClick](#onrowclick)
-    * [OnRowDoubleClick](#onrowdoubleclick)
-    * [OnRowContextMenu](#onrowcontextmenu)
-    * [OnRowExpand](#onrowexpand)
-    * [OnRowCollapse](#onrowcollapse)
-    * [OnRowRender](#onrowrender)
-    * [OnRowDrop](#onrowdrop)
-    * [PageChanged](#pagechanged)
-    * [PageSizeChanged](#pagesizechanged)
+* [State Events](#state-events)
+* [Column Events](#column-events)
+* [Command Button Click](#command-button-click)
+* [Export Events](#export-events)
+* [OnModelInit](#onmodelinit)
+* [OnRowClick](#onrowclick)
+* [OnRowDoubleClick](#onrowdoubleclick)
+* [OnRowContextMenu](#onrowcontextmenu)
+* [OnRowExpand](#onrowexpand)
+* [OnRowCollapse](#onrowcollapse)
+* [OnRowRender](#onrowrender)
+* [OnRowDrop](#onrowdrop)
+* [PageChanged](#pagechanged)
+* [PageSizeChanged](#pagesizechanged)
+* [SelectedItemsChanged](#selecteditemschanged)
 
 ## CUD Events
 
@@ -41,12 +40,9 @@ You can read more about the CUD events in the [Editing Overview]({%slug componen
 
 ## Read Event
 
-In the common case, you provide all the data to the grid's `Data` collection and the grid performs operations like paging, filtering, sorting on it for you. In some cases you may want to do this with your own code (for example, to retrieve only a small number of items in order to improve the backend performance). You can do this by attaching to the `OnRead` event where you can perform all the data read operations in the grid. You can read more about them in the [Manual Data Source Operations]({%slug components/grid/manual-operations%}) article.
+In the common case, you provide all the data to the Grid's `Data` collection and the Grid performs operations like paging, filtering, sorting on it for you. In some cases you may want to do this with your own code (for example, to retrieve only a small number of items in order to improve the backend performance). You can do this by handling the `OnRead` event where you can perform all the data read operations in the Grid. Read more about the [`OnRead` event fundamentals]({%slug common-features-data-binding-onread%}) and check the article about [Manual Data Source Operations with the Grid]({%slug components/grid/manual-operations%}).
 
-
-## Other Events
-
-### State Events
+## State Events
 
 The grid state lets you control through code the aspects of the grid the user can control in the UI - such as filtering, sorting, grouping. The grid provides two events related to the state:
 
@@ -56,15 +52,15 @@ The grid state lets you control through code the aspects of the grid the user ca
 
 Review the [grid state]({%slug grid-state%}) article for more details and examples on how the grid state works and what you can do with it.
 
-### Column Events
+## Column Events
 
 The Grid columns emit the `OnCellRender` event, so you can customize each cell separately. Read more and find examples in the [Grid Column Events]({%slug grid-column-events%}) article.
 
-### Command Button Click
+## Command Button Click
 
 The command buttons of a grid provide an `OnClick` event before firing their built-in command (such as opening a row for editing, or adding a new row). You can do this to implement some additional logic and to also handle custom commands - both from a [Command Column]({%slug components/grid/columns/command%}), and from a [Toolbar Button]({%slug components/grid/features/toolbar%})
 
-### Export Events
+## Export Events
 
 During export, the Grid will fire events like `OnBeforeExport` and `OnAfterExport`. They allow you to:
 
@@ -75,11 +71,7 @@ During export, the Grid will fire events like `OnBeforeExport` and `OnAfterExpor
 
 Read more about them and find code examples in the [Grid Export Events]({%slug grid-export-events%}) article.
 
-### SelectedItemsChanged
-
-Fires when the item selection is enabled and the user changes the selected [item]({%slug components/grid/selection/single%}#selecteditemschanged-event) or [items]({%slug components/grid/selection/multiple%}#selecteditemschanged-event).
-
-### OnModelInit
+## OnModelInit
 
 @[template](/_contentTemplates/common/onmodelinit.md#onmodelinit-info)
 
@@ -490,17 +482,13 @@ Fires when the item selection is enabled and the user changes the selected [item
 }
 ````
 
-### OnRowClick
+## OnRowClick
 
-The `OnRowClick` event fires as a response to the user clicking on a row of the Grid. Clicking on the `GridCommandButton`, select row `CheckBox`, expanding a `Detail Template` or when the row is in `edit/insert mode` will not trigger the event.
+@[template](/_contentTemplates/common/click-events.md#rowclick)
 
-The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+The `OnRowClick` event handler receives a `GridRowClickEventArgs` argument, which has the following properties.
 
-@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
-
-The `OnRowClick` event fires before selection happens.
-
-@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+@[template](/_contentTemplates/common/click-events.md#clickeventargs)
 
 >caption Use the OnRowClick event to load data on demand based on the clicked row
 
@@ -544,7 +532,7 @@ There is a deliberate delay in the data loading to showcase the async nature of 
         var model = args.Item as SampleData;
 
         ProjectData = await GetProjectData(model.Id);
-        @[template](/_contentTemplates/common/event-arguments.md#rowclick-args-example)
+        @[template](/_contentTemplates/common/click-events.md#rowclick-args-example)
     }
 
     async Task<List<ProjectModel>> GetProjectData(int id)
@@ -594,17 +582,13 @@ There is a deliberate delay in the data loading to showcase the async nature of 
 
 ![OnRowClick example](images/onrowclick-example.gif)
 
-### OnRowDoubleClick
+## OnRowDoubleClick
 
-The `OnRowDoubleClick` event fires as a response to the user double clicking on a row of the Grid. Clicking on the `GridCommandButton`, select row `CheckBox`, expanding a `Detail Template` or when the row is in `edit/insert mode` will not trigger the event.
+@[template](/_contentTemplates/common/click-events.md#rowdoubleclick)
 
-The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+The `OnRowDoubleClick` event handler receives a `GridRowClickEventArgs` argument, which has the following properties.
 
-@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
-
-The `OnRowDoubleClick` event fires before selection happens.
-
-@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+@[template](/_contentTemplates/common/click-events.md#clickeventargs)
 
 >caption Use the OnRowDoubleClick event to receive information on the clicked row
 
@@ -639,7 +623,7 @@ The `OnRowDoubleClick` event fires before selection happens.
         var model = args.Item as SampleData;
 
         logger = $"Double clicked on {model.Name}";
-        @[template](/_contentTemplates/common/event-arguments.md#rowclick-args-example)
+        @[template](/_contentTemplates/common/click-events.md#rowclick-args-example)
         
     }
 
@@ -661,19 +645,15 @@ The `OnRowDoubleClick` event fires before selection happens.
 }
 ````
 
-### OnRowContextMenu
+## OnRowContextMenu
 
-The `OnRowContextMenu` event fires as a response to the user right clicking on a row of the Grid, the context menu keyboard button or long-touch for mobile devices. Clicking on the `GridCommandButton`, select row `CheckBox`, expanding a `Detail Template` or when the row is in `edit/insert mode` will not trigger the event.
+@[template](/_contentTemplates/common/click-events.md#rowcontextmenu)
 
-The event handler receives a `GridRowClickEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
+The `OnRowContextMenu` event handler receives a `GridRowClickEventArgs` argument, which has the following properties.
 
-@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
+@[template](/_contentTemplates/common/click-events.md#clickeventargs)
 
-The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmenu-integration%}#context-menu-for-a-grid-row) to the Grid Row.
-
-@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
-
->caption Use the OnRowContextMenu event and get the data model
+>caption Use the Grid OnRowContextMenu event and get the data model
 
 ````CSHTML
 @* Get the row model from a context menu action (right click/long tap) *@
@@ -700,7 +680,7 @@ The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmen
         SampleData model = args.Item as SampleData;
 
         logger = $"OnRowContextMenu event fired from right clicking on {model.Name}";
-        @[template](/_contentTemplates/common/event-arguments.md#rowclick-args-example)
+        @[template](/_contentTemplates/common/click-events.md#rowclick-args-example)
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
@@ -724,7 +704,7 @@ The `OnRowContextMenu` is used to [integrate the Context menu]({%slug contextmen
 }
 ````
 
-### OnRowExpand
+## OnRowExpand
 
 The `OnRowExpand` event fires as a response to the user expanding the [`DetailTemplate`]({%slug components/grid/features/hierarchy%}) of the Grid.
 
@@ -814,7 +794,7 @@ The event handler receives a `GridRowExpandEventArgs` object which provides the 
 }
 ````
 
-### OnRowCollapse
+## OnRowCollapse
 
 The `OnRowCollapse` event fires as a response to the user collapsing the [`DetailTemplate`]({%slug components/grid/features/hierarchy%}) of the Grid.
 
@@ -893,7 +873,7 @@ The event handler receives a `GridRowCollapseEventArgs` object which provides th
 
 ````
 
-### OnRowRender
+## OnRowRender
 
 This event fires upon the rendering of the Grid rows. It receives an argument of type `GridRowRenderEventArgs` which exposes the following fields:
 
@@ -968,12 +948,12 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
 }
 ````
 
-### OnRowDrop
+## OnRowDrop
 
 The `OnRowDrop` event fires when the user drags and drops rows in the grid or between grids. You can read more on setting it up and using the grid row dragging feature in the [Row Drag and Drop]({%slug grid-drag-drop-overview%}) article.
 
 
-### PageChanged
+## PageChanged
 
 The event fires when the user pages the grid.
 
@@ -1026,7 +1006,7 @@ The event fires when the user pages the grid.
 }
 ````
 
-### PageSizeChanged
+## PageSizeChanged
 
 The `PageSizeChanged` event fires when the user changes the page size via the pager DropDownList. The existence of this event also ensures that the Grid `PageSize` attribute supports two-way binding.
 
@@ -1066,6 +1046,10 @@ Make sure to update the current page size when using the event.
     }
 }
 ````
+
+## SelectedItemsChanged
+
+Fires when item selection is enabled and the user [selects or deselects one item]({%slug components/grid/selection/single%}#selecteditemschanged-event) or [multiple items]({%slug components/grid/selection/multiple%}#selecteditemschanged-event), depending on the [selection mode]({%slug components/grid/selection/overview%}).
 
 ## See Also
 

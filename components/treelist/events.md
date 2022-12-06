@@ -14,17 +14,6 @@ This article explains the events available in the Telerik TreeList for Blazor. T
 
 * [CUD Events](#cud-events) - events related to Creating, Updating and Deleting items
 * [Other Events](#other-events) - other events the treelist provides
-    * [OnExpand and OnCollapse](#onexpand-and-oncollapse)
-	* [Command Button Click](#command-button-click)
-	* [SelectedItemsChanged](#selecteditemschanged)
-	* [OnModelInit](#onmodelinit)
-	* [OnRowClick](#onrowclick)
-	* [OnRowDoubleClick](#onrowdoubleclick)
-	* [OnRowContextMenu](#onrowcontextmenu)
-	* [OnRowRender](#onrowrender)
-	* [OnRowDrop](#onrowdrop)
-	* [PageChanged](#pagechanged)
-	* [PageSizeChanged](#pagechanged)
 
 ## CUD Events
 
@@ -36,7 +25,19 @@ You can read more about the CUD events in the [Editing Overview]({%slug treelist
 
 ## Other Events
 
-### OnExpand and OnCollapse
+* [OnExpand and OnCollapse](#onexpand-and-oncollapse)
+* [Command Button Click](#command-button-click)
+* [SelectedItemsChanged](#selecteditemschanged)
+* [OnModelInit](#onmodelinit)
+* [OnRowClick](#onrowclick)
+* [OnRowDoubleClick](#onrowdoubleclick)
+* [OnRowContextMenu](#onrowcontextmenu)
+* [OnRowRender](#onrowrender)
+* [OnRowDrop](#onrowdrop)
+* [PageChanged](#pagechanged)
+* [PageSizeChanged](#pagechanged)
+
+## OnExpand and OnCollapse
 
 The `OnExpand` event fires when the user clicks the expand arrow on a row that has children but they are collapsed. It receives arguments of type `TreeListExpandEventArgs<T>` where `T` is the model you bind the treelist to, and the `Item` field in the event arguments is the current model.
 
@@ -161,15 +162,15 @@ The `OnCollapse` event fires when the user collapses an expanded row through the
 ````
 
 
-### Command Button Click
+## Command Button Click
 
 The command buttons of a treelist provide an `OnClick` event before firing their built-in command (such as opening a row for editing, or adding a new row). You can do this to implement some additional logic and to also handle custom commands - both from a [Command Column]({%slug treelist-columns-command%}), and from a [Toolbar Button]({%slug treelist-toolbar%}).
 
-### SelectedItemsChanged
+## SelectedItemsChanged
 
 Fires when the item selection is enabled and the user changes the selected [item]({%slug treelist-selection-single%}#selecteditemschanged-event) or [items]({%slug treelist-selection-multiple%}#selecteditemschanged-event).
 
-### OnModelInit
+## OnModelInit
 
 @[template](/_contentTemplates/common/onmodelinit.md#onmodelinit-info)
 
@@ -948,21 +949,15 @@ Fires when the item selection is enabled and the user changes the selected [item
 }
 ````
 
-### OnRowClick
+## OnRowClick
 
-The `OnRowClick` event fires when the user clicks on a TreeList row. The event does not fire when clicking on:
-* `TreeListCommandButton`
-* row selection checkbox
-* expand/collapse button
-* row in edit mode
+@[template](/_contentTemplates/common/click-events.md#rowclick)
 
-The event handler receives a `TreeListRowClickEventArgs` object. It provides the model of the clicked row in the `Item` field that you can cast to your model type.
+The `OnRowClick` event handler receives a `TreeListRowClickEventArgs` argument, which has the following properties.
 
-@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
+@[template](/_contentTemplates/common/click-events.md#clickeventargs)
 
-The `OnRowClick` event fires before selection happens.
-
-@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+>caption Using the TreeList OnRowClick event
 
 ````CSHTML
 @* Use the OnRowClick event for the TreeList *@
@@ -1056,21 +1051,15 @@ The `OnRowClick` event fires before selection happens.
 }
 ````
 
-### OnRowDoubleClick
+## OnRowDoubleClick
 
-The `OnRowDoubleClick` event fires when the user double-clicks on a TreeList row. The event does not fire when clicking on:
-* `TreeListCommandButton`
-* row selection checkbox
-* expand/collapse button
-* row in edit mode
+@[template](/_contentTemplates/common/click-events.md#rowdoubleclick)
 
-The event handler receives a `TreeListRowClickEventArgs` object. It provides the model of the clicked row in the `Item` field that you can cast to your model type.
+The `OnRowDoubleClick` event handler receives a `TreeListRowClickEventArgs` argument, which has the following properties.
 
-@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
+@[template](/_contentTemplates/common/click-events.md#clickeventargs)
 
-The `OnRowDoubleClick` event fires before selection happens.
-
-@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+>caption Using the TreeList OnRowDoubleClick event
 
 ````CSHTML
 @* Use the OnRowDoubleClick event for the TreeList. *@ 
@@ -1164,21 +1153,15 @@ The `OnRowDoubleClick` event fires before selection happens.
 }
 ````
 
-### OnRowContextMenu
+## OnRowContextMenu
 
-The `OnRowContextMenu` event fires as a response to the user right clicking action on a row of the TreeList, the context menu keyboard button or long-touch for mobile devices. The event does not fire when clicking on:
-* `TreeListCommandButton`
-* row selection checkbox
-* expand/collapse button
-* row in edit mode
+@[template](/_contentTemplates/common/click-events.md#rowcontextmenu)
 
-The event handler receives a `TreeListRowClickEventArgs` object. It provides the model of the clicked row in the `Item` field that you can cast to your model type.
+The `OnRowContextMenu` event handler receives a `TreeListRowClickEventArgs` argument, which has the following properties.
 
-@[template](/_contentTemplates/common/event-arguments.md#rowclick-args)
+@[template](/_contentTemplates/common/click-events.md#clickeventargs)
 
-The `OnRowContextMenu` event can be used to integrate a ContextMenu to the row.
-
-@[template](/_contentTemplates/common/general-info.md#rerender-after-event)
+>caption Using the TreeList OnRowContextMenu event
 
 ````CSHTML
 @* Get the row model from a context menu action (right click/long tap) *@
@@ -1212,7 +1195,7 @@ The `OnRowContextMenu` event can be used to integrate a ContextMenu to the row.
 
         logger = $"OnRowContextMenu event fired from right clicking on {clickedRow.Name}";
 		
-        @[template](/_contentTemplates/common/event-arguments.md#rowclick-args-example)
+        @[template](/_contentTemplates/common/click-events.md#rowclick-args-example)
     }
 
     public List<Employee> Data { get; set; }
@@ -1285,7 +1268,7 @@ The `OnRowContextMenu` event can be used to integrate a ContextMenu to the row.
 }
 ````
 
-### OnRowRender
+## OnRowRender
 
 This event fires upon the rendering of the TreeList rows. It receives an argument of type `TreeListRowRenderEventArgs` which exposes the following fields:
 
@@ -1404,11 +1387,11 @@ This event fires upon the rendering of the TreeList rows. It receives an argumen
 
 ![Blazor Treelist Onrowrender Event Example](images/treelist-onrowrender-event-example.png)
 
-### OnRowDrop
+## OnRowDrop
 
 The `OnRowDrop` event fires when the user drags and drops rows in the TreeList or between TreeLists. You can read more on setting it up and using the TreeList row dragging feature in the [Row Drag and Drop]({%slug treelist-drag-drop-overview%}) article.
 
-### PageChanged
+## PageChanged
 
 The event fires when the user pages the treelist.
 
@@ -1488,7 +1471,7 @@ The event fires when the user pages the treelist.
 }
 ````
 
-### PageSizeChanged
+## PageSizeChanged
 
 The `PageSizeChanged` event fires when the user changes the page size via the pager DropDownList. The existence of this event also ensures that the TreeList `PageSize` attribute supports two-way binding.
 
@@ -1584,6 +1567,6 @@ Make sure to update the current page size when using the event.
 
 ## See Also
 
-  * [TreeList Overview]({%slug treelist-overview%})
-  * [TreeList Column Events]({%slug treelist-column-events%})
-  * [TreeList Editing Overview]({%slug treelist-editing-overview%})
+* [TreeList Overview]({%slug treelist-overview%})
+* [TreeList Column Events]({%slug treelist-column-events%})
+* [TreeList Editing Overview]({%slug treelist-editing-overview%})
