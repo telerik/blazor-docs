@@ -30,10 +30,10 @@ This article explains how to get the <a href = "https://www.telerik.com/blazor-u
 
    ![Manage NuGet Packages](images/manage-nuget-packages-for-client-app.png)
 
-2. Install the `Telerik.UI.for.Blazor` package:
+2. Install the Telerik Blazor NuGet package:
 
   1. Select the `telerik.com` **Package source** that you [added earlier](#step-2-add-the-telerik-nuget-feed-to-visual-studio). As this is a private NuGet feed, you must authenticate with your [Telerik account](https://www.telerik.com/account/) user name and password.
-  1. Select the **Browse** tab, find the `Telerik.UI.for.Blazor` package, and click **Install**. If you use a trial license, you will see only the `Telerik.UI.for.Blazor.Trial`&mdash;use that instead.
+  1. Select the **Browse** tab, find the NuGet package, and click **Install**. Commercial license holders should install `Telerik.UI.for.Blazor`. Trial users should install `Telerik.UI.for.Blazor.Trial`.
 
    ![Add Telerik Blazor Package to Client Project](images/add-telerik-nuget-to-client-app.png)
 
