@@ -230,7 +230,7 @@ When you specify the desired `RowSpan`, you should also provide the `Row` that w
 </TelerikGridLayout>
 
 @code {
-    public int? RowSpan { get; set; } = 1;
+    private int? RowSpan { get; set; } = 1;
 } 
 ````
 
