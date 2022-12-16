@@ -1,7 +1,7 @@
 ---
 title: Action Buttons
 page_title: Dialog Action Buttons
-description: Action Buttons of the Dialog for Blazor.
+description: How to setup action buttons of the Dialog for Blazor. Use different button layouts.
 slug: dialog-action-buttons
 tags: telerik,blazor,dialog,action,buttons
 published: True
@@ -10,42 +10,55 @@ position: 7
 
 # Dialog Action Buttons
 
-The Dialog provides options for rendering action buttons and customizing their text. The action buttons of the Dialog allow you to provide specific interaction to users. To specify action buttons in the Dialog, use the `DialogButtons` tag. You can customize the layout of the buttons by using the `ButtonsLayout` property.
+The Dialog provides a dedicated area for action buttons. They enable the application to provide specific interaction to users.
+
+To specify action buttons in the Dialog, use the `DialogButtons` tag.
+
+## Button Layout
+
+The Dialog action buttons can render in a few different layout configurations. This depends on the `ButtonsLayout` parameter of the component. It expects a member of the `DialogButtonsLayout` enum:
+
+* `Start`
+* `Center`
+* `End`
+* `Stretched` (default value)
 
 ## Example
 
-The following example demonstrates all supported layout options for the action buttons.
+The following example demonstrates all supported layout options for the Dialog action buttons.
 
->caption The result from the code snippet.
-
-![Blazor Dialog Action Buttons](images/dialog-action-buttons.gif)
-
->caption The supported layouts for the action buttons in the Telerik Dialog.
+>caption Using Dialog ButtonsLayout
 
 ````CSHTML
-@* An example of all the available layout options. *@
-
-<TelerikDialog @ref="dialogRef" @bind-Visible="@Visible"
-               Title="@Title"
-               ButtonsLayout="SelectedBtnLayout">
+<TelerikDialog @ref="@DialogRef"
+               @bind-Visible="@DialogVisible"
+               Title="Select Buttons Layout"
+               ButtonsLayout="@SelectedButtonLayout">
     <DialogContent>
-        <div>------- Please choose a layout: -------</div>
-        <br/>
-        <TelerikRadioGroup Data="@LayoutTypes" @bind-Value="@SelectedBtnLayout" OnChange="@OnChangeHandler"></TelerikRadioGroup>
+        <TelerikRadioGroup Data="@ButtonLayouts"
+                           @bind-Value="@SelectedButtonLayout"
+                           OnChange="@OnRadioChange">
+        </TelerikRadioGroup>
     </DialogContent>
     <DialogButtons>
-        <TelerikButton OnClick="@(() => { Visible = false; })">Cancel</TelerikButton>
-        <TelerikButton OnClick="@(() => { Visible = false; })" ThemeColor="primary" >OK</TelerikButton>
+        <TelerikButton>Cancel</TelerikButton>
+        <TelerikButton ThemeColor="primary">OK</TelerikButton>
     </DialogButtons>
 </TelerikDialog>
 
 @code {
-    TelerikDialog dialogRef;
-    private bool Visible { get; set; } = true;
-    private string Title { get; set; } = "Title here";
+    private TelerikDialog DialogRef { get; set; }
 
-    public DialogButtonsLayout SelectedBtnLayout { get; set; } = DialogButtonsLayout.Start;
-    public List<DialogModel> LayoutTypes { get; set; } = new List<DialogModel>()
+    private bool DialogVisible { get; set; } = true;
+
+    private DialogButtonsLayout SelectedButtonLayout { get; set; } = DialogButtonsLayout.End;
+
+    private async Task OnRadioChange(object newValue)
+    {
+        DialogRef.Refresh(); // Refresh() is needed to re-render the Dialog content.
+    }
+
+    private List<DialogModel> ButtonLayouts { get; set; } = new List<DialogModel>()
     {
         new DialogModel() { Text = "Start", Value = DialogButtonsLayout.Start },
         new DialogModel() { Text = "End", Value = DialogButtonsLayout.End },
@@ -57,11 +70,6 @@ The following example demonstrates all supported layout options for the action b
     {
         public string Text { get; set; }
         public DialogButtonsLayout Value { get; set; }
-    }
-
-    async Task OnChangeHandler(object newValue)
-    {
-        dialogRef.Refresh(); // The Refresh() method is needed here to re-render and display the changed position of the buttons.
     }
 }
 ````
