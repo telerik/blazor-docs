@@ -43,7 +43,7 @@ The **LoaderContainer** is designed to cover a whole component, HTML element, or
 }
 ````
 
-> Do not show or hide the LoaderContainer programmatically in a method, which is blocking the UI thread. If this happens, the LoaderContainer may not appear when expected.
+> Do not show or hide the LoaderContainer in a method, which is blocking the UI thread with synchronous operations. If this happens, the LoaderContainer may not appear when expected. A possible workaround is to use `await Task.Delay(...)` to give Blazor time to refresh the UI.
 
 >note By default, the Loader Container will fill up the browser viewport. To overlay only a specific element, see the [Fill a Parent Container](#fill-a-parent-container) section below.
 
