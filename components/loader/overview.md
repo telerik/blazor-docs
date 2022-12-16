@@ -47,8 +47,7 @@ The **Loader** is placed inside another component or HTML element. Typically, it
 }
 ````
 
-> Do not show or hide the Loader programmatically in a method, which is blocking the UI thread. If this happens, the Loader may not appear when expected.
-
+> Do not show or hide the Loader in a method, which is blocking the UI thread with synchronous operations. If this happens, the Loader may not appear when expected. A possible workaround is to use `await Task.Delay(...)` to give Blazor time to refresh the UI.
 
 ## Appearance
 
