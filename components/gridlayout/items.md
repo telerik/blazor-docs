@@ -177,7 +177,7 @@ When you specify the desired `ColumnSpan`, you should also provide the `Column` 
 </TelerikGridLayout>
 
 @code {
-    public int? ColumnSpan { get; set; } = 1;
+    private int? ColumnSpan { get; set; } = 1;
 }
 ````
 
