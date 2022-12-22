@@ -24,11 +24,11 @@ An Editor *command* is the action, which modifies the HTML value in some way. Ea
 
 The information about the Editor tools and commands is organized in tables below. Here is what the table headers mean:
 
-* `Class Name` - use it to [add the tool to the Editor toolbar]({%slug editor-toolbars%})
+* `Class Name` - use it to [add the tool to the Editor toolbar]({%slug editor-toolbar%})
 
 * `Command Name` - use it to [execute the command programmatically](#programmatic-execution). In this case, also use the syntax from the `Argument` column.
 
-* `Tool Type` - a tool can be a [button](/blazor-ui/api/Telerik.Blazor.Components.Editor.ButtonTool), a [dropdown list](/blazor-ui/api/Telerik.Blazor.Components.Editor.DropDownListTool) or a [color picker](/blazor-ui/api/Telerik.Blazor.Components.Editor.ColorTool). Each of these three types exposes some customization options. See the examples for the [color tools](#color-tool-customization), [font tools](#font-tool-customization) and the [Format tool](#format-tool-customization). Only *buttons* can be added to tool groups in the [toolbar]({%slug editor-toolbars%}).
+* `Tool Type` - a tool can be a [button](/blazor-ui/api/Telerik.Blazor.Components.Editor.ButtonTool), a [dropdown list](/blazor-ui/api/Telerik.Blazor.Components.Editor.DropDownListTool) or a [color picker](/blazor-ui/api/Telerik.Blazor.Components.Editor.ColorTool). Each of these three types exposes some customization options. See the examples for the [color tools](#color-tool-customization), [font tools](#font-tool-customization) and the [Format tool](#format-tool-customization). Only *buttons* can be added to tool groups in the [toolbar]({%slug editor-toolbar%}).
 
 * `Description` - information about what the tool and command do.
 
@@ -81,6 +81,7 @@ Here is a simple example that demonstrates how to use class names, command names
 * [Commands Without Built-in Tools](#commands-without-built-in-tools)
 * [Programmatic Command Execution](#programmatic-execution)
 
+When [choosing which Editor tools to render]({%slug editor-toolbar%}#choose-toolbar-items), it is possible to [create a tools collection from scratch]({%slug editor-toolbar%}#create-a-toolbar-from-scratch) or [append additional tools to a preset collection]({%slug editor-toolbar%}#addremove-tools-from-existing-toolbar).
 
 ## Inline Tools
 
@@ -558,4 +559,4 @@ In order to do so, you need to use the [Editor reference]({%slug editor-overview
 ## See Also
 
 * [Editor Overview]({%slug editor-overview%})
-* [Editor Toolbar]({%slug editor-toolbars%})
+* [Editor Toolbar]({%slug editor-toolbar%})

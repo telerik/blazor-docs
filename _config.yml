@@ -262,6 +262,8 @@ navigation:
         title: "Arc"
      "*autocomplete":
         title: "AutoComplete"
+     "*avatar":
+        title: "Avatar"
      "*barcodes":
         title: "Barcodes"
      "*barcode":

@@ -10,116 +10,91 @@ position: 10
 
 # DropDownList Filter
 
-The Filter in the DropDownList component allows the user to filter the available items by their text, so they can find the one they need faster. It is an input shown at the top of the dropdown popup.
+The DropDownList filter textbox allows users to filter the available items by their text and find the one they need faster. The filtering input is at the top of the dropdown popup.
 
-To enable filtering, set the `Filterable` parameter to `true`.
+To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive. You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug components/dropdownlist/events%}#onread).
 
-Filtering ignores casing and the default filter operator is `starts with`. Filtering looks in the `TextField`, and the filter is reset when the dropdown closes.
+Filtering looks in the `TextField`, and the filter is reset when the dropdown closes.
 
-You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
+## Filter Operator
 
-By default, the filtering will be debounced with 150ms. Configure that with the [`FilterDebounceDelay`]({%slug components/dropdownlist/overview%}#parameters) parameter of the component.
+The default filter operator is `starts with`. You can choose a different operator through the `FilterOperator` parameter that takes a member of the `Telerik.Blazor.StringFilterOperator` enum.
 
-You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug components/dropdownlist/events%}#onread).
+## Performance
+
+By default, the filtering is debounced with 150ms. Configure that with the [`FilterDebounceDelay`]({%slug components/dropdownlist/overview%}#parameters) parameter of the component.
+
+## Filtering Example
 
 >caption Filtering in the DropDownList
 
-![dropdownlist filtering gif](images/dropdownlist-filtering-basic.gif)
-
 ````CSHTML
-@* Open the dropdown and type something in the input to search for that item in the dropdown list data, for example "Product 5" *@
+<ul>
+    <li>
+        <label>
+            Choose filter operator:
+            <select @bind="FilterOperator">
+                @foreach (var possibleFilter in Enum.GetValues(typeof(StringFilterOperator)))
+                {
+                    <option value="@possibleFilter">@possibleFilter</option>
+                }
+            </select>
+        </label>
+    </li>
+    <li>
+        <label>
+            Debounce delay:
+            <TelerikNumericTextBox @bind-Value="@DebounceDelay" Min="0" Width="120px" />
+        </label>
+    </li>
+</ul>
 
-<TelerikDropDownList Data="@Data"
+<br />
+
+<TelerikDropDownList Data="@ProductList"
+                     @bind-Value="@SelectedProduct"
+                     TextField="@nameof(Product.Name)"
+                     ValueField="@nameof(Product.Id)"
                      Filterable="true"
-                     @bind-Value="@SelectedValue" TextField="ProductName" ValueField="ProductId">
+                     FilterOperator="@FilterOperator"
+                     FilterDebounceDelay="@DebounceDelay"
+                     DefaultText="Type digits to see filtering in action"
+                     Width="300px">
 </TelerikDropDownList>
 
-@code {
-    public List<Product> Data { get; set; }
-    public int? SelectedValue { get; set; }
+@code{
+    private List<Product> ProductList { get; set; }
+
+    private int? SelectedProduct { get; set; }
+
+    private StringFilterOperator FilterOperator { get; set; } = StringFilterOperator.StartsWith;
+
+    private int DebounceDelay { get; set; } = 150;
 
     protected override void OnInitialized()
     {
-        List<Product> products = new List<Product>();
-        for (int i = 0; i < 20; i++)
+        ProductList = new List<Product>();
+
+        for (int i = 1; i <= 30; i++)
         {
-            products.Add(new Product()
+            ProductList.Add(new Product()
             {
-                ProductId = i,
-                ProductName = $"Product {i}"
+                Id = i,
+                Name = $"{i} Product {i * 111}"
             });
         }
 
-        Data = products;
         base.OnInitialized();
     }
 
     public class Product
     {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-    }
-}
-````
->caption Choose Filter Operator
-
-![dropdownlist choose filter operator gif](images/dropdownlist-choose-filter-operator.gif)
-
-````CSHTML
-@* Choose a filter operator, open the dropdown and type something in the input to see the items filtered *@
-
-<label for="filterOperatorChoice">
-    Choose filter operator:
-    <select @bind="@filterOperator" class="form-control" style="width: 130px;margin-bottom:1rem;"
-            id="filterOperatorChoice">
-        @foreach (var possibleFilter in Enum.GetValues(typeof(StringFilterOperator)))
-        {
-            <option value="@possibleFilter">@possibleFilter</option>
-        }
-    </select>
-</label>
-
-@SelectedValue
-<br />
-
-<TelerikDropDownList Data="@Data"
-                     Filterable="true" FilterOperator="@filterOperator"
-                     DefaultText="Find a car by typing part of its make"
-                     @bind-Value="@SelectedValue" TextField="Make" ValueField="Id">
-</TelerikDropDownList>
-
-@code {
-    StringFilterOperator filterOperator { get; set; } = StringFilterOperator.Contains;
-    List<Car> Data { get; set; } = new List<Car>
-    {
-        new Car { Id = 1, Make = "Honda" },
-        new Car { Id = 2, Make = "Opel" },
-        new Car { Id = 3, Make = "Audi" },
-        new Car { Id = 4, Make = "Lancia" },
-        new Car { Id = 5, Make = "BMW" },
-        new Car { Id = 6, Make = "Mercedes" },
-        new Car { Id = 7, Make = "Tesla" },
-        new Car { Id = 8, Make = "Vw" },
-        new Car { Id = 9, Make = "Alpha Romeo" },
-        new Car { Id = 10, Make = "Chevrolet" },
-        new Car { Id = 11, Make = "Ford" },
-        new Car { Id = 12, Make = "Cadillac" },
-        new Car { Id = 13, Make = "Dodge" },
-        new Car { Id = 14, Make = "Jeep" },
-        new Car { Id = 15, Make = "Chrysler" },
-        new Car { Id = 16, Make = "Lincoln" }
-    };
-
-    int? SelectedValue { get; set; }
-
-    public class Car
-    {
         public int Id { get; set; }
-        public string Make { get; set; }
+        public string Name { get; set; }
     }
 }
 ````
 
 ## See Also
 
-  * [Live Demo: DropDownList Filtering](https://demos.telerik.com/blazor-ui/dropdownlist/filtering)
+* [Live Demo: DropDownList Filtering](https://demos.telerik.com/blazor-ui/dropdownlist/filtering)

@@ -29,5 +29,5 @@ This has the following implications:
 ## See Also
 
   * [Editor Overview]({%slug editor-overview%})
-  * [Editor Toolbar]({%slug editor-toolbars%})
+  * [Editor Toolbar]({%slug editor-toolbar%})
 

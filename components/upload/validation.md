@@ -20,7 +20,7 @@ To validate uploaded files, implement the validation in two parts:
 The Telerik Upload component offers parameters to validate selected files on the client:
 
 * `Accept` - `string` - not validation per se, but this parameter can [instruct the browser what file types to allow users to select](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept).
-* `AllowedExtensions` - `List<string>` - a list of valid file extensions. Choosing other file types will mark them as invalid in the UI. Its default is an empty list, which allows all extensions.
+* `AllowedExtensions` - `List<string>` - a list of valid file extensions. Choosing other file types will mark them as invalid in the UI. The default value is `null`, which allows all extensions.
 * `MaxFileSize` - the maximum file size in bytes. Larger selected files will be marked as invalid and will not be uploaded.
 * `MinFileSize` - the minimum size of a file in bytes. Smaller selected files will be marked as invalid and will not be uploaded.
 

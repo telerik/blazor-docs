@@ -576,25 +576,25 @@ To test it out, try filtering the name column
 
 ### Initiate Editing or Inserting of an Item
 
-The grid state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the grid state. If you want to save on every keystroke instead of on `OnChange` - use a custom editor template and update the `EditItem` or `InsertedItem` of the state object as required, then save the state into your service.
+The Grid state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the Grid state. If you want to save on every keystroke instead of on `OnChange` - use a custom editor template and update the `EditItem` or `InsertedItem` of the state object as required, then save the state into your service.
 
-In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `InsertItem` fields of the state object to put the grid in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug components/grid/columns/command%}).
+In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `InsertItem` fields of the state object to put the Grid in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug components/grid/columns/command%}).
 
 >caption Put and item in Edit mode or start Inserting a new item
 
 ````CSHTML
-@* This example shows how to make the grid edit a certain item or start insert operation
-    through your own code, without requiring the user to click the Command buttons.
-    The buttons that initiate these operations can be anywhere on the page, including inside the grid.
-    Note the model constructors and static method that show how to get a new instance for the edit item
+@* This example shows how to trigger Grid Edit, Create, Save and Cancel operations programmatically.
+    The buttons that initiate these operations can be anywhere on the page, including inside the Grid.
+    Note the model constructors and static method that show how to get a new instance for the edit item.
 *@
-
 
 <TelerikButton OnClick="@StartInsert">Start Insert operation</TelerikButton>
 <TelerikButton OnClick="@EditItemFour">Put item 4 in Edit mode</TelerikButton>
+<TelerikButton OnClick="@SaveAndClose">Save And Close</TelerikButton>
+<TelerikButton OnClick="@CancelEditing">Cancel Editing</TelerikButton>
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px" @ref="@GridRef"
-             OnUpdate="@UpdateHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler">
+             OnUpdate="@UpdateHandler" OnCreate="@CreateHandler">
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
@@ -613,6 +613,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
     async Task StartInsert()
     {
         var currState = GridRef.GetState();
+
         // reset any current editing. Not mandatory.
         currState.EditItem = null;
         currState.OriginalEditItem = null;
@@ -621,7 +622,6 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         // you can predefine values here as well (not mandatory)
         currState.InsertedItem = new SampleData() { Name = "some predefined value" };
         await GridRef.SetStateAsync(currState);
-
         // note: possible only for Inline and Popup edit modes, with InCell there is never an inserted item, only edited items
     }
 
@@ -644,6 +644,49 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         await GridRef.SetStateAsync(currState);
     }
 
+    async Task SaveAndClose()
+    {
+        var gridState = GridRef.GetState();
+
+        // distinguish Update and Create operations via the Grid state
+        var itemToSave = gridState.EditItem ?? gridState.InsertedItem;
+
+        // call the correct data service method for Update or Create
+        if (gridState.InsertedItem != null)
+        {
+            await CreateHandler(new GridCommandEventArgs()
+            {
+                IsNew = true,
+                Item = itemToSave
+            });
+        }
+        else
+        {
+            await UpdateHandler(new GridCommandEventArgs()
+            {
+                Item = itemToSave
+            });
+        }
+
+        // reset all edit-related state properties
+        gridState.EditItem = null;
+        gridState.OriginalEditItem = null;
+        gridState.InsertedItem = null;
+
+        await GridRef.SetState(gridState);
+    }
+
+    async Task CancelEditing()
+    {
+        var gridState = GridRef.GetState();
+
+        // reset all edit-related state properties
+        gridState.EditItem = null;
+        gridState.OriginalEditItem = null;
+        gridState.InsertedItem = null;
+
+        await GridRef.SetState(gridState);
+    }
 
     // Sample CRUD operations and data follow
 
@@ -653,17 +696,6 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 
         // perform actual data source operations here through your service
         await MyService.Update(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-    }
-
-    async Task DeleteHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-
-        // perform actual data source operation here through your service
-        await MyService.Delete(item);
 
         // update the local view-model data with the service data
         await GetGridData();

@@ -109,11 +109,11 @@ There are two ways to generate fields in the Blazor Form:
 * By manually defining [FormItems]({%slug form-formitems%}).
 * Allowing the Form to [automatically generate them](#automatic-generation-of-field).
 
-The Form Items allow you customize the [default editors](#automatic-generation-of-field). [See the [FormItems article for more information...]({%slug form-formitems%}).
+The Form Items allow you customize the [default editors](#automatic-generation-of-fields). [See the [FormItems article for more information...]({%slug form-formitems%}).
 
-### Automatic Generation of fields
+### Automatic Generation of Fields
 
-The Telerik Form can generate [editors]({%slug form-formitems%}) for you based on the model fields. It can take them from both a `Model`, or the `EditContext`, whichever you provide to it. You can use the [data annotation attributes](#data-annotation-attributes) to validate the value of the fields.
+The Telerik Form can generate [editors]({%slug form-formitems%}) for you based on the model fields. It can take them from both a `Model`, or the `EditContext`, whichever you provide to it. You can use [data annotation attributes](#data-annotation-attributes) to validate the field values and customize the auto-generated form fields, for example set labels, visibility and editability.
 
 The following data types are supported out-of-the box and they use the following default editors:
 
@@ -128,9 +128,9 @@ The following data types are supported out-of-the box and they use the following
 | `bool`  | [Telerik CheckBox]({%slug checkbox-overview%}) |
 
 
-#### Customize the Automatically Generated Fields
+#### Customize the Automatically Generated Field Editors
 
-You can customize the automatically generated field by providing the `EditorType` attribute, exposed on the `<FormItem>`, or by using the [FormItem Template]({%slug form-formitems-template%}). The `EditorType` attribute accepts a member of the `FormEditorType` enum:
+You can customize the automatically generated field editors by providing the `EditorType` attribute, exposed on the `<FormItem>`, or by using the [FormItem Template]({%slug form-formitems-template%}). The `EditorType` attribute accepts a member of the `FormEditorType` enum:
 
 | Field data type | FormEditorType enum members              |
 |-----------------|------------------------------------------|
@@ -184,7 +184,9 @@ The Telerik Form for Blazor supports validation through the `<DataAnnotationsVal
 
 The Form also uses the the following attributes from the model:
 
-* `[Display(Name="Field Caption")]` - to get the title (caption) of the field name to render out as its label. 
+* `[Display(Name = "Field Caption")]` - to get the title (caption) of the field name to render out as its label.
+
+* `[Display(AutoGenerateField = false)]` - to skip a class member and *not* create a `FormItem` for it.
 
 * `[Editable(false)]` - to render the built-in editor as disabled so the user cannot change its value.
 
@@ -212,19 +214,44 @@ The Blazor Form exposes multiple parameters that allow you to customize its layo
 
 ## Form Reference
 
-Use the Form Reference to get access to the `EditContext` object that the form will generate when you pass a `Model` to it. It could be useful to, for example, re-attach validation when you change the model - `FormReference.EditContext.AddDataAnnotationsValidation()`.
+Use the Form reference to get access to its `EditContext`. The Form generates this object, no matter if the component uses a `Model` or an `EditContext` parameter. You can validate the `EditContext` manually or re-attach validation when you change the model - `FormReference.EditContext.AddDataAnnotationsValidation()`.
 
 >caption Get a reference to the Telerik Form for Blazor 
 
-<div class="skip-repl"></div>
 ````CSHTML
-@* Get a reference to the Form component *@
+@using System.ComponentModel.DataAnnotations
 
-<TelerikForm Model="@person" @ref="@FormReference">
+<TelerikForm Model="@TeamMate" @ref="@FormRef" Width="300px">
+    <FormValidation>
+        <DataAnnotationsValidator />
+    </FormValidation>
 </TelerikForm>
 
 @code {
-    private TelerikForm FormReference { get; set; }
+    private TelerikForm FormRef { get; set; }
+
+    private Employee TeamMate { get; set; } = new();
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            FormRef?.EditContext.Validate();
+        }
+
+        base.OnAfterRender(firstRender);
+    }
+
+    public class Employee
+    {
+        [Display(AutoGenerateField = false)]
+        public int Id { get; set; }
+        [Required]
+        [MinLength(2, ErrorMessage = "{0} should be at least {1} characters.")]
+        public string Name { get; set; }
+        [Required]
+        public DateTime? BirthDate { get; set; }
+    }
 }
 ````
 

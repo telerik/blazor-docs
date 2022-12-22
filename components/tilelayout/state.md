@@ -18,7 +18,10 @@ The state is an object of type `TileLayoutState` that has a single field - an `I
 
 You can get and set the state object through the `GetState()` and `SetState(newState)` methods the component reference exposes.
 
+## Tile Item State Properties
+
 The `TileLayoutItemState` object has the following fields:
+
 * `Order` - the sequential order of the tile in the layout
 * `ColSpan` - the number of columns the width of the tile takes
 * `RowSpan` - the number of rows the height of the tile takes
@@ -166,9 +169,15 @@ public class LocalStorage
 }
 ````
 
+## Add And Remove Tiles
+
+To change the tile collection itself and add or remove tiles, render the `<TileLayoutItem>` instances with a loop. See article [How to Add and Remove TileLayout Tiles]({%slug tilelayout-kb-add-remove-tiles%}).
+
+## Next Steps
+
+* [Explore TileLayout event]({%slug tilelayout-events%})
+
 ## See Also
 
-  * [TileLayout Overview]({%slug tilelayout-overview%})
-  * [TileLayout Reorder]({%slug tilelayout-reorder%})
-  * [TileLayout Resize]({%slug tilelayout-resize%})
-  * [Live Demo: TileLayout State](https://demos.telerik.com/blazor-ui/tilelayout/persist-state)
+* [Live Demo: TileLayout State](https://demos.telerik.com/blazor-ui/tilelayout/persist-state)
+* [KB: Add or Remove Tiles]({%slug tilelayout-kb-add-remove-tiles%})
