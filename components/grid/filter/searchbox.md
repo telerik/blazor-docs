@@ -25,7 +25,7 @@ The SearchBox lets the user type their query and the grid will look up all visib
 
 The SearchBox is independent from the standard filters. If you have filters applied, the SearchBox will respect them and add additional filtering criteria. Thus, you can also apply filtering to results returned from it.
 
-To enable the SearchBox, add the `<GridSearchBox>` tag in the `<GridToolBar>`.
+To enable the SearchBox, add the `<GridSearchBox>` tag in the `<GridToolBarTemplate>`.
 
 >caption SearchBox in the Telerik Grid
 
@@ -33,10 +33,10 @@ To enable the SearchBox, add the `<GridSearchBox>` tag in the `<GridToolBar>`.
 @* A search panel in the Grid Toolbar *@
 
 <TelerikGrid Data=@GridData Pageable="true" Height="400px">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <span class="k-toolbar-spacer"></span> @* add this spacer to keep the searchbox on the right *@
         <GridSearchBox />
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@(nameof(Employee.EmployeeId))" />
         <GridColumn Field=@nameof(Employee.Name) />
@@ -100,9 +100,9 @@ You can set the Grid filters programmatically through the component [state]({%sl
 
 <TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
              Pageable="true">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridSearchBox />
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
@@ -120,7 +120,7 @@ You can set the Grid filters programmatically through the component [state]({%sl
             SearchFilter = CreateSearchFilter()
         };
 
-        await Grid.SetState(desiredState);
+        await Grid.SetStateAsync(desiredState);
     }
 
     private IFilterDescriptor CreateSearchFilter()
@@ -180,11 +180,11 @@ The `GridSearchBox` component offers the following settings to customize its beh
 @* Increased delay, a subset of the columns are allowed for filtering and a custom placeholder *@
 
 <TelerikGrid Data=@GridData Pageable="true" Height="400px">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridSearchBox DebounceDelay="1000"
                        Fields="@SearchableFields"
                        Placeholder="Search Team..." />
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@(nameof(Employee.EmployeeId))" />
         <GridColumn Field=@nameof(Employee.Name) />

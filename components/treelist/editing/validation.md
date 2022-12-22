@@ -39,9 +39,9 @@ To disable the built-in validation, add a `<TreeListValidationSettings>`tag  to 
         <TreeListValidationSettings Enabled="false">
         </TreeListValidationSettings>
     </TreeListSettings>
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListCommandColumn Width="280px">
             <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>

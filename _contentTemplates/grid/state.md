@@ -33,7 +33,7 @@
             }
         };
 
-        await Grid.SetState(desiredState);
+        await Grid.SetStateAsync(desiredState);
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
@@ -88,7 +88,7 @@
             }
         };
 
-        await Grid.SetState(desiredState);
+        await Grid.SetStateAsync(desiredState);
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
@@ -155,7 +155,7 @@
             }
         };
 
-        await Grid.SetState(desiredState);
+        await Grid.SetStateAsync(desiredState);
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
@@ -255,7 +255,7 @@ This flexibility lets you choose what behavior you want from the grid.
         });
 
         // set state
-        await Grid.SetState(state);
+        await Grid.SetStateAsync(state);
     }
 
     // adds a filter
@@ -304,7 +304,7 @@ This flexibility lets you choose what behavior you want from the grid.
         state.FilterDescriptors.Add(theFilterDescriptor);
 
         // set the updated state
-        await Grid.SetState(state);
+        await Grid.SetStateAsync(state);
     }
 
     // replaces all filters
@@ -340,7 +340,7 @@ This flexibility lets you choose what behavior you want from the grid.
         };
 
         // set the new state
-        await Grid.SetState(state);
+        await Grid.SetStateAsync(state);
     }
 }
 
@@ -456,7 +456,7 @@ public static class FilterExtensions
             CollapsedGroups = new List<int>() { 0 },
         };
 
-        await Grid.SetState(desiredState);
+        await Grid.SetStateAsync(desiredState);
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
@@ -518,7 +518,7 @@ public static class FilterExtensions
             }
         };
 
-        await Grid.SetState(desiredState);
+        await Grid.SetStateAsync(desiredState);
     }
 
     List<MainModel> salesTeamMembers { get; set; }

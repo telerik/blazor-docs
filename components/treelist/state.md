@@ -56,19 +56,19 @@ By using the `OnStateChanged` and `OnStateInit` events, you can save and restore
 
 ### Methods
 
-The `GetState` and `SetState` instance methods provide flexibility for your business logic. They let you get and set the current TreeList state on demand outside of the component events.
+The `GetState` and `SetStateAsync` instance methods provide flexibility for your business logic. They let you get and set the current TreeList state on demand outside of the component events.
 
 * `GetState` returns the TreeList state so you can store it only on a certain condition - for example, you may want to save the TreeList layout only on a button click, and not on every user interaction with the component. You can also use it to get information about the current state of the filters, sorts and so on.
 
-* `SetState` takes an instance of a TreeList state so you can use your own code to alter the component layout and state. For example, you can have a button that puts the TreeList in a certain configuration that helps your users review data (like certain filters, sorts, expanded items, initiate item editing or inserting, etc.).
+* `SetStateAsync` takes an instance of a TreeList state so you can use your own code to alter the component layout and state. For example, you can have a button that puts the TreeList in a certain configuration that helps your users review data (like certain filters, sorts, expanded items, initiate item editing or inserting, etc.).
 
-If you want to make changes on the current TreeList state, first get it from the component through the `GetState` method, then apply the modifications on the object you got, and pass it to `SaveState`.
+If you want to make changes on the current TreeList state, first get it from the component through the `GetState` method, then apply the modifications on the object you got, and pass it to `SetStateAsync`.
 
-If you want to put the TreeList in a certain configuration without preserving the old one, create a `new TreeListState<T>()` and apply the settings there, then pass it to `SetState`.
+If you want to put the TreeList in a certain configuration without preserving the old one, create a `new TreeListState<T>()` and apply the settings there, then pass it to `SetStateAsync`.
 
-To reset the TreeList state, call `SetState(null)`.
+To reset the TreeList state, call `SetStateAsync(null)`.
 
-You should avoid calling `SetState` in the treelist [CRUD methods]({%slug treelist-editing-overview%}). Doing so may lead to unexpected results because the grid has more logic to execute after the event.
+You should avoid calling `SetStateAsync` in the treelist [CRUD methods]({%slug treelist-editing-overview%}). Doing so may lead to unexpected results because the grid has more logic to execute after the event.
 
 ## Information in the TreeList State
 
@@ -177,7 +177,7 @@ The following example shows one way you can store the TreeList state - through a
         // clean up the storage
         await LocalStorage.RemoveItem(UniqueStorageKey);
 
-        await TreeListRef.SetState(null); // pass null to reset the state
+        await TreeListRef.SetStateAsync(null); // pass null to reset the state
     }
 
     void ReloadPage()
@@ -228,7 +228,7 @@ The following example shows one way you can store the TreeList state - through a
             }
         };
 
-        TreeListRef?.SetState(state);
+        TreeListRef?.SetStateAsync(state);
     }
 
     TelerikTreeList<Employee> TreeListRef { get; set; }
@@ -548,7 +548,7 @@ The example below shows how to achieve it by using the`OnStateChanged` event.
     // Note: This can cause a performance delay if you do long operations here
     // Note 2: The TreeList does not await this event, its purpose is to notify you of changes
     //         so you must not perform async operations and data loading here, or issues with the TreeList state may occur
-    //         or other things you change on the page won't actually change. The .SetState() call redraws only the TreeList, but not the rest of the page
+    //         or other things you change on the page won't actually change. The .SetStateAsync() call redraws only the TreeList, but not the rest of the page
     async Task OnStateChangedHandler(TreeListStateEventArgs<Employee> args)
     {
         string changedSetting = args.PropertyName;
@@ -571,7 +571,7 @@ The example below shows how to achieve it by using the`OnStateChanged` event.
                 Result = $"The {item.Member} field was filtered";
 
                 // you could override a user action as well - change settings on the corresponding parameter
-                // make sure that the .SetState() method of the TeeList is always called if you do that
+                // make sure that the .SetStateAsync() method of the TeeList is always called if you do that
                 if (item.Member == "Name")
                 {
                     item.Value = "second level child 1 of 1 and 1";
@@ -590,7 +590,7 @@ The example below shows how to achieve it by using the`OnStateChanged` event.
             }
             //needed only if you will be overriding user actions or amending them
             // if you only need to be notified of changes, you should not call this method
-            await TreeListRef.SetState(args.TreeListState);
+            await TreeListRef.SetStateAsync(args.TreeListState);
         }
     }
 
@@ -701,9 +701,9 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
                  ItemsField="@(nameof(Employee.DirectReports))"
                  Width="850px"
                  @ref="@TreeListRef">
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListCommandColumn Width="280px">
             <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
@@ -733,14 +733,14 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
 
         state.EditItem = employeeToEdit;
         state.OriginalEditItem = originalEmployee;
-        await TreeListRef.SetState(state);
+        await TreeListRef.SetStateAsync(state);
     }
 
     async Task InsertItem()
     {
         var state = TreeListRef.GetState();
         state.InsertedItem = new Employee() { Name = "added from code" };
-        await TreeListRef.SetState(state);
+        await TreeListRef.SetStateAsync(state);
     }
 
     async Task InsertItemAsSpecificChild()
@@ -748,7 +748,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
         var state = TreeListRef.GetState();
         state.InsertedItem = new Employee();
         state.ParentItem = FindItemRecursive(Data, 3);
-        await TreeListRef.SetState(state);
+        await TreeListRef.SetStateAsync(state);
     }
 
     // sample helper method for handling the view-model data hierarchy

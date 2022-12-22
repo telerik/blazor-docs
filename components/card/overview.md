@@ -42,7 +42,7 @@ The below snippet demonstrates the setup of a Card component with all building b
             Ancient ruins such as the Forum and the Colosseum evoke the power of the former Roman Empire.
         </p>
     </CardBody>
-    <CardActions Layout="@CardActionsLayout.Stretched">
+    <CardActions Layout="@CardActionsLayout.Stretch">
         <TelerikButton Class="k-flat" Icon="heart-outline">Like</TelerikButton>
         <TelerikButton Class="k-flat" Icon="share">Share</TelerikButton>
         <TelerikButton Class="k-flat">Read More</TelerikButton>

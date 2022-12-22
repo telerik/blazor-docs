@@ -14,7 +14,6 @@ You can control the appearance of the buttons in the `<TelerikButtonGroup>` by s
 
 * [FillMode](#fillmode)
 * [Rounded](#rounded)
-* [Shape](#shape)
 * [Size](#size)
 * [ThemeColor](#themecolor)
 
@@ -79,38 +78,6 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the button to ac
         {
             string rounded = field.GetValue(null).ToString();
             <ButtonGroupButton Rounded="@rounded">@rounded</ButtonGroupButton>
-        }
-    </TelerikButtonGroup>
-}
-````
-
-## Shape
-
-The `Shape` attribute defines the geometric shape of the button. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.Shape` class:
-
-| Class members | Manual declarations |
-|---------------|--------|
-| `Rectangle`   |`rectangle`|
-| `Square`   |`square`|
-| `Circle`   |To create a circular button you should set the `Shape` attribute to **Square**, and the `Rounded` attribute to **Full**|
-
-
->note The width and height of the geometric shapes depend on the amount of text in the button, and the size of the font.
-
->caption The built-in button shapes
-
-````CSHTML
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Button.Shape)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    <TelerikButtonGroup>
-        @foreach (var field in fields)
-        {
-            string shape = field.GetValue(null).ToString();
-            <ButtonGroupButton Shape="@shape">@shape</ButtonGroupButton>
         }
     </TelerikButtonGroup>
 }

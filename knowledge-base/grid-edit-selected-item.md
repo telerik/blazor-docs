@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I would like to edit the selected item in the Grid when the `GridSelectionMode` is set to `Single`. The buttons for editing, deleting, saving and canceling the operation should be located in the `GridToolBar` rather than on each row.
+I would like to edit the selected item in the Grid when the `GridSelectionMode` is set to `Single`. The buttons for editing, deleting, saving and canceling the operation should be located in the `GridToolBarTemplate` rather than on each row.
 
 ## Solution
 
@@ -47,7 +47,7 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
 ### Sample Implementation
 
 ````CSHTML
-@*Edit the SelectedItem with buttons located in the GridToolBar*@
+@*Edit the SelectedItem with buttons located in the GridToolBarTemplate*@
 
 <TelerikGrid Data="@GridData"
              EditMode="@GridEditMode.Inline"
@@ -58,7 +58,7 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
              Pageable="true"
              Height="300px"
              @ref="@GridRef">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <TelerikButton Enabled="@(SelectedEmployee != null)" OnClick="@EditEmployee">Edit</TelerikButton>
         <TelerikButton Enabled="@(SelectedEmployee != null)" OnClick="@DeleteEmployee">Delete</TelerikButton>
         @if (isInEdit)
@@ -66,7 +66,7 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
             <TelerikButton OnClick="@SaveEmployee">Save</TelerikButton>
             <TelerikButton OnClick="@CancelEdit">Cancel</TelerikButton>
         }
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(Employee.Name) />
         <GridColumn Field=@nameof(Employee.Team) Title="Team" />
@@ -103,7 +103,7 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
 
         currentState.OriginalEditItem = itemToEdit;
 
-        await GridRef.SetState(currentState);
+        await GridRef.SetStateAsync(currentState);
     }
 
     async Task SaveEmployee()
@@ -119,7 +119,7 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
         currentState.OriginalEditItem = default;
         currentState.EditItem = default;
 
-        await GridRef.SetState(currentState);
+        await GridRef.SetStateAsync(currentState);
 
         isInEdit = false;
     }
@@ -138,7 +138,7 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
         currentState.OriginalEditItem = default;
         currentState.EditItem = default;
 
-        await GridRef.SetState(currentState);
+        await GridRef.SetStateAsync(currentState);
 
         isInEdit = false;
     }

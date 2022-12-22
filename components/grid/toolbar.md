@@ -12,7 +12,7 @@ position: 45
 
 The grid provides a toolbar where you can add a variety of actions that are not tied to a concrete row.
 
-To use a toolbar, define the `GridToolBar` tag of the grid. In it, you can use arbitrary HTML and components to get the desired layout, and also `GridCommandButton` instances in (you can read more about the features available in those buttons in the [Command Column]({%slug components/grid/columns/command%}) article).
+To use a toolbar, define the `GridToolBarTemplate` tag of the grid. In it, you can use arbitrary HTML and components to get the desired layout, and also `GridCommandButton` instances in (you can read more about the features available in those buttons in the [Command Column]({%slug components/grid/columns/command%}) article).
 
 >note The toolbar is not associated with an item from the data source. The `Item` field on the click event handler argument of a `GridCommandButton` will always be `null` and the `Edit`, `Update`, `Cancel` commands do not work with it.
 
@@ -41,9 +41,9 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="@GridEditMode.Inline" Height="500px"
              OnUpdate="@UpdateHandler" OnCreate="@CreateHandler">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
@@ -165,9 +165,9 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 @result
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15">
-	<GridToolBar>
+	<GridToolBarTemplate>
 		<GridCommandButton Command="MyToolbarCommand" OnClick="@MyCommandFromToolbar" Icon="info">Fire My Command</GridCommandButton>
-	</GridToolBar>
+	</GridToolBarTemplate>
 	<GridColumns>
 		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
 		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
@@ -218,7 +218,7 @@ You can add your own HTML and components to create a more complex layout in the 
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="@GridEditMode.Inline" Height="500px" OnCreate="@CreateHandler">
 
-    <GridToolBar>
+    <GridToolBarTemplate>
         <div style="display: block; flex-grow: 1;">
             @* the first level children in the toolbar get display: inline-flex and flex-shrink: 0 inherited from the grid,
                 we change it here to show we can, or you can work with the layout the grid defines if it suits your needs *@
@@ -238,7 +238,7 @@ You can add your own HTML and components to create a more complex layout in the 
                 </button>
             </div>
         </div>
-    </GridToolBar>
+    </GridToolBarTemplate>
 
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />

@@ -55,9 +55,9 @@ Editing is cancelled for the first record.
                  OnCancel="@OnCancelHandler"
                  Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
                  Width="850px">
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListCommandColumn Width="200px">
             <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
@@ -399,7 +399,7 @@ When using an [editor template]({%slug treelist-templates-editor%}), the TreeLis
                 // use the state to remove the edited item (close the editor)
                 state.EditItem = null;
                 state.OriginalEditItem = null;
-                await TreeList.SetState(state);
+                await TreeList.SetStateAsync(state);
             }
         }
 

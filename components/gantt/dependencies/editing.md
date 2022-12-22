@@ -43,9 +43,9 @@ List of the available events:
               SortMode="@SortMode.Multiple"
               FilterMode="@GanttFilterMode.FilterMenu"
               FilterMenuType="@FilterMenuType.Menu">
-    <GanttToolBar>
+    <GanttToolBarTemplate>
         <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
-    </GanttToolBar>
+    </GanttToolBarTemplate>
     <GanttViews>
         <GanttWeekView></GanttWeekView>
         <GanttMonthView></GanttMonthView>

@@ -56,7 +56,7 @@ The Blazor TextBox provides various parameters to configure the component:
 | `InputMode` | `string` | A `string` that maps to the [`inputmode`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) attribute of the HTML element. You can use it to instruct the rendering device to show a suitable virtual keyboard (for example, one optimized for entering an URL or an email). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates. |
 | `Name` | `string` | The `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser. |
 | `Password` | `bool` | When set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Live Demo: Password Textbox](https://demos.telerik.com/blazor-ui/textbox/password) |
-| `PlaceHolder` | `string` | A `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. |
+| `Placeholder` | `string` | A `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. |
 | `TabIndex` | ``Nullable<int>`` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}). |
 | `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
@@ -70,7 +70,7 @@ See also the [Input Validation]({%slug common-features/input-validation%}) artic
 
 ````CSHTML
 <label for="email">Email</label>
-<TelerikTextBox PlaceHolder="john@smith.com" Title="write your email here"
+<TelerikTextBox Placeholder="john@smith.com" Title="write your email here"
                 TabIndex="3" Width="180px"
                 InputMode="email" Id="email" AutoComplete="email" Name="email">
 </TelerikTextBox>

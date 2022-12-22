@@ -16,7 +16,7 @@ Note the usage of [`OnModelInit`]({%slug treelist-events%}#onmodelinit) in the e
 
 * Use custom **Add** buttons in the [TreeList Toolbar]({%slug treelist-toolbar%}), one for each model type.
 * In each button click handler, define an `InsertedItem` of the correct type in the [TreeList State]({%slug treelist-state%}).
-* [Put the TreeList in Insert mode]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item) with the [SetState method]({%slug treelist-state%}#methods).
+* [Put the TreeList in Insert mode]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item) with the [SetStateAsync method]({%slug treelist-state%}#methods).
 
 >caption Data Binding the TreeList to an Interface
 
@@ -29,9 +29,9 @@ Note the usage of [`OnModelInit`]({%slug treelist-events%}#onmodelinit) in the e
                  OnDelete="@DeleteHandler"
                  OnCreate="@CreateHandler"
                  OnModelInit="@(() => new Model1())">
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListColumn Field="IntProperty" Expandable="true" />
         <TreeListCommandColumn>

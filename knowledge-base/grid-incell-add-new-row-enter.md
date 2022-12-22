@@ -61,9 +61,9 @@ Here are the required development steps:
              OnCreate="@OnGridCreate"
              OnDelete="@OnGridDelete"
              OnStateChanged="@( (GridStateEventArgs<Product> args) => OnGridStateChanged(args) )">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add Item</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@nameof(Product.Id)" Editable="false" />
         <GridColumn Field="@nameof(Product.Name)" Title="Product Name" />

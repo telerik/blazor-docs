@@ -297,9 +297,9 @@ Parameter | Type | Description
                                     ColumnSpacing="50px">
         </GanttPopupEditFormSettings>
     </GanttSettings>
-    <GanttToolBar>
+    <GanttToolBarTemplate>
         <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
-    </GanttToolBar>
+    </GanttToolBarTemplate>
     <GanttColumns>
         <GanttCommandColumn Width="110px">
             <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>

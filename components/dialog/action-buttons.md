@@ -63,7 +63,7 @@ The following example demonstrates all supported layout options for the Dialog a
         new DialogModel() { Text = "Start", Value = DialogButtonsLayout.Start },
         new DialogModel() { Text = "End", Value = DialogButtonsLayout.End },
         new DialogModel() { Text = "Center", Value = DialogButtonsLayout.Center },
-        new DialogModel() { Text = "Stretched", Value = DialogButtonsLayout.Stretched }
+        new DialogModel() { Text = "Stretch", Value = DialogButtonsLayout.Stretch }
     };
 
     public class DialogModel

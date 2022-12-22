@@ -75,9 +75,9 @@ You can customize the editors rendered in the Gantt Tree by providing the `Edito
               OnUpdate="@UpdateItem"
               OnDelete="@DeleteItem"
               OnCreate="@CreateItem">
-    <GanttToolBar>
+    <GanttToolBarTemplate>
         <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
-    </GanttToolBar>
+    </GanttToolBarTemplate>
     <GanttViews>
         <GanttDayView></GanttDayView>
         <GanttWeekView></GanttWeekView>
@@ -320,9 +320,9 @@ The example below shows how you can handle the events the Gantt component expose
               OnDelete="@DeleteItem"
               OnCreate="@CreateItem"
               OnEdit="@OnEditItem">
-    <GanttToolBar>
+    <GanttToolBarTemplate>
         <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
-    </GanttToolBar>
+    </GanttToolBarTemplate>
     <GanttViews>
         <GanttDayView></GanttDayView>
         <GanttWeekView></GanttWeekView>

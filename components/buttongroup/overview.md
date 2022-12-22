@@ -57,7 +57,7 @@ The ButtonGroup allows you to control the selection mode of its `ButtonGroupTogg
 
 ## Appearance
 
-The separate button instances of the ButtonGroup provide several parameters that control their [styling and appearance, including background color, shape, rounded corners and fill]({%slug buttongroup-appearance%}).
+The separate button instances of the ButtonGroup provide several parameters that control their [styling and appearance, including background color, rounded corners and fill]({%slug buttongroup-appearance%}).
 
 ## Events
 

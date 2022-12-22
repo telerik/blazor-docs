@@ -25,10 +25,10 @@
         @* Exporting a lot of rows can be slow in a WebAssembly app more so than in a server-side app, and it blocks the UI *@
         
         <TelerikGrid Data="@GridData" AutoGenerateColumns="true" Pageable="true">
-            <GridToolBar>
+            <GridToolBarTemplate>
                 <GridCommandButton OnClick="@ShowLoadingSign" Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
                 <GridCommandButton OnClick="@ShowLoadingSign" Command="CsvExport" Icon="file-csv">Export to CSV</GridCommandButton>
-            </GridToolBar>
+            </GridToolBarTemplate>
             <GridExport>
                 <GridExcelExport AllPages="true" FileName="telerik-grid-export" />
                 <GridCsvExport AllPages="true" FileName="telerik-grid-export" />

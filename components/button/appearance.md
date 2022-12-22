@@ -14,7 +14,6 @@ You can control the appearance of the button by setting the following attributes
 
 * [FillMode](#fillmode)
 * [Rounded](#rounded)
-* [Shape](#shape)
 * [Size](#size)
 * [ThemeColor](#themecolor)
 
@@ -81,39 +80,6 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the button to ac
 
         <div style="float:left; margin: 20px;">
             <TelerikButton Rounded="@rounded">@rounded</TelerikButton>
-        </div>
-    }
-}
-````
-
-## Shape
-
-The `Shape` attribute defines the geometric shape of the button. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.Shape` class:
-
-| Class members | Manual declarations |
-|---------------|--------|
-| `Rectangle`   |`rectangle`|
-| `Square`   |`square`|
-| `Circle`   |To create a circular button you should set the `Shape` attribute to **Square**, and the `Rounded` attribute to **Full**|
-
-
->note The width and height of the geometric shapes depend on the amount of text in the button, and the size of the font.
-
->caption The built-in button shapes
-
-````CSHTML
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Button.Shape)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string shape = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikButton Shape="@shape">@shape</TelerikButton>
         </div>
     }
 }

@@ -61,7 +61,7 @@ The primary SplitButton action and each secondary item in the dropdown can [disp
 
 ## Apperance
 
-The SplitButton provides a [variety of settings to control its visual appearance]({%slug splitbutton-appearance%}), for example the colors, borders, shape and size. This spares the need to use custom CSS code.
+The SplitButton provides a [variety of settings to control its visual appearance]({%slug splitbutton-appearance%}), for example the colors, borders, and size. This spares the need to use custom CSS code.
 
 
 ## Events

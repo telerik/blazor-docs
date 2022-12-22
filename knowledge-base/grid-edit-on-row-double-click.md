@@ -63,7 +63,7 @@ The Grid exposes two events that allows you to respond to the user clicking on i
 
         currentState.OriginalEditItem = itemToEdit;
 
-        await GridRef.SetState(currentState);
+        await GridRef.SetStateAsync(currentState);
     }
 
 

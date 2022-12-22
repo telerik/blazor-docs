@@ -46,11 +46,11 @@ Here is an example:
 <TelerikGrid TItem="@GridItem"
              OnRead="@GridReadHandler"
              FilterMode="@GridFilterMode.FilterRow">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <strong style="color:#900">Search for "secret#", where # is the ID number:</strong>
         <span class="k-toolbar-spacer"></span>
         <GridSearchBox DebounceDelay="200"></GridSearchBox>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@nameof(GridItem.ID)" />
         <GridColumn Field="@nameof(GridItem.Name)" />

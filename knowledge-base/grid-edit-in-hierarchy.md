@@ -45,9 +45,9 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
              OnUpdate="UpdateProduct"
              OnDelete="DeleteProduct"
              OnCreate="CreateProduct">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add Product</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(Product.ProductName) Title="Product Name" />
         <GridColumn Field=@nameof(Product.UnitPrice) Title="Unit Price" />
@@ -72,9 +72,9 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
                          OnUpdate="@((GridCommandEventArgs args) => UpdateOrder(product, args))"
                          OnDelete="@((GridCommandEventArgs args) => DeleteOrder(args, product))"
                          OnCreate="@((GridCommandEventArgs args) => CreateOrder(args, product))">
-                <GridToolBar>
+                <GridToolBarTemplate>
                     <GridCommandButton Command="Add" Icon="add">Add Order</GridCommandButton>
-                </GridToolBar>
+                </GridToolBarTemplate>
                 <GridColumns>
                     <GridColumn Field=@nameof(OrderDetails.OrderId) Title="Order ID" Editable="false" />
                     <GridColumn Field=@nameof(OrderDetails.UnitPrice) Title="Price" />

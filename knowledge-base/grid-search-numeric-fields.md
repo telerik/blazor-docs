@@ -88,9 +88,9 @@ Here is an overview of the major steps in the example:
 @using Telerik.DataSource;
 
 <TelerikGrid Data="@MyData" @ref="@Grid" Pageable="true" Height="400px">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridUniversalSearchBox OnSearch="@OnSearch" T="SampleData" Fields="@SearchBoxFields" />
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="100px" />
         <GridColumn Field="@(nameof(SampleData.Byte))" Width="100px" />
@@ -117,7 +117,7 @@ Here is an overview of the major steps in the example:
 
         state.SearchFilter = searchDescriptors;
 
-        await Grid.SetState(state);
+        await Grid.SetStateAsync(state);
     }
 
     private async Task OnSearch(CompositeFilterDescriptor value)

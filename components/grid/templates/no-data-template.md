@@ -25,9 +25,9 @@ The `NoDataTemplate` allows you to define custom content when the Grid has no da
 <TelerikGrid Data="@MyData" Height="400px" Width="830px"
              Pageable="true"
              FilterMode="Telerik.Blazor.GridFilterMode.FilterRow">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton OnClick="@LoadData">Add Data</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="400px" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Width="200px" />

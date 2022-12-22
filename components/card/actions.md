@@ -70,7 +70,7 @@ The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` 
 * `Center` - the default
 * `End`
 * `Start`
-* `Stretched`
+* `Stretch`
 
 >caption Set stretched layout for the action buttons. The result from the snippet below.
 
@@ -88,7 +88,7 @@ The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` 
     </CardBody>
     <CardSeparator></CardSeparator>
     
-    <CardActions Layout="@CardActionsLayout.Stretched">
+    <CardActions Layout="@CardActionsLayout.Stretch">
         <TelerikButton Class="k-flat">Action 1</TelerikButton>
         <TelerikButton Class="k-flat">Action 2</TelerikButton>
         <TelerikButton Class="k-flat">Action 3</TelerikButton>
@@ -97,7 +97,7 @@ The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` 
 </TelerikCard>
 ````
 
->tip Icon buttons in the CardActions area will expand horizontally and vertically, if the `Layout` is `Stretched` or if the `Orientation` is `Vertical`. If this is not desired, check this knowledge base article: [CardAction Icon Buttons Are Too Big]({%slug card-kb-icon-buttons-too-large%}).
+>tip Icon buttons in the CardActions area will expand horizontally and vertically, if the `Layout` is `Stretch` or if the `Orientation` is `Vertical`. If this is not desired, check this knowledge base article: [CardAction Icon Buttons Are Too Big]({%slug card-kb-icon-buttons-too-large%}).
 
 ## See Also
   

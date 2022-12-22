@@ -68,7 +68,7 @@ To AutoFit the Grid columns on initial load of the component you have to use a p
             state.ColumnStates.LastOrDefault().Width = "";
             state.TableWidth = null;
  
-            await Grid.SetState(state);
+            await Grid.SetStateAsync(state);
         }
     }
  

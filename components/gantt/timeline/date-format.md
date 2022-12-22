@@ -38,9 +38,9 @@ All parameters are of type `string`.
               OnUpdate="@UpdateItem"
               OnDelete="@DeleteItem"
               OnCreate="@CreateItem">
-    <GanttToolBar>
+    <GanttToolBarTemplate>
         <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
-    </GanttToolBar>
+    </GanttToolBarTemplate>
     <GanttViews>
         <GanttDayView 
             DayHeaderDateFormat="Date: {0:MMMM dd}" 

@@ -111,7 +111,7 @@ Examples of both follow below, see the code comments for details.
 
                 //set the new state to the grid
                 args.GridState.GroupDescriptors = desiredGroups;
-                await GridRef.SetState(args.GridState);
+                await GridRef.SetStateAsync(args.GridState);
             }
         }
     }

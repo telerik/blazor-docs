@@ -117,7 +117,7 @@ The Blazor Drawer provides various parameters to configure the component. Also c
 | `Expanded` | `bool` | Specifies whether the Drawer is expanded or collapsed. If this parameter is used to expand or collapse the component the animations will not be available. To use animations you have to use the Drawer's [Methods](#methods). It is possible, however, to use the value to implement custom layouts in the drawer [templates]({%slug drawer-templates%}) or in your own layout.|
 | `Mode` | `DrawerMode` enum <br /> (`Overlay`) | Controls whether the Drawer is in `Push` or `Overlay` mode. [Read more about the supported modes]({%slug drawer-modes%}). |
 | `MiniMode` | `bool` | Controls whether there is [mini view]({%slug drawer-mini-mode%}) when the Drawer is collapsed. |
-| `Position` | `DrawerPosition` enum <br /> (`Left`) | Determines on which side of the `DrawerContent` the item list will render. |
+| `Position` | `DrawerPosition` enum <br /> (`Start`) | Determines on which side of the `DrawerContent` the item list will render. |
 | `Width` | `string` <br /> (`240px`) | The width of the Drawer when expanded. |
 
 ## Drawer Reference and Methods

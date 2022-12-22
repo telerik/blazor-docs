@@ -41,14 +41,14 @@ Here is an example of the described approach.
 <TelerikGrid Data="@MyData" Height="500px" @ref="@Grid" Groupable="true" Sortable="true"
              Pageable="true" FilterMode="@GridFilterMode.FilterMenu"
              OnStateChanged="@((GridStateEventArgs<SampleData> args) => OnStateChangedHandler(args))">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add</GridCommandButton>
 
         @if (Grouped)
         {
             <TelerikButton OnClick="@SortGroup" Icon="@SortIndicator">Sort Group: @GroupName</TelerikButton>
         }
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
@@ -109,7 +109,7 @@ Here is an example of the described approach.
             currState.GroupDescriptors.FirstOrDefault().SortDirection = SortDirection;
         }
 
-        await Grid.SetState(currState);
+        await Grid.SetStateAsync(currState);
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData

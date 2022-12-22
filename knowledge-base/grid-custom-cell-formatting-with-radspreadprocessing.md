@@ -62,10 +62,10 @@ To customize the cell format of the exported file before it reaches the client, 
 @using Telerik.Windows.Documents.Spreadsheet.Model
 
 <TelerikGrid Data="@GridData" Pageable="true">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
-    </GridToolBar>
+    </GridToolBarTemplate>
 
     <GridExport>
         <GridExcelExport FileName="telerik-grid-export"

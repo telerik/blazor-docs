@@ -56,10 +56,10 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
              Resizable="true" Reorderable="true"
              FilterMode="@GridFilterMode.FilterRow" Groupable="true">
 
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
-    </GridToolBar>
+    </GridToolBarTemplate>
 
     <GridExport>
         <GridExcelExport FileName="telerik-grid-export" AllPages="@ExportAllPages" OnBeforeExport="@OnExcelBeforeExport" />
@@ -166,10 +166,10 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
              Resizable="true" Reorderable="true"
              FilterMode="@GridFilterMode.FilterRow" Groupable="true">
 
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="CsvExport" Icon="file-csv">Export to CSV</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
-    </GridToolBar>
+    </GridToolBarTemplate>
 
     <GridExport>
         <GridCsvExport FileName="telerik-grid-export" AllPages="@ExportAllPages" OnBeforeExport="@OnBeforeCsvExport" />
@@ -259,10 +259,10 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
              Resizable="true" Reorderable="true"
              FilterMode="@GridFilterMode.FilterRow" Groupable="true">
 
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
-    </GridToolBar>
+    </GridToolBarTemplate>
 
     <GridExport>
         <GridExcelExport FileName="telerik-grid-export"
@@ -334,10 +334,10 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
              Resizable="true" Reorderable="true"
              FilterMode="@GridFilterMode.FilterRow" Groupable="true">
 
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="CsvExport" Icon="file-csv">Export to CSV</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
-    </GridToolBar>
+    </GridToolBarTemplate>
 
     <GridExport>
         <GridCsvExport FileName="telerik-grid-export"

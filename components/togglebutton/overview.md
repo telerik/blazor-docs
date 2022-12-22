@@ -54,7 +54,7 @@ The Toggle Button provides a built-in way to render [Telerik font icons, custom 
 
 ## Appearance
 
-The Toggle Button provides several parameters that control its [styling and appearance, including background color, shape, rounded corners and fill]({%slug togglebutton-appearance%}). 
+The Toggle Button provides several parameters that control its [styling and appearance, including background color, rounded corners and fill]({%slug togglebutton-appearance%}). 
 
 ## ToggleButton Parameters
 

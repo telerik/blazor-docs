@@ -195,9 +195,9 @@ In this example, the context menu is used to select/deselect items, put an item 
              OnRowContextMenu="@OnContextMenu"
              SelectionMode="@GridSelectionMode.Multiple"
              @bind-SelectedItems="@SelectedItems">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) />
@@ -270,7 +270,7 @@ In this example, the context menu is used to select/deselect items, put an item 
                     currState.InsertedItem = null;
                     SampleData itemToEdit = SampleData.GetClonedInstance(GridData.Where(itm => itm.ID == SelectedPerson.ID).FirstOrDefault());
                     currState.OriginalEditItem = itemToEdit;
-                    await GridRef.SetState(currState);
+                    await GridRef.SetStateAsync(currState);
                     break;
                 case "ToggleSelect":
                     var selItems = SelectedItems.ToList();

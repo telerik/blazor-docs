@@ -43,7 +43,7 @@ The `SchedulerPopupEditFormSettings` nested tag exposes the following parameters
                                     Title="Edit Event"
                                     Class="custom-popup">
         </SchedulerPopupEditSettings>
-        <SchedulerPopupEditFormSettings ButtonsLayout="FormButtonsLayout.Stretched">
+        <SchedulerPopupEditFormSettings ButtonsLayout="FormButtonsLayout.Stretch">
         </SchedulerPopupEditFormSettings>
     </SchedulerSettings>
     <SchedulerViews>

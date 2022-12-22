@@ -57,7 +57,7 @@ Note the usage of [`OnModelInit`]({%slug grid-events%}#onmodelinit) in the examp
 
 * Use custom **Add** buttons in the [Grid Toolbar]({%slug components/grid/features/toolbar%}), one for each model type.
 * In each button click handler, define an `InsertedItem` of the correct type in the [Grid State]({%slug grid-state%}).
-* [Put the Grid in Insert mode]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) with the [SetState method]({%slug grid-state%}#methods).
+* [Put the Grid in Insert mode]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) with the [SetStateAsync method]({%slug grid-state%}#methods).
 
 >caption Data Binding the Grid to an Interface
 
@@ -69,9 +69,9 @@ Note the usage of [`OnModelInit`]({%slug grid-events%}#onmodelinit) in the examp
              OnDelete="@DeleteHandler"
              OnCreate="@CreateHandler"
              OnModelInit="@(() => new Model1())">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="IntProperty" />
         <GridCommandColumn>

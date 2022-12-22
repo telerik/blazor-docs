@@ -129,9 +129,9 @@ The code snippet below demonstrates both approaches (the second option is commen
             <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
 </TelerikGrid>
 
 

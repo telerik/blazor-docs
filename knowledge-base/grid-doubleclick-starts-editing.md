@@ -73,7 +73,7 @@ See the following example for reference:
 
         currState.EditItem = itemToEdit;
         currState.OriginalEditItem = item;
-        GridRef.SetState(currState);
+        GridRef.SetStateAsync(currState);
     }
 
     async Task UpdateHandler(GridCommandEventArgs args)

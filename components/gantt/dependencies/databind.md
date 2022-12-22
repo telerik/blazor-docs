@@ -39,9 +39,9 @@ To bind a collection of dependencies to the Gantt Chart you should use the `Data
               SortMode="@SortMode.Multiple"
               FilterMode="@GanttFilterMode.FilterMenu"
               FilterMenuType="@FilterMenuType.Menu">
-    <GanttToolBar>
+    <GanttToolBarTemplate>
         <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
-    </GanttToolBar>
+    </GanttToolBarTemplate>
     <GanttViews>
         <GanttWeekView></GanttWeekView>
         <GanttMonthView></GanttMonthView>
