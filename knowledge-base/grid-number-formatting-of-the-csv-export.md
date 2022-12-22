@@ -60,10 +60,10 @@ To format numeric and date cells of the exported file before it reaches the clie
 
 <TelerikGrid Data="@GridData" Pageable="true">
 
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="CsvExport" Icon="file-csv">Export to CSV</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
-    </GridToolBar>
+    </GridToolBarTemplate>
 
     <GridExport>
         <GridCsvExport FileName="telerik-grid-export"

@@ -26,9 +26,9 @@ When you click the Export button, your browser will receive the resulting file.
 To enable the grid Excel Export, add a [command button]({%slug components/grid/columns/command%}) with the `ExcelExport` command name to the [toolbar]({%slug components/grid/features/toolbar%}).
 
 ````
-<GridToolBar>
+<GridToolBarTemplate>
     <GridCommandButton Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
-</GridToolBar>
+</GridToolBarTemplate>
 ````
 
 Optionally, you can also set the `GridExcelExport` tag settings under the `GridExport` tag to choose:
@@ -45,10 +45,10 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 <TelerikGrid Data="@GridData" Pageable="true" Sortable="true" Resizable="true" Reorderable="true"
              FilterMode="@GridFilterMode.FilterRow" Groupable="true" >
 
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
-    </GridToolBar>
+    </GridToolBarTemplate>
 
     <GridExport>
         <GridExcelExport FileName="telerik-grid-export" AllPages="@ExportAllPages" />
@@ -121,10 +121,10 @@ You can programmatically invoke the export feature of the Grid, by using the fol
              FilterMode="@GridFilterMode.FilterRow"
              Groupable="true">
 
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
-    </GridToolBar>
+    </GridToolBarTemplate>
 
     <GridExport>
         <GridExcelExport FileName="telerik-grid-export" AllPages="@ExportAllPages" />

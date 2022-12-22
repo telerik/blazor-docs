@@ -70,9 +70,9 @@ If, however, you also want to have a Toolbar for some actions, do the following:
              Pageable="true"
              @bind-Page="@CurrentPage"
              PageSize="@PageSize">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <TelerikPager Total="@GridData.Count()" @bind-Page="@CurrentPage" PageSize="@PageSize" />
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="Name" Title="Product Name" />
         <GridColumn Field="Price" />

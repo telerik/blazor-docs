@@ -43,9 +43,9 @@ If you already have all the data in the view-model, the Telerik extension method
              OnRead=@ReadItems
              FilterMode="@GridFilterMode.FilterRow"
              Sortable="true" Pageable="true">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridSearchBox />
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(Employee.ID) />
         <GridColumn Field=@nameof(Employee.Name) Title="Name" />

@@ -63,9 +63,9 @@ How to change the Grid font size? How to set custom font styles?
              ShowColumnMenu="true"
              EditMode="GridEditMode.Inline"
              FilterMode="@GridFilterMode.FilterMenu">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="Name" Title="Product Name" />
         <GridColumn Field="Price" />

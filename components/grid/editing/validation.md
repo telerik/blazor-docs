@@ -32,9 +32,9 @@ To disable the built-in validation, add a `<GridValidationSettings>` tag to the 
         <GridValidationSettings Enabled="false">
         </GridValidationSettings>
     </GridSettings>
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
@@ -200,9 +200,9 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
             </ValidatorTemplate>
         </GridValidationSettings>
     </GridSettings>
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />

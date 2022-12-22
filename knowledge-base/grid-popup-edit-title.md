@@ -50,12 +50,12 @@ How to dynamically set the Grid popup edit Window title?
     <GridSettings>
         <GridPopupEditSettings Title="@PopupTitle" />
     </GridSettings>
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add"
                            OnClick="@( _ => { PopupTitle = "Adding New Product"; } )">
             Add Product
         </GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(Product.Name) Title="Name" />
         <GridCommandColumn>

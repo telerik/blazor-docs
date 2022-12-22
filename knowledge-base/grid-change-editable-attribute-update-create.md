@@ -67,9 +67,9 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
             <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
 </TelerikGrid>
 
 @code {
@@ -165,9 +165,9 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
             <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
 </TelerikGrid>
 
 @code {

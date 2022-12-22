@@ -50,11 +50,11 @@ Also see the [Filter Descriptors documentation]({%slug components/grid/filtering
              Pageable="true"
              PageSize="5"
              @ref="@GridRef">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <TelerikTextBox @bind-Value="@SearchValue" Width="200px" OnChange="@SearchGrid" />
         <TelerikButton OnClick="@SearchGrid" Icon="search">Search Grid</TelerikButton>
         <TelerikButton OnClick="@ClearSearch" Icon="cancel">Clear Search</TelerikButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@nameof(GridItem.Name1)" />
         <GridColumn Field="@nameof(GridItem.Name2)" />

@@ -69,9 +69,9 @@ Note the usage of [`OnModelInit`]({%slug grid-events%}#onmodelinit) in the examp
              OnDelete="@DeleteHandler"
              OnCreate="@CreateHandler"
              OnModelInit="@(() => new Model1())">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="IntProperty" />
         <GridCommandColumn>

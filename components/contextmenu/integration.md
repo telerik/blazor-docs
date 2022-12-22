@@ -195,9 +195,9 @@ In this example, the context menu is used to select/deselect items, put an item 
              OnRowContextMenu="@OnContextMenu"
              SelectionMode="@GridSelectionMode.Multiple"
              @bind-SelectedItems="@SelectedItems">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) />

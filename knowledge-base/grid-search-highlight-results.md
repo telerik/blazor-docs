@@ -54,9 +54,9 @@ The following approach is valid for both the Grid and the TreeList.
              TItem="@GridModel"
              Pageable="true"
              OnStateChanged="@( (GridStateEventArgs<GridModel> args) => OnGridStateChanged(args) )">
-    <GridToolBar>
+    <GridToolBarTemplate>
         Type a letter or a number: <GridSearchBox />
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@nameof(GridModel.Text1)">
             <Template>

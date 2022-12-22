@@ -168,9 +168,9 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
             <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
 </TelerikGrid>
 
 @if (SelectedItems != null)

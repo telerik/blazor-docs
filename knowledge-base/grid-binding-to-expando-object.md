@@ -59,9 +59,9 @@ In addition to the sample below, there is a [complete runnable project in GitHub
              OnCreate="@OnGridCreate"
              OnModelInit="@OnGridModelInit"
              OnDelete="@OnGridDelete">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="add">Add Item</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         @{
             @* dynamic columns *@

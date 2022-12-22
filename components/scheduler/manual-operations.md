@@ -130,9 +130,9 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 			<GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
 		</GridCommandColumn>
 	</GridColumns>
-	<GridToolBar>
+	<GridToolBarTemplate>
 		<GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
-	</GridToolBar>
+	</GridToolBarTemplate>
 </TelerikGrid>
 
 @code {

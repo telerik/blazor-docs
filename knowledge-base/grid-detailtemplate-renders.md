@@ -94,10 +94,10 @@ NestedComponent<br />
              Sortable="true"
              SortMode="@SortMode.Single"
              OnRowClick="@RowClickHandler">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="Add">Add Customer</GridCommandButton>
         <GridSearchBox DebounceDelay="200"></GridSearchBox>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@nameof(Customer.Id)" />
         <GridColumn Field="@nameof(Customer.Name)" />

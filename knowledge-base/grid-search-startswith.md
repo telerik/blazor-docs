@@ -100,9 +100,9 @@ By default, the [`GridSearchBox` searches in **string** values with a **`contain
              Data="@GridData"
              Pageable="true"
              OnStateChanged="@( (GridStateEventArgs<GridItem> args) => OnStateChanged(args) )">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridSearchBox />
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@nameof(GridItem.Id)" />
         <GridColumn Field="@nameof(GridItem.Text1)" Title="Search: starts with letter" />
