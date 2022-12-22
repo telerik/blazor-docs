@@ -72,22 +72,29 @@ model value: @theTbValue
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every change (for example, keystroke) in the input.
+The `ValueChanged` event fires on every change (keystroke) in the input. Using this event requires one-way binding for the `Value` parameter and manual update of the value in the handler. If the value is not updated, this will effective cancel the event.
 
 >caption Handle ValueChanged
 
 ````CSHTML
-@result
-<br />
+<TelerikNumericTextBox Value="@NumericValue"
+                       ValueChanged="@( (double newValue) => NumericValueChanged(newValue) )"
+                       Width="200px">
+</TelerikNumericTextBox>
 
-<TelerikNumericTextBox ValueChanged="@( (double v) => MyValueChangeHandler(v) )"></TelerikNumericTextBox>
+<p> @Result </p>
 
 @code {
-    string result;
+    private double NumericValue { get; set; } = 1.23;
 
-    private void MyValueChangeHandler(double theUserInput)
+    private string Result { get; set; }
+
+    private void NumericValueChanged(double newValue)
     {
-        result = string.Format("The user entered: {0}", theUserInput);
+        // one-way binding requires manual value update
+        NumericValue = newValue;
+
+        Result = $"The new value is: {NumericValue}";
     }
 }
 ````
@@ -95,32 +102,6 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
-
->caption Handle ValueChanged and provide initial value
-
-````CSHTML
-from the handler: @result
-<br />
-from model: @theTbValue
-<br />
-
-<TelerikNumericTextBox Value="@theTbValue" ValueChanged="@( (decimal v) => MyValueChangeHandler(v) )"></TelerikNumericTextBox>
-
-@code {
-    string result;
-
-    decimal theTbValue { get; set; } = 1.2345m;
-
-    private void MyValueChangeHandler(decimal theUserInput)
-    {
-        result = string.Format("The user entered: {0}", theUserInput);
-
-        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        theTbValue = theUserInput;
-    }
-}
-````
-
 
 
 ## OnBlur
