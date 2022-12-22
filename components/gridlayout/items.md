@@ -185,7 +185,7 @@ When you set the desired `ColumnSpan`, you should also set the `Column` paramete
 
 The `RowSpan` parameter defines how many rows the item will occupy.
 
-When you specify the desired `RowSpan`, you should also provide the `Row` that will serve as a start position for the item taking several rows.
+When you set the desired `RowSpan`, you should also set the `Row` parameter to specify the start position for the spanned item.
 
 >caption Change the row span of the first item with the numeric text box
 
