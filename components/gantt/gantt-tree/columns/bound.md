@@ -149,6 +149,7 @@ The Blazor Gantt Bound Column provides various parameters to configure the compo
 | `MinResizableWidth` | `int` <br /> (`30`) | The minimum allowed column width during [user resizing]({%slug gantt-columns-resize%}). Unlike the string `Width` property, this one is decimal and expects pixel values. |
 | `MaxResizableWidth` | `int` | The maximum allowed column width during [user resizing]({%slug gantt-columns-resize%}). Unlike the string `Width` property, this one is decimal and expects pixel values. |
 | `Visible` | `bool?` <br /> (`null`) | If this parameter is set to `false`, it hides the column from the Gantt Tree. Accepts both `bool` and `bool?` types, and `null` is treated like `true`. |
+| `HeaderClass` | `string` | Adds a custom CSS class to the header cell of the column. Use it to apply custom styles or [override the default Gantt styles]({%slug themes-override%}). |
 
 ## Notes
 
