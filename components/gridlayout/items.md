@@ -137,7 +137,7 @@ The `Column` parameter controls in which column the `GridLayoutItem` will reside
 
 The `ColumnSpan` parameter defines the how many columns the item will occupy.
 
-When you specify the desired `ColumnSpan`, you should also provide the `Column` that will serve as a start position for the item taking several columns.
+When you set the desired `ColumnSpan`, you should also set the `Column` parameter to specify the start position for the spanned item.
 
 >caption Change the column span of the first item with the numeric text box
 
