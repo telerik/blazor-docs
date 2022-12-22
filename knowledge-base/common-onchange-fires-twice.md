@@ -23,11 +23,13 @@ res_type: kb
 
 
 ## Description
+
 I observe twice firing onchange event in dropdownlist or other inputs.
 
 I want the event to fire only once when the user selects something.
 
 ## Cause\Possible Cause(s)
+
 The OnChange event is a user confirmation event - it fires when the user chooses an item from the dropdown list, and also when the user blurs an input (the dropdownlist is, in essence, an input).
 
 For example, pressing Enter in an input will fire the event, but will not remove the focus from the input. Thus, the next click on the page (on a button, another component) will fire the event again.
@@ -44,20 +46,23 @@ If you want to execute some business logic (such as fetching data) only once per
 @* monitor the console and try the following to see the difference:
     - selecting the same item several times
     - clicking away from the dropdownlist after selecting an item
-    *@
+*@
 
-@MySelectedItem
+@DropDownValue
 <br />
-<TelerikDropDownList Data="@MyList" OnChange="@MyOnChangeHandler" @bind-Value="@MySelectedItem">
+<TelerikDropDownList Data="@DropDownData"
+                     @bind-Value="@DropDownValue"
+                     OnChange="@OnChangeHandler">
 </TelerikDropDownList>
 
 @code {
-    string MySelectedItem { get; set; }
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
-    
-    string lastOnChangeValue { get; set; }
+    private string DropDownValue { get; set; }
 
-    void MyOnChangeHandler(object theUserInput)
+    private List<string> DropDownData = new List<string>() { "first", "second", "third" };
+
+    private string lastOnChangeValue { get; set; }
+
+    private async Task OnChangeHandler(object theUserInput)
     {
         string currValue = theUserInput as string;
 
@@ -65,11 +70,14 @@ If you want to execute some business logic (such as fetching data) only once per
 
         if (!currValue.Equals(lastOnChangeValue))
         {
+            //save the changed value first, so the check does not pass afterwards
+            lastOnChangeValue = currValue;
+
             //this is where you execute the business logic you want to fire once per selected value
+            await Task.Delay(2000); //simulate some asynchronous operation, e.g. loading data
+
             Console.WriteLine($"Executing business logic for value {currValue}, such as loading data");
         }
-
-        lastOnChangeValue = currValue;
     }
 }
 ````

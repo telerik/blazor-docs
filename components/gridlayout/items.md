@@ -135,23 +135,26 @@ The `Column` parameter controls in which column the `GridLayoutItem` will reside
 
 ## ColumnSpan
 
-The `ColumnSpan` parameter defines the how many columns the item will occupy. 
+The `ColumnSpan` parameter defines the how many columns the item will occupy.
+
+When you set the desired `ColumnSpan`, you should also set the `Column` parameter to specify the start position for the spanned item.
 
 >caption Change the column span of the first item with the numeric text box
 
 ````CSHTML
 @* Change the column span of the first item. *@
 
-<TelerikNumericTextBox @bind-Value="@ColumnSpan"></TelerikNumericTextBox>
+<TelerikNumericTextBox @bind-Value="@ColumnSpan" Max="3" Min="1" Width="200px"/>
 
 <TelerikGridLayout>
     <GridLayoutColumns>
         <GridLayoutColumn Width="200px"></GridLayoutColumn>
-        <GridLayoutColumn Width="150px"></GridLayoutColumn>
+        <GridLayoutColumn Width="200px"></GridLayoutColumn>
+        <GridLayoutColumn Width="200px"></GridLayoutColumn>
     </GridLayoutColumns>
     <GridLayoutItems>
         <GridLayoutItem Column="1" ColumnSpan="@ColumnSpan">
-            <div>
+            <div style="border:1px solid black">
                 item 1
             </div>
         </GridLayoutItem>
@@ -165,7 +168,7 @@ The `ColumnSpan` parameter defines the how many columns the item will occupy.
                 item 3
             </div>
         </GridLayoutItem>
-        <GridLayoutItem Column="2">
+        <GridLayoutItem Column="3">
             <div>
                 item 4
             </div>
@@ -174,7 +177,7 @@ The `ColumnSpan` parameter defines the how many columns the item will occupy.
 </TelerikGridLayout>
 
 @code {
-    public int? ColumnSpan { get; set; }
+    private int? ColumnSpan { get; set; } = 1;
 }
 ````
 
@@ -182,13 +185,15 @@ The `ColumnSpan` parameter defines the how many columns the item will occupy.
 
 The `RowSpan` parameter defines how many rows the item will occupy.
 
+When you set the desired `RowSpan`, you should also set the `Row` parameter to specify the start position for the spanned item.
+
 >caption Change the row span of the first item with the numeric text box
 
 
 ````CSHTML
-@* Change the column span of the first item. *@
+@* Change the row span of the first item. *@
 
-<TelerikNumericTextBox @bind-Value="@RowSpan"></TelerikNumericTextBox>
+<TelerikNumericTextBox @bind-Value="@RowSpan" Max="3" Min="1" Width="200px"/>
 
 <TelerikGridLayout>
     <GridLayoutRows>
@@ -196,13 +201,17 @@ The `RowSpan` parameter defines how many rows the item will occupy.
         <GridLayoutRow></GridLayoutRow>
         <GridLayoutRow></GridLayoutRow>
     </GridLayoutRows>
+    <GridLayoutColumns>
+        <GridLayoutColumn Width="200px"></GridLayoutColumn>
+        <GridLayoutColumn Width="200px"></GridLayoutColumn>
+    </GridLayoutColumns>
     <GridLayoutItems>
-        <GridLayoutItem Column="1" RowSpan="@RowSpan">
-            <div>
+        <GridLayoutItem Column="1" Row="1" RowSpan="@RowSpan">
+            <div style="border:1px solid black; height:100%">
                 item 1
             </div>
         </GridLayoutItem>
-        <GridLayoutItem Column="1">
+        <GridLayoutItem Column="2">
             <div>
                 item 2
             </div>
@@ -221,7 +230,7 @@ The `RowSpan` parameter defines how many rows the item will occupy.
 </TelerikGridLayout>
 
 @code {
-    public int? RowSpan { get; set; }
+    private int? RowSpan { get; set; } = 1;
 } 
 ````
 
