@@ -12,7 +12,7 @@ position: 45
 
 The treelist provides a toolbar where you can add a variety of actions that are not tied to a concrete row.
 
-To use a toolbar, define the `TreeListToolBar` tag of the treelist. In it, you can use arbitrary HTML and components to get the desired layout, and also `TreeListCommandButton` instances in (you can read more about the features available in those buttons in the [Command Column]({%slug treelist-columns-command%}) article).
+To use a toolbar, define the `TreeListToolBarTemplate` tag of the treelist. In it, you can use arbitrary HTML and components to get the desired layout, and also `TreeListCommandButton` instances in (you can read more about the features available in those buttons in the [Command Column]({%slug treelist-columns-command%}) article).
 
 >note The toolbar is not associated with an item from the data source. The `Item` and `ParentItem` fields on the click event handler argument of a `TreeListCommandButton` will always be `null`, and the `Edit`, `Update`, `Cancel` commands do not work with it.
 
@@ -42,9 +42,9 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 
 <TelerikTreeList Data="@Data" Pageable="true" ItemsField="@(nameof(Employee.DirectReports))" Width="850px">
 
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListCommandButton Command="MyToolbarCommand" OnClick="@MyCommandFromToolbar" Icon="info">Fire My Command</TreeListCommandButton>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
 
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
@@ -157,7 +157,7 @@ You can add your own HTML and components to create a more complex layout in the 
 
 <TelerikTreeList Data="@Data" Pageable="true" ItemsField="@(nameof(Employee.DirectReports))" Width="850px">
 
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <div style="display: block; flex-grow: 1;">
             @* the first level children in the toolbar get display: inline-flex and flex-shrink: 0 inherited from the grid,
                 we change it here to show we can, or you can work with the layout the grid defines if it suits your needs *@
@@ -177,7 +177,7 @@ You can add your own HTML and components to create a more complex layout in the 
                 </button>
             </div>
         </div>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
 
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />

@@ -701,9 +701,9 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
                  ItemsField="@(nameof(Employee.DirectReports))"
                  Width="850px"
                  @ref="@TreeListRef">
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListCommandColumn Width="280px">
             <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>

@@ -29,9 +29,9 @@ The `NoDataTemplate` allows you to define custom content when the TreeList has n
                  Sortable="true"
                  FilterMode="@TreeListFilterMode.FilterMenu"
                  Width="830px" Height="400px">
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListCommandButton OnClick="@LoadData">Add Data</TreeListCommandButton>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListColumn Expandable="true" Field="Position" Width="400px" />
         <TreeListColumn Field="FirstName" Width="200px" />

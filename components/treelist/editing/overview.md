@@ -80,9 +80,9 @@ You can customize the editors rendered in the TreeList by providing the `EditorT
                  Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
                  Width="850px">
 
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListCommandColumn Width="280px">
             <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
@@ -332,9 +332,9 @@ Editing is cancelled for the first record.
                  Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
                  Width="850px">
 
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListCommandColumn Width="280px">
             <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>

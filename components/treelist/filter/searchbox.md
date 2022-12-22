@@ -25,7 +25,7 @@ The SearchBox lets the user type their query and the TreeList will look up all v
 
 The SearchBox is independent from the standard filters. If you have filters applied, the SearchBox will respect them and add additional filtering criteria. Thus, you can also apply filtering to results returned from it.
 
-To enable the SearchBox, add the `<TreeListSearchBox>` tag in the `<TreeListToolBar>`.
+To enable the SearchBox, add the `<TreeListSearchBox>` tag in the `<TreeListToolBarTemplate>`.
 
 >caption SearchBox in the Telerik TreeList
 
@@ -35,10 +35,10 @@ To enable the SearchBox, add the `<TreeListSearchBox>` tag in the `<TreeListTool
 <TelerikTreeList Data="@Data"
                  ItemsField="@(nameof(Employee.DirectReports))"
                  Pageable="true">
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <span class="k-toolbar-spacer"></span> @* add this spacer to keep the searchbox on the right *@
         <TreeListSearchBox />
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
         <TreeListColumn Field="Id" Editable="false" Width="120px" />
@@ -150,9 +150,9 @@ You can set the TreeList filters programmatically through the component [state](
                  Pageable="true"
                  Width="850px"
                  @ref="TreeListRef">
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListSearchBox />
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
         <TreeListColumn Field="Id" Width="120px" />
@@ -286,11 +286,11 @@ The `TreeListSearchBox` component offers the following settings to customize its
 <TelerikTreeList Data="@Data"
                  ItemsField="@(nameof(Employee.DirectReports))"
                  Pageable="true">
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListSearchBox DebounceDelay="1000"
                            Fields="@SearchableFields"
                            Placeholder="Search Name..." />
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
         <TreeListColumn Field="Id" Editable="false" Width="120px" />

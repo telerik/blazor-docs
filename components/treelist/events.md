@@ -190,9 +190,9 @@ Fires when the item selection is enabled and the user changes the selected [item
                  OnCancel="@OnCancelHandler"
                  Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
                  Width="850px">
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListCommandColumn Width="280px">
             <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
@@ -444,9 +444,9 @@ Fires when the item selection is enabled and the user changes the selected [item
                  OnCancel="@OnCancelHandler"
                  Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
                  Width="850px">
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListCommandColumn Width="280px">
             <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
@@ -708,9 +708,9 @@ Fires when the item selection is enabled and the user changes the selected [item
                  OnCancel="@OnCancelHandler"
                  Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
                  Width="850px">
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListCommandColumn Width="280px">
             <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>

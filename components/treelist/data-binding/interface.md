@@ -29,9 +29,9 @@ Note the usage of [`OnModelInit`]({%slug treelist-events%}#onmodelinit) in the e
                  OnDelete="@DeleteHandler"
                  OnCreate="@CreateHandler"
                  OnModelInit="@(() => new Model1())">
-    <TreeListToolBar>
+    <TreeListToolBarTemplate>
         <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
-    </TreeListToolBar>
+    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListColumn Field="IntProperty" Expandable="true" />
         <TreeListCommandColumn>
