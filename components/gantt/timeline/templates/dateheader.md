@@ -42,9 +42,9 @@ The `CurrentInfo.CurrentCulture` is used when rendering the formats, so if you n
               OnUpdate="@UpdateItem"
               OnDelete="@DeleteItem"
               OnCreate="@CreateItem">
-    <GanttToolBar>
+    <GanttToolBarTemplate>
         <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
-    </GanttToolBar>
+    </GanttToolBarTemplate>
     <GanttViews>
         <GanttDayView>
             <DayHeaderTemplate>

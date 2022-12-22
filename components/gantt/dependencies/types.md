@@ -41,9 +41,9 @@ This section showcases both ways to define the dependency type - by using an `in
               SortMode="@SortMode.Multiple"
               FilterMode="@GanttFilterMode.FilterMenu"
               FilterMenuType="@FilterMenuType.Menu">
-    <GanttToolBar>
+    <GanttToolBarTemplate>
         <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
-    </GanttToolBar>
+    </GanttToolBarTemplate>
     <GanttViews>
         <GanttWeekView></GanttWeekView>
         <GanttMonthView></GanttMonthView>
@@ -179,9 +179,9 @@ This section showcases both ways to define the dependency type - by using an `in
               SortMode="@SortMode.Multiple"
               FilterMode="@GanttFilterMode.FilterMenu"
               FilterMenuType="@FilterMenuType.Menu">
-    <GanttToolBar>
+    <GanttToolBarTemplate>
         <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
-    </GanttToolBar>
+    </GanttToolBarTemplate>
     <GanttViews>
         <GanttWeekView></GanttWeekView>
         <GanttMonthView></GanttMonthView>

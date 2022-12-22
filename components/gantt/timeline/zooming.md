@@ -27,9 +27,9 @@ The `RangeSnapTo` parameter receives an argument of type `GanttRangeSnapTo` whic
               OnDelete="@DeleteItem"
               OnCreate="@CreateItem"
               RangeSnapTo="GanttRangeSnapTo.MinorSlot">
-    <GanttToolBar>
+    <GanttToolBarTemplate>
         <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
-    </GanttToolBar>
+    </GanttToolBarTemplate>
     <GanttViews>
         <GanttWeekView></GanttWeekView>
         <GanttMonthView></GanttMonthView>
