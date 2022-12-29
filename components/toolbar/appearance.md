@@ -22,6 +22,8 @@ You can increase or decrease the size of the ToolBar by setting the `Size` param
 | `Medium`   |`md`|
 | `Large`   |`lg`|
 
+If the size option is not specified, it is set to `Medium` by default. 
+
 >caption The built-in sizes
 
 ````CSHTML

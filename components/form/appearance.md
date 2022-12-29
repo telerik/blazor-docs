@@ -14,6 +14,8 @@ You can control the appearance of the form by setting the [Size](#size) attribut
 
 ## Size
 
+>The `Size` configuration of the Form affects the padding of all the editors and buttons.
+
 You can increase or decrease the size of the Form by setting the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.Form.Size` class:
 
 | Class members | Manual declarations |
@@ -21,6 +23,8 @@ You can increase or decrease the size of the Form by setting the `Size` paramete
 | `Small`   |`sm`|
 | `Medium`   |`md`|
 | `Large`   |`lg`|
+
+If the size option is not specified, it is set to `Medium` by default. 
 
 >caption The built-in sizes
 
@@ -45,7 +49,8 @@ You can increase or decrease the size of the Form by setting the `Size` paramete
             </TelerikForm>
         </div>
     }
-    @ code{
+
+    @code {
 
         public User TestUser { get; set; } = new User() {
             FirstName = "Johny",
