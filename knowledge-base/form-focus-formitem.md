@@ -93,4 +93,4 @@ The `<FormItem>` is an abstraction of the real editor that is rendered in the br
 
 ## Notes
 
-* The **earliest reliable programmatic focus** can occur in `OnAfterRenderAsync` and with some delay. The reason is that OnAfterRenderAsync is fired when the DOM tree is built, but **before** the HTML output is actually rendered in the browser. After the event is fired, the .NET runtime sends the HTML to the browser. The `FocusAsync` method relies on `JSInterop`, which in turn relies on the component to be rendered in the browser.
+* The **earliest reliable programmatic focus** can occur in `OnAfterRenderAsync` and with some delay. The reason is that `OnAfterRenderAsync` fires when the DOM tree is built, but **before** the HTML output is actually rendered in the browser. After the event is fired, the .NET runtime sends the HTML to the browser. The `FocusAsync` method relies on `JSInterop`, which in turn relies on the component to be rendered in the browser.
