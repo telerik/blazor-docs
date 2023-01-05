@@ -29,7 +29,7 @@ How to set programmatic focus to a `<FormItem>`?
 
 The `<FormItem>` is an abstraction of the real editor that is rendered in the browser. To set programmatic focus you must:
 
-1. Use the [FormItem Template]({%slug form-formitems-template%}) to provide the desired editor.
+1. Use a [`FormItem` `Template`]({%slug form-formitems-template%}) to provide the desired editor.
 1. Use the `FocusAsync()` method accessible through the `@ref` of the added editor.
 
 >caption Set programmatic focus to the first FormItem
