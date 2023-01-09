@@ -2,7 +2,7 @@
 title: Set Programmatic Focus to a FormItem
 description: How to set programmatic focus to an item in the Telerik Form.
 type: how-to
-page_title: How to set Programmatic Focus to a FormItem.
+page_title: How to set Programmatic Focus to a FormItem? How to set initial focus to a specific input in the TelerikForm?
 slug: form-kb-focus-formitem
 position: 
 tags: telerik, blazor, ref
