@@ -8,32 +8,44 @@ published: True
 position: 1
 ---
 
-# Built-in Icons
+# Built-in Font and SVG Icons
 
-Telerik UI for Blazor provides a large set of built-in icons. They can be consumed in two alternative ways - as font icons or as SVG icons. It is also possible to define an application-wide setting, which affects the type of icons in all Telerik Blazor components.
+Telerik UI for Blazor provides a large set of built-in icons. There are two ways to consume and render them - as font icons or as SVG icons. It is also possible to use custom icons, or define an application-wide setting, which affects the type of icons in all Telerik Blazor components.
 
 This article contains the following sections:
 
-* [How the built-in icons work](#how-the-icons-work)
+* [How do icons work](#how-icons-work)
 * [`FontIcon` component](#fonticon-component)
     * [Set custom font icon size](#set-custom-font-icon-size)
     * [Render font icons with HTML](#render-font-icons-with-html)
 * [`SvgIcon` component](#svgicon-component)
-    * [Use custom SVG Icons](#use-custom-svg-icons)
-    * [Implement custom SVG icon classes](#implement-custom-svg-icon-classes)
+    * [Render custom SVG Icons with HTML](#render-custom-svg-icons-with-html)
+    * [Use custom SVG icon collection](#use-custom-svg-icon-collection)
 * [Set global icon type for the whole application](#set-global-icon-type)
+* [Complete list of built-in icons](#icons-list)
 
-> As of version 4.0, the `TelerikIcon` component was replaced by `TelerikFontIcon`. The `ImageUrl` and `SpriteClass` parameters are no longer supported.
+> [`TelerikFontIcon` replaced the `TelerikIcon` component in version 4.0]({%slug changes-in-4-0-0%}). The `ImageUrl` and `SpriteClass` parameters are no longer supported.
 
 
-## How The Icons Work
+## How Icons Work
 
-The built-in icons depend on two NuGet packages, which are installed automatically as dependencies of `Telerik.UI.for.Blazor`. No manual actions are necessary. These packages are:
+The Telerik Blazor components use built-in icons with the help of two NuGet packages. These are installed automatically as dependencies of the `Telerik.UI.for.Blazor` package. No manual actions are necessary. These icon packages are:
 
-* `Telerik.FontIcons` - defines the `FontIcon` `enum` for built-in font icons
+* `Telerik.FontIcons` - defines the `FontIcon` `enum` for easier usage of built-in font icons
 * `Telerik.SvgIcons` - defines the `ISvgIcon` interface and the `SvgIcon` static class for built-in SVG icons
 
-Usually, the app will rely on a single type of icons. However, it is possible to use standalone Icon components of both types at the same time.
+Some components provide icon-related parameters, which can rely on the above packages too. For example:
+
+>caption Icon parameter in Telerik Blazor components
+
+<div class="skip-repl"></div>
+````CSHTML
+<TelerikButton Icon="@FontIcon.Save">Button with font icon</TelerikButton>
+
+<GridCommandButton Icon="@SvgIcon.Save">Command Button with SVG icon</GridCommandButton>
+```
+
+Usually, [the app will use only one type of icons](#set-global-icon-type). However, it is possible to use standalone Icon components of both types at the same time. The sections below discuss these standalone components.
 
 
 ## FontIcon Component
@@ -62,9 +74,9 @@ The `TelerikFontIcon` component can show a [built-in Telerik Blazor font icon](#
 
 ### Set Custom Font Icon Size
 
-You can change the size of the rendered icon with custom CSS.
+In addition to the `Size` parameter, you can change the size of the rendered icon with custom CSS and the `font-size` style.
 
-Our font icons are designed on a 16px grid base. To achieve a pixel-perfect icon display, use a font size, which is divisible by 16 (32px, 48px and so on).
+Our font icons are designed on a 16px grid base. For better display quality, use a font size, which is divisible by 16 (32px, 48px and so on).
 
 >caption Increase icon size with CSS
 
@@ -84,11 +96,9 @@ Our font icons are designed on a 16px grid base. To achieve a pixel-perfect icon
 
 ### Render Font Icons with HTML
 
-Telerik UI for Blazor shares the same [themes]({%slug general-information/themes%}) with several other Telerik and Kendo UI web component suites. All suites use the same font icons.
+Telerik UI for Blazor shares the same [themes]({%slug general-information/themes%}) with several other Telerik and Kendo UI web component suites. All these products use the same font icons.
 
-You can use the built-in font icons directly via HTML tags without the `<TelerikFontIcon>` helper component.
-
-Such direct HTML usage may make it easier for you to customize and style icons that you use in your own layouts.
+You can use the built-in font icons directly via HTML tags, without the `<TelerikFontIcon>` helper component. Such direct HTML usage may make it easier for you to customize and style icons that you use in your own layouts.
 
 To use the icons directly, review the [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web) article. The `<TelerikFontIcon>` component simply drops the `k-i-` CSS class prefix to make it easier for you.
 
@@ -110,7 +120,7 @@ The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#ic
 | Parameter | Type and Default&nbsp;Value | Description |
 |---|---|---|
 | `Flip` | `IconFlip` `enum` <br /> (`None`) | The icon's flip direction, which allows to mirror (turn over) the image horizontally, vertically, or in both directions. |
-| `Icon` | `ISvgIcon` | Assign a property of the `SvgIcon` static class to use any of the [built-in Telerik Blazor font icons](#icons-list). Alternatively, [implement your own custom SVG Icon class](#custom-svg-icon-class). |
+| `Icon` | `ISvgIcon` | Assign a property of the `SvgIcon` static class to use any of the [built-in Telerik Blazor font icons](#icons-list). Alternatively, [implement your own custom SVG Icon class](#implement-custom-svg-icon-classes). |
 | `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"` or `"sm"`. However, we recommend using the properties of the static `ThemeConstants.Icon.Size` class. |
 | `ChildContent` | `RenderFragment` | The HTML markup of a custom SVG icon. Do not use together with `Icon`. |
 | `ThemeColor` | `string` | Any of the predefined icon colors. Use the static `ThemeConstants.Icon.ThemeColor` class properties. |
@@ -118,14 +128,14 @@ The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#ic
 >caption Using TelerikSvgIcon
 
 ````CSHTML
-<TelerikSvgIcon Icon="@SvgIcon.Audio" />
+<TelerikSvgIcon Icon="@SvgIcon.Calendar" />
 
-<TelerikSvgIcon Icon="@SvgIcon.SvgIcon"
+<TelerikSvgIcon Icon="@SvgIcon.Audio"
                 Size="@ThemeConstants.Icon.Size.Large"
                 ThemeColor="@ThemeConstants.Icon.ThemeColor.Primary" />
 ````
 
-### Use Custom SVG Icons
+### Render Custom SVG Icons with HTML
 
 The `TelerikSvgIcon` component can accommodate a complete `<svg>` tag as its `ChildContent`. In this way, you have full control over the SVG icon rendering, while using the other component parameters, such as `Flip` or `Size`.
 
@@ -142,7 +152,7 @@ Do not set the `Icon` parameter in this case.
 </TelerikSvgIcon>
 ````
 
-### Implement Custom SVG Icon Classes
+### Use Custom SVG Icon Collection
 
 The `Icon` parameter of `TelerikSvgIcon` expects an `ISvgIcon` object. This is a public interface, together with the `SvgIconBase` class. You can use them to create a collection of custom SVG icons.
 
@@ -150,9 +160,9 @@ The `ISvgIcon` interface members are:
 
 | Member | Type | Description |
 |---|---|---|
-| `Name` | `string` | The `<title>` of the rendered `<svg>` HTML tag. |
+| `Name` | `string` | The identifier of the SVG icon. The component renders it as a `k-svg-i-name` CSS class. |
 | `Content` | `string` | All `<path>` tags inside the `<svg>` tag. |
-| `ViewBox` | `string` | The `viewBox` attribute value of the `<svg>` tag. |
+| `ViewBox` | `string` | The [`viewBox` attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox) value of the `<svg>` tag. |
 
 >caption Define custom SVG icon collection
 
@@ -173,6 +183,7 @@ The `ISvgIcon` interface members are:
     public static class MySvgIcons
     {
         public static ISvgIcon Moon => new Moon();
+        //public static ISvgIcon AnotherIcon => new AnotherIcon();
     }
 }
 ````
@@ -182,12 +193,12 @@ The `ISvgIcon` interface members are:
 
 It is possible to configure the icon type for the whole application:
 
-1. Locate the `<TelerikRootComponent>` tag in the Blazor app. It's usually in a layout file such as `MainLayout.razor` or `TelerikLayout.razor`.
+1. Locate the `<TelerikRootComponent>` tag in the Blazor app. Normally, it's in a layout file such as `MainLayout.razor` or `TelerikLayout.razor`.
 2. Set the `TelerikRootComponent` `IconType` parameter to an `IconType` enum value - `Svg` or `Font`.
 
-As of version 4.0, the default icon type is `Font`. We plan to switch it to `Svg` in the future for better display.
+>tip The default icon type is `Font`. We plan to switch it to `Svg` in mid 2023 for better display.
 
-> The global `IconType` setting does not affect explicit `<TelerikFontIcon>` and `<TelerikSvgIcon>` instances in the app. It will toggle the icon type of all other components, such as Button, Grid, etc.
+> The global `IconType` setting does not affect `<TelerikFontIcon>` and `<TelerikSvgIcon>` instances in the app. It will toggle the icon type of all other components, such as Button, Grid, etc.
 
 >caption Define global icon type via TelerikRootComponent
 
@@ -202,111 +213,15 @@ As of version 4.0, the default icon type is `Font`. We plan to switch it to `Svg
 
 ## Icons List
 
-Here is a list of all available built-in icons in Telerik UI for Blazor. It is also possible to [open the list as a standalone web page](https://telerik.github.io/kendo-icons/).
+Here is a list of all available built-in icons in Telerik UI for Blazor.
+
+To define an icon with C# syntax, remove the "k-i-" part and use a PascalCase name. For example, `k-i-caret-tr` will become `FontIcon.CaretTr` or `SvgIcon.CaretTr`.
+
+>caption Built-in Telerik Blazor Icons
+
+Please allow a few seconds for all icons to render. It is also possible to [open the frame as a standalone web page](https://telerik.github.io/kendo-icons/).
 
 <iframe src="https://telerik.github.io/kendo-icons/" style="width: 100%; height: 550px;"></iframe>
-
-
-## Legacy Icons List
-
-This section lists the avaialble font icons that come with the Telerik UI for Blazor themes. 
-
-Each icon is accompanied by its name that you can use in the Telerik Blazor components where a Telerik `Icon` parameter is available.
-
->caption List of icon names to use in Telerik components Icon parameters
-
-<div id="iconListContainer">
-
-    <script src="scripts/scoped-plugin.js"></script>
-    
-    <style scoped>
-    </style>
-    
-    <style scoped>
-        ul.WebComponentsIcons > li:before {
-            content: none !important;
-        }
-    
-        ul.WebComponentsIcons > li {
-            line-height: 15px;
-            list-style-type: none;
-            font-size: 16px;
-            font-weight: 400;
-        }
-        
-        ul.WebComponentsIcons .k-icon {
-            display: block;
-            clear: both;
-            margin: 0 auto 10px;
-            color: #656565;
-            font-size: 32px;
-        }
-    </style>
-        
-    <ul id="IconsList" class="WebComponentsIcons">
-        <li>Please wait, the list of icons is loading and rendering...</li>
-    </ul>
-    
-    <p id="iconsLoadFail" style="display:none;">The Icon list failed to load. You can see the available icons in the <a href="https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web#list-of-font-icons">Kendo UI Font Icons</a> article. To use them with UI for Blazor, remove the <code>k-i-</code> prefix. If you are seeing this, <a href="https://github.com/telerik/blazor-docs/issues/new">open an issue</a> to let us know the icon list is broken.</p>
-
-</div>
-
-<script>
-    function scopeLatestTheme() {
-        var latestThemeUrl = "https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css";
-
-        $.ajax({
-            url: latestThemeUrl,
-            dataType: "text/css",
-            success: function (data, extStatus, jqXHR) {
-                console.log("fetching the themes changed, the icons list needs to be fixed, please open an issue if you see this");
-                showFallbackInfo();
-            },
-            error: function (data, extStatus, jqXHR) {
-                if (extStatus == "parsererror") { // we expect parsing the styles to fail
-                    document.querySelector("#iconListContainer style").innerHTML = data.responseText;
-                }
-            },
-        });
-    }
-
-    function renderIconsList() {
-        scopeLatestTheme();
-
-        var iconsListJson = "https://unpkg.com/@progress/kendo-font-icons@latest/dist/icon-list.json";
-       
-        $.getJSON(iconsListJson, function (data) {
-
-            var iconsList = data;
-            var iconsToRender = [];
-            
-            $.each(iconsList, function (index, iconName) {
-                if (iconName != null) {
-                    iconsToRender.push(`<li><span class="k-icon k-i-${iconName}"></span>${iconName}</li>`)
-                }
-            });
-
-            $("#IconsList").html(iconsToRender.join(""));
-        })
-        .fail(showFallbackInfo);
-    }
-    
-    function showFallbackInfo(){
-        document.querySelector("#iconListContainer #iconsLoadFail").style.display = "";
-        document.querySelector("#iconListContainer #IconsList").style.display = "none";
-    }
-
-    window.addEventListener("load", function () {
-        setTimeout(function () {
-            try {
-                renderIconsList();
-            } catch (e) {
-                console.log(e);
-                showFallbackInfo();
-            }
-        }, 1500); 
-    });
-</script>
 
 
 ## See Also
