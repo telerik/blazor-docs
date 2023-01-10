@@ -25,7 +25,7 @@ This article has the following sections:
 The drawer items provide the following features that you control through the corresponding fields in their data binding:
 
 * `Text` - the text that will be shown on the item.
-* `ImageUrl` / `Icon` / `IconClass`  - the URL to a raster image, the [Telerik icon]({%slug general-information/font-icons%}), or a class for a custom font icon that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `ImageUrl` will have the highest importance).
+* `Icon` - the [Telerik Font or SVG icon]({%slug general-information/font-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug breadcrumb-icons%}).
 * `Url` - the view the item will navigate to by generating a link.
 * `Separator` - whether the item will be a separator line instead of a clickable item.
 
@@ -34,9 +34,7 @@ The drawer items provide the following features that you control through the cor
 The properties of a drawer item match directly to a field of the model the drawer is bound to. You provide that relationship by providing the name of the field from which the corresponding information is present. To do this, use the properties in the main `TelerikDrawer` tag:
 
 * TextField => Text
-* IconClassField => IconClass
 * IconField => Icon
-* ImageUrlField => ImageUrl
 * UrlField => Url
 * SeparatorField => Separator
 
@@ -76,15 +74,15 @@ https://docs.telerik.com/blazor-ui/components/drawer/navigation
 @code {
     IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
-        {
-            new DrawerItem { ItemText = "Counter", ItemIcon = "plus", ItemUrl = "counter" },
-            new DrawerItem { ItemText = "FetchData", ItemIcon = "grid-layout", ItemUrl = "fetchdata" },
-        };
+            {
+            new DrawerItem { ItemText = "Counter", ItemIcon = FontIcon.Plus, ItemUrl = "counter" },
+            new DrawerItem { ItemText = "FetchData", ItemIcon = FontIcon.GridLayout, ItemUrl = "fetchdata" },
+            };
 
     public class DrawerItem
     {
         public string ItemText { get; set; }
-        public string ItemIcon { get; set; }
+        public FontIcon? ItemIcon { get; set; }
         public string ItemUrl { get; set; }
     }
 }
