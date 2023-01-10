@@ -78,13 +78,11 @@ The ColorPicker tag exposes the following features via its attributes:
 
 ### Custom Icon
 
-The ColorPicker provides attributes to render an icon or image inside the [main component button](#interface). This icon can be used to visually distinguish different ColorPickers on the page. In such cases, the selected color is displayed below the icon.
+The ColorPicker provides attributes to render an icon inside the [main component button](#interface). This icon can be used to visually distinguish different ColorPickers on the page. In such cases, the selected color is displayed below the icon.
 
 Use one attribute at a time:
 
-* `Icon` - `string` - specifies a [built-in font icon class]({%slug general-information/font-icons%}).
-* `ImageUrl` - `string` - specifies an URL for an image.
-* `IconClass` - `string` - sets a custom icon class.
+* `Icon` - `object` - specifies a [built-in Font or SVG icon]({%slug general-information/font-icons%}).
 
 
 ## Supported Value Formats
