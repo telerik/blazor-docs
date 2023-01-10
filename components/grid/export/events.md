@@ -145,8 +145,6 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
 
     * `Title` - define the column title to be shown in the Excel file header.
     * `Field` - set the data bound field of the column.
-    
->important The `Width` and `NumberFormat` properties are not applicable to CSV export and will be removed in **UI for Blazor 4.0**. For CSV formatting see [Format numbers and dates in the exported CSV file from the Grid]({%slug grid-kb-number-formatting-of-the-csv-export%}).
 
 To export a hidden (the Visible attribute set to `false`) column you can manually define an instance of the `ExcelExportableColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
 
