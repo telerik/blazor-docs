@@ -38,7 +38,7 @@ The menu items provide the following features that you control through the corre
 
 * `Text` - the text that will be shown on the item.
 
-* `ImageUrl` / `Icon` / `IconClass` - the URL to a raster image, the [Telerik icon]({%slug general-information/font-icons%}), or a class for a custom font icon that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `ImageUrl` will have the highest importance).
+* `Icon` - The [Telerik Font or SVG icon]({%slug general-information/font-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug breadcrumb-icons%}).
 
 * `Url` - the view the item will navigate to by generating a link.
 
