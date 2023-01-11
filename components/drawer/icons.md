@@ -10,15 +10,7 @@ position: 22
 
 # Drawer Icons
 
-You can put an image, an icon class or a font icon for each item in the Drawer to illustrate its purpose for your end users. To apply them, use the following properties:
-
-* for a [Telerik font icon]({%slug general-information/font-icons%}), point the `IconField` parameter of the component to a `string` field of the model that contains the corresponding icon name.
-
-* for a raster image, point the `ImageUrlField` parameter of the component to a `string` field of the model that contains the url to the icon (relative or absolute).
-
-* for a custom font icon class, point the `IconClassField` parameter of the component to a `string` field of the model that contains the desired CSS class list which provides the required rules (like font name and glyph symbol). Make sure to also reference the desired font in your app and to use its own recommendations.
-
-The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span class="the custom class" />` and as `<img src="the-image-src" />`
+You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}) to the Breadcrumb item by assigning a `string` to the `IconField` parameter.
 
 >caption How to use icons in Telerik Drawer
 
@@ -33,7 +25,7 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
                @ref="@DrawerRef"
                @bind-SelectedItem="@SelectedItem">
     <DrawerContent>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@("menu")">Toggle drawer</TelerikButton>
         <div class="m-5">
             Selected Item: @SelectedItem?.Text
         </div>
@@ -46,15 +38,15 @@ The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span c
     DrawerItem SelectedItem { get; set; }
     IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>()
         {
-                new DrawerItem { Text = "Current Location", TelerikIcon = "pin"},
-                new DrawerItem { Text = "Navigation", TelerikIcon = "globe"},
-                new DrawerItem { Text = "Favourite Locations", TelerikIcon = "star"},
+                new DrawerItem { Text = "Current Location", TelerikIcon = FontIcon.Pin},
+                new DrawerItem { Text = "Navigation", TelerikIcon = FontIcon.Globe},
+                new DrawerItem { Text = "Favourite Locations", TelerikIcon = FontIcon.Star},
         };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public string TelerikIcon { get; set; }
+        public FontIcon? TelerikIcon { get; set; }
     }
 }
 ````
