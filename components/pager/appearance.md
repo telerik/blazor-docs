@@ -10,7 +10,7 @@ position: 35
 
 # Appearance Settings
 
-You can control the appearance of the Pager by setting the [Size](#size) attribute.
+This article outlines the available Pager parameters, which control its appearance.
 
 ## Size
 
@@ -19,10 +19,8 @@ You can increase or decrease the size of the Pager by setting the `Size` paramet
 | Class members | Manual declarations |
 |---------------|--------|
 | `Small`   |`sm`|
-| `Medium`   |`md`|
+| `Medium`<br /> default value   |`md`|
 | `Large`   |`lg`|
-
-If the size option is not specified, it is set to `Medium` by default. 
 
 >caption The built-in sizes
 

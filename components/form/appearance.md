@@ -10,21 +10,19 @@ position: 35
 
 # Appearance Settings
 
-You can control the appearance of the form by setting the [Size](#size) attribute.
+This article outlines the available Form parameters, which control its appearance.
 
 ## Size
 
->The `Size` configuration of the Form affects the padding of all the editors and buttons.
-
 You can increase or decrease the size of the Form by setting the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.Form.Size` class:
+
+>The `Size` configuration of the Form affects the padding of all the editors and buttons.
 
 | Class members | Manual declarations |
 |---------------|--------|
 | `Small`   |`sm`|
-| `Medium`   |`md`|
+| `Medium`<br /> default value   |`md`|
 | `Large`   |`lg`|
-
-If the size option is not specified, it is set to `Medium` by default. 
 
 >caption The built-in sizes
 

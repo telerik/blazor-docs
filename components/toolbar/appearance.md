@@ -10,7 +10,7 @@ position: 35
 
 # Appearance Settings
 
-You can control the appearance of the ToolBar by setting the [Size](#size) attribute.
+This article outlines the available ToolBar parameters, which control its appearance.
 
 ## Size
 
@@ -19,10 +19,8 @@ You can increase or decrease the size of the ToolBar by setting the `Size` param
 | Class members | Manual declarations |
 |---------------|--------|
 | `Small`   |`sm`|
-| `Medium`   |`md`|
-| `Large`   |`lg`|
-
-If the size option is not specified, it is set to `Medium` by default. 
+| `Medium`<br /> default value   |`md`|
+| `Large`   |`lg`| 
 
 >caption The built-in sizes
 
