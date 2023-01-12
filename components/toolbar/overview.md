@@ -74,6 +74,16 @@ The ToolBar component supports template items. Use them to create complex toolba
 
 The Blazor ToolBar fires click and selection events. Handle those events to respond to user actions. [Read more about the Blazor ToolBar events]({%slug toolbar-events%}).
 
+## Styling and Appearance
+
+The following parameters enable you to customize the appearance of the Blazor ToolBar:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Size` | `Telerik.Blazor.ThemeConstants.ToolBar.Size` | Adjust the size of the ToolBar |
+
+You can find more information for customizing the ToolBar appearance in the [Appearance article]({%slug toolbar-appearance%}).
+
 ## ToolBar Parameters
 
 The Blazor ToolBar provides parameters to configure the component:

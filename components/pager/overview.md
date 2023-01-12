@@ -68,6 +68,16 @@ The Pager provides the UI for the user to change the page. To the developer, it 
 }
 ````
 
+## Styling and Appearance
+
+The following parameters enable you to customize the appearance of the Blazor Pager:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Size` | `Telerik.Blazor.ThemeConstants.Pager.Size` | Adjust the size of the Pager |
+
+You can find more information for customizing the Pager appearance in the [Appearance article]({%slug pager-appearance%}).
+
 ## Events
 
 The Blazor Pager exposes PageChanged and PageSizeChanged events that you can handle and further customize its behavior. [Read more about the Blazor Pager events]({%slug pager-events%}).

@@ -255,6 +255,16 @@ Use the Form reference to get access to its `EditContext`. The Form generates th
 }
 ````
 
+## Styling and Appearance
+
+The following parameters enable you to customize the appearance of the Blazor Form:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Size` | `Telerik.Blazor.ThemeConstants.Form.Size` | Adjust the size of the Form |
+
+You can find more information for customizing the Form appearance in the [Appearance article]({%slug form-appearance%}).
+
 ## Next Steps
 
 * [Validate the Form]({%slug form-validation%})
