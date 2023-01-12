@@ -62,12 +62,15 @@
 
 @using Telerik.DataSource;
 
-<TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
+<TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">Set filtering from code</TelerikButton>
 
-<TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
-             Pageable="true" FilterMode="@GridFilterMode.FilterRow">
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             Height="400px"
+             Pageable="true"
+             FilterMode="@GridFilterMode.FilterRow">
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="150px" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
         <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
         <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
@@ -75,29 +78,40 @@
 </TelerikGrid>
 
 @code {
-    public TelerikGrid<SampleData> Grid { get; set; }
+    private TelerikGrid<SampleData> GridRef { get; set; }
 
-    async Task SetGridFilter()
+    private async Task SetGridFilter()
     {
         GridState<SampleData> desiredState = new GridState<SampleData>()
-        {
-            FilterDescriptors = new List<IFilterDescriptor>()
             {
-                new FilterDescriptor() { Member = "Id", Operator = FilterOperator.IsGreaterThan, Value = 10, MemberType = typeof(int) },
-                new FilterDescriptor() { Member = "Team", Operator = FilterOperator.Contains, Value = "3", MemberType = typeof(string) },
-            }
-        };
+                FilterDescriptors = new List<IFilterDescriptor>()
+                {
+                    new CompositeFilterDescriptor(){
+                        FilterDescriptors = new FilterDescriptorCollection()
+                        {
+                            new FilterDescriptor() { Member = "Id", Operator = FilterOperator.IsGreaterThan, Value = 10, MemberType = typeof(int)}
+                        }
+                },
+                    new CompositeFilterDescriptor()
+                    {
+                        FilterDescriptors = new FilterDescriptorCollection()
+                        {
+                            new FilterDescriptor() { Member = "Team", Operator = FilterOperator.Contains, Value = "3", MemberType = typeof(string) },
+                        }
+                    }
+                }
+            };
 
-        await Grid.SetStateAsync(desiredState);
+        await GridRef.SetStateAsync(desiredState);
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
+        {
+            Id = x,
+            Name = "name " + x,
+            Team = "team " + x % 5,
+            HireDate = DateTime.Now.AddDays(-x).Date
+        });
 
     public class SampleData
     {

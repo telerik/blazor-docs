@@ -37,10 +37,16 @@ In addition to the two main filtering modes, the grid offers two more features t
 
 ## Filter Descriptors
 
-The Grid filter state is stored in two types of filter descriptors. The below information is important if you want to [get or change the Grid filters programmatically]({%slug grid-state%}).
+The Grid filter state is stored in [CompositeFilterDescriptors](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). The below information is important if you want to [get or change the Grid filters programmatically]({%slug grid-state%}).
 
-* [Filter rows]({%slug grid-filter-row%}) use [FilterDescriptors](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptor). Each `FilterDescriptor` contains **one** filtering criterion for one field (`Member`).
-* The [SearchBox]({%slug grid-searchbox%}) and [filter menus]({%slug grid-filter-menu%}) use [CompositeFilterDescriptors](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). Each `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection) which can target the same field or different fields. All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
+Each `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection) which can target the same field or different fields. All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
+
+* [Filter Row]({%slug grid-filter-row%}) - each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator. The filter value is stored in the first `FilterDescriptor` instance of the `CompositeFilterDescriptor` for that field. The second `FilterDescriptor` instance contains null values.
+
+* [Filter Menu]({%slug grid-filter-menu%}) - each `CompositeFilterDescriptor` targets a specific field. Filter values from the separate filter opearators in the menu are stored in different `FilterDescriptor` instances of the dedicated `CompositeFilterDescriptor` for that field.
+
+* [SearchBox]({%slug grid-searchbox%}) - one `CompositeFilterDescriptor` is created in the state when the user types in the Searchbox. By default, it targets all `string` fields. A dedicated `FilterDescriptor` instance is added to this `CompositeFilterDescriptor` for each `string` field. Each `FilterDescriptor` instance contains the filter value typed in the Searchbox.
+
 
 ## Custom Filtering
 
