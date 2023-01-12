@@ -23,10 +23,7 @@ The `string` parameters below exist for both `TelerikSplitButton` and `SplitButt
 
 | Parameter | Intended Usage |
 | --- | --- |
-| `Icon` | Use with the [**built-in Telerik icons**]({%slug general-information/font-icons%}#icons-list). |
-| `IconClass` | Use with **third-party font icons**, which rely only on CSS classes for their rendering, and not on text content (see the tip after this table). |
-| `SpriteClass` | Use with **image sprites**. Apply `background-image` and `background-position` styles to the set CSS class. |
-| `ImageUrl` | Use with **images**, which are not sprites or font icons. The SplitButton will render an HTML `<img>` tag with the set URL. |
+| `Icon` | Use with the [**built-in Telerik Font and SVG icons**]({%slug general-information/font-icons%}#icons-list). |
 
 >tip It is also possible to define **any icon or image** with custom HTML markup inside the `<SplitButtonContent>` and `<SplitButtonItem>` tags. Use this aproach for images and font icons that rely on specific rendering. One such example is the Google Material Icons library.
 
@@ -36,27 +33,16 @@ The `string` parameters below exist for both `TelerikSplitButton` and `SplitButt
 >caption Using icons in the Blazor SplitButton
 
 ````HTML
-<TelerikSplitButton Icon="sln">
+@* Usage of Font and SVG Icons in the SplitButton. *@
+
+<TelerikSplitButton Icon="@("sln")">
     <SplitButtonContent>Telerik Icon</SplitButtonContent>
     <SplitButtonItems>
-        <SplitButtonItem IconClass="bi-bluetooth">IconClass (Bootstrap)</SplitButtonItem>
-        <SplitButtonItem SpriteClass="flag-netherlands">SpriteClass</SplitButtonItem>
-        <SplitButtonItem ImageUrl="https://docs.telerik.com/blazor-ui/images/snowboarding.png">ImageUrl</SplitButtonItem>
+        <SplitButtonItem Icon="@FontIcon.Table">Telerik Font Icon</SplitButtonItem>
+        <SplitButtonItem Icon="@SvgIcon.Calculator">Telerik SVG Icon</SplitButtonItem>
         <SplitButtonItem> <TelerikLoader /> Custom markup </SplitButtonItem>
     </SplitButtonItems>
 </TelerikSplitButton>
-
-@* Bootstrap Icons stylesheet for the IconClass *@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
-      integrity="sha384-ejwKkLla8gPP8t2u0eQyL0Q/4ItcnyveF505U0NIobD/SMsNyXrLti6CWaD0L52l" crossorigin="anonymous" />
-
-@* CSS styles for the SpriteClass *@
-<style>
-    .flag-netherlands {
-        background-image: url("https://docs.telerik.com/blazor-ui/images/flags.png");
-        background-position: 0 -64px;
-    }
-</style>
 ````
 
 
