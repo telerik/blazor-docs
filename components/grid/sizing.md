@@ -1,0 +1,90 @@
+---
+title: Grid - Sizing
+page_title: Grid Size | Grid for Blazor
+description: Adjust the size and modify the appearance of the Telerik UI for Blazor Grid.
+slug: grid-sizing
+tags: telerik,blazor,grid,size,compact, dense, small
+published: true
+position: 47
+---
+
+# Grid Size
+
+This feature attempts to address the need for a **Compact Grid**, which renders more items by utilizing the available space, mainly through setting smaller padding in its cells.
+
+Changing the [`Size`](#size) property affects different building blocks of the component (tables, buttons, inputs, dropdowns, and others). 
+
+## Size
+
+The `Size` property accepts values of type [`ThemeConstants.Grid.Size`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.ThemeConstants.Grid.Size) and the supported values are: 
+
+| Class members | Manual declarations |
+|------------|--------|
+|`Small`|`sm`|
+|`Medium` <br /> default value|`md`|
+
+
+>caption The built-in Size modes
+
+```CSHTML
+@* These are all built-in Size modes *@
+
+@{ 
+    var fields = typeof(Telerik.Blazor.ThemeConstants.Grid.Size)
+        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
+        | System.Reflection.BindingFlags.FlattenHierarchy)
+        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
+
+    foreach (var field in fields)
+    {
+        string size = field.GetValue(null).ToString();
+
+        <TelerikGrid Size="@size"
+					 Data="@MyData"
+			 	     Height="350px">
+            <GridColumns>
+                <GridColumn Field="ID"></GridColumn>
+                <GridColumn Field="TheName" Title="Employee Name"></GridColumn>
+            </GridColumns>
+        </TelerikGrid>
+        <br />
+    }
+}
+@code {
+    public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
+}
+```
+
+## Notes
+
+1. The `Size` option does not affect elements displayed inside a PopUp (such as [Filter Menu](https://docs.telerik.com/blazor-ui/components/grid/filter/filter-menu), [Column Menu](https://docs.telerik.com/blazor-ui/components/grid/columns/menu), etc.). It is this way since the PopUps are rendered on root level and the `Size` option cannot propagate to them. Тo change the `Size` options of the elements inside PopUps as well, you can use a template and explicitly specify their `Size`.
+
+1. The `Size` option does not propagate to components rendered inside templates (this includes elements in [GridToolBar](https://docs.telerik.com/blazor-ui/components/grid/toolbar), [CommandColumn](https://docs.telerik.com/blazor-ui/components/grid/columns/command), etc.). To change the `Size` property of those components you have to set it explicitly. 
+
+>caption Set GridCommandButton Size option
+
+```CSHTML
+<TelerikGrid Size="@ThemeConstants.Grid.Size.Small"
+             Data="@MyData"
+			 Height="350px">
+    <GridToolBarTemplate>
+        <GridCommandButton Size="@ThemeConstants.Button.Size.Small">Custom Command</GridCommandButton>
+    </GridToolBarTemplate>
+	<GridColumns>
+		<GridColumn Field="ID"></GridColumn>
+		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
+        <GridCommandColumn>
+            <GridCommandButton Size="@ThemeConstants.Button.Size.Small">Custom Command</GridCommandButton>
+        </GridCommandColumn>
+	</GridColumns>
+</TelerikGrid>
+
+@code {
+	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
+}
+```
+
+## See Also
+
+  * [Grid Overview]({%slug grid-overview%})
+  * [Live Demo: Grid Sizing](https://demos.telerik.com/blazor-ui/grid/sizing)
