@@ -124,6 +124,8 @@ The `FillMode` controls how the TelerikDateInput is filled. You can set it to a 
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
+
 ## See Also
 
 * [Live Demo: DateInput - Appearance](https://demos.telerik.com/blazor-ui/dateinput/appearance)

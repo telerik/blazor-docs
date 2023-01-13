@@ -228,6 +228,7 @@ The `ThemeColor` parameter sets the SplitButton's background and text color from
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 
 ## Next Steps
 

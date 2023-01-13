@@ -187,3 +187,4 @@ The `FillMode` controls how the TelerikMultiSelect is filled. You can set it to 
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

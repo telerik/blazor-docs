@@ -130,6 +130,8 @@ The `FillMode` controls how the TelerikDateRangePicker is filled. You can set it
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
+
 ## See Also
 
 * [Live Demo: DateRangePicker - Appearance](https://demos.telerik.com/blazor-ui/daterangepicker/appearance)

@@ -82,6 +82,7 @@ The `AnimationType` parameter controls the type of animation for the Skeleton. T
 </div>
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 
 ## See Also
 

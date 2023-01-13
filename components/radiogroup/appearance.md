@@ -60,3 +60,4 @@ Change the size of the radio buttons by setting the `Size` parameter to a member
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

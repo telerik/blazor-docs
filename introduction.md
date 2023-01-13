@@ -34,7 +34,7 @@ If you are new to Telerik UI for Blazor, visit the Get Started tutorials that de
 
 >tip This online documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF documentation](#learning-resources) for the required older product version.
 
-Developers who are familiar with the IDE and Blazor could prefer the [What You Need]({%slug getting-started/what-you-need%}) article. It is a shorter, more advanced version of the getting started tutorials above and explains the basics about the Telerik UI packages and how to set up a project.
+Developers who are familiar with the IDE and Blazor could prefer the [Typical Workflow]({%slug getting-started/what-you-need%}) article. It is a shorter, more advanced version of the getting started tutorials above and explains the basics about the Telerik UI packages and how to set up a project.
 
 <!--
 If you are not familiar with Blazor yet, you may find our Blazor Quick Start Guide video series useful:
@@ -102,9 +102,11 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 
 * [First steps with Server-side Blazor]({%slug getting-started/server-side%}) (online guide)
 
-* [What You Need]({%slug getting-started/what-you-need%}) - concise version of the tutorials above
+* [Typical workflow for using the Telerik UI for Blazor components]({%slug getting-started/what-you-need%})—concise version of the tutorials above
 
-* Generate a new Telerik Project (guided wizard) - for  [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and for [Visual Studio Code]({%slug getting-started-vs-code-integration-overview%}).
+* [Create custom styles by using ThemeBuilder]({%slug themebuilder%})
+
+* Use guided wizards to generate new Telerik Projects in [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-overview%}).
 
 * [Convert an existing project to a Telerik-enabled project]({%slug getting-started-vs-integration-convert-project%})
 

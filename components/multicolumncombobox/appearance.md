@@ -198,3 +198,5 @@ The `FillMode` controls how the TelerikMultiColumnComboBox is filled. You can se
     }
 }
 ````
+
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

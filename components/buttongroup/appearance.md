@@ -152,3 +152,4 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

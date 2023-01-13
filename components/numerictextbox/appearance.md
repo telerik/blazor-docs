@@ -127,3 +127,4 @@ The `FillMode` controls how the TelerikNumericTextBox is filled. You can set it 
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
