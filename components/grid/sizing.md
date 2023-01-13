@@ -1,6 +1,6 @@
 ---
-title: Grid - Sizing
-page_title: Grid Size | Grid for Blazor
+title: Sizing
+page_title: Grid - Sizing
 description: Adjust the size and modify the appearance of the Telerik UI for Blazor Grid.
 slug: grid-sizing
 tags: telerik,blazor,grid,size,compact, dense, small
@@ -57,9 +57,9 @@ The `Size` property accepts values of type [`ThemeConstants.Grid.Size`](https://
 
 ## Notes
 
-1. The `Size` option does not affect elements displayed inside a PopUp (such as [Filter Menu](https://docs.telerik.com/blazor-ui/components/grid/filter/filter-menu), [Column Menu](https://docs.telerik.com/blazor-ui/components/grid/columns/menu), etc.). It is this way since the PopUps are rendered on root level and the `Size` option cannot propagate to them. Тo change the `Size` options of the elements inside PopUps as well, you can use a template and explicitly specify their `Size`.
+1. The `Size` option does not affect elements displayed inside a PopUp (such as [Filter Menu]({%slug grid-filter-menu%}), [Column Menu]({%slug grid-column-menu%}), etc.). By design, all PopUp elements are rendered on root level, so they are not technically inside the Grid. Thus, the `Size` option cannot propagate to them. Тo change the `Size` options of the elements inside PopUps, you can use a template(where available), so you can override the built-in rendering. You can then add custom elements and explicitly specify their `Size`.
 
-1. The `Size` option does not propagate to components rendered inside templates (this includes elements in [GridToolBar](https://docs.telerik.com/blazor-ui/components/grid/toolbar), [CommandColumn](https://docs.telerik.com/blazor-ui/components/grid/columns/command), etc.). To change the `Size` property of those components you have to set it explicitly. 
+1. The `Size` option does not propagate to components rendered inside templates (this includes elements in [GridToolBar]({%slug components/grid/features/toolbar%}), [CommandColumn]({%slug components/grid/columns/command%}), etc.). To change the `Size` property of those components you have to set it explicitly.
 
 >caption Set GridCommandButton Size option
 
