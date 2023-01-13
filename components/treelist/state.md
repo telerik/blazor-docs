@@ -402,12 +402,17 @@ If you want the TreeList to start with certain settings for your end users, you 
         {
             FilterDescriptors = new List<IFilterDescriptor>()
             {
-                new FilterDescriptor()
-                {
-                    Member = nameof(Employee.Name),
-                    MemberType = typeof(string),
-                    Operator = FilterOperator.Contains,
-                    Value = "second level"
+                new CompositeFilterDescriptor(){
+                    FilterDescriptors = new FilterDescriptorCollection()
+                    {
+                        new FilterDescriptor()
+                        {
+                            Member = nameof(Employee.Name),
+                            MemberType = typeof(string),
+                            Operator = FilterOperator.Contains,
+                            Value = "second level"
+                        }
+                    }
                 }
             },
             SortDescriptors = new List<SortDescriptor>()
@@ -566,16 +571,19 @@ The example below shows how to achieve it by using the`OnStateChanged` event.
             // in this example - ensure that the ID field is always filtered with a certain setting unless the user filters it explicitly
             bool isIdFiltered = false;
 
-            foreach (FilterDescriptor item in args.TreeListState.FilterDescriptors)
+            foreach (CompositeFilterDescriptor compositeFilterDescriptor in args.TreeListState.FilterDescriptors)
             {
-                Result = $"The {item.Member} field was filtered";
-
-                // you could override a user action as well - change settings on the corresponding parameter
-                // make sure that the .SetStateAsync() method of the TeeList is always called if you do that
-                if (item.Member == "Name")
+                foreach(FilterDescriptor item in compositeFilterDescriptor.FilterDescriptors)
                 {
-                    item.Value = "second level child 1 of 1 and 1";
-                    item.Operator = FilterOperator.Contains;
+                    Result = $"The {item.Member} field was filtered";
+
+                    // you could override a user action as well - change settings on the corresponding parameter
+                    // make sure that the .SetStateAsync() method of the TeeList is always called if you do that
+                    if (item.Member == "Name")
+                    {
+                        item.Value = "second level child 1 of 1 and 1";
+                        item.Operator = FilterOperator.Contains;
+                    }
                 }
             }
             if (!isIdFiltered)

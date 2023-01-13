@@ -141,7 +141,7 @@
                  @ref="TreeListRef">
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="Id" Editable="false" Width="150px" />
         <TreeListColumn Field="EmailAddress" Width="220px" />
         <TreeListColumn Field="HireDate" Width="220px" />
     </TreeListColumns>
@@ -156,19 +156,29 @@
         {
             FilterDescriptors = new List<IFilterDescriptor>()
             {
-                new FilterDescriptor()
-                {
-                    Member = nameof(Employee.Id),
-                    MemberType = typeof(int),
-                    Operator = FilterOperator.IsGreaterThan,
-                    Value = 5
+                new CompositeFilterDescriptor(){
+                    FilterDescriptors = new FilterDescriptorCollection()
+                    {
+                        new FilterDescriptor()
+                        {
+                            Member = nameof(Employee.Id),
+                            MemberType = typeof(int),
+                            Operator = FilterOperator.IsGreaterThan,
+                            Value = 5
+                        }
+                    }
                 },
-                new FilterDescriptor()
-                {
-                    Member = nameof(Employee.Name),
-                    MemberType = typeof(string),
-                    Operator = FilterOperator.Contains,
-                    Value = "second level"
+                new CompositeFilterDescriptor(){
+                    FilterDescriptors = new FilterDescriptorCollection()
+                    {
+                        new FilterDescriptor()
+                        {
+                            Member = nameof(Employee.Name),
+                            MemberType = typeof(string),
+                            Operator = FilterOperator.Contains,
+                            Value = "second level"
+                        }
+                    }
                 }
             }
         };
@@ -288,20 +298,31 @@
         {
             FilterDescriptors = new List<IFilterDescriptor>()
             {
-                new FilterDescriptor()
-                {
-                    Member = nameof(Employee.Id),
-                    MemberType = typeof(int),
-                    Operator = FilterOperator.IsGreaterThan,
-                    Value = 5
+                new CompositeFilterDescriptor(){
+                    FilterDescriptors = new FilterDescriptorCollection()
+                    {
+                        new FilterDescriptor()
+                        {
+                            Member = nameof(Employee.Id),
+                            MemberType = typeof(int),
+                            Operator = FilterOperator.IsGreaterThan,
+                            Value = 5
+                        }
+                    }
                 },
-                new FilterDescriptor()
-                {
-                    Member = nameof(Employee.Name),
-                    MemberType = typeof(string),
-                    Operator = FilterOperator.Contains,
-                    Value = "second level"
-                }
+                new CompositeFilterDescriptor(){
+                    FilterDescriptors = new FilterDescriptorCollection()
+                    {
+                        new FilterDescriptor()
+                        {
+                            Member = nameof(Employee.Name),
+                            MemberType = typeof(string),
+                            Operator = FilterOperator.Contains,
+                            Value = "second level"
+                        }
+                    }
+                },
+
             }
         };
 
