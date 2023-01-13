@@ -64,3 +64,7 @@ You can increase or decrease the size of the Form by setting the `Size` paramete
 }
 ````
 
+## See Also
+
+  * [Live Demo: Form Appearance](https://demos.telerik.com/blazor-ui/form/appearance)
+

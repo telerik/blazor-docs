@@ -74,16 +74,6 @@ The ToolBar component supports template items. Use them to create complex toolba
 
 The Blazor ToolBar fires click and selection events. Handle those events to respond to user actions. [Read more about the Blazor ToolBar events]({%slug toolbar-events%}).
 
-## Styling and Appearance
-
-The following parameters enable you to customize the appearance of the Blazor ToolBar:
-
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `Size` | `Telerik.Blazor.ThemeConstants.ToolBar.Size` | Adjust the size of the ToolBar |
-
-You can find more information for customizing the ToolBar appearance in the [Appearance article]({%slug toolbar-appearance%}).
-
 ## ToolBar Parameters
 
 The Blazor ToolBar provides parameters to configure the component:
@@ -94,6 +84,16 @@ The Blazor ToolBar provides parameters to configure the component:
 | ----------- | ----------- | ----------- |
 | `Adaptive ` | `bool` | Toggles the overflow popup of the toolbar. Displays an additional anchor on the right of the toolbar, where it places all items which overflow from the toolbar. |
 | `Class` | `string` | The CSS class to be rendered on the main wrapping element of the ToolBar component, which is `<div class="k-toolbar">`. Use for [styling customizations]({%slug themes-override%}). |
+
+## Styling and Appearance
+
+The following parameters enable you to customize the appearance of the Blazor ToolBar:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Size` | `Telerik.Blazor.ThemeConstants.ToolBar.Size` | Adjust the size of the ToolBar |
+
+You can find more information for customizing the ToolBar appearance in the [Appearance article]({%slug toolbar-appearance%}).
 
 ## Example
 

@@ -68,16 +68,6 @@ The Pager provides the UI for the user to change the page. To the developer, it 
 }
 ````
 
-## Styling and Appearance
-
-The following parameters enable you to customize the appearance of the Blazor Pager:
-
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `Size` | `Telerik.Blazor.ThemeConstants.Pager.Size` | Adjust the size of the Pager |
-
-You can find more information for customizing the Pager appearance in the [Appearance article]({%slug pager-appearance%}).
-
 ## Events
 
 The Blazor Pager exposes PageChanged and PageSizeChanged events that you can handle and further customize its behavior. [Read more about the Blazor Pager events]({%slug pager-events%}).
@@ -98,6 +88,16 @@ The Blazor Pager provides various parameters that allow you to configure the com
 | `PageSizes` | `List<int?>` | Allows users to change the page size via a DropDownList. The attribute configures the DropDownList options. A `null` item in the `PageSizes` `List` will render an "All" option. By default, the Pager DropDownList is not displayed. You can also set `PageSizes` to `null` programmatically to remove the DropDownList at any time. |
 | `InputType` | `PagerInputType` enum <br /> (`Buttons`) | Determines if the pager will show numeric buttons to go to a specific page, or a textbox to type the page index. The arrow buttons are always visible. The `PagerInputType` enum accepts values `Buttons` (default) or `Input`. When `Input` is used, the page index will change when the textbox is blurred, or when the user hits Enter. This is to avoid unintentional data requests. |
 | `Total` | `int` | Represents the total count of items in the pager. |
+
+### Styling and Appearance
+
+The following parameters enable you to customize the appearance of the Blazor Pager:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Size` | `Telerik.Blazor.ThemeConstants.Pager.Size` | Adjust the size of the Pager |
+
+You can find more information for customizing the Pager appearance in the [Appearance article]({%slug pager-appearance%}).
 
 ## Examples
 
