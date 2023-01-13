@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Editor
+from: /aria/editor_aria.md
+dest: ../components/editor/accessibility/wai-aria-support.md
+slug: editor-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Editor Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/editor/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

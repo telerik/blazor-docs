@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Pager
+from: /aria/pager_aria.md
+dest: ../components/pager/accessibility/wai-aria-support.md
+slug: pager-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Pager Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: TabStrip
+from: /aria/tabstrip_aria.md
+dest: ../components/tabstrip/accessibility/wai-aria-support.md
+slug: tabstrip-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor TabStrip Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

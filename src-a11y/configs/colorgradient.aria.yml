@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: ColorGradient
+from: /aria/colorgradient_aria.md
+dest: ../components/colorgradient/accessibility/wai-aria-support.md
+slug: colorgradient-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor ColorGradient Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

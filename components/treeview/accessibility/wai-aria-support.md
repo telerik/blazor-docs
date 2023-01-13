@@ -13,7 +13,7 @@ position: 50
 
 
 
-The Telerik UI for Blazor TreeView is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+The Telerik UI for Blazor TreeView component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
 
 ## Wai-Aria
 
@@ -22,11 +22,11 @@ The Telerik UI for Blazor TreeView is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG2
 | .k-treeview | `role=tree` | The root `div` element of the treeview. |
 | .k-treeview-group:not(.k-treeview-lines) | `role=group` | The `ul` element that wraps child nodes. |
 | .k-treeview-item | `role=treeitem` | The `li` element rendered for a tree node. |
-|  | `aria-level` | Announces the level of the tree node item. The value of level is number-based(>=1). |
-|  | `aria-setsize` | Announces the total count of the items at this level. Helps the user understand the position of the navigation (ex: item 3 of 14). |
+|  | `aria-level` | Announces the level of the tree node item. The value of level is number-based(>=1). Should be added when only subsection of the TreeView is rendered in the DOM. |
+|  | `aria-setsize` | Announces the total count of the items at this level. Helps the user understand the position of the navigation (ex: item 3 of 14). Should be added only when `load more` functionality of the tree is enabled and there are still nodes belonging to the group that are yet not loaded (rendered). |
 |  | `aria-expanded=true/false` | Announces the expanded state of the node. It is true when expanded, and false when collapsed. |
-|  | `aria-selected=true` | Rendered only when selection is enabled and announces the selected state of the node. |
 |  | `aria-checked=true/false` | Rendered only when checkboxes are enabled and announces the checked state of the node. If the checkbox is indeterminate, the value is `mixed`. |
+| .k-selected | `aria-selected=true` | Rendered only when selection is enabled and announces the selected state of the node. |
 | .k-checkbox | `role=none/presentation` | Added to the wrapper element of the checkbox to prevent duplicated information announced to the user. The checked state is controlled by `aria-checked`. |
 |  | `aria-hidden=true` | Added to the checkbox element to prevent duplicated information announced to the user. The checked state is controlled by `aria-checked`. |
 

@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: CheckBox
+from: /aria/checkbox_aria.md
+dest: ../components/checkbox/accessibility/wai-aria-support.md
+slug: checkbox-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor CheckBox Overview (Demo)](https://demos.telerik.com/blazor-ui/checkbox/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: SplitButton
+from: /aria/splitbutton_aria.md
+dest: ../components/splitbutton/accessibility/wai-aria-support.md
+slug: splitbutton-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor SplitButton Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/splitbutton/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

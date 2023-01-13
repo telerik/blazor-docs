@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: FlatColorPicker
+from: /aria/flatcolorpicker_aria.md
+dest: ../components/flatcolorpicker/accessibility/wai-aria-support.md
+slug: flatcolorpicker-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor FlatColorPicker Overview (Demo)](https://demos.telerik.com/blazor-ui/flatcolorpicker/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
