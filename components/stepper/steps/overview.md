@@ -32,10 +32,7 @@ The [visual indicators]({%slug stepper-indicators%}) of the steps can include th
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Text` | `string` | Specifies the step indicator text. |
-| `Icon` | `string` | The icon which will be rendered inside the step indicator. |
-| `IconClass` | `string` | The icon class which will be rendered inside the step indicator. |
-| `ImageUrl` | `string` | The image which will be rendered inside the step indicator. |
-| `SpriteClass` | `string` | The Sprite class which will be rendered inside the step indicator. |
+| `Icon` | `object` | The icon which will be rendered inside the step indicator. |
 
 ### State
 
@@ -58,9 +55,7 @@ The steps can have one of the [states]({%slug stepper-state%}) below.
 
 To include the desired steps for the Stepper component, you can either manually declare a `StepperStep` tag for every step or loop through your collection with steps data and render one `StepperStep` tag binding its parameters to the corresponding field of your model.
 
->caption Loop through your collection and generate a `StepperStep` for every item in the collection. The result from the snippet.
-
-![Steps collection](images/steps-collection-example.png)
+>caption Loop through your collection and generate a `StepperStep` for every item in the collection.
 
 ````CSHTML
 @*Loop through a collection to create a step for all items in the collection. *@
@@ -70,15 +65,15 @@ To include the desired steps for the Stepper component, you can either manually 
         <StepperSteps>
             @foreach (var step in Steps)
             {
-            <StepperStep Label="@step.Label" Icon="@step.Icon" 
+                <StepperStep Label="@step.Label" Icon="@step.Icon"
                          Optional="@step.Optional" Disabled="@step.Disabled">
-            </StepperStep>
+                </StepperStep>
             }
         </StepperSteps>
     </TelerikStepper>
 </div>
 
-@code{
+@code {
     List<StepModel> Steps { get; set; }
 
     protected override void OnInitialized()
@@ -88,33 +83,33 @@ To include the desired steps for the Stepper component, you can either manually 
             new StepModel()
             {
                 Label = "Personal Info",
-                Icon = "user"
+                Icon = FontIcon.User
             },
             new StepModel()
             {
                 Label = "Education",
-                Icon = "dictionary-add",
+                Icon = FontIcon.Book,
                 Disabled = true
             },
             new StepModel()
             {
                 Label = "Experience",
-                Icon = "flip-vertical"
+                Icon = FontIcon.FlipVertical
             },
             new StepModel()
             {
                 Label = "Attachments",
-                Icon = "attachment",
+                Icon = FontIcon.FileAdd,
                 Optional = true
             }
         };
-            base.OnInitialized();
+        base.OnInitialized();
     }
 
     public class StepModel
     {
         public string Label { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public bool Disabled { get; set; }
         public bool Optional { get; set; }
     }

@@ -8,59 +8,32 @@ published: True
 position: 2
 ---
 
-
 # ToggleButton Icons
 
-You can put an image, sprite or a font icon in the toggle button to illustrate its purpose for your end users. To apply them, use the parameters below.
+You can put a Font or Svg Icon in the toggle button to illustrate its purpose for your end users.
 
 ## Parameters
 
-All parameters are of type `string`.
-
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter | Description |
-|---|---|
-| `Icon` | Use it to display a [Telerik font icon]({%slug general-information/font-icons%}). |
-| `IconClass` | Use it render custom font icon class(es), which apply the required styles (like font name and glyph symbol). Make sure to reference the required third-party font and stylesheets. `IconClass="foo"` will render as `<span class="foo">` inside the Toggle Button. |
-| `SpriteClass` | Use it for CSS sprites. `SpriteClass="foo"` will render as `<span class="k-sprite k-icon foo">` inside the Toggle Button. |
-| `ImageUrl` | Use it to render an `<img>` tag with the specified relative or absolute URL. |
+| Parameter | Type and Default Value | Description |
+|---|---|---|
+| `Icon`| `object` | Use it to display a [Telerik Font and Svg Icons]({%slug general-information/font-icons%}). |
 
-The following example shows how to use an image from a URL, a sprite image, and the built-in font icons.
+The following example shows how to use the built-in Font and Svg icons.
 
 >caption How to use icons in the Telerik Toggle Button
 
 ````CSHTML
-@* This sample shows how you can use conditional logic to show different icons in the different states.
-It also shows how to use telerik icons, raster icons and sprite images*@
+@* This sample shows how you can use conditional logic to show different icons in the different states.*@
 
-<TelerikToggleButton SpriteClass="@( FlagSelected ? "flag netherlands" : "flag brazil")" @bind-Selected="@FlagSelected">Sprite</TelerikToggleButton>
+<TelerikToggleButton Icon="@( SvgSelected ? SvgIcon.AlignCenter : SvgIcon.AlignBottom)" @bind-Selected="@SvgSelected">Svg Icon</TelerikToggleButton>
 
-<TelerikToggleButton Icon="@( FontSelected ? "volume-off" : "volume-up" )" @bind-Selected="@FontSelected">Font Icon</TelerikToggleButton>
+<TelerikToggleButton Icon="@( FontSelected ? FontIcon.VolumeDown : FontIcon.VolumeUp )" @bind-Selected="@FontSelected">Font Icon</TelerikToggleButton>
 
-<TelerikToggleButton ImageUrl="@RasterIconUrl" @bind-Selected="@RasterSelected">Image URL</TelerikToggleButton>
-
-<style>
-    /* the sprite for the first button is defined through a CSS rule matching its Class */
-    .flag {
-        background-image: url("https://docs.telerik.com/blazor-ui/images/flags.png");
-    }
-
-        .flag.netherlands {
-            background-position: 0 -64px;
-            background-color: white;
-        }
-
-        .flag.brazil {
-            background-position: 0 0;
-        }
-</style>
-
-@code{
-    bool FlagSelected { get; set; }
-    bool FontSelected { get; set; }
-    bool RasterSelected { get; set; }
-    string RasterIconUrl => RasterSelected ? "https://docs.telerik.com/blazor-ui/images/snowboarding.png" : "https://docs.telerik.com/blazor-ui/images/swimming.png";
+@code {
+    private bool SvgSelected { get; set; }
+    private bool FontSelected { get; set; }
 }
 ````
 

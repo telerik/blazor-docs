@@ -41,9 +41,7 @@ In this article:
 
 <TelerikContextMenu Data="@MenuData"
                     Selector="#context-menu-target"
-                    IconField="@nameof(MenuModel.TelerikIcon)"
-                    ImageUrlField="@nameof(MenuModel.MyImage)"
-                    IconClassField="@nameof(MenuModel.MyIconClass)">
+                    IconField="@nameof(MenuModel.TelerikFontIcon)">
 </TelerikContextMenu>
 
 @code {
@@ -53,10 +51,10 @@ In this article:
     {
         MenuData.Add(
             new MenuModel()
-            {
-                Text = "Info",
-                TelerikIcon = "info-circle"
-            });
+                {
+                    Text = "Info",
+                    TelerikFontIcon = FontIcon.InfoCircle
+                });
         MenuData = new List<MenuModel>(MenuData);
     }
 
@@ -76,12 +74,12 @@ In this article:
             new MenuModel()
             {
                 Text = "Copy",
-                TelerikIcon = "copy"
+                TelerikFontIcon = FontIcon.Copy
             },
             new MenuModel()
             {
                 Text = "Cut",
-                TelerikIcon = "cut"
+                TelerikFontIcon = FontIcon.Cut
             }
         };
         MenuData = new List<MenuModel>(MenuData);
@@ -94,17 +92,17 @@ In this article:
             new MenuModel()
             {
                 Text = "IconField",
-                TelerikIcon = "email"
+                TelerikFontIcon = FontIcon.Envelop
             },
             new MenuModel()
             {
-                Text = "IconClassField",
-                MyIconClass = "oi oi-wrench",
+                Text = "Wrench Icon,
+                TelerikFontIcon = FontIcon.Wrench,
             },
             new MenuModel()
              {
-                Text = "ImageUrlField",
-                MyImage = "https://docs.telerik.com/blazor-ui/images/video.png"
+                Text = "File Video Icon",
+                TelerikFontIcon = FontIcon.FileVideo
              }
         };
     }
@@ -112,9 +110,7 @@ In this article:
     public class MenuModel
     {
         public string Text { get; set; }
-        public string TelerikIcon { get; set; }
-        public string MyImage { get; set; }
-        public string MyIconClass { get; set; }
+        public FontIcon? TelerikFontIcon { get; set; }
     }
 }
 ````

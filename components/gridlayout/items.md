@@ -259,7 +259,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
     <GridLayoutItems>
         <GridLayoutItem Column="1" Row="1" ColumnSpan="3">
             <span>
-                <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
+                <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@("menu")">Toggle drawer</TelerikButton>
             </span>
         </GridLayoutItem>
         <GridLayoutItem Column="1" Row="2">
@@ -269,6 +269,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
                                MiniMode="true"
                                Mode="DrawerMode.Push"
                                @ref="@DrawerRef"
+                               IconField="@nameof(DrawerItem.TelerikFontIcon)"
                                @bind-SelectedItem="@SelectedItem">
                 </TelerikDrawer>
             </div>
@@ -292,9 +293,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
         <GridLayoutItem Column="3" Row="2">
             <TelerikTreeView Data="@TreeViewData">
                 <TreeViewBindings>
-                    <TreeViewBinding IconClassField="@nameof(TreeViewModel.MyIconClass)"
-                                     ImageUrlField="@nameof(TreeViewModel.MyImageUrl)"
-                                     IconField="@nameof(TreeViewModel.TelerikIcon)" />
+                    <TreeViewBinding IconField="@nameof(TreeViewModel.TelerikFontIcon)" />
                 </TreeViewBindings>
             </TelerikTreeView>
         </GridLayoutItem>
@@ -320,30 +319,30 @@ You can use the exposed parameters of the GridLayout items to create more comple
         TreeViewData = new List<TreeViewModel>();
 
         TreeViewData.Add(new TreeViewModel()
-        {
-            Id = 1,
-            Text = "Company",
-            ParentId = null,
-            HasChildren = true,
-            TelerikIcon = "home"
-        });
+            {
+                Id = 1,
+                Text = "Company",
+                ParentId = null,
+                HasChildren = true,
+                TelerikFontIcon = FontIcon.Home
+            });
 
         TreeViewData.Add(new TreeViewModel()
-        {
-            Id = 2,
-            Text = "Contact us",
-            ParentId = 1,
-            HasChildren = false,
-            MyIconClass = "oi oi-envelope-closed"
-        });
+            {
+                Id = 2,
+                Text = "Contact us",
+                ParentId = 1,
+                HasChildren = false,
+                TelerikFontIcon = FontIcon.Envelop
+            });
 
         TreeViewData.Add(new TreeViewModel()
-        {
-            Id = 3,
-            Text = "Audio",
-            ParentId = null,
-            MyImageUrl = "https://docs.telerik.com/blazor-ui/images/speaker.png"
-        });
+            {
+                Id = 3,
+                Text = "Audio",
+                ParentId = null,
+                TelerikFontIcon = FontIcon.FileAudio
+            });
     }
 
     public class TreeViewModel
@@ -352,18 +351,16 @@ You can use the exposed parameters of the GridLayout items to create more comple
         public string Text { get; set; }
         public bool HasChildren { get; set; }
         public int? ParentId { get; set; }
-        public string TelerikIcon { get; set; }
-        public string MyIconClass { get; set; }
-        public string MyImageUrl { get; set; }
+        public FontIcon? TelerikFontIcon { get; set; }
     }
 
     public IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+        {
+            Id = x,
+            Name = "name " + x,
+            Team = "team " + x % 5,
+            HireDate = DateTime.Now.AddDays(-x).Date
+        });
 
     public class SampleData
     {
@@ -377,15 +374,15 @@ You can use the exposed parameters of the GridLayout items to create more comple
     DrawerItem SelectedItem { get; set; }
     IEnumerable<DrawerItem> DrawerData { get; set; } =
         new List<DrawerItem>
-        {
-            new DrawerItem { Text = "Counter", Icon = "plus"},
-            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
-            };
+                {
+            new DrawerItem { Text = "Counter", TelerikFontIcon = FontIcon.Plus },
+            new DrawerItem { Text = "FetchData", TelerikFontIcon = FontIcon.GridLayout },
+                    };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon TelerikFontIcon { get; set; }
     }
 }
 ````

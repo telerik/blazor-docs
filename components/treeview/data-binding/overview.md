@@ -35,9 +35,7 @@ public class TreeItem
     // Items for hierarchical data
     public IEnumerable<TreeItem> Items { get; set; }
 
-    public string ImageUrl { get; set; }
     public string Icon { get; set; }
-    public string IconClass { get; set; }
     public string Url { get; set; }
 }
 ```
@@ -61,14 +59,9 @@ The above model properties have the following meaning for the TreeView:
 | `ParentId` | Identifies the item's parent. Required for binding to **flat data**. Set to `null` for root items. **Do not use `ParentId` with hierarhical data.** |
 | `Items` | Defines the item's children. Required for [binding to **hierarchical data**]({%slug components/treeview/data-binding/hierarchical-data%}). The children's type can be different from the parent item type. |
 | [**Graphics**]({%slug treeview-icons%}) | |
-| `ImageUrl` | Sets a URL to a raster image |
-| `Icon` | Defines a [Telerik icon]({%slug general-information/font-icons%}) |
-| `IconClass` | Sets a CSS class for a custom font icon. |
+| `Icon` | Defines a [Telerik Font and Svg icon]({%slug general-information/font-icons%}) |
 | [**Navigation**]({%slug treeview-navigation%}) | |
 | `Url` | If set, the TreeView will generate a link to another page in the app, or an external page. |
-
->tip Define only the model properties you need. If several image/icon properties have a value, the TreeView will use only one value in the following order of precedence: `ImageUrl`, `Icon`, `IconClass`.
-
 
 ## TreeView Bindings
 
@@ -86,8 +79,6 @@ Each `TreeViewBinding` tag exposes the following parameters that refer to model 
 | `ItemsField` (hierarchical data) | `"Items"` |
 | [**Graphics**]({%slug treeview-icons%}) | |
 | `IconField` | `"Icon"` |
-| `IconClassField` | `"IconClass"` |
-| `ImageUrlField` | `"ImageUrl"` |
 | [**Navigation**]({%slug treeview-navigation%}) | |
 | `UrlField` | `"Url"` |
 

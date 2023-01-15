@@ -32,10 +32,7 @@ The nested `ToolBarButton` tag exposes parameters that allow you to customize th
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolbarButton. You could use that class to cascade styles. |
 | `Enabled` | `bool` <br /> `true` | Specifies if the button is clickable. |
-| `Icon` | `string` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component). |
-| `IconClass` | `string` | Allows you to set a CSS class that provides the required font name, font size and content for the `::before` pseudo-element. |
-| `ImageURL` | `string` | Adds an image to the button. You can provide an image url to this parameter. |
-| `SpriteClass` | `string` | Add a sprite class image to the button. Set this attribute to `k-icon MySpriteClass` where `MySpriteClass` defines the CSS rules for the sprite. |
+| `Icon` | `object` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font and Svg Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component). |
 | `Overflow` | `ToolBarItemOverflow` enum <br /> (`Auto`) | Specifies whether the item will be hidden when the ToolBar is resized. |
 | `OverflowText` | `string` | Defines the button text that will be shown only in the overflow popup. If not specified, it will get the default text of the item. |
 | `Title` | `string` | Maps to the `title` HTML attribute for the `<button>`. |
@@ -49,9 +46,9 @@ The nested `ToolBarButton` tag exposes parameters that allow you to customize th
 @*This example shows the TelerikToolBar with ToolBarButtons and their features*@
 
 <TelerikToolBar>
-    <ToolBarButton Icon="bold" Class="myBoldButton" Enabled="@true" Visible="true" Title="Bold Button" OnClick="@OnBold">Bold</ToolBarButton>
-    <ToolBarButton Icon="italic" Class="myItalicButton" Enabled="@false" Visible="true" Title="Italic Button" OnClick="@OnItalic">Italic</ToolBarButton>
-    <ToolBarButton Icon="underline" Class="myUnderlineButton" Enabled="@true" Visible="true" Title="Underline Button" OnClick="@OnUnderline">Underline</ToolBarButton>
+    <ToolBarButton Icon="@("bold")" Class="myBoldButton" Enabled="@true" Visible="true" Title="Bold Button" OnClick="@OnBold">Bold</ToolBarButton>
+    <ToolBarButton Icon="FontIcon.Italic" Class="myItalicButton" Enabled="@false" Visible="true" Title="Italic Button" OnClick="@OnItalic">Italic</ToolBarButton>
+    <ToolBarButton Icon="SvgIcon.Underline" Class="myUnderlineButton" Enabled="@true" Visible="true" Title="Underline Button" OnClick="@OnUnderline">Underline</ToolBarButton>
 </TelerikToolBar>
 
 @code {
@@ -86,9 +83,7 @@ The nested `ToolBarToggleButton` tag exposes parameters that allow you to custom
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolbarButton. You could use that class to cascade styles. |
 | `Enabled` | `bool` <br /> `true` | Specifies if the button is clickable. |
-| `Icon` | `string` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component). |
-| `IconClass` | `string` | Allows you to set a CSS class that provides the required font name, font size and content for the `::before` pseudo-element. |
-| `ImageURL` | `string` | Adds an image to the button. You can provide an image url to this parameter. |
+| `Icon` | `object` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font and Svg Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component). |
 | `Selected` | `bool` | Specifies whether the button is in selected state. You can use it with one and two-way data binding with the `SelectedChanged` event. For more information on how to handle the `SelectedChanged` event see the [Events]({%slug toolbar-events%}) article. |
 | `SpriteClass` | `string` | Add a sprite class image to the button. Set this attribute to `k-icon MySpriteClass` where `MySpriteClass` defines the CSS rules for the sprite. |
 | `Overflow` | `ToolBarItemOverflow` enum <br /> (`Auto`) | Specifies whether the item will be hidden when the ToolBar is resized. |
@@ -104,12 +99,12 @@ The nested `ToolBarToggleButton` tag exposes parameters that allow you to custom
 @*This example shows the TelerikToolBar with ToolBarToggleButton and its available features*@
 
 <TelerikToolBar>
-    <ToolBarToggleButton @bind-Selected="@Selected" 
-                         Enabled="true" 
-                         Class="myToggleFullScreenButton" 
-                         Icon="toggle-full-screen-mode" 
+    <ToolBarToggleButton @bind-Selected="@Selected"
+                         Enabled="true"
+                         Class="myToggleFullScreenButton"
+                         Icon=FontIcon.ToggleFullScreenMode
                          OnClick="@ToggleFullScreen">
-                            Toggle Fullscreen
+        Toggle Fullscreen
     </ToolBarToggleButton>
 </TelerikToolBar>
 
@@ -158,13 +153,13 @@ The nested `ToolBarButtonGroup` tag exposes parameters that allow you to customi
 @*This example shows the TelerikToolBar with grouped ToolBarButtons*@
 
 <TelerikToolBar>
-    <ToolBarButtonGroup Visible="true" 
-                        SelectionMode="@ButtonGroupSelectionMode.Multiple" 
-                        Class="formattingButtons" 
+    <ToolBarButtonGroup Visible="true"
+                        SelectionMode="@ButtonGroupSelectionMode.Multiple"
+                        Class="formattingButtons"
                         Enabled="true">
-        <ToolBarButton Icon="bold">Bold</ToolBarButton>
-        <ToolBarButton Icon="italic">Italic</ToolBarButton>
-        <ToolBarButton Icon="underline">Underline</ToolBarButton>
+        <ToolBarButton Icon="@("bold")">Bold</ToolBarButton>
+        <ToolBarButton Icon=SvgIcon.Italic>Italic</ToolBarButton>
+        <ToolBarButton Icon=FontIcon.Underline>Underline</ToolBarButton>
     </ToolBarButtonGroup>
 </TelerikToolBar>
 ````
