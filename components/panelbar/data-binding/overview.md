@@ -40,7 +40,7 @@ The PanelBar items provide the following features that you control through the c
 
 * `DisabledField` - `string` - whether the item is disabled. If an item is disabled it will not be clickable and cannot be expanded by the user. The [`OnItemClick`]({%slug panelbar-events%}#onitemclick) will not be fired if the item is disabled.
 
-* `ImageUrl` / `Icon` / `IconClass` -the URL to a raster image, the [Telerik icon]({%slug general-information/font-icons%}), or a class for a custom font icon that will be rendered in the item. They have the listed order of precedence in case more than one is present in the data (that is, an `ImageUrl` will have the highest importance).
+* `Icon` - The [Telerik Font or SVG icon]({%slug general-information/font-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug panelbar-icons%}).
 
 * `Url` - the view the item will navigate to by generating a link.
 
@@ -58,11 +58,7 @@ Each `PanelBarBinding` tag exposes the following properties that refer to item p
 
 * DisabledField => Disabled
 
-* IconClassField => IconClass
-
 * IconField => Icon
-
-* ImageUrlField => ImageUrl
 
 * UrlField => Url
 
@@ -98,10 +94,8 @@ The following **Example** shows how to define simple binding to match item field
 >caption Sample binding on a flat data source. Showcases how to set the properties to match the model. With this model, the only field name you must explicitly specify is `ParentIdField`, the others match the defaults.
 
 ````CSHMTL
-@* Sample PanelBar bound to self-referencing flat data. Also uses the built-in icons from the Telerik suite. The Project item in the PanelBar redirects to a sample url. *@
-
 <div style="width: 30%;">
-    <TelerikPanelBar Data="@Items" 
+    <TelerikPanelBar Data="@Items"
                      @bind-ExpandedItems="@ExpandedItems">
     </TelerikPanelBar>
 </div>
@@ -116,7 +110,7 @@ The following **Example** shows how to define simple binding to match item field
         public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public string Url { get; set; }
     }
 
@@ -125,50 +119,50 @@ The following **Example** shows how to define simple binding to match item field
         List<PanelBarItem> items = new List<PanelBarItem>();
 
         items.Add(new PanelBarItem()
-        {
-            Id = 1,
-            Text = "Project",
-            ParentId = null,
-            HasChildren = false,
-            Icon = "folder",
-            Url = "projectURL.url"
-        });
+            {
+                Id = 1,
+                Text = "Project",
+                ParentId = null,
+                HasChildren = false,
+                Icon = FontIcon.Folder,
+                Url = "projectURL.url"
+            });
 
         items.Add(new PanelBarItem()
-        {
-            Id = 2,
-            Text = "Implementation",
-            ParentId = null,
-            HasChildren = true,
-            Icon = "code"
-        });
+            {
+                Id = 2,
+                Text = "Implementation",
+                ParentId = null,
+                HasChildren = true,
+                Icon = FontIcon.Code
+            });
 
         items.Add(new PanelBarItem()
-        {
-            Id = 3,
-            Text = "C#",
-            ParentId = 2,
-            HasChildren = false,
-            Icon = "cs"
-        });
+            {
+                Id = 3,
+                Text = "C#",
+                ParentId = 2,
+                HasChildren = false,
+                Icon = FontIcon.Cs
+            });
 
         items.Add(new PanelBarItem()
-        {
-            Id = 4,
-            Text = "HTML 5",
-            ParentId = 2,
-            HasChildren = false,
-            Icon = "html5"
-        });
+            {
+                Id = 4,
+                Text = "HTML 5",
+                ParentId = 2,
+                HasChildren = false,
+                Icon = FontIcon.Html5
+            });
 
         items.Add(new PanelBarItem()
-        {
-            Id = 5,
-            Text = "CSS",
-            ParentId = 2,
-            HasChildren = false,
-            Icon = "css"
-        });
+            {
+                Id = 5,
+                Text = "CSS",
+                ParentId = 2,
+                HasChildren = false,
+                Icon = FontIcon.Css
+            });
 
         return items;
     }
@@ -211,7 +205,7 @@ If a certain level does not have an explicit data binding tag, it will use the d
         <PanelBarBindings>
             <PanelBarBinding Level="1" TextField="SecondLevelText">
                 <HeaderTemplate>
-                    @{ 
+                    @{
                         var item = context as PanelBarItem;
 
                         <div style="font-weight: bold; text-decoration: underline">
@@ -235,7 +229,7 @@ If a certain level does not have an explicit data binding tag, it will use the d
         public string SecondLevelText { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public string Url { get; set; }
     }
 
@@ -244,50 +238,50 @@ If a certain level does not have an explicit data binding tag, it will use the d
         List<PanelBarItem> items = new List<PanelBarItem>();
 
         items.Add(new PanelBarItem()
-        {
-            Id = 1,
-            Text = "Project",
-            ParentId = null,
-            HasChildren = false,
-            Icon = "folder",
-            Url = "projectURL.url"
-        });
+            {
+                Id = 1,
+                Text = "Project",
+                ParentId = null,
+                HasChildren = false,
+                Icon = FontIcon.Folder,
+                Url = "projectURL.url"
+            });
 
         items.Add(new PanelBarItem()
-        {
-            Id = 2,
-            Text = "Implementation",
-            ParentId = null,
-            HasChildren = true,
-            Icon = "code"
-        });
+            {
+                Id = 2,
+                Text = "Implementation",
+                ParentId = null,
+                HasChildren = true,
+                Icon = FontIcon.Code
+            });
 
         items.Add(new PanelBarItem()
-        {
-            Id = 3,
-            SecondLevelText = "C#",
-            ParentId = 2,
-            HasChildren = false,
-            Icon = "cs"
-        });
+            {
+                Id = 3,
+                SecondLevelText = "C#",
+                ParentId = 2,
+                HasChildren = false,
+                Icon = FontIcon.Cs
+            });
 
         items.Add(new PanelBarItem()
-        {
-            Id = 4,
-            SecondLevelText = "HTML 5",
-            ParentId = 2,
-            HasChildren = false,
-            Icon = "html5"
-        });
+            {
+                Id = 4,
+                SecondLevelText = "HTML 5",
+                ParentId = 2,
+                HasChildren = false,
+                Icon = FontIcon.Html5
+            });
 
         items.Add(new PanelBarItem()
-        {
-            Id = 5,
-            SecondLevelText = "CSS",
-            ParentId = 2,
-            HasChildren = false,
-            Icon = "css"
-        });
+            {
+                Id = 5,
+                SecondLevelText = "CSS",
+                ParentId = 2,
+                HasChildren = false,
+                Icon = FontIcon.Css
+            });
 
         return items;
     }

@@ -10,26 +10,13 @@ position: 15
 
 # Menu Icons
 
-You can put an image, icon class or a font icon for each item in the Menu to illustrate its purpose for your end users. To apply them, use the following properties:
-
-* for a [Telerik font icon]({%slug general-information/font-icons%}), point the `IconField` parameter of the component to a string field of the model that contains the corresponding icon name.
-
-* for a raster image, point the `ImageUrlField` parameter of the component to a `string` field of the model that contains the url to the icon (relative or absolute).
-
-* for a custom font icon class, point the `IconClassField` parameter of the component to a `string` field of the model that contains the desired CSS class list which provides the required rules (like font name and glyph symbol). Make sure to also reference the desired font in your app and to use its own recommendations.
-
-The `IconClassField` and `ImageUrlField` are rendered, respectively, as `<span class="the custom class" />` and as `<img src="the-image-src" />`
+You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}) to the Menu item to illustrate its purpose by using the `IconField` parameter.
 
 >caption How to use icons in Telerik Menu
 
 ````CSHTML
-@* This example shows how to add icons or images to menu items
-Make sure that you also refernce the OpenIconic font that comes with the Blazor App template to see the custom font icon *@
-
 <TelerikMenu Data="@MenuData"
-             IconField="@nameof(MenuModel.TelerikIcon)"
-             ImageUrlField="@nameof(MenuModel.MyImage)"
-             IconClassField="@nameof(MenuModel.MyIconClass)">
+             IconField="@nameof(MenuModel.TelerikFontIcon)">
 </TelerikMenu>
 
 @code {
@@ -46,18 +33,18 @@ Make sure that you also refernce the OpenIconic font that comes with the Blazor 
         {
             new MenuModel()
             {
-                Text = "IconField",
-                TelerikIcon = "email"
+                Text = "Mail Icon",
+                TelerikFontIcon = FontIcon.Envelop
             },
             new MenuModel()
             {
-                Text = "IconClassField",
-                MyIconClass = "oi oi-wrench",
+                Text = "Wrench Icon",
+                TelerikFontIcon = FontIcon.Wrench,
             },
             new MenuModel()
              {
-                Text = "ImageUrlField",
-                MyImage = "https://docs.telerik.com/blazor-ui/images/video.png"
+                Text = "Video Icon",
+                TelerikFontIcon = FontIcon.FileVideo
              }
         };
     }
@@ -65,16 +52,10 @@ Make sure that you also refernce the OpenIconic font that comes with the Blazor 
     public class MenuModel
     {
         public string Text { get; set; }
-        public string TelerikIcon { get; set; }
-        public string MyImage { get; set; }
-        public string MyIconClass { get; set; }
+        public FontIcon? TelerikFontIcon { get; set; }
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![icons](images/icons.png)
 
 ## See Also
 
