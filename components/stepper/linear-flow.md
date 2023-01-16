@@ -25,11 +25,11 @@ To enable Linear flow of the Stepper, set its `Linear` parameter to `true`. By d
 
 <TelerikStepper Linear="true">
     <StepperSteps>
-        <StepperStep Icon="cart" Label="Cart"></StepperStep>
-        <StepperStep Icon="marker-pin-target" Label="Delivery Address"></StepperStep>
-        <StepperStep Icon="dollar" Label="Payment Method"></StepperStep>
-        <StepperStep Icon="preview" Label="Preview"></StepperStep>
-        <StepperStep Icon="track-changes-accept" Label="Finish Order"></StepperStep>
+        <StepperStep Icon=FontIcon.Cart Label="Cart"></StepperStep>
+        <StepperStep Icon=FontIcon.MapMarkerTarget Label="Delivery Address"></StepperStep>
+        <StepperStep Icon=FontIcon.Dollar Label="Payment Method"></StepperStep>
+        <StepperStep Icon=FontIcon.Eye Label="Preview"></StepperStep>
+        <StepperStep Icon=FontIcon.TrackChangesAccept Label="Finish Order"></StepperStep>
     </StepperSteps>
 </TelerikStepper>
 ````

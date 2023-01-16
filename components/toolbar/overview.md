@@ -25,13 +25,13 @@ The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor
 ````CSHTML
 <TelerikToolBar>
     <ToolBarButtonGroup>
-        <ToolBarButton Icon="bold" OnClick="@OnBold">Bold</ToolBarButton>
-        <ToolBarButton Icon="italic" OnClick="@OnItalic">Italic</ToolBarButton>
+        <ToolBarButton Icon=FontIcon.Bold OnClick="@OnBold">Bold</ToolBarButton>
+        <ToolBarButton Icon=FontIcon.Italic OnClick="@OnItalic">Italic</ToolBarButton>
     </ToolBarButtonGroup>
 
     <ToolBarToggleButton @bind-Selected="@Selected">Toggle Button</ToolBarToggleButton>
 
-    <ToolBarButton Icon="undo" OnClick="@OnUndo">Undo</ToolBarButton>
+    <ToolBarButton Icon=FontIcon.Undo OnClick="@OnUndo">Undo</ToolBarButton>
 </TelerikToolBar>
 
 <p> Last clicked button: @LastClicked </p>
@@ -111,8 +111,8 @@ The Blazor Toolbar has an option for adaptiveness. This option allows you to hid
 
 <div class="toolbar-wrapper">    
     <TelerikToolBar Adaptive="@ToolBarAdaptive">
-        <ToolBarButton Icon="undo">Undo</ToolBarButton>
-        <ToolBarButton Icon="redo">Redo</ToolBarButton>
+        <ToolBarButton Icon=FontIcon.Undo>Undo</ToolBarButton>
+        <ToolBarButton Icon=FontIcon.Redo>Redo</ToolBarButton>
         <ToolBarButton Icon="image" Overflow="ToolBarItemOverflow.Always">Image</ToolBarButton>
         <ToolBarSeparator></ToolBarSeparator>
         <ToolBarToggleButton Icon="apply-format"></ToolBarToggleButton>
