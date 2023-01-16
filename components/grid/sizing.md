@@ -65,7 +65,7 @@ The `Size` property accepts values of type [`ThemeConstants.Grid.Size`](https://
 
 ```CSHTML
 <TelerikGrid Size="@ThemeConstants.Grid.Size.Small"
-             Data="@MyData"
+             Data="@GridData"
 			 Height="350px">
     <GridToolBarTemplate>
         <GridCommandButton Size="@ThemeConstants.Button.Size.Small">Custom Command</GridCommandButton>
