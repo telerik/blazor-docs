@@ -33,7 +33,7 @@ The Telerik Blazor Upgrade Wizard will do the following:
 
 The next page of the Upgrade Wizard lists all projects from the solution that use Telerik UI for Blazor. Choose the projects that you want to upgrade and the version to which they will be upgraded.
 
->We recommend selecting all projects that reference UI for Blazor and upgrading them to the same product version.
+>tip We recommend selecting all projects that reference UI for Blazor and upgrading them to the same product version.
 
 ![Upgrade Wizard Projects Selection](images/upgrade-wizard-projects.png)  
 
