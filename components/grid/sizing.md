@@ -51,7 +51,7 @@ The `Size` property accepts values of type [`ThemeConstants.Grid.Size`](https://
     }
 }
 @code {
-    public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
+    private IEnumerable<object> GridData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
 }
 ```
 
