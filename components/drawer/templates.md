@@ -58,7 +58,7 @@ This template receives a `context` argument that is of the data model type and r
         new DrawerItem {Text = "Shopping Cart", Icon = "cart", Description = "Items in shopping cart"},
         new DrawerItem {Text = "Notifications", Icon = "notification", Description = "My profile notifications"},
         new DrawerItem {Text = "Calendar", Icon = "calendar", Description = "My events"},
-        new DrawerItem {Text = "Settings", Icon = "gear", Description = "My profile settings"},
+        new DrawerItem {Text = "Settings", Icon = FontIcon.Gear, Description = "My profile settings"},
     };
 
     public class DrawerItem

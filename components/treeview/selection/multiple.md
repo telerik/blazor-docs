@@ -97,7 +97,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "Project",
             ParentId = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
         items.Add(new TreeItem()
         {
@@ -105,7 +105,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "Design",
             ParentId = 1,
             HasChildren = true,
-            Icon = "brush"
+            Icon = FontIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -113,7 +113,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "Implementation",
             ParentId = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -122,7 +122,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "site.psd",
             ParentId = 2,
             HasChildren = false,
-            Icon = "psd"
+            Icon = FontIcon.FilePsd
         });
 
         items.Add(new TreeItem()
@@ -139,7 +139,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "index.html",
             ParentId = 3,
             HasChildren = false,
-            Icon = "html"
+            Icon = FontIcon.Html5
         });
 
         items.Add(new TreeItem()
@@ -148,7 +148,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "styles.css",
             ParentId = 3,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         });
 
         Data = items;
@@ -221,7 +221,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "Project",
             ParentId = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
         items.Add(new TreeItem()
         {
@@ -229,7 +229,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "Design",
             ParentId = 1,
             HasChildren = true,
-            Icon = "brush"
+            Icon = FontIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -237,7 +237,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "Implementation",
             ParentId = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -246,7 +246,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "site.psd",
             ParentId = 2,
             HasChildren = false,
-            Icon = "psd"
+            Icon = FontIcon.FilePsd
         });
 
         items.Add(new TreeItem()
@@ -263,7 +263,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "index.html",
             ParentId = 3,
             HasChildren = false,
-            Icon = "html"
+            Icon = FontIcon.Html5
         });
 
         items.Add(new TreeItem()
@@ -272,7 +272,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "styles.css",
             ParentId = 3,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         });
 
         Data = items;

@@ -49,14 +49,14 @@ To use the Menu for navigating between pages:
             {
                 Text = "Settings",
                 Url = "/settings",
-                Icon = "gear",
+                Icon = FontIcon.Gear,
                 Items = new List<MenuModel>()
                 {
                     new MenuModel()
                     {
                         Text = "Profile Settings",
                         Url = "/profile",
-                        Icon = "user"
+                        Icon = FontIcon.User
                     },
                     new MenuModel()
                     {

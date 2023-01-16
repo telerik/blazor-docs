@@ -51,25 +51,25 @@ The default orientation is horizontal.
             new MenuItem()
             {
                 Text = "Share",
-                Icon = "share",
+                Icon = FontIcon.Share,
                 Items = new List<MenuItem>()
                 {
                     new MenuItem()
                     {
                         Text = "FaceBook",
-                        Icon = "facebook",
+                        Icon = FontIcon.Facebook,
                         Url = "https://facebook.com"
                     },
                     new MenuItem()
                     {
                         Text = "LinkedIn",
-                        Icon = "linkedin",
+                        Icon = FontIcon.Linkedin,
                         Url = "https://linkedin.com"
                     },
                     new MenuItem()
                     {
                         Text = "Twitter",
-                        Icon = "twitter",
+                        Icon = FontIcon.Twitter,
                         Url = "https://twitter.com"
                     },
                 }
@@ -77,7 +77,7 @@ The default orientation is horizontal.
             new MenuItem()
             {
                 Text = "Map Location",
-                Icon = "marker-pin",
+                Icon = FontIcon.MapMarker,
                 Url = "https://maps.google.com"
             }
         };

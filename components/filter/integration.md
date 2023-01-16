@@ -268,7 +268,7 @@ This article contains the following sections:
                 Text = "Project",
                 ParentIdValue = null,
                 HasChildren = true,
-                Icon = "folder"
+                Icon = FontIcon.Folder
             });
 
         items.Add(new TreeItem()
@@ -277,7 +277,7 @@ This article contains the following sections:
                 Text = "Design",
                 ParentIdValue = 1,
                 HasChildren = true,
-                Icon = "brush"
+                Icon = FontIcon.Brush
             });
         items.Add(new TreeItem()
             {
@@ -285,7 +285,7 @@ This article contains the following sections:
                 Text = "Implementation",
                 ParentIdValue = 1,
                 HasChildren = true,
-                Icon = "folder"
+                Icon = FontIcon.Folder
             });
 
         items.Add(new TreeItem()
@@ -294,7 +294,7 @@ This article contains the following sections:
                 Text = "site.psd",
                 ParentIdValue = 2,
                 HasChildren = false,
-                Icon = "psd"
+                Icon = FontIcon.FilePsd
             });
         items.Add(new TreeItem()
             {
@@ -310,7 +310,7 @@ This article contains the following sections:
                 Text = "index.html",
                 ParentIdValue = 3,
                 HasChildren = false,
-                Icon = "html"
+                Icon = FontIcon.Html5
             });
         items.Add(new TreeItem()
             {
@@ -318,7 +318,7 @@ This article contains the following sections:
                 Text = "styles.css",
                 ParentIdValue = 3,
                 HasChildren = false,
-                Icon = "css"
+                Icon = FontIcon.Css
             });
 
         InitialData = items;

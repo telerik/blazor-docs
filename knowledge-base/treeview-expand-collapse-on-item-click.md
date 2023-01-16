@@ -95,7 +95,7 @@ To expand a TreeView item when you click on it:
                 Text = "Project",
                 ParentId = null,
                 HasChildren = true,
-                Icon = "folder"
+                Icon = FontIcon.Folder
             });
 
         items.Add(new TreeItem()
@@ -104,7 +104,7 @@ To expand a TreeView item when you click on it:
                 Text = "Design",
                 ParentId = 1,
                 HasChildren = true,
-                Icon = "brush"
+                Icon = FontIcon.Brush
             });
         items.Add(new TreeItem()
             {
@@ -112,7 +112,7 @@ To expand a TreeView item when you click on it:
                 Text = "Implementation",
                 ParentId = 1,
                 HasChildren = true,
-                Icon = "folder"
+                Icon = FontIcon.Folder
             });
 
         items.Add(new TreeItem()
@@ -121,7 +121,7 @@ To expand a TreeView item when you click on it:
                 Text = "site.psd",
                 ParentId = 2,
                 HasChildren = false,
-                Icon = "psd"
+                Icon = FontIcon.FilePsd
             });
         items.Add(new TreeItem()
             {
@@ -137,7 +137,7 @@ To expand a TreeView item when you click on it:
                 Text = "index.html",
                 ParentId = 3,
                 HasChildren = false,
-                Icon = "html"
+                Icon = FontIcon.Html5
             });
         items.Add(new TreeItem()
             {
@@ -145,7 +145,7 @@ To expand a TreeView item when you click on it:
                 Text = "styles.css",
                 ParentId = 3,
                 HasChildren = false,
-                Icon = "css"
+                Icon = FontIcon.Css
             });
 
         FlatData = items;

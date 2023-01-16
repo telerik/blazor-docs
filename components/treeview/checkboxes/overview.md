@@ -109,7 +109,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -118,7 +118,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush"
+            Icon = FontIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -126,7 +126,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -135,7 +135,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd"
+            Icon = FontIcon.FilePsd
         });
         items.Add(new TreeItem()
         {
@@ -151,7 +151,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "html"
+            Icon = FontIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -159,7 +159,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         });
 
         FlatData = items;
@@ -242,7 +242,7 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -251,7 +251,7 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush"
+            Icon = FontIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -259,7 +259,7 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -268,7 +268,7 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd"
+            Icon = FontIcon.FilePsd
         });
         items.Add(new TreeItem()
         {
@@ -284,7 +284,7 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "html"
+            Icon = FontIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -292,7 +292,7 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         });
 
         FlatData = items;
@@ -383,7 +383,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -392,7 +392,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush"
+            Icon = FontIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -400,7 +400,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -409,7 +409,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd"
+            Icon = FontIcon.FilePsd
         });
         items.Add(new TreeItem()
         {
@@ -425,7 +425,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "html"
+            Icon = FontIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -433,7 +433,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         });
 
         FlatData = items;
@@ -515,7 +515,7 @@ You can allow the user to click on the node itself and the TreeView will automat
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -524,7 +524,7 @@ You can allow the user to click on the node itself and the TreeView will automat
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush"
+            Icon = FontIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -532,7 +532,7 @@ You can allow the user to click on the node itself and the TreeView will automat
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -541,7 +541,7 @@ You can allow the user to click on the node itself and the TreeView will automat
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd"
+            Icon = FontIcon.FilePsd
         });
         items.Add(new TreeItem()
         {
@@ -557,7 +557,7 @@ You can allow the user to click on the node itself and the TreeView will automat
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "html"
+            Icon = FontIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -565,7 +565,7 @@ You can allow the user to click on the node itself and the TreeView will automat
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         });
 
         FlatData = items;
@@ -640,7 +640,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -649,7 +649,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush"
+            Icon = FontIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -657,7 +657,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -666,7 +666,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd"
+            Icon = FontIcon.FilePsd
         });
         items.Add(new TreeItem()
         {
@@ -682,7 +682,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "html"
+            Icon = FontIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -690,7 +690,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         });
 
         FlatData = items;
@@ -766,7 +766,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -775,7 +775,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush"
+            Icon = FontIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -783,7 +783,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -792,7 +792,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd"
+            Icon = FontIcon.FilePsd
         });
         items.Add(new TreeItem()
         {
@@ -808,7 +808,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "html"
+            Icon = FontIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -816,7 +816,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         });
 
         FlatData = items;
