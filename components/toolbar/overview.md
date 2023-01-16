@@ -115,15 +115,15 @@ The Blazor Toolbar has an option for adaptiveness. This option allows you to hid
         <ToolBarButton Icon=FontIcon.Redo>Redo</ToolBarButton>
         <ToolBarButton Icon=FontIcon.Image Overflow="ToolBarItemOverflow.Always">Image</ToolBarButton>
         <ToolBarSeparator></ToolBarSeparator>
-        <ToolBarToggleButton Icon="apply-format"></ToolBarToggleButton>
+        <ToolBarToggleButton Icon=FontIcon.ApplyFormat></ToolBarToggleButton>
         <ToolBarSeparator></ToolBarSeparator>
-        <ToolBarButton Icon="copy" Overflow="ToolBarItemOverflow.Never">Copy</ToolBarButton>
+        <ToolBarButton Icon=FontIcon.Copy Overflow="ToolBarItemOverflow.Never">Copy</ToolBarButton>
         <ToolBarButton Icon="paste" Overflow="ToolBarItemOverflow.Never">Paste</ToolBarButton>
         <ToolBarSeparator></ToolBarSeparator>
     <ToolBarButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
-        <ToolBarToggleButton Icon="align-left" OverflowText="Left"></ToolBarToggleButton>
-        <ToolBarToggleButton Icon="align-center" OverflowText="Center"></ToolBarToggleButton>
-        <ToolBarToggleButton Icon="align-right" OverflowText="Right"></ToolBarToggleButton>
+        <ToolBarToggleButton Icon=FontIcon.AlignLeft OverflowText="Left"></ToolBarToggleButton>
+        <ToolBarToggleButton Icon=FontIcon.AlignCenter OverflowText="Center"></ToolBarToggleButton>
+        <ToolBarToggleButton Icon=FontIcon.AlignRight OverflowText="Right"></ToolBarToggleButton>
     </ToolBarButtonGroup>
     </TelerikToolBar>
 </div>

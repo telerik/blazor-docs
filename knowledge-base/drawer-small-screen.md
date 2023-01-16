@@ -41,7 +41,7 @@ To see the behavior, resize the browser window *@
                    OnChange="@OnChangeSmallScreenHandler">
 </TelerikMediaQuery>
 
-<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
+<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon=FontIcon.Menu>Toggle drawer</TelerikButton>
 
 <TelerikDrawer Data="@Data"
                MiniMode="@isSmallScreen"

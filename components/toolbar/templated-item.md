@@ -27,7 +27,7 @@ You cannot add those Templated items to a `ToolBarButtonGroup`.
     <ToolBarButtonGroup>
         <ToolBarButton Icon=FontIcon.Bold>Bold</ToolBarButton>
         <ToolBarButton Icon=FontIcon.Italic>Italic</ToolBarButton>
-        <ToolBarButton Icon="underline">Underline</ToolBarButton>
+        <ToolBarButton Icon=FontIcon.Underline>Underline</ToolBarButton>
     </ToolBarButtonGroup>
     <ToolBarSeparator />
 

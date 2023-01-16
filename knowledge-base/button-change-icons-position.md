@@ -36,8 +36,8 @@ You can change the [icons]({%slug general-information/font-icons%}) position and
 ````CSHTML
 @*This button has two icons, one on the left and one on the right side of the text*@
 <TelerikButton>
-    <TelerikFontIcon Icon="check-outline" />
+    <TelerikFontIcon Icon=FontIcon.CheckOutline />
     Check it
-    <TelerikFontIcon Icon="check-outline" />
+    <TelerikFontIcon Icon=FontIcon.CheckOutline />
 </TelerikButton>
 ````

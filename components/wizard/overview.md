@@ -31,7 +31,7 @@ The Wizard uses a [Stepper component]({%slug stepper-overview%}) internally, so 
                 <p>Welcome to the Wizard!</p>
             </Content>
         </WizardStep>
-        <WizardStep Label="Survey" Icon="pencil">
+        <WizardStep Label="Survey" Icon=FontIcon.Pencil>
             <Content>
                 <p>The user is performing some actions...</p>
             </Content>

@@ -58,8 +58,8 @@ To implement a responsible popup that can be minimized to the bottom of the page
         }
     </WindowContent>
     <WindowActions>
-        <WindowAction Name="MyMinimizer" Hidden="@(!isModal)" Icon="window-minimize" OnClick="@MyCustomMinimize" />
-        <WindowAction Name="MyExpander" Hidden="@isModal" Icon="window" OnClick="@MyCustomExpand" />
+        <WindowAction Name="MyMinimizer" Hidden="@(!isModal)" Icon=FontIcon.WindowMinimize OnClick="@MyCustomMinimize" />
+        <WindowAction Name="MyExpander" Hidden="@isModal" Icon=FontIcon.Window OnClick="@MyCustomExpand" />
     </WindowActions>
 </TelerikWindow>
 
